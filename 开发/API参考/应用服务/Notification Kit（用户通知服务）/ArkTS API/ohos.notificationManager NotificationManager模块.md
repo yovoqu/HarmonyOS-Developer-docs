@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { notificationManager } from '@kit.NotificationKit';
 ```
@@ -21,6 +23,8 @@ import { notificationManager } from '@kit.NotificationKit';
 
 
 ##### notificationManager.publish
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 publish(request: NotificationRequest, callback: AsyncCallback&lt;void&gt;): void
 
@@ -91,6 +95,8 @@ notificationManager.publish(notificationRequest, publishCallback);
 
 
 ##### notificationManager.publish
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 publish(request: NotificationRequest): Promise&lt;void&gt;
 
@@ -164,6 +170,8 @@ notificationManager.publish(notificationRequest).then(() => {
 
 ##### notificationManager.cancel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancel(id: number, label: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据通知ID和标签取消已发布的通知。使用callback异步回调。
@@ -211,6 +219,8 @@ notificationManager.cancel(0, "label", cancelCallback);
 
 
 ##### notificationManager.cancel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancel(id: number, label?: string): Promise&lt;void&gt;
 
@@ -262,6 +272,8 @@ notificationManager.cancel(0).then(() => {
 
 ##### notificationManager.cancel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancel(id: number, callback: AsyncCallback&lt;void&gt;): void
 
 根据指定的通知ID取消已发布的通知。使用callback异步回调。
@@ -309,6 +321,8 @@ notificationManager.cancel(0, cancelCallback);
 
 ##### notificationManager.cancelAll
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelAll(callback: AsyncCallback&lt;void&gt;): void
 
 取消当前应用所有已发布的通知。使用callback异步回调。
@@ -354,6 +368,8 @@ notificationManager.cancelAll(cancelAllCallback);
 
 ##### notificationManager.cancelAll
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelAll(): Promise&lt;void&gt;
 
 取消当前应用所有已发布的通知。使用Promise异步回调。
@@ -393,6 +409,8 @@ notificationManager.cancelAll().then(() => {
 
 
 ##### notificationManager.addSlot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addSlot(type: SlotType, callback: AsyncCallback&lt;void&gt;): void
 
@@ -440,6 +458,8 @@ notificationManager.addSlot(notificationManager.SlotType.SOCIAL_COMMUNICATION, a
 
 
 ##### notificationManager.addSlot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addSlot(type: SlotType): Promise&lt;void&gt;
 
@@ -490,6 +510,8 @@ notificationManager.addSlot(notificationManager.SlotType.SOCIAL_COMMUNICATION).t
 
 ##### notificationManager.getSlot
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSlot(slotType: SlotType, callback: AsyncCallback&lt;NotificationSlot&gt;): void
 
 获取指定类型的通知渠道。使用callback异步回调。
@@ -536,6 +558,8 @@ notificationManager.getSlot(slotType, getSlotCallback);
 
 
 ##### notificationManager.getSlot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSlot(slotType: SlotType): Promise&lt;NotificationSlot&gt;
 
@@ -586,6 +610,8 @@ notificationManager.getSlot(slotType).then((data: notificationManager.Notificati
 
 ##### notificationManager.getSlots
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSlots(callback: AsyncCallback<Array&lt;NotificationSlot&gt;>): void
 
 获取当前应用的所有通知渠道。使用callback异步回调。
@@ -631,6 +657,8 @@ notificationManager.getSlots(getSlotsCallback);
 
 ##### notificationManager.getSlots
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSlots(): Promise<Array&lt;NotificationSlot&gt;>
 
 获取当前应用的所有通知渠道。使用Promise异步回调。
@@ -670,6 +698,8 @@ notificationManager.getSlots().then((data: Array<notificationManager.Notificatio
 
 
 ##### notificationManager.removeSlot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeSlot(slotType: SlotType, callback: AsyncCallback&lt;void&gt;): void
 
@@ -717,6 +747,8 @@ notificationManager.removeSlot(slotType, removeSlotCallback);
 
 
 ##### notificationManager.removeSlot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeSlot(slotType: SlotType): Promise&lt;void&gt;
 
@@ -767,6 +799,8 @@ notificationManager.removeSlot(slotType).then(() => {
 
 ##### notificationManager.removeAllSlots
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeAllSlots(callback: AsyncCallback&lt;void&gt;): void
 
 删除当前应用所有通知渠道。使用callback异步回调。
@@ -811,6 +845,8 @@ notificationManager.removeAllSlots(removeAllSlotsCallback);
 
 ##### notificationManager.removeAllSlots
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeAllSlots(): Promise&lt;void&gt;
 
 删除当前应用所有通知渠道。使用Promise异步回调。
@@ -850,6 +886,8 @@ notificationManager.removeAllSlots().then(() => {
 
 
 ##### notificationManager.isNotificationEnabled11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isNotificationEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -898,6 +936,8 @@ notificationManager.isNotificationEnabled(isNotificationEnabledCallback);
 
 ##### notificationManager.isNotificationEnabled11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isNotificationEnabled(): Promise&lt;boolean&gt;
 
 查询当前应用通知使能状态。使用Promise异步回调。
@@ -940,6 +980,8 @@ notificationManager.isNotificationEnabled().then((data: boolean) => {
 
 ##### notificationManager.isNotificationEnabledSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isNotificationEnabledSync(): boolean
 
 同步查询当前应用通知使能状态。
@@ -974,6 +1016,8 @@ console.info(`isNotificationEnabledSync success, data is : ${JSON.stringify(enab
 
 
 ##### notificationManager.setBadgeNumber10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBadgeNumber(badgeNumber: number): Promise&lt;void&gt;
 
@@ -1028,6 +1072,8 @@ notificationManager.setBadgeNumber(badgeNumber).then(() => {
 
 ##### notificationManager.setBadgeNumber10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBadgeNumber(badgeNumber: number, callback: AsyncCallback&lt;void&gt;): void
 
 设定角标个数，在应用的桌面图标上呈现。使用callback异步回调。
@@ -1078,6 +1124,8 @@ notificationManager.setBadgeNumber(badgeNumber, setBadgeNumberCallback);
 
 ##### notificationManager.getBadgeNumber22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBadgeNumber(): Promise&lt;number&gt;
 
 获取当前应用角标数量。使用Promise异步回调。
@@ -1117,6 +1165,8 @@ notificationManager.getBadgeNumber().then((badgeNumber: number) => {
 
 
 ##### notificationManager.getActiveNotificationCount
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getActiveNotificationCount(callback: AsyncCallback&lt;number&gt;): void
 
@@ -1163,6 +1213,8 @@ notificationManager.getActiveNotificationCount(getActiveNotificationCountCallbac
 
 ##### notificationManager.getActiveNotificationCount
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getActiveNotificationCount(): Promise&lt;number&gt;
 
 获取当前应用未删除的通知数。使用Promise异步回调。
@@ -1202,6 +1254,8 @@ notificationManager.getActiveNotificationCount().then((data: number) => {
 
 
 ##### notificationManager.getActiveNotifications
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getActiveNotifications(callback: AsyncCallback<Array&lt;NotificationRequest&gt;>): void
 
@@ -1247,6 +1301,8 @@ notificationManager.getActiveNotifications(getActiveNotificationsCallback);
 
 ##### notificationManager.getActiveNotifications
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getActiveNotifications(): Promise<Array&lt;NotificationRequest&gt;>
 
 获取当前应用未删除的通知列表。使用Promise异步回调。
@@ -1286,6 +1342,8 @@ notificationManager.getActiveNotifications().then((data: Array<notificationManag
 
 
 ##### notificationManager.getNotificationParameters24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getNotificationParameters(id: number, label?: string): Promise&lt;NotificationParameters&gt;
 
@@ -1340,6 +1398,8 @@ notificationManager.getNotificationParameters(id, label).then((data: notificatio
 
 ##### notificationManager.cancelGroup
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelGroup(groupName: string, callback: AsyncCallback&lt;void&gt;): void
 
 取消当前应用指定组下的通知。使用callback异步回调。
@@ -1385,6 +1445,8 @@ notificationManager.cancelGroup(groupName, cancelGroupCallback);
 
 
 ##### notificationManager.cancelGroup
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancelGroup(groupName: string): Promise&lt;void&gt;
 
@@ -1435,6 +1497,8 @@ notificationManager.cancelGroup(groupName).then(() => {
 
 ##### notificationManager.isSupportTemplate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSupportTemplate(templateName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 在使用[通知模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate)发布通知前，可以通过该接口查询是否支持对应的通知模板。使用callback异步回调。
@@ -1480,6 +1544,8 @@ notificationManager.isSupportTemplate(templateName, isSupportTemplateCallback);
 
 
 ##### notificationManager.isSupportTemplate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSupportTemplate(templateName: string): Promise&lt;boolean&gt;
 
@@ -1529,6 +1595,8 @@ notificationManager.isSupportTemplate(templateName).then((data: boolean) => {
 
 
 ##### notificationManager.requestEnableNotification10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1597,6 +1665,8 @@ class MyAbility extends UIAbility {
 
 
 ##### notificationManager.requestEnableNotification10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestEnableNotification(context: UIAbilityContext): Promise&lt;void&gt;
 
@@ -1669,6 +1739,8 @@ class MyAbility extends UIAbility {
 
 ##### notificationManager.requestEnableNotification(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 requestEnableNotification(callback: AsyncCallback&lt;void&gt;): void
 
 当前应用请求通知使能。使用callback异步回调。
@@ -1719,6 +1791,8 @@ notificationManager.requestEnableNotification(requestEnableNotificationCallback)
 
 ##### notificationManager.requestEnableNotification(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 requestEnableNotification(): Promise&lt;void&gt;
 
 当前应用请求通知使能。使用Promise异步回调。
@@ -1764,6 +1838,8 @@ notificationManager.requestEnableNotification().then(() => {
 
 
 ##### notificationManager.isDistributedEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isDistributedEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -1812,6 +1888,8 @@ notificationManager.isDistributedEnabled(isDistributedEnabledCallback);
 
 ##### notificationManager.isDistributedEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isDistributedEnabled(): Promise&lt;boolean&gt;
 
 查询设备是否支持跨设备协同通知。使用Promise异步回调。
@@ -1854,6 +1932,8 @@ notificationManager.isDistributedEnabled().then((data: boolean) => {
 
 
 ##### notificationManager.openNotificationSettings13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 openNotificationSettings(context: UIAbilityContext): Promise&lt;void&gt;
 
@@ -1920,6 +2000,8 @@ class MyAbility extends UIAbility {
 
 ##### notificationManager.getNotificationSetting20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getNotificationSetting(): Promise&lt;NotificationSetting&gt;
 
 获取应用程序的通知设置。使用Promise异步回调。
@@ -1959,6 +2041,8 @@ notificationManager.getNotificationSetting().then((data: notificationManager.Not
 
 
 ##### notificationManager.isGeofenceEnabled23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isGeofenceEnabled(): Promise&lt;boolean&gt;
 
@@ -2002,6 +2086,8 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 
 ##### ContentType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通知内容类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -2023,6 +2109,8 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 
 ##### SlotLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通知级别。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -2039,6 +2127,8 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 
 
 ##### SlotType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通知渠道类型。
 
@@ -2061,6 +2151,8 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 
 ##### NotificationSetting20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通知设置状态，包括是否开启振动、是否开启响铃。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -2074,6 +2166,8 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 
 
 ##### BundleOption
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BundleOption = _BundleOption
 
@@ -2090,6 +2184,8 @@ type BundleOption = _BundleOption
 
 ##### NotificationActionButton
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationActionButton = _NotificationActionButton
 
 通知中显示的操作按钮。
@@ -2104,6 +2200,8 @@ type NotificationActionButton = _NotificationActionButton
 
 
 ##### NotificationBasicContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NotificationBasicContent = _NotificationBasicContent
 
@@ -2120,6 +2218,8 @@ type NotificationBasicContent = _NotificationBasicContent
 
 ##### NotificationContent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationContent = _NotificationContent
 
 通知内容。
@@ -2134,6 +2234,8 @@ type NotificationContent = _NotificationContent
 
 
 ##### NotificationLongTextContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NotificationLongTextContent = _NotificationLongTextContent
 
@@ -2150,6 +2252,8 @@ type NotificationLongTextContent = _NotificationLongTextContent
 
 ##### NotificationMultiLineContent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationMultiLineContent = _NotificationMultiLineContent
 
 多行文本通知。
@@ -2164,6 +2268,8 @@ type NotificationMultiLineContent = _NotificationMultiLineContent
 
 
 ##### NotificationPictureContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NotificationPictureContent = _NotificationPictureContent
 
@@ -2180,6 +2286,8 @@ type NotificationPictureContent = _NotificationPictureContent
 
 ##### NotificationSystemLiveViewContent11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent
 
 系统实况窗通知内容。
@@ -2195,6 +2303,8 @@ type NotificationSystemLiveViewContent = _NotificationSystemLiveViewContent
 
 ##### NotificationRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationRequest = _NotificationRequest
 
 通知请求。
@@ -2209,6 +2319,8 @@ type NotificationRequest = _NotificationRequest
 
 
 ##### NotificationParameters24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NotificationParameters = _NotificationParameters
 
@@ -2227,6 +2339,8 @@ type NotificationParameters = _NotificationParameters
 
 ##### DistributedOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type DistributedOptions = _DistributedOptions
 
 分布式选项。
@@ -2241,6 +2355,8 @@ type DistributedOptions = _DistributedOptions
 
 
 ##### NotificationSlot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NotificationSlot = _NotificationSlot
 
@@ -2257,6 +2373,8 @@ type NotificationSlot = _NotificationSlot
 
 ##### NotificationTemplate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationTemplate = _NotificationTemplate
 
 通知模板。
@@ -2271,6 +2389,8 @@ type NotificationTemplate = _NotificationTemplate
 
 
 ##### NotificationUserInput
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NotificationUserInput = _NotificationUserInput
 
@@ -2287,6 +2407,8 @@ type NotificationUserInput = _NotificationUserInput
 
 ##### NotificationCapsule11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationCapsule = _NotificationCapsule
 
 通知胶囊。
@@ -2301,6 +2423,8 @@ type NotificationCapsule = _NotificationCapsule
 
 
 ##### NotificationButton11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NotificationButton = _NotificationButton
 
@@ -2317,6 +2441,8 @@ type NotificationButton = _NotificationButton
 
 ##### NotificationTime11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationTime = _NotificationTime
 
 通知计时信息。
@@ -2332,6 +2458,8 @@ type NotificationTime = _NotificationTime
 
 ##### NotificationProgress11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationProgress = _NotificationProgress
 
 通知进度。
@@ -2346,6 +2474,8 @@ type NotificationProgress = _NotificationProgress
 
 
 ##### PriorityNotificationType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述通知的优先级类型。
 

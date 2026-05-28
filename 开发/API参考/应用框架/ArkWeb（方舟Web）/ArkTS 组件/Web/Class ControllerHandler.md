@@ -14,6 +14,8 @@
 
 ##### constructor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 ControllerHandler的构造函数。
@@ -23,6 +25,8 @@ ControllerHandler的构造函数。
   
 
 ##### setWebController9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWebController(controller: WebviewController): void
  

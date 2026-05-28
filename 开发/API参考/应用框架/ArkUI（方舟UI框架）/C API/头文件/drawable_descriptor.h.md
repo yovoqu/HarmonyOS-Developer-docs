@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供NativeDrawableDescriptor接口的类型定义。
 
 **引用文件：** <arkui/drawable_descriptor.h>
@@ -25,9 +27,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -43,6 +49,8 @@
 
 ##### 枚举
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | DrawableDescriptor_AnimationStatus | DrawableDescriptor_AnimationStatus | 定义DrawableDescriptor动图的播放状态。 |
@@ -52,6 +60,8 @@
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |
@@ -84,9 +94,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### DrawableDescriptor_AnimationStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum DrawableDescriptor_AnimationStatus
@@ -110,6 +124,8 @@ enum DrawableDescriptor_AnimationStatus
 
 ##### DrawableDescriptor_AnimationStopMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum DrawableDescriptor_AnimationStopMode
 ```
@@ -130,9 +146,13 @@ enum DrawableDescriptor_AnimationStopMode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### OH_ArkUI_DrawableDescriptor_CreateFromPixelMap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ArkUI_DrawableDescriptor* OH_ArkUI_DrawableDescriptor_CreateFromPixelMap(OH_PixelmapNativeHandle pixelMap)
@@ -161,6 +181,8 @@ ArkUI_DrawableDescriptor* OH_ArkUI_DrawableDescriptor_CreateFromPixelMap(OH_Pixe
 
 
 ##### OH_ArkUI_DrawableDescriptor_CreateFromAnimatedPixelMap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ArkUI_DrawableDescriptor* OH_ArkUI_DrawableDescriptor_CreateFromAnimatedPixelMap(OH_PixelmapNativeHandle* array, int32_t size)
@@ -191,6 +213,8 @@ ArkUI_DrawableDescriptor* OH_ArkUI_DrawableDescriptor_CreateFromAnimatedPixelMap
 
 ##### OH_ArkUI_DrawableDescriptor_Dispose()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_ArkUI_DrawableDescriptor_Dispose(ArkUI_DrawableDescriptor* drawableDescriptor)
 ```
@@ -211,6 +235,8 @@ void OH_ArkUI_DrawableDescriptor_Dispose(ArkUI_DrawableDescriptor* drawableDescr
 
 
 ##### OH_ArkUI_DrawableDescriptor_GetStaticPixelMap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_PixelmapNativeHandle OH_ArkUI_DrawableDescriptor_GetStaticPixelMap(ArkUI_DrawableDescriptor* drawableDescriptor)
@@ -240,6 +266,8 @@ OH_PixelmapNativeHandle OH_ArkUI_DrawableDescriptor_GetStaticPixelMap(ArkUI_Draw
 
 ##### OH_ArkUI_DrawableDescriptor_GetAnimatedPixelMapArray()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_PixelmapNativeHandle* OH_ArkUI_DrawableDescriptor_GetAnimatedPixelMapArray(ArkUI_DrawableDescriptor* drawableDescriptor)
 ```
@@ -267,6 +295,8 @@ OH_PixelmapNativeHandle* OH_ArkUI_DrawableDescriptor_GetAnimatedPixelMapArray(Ar
 
 
 ##### OH_ArkUI_DrawableDescriptor_GetAnimatedPixelMapArraySize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_GetAnimatedPixelMapArraySize(ArkUI_DrawableDescriptor* drawableDescriptor)
@@ -296,6 +326,8 @@ int32_t OH_ArkUI_DrawableDescriptor_GetAnimatedPixelMapArraySize(ArkUI_DrawableD
 
 ##### OH_ArkUI_DrawableDescriptor_SetAnimationDuration()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_ArkUI_DrawableDescriptor_SetAnimationDuration(ArkUI_DrawableDescriptor* drawableDescriptor, int32_t duration)
 ```
@@ -317,6 +349,8 @@ void OH_ArkUI_DrawableDescriptor_SetAnimationDuration(ArkUI_DrawableDescriptor* 
 
 
 ##### OH_ArkUI_DrawableDescriptor_GetAnimationDuration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_GetAnimationDuration(ArkUI_DrawableDescriptor* drawableDescriptor)
@@ -346,6 +380,8 @@ int32_t OH_ArkUI_DrawableDescriptor_GetAnimationDuration(ArkUI_DrawableDescripto
 
 ##### OH_ArkUI_DrawableDescriptor_SetAnimationIteration()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_ArkUI_DrawableDescriptor_SetAnimationIteration(ArkUI_DrawableDescriptor* drawableDescriptor, int32_t iteration)
 ```
@@ -367,6 +403,8 @@ void OH_ArkUI_DrawableDescriptor_SetAnimationIteration(ArkUI_DrawableDescriptor*
 
 
 ##### OH_ArkUI_DrawableDescriptor_GetAnimationIteration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_GetAnimationIteration(ArkUI_DrawableDescriptor* drawableDescriptor)
@@ -395,6 +433,8 @@ int32_t OH_ArkUI_DrawableDescriptor_GetAnimationIteration(ArkUI_DrawableDescript
 
 
 ##### OH_ArkUI_DrawableDescriptor_SetAnimationFrameDurations()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_SetAnimationFrameDurations(ArkUI_DrawableDescriptor* drawableDescriptor, uint32_t* durations, size_t size)
@@ -426,6 +466,8 @@ int32_t OH_ArkUI_DrawableDescriptor_SetAnimationFrameDurations(ArkUI_DrawableDes
 
 ##### OH_ArkUI_DrawableDescriptor_GetAnimationFrameDurations()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_GetAnimationFrameDurations(ArkUI_DrawableDescriptor* drawableDescriptor, uint32_t* durations, size_t* size)
 ```
@@ -456,6 +498,8 @@ int32_t OH_ArkUI_DrawableDescriptor_GetAnimationFrameDurations(ArkUI_DrawableDes
 
 ##### OH_ArkUI_DrawableDescriptor_SetAnimationAutoPlay()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_SetAnimationAutoPlay(ArkUI_DrawableDescriptor* drawableDescriptor, uint32_t autoPlay)
 ```
@@ -484,6 +528,8 @@ int32_t OH_ArkUI_DrawableDescriptor_SetAnimationAutoPlay(ArkUI_DrawableDescripto
 
 
 ##### OH_ArkUI_DrawableDescriptor_GetAnimationAutoPlay()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_GetAnimationAutoPlay(ArkUI_DrawableDescriptor* drawableDescriptor, uint32_t* autoPlay)
@@ -514,6 +560,8 @@ int32_t OH_ArkUI_DrawableDescriptor_GetAnimationAutoPlay(ArkUI_DrawableDescripto
 
 ##### OH_ArkUI_DrawableDescriptor_SetAnimationStopMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_SetAnimationStopMode(ArkUI_DrawableDescriptor* drawableDescriptor, DrawableDescriptor_AnimationStopMode mode)
 ```
@@ -543,6 +591,8 @@ int32_t OH_ArkUI_DrawableDescriptor_SetAnimationStopMode(ArkUI_DrawableDescripto
 
 ##### OH_ArkUI_DrawableDescriptor_GetAnimationStopMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_GetAnimationStopMode(const ArkUI_DrawableDescriptor* drawableDescriptor, DrawableDescriptor_AnimationStopMode* mode)
 ```
@@ -571,6 +621,8 @@ int32_t OH_ArkUI_DrawableDescriptor_GetAnimationStopMode(const ArkUI_DrawableDes
 
 
 ##### OH_ArkUI_DrawableDescriptor_CreateAnimationController()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_CreateAnimationController(ArkUI_DrawableDescriptor* drawableDescriptor, ArkUI_NodeHandle node, ArkUI_DrawableDescriptor_AnimationController** controller)
@@ -602,6 +654,8 @@ int32_t OH_ArkUI_DrawableDescriptor_CreateAnimationController(ArkUI_DrawableDesc
 
 ##### OH_ArkUI_DrawableDescriptor_DisposeAnimationController()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_ArkUI_DrawableDescriptor_DisposeAnimationController(ArkUI_DrawableDescriptor_AnimationController* controller)
 ```
@@ -622,6 +676,8 @@ void OH_ArkUI_DrawableDescriptor_DisposeAnimationController(ArkUI_DrawableDescri
 
 
 ##### OH_ArkUI_DrawableDescriptor_StartAnimation()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_StartAnimation(ArkUI_DrawableDescriptor_AnimationController* controller)
@@ -651,6 +707,8 @@ int32_t OH_ArkUI_DrawableDescriptor_StartAnimation(ArkUI_DrawableDescriptor_Anim
 
 ##### OH_ArkUI_DrawableDescriptor_StopAnimation()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_StopAnimation(ArkUI_DrawableDescriptor_AnimationController* controller)
 ```
@@ -678,6 +736,8 @@ int32_t OH_ArkUI_DrawableDescriptor_StopAnimation(ArkUI_DrawableDescriptor_Anima
 
 
 ##### OH_ArkUI_DrawableDescriptor_ResumeAnimation()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_ResumeAnimation(ArkUI_DrawableDescriptor_AnimationController* controller)
@@ -707,6 +767,8 @@ int32_t OH_ArkUI_DrawableDescriptor_ResumeAnimation(ArkUI_DrawableDescriptor_Ani
 
 ##### OH_ArkUI_DrawableDescriptor_PauseAnimation()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_PauseAnimation(ArkUI_DrawableDescriptor_AnimationController* controller)
 ```
@@ -734,6 +796,8 @@ int32_t OH_ArkUI_DrawableDescriptor_PauseAnimation(ArkUI_DrawableDescriptor_Anim
 
 
 ##### OH_ArkUI_DrawableDescriptor_GetAnimationStatus()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ArkUI_DrawableDescriptor_GetAnimationStatus(ArkUI_DrawableDescriptor_AnimationController* controller, DrawableDescriptor_AnimationStatus* status)

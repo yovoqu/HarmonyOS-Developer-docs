@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 该模块对外提供手写能力。
  
 **系统能力：** SystemCapability.Stylus.Handwrite
@@ -17,9 +19,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,6 +35,8 @@
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,6 +46,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -47,6 +57,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 函数 |
 | --- | --- |
@@ -57,9 +69,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### Handwrite_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum Handwrite_ErrCode
@@ -82,9 +98,13 @@ enum Handwrite_ErrCode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### HMS_HandWrite_GetPredictPoint()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t HMS_HandWrite_GetPredictPoint(const HandWrite_HistoricalPoint* event,

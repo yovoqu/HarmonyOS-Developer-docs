@@ -12,6 +12,8 @@ typedef struct {...} NativeDisplayManager_DisplayInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 显示设备的对象属性。
  
 **起始版本：** 14
@@ -24,9 +26,13 @@ typedef struct {...} NativeDisplayManager_DisplayInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

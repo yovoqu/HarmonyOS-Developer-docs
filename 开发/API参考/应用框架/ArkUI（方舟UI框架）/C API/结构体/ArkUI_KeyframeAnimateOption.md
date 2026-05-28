@@ -12,6 +12,8 @@ typedef struct ArkUI_KeyframeAnimateOption ArkUI_KeyframeAnimateOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义关键帧动画参数对象。
  
 **起始版本：** 12

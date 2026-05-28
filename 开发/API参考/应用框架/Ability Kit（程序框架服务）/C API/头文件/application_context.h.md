@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供应用级别上下文相关的接口。
  
 **引用文件：** <AbilityKit/ability_runtime/application_context.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -53,9 +59,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_AbilityRuntime_ApplicationContextGetCacheDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetCacheDir(char* buffer, int32_t bufferSize, int32_t* writeLength)
@@ -87,6 +97,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetCacheDir(char* b
 
 ##### OH_AbilityRuntime_ApplicationContextGetAreaMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetAreaMode(AbilityRuntime_AreaMode* areaMode)
 ```
@@ -114,6 +126,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetAreaMode(Ability
   
 
 ##### OH_AbilityRuntime_ApplicationContextGetBundleName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetBundleName(char* buffer, int32_t bufferSize, int32_t* writeLength)
@@ -145,6 +159,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetBundleName(char*
 
 ##### OH_AbilityRuntime_ApplicationContextGetTempDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetTempDir(char* buffer, const int32_t bufferSize, int32_t* writeLength)
 ```
@@ -174,6 +190,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetTempDir(char* bu
   
 
 ##### OH_AbilityRuntime_ApplicationContextGetFilesDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetFilesDir(char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -205,6 +223,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetFilesDir(char* b
 
 ##### OH_AbilityRuntime_ApplicationContextGetDatabaseDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetDatabaseDir(char* buffer, const int32_t bufferSize, int32_t* writeLength)
 ```
@@ -234,6 +254,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetDatabaseDir(char
   
 
 ##### OH_AbilityRuntime_ApplicationContextGetPreferencesDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetPreferencesDir(char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -265,6 +287,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetPreferencesDir(c
 
 ##### OH_AbilityRuntime_ApplicationContextGetBundleCodeDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetBundleCodeDir(char* buffer, const int32_t bufferSize, int32_t* writeLength)
 ```
@@ -294,6 +318,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetBundleCodeDir(ch
   
 
 ##### OH_AbilityRuntime_ApplicationContextGetDistributedFilesDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetDistributedFilesDir(char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -325,6 +351,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetDistributedFiles
 
 ##### OH_AbilityRuntime_ApplicationContextGetCloudFileDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetCloudFileDir(char* buffer, const int32_t bufferSize, int32_t* writeLength)
 ```
@@ -354,6 +382,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetCloudFileDir(cha
   
 
 ##### OH_AbilityRuntime_ApplicationContextGetLogFileDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetLogFileDir(char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -385,6 +415,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetLogFileDir(char*
 
 ##### OH_AbilityRuntime_ApplicationContextGetResourceDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetResourceDir(const char* moduleName, char* buffer, const int32_t bufferSize, int32_t* writeLength)
 ```
@@ -415,6 +447,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetResourceDir(cons
   
 
 ##### OH_AbilityRuntime_StartSelfUIAbility()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_StartSelfUIAbility(AbilityBase_Want *want)
@@ -471,6 +505,8 @@ void startSelfUIAbilityTest()
   
 
 ##### OH_AbilityRuntime_StartSelfUIAbilityWithStartOptions()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_StartSelfUIAbilityWithStartOptions(AbilityBase_Want *want,AbilityRuntime_StartOptions *options)
@@ -543,6 +579,8 @@ void demo()
 
 ##### OH_AbilityRuntime_ApplicationContextGetVersionCode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetVersionCode(int64_t* versionCode)
 ```
@@ -570,6 +608,8 @@ AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetVersionCode(int6
   
 
 ##### OH_AbilityRuntime_StartSelfUIAbilityWithPidResult()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_StartSelfUIAbilityWithPidResult(AbilityBase_Want *want, AbilityRuntime_StartOptions *options, int32_t *targetPid)
@@ -648,6 +688,8 @@ void demo()
 
 ##### OH_AbilityRuntime_ApplicationContextGetLaunchParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetLaunchParameter(
     char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -702,6 +744,8 @@ static napi_value GetLaunchParameter(napi_env env, napi_callback_info info)
 
 ##### OH_AbilityRuntime_ApplicationContextGetLatestParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextGetLatestParameter(
     char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -755,6 +799,8 @@ static napi_value GetLatestParameter(napi_env env, napi_callback_info info)
   
 
 ##### OH_AbilityRuntime_ApplicationContextNotifyPageChanged()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_ApplicationContextNotifyPageChanged(

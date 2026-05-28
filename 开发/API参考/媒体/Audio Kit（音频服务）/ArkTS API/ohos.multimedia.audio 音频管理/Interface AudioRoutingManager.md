@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### getDevices9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback&lt;AudioDeviceDescriptors&gt;): void
 
@@ -55,6 +59,8 @@ audioRoutingManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG, (err: Busin
 
 
 ##### getDevices9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDevices(deviceFlag: DeviceFlag): Promise&lt;AudioDeviceDescriptors&gt;
 
@@ -91,6 +97,8 @@ audioRoutingManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG).then((audio
 
 
 ##### getDevicesSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDevicesSync(deviceFlag: DeviceFlag): AudioDeviceDescriptors
 
@@ -140,6 +148,8 @@ try {
 
 ##### isMicBlockDetectionSupported13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMicBlockDetectionSupported(): Promise&lt;boolean&gt;
 
 获取当前设备是否支持麦克风状态检测。使用Promise异步回调。
@@ -164,6 +174,8 @@ audioRoutingManager.isMicBlockDetectionSupported().then((value: boolean) => {
 
 
 ##### on('micBlockStatusChanged')13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'micBlockStatusChanged', callback: Callback&lt;DeviceBlockStatusInfo&gt;): void
 
@@ -209,6 +221,8 @@ audioRoutingManager.isMicBlockDetectionSupported().then((value: boolean) => {
 
 ##### off('micBlockStatusChanged')13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'micBlockStatusChanged', callback?: Callback&lt;DeviceBlockStatusInfo&gt;): void
 
 取消监听麦克风堵塞状态变化事件。使用callback异步回调。
@@ -253,6 +267,8 @@ audioRoutingManager.off('micBlockStatusChanged', micBlockStatusCallback);
 
 ##### on('deviceChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'deviceChange', deviceFlag: DeviceFlag, callback: Callback&lt;DeviceChangeAction&gt;): void
 
 监听音频设备连接状态变化事件（当音频设备连接状态发生变化时触发）。使用callback异步回调。
@@ -292,6 +308,8 @@ audioRoutingManager.on('deviceChange', audio.DeviceFlag.OUTPUT_DEVICES_FLAG, (de
 
 
 ##### off('deviceChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'deviceChange', callback?: Callback&lt;DeviceChangeAction&gt;): void
 
@@ -340,6 +358,8 @@ audioRoutingManager.off('deviceChange', deviceChangeCallback);
 
 ##### setCommunicationDevice9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置通信设备激活状态。使用callback异步回调。
@@ -376,6 +396,8 @@ audioRoutingManager.setCommunicationDevice(audio.CommunicationDeviceType.SPEAKER
 
 
 ##### getAvailableDevices12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors
 
@@ -425,6 +447,8 @@ try {
 
 ##### on('availableDeviceChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback&lt;DeviceChangeAction&gt;): void
 
 监听音频可选设备连接状态变化事件（当音频可选设备连接状态发生变化时触发）。使用callback异步回调。
@@ -464,6 +488,8 @@ audioRoutingManager.on('availableDeviceChange', audio.DeviceUsage.MEDIA_OUTPUT_D
 
 
 ##### off('availableDeviceChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'availableDeviceChange', callback?: Callback&lt;DeviceChangeAction&gt;): void
 
@@ -512,6 +538,8 @@ audioRoutingManager.off('availableDeviceChange', availableDeviceChangeCallback);
 
 ##### setCommunicationDevice9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean): Promise&lt;void&gt;
 
 设置通信设备激活状态。使用Promise异步回调。
@@ -549,6 +577,8 @@ audioRoutingManager.setCommunicationDevice(audio.CommunicationDeviceType.SPEAKER
 
 ##### isCommunicationDeviceActive9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: AsyncCallback&lt;boolean&gt;): void
 
 获取指定通信设备的激活状态。使用callback异步回调。
@@ -581,6 +611,8 @@ audioRoutingManager.isCommunicationDeviceActive(audio.CommunicationDeviceType.SP
 
 ##### isCommunicationDeviceActive9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isCommunicationDeviceActive(deviceType: CommunicationDeviceType): Promise&lt;boolean&gt;
 
 获取指定通信设备的激活状态。使用Promise异步回调。
@@ -612,6 +644,8 @@ audioRoutingManager.isCommunicationDeviceActive(audio.CommunicationDeviceType.SP
 
 
 ##### isCommunicationDeviceActiveSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isCommunicationDeviceActiveSync(deviceType: CommunicationDeviceType): boolean
 
@@ -661,6 +695,8 @@ try {
 
 ##### getPreferOutputDeviceForRendererInfo10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo, callback: AsyncCallback&lt;AudioDeviceDescriptors&gt;): void
 
 根据音频信息，返回优先级最高的输出设备。使用callback异步回调。
@@ -708,6 +744,8 @@ audioRoutingManager.getPreferOutputDeviceForRendererInfo(rendererInfo, (err: Bus
 
 
 ##### getPreferOutputDeviceForRendererInfo10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreferOutputDeviceForRendererInfo(rendererInfo: AudioRendererInfo): Promise&lt;AudioDeviceDescriptors&gt;
 
@@ -760,6 +798,8 @@ audioRoutingManager.getPreferOutputDeviceForRendererInfo(rendererInfo).then((aud
 
 
 ##### getPreferredOutputDeviceForRendererInfoSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreferredOutputDeviceForRendererInfoSync(rendererInfo: AudioRendererInfo): AudioDeviceDescriptors
 
@@ -814,6 +854,8 @@ try {
 
 ##### on('preferOutputDeviceChangeForRendererInfo')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'preferOutputDeviceChangeForRendererInfo', rendererInfo: AudioRendererInfo, callback: Callback&lt;AudioDeviceDescriptors&gt;): void
 
 监听最高优先级输出设备变化事件（当最高优先级输出设备发生变化时触发）。使用callback异步回调。
@@ -855,6 +897,8 @@ audioRoutingManager.on('preferOutputDeviceChangeForRendererInfo', rendererInfo, 
 
 
 ##### off('preferOutputDeviceChangeForRendererInfo')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback&lt;AudioDeviceDescriptors&gt;): void
 
@@ -901,6 +945,8 @@ audioRoutingManager.off('preferOutputDeviceChangeForRendererInfo', preferOutputD
 
 
 ##### getPreferredInputDeviceForCapturerInfo10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo, callback: AsyncCallback&lt;AudioDeviceDescriptors&gt;): void
 
@@ -949,6 +995,8 @@ audioRoutingManager.getPreferredInputDeviceForCapturerInfo(capturerInfo, (err: B
 
 
 ##### getPreferredInputDeviceForCapturerInfo10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreferredInputDeviceForCapturerInfo(capturerInfo: AudioCapturerInfo): Promise&lt;AudioDeviceDescriptors&gt;
 
@@ -1001,6 +1049,8 @@ audioRoutingManager.getPreferredInputDeviceForCapturerInfo(capturerInfo).then((a
 
 
 ##### getPreferredInputDeviceForCapturerInfoSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreferredInputDeviceForCapturerInfoSync(capturerInfo: AudioCapturerInfo): AudioDeviceDescriptors
 
@@ -1055,6 +1105,8 @@ try {
 
 ##### on('preferredInputDeviceChangeForCapturerInfo')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapturerInfo, callback: Callback&lt;AudioDeviceDescriptors&gt;): void
 
 监听最高优先级输入设备变化事件（当最高优先级输入设备发生变化时触发）。使用callback异步回调。
@@ -1096,6 +1148,8 @@ audioRoutingManager.on('preferredInputDeviceChangeForCapturerInfo', capturerInfo
 
 
 ##### off('preferredInputDeviceChangeForCapturerInfo')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback&lt;AudioDeviceDescriptors&gt;): void
 

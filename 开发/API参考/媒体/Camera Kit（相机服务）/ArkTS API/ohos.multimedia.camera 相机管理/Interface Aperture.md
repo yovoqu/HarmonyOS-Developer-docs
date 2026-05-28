@@ -16,6 +16,8 @@ Aperture继承自[ApertureQuery](https://developer.huawei.com/consumer/cn/doc/ha
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -23,6 +25,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### getPhysicalAperture24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPhysicalAperture(): number
  
@@ -70,6 +74,8 @@ function getPhysicalAperture(photoSession: camera.PhotoSession): number {
   
 
 ##### setPhysicalAperture24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPhysicalAperture(aperture: number): void
  

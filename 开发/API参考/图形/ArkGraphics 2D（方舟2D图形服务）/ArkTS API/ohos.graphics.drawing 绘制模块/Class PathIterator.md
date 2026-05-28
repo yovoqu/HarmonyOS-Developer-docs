@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### constructor18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(path: Path)
 
@@ -47,6 +51,8 @@ let iter: drawing.PathIterator = new drawing.PathIterator(path);
 
 
 ##### next18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 next(points: Array<common2D.Point>, offset?: number): PathIteratorVerb
 
@@ -103,6 +109,8 @@ console.info(outputMessage);
 
 ##### peek18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 peek(): PathIteratorVerb
 
 返回当前路径的下一个操作，迭代器保持在原操作。
@@ -129,6 +137,8 @@ let res = iter.peek();
 
 
 ##### hasNext18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasNext(): boolean
 

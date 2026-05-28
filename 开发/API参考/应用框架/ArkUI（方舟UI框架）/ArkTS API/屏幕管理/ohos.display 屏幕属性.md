@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { display } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { display } from '@kit.ArkUI';
 
 
 ##### DisplayState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 显示设备的状态枚举。
 
@@ -43,6 +47,8 @@ import { display } from '@kit.ArkUI';
 
 ##### Orientation10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 显示设备的显示方向枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -60,6 +66,8 @@ import { display } from '@kit.ArkUI';
 
 
 ##### DisplaySourceMode19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 屏幕显示内容的显示模式枚举。
 
@@ -79,6 +87,8 @@ import { display } from '@kit.ArkUI';
 
 
 ##### FoldStatus10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 当前可折叠设备的折叠状态枚举。如果是双折轴设备，则在充电口朝下的状态下，从右到左分别是折轴一和折轴二。
 
@@ -106,6 +116,8 @@ import { display } from '@kit.ArkUI';
 
 ##### FoldDisplayMode10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可折叠设备的屏幕显示模式枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -129,6 +141,8 @@ import { display } from '@kit.ArkUI';
 
 ##### CornerType23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 屏幕圆角类型枚举。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
@@ -146,6 +160,8 @@ import { display } from '@kit.ArkUI';
 
 
 ##### RoundedCorner23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 屏幕圆角定义。
 
@@ -166,6 +182,8 @@ import { display } from '@kit.ArkUI';
 
 ##### FoldCreaseRegion10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 折叠设备屏幕的折痕区域。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -181,6 +199,8 @@ import { display } from '@kit.ArkUI';
 
 
 ##### Rect9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 矩形区域。
 
@@ -200,6 +220,8 @@ import { display } from '@kit.ArkUI';
 
 ##### WaterfallDisplayAreaRects9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 瀑布屏曲面部分显示区域。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -218,6 +240,8 @@ import { display } from '@kit.ArkUI';
 
 ##### CutoutInfo9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 挖孔屏、刘海屏、瀑布屏等不可用屏幕区域信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -233,6 +257,8 @@ import { display } from '@kit.ArkUI';
 
 
 ##### DisplayPhysicalResolution12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设备的显示模式以及对应的物理屏幕分辨率信息。
 
@@ -251,6 +277,8 @@ import { display } from '@kit.ArkUI';
 
 ##### BrightnessInfo22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 屏幕亮度信息。此类型中的信息均来自底层屏幕信息数据。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -267,6 +295,8 @@ import { display } from '@kit.ArkUI';
 
 
 ##### BrightnessCallback22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
@@ -286,6 +316,8 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 ##### ScreenShape18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 显示设备的屏幕形状枚举。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
@@ -299,6 +331,8 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 
 ##### VirtualScreenConfig16+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 创建虚拟屏幕的参数。
 
@@ -318,6 +352,8 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 ##### Position20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 坐标位置：在全局坐标系中，以主屏左上角为原点。在相对坐标系中，以指定屏幕左上角为原点。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -332,6 +368,8 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 ##### RelativePosition20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相对坐标系下的坐标位置，以displayId对应的屏幕左上角为原点。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -345,6 +383,8 @@ type BrightnessCallback<T1, T2> = (data1: T1, data2: T2) => void
 
 
 ##### display.getDisplayByIdSync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDisplayByIdSync(displayId: number): Display
 
@@ -396,6 +436,8 @@ try {
 
 ##### display.getBrightnessInfo22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBrightnessInfo(displayId: number): BrightnessInfo
 
 获取指定displayId对应屏幕的亮度信息。如果屏幕不支持HDR，返回的[BrightnessInfo](#brightnessinfo22)对象中的currentHeadroom和maxHeadroom为默认值。虚拟屏的BrightnessInfo对象中sdrNits为默认值。
@@ -444,6 +486,8 @@ try {
 
 ##### display.getAllDisplayPhysicalResolution12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllDisplayPhysicalResolution(): Promise<Array&lt;DisplayPhysicalResolution&gt;>
 
 获取当前设备支持的所有显示模式及其对应的物理屏幕分辨率信息对象。使用Promise异步回调。
@@ -490,6 +534,8 @@ promise.then((resolutionObjects) => {
 
 ##### display.getDefaultDisplaySync9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDefaultDisplaySync(): Display
 
 返回应用所在屏幕的Display对象。若应用内多个Ability在不同屏幕，返回主屏的Display对象，若应用内多个Ability在同一屏幕，返回所在屏幕的Display对象。
@@ -529,6 +575,8 @@ try {
 
 ##### display.getPrimaryDisplaySync14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPrimaryDisplaySync(): Display
 
 获取主屏信息。除2in1之外的设备获取的是设备自带屏幕的Display对象；2in1设备外接屏幕时获取的是当前主屏幕的Display对象；2in1设备没有外接屏幕时获取的是自带屏幕的Display对象。
@@ -564,6 +612,8 @@ displayClass = display.getPrimaryDisplaySync();
 
 
 ##### display.getAllDisplays9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllDisplays(callback: AsyncCallback<Array&lt;Display&gt;>): void
 
@@ -611,6 +661,8 @@ display.getAllDisplays((err: BusinessError, data: Array<display.Display>) => {
 
 ##### display.getAllDisplays9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllDisplays(): Promise<Array&lt;Display&gt;>
 
 获取当前所有的Display对象，使用Promise异步回调。
@@ -655,6 +707,8 @@ promise.then((data: Array<display.Display>) => {
 
 ##### display.on('add'|'remove'|'change')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'add'|'remove'|'change', callback: Callback&lt;number&gt;): void
 
 开启显示设备变化的监听。
@@ -695,6 +749,8 @@ display.on('add', callback);
 
 
 ##### display.off('add'|'remove'|'change')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'add'|'remove'|'change', callback?: Callback&lt;number&gt;): void
 
@@ -738,6 +794,8 @@ display.off('remove', callback);
 
 ##### display.onChangeWithAttribute23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onChangeWithAttribute(displayAttributeOption: Array&lt;string&gt;, callback: Callback&lt;number&gt;): void
 
 开启显示设备指定属性变化的监听。
@@ -780,6 +838,8 @@ display.onChangeWithAttribute(attributes, attributesChangeCallback);
 
 ##### display.isFoldable10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isFoldable(): boolean
 
 判断设备是否可折叠。
@@ -815,6 +875,8 @@ ret = display.isFoldable();
 
 ##### display.getFoldStatus10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFoldStatus(): FoldStatus
 
 获取可折叠设备当前的折叠状态。
@@ -849,6 +911,8 @@ console.info(`Succeeded in obtaining fold status. Data: ${data}`);
 
 
 ##### display.getFoldDisplayMode10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFoldDisplayMode(): FoldDisplayMode
 
@@ -887,6 +951,8 @@ console.info(`Succeeded in obtaining fold display mode. Data: ${data}`);
 
 ##### display.getCurrentFoldCreaseRegion10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentFoldCreaseRegion(): FoldCreaseRegion
 
 获取折叠设备屏幕的折痕区域。
@@ -923,6 +989,8 @@ console.info(`Succeeded in obtaining current fold crease region. Data: ${JSON.st
 
 
 ##### display.on('foldStatusChange')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'foldStatusChange', callback: Callback&lt;FoldStatus&gt;): void
 
@@ -975,6 +1043,8 @@ display.on('foldStatusChange', callback);
 
 ##### display.off('foldStatusChange')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'foldStatusChange', callback?: Callback&lt;FoldStatus&gt;): void
 
 关闭折叠设备折叠状态变化的监听。
@@ -1017,6 +1087,8 @@ display.off('foldStatusChange', callback);
 
 
 ##### display.on('brightnessInfoChange')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'brightnessInfoChange', callback: BrightnessCallback<number, BrightnessInfo>): void
 
@@ -1062,6 +1134,8 @@ try {
 
 ##### display.off('brightnessInfoChange')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'brightnessInfoChange', callback?: BrightnessCallback<number, BrightnessInfo>): void
 
 关闭所有屏幕亮度信息状态变化的监听。
@@ -1106,6 +1180,8 @@ try {
 
 ##### display.on('foldAngleChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'foldAngleChange', callback: Callback<Array&lt;number&gt;>): void
 
 开启折叠设备折叠角度变化的监听。如果是双折轴设备，则有两个角度值；在充电口朝下的状态下，从右到左分别是折轴一和折轴二。
@@ -1146,6 +1222,8 @@ display.on('foldAngleChange', callback);
 
 
 ##### display.off('foldAngleChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'foldAngleChange', callback?: Callback<Array&lt;number&gt;>): void
 
@@ -1192,6 +1270,8 @@ display.off('foldAngleChange', callback);
 
 ##### display.on('captureStatusChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'captureStatusChange', callback: Callback&lt;boolean&gt;): void
 
 开启设备的屏幕显示信息是否被获取的监听。
@@ -1232,6 +1312,8 @@ display.on('captureStatusChange', callback);
 
 
 ##### display.off('captureStatusChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'captureStatusChange', callback?: Callback&lt;boolean&gt;): void
 
@@ -1278,6 +1360,8 @@ display.off('captureStatusChange', callback);
 
 ##### display.isCaptured12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isCaptured(): boolean
 
 检查设备的屏幕显示信息是否被获取。
@@ -1312,6 +1396,8 @@ ret = display.isCaptured();
 
 
 ##### display.on('foldDisplayModeChange')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'foldDisplayModeChange', callback: Callback&lt;FoldDisplayMode&gt;): void
 
@@ -1362,6 +1448,8 @@ display.on('foldDisplayModeChange', callback);
 
 ##### display.off('foldDisplayModeChange')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'foldDisplayModeChange', callback?: Callback&lt;FoldDisplayMode&gt;): void
 
 关闭折叠设备屏幕显示模式变化的监听。
@@ -1406,6 +1494,8 @@ display.off('foldDisplayModeChange', callback);
 
 
 ##### display.createVirtualScreen16+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createVirtualScreen(config:VirtualScreenConfig): Promise&lt;number&gt;
 
@@ -1475,6 +1565,8 @@ display.createVirtualScreen(config).then((screenId: number) => {
 
 ##### display.destroyVirtualScreen16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 destroyVirtualScreen(screenId:number): Promise&lt;void&gt;
 
 销毁虚拟屏幕，使用Promise异步回调。
@@ -1526,6 +1618,8 @@ display.destroyVirtualScreen(screenId).then(() => {
 
 
 ##### display.setVirtualScreenSurface16+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setVirtualScreenSurface(screenId:number, surfaceId: string): Promise&lt;void&gt;
 
@@ -1605,6 +1699,8 @@ struct Index {
 
 ##### display.makeUnique16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 makeUnique(screenId:number): Promise&lt;void&gt;
 
 将屏幕设置为异源模式，使用Promise异步回调。
@@ -1658,6 +1754,8 @@ display.makeUnique(screenId).then(() => {
 
 
 ##### display.convertRelativeToGlobalCoordinate20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 convertRelativeToGlobalCoordinate(relativePosition: RelativePosition): Position
 
@@ -1714,6 +1812,8 @@ try {
 
 ##### display.convertGlobalToRelativeCoordinate20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 convertGlobalToRelativeCoordinate(position: Position, displayId?: number): RelativePosition
 
 将主屏左上角为原点的全局坐标转换成displayId指定屏幕左上角为原点的相对坐标。若未传入displayId，默认转换为全局坐标所在屏幕的相对坐标系。若全局坐标不在任何屏幕上，默认转换成主屏的相对坐标。
@@ -1767,6 +1867,8 @@ try {
 
 ##### display.getDefaultDisplay(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDefaultDisplay(callback: AsyncCallback&lt;Display&gt;): void
 
 获取当前默认的Display对象，使用callback异步回调。
@@ -1805,6 +1907,8 @@ display.getDefaultDisplay((err: BusinessError, data: display.Display) => {
 
 ##### display.getDefaultDisplay(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDefaultDisplay(): Promise&lt;Display&gt;
 
 获取当前默认的Display对象，使用Promise异步回调。
@@ -1840,6 +1944,8 @@ promise.then((data: display.Display) => {
 
 
 ##### display.getAllDisplay(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllDisplay(callback: AsyncCallback<Array&lt;Display&gt;>): void
 
@@ -1877,6 +1983,8 @@ display.getAllDisplay((err: BusinessError, data: Array<display.Display>) => {
 
 ##### display.getAllDisplay(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllDisplay(): Promise<Array&lt;Display&gt;>
 
 获取当前所有的Display对象，使用Promise异步回调。
@@ -1911,6 +2019,8 @@ promise.then((data: Array<display.Display>) => {
 
 ##### Display
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 屏幕实例。描述Display对象的属性和方法。
 
 下列API示例中都需先使用[getAllDisplays()](#displaygetalldisplays9)、[getDefaultDisplaySync()](#displaygetdefaultdisplaysync9)中的任一方法获取到Display实例，再通过此实例调用对应方法。
@@ -1918,6 +2028,8 @@ promise.then((data: Array<display.Display>) => {
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1949,6 +2061,8 @@ promise.then((data: Array<display.Display>) => {
 
 
 ##### getRoundedCorner23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRoundedCorner(): Array&lt;RoundedCorner&gt;
 
@@ -1994,6 +2108,8 @@ try {
 
 
 ##### getCutoutInfo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCutoutInfo(callback: AsyncCallback&lt;CutoutInfo&gt;): void
 
@@ -2041,6 +2157,8 @@ displayClass.getCutoutInfo((err: BusinessError, data: display.CutoutInfo) => {
 
 ##### getCutoutInfo9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCutoutInfo(): Promise&lt;CutoutInfo&gt;
 
 获取挖孔屏、刘海屏、瀑布屏等不可用屏幕区域信息。使用Promise异步回调。建议应用布局规避该区域。
@@ -2083,6 +2201,8 @@ promise.then((data: display.CutoutInfo) => {
 
 
 ##### getAvailableArea12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAvailableArea(): Promise&lt;Rect&gt;
 
@@ -2137,6 +2257,8 @@ try {
 
 ##### on('availableAreaChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'availableAreaChange', callback: Callback&lt;Rect&gt;): void
 
 开启当前设备屏幕可用区域的监听。当屏幕旋转、进入/退出自由多窗模式、设置Dock栏/状态栏等系统控件可见性变化时，触发回调函数，返回可用区域信息。
@@ -2188,6 +2310,8 @@ try {
 
 ##### off('availableAreaChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'availableAreaChange', callback?: Callback&lt;Rect&gt;): void
 
 关闭当前设备屏幕可用区域变化的监听。
@@ -2238,6 +2362,8 @@ try {
 
 
 ##### getLiveCreaseRegion20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLiveCreaseRegion(): FoldCreaseRegion
 

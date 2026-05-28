@@ -12,6 +12,8 @@
 
 ##### CameraDevice
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机设备信息。
 
 **系统能力：** SystemCapability.Multimedia.Camera.Core
@@ -41,6 +43,8 @@
 
 ##### CameraStatusInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机管理器回调返回的接口实例，该实例表示相机状态信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -56,6 +60,8 @@
 
 
 ##### FoldStatusInfo12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相机管理器回调返回的接口实例，表示折叠机折叠状态信息。
 
@@ -73,6 +79,8 @@
 
 ##### Profile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机配置信息项。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -88,6 +96,8 @@
 
 
 ##### FrameRateRange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 帧率范围。
 
@@ -105,6 +115,8 @@
 
 ##### VideoProfile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 视频配置信息项，继承[Profile](#profile)。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -119,6 +131,8 @@
 
 
 ##### CameraOutputCapability
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相机输出能力项。
 
@@ -138,6 +152,8 @@
 
 ##### TorchStatusInfo11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 手电筒回调返回的接口实例，表示手电筒状态信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -155,6 +171,8 @@
 
 ##### Size
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 尺寸参数。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -171,6 +189,8 @@
 
 ##### Point
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 点坐标用于对焦和曝光配置。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -186,6 +206,8 @@
 
 
 ##### CameraConcurrentInfo18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相机的输出并发能力信息。
 
@@ -205,6 +227,8 @@
 
 ##### Location
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 图片地理位置信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -221,6 +245,8 @@
 
 
 ##### PhotoCaptureSetting
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 拍摄照片的设置。
 
@@ -240,6 +266,8 @@
 
 ##### FrameShutterInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拍照帧输出信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -256,6 +284,8 @@
 
 ##### FrameShutterEndInfo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拍照曝光结束信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -270,6 +300,8 @@
 
 
 ##### CaptureStartInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 拍照开始信息。
 
@@ -287,6 +319,8 @@
 
 ##### CaptureEndInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拍照停止信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -303,6 +337,8 @@
 
 ##### AutoDeviceSwitchStatus13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自动切换镜头状态信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -318,6 +354,8 @@
 
 
 ##### Rect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 矩形定义，返回的检测点坐标系以设备充电口在右侧时的横向设备方向为基准。该坐标系左上角为（0，0），右下角为（1，1），其中（topLeftX，topLeftY）表示矩形区域的左上角坐标，width和height分别表示矩形区域的宽和高。因此在实际使用中根据业务诉求需要裁剪或者选择人脸区域时，必须将矩形区域的x坐标和y坐标分别乘以实际相机预览输出流的宽和高，即可得到裁剪后的人脸矩形区域。
 
@@ -341,6 +379,8 @@
 
 ##### MetadataObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机元能力信息，[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.on('metadataObjectsAvailable')接口获取。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -358,6 +398,8 @@
 
 ##### SmoothZoomInfo11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 平滑变焦参数信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -372,6 +414,8 @@
 
 
 ##### ControlCenterStatusInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相机控制器效果激活状态信息。
 
@@ -389,6 +433,8 @@
 
 ##### IsoInfo22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 感光度（ISO）参数信息。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -403,6 +449,8 @@
 
 
 ##### CameraOcclusionDetectionResult23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 镜头遮挡或脏污检测回调返回的接口实例，表示镜头遮挡或脏污状态信息。
 
@@ -420,6 +468,8 @@
 
 ##### ZoomRange24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 变焦范围。
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
@@ -436,6 +486,8 @@
 
 ##### PhysicalAperture24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 物理光圈对象。
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
@@ -451,6 +503,8 @@
 
 
 ##### ExposureInfo24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 曝光信息对象。
 

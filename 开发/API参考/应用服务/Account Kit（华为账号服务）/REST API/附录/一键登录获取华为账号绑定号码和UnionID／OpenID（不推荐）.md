@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-user-info-quicklogin-getid
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/XUnhW9-_TYOTx_25jDbY8Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013442Z&HW-CC-Expire=86400&HW-CC-Sign=98F89C6309C22B70FE2C1B36A23E7A988D76CBE6A2E78EF4ADA4172734CD1B37)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/XUnhW9-_TYOTx_25jDbY8Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=FA1BC706883C38120757AB180183C94549230E4BE7E5EA2A90057908B08391AF)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。

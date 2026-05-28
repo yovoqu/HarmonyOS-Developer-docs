@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -75,6 +79,8 @@ struct WebComponent {
 
 ##### setUrl12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setUrl(url: string): void
 
 给当前的Response设置重定向或因HSTS而更改后的URL，设置了url后会触发请求的跳转。
@@ -104,6 +110,8 @@ setUrl(url: string): void
 
 
 ##### setNetErrorCode12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setNetErrorCode(code: WebNetErrorList): void
 
@@ -135,6 +143,8 @@ setNetErrorCode(code: WebNetErrorList): void
 
 ##### setStatus12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setStatus(code: number): void
 
 给当前的Response设置HTTP状态码。
@@ -164,6 +174,8 @@ setStatus(code: number): void
 
 
 ##### setStatusText12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setStatusText(text: string): void
 
@@ -195,6 +207,8 @@ setStatusText(text: string): void
 
 ##### setMimeType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMimeType(type: string): void
 
 给当前的Response设置媒体类型。
@@ -225,6 +239,8 @@ setMimeType(type: string): void
 
 ##### setEncoding12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setEncoding(encoding: string): void
 
 给当前的Response设置字符集。
@@ -254,6 +270,8 @@ setEncoding(encoding: string): void
 
 
 ##### setHeaderByName12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setHeaderByName(name: string, value: string, overwrite: boolean): void
 
@@ -287,6 +305,8 @@ setHeaderByName(name: string, value: string, overwrite: boolean): void
 
 ##### getUrl12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUrl(): string
 
 获取重定向或由于HSTS而更改后的URL。
@@ -310,6 +330,8 @@ getUrl(): string
 
 ##### getNetErrorCode12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getNetErrorCode(): WebNetErrorList
 
 获取Response的网络错误码。
@@ -330,6 +352,8 @@ getNetErrorCode(): WebNetErrorList
 
 
 ##### getStatus12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStatus(): number
 
@@ -352,6 +376,8 @@ getStatus(): number
 
 ##### getStatusText12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStatusText(): string
 
 获取Response的状态文本。
@@ -372,6 +398,8 @@ getStatusText(): string
 
 
 ##### getMimeType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMimeType(): string
 
@@ -394,6 +422,8 @@ getMimeType(): string
 
 ##### getEncoding12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getEncoding(): string
 
 获取Response的字符集。
@@ -414,6 +444,8 @@ getEncoding(): string
 
 
 ##### getHeaderByName12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getHeaderByName(name: string): string
 

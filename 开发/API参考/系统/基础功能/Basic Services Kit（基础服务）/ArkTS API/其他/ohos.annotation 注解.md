@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 ```text
 import { Available, SuppressWarnings, SuppressWarningsType } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { Available, SuppressWarnings, SuppressWarningsType } from '@kit.BasicSer
   
 
 ##### Available
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 @interface Available { minApiVersion: string = '' }
  
@@ -70,6 +74,8 @@ function myNewFunc() {
   
 
 ##### SuppressWarnings23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 @interface SuppressWarnings {
  
@@ -138,6 +144,8 @@ wifiManager.startScan(); // 使用@SuppressWarnings注释后，告警被抑制�
   
 
 ##### SuppressWarningsType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 支持消除告警的规则。
  

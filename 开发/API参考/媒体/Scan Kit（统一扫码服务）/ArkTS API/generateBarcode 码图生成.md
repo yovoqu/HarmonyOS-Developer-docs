@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { generateBarcode } from '@kit.ScanKit';
 ```
@@ -21,6 +23,8 @@ import { generateBarcode } from '@kit.ScanKit';
   
 
 ##### ErrorCorrectionLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 纠错率枚举。
  
@@ -41,6 +45,8 @@ import { generateBarcode } from '@kit.ScanKit';
   
 
 ##### CreateOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 生成码参数。
  
@@ -85,6 +91,8 @@ let options: generateBarcode.CreateOptions = {
   
 
 ##### generateBarcode.createBarcode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createBarcode(content: string, options: CreateOptions): Promise<image.PixelMap>
  
@@ -170,6 +178,8 @@ generateBarcode.createBarcode(content, options).then((data: image.PixelMap) => {
 
 ##### generateBarcode.createBarcode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createBarcode(content: string, options: CreateOptions, callback: AsyncCallback<image.PixelMap>): void
  
 通过文本生成并返回码图。使用callback异步回调。
@@ -230,6 +240,8 @@ generateBarcode.createBarcode(content, options, (err: BusinessError, data: image
   
 
 ##### generateBarcode.createBarcode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createBarcode(content: ArrayBuffer, options: CreateOptions): Promise<image.PixelMap>
  

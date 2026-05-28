@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### MapEventManager
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 地图监听事件管理器。
  
@@ -34,6 +38,8 @@ let mapEventManager: map.MapEventManager = this.mapController.getEventManager();
   
 
 ##### on('cameraChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'cameraChange', callback: Callback<mapCommon.LatLng>): void
  
@@ -75,6 +81,8 @@ mapEventManager.on("cameraChange", callback3);
   
 
 ##### off('cameraChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraChange', callback?: Callback<mapCommon.LatLng>): void
  
@@ -121,6 +129,8 @@ mapEventManager.off('cameraChange');
 
 ##### on('cameraIdle')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'cameraIdle', callback: Callback&lt;void&gt;): void
  
 监听相机移动结束事件。支持传递多个callback异步回调。
@@ -161,6 +171,8 @@ mapEventManager.on("cameraIdle", callback3);
   
 
 ##### off('cameraIdle')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraIdle', callback?: Callback&lt;void&gt;): void
  
@@ -207,6 +219,8 @@ mapEventManager.off('cameraIdle');
 
 ##### on('cameraMoveCancel')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'cameraMoveCancel', callback: Callback&lt;void&gt;): void
  
 监听相机移动取消事件。支持传递多个callback异步回调。
@@ -247,6 +261,8 @@ mapEventManager.on("cameraMoveCancel", callback3);
   
 
 ##### off('cameraMoveCancel')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraMoveCancel', callback?: Callback&lt;void&gt;): void
  
@@ -293,6 +309,8 @@ mapEventManager.off('cameraMoveCancel');
 
 ##### on('cameraMove')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'cameraMove', callback: Callback&lt;void&gt;): void
  
 监听相机移动事件。支持传递多个callback异步回调。
@@ -333,6 +351,8 @@ mapEventManager.on("cameraMove", callback3);
   
 
 ##### off('cameraMove')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraMove', callback?: Callback&lt;void&gt;): void
  
@@ -379,6 +399,8 @@ mapEventManager.off('cameraMove');
 
 ##### on('cameraMoveStart')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'cameraMoveStart', callback: Callback&lt;number&gt;): void
  
 监听相机移动开始事件。支持传递多个callback异步回调。
@@ -419,6 +441,8 @@ mapEventManager.on("cameraMoveStart", callback3);
   
 
 ##### off('cameraMoveStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraMoveStart', callback?: Callback&lt;number&gt;): void
  
@@ -466,6 +490,8 @@ mapEventManager.off('cameraMoveStart');
 
 ##### on('mapClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'mapClick', callback: Callback<mapCommon.LatLng>): void
  
 监听地图点击事件。支持传递多个callback异步回调。
@@ -506,6 +532,8 @@ mapEventManager.on("mapClick", callback3);
   
 
 ##### off('mapClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'mapClick', callback?: Callback<[mapCommon.LatLng](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common#latlng)>): void
  
@@ -553,6 +581,8 @@ mapEventManager.off('mapClick');
 
 ##### on('mapLoad')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'mapLoad', callback: Callback&lt;void&gt;): void
  
 监听地图加载事件。支持传递多个callback异步回调。
@@ -593,6 +623,8 @@ mapEventManager.on("mapLoad", callback3);
   
 
 ##### off('mapLoad')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'mapLoad', callback?: Callback&lt;void&gt;): void
  
@@ -640,6 +672,8 @@ mapEventManager.off('mapLoad');
 
 ##### on('mapLongClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'mapLongClick', callback: Callback<mapCommon.LatLng>): void
  
 监听地图长按事件。支持传递多个callback异步回调。
@@ -680,6 +714,8 @@ mapEventManager.on("mapLongClick", callback3);
   
 
 ##### off('mapLongClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'mapLongClick', callback?: Callback<mapCommon.LatLng>): void
  
@@ -727,6 +763,8 @@ mapEventManager.off('mapLongClick');
 
 ##### on('myLocationButtonClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'myLocationButtonClick', callback: Callback&lt;void&gt;): void
  
 监听我的位置按钮点击事件。支持传递多个callback异步回调。
@@ -767,6 +805,8 @@ mapEventManager.on("myLocationButtonClick", callback3);
   
 
 ##### off('myLocationButtonClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'myLocationButtonClick', callback?: Callback&lt;void&gt;): void
  
@@ -814,6 +854,8 @@ mapEventManager.off('myLocationButtonClick');
 
 ##### on('myLocationClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'myLocationClick', callback: Callback<mapCommon.LatLng>): void
  
 监听我的位置点击事件。支持传递多个callback异步回调。
@@ -854,6 +896,8 @@ mapEventManager.on("myLocationClick", callback3);
   
 
 ##### off('myLocationClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'myLocationClick', callback?: Callback<mapCommon.LatLng>): void
  
@@ -901,6 +945,8 @@ mapEventManager.off('myLocationClick');
 
 ##### on('poiClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'poiClick', callback: Callback<mapCommon.Poi>): void
  
 监听POI点击事件。支持传递多个callback异步回调。
@@ -941,6 +987,8 @@ mapEventManager.on("poiClick", callback3);
   
 
 ##### off('poiClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'poiClick', callback?: Callback<mapCommon.Poi>): void
  
@@ -988,6 +1036,8 @@ mapEventManager.off('poiClick');
 
 ##### on('markerClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'markerClick', callback: Callback&lt;Marker&gt;): void
  
 监听标记点击事件。支持传递多个callback异步回调。
@@ -1028,6 +1078,8 @@ mapEventManager.on("markerClick", callback3);
   
 
 ##### off('markerClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'markerClick', callback?: Callback&lt;Marker&gt;): void
  
@@ -1075,6 +1127,8 @@ mapEventManager.off('markerClick');
 
 ##### on('markerDragStart')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'markerDragStart', callback: Callback&lt;Marker&gt;): void
  
 监听标记开始拖拽事件。支持传递多个callback异步回调。
@@ -1115,6 +1169,8 @@ mapEventManager.on("markerDragStart", callback3);
   
 
 ##### off('markerDragStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'markerDragStart', callback?: Callback&lt;Marker&gt;): void
  
@@ -1162,6 +1218,8 @@ mapEventManager.off('markerDragStart');
 
 ##### on('markerDrag')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'markerDrag', callback: Callback&lt;Marker&gt;): void
  
 监听标记拖拽事件。支持传递多个callback异步回调。
@@ -1202,6 +1260,8 @@ mapEventManager.on("markerDrag", callback3);
   
 
 ##### off('markerDrag')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'markerDrag', callback?: Callback&lt;Marker&gt;): void
  
@@ -1249,6 +1309,8 @@ mapEventManager.off('markerDrag');
 
 ##### on('markerDragEnd')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'markerDragEnd', callback: Callback&lt;Marker&gt;): void
  
 监听标记拖拽结束事件。支持传递多个callback异步回调。
@@ -1289,6 +1351,8 @@ mapEventManager.on("markerDragEnd", callback3);
   
 
 ##### off('markerDragEnd')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'markerDragEnd', callback?: Callback&lt;Marker&gt;): void
  
@@ -1336,6 +1400,8 @@ mapEventManager.off('markerDragEnd');
 
 ##### on('circleClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'circleClick', callback: Callback&lt;MapCircle&gt;): void
  
 监听圆点击事件。支持传递多个callback异步回调。
@@ -1376,6 +1442,8 @@ mapEventManager.on("circleClick", callback3);
   
 
 ##### off('circleClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'circleClick', callback?: Callback&lt;MapCircle&gt;): void
  
@@ -1423,6 +1491,8 @@ mapEventManager.off('circleClick');
 
 ##### on('polylineClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'polylineClick', callback: Callback&lt;MapPolyline&gt;): void
  
 监听折线点击事件。支持传递多个callback异步回调。
@@ -1463,6 +1533,8 @@ mapEventManager.on("polylineClick", callback3);
   
 
 ##### off('polylineClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'polylineClick', callback?: Callback&lt;MapPolyline&gt;): void
  
@@ -1510,6 +1582,8 @@ mapEventManager.off('polylineClick');
 
 ##### on('polygonClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'polygonClick', callback: Callback&lt;MapPolygon&gt;): void
  
 监听多边形点击事件。支持传递多个callback异步回调。
@@ -1550,6 +1624,8 @@ mapEventManager.on("polygonClick", callback3);
   
 
 ##### off('polygonClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'polygonClick', callback?: Callback&lt;MapPolygon&gt;): void
  
@@ -1597,6 +1673,8 @@ mapEventManager.off('polygonClick');
 
 ##### on('infoWindowClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'infoWindowClick', callback: Callback&lt;Marker&gt;): void
  
 监听信息窗点击事件。支持传递多个callback异步回调。
@@ -1637,6 +1715,8 @@ mapEventManager.on("infoWindowClick", callback3);
   
 
 ##### off('infoWindowClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'infoWindowClick', callback?: Callback<[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)>): void
  
@@ -1684,6 +1764,8 @@ mapEventManager.off('infoWindowClick');
 
 ##### on('infoWindowClose')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'infoWindowClose', callback: Callback&lt;Marker&gt;): void
  
 监听信息窗关闭事件。支持传递多个callback异步回调。
@@ -1724,6 +1806,8 @@ mapEventManager.on("infoWindowClose", callback3);
   
 
 ##### off('infoWindowClose')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'infoWindowClose', callback?: Callback&lt;Marker&gt;): void
  
@@ -1771,6 +1855,8 @@ mapEventManager.off('infoWindowClose');
 
 ##### on('pointAnnotationClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'pointAnnotationClick', callback: Callback&lt;PointAnnotation&gt;): void
  
 监听点注释点击事件。支持传递多个callback异步回调。
@@ -1811,6 +1897,8 @@ mapEventManager.on("pointAnnotationClick", callback3);
   
 
 ##### off('pointAnnotationClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'pointAnnotationClick', callback?: Callback&lt;PointAnnotation&gt;): void
  
@@ -1858,6 +1946,8 @@ mapEventManager.off('pointAnnotationClick');
 
 ##### on('bubbleClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'bubbleClick', callback: Callback&lt;Bubble&gt;): void
  
 监听气泡点击事件。支持传递多个callback异步回调。
@@ -1898,6 +1988,8 @@ mapEventManager.on("bubbleClick", callback3);
   
 
 ##### off('bubbleClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'bubbleClick', callback?: Callback&lt;Bubble&gt;): void
  
@@ -1945,6 +2037,8 @@ mapEventManager.off('bubbleClick');
 
 ##### on('imageOverlayClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'imageOverlayClick', callback: Callback&lt;ImageOverlay&gt;): void
  
 监听覆盖物点击事件。支持传递多个callback异步回调。
@@ -1985,6 +2079,8 @@ mapEventManager.on("imageOverlayClick", callback3);
   
 
 ##### off('imageOverlayClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'imageOverlayClick', callback?: Callback&lt;ImageOverlay&gt;): void
  
@@ -2032,6 +2128,8 @@ mapEventManager.off('imageOverlayClick');
 
 ##### on('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'error', callback: ErrorCallback): void
  
 监听异常事件。支持传递多个callback异步回调。
@@ -2074,6 +2172,8 @@ mapEventManager.on("error", callback3);
   
 
 ##### off('error')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'error', callback?: ErrorCallback): void
  
@@ -2123,6 +2223,8 @@ mapEventManager.off('error');
 
 ##### on('indoorMapEnter')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'indoorMapEnter', callback: Callback&lt;IndoorMapInfo&gt;): void
  
 监听室内图进入事件。
@@ -2166,6 +2268,8 @@ mapEventManager.on("indoorMapEnter", callback);
   
 
 ##### off('indoorMapEnter')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'indoorMapEnter', callback?: Callback&lt;IndoorMapInfo&gt;): void
  
@@ -2214,6 +2318,8 @@ mapEventManager.off('indoorMapEnter', callback);
 
 ##### on('indoorMapExit')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'indoorMapExit', callback: Callback&lt;void&gt;): void
  
 监听室内图退出事件。
@@ -2257,6 +2363,8 @@ mapEventManager.on("indoorMapExit", callback);
   
 
 ##### off('indoorMapExit')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'indoorMapExit', callback?: Callback&lt;void&gt;): void
  
@@ -2305,6 +2413,8 @@ mapEventManager.off('indoorMapExit', callback);
 
 ##### on('massPointOverlayClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'massPointOverlayClick', callback: MassPointOverlayCallback): void
  
 监听海量点图层点击事件。
@@ -2340,6 +2450,8 @@ mapEventManager.on('massPointOverlayClick', massCallback);
   
 
 ##### off('massPointOverlayClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'massPointOverlayClick', callback?: MassPointOverlayCallback): void
  
@@ -2381,6 +2493,8 @@ mapEventManager.off('massPointOverlayClick');
 
 ##### onMarkerLongClick
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 onMarkerLongClick(callback: Callback&lt;Marker&gt;): void
  
 监听标记长按事件。支持传递多个callback异步回调。
@@ -2420,6 +2534,8 @@ mapEventManager.onMarkerLongClick(callback3);
   
 
 ##### offMarkerLongClick
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 offMarkerLongClick(callback?: Callback&lt;Marker&gt;): void
  
@@ -2466,6 +2582,8 @@ mapEventManager.offMarkerLongClick();
 
 ##### onPoiLongClick
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 onPoiLongClick(callback: Callback<mapCommon.Poi>): void
  
 监听地图上POI长按事件。支持传递多个callback异步回调。
@@ -2505,6 +2623,8 @@ mapEventManager.onPoiLongClick(callback3);
   
 
 ##### offPoiLongClick
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 offPoiLongClick(callback?: Callback<mapCommon.Poi>): void
  

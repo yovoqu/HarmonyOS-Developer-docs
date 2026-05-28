@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义与动态照片相关的API。提供获取动态照片信息的功能。
  
 **库：** libmedia_asset_manager.so
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,9 +46,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_MovingPhoto_GetUri()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 MediaLibrary_ErrorCode OH_MovingPhoto_GetUri(OH_MovingPhoto* movingPhoto, const char** uri)
@@ -72,6 +82,8 @@ MediaLibrary_ErrorCode OH_MovingPhoto_GetUri(OH_MovingPhoto* movingPhoto, const 
   
 
 ##### OH_MovingPhoto_RequestContentWithUris()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 MediaLibrary_ErrorCode OH_MovingPhoto_RequestContentWithUris(OH_MovingPhoto* movingPhoto, char* imageUri,char* videoUri)
@@ -105,6 +117,8 @@ MediaLibrary_ErrorCode OH_MovingPhoto_RequestContentWithUris(OH_MovingPhoto* mov
 
 ##### OH_MovingPhoto_RequestContentWithUri()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 MediaLibrary_ErrorCode OH_MovingPhoto_RequestContentWithUri(OH_MovingPhoto* movingPhoto,MediaLibrary_ResourceType resourceType, char* uri)
 ```
@@ -136,6 +150,8 @@ MediaLibrary_ErrorCode OH_MovingPhoto_RequestContentWithUri(OH_MovingPhoto* movi
   
 
 ##### OH_MovingPhoto_RequestContentWithBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 MediaLibrary_ErrorCode OH_MovingPhoto_RequestContentWithBuffer(OH_MovingPhoto* movingPhoto,MediaLibrary_ResourceType resourceType, const uint8_t** buffer, uint32_t* size)
@@ -169,6 +185,8 @@ MediaLibrary_ErrorCode OH_MovingPhoto_RequestContentWithBuffer(OH_MovingPhoto* m
   
 
 ##### OH_MovingPhoto_Release()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 MediaLibrary_ErrorCode OH_MovingPhoto_Release(OH_MovingPhoto* movingPhoto)

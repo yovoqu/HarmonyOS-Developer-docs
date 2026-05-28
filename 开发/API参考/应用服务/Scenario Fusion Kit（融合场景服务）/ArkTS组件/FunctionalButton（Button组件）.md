@@ -20,6 +20,8 @@ FunctionalButton需要配合[functionalButtonComponentManager](https://developer
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { FunctionalButton, functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 ```
@@ -27,6 +29,8 @@ import { FunctionalButton, functionalButtonComponentManager } from '@kit.Scenari
   
 
 ##### FunctionalButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 场景化Button组件。
  
@@ -53,6 +57,8 @@ Button组件需要[functionalButtonComponentManager](https://developer.huawei.co
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 build(): void
  

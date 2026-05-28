@@ -16,6 +16,8 @@ GesturePath表示手势路径信息。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { GesturePath } from '@kit.AccessibilityKit';
 ```
@@ -23,6 +25,8 @@ import { GesturePath } from '@kit.AccessibilityKit';
   
 
 ##### GesturePath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示手势路径信息。
  
@@ -41,6 +45,8 @@ import { GesturePath } from '@kit.AccessibilityKit';
   
 
 ##### constructor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 constructor(durationTime: number);
  

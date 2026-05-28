@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件中定义了与颜色相关的功能函数。
  
 **引用文件：** <native_drawing/drawing_color.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_ColorSetArgb()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t OH_Drawing_ColorSetArgb(uint32_t alpha, uint32_t red, uint32_t green, uint32_t blue)

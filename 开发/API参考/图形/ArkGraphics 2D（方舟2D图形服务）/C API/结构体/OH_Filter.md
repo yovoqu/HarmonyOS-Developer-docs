@@ -12,6 +12,8 @@ typedef struct OH_Filter OH_Filter
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 滤镜结构体，用来生成滤镜位图。
  
 **起始版本：** 12

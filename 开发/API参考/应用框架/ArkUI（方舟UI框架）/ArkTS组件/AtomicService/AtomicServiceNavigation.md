@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AtomicServiceNavigation } from '@kit.ArkUI';
 ```
@@ -22,6 +24,8 @@ import { AtomicServiceNavigation } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
  
 从API version 10开始，推荐使用[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)进行页面路由。
@@ -29,6 +33,8 @@ import { AtomicServiceNavigation } from '@kit.ArkUI';
   
 
 ##### AtomicServiceNavigation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AtomicServiceNavigation({
@@ -81,6 +87,8 @@ AtomicServiceNavigation({
 
 ##### TitleOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 标题栏选项。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -97,6 +105,8 @@ AtomicServiceNavigation({
   
 
 ##### GradientBackground18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 供开发者设置品牌渐变色。
  
@@ -116,6 +126,8 @@ AtomicServiceNavigation({
   
 
 ##### NavDestinationBuilder
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NavDestinationBuilder = (name: string, param?: Object) => void
  
@@ -137,6 +149,8 @@ NavDestination组件内容。
 
 ##### MixMode18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 背景色颜色混合模式的可选项。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -154,6 +168,8 @@ NavDestination组件内容。
 
 ##### TitleBarType18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 标题栏类型的可选项，默认值为ROUND_ICON。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -170,6 +186,8 @@ NavDestination组件内容。
   
 
 ##### GradientAlpha18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 导航栏背景底色的可选项。
  
@@ -189,6 +207,8 @@ NavDestination组件内容。
 
 ##### BackgroundTheme18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 导航栏背景色底色的可选项。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -206,6 +226,8 @@ NavDestination组件内容。
 
 ##### SideBarOptions18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 侧边栏的功能选项。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -222,6 +244,8 @@ NavDestination组件内容。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -664,4 +688,4 @@ export struct PageTwo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/wWkkUmURSRWzLWCX1iN6ZQ/zh-cn_image_0000002581436216.png?HW-CC-KV=V1&HW-CC-Date=20260528T013910Z&HW-CC-Expire=86400&HW-CC-Sign=F937DDFD019A05BF868260931514FA51E8A6111CC795824C52CF2CC99212C2A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/wWkkUmURSRWzLWCX1iN6ZQ/zh-cn_image_0000002581436216.png?HW-CC-KV=V1&HW-CC-Date=20260528T024206Z&HW-CC-Expire=86400&HW-CC-Sign=0BC26A6FA08464A4F1AD54E332CC10198AB12AE266A53DE5BA1353BA797DE118)

@@ -14,6 +14,8 @@
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持与[CanvasRenderingContext2D对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-canvasrenderingcontext2d)相同的属性外，还支持如下属性：
   
 | 属性 | 类型 | 描述 |
@@ -84,11 +86,15 @@ export default {
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持与CanvasRenderingContext2D对象相同的方法外，还支持如下方法：
  
   
 
 ##### isPointInPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isPointInPath(path?: Path2D, x: number, y: number): boolean
  
@@ -173,6 +179,8 @@ export default {
 
 ##### isPointInStroke
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isPointInStroke(path?: Path2D, x: number, y: number): boolean
  
 判断指定点是否位于路径描边区域内。
@@ -256,6 +264,8 @@ export default {
 
 ##### resetTransform
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 resetTransform(): void
  
 重置当前变换矩阵为单位矩阵。
@@ -323,4 +333,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/FHmjd6AuTAencSMcTmOSfQ/zh-cn_image_0000002611836209.png?HW-CC-KV=V1&HW-CC-Date=20260528T013804Z&HW-CC-Expire=86400&HW-CC-Sign=F520655BB161C49120957C8511687FE96BA2D8A835C839385A84BBA1383C1253)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/FHmjd6AuTAencSMcTmOSfQ/zh-cn_image_0000002611836209.png?HW-CC-KV=V1&HW-CC-Date=20260528T024101Z&HW-CC-Expire=86400&HW-CC-Sign=ED9318F097BCA75FA947161A303FCDECB7D1FBCD8F5B980811E9063A550DA2BF)

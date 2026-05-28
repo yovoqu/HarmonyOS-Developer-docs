@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { startupManager }  from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { startupManager }  from '@kit.AbilityKit';
 
 
 ##### startupManager.run
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 run(startupTasks: Array&lt;string&gt;, config?: StartupConfig): Promise&lt;void&gt;
 
@@ -93,6 +97,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startupManager.run20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 run(startupTasks: Array&lt;string&gt;, context: common.AbilityStageContext, config: StartupConfig): Promise&lt;void&gt;
 
@@ -173,6 +179,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 ##### startupManager.removeAllStartupTaskResults
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeAllStartupTaskResults(): void
 
 删除所有启动任务结果。
@@ -221,6 +229,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startupManager.getStartupTaskResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStartupTaskResult(startupTask: string): Object
 
@@ -291,6 +301,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startupManager.isStartupTaskInitialized
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isStartupTaskInitialized(startupTask: string): boolean
 
@@ -372,6 +384,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startupManager.removeStartupTaskResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeStartupTaskResult(startupTask: string): void
 

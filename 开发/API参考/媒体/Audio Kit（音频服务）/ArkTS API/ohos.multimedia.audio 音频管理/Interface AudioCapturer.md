@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
 
@@ -42,6 +46,8 @@ let state: audio.AudioState = audioCapturer.state;
 
 
 ##### getCapturerInfo8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCapturerInfo(callback: AsyncCallback&lt;AudioCapturerInfo&gt;): void
 
@@ -75,6 +81,8 @@ audioCapturer.getCapturerInfo((err: BusinessError, capturerInfo: audio.AudioCapt
 
 
 ##### getCapturerInfo8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCapturerInfo(): Promise&lt;AudioCapturerInfo&gt;
 
@@ -112,6 +120,8 @@ audioCapturer.getCapturerInfo().then((audioParamsGet: audio.AudioCapturerInfo) =
 
 ##### getCapturerInfoSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCapturerInfoSync(): AudioCapturerInfo
 
 获取音频采集器信息。同步返回结果。
@@ -143,6 +153,8 @@ try {
 
 
 ##### getStreamInfo8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStreamInfo(callback: AsyncCallback&lt;AudioStreamInfo&gt;): void
 
@@ -179,6 +191,8 @@ audioCapturer.getStreamInfo((err: BusinessError, streamInfo: audio.AudioStreamIn
 
 ##### getStreamInfo8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStreamInfo(): Promise&lt;AudioStreamInfo&gt;
 
 获取音频采集器流信息。使用Promise异步回调。
@@ -211,6 +225,8 @@ audioCapturer.getStreamInfo().then((audioParamsGet: audio.AudioStreamInfo) => {
 
 
 ##### getStreamInfoSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStreamInfoSync(): AudioStreamInfo
 
@@ -246,6 +262,8 @@ try {
 
 ##### getAudioStreamId9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioStreamId(callback: AsyncCallback&lt;number&gt;): void
 
 获取音频流id。使用callback异步回调。
@@ -272,6 +290,8 @@ audioCapturer.getAudioStreamId((err: BusinessError, streamId: number) => {
 
 
 ##### getAudioStreamId9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioStreamId(): Promise&lt;number&gt;
 
@@ -301,6 +321,8 @@ audioCapturer.getAudioStreamId().then((streamId: number) => {
 
 
 ##### getAudioStreamIdSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioStreamIdSync(): number
 
@@ -333,6 +355,8 @@ try {
 
 ##### start8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(callback: AsyncCallback&lt;void&gt;): void
 
 启动音频采集器，开始获取音频数据。使用callback异步回调。
@@ -363,6 +387,8 @@ audioCapturer.start((err: BusinessError) => {
 
 
 ##### start8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(): Promise&lt;void&gt;
 
@@ -396,6 +422,8 @@ audioCapturer.start().then(() => {
 
 ##### stop8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(callback: AsyncCallback&lt;void&gt;): void
 
 停止音频采集器，停止输入音频流。使用callback异步回调。
@@ -426,6 +454,8 @@ audioCapturer.stop((err: BusinessError) => {
 
 
 ##### stop8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(): Promise&lt;void&gt;
 
@@ -459,6 +489,8 @@ audioCapturer.stop().then(() => {
 
 ##### release8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(callback: AsyncCallback&lt;void&gt;): void
 
 释放音频采集器。使用callback异步回调。
@@ -489,6 +521,8 @@ audioCapturer.release((err: BusinessError) => {
 
 
 ##### release8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(): Promise&lt;void&gt;
 
@@ -521,6 +555,8 @@ audioCapturer.release().then(() => {
 
 ##### getAudioTime8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioTime(callback: AsyncCallback&lt;number&gt;): void
 
 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒。使用callback异步回调。
@@ -547,6 +583,8 @@ audioCapturer.getAudioTime((err: BusinessError, timestamp: number) => {
 
 
 ##### getAudioTime8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioTime(): Promise&lt;number&gt;
 
@@ -576,6 +614,8 @@ audioCapturer.getAudioTime().then((timestamp: number) => {
 
 
 ##### getAudioTimeSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioTimeSync(): number
 
@@ -607,6 +647,8 @@ try {
 
 
 ##### getAudioTimestampInfo19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioTimestampInfo(): Promise&lt;AudioTimestampInfo&gt;
 
@@ -648,6 +690,8 @@ audioCapturer.getAudioTimestampInfo().then((audioTimestampInfo: audio.AudioTimes
 
 ##### getAudioTimestampInfoSync19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioTimestampInfoSync(): AudioTimestampInfo
 
 获取音频流时间戳和当前数据帧位置信息。同步返回结果。
@@ -688,6 +732,8 @@ try {
 
 ##### getBufferSize8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBufferSize(callback: AsyncCallback&lt;number&gt;): void
 
 获取采集器合理的最小缓冲区大小。使用callback异步回调。
@@ -719,6 +765,8 @@ audioCapturer.getBufferSize((err: BusinessError, bufferSize: number) => {
 
 ##### getBufferSize8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBufferSize(): Promise&lt;number&gt;
 
 获取采集器合理的最小缓冲区大小。使用Promise异步回调。
@@ -747,6 +795,8 @@ audioCapturer.getBufferSize().then((bufferSize: number) => {
 
 
 ##### getBufferSizeSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBufferSizeSync(): number
 
@@ -778,6 +828,8 @@ try {
 
 
 ##### getCurrentInputDevices11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentInputDevices(): AudioDeviceDescriptors
 
@@ -812,6 +864,8 @@ if (deviceDescriptors[0].encodingTypes) {
 
 
 ##### getCurrentAudioCapturerChangeInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentAudioCapturerChangeInfo(): AudioCapturerChangeInfo
 
@@ -849,6 +903,8 @@ if (info.deviceDescriptors[0].encodingTypes) {
 
 
 ##### on('audioInterrupt')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'audioInterrupt', callback: Callback&lt;InterruptEvent&gt;): void
 
@@ -928,6 +984,8 @@ audioCapturer.on('audioInterrupt', (interruptEvent: audio.InterruptEvent) => {
 
 ##### off('audioInterrupt')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'audioInterrupt'): void
 
 取消监听音频中断事件。
@@ -960,6 +1018,8 @@ audioCapturer.off('audioInterrupt');
 
 
 ##### on('inputDeviceChange')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'inputDeviceChange', callback: Callback&lt;AudioDeviceDescriptors&gt;): void
 
@@ -998,6 +1058,8 @@ audioCapturer.on('inputDeviceChange', (deviceChangeInfo: audio.AudioDeviceDescri
 
 
 ##### off('inputDeviceChange')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'inputDeviceChange', callback?: Callback&lt;AudioDeviceDescriptors&gt;): void
 
@@ -1045,6 +1107,8 @@ audioCapturer.off('inputDeviceChange', inputDeviceChangeCallback);
 
 ##### on('audioCapturerChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'audioCapturerChange', callback: Callback&lt;AudioCapturerChangeInfo&gt;): void
 
 监听录音流配置变化事件（当音频录制流状态变化、设备变化时触发）。使用callback异步回调。订阅内部是异步实现，是非精确回调，在录音流配置变化的同时注册回调，收到的返回结果存在变化可能性。
@@ -1080,6 +1144,8 @@ audioCapturer.on('audioCapturerChange', (capturerChangeInfo: audio.AudioCapturer
 
 
 ##### off('audioCapturerChange')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'audioCapturerChange', callback?: Callback&lt;AudioCapturerChangeInfo&gt;): void
 
@@ -1125,6 +1191,8 @@ audioCapturer.off('audioCapturerChange', audioCapturerChangeCallback);
 
 ##### on('markReach')8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'markReach', frame: number, callback: Callback&lt;number&gt;): void
 
 监听标记到达事件（当采集的帧数达到frame参数的值时触发，仅调用一次）。使用callback异步回调。
@@ -1155,6 +1223,8 @@ audioCapturer.on('markReach', 1000, (position: number) => {
 
 
 ##### off('markReach')8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'markReach', callback?: Callback&lt;number&gt;): void
 
@@ -1192,6 +1262,8 @@ audioCapturer.off('markReach', markReachCallback);
 
 ##### on('periodReach')8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'periodReach', frame: number, callback: Callback&lt;number&gt;): void
 
 监听标记到达事件（当采集的帧数达到frame参数的值时触发，即按周期上报信息）。使用callback异步回调。
@@ -1222,6 +1294,8 @@ audioCapturer.on('periodReach', 1000, (position: number) => {
 
 
 ##### off('periodReach')8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'periodReach', callback?: Callback&lt;number&gt;): void
 
@@ -1259,6 +1333,8 @@ audioCapturer.off('periodReach', periodReachCallback);
 
 ##### on('stateChange')8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'stateChange', callback: Callback&lt;AudioState&gt;): void
 
 监听状态变化事件（当AudioCapturer状态发生变化时触发）。使用callback异步回调。
@@ -1289,6 +1365,8 @@ audioCapturer.on('stateChange', (state: audio.AudioState) => {
 
 
 ##### off('stateChange')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'stateChange', callback?: Callback&lt;AudioState&gt;): void
 
@@ -1337,6 +1415,8 @@ audioCapturer.off('stateChange', stateChangeCallback);
 
 
 ##### on('readData')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'readData', callback: Callback&lt;ArrayBuffer&gt;): void
 
@@ -1408,6 +1488,8 @@ audioCapturer.start((err: BusinessError) => {
 
 ##### off('readData')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'readData', callback?: Callback&lt;ArrayBuffer&gt;): void
 
 取消监听音频数据读取回调事件。使用callback异步回调。
@@ -1452,6 +1534,8 @@ audioCapturer.off('readData', readDataCallback);
 
 ##### getOverflowCount12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOverflowCount(): Promise&lt;number&gt;
 
 获取当前录制音频流的过载音频帧数量。使用Promise异步回调。
@@ -1480,6 +1564,8 @@ audioCapturer.getOverflowCount().then((value: number) => {
 
 
 ##### getOverflowCountSync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOverflowCountSync(): number
 
@@ -1511,6 +1597,8 @@ try {
 
 
 ##### setWillMuteWhenInterrupted20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise&lt;void&gt;
 
@@ -1556,6 +1644,8 @@ audioCapturer.setWillMuteWhenInterrupted(true).then(() => {
 
 
 ##### setMuteHint24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMuteHint(mute: boolean): Promise&lt;void&gt;
 
@@ -1608,6 +1698,8 @@ audioCapturer.setMuteHint(true).then(() => {
 
 ##### read(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 read(size: number, isBlockingRead: boolean, callback: AsyncCallback&lt;ArrayBuffer&gt;): void
 
 读入缓冲区。使用callback异步回调。
@@ -1649,6 +1741,8 @@ audioCapturer.getBufferSize().then((bufferSize: number) => {
 
 
 ##### read(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 read(size: number, isBlockingRead: boolean): Promise&lt;ArrayBuffer&gt;
 
@@ -1695,6 +1789,8 @@ audioCapturer.getBufferSize().then((bufferSize: number) => {
 
 
 ##### setIndependentAudioSessionStrategy24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: number): void
 

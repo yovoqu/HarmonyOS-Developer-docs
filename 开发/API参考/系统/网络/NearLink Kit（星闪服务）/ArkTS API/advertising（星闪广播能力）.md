@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { advertising } from '@kit.NearLinkKit';
 ```
@@ -19,6 +21,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 ##### AdvertisingParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示发送广播携带的参数。
 
@@ -36,6 +40,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 ##### AdvertisingSettings
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示广播配置参数。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -52,6 +58,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 ##### AdvertisingData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示广播数据包。
 
@@ -71,6 +79,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 ##### ManufacturerData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示厂商数据。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -86,6 +96,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 ##### ServiceData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示服务相关数据。
 
@@ -103,6 +115,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 ##### AdvertisingStateChangeInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示广播启停状态变化信息。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -118,6 +132,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 ##### TxPowerMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示广播发送模式，为枚举值。
 
@@ -136,6 +152,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 ##### AdvertisingState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示广播状态，为枚举值。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -151,6 +169,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 
 ##### startAdvertising
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
 
@@ -243,6 +263,8 @@ try {
 
 ##### stopAdvertising
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopAdvertising(advertisingId: number): Promise&lt;void&gt;
 
 停止发送星闪广播。使用Promise异步回调。
@@ -300,6 +322,8 @@ try {
 
 ##### on( 'advertisingStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeInfo&gt;): void
 
 订阅星闪广播状态变化事件。使用callback异步回调。
@@ -349,6 +373,8 @@ try {
 
 
 ##### off( 'advertisingStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChangeInfo&gt;): void
 

@@ -14,6 +14,8 @@
 
 ##### addPath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addPath(path: Object): void
  
 将另一个路径添加到当前的路径对象中。
@@ -55,6 +57,8 @@ export default {
   
 
 ##### setTransform
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTransform(scaleX: number, skewX: number, skewY: number, scaleY: number, translateX: number, translateY: number): void
  
@@ -102,6 +106,8 @@ export default {
 
 ##### closePath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closePath(): void
  
 将路径的当前点移回到路径的起点，当前点到起点间画一条直线。如果形状已经闭合或只有一个点，则此功能不执行任何操作。
@@ -138,6 +144,8 @@ export default {
   
 
 ##### moveTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveTo(x: number, y: number): void
  
@@ -184,6 +192,8 @@ export default {
 
 ##### lineTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lineTo(x: number, y: number): void
  
 从当前点绘制一条直线到目标点。
@@ -229,6 +239,8 @@ export default {
   
 
 ##### bezierCurveTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
  
@@ -277,6 +289,8 @@ export default {
 
 ##### quadraticCurveTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
  
 创建二次贝塞尔曲线的路径。
@@ -321,6 +335,8 @@ export default {
   
 
 ##### arc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
  
@@ -368,6 +384,8 @@ export default {
 
 ##### arcTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void
  
 依据圆弧经过的点和圆弧半径创建圆弧路径。
@@ -412,6 +430,8 @@ export default {
   
 
 ##### ellipse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, counterclockwise?: number): void
  
@@ -461,6 +481,8 @@ export default {
 
 ##### rect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rect(x: number, y: number, width: number, height: number): void
  
 创建矩形路径。
@@ -498,4 +520,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/hORaokO7RUqQxk2oApfrEA/zh-cn_image_0000002611836207.png?HW-CC-KV=V1&HW-CC-Date=20260528T013804Z&HW-CC-Expire=86400&HW-CC-Sign=55E09EB6576698B29DBC116A493C57F0720D3CC378BB587220B621B5278D303A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/hORaokO7RUqQxk2oApfrEA/zh-cn_image_0000002611836207.png?HW-CC-KV=V1&HW-CC-Date=20260528T024100Z&HW-CC-Expire=86400&HW-CC-Sign=0110C28D771834F0D1755D18B73365FF809CE8114800EC4CB83446B2DCE42D05)

@@ -14,6 +14,8 @@
 
 ##### BundleInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager-BundleInfo 替代。
 
@@ -51,6 +53,8 @@
 
 ##### ReqPermissionDetail(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 ReqPermissionDetail 替代。
 
@@ -69,6 +73,8 @@
   
 
 ##### UsedScene(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 UsedScene 替代。

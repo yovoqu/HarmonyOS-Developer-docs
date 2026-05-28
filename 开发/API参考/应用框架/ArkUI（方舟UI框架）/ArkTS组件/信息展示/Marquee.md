@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Marquee(options: MarqueeOptions)
 
@@ -40,6 +44,8 @@ Marquee(options: MarqueeOptions)
 
 
 ##### MarqueeOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Marquee初始化参数。
 
@@ -64,11 +70,15 @@ Marquee初始化参数。
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### fontColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontColor(value: ResourceColor)
 
@@ -91,6 +101,8 @@ fontColor(value: ResourceColor)
 
 ##### fontSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontSize(value: Length)
 
 设置字体大小。
@@ -111,6 +123,8 @@ fontSize(value: Length)
 
 
 ##### fontWeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontWeight(value: number | FontWeight | string)
 
@@ -133,6 +147,8 @@ fontWeight(value: number | FontWeight | string)
 
 ##### fontFamily
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontFamily(value: string | Resource)
 
 设置字体列表。
@@ -153,6 +169,8 @@ fontFamily(value: string | Resource)
 
 
 ##### allowScale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 allowScale(value: boolean)
 
@@ -175,6 +193,8 @@ allowScale(value: boolean)
 
 ##### marqueeUpdateStrategy12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 marqueeUpdateStrategy(value: MarqueeUpdateStrategy)
 
 跑马灯组件属性更新后，跑马灯的滚动策略。(当跑马灯为播放状态，且文本内容宽度超过跑马灯组件宽度时，该属性生效。)
@@ -194,9 +214,13 @@ marqueeUpdateStrategy(value: MarqueeUpdateStrategy)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### onStart
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onStart(event: () => void)
 
@@ -219,6 +243,8 @@ onStart(event: () => void)
 
 ##### onBounce
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onBounce(event: () => void)
 
 完成一次滚动时触发，若循环次数不为1，则该事件会多次触发。
@@ -240,6 +266,8 @@ onBounce(event: () => void)
 
 ##### onFinish
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onFinish(event: () => void)
 
 滚动全部循环次数完成时触发回调。
@@ -260,6 +288,8 @@ onFinish(event: () => void)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例通过设置[MarqueeOptions](#marqueeoptions18对象说明)的start、step、loop、fromStart、src、spacing、delay属性和[marqueeUpdateStrategy](#marqueeupdatestrategy12)展示了跑马灯内容动态更新时运行的效果。
 
@@ -344,4 +374,4 @@ struct MarqueeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/4zCtYjbURb6-x8u6Ou_9lg/zh-cn_image_0000002611835875.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013927Z&HW-CC-Expire=86400&HW-CC-Sign=35DF31814523F9AD593EE294EF22AECAD925F70B242C9B7433ACF9707DB6D528)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/4zCtYjbURb6-x8u6Ou_9lg/zh-cn_image_0000002611835875.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=12D7B0158E40D421E53E0271006E9AEE51FB0BAC8F6365DC0D442BEA17AFBCFC)

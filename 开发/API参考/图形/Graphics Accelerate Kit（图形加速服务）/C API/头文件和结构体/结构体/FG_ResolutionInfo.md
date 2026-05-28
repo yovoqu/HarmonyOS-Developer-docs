@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述超帧输入输出图像的分辨率。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### inputColorResolution
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_Dimension2D FG_ResolutionInfo::inputColorResolution
@@ -50,6 +60,8 @@ FG_Dimension2D FG_ResolutionInfo::inputColorResolution
 
 ##### inputDepthStencilResolution
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_Dimension2D FG_ResolutionInfo::inputDepthStencilResolution
 ```
@@ -61,6 +73,8 @@ FG_Dimension2D FG_ResolutionInfo::inputDepthStencilResolution
   
 
 ##### outputColorResolution
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_Dimension2D FG_ResolutionInfo::outputColorResolution

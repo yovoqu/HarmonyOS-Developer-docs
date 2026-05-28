@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { restrictions } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { restrictions } from '@kit.MDMKit';
 
 
 ##### restrictions.setDisallowedPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void
 
@@ -127,6 +131,8 @@ try {
 
 
 ##### restrictions.getDisallowedPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedPolicy(admin: Want | null, feature: string): boolean
 
@@ -237,6 +243,8 @@ try {
 
 ##### restrictions.setDisallowedPolicyForAccount14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setDisallowedPolicyForAccount(admin: Want, feature: string, disallow: boolean, accountId: number): void
 
 设置禁用/启用指定用户的某特性。
@@ -295,6 +303,8 @@ try {
 
 
 ##### restrictions.getDisallowedPolicyForAccount14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedPolicyForAccount(admin: Want | null, feature: string, accountId: number): boolean
 
@@ -358,6 +368,8 @@ try {
 
 ##### restrictions.addDisallowedListForAccount14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 addDisallowedListForAccount(admin: Want, feature: string, list: Array&lt;string&gt;, accountId: number): void
 
 为指定用户添加禁止使用某特性的应用名单。指定用户下，添加到名单中的应用不允许使用指定的特性能力。
@@ -418,6 +430,8 @@ try {
 
 ##### restrictions.removeDisallowedListForAccount14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDisallowedListForAccount(admin: Want, feature: string, list: Array&lt;string&gt;, accountId: number): void
 
 为指定用户移除禁止使用某特性的应用名单。
@@ -477,6 +491,8 @@ try {
 
 
 ##### restrictions.getDisallowedListForAccount14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedListForAccount(admin: Want, feature: string, accountId: number): Array&lt;string&gt;
 
@@ -541,6 +557,8 @@ try {
 
 ##### restrictions.setUserRestriction20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setUserRestriction(admin: Want, settingsItem: string, restricted: boolean): void
 
 设置用户行为的限制规则。
@@ -597,6 +615,8 @@ try {
 
 
 ##### restrictions.getUserRestricted20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getUserRestricted(admin: Want, settingsItem: string): boolean
 
@@ -659,6 +679,8 @@ try {
 
 ##### restrictions.setUserRestrictionForAccount23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setUserRestrictionForAccount(admin: Want, settingsItem: string, accountId: number, restricted: boolean): void
 
 设置指定用户行为的限制规则。
@@ -718,6 +740,8 @@ try {
 
 
 ##### restrictions.getUserRestrictedForAccount23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getUserRestrictedForAccount(admin: Want | null, settingsItem: string, accountId: number): boolean
 
@@ -784,6 +808,8 @@ try {
 
 ##### restrictions.setDisallowedPolicy24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean): void
 
 设置禁用/启用指定设备特性，禁用后相关设备特性无法被使用。
@@ -842,6 +868,8 @@ try {
 
 
 ##### restrictions.getDisallowedPolicy24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice): boolean
 
@@ -903,6 +931,8 @@ try {
 
 
 ##### FeatureForDevice24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 设备特性枚举。
 

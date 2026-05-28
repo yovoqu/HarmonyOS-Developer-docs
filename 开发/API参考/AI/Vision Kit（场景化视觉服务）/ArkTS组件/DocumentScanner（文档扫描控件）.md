@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, ShootingMode, EditTab, DocumentScannerResultCallback } from '@kit.VisionKit';
 ```
@@ -19,6 +21,8 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
   
 
 ##### DocumentScanner
+
+**支持设备：** Phone | Tablet
 
 文档扫描控件，集成此控件可以实现文档扫描。
  
@@ -41,6 +45,8 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
   
 
 ##### DocumentScannerConfig
+
+**支持设备：** Phone | Tablet
 
 文档扫描配置项。
  
@@ -67,6 +73,8 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
 
 ##### DocType
 
+**支持设备：** Phone | Tablet
+
 支持识别的文件类型枚举。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -84,6 +92,8 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
   
 
 ##### FilterId
+
+**支持设备：** Phone | Tablet
 
 给图片添加的滤镜枚举。
  
@@ -104,6 +114,8 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
 
 ##### ShootingMode
 
+**支持设备：** Phone | Tablet
+
 拍照模式枚举。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -121,6 +133,8 @@ import { DocType, DocumentScanner, DocumentScannerConfig, SaveOption, FilterId, 
   
 
 ##### EditTab
+
+**支持设备：** Phone | Tablet
 
 Tab栏按钮枚举。
  
@@ -141,6 +155,8 @@ Tab栏按钮枚举。
 
 ##### SaveOption
 
+**支持设备：** Phone | Tablet
+
 保存选项枚举。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -159,6 +175,8 @@ Tab栏按钮枚举。
   
 
 ##### DocumentScannerResultCallback
+
+**支持设备：** Phone | Tablet
 
 type DocumentScannerResultCallback = (code: number, saveType: SaveOption, uris: string[]) => void
  

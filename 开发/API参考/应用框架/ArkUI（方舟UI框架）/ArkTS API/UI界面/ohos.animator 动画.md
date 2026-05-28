@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Animator as animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOptions } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { Animator as animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOp
 
 
 ##### Animator
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义Animator类。
 
@@ -31,6 +35,8 @@ import { Animator as animator, AnimatorOptions, AnimatorResult, SimpleAnimatorOp
 
 
 ##### create(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(options: AnimatorOptions): AnimatorResult
 
@@ -95,6 +101,8 @@ animator.create(options); // 建议使用 UIContext.createAnimator()接口
 
 ##### create18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult
 
 创建animator动画结果对象（AnimatorResult）。与[create](#createdeprecated)相比，新增对[SimpleAnimatorOptions](#simpleanimatoroptions18)类型入参的支持。
@@ -143,6 +151,8 @@ animator.create(options);// 建议使用 UIContext.createAnimator()接口
 
 
 ##### createAnimator(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAnimator(options: AnimatorOptions): AnimatorResult
 
@@ -193,11 +203,15 @@ this.animator = animator.createAnimator(options);
 
 ##### AnimatorResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义Animator结果接口。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -216,6 +230,8 @@ this.animator = animator.createAnimator(options);
 
 
 ##### reset9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reset(options: AnimatorOptions): void
 
@@ -285,6 +301,8 @@ struct AnimatorTest {
 
 ##### reset18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset(options: AnimatorOptions | SimpleAnimatorOptions): void
 
 重置当前animator动画参数。与[reset](#reset9)相比，新增对[SimpleAnimatorOptions](#simpleanimatoroptions18)类型入参的支持。
@@ -339,6 +357,8 @@ animatorResult.reset(optionsNew);
 
 ##### play
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 play(): void
 
 启动动画。动画会保留上一次的播放状态，比如播放状态设置reverse后，再次播放会保留reverse的播放状态。
@@ -358,6 +378,8 @@ animator.play();
 
 
 ##### finish
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 finish(): void
 
@@ -379,6 +401,8 @@ animator.finish();
 
 ##### pause
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pause(): void
 
 暂停动画。
@@ -398,6 +422,8 @@ animator.pause();
 
 
 ##### cancel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancel(): void
 
@@ -419,6 +445,8 @@ animator.cancel();
 
 ##### reverse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reverse(): void
 
 以相反的顺序播放动画。使用interpolating-spring曲线时此接口无效。
@@ -438,6 +466,8 @@ animator.reverse();
 
 
 ##### setExpectedFrameRateRange12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void
 
@@ -498,6 +528,8 @@ struct AnimatorTest {
 
 ##### update(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 update(options: AnimatorOptions): void
 
 更新当前动画器。
@@ -526,6 +558,8 @@ animator.update(options);
 
 
 ##### AnimatorOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义动画选项。
 
@@ -575,11 +609,15 @@ animator.update(options);
 
 ##### SimpleAnimatorOptions18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 animator简易动画参数对象。与AnimatorOptions相比，部分动画参数有默认值，可不设置。
 
 
 
 ##### constructor18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(begin: number, end: number)
 
@@ -623,6 +661,8 @@ struct AnimatorTest {
 
 
 ##### duration18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 duration(duration: number): SimpleAnimatorOptions
 
@@ -673,6 +713,8 @@ struct AnimatorTest {
 
 ##### easing18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 easing(curve: string): SimpleAnimatorOptions
 
 设置animator动画插值曲线。
@@ -721,6 +763,8 @@ struct AnimatorTest {
 
 
 ##### delay18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 delay(delay: number): SimpleAnimatorOptions
 
@@ -771,6 +815,8 @@ struct AnimatorTest {
 
 ##### fill18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fill(fillMode: [FillMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#fillmode)): SimpleAnimatorOptions
 
 设置animator动画填充方式。
@@ -819,6 +865,8 @@ struct AnimatorTest {
 
 
 ##### direction18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 direction(direction: [PlayMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#playmode)): SimpleAnimatorOptions
 
@@ -869,6 +917,8 @@ struct AnimatorTest {
 
 ##### iterations18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 iterations(iterations: number): SimpleAnimatorOptions
 
 设置animator动画播放次数。
@@ -917,6 +967,8 @@ struct AnimatorTest {
 
 
 ##### 完整示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -1013,7 +1065,7 @@ class DateT {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/MbcCwd2jSvatZEhoHZXK5w/zh-cn_image_0000002611835355.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013818Z&HW-CC-Expire=86400&HW-CC-Sign=BD62564D11E094BD73F4F61AD9DFF4EDA3EF59C75C5F2C64B4D41EC185A1CEEA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/MbcCwd2jSvatZEhoHZXK5w/zh-cn_image_0000002611835355.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=ECA81E1B695571CF911C136D678050FDADD0C9A045DF379CAE6A2EEF486F8052)
 
 
 
@@ -1189,7 +1241,7 @@ struct AnimatorTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HT8pOGuTXiRECBF7VTedw/zh-cn_image_0000002581275606.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013818Z&HW-CC-Expire=86400&HW-CC-Sign=7DB027CF1FAB301583608E6179D7FD552C9D7DB0F1EA943DABB401C8B013CC5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HT8pOGuTXiRECBF7VTedw/zh-cn_image_0000002581275606.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=FBF2F7CCB7ED3B05DD23FB409B833B299159B55310AE2AAFC371099D58D42559)
 
 
 
@@ -1294,4 +1346,4 @@ struct AnimatorTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/Wt9FnNJnSTuXTNR3alvnNQ/zh-cn_image_0000002611755463.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013818Z&HW-CC-Expire=86400&HW-CC-Sign=BD3860F0968294C28951E7547A62CEE33B8CF0395F0E542351563C69E0AEF58E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/Wt9FnNJnSTuXTNR3alvnNQ/zh-cn_image_0000002611755463.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=A559CC5A6AAC9E0885D332AA7C0CCF9184A7B4F4BF4A150C959232D5A68B4C78)

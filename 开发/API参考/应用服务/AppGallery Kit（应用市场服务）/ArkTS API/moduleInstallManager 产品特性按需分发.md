@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { moduleInstallManager } from '@kit.AppGalleryKit';
 ```
@@ -23,6 +25,8 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
   
 
 ##### InstalledModule
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 当前模块的安装信息。
  
@@ -42,6 +46,8 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
   
 
 ##### ModuleInstallSessionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 请求、监听/注销监听接口，接口调用结果。
  
@@ -66,6 +72,8 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
 
 ##### InstallStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 安装结果状态码类型的枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -84,6 +92,8 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
 
 ##### ReturnCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 添加模块、取消下载、流量提醒弹窗接口，接口调用结果码类型的枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -101,6 +111,8 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
   
 
 ##### RequestErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 请求、监听/注销监听接口，接口调用结果码类型的枚举。
  
@@ -129,6 +141,8 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
   
 
 ##### TaskStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 请求、监听/注销监听接口，接口返回下载任务状态码类型的枚举。
  
@@ -160,6 +174,8 @@ import { moduleInstallManager } from '@kit.AppGalleryKit';
   
 
 ##### moduleInstallManager.getInstalledModule
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getInstalledModule(moduleName: string): InstalledModule
  
@@ -232,6 +248,8 @@ struct LoadInstallService {
 
 ##### InstallProvider
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 按需加载controller父类对象。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -243,6 +261,8 @@ struct LoadInstallService {
   
 
 ##### InstallRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 按需加载请求父类对象。
  
@@ -256,6 +276,8 @@ struct LoadInstallService {
 
 ##### ModuleInstallProvider
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 实现按需加载的方法，提供创建按需加载请求对象能力，继承[InstallProvider](#installprovider)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -267,6 +289,8 @@ struct LoadInstallService {
   
 
 ##### ModuleInstallProvider.createModuleInstallRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 createModuleInstallRequest(context: common.UIAbilityContext | common.ExtensionContext): ModuleInstallRequest
  
@@ -343,6 +367,8 @@ struct CreateModuleInstallRequest {
 
 ##### ModuleInstallRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 按需下载请求对象，继承[InstallRequest](#installrequest)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -354,6 +380,8 @@ struct CreateModuleInstallRequest {
   
 
 ##### ModuleInstallRequest.addModule
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 addModule(moduleName: string): ReturnCode
  
@@ -432,6 +460,8 @@ struct AddModule {
   
 
 ##### moduleInstallManager.fetchModules
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 fetchModules(moduleInstallRequest: ModuleInstallRequest): Promise&lt;ModuleInstallSessionState&gt;
  
@@ -519,6 +549,8 @@ struct FetchModules {
 
 ##### moduleInstallManager.cancelTask
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 cancelTask(taskId: string): ReturnCode
  
 取消下载任务接口。
@@ -575,6 +607,8 @@ try {
   
 
 ##### moduleInstallManager.showCellularDataConfirmation
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 showCellularDataConfirmation(context: common.UIAbilityContext | common.ExtensionContext,taskId: string): ReturnCode
  
@@ -655,6 +689,8 @@ struct ShowCellularDataConfirmation {
 
 ##### moduleInstallManager.on('moduleInstallStatus')
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 on(type: 'moduleInstallStatus', callback: Callback&lt;ModuleInstallSessionState&gt;, timeout: number): void
  
 监听当前应用下载任务的进度，不支持多线程调用。加载模块时，通过回调函数通知调用者。安装成功且是调试模式时，会删除安装成功模块路径下的调试文件。
@@ -705,6 +741,8 @@ try {
   
 
 ##### moduleInstallManager.off('moduleInstallStatus')
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'moduleInstallStatus', callback?: Callback&lt;ModuleInstallSessionState&gt;): void
  

@@ -30,6 +30,8 @@ keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState
 
 ##### KeyframeAnimateParam对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 动画选项设置。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -45,6 +47,8 @@ keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState
   
 
 ##### KeyframeState对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置关键帧选项。
  
@@ -62,6 +66,8 @@ keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例主要演示如何通过keyframeAnimateTo来设置关键帧动画。
  
@@ -124,4 +130,4 @@ struct KeyframeDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/6tRMFr3qTB-ha5eizTBUGg/zh-cn_image_0000002611835991.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=0CAF07A6ACA7CD6A2A4F51D24ACA585C6442C0B7468EAFCF6A01F20768B6FAA3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/6tRMFr3qTB-ha5eizTBUGg/zh-cn_image_0000002611835991.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=9D3B486F7BB1C757743CF524D58ABC9D5942C3515561EB467D21CFF369A9FCE3)

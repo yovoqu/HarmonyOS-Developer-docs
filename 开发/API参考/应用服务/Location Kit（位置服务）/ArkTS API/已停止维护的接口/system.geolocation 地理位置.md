@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Wearable | lite_wearable
+
 ```text
 import geolocation from '@system.geolocation';
 ```
@@ -22,11 +24,15 @@ import geolocation from '@system.geolocation';
 
 ##### 权限列表
 
+**支持设备：** Wearable | lite_wearable
+
 ohos.permission.LOCATION
  
   
 
 ##### geolocation.getLocation(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 getLocation(options?: GetLocationOption): void
  
@@ -103,6 +109,8 @@ export default {
 
 ##### geolocation.getLocationType(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 getLocationType(options?: GetLocationTypeOption): void
  
 获取当前设备支持的定位类型。
@@ -175,6 +183,8 @@ export default {
   
 
 ##### geolocation.subscribe(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 subscribe(options: SubscribeLocationOption): void
  
@@ -251,6 +261,8 @@ export default {
 
 ##### geolocation.unsubscribe(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 unsubscribe(): void
  
 取消订阅设备的地理位置信息。
@@ -311,6 +323,8 @@ export default {
   
 
 ##### geolocation.getSupportedCoordTypes(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 getSupportedCoordTypes(): Array&lt;string&gt;
  
@@ -379,6 +393,8 @@ export default {
 
 ##### GetLocationOption(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 单次定位请求的配置参数。
  
 > [!NOTE]
@@ -413,6 +429,8 @@ fail返回错误代码：
 
 ##### GeolocationResponse(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 位置信息，包含经度、纬度、定位精度等信息。
  
 > [!NOTE]
@@ -434,6 +452,8 @@ fail返回错误代码：
 
 ##### GetLocationTypeOption(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 查询定位类型接口的入参，用于存放回调函数，在查询成功或者失败时接收查询结果。
  
 > [!NOTE]
@@ -453,6 +473,8 @@ fail返回错误代码：
 
 ##### GetLocationTypeResponse(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 当前设备支持的定位类型列表
  
 > [!NOTE]
@@ -469,6 +491,8 @@ fail返回错误代码：
   
 
 ##### SubscribeLocationOption(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 持续定位请求的配置参数。
  

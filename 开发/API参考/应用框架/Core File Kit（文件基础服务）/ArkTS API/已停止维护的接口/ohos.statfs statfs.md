@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import statfs from '@ohos.statfs';
 ```
@@ -21,6 +23,8 @@ import statfs from '@ohos.statfs';
   
 
 ##### Statfs.getFreeBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFreeBytes(path:string):Promise&lt;number&gt;
  
@@ -58,6 +62,8 @@ statfs.getFreeBytes(path).then((number: number) => {
 
 ##### Statfs.getFreeBytes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFreeBytes(path:string, callback:AsyncCallback&lt;number&gt;): void
  
 异步方法获取指定文件系统空闲字节数，使用callback形式返回结果。
@@ -91,6 +97,8 @@ statfs.getFreeBytes(path, (err: BusinessError, freeBytes:Number) => {
   
 
 ##### Statfs.getTotalBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTotalBytes(path: string): Promise&lt;number&gt;
  
@@ -127,6 +135,8 @@ statfs.getTotalBytes(path).then((number: number) => {
   
 
 ##### Statfs.getTotalBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTotalBytes(path: string, callback: AsyncCallback&lt;number&gt;): void
  

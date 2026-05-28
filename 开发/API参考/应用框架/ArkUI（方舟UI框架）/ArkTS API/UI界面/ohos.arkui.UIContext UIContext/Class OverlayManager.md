@@ -14,6 +14,8 @@
 
 ##### addComponentContent12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addComponentContent(content: ComponentContent, index?: number): void
  
 在OverlayManager上新增指定节点。
@@ -132,6 +134,8 @@ struct OverlayExample {
 
 ##### addComponentContentWithOrder18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addComponentContentWithOrder(content: ComponentContent, levelOrder?: LevelOrder): void
  
 创建浮层节点时，指定显示顺序。
@@ -232,12 +236,14 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/un-YRfHgRzabzu9l9XdUYw/zh-cn_image_0000002581275620.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013822Z&HW-CC-Expire=86400&HW-CC-Sign=6513A069A5C592301D9781CE83DA1D51C0383FE6ED135456F2BFC82A2F546A3A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/un-YRfHgRzabzu9l9XdUYw/zh-cn_image_0000002581275620.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=E89B01EA5BE72CA583B7457F3BFF28B9035C0084D00BFAC6E4E87CF9B927A487)
 
  
   
 
 ##### removeComponentContent12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeComponentContent(content: ComponentContent): void
  
@@ -262,6 +268,8 @@ removeComponentContent(content: ComponentContent): void
 
 ##### showComponentContent12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showComponentContent(content: ComponentContent): void
  
 在OverlayManager上显示指定节点。
@@ -284,6 +292,8 @@ showComponentContent(content: ComponentContent): void
   
 
 ##### hideComponentContent12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hideComponentContent(content: ComponentContent): void
  
@@ -308,6 +318,8 @@ hideComponentContent(content: ComponentContent): void
 
 ##### showAllComponentContents12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showAllComponentContents(): void
  
 显示OverlayManager上所有的ComponentContent。
@@ -323,6 +335,8 @@ showAllComponentContents(): void
   
 
 ##### hideAllComponentContents12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hideAllComponentContents(): void
  

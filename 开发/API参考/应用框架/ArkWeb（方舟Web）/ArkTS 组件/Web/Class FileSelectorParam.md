@@ -14,6 +14,8 @@ Web组件获取文件对象。示例代码参考[onShowFileSelector](https://dev
 
 ##### constructor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
 
 FileSelectorParam的构造函数。
@@ -23,6 +25,8 @@ FileSelectorParam的构造函数。
 
 
 ##### getTitle9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTitle(): string
 
@@ -41,6 +45,8 @@ getTitle(): string
 
 ##### getMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMode(): FileSelectorMode
 
 获取文件选择器的模式。
@@ -57,6 +63,8 @@ getMode(): FileSelectorMode
 
 
 ##### getAcceptType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAcceptType(): Array&lt;string&gt;
 
@@ -75,6 +83,8 @@ getAcceptType(): Array&lt;string&gt;
 
 ##### isCapture9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isCapture(): boolean
 
 获取是否调用多媒体能力。
@@ -91,6 +101,8 @@ isCapture(): boolean
 
 
 ##### getMimeTypes18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMimeTypes(): Array&lt;string&gt;
 
@@ -109,6 +121,8 @@ getMimeTypes(): Array&lt;string&gt;
 
 ##### getSuggestedName23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSuggestedName(): string
 
 获取建议选择的文件名。对应HTML里[option](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-file-upload#自定义处理js接口拉起的文件请求)中的suggestedName。
@@ -125,6 +139,8 @@ getSuggestedName(): string
 
 
 ##### getDefaultPath23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDefaultPath(): string
 
@@ -143,6 +159,8 @@ getDefaultPath(): string
 
 ##### getDescriptions23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDescriptions(): Array&lt;string&gt;
 
 获取各组文件类型的描述。为允许的文件类型类别的可选描述。对应HTML里[option](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-file-upload#自定义处理js接口拉起的文件请求)中的description。
@@ -160,6 +178,8 @@ getDescriptions(): Array&lt;string&gt;
 
 ##### isAcceptAllOptionExcluded23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isAcceptAllOptionExcluded(): boolean
 
 获取文件选择器是否包含选项（*/*），即所有文件。对应HTML里[option](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-file-upload#自定义处理js接口拉起的文件请求)中的excludeAcceptAllOption。
@@ -176,6 +196,8 @@ isAcceptAllOptionExcluded(): boolean
 
 
 ##### getAcceptableFileTypes23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAcceptableFileTypes(): Array<Array&lt;AcceptableFileType&gt;>
 

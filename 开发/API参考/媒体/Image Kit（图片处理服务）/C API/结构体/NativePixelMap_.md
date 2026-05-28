@@ -12,6 +12,8 @@ typedef struct NativePixelMap_ NativePixelMap
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义native层PixelMap数据类型名称。
  
 **起始版本：** 10

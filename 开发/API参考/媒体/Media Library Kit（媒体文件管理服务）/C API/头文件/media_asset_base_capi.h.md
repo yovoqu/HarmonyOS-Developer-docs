@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义了媒体资产管理器的结构和枚举。
  
 **库：** libmedia_asset_manager.so
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -40,6 +46,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -56,6 +64,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -67,6 +77,8 @@
   
 
 ##### 变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -77,9 +89,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### MediaLibrary_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum MediaLibrary_ErrorCode
@@ -108,6 +124,8 @@ enum MediaLibrary_ErrorCode
 
 ##### MediaLibrary_DeliveryMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum MediaLibrary_DeliveryMode
 ```
@@ -135,6 +153,8 @@ enum MediaLibrary_DeliveryMode
 
 ##### MediaLibrary_MediaType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum MediaLibrary_MediaType
 ```
@@ -154,6 +174,8 @@ enum MediaLibrary_MediaType
   
 
 ##### MediaLibrary_MediaSubType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum MediaLibrary_MediaSubType
@@ -176,6 +198,8 @@ enum MediaLibrary_MediaSubType
 
 ##### MediaLibrary_ResourceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum MediaLibrary_ResourceType
 ```
@@ -195,6 +219,8 @@ enum MediaLibrary_ResourceType
   
 
 ##### MediaLibrary_ImageFileType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum MediaLibrary_ImageFileType
@@ -216,6 +242,8 @@ enum MediaLibrary_ImageFileType
   
 
 ##### MediaLibrary_MediaQuality
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum MediaLibrary_MediaQuality
@@ -245,6 +273,8 @@ enum MediaLibrary_MediaQuality
 
 ##### MediaLibrary_MediaContentType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum MediaLibrary_MediaContentType
 ```
@@ -265,9 +295,13 @@ enum MediaLibrary_MediaContentType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_MediaLibrary_OnDataPrepared()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_MediaLibrary_OnDataPrepared)(int32_t result, MediaLibrary_RequestId requestId)
@@ -290,6 +324,8 @@ typedef void (*OH_MediaLibrary_OnDataPrepared)(int32_t result, MediaLibrary_Requ
   
 
 ##### OH_MediaLibrary_OnImageDataPrepared()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_MediaLibrary_OnImageDataPrepared)(MediaLibrary_ErrorCode result,MediaLibrary_RequestId requestId, MediaLibrary_MediaQuality mediaQuality, MediaLibrary_MediaContentType type,OH_ImageSourceNative* imageSourceNative)
@@ -316,6 +352,8 @@ typedef void (*OH_MediaLibrary_OnImageDataPrepared)(MediaLibrary_ErrorCode resul
 
 ##### OH_MediaLibrary_OnMovingPhotoDataPrepared()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_MediaLibrary_OnMovingPhotoDataPrepared)(MediaLibrary_ErrorCode result,MediaLibrary_RequestId requestId, MediaLibrary_MediaQuality mediaQuality, MediaLibrary_MediaContentType type,OH_MovingPhoto* movingPhoto)
 ```
@@ -340,6 +378,8 @@ typedef void (*OH_MediaLibrary_OnMovingPhotoDataPrepared)(MediaLibrary_ErrorCode
   
 
 ##### OH_MediaLibrary_OnQuickImageDataPrepared()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_MediaLibrary_OnQuickImageDataPrepared)(MediaLibrary_ErrorCode result, MediaLibrary_RequestId requestId, MediaLibrary_MediaQuality mediaQuality, MediaLibrary_MediaContentType type, OH_ImageSourceNative* imageSourceNative, OH_PictureNative* pictureNative)

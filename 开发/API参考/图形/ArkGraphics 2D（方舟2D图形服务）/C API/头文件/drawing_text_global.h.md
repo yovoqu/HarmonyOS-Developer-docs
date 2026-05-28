@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供文本全局信息的相关接口，比如设置文本渲染高对比度模式等。
  
 **引用文件：** <native_drawing/drawing_text_global.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -47,9 +55,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_TextHighContrast
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextHighContrast
@@ -71,6 +83,8 @@ enum OH_Drawing_TextHighContrast
   
 
 ##### OH_Drawing_TextUndefinedGlyphDisplay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextUndefinedGlyphDisplay
@@ -94,9 +108,13 @@ enum OH_Drawing_TextUndefinedGlyphDisplay
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_SetTextHighContrast()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextHighContrast(OH_Drawing_TextHighContrast action)
@@ -126,6 +144,8 @@ void OH_Drawing_SetTextHighContrast(OH_Drawing_TextHighContrast action)
   
 
 ##### OH_Drawing_SetTextUndefinedGlyphDisplay()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextUndefinedGlyphDisplay(OH_Drawing_TextUndefinedGlyphDisplay undefinedGlyphDisplay)

@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
 
 
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### PasteButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PasteButton()
 
@@ -37,6 +43,8 @@ PasteButton()
 
 
 ##### PasteButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PasteButton(options: PasteButtonOptions)
 
@@ -59,6 +67,8 @@ PasteButton(options: PasteButtonOptions)
 
 ##### PasteButtonOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于指定粘贴控件的图标、文本等指定元素。
 
 > [!NOTE]
@@ -80,11 +90,15 @@ PasteButton(options: PasteButtonOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持通用属性，仅继承[安全控件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securitycomponent-attributes)。
 
 
 
 ##### PasteIconStyle枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 粘贴控件的图标风格。
 
@@ -101,6 +115,8 @@ PasteButton(options: PasteButtonOptions)
 
 ##### PasteDescription枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 粘贴控件的文本描述。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -115,6 +131,8 @@ PasteButton(options: PasteButtonOptions)
 
 
 ##### PasteButtonOnClickResult枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 粘贴控件点击后的授权结果。
 
@@ -131,6 +149,8 @@ PasteButton(options: PasteButtonOptions)
 
 
 ##### PasteButtonCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult, error?: BusinessError&lt;void&gt;) => void
 
@@ -153,11 +173,15 @@ type PasteButtonCallback = (event: ClickEvent, result: PasteButtonOnClickResult,
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持通用事件，仅支持以下事件：
 
 
 
 ##### onClick
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onClick(event: PasteButtonCallback)
 
@@ -177,6 +201,8 @@ onClick(event: PasteButtonCallback)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -231,4 +257,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/EHNvT6O5SbmGT0cKO1cskQ/zh-cn_image_0000002581436212.png?HW-CC-KV=V1&HW-CC-Date=20260528T013930Z&HW-CC-Expire=86400&HW-CC-Sign=346921C53F8398855F44E20F97133A9DE84FE9C307C0027DAC61C6725D11F64B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/EHNvT6O5SbmGT0cKO1cskQ/zh-cn_image_0000002581436212.png?HW-CC-KV=V1&HW-CC-Date=20260528T024225Z&HW-CC-Expire=86400&HW-CC-Sign=A8438925B29CE93CA768DBFBD18203A0226F003414047EC991A853BD313693E2)

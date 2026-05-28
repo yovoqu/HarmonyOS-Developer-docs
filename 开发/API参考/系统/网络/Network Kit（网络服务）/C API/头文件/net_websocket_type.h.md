@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义websocket客户端模块的C接口需要的数据结构。
  
 **引用文件：** <network/netstack/net_websocket_type.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -41,6 +47,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -54,9 +62,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### WebSocket_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum WebSocket_ErrCode
@@ -95,9 +107,13 @@ enum WebSocket_ErrCode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### WebSocket_OnOpenCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*WebSocket_OnOpenCallback)(struct WebSocket *client, WebSocket_OpenResult openResult)
@@ -120,6 +136,8 @@ websocket客户端接收open消息的回调函数定义。
   
 
 ##### WebSocket_OnMessageCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*WebSocket_OnMessageCallback)(struct WebSocket *client, char *data, uint32_t length)
@@ -144,6 +162,8 @@ websocket客户端接收数据的回调函数定义。
 
 ##### WebSocket_OnErrorCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*WebSocket_OnErrorCallback)(struct WebSocket *client, WebSocket_ErrorResult errorResult)
 ```
@@ -165,6 +185,8 @@ websocket客户端接收error错误消息的回调函数定义。
   
 
 ##### WebSocket_OnCloseCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*WebSocket_OnCloseCallback)(struct WebSocket *client, WebSocket_CloseResult closeResult)

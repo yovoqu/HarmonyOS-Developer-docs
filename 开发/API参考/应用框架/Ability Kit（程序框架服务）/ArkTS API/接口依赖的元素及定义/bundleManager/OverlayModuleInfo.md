@@ -14,6 +14,8 @@ OverlayModuleInfo信息，可以通过[overlay.getOverlayModuleInfo](https://dev
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { overlay } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { overlay } from '@kit.AbilityKit';
   
 
 ##### OverlayModuleInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
   

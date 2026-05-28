@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { cloudFunction } from '@kit.CloudFoundationKit';
 ```
@@ -19,6 +21,8 @@ import { cloudFunction } from '@kit.CloudFoundationKit';
   
 
 ##### call
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 call(parameters: FunctionParams, callback: AsyncCallback&lt;FunctionResult&gt;): void
  
@@ -82,6 +86,8 @@ cloudFunction.call({
   
 
 ##### call
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 call(parameters: FunctionParams): Promise&lt;FunctionResult&gt;
  
@@ -150,6 +156,8 @@ cloudFunction.call({
 
 ##### FunctionParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云函数调用参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -172,6 +180,8 @@ cloudFunction.call({
 
 ##### LoadMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举， 函数请求加载模式。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -191,6 +201,8 @@ cloudFunction.call({
   
 
 ##### FunctionResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 云函数返回的结果。
  

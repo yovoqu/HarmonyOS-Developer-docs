@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Content } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { Content } from '@kit.ArkUI';
   
 
 ##### Content
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义[ComponentContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-componentcontent)和[NodeContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontent)的基类。
  

@@ -12,6 +12,8 @@ typedef struct Hid_EventTypeArray {...} Hid_EventTypeArray
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 事件类型编码数组。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct Hid_EventTypeArray {...} Hid_EventTypeArray
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

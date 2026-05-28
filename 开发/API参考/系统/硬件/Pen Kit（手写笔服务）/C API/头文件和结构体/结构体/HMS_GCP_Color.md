@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义颜色值的结构体。
  
 **系统能力：** SystemCapability.Stylus.ColorPicker
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### alpha
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t HMS_GCP_Color::alpha
@@ -53,6 +63,8 @@ int32_t HMS_GCP_Color::alpha
 
 ##### blue
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 int32_t HMS_GCP_Color::blue
 ```
@@ -65,6 +77,8 @@ int32_t HMS_GCP_Color::blue
 
 ##### green
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 int32_t HMS_GCP_Color::green
 ```
@@ -76,6 +90,8 @@ int32_t HMS_GCP_Color::green
   
 
 ##### red
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t HMS_GCP_Color::red

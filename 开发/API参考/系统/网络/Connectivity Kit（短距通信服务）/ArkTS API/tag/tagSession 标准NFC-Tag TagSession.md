@@ -12,7 +12,7 @@
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/cKXLSDsKRfqVvjV3-pLRvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013553Z&HW-CC-Expire=86400&HW-CC-Sign=7E30AC028CF90C9A5FF03B276B2D93959E180341262D835A608B61924EEFD71B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/cKXLSDsKRfqVvjV3-pLRvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023852Z&HW-CC-Expire=86400&HW-CC-Sign=AF9B0A14FA2EB390C26B96FC2CC6C2FC643CEA6BA8FC72E94F292037F0F641EE)
  
  
 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考[syscap开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)。
@@ -22,6 +22,8 @@
 
 ##### **导入模块**
 
+**支持设备：** Phone | Wearable
+
 ```text
 import { tag } from '@kit.ConnectivityKit';
 ```
@@ -29,6 +31,8 @@ import { tag } from '@kit.ConnectivityKit';
   
 
 ##### TagSession
+
+**支持设备：** Phone | Wearable
 
 TagSession是所有[nfcTag技术类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctech)的基类， 提供建立连接和发送数据等共同接口。
  
@@ -39,6 +43,8 @@ TagSession是所有[nfcTag技术类型](https://developer.huawei.com/consumer/cn
   
 
 ##### getTagInfo(deprecated)
+
+**支持设备：** Phone | Wearable
 
 getTagInfo(): tag.TagInfo
  
@@ -75,6 +81,8 @@ console.info("tag tagInfo: " + tagInfo);
 
 ##### connectTag(deprecated)
 
+**支持设备：** Phone | Wearable
+
 connectTag(): boolean;
  
 和标签建立连接。在从标签读取数据或将数据写入标签之前，必须调用此方法。
@@ -109,6 +117,8 @@ console.info("connectStatus: " + connectStatus);
   
 
 ##### connect9+
+
+**支持设备：** Phone | Wearable
 
 connect(): void;
  
@@ -151,6 +161,8 @@ try {
 
 ##### reset()(deprecated)
 
+**支持设备：** Phone | Wearable
+
 reset(): void
  
 重置与标签的连接。
@@ -177,6 +189,8 @@ tag.getIsoDep(tagInfo).reset();
   
 
 ##### resetConnection()9+
+
+**支持设备：** Phone | Wearable
 
 resetConnection(): void
  
@@ -219,6 +233,8 @@ try {
 
 ##### isTagConnected(deprecated)
 
+**支持设备：** Phone | Wearable
+
 isTagConnected(): boolean
  
 检查是否已与标签建立连接。
@@ -251,6 +267,8 @@ console.info("isTagConnected: " + isTagConnected);
   
 
 ##### isConnected9+
+
+**支持设备：** Phone | Wearable
 
 isConnected(): boolean
  
@@ -296,6 +314,8 @@ try {
 
 ##### getMaxSendLength(deprecated)
 
+**支持设备：** Phone | Wearable
+
 getMaxSendLength(): number
  
 查询可以发送到标签的最大数据长度。
@@ -330,6 +350,8 @@ console.info("tag maxSendLen: " + maxSendLen);
   
 
 ##### getMaxTransmitSize9+
+
+**支持设备：** Phone | Wearable
 
 getMaxTransmitSize(): number
  
@@ -379,6 +401,8 @@ try {
 
 ##### getSendDataTimeout(deprecated)
 
+**支持设备：** Phone | Wearable
+
 getSendDataTimeout(): number
  
 查询发送数据到Tag的等待超时时间，单位是毫秒。
@@ -413,6 +437,8 @@ console.info("tag sendDataTimeout: " + sendDataTimeout);
   
 
 ##### getTimeout9+
+
+**支持设备：** Phone | Wearable
 
 getTimeout(): number
  
@@ -462,6 +488,8 @@ try {
 
 ##### setSendDataTimeout(deprecated)
 
+**支持设备：** Phone | Wearable
+
 setSendDataTimeout(timeout: number): boolean
  
 设置发送数据到Tag的等待超时时间，单位是毫秒。
@@ -504,6 +532,8 @@ console.info("tag setSendDataTimeout setStatus: " + setStatus);
   
 
 ##### setTimeout9+
+
+**支持设备：** Phone | Wearable
 
 setTimeout(timeout: number): void
  
@@ -554,6 +584,8 @@ try {
   
 
 ##### sendData(deprecated)
+
+**支持设备：** Phone | Wearable
 
 sendData(data: number[]): Promise<number[]>
  
@@ -612,6 +644,8 @@ function tagSessionDemo() {
 
 ##### sendData(deprecated)
 
+**支持设备：** Phone | Wearable
+
 sendData(data: number[], callback: AsyncCallback<number[]>): void
  
 发送指令到Tag上。使用callback异步回调。
@@ -663,6 +697,8 @@ function tagSessionDemo() {
   
 
 ##### transmit9+
+
+**支持设备：** Phone | Wearable
 
 transmit(data: number[]): Promise<number[]>
  
@@ -738,6 +774,8 @@ function tagSessionDemo() {
   
 
 ##### transmit9+
+
+**支持设备：** Phone | Wearable
 
 transmit(data: number[], callback: AsyncCallback<number[]>): void
  

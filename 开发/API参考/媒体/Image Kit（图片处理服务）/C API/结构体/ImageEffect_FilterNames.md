@@ -12,6 +12,8 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 滤镜名信息。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **支持C++语言语法的声明如下：**
   
@@ -47,6 +53,8 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -64,9 +72,13 @@ typedef struct ImageEffect_FilterNames {...} ImageEffect_FilterNames
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OH_EffectFilterInfo_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_EffectFilterInfo *OH_EffectFilterInfo_Create()
@@ -90,6 +102,8 @@ OH_EffectFilterInfo *OH_EffectFilterInfo_Create()
   
 
 ##### OH_EffectFilterInfo_SetFilterName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_EffectFilterInfo_SetFilterName(OH_EffectFilterInfo *info, const char *name)
@@ -122,6 +136,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetFilterName(OH_EffectFilterInfo *inf
 
 ##### OH_EffectFilterInfo_GetFilterName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_EffectFilterInfo_GetFilterName(OH_EffectFilterInfo *info, char **name)
 ```
@@ -152,6 +168,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetFilterName(OH_EffectFilterInfo *inf
   
 
 ##### OH_EffectFilterInfo_SetSupportedBufferTypes()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedBufferTypes(OH_EffectFilterInfo *info, uint32_t size,ImageEffect_BufferType *bufferTypeArray)
@@ -185,6 +203,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedBufferTypes(OH_EffectFilte
 
 ##### OH_EffectFilterInfo_GetSupportedBufferTypes()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedBufferTypes(OH_EffectFilterInfo *info, uint32_t *size,ImageEffect_BufferType **bufferTypeArray)
 ```
@@ -216,6 +236,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedBufferTypes(OH_EffectFilte
   
 
 ##### OH_EffectFilterInfo_SetSupportedFormats()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedFormats(OH_EffectFilterInfo *info, uint32_t size,ImageEffect_Format *formatArray)
@@ -249,6 +271,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_SetSupportedFormats(OH_EffectFilterInf
 
 ##### OH_EffectFilterInfo_GetSupportedFormats()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedFormats(OH_EffectFilterInfo *info, uint32_t *size,ImageEffect_Format **formatArray)
 ```
@@ -280,6 +304,8 @@ ImageEffect_ErrorCode OH_EffectFilterInfo_GetSupportedFormats(OH_EffectFilterInf
   
 
 ##### OH_EffectFilterInfo_Release()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_EffectFilterInfo_Release(OH_EffectFilterInfo *info)

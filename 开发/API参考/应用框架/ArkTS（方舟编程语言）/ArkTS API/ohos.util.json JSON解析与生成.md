@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```json
 import { JSON } from '@kit.ArkTS';
 ```
@@ -21,6 +23,8 @@ import { JSON } from '@kit.ArkTS';
 
 
 ##### Transformer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Transformer = (this: Object, key: string, value: Object) => Object | undefined | null
 
@@ -54,6 +58,8 @@ type Transformer = (this: Object, key: string, value: Object) => Object | undefi
 
 ##### BigIntMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义处理BigInt的模式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -71,6 +77,8 @@ type Transformer = (this: Object, key: string, value: Object) => Object | undefi
 
 ##### ParseOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 解析的选项，可定义处理BigInt的模式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -85,6 +93,8 @@ type Transformer = (this: Object, key: string, value: Object) => Object | undefi
 
 
 ##### JSON.parse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 parse(text: string, reviver?: Transformer, options?: ParseOptions): Object | null
 
@@ -159,6 +169,8 @@ console.info((numberObj as object)?.["largeNumber"]);
 
 
 ##### JSON.stringify
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stringify(value: Object, replacer?: (number | string)[] | null, space?: string | number): string
 
@@ -239,6 +251,8 @@ console.info(JSON.stringify(bigIntObj));
 
 ##### JSON.stringify
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stringify(value: Object, replacer?: Transformer, space?: string | number): string
 
 该方法将一个ArkTS对象或数组转换为JSON字符串，支持线性容器的转换，不支持非线性容器。
@@ -309,6 +323,8 @@ console.info(JSON.stringify(inputObj, replacer, '  '));
 
 ##### JSON.has
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 has(obj: object, property: string): boolean
 
 检查ArkTS对象是否包含某种属性，可用于[JSON.parse](#jsonparse)解析JSON字符串之后。has接口仅支持最外层为字典形式（即大括号而非中括号包围）的合法json串。
@@ -356,6 +372,8 @@ console.info("result = " + result);
 
 
 ##### JSON.remove
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 remove(obj: object, property: string): void
 

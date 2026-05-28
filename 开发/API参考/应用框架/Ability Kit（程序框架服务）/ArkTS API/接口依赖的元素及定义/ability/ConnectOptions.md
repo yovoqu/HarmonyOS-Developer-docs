@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common } from '@kit.AbilityKit';
 ```
@@ -22,9 +24,13 @@ import { common } from '@kit.AbilityKit';
 
 ##### ConnectOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### onConnect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onConnect(elementName: ElementName, remote: rpc.IRemoteObject): void
 
@@ -75,6 +81,8 @@ class EntryAbility extends UIAbility {
 
 ##### onDisconnect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDisconnect(elementName: ElementName): void
 
 断开连接时的回调函数。
@@ -122,6 +130,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### onFailed
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onFailed(code: number): void
 

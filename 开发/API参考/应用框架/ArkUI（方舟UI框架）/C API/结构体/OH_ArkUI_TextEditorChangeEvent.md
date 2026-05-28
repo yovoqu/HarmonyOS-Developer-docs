@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_TextEditorChangeEvent OH_ArkUI_TextEditorChangeEvent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义TextEditor组件文本内容变化事件的结构体。
  
 **起始版本：** 24

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { rpc } from '@kit.IPCKit';
 ```
@@ -21,6 +23,8 @@ import { rpc } from '@kit.IPCKit';
 
 
 ##### ErrorCode9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 从API version 9起，IPC支持异常返回功能。错误码对应数值及含义如下。
 
@@ -48,6 +52,8 @@ import { rpc } from '@kit.IPCKit';
 
 ##### TypeCode12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 从API version 12起，IPC新增[writeArrayBuffer](#writearraybuffer12)和[readArrayBuffer](#readarraybuffer12)方法传递ArrayBuffer数据，传递数据时通过具体类型值来分辨业务是以哪一种TypedArray去进行数据的读写。类型码对应数值及含义如下。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -70,11 +76,15 @@ import { rpc } from '@kit.IPCKit';
 
 ##### MessageSequence9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 在RPC或IPC过程中，发送方可以使用MessageSequence提供的写方法，将待发送的数据以特定格式写入该对象。接收方可以使用MessageSequence提供的读方法从该对象中读取特定格式的数据。数据格式包括：基础类型及数组、IPC对象、接口描述符和自定义序列化对象。
 
 
 
 ##### create9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static create(): MessageSequence
 
@@ -113,6 +123,8 @@ try {
 
 ##### reclaim9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reclaim(): void
 
 释放不再使用的MessageSequence对象。
@@ -139,6 +151,8 @@ try {
 
 
 ##### writeRemoteObject9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeRemoteObject(obj: IRemoteObject): void
 
@@ -196,6 +210,8 @@ try {
 
 
 ##### readRemoteObject9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readRemoteObject(): IRemoteObject
 
@@ -255,6 +271,8 @@ try {
 
 ##### writeInterfaceToken9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeInterfaceToken(token: string): void
 
 将接口描述符写入MessageSequence对象，远端对象可使用该信息校验本次通信。
@@ -298,6 +316,8 @@ try {
 
 
 ##### readInterfaceToken9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readInterfaceToken(): string
 
@@ -344,6 +364,8 @@ try {
 
 ##### getSize9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSize(): number
 
 获取当前创建的MessageSequence对象的数据大小。
@@ -379,6 +401,8 @@ try {
 
 ##### getCapacity9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCapacity(): number
 
 获取当前MessageSequence对象的容量大小。
@@ -413,6 +437,8 @@ try {
 
 
 ##### setSize9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSize(size: number): void
 
@@ -459,6 +485,8 @@ try {
 
 ##### setCapacity9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCapacity(size: number): void
 
 设置MessageSequence对象的存储容量。
@@ -504,6 +532,8 @@ try {
 
 ##### getWritableBytes9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWritableBytes(): number
 
 获取MessageSequence的可写字节空间大小。
@@ -539,6 +569,8 @@ try {
 
 
 ##### getReadableBytes9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getReadableBytes(): number
 
@@ -576,6 +608,8 @@ try {
 
 ##### getReadPosition9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getReadPosition(): number
 
 获取MessageSequence的读位置。
@@ -612,6 +646,8 @@ try {
 
 ##### getWritePosition9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWritePosition(): number
 
 获取MessageSequence的写位置。
@@ -647,6 +683,8 @@ try {
 
 
 ##### rewindRead9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rewindRead(pos: number): void
 
@@ -698,6 +736,8 @@ try {
 
 ##### rewindWrite9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rewindWrite(pos: number): void
 
 重新偏移写位置到指定的位置。
@@ -746,6 +786,8 @@ try {
 
 ##### writeByte9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeByte(val: number): void
 
 将字节值写入MessageSequence实例。
@@ -789,6 +831,8 @@ try {
 
 
 ##### readByte9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readByte(): number
 
@@ -835,6 +879,8 @@ try {
 
 ##### writeShort9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeShort(val: number): void
 
 将短整数值写入MessageSequence实例。
@@ -878,6 +924,8 @@ try {
 
 
 ##### readShort9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readShort(): number
 
@@ -924,6 +972,8 @@ try {
 
 ##### writeInt9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeInt(val: number): void
 
 将整数值写入MessageSequence实例。
@@ -967,6 +1017,8 @@ try {
 
 
 ##### readInt9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readInt(): number
 
@@ -1013,6 +1065,8 @@ try {
 
 ##### writeLong9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeLong(val: number): void
 
 将长整数值写入MessageSequence实例。
@@ -1056,6 +1110,8 @@ try {
 
 
 ##### readLong9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readLong(): number
 
@@ -1102,6 +1158,8 @@ try {
 
 ##### writeFloat9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeFloat(val: number): void
 
 将双精度浮点值写入MessageSequence实例。
@@ -1145,6 +1203,8 @@ try {
 
 
 ##### readFloat9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readFloat(): number
 
@@ -1191,6 +1251,8 @@ try {
 
 ##### writeDouble9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeDouble(val: number): void
 
 将双精度浮点值写入MessageSequence实例。
@@ -1234,6 +1296,8 @@ try {
 
 
 ##### readDouble9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readDouble(): number
 
@@ -1280,6 +1344,8 @@ try {
 
 ##### writeBoolean9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeBoolean(val: boolean): void
 
 将布尔值写入MessageSequence实例。
@@ -1323,6 +1389,8 @@ try {
 
 
 ##### readBoolean9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readBoolean(): boolean
 
@@ -1369,6 +1437,8 @@ try {
 
 ##### writeChar9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeChar(val: number): void
 
 将单个字符值写入MessageSequence实例。
@@ -1412,6 +1482,8 @@ try {
 
 
 ##### readChar9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readChar(): number
 
@@ -1458,6 +1530,8 @@ try {
 
 ##### writeString9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeString(val: string): void
 
 将字符串值写入MessageSequence实例。
@@ -1501,6 +1575,8 @@ try {
 
 
 ##### readString9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readString(): string
 
@@ -1546,6 +1622,8 @@ try {
 
 
 ##### writeParcelable9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeParcelable(val: Parcelable): void
 
@@ -1610,6 +1688,8 @@ try {
 
 
 ##### readParcelable9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readParcelable(dataIn: Parcelable): void
 
@@ -1678,6 +1758,8 @@ try {
 
 ##### writeByteArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeByteArray(byteArray: number[]): void
 
 将字节数组写入MessageSequence实例。
@@ -1722,6 +1804,8 @@ try {
 
 
 ##### readByteArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readByteArray(dataIn: number[]): void
 
@@ -1771,6 +1855,8 @@ try {
 
 ##### readByteArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readByteArray(): number[]
 
 从MessageSequence实例中读取字节数组。
@@ -1817,6 +1903,8 @@ try {
 
 ##### writeShortArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeShortArray(shortArray: number[]): void
 
 将短整数数组写入MessageSequence实例。
@@ -1860,6 +1948,8 @@ try {
 
 
 ##### readShortArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readShortArray(dataIn: number[]): void
 
@@ -1908,6 +1998,8 @@ try {
 
 ##### readShortArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readShortArray(): number[]
 
 从MessageSequence实例中读取短整数数组。
@@ -1953,6 +2045,8 @@ try {
 
 ##### writeIntArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeIntArray(intArray: number[]): void
 
 将整数数组写入MessageSequence实例。
@@ -1996,6 +2090,8 @@ try {
 
 
 ##### readIntArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readIntArray(dataIn: number[]): void
 
@@ -2044,6 +2140,8 @@ try {
 
 ##### readIntArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readIntArray(): number[]
 
 从MessageSequence实例中读取整数数组。
@@ -2089,6 +2187,8 @@ try {
 
 ##### writeLongArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeLongArray(longArray: number[]): void
 
 将长整数数组写入MessageSequence实例。
@@ -2132,6 +2232,8 @@ try {
 
 
 ##### readLongArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readLongArray(dataIn: number[]): void
 
@@ -2180,6 +2282,8 @@ try {
 
 ##### readLongArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readLongArray(): number[]
 
 从MessageSequence实例中读取所有的长整数数组。
@@ -2225,6 +2329,8 @@ try {
 
 ##### writeFloatArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeFloatArray(floatArray: number[]): void
 
 将双精度浮点数组写入MessageSequence实例。
@@ -2268,6 +2374,8 @@ try {
 
 
 ##### readFloatArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readFloatArray(dataIn: number[]): void
 
@@ -2316,6 +2424,8 @@ try {
 
 ##### readFloatArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readFloatArray(): number[]
 
 从MessageSequence实例中读取双精度浮点数组。
@@ -2361,6 +2471,8 @@ try {
 
 ##### writeDoubleArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeDoubleArray(doubleArray: number[]): void
 
 将双精度浮点数组写入MessageSequence实例。
@@ -2404,6 +2516,8 @@ try {
 
 
 ##### readDoubleArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readDoubleArray(dataIn: number[]): void
 
@@ -2452,6 +2566,8 @@ try {
 
 ##### readDoubleArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readDoubleArray(): number[]
 
 从MessageSequence实例中读取所有双精度浮点数组。
@@ -2497,6 +2613,8 @@ try {
 
 ##### writeBooleanArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeBooleanArray(booleanArray: boolean[]): void
 
 将布尔数组写入MessageSequence实例。
@@ -2540,6 +2658,8 @@ try {
 
 
 ##### readBooleanArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readBooleanArray(dataIn: boolean[]): void
 
@@ -2588,6 +2708,8 @@ try {
 
 ##### readBooleanArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readBooleanArray(): boolean[]
 
 从MessageSequence实例中读取所有布尔数组。
@@ -2633,6 +2755,8 @@ try {
 
 ##### writeCharArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeCharArray(charArray: number[]): void
 
 将单个字符数组写入MessageSequence实例。
@@ -2676,6 +2800,8 @@ try {
 
 
 ##### readCharArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readCharArray(dataIn: number[]): void
 
@@ -2724,6 +2850,8 @@ try {
 
 ##### readCharArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readCharArray(): number[]
 
 从MessageSequence实例中读取单个字符数组。
@@ -2769,6 +2897,8 @@ try {
 
 ##### writeStringArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeStringArray(stringArray: string[]): void
 
 将字符串数组写入MessageSequence实例。
@@ -2812,6 +2942,8 @@ try {
 
 
 ##### readStringArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readStringArray(dataIn: string[]): void
 
@@ -2860,6 +2992,8 @@ try {
 
 ##### readStringArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readStringArray(): string[]
 
 从MessageSequence实例中读取字符串数组。
@@ -2904,6 +3038,8 @@ try {
 
 
 ##### writeNoException9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeNoException(): void
 
@@ -2954,6 +3090,8 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 
 ##### readException9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readException(): void
 
@@ -3054,6 +3192,8 @@ try {
 
 ##### writeParcelableArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeParcelableArray(parcelableArray: Parcelable[]): void
 
 将可序列化对象数组写入MessageSequence实例。
@@ -3120,6 +3260,8 @@ try {
 
 
 ##### readParcelableArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readParcelableArray(parcelableArray: Parcelable[]): void
 
@@ -3190,6 +3332,8 @@ try {
 
 ##### writeRemoteObjectArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeRemoteObjectArray(objectArray: IRemoteObject[]): void
 
 将IRemoteObject对象数组写入MessageSequence。
@@ -3245,6 +3389,8 @@ try {
 
 
 ##### readRemoteObjectArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readRemoteObjectArray(objects: IRemoteObject[]): void
 
@@ -3305,6 +3451,8 @@ try {
 
 ##### readRemoteObjectArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readRemoteObjectArray(): IRemoteObject[]
 
 从MessageSequence读取IRemoteObject对象数组。
@@ -3361,6 +3509,8 @@ try {
 
 ##### closeFileDescriptor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static closeFileDescriptor(fd: number): void
 
 静态方法，关闭给定的文件描述符。
@@ -3405,6 +3555,8 @@ try {
 
 
 ##### dupFileDescriptor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static dupFileDescriptor(fd: number): number
 
@@ -3459,6 +3611,8 @@ try {
 
 ##### containFileDescriptors9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 containFileDescriptors(): boolean
 
 检查此MessageSequence对象是否包含文件描述符。
@@ -3496,6 +3650,8 @@ try {
 
 
 ##### writeFileDescriptor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeFileDescriptor(fd: number): void
 
@@ -3544,6 +3700,8 @@ try {
 
 ##### readFileDescriptor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readFileDescriptor(): number
 
 从MessageSequence中读取文件描述符。
@@ -3591,6 +3749,8 @@ try {
 
 
 ##### writeAshmem9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeAshmem(ashmem: Ashmem): void
 
@@ -3648,6 +3808,8 @@ try {
 
 
 ##### readAshmem9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readAshmem(): Ashmem
 
@@ -3715,6 +3877,8 @@ try {
 
 ##### getRawDataCapacity9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRawDataCapacity(): number
 
 获取MessageSequence可以容纳的最大原始数据量。
@@ -3749,6 +3913,8 @@ try {
 
 
 ##### writeRawData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeRawData(rawData: number[], size: number): void
 
@@ -3799,6 +3965,8 @@ try {
 
 
 ##### writeRawDataBuffer11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeRawDataBuffer(rawData: ArrayBuffer, size: number): void
 
@@ -3854,6 +4022,8 @@ try {
 
 
 ##### readRawData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readRawData(size: number): number[]
 
@@ -3913,6 +4083,8 @@ try {
 
 
 ##### readRawDataBuffer11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readRawDataBuffer(size: number): ArrayBuffer
 
@@ -3974,6 +4146,8 @@ try {
 
 ##### writeArrayBuffer12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeArrayBuffer(buf: ArrayBuffer, typeCode: TypeCode): void
 
 将ArrayBuffer类型数据写入MessageSequence对象。
@@ -4024,6 +4198,8 @@ try {
 
 
 ##### readArrayBuffer12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readArrayBuffer(typeCode: TypeCode): ArrayBuffer
 
@@ -4085,6 +4261,8 @@ try {
 
 ##### MessageParcel(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 在RPC过程中，发送方可以使用MessageParcel提供的写方法，将待发送的数据以特定格式写入该对象。接收方可以使用MessageParcel提供的读方法从该对象中读取特定格式的数据。数据格式包括：基础类型及数组、IPC对象、接口描述符和自定义序列化对象。
 
 > [!NOTE]
@@ -4096,6 +4274,8 @@ try {
 
 
 ##### create(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static create(): MessageParcel
 
@@ -4135,6 +4315,8 @@ try {
 
 ##### reclaim(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reclaim(): void
 
 释放不再使用的MessageParcel对象。
@@ -4162,6 +4344,8 @@ try {
 
 
 ##### writeRemoteObject(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeRemoteObject(object: IRemoteObject): boolean
 
@@ -4216,6 +4400,8 @@ try {
 
 ##### readRemoteObject(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readRemoteObject(): IRemoteObject
 
 从MessageParcel读取远程对象。此方法用于反序列化MessageParcel对象以生成IRemoteObject。远程对象按写入MessageParcel的顺序读取。
@@ -4265,6 +4451,8 @@ try {
 
 ##### writeInterfaceToken(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeInterfaceToken(token: string): boolean
 
 将接口描述符写入MessageParcel对象，远端对象可使用该信息校验本次通信。
@@ -4308,6 +4496,8 @@ try {
 
 ##### readInterfaceToken(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readInterfaceToken(): string
 
 从MessageParcel中读取接口描述符，接口描述符按写入MessageParcel的顺序读取，本地对象可使用该信息检验本次通信。
@@ -4344,6 +4534,8 @@ try {
 
 
 ##### getSize(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSize(): number
 
@@ -4382,6 +4574,8 @@ try {
 
 ##### getCapacity(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCapacity(): number
 
 获取当前MessageParcel的容量。
@@ -4417,6 +4611,8 @@ try {
 
 
 ##### setSize(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSize(size: number): boolean
 
@@ -4461,6 +4657,8 @@ try {
 
 ##### setCapacity(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCapacity(size: number): boolean
 
 设置MessageParcel实例的存储容量。
@@ -4504,6 +4702,8 @@ try {
 
 ##### getWritableBytes(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWritableBytes(): number
 
 获取MessageParcel的可写字节空间。
@@ -4540,6 +4740,8 @@ try {
 
 
 ##### getReadableBytes(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getReadableBytes(): number
 
@@ -4578,6 +4780,8 @@ try {
 
 ##### getReadPosition(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getReadPosition(): number
 
 获取MessageParcel的读位置。
@@ -4613,6 +4817,8 @@ try {
 
 
 ##### getWritePosition(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWritePosition(): number
 
@@ -4650,6 +4856,8 @@ try {
 
 
 ##### rewindRead(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rewindRead(pos: number): boolean
 
@@ -4699,6 +4907,8 @@ try {
 
 ##### rewindWrite(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rewindWrite(pos: number): boolean
 
 重新偏移写位置到指定的位置。
@@ -4745,6 +4955,8 @@ try {
 
 ##### writeByte(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeByte(val: number): boolean
 
 将字节值写入MessageParcel实例。
@@ -4788,6 +5000,8 @@ try {
 
 ##### readByte(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readByte(): number
 
 从MessageParcel实例中读取字节值。
@@ -4825,6 +5039,8 @@ try {
 
 
 ##### writeShort(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeShort(val: number): boolean
 
@@ -4869,6 +5085,8 @@ try {
 
 ##### readShort(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readShort(): number
 
 从MessageParcel实例中读取短整数值。
@@ -4906,6 +5124,8 @@ try {
 
 
 ##### writeInt(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeInt(val: number): boolean
 
@@ -4950,6 +5170,8 @@ try {
 
 ##### readInt(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readInt(): number
 
 从MessageParcel实例中读取整数值。
@@ -4987,6 +5209,8 @@ try {
 
 
 ##### writeLong(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeLong(val: number): boolean
 
@@ -5031,6 +5255,8 @@ try {
 
 ##### readLong(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readLong(): number
 
 从MessageParcel实例中读取长整数值。
@@ -5068,6 +5294,8 @@ try {
 
 
 ##### writeFloat(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeFloat(val: number): boolean
 
@@ -5112,6 +5340,8 @@ try {
 
 ##### readFloat(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readFloat(): number
 
 从MessageParcel实例中读取双精度浮点值。
@@ -5149,6 +5379,8 @@ try {
 
 
 ##### writeDouble(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeDouble(val: number): boolean
 
@@ -5193,6 +5425,8 @@ try {
 
 ##### readDouble(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readDouble(): number
 
 从MessageParcel实例中读取双精度浮点值。
@@ -5230,6 +5464,8 @@ try {
 
 
 ##### writeBoolean(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeBoolean(val: boolean): boolean
 
@@ -5274,6 +5510,8 @@ try {
 
 ##### readBoolean(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readBoolean(): boolean
 
 从MessageParcel实例中读取布尔值。
@@ -5311,6 +5549,8 @@ try {
 
 
 ##### writeChar(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeChar(val: number): boolean
 
@@ -5355,6 +5595,8 @@ try {
 
 ##### readChar(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readChar(): number
 
 从MessageParcel实例中读取单个字符值。
@@ -5392,6 +5634,8 @@ try {
 
 
 ##### writeString(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeString(val: string): boolean
 
@@ -5436,6 +5680,8 @@ try {
 
 ##### readString(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readString(): string
 
 从MessageParcel实例中读取字符串值。
@@ -5473,6 +5719,8 @@ try {
 
 
 ##### writeSequenceable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeSequenceable(val: Sequenceable): boolean
 
@@ -5536,6 +5784,8 @@ try {
 
 
 ##### readSequenceable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readSequenceable(dataIn: Sequenceable): boolean
 
@@ -5603,6 +5853,8 @@ try {
 
 ##### writeByteArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeByteArray(byteArray: number[]): boolean
 
 将字节数组写入MessageParcel实例。
@@ -5647,6 +5899,8 @@ try {
 
 ##### readByteArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readByteArray(dataIn: number[]): void
 
 从MessageParcel实例中读取字节数组，并将其写入到创建的空数组中。
@@ -5686,6 +5940,8 @@ try {
 
 ##### readByteArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readByteArray(): number[]
 
 从MessageParcel实例中读取字节数组。
@@ -5724,6 +5980,8 @@ try {
 
 
 ##### writeShortArray(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeShortArray(shortArray: number[]): boolean
 
@@ -5768,6 +6026,8 @@ try {
 
 ##### readShortArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readShortArray(dataIn: number[]): void
 
 从MessageParcel实例中读取短整数数组，并将其写入到创建的空数组中。
@@ -5807,6 +6067,8 @@ try {
 
 ##### readShortArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readShortArray(): number[]
 
 从MessageParcel实例中读取短整数数组。
@@ -5844,6 +6106,8 @@ try {
 
 
 ##### writeIntArray(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeIntArray(intArray: number[]): boolean
 
@@ -5888,6 +6152,8 @@ try {
 
 ##### readIntArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readIntArray(dataIn: number[]): void
 
 从MessageParcel实例中读取整数数组，并将其写入到创建的空数组中。
@@ -5927,6 +6193,8 @@ try {
 
 ##### readIntArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readIntArray(): number[]
 
 从MessageParcel实例中读取整数数组。
@@ -5964,6 +6232,8 @@ try {
 
 
 ##### writeLongArray(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeLongArray(longArray: number[]): boolean
 
@@ -6008,6 +6278,8 @@ try {
 
 ##### readLongArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readLongArray(dataIn: number[]): void
 
 从MessageParcel实例中读取长整数数组，并将其写入到创建的空数组中。
@@ -6047,6 +6319,8 @@ try {
 
 ##### readLongArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readLongArray(): number[]
 
 从MessageParcel实例中读取长整数数组。
@@ -6084,6 +6358,8 @@ try {
 
 
 ##### writeFloatArray(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeFloatArray(floatArray: number[]): boolean
 
@@ -6128,6 +6404,8 @@ try {
 
 ##### readFloatArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readFloatArray(dataIn: number[]): void
 
 从MessageParcel实例中读取双精度浮点数组，并将其写入到创建的空数组中。
@@ -6167,6 +6445,8 @@ try {
 
 ##### readFloatArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readFloatArray(): number[]
 
 从MessageParcel实例中读取双精度浮点数组。
@@ -6204,6 +6484,8 @@ try {
 
 
 ##### writeDoubleArray(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeDoubleArray(doubleArray: number[]): boolean
 
@@ -6248,6 +6530,8 @@ try {
 
 ##### readDoubleArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readDoubleArray(dataIn: number[]): void
 
 从MessageParcel实例中读取双精度浮点数组，并将其写入到创建的空数组中。
@@ -6287,6 +6571,8 @@ try {
 
 ##### readDoubleArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readDoubleArray(): number[]
 
 从MessageParcel实例中读取双精度浮点数组。
@@ -6324,6 +6610,8 @@ try {
 
 
 ##### writeBooleanArray(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeBooleanArray(booleanArray: boolean[]): boolean
 
@@ -6368,6 +6656,8 @@ try {
 
 ##### readBooleanArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readBooleanArray(dataIn: boolean[]): void
 
 从MessageParcel实例中读取布尔数组，并将其写入到创建的空数组中。
@@ -6407,6 +6697,8 @@ try {
 
 ##### readBooleanArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readBooleanArray(): boolean[]
 
 从MessageParcel实例中读取布尔数组。
@@ -6444,6 +6736,8 @@ try {
 
 
 ##### writeCharArray(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeCharArray(charArray: number[]): boolean
 
@@ -6488,6 +6782,8 @@ try {
 
 ##### readCharArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readCharArray(dataIn: number[]): void
 
 从MessageParcel实例中读取单个字符数组，并将其写入到创建的空数组中。
@@ -6527,6 +6823,8 @@ try {
 
 ##### readCharArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readCharArray(): number[]
 
 从MessageParcel实例中读取单个字符数组。
@@ -6564,6 +6862,8 @@ try {
 
 
 ##### writeStringArray(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeStringArray(stringArray: string[]): boolean
 
@@ -6608,6 +6908,8 @@ try {
 
 ##### readStringArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readStringArray(dataIn: string[]): void
 
 从MessageParcel实例中读取字符串数组，并将其写入到创建的空数组中。
@@ -6647,6 +6949,8 @@ try {
 
 ##### readStringArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readStringArray(): string[]
 
 从MessageParcel实例中读取字符串数组。
@@ -6684,6 +6988,8 @@ try {
 
 
 ##### writeNoException(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeNoException(): void
 
@@ -6727,6 +7033,8 @@ onRemoteRequest(code: number, data: rpc.MessageParcel, reply: rpc.MessageParcel,
 
 
 ##### readException(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readException(): void
 
@@ -6820,6 +7128,8 @@ try {
 
 ##### writeSequenceableArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeSequenceableArray(sequenceableArray: Sequenceable[]): boolean
 
 将可序列化对象数组写入MessageParcel实例。
@@ -6886,6 +7196,8 @@ try {
 
 ##### readSequenceableArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readSequenceableArray(sequenceableArray: Sequenceable[]): void
 
 从MessageParcel实例中读取可序列化对象数组。
@@ -6947,6 +7259,8 @@ try {
 
 ##### writeRemoteObjectArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeRemoteObjectArray(objectArray: IRemoteObject[]): boolean
 
 将IRemoteObject对象数组写入MessageParcel。
@@ -7002,6 +7316,8 @@ try {
 
 ##### readRemoteObjectArray(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readRemoteObjectArray(objects: IRemoteObject[]): void
 
 从MessageParcel读取IRemoteObject对象数组，并将其写入到创建的空数组中。
@@ -7052,6 +7368,8 @@ try {
 
 
 ##### readRemoteObjectArray(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readRemoteObjectArray(): IRemoteObject[]
 
@@ -7104,6 +7422,8 @@ try {
 
 ##### closeFileDescriptor(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static closeFileDescriptor(fd: number): void
 
 静态方法，关闭给定的文件描述符。
@@ -7140,6 +7460,8 @@ try {
 
 
 ##### dupFileDescriptor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static dupFileDescriptor(fd: number) :number
 
@@ -7185,6 +7507,8 @@ try {
 
 ##### containFileDescriptors(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 containFileDescriptors(): boolean
 
 检查此MessageParcel对象是否包含文件描述符。
@@ -7225,6 +7549,8 @@ try {
 
 
 ##### writeFileDescriptor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeFileDescriptor(fd: number): boolean
 
@@ -7272,6 +7598,8 @@ try {
 
 ##### readFileDescriptor(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readFileDescriptor(): number
 
 从MessageParcel中读取文件描述符。
@@ -7311,6 +7639,8 @@ try {
 
 
 ##### writeAshmem(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeAshmem(ashmem: Ashmem): boolean
 
@@ -7356,6 +7686,8 @@ try {
 
 ##### readAshmem(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readAshmem(): Ashmem
 
 从MessageParcel读取匿名共享对象。
@@ -7395,6 +7727,8 @@ try {
 
 ##### getRawDataCapacity(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRawDataCapacity(): number
 
 获取MessageParcel可以容纳的最大原始数据量。
@@ -7430,6 +7764,8 @@ try {
 
 
 ##### writeRawData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeRawData(rawData: number[], size: number): boolean
 
@@ -7475,6 +7811,8 @@ try {
 
 
 ##### readRawData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readRawData(size: number): number[]
 
@@ -7522,6 +7860,8 @@ try {
 
 ##### Parcelable9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 在进程间通信（IPC）期间，将类的对象写入MessageSequence并从MessageSequence中恢复它们。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -7529,6 +7869,8 @@ try {
 
 
 ##### marshalling9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 marshalling(dataOut: MessageSequence): boolean
 
@@ -7591,6 +7933,8 @@ try {
 
 ##### unmarshalling9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unmarshalling(dataIn: MessageSequence): boolean
 
 从MessageSequence中解封此可序列对象。
@@ -7652,6 +7996,8 @@ try {
 
 ##### Sequenceable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 在进程间通信（IPC）期间，将类的对象写入MessageParcel并从MessageParcel中恢复它们。
 
 > [!NOTE]
@@ -7663,6 +8009,8 @@ try {
 
 
 ##### marshalling(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 marshalling(dataOut: MessageParcel): boolean
 
@@ -7730,6 +8078,8 @@ try {
 
 ##### unmarshalling(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unmarshalling(dataIn: MessageParcel): boolean
 
 从MessageParcel中解封此可序列对象。
@@ -7796,6 +8146,8 @@ try {
 
 ##### IRemoteBroker
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 远端对象的代理持有者。用于获取代理对象。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -7803,6 +8155,8 @@ try {
 
 
 ##### asObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 asObject(): IRemoteObject
 
@@ -7894,6 +8248,8 @@ if (proxy != undefined) {
 
 ##### DeathRecipient
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于订阅远端对象的死亡通知。当被订阅该通知的远端对象死亡时，本端可收到消息，调用[onRemoteDied](#onremotedied)接口。远端对象死亡可以为远端对象所在进程死亡，远端对象所在设备关机或重启，当远端对象与本端对象属于不同设备时，也可为远端对象离开组网时。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -7901,6 +8257,8 @@ if (proxy != undefined) {
 
 
 ##### onRemoteDied
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRemoteDied(): void
 
@@ -7925,6 +8283,8 @@ class MyDeathRecipient implements rpc.DeathRecipient {
 
 ##### RequestResult9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 发送请求的响应结果。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -7940,6 +8300,8 @@ class MyDeathRecipient implements rpc.DeathRecipient {
 
 
 ##### SendRequestResult(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 发送请求的响应结果。
 
@@ -7961,6 +8323,8 @@ class MyDeathRecipient implements rpc.DeathRecipient {
 
 ##### CallingInfo23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 IPC上下文信息，包括PID和UID、本端和对端设备ID、检查接口调用是否在同一设备上。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -7979,6 +8343,8 @@ IPC上下文信息，包括PID和UID、本端和对端设备ID、检查接口调
 
 ##### IRemoteObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该接口可用于查询或获取接口描述符、添加或删除死亡通知、转储对象状态到特定文件、发送消息。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -7986,6 +8352,8 @@ IPC上下文信息，包括PID和UID、本端和对端设备ID、检查接口调
 
 
 ##### getLocalInterface9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLocalInterface(descriptor: string): IRemoteBroker
 
@@ -8020,6 +8388,8 @@ getLocalInterface(descriptor: string): IRemoteBroker
 
 ##### queryLocalInterface(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryLocalInterface(descriptor: string): IRemoteBroker
 
 查询接口描述符的字符串。
@@ -8047,6 +8417,8 @@ queryLocalInterface(descriptor: string): IRemoteBroker
 
 
 ##### sendRequest(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean
 
@@ -8078,6 +8450,8 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 
 ##### sendMessageRequest9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): Promise&lt;RequestResult&gt;
 
@@ -8115,6 +8489,8 @@ sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, 
 
 ##### sendRequest(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise&lt;SendRequestResult&gt;
 
 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结果将在sendRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
@@ -8146,6 +8522,8 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 ##### sendMessageRequest9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption, callback: AsyncCallback&lt;RequestResult&gt;): void
 
 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendRequest返回时收到回调，回复内容在reply报文里。
@@ -8176,6 +8554,8 @@ sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, 
 
 ##### sendRequest(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback&lt;SendRequestResult&gt;): void
 
 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendRequest返回时收到回调，回复内容在reply报文里。
@@ -8200,6 +8580,8 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 
 ##### registerDeathRecipient9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 registerDeathRecipient(recipient: DeathRecipient, flags: number): void
 
@@ -8230,6 +8612,8 @@ registerDeathRecipient(recipient: DeathRecipient, flags: number): void
 
 ##### addDeathRecipient(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addDeathRecipient(recipient: DeathRecipient, flags: number): boolean
 
 注册用于接收远程对象死亡通知的回调。
@@ -8258,6 +8642,8 @@ addDeathRecipient(recipient: DeathRecipient, flags: number): boolean
 
 
 ##### unregisterDeathRecipient9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unregisterDeathRecipient(recipient: DeathRecipient, flags: number): void
 
@@ -8288,6 +8674,8 @@ unregisterDeathRecipient(recipient: DeathRecipient, flags: number): void
 
 ##### removeDeathRecipient(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean
 
 注销用于接收远程对象死亡通知的回调。
@@ -8317,6 +8705,8 @@ removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean
 
 ##### getDescriptor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDescriptor(): string
 
 获取对象的接口描述符，接口描述符为字符串。
@@ -8343,6 +8733,8 @@ getDescriptor(): string
 
 ##### getInterfaceDescriptor(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getInterfaceDescriptor(): string
 
 获取对象的接口描述符，接口描述符为字符串。
@@ -8364,6 +8756,8 @@ getInterfaceDescriptor(): string
 
 ##### isObjectDead
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isObjectDead(): boolean
 
 检查当前对象是否死亡。
@@ -8381,6 +8775,8 @@ isObjectDead(): boolean
 
 ##### RemoteProxy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 实现IRemoteObject代理对象。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -8388,6 +8784,8 @@ isObjectDead(): boolean
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Communication.IPC.Core
 
@@ -8403,6 +8801,8 @@ isObjectDead(): boolean
 
 
 ##### sendRequest(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean
 
@@ -8505,6 +8905,8 @@ try {
 
 
 ##### sendMessageRequest9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): Promise&lt;RequestResult&gt;
 
@@ -8619,6 +9021,8 @@ try {
 
 
 ##### sendRequest(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise&lt;SendRequestResult&gt;
 
@@ -8730,6 +9134,8 @@ try {
 
 ##### sendMessageRequest9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption, callback: AsyncCallback&lt;RequestResult&gt;): void
 
 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendMessageRequest返回后的某个时机执行回调，回复内容在RequestResult的reply报文里。
@@ -8760,6 +9166,8 @@ sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, 
 
 ##### sendRequest(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback&lt;SendRequestResult&gt;): void
 
 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendRequest返回时收到回调，回复内容在reply报文里。
@@ -8784,6 +9192,8 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 
 ##### getLocalInterface9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLocalInterface(interfaceDes: string): IRemoteBroker
 
@@ -8879,6 +9289,8 @@ if (proxy != undefined) {
 
 ##### queryLocalInterface(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryLocalInterface(interface: string): IRemoteBroker
 
 查询并获取当前接口描述符对应的本地接口对象。
@@ -8959,6 +9371,8 @@ if (proxy != undefined) {
 
 
 ##### registerDeathRecipient9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 registerDeathRecipient(recipient: DeathRecipient, flags: number): void
 
@@ -9053,6 +9467,8 @@ if (proxy != undefined) {
 
 ##### addDeathRecipient(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addDeathRecipient(recipient: DeathRecipient, flags: number): boolean
 
 注册用于接收远程对象死亡通知的回调。
@@ -9139,6 +9555,8 @@ if (proxy != undefined) {
 
 
 ##### unregisterDeathRecipient9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unregisterDeathRecipient(recipient: DeathRecipient, flags: number): void
 
@@ -9234,6 +9652,8 @@ if (proxy != undefined) {
 
 ##### removeDeathRecipient(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeDeathRecipient(recipient: DeathRecipient, flags: number): boolean
 
 注销用于接收远程对象死亡通知的回调。
@@ -9322,6 +9742,8 @@ if (proxy != undefined) {
 
 ##### getDescriptor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDescriptor(): string
 
 获取对象的接口描述符，接口描述符为字符串。
@@ -9409,6 +9831,8 @@ if (proxy != undefined) {
 
 ##### getInterfaceDescriptor(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getInterfaceDescriptor(): string
 
 查询当前代理对象接口的描述符。
@@ -9483,6 +9907,8 @@ if (proxy != undefined) {
 
 ##### isObjectDead
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isObjectDead(): boolean
 
 指示对应的RemoteObject是否死亡。
@@ -9553,6 +9979,8 @@ if (proxy != undefined) {
 
 ##### MessageOption
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 公共消息选项，使用指定的标志类型，构造指定的MessageOption对象。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -9560,6 +9988,8 @@ if (proxy != undefined) {
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Communication.IPC.Core
 
@@ -9574,6 +10004,8 @@ if (proxy != undefined) {
 
 
 ##### constructor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(async?: boolean)
 
@@ -9604,6 +10036,8 @@ class TestRemoteObject extends rpc.MessageOption {
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(syncFlags?: number, waitTime?: number)
 
 MessageOption构造函数。
@@ -9633,6 +10067,8 @@ class TestRemoteObject extends rpc.MessageOption {
 
 
 ##### isAsync9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isAsync(): boolean
 
@@ -9665,6 +10101,8 @@ try {
 
 ##### setAsync9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAsync(isAsync: boolean): void
 
 设置[sendMessageRequest](#sendmessagerequest9-2)调用中确定同步或是异步的标志。
@@ -9695,6 +10133,8 @@ try {
 
 
 ##### getFlags
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFlags(): number
 
@@ -9733,6 +10173,8 @@ try {
 
 ##### setFlags
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFlags(flags: number): void
 
 设置同步调用或异步调用标志。
@@ -9766,6 +10208,8 @@ try {
 
 
 ##### getWaitTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWaitTime(): number
 
@@ -9802,6 +10246,8 @@ try {
 
 ##### setWaitTime
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWaitTime(waitTime: number): void
 
 设置rpc调用最长等待时间。
@@ -9835,6 +10281,8 @@ try {
 
 ##### IPCSkeleton
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于获取IPC上下文信息，包括获取UID和PID、获取本端和对端设备ID、检查接口调用是否在同一设备上。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -9842,6 +10290,8 @@ try {
 
 
 ##### getContextObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getContextObject(): IRemoteObject
 
@@ -9873,6 +10323,8 @@ try {
 
 
 ##### getCallingPid
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getCallingPid(): number
 
@@ -9911,6 +10363,8 @@ class Stub extends rpc.RemoteObject {
 
 ##### getCallingUid
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getCallingUid(): number
 
 静态方法，获取调用者的UID。此方法由[RemoteObject](#remoteobject)对象在IPC上下文环境（[onRemoteMessageRequest](#onremotemessagerequest9)）中调用，不在则返回本进程的UID。
@@ -9947,6 +10401,8 @@ class Stub extends rpc.RemoteObject {
 
 
 ##### getCallingTokenId8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getCallingTokenId(): number
 
@@ -9985,6 +10441,8 @@ class Stub extends rpc.RemoteObject {
 
 ##### getCallingDeviceID
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getCallingDeviceID(): string
 
 静态方法，获取调用者进程所在的设备ID。
@@ -10021,6 +10479,8 @@ class Stub extends rpc.RemoteObject {
 
 
 ##### getLocalDeviceID
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getLocalDeviceID(): string
 
@@ -10059,6 +10519,8 @@ class Stub extends rpc.RemoteObject {
 
 ##### isLocalCalling
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static isLocalCalling(): boolean
 
 静态方法，检查当前通信对端是否是本设备的进程。
@@ -10095,6 +10557,8 @@ class Stub extends rpc.RemoteObject {
 
 
 ##### flushCmdBuffer9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static flushCmdBuffer(object: IRemoteObject): void
 
@@ -10148,6 +10612,8 @@ try {
 
 
 ##### flushCommands(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static flushCommands(object: IRemoteObject): number
 
@@ -10204,6 +10670,8 @@ try {
 
 ##### resetCallingIdentity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static resetCallingIdentity(): string
 
 静态方法，将远程用户的UID和PID替换为本地用户的UID和PID。它可以用于身份验证等场景。
@@ -10240,6 +10708,8 @@ class Stub extends rpc.RemoteObject {
 
 
 ##### restoreCallingIdentity9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static restoreCallingIdentity(identity: string): void
 
@@ -10287,6 +10757,8 @@ class Stub extends rpc.RemoteObject {
 
 
 ##### setCallingIdentity(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setCallingIdentity(identity: string): boolean
 
@@ -10338,6 +10810,8 @@ class Stub extends rpc.RemoteObject {
 
 ##### RemoteObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 实现远程对象。服务提供者必须继承此类。
 
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -10345,6 +10819,8 @@ class Stub extends rpc.RemoteObject {
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(descriptor: string)
 
@@ -10374,6 +10850,8 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 
 ##### sendRequest(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean
 
@@ -10441,6 +10919,8 @@ try {
 
 
 ##### sendMessageRequest9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): Promise&lt;RequestResult&gt;
 
@@ -10524,6 +11004,8 @@ try {
 
 ##### sendRequest(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): Promise&lt;SendRequestResult&gt;
 
 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结果将在sendRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
@@ -10601,6 +11083,8 @@ try {
 
 ##### sendMessageRequest9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption, callback: AsyncCallback&lt;RequestResult&gt;): void
 
 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendMessageRequest返回时收到回调，回复内容在reply报文里。
@@ -10631,6 +11115,8 @@ sendMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, 
 
 ##### sendRequest(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption, callback: AsyncCallback&lt;SendRequestResult&gt;): void
 
 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendRequest返回时收到回调，回复内容在reply报文里。
@@ -10655,6 +11141,8 @@ sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: Me
 
 
 ##### onRemoteMessageRequest23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRemoteMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption, callingInfo?: CallingInfo): boolean | Promise&lt;boolean&gt;
 
@@ -10779,6 +11267,8 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 ##### onRemoteMessageRequest9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRemoteMessageRequest(code: number, data: MessageSequence, reply: MessageSequence, options: MessageOption): boolean | Promise&lt;boolean&gt;
 
 sendMessageRequest请求的响应处理函数，服务端在该函数里同步或异步地处理请求，回复结果。
@@ -10898,6 +11388,8 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 ##### onRemoteRequest(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean
 
 sendRequest请求的响应处理函数，服务端在该函数里处理请求，回复结果。
@@ -10951,6 +11443,8 @@ class TestRemoteObject extends rpc.RemoteObject {
 
 ##### getCallingUid
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCallingUid(): number
 
 获取通信对端的进程Uid。
@@ -10992,6 +11486,8 @@ try {
 
 ##### getCallingPid
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCallingPid(): number
 
 获取通信对端的进程Pid。
@@ -11032,6 +11528,8 @@ try {
 
 
 ##### getLocalInterface9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLocalInterface(descriptor: string): IRemoteBroker
 
@@ -11093,6 +11591,8 @@ try {
 
 ##### queryLocalInterface(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryLocalInterface(descriptor: string): IRemoteBroker
 
 查询并获取当前接口描述符对应的远端对象是否已经存在。
@@ -11144,6 +11644,8 @@ try {
 
 
 ##### getDescriptor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDescriptor(): string
 
@@ -11199,6 +11701,8 @@ try {
 
 ##### getInterfaceDescriptor(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getInterfaceDescriptor(): string
 
 查询接口描述符。
@@ -11245,6 +11749,8 @@ try {
 
 
 ##### modifyLocalInterface9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 modifyLocalInterface(localInterface: IRemoteBroker, descriptor: string): void
 
@@ -11306,6 +11812,8 @@ let testRemoteObject = new TestRemoteObject("testObject");
 
 ##### attachLocalInterface(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 attachLocalInterface(localInterface: IRemoteBroker, descriptor: string): void
 
 此接口用于把接口描述符和IRemoteBroker对象绑定。
@@ -11356,6 +11864,8 @@ let testRemoteObject = new TestRemoteObject("testObject");
 
 ##### Ashmem8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供与匿名共享内存对象相关的方法，包括创建、关闭、映射和取消映射Ashmem、从Ashmem读取数据和写入数据、获取Ashmem大小、设置Ashmem保护。
 
 共享内存只适用与本设备内跨进程通信。
@@ -11365,6 +11875,8 @@ let testRemoteObject = new TestRemoteObject("testObject");
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Communication.IPC.Core
 
@@ -11379,6 +11891,8 @@ let testRemoteObject = new TestRemoteObject("testObject");
 
 
 ##### create9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static create(name: string, size: number): Ashmem
 
@@ -11433,6 +11947,8 @@ try {
 
 ##### createAshmem(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createAshmem(name: string, size: number): Ashmem
 
 静态方法，根据指定的名称和大小创建Ashmem对象。
@@ -11477,6 +11993,8 @@ try {
 
 
 ##### create9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static create(ashmem: Ashmem): Ashmem
 
@@ -11530,6 +12048,8 @@ try {
 
 ##### createAshmemFromExisting(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createAshmemFromExisting(ashmem: Ashmem): Ashmem
 
 静态方法，通过复制现有Ashmem对象的文件描述符(fd)来创建Ashmem对象。两个Ashmem对象指向同一个共享内存区域。
@@ -11574,6 +12094,8 @@ try {
 
 ##### closeAshmem8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeAshmem(): void
 
 关闭这个Ashmem。
@@ -11602,6 +12124,8 @@ try {
 
 ##### unmapAshmem8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unmapAshmem(): void
 
 删除该Ashmem对象的地址映射。
@@ -11625,6 +12149,8 @@ try {
 
 
 ##### getAshmemSize8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAshmemSize(): number
 
@@ -11657,6 +12183,8 @@ try {
 
 
 ##### mapTypedAshmem9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mapTypedAshmem(mapType: number): void
 
@@ -11702,6 +12230,8 @@ try {
 
 ##### mapAshmem(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mapAshmem(mapType: number): boolean
 
 在此进程的虚拟地址空间上创建共享文件映射，映射区域大小由此Ashmem对象指定。
@@ -11745,6 +12275,8 @@ try {
 
 ##### mapReadWriteAshmem9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mapReadWriteAshmem(): void
 
 在此进程虚拟地址空间上创建可读写的共享文件映射。
@@ -11780,6 +12312,8 @@ try {
 
 
 ##### mapReadAndWriteAshmem(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mapReadAndWriteAshmem(): boolean
 
@@ -11817,6 +12351,8 @@ try {
 
 ##### mapReadonlyAshmem9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mapReadonlyAshmem(): void
 
 在此进程虚拟地址空间上创建只读的共享文件映射。
@@ -11853,6 +12389,8 @@ try {
 
 ##### mapReadOnlyAshmem(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mapReadOnlyAshmem(): boolean
 
 在此进程虚拟地址空间上创建只读的共享文件映射。
@@ -11888,6 +12426,8 @@ try {
 
 
 ##### setProtectionType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setProtectionType(protectionType: number): void
 
@@ -11933,6 +12473,8 @@ try {
 
 ##### setProtection(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setProtection(protectionType: number): boolean
 
 设置映射内存区域的保护等级。
@@ -11976,6 +12518,8 @@ try {
 
 
 ##### writeDataToAshmem11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeDataToAshmem(buf: ArrayBuffer, size: number, offset: number): void
 
@@ -12034,6 +12578,8 @@ try {
 
 ##### writeAshmem(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeAshmem(buf: number[], size: number, offset: number): void
 
 将数据写入此Ashmem对象关联的共享文件。
@@ -12086,6 +12632,8 @@ try {
 
 ##### writeToAshmem(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeToAshmem(buf: number[], size: number, offset: number): boolean
 
 将数据写入此Ashmem对象关联的共享文件。
@@ -12133,6 +12681,8 @@ try {
 
 
 ##### readDataFromAshmem11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readDataFromAshmem(size: number, offset: number): ArrayBuffer
 
@@ -12200,6 +12750,8 @@ try {
 
 ##### readAshmem(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readAshmem(size: number, offset: number): number[]
 
 从此Ashmem对象关联的共享文件中读取数据。
@@ -12259,6 +12811,8 @@ try {
 
 
 ##### readFromAshmem(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readFromAshmem(size: number, offset: number): number[]
 

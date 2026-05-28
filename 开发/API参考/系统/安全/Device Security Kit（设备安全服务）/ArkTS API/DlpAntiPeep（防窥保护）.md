@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone
+
 ```text
 import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 ```
@@ -19,6 +21,8 @@ import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 
 
 ##### DlpAntiPeepStatus
+
+**支持设备：** Phone
 
 表示窥视状态的枚举。
 
@@ -35,6 +39,8 @@ import { dlpAntiPeep } from '@kit.DeviceSecurityKit';
 
 
 ##### isDlpAntiPeepSwitchOn
+
+**支持设备：** Phone
 
 isDlpAntiPeepSwitchOn(): Promise&lt;boolean&gt;
 
@@ -81,12 +87,14 @@ try {
 
 ##### on("dlpAntiPeep")
 
+**支持设备：** Phone
+
 on(type: 'dlpAntiPeep', callback: Callback&lt;DlpAntiPeepStatus&gt;): void
 
 订阅防窥保护通知。使用callback方式异步返回结果。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/vd8k3eG4QleK_K9Khd5lYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=F49E7E738350E7ED9C8937ACA27DFE658466228D328A99BC05CDF4E57427D1EC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/vd8k3eG4QleK_K9Khd5lYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023909Z&HW-CC-Expire=86400&HW-CC-Sign=79C0E69C2045EA16A3BC3268136695F0D82DF655AAF59651CEC94DC956500245)
 
 
 请在满足[开发前置条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-dlpantipeep#开发前置条件)后再调用此接口，避免无法触发防窥回调。调用接口成功后，并且应用在前台可见时才会收到防窥回调。
@@ -136,6 +144,8 @@ try {
 
 ##### off("dlpAntiPeep")
 
+**支持设备：** Phone
+
 off(type: 'dlpAntiPeep', callback?: Callback&lt;DlpAntiPeepStatus&gt;): void
 
 解订阅防窥保护通知。使用callback方式异步返回结果。
@@ -183,6 +193,8 @@ try {
 
 ##### getDlpAntiPeepInfo
 
+**支持设备：** Phone
+
 getDlpAntiPeepInfo(): DlpAntiPeepStatus
 
 获取当前应用的窥视状态。
@@ -228,6 +240,8 @@ try {
 
 ##### passDlpAntiPeepInfo
 
+**支持设备：** Phone
+
 passDlpAntiPeepInfo(): void
 
 设置当前应用窥视状态为非窥视，后续[on("dlpAntiPeep")](#ondlpantipeep)接口回调函数返回的窥视状态、[getDlpAntiPeepInfo](#getdlpantipeepinfo)接口直接获取的窥视状态均为无人窥视屏幕。
@@ -235,7 +249,7 @@ passDlpAntiPeepInfo(): void
 若应用在生命周期内不再需要接受窥视状态，可直接调用[off("dlpAntiPeep")](#offdlpantipeep)接口解注册，若仍想接受放通后的非窥视状态，则可以调用该接口。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/HDS3P70rTvOhVgCyKmC0sg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=8BD13E8B2AEF05AB2EDD242A47DF05B956E96FA86C0E99F6AEF907EAF33E3EA7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/HDS3P70rTvOhVgCyKmC0sg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023909Z&HW-CC-Expire=86400&HW-CC-Sign=6F04618DC6BE394E0767E694E588509EE47DB62F9844B067AA1184260733012B)
 
 
 请在满足[开发前置条件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/devicesecurity-dlpantipeep#开发前置条件)并调用[on("dlpAntiPeep")](#ondlpantipeep)接口注册后再调用该接口，可用于在应用注册的生命周期内将回调状态变更为非防窥状态，直到应用退出或设备锁屏。
@@ -276,12 +290,14 @@ try {
 
 ##### setAntiPeepMaskLayer
 
+**支持设备：** Phone
+
 setAntiPeepMaskLayer(windowId: number): Promise&lt;void&gt;
 
 对指定窗口设置系统级蒙层，使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/RY6K9Qg-RRS5zy72enXQwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=814E2EB5EEDF97B10E38E10ECCD88AC840A2C0CE5C533DF82ACDA4A4144D6BC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/RY6K9Qg-RRS5zy72enXQwQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023909Z&HW-CC-Expire=86400&HW-CC-Sign=5317D1576587D9987539C88019001915BF947DB65B3CAB7E236B94C0F4C233B0)
 
 
 该接口调用后会拉起蒙层，覆盖应用窗口，建议开发者在检测到窥视状态后调用一次即可，频繁调用可能对用户体验造成影响。
@@ -343,6 +359,8 @@ try {
 
 ##### requestAntiPeepOptions
 
+**支持设备：** Phone
+
 requestAntiPeepOptions(context: Context): Promise&lt;AntiPeepOptionsResult&gt;
 
 用于UIAbility/UIExtensionAbility拉起设置弹框，请求用户打开防窥保护开关。使用Promise异步回调。
@@ -397,6 +415,8 @@ dlpAntiPeep.requestAntiPeepOptions(context).then((data: dlpAntiPeep.AntiPeepOpti
 
 ##### AntiPeepOptionsResult
 
+**支持设备：** Phone
+
 表示弹框设置结果的枚举。
 
 **系统能力：** SystemCapability.Security.DlpAntiPeep
@@ -413,6 +433,8 @@ dlpAntiPeep.requestAntiPeepOptions(context).then((data: dlpAntiPeep.AntiPeepOpti
 
 
 ##### publishAntiPeepInformation
+
+**支持设备：** Phone
 
 publishAntiPeepInformation(): Promise&lt;void&gt;
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -21,6 +23,8 @@ import { media } from '@kit.MediaKit';
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
@@ -35,6 +39,8 @@ import { media } from '@kit.MediaKit';
   
 
 ##### respondData18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 respondData(uuid: number, offset: number, buffer: ArrayBuffer): number
  
@@ -77,6 +83,8 @@ let num = request?.respondData(uuid, offset, buf);
 
 ##### respondHeader18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 respondHeader(uuid: number, header?: Record<string, string>, redirectUrl?: string): void
  
 用于应用程序向播放器发送响应头信息，应在第一次调用[respondData](#responddata18)方法之前调用。
@@ -118,6 +126,8 @@ request?.respondHeader(uuid, header);
   
 
 ##### finishLoading18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 finishLoading(uuid: number, state: LoadingRequestError): void
  

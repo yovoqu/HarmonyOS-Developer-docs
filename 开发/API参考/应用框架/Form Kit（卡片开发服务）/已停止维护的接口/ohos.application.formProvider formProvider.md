@@ -14,6 +14,8 @@ FormProvider模块提供了卡片提供方相关接口的能力，开发者在�
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { formProvider } from '@kit.FormKit';
 ```
@@ -21,6 +23,8 @@ import { formProvider } from '@kit.FormKit';
   
 
 ##### formProvider.setFormNextRefreshTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFormNextRefreshTime(formId: string, minute: number, callback: AsyncCallback&lt;void&gt;): void
  
@@ -54,6 +58,8 @@ formProvider.setFormNextRefreshTime(formId, 5, (error: BusinessError) => {
   
 
 ##### formProvider.setFormNextRefreshTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFormNextRefreshTime(formId: string, minute: number): Promise&lt;void&gt;
  
@@ -94,6 +100,8 @@ formProvider.setFormNextRefreshTime(formId, 5).then(() => {
 
 ##### formProvider.updateForm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateForm(formId: string, formBindingData: formBindingData.FormBindingData, callback: AsyncCallback&lt;void&gt;): void
  
 更新指定的卡片，使用callback异步回调。
@@ -132,6 +140,8 @@ formProvider.updateForm(formId, obj, (error: BusinessError) => {
   
 
 ##### formProvider.updateForm
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateForm(formId: string, formBindingData: formBindingData.FormBindingData): Promise&lt;void&gt;
  

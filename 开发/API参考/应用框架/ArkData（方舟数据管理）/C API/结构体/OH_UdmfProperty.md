@@ -12,6 +12,8 @@ typedef struct OH_UdmfProperty OH_UdmfProperty
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义统一数据对象中数据记录的属性结构。
  
 **起始版本：** 12

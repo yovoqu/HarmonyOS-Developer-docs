@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -41,6 +45,8 @@ let path: drawing.Path = new drawing.Path();
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(path: Path)
 
@@ -74,6 +80,8 @@ let path1: drawing.Path =  new drawing.Path(path);
 
 ##### set20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set(src: Path): void
 
 使用另一个路径对当前路径进行更新。
@@ -105,6 +113,8 @@ path1.set(path);
 
 
 ##### moveTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveTo(x: number, y: number) : void
 
@@ -144,6 +154,8 @@ path.moveTo(10,10);
 
 ##### lineTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lineTo(x: number, y: number) : void
 
 添加一条从路径的最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。
@@ -182,6 +194,8 @@ path.lineTo(10, 15);
 
 
 ##### arcTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 arcTo(x1: number, y1: number, x2: number, y2: number, startDeg: number, sweepDeg: number): void
 
@@ -226,6 +240,8 @@ path.arcTo(10, 15, 10, 10, 10, 10);
 
 ##### quadTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 quadTo(ctrlX: number, ctrlY: number, endX: number, endY: number): void
 
 添加从路径最后点位置（若路径没有内容则为 (0, 0)）到目标点位置的二阶贝塞尔曲线。
@@ -267,6 +283,8 @@ path.quadTo(10, 15, 10, 10);
 
 ##### conicTo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 conicTo(ctrlX: number, ctrlY: number, endX: number, endY: number, weight: number): void
 
 在当前路径上添加一条路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线，其控制点为 (ctrlX, ctrlY)，结束点为 (endX, endY)。
@@ -307,6 +325,8 @@ path.conicTo(200, 400, 100, 200, 0);
 
 
 ##### cubicTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cubicTo(ctrlX1: number, ctrlY1: number, ctrlX2: number, ctrlY2: number, endX: number, endY: number): void
 
@@ -351,6 +371,8 @@ path.cubicTo(100, 100, 80, 150, 300, 150);
 
 ##### rMoveTo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rMoveTo(dx: number, dy: number): void
 
 设置一个相对于当前路径终点（若路径没有内容则默认为 (0, 0)）的路径起始点位置。
@@ -389,6 +411,8 @@ path.rMoveTo(10, 10);
 
 ##### rLineTo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rLineTo(dx: number, dy: number): void
 
 使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。
@@ -426,6 +450,8 @@ path.rLineTo(400, 200);
 
 
 ##### rQuadTo12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rQuadTo(dx1: number, dy1: number, dx2: number, dy2: number): void
 
@@ -466,6 +492,8 @@ path.rQuadTo(100, 0, 0, 200);
 
 
 ##### rConicTo12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rConicTo(ctrlX: number, ctrlY: number, endX: number, endY: number, weight: number): void
 
@@ -508,6 +536,8 @@ path.rConicTo(200, 400, 100, 200, 0);
 
 ##### rCubicTo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rCubicTo(ctrlX1: number, ctrlY1: number, ctrlX2: number, ctrlY2: number, endX: number, endY: number): void
 
 使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔曲线。
@@ -549,6 +579,8 @@ path.rCubicTo(200, 0, 0, 200, -20, 0);
 
 
 ##### addArc12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addArc(rect: common2D.Rect, startAngle: number, sweepAngle: number): void
 
@@ -596,6 +628,8 @@ path.addArc(rect, 90, 180);
 
 ##### addCircle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addCircle(x: number, y: number, radius: number, pathDirection?: PathDirection): void
 
 按指定方向，向路径添加圆形，圆的起点位于(x + radius, y)。
@@ -633,6 +667,8 @@ path.addCircle(100, 200, 50, drawing.PathDirection.CLOCKWISE);
 
 
 ##### addOval12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addOval(rect: common2D.Rect, start: number, pathDirection?: PathDirection): void
 
@@ -672,6 +708,8 @@ path.addOval(rect, 5, drawing.PathDirection.CLOCKWISE);
 
 ##### addRect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addRect(rect: common2D.Rect, pathDirection?: PathDirection): void
 
 按指定方向，将矩形添加到路径中，添加的路径的起始点为矩形左上角。
@@ -708,6 +746,8 @@ path.addRect(rect, drawing.PathDirection.CLOCKWISE);
 
 
 ##### addRoundRect12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addRoundRect(roundRect: RoundRect, pathDirection?: PathDirection): void
 
@@ -746,6 +786,8 @@ path.addRoundRect(roundRect, drawing.PathDirection.CLOCKWISE);
 
 
 ##### addPath12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addPath(path: Path, matrix?: Matrix | null): void
 
@@ -788,6 +830,8 @@ dstPath.addPath(path, matrix);
 
 ##### transform12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 transform(matrix: Matrix): void
 
 对路径进行矩阵变换。
@@ -827,6 +871,8 @@ path.transform(matrix);
 
 
 ##### contains12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contains(x: number, y: number): boolean
 
@@ -874,6 +920,8 @@ console.info("test contains: " + path.contains(60, 60));
 
 ##### setLastPoint20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setLastPoint(x: number, y: number): void
 
 修改路径的最后一个点。
@@ -908,6 +956,8 @@ console.info('isEmpty:', isEmpty);
 
 
 ##### setFillType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFillType(pathFillType: PathFillType): void
 
@@ -944,6 +994,8 @@ path.setFillType(drawing.PathFillType.WINDING);
 
 ##### getFillType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFillType(): PathFillType
 
 获取路径的填充类型。
@@ -970,6 +1022,8 @@ console.info("type :" + type);
 
 
 ##### getBounds12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBounds(): common2D.Rect
 
@@ -1002,6 +1056,8 @@ console.info("test rect.bottom: " + rect.bottom);
 
 
 ##### addPolygon12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addPolygon(points: Array<common2D.Point>, close: boolean): void
 
@@ -1048,6 +1104,8 @@ path.addPolygon(pointsArray, false);
 
 ##### offset12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offset(dx: number, dy: number): Path
 
 将路径沿着x轴和y轴方向偏移一定距离并保存在返回的路径对象中。
@@ -1092,6 +1150,8 @@ const dst = path.offset(200, 200);
 
 
 ##### op12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 op(path: Path, pathOp: PathOp): boolean
 
@@ -1138,6 +1198,8 @@ console.info("get pathOp: ", path2.op(path, drawing.PathOp.DIFFERENCE));
 
 ##### close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 闭合路径，会添加一条从路径起点位置到最后点位置的线段。
@@ -1158,6 +1220,8 @@ path.close();
 
 
 ##### reset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reset(): void
 
@@ -1180,6 +1244,8 @@ path.reset();
 
 ##### rewind20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rewind(): void
 
 将路径内添加的各类点/线清空，但是保留内存空间。
@@ -1201,6 +1267,8 @@ console.info('empty : ', empty);
 
 
 ##### isEmpty20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEmpty(): boolean
 
@@ -1229,6 +1297,8 @@ console.info('isEmpty:', isEmpty);
 
 
 ##### isRect20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isRect(rect: common2D.Rect | null): boolean
 
@@ -1272,6 +1342,8 @@ console.info('isRect: ', isRect);
 
 ##### getLength12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLength(forceClosed: boolean): number
 
 获取路径长度。
@@ -1306,6 +1378,8 @@ console.info("path length = " + len);
 
 
 ##### getPositionAndTangent12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPositionAndTangent(forceClosed: boolean, distance: number, position: common2D.Point, tangent: common2D.Point): boolean
 
@@ -1362,6 +1436,8 @@ if (path.getPositionAndTangent(false, 0.1, position, tangent)) {
 
 ##### getSegment18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSegment(forceClosed: boolean, start: number, stop: number, startWithMoveTo: boolean, dst: Path): boolean
 
 截取路径的片段并追加到目标路径上。
@@ -1403,6 +1479,8 @@ console.info("getSegment-----result:  "+ path.getSegment(true, 10.0, 20.0, true,
 
 ##### isClosed12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isClosed(): boolean
 
 获取路径是否闭合。
@@ -1434,6 +1512,8 @@ if (path.isClosed()) {
 
 
 ##### getMatrix12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMatrix(forceClosed: boolean, distance: number, matrix: Matrix, flags: PathMeasureMatrixFlags): boolean
 
@@ -1485,6 +1565,8 @@ if(path.getMatrix(false, 10, matrix, drawing.PathMeasureMatrixFlags.GET_TANGENT_
 
 ##### buildFromSvgString12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 buildFromSvgString(str: string): boolean
 
 解析SVG字符串表示的路径。
@@ -1532,6 +1614,8 @@ if(path.buildFromSvgString(svgStr)) {
 
 ##### getPathIterator18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPathIterator(): PathIterator
 
 返回该路径的操作迭代器。
@@ -1557,6 +1641,8 @@ let iter = path.getPathIterator();
 
 
 ##### approximate20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 approximate(acceptableError: number): Array&lt;number&gt;
 
@@ -1608,6 +1694,8 @@ for (let i = 0; i < points.length; i += 3) {
 
 
 ##### interpolate20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 interpolate(other: Path, weight: number, interpolatedPath: Path): boolean
 
@@ -1664,6 +1752,8 @@ if (path.interpolate(other, 0.0, interpolatedPath)) {
 
 ##### isInterpolate20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isInterpolate(other: Path): boolean
 
 判断当前路径与另一条路径在结构和操作顺序上是否完全一致，以确定两条路径是否兼容插值。若路径中包含圆锥曲线（Conic）操作，则对应操作的权重值也必须一致，才能视为兼容插值。
@@ -1706,6 +1796,8 @@ if (path.isInterpolate(other)) {
 
 ##### isInverseFillType23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isInverseFillType(): boolean
 
 检查当前路径填充类型是否是反向填充类型。例如填充类型Winding、EvenOdd不是反向类型，InverseWinding、InverseEvenOdd是反向类型。
@@ -1736,6 +1828,8 @@ if (path.isInverseFillType()) {
 
 
 ##### toggleInverseFillType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toggleInverseFillType(): void
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 ```
@@ -22,9 +24,13 @@ import { PrintExtensionAbility } from '@kit.BasicServicesKit';
 
 ##### PrintExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 
 
 ##### onCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onCreate(want: Want): void
 
@@ -57,6 +63,8 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 ##### onStartDiscoverPrinter
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onStartDiscoverPrinter(): void
 
 开始发现与设备连接的打印机时调用。
@@ -80,6 +88,8 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 ##### onStopDiscoverPrinter
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onStopDiscoverPrinter(): void
 
 停止发现打印机时调用。
@@ -102,6 +112,8 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 ##### onConnectPrinter
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onConnectPrinter(printerId: number): void
 
@@ -133,6 +145,8 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 ##### onDisconnectPrinter
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onDisconnectPrinter(printerId: number): void
 
 断开与特定打印机的连接时调用。
@@ -162,6 +176,8 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 ##### onStartPrintJob24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onStartPrintJob(jobInfo: print.PrintJob): void
 
@@ -193,6 +209,8 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 ##### onCancelPrintJob24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onCancelPrintJob(jobInfo: print.PrintJob): void
 
 移除已开始的打印任务时调用。
@@ -222,6 +240,8 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 ##### onRequestPrinterCapability24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onRequestPrinterCapability(printerId: number): print.PrinterCapability
 
@@ -265,6 +285,8 @@ export default class HWPrintExtension extends PrintExtensionAbility {
 
 
 ##### onDestroy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onDestroy(): void
 

@@ -12,6 +12,8 @@ typedef struct ArkUI_StyledString_Descriptor ArkUI_StyledString_Descriptor
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文本组件支持的属性字符串的数据对象。
  
 **起始版本：** 14

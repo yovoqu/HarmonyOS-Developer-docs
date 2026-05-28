@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import {power} from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import {power} from '@kit.BasicServicesKit';
   
 
 ##### power.isActive9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isActive(): boolean
  
@@ -50,6 +54,8 @@ console.info('power is active: ' + isActive);
 
 ##### power.rebootDevice(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rebootDevice(reason: string): void
  
 > [!NOTE]
@@ -77,6 +83,8 @@ power.rebootDevice('reboot_test');
 
 ##### power.getPowerMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPowerMode(): DevicePowerMode
  
 获取当前设备的电源模式。
@@ -100,6 +108,8 @@ console.info('power mode: ' + mode);
   
 
 ##### power.isStandby10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isStandby(): boolean
  
@@ -138,6 +148,8 @@ try {
 
 ##### power.isScreenOn(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isScreenOn(callback: AsyncCallback&lt;boolean&gt;): void
  
 > [!NOTE]
@@ -170,6 +182,8 @@ power.isScreenOn((err: Error, data: boolean) => {
   
 
 ##### power.isScreenOn(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isScreenOn(): Promise&lt;boolean&gt;
  
@@ -204,6 +218,8 @@ power.isScreenOn()
 
 ##### DevicePowerMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示电源模式的枚举值。
  
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
@@ -220,6 +236,8 @@ power.isScreenOn()
   
 
 ##### PowerKeyFilteringStrategy21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示电源键过滤策略。
  

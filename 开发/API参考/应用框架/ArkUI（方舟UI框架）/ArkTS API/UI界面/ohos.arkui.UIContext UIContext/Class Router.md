@@ -14,6 +14,8 @@
 
 ##### pushUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushUrl(options: router.RouterOptions): Promise&lt;void&gt;
 
 跳转到应用内的指定页面，使用Promise异步回调。
@@ -160,6 +162,8 @@ struct Second {
 
 ##### pushUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushUrl(options: router.RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到应用内的指定页面。使用callback异步回调。
@@ -238,6 +242,8 @@ struct Index {
 
 
 ##### pushUrl
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushUrl(options: router.RouterOptions, mode: router.RouterMode): Promise&lt;void&gt;
 
@@ -330,6 +336,8 @@ struct Index {
 
 ##### pushUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到应用内的指定页面。使用callback异步回调。与[pushUrl](#pushurl-1)相比，新增了mode参数，即支持设置跳转页面使用的模式。
@@ -417,6 +425,8 @@ struct Index {
 
 ##### replaceUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceUrl(options: router.RouterOptions): Promise&lt;void&gt;
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面，使用Promise异步回调。
@@ -496,6 +506,8 @@ struct Index {
 
 ##### replaceUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceUrl(options: router.RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。使用callback异步回调。
@@ -570,6 +582,8 @@ struct Index {
 
 
 ##### replaceUrl
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replaceUrl(options: router.RouterOptions, mode: router.RouterMode): Promise&lt;void&gt;
 
@@ -658,6 +672,8 @@ struct Index {
 
 ##### replaceUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。使用callback异步回调。与[replaceUrl](#replaceurl-1)相比，新增了mode参数，即支持设置跳转页面使用的模式。
@@ -740,6 +756,8 @@ struct Index {
 
 
 ##### pushNamedRoute
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushNamedRoute(options: router.NamedRouterOptions): Promise&lt;void&gt;
 
@@ -824,6 +842,8 @@ struct Index {
 
 ##### pushNamedRoute
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到指定的命名路由页面。使用callback异步回调。
@@ -902,6 +922,8 @@ struct Index {
 
 
 ##### pushNamedRoute
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise&lt;void&gt;
 
@@ -993,6 +1015,8 @@ struct Index {
 
 ##### pushNamedRoute
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到指定的命名路由页面。使用callback异步回调。与[pushNamedRoute](#pushnamedroute-1)相比，新增了mode参数，即支持设置跳转页面使用的模式。
@@ -1080,6 +1104,8 @@ struct Index {
 
 ##### replaceNamedRoute
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceNamedRoute(options: router.NamedRouterOptions): Promise&lt;void&gt;
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面，使用Promise异步回调。
@@ -1159,6 +1185,8 @@ struct Index {
 
 ##### replaceNamedRoute
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。使用callback异步回调。
@@ -1233,6 +1261,8 @@ struct Index {
 
 
 ##### replaceNamedRoute
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode): Promise&lt;void&gt;
 
@@ -1321,6 +1351,8 @@ struct Index {
 
 ##### replaceNamedRoute
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。使用callback异步回调。与[replaceNamedRoute](#replacenamedroute-1)相比，新增了mode参数，即支持设置跳转页面使用的模式。
@@ -1404,6 +1436,8 @@ struct Index {
 
 ##### back
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 back(options?: router.RouterOptions ): void
 
 返回上一页面或指定的页面。
@@ -1433,6 +1467,8 @@ router.back({url:'pages/detail'});
 
 
 ##### back12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 back(index: number, params?: Object): void
 
@@ -1475,6 +1511,8 @@ router.back(1, {info:'来自Home页'}); // 携带参数返回
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清空页面栈中的所有历史页面，仅保留当前页面作为栈顶页面。
@@ -1498,6 +1536,8 @@ router.clear();
 
 
 ##### getLength(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLength(): string
 
@@ -1534,6 +1574,8 @@ console.info('pages stack size = ' + size);
 
 
 ##### getStackSize23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStackSize(): number
 
@@ -1582,6 +1624,8 @@ struct Index {
 
 ##### getState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getState(): router.RouterState
 
 获取当前页面的状态信息。
@@ -1617,6 +1661,8 @@ if (page != undefined) {
 
 
 ##### getStateByIndex12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStateByIndex(index: number): router.RouterState | undefined
 
@@ -1662,6 +1708,8 @@ if (options != undefined) {
 
 ##### getStateByUrl12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStateByUrl(url: string): Array<router.[RouterState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router#routerstate)>
 
 通过url获取当前页面的状态信息。
@@ -1704,6 +1752,8 @@ for (let i: number = 0; i < options.length; i++) {
 
 
 ##### showAlertBeforeBackPage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showAlertBeforeBackPage(options: router.EnableAlertOptions): void
 
@@ -1755,6 +1805,8 @@ try {
 
 ##### hideAlertBeforeBackPage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hideAlertBeforeBackPage(): void
 
 禁用页面返回询问对话框。
@@ -1778,6 +1830,8 @@ router.hideAlertBeforeBackPage();
 
 
 ##### getParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getParams(): Object
 

@@ -26,6 +26,8 @@ TreeMap和[HashMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { TreeMap } from '@kit.ArkTS';
 ```
@@ -34,9 +36,13 @@ import { TreeMap } from '@kit.ArkTS';
 
 ##### TreeMap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -50,6 +56,8 @@ import { TreeMap } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(comparator?:(firstValue: K, secondValue: K) => boolean)
 
@@ -134,6 +142,8 @@ console.info("length:", ts1.length); // length: 2
 
 ##### isEmpty
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isEmpty(): boolean
 
 判断容器是否为空。
@@ -169,6 +179,8 @@ console.info("result:", result);  // result: true
 
 
 ##### hasKey
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasKey(key: K): boolean
 
@@ -214,6 +226,8 @@ console.info("result:", result);  // result: true
 
 ##### hasValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasValue(value: V): boolean
 
 判断容器中是否包含该指定value。
@@ -257,6 +271,8 @@ console.info("result:", result);  // result: true
 
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(key: K): V
 
@@ -303,6 +319,8 @@ console.info("result:", result); // result: 356
 
 ##### getFirstKey
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFirstKey(): K
 
 获取容器中排序第一的key，若为空则返回undefined。
@@ -341,6 +359,8 @@ console.info("result:", result); // result: sparrow
 
 ##### getLastKey
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastKey(): K
 
 获取容器中排序最后的key，若为空则返回undefined。
@@ -378,6 +398,8 @@ console.info("result:", result); // result: squirrel
 
 
 ##### setAll
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAll(map: TreeMap<K, V>): void
 
@@ -426,6 +448,8 @@ map.forEach((value ?: number, key ?: string) : void => {
 
 ##### set
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set(key: K, value: V): Object
 
 向容器中添加或更新一组数据。
@@ -471,6 +495,8 @@ console.info("squirrel:", treeMap.get("squirrel")); // squirrel: 123
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 remove(key: K): V
 
 删除指定key对应的元素。
@@ -515,6 +541,8 @@ console.info("result = " + result); // result = 356
 
 
 ##### getLowerKey
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLowerKey(key: K): K
 
@@ -563,6 +591,8 @@ console.info("result:", result); // result: 2
 
 ##### getHigherKey
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHigherKey(key: K): K
 
 获取容器中大于对比key值的最小键，如果不存在大于对比key值的键值，则返回undefined。
@@ -610,6 +640,8 @@ console.info("result:", result); // result: 4
 
 ##### replace
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replace(key: K, newValue: V): boolean
 
 对容器中一组数据进行更新（替换）。
@@ -655,6 +687,8 @@ console.info("sparrow:", treeMap.get("sparrow")); // sparrow: 357
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清除容器中的所有元素，并将length置为0。
@@ -686,6 +720,8 @@ console.info("result:", result); // result: true
 
 
 ##### keys
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 keys(): IterableIterator&lt;K&gt;
 
@@ -730,6 +766,8 @@ for (let key of keys) {
 
 ##### values
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 values(): IterableIterator&lt;V&gt;
 
 返回包含此映射中键值的新迭代器对象。
@@ -771,6 +809,8 @@ for (let value of values) {
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value?: V, key?: K, map?: TreeMap<K, V>) => void, thisArg?: Object): void
 
@@ -836,6 +876,8 @@ treeMap.forEach((value: number, key: string): void => {
 
 ##### entries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 entries(): IterableIterator<[K, V]>
 
 返回包含此映射中键值对的新迭代器对象。
@@ -891,6 +933,8 @@ while(!t.done) {
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator<[K, V]>
 

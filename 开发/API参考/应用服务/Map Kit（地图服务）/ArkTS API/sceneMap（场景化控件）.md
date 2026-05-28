@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { sceneMap } from '@kit.MapKit';
 ```
@@ -19,6 +21,8 @@ import { sceneMap } from '@kit.MapKit';
 
 
 ##### queryLocation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryLocation(context: common.UIAbilityContext, options: LocationQueryOptions): Promise&lt;void&gt;
 
@@ -86,6 +90,8 @@ sceneMap.queryLocation(this.getUIContext().getHostContext() as common.UIAbilityC
 
 
 ##### chooseLocation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 chooseLocation(context: common.UIAbilityContext, options: LocationChoosingOptions): Promise&lt;LocationChoosingResult&gt;
 
@@ -158,6 +164,8 @@ sceneMap.chooseLocation(this.getUIContext().getHostContext() as common.UIAbility
 
 ##### selectDistrict
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 selectDistrict(context: common.Context, options: DistrictSelectOptions): Promise&lt;DistrictSelectResult&gt;
 
 根据提供的参数调出区划选择页面。使用Promise异步回调。
@@ -225,6 +233,8 @@ sceneMap.selectDistrict(this.getUIContext().getHostContext(), districtSelectOpti
 
 ##### LocationQueryOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 查询地点详情的参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -262,6 +272,8 @@ let queryLocationOptions: sceneMap.LocationQueryOptions = { siteId: "92220715406
 
 ##### LocationChoosingOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 地点选取的参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -297,6 +309,8 @@ let locationChoosingOptions: sceneMap.LocationChoosingOptions = {
 
 ##### LocationChoosingResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 地点选取的返回结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -321,6 +335,8 @@ let locationChoosingOptions: sceneMap.LocationChoosingOptions = {
 
 
 ##### DistrictSelectOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 区划选择页面初始选项。
 
@@ -359,6 +375,8 @@ let districtSelectOptions: sceneMap.DistrictSelectOptions = {
 
 ##### DistrictSelectResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 区划选择请求的结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -380,6 +398,8 @@ let districtSelectOptions: sceneMap.DistrictSelectOptions = {
 
 
 ##### District
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 行政区划信息。
 

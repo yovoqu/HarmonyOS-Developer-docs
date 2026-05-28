@@ -12,6 +12,8 @@ typedef struct Camera_PhotoOutput Camera_PhotoOutput
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拍照输出对象。
  
  可以使用[OH_CameraManager_CreatePhotoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createphotooutput)方法创建指针。

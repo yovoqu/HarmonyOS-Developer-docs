@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 URLs，用于确定主机是否正在使用代理。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@ URLs，用于确定主机是否正在使用代理。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@ URLs，用于确定主机是否正在使用代理。
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### next
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 struct Rcp_Urls* Rcp_Urls::next
@@ -48,6 +58,8 @@ struct Rcp_Urls* Rcp_Urls::next
   
 
 ##### url
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const char* Rcp_Urls::url

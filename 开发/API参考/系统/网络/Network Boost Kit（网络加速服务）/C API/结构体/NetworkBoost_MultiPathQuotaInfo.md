@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 多网配额信息，包含配额次数信息和时长信息。
  
 **起始版本：** 6.0.2(22)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### count
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint16_t NetworkBoost_MultiPathQuotaInfo::count
@@ -48,6 +58,8 @@ uint16_t NetworkBoost_MultiPathQuotaInfo::count
   
 
 ##### duration
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint16_t NetworkBoost_MultiPathQuotaInfo::duration

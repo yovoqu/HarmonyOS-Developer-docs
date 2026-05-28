@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供IPC序列化/反序列化C接口。
 
 对应的开发指南及样例可参考[IPC与RPC通信开发指导(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ipc-capi-development-guideline)。
@@ -25,9 +27,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -39,6 +45,8 @@
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -83,9 +91,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### OH_IPC_MemAllocator()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void* (*OH_IPC_MemAllocator)(int32_t len)
@@ -117,6 +129,8 @@ typedef void* (*OH_IPC_MemAllocator)(int32_t len)
 
 ##### OH_IPCParcel_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OHIPCParcel* OH_IPCParcel_Create(void)
 ```
@@ -140,6 +154,8 @@ OHIPCParcel* OH_IPCParcel_Create(void)
 
 ##### OH_IPCParcel_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_IPCParcel_Destroy(OHIPCParcel *parcel)
 ```
@@ -162,6 +178,8 @@ void OH_IPCParcel_Destroy(OHIPCParcel *parcel)
 
 
 ##### OH_IPCParcel_GetDataSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_GetDataSize(const OHIPCParcel *parcel)
@@ -193,6 +211,8 @@ int OH_IPCParcel_GetDataSize(const OHIPCParcel *parcel)
 
 ##### OH_IPCParcel_GetWritableBytes()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_GetWritableBytes(const OHIPCParcel *parcel)
 ```
@@ -222,6 +242,8 @@ int OH_IPCParcel_GetWritableBytes(const OHIPCParcel *parcel)
 
 
 ##### OH_IPCParcel_GetReadableBytes()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_GetReadableBytes(const OHIPCParcel *parcel)
@@ -253,6 +275,8 @@ int OH_IPCParcel_GetReadableBytes(const OHIPCParcel *parcel)
 
 ##### OH_IPCParcel_GetReadPosition()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_GetReadPosition(const OHIPCParcel *parcel)
 ```
@@ -278,6 +302,8 @@ int OH_IPCParcel_GetReadPosition(const OHIPCParcel *parcel)
 
 
 ##### OH_IPCParcel_GetWritePosition()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_GetWritePosition(const OHIPCParcel *parcel)
@@ -308,6 +334,8 @@ int OH_IPCParcel_GetWritePosition(const OHIPCParcel *parcel)
 
 
 ##### OH_IPCParcel_RewindReadPosition()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_RewindReadPosition(OHIPCParcel *parcel, uint32_t newReadPos)
@@ -340,6 +368,8 @@ int OH_IPCParcel_RewindReadPosition(OHIPCParcel *parcel, uint32_t newReadPos)
 
 ##### OH_IPCParcel_RewindWritePosition()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_RewindWritePosition(OHIPCParcel *parcel, uint32_t newWritePos)
 ```
@@ -370,6 +400,8 @@ int OH_IPCParcel_RewindWritePosition(OHIPCParcel *parcel, uint32_t newWritePos)
 
 
 ##### OH_IPCParcel_WriteInt8()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteInt8(OHIPCParcel *parcel, int8_t value)
@@ -402,6 +434,8 @@ int OH_IPCParcel_WriteInt8(OHIPCParcel *parcel, int8_t value)
 
 ##### OH_IPCParcel_ReadInt8()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_ReadInt8(const OHIPCParcel *parcel, int8_t *value)
 ```
@@ -432,6 +466,8 @@ int OH_IPCParcel_ReadInt8(const OHIPCParcel *parcel, int8_t *value)
 
 
 ##### OH_IPCParcel_WriteInt16()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteInt16(OHIPCParcel *parcel, int16_t value)
@@ -464,6 +500,8 @@ int OH_IPCParcel_WriteInt16(OHIPCParcel *parcel, int16_t value)
 
 ##### OH_IPCParcel_ReadInt16()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_ReadInt16(const OHIPCParcel *parcel, int16_t *value)
 ```
@@ -494,6 +532,8 @@ int OH_IPCParcel_ReadInt16(const OHIPCParcel *parcel, int16_t *value)
 
 
 ##### OH_IPCParcel_WriteInt32()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteInt32(OHIPCParcel *parcel, int32_t value)
@@ -526,6 +566,8 @@ int OH_IPCParcel_WriteInt32(OHIPCParcel *parcel, int32_t value)
 
 ##### OH_IPCParcel_ReadInt32()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_ReadInt32(const OHIPCParcel *parcel, int32_t *value)
 ```
@@ -556,6 +598,8 @@ int OH_IPCParcel_ReadInt32(const OHIPCParcel *parcel, int32_t *value)
 
 
 ##### OH_IPCParcel_WriteInt64()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteInt64(OHIPCParcel *parcel, int64_t value)
@@ -588,6 +632,8 @@ int OH_IPCParcel_WriteInt64(OHIPCParcel *parcel, int64_t value)
 
 ##### OH_IPCParcel_ReadInt64()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_ReadInt64(const OHIPCParcel *parcel, int64_t *value)
 ```
@@ -618,6 +664,8 @@ int OH_IPCParcel_ReadInt64(const OHIPCParcel *parcel, int64_t *value)
 
 
 ##### OH_IPCParcel_WriteFloat()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteFloat(OHIPCParcel *parcel, float value)
@@ -650,6 +698,8 @@ int OH_IPCParcel_WriteFloat(OHIPCParcel *parcel, float value)
 
 ##### OH_IPCParcel_ReadFloat()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_ReadFloat(const OHIPCParcel *parcel, float *value)
 ```
@@ -680,6 +730,8 @@ int OH_IPCParcel_ReadFloat(const OHIPCParcel *parcel, float *value)
 
 
 ##### OH_IPCParcel_WriteDouble()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteDouble(OHIPCParcel *parcel, double value)
@@ -712,6 +764,8 @@ int OH_IPCParcel_WriteDouble(OHIPCParcel *parcel, double value)
 
 ##### OH_IPCParcel_ReadDouble()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_ReadDouble(const OHIPCParcel *parcel, double *value)
 ```
@@ -742,6 +796,8 @@ int OH_IPCParcel_ReadDouble(const OHIPCParcel *parcel, double *value)
 
 
 ##### OH_IPCParcel_WriteString()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteString(OHIPCParcel *parcel, const char *str)
@@ -774,6 +830,8 @@ int OH_IPCParcel_WriteString(OHIPCParcel *parcel, const char *str)
 
 ##### OH_IPCParcel_ReadString()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 const char* OH_IPCParcel_ReadString(const OHIPCParcel *parcel)
 ```
@@ -803,6 +861,8 @@ const char* OH_IPCParcel_ReadString(const OHIPCParcel *parcel)
 
 
 ##### OH_IPCParcel_WriteBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteBuffer(OHIPCParcel *parcel, const uint8_t *buffer, int32_t len)
@@ -836,6 +896,8 @@ int OH_IPCParcel_WriteBuffer(OHIPCParcel *parcel, const uint8_t *buffer, int32_t
 
 ##### OH_IPCParcel_ReadBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 const uint8_t* OH_IPCParcel_ReadBuffer(const OHIPCParcel *parcel, int32_t len)
 ```
@@ -866,6 +928,8 @@ const uint8_t* OH_IPCParcel_ReadBuffer(const OHIPCParcel *parcel, int32_t len)
 
 
 ##### OH_IPCParcel_WriteRemoteStub()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteRemoteStub(OHIPCParcel *parcel, const OHIPCRemoteStub *stub)
@@ -898,6 +962,8 @@ int OH_IPCParcel_WriteRemoteStub(OHIPCParcel *parcel, const OHIPCRemoteStub *stu
 
 ##### OH_IPCParcel_ReadRemoteStub()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OHIPCRemoteStub* OH_IPCParcel_ReadRemoteStub(const OHIPCParcel *parcel)
 ```
@@ -927,6 +993,8 @@ OHIPCRemoteStub* OH_IPCParcel_ReadRemoteStub(const OHIPCParcel *parcel)
 
 
 ##### OH_IPCParcel_WriteRemoteProxy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteRemoteProxy(OHIPCParcel *parcel, const OHIPCRemoteProxy *proxy)
@@ -959,6 +1027,8 @@ int OH_IPCParcel_WriteRemoteProxy(OHIPCParcel *parcel, const OHIPCRemoteProxy *p
 
 ##### OH_IPCParcel_ReadRemoteProxy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OHIPCRemoteProxy* OH_IPCParcel_ReadRemoteProxy(const OHIPCParcel *parcel)
 ```
@@ -988,6 +1058,8 @@ OHIPCRemoteProxy* OH_IPCParcel_ReadRemoteProxy(const OHIPCParcel *parcel)
 
 
 ##### OH_IPCParcel_WriteFileDescriptor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_WriteFileDescriptor(OHIPCParcel *parcel, int32_t fd)
@@ -1020,6 +1092,8 @@ int OH_IPCParcel_WriteFileDescriptor(OHIPCParcel *parcel, int32_t fd)
 
 ##### OH_IPCParcel_ReadFileDescriptor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_ReadFileDescriptor(const OHIPCParcel *parcel, int32_t *fd)
 ```
@@ -1050,6 +1124,8 @@ int OH_IPCParcel_ReadFileDescriptor(const OHIPCParcel *parcel, int32_t *fd)
 
 
 ##### OH_IPCParcel_Append()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_Append(OHIPCParcel *parcel, const OHIPCParcel *data)
@@ -1082,6 +1158,8 @@ OHIPCParcel对象数据拼接。
 
 ##### OH_IPCParcel_WriteInterfaceToken()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCParcel_WriteInterfaceToken(OHIPCParcel *parcel, const char *token)
 ```
@@ -1112,6 +1190,8 @@ int OH_IPCParcel_WriteInterfaceToken(OHIPCParcel *parcel, const char *token)
 
 
 ##### OH_IPCParcel_ReadInterfaceToken()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCParcel_ReadInterfaceToken(const OHIPCParcel *parcel, char **token, int32_t *len, OH_IPC_MemAllocator allocator)

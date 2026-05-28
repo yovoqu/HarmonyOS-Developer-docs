@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -23,6 +25,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Media.AVMetadataExtractor
 
@@ -35,6 +39,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### setUrlSource20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setUrlSource(url: string, headers?: Record<string, string>): void
 
@@ -76,6 +82,8 @@ media.createAVMetadataExtractor(async (error: BusinessError, extractor: media.AV
 
 
 ##### fetchFrameByTime20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>
 
@@ -148,6 +156,8 @@ media.createAVMetadataExtractor((error: BusinessError, extractor: media.AVMetada
 
 ##### fetchFramesByTimes23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fetchFramesByTimes(timesUs: number[], queryOption: AVImageQueryOptions, param: PixelMapParams, callback: OnFrameFetched): void
 
 批量获取视频缩略图。使用Callback异步回调。
@@ -219,6 +229,8 @@ async function fetchFramesByTimesDemo() {
 
 ##### cancelAllFetchFrames23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelAllFetchFrames(): void
 
 取消正在进行的批量获取缩略图任务（已完成部分不受影响）。
@@ -248,6 +260,8 @@ media.createAVMetadataExtractor((error: BusinessError, extractor: media.AVMetada
 
 
 ##### fetchMetadata11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fetchMetadata(callback: AsyncCallback&lt;AVMetadata&gt;): void
 
@@ -296,6 +310,8 @@ async function test() {
 
 ##### fetchMetadata11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fetchMetadata(): Promise&lt;AVMetadata&gt;
 
 获取媒体元数据。使用Promise异步回调。
@@ -340,6 +356,8 @@ async function test() {
 
 
 ##### fetchAlbumCover11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fetchAlbumCover(callback: AsyncCallback<image.PixelMap>): void
 
@@ -390,6 +408,8 @@ async function test() {
 
 ##### fetchAlbumCover11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fetchAlbumCover(): Promise<image.PixelMap>
 
 获取专辑封面。使用Promise异步回调。
@@ -437,6 +457,8 @@ async function test() {
 
 ##### release11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(callback: AsyncCallback&lt;void&gt;): void
 
 释放资源。使用callback异步回调。
@@ -481,6 +503,8 @@ async function test() {
 
 
 ##### release11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(): Promise&lt;void&gt;
 

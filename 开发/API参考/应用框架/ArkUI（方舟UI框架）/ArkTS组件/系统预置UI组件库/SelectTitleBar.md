@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { SelectTitleBar } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { SelectTitleBar } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### SelectTitleBar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SelectTitleBar({selected: number, options: Array&lt;SelectOption&gt;, menuItems?: Array&lt;SelectTitleBarMenuItem&gt;, subtitle?: ResourceStr, badgeValue?: number, hidesBackButton?: boolean, onSelected?: ((index: number) => void)})
  
@@ -57,6 +63,8 @@ SelectTitleBar({selected: number, options: Array&lt;SelectOption&gt;, menuItems?
 
 ##### SelectTitleBarMenuItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -77,11 +85,15 @@ SelectTitleBar({selected: number, options: Array&lt;SelectOption&gt;, menuItems?
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -334,7 +346,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/kmbjldfYRjOstRP5U2RW9w/zh-cn_image_0000002581276350.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=F5C3D4814F99A483DA7EC6A0DFF962B78E601745204843AC2F9FDC8927692D67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/kmbjldfYRjOstRP5U2RW9w/zh-cn_image_0000002581276350.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=538662089BFDE8187C0EE648B2C75359A7F4297E09D22EA4F0BA83B83A4D4AD6)
 
  
   
@@ -475,4 +487,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/SvcV_tahRx65R8fDUoDPfw/zh-cn_image_0000002611756207.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=3324C1A772B6F8F09F6D144F5A5272C65B0C53D7B68A3DBC4904694160EAC0E6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/SvcV_tahRx65R8fDUoDPfw/zh-cn_image_0000002611756207.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=9DE8E3060866A93974EE1F0380FDA0963C6B379C56C1008E9C46FDE02933A927)

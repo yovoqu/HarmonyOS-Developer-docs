@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述单个静态DNS规则。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### host
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char Rcp_StaticDnsRuleItem::host[RCP_HOST_MAX_LEN]
@@ -50,6 +60,8 @@ char Rcp_StaticDnsRuleItem::host[RCP_HOST_MAX_LEN]
 
 ##### ipAddresses
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_IpAddress* Rcp_StaticDnsRuleItem::ipAddresses
 ```
@@ -61,6 +73,8 @@ Rcp_IpAddress* Rcp_StaticDnsRuleItem::ipAddresses
   
 
 ##### port
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint16_t Rcp_StaticDnsRuleItem::port

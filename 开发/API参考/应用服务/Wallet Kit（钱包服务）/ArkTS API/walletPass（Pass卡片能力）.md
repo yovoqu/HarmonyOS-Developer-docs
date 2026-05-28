@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone
+
 ```text
 import { walletPass } from '@kit.WalletKit';
 ```
@@ -19,6 +21,8 @@ import { walletPass } from '@kit.WalletKit';
 
 
 ##### WalletPassClient
+
+**支持设备：** Phone
 
 钱包卡券的功能入口类，与钱包卡券有关的所有方法从此处接入。
 
@@ -31,6 +35,8 @@ import { walletPass } from '@kit.WalletKit';
 
 
 ##### constructor
+
+**支持设备：** Phone
 
 constructor(context: common.UIAbilityContext)
 
@@ -69,6 +75,8 @@ struct Index {
 
 
 ##### queryPassDeviceInfo
+
+**支持设备：** Phone
 
 queryPassDeviceInfo(passStr: string): Promise&lt;string&gt;
 
@@ -150,6 +158,8 @@ struct Index {
 
 
 ##### canAddPass
+
+**支持设备：** Phone
 
 canAddPass(passStr: string): Promise&lt;string&gt;
 
@@ -238,6 +248,8 @@ struct Index {
 
 ##### initWalletEnvironment
 
+**支持设备：** Phone
+
 initWalletEnvironment(passStr: string): Promise&lt;void&gt;
 
 初始化钱包开通卡券的同意协议或是登录账号，引导用户跳转钱包完成应用初始化。
@@ -314,6 +326,8 @@ struct Index {
 
 
 ##### addPass
+
+**支持设备：** Phone
 
 addPass(passStr: string): Promise&lt;string&gt;
 
@@ -404,6 +418,8 @@ struct Index {
 
 ##### queryPass
 
+**支持设备：** Phone
+
 queryPass(passStr: string): Promise&lt;string&gt;
 
 检查当前设备卡券的开通情况。
@@ -484,6 +500,8 @@ struct Index {
 
 ##### viewPass
 
+**支持设备：** Phone
+
 viewPass(passStr: string): Promise&lt;void&gt;
 
 跳转钱包查看已开通的卡券详情页。
@@ -557,6 +575,8 @@ struct Index {
 
 
 ##### updatePass
+
+**支持设备：** Phone
 
 updatePass(passStr: string): Promise&lt;string&gt;
 
@@ -640,6 +660,8 @@ struct Index {
 
 
 ##### deletePass
+
+**支持设备：** Phone
 
 deletePass(passStr: string): Promise&lt;string&gt;
 
@@ -725,6 +747,8 @@ struct Index {
 
 ##### queryICCEConnectionState
 
+**支持设备：** Phone
+
 queryICCEConnectionState(rkeStr: string): Promise&lt;string&gt;
 
 查询车控连接状态。
@@ -804,6 +828,8 @@ struct Index {
 
 
 ##### startICCEConnection
+
+**支持设备：** Phone
 
 startICCEConnection(rkeStr: string): Promise&lt;string&gt;
 
@@ -888,6 +914,8 @@ struct Index {
 
 
 ##### registerICCEListener
+
+**支持设备：** Phone
 
 registerICCEListener(rkeStr: string, eventNotifyListener: rpc.RemoteObject): Promise&lt;string&gt;
 
@@ -984,6 +1012,8 @@ struct Index {
 
 ##### unregisterICCEListener
 
+**支持设备：** Phone
+
 unregisterICCEListener(rkeStr: string): Promise&lt;string&gt;
 
 解注册监听。
@@ -1065,6 +1095,8 @@ struct Index {
 
 
 ##### sendICCERKEMessage
+
+**支持设备：** Phone
 
 sendICCERKEMessage(rkeStr: string): Promise&lt;string&gt;
 

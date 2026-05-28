@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Wearable | lite_wearable
+
 ```text
 import {Battery, BatteryResponse } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import {Battery, BatteryResponse } from '@kit.BasicServicesKit';
   
 
 ##### Battery.getStatus(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 getStatus(options?: GetStatusOptions): void;
  
@@ -52,6 +56,8 @@ Battery.getStatus({
 
 ##### GetStatusOptions(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 包含接口调用结果的对象。
  
 **系统能力：** SystemCapability.PowerManager.BatteryManager.Lite
@@ -66,6 +72,8 @@ Battery.getStatus({
   
 
 ##### BatteryResponse(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 包含充电状态及剩余电量的对象。
  

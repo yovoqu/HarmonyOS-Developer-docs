@@ -12,6 +12,8 @@ typedef struct OH_Drawing_PositionAndAffinity OH_Drawing_PositionAndAffinity
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于接收字体的位置和亲和性。
  
 **起始版本：** 11

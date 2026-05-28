@@ -12,6 +12,8 @@ typedef struct TimeArrayTimeZoneRule {...} TimeArrayTimeZoneRule
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 起始时间戳数组定义的时区规则。
  
 **起始版本：** 22
@@ -24,9 +26,13 @@ typedef struct TimeArrayTimeZoneRule {...} TimeArrayTimeZoneRule
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

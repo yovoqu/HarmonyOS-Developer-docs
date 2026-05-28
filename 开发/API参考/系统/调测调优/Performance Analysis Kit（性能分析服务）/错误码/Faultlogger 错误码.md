@@ -12,6 +12,8 @@
 
 ##### 10600001 服务未启动或故障
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The service is not started or is faulty.

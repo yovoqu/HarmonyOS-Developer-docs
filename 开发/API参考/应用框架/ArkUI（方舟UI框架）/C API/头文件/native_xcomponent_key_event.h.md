@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明用于访问Native XComponent键盘事件所使用到的枚举类型。
  
 **引用文件：** <ace/xcomponent/native_xcomponent_key_event.h>
@@ -25,9 +27,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -39,9 +45,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_NativeXComponent_KeyCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_NativeXComponent_KeyCode
@@ -390,6 +400,8 @@ enum OH_NativeXComponent_KeyCode
   
 
 ##### OH_NativeXComponent_KeyAction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_NativeXComponent_KeyAction

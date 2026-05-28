@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含[Span](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-span)、[ImageSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-imagespan) 子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ContainerSpan()
  
@@ -30,11 +34,15 @@ ContainerSpan()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅支持以下属性：
  
   
 
 ##### textBackgroundStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 textBackgroundStyle(style: TextBackgroundStyle)
  
@@ -59,6 +67,8 @@ textBackgroundStyle(style: TextBackgroundStyle)
 
 ##### attributeModifier12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 attributeModifier(modifier: AttributeModifier&lt;ContainerSpanAttribute&gt;)
  
 设置组件的动态属性。
@@ -78,11 +88,15 @@ attributeModifier(modifier: AttributeModifier&lt;ContainerSpanAttribute&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -122,7 +136,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/tKWMt-fXRbatk9ftAkH8PA/zh-cn_image_0000002581435948.png?HW-CC-KV=V1&HW-CC-Date=20260528T013932Z&HW-CC-Expire=86400&HW-CC-Sign=6142D8872ECEEB2062F330EE7AC454D7A9B8766D96BF824E231F9B223A16311E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/tKWMt-fXRbatk9ftAkH8PA/zh-cn_image_0000002581435948.png?HW-CC-KV=V1&HW-CC-Date=20260528T024228Z&HW-CC-Expire=86400&HW-CC-Sign=B9A04ED7DFFD25FBB0F09F681B7572DB5AE6E45C2471868BFD8975D36A0C918D)
 
  
   
@@ -164,4 +178,4 @@ struct ContainerSpanModifierExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/EupByy8lS2S7xUm-xgXjFw/zh-cn_image_0000002611835779.png?HW-CC-KV=V1&HW-CC-Date=20260528T013932Z&HW-CC-Expire=86400&HW-CC-Sign=65819D2C9016249C67285778EAA3CDBCDCC6C83ABC738433E3E370C913F5153C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/EupByy8lS2S7xUm-xgXjFw/zh-cn_image_0000002611835779.png?HW-CC-KV=V1&HW-CC-Date=20260528T024228Z&HW-CC-Expire=86400&HW-CC-Sign=F8DFBC74219FAEB86616E42A75752DB3BBA021346FE9BEF2C23A1949F473DF99)

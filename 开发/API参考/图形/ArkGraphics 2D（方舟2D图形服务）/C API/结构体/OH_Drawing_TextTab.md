@@ -12,6 +12,8 @@ typedef struct OH_Drawing_TextTab OH_Drawing_TextTab
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于管理文本制表符。
  
 **起始版本：** 18

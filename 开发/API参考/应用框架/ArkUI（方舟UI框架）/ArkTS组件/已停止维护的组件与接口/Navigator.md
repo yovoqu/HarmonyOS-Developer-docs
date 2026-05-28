@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
  
   
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Navigator(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Navigator(value?: {target: string, type?: NavigationType})
  
@@ -46,6 +52,8 @@ Navigator(value?: {target: string, type?: NavigationType})
 
 ##### Navigator(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Navigator()
  
 > [!NOTE]
@@ -59,6 +67,8 @@ Navigator()
   
 
 ##### NavigationType(deprecated)枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 路由的跳转方式。
  
@@ -77,9 +87,13 @@ Navigator()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### active(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 active(value: boolean)
  
@@ -104,6 +118,8 @@ active(value: boolean)
 
 ##### params(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 params(value: object)
  
 设置跳转时传递到目标页面的数据。
@@ -126,6 +142,8 @@ params(value: object)
   
 
 ##### target(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 target(value: string)
  
@@ -150,6 +168,8 @@ target(value: string)
 
 ##### type(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type(value: NavigationType)
  
 设置路由跳转方式。
@@ -172,6 +192,8 @@ type(value: NavigationType)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // code.ets
@@ -255,4 +277,4 @@ struct BackExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/dPC_CaGGSwmTemXcJm-uaA/zh-cn_image_0000002611756245.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013929Z&HW-CC-Expire=86400&HW-CC-Sign=EAE6AB46C33B61E17834CE73D061DD0479A1412EEF39D3DFDB8D276C90AA5809)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/dPC_CaGGSwmTemXcJm-uaA/zh-cn_image_0000002611756245.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=0965FB77C111A81E8BBD9C5E4D666DB8FD7D7A7188973DC6214C489C643A559F)

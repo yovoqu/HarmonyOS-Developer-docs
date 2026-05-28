@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 声明Preview Kit所包含的所有头文件。
  
 **引用文件：** <PreviewKit/preview_kit.h>

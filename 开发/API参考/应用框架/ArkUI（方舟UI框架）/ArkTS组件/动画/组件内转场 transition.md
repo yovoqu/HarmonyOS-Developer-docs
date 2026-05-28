@@ -14,6 +14,8 @@
 
 ##### transition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 transition(value: TransitionOptions | TransitionEffect): T
  
 组件插入显示和删除隐藏的过渡效果。
@@ -41,6 +43,8 @@ transition(value: TransitionOptions | TransitionEffect): T
   
 
 ##### transition12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 transition(effect: TransitionEffect, onFinish: Optional&lt;TransitionFinishCallback&gt;): T
  
@@ -75,6 +79,8 @@ transition(effect: TransitionEffect, onFinish: Optional&lt;TransitionFinishCallb
 
 ##### TransitionEdge10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 转场边缘类型。
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -94,6 +100,8 @@ transition(effect: TransitionEffect, onFinish: Optional&lt;TransitionFinishCallb
   
 
 ##### TransitionEffect10+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TransitionEffect以函数的形式指定转场效果。提供了以下接口：
  
@@ -123,6 +131,8 @@ TransitionEffect以函数的形式指定转场效果。提供了以下接口：
 
 ##### translate10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 translate(options: TranslateOptions): TransitionEffect<"translate">
  
 设置组件转场时的平移效果。
@@ -150,6 +160,8 @@ translate(options: TranslateOptions): TransitionEffect<"translate">
   
 
 ##### rotate10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rotate(options: RotateOptions): TransitionEffect<"rotate">
  
@@ -179,6 +191,8 @@ rotate(options: RotateOptions): TransitionEffect<"rotate">
 
 ##### scale10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 scale(options: ScaleOptions): TransitionEffect<"scale">
  
 设置组件转场时的缩放效果。
@@ -206,6 +220,8 @@ scale(options: ScaleOptions): TransitionEffect<"scale">
   
 
 ##### opacity10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 opacity(alpha: number): TransitionEffect<"opacity">
  
@@ -235,6 +251,8 @@ opacity(alpha: number): TransitionEffect<"opacity">
 
 ##### move10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 move(edge: TransitionEdge): TransitionEffect<"move">
  
 设置组件转场时从屏幕边缘滑入和滑出的效果。
@@ -262,6 +280,8 @@ move(edge: TransitionEdge): TransitionEffect<"move">
   
 
 ##### asymmetric10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect<"asymmetric">
  
@@ -292,6 +312,8 @@ asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEff
 
 ##### constructor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(type: Type, effect: Effect)
  
 构造TransitionEffect对象。
@@ -313,6 +335,8 @@ constructor(type: Type, effect: Effect)
   
 
 ##### combine10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 combine(transitionEffect: TransitionEffect): TransitionEffect
  
@@ -342,6 +366,8 @@ combine(transitionEffect: TransitionEffect): TransitionEffect
 
 ##### animation10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 animation(value: AnimateParam): TransitionEffect
  
 指定该TransitionEffect的动画参数。
@@ -370,6 +396,8 @@ animation(value: AnimateParam): TransitionEffect
 
 ##### TransitionFinishCallback12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type TransitionFinishCallback = (transitionIn: boolean) => void
  
 组件转场动画的结束回调类型。
@@ -395,6 +423,8 @@ type TransitionFinishCallback = (transitionIn: boolean) => void
 
 ##### TransitionOptions(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 TransitionOptions通过指定结构体内的参数来指定转场效果。
  
 > [!TIP]
@@ -419,6 +449,8 @@ TransitionOptions通过指定结构体内的参数来指定转场效果。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -464,7 +496,7 @@ struct TransitionEffectExample1 {
 示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/VCLSLZcZRXORmpLEAaa_wg/zh-cn_image_0000002581276246.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013904Z&HW-CC-Expire=86400&HW-CC-Sign=F16EAFCA4171B0F1A161729BC221F5ECE70A3B8D70A9B105213DDF35059A7F00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/VCLSLZcZRXORmpLEAaa_wg/zh-cn_image_0000002581276246.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=9837DDC951C6A9655D01660343DB6262000147C873010ABF039E3EFB72480943)
 
  
   
@@ -531,7 +563,7 @@ struct TransitionEffectExample2 {
 示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/VVOchgMLRUChIN_tgtpE6w/zh-cn_image_0000002611756101.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013904Z&HW-CC-Expire=86400&HW-CC-Sign=36B0E12A4F05FA8DAB233B0D5567F2A0C27A30AAAB8BD4CE250868E79781BE74)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/VVOchgMLRUChIN_tgtpE6w/zh-cn_image_0000002611756101.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=E3B43C2773EA8641AE3D06455940BB3FDD3BE75394FEAD4F773AABBD93DD1D07)
 
  
   
@@ -595,4 +627,4 @@ struct TransitionEffectExample3 {
 示意图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/eABVGBZqRa68KTjhDq3N8w/zh-cn_image_0000002581436164.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013904Z&HW-CC-Expire=86400&HW-CC-Sign=2307EE298F414832C5FAF131CAB146A889939D41671677AA832EB69B20A1F22D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/eABVGBZqRa68KTjhDq3N8w/zh-cn_image_0000002581436164.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=13B707295CFCA73C53AFED87746AC1CA5412D281862FE851BED638F8FA0F17EE)

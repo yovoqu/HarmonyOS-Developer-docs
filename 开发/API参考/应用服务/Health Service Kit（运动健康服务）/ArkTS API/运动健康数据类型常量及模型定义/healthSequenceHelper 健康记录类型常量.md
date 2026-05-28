@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { healthStore } from '@kit.HealthServiceKit';
 ```
@@ -24,6 +26,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### sleepRecord
 
+**支持设备：** Phone | Tablet | Wearable
+
 夜间睡眠数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -33,6 +37,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -46,6 +52,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.SleepRecord
  
@@ -64,6 +72,8 @@ type Model = healthModels.SleepRecord
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.Sleep
  
 夜间睡眠健康记录数据字段列表。
@@ -80,6 +90,8 @@ type Fields = healthFields.Sleep
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.SleepDetail
  
@@ -98,6 +110,8 @@ type DetailFields = healthFields.SleepDetail
 
 ##### sleepNapRecord
 
+**支持设备：** Phone | Tablet | Wearable
+
 零星小睡数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -107,6 +121,8 @@ type DetailFields = healthFields.SleepDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -120,6 +136,8 @@ type DetailFields = healthFields.SleepDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.SleepNapRecord
  
@@ -138,6 +156,8 @@ type Model = healthModels.SleepNapRecord
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.SleepNap
  
 零星小睡健康记录数据字段列表。
@@ -154,6 +174,8 @@ type Fields = healthFields.SleepNap
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.SleepDetail
  
@@ -172,6 +194,8 @@ type DetailFields = healthFields.SleepDetail
 
 ##### menstrualCycle
 
+**支持设备：** Phone | Tablet | Wearable
+
 生理周期数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -183,6 +207,8 @@ type DetailFields = healthFields.SleepDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -198,6 +224,8 @@ type DetailFields = healthFields.SleepDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.MenstrualCycle
  
@@ -218,6 +246,8 @@ type Model = healthModels.MenstrualCycle
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.MenstrualCycle
  
 生理周期健康记录数据字段列表。
@@ -236,6 +266,8 @@ type Fields = healthFields.MenstrualCycle
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.MenstrualCycleDetail
  

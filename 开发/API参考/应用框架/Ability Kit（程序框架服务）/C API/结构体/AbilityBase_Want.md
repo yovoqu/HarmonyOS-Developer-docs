@@ -12,6 +12,8 @@ typedef struct AbilityBase_Want AbilityBase_Want
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Want数据结构。
  
 **起始版本：** 15

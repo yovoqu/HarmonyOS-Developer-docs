@@ -14,9 +14,13 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### SwipeGesture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SwipeGesture(value?: { fingers?: number; direction?: SwipeDirection; speed?: number })
  
@@ -37,6 +41,8 @@ SwipeGesture(value?: { fingers?: number; direction?: SwipeDirection; speed?: num
 
 ##### SwipeGesture15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 SwipeGesture(options?: SwipeGestureHandlerOptions)
  
 设置快滑手势事件。与[SwipeGesture](#swipegesture-1)相比，options参数新增了isFingerCountLimited，表示是否检查触摸屏幕的手指数量。
@@ -56,6 +62,8 @@ SwipeGesture(options?: SwipeGestureHandlerOptions)
 
 ##### SwipeDirection枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义滑动手势的触发方向。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -74,6 +82,8 @@ SwipeGesture(options?: SwipeGestureHandlerOptions)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!TIP]
 > 在 GestureEvent 的fingerList元素中，手指索引编号与位置相对应，即fingerList[index]的id为index。对于先按下但未参与当前手势触发的手指，fingerList中对应的位置为空。建议开发者优先使用fingerInfos。
 
@@ -81,6 +91,8 @@ SwipeGesture(options?: SwipeGestureHandlerOptions)
   
 
 ##### onAction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAction(event: (event: GestureEvent) => void)
  
@@ -100,6 +112,8 @@ Swipe手势识别成功时触发回调。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例展示了如何实现快滑手势的识别。
  
@@ -138,4 +152,4 @@ struct SwipeGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/LH3sb9XbSOSu2Jd1edKcNQ/zh-cn_image_0000002611835543.png?HW-CC-KV=V1&HW-CC-Date=20260528T013906Z&HW-CC-Expire=86400&HW-CC-Sign=9D928F8AFF0DC2D4939C74A47F088317C9F6EC8A514ADB567BEC2BE7F28C5250)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/LH3sb9XbSOSu2Jd1edKcNQ/zh-cn_image_0000002611835543.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=5FBDC19E92A690D88E95E86E938339400FA5B510458A40D1939AE8FD4CACCA89)

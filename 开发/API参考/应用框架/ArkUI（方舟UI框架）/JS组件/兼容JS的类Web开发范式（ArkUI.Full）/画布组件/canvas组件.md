@@ -14,11 +14,15 @@
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 子组件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持。
  
@@ -26,11 +30,15 @@
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)。
  
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)。
  
@@ -38,17 +46,23 @@
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)。
  
   
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)外，还支持如下方法：
  
   
 
 ##### getContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getContext(type: '2d', options?: ContextAttrOptions): CanvasRenderingContext2D
  
@@ -73,6 +87,8 @@ getContext(type: '2d', options?: ContextAttrOptions): CanvasRenderingContext2D
 
 ##### toDataURL6+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toDataURL(type?: string, quality?: number): string
  
 生成一个包含图片展示的URL。
@@ -96,6 +112,8 @@ toDataURL(type?: string, quality?: number): string
 
 ##### ContextAttrOptions6+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于配置Canvas渲染上下文属性的选项对象。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -108,6 +126,8 @@ toDataURL(type?: string, quality?: number): string
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -130,4 +150,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/XySHcTpjT56sKpVfEQ4kYQ/zh-cn_image_0000002581436344.png?HW-CC-KV=V1&HW-CC-Date=20260528T013804Z&HW-CC-Expire=86400&HW-CC-Sign=FF55D4845775558987DE52E88143E65437908350656A12B71873506DFB9C607D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/XySHcTpjT56sKpVfEQ4kYQ/zh-cn_image_0000002581436344.png?HW-CC-KV=V1&HW-CC-Date=20260528T024100Z&HW-CC-Expire=86400&HW-CC-Sign=B67A8479FC80AA398306234EE419F2369087A32B446226563DF39A834160C19E)

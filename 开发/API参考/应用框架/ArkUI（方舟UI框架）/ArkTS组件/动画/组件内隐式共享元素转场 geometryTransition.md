@@ -14,6 +14,8 @@
 
 ##### geometryTransition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 geometryTransition(id: string): T
  
 组件内隐式共享元素转场。
@@ -39,6 +41,8 @@ geometryTransition(id: string): T
   
 
 ##### geometryTransition11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 geometryTransition(id: string, options?: GeometryTransitionOptions): T
  
@@ -67,6 +71,8 @@ geometryTransition(id: string, options?: GeometryTransitionOptions): T
 
 ##### GeometryTransitionOptions11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -79,6 +85,8 @@ geometryTransition(id: string, options?: GeometryTransitionOptions): T
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -130,4 +138,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/_lNfSFzMSgazouSX-crTBw/zh-cn_image_0000002581276248.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=51A81D23DCB3FDC3C0D7570AAAC362D1EAFAAE6739F1A1359EDFBC1FBBA074ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/_lNfSFzMSgazouSX-crTBw/zh-cn_image_0000002581276248.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=000589E9344565C29B27F30D57EC2C5BC73521B74F22D8365D20A9874B3DD707)

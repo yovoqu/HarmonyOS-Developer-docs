@@ -12,6 +12,8 @@ typedef struct OH_Drawing_TypographyCreate OH_Drawing_TypographyCreate
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于创建[OH_Drawing_Typography](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-typography)。
  
 **起始版本：** 8

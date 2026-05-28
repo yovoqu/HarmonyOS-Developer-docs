@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { insightIntent } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { insightIntent } from '@kit.AbilityKit';
 
 
 ##### ExecuteMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 意图执行模式。表示系统入口触发意图执行时传递的执行模式，每个意图支持的执行模式在意图开发时定义。
 
@@ -36,6 +40,8 @@ import { insightIntent } from '@kit.AbilityKit';
 
 
 ##### ExecuteResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 意图执行的返回结果。
 
@@ -53,6 +59,8 @@ import { insightIntent } from '@kit.AbilityKit';
 
 ##### IntentEntity20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 意图实体结构体定义，用于定义意图执行过程中涉及的关键信息对象，包括意图参数和意图执行结果等。
 
 开发者通过继承该类来定义意图实体，继承类需使用[@InsightIntentEntity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintentdecorator#insightintententity)装饰。
@@ -68,6 +76,8 @@ import { insightIntent } from '@kit.AbilityKit';
 
 ##### IntentResult&lt;T&gt;20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 意图执行的返回结果，支持[泛型类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/introduction-to-arkts#泛型类和接口)。
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -81,6 +91,8 @@ import { insightIntent } from '@kit.AbilityKit';
 
 
 ##### ReturnMode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 意图执行结果返回给意图拉起方的返回形式。
 

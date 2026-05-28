@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供MindSpore Lite的模型推理相关接口，该模块下的接口是非线程安全的。
  
 **系统能力：** SystemCapability.Ai.MindSpore
@@ -16,6 +18,8 @@
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为网络管理数据网络连接模块提供C接口。
  
 **引用文件：** <network/netmanager/net_connection.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -59,9 +65,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_NetConn_HasDefaultNet()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetConn_HasDefaultNet(int32_t *hasDefaultNet)
@@ -95,6 +105,8 @@ int32_t OH_NetConn_HasDefaultNet(int32_t *hasDefaultNet)
 
 ##### OH_NetConn_GetDefaultNet()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_GetDefaultNet(NetConn_NetHandle *netHandle)
 ```
@@ -127,6 +139,8 @@ int32_t OH_NetConn_GetDefaultNet(NetConn_NetHandle *netHandle)
 
 ##### OH_NetConn_IsDefaultNetMetered()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_IsDefaultNetMetered(int32_t *isMetered)
 ```
@@ -158,6 +172,8 @@ int32_t OH_NetConn_IsDefaultNetMetered(int32_t *isMetered)
   
 
 ##### OH_NetConn_GetConnectionProperties()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetConn_GetConnectionProperties(NetConn_NetHandle *netHandle, NetConn_ConnectionProperties *prop)
@@ -192,6 +208,8 @@ int32_t OH_NetConn_GetConnectionProperties(NetConn_NetHandle *netHandle, NetConn
 
 ##### OH_NetConn_GetNetCapabilities()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_GetNetCapabilities(NetConn_NetHandle *netHandle, NetConn_NetCapabilities *netCapabilities)
 ```
@@ -225,6 +243,8 @@ int32_t OH_NetConn_GetNetCapabilities(NetConn_NetHandle *netHandle, NetConn_NetC
 
 ##### OH_NetConn_GetDefaultHttpProxy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_GetDefaultHttpProxy(NetConn_HttpProxy *httpProxy)
 ```
@@ -254,6 +274,8 @@ int32_t OH_NetConn_GetDefaultHttpProxy(NetConn_HttpProxy *httpProxy)
   
 
 ##### OH_NetConn_GetAddrInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetConn_GetAddrInfo(char *host, char *serv, struct addrinfo *hint, struct addrinfo **res, int32_t netId)
@@ -291,6 +313,8 @@ int32_t OH_NetConn_GetAddrInfo(char *host, char *serv, struct addrinfo *hint, st
 
 ##### OH_NetConn_FreeDnsResult()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_FreeDnsResult(struct addrinfo *res)
 ```
@@ -323,6 +347,8 @@ int32_t OH_NetConn_FreeDnsResult(struct addrinfo *res)
 
 ##### OH_NetConn_GetAllNets()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_GetAllNets(NetConn_NetHandleList *netHandleList)
 ```
@@ -354,6 +380,8 @@ int32_t OH_NetConn_GetAllNets(NetConn_NetHandleList *netHandleList)
   
 
 ##### OHOS_NetConn_RegisterDnsResolver()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OHOS_NetConn_RegisterDnsResolver(OH_NetConn_CustomDnsResolver resolver)
@@ -389,6 +417,8 @@ int32_t OHOS_NetConn_RegisterDnsResolver(OH_NetConn_CustomDnsResolver resolver)
 
 ##### OHOS_NetConn_UnregisterDnsResolver()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OHOS_NetConn_UnregisterDnsResolver(void)
 ```
@@ -415,6 +445,8 @@ int32_t OHOS_NetConn_UnregisterDnsResolver(void)
   
 
 ##### OH_NetConn_RegisterDnsResolver()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetConn_RegisterDnsResolver(OH_NetConn_CustomDnsResolver resolver)
@@ -446,6 +478,8 @@ int32_t OH_NetConn_RegisterDnsResolver(OH_NetConn_CustomDnsResolver resolver)
 
 ##### OH_NetConn_UnregisterDnsResolver()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_UnregisterDnsResolver(void)
 ```
@@ -468,6 +502,8 @@ int32_t OH_NetConn_UnregisterDnsResolver(void)
   
 
 ##### OH_NetConn_BindSocket()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetConn_BindSocket(int32_t socketFd, NetConn_NetHandle *netHandle)
@@ -500,6 +536,8 @@ int32_t OH_NetConn_BindSocket(int32_t socketFd, NetConn_NetHandle *netHandle)
 
 ##### OH_NetConn_SetAppHttpProxy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_SetAppHttpProxy(NetConn_HttpProxy *httpProxy)
 ```
@@ -529,6 +567,8 @@ int32_t OH_NetConn_SetAppHttpProxy(NetConn_HttpProxy *httpProxy)
   
 
 ##### OH_NetConn_RegisterAppHttpProxyCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetConn_RegisterAppHttpProxyCallback(OH_NetConn_AppHttpProxyChange appHttpProxyChange, uint32_t *callbackId)
@@ -561,6 +601,8 @@ int32_t OH_NetConn_RegisterAppHttpProxyCallback(OH_NetConn_AppHttpProxyChange ap
 
 ##### OH_NetConn_UnregisterAppHttpProxyCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_NetConn_UnregisterAppHttpProxyCallback(uint32_t callbackId)
 ```
@@ -583,6 +625,8 @@ void OH_NetConn_UnregisterAppHttpProxyCallback(uint32_t callbackId)
   
 
 ##### OH_NetConn_RegisterNetConnCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetConn_RegisterNetConnCallback(NetConn_NetSpecifier *specifier, NetConn_NetConnCallback *netConnCallback,uint32_t timeout, uint32_t *callbackId)
@@ -619,6 +663,8 @@ int32_t OH_NetConn_RegisterNetConnCallback(NetConn_NetSpecifier *specifier, NetC
 
 ##### OH_NetConn_RegisterDefaultNetConnCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_RegisterDefaultNetConnCallback(NetConn_NetConnCallback *netConnCallback, uint32_t *callbackId)
 ```
@@ -652,6 +698,8 @@ int32_t OH_NetConn_RegisterDefaultNetConnCallback(NetConn_NetConnCallback *netCo
 
 ##### OH_NetConn_UnregisterNetConnCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetConn_UnregisterNetConnCallback(uint32_t callBackId)
 ```
@@ -684,6 +732,8 @@ int32_t OH_NetConn_UnregisterNetConnCallback(uint32_t callBackId)
 
 ##### OH_NetConn_SetPacUrl()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 NetConn_ErrorCode OH_NetConn_SetPacUrl(const char *pacUrl)
 ```
@@ -714,6 +764,8 @@ NetConn_ErrorCode OH_NetConn_SetPacUrl(const char *pacUrl)
 
 ##### OH_NetConn_GetPacUrl()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 NetConn_ErrorCode OH_NetConn_GetPacUrl(char *pacUrl)
 ```
@@ -741,6 +793,8 @@ NetConn_ErrorCode OH_NetConn_GetPacUrl(char *pacUrl)
   
 
 ##### OH_NetConn_QueryProbeResult()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetConn_QueryProbeResult(char *destination, int32_t duration, NetConn_ProbeResultInfo *probeResultInfo)
@@ -775,6 +829,8 @@ int32_t OH_NetConn_QueryProbeResult(char *destination, int32_t duration, NetConn
   
 
 ##### OH_NetConn_QueryTraceRoute()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetConn_QueryTraceRoute(char *destination, NetConn_TraceRouteOption *option,NetConn_TraceRouteInfo *traceRouteInfo)

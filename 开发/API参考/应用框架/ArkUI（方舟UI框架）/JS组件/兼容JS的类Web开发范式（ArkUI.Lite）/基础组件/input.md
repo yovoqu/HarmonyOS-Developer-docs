@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 不支持。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -35,6 +39,8 @@
 
 
 ##### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
  - 当input类型为checkbox、radio时，支持如下事件：
 
@@ -66,6 +72,8 @@
 
 ##### 样式
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | color | &lt;color&gt; | #ffffff | 否 | 按钮的文本颜色。 |
@@ -88,6 +96,8 @@
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 1. type为button
 
   
@@ -201,4 +211,4 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/oZqxGhfESRCbGyRe0m0YMQ/zh-cn_image_0000002581436550.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013802Z&HW-CC-Expire=86400&HW-CC-Sign=E51543C9C1E83CD9C324A1B883830C89BC9B2B11134AFC2E995C05D1CCE27509)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/oZqxGhfESRCbGyRe0m0YMQ/zh-cn_image_0000002581436550.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024058Z&HW-CC-Expire=86400&HW-CC-Sign=D51A5E46E97CF68AD8EA2AB224F3016EDF20908A80419C219343D14F9651E0B7)

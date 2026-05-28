@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-rest-openid-configuration
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/6YD3KHopSCqO8f5ZECBpgA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013441Z&HW-CC-Expire=86400&HW-CC-Sign=63FA960D26BE68A2269BDA4BAFF7E0CE2BF378CE64C80901A73624F60FD5E8AF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/6YD3KHopSCqO8f5ZECBpgA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=9561AEB09F8157BC672FEB2BB8056D0683D17A0BE6BFA31AF9B18FA876D14C5C)
  
  
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。

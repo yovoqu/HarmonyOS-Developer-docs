@@ -12,6 +12,8 @@ typedef struct OH_MovingPhoto OH_MovingPhoto
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义动态照片。
  
 此结构体提供了获取关于动态照片的信息的能力。

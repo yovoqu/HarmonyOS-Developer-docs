@@ -16,6 +16,8 @@ EmbeddedComponent用于支持在当前页面嵌入本应用内其他[EmbeddedUIE
 
 ##### 使用约束
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 EmbeddedComponent仅支持在拥有多进程权限的设备上使用。
 
 EmbeddedComponent只能在UIAbility中使用，且被拉起的EmbeddedUIExtensionAbility需与UIAbility属于同一应用。
@@ -24,11 +26,15 @@ EmbeddedComponent只能在UIAbility中使用，且被拉起的EmbeddedUIExtensio
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 EmbeddedComponent(loader: Want, type: EmbeddedType)
 
@@ -50,6 +56,8 @@ EmbeddedComponent(loader: Want, type: EmbeddedType)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 > [!NOTE]
@@ -60,6 +68,8 @@ EmbeddedComponent(loader: Want, type: EmbeddedType)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 与屏幕坐标相关的事件信息会基于EmbeddedComponent的位置宽高进行坐标转换后传递给被拉起的EmbeddedUIExtensionAbility处理。
 
 不支持[点击](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)等通用事件。仅支持以下事件：
@@ -67,6 +77,8 @@ EmbeddedComponent(loader: Want, type: EmbeddedType)
 
 
 ##### onTerminated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onTerminated(callback: Callback&lt;TerminationInfo&gt;)
 
@@ -95,6 +107,8 @@ onTerminated(callback: Callback&lt;TerminationInfo&gt;)
 
 ##### onError
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onError(callback: ErrorCallback)
 
 被拉起的EmbeddedUIExtensionAbility在运行过程中发生异常时触发本回调。可通过回调参数中的code、name和message获取错误信息并做处理，业务错误码详细介绍请参见[UIExtension错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uiextension)。
@@ -122,6 +136,8 @@ onError(callback: ErrorCallback)
 
 ##### TerminationInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于表示被拉起的EmbeddedUIExtensionAbility的返回结果。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -137,6 +153,8 @@ onError(callback: ErrorCallback)
 
 
 ##### 示例（加载EmbeddedComponent）
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本示例展示EmbeddedComponent组件和EmbeddedUIExtensionAbility的基础使用方式，示例应用的bundleName为"com.example.embeddeddemo", 同应用下被拉起的EmbeddedUIExtensionAbility为"ExampleEmbeddedAbility"。本示例仅支持在拥有多进程权限的设备上运行，如2in1。
 
@@ -275,16 +293,16 @@ struct Extension {
     │   ├── extensionAbility
     │   │   └── ExampleEmbeddedAbility.ets
     │   └── pages
-|       ├── extension.ets
+    |       ├── extension.ets
     │       └── Index.ets  
     ├── resources
-|   └── base
-|       └── profile
-|           └── main_pages.json
+    |   └── base
+    |       └── profile
+    |           └── main_pages.json
     └── module.json5
 ```
 
  - 示例图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/4u_hX-e1TvC9V73I_iPxyg/zh-cn_image_0000002581436156.png?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=CEE2DCE18E5734B8DB6F9E329A49E5C7467FA8C66A5FC62B65F19EDD5FBB4AE4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/4u_hX-e1TvC9V73I_iPxyg/zh-cn_image_0000002581436156.png?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=A25CD7EFFB5C5C58465D631344156F9DC6D735D3379F0FFF0A16AAE10CBCB1FE)

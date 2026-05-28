@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Surface OH_Drawing_Surface
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义surface，用于管理画布绘制的内容。
  
 **起始版本：** 12

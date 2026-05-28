@@ -12,6 +12,8 @@ typedef struct Camera_FrameRateRange {...} Camera_FrameRateRange
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 帧速率范围。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct Camera_FrameRateRange {...} Camera_FrameRateRange
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

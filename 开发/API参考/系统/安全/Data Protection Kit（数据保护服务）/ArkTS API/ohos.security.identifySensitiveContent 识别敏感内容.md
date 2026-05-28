@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { identifySensitiveContent } from '@kit.DataProtectionKit';
 ```
@@ -21,6 +23,8 @@ import { identifySensitiveContent } from '@kit.DataProtectionKit';
 
 
 ##### identifySensitiveContent.scanFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 scanFile(filePath: string, identifyPolicies:Array&lt;Policy&gt;): Promise<Array&lt;MatchResult&gt;>
 
@@ -83,6 +87,8 @@ try {
 
 ##### Policy
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义敏感内容识别策略。
 
 **系统能力：** SystemCapability.Security.DataLossPrevention
@@ -97,6 +103,8 @@ try {
 
 
 ##### MatchResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 显示敏感内容的识别结果。
 

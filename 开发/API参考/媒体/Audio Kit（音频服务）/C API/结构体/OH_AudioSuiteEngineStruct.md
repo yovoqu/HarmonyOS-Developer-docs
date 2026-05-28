@@ -12,6 +12,8 @@ typedef struct OH_AudioSuiteEngineStruct OH_AudioSuiteEngine
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明音频编创引擎，用来管理音频编创管线。
  
 **起始版本：** 22

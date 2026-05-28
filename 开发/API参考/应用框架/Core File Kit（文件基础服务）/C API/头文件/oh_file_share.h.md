@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 提供基于URI的文件及目录授予持久化权限、权限激活、权限查询等方法。
  
 **引用文件：** <filemanagement/fileshare/oh_file_share.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -46,6 +54,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -61,9 +71,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### FileShare_OperationMode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum FileShare_OperationMode
@@ -84,6 +98,8 @@ URI操作模式枚举值。
   
 
 ##### FileShare_PolicyErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum FileShare_PolicyErrorCode
@@ -107,9 +123,13 @@ enum FileShare_PolicyErrorCode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_FileShare_PersistPermission()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 FileManagement_ErrCode OH_FileShare_PersistPermission(const FileShare_PolicyInfo *policies, unsigned int policyNum, FileShare_PolicyErrorResult **result, unsigned int *resultNum)
@@ -144,6 +164,8 @@ FileManagement_ErrCode OH_FileShare_PersistPermission(const FileShare_PolicyInfo
 
 ##### OH_FileShare_RevokePermission()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 FileManagement_ErrCode OH_FileShare_RevokePermission(const FileShare_PolicyInfo *policies, unsigned int policyNum, FileShare_PolicyErrorResult **result, unsigned int *resultNum)
 ```
@@ -176,6 +198,8 @@ FileManagement_ErrCode OH_FileShare_RevokePermission(const FileShare_PolicyInfo 
   
 
 ##### OH_FileShare_ActivatePermission()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 FileManagement_ErrCode OH_FileShare_ActivatePermission(const FileShare_PolicyInfo *policies, unsigned int policyNum, FileShare_PolicyErrorResult **result, unsigned int *resultNum)
@@ -210,6 +234,8 @@ FileManagement_ErrCode OH_FileShare_ActivatePermission(const FileShare_PolicyInf
 
 ##### OH_FileShare_DeactivatePermission()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 FileManagement_ErrCode OH_FileShare_DeactivatePermission(const FileShare_PolicyInfo *policies, unsigned int policyNum, FileShare_PolicyErrorResult **result, unsigned int *resultNum)
 ```
@@ -243,6 +269,8 @@ FileManagement_ErrCode OH_FileShare_DeactivatePermission(const FileShare_PolicyI
 
 ##### OH_FileShare_CheckPersistentPermission()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 FileManagement_ErrCode OH_FileShare_CheckPersistentPermission(const FileShare_PolicyInfo *policies, unsigned int policyNum, bool **result, unsigned int *resultNum)
 ```
@@ -275,6 +303,8 @@ FileManagement_ErrCode OH_FileShare_CheckPersistentPermission(const FileShare_Po
   
 
 ##### OH_FileShare_ReleasePolicyErrorResult()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 void OH_FileShare_ReleasePolicyErrorResult(FileShare_PolicyErrorResult *errorResult, unsigned int resultNum)

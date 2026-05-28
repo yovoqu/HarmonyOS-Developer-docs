@@ -12,6 +12,8 @@ typedef struct OH_AuxiliaryPictureInfo OH_AuxiliaryPictureInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AuxiliaryPictureInfo结构体类型，用于执行AuxiliaryPictureInfo相关操作。
  
 **起始版本：** 13

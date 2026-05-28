@@ -14,6 +14,8 @@
 
 ##### bindPopup
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 为组件绑定Popup气泡。
@@ -44,6 +46,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 ##### PopupOptions类型说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 基础气泡的信息。
 
@@ -89,6 +93,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 ##### PopupMessageOptions10+类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 气泡文本的样式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -104,6 +110,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 ##### DismissPopupAction12+类型说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 气泡关闭的信息。
 
@@ -121,6 +129,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 ##### DismissReason12+枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 关闭原因类型。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -137,6 +147,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 ##### CustomPopupOptions8+类型说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 弹出自定义气泡的信息。
 
@@ -180,6 +192,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 ##### PopupCommonOptions18+类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 配置弹出气泡的参数。使用[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)中的[getPromptAction()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getpromptaction)方法获取到[PromptAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction)对象，再通过该对象调用[openPopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openpopup18)和[updatePopup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#updatepopup18)时options的属性。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -219,6 +233,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 ##### PopupStateChangeParam18+类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 气泡的显示状态。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -233,6 +249,8 @@ bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T
 
 
 ##### PopupStateChangeCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
@@ -253,6 +271,8 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 ##### PopupMaskType18+类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置遮罩层颜色。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -267,6 +287,8 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 
 ##### PopupBorderLinearGradient20+类型说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置描边线性渐变的颜色和方向。
 
@@ -284,6 +306,8 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 ##### KeyboardAvoidMode12+枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 弹窗避让键盘时，避让模式的枚举类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -299,6 +323,8 @@ type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -719,7 +745,7 @@ struct PopupExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/wOrZRzrlQbCmvYzcCpishw/zh-cn_image_0000002581435678.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013916Z&HW-CC-Expire=86400&HW-CC-Sign=89F690502AAB5810A32DC7E95E9FEC7133EF931B9CFAD217F054136D718DED5A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/wOrZRzrlQbCmvYzcCpishw/zh-cn_image_0000002581435678.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024211Z&HW-CC-Expire=86400&HW-CC-Sign=BA1D6CEB84ED181E381985FE8BE23EF4C65CF3531CA7DE9EC4AAB26A988DCFAA)
 
 
 
@@ -755,4 +781,4 @@ struct PopupExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/4uw9DviJSfO80VqJgF3KeQ/zh-cn_image_0000002611835509.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013916Z&HW-CC-Expire=86400&HW-CC-Sign=87562FD63C83AC819AC2FB4F8731BDDB2A77E779A8E1CB23B8F4C95A9D3AB482)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/4uw9DviJSfO80VqJgF3KeQ/zh-cn_image_0000002611835509.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024211Z&HW-CC-Expire=86400&HW-CC-Sign=6D9334B7CBEA1AF1E3AE70431E5EF875E9174F377E0CD6BA4C1A88591AA6EAE1)

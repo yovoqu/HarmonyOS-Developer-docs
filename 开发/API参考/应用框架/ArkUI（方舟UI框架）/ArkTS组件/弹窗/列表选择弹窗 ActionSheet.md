@@ -14,6 +14,8 @@
 
 ##### ActionSheetOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 列表选择弹窗的样式。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -61,6 +63,8 @@
 
 ##### SheetInfo对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 弹窗中的选项内容，每一项支持设置文本、图标以及选中的回调。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -77,6 +81,8 @@
 
 
 ##### LevelMode15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type LevelMode = LevelMode
 
@@ -95,6 +101,8 @@ type LevelMode = LevelMode
 
 ##### ImmersiveMode15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ImmersiveMode = ImmersiveMode
 
 弹窗的蒙层效果。
@@ -111,6 +119,8 @@ type ImmersiveMode = ImmersiveMode
 
 
 ##### DismissDialogAction12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Dialog关闭的信息。
 
@@ -131,6 +141,8 @@ Dialog关闭的信息。
 
 
 ##### ActionSheetButtonOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 弹窗中按钮的样式。
 
@@ -155,6 +167,8 @@ Dialog关闭的信息。
 
 ##### ActionSheetOffset18+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 弹窗的对齐方式。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -171,9 +185,13 @@ Dialog关闭的信息。
 
 ##### ActionSheet
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### show(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static show(value: ActionSheetOptions)
 
@@ -197,6 +215,8 @@ static show(value: ActionSheetOptions)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 直接使用ActionSheet可能导致实例不明确的问题，建议使用getUIContext()获取 UIContext 实例，并使用 showActionSheet 调用绑定实例的ActionSheet.show()。
@@ -577,7 +597,7 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/fVPFwl5eSDiJc2vTCWTnOQ/zh-cn_image_0000002611836007.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=E60871523815549E8155B1FAB07A352B9BAB3894D7F2AC1D27B916DE8AB85EE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/fVPFwl5eSDiJc2vTCWTnOQ/zh-cn_image_0000002611836007.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=2B2EDF8DD927AD422420AD6611F0EDF92FE9EF83DCF7B2EE9B5325CCF83C3EEA)
 
 
 
@@ -660,7 +680,7 @@ struct Example1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/mQ6wByz0SDm1IsL_rpJPzw/zh-cn_image_0000002581276260.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=FB464C9B6EC3524C20DE4E203CAEAAB24DDF72B715008EE4DF7FF38E664E8DD2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/mQ6wByz0SDm1IsL_rpJPzw/zh-cn_image_0000002581276260.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=44F663E8D0E208CA88FFC009DB283AD1720DAF5F41C1E093C1D9B38469A93D5E)
 
 
 
@@ -724,7 +744,7 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/eReW0ZJLQ36DcXI7TmRcUA/zh-cn_image_0000002611756115.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=BEC33BE49E00CC321586B7DA43BD7AA6DE1963472F3EE75B7C07AFC990F11901)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/eReW0ZJLQ36DcXI7TmRcUA/zh-cn_image_0000002611756115.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=195473D60DC0D05E8B5590DD8B70403FDDCBB7E931539CC5CAB8A5E49D70CDD8)
 
 
 
@@ -789,4 +809,4 @@ struct ActionSheetExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/W2Kfi2vRTVWB7noTP7ndew/zh-cn_image_0000002581436178.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=F6890C4199F06703ED5E7060F495FD030793EE4ABDC23593F9F3F4072F5122F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/W2Kfi2vRTVWB7noTP7ndew/zh-cn_image_0000002581436178.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=77B5D0D86838D1D58FD40BC532C00018AE8C6357F53359ED158AA49E401F0A3B)

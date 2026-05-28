@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { avSession } from '@kit.AVSessionKit';
 ```
@@ -21,6 +23,8 @@ import { avSession } from '@kit.AVSessionKit';
 
 
 ##### constructor14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor(context: Context)
 
@@ -78,6 +82,8 @@ struct Index {
 
 
 ##### select14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 select(options?: AVCastPickerOptions): Promise&lt;void&gt;
 
@@ -139,6 +145,8 @@ this.avCastPicker.select(avCastPickerOptions).then(() => {
 
 ##### resetCommunicationDevice21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 resetCommunicationDevice(): Promise&lt;void&gt;
 
 将应用通话设备恢复至默认设备。比如在语音通话场景下，手机设备的通话装置将恢复成听筒。使用Promise异步回调。
@@ -171,6 +179,8 @@ async function avCastPicker(context: common.Context) {
 
 
 ##### on('pickerStateChange')14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'pickerStateChange', callback: Callback&lt;AVCastPickerState&gt;) : void
 
@@ -218,6 +228,8 @@ async function onPickerStateChange(context: common.Context) {
 
 
 ##### off('pickerStateChange')14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'pickerStateChange', callback?: Callback&lt;AVCastPickerState&gt;) : void
 

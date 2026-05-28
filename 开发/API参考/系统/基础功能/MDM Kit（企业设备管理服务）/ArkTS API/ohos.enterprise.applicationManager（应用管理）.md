@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { applicationManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { applicationManager } from '@kit.MDMKit';
 
 
 ##### applicationManager.addDisallowedRunningBundlesSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addDisallowedRunningBundlesSync(admin: Want, appIds: Array&lt;string&gt;, accountId?: number): void
 
@@ -82,6 +86,8 @@ try {
 
 ##### applicationManager.removeDisallowedRunningBundlesSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDisallowedRunningBundlesSync(admin: Want, appIds: Array&lt;string&gt;, accountId?: number): void
 
 将应用从当前/指定用户下的应用运行禁止名单中移除。
@@ -140,6 +146,8 @@ try {
 
 
 ##### applicationManager.getDisallowedRunningBundlesSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedRunningBundlesSync(admin: Want, accountId?: number): Array&lt;string&gt;
 
@@ -201,6 +209,8 @@ try {
 
 
 ##### applicationManager.addAllowedRunningBundles21+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addAllowedRunningBundles(admin: Want, appIdentifiers: Array&lt;string&gt;, accountId: number): void
 
@@ -266,6 +276,8 @@ try {
 
 ##### applicationManager.removeAllowedRunningBundles21+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeAllowedRunningBundles(admin: Want, appIdentifiers: Array&lt;string&gt;, accountId: number): void
 
 将应用从指定用户下的应用运行允许名单中移除。
@@ -324,6 +336,8 @@ try {
 
 
 ##### applicationManager.getAllowedRunningBundles21+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAllowedRunningBundles(admin: Want, accountId: number): Array&lt;string&gt;
 
@@ -384,6 +398,8 @@ try {
 
 
 ##### applicationManager.addAutoStartApps
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addAutoStartApps(admin: Want, autoStartApps: Array&lt;Want&gt;): void
 
@@ -455,6 +471,8 @@ try {
 
 ##### applicationManager.removeAutoStartApps
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeAutoStartApps(admin: Want, autoStartApps: Array&lt;Want&gt;): void
 
 为当前用户删除开机自启动应用名单。
@@ -519,6 +537,8 @@ try {
 
 
 ##### applicationManager.removeAutoStartApps20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 removeAutoStartApps(admin: Want, autoStartApps: Array&lt;Want&gt;, accountId: number): void
 
@@ -585,6 +605,8 @@ try {
 
 
 ##### applicationManager.getAutoStartApps
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAutoStartApps(admin: Want): Array&lt;Want&gt;
 
@@ -663,6 +685,8 @@ try {
 
 ##### applicationManager.addAutoStartApps20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 addAutoStartApps(admin: Want, autoStartApps: Array&lt;Want&gt;, accountId: number, disallowModify: boolean): void
 
 为指定用户添加开机自启动应用名单，并设置是否禁止该用户手动取消应用自启动（用户通过设备上设置->应用和元服务->应用启动管理，取消应用自启动）。
@@ -736,6 +760,8 @@ try {
 
 
 ##### applicationManager.getAutoStartApps20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAutoStartApps(admin: Want, accountId: number): Array&lt;Want&gt;
 
@@ -814,6 +840,8 @@ try {
 
 ##### applicationManager.isModifyAutoStartAppsDisallowed20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 isModifyAutoStartAppsDisallowed(admin: Want, autoStartApp: Want, accountId: number): boolean
 
 查询指定用户是否禁止取消应用自启动。
@@ -882,6 +910,8 @@ try {
 
 
 ##### applicationManager.addKeepAliveApps14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addKeepAliveApps(admin: Want, bundleNames: Array&lt;string&gt;, accountId: number): void
 
@@ -952,6 +982,8 @@ try {
 
 
 ##### applicationManager.addKeepAliveApps20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addKeepAliveApps(admin: Want, bundleNames: Array&lt;string&gt;, accountId: number, disallowModify: boolean): void
 
@@ -1024,6 +1056,8 @@ try {
 
 ##### applicationManager.removeKeepAliveApps14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeKeepAliveApps(admin: Want, bundleNames: Array&lt;string&gt;, accountId: number): void
 
 移除保活应用名单中的指定应用。
@@ -1084,6 +1118,8 @@ try {
 
 
 ##### applicationManager.getKeepAliveApps14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getKeepAliveApps(admin: Want, accountId: number): Array&lt;string&gt;
 
@@ -1147,6 +1183,8 @@ try {
 
 
 ##### applicationManager.isModifyKeepAliveAppsDisallowed20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isModifyKeepAliveAppsDisallowed(admin: Want, accountId: number, bundleName: string): boolean
 
@@ -1214,6 +1252,8 @@ try {
 
 ##### applicationManager.clearUpApplicationData20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 clearUpApplicationData(admin: Want, bundleName: string, appIndex: number, accountId: number): void
 
 清除应用产生的所有数据。
@@ -1271,6 +1311,8 @@ try {
 
 
 ##### applicationManager.setAllowedKioskApps20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setAllowedKioskApps(admin: Want, appIdentifiers: Array&lt;string&gt;): void
 
@@ -1331,6 +1373,8 @@ try {
 
 ##### applicationManager.getAllowedKioskApps20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getAllowedKioskApps(admin: Want): Array&lt;string&gt;
 
 获取允许在Kiosk模式下运行的应用。
@@ -1390,6 +1434,8 @@ try {
 
 ##### applicationManager.isAppKioskAllowed20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 isAppKioskAllowed(appIdentifier: string): boolean
 
 查询某应用是否允许在Kiosk模式下运行。
@@ -1429,6 +1475,8 @@ try {
 
 
 ##### applicationManager.setKioskFeatures20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setKioskFeatures(admin: Want, features: Array&lt;KioskFeature&gt;): void
 
@@ -1495,6 +1543,8 @@ try {
 
 
 ##### applicationManager.addUserNonStopApps22+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void
 
@@ -1567,6 +1617,8 @@ try {
 
 ##### applicationManager.removeUserNonStopApps22+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void
 
 为指定用户删除不可关停应用名单。执行删除策略时，若参数列表中包含未安装应用，删除操作仍能成功执行；已安装的应用将被删除，未安装的应用不影响删除操作。
@@ -1634,6 +1686,8 @@ try {
 
 ##### applicationManager.getUserNonStopApps22+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getUserNonStopApps(admin: Want): Array<common.ApplicationInstance>
 
 获取当前设备下所有用户不可关停应用名单。
@@ -1694,6 +1748,8 @@ try {
 
 
 ##### applicationManager.addFreezeExemptedApps22+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void
 
@@ -1764,6 +1820,8 @@ try {
 
 ##### applicationManager.removeFreezeExemptedApps22+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void
 
 为指定用户删除后台防冻结应用名单。执行删除策略时，若参数列表中包含未安装应用，删除操作仍能成功执行；已安装的应用将被删除，未安装的应用不影响删除操作。
@@ -1831,6 +1889,8 @@ try {
 
 ##### applicationManager.getFreezeExemptedApps22+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getFreezeExemptedApps(admin: Want): Array<common.ApplicationInstance>
 
 获取当前设备下所有用户后台防冻结应用名单。
@@ -1891,6 +1951,8 @@ try {
 
 
 ##### applicationManager.setAbilityDisabled23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setAbilityDisabled(admin: Want, bundleName: string, accountId: number, abilityName: string, isDisabled: boolean): void
 
@@ -1954,6 +2016,8 @@ try {
 
 
 ##### applicationManager.isAbilityDisabled23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isAbilityDisabled(admin: Want, bundleName: string, accountId: number, abilityName: string): boolean
 
@@ -2021,6 +2085,8 @@ try {
 
 
 ##### applicationManager.addDockApp24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addDockApp(admin: Want, bundleName: string, abilityName: string, index?: number): void
 
@@ -2096,6 +2162,8 @@ try {
 
 ##### applicationManager.removeDockApp24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDockApp(admin: Want, bundleName: string, abilityName: string): void
 
 从快捷栏中移除应用。
@@ -2161,6 +2229,8 @@ try {
 
 
 ##### applicationManager.getDockApps24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDockApps(admin: Want): Array&lt;DockInfo&gt;
 
@@ -2236,6 +2306,8 @@ try {
 
 ##### KioskFeature20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 Kiosk模式的特征。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -2253,6 +2325,8 @@ Kiosk模式的特征。
 
 
 ##### DockInfo24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 快捷栏中的应用信息。
 

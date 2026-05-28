@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { AVInputCastPicker } from '@kit.AVSessionKit';
 ```
@@ -22,11 +24,15 @@ import { AVInputCastPicker } from '@kit.AVSessionKit';
 
 ##### 属性
 
+**支持设备：** PC/2in1
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### AVInputCastPicker
+
+**支持设备：** PC/2in1
 
 ```text
 AVInputCastPicker({
@@ -57,6 +63,8 @@ AVInputCastPicker({
 
 ##### OnPickerStateCallback
 
+**支持设备：** PC/2in1
+
 type OnPickerStateCallback = (state: AVCastPickerState) => void
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -74,11 +82,15 @@ type OnPickerStateCallback = (state: AVCastPickerState) => void
 
 ##### 事件
 
+**支持设备：** PC/2in1
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### 示例
+
+**支持设备：** PC/2in1
 
 录音设备选择组件功能的示例说明参考如下。
 

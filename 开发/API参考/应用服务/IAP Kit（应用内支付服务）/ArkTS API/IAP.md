@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { iap } from '@kit.IAPKit';
 ```
@@ -21,6 +23,8 @@ import { iap } from '@kit.IAPKit';
 
 
 ##### ProductType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 商品类型。
 
@@ -44,6 +48,8 @@ import { iap } from '@kit.IAPKit';
 
 ##### PurchaseQueryType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 查询购买信息的类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -64,6 +70,8 @@ import { iap } from '@kit.IAPKit';
 
 
 ##### PeriodUnit
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 自动续期订阅商品的周期单位。
 
@@ -88,6 +96,8 @@ import { iap } from '@kit.IAPKit';
 
 ##### OfferPaymentMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 促销的付费方式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -110,6 +120,8 @@ import { iap } from '@kit.IAPKit';
 
 ##### OfferType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 促销类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -129,6 +141,8 @@ import { iap } from '@kit.IAPKit';
 
 
 ##### IAPErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 错误码枚举。
 
@@ -169,6 +183,8 @@ import { iap } from '@kit.IAPKit';
 
 ##### WindowScreenMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 界面窗口模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -188,6 +204,8 @@ import { iap } from '@kit.IAPKit';
 
 
 ##### ProductStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 商品状态枚举。
 
@@ -209,6 +227,8 @@ import { iap } from '@kit.IAPKit';
 
 
 ##### iap.queryEnvironmentStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryEnvironmentStatus(context: common.Context): Promise&lt;void&gt;
 
@@ -283,6 +303,8 @@ struct Index {
 
 ##### iap.queryEnvironmentStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryEnvironmentStatus(context: common.Context, callback: AsyncCallback&lt;void&gt;): void
 
 查询用户登录的账号服务地是否在IAP Kit支持结算的国家/地区中。当前只支持中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）。
@@ -348,6 +370,8 @@ struct Index {
 
 
 ##### iap.queryProducts
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParameter): Promise<Array&lt;Product&gt;>
 
@@ -431,6 +455,8 @@ struct Index {
 
 ##### iap.queryProducts
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParameter, callback: AsyncCallback<Array&lt;Product&gt;>): void
 
 用于获取在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)上配置的商品详情信息。使用callback异步回调。
@@ -507,6 +533,8 @@ struct Index {
 
 ##### iap.queryProducts
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<Array&lt;Product&gt;>
 
 查询在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)上配置的商品详情信息。使用Promise异步回调。
@@ -580,6 +608,8 @@ struct Index {
 
 
 ##### iap.purchase(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 purchase(context: common.UIAbilityContext, parameter: PurchaseParameter): Promise&lt;PurchaseResult&gt;
 
@@ -667,6 +697,8 @@ struct Index {
 
 ##### iap.purchase(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 purchase(context: common.UIAbilityContext, parameter: PurchaseParameter, callback: AsyncCallback&lt;PurchaseResult&gt;): void
 
 创建订单，支持消耗型商品和非消耗型商品。在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)创建商品后，使用此接口调用华为应用内支付收银台，显示商品、价格和支付方式。
@@ -748,6 +780,8 @@ struct Index {
 
 
 ##### iap.createPurchase
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter): Promise&lt;CreatePurchaseResult&gt;
 
@@ -838,6 +872,8 @@ struct Index {
 
 ##### iap.createPurchase
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter, callback: AsyncCallback&lt;CreatePurchaseResult&gt;): void
 
 发起购买，支持消耗型商品、非消耗型商品、自动续期订阅商品和非续期订阅商品。在[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)创建商品后，使用此接口拉起华为应用内支付收银台，显示商品名称、价格等信息。
@@ -921,6 +957,8 @@ struct Index {
 
 ##### iap.consumePurchase(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchaseParameter): Promise&lt;ConsumeResult&gt;
 
 在消耗型商品支付成功后，应用需要在发放商品成功之后调用此接口对消耗型商品执行消耗操作。使用Promise异步回调。
@@ -1000,6 +1038,8 @@ struct Index {
 
 ##### iap.consumePurchase(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchaseParameter, callback: AsyncCallback&lt;ConsumeResult&gt;): void
 
 在消耗型商品支付成功后，应用需要在发放商品成功之后调用此接口对消耗型商品执行消耗操作。使用callback异步回调。
@@ -1074,6 +1114,8 @@ struct Index {
 
 
 ##### iap.finishPurchase
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParameter): Promise&lt;void&gt;
 
@@ -1157,6 +1199,8 @@ struct Index {
 
 ##### iap.finishPurchase
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParameter, callback: AsyncCallback&lt;void&gt;): void
 
 应用完成已购商品的发货后，调用此接口确认发货，指明此次购买流程结束。使用callback异步回调。
@@ -1232,6 +1276,8 @@ struct Index {
 
 
 ##### iap.queryOwnedPurchases(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter): Promise&lt;QueryPurchasesResult&gt;
 
@@ -1317,6 +1363,8 @@ struct Index {
 
 ##### iap.queryOwnedPurchases(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter, callback: AsyncCallback&lt;QueryPurchasesResult&gt;): void
 
 查询用户已订购商品的购买数据，包括消耗型商品和非消耗型商品，一次请求只能查询一种类型的商品。
@@ -1397,6 +1445,8 @@ struct Index {
 
 ##### iap.queryPurchaseRecords(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchasesParameter): Promise&lt;QueryPurchasesResult&gt;
 
 获取已执行过消耗操作的消耗型商品的购买数据。使用Promise异步回调。
@@ -1471,6 +1521,8 @@ struct Index {
 
 ##### iap.queryPurchaseRecords(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchasesParameter, callback: AsyncCallback&lt;QueryPurchasesResult&gt;): void
 
 获取已执行过消耗操作的消耗型商品的购买数据。使用callback异步回调。
@@ -1540,6 +1592,8 @@ struct Index {
 
 
 ##### iap.queryPurchases
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter): Promise&lt;QueryPurchaseResult&gt;
 
@@ -1622,6 +1676,8 @@ struct Index {
 
 ##### iap.queryPurchases
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParameter, callback: AsyncCallback&lt;QueryPurchaseResult&gt;): void
 
 查询已购商品的订单信息，包含 ：
@@ -1696,6 +1752,8 @@ struct Index {
 
 
 ##### iap.showManagedSubscriptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showManagedSubscriptions(context: common.Context, uiParameter: UIWindowParameter, groupId?: string): Promise&lt;void&gt;
 
@@ -1775,6 +1833,8 @@ struct Index {
 
 ##### iap.isSandboxActivated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSandboxActivated(context: common.Context): Promise&lt;boolean&gt;
 
 检查沙盒测试能力是否生效。使用Promise异步回调。
@@ -1846,6 +1906,8 @@ struct Index {
 
 
 ##### iap.createRefundRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createRefundRequest(context: common.Context, purchaseOrderId: string): Promise&lt;void&gt;
 
@@ -1930,6 +1992,8 @@ struct IapTest {
 
 ##### iap.showManagedInvoices
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 showManagedInvoices(context: common.Context, purchaseOrderId: string): Promise&lt;void&gt;
 
 跳转到发票页，使用Promise异步回调。
@@ -2010,6 +2074,8 @@ struct IapTest {
 
 ##### QueryProductsParameter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [queryProducts](#iapqueryproducts)接口的请求参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2029,6 +2095,8 @@ struct IapTest {
 
 
 ##### Product
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 包含单个商品详细信息。
 
@@ -2060,6 +2128,8 @@ struct IapTest {
 
 ##### PromotionalOffer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 订阅商品支持的自定义优惠信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2083,6 +2153,8 @@ struct IapTest {
 
 
 ##### SubscriptionInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 订阅信息。
 
@@ -2108,6 +2180,8 @@ struct IapTest {
 
 ##### SubscriptionOffer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 促销信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2131,6 +2205,8 @@ struct IapTest {
 
 
 ##### PurchaseParameter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [purchase](#iappurchasedeprecated)接口和[createPurchase](#iapcreatepurchase)接口的请求参数。
 
@@ -2158,6 +2234,8 @@ struct IapTest {
 
 ##### PurchaseResult(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [purchase](#iappurchasedeprecated)接口的返回结果。
 
 **废弃说明：** 从4.1.0(11)开始废弃。
@@ -2179,6 +2257,8 @@ struct IapTest {
 
 ##### CreatePurchaseResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [createPurchase](#iapcreatepurchase)接口的返回结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2197,6 +2277,8 @@ struct IapTest {
 
 
 ##### ConsumePurchaseParameter(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [consumePurchase](#iapconsumepurchasedeprecated)接口的请求参数。
 
@@ -2217,6 +2299,8 @@ struct IapTest {
 
 
 ##### ConsumeResult(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [consumePurchase](#iapconsumepurchasedeprecated)接口的返回结果。
 
@@ -2239,6 +2323,8 @@ struct IapTest {
 
 ##### FinishPurchaseParameter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [finishPurchase](#iapfinishpurchase)接口请求参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2260,6 +2346,8 @@ struct IapTest {
 
 ##### QueryPurchasesParameter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [queryOwnedPurchases](#iapqueryownedpurchasesdeprecated)、[queryPurchaseRecords](#iapquerypurchaserecordsdeprecated)和[queryPurchases](#iapquerypurchases)接口的请求参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2280,6 +2368,8 @@ struct IapTest {
 
 
 ##### QueryPurchasesResult(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [queryOwnedPurchases](#iapqueryownedpurchasesdeprecated)和[queryPurchaseRecords](#iapquerypurchaserecordsdeprecated)接口的返回结果。
 
@@ -2304,6 +2394,8 @@ struct IapTest {
 
 ##### QueryPurchaseResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [queryPurchases](#iapquerypurchases)接口的返回结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2323,6 +2415,8 @@ struct IapTest {
 
 
 ##### UIWindowParameter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [iap.showManagedSubscriptions](#iapshowmanagedsubscriptions)接口界面窗口参数。
 

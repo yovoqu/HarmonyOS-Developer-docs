@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述下发帧生成命令[HMS_FG_Dispatch_GLES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_dispatch_gles)需要的参数信息，每一帧都需要进行更新。该接口仅适配OpenGL ES图形API平台。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### inputColor
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 uint32_t FG_DispatchDescription_GLES::inputColor
@@ -52,6 +62,8 @@ uint32_t FG_DispatchDescription_GLES::inputColor
 
 ##### inputDepthStencil
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 uint32_t FG_DispatchDescription_GLES::inputDepthStencil
 ```
@@ -63,6 +75,8 @@ uint32_t FG_DispatchDescription_GLES::inputDepthStencil
   
 
 ##### invViewProj
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_Mat4x4 FG_DispatchDescription_GLES::invViewProj
@@ -76,6 +90,8 @@ FG_Mat4x4 FG_DispatchDescription_GLES::invViewProj
 
 ##### outputColor
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 uint32_t FG_DispatchDescription_GLES::outputColor
 ```
@@ -87,6 +103,8 @@ uint32_t FG_DispatchDescription_GLES::outputColor
   
 
 ##### viewProj
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_Mat4x4 FG_DispatchDescription_GLES::viewProj

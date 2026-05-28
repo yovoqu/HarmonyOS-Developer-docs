@@ -12,6 +12,8 @@ typedef struct ArkUI_ListItemSwipeActionItem ArkUI_ListItemSwipeActionItem
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义ListItemSwipeActionOption方法内Item的配置信息。
  
 **起始版本：** 12

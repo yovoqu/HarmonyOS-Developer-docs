@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_BackgroundColorStyle OH_ArkUI_BackgroundColorStyle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义背景颜色样式。 
  
  可以通过[OH_ArkUI_BackgroundColorStyle_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_backgroundcolorstyle_create)接口创建对应的背景颜色样式对象。 

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { relationalStore } from '@kit.ArkData';
 ```
@@ -19,6 +21,8 @@ import { relationalStore } from '@kit.ArkData';
 
 
 ##### relationalStore.getRdbStore
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback&lt;RdbStore&gt;): void
 
@@ -130,6 +134,8 @@ class EntryAbility extends UIAbility {
 
 ##### relationalStore.getRdbStore
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRdbStore(context: Context, config: StoreConfig): Promise&lt;RdbStore&gt;
 
 创建或打开已有的关系型数据库，开发者可以根据自己的需求配置config参数，然后通过RdbStore调用相关接口执行数据操作。使用Promise异步回调。
@@ -240,6 +246,8 @@ class EntryAbility extends UIAbility {
 
 ##### relationalStore.getRdbStoreSync24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRdbStoreSync(context: Context, config: StoreConfig): RdbStore
 
 创建或打开已有的关系型数据库。开发者可以根据自己的需求配置config参数，然后通过RdbStore调用相关接口执行数据操作。这是一个同步方法，会阻塞线程直到获取到RdbStore。
@@ -325,6 +333,8 @@ class EntryAbility extends UIAbility {
 
 ##### relationalStore.deleteRdbStore
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteRdbStore(context: Context, name: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除数据库文件，使用callback异步回调。
@@ -401,6 +411,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### relationalStore.getRdbStoreSync24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRdbStoreSync(context: Context, config: StoreConfig): RdbStore
 
@@ -491,6 +503,8 @@ class EntryAbility extends UIAbility {
 
 ##### relationalStore.deleteRdbStore
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteRdbStore(context: Context, name: string): Promise&lt;void&gt;
 
 使用指定的数据库文件配置删除数据库，使用Promise异步回调。
@@ -569,6 +583,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### relationalStore.deleteRdbStore10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteRdbStore(context: Context, config: StoreConfig, callback: AsyncCallback&lt;void&gt;): void
 
@@ -657,6 +673,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### relationalStore.deleteRdbStore10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteRdbStore(context: Context, config: StoreConfig): Promise&lt;void&gt;
 
@@ -749,6 +767,8 @@ class EntryAbility extends UIAbility {
 
 ##### relationalStore.isVectorSupported18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isVectorSupported(): boolean
 
 判断系统是否提供向量数据库能力。
@@ -803,6 +823,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### relationalStore.isTokenizerSupported18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isTokenizerSupported(tokenizer: Tokenizer): boolean
 
 判断当前平台是否支持传入的分词器，此为同步接口。
@@ -845,6 +867,8 @@ console.info("custom tokenizer supported on current platform: " + customTypeSupp
 
 
 ##### relationalStore.getInsertSqlInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getInsertSqlInfo(table: string, values: ValuesBucket, conflict?: ConflictResolution): SqlInfo
 
@@ -896,6 +920,8 @@ const sqlInfo: relationalStore.SqlInfo = relationalStore.getInsertSqlInfo(
 
 
 ##### relationalStore.getUpdateSqlInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUpdateSqlInfo(predicates: RdbPredicates, values: ValuesBucket, conflict?: ConflictResolution): SqlInfo
 
@@ -949,6 +975,8 @@ const sqlInfo: relationalStore.SqlInfo = relationalStore.getUpdateSqlInfo(
 
 ##### relationalStore.getDeleteSqlInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeleteSqlInfo(predicates: RdbPredicates): SqlInfo
 
 获取用于删除数据的SQL语句，此为同步接口。
@@ -990,6 +1018,8 @@ const sqlInfo: relationalStore.SqlInfo = relationalStore.getDeleteSqlInfo(predic
 
 
 ##### relationalStore.getQuerySqlInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getQuerySqlInfo(predicates: RdbPredicates, columns?: Array&lt;string&gt;): SqlInfo
 

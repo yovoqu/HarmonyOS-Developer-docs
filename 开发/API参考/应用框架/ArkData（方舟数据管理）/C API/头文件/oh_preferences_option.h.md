@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供访问Preferences配置选项（PreferencesOption）的接口与数据结构。
  
 **引用文件：** <database/preferences/oh_preferences_option.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -44,6 +52,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -59,9 +69,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Preferences_StorageType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Preferences_StorageType
@@ -83,9 +97,13 @@ enum Preferences_StorageType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_PreferencesOption_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_PreferencesOption *OH_PreferencesOption_Create(void)
@@ -109,6 +127,8 @@ OH_PreferencesOption *OH_PreferencesOption_Create(void)
   
 
 ##### OH_PreferencesOption_SetFileName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesOption_SetFileName(OH_PreferencesOption *option, const char *fileName)
@@ -143,6 +163,8 @@ OH_Preferences_ErrCode
 
 ##### OH_PreferencesOption_SetBundleName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesOption_SetBundleName(OH_PreferencesOption *option, const char *bundleName)
 ```
@@ -171,6 +193,8 @@ int OH_PreferencesOption_SetBundleName(OH_PreferencesOption *option, const char 
   
 
 ##### OH_PreferencesOption_SetDataGroupId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesOption_SetDataGroupId(OH_PreferencesOption *option, const char *dataGroupId)
@@ -205,6 +229,8 @@ int OH_PreferencesOption_SetDataGroupId(OH_PreferencesOption *option, const char
 
 ##### OH_PreferencesOption_SetStorageType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesOption_SetStorageType(OH_PreferencesOption *option, Preferences_StorageType type)
 ```
@@ -233,6 +259,8 @@ int OH_PreferencesOption_SetStorageType(OH_PreferencesOption *option, Preference
   
 
 ##### OH_PreferencesOption_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesOption_Destroy(OH_PreferencesOption *option)

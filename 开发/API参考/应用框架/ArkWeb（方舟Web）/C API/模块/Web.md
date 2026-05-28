@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为ArkWeb NDK接口发生异常提供错误码。
 
 提供注入对象和执行JavaScript代码的API接口。
@@ -24,6 +26,8 @@
 
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |

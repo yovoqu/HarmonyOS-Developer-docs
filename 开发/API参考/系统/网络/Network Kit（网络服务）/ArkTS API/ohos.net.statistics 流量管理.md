@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { statistics } from '@kit.NetworkKit';
 ```
@@ -21,6 +23,8 @@ import { statistics } from '@kit.NetworkKit';
 
 
 ##### statistics.getIfaceRxBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getIfaceRxBytes(nic: string, callback: AsyncCallback&lt;number&gt;): void
 
@@ -65,6 +69,8 @@ statistics.getIfaceRxBytes("wlan0", (error: BusinessError, stats: number) => {
 
 
 ##### statistics.getIfaceRxBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getIfaceRxBytes(nic: string): Promise&lt;number&gt;
 
@@ -114,6 +120,8 @@ statistics.getIfaceRxBytes("wlan0").then((stats: number) => {
 
 ##### statistics.getIfaceTxBytes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getIfaceTxBytes(nic: string, callback: AsyncCallback&lt;number&gt;): void
 
 获取指定网卡实时上行流量，使用 callback 异步回调。
@@ -157,6 +165,8 @@ statistics.getIfaceTxBytes("wlan0", (error: BusinessError, stats: number) => {
 
 
 ##### statistics.getIfaceTxBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getIfaceTxBytes(nic: string): Promise&lt;number&gt;
 
@@ -206,6 +216,8 @@ statistics.getIfaceTxBytes("wlan0").then((stats: number) => {
 
 ##### statistics.getCellularRxBytes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCellularRxBytes(callback: AsyncCallback&lt;number&gt;): void
 
 获取蜂窝实时下行流量，使用 callback 异步回调。
@@ -248,6 +260,8 @@ statistics.getCellularRxBytes((error: BusinessError, stats: number) => {
 
 ##### statistics.getCellularRxBytes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCellularRxBytes(): Promise&lt;number&gt;
 
 获取蜂窝实时下行流量，使用 Promise 异步回调。
@@ -287,6 +301,8 @@ statistics.getCellularRxBytes().then((stats: number) => {
 
 
 ##### statistics.getCellularTxBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCellularTxBytes(callback: AsyncCallback&lt;number&gt;): void
 
@@ -330,6 +346,8 @@ statistics.getCellularTxBytes((error: BusinessError, stats: number) => {
 
 ##### statistics.getCellularTxBytes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCellularTxBytes(): Promise&lt;number&gt;
 
 获取蜂窝实时上行流量，使用 Promise 异步回调。
@@ -369,6 +387,8 @@ statistics.getCellularTxBytes().then((stats: number) => {
 
 
 ##### statistics.getAllRxBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllRxBytes(callback: AsyncCallback&lt;number&gt;): void
 
@@ -413,6 +433,8 @@ statistics.getAllRxBytes((error: BusinessError, stats: number) => {
 
 ##### statistics.getAllRxBytes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllRxBytes(): Promise&lt;number&gt;
 
 获取所有网卡实时下行流量，使用 Promise 异步回调。
@@ -453,6 +475,8 @@ statistics.getAllRxBytes().then((stats: number) => {
 
 
 ##### statistics.getAllTxBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllTxBytes(callback: AsyncCallback&lt;number&gt;): void
 
@@ -497,6 +521,8 @@ statistics.getAllTxBytes((error: BusinessError, stats: number) => {
 
 ##### statistics.getAllTxBytes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllTxBytes(): Promise&lt;number&gt;
 
 获取所有网卡实时上行流量，使用 Promise 异步回调。
@@ -537,6 +563,8 @@ statistics.getAllTxBytes().then((stats: number) => {
 
 
 ##### statistics.getUidRxBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUidRxBytes(uid: number, callback: AsyncCallback&lt;number&gt;): void
 
@@ -580,6 +608,8 @@ statistics.getUidRxBytes(20010038, (error: BusinessError, stats: number) => {
 
 
 ##### statistics.getUidRxBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUidRxBytes(uid: number): Promise&lt;number&gt;
 
@@ -628,6 +658,8 @@ statistics.getUidRxBytes(20010038).then((stats: number) => {
 
 ##### statistics.getUidTxBytes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUidTxBytes(uid: number, callback: AsyncCallback&lt;number&gt;): void
 
 获取指定应用实时上行流量，使用 callback 异步回调。
@@ -670,6 +702,8 @@ statistics.getUidTxBytes(20010038, (error: BusinessError, stats: number) => {
 
 
 ##### statistics.getUidTxBytes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUidTxBytes(uid: number): Promise&lt;number&gt;
 
@@ -718,6 +752,8 @@ statistics.getUidTxBytes(20010038).then((stats: number) => {
 
 ##### statistics.getSockfdRxBytes11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSockfdRxBytes(sockfd: number, callback: AsyncCallback&lt;number&gt;): void
 
 获取指定socket的下行流量信息，使用 callback 异步回调。
@@ -760,6 +796,8 @@ statistics.getSockfdRxBytes(sockfd, (error: BusinessError, stats: number) => {
 
 
 ##### statistics.getSockfdRxBytes11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSockfdRxBytes(sockfd: number): Promise&lt;number&gt;
 
@@ -811,6 +849,8 @@ statistics.getSockfdRxBytes(sockfd).then((stats: number) => {
 
 ##### statistics.getSockfdTxBytes11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSockfdTxBytes(sockfd: number, callback: AsyncCallback&lt;number&gt;): void
 
 获取指定socket的上行流量信息，使用 callback 异步回调。
@@ -853,6 +893,8 @@ statistics.getSockfdTxBytes(sockfd, (error: BusinessError, stats: number) => {
 
 
 ##### statistics.getSockfdTxBytes11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSockfdTxBytes(sockfd: number): Promise&lt;number&gt;
 
@@ -903,6 +945,8 @@ statistics.getSockfdTxBytes(sockfd).then((stats: number) => {
 
 
 ##### statistics.getSelfTrafficStats22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSelfTrafficStats(networkInfo: NetworkInfo): Promise&lt;NetStatsInfo&gt;
 
@@ -965,6 +1009,8 @@ statistics.getSelfTrafficStats(networkInfo).then((stats: statistics.NetStatsInfo
 
 ##### NetBearType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NetBearType = connection.NetBearType
 
 网络类型。
@@ -979,6 +1025,8 @@ type NetBearType = connection.NetBearType
 
 
 ##### NetworkInfo22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 网络信息。
 
@@ -995,6 +1043,8 @@ type NetBearType = connection.NetBearType
 
 
 ##### NetStatsInfo22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 获取的历史流量信息。
 

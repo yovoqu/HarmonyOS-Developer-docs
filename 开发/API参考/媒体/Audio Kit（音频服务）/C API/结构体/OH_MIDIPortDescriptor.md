@@ -12,6 +12,8 @@ typedef struct {...} OH_MIDIPortDescriptor
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 端口描述符结构体，用于打开端口时指定端口索引和协议行为。
  
 **起始版本：** 24
@@ -24,9 +26,13 @@ typedef struct {...} OH_MIDIPortDescriptor
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

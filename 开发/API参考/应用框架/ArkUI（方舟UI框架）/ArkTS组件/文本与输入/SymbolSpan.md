@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SymbolSpan(value: Resource)
  
@@ -43,11 +47,15 @@ SymbolSpan(value: Resource)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)，支持以下属性：
  
   
 
 ##### fontColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontColor(value: Array&lt;ResourceColor&gt;)
  
@@ -74,6 +82,8 @@ fontColor(value: Array&lt;ResourceColor&gt;)
 
 ##### fontSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontSize(value: number | string | Resource)
  
 设置SymbolSpan组件大小。设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
@@ -98,6 +108,8 @@ fontSize(value: number | string | Resource)
   
 
 ##### fontWeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontWeight(value: number | FontWeight | string)
  
@@ -126,6 +138,8 @@ sys.symbol.ohos_lungs图标不支持设置fontWeight。
 
 ##### renderingStrategy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 renderingStrategy(value: SymbolRenderingStrategy)
  
 设置SymbolSpan渲染策略。
@@ -150,12 +164,14 @@ renderingStrategy(value: SymbolRenderingStrategy)
 不同渲染策略效果可参考以下示意图。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/F9NJLGxfQRqL2nf3_UTRZg/zh-cn_image_0000002581276032.png?HW-CC-KV=V1&HW-CC-Date=20260528T013931Z&HW-CC-Expire=86400&HW-CC-Sign=999FB89690B024FE8F154E2DF7CA61CACB42AEEA84B67409A8FAB64C1796772C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/F9NJLGxfQRqL2nf3_UTRZg/zh-cn_image_0000002581276032.png?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=5D19974CE19504927F17F8F6F4BEBD0EE8D7C04EACC410DA51F1FE90088162F2)
 
  
   
 
 ##### effectStrategy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 effectStrategy(value: SymbolEffectStrategy)
  
@@ -182,6 +198,8 @@ effectStrategy(value: SymbolEffectStrategy)
 
 ##### attributeModifier12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 attributeModifier(modifier: AttributeModifier&lt;SymbolSpanAttribute&gt;)
  
 设置组件的动态属性。
@@ -201,11 +219,15 @@ attributeModifier(modifier: AttributeModifier&lt;SymbolSpanAttribute&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -315,7 +337,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/Njdt9fxBTBCyEuUhvjARhw/zh-cn_image_0000002611755887.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013931Z&HW-CC-Expire=86400&HW-CC-Sign=AD0CBAABA7E7BF2E51B91E31B11C98E12E5DE800F3AE5831A21C45CAAA45C655)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/Njdt9fxBTBCyEuUhvjARhw/zh-cn_image_0000002611755887.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=0D2053C7AD36FE3C1BB0E7E5960DCFDA0D78762C92A8935B5ABEA766D851E8F2)
 
  
   
@@ -353,4 +375,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/IINveTJFQNO1ac7gYa_YUA/zh-cn_image_0000002581435950.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013931Z&HW-CC-Expire=86400&HW-CC-Sign=EFA6AB125C9E644647BCB8164A9CBA9B872E49E156A9890CFF20C330F6DA7F77)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/IINveTJFQNO1ac7gYa_YUA/zh-cn_image_0000002581435950.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=B9829D60D8BDC84D0CE32C3AF19A90CC5C17B0642FC0B5CD159B8AB0C8DE3391)

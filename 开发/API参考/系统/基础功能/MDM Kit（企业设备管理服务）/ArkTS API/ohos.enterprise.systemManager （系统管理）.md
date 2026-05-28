@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { systemManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { systemManager } from '@kit.MDMKit';
 
 
 ##### systemManager.setNTPServer
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setNTPServer(admin: Want, server: string): void
 
@@ -78,6 +82,8 @@ try {
 
 
 ##### systemManager.getNTPServer
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getNTPServer(admin: Want): string
 
@@ -137,6 +143,8 @@ try {
 
 
 ##### systemManager.setOtaUpdatePolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setOtaUpdatePolicy(admin: Want, policy: OtaUpdatePolicy): void
 
@@ -258,6 +266,8 @@ try {
 
 ##### systemManager.getOtaUpdatePolicy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getOtaUpdatePolicy(admin: Want): OtaUpdatePolicy
 
 查询升级策略。
@@ -316,6 +326,8 @@ try {
 
 
 ##### systemManager.notifyUpdatePackages
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 notifyUpdatePackages(admin: Want, packageInfo: UpdatePackageInfo): Promise&lt;void&gt;
 
@@ -428,6 +440,8 @@ systemManager.notifyUpdatePackages(wantTemp, updatePackageInfo).then(() => {
 
 ##### systemManager.getUpdateResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getUpdateResult(admin: Want, version: string): Promise&lt;UpdateResult&gt;
 
 获取系统更新结果。使用Promise异步回调。
@@ -488,6 +502,8 @@ systemManager.getUpdateResult(wantTemp, "1.0").then((result:systemManager.Update
 
 ##### systemManager.getUpdateAuthData19+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getUpdateAuthData(admin: Want): Promise&lt;string&gt;
 
 获取系统更新的鉴权数据，用于校验系统更新信息。使用Promise异步回调。
@@ -545,6 +561,8 @@ systemManager.getUpdateAuthData(wantTemp).then((result: string) => {
 
 
 ##### systemManager.addDisallowedNearLinkProtocols20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addDisallowedNearLinkProtocols(admin: Want, protocols: Array&lt;NearLinkProtocol&gt;, accountId: number): void
 
@@ -613,6 +631,8 @@ try {
 
 ##### systemManager.removeDisallowedNearLinkProtocols20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDisallowedNearLinkProtocols(admin: Want, protocols: Array&lt;NearLinkProtocol&gt;, accountId: number): void
 
 为指定用户移除禁用的星闪协议名单。
@@ -678,6 +698,8 @@ try {
 
 
 ##### systemManager.getDisallowedNearLinkProtocols20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedNearLinkProtocols(admin: Want, accountId: number): Array&lt;NearLinkProtocol&gt;
 
@@ -745,6 +767,8 @@ try {
 
 ##### systemManager.setInstallLocalEnterpriseAppEnabled20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setInstallLocalEnterpriseAppEnabled(admin: Want, isEnable: boolean): void
 
 设置是否支持本地安装企业应用。设置为支持安装后，具备本地安装能力的PC/2in1企业设备可本地双击应用安装包，安装签名证书分发类型为enterprise_normal的企业应用。
@@ -803,6 +827,8 @@ try {
 
 
 ##### systemManager.getInstallLocalEnterpriseAppEnabled20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getInstallLocalEnterpriseAppEnabled(admin: Want | null): boolean
 
@@ -865,6 +891,8 @@ try {
 
 ##### systemManager.setAutoUnlockAfterReboot20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setAutoUnlockAfterReboot(admin: Want, isAllowed: boolean): void
 
 设置设备重启自动解锁，仅针对无锁屏密码设备生效。
@@ -922,6 +950,8 @@ try {
 
 
 ##### systemManager.getAutoUnlockAfterReboot20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAutoUnlockAfterReboot(admin: Want): boolean
 
@@ -983,6 +1013,8 @@ try {
 
 
 ##### systemManager.addKeyEventPolicies23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addKeyEventPolicies(admin: Want, keyPolicies: Array&lt;KeyEventPolicy&gt;): void
 
@@ -1053,6 +1085,8 @@ try {
 
 ##### systemManager.removeKeyEventPolicies23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeKeyEventPolicies(admin: Want, keyCodes: Array&lt;KeyCode&gt;): void
 
 删除按键事件处理策略。
@@ -1113,6 +1147,8 @@ try {
 
 
 ##### systemManager.getKeyEventPolicies23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getKeyEventPolicies(admin: Want): Array&lt;KeyEventPolicy&gt;
 
@@ -1175,6 +1211,8 @@ try {
 
 
 ##### systemManager.startCollectLog23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startCollectLog(admin: Want): Promise&lt;void&gt;
 
@@ -1247,6 +1285,8 @@ systemManager.startCollectLog(wantTemp).then(() => {
 
 ##### systemManager.finishLogCollected23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 finishLogCollected(admin: Want): void
 
 删除本MDM应用在当前用户下收集到的设备日志。
@@ -1306,6 +1346,8 @@ try {
 
 ##### SystemUpdateInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 待更新的系统版本信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1320,6 +1362,8 @@ try {
 
 
 ##### systemManager.setActivationLockDisabled24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setActivationLockDisabled(admin: Want, isDisabled: boolean, credential?: string): Promise&lt;void&gt;
 
@@ -1390,6 +1434,8 @@ systemManager.setActivationLockDisabled(wantTemp, isDisabled, credential).then((
 
 ##### systemManager.isActivationLockDisabled24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 isActivationLockDisabled(admin: Want): Promise&lt;boolean&gt;
 
 获取设备激活锁禁用状态。
@@ -1451,6 +1497,8 @@ systemManager.isActivationLockDisabled(wantTemp).then(result => {
 
 
 ##### systemManager.setInstallLocalEnterpriseAppEnabledForAccount24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setInstallLocalEnterpriseAppEnabledForAccount(admin: Want, isEnable: boolean, accountId: number): void
 
@@ -1520,6 +1568,8 @@ try {
 
 ##### systemManager.getInstallLocalEnterpriseAppEnabledForAccount24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getInstallLocalEnterpriseAppEnabledForAccount(admin: Want | null, accountId: number): boolean
 
 查询指定用户是否支持本地安装企业应用。
@@ -1585,6 +1635,8 @@ try {
 
 ##### OtaUpdatePolicy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 升级策略。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1604,6 +1656,8 @@ try {
 
 ##### PolicyType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 升级策略类型枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1621,6 +1675,8 @@ try {
 
 ##### UpdatePackageInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 系统更新包信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1637,6 +1693,8 @@ try {
 
 ##### Package
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 系统更新包详情。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1652,6 +1710,8 @@ try {
 
 ##### PackageDescription
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 系统更新包描述信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1664,6 +1724,8 @@ try {
 
 
 ##### NotifyDescription
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 企业自定义更新通知说明。
 
@@ -1678,6 +1740,8 @@ try {
 
 
 ##### UpdateResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 系统更新结果信息。
 
@@ -1694,6 +1758,8 @@ try {
 
 ##### ErrorInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 系统更新错误信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1708,6 +1774,8 @@ try {
 
 ##### PackageType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 系统更新包类型。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1720,6 +1788,8 @@ try {
 
 
 ##### UpdateStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 系统更新状态。
 
@@ -1738,6 +1808,8 @@ try {
 
 ##### NearLinkProtocol20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 星闪协议枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1754,6 +1826,8 @@ try {
 
 ##### KeyEventPolicy23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 按键事件处理策略。按键事件发生时，仅拦截响应已下发按键事件处理策略的按键。对于未下发按键事件处理策略的按键事件，系统执行原先的响应逻辑。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1769,6 +1843,8 @@ try {
 
 
 ##### KeyCode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 按键编码。添加按键事件策略[addKeyEventPolicies](#systemmanageraddkeyeventpolicies23)、删除按键事件策略[removeKeyEventPolicies](#systemmanagerremovekeyeventpolicies23)、获取按键事件策略[getKeyEventPolicies](#systemmanagergetkeyeventpolicies23)和按键事件回调[onKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onkeyevent23)接口通过按键编码映射到设备对应实际按键。
 
@@ -1790,6 +1866,8 @@ try {
 
 ##### KeyPolicy23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 按键策略。MDM应用下发按键策略的按键编码与系统按键事件匹配后的系统行为。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1805,6 +1883,8 @@ try {
 
 
 ##### KeyEvent23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 按键事件。[EnterpriseAdminExtensionAbility.onKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onkeyevent23)按键事件回调触发时，传递当前按键事件信息。
 
@@ -1824,6 +1904,8 @@ try {
 
 ##### KeyAction23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 按键动作。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1840,6 +1922,8 @@ try {
 
 
 ##### KeyItem23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 其他按键信息。当前[KeyCode](#keycode23)事件发生时，其他已被按下的按键信息。
 

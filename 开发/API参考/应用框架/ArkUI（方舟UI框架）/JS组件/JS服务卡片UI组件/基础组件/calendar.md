@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)外，还支持如下属性：
   
@@ -100,6 +104,8 @@ calendardata示例：
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -109,6 +115,8 @@ calendardata示例：
   
 
 ##### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -138,6 +146,8 @@ calendardata示例：
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 当前数据仅为示例数据，实际使用时请补充完整的日期数据。
  
@@ -209,4 +219,4 @@ calendardata示例：
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/Q5_K7L7CTnSBZRofkv19jw/zh-cn_image_0000002611756509.png?HW-CC-KV=V1&HW-CC-Date=20260528T013757Z&HW-CC-Expire=86400&HW-CC-Sign=DCCFE951D43D8FD31F7FA3C73B6AEA994825B18D5812618F1A80E118CF2B1EDA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/Q5_K7L7CTnSBZRofkv19jw/zh-cn_image_0000002611756509.png?HW-CC-KV=V1&HW-CC-Date=20260528T024054Z&HW-CC-Expire=86400&HW-CC-Sign=8B9294FEE245469A2CAD8CADF064BCCAF12E9A07ADA7D993054770ECD6ACFF35)

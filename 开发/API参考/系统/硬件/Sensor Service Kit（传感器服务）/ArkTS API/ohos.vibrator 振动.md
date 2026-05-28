@@ -14,6 +14,8 @@ vibrator模块提供控制设备马达振动的能力。包括启动指定时长
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { vibrator } from '@kit.SensorServiceKit';
 ```
@@ -21,6 +23,8 @@ import { vibrator } from '@kit.SensorServiceKit';
 
 
 ##### vibrator.startVibration9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback&lt;void&gt;): void
 
@@ -182,6 +186,8 @@ try {
 
 
 ##### vibrator.startVibration9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startVibration(effect: VibrateEffect, attribute: VibrateAttribute): Promise&lt;void&gt;
 
@@ -348,6 +354,8 @@ try {
 
 ##### vibrator.stopVibration9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopVibration(stopMode: VibratorStopMode, callback: AsyncCallback&lt;void&gt;): void
 
 按照指定模式停止马达振动。使用callback异步回调。
@@ -466,6 +474,8 @@ try {
 
 ##### vibrator.stopVibration9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopVibration(stopMode: VibratorStopMode): Promise&lt;void&gt;
 
 按照指定模式停止马达的振动。使用promise异步回调。
@@ -582,6 +592,8 @@ try {
 
 ##### vibrator.stopVibration10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopVibration(callback: AsyncCallback&lt;void&gt;): void
 
 停止所有模式的马达振动。使用callback异步回调。
@@ -634,6 +646,8 @@ try {
 
 ##### vibrator.stopVibration10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopVibration(): Promise&lt;void&gt;
 
 停止所有模式的马达振动。使用promise异步回调。
@@ -683,6 +697,8 @@ try {
 
 
 ##### vibrator.stopVibration19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stopVibration(param?: VibratorInfoParam): Promise&lt;void&gt;
 
@@ -754,6 +770,8 @@ function vibratorDemo() {
 
 ##### vibrator.stopVibrationSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopVibrationSync(): void
 
 停止任何形式的马达振动。
@@ -794,6 +812,8 @@ try {
 
 
 ##### vibrator.isSupportEffect10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSupportEffect(effectId: string, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -865,6 +885,8 @@ try {
 
 
 ##### vibrator.isSupportEffect10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSupportEffect(effectId: string): Promise&lt;boolean&gt;
 
@@ -938,6 +960,8 @@ try {
 
 ##### vibrator.isSupportEffectSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSupportEffectSync(effectId: string): boolean
 
 查询是否支持预设的振动效果。
@@ -989,6 +1013,8 @@ try {
 
 ##### vibrator.getEffectInfoSync19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getEffectInfoSync(effectId: string, param?: VibratorInfoParam): EffectInfo
 
 通过设备ID和可控马达ID获取预置振动效果信息，用于判断该预置振动效果是否受支持。
@@ -1039,6 +1065,8 @@ try {
 
 ##### vibrator.getVibratorInfoSync19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getVibratorInfoSync(param?: VibratorInfoParam): Array&lt;VibratorInfo&gt;;
 
 查询一个或所有设备的马达信息列表。
@@ -1077,6 +1105,8 @@ try {
 
 
 ##### vibrator.on19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'vibratorStateChange', callback: Callback&lt;VibratorStatusEvent&gt;): void
 
@@ -1125,6 +1155,8 @@ try {
 
 
 ##### vibrator.off19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'vibratorStateChange', callback?: Callback&lt;VibratorStatusEvent&gt;): void
 
@@ -1175,6 +1207,8 @@ try {
 
 ##### VibratorStatusEvent19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 振动设备上线、下线状态事件信息。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
@@ -1191,6 +1225,8 @@ try {
 
 ##### VibratorInfoParam19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设备上马达的参数。默认情况下，VibratorInfoParam默认为查询或控制本地全部马达。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
@@ -1205,6 +1241,8 @@ try {
 
 ##### EffectInfo19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 查询的预制效果信息。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
@@ -1217,6 +1255,8 @@ try {
 
 
 ##### VibratorInfo19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示查询的马达信息。
 
@@ -1234,6 +1274,8 @@ try {
 
 
 ##### vibrator.isHdHapticSupported12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isHdHapticSupported(): boolean
 
@@ -1278,9 +1320,13 @@ try {
 
 ##### VibratorPatternBuilder18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### vibrator('addContinuousEvent')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addContinuousEvent(time: number, duration: number, options?: ContinuousParam): VibratorPatternBuilder;
 
@@ -1353,6 +1399,8 @@ try {
 
 ##### vibrator('addTransientEvent')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addTransientEvent(time: number, options?: TransientParam): VibratorPatternBuilder;
 
 添加短振事件的方法成VibratorPattern对象。
@@ -1408,6 +1456,8 @@ try {
 
 
 ##### vibrator('build')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 build(): VibratorPattern;
 
@@ -1465,6 +1515,8 @@ try {
 
 ##### EffectId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 预置的振动效果。在调用[vibrator.startVibration9+](#vibratorstartvibration9)或[vibrator.stopVibration9+](#vibratorstopvibration9-1)接口下发[VibratePreset](#vibratepreset9)形式振动的时候需要使用此参数类型。此参数值种类多样，'haptic.clock.timer'为其中一种。[HapticFeedback12+](#hapticfeedback12)展示了几种常用的EffectId值。
 
 > [!NOTE]
@@ -1481,6 +1533,8 @@ try {
 
 
 ##### HapticFeedback12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 简单而通用的振动效果。根据各设备的马达器件不同，同一振动效果的频率会有差异，但效果的频率趋向是统一的。这几种振动效果是EffectId参数的具体值，使用方法参考[vibrator.startVibration9+](#vibratorstartvibration9)或[vibrator.stopVibration9+](#vibratorstopvibration9-1)接口下发[VibratePreset](#vibratepreset9)形式振动的示例代码。
 
@@ -1500,6 +1554,8 @@ try {
 
 ##### VibratorStopMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 停止振动的模式。在调用[vibrator.stopVibration9+](#vibratorstopvibration9)或[vibrator.stopVibration9+](#vibratorstopvibration9-1)接口时，需要使用此参数类型指定停止的振动模式。停止模式和[VibrateEffect9+](#vibrateeffect9)中下发的模式为对应关系。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
@@ -1513,6 +1569,8 @@ try {
 
 
 ##### VibrateEffect9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFromPattern
 
@@ -1532,6 +1590,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 ##### VibrateTime9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指定时长振动类型。
 
 **元服务API**：从API version 11开始，该接口在支持元服务中使用。
@@ -1547,6 +1607,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 ##### VibratePreset9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 预置振动类型。当调用[vibrator.startVibration9+](#vibratorstartvibration9)或[vibrator.startVibration9+](#vibratorstartvibration9-1)时，[VibrateEffect9+](#vibrateeffect9)参数的值可以为VibratePreset，表示触发预置振动类型。
 
@@ -1564,6 +1626,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 ##### VibrateFromFile10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义振动类型。仅部分设备支持。当设备不支持此振动类型时，返回设备不支持错误码。当调用[vibrator.startVibration9+](#vibratorstartvibration9)或[vibrator.startVibration9+](#vibratorstartvibration9-1)时，[VibrateEffect9+](#vibrateeffect9)参数的值可以为VibrateFromFile，表示触发自定义振动类型。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
@@ -1577,6 +1641,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 ##### HapticFileDescriptor10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 自定义振动配置文件的描述符，必须确认资源文件可用，其参数可通过[fileIo.open](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs#fileioopen)从沙箱路径获取或者通过[getRawFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfd9)从HAP资源获取。使用场景：振动序列被存储在一个文件中，需要根据偏移量和长度进行振动，振动序列存储格式，请参考[振动效果说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vibrator-guidelines#振动效果说明)。
 
@@ -1593,6 +1659,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 ##### VibratorEventType18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 振动事件类型。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
@@ -1606,6 +1674,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 ##### VibratorCurvePoint18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相对事件振动强度的增益。
 
@@ -1621,6 +1691,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 ##### VibratorEvent18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 振动事件。
 
@@ -1641,6 +1713,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 ##### VibratorPattern18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 马达振动序列，每个events代表一个振动事件。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
@@ -1654,6 +1728,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 ##### ContinuousParam18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 连续振动参数。
 
@@ -1671,6 +1747,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 ##### TransientParam18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 瞬态振动参数。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
@@ -1686,6 +1764,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 ##### VibrateFromPattern18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义振动效果触发马达振动。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
@@ -1699,6 +1779,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 ##### VibrateAttribute9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 马达振动属性。
 
@@ -1716,6 +1798,8 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 
 
 ##### Usage9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Usage = 'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' | 'touch' | 'media' | 'physicalFeedback' | 'simulateReality'
 
@@ -1741,6 +1825,8 @@ type Usage = 'unknown' | 'alarm' | 'ring' | 'notification' | 'communication' | '
 
 
 ##### vibrator.vibrate(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 vibrate(duration: number): Promise&lt;void&gt;
 
@@ -1783,6 +1869,8 @@ vibrator.vibrate(1000).then(() => {
 
 ##### vibrator.vibrate(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 vibrate(duration: number, callback?: AsyncCallback&lt;void&gt;): void
 
 按照指定持续时间触发马达振动。
@@ -1819,6 +1907,8 @@ vibrator.vibrate(1000, (error: BusinessError) => {
 
 
 ##### vibrator.vibrate(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 vibrate(effectId: EffectId): Promise&lt;void&gt;
 
@@ -1861,6 +1951,8 @@ vibrator.vibrate(vibrator.EffectId.EFFECT_CLOCK_TIMER).then(() => {
 
 ##### vibrator.vibrate(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 vibrate(effectId: EffectId, callback?: AsyncCallback&lt;void&gt;): void
 
 按照指定振动效果触发马达振动。
@@ -1897,6 +1989,8 @@ vibrator.vibrate(vibrator.EffectId.EFFECT_CLOCK_TIMER, (error: BusinessError) =>
 
 
 ##### vibrator.stop(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(stopMode: VibratorStopMode): Promise&lt;void&gt;
 
@@ -1947,6 +2041,8 @@ vibrator.stop(vibrator.VibratorStopMode.VIBRATOR_STOP_MODE_PRESET).then(() => {
 
 
 ##### vibrator.stop(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(stopMode: VibratorStopMode, callback?: AsyncCallback&lt;void&gt;): void
 

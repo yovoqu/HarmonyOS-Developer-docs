@@ -12,6 +12,8 @@ typedef struct DRM_MediaKeySystemInfo DRM_MediaKeySystemInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为DRM_MediaKeySystemInfo接口定义native层对象。
  
 **起始版本：** 11

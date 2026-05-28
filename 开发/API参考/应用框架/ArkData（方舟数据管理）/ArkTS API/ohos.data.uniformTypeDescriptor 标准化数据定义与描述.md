@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { uniformTypeDescriptor } from '@kit.ArkData';
 ```
@@ -21,6 +23,8 @@ import { uniformTypeDescriptor } from '@kit.ArkData';
 
 
 ##### UniformDataType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 标准化数据类型之间存在归属关系，例如JPEG图片类型归属于IMAGE类型。更多预置数据类型参考[UTD预置列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uniform-data-type-list)。
 
@@ -213,11 +217,15 @@ import { uniformTypeDescriptor } from '@kit.ArkData';
 
 ##### TypeDescriptor11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 标准化数据类型的描述类，它包含了一些属性和方法用于描述标准化数据类型自身以及和其他标准化数据类型之间的归属与层级关系。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
 
@@ -235,6 +243,8 @@ import { uniformTypeDescriptor } from '@kit.ArkData';
 
 
 ##### belongsTo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 belongsTo(type: string): boolean
 
@@ -287,6 +297,8 @@ try{
 
 ##### isLowerLevelType11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 isLowerLevelType(type: string): boolean
 
 判断当前标准化数据类型是否是指定标准化数据类型的低层级类型。例如TYPE_SCRIPT为SOURCE_CODE的低层级类型，TYPE_SCRIPT和SOURCE_CODE为TEXT的低层级类型。
@@ -337,6 +349,8 @@ try{
 
 
 ##### isHigherLevelType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 isHigherLevelType(type: string): boolean
 
@@ -389,6 +403,8 @@ try{
 
 ##### equals11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 equals(typeDescriptor: TypeDescriptor): boolean
 
 判断指定的标准化数据类型描述类对象的类型ID和当前标准化数据类型描述类对象的类型ID是否相同，即[TypeDescriptor](#typedescriptor11)对象的typeId。
@@ -439,6 +455,8 @@ try{
 
 
 ##### uniformTypeDescriptor.getTypeDescriptor11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getTypeDescriptor(typeId: string): TypeDescriptor
 
@@ -498,6 +516,8 @@ try {
 
 
 ##### uniformTypeDescriptor.getUniformDataTypeByFilenameExtension11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getUniformDataTypeByFilenameExtension(filenameExtension: string, belongsTo?: string): string
 
@@ -561,6 +581,8 @@ try {
 
 ##### uniformTypeDescriptor.getUniformDataTypeByMIMEType11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getUniformDataTypeByMIMEType(mimeType: string, belongsTo?: string): string
 
 根据给定的MIME类型和所归属的标准化数据类型查询标准化数据类型ID，若有多个符合条件的标准化数据类型ID，则返回第一个。
@@ -623,6 +645,8 @@ try {
 
 ##### uniformTypeDescriptor.getUniformDataTypesByFilenameExtension13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getUniformDataTypesByFilenameExtension(filenameExtension: string, belongsTo?: string): Array&lt;string&gt;
 
 根据给定的文件后缀名和所归属的标准化数据类型查询标准化数据类型ID列表。
@@ -684,6 +708,8 @@ try {
 
 
 ##### uniformTypeDescriptor.getUniformDataTypesByMIMEType13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getUniformDataTypesByMIMEType(mimeType: string, belongsTo?: string): Array&lt;string&gt;
 

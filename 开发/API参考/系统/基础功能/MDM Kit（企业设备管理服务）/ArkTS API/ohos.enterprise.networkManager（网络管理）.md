@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { networkManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { networkManager } from '@kit.MDMKit';
 
 
 ##### networkManager.getAllNetworkInterfacesSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAllNetworkInterfacesSync(admin: Want): Array&lt;string&gt;
 
@@ -81,6 +85,8 @@ try {
 
 
 ##### networkManager.getIpAddressSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getIpAddressSync(admin: Want, networkInterface: string): string
 
@@ -144,6 +150,8 @@ try {
 
 ##### networkManager.getMacSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getMacSync(admin: Want, networkInterface: string): string
 
 根据网络接口获取设备MAC地址。
@@ -205,6 +213,8 @@ try {
 
 
 ##### networkManager.isNetworkInterfaceDisabledSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isNetworkInterfaceDisabledSync(admin: Want, networkInterface: string): boolean
 
@@ -268,6 +278,8 @@ try {
 
 ##### networkManager.setNetworkInterfaceDisabledSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setNetworkInterfaceDisabledSync(admin: Want, networkInterface: string, isDisabled: boolean): void
 
 禁止设备使用指定网络接口。
@@ -325,6 +337,8 @@ try {
 
 
 ##### networkManager.setGlobalProxySync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setGlobalProxySync(admin: Want, httpProxy: connection.HttpProxy): void
 
@@ -391,6 +405,8 @@ try {
 
 
 ##### networkManager.setGlobalProxyForAccount15+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setGlobalProxyForAccount(admin: Want, httpProxy: connection.HttpProxy, accountId: number): void
 
@@ -461,6 +477,8 @@ try {
 
 ##### networkManager.getGlobalProxySync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getGlobalProxySync(admin: Want): connection.HttpProxy
 
 获取网络全局代理。
@@ -521,6 +539,8 @@ try {
 
 
 ##### networkManager.getGlobalProxyForAccount15+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getGlobalProxyForAccount(admin: Want | null, accountId: number): connection.HttpProxy
 
@@ -586,6 +606,8 @@ try {
 
 
 ##### networkManager.addFirewallRule
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addFirewallRule(admin: Want, firewallRule: FirewallRule): void
 
@@ -663,6 +685,8 @@ try {
 
 
 ##### networkManager.removeFirewallRule
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 removeFirewallRule(admin: Want, firewallRule?: FirewallRule): void
 
@@ -749,6 +773,8 @@ try {
 
 ##### networkManager.getFirewallRules
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getFirewallRules(admin: Want): Array&lt;FirewallRule&gt;
 
 查询设备防火墙过滤规则。
@@ -812,6 +838,8 @@ try {
 
 
 ##### networkManager.addDomainFilterRule
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addDomainFilterRule(admin: Want, domainFilterRule: DomainFilterRule): void
 
@@ -888,6 +916,8 @@ try {
 
 
 ##### networkManager.removeDomainFilterRule
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 removeDomainFilterRule(admin: Want, domainFilterRule?: DomainFilterRule): void
 
@@ -969,6 +999,8 @@ try {
 
 ##### networkManager.getDomainFilterRules
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getDomainFilterRules(admin: Want): Array&lt;DomainFilterRule&gt;
 
 查询设备域名过滤规则。
@@ -1033,6 +1065,8 @@ try {
 
 ##### networkManager.turnOnMobileData20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 turnOnMobileData(admin: Want, isForce: boolean): void
 
 开启移动数据网络。
@@ -1087,6 +1121,8 @@ try {
 
 ##### networkManager.turnOffMobileData20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 turnOffMobileData(admin: Want): void
 
 关闭移动数据网络。
@@ -1139,6 +1175,8 @@ try {
 
 
 ##### networkManager.addApn20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addApn(admin: Want, apnInfo: Record<string, string>): void
 
@@ -1201,6 +1239,8 @@ try {
 
 ##### networkManager.deleteApn20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 deleteApn(admin: Want, apnId: string): void
 
 删除APN。
@@ -1255,6 +1295,8 @@ try {
 
 
 ##### networkManager.updateApn20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 updateApn(admin: Want, apnInfo: Record<string, string>, apnId: string): void
 
@@ -1319,6 +1361,8 @@ try {
 
 ##### networkManager.setPreferredApn20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setPreferredApn(admin: Want, apnId: string): void
 
 设置优选APN。
@@ -1373,6 +1417,8 @@ try {
 
 
 ##### networkManager.queryApn20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 queryApn(admin: Want, apnInfo: Record<string, string>): Array&lt;string&gt;
 
@@ -1440,6 +1486,8 @@ try {
 
 ##### networkManager.queryApn20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 queryApn(admin: Want, apnId: string): Record<string, string>
 
 查询特定APN的APN参数信息。
@@ -1499,6 +1547,8 @@ try {
 
 
 ##### networkManager.setEthernetConfig23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setEthernetConfig(admin: Want, networkInterface: string, config: InterfaceConfig): void
 
@@ -1566,6 +1616,8 @@ try {
 
 ##### FirewallRule
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 防火墙过滤规则。
 
 API version 21及之前版本，仅支持IPv4。从API version 22开始，支持IPv4和IPv6。
@@ -1592,6 +1644,8 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 ##### DomainFilterRule
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 域名过滤规则。
 
 API version 21及之前版本，仅支持IPv4。从API version 22开始，支持IPv4和IPv6。
@@ -1614,6 +1668,8 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 ##### Direction
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 规则链。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1629,6 +1685,8 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 ##### Action
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 数据包的行为。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1643,6 +1701,8 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 ##### Protocol
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 网络协议。
 
@@ -1660,6 +1720,8 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 ##### LogType23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 日志类型。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1672,6 +1734,8 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 ##### InterfaceConfig23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 以太网的网络接口配置。仅支持IPv4。
 
@@ -1689,6 +1753,8 @@ API version 21及之前版本，仅支持IPv4。从API version 22开始，支持
 
 
 ##### IpSetMode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 以太网连接模式。
 

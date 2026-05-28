@@ -12,6 +12,8 @@ typedef struct Input_CursorConfig Input_CursorConfig
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义鼠标光标配置。
  
 **起始版本：** 22

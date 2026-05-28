@@ -12,6 +12,8 @@ typedef struct OH_AudioNodeBuilderStruct OH_AudioNodeBuilder
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明音频编创节点的构造器。用于构建[OH_AudioNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audionodestruct)，配置输入\输出节点数据格式，配置输入节点回调接口。
  
 **起始版本：** 22

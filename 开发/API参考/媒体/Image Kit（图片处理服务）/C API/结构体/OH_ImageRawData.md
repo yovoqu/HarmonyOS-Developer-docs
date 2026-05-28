@@ -12,6 +12,8 @@ typedef struct OH_ImageRawData OH_ImageRawData
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义图像中的原始数据。通过[OH_ImageSourceNative_CreateImageRawData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-native-h#oh_imagesourcenative_createimagerawdata)获取。
  
 **起始版本：** 24

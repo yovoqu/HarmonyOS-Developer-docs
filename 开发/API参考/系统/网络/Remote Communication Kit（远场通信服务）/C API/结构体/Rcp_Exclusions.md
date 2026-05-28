@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 代理配置中用于过滤不使用代理的urls。
  
 如果[Rcp_Request.url](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___request#url)匹配[Rcp_Exclusions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___exclusions)规则，则[Rcp_Request](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___request)不会使用代理。
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,9 +41,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### exclusionFunction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_ExclusionFunction Rcp_Exclusions::exclusionFunction
@@ -51,6 +61,8 @@ Rcp_ExclusionFunction Rcp_Exclusions::exclusionFunction
 
 ##### type
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_ExclusionsValueType Rcp_Exclusions::type
 ```
@@ -62,6 +74,8 @@ Rcp_ExclusionsValueType Rcp_Exclusions::type
   
 
 ##### urls
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_Urls* Rcp_Exclusions::urls

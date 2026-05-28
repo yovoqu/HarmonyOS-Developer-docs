@@ -12,6 +12,8 @@ typedef struct ArkUI_TextMenuItemArray ArkUI_TextMenuItemArray
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文本菜单项数组结构体。
  
 **起始版本：** 22

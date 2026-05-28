@@ -14,6 +14,8 @@
 
 ##### BundleOption
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述BundleOption信息，即应用的包信息。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -27,6 +29,8 @@
 
 
 ##### GrantedBundleInfo22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述已授权的包信息。
 

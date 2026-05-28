@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { healthStore } from '@kit.HealthServiceKit';
 ```
@@ -23,6 +25,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### AdventuresDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 户外探险详情数据字段列表。
  
@@ -39,6 +43,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### AdventuresSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 户外探险统计数据字段列表。
  
@@ -59,6 +65,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Altitude
 
+**支持设备：** Phone | Tablet | Wearable
+
 海拔详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -73,6 +81,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### AltitudeSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 海拔统计数据字段列表。
  
@@ -93,6 +103,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BasketballDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 篮球详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -109,6 +121,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### BasketballFeature
+
+**支持设备：** Phone | Tablet | Wearable
 
 篮球特征数据字段列表。
  
@@ -130,6 +144,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BasketballSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 篮球统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -148,6 +164,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BiathlonDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 冬季两项详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -163,6 +181,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### BiathlonSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 冬季两项统计数据字段列表。
  
@@ -180,6 +200,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BloodOxygenSaturation
 
+**支持设备：** Phone | Tablet | Wearable
+
 血氧采样数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -195,6 +217,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BloodOxygenSaturationAggregation
 
+**支持设备：** Phone | Tablet | Wearable
+
 血氧聚合统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -209,6 +233,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### BloodPressure
+
+**支持设备：** Phone | Tablet | Wearable
 
 血压采样数据字段列表。
  
@@ -229,6 +255,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BodyTemperature
 
+**支持设备：** Phone | Tablet | Wearable
+
 体温采样数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -243,6 +271,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### BodyTemperatureAggregation
+
+**支持设备：** Phone | Tablet | Wearable
 
 体温聚合统计数据字段列表。
  
@@ -259,6 +289,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BreathHoldingTestDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 闭气测试详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -274,6 +306,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BreathHoldingTestFeature
 
+**支持设备：** Phone | Tablet | Wearable
+
 闭气测试特征数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -288,6 +322,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### BreathHoldingTestSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 闭气测试统计数据字段列表。
  
@@ -305,6 +341,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BreathHoldingTrainDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 闭气训练详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -319,6 +357,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### BreathHoldingTrainFeature
+
+**支持设备：** Phone | Tablet | Wearable
 
 闭气训练特征数据字段列表。
  
@@ -337,6 +377,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### BreathHoldingTrainSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 闭气训练统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -353,6 +395,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Cadence
 
+**支持设备：** Phone | Tablet | Wearable
+
 步频详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -367,6 +411,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### CadenceSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 步频统计数据字段列表。
  
@@ -385,6 +431,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### CalorieSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 卡路里统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -399,6 +447,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### CervicalMucus
+
+**支持设备：** Phone | Tablet | Wearable
 
 私处分泌物采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
@@ -416,6 +466,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### CyclingDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 骑行详情数据字段列表。
  
@@ -437,6 +489,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### CyclingSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 骑行统计数据字段列表。
  
@@ -461,6 +515,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### DailyActivities
 
+**支持设备：** Phone | Tablet | Wearable
+
 日常活动采样数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -482,6 +538,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### DailyActivitiesAggregation
+
+**支持设备：** Phone | Tablet | Wearable
 
 日常活动聚合统计数据字段列表。
  
@@ -505,6 +563,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### DistanceSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 距离统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -520,6 +580,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### DivingDepth
 
+**支持设备：** Phone | Tablet | Wearable
+
 潜水深度详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -534,6 +596,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### DivingDepthSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 潜水深度统计数据字段列表。
  
@@ -551,6 +615,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### DivingDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 自由潜水详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -566,6 +632,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### DivingFeature
+
+**支持设备：** Phone | Tablet | Wearable
 
 自由潜水特征数据字段列表。
  
@@ -591,6 +659,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### DivingSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 自由潜水统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -609,6 +679,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Dysmenorrhea
 
+**支持设备：** Phone | Tablet | Wearable
+
 痛经程度采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -625,6 +697,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### EllipticalDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 椭圆机详情数据字段列表。
  
@@ -644,6 +718,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### EllipticalSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 椭圆机统计数据字段列表。
  
@@ -668,6 +744,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Emotion
 
+**支持设备：** Phone | Tablet | Wearable
+
 情绪采样数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -683,6 +761,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### ExerciseHeartRate
 
+**支持设备：** Phone | Tablet | Wearable
+
 运动心率详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -697,6 +777,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### ExerciseHeartRateSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 运动心率统计数据字段列表。
  
@@ -715,6 +797,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### GolfCourseModelDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 高尔夫场地模式详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -730,6 +814,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### GolfCourseModelFeature
+
+**支持设备：** Phone | Tablet | Wearable
 
 高尔夫场地模式特征数据字段列表。
  
@@ -768,6 +854,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### GolfCourseModelSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 高尔夫场地模式统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -789,6 +877,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### GolfPracticeDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 高尔夫练习场模式详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -803,6 +893,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### GolfPracticeFeature
+
+**支持设备：** Phone | Tablet | Wearable
 
 高尔夫练习场模式特征数据字段列表。
  
@@ -824,6 +916,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### GolfPracticeSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 高尔夫练习场模式统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -841,6 +935,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### HeartRate
 
+**支持设备：** Phone | Tablet | Wearable
+
 动态心率采样数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -855,6 +951,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### HeartRateAggregation
+
+**支持设备：** Phone | Tablet | Wearable
 
 动态心率聚合统计数据字段列表。
  
@@ -871,6 +969,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### HeartRateVariability
 
+**支持设备：** Phone | Tablet | Wearable
+
 心率变异性采样数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -886,6 +986,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Height
 
+**支持设备：** Phone | Tablet | Wearable
+
 身高采样数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -900,6 +1002,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### Jump
+
+**支持设备：** Phone | Tablet | Wearable
 
 跳跃详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
@@ -917,6 +1021,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### JumpingRopeDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 跳绳详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -932,6 +1038,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### JumpingRopeFeature
+
+**支持设备：** Phone | Tablet | Wearable
 
 跳绳特征数据字段列表。
  
@@ -952,6 +1060,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### JumpingRopeSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 跳绳统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -970,6 +1080,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### JumpSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 跳跃统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -987,6 +1099,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Location
 
+**支持设备：** Phone | Tablet | Wearable
+
 位置详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1002,6 +1116,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### LocationSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 位置统计数据字段列表。
  
@@ -1021,6 +1137,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### MarkPoint
+
+**支持设备：** Phone | Tablet | Wearable
 
 标记点采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
@@ -1042,6 +1160,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### MenstrualCycle
 
+**支持设备：** Phone | Tablet | Wearable
+
 生理周期数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1059,6 +1179,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### MenstrualCycleDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 生理周期详情数据字段列表。
  
@@ -1084,6 +1206,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### MenstrualFlow
 
+**支持设备：** Phone | Tablet | Wearable
+
 月经流量采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1100,6 +1224,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### Mood
+
+**支持设备：** Phone | Tablet | Wearable
 
 心情采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
@@ -1118,6 +1244,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### MountainHikeDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 登山详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1135,6 +1263,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### MountainHikeSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 登山统计数据字段列表。
  
@@ -1155,6 +1285,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### OpenWaterSwimDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 开放水域游泳详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1174,6 +1306,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### OpenWaterSwimFeature
 
+**支持设备：** Phone | Tablet | Wearable
+
 开放水域游泳特征数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1189,6 +1323,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### OpenWaterSwimSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 开放水域游泳统计数据字段列表。
  
@@ -1210,6 +1346,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### OvulationTestPaper
 
+**支持设备：** Phone | Tablet | Wearable
+
 排卵试纸采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1227,6 +1365,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### PedalingCadence
 
+**支持设备：** Phone | Tablet | Wearable
+
 踏频详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1241,6 +1381,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### PedalingCadenceSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 踏频统计数据字段列表。
  
@@ -1259,6 +1401,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### PhysicalSymptoms
 
+**支持设备：** Phone | Tablet | Wearable
+
 身体症状采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1275,6 +1419,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### PoolSwimDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 泳池游泳详情数据字段列表。
  
@@ -1294,6 +1440,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### PoolSwimFeature
 
+**支持设备：** Phone | Tablet | Wearable
+
 泳池游泳特征数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1311,6 +1459,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### PoolSwimSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 泳池游泳统计数据字段列表。
  
@@ -1333,6 +1483,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Power
 
+**支持设备：** Phone | Tablet | Wearable
+
 功率详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1347,6 +1499,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### PowerSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 功率统计数据字段列表。
  
@@ -1365,6 +1519,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### QuantitySummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 统计基类数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1382,6 +1538,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Resistance
 
+**支持设备：** Phone | Tablet | Wearable
+
 阻力详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1396,6 +1554,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### ResistanceSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 阻力统计数据字段列表。
  
@@ -1424,6 +1584,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### RestingHeartRate
 
+**支持设备：** Phone | Tablet | Wearable
+
 静息心率数据字段列表.
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1439,6 +1601,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### RestingHeartRateAggregation
 
+**支持设备：** Phone | Tablet | Wearable
+
 静息心率聚合统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1453,6 +1617,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### RowerDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 划船机详情数据字段列表。
  
@@ -1473,6 +1639,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### RowerFeature
 
+**支持设备：** Phone | Tablet | Wearable
+
 划船机特征数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1487,6 +1655,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### RowerSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 划船机统计数据字段列表。
  
@@ -1510,6 +1680,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### RowingDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 赛艇详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1526,6 +1698,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### RowingFeature
 
+**支持设备：** Phone | Tablet | Wearable
+
 赛艇特征数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1540,6 +1714,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### RowingSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 赛艇统计数据字段列表。
  
@@ -1559,6 +1735,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### RunningDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 跑步详情数据字段列表。
  
@@ -1580,6 +1758,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### RunningFeature
 
+**支持设备：** Phone | Tablet | Wearable
+
 跑步特征数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1597,6 +1777,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### RunningForm
+
+**支持设备：** Phone | Tablet | Wearable
 
 跑姿详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
@@ -1624,6 +1806,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### RunningFormSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 跑姿统计数据字段列表。
  
@@ -1653,6 +1837,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### RunningSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 跑步统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1677,6 +1863,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### ScubaDivingDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 水肺潜水详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1692,6 +1880,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### ScubaDivingFeature
+
+**支持设备：** Phone | Tablet | Wearable
 
 水肺潜水特征数据字段列表。
  
@@ -1719,6 +1909,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### ScubaDivingSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 水肺潜水统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1737,6 +1929,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Sexuality
 
+**支持设备：** Phone | Tablet | Wearable
+
 性行为采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1753,6 +1947,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SkiingDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 滑雪详情数据字段列表。
  
@@ -1771,6 +1967,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SkiingFeature
+
+**支持设备：** Phone | Tablet | Wearable
 
 滑雪特征数据字段列表。
  
@@ -1791,6 +1989,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SkiingSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 滑雪统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1810,6 +2010,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Skin
 
+**支持设备：** Phone | Tablet | Wearable
+
 皮肤状态采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1827,6 +2029,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SkinTemperature
 
+**支持设备：** Phone | Tablet | Wearable
+
 皮肤体温详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1841,6 +2045,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SkinTemperatureAggregation
+
+**支持设备：** Phone | Tablet | Wearable
 
 皮肤体温聚合统计数据字段列表。
  
@@ -1857,6 +2063,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SkipSpeed
 
+**支持设备：** Phone | Tablet | Wearable
+
 跳绳速度详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1871,6 +2079,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SkipSpeedSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 跳绳速度统计数据字段列表。
  
@@ -1889,6 +2099,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SledDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 滑雪橇详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1905,6 +2117,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SledSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 滑雪橇统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1920,6 +2134,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### Sleep
+
+**支持设备：** Phone | Tablet | Wearable
 
 夜间睡眠数据字段列表。
  
@@ -1956,6 +2172,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SleepDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 睡眠详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1970,6 +2188,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SleepNap
+
+**支持设备：** Phone | Tablet | Wearable
 
 零星小睡数据字段列表。
  
@@ -1987,6 +2207,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SleepSegment
 
+**支持设备：** Phone | Tablet | Wearable
+
 睡眠状态采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2002,6 +2224,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SnowboardingDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 单板滑雪详情数据字段列表。
  
@@ -2020,6 +2244,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SnowboardingFeature
+
+**支持设备：** Phone | Tablet | Wearable
 
 单板滑雪特征数据字段列表。
  
@@ -2040,6 +2266,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SnowboardingSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 单板滑雪统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2059,6 +2287,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Speed
 
+**支持设备：** Phone | Tablet | Wearable
+
 速度详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2073,6 +2303,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SpeedSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 速度统计数据字段列表。
  
@@ -2091,6 +2323,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SportsDetail
 
+**支持设备：** Phone | Tablet | Wearable
+
 通用详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2105,6 +2339,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SportsSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 通用统计数据字段列表。
  
@@ -2122,6 +2358,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### StepSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 步数统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2136,6 +2374,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### Stress
+
+**支持设备：** Phone | Tablet | Wearable
 
 压力采样数据字段列表。
  
@@ -2152,6 +2392,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### StressAggregation
 
+**支持设备：** Phone | Tablet | Wearable
+
 压力得分聚合统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2167,6 +2409,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### StrokeRate
 
+**支持设备：** Phone | Tablet | Wearable
+
 桨频采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2181,6 +2425,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### StrokeRateSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 桨频统计数据字段列表。
  
@@ -2198,6 +2444,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### SwimStrokeRate
 
+**支持设备：** Phone | Tablet | Wearable
+
 划水频率采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2212,6 +2460,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### SwimStrokeRateSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 划水频率统计数据字段列表。
  
@@ -2228,6 +2478,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### Swolf
 
+**支持设备：** Phone | Tablet | Wearable
+
 SWOLF采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2242,6 +2494,8 @@ SWOLF采样数据字段列表，继承[healthStore.SequencePoint](https://develo
   
 
 ##### SwolfSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 SWOLF统计数据字段列表。
  
@@ -2259,6 +2513,8 @@ SWOLF统计数据字段列表。
   
 
 ##### WalkingDetail
+
+**支持设备：** Phone | Tablet | Wearable
 
 健走详情数据字段列表。
  
@@ -2278,6 +2534,8 @@ SWOLF统计数据字段列表。
   
 
 ##### WalkingSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 健走统计数据字段列表。
  
@@ -2301,6 +2559,8 @@ SWOLF统计数据字段列表。
 
 ##### WaterTemperature
 
+**支持设备：** Phone | Tablet | Wearable
+
 水温采样数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2315,6 +2575,8 @@ SWOLF统计数据字段列表。
   
 
 ##### WaterTemperatureSummary
+
+**支持设备：** Phone | Tablet | Wearable
 
 水温统计数据字段列表。
  
@@ -2331,6 +2593,8 @@ SWOLF统计数据字段列表。
   
 
 ##### Weight
+
+**支持设备：** Phone | Tablet | Wearable
 
 体重采样数据字段列表。
  

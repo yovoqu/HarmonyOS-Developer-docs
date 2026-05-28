@@ -12,6 +12,8 @@ typedef struct ImageReceiverNative_ ImageReceiverNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于定义ImageReceiverNative数据类型名称。
  
 **起始版本：** 10

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { pasteboard } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { pasteboard } from '@kit.BasicServicesKit';
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -39,6 +43,8 @@ import { pasteboard } from '@kit.BasicServicesKit';
 
 
 ##### ValueType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ValueType = string | image.PixelMap | Want | ArrayBuffer
 
@@ -59,6 +65,8 @@ type ValueType = string | image.PixelMap | Want | ArrayBuffer
 
 
 ##### pasteboard.createData9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createData(mimeType: string, value: ValueType): PasteData
 
@@ -109,6 +117,8 @@ let pasteData: pasteboard.PasteData = pasteboard.createData(pasteboard.MIMETYPE_
 
 
 ##### pasteboard.createData14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createData(data: Record<string, ValueType>): PasteData
 
@@ -161,6 +171,8 @@ let pasteData: pasteboard.PasteData = pasteboard.createData(record);
 
 ##### pasteboard.createRecord9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createRecord(mimeType: string, value: ValueType): PasteDataRecord
 
 创建一条指定类型的数据内容条目。
@@ -212,6 +224,8 @@ pasteData.replaceRecord(0, record);
 
 ##### pasteboard.getSystemPasteboard
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSystemPasteboard(): SystemPasteboard
 
 获取系统剪贴板对象。
@@ -237,6 +251,8 @@ const systemPasteboard: pasteboard.SystemPasteboard = pasteboard.getSystemPasteb
 
 ##### ShareOption9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可粘贴数据的范围类型枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -253,6 +269,8 @@ const systemPasteboard: pasteboard.SystemPasteboard = pasteboard.getSystemPasteb
 
 
 ##### pasteboard.createHtmlData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createHtmlData(htmlText: string): PasteData
 
@@ -288,6 +306,8 @@ let pasteData: pasteboard.PasteData = pasteboard.createHtmlData(html);
 
 
 ##### pasteboard.createWantData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createWantData(want: Want): PasteData
 
@@ -329,6 +349,8 @@ let pasteData: pasteboard.PasteData = pasteboard.createWantData(object);
 
 ##### pasteboard.createPlainTextData(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPlainTextData(text: string): PasteData
 
 构建一个纯文本剪贴板内容对象。
@@ -362,6 +384,8 @@ let pasteData: pasteboard.PasteData = pasteboard.createPlainTextData('content');
 
 
 ##### pasteboard.createUriData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createUriData(uri: string): PasteData
 
@@ -397,6 +421,8 @@ let pasteData: pasteboard.PasteData = pasteboard.createUriData('dataability:///c
 
 ##### pasteboard.createHtmlTextRecord(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createHtmlTextRecord(htmlText: string): PasteDataRecord
 
 创建一条HTML内容的条目。
@@ -431,6 +457,8 @@ let record: pasteboard.PasteDataRecord = pasteboard.createHtmlTextRecord(html);
 
 
 ##### pasteboard.createWantRecord(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createWantRecord(want: Want): PasteDataRecord
 
@@ -472,6 +500,8 @@ let record: pasteboard.PasteDataRecord = pasteboard.createWantRecord(object);
 
 ##### pasteboard.createPlainTextRecord(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPlainTextRecord(text: string): PasteDataRecord
 
 创建一条纯文本内容条目。
@@ -505,6 +535,8 @@ let record: pasteboard.PasteDataRecord = pasteboard.createPlainTextRecord('hello
 
 
 ##### pasteboard.createUriRecord(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createUriRecord(uri: string): PasteDataRecord
 
@@ -540,6 +572,8 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 ##### PasteDataProperty7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义剪贴板中所有内容条目的属性，包含时间戳、数据类型、粘贴范围以及一些附加数据等，该属性必须通过[setProperty](#setproperty9)方法，才能设置到剪贴板中。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -560,6 +594,8 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 ##### FileConflictOptions15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文件拷贝冲突时的选项。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -575,6 +611,8 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 
 ##### ProgressIndicator15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义进度条指示选项，可选择是否采用系统默认进度显示。
 
@@ -592,6 +630,8 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 ##### ProgressInfo15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义进度上报的数据结构，且仅当进度指示选项[ProgressIndicator](#progressindicator15)设置为NONE时才会上报此信息。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -606,6 +646,8 @@ let record: pasteboard.PasteDataRecord = pasteboard.createUriRecord('dataability
 
 
 ##### ProgressListener15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ProgressListener = (progress: ProgressInfo) => void
 
@@ -626,6 +668,8 @@ type ProgressListener = (progress: ProgressInfo) => void
 
 ##### ProgressSignal15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义进度取消的函数，在粘贴过程中可选择取消任务，且仅当进度指示选项[ProgressIndicator](#progressindicator15)设置为NONE时此参数才有意义。
 
 **系统能力：** SystemCapability.MiscServices.Pasteboard
@@ -633,6 +677,8 @@ type ProgressListener = (progress: ProgressInfo) => void
 
 
 ##### cancel15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancel(): void
 
@@ -690,6 +736,8 @@ struct PasteboardTest {
 
 ##### GetDataParams15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用在使用剪贴板提供的文件拷贝能力的情况下需要的参数，包含目标路径、文件冲突选项、进度条类型等。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -709,11 +757,15 @@ struct PasteboardTest {
 
 ##### PasteDataRecord7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 对于剪贴板中内容记录的抽象定义，称之为条目。剪贴板内容部分由一个或者多个条目构成，例如一条文本内容、一份HTML、一个URI或者一个Want。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -733,6 +785,8 @@ struct PasteboardTest {
 
 
 ##### toPlainText9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toPlainText(): string
 
@@ -760,6 +814,8 @@ console.info(`Succeeded in converting to text. Text: ${text}`);
 
 
 ##### addEntry14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addEntry(type: string, value: ValueType): void
 
@@ -796,6 +852,8 @@ record.addEntry(pasteboard.MIMETYPE_TEXT_HTML, html);
 
 
 ##### getValidTypes14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getValidTypes(types: Array&lt;string&gt;): Array&lt;string&gt;
 
@@ -845,6 +903,8 @@ let types: string[] = record.getValidTypes([
 
 
 ##### getData14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getData(type: string): Promise&lt;ValueType&gt;
 
@@ -902,6 +962,8 @@ record.getData(pasteboard.MIMETYPE_TEXT_URI).then((value: pasteboard.ValueType) 
 
 ##### convertToText(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 convertToText(callback: AsyncCallback&lt;string&gt;): void
 
 将一个PasteData中的内容强制转换为文本内容，使用callback异步回调。
@@ -947,6 +1009,8 @@ record.convertToText((err: BusinessError, data: string) => {
 
 ##### convertToText(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 convertToText(): Promise&lt;string&gt;
 
 将一个PasteData中的内容强制转换为文本内容，使用Promise异步回调。
@@ -981,6 +1045,8 @@ record.convertToText().then((data: string) => {
 
 ##### PasteData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 剪贴板内容对象。剪贴板内容包含一个或者多个内容条目（[PasteDataRecord](#pastedatarecord7)）以及属性描述对象（[PasteDataProperty](#pastedataproperty7)）。
 
 在调用PasteData的接口前，需要先通过[createData()](#pasteboardcreatedata9)或[getData()](#getdata9)获取一个PasteData对象。
@@ -990,6 +1056,8 @@ record.convertToText().then((data: string) => {
 
 
 ##### getPrimaryText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPrimaryText(): string
 
@@ -1023,6 +1091,8 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 ##### getPrimaryHtml7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPrimaryHtml(): string
 
 获取第一条的HTML内容。
@@ -1054,6 +1124,8 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 
 ##### getPrimaryWant7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPrimaryWant(): Want
 
@@ -1088,6 +1160,8 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 ##### getPrimaryUri7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPrimaryUri(): string
 
 获取第一条的URI内容。
@@ -1119,6 +1193,8 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 
 ##### getPrimaryPixelMap9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPrimaryPixelMap(): image.PixelMap
 
@@ -1159,6 +1235,8 @@ image.createPixelMap(buffer, opt).then((pixelMap: image.PixelMap) => {
 
 ##### addRecord7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addRecord(record: PasteDataRecord): void
 
 向当前剪贴板内容中添加一条条目，同时也会将条目类型添加到[PasteDataProperty](#pastedataproperty7)的mimeTypes中。入参均不能为空，否则添加失败。
@@ -1188,6 +1266,8 @@ pasteData.addRecord(htmlRecord);
 
 
 ##### addRecord9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addRecord(mimeType: string, value: ValueType): void
 
@@ -1226,6 +1306,8 @@ pasteData.addRecord('app/xml', dataXml);
 
 ##### getMimeTypes7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMimeTypes(): Array&lt;string&gt;
 
 获取剪贴板中[PasteDataProperty](#pastedataproperty7)的mimeTypes列表，接口调用异常时返回undefined。
@@ -1251,6 +1333,8 @@ let types: string[] = pasteData.getMimeTypes();
 
 
 ##### getPrimaryMimeType7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPrimaryMimeType(): string
 
@@ -1278,6 +1362,8 @@ let type: string = pasteData.getPrimaryMimeType();
 
 ##### getProperty7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getProperty(): PasteDataProperty
 
 获取剪贴板内容的属性描述对象。
@@ -1303,6 +1389,8 @@ let property: pasteboard.PasteDataProperty = pasteData.getProperty();
 
 
 ##### setProperty9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setProperty(property: PasteDataProperty): void
 
@@ -1379,6 +1467,8 @@ pasteData.setProperty(prop);
 
 ##### getRecord9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRecord(index: number): PasteDataRecord
 
 获取剪贴板内容中指定下标的条目。
@@ -1422,6 +1512,8 @@ let record: pasteboard.PasteDataRecord = pasteData.getRecord(0);
 
 ##### getRecordCount7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRecordCount(): number
 
 获取剪贴板内容中条目的个数。
@@ -1448,6 +1540,8 @@ let count: number = pasteData.getRecordCount();
 
 ##### getTag7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTag(): string
 
 获取剪贴板内容中用户自定义的标签内容，如果没有设置用户自定义的标签内容将返回空。
@@ -1473,6 +1567,8 @@ let tag: string = pasteData.getTag();
 
 
 ##### hasType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasType(mimeType: string): boolean
 
@@ -1516,6 +1612,8 @@ let hasType: boolean = pasteData.hasType(pasteboard.MIMETYPE_TEXT_PLAIN);
 
 ##### removeRecord9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeRecord(index: number): void
 
 移除剪贴板内容中指定下标的条目。
@@ -1551,6 +1649,8 @@ pasteData.removeRecord(0);
 
 
 ##### replaceRecord9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replaceRecord(index: number, record: PasteDataRecord): void
 
@@ -1590,6 +1690,8 @@ pasteData.replaceRecord(0, record);
 
 ##### pasteStart12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pasteStart(): void
 
 读取剪贴板数据前，通知剪贴板服务保留跨设备通道。
@@ -1617,6 +1719,8 @@ systemPasteboard.getData((err: BusinessError, pasteData: pasteboard.PasteData) =
 
 ##### pasteComplete12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pasteComplete(): void
 
 通知剪贴板服务数据使用已完成。
@@ -1643,6 +1747,8 @@ systemPasteboard.getData((err: BusinessError, pasteData: pasteboard.PasteData) =
 
 
 ##### addHtmlRecord(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addHtmlRecord(htmlText: string): void
 
@@ -1672,6 +1778,8 @@ pasteData.addHtmlRecord(html);
 
 
 ##### addWantRecord(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addWantRecord(want: Want): void
 
@@ -1707,6 +1815,8 @@ pasteData.addWantRecord(object);
 
 ##### addTextRecord(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addTextRecord(text: string): void
 
 向当前剪贴板内容中添加一条纯文本条目，并将MIMETYPE_TEXT_PLAIN添加到[PasteDataProperty](#pastedataproperty7)的mimeTypes中。入参均不能为空，否则添加失败。
@@ -1735,6 +1845,8 @@ pasteData.addTextRecord('good');
 
 ##### addUriRecord(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addUriRecord(uri: string): void
 
 向当前剪贴板内容中添加一条URI条目，并将MIMETYPE_TEXT_URI添加到[PasteDataProperty](#pastedataproperty7)的mimeTypes中。入参均不能为空，否则添加失败。
@@ -1762,6 +1874,8 @@ pasteData.addUriRecord('dataability:///com.example.myapplication1/user.txt');
 
 
 ##### getRecordAt(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRecordAt(index: number): PasteDataRecord
 
@@ -1807,6 +1921,8 @@ let record: pasteboard.PasteDataRecord = pasteData.getRecordAt(0);
 
 ##### hasMimeType(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasMimeType(mimeType: string): boolean
 
 检查剪贴板内容中是否有指定的数据类型。
@@ -1850,6 +1966,8 @@ let hasType: boolean = pasteData.hasMimeType(pasteboard.MIMETYPE_TEXT_PLAIN);
 
 
 ##### removeRecordAt(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeRecordAt(index: number): boolean
 
@@ -1895,6 +2013,8 @@ let isRemove: boolean = pasteData.removeRecordAt(0);
 
 ##### replaceRecordAt(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceRecordAt(index: number, record: PasteDataRecord): boolean
 
 替换剪贴板内容中指定下标的条目。
@@ -1932,6 +2052,8 @@ let isReplace: boolean = pasteData.replaceRecordAt(0, record);
 
 ##### SystemPasteboard
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统剪贴板对象。
 
 在调用SystemPasteboard的接口前，需要先通过[getSystemPasteboard](#pasteboardgetsystempasteboard)获取系统剪贴板。
@@ -1943,6 +2065,8 @@ const systemPasteboard: pasteboard.SystemPasteboard = pasteboard.getSystemPasteb
 
 
 ##### on('update')7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'update', callback: () =>void): void
 
@@ -1981,6 +2105,8 @@ systemPasteboard.on('update', listener);
 
 ##### off('update')7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'update', callback?: () =>void): void
 
 取消订阅系统剪贴板内容变化事件。
@@ -2017,6 +2143,8 @@ systemPasteboard.off('update', listener);
 
 
 ##### clearData9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clearData(callback: AsyncCallback&lt;void&gt;): void
 
@@ -2059,6 +2187,8 @@ systemPasteboard.clearData((err, data) => {
 
 ##### clearData9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearData(): Promise&lt;void&gt;
 
 清空系统剪贴板内容，使用Promise异步回调。
@@ -2090,6 +2220,8 @@ systemPasteboard.clearData().then((data: void) => {
 
 
 ##### setData9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setData(data: PasteData, callback: AsyncCallback&lt;void&gt;): void
 
@@ -2135,6 +2267,8 @@ systemPasteboard.setData(pasteData, (err, data) => {
 
 
 ##### setData9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setData(data: PasteData): Promise&lt;void&gt;
 
@@ -2187,6 +2321,8 @@ systemPasteboard.setData(pasteData).then((data: void) => {
 
 ##### getData9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getData(callback: AsyncCallback&lt;PasteData&gt;): void
 
 读取系统剪贴板内容，使用callback异步回调。
@@ -2234,6 +2370,8 @@ systemPasteboard.getData((err: BusinessError, pasteData: pasteboard.PasteData) =
 
 ##### getData9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getData(): Promise&lt;PasteData&gt;
 
 读取系统剪贴板内容，使用Promise异步回调。
@@ -2278,6 +2416,8 @@ systemPasteboard.getData().then((pasteData: pasteboard.PasteData) => {
 
 ##### hasRemoteData24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasRemoteData(): boolean
 
 判断剪贴板数据是否在远端设备上。由于数据跨端传输耗时较大，如果剪贴板数据在远端设备上，不建议在UI线程执行检查剪贴板数据中是否包含自定义数据类型，或读取剪贴板数据。
@@ -2305,6 +2445,8 @@ console.info(`Succeeded in checking the remote data. Result: ${result}`);
 
 
 ##### hasData9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasData(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -2349,6 +2491,8 @@ systemPasteboard.hasData((err: BusinessError, data: boolean) => {
 
 ##### hasData9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasData(): Promise&lt;boolean&gt;
 
 判断系统剪贴板中是否有内容，使用Promise异步回调。
@@ -2380,6 +2524,8 @@ systemPasteboard.hasData().then((data: boolean) => {
 
 
 ##### clear(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clear(callback: AsyncCallback&lt;void&gt;): void
 
@@ -2424,6 +2570,8 @@ systemPasteboard.clear((err, data) => {
 
 ##### clear(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): Promise&lt;void&gt;
 
 清空系统剪贴板内容，使用Promise异步回调。
@@ -2457,6 +2605,8 @@ systemPasteboard.clear().then((data) => {
 
 
 ##### getPasteData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPasteData(callback: AsyncCallback&lt;PasteData&gt;): void
 
@@ -2503,6 +2653,8 @@ systemPasteboard.getPasteData((err: BusinessError, pasteData: pasteboard.PasteDa
 
 ##### getPasteData(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPasteData(): Promise&lt;PasteData&gt;
 
 读取系统剪贴板内容，使用Promise异步回调。
@@ -2536,6 +2688,8 @@ systemPasteboard.getPasteData().then((pasteData: pasteboard.PasteData) => {
 
 
 ##### hasPasteData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasPasteData(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -2582,6 +2736,8 @@ systemPasteboard.hasPasteData((err: BusinessError, data: boolean) => {
 
 ##### hasPasteData(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasPasteData(): Promise&lt;boolean&gt;
 
 判断系统剪贴板中是否有内容，使用Promise异步回调。
@@ -2615,6 +2771,8 @@ systemPasteboard.hasPasteData().then((data: boolean) => {
 
 
 ##### setPasteData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPasteData(data: PasteData, callback: AsyncCallback&lt;void&gt;): void
 
@@ -2661,6 +2819,8 @@ systemPasteboard.setPasteData(pasteData, (err, data) => {
 
 ##### setPasteData(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPasteData(data: PasteData): Promise&lt;void&gt;
 
 将数据写入系统剪贴板，使用Promise异步回调。
@@ -2703,6 +2863,8 @@ systemPasteboard.setPasteData(pasteData).then((data: void) => {
 
 ##### isRemoteData11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isRemoteData(): boolean
 
 判断剪贴板中的数据是否来自其他设备。
@@ -2743,6 +2905,8 @@ try {
 
 ##### getDataSource11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDataSource(): string
 
 获取数据来源的应用名称。
@@ -2782,6 +2946,8 @@ try {
 
 
 ##### hasDataType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasDataType(mimeType: string): boolean
 
@@ -2831,6 +2997,8 @@ try {
 
 ##### clearDataSync11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearDataSync(): void
 
 清空系统剪贴板内容, 此接口为同步接口。
@@ -2863,6 +3031,8 @@ try {
 
 
 ##### getDataSync11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDataSync(): PasteData
 
@@ -2907,6 +3077,8 @@ try {
 
 ##### setDataSync11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDataSync(data: PasteData): void
 
 将数据写入系统剪贴板, 此接口为同步接口。
@@ -2949,6 +3121,8 @@ try {
 
 ##### hasDataSync11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasDataSync(): boolean
 
 判断系统剪贴板中是否有内容, 此接口为同步接口。
@@ -2988,6 +3162,8 @@ try {
 
 
 ##### getUnifiedData12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUnifiedData(): Promise<unifiedDataChannel.UnifiedData>
 
@@ -3040,6 +3216,8 @@ systemPasteboard.getUnifiedData().then((data) => {
 
 ##### getUnifiedDataSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUnifiedDataSync(): unifiedDataChannel.UnifiedData
 
 读取系统剪贴板内容, 此接口为同步接口。
@@ -3084,6 +3262,8 @@ try {
 
 
 ##### setUnifiedData12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setUnifiedData(data: unifiedDataChannel.UnifiedData): Promise&lt;void&gt;
 
@@ -3145,6 +3325,8 @@ systemPasteboard.setUnifiedData(data).then((data: void) => {
 
 ##### setUnifiedDataSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setUnifiedDataSync(data: unifiedDataChannel.UnifiedData): void
 
 将数据写入系统剪贴板, 此接口为同步接口。
@@ -3198,6 +3380,8 @@ try {
 
 ##### setAppShareOptions14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAppShareOptions(shareOptions: ShareOption): void
 
 应用设置本应用剪贴板数据的可粘贴范围。
@@ -3240,6 +3424,8 @@ try {
 
 ##### removeAppShareOptions14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeAppShareOptions(): void
 
 删除应用全局的可粘贴的范围。
@@ -3273,6 +3459,8 @@ try {
 
 ##### Pattern13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 剪贴板支持检测的模式类型。
 
 **系统能力：** SystemCapability.MiscServices.Pasteboard
@@ -3289,6 +3477,8 @@ try {
 
 
 ##### detectPatterns13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 detectPatterns(patterns: Array&lt;Pattern&gt;): Promise<Array&lt;Pattern&gt;>
 
@@ -3346,6 +3536,8 @@ systemPasteboard.detectPatterns(patterns).then((data: Array<pasteboard.Pattern>)
 
 ##### getMimeTypes14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMimeTypes(): Promise<Array&lt;string&gt;>
 
 读取剪贴板中存在的MIME类型，使用Promise异步回调。
@@ -3377,6 +3569,8 @@ systemPasteboard.getMimeTypes().then((data: Array<string>) => {
 
 
 ##### getDataWithProgress15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDataWithProgress(params: GetDataParams): Promise&lt;PasteData&gt;
 
@@ -3463,6 +3657,8 @@ struct PasteboardTest {
 
 ##### getChangeCount18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getChangeCount(): number
 
 获取剪贴板内容的变化次数。
@@ -3502,6 +3698,8 @@ try {
 
 ##### UpdateCallback 22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type UpdateCallback = () => void
 
 表示剪贴板内容变更的回调
@@ -3511,6 +3709,8 @@ type UpdateCallback = () => void
 
 
 ##### onRemoteUpdate22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRemoteUpdate(callback: UpdateCallback): void
 
@@ -3538,6 +3738,8 @@ systemPasteboard.onRemoteUpdate(listener);
 
 
 ##### offRemoteUpdate(callback?: UpdateCallback)22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offRemoteUpdate(callback?: UpdateCallback): void
 

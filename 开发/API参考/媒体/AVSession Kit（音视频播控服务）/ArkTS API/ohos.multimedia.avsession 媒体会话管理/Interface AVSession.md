@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { avSession } from '@kit.AVSessionKit';
 ```
@@ -21,6 +23,8 @@ import { avSession } from '@kit.AVSessionKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.AVSession.Core
 
@@ -41,6 +45,8 @@ let sessionType: avSession.AVSessionType = currentAVSession.sessionType;
 
 
 ##### setAVMetadata10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAVMetadata(data: AVMetadata): Promise&lt;void&gt;
 
@@ -108,6 +114,8 @@ currentAVSession.setAVMetadata(metadata).then(() => {
 
 ##### setAVMetadata10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAVMetadata(data: AVMetadata, callback: AsyncCallback&lt;void&gt;): void
 
 设置会话元数据。结果通过callback异步回调方式返回。
@@ -171,6 +179,8 @@ currentAVSession.setAVMetadata(metadata, (err: BusinessError) => {
 
 
 ##### setCallMetadata11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCallMetadata(data: CallMetadata): Promise&lt;void&gt;
 
@@ -253,6 +263,8 @@ class CallManager {
 
 ##### setCallMetadata11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCallMetadata(data: CallMetadata, callback: AsyncCallback&lt;void&gt;): void
 
 设置通话会话元数据。结果通过callback异步回调方式返回。
@@ -327,6 +339,8 @@ class CallManager {
 
 ##### setAVCallState11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAVCallState(state: AVCallState): Promise&lt;void&gt;
 
 设置通话状态。结果通过Promise异步回调方式返回。
@@ -374,6 +388,8 @@ currentAVSession.setAVCallState(calldata).then(() => {
 
 ##### setAVCallState11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAVCallState(state: AVCallState, callback: AsyncCallback&lt;void&gt;): void
 
 设置通话状态。结果通过callback异步回调方式返回。
@@ -420,6 +436,8 @@ currentAVSession.setAVCallState(avcalldata, (err: BusinessError) => {
 
 
 ##### setAVPlaybackState10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAVPlaybackState(state: AVPlaybackState): Promise&lt;void&gt;
 
@@ -474,6 +492,8 @@ currentAVSession.setAVPlaybackState(playbackState).then(() => {
 
 ##### setAVPlaybackState10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAVPlaybackState(state: AVPlaybackState, callback: AsyncCallback&lt;void&gt;): void
 
 设置会话播放状态。结果通过callback异步回调方式返回。
@@ -524,6 +544,8 @@ currentAVSession.setAVPlaybackState(PlaybackState, (err: BusinessError) => {
 
 
 ##### setLaunchAbility10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setLaunchAbility(ability: WantAgent): Promise&lt;void&gt;
 
@@ -604,6 +626,8 @@ wantAgent.getWantAgent(wantAgentInfo).then((agent) => {
 
 ##### setLaunchAbility10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setLaunchAbility(ability: WantAgent, callback: AsyncCallback&lt;void&gt;): void
 
 设置一个WantAgent用于拉起会话的Ability。结果通过callback异步回调方式返回。
@@ -680,6 +704,8 @@ wantAgent.getWantAgent(wantAgentInfo).then((agent) => {
 
 ##### dispatchSessionEvent10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 dispatchSessionEvent(event: string, args: {[key: string]: Object}): Promise&lt;void&gt;
 
 媒体提供方设置一个会话内自定义事件，包括事件名和键值对形式的事件内容。使用Promise异步回调。
@@ -731,6 +757,8 @@ currentAVSession.dispatchSessionEvent(eventName, {lyric : "This is lyric"}).then
 
 ##### dispatchSessionEvent10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 dispatchSessionEvent(event: string, args: {[key: string]: Object}, callback: AsyncCallback&lt;void&gt;): void
 
 媒体提供方设置一个会话内自定义事件，包括事件名和键值对形式的事件内容。使用callback异步回调。
@@ -781,6 +809,8 @@ currentAVSession.dispatchSessionEvent(eventName, {lyric : "This is lyric"}, (err
 
 
 ##### setAVQueueItems10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAVQueueItems(items: Array&lt;AVQueueItem&gt;): Promise&lt;void&gt;
 
@@ -859,6 +889,8 @@ currentAVSession.setAVQueueItems(queueItemsArray).then(() => {
 
 ##### setAVQueueItems10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAVQueueItems(items: Array&lt;AVQueueItem&gt;, callback: AsyncCallback&lt;void&gt;): void
 
 设置媒体播放列表。结果通过callback异步回调方式返回。
@@ -933,6 +965,8 @@ currentAVSession.setAVQueueItems(queueItemsArray, (err: BusinessError) => {
 
 ##### setAVQueueTitle10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAVQueueTitle(title: string): Promise&lt;void&gt;
 
 设置媒体播放列表名称。结果通过Promise异步回调方式返回。
@@ -979,6 +1013,8 @@ currentAVSession.setAVQueueTitle(queueTitle).then(() => {
 
 ##### setAVQueueTitle10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAVQueueTitle(title: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置媒体播放列表名称。结果通过callback异步回调方式返回。
@@ -1022,6 +1058,8 @@ currentAVSession.setAVQueueTitle(queueTitle, (err: BusinessError) => {
 
 
 ##### setExtras10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setExtras(extras: {[key: string]: Object}): Promise&lt;void&gt;
 
@@ -1068,6 +1106,8 @@ currentAVSession.setExtras({extras : "This is custom media packet"}).then(() => 
 
 ##### setExtras10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setExtras(extras:{[key: string]: Object}, callback: AsyncCallback&lt;void&gt;): void
 
 媒体提供方设置键值对形式的自定义媒体数据包，使用callback异步回调。
@@ -1110,6 +1150,8 @@ currentAVSession.setExtras({extras : "This is custom media packet"}, (err: Busin
 
 
 ##### sendCustomData20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 sendCustomData(data: Record<string, Object>): Promise&lt;void&gt;
 
@@ -1154,6 +1196,8 @@ currentAVSession.sendCustomData({customData : "This is custom data"}).then(() =>
 
 
 ##### enableDesktopLyric23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableDesktopLyric(enable: boolean): Promise&lt;void&gt;
 
@@ -1202,6 +1246,8 @@ if (currentAVSession !== undefined) {
 
 ##### setDesktopLyricVisible23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDesktopLyricVisible(visible: boolean): Promise&lt;void&gt;
 
 设置当前会话桌面歌词的显示状态。使用Promise异步回调。
@@ -1248,6 +1294,8 @@ currentAVSession.setDesktopLyricVisible(true).then(() => {
 
 ##### isDesktopLyricVisible23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isDesktopLyricVisible(): Promise&lt;boolean&gt;
 
 查询当前会话桌面歌词的显示状态。使用Promise异步回调。
@@ -1289,6 +1337,8 @@ if (currentAVSession !== undefined) {
 
 ##### onDesktopLyricVisibilityChanged23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDesktopLyricVisibilityChanged(callback: Callback&lt;boolean&gt;): void
 
 显示桌面歌词状态变更的监听事件。使用callback异步回调。
@@ -1328,6 +1378,8 @@ if (currentAVSession !== undefined) {
 
 ##### offDesktopLyricVisibilityChanged23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offDesktopLyricVisibilityChanged(callback?: Callback&lt;boolean&gt;): void
 
 取消显示桌面歌词状态变更事件监听，取消后将不再对该事件进行监听。使用callback异步回调。
@@ -1364,6 +1416,8 @@ if (currentAVSession !== undefined) {
 
 
 ##### setDesktopLyricState23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDesktopLyricState(state: DesktopLyricState): Promise&lt;void&gt;
 
@@ -1414,6 +1468,8 @@ currentAVSession.setDesktopLyricState(state).then(() => {
 
 ##### getDesktopLyricState23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDesktopLyricState(): Promise&lt;DesktopLyricState&gt;
 
 获取当前会话桌面歌词状态。使用Promise异步回调。
@@ -1456,6 +1512,8 @@ if (currentAVSession !== undefined) {
 
 ##### onDesktopLyricStateChanged23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDesktopLyricStateChanged(callback: Callback&lt;DesktopLyricState&gt;): void
 
 桌面歌词状态变更的监听事件。使用callback异步回调。
@@ -1495,6 +1553,8 @@ if (currentAVSession !== undefined) {
 
 ##### offDesktopLyricStateChanged23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offDesktopLyricStateChanged(callback?: Callback&lt;DesktopLyricState&gt;): void
 
 取消桌面歌词状态变更事件监听，取消后将不再对该事件进行监听。使用callback异步回调。
@@ -1531,6 +1591,8 @@ if (currentAVSession !== undefined) {
 
 
 ##### setBackgroundPlayMode24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBackgroundPlayMode(mode: BackgroundPlayMode): Promise&lt;void&gt;
 
@@ -1580,6 +1642,8 @@ try {
 
 ##### getController10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getController(): Promise&lt;AVSessionController&gt;
 
 获取本会话对应的控制器。结果通过Promise异步回调方式返回。
@@ -1616,6 +1680,8 @@ currentAVSession.getController().then((avcontroller: avSession.AVSessionControll
 
 
 ##### getController10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getController(callback: AsyncCallback&lt;AVSessionController&gt;): void
 
@@ -1656,6 +1722,8 @@ currentAVSession.getController((err: BusinessError, avcontroller: avSession.AVSe
 
 ##### getAVCastController10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getAVCastController(): Promise&lt;AVCastController&gt;
 
 设备建立连接后，获取投播控制器。结果通过Promise异步回调方式返回。如果 avsession 未处于投播状态，则控制器将返回 null。
@@ -1694,6 +1762,8 @@ currentAVSession.getAVCastController().then((avcontroller: avSession.AVCastContr
 
 
 ##### getAVCastController10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getAVCastController(callback: AsyncCallback&lt;AVCastController&gt;): void
 
@@ -1738,6 +1808,8 @@ currentAVSession.getAVCastController((err: BusinessError, avcontroller: avSessio
 
 ##### getOutputDevice10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOutputDevice(): Promise&lt;OutputDeviceInfo&gt;
 
 通过会话获取播放设备信息。结果通过Promise异步回调方式返回。
@@ -1774,6 +1846,8 @@ currentAVSession.getOutputDevice().then((outputDeviceInfo: avSession.OutputDevic
 
 
 ##### getOutputDevice10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOutputDevice(callback: AsyncCallback&lt;OutputDeviceInfo&gt;): void
 
@@ -1816,6 +1890,8 @@ currentAVSession.getOutputDevice((err: BusinessError, outputDeviceInfo: avSessio
 
 ##### activate10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 activate(): Promise&lt;void&gt;
 
 激活会话，激活后可正常使用会话。结果通过Promise异步回调方式返回。
@@ -1852,6 +1928,8 @@ currentAVSession.activate().then(() => {
 
 
 ##### activate10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 activate(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1894,6 +1972,8 @@ currentAVSession.activate((err: BusinessError) => {
 
 ##### deactivate10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deactivate(): Promise&lt;void&gt;
 
 禁用当前会话的功能，可通过[activate](#activate10)恢复。结果通过Promise异步回调方式返回。
@@ -1930,6 +2010,8 @@ currentAVSession.deactivate().then(() => {
 
 
 ##### deactivate10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deactivate(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1974,6 +2056,8 @@ currentAVSession.deactivate((err: BusinessError) => {
 
 ##### destroy10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 destroy(): Promise&lt;void&gt;
 
 销毁当前会话，使当前会话完全失效。结果通过Promise异步回调方式返回。
@@ -2010,6 +2094,8 @@ currentAVSession.destroy().then(() => {
 
 
 ##### destroy10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 destroy(callback: AsyncCallback&lt;void&gt;): void
 
@@ -2052,6 +2138,8 @@ currentAVSession.destroy((err: BusinessError) => {
 
 ##### on('play')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'play', callback: () => void): void
 
 设置播放命令监听事件。注册该监听，说明应用支持播放指令。
@@ -2093,6 +2181,8 @@ currentAVSession.on('play', () => {
 
 ##### onPlay22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onPlay(callback: Callback&lt;CommandInfo&gt;): void
 
 设置播放命令监听事件。使用callback异步回调。
@@ -2129,6 +2219,8 @@ currentAVSession.onPlay((info: avSession.CommandInfo) => {
 
 
 ##### on('pause')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'pause', callback: () => void): void
 
@@ -2171,6 +2263,8 @@ currentAVSession.on('pause', () => {
 
 ##### on('stop')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type:'stop', callback: () => void): void
 
 设置停止命令监听事件。注册该监听，说明应用支持停止指令。
@@ -2211,6 +2305,8 @@ currentAVSession.on('stop', () => {
 
 
 ##### on('playNext')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type:'playNext', callback: () => void): void
 
@@ -2253,6 +2349,8 @@ currentAVSession.on('playNext', () => {
 
 ##### onPlayNext22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onPlayNext(callback: Callback&lt;CommandInfo&gt;): void
 
 设置播放下一首命令监听事件。使用callback异步回调。
@@ -2289,6 +2387,8 @@ currentAVSession.onPlayNext((info: avSession.CommandInfo) => {
 
 
 ##### on('playPrevious')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type:'playPrevious', callback: () => void): void
 
@@ -2331,6 +2431,8 @@ currentAVSession.on('playPrevious', () => {
 
 ##### onPlayPrevious22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onPlayPrevious(callback: Callback&lt;CommandInfo&gt;): void
 
 设置播放上一首命令监听事件。使用callback异步回调。
@@ -2369,6 +2471,8 @@ currentAVSession.onPlayPrevious((info: avSession.CommandInfo) => {
 
 
 ##### on('fastForward')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'fastForward', callback: (time?: number) => void): void
 
@@ -2411,6 +2515,8 @@ currentAVSession.on('fastForward', (time?: number) => {
 
 ##### onFastForward22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onFastForward(callback: TwoParamCallback<number, CommandInfo>): void
 
 设置快进命令监听事件。使用callback异步回调。
@@ -2447,6 +2553,8 @@ currentAVSession.onFastForward((time: number, info: avSession.CommandInfo) => {
 
 
 ##### on('rewind')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type:'rewind', callback: (time?: number) => void): void
 
@@ -2489,6 +2597,8 @@ currentAVSession.on('rewind', (time?: number) => {
 
 ##### onRewind22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRewind(callback: TwoParamCallback<number, CommandInfo>): void
 
 设置快退命令监听事件。使用callback异步回调。
@@ -2525,6 +2635,8 @@ currentAVSession.onRewind((time: number, info: avSession.CommandInfo) => {
 
 
 ##### on('playWithAssetId')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type:'playWithAssetId', callback: Callback&lt;string&gt;): void
 
@@ -2567,6 +2679,8 @@ currentAVSession.on('playWithAssetId', playWithAssetIdCallback);
 
 ##### off('playWithAssetId')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'playWithAssetId', callback?: Callback&lt;string&gt;): void
 
 取消指定资源id进行播放的事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -2602,6 +2716,8 @@ currentAVSession.off('playWithAssetId');
 
 
 ##### on('seek')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'seek', callback: (time: number) => void): void
 
@@ -2644,6 +2760,8 @@ currentAVSession.on('seek', (time: number) => {
 
 ##### on('setSpeed')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'setSpeed', callback: (speed: number) => void): void
 
 设置播放速率的监听事件。
@@ -2684,6 +2802,8 @@ currentAVSession.on('setSpeed', (speed: number) => {
 
 
 ##### on('setLoopMode')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'setLoopMode', callback: (mode: LoopMode) => void): void
 
@@ -2726,6 +2846,8 @@ currentAVSession.on('setLoopMode', (mode: avSession.LoopMode) => {
 
 ##### on('setTargetLoopMode')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'setTargetLoopMode', callback: Callback&lt;LoopMode&gt;): void
 
 设置目标循环模式的监听事件。
@@ -2765,6 +2887,8 @@ currentAVSession.on('setTargetLoopMode', (mode: avSession.LoopMode) => {
 
 
 ##### on('toggleFavorite')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'toggleFavorite', callback: (assetId: string) => void): void
 
@@ -2807,6 +2931,8 @@ currentAVSession.on('toggleFavorite', (assetId: string) => {
 
 ##### on('skipToQueueItem')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'skipToQueueItem', callback: (itemId: number) => void): void
 
 设置播放列表其中某项被选中的监听事件，session端可以选择对这个单项歌曲进行播放。
@@ -2847,6 +2973,8 @@ currentAVSession.on('skipToQueueItem', (itemId: number) => {
 
 
 ##### on('handleKeyEvent')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'handleKeyEvent', callback: (event: KeyEvent) => void): void
 
@@ -2891,6 +3019,8 @@ currentAVSession.on('handleKeyEvent', (event: KeyEvent) => {
 
 ##### on('outputDeviceChange')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'outputDeviceChange', callback: (state: ConnectionState, device: OutputDeviceInfo) => void): void
 
 设置播放设备变化的监听事件。应用接入[multimedia.avCastPicker (投播组件)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-avcastpicker)，当用户通过组件切换设备时，会收到设备切换的回调。
@@ -2931,6 +3061,8 @@ currentAVSession.on('outputDeviceChange', (state: avSession.ConnectionState, dev
 
 
 ##### on('commonCommand')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'commonCommand', callback: (command :string, args:{[key: string]: Object}) => void): void
 
@@ -2973,6 +3105,8 @@ currentAVSession.on('commonCommand', (commonCommand, args) => {
 
 ##### off('play')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'play', callback?: () => void): void
 
 取消会话播放事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3010,6 +3144,8 @@ currentAVSession.off('play');
 
 ##### offPlay22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offPlay(callback?: Callback&lt;CommandInfo&gt;): void
 
 取消会话播放事件监听。使用callback异步回调。
@@ -3044,6 +3180,8 @@ currentAVSession.offPlay();
 
 
 ##### off('pause')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'pause', callback?: () => void): void
 
@@ -3082,6 +3220,8 @@ currentAVSession.off('pause');
 
 ##### off('stop')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'stop', callback?: () => void): void
 
 取消会话停止事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3118,6 +3258,8 @@ currentAVSession.off('stop');
 
 
 ##### off('playNext')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'playNext', callback?: () => void): void
 
@@ -3156,6 +3298,8 @@ currentAVSession.off('playNext');
 
 ##### offPlayNext22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offPlayNext(callback?: Callback&lt;CommandInfo&gt;): void
 
 取消会话播放下一首事件监听。使用callback异步回调。
@@ -3190,6 +3334,8 @@ currentAVSession.offPlayNext();
 
 
 ##### off('playPrevious')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'playPrevious', callback?: () => void): void
 
@@ -3228,6 +3374,8 @@ currentAVSession.off('playPrevious');
 
 ##### offPlayPrevious22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offPlayPrevious(callback?: Callback&lt;CommandInfo&gt;): void
 
 取消会话播放上一首事件监听。使用callback异步回调。
@@ -3262,6 +3410,8 @@ currentAVSession.offPlayPrevious();
 
 
 ##### off('fastForward')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'fastForward', callback?: () => void): void
 
@@ -3300,6 +3450,8 @@ currentAVSession.off('fastForward');
 
 ##### offFastForward22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offFastForward(callback?: TwoParamCallback<number, CommandInfo>): void
 
 取消会话快进事件监听。使用callback异步回调。
@@ -3334,6 +3486,8 @@ currentAVSession.offFastForward();
 
 
 ##### off('rewind')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'rewind', callback?: () => void): void
 
@@ -3372,6 +3526,8 @@ currentAVSession.off('rewind');
 
 ##### offRewind22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offRewind(callback?: TwoParamCallback<number, CommandInfo>): void
 
 取消会话快退事件监听。使用callback异步回调。
@@ -3406,6 +3562,8 @@ currentAVSession.offRewind();
 
 
 ##### off('seek')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'seek', callback?: (time: number) => void): void
 
@@ -3444,6 +3602,8 @@ currentAVSession.off('seek');
 
 ##### off('setSpeed')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'setSpeed', callback?: (speed: number) => void): void
 
 取消播放速率变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3480,6 +3640,8 @@ currentAVSession.off('setSpeed');
 
 
 ##### off('setLoopMode')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'setLoopMode', callback?: (mode: LoopMode) => void): void
 
@@ -3518,6 +3680,8 @@ currentAVSession.off('setLoopMode');
 
 ##### off('setTargetLoopMode')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'setTargetLoopMode', callback?: Callback&lt;LoopMode&gt;): void
 
 取消目标循环模式变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3553,6 +3717,8 @@ currentAVSession.off('setTargetLoopMode');
 
 
 ##### off('toggleFavorite')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'toggleFavorite', callback?: (assetId: string) => void): void
 
@@ -3591,6 +3757,8 @@ currentAVSession.off('toggleFavorite');
 
 ##### off('skipToQueueItem')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'skipToQueueItem', callback?: (itemId: number) => void): void
 
 取消播放列表单项选中的事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3627,6 +3795,8 @@ currentAVSession.off('skipToQueueItem');
 
 
 ##### off('handleKeyEvent')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'handleKeyEvent', callback?: (event: KeyEvent) => void): void
 
@@ -3665,6 +3835,8 @@ currentAVSession.off('handleKeyEvent');
 
 ##### off('outputDeviceChange')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'outputDeviceChange', callback?: (state: ConnectionState, device: OutputDeviceInfo) => void): void
 
 取消播放设备变化的事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3702,6 +3874,8 @@ currentAVSession.off('outputDeviceChange');
 
 ##### off('commonCommand')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'commonCommand', callback?: (command: string, args:{[key: string]: Object}) => void): void
 
 取消自定义控制命令的变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3738,6 +3912,8 @@ currentAVSession.off('commonCommand');
 
 
 ##### on('answer')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'answer', callback: Callback&lt;void&gt;): void
 
@@ -3780,6 +3956,8 @@ currentAVSession.on('answer', () => {
 
 ##### off('answer')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'answer', callback?: Callback&lt;void&gt;): void
 
 取消通话接听事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3816,6 +3994,8 @@ currentAVSession.off('answer');
 
 
 ##### on('hangUp')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'hangUp', callback: Callback&lt;void&gt;): void
 
@@ -3858,6 +4038,8 @@ currentAVSession.on('hangUp', () => {
 
 ##### off('hangUp')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'hangUp', callback?: Callback&lt;void&gt;): void
 
 取消通话挂断事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3894,6 +4076,8 @@ currentAVSession.off('hangUp');
 
 
 ##### on('toggleCallMute')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'toggleCallMute', callback: Callback&lt;void&gt;): void
 
@@ -3936,6 +4120,8 @@ currentAVSession.on('toggleCallMute', () => {
 
 ##### off('toggleCallMute')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'toggleCallMute', callback?: Callback&lt;void&gt;): void
 
 取消通话静音事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -3972,6 +4158,8 @@ currentAVSession.off('toggleCallMute');
 
 
 ##### on('castDisplayChange')12+
+
+**支持设备：** Phone | Tablet
 
 on(type: 'castDisplayChange', callback: Callback&lt;CastDisplayInfo&gt;): void
 
@@ -4020,6 +4208,8 @@ currentAVSession.on('castDisplayChange', (display: avSession.CastDisplayInfo) =>
 
 ##### off('castDisplayChange')12+
 
+**支持设备：** Phone | Tablet
+
 off(type: 'castDisplayChange', callback?: Callback&lt;CastDisplayInfo&gt;): void
 
 取消扩展屏投播显示设备变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -4057,6 +4247,8 @@ currentAVSession.off('castDisplayChange');
 
 ##### stopCasting10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 stopCasting(callback: AsyncCallback&lt;void&gt;): void
 
 结束投播。结果通过callback异步回调方式返回。
@@ -4090,6 +4282,8 @@ currentAVSession.stopCasting(() => {
 
 
 ##### stopCasting10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 stopCasting(): Promise&lt;void&gt;
 
@@ -4127,6 +4321,8 @@ currentAVSession.stopCasting().then(() => {
 
 ##### getOutputDeviceSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOutputDeviceSync(): OutputDeviceInfo
 
 使用同步方法获取当前输出设备信息。
@@ -4161,6 +4357,8 @@ let currentOutputDevice: avSession.OutputDeviceInfo = currentAVSession.getOutput
 
 
 ##### getAllCastDisplays12+
+
+**支持设备：** Phone | Tablet
 
 getAllCastDisplays(): Promise<Array&lt;CastDisplayInfo&gt;>
 
@@ -4201,6 +4399,8 @@ currentAVSession.getAllCastDisplays().then((data: Array< avSession.CastDisplayIn
 
 
 ##### on('playFromAssetId')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type:'playFromAssetId', callback: (assetId: number) => void): void
 
@@ -4245,6 +4445,8 @@ currentAVSession.on('playFromAssetId', (assetId: number) => {
 
 ##### off('playFromAssetId')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'playFromAssetId', callback?: (assetId: number) => void): void
 
 取消媒体id播放事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -4286,6 +4488,8 @@ currentAVSession.off('playFromAssetId');
 
 ##### on('customDataChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 on(type: 'customDataChange', callback: Callback<Record<string, Object>>): void
 
 注册从远程设备发送的自定义数据的监听器。
@@ -4323,6 +4527,8 @@ currentAVSession.on('customDataChange', (callback) => {
 
 
 ##### off('customDataChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'customDataChange', callback?: Callback<Record<string, Object>>): void
 

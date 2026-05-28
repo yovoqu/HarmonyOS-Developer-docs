@@ -20,6 +20,8 @@ Image的属性仅支持在创建时初始化，后续无法再修改，且其属
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -27,6 +29,8 @@ import { image } from '@kit.ImageKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
@@ -42,6 +46,8 @@ import { image } from '@kit.ImageKit';
 
 
 ##### getComponent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getComponent(componentType: ComponentType, callback: AsyncCallback&lt;Component&gt;): void
 
@@ -76,6 +82,8 @@ async function GetComponent(img : image.Image) {
 
 
 ##### getComponent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getComponent(componentType: ComponentType): Promise&lt;Component&gt;
 
@@ -114,6 +122,8 @@ async function GetComponent(img : image.Image) {
 
 
 ##### release9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(callback: AsyncCallback&lt;void&gt;): void
 
@@ -154,6 +164,8 @@ async function Release(img : image.Image) {
 
 ##### release9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放当前图像。使用Promise异步回调。
@@ -191,12 +203,14 @@ async function Release(img : image.Image) {
 
 ##### getBufferData23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBufferData(): ImageBufferData | null
 
 从图像中获取ImageBufferData。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/kAZoh1WKQvirk5wb0NpNow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013652Z&HW-CC-Expire=86400&HW-CC-Sign=FF87A73EE4CFC5522E06CFD5E8658766649988A5754E28201B9640F07122A346)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/kAZoh1WKQvirk5wb0NpNow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023950Z&HW-CC-Expire=86400&HW-CC-Sign=A7219E564A16364D079784F2CEA7C09ED4EC2620CAEA21BF001778659A6F613A)
 
 
 ImageBufferData中的byteBuffer是对内部缓存的浅拷贝，当Image的生命周期结束时，便不能对byteBuffer做任何操作，否则会导致未定义行为。
@@ -230,6 +244,8 @@ function GetBufferData(img: image.Image) {
 
 
 ##### getMetadata23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMetadata(key: HdrMetadataKey): HdrMetadataValue | null
 

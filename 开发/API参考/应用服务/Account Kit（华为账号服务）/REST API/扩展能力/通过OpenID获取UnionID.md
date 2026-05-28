@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-unionid
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/h53hbaWAR06-IGuJF6P5MA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013441Z&HW-CC-Expire=86400&HW-CC-Sign=406183FFFB27D36A3A9FED1BF684842F1818957787A09754BA551C286A7B80E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/h53hbaWAR06-IGuJF6P5MA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=1A54A6D4A1A3487122A0679B1E030B02BAADC783D95ED9F8C7E2D7C415122874)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。

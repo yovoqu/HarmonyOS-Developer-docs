@@ -14,17 +14,23 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持<[option](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-option)>。
  
   
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)。
  
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
   
@@ -36,6 +42,8 @@
   
 
 ##### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)外，还支持如下事件：
   
@@ -52,11 +60,15 @@
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -103,4 +115,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/2Juny6TQQlymA4y2algCng/zh-cn_image_0000002611756279.png?HW-CC-KV=V1&HW-CC-Date=20260528T013805Z&HW-CC-Expire=86400&HW-CC-Sign=71B80172F6D8E2EC2F4FE1ECF865B361106C816907B4E8F7EAB8DDE0EC6D7543)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/2Juny6TQQlymA4y2algCng/zh-cn_image_0000002611756279.png?HW-CC-KV=V1&HW-CC-Date=20260528T024101Z&HW-CC-Expire=86400&HW-CC-Sign=87CCB30BB65815E1B8CE26EBC899067E74696A6DCF22B67B779899722F568F0E)

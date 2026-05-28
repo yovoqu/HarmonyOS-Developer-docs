@@ -12,6 +12,8 @@ typedef struct Hid_RawDevInfo {...} Hid_RawDevInfo
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 原始设备信息定义。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct Hid_RawDevInfo {...} Hid_RawDevInfo
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

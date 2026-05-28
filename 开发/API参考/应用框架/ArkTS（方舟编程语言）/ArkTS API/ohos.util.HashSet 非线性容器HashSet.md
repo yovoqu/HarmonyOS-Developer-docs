@@ -23,6 +23,8 @@ HashSet和[TreeSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { HashSet } from '@kit.ArkTS';
 ```
@@ -31,9 +33,13 @@ import { HashSet } from '@kit.ArkTS';
 
 ##### HashSet
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -61,6 +67,8 @@ console.info("length:", res);  // length: 5
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
 
 HashSet的构造函数。
@@ -87,6 +95,8 @@ let hashSet = new HashSet<number>();
 
 
 ##### isEmpty
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEmpty(): boolean
 
@@ -123,6 +133,8 @@ console.info("result:", result);  // result: true
 
 
 ##### has
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 has(value: T): boolean
 
@@ -169,6 +181,8 @@ console.info("result:", result);  // result: true
 
 ##### add
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 add(value: T): boolean
 
 向HashSet添加元素。
@@ -212,6 +226,8 @@ console.info("result:", result);  // result: true
 
 
 ##### remove
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 remove(value: T): boolean
 
@@ -259,6 +275,8 @@ console.info("result:", result);  // result: true
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清除HashSet中的所有元素，并将length置为0。
@@ -290,6 +308,8 @@ console.info("result:", result);  // result: true
 
 
 ##### values
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 values(): IterableIterator&lt;T&gt;
 
@@ -332,6 +352,8 @@ for (let value of values) {
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value?: T, key?: T, set?: HashSet&lt;T&gt;) => void, thisArg?: Object): void
 
@@ -396,6 +418,8 @@ for(let i = 0; i < 10; i++) {
 
 ##### entries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 entries(): IterableIterator<[T, T]>
 
 返回包含此映射中所有键值对的新迭代器对象。
@@ -453,6 +477,8 @@ for(let i = 0; i < 10; i++) {
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
 

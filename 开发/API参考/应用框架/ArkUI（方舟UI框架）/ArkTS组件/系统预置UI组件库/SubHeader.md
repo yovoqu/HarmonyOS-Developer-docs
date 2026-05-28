@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { SubHeader } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { SubHeader } from '@kit.ArkUI';
   
 
 ##### 子组件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 无
  
@@ -31,6 +35,8 @@ import { SubHeader } from '@kit.ArkUI';
   
 
 ##### SubHeader
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, select?: SelectOptions, operationType?: OperationType, operationItem?: Array&lt;OperationOption&gt;, operationSymbolOptions?: Array&lt;SymbolOptions&gt;, primaryTitleModifier?: TextModifier, secondaryTitleModifier?: TextModifier, titleBuilder?: () => void, contentMargin?: LocalizedMargin, contentPadding?: LocalizedPadding, titleId?: string })
  
@@ -63,6 +69,8 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
 
 ##### OperationType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义子标题操作区的元素样式。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -83,6 +91,8 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
 
 ##### SelectOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -100,6 +110,8 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
   
 
 ##### OperationOption
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -120,6 +132,8 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
 
 ##### SymbolOptions12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -139,11 +153,15 @@ SubHeader({icon?: ResourceStr, iconSymbolOptions?: SymbolOptions, primaryTitle?:
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -529,7 +547,7 @@ struct SubHeaderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/x3FClJmmTqyeqILVCG6XNg/zh-cn_image_0000002581436272.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=A53B7F7356A0282E9F93F5F537FB79194520DCDBB6A22C57E482C15DEE7362C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/x3FClJmmTqyeqILVCG6XNg/zh-cn_image_0000002581436272.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=0E6931D7C62DBF4B3DEDDF7DCC80D404C5A8B493F853D579CD99AFFAA33DD979)
 
  
   
@@ -567,4 +585,4 @@ struct SubHeaderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/BIbz0AQ6S-mAVcQAwiUG1w/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=624B4E315934E49C2B82E2373320323052E78C722ADA52C5AF64A2513211ADDC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/BIbz0AQ6S-mAVcQAwiUG1w/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=5A510414A4E8E406C3C401DC9455F3776907DF9D2820D94254EAD0DC331A7A68)

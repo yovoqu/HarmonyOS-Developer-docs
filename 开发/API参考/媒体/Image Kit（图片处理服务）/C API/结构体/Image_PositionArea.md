@@ -12,6 +12,8 @@ typedef struct Image_PositionArea {...} Image_PositionArea
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 要读取或写入的图像像素区域。
  
 **起始版本：** 22
@@ -24,9 +26,13 @@ typedef struct Image_PositionArea {...} Image_PositionArea
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

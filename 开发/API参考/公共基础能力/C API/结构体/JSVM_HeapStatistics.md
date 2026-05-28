@@ -12,6 +12,8 @@ typedef struct {...} JSVM_HeapStatistics
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用于保存有关JavaScript堆内存使用情况的统计信息。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct {...} JSVM_HeapStatistics
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |

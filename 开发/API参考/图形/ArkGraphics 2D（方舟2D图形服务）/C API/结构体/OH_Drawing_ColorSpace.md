@@ -12,6 +12,8 @@ typedef struct OH_Drawing_ColorSpace OH_Drawing_ColorSpace
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义色彩空间，用于解释颜色信息。
  
 **起始版本：** 12

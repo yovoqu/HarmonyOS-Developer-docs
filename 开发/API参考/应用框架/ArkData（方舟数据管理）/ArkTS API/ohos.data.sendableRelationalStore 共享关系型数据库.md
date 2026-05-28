@@ -14,6 +14,8 @@
 
 ##### 使用场景
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 在使用[taskpool](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction)进行多线程计算时，因为对跨线程传递的数据类型限制，关系型数据库常规的ValuesBucket、Asset、Assets数据存储容器不能直接用于跨线程传递。
 
 本模块提供了相应的类型转换工具函数，以便在常规数据存储容器和支持跨线程传递的数据存储容器之间进行类型转换，用于跨线程传递。
@@ -22,6 +24,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { sendableRelationalStore } from '@kit.ArkData';
 ```
@@ -29,6 +33,8 @@ import { sendableRelationalStore } from '@kit.ArkData';
 
 
 ##### sendableRelationalStore.toSendableValuesBucket
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toSendableValuesBucket(valuesBucket: NonSendableBucket): ValuesBucket
 
@@ -98,6 +104,8 @@ const sendableValuesBucket = sendableRelationalStore.toSendableValuesBucket(valu
 
 ##### sendableRelationalStore.fromSendableValuesBucket
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fromSendableValuesBucket(valuesBucket: ValuesBucket): NonSendableBucket
 
 将可用于跨线程传递的键值对数据，转换为不能用于跨线程传递的键值对数据。
@@ -166,6 +174,8 @@ const nonSendableBucket = sendableRelationalStore.fromSendableValuesBucket(senda
 
 ##### sendableRelationalStore.toSendableAsset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toSendableAsset(asset: NonSendableAsset): Asset
 
 将不可跨线程传递的附件数据，转换为可跨线程传递的附件数据。
@@ -213,6 +223,8 @@ const sendableAsset = sendableRelationalStore.toSendableAsset(asset1);
 
 
 ##### sendableRelationalStore.fromSendableAsset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fromSendableAsset(asset: Asset): NonSendableAsset
 
@@ -263,6 +275,8 @@ const normalAsset = sendableRelationalStore.fromSendableAsset(sendableAsset);
 
 ##### sendableRelationalStore.fromSendableValues20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fromSendableValues(values: collections.Array&lt;ValueType&gt;): NonSendableValues
 
 将可跨线程传递的数组数据，转换为不可跨线程传递的数组数据。
@@ -309,6 +323,8 @@ const values = sendableRelationalStore.fromSendableValues(array);
 
 ##### sendableRelationalStore.toSendableValues20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toSendableValues(values: NonSendableValues): collections.Array&lt;ValueType&gt;
 
 将不可跨线程传递的数组数据，转换为可跨线程传递的数组数据。
@@ -353,6 +369,8 @@ const values = sendableRelationalStore.toSendableValues(array);
 
 ##### Asset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 记录资产附件（文件、图片、视频等类型文件）的相关信息。用于支持资产数据跨线程传递，继承自[lang.ISendable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkts-lang#langisendable)。资产类型的相关接口暂不支持Datashare。使用[sendableRelationalStore.toSendableAsset](#sendablerelationalstoretosendableasset)方法创建。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -372,6 +390,8 @@ const values = sendableRelationalStore.toSendableValues(array);
 
 ##### Assets
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Assets = collections.Array&lt;Asset&gt;
 
 表示[Asset](#asset)类型数据的集合。用于支持Asset数据集合跨线程传递。
@@ -386,6 +406,8 @@ type Assets = collections.Array&lt;Asset&gt;
 
 
 ##### ValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ValueType = null | number | string | boolean | collections.Uint8Array | Asset | Assets | collections.Float32Array | bigint
 
@@ -410,6 +432,8 @@ type ValueType = null | number | string | boolean | collections.Uint8Array | Ass
 
 ##### ValuesBucket
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ValuesBucket = collections.Map<string, ValueType>
 
 表示[ValueType](#valuetype)数据的键值对存储，用于支持ValueType数据跨线程传递。
@@ -424,6 +448,8 @@ type ValuesBucket = collections.Map<string, ValueType>
 
 
 ##### NonSendableBucket
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NonSendableBucket = relationalStore.ValuesBucket
 
@@ -440,6 +466,8 @@ type NonSendableBucket = relationalStore.ValuesBucket
 
 ##### NonSendableValues20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NonSendableValues = Array<relationalStore.ValueType>
 
 表示[ValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-t#valuetype)数据数组存储。不支持跨线程传递。
@@ -455,6 +483,8 @@ type NonSendableValues = Array<relationalStore.ValueType>
 
 ##### NonSendableAsset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NonSendableAsset = relationalStore.Asset
 
 记录资产附件（文件、图片、视频等类型文件）的相关信息。不支持跨线程传递。
@@ -469,6 +499,8 @@ type NonSendableAsset = relationalStore.Asset
 
 
 ##### 跨线程传递使用示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 调用taskpool执行数据插入时，主线程调用toSendableValuesBucket方法将数据转为跨线程传递类型，传入taskpool处理。
 

@@ -12,6 +12,8 @@ typedef struct OH_AVRecorder_Profile {...} OH_AVRecorder_Profile
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义音视频录制的详细参数。
 
 通过参数设置可以选择只录制音频或只录制视频：
@@ -30,9 +32,13 @@ typedef struct OH_AVRecorder_Profile {...} OH_AVRecorder_Profile
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { commonType } from '@kit.ArkData';
 ```
@@ -21,6 +23,8 @@ import { commonType } from '@kit.ArkData';
 
 
 ##### AssetStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述资产附件的状态枚举。请使用枚举名称而非枚举值。
 
@@ -39,6 +43,8 @@ import { commonType } from '@kit.ArkData';
 
 
 ##### Asset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 记录资产附件（文件、图片、视频等类型文件）的相关信息，相关示例见[在跨端迁移中使用分布式数据对象迁移数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-distributed-data-object#在跨端迁移中使用分布式数据对象迁移数据)的示例代码。
 
@@ -59,6 +65,8 @@ import { commonType } from '@kit.ArkData';
 
 ##### Assets
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Assets = Array&lt;Asset&gt;
 
 表示[Asset](#asset)类型的数组。
@@ -73,6 +81,8 @@ type Assets = Array&lt;Asset&gt;
 
 
 ##### ValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets
 
@@ -94,6 +104,8 @@ type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets
 
 
 ##### ValuesBucket
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ValuesBucket = Record<string, ValueType>
 

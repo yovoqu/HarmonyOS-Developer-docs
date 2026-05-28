@@ -14,6 +14,8 @@ Counter组件用于精确调节数值。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { CounterType, CounterComponent, CounterOptions, DateData } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { CounterType, CounterComponent, CounterOptions, DateData } from '@kit.Ar
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### CounterComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 CounterComponent({ options: CounterOptions })
  
@@ -48,6 +54,8 @@ CounterComponent({ options: CounterOptions })
   
 
 ##### CounterOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 CounterOptions定义Counter类型及样式。
  
@@ -78,6 +86,8 @@ CounterOptions定义Counter类型及样式。
 
 ##### CounterType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 CounterType指定Counter类型。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -96,6 +106,8 @@ CounterType指定Counter类型。
 
 ##### CommonOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 CommonOptions定义了Counter的共通属性和事件。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -113,6 +125,8 @@ CommonOptions定义了Counter的共通属性和事件。
   
 
 ##### InlineStyleOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 InlineStyleOptions定义了数值内联型Counter的属性和事件。
  
@@ -135,6 +149,8 @@ InlineStyleOptions定义了数值内联型Counter的属性和事件。
 
 ##### NumberStyleOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 NumberStyleOptions定义了列表型和紧凑型Counter的属性和事件。
  
 继承于[InlineStyleOptions](#inlinestyleoptions)。
@@ -156,6 +172,8 @@ NumberStyleOptions定义了列表型和紧凑型Counter的属性和事件。
 
 ##### DateStyleOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 DateStyleOptions定义日期内联型Counter的属性和事件。
  
 继承于[CommonOptions](#commonoptions)。
@@ -176,6 +194,8 @@ DateStyleOptions定义日期内联型Counter的属性和事件。
 
 ##### DateData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 DateData定义了日期通用属性和方法，包括年、月、日。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -192,6 +212,8 @@ DateData定义了日期通用属性和方法，包括年、月、日。
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(year: number, month: number, day: number)
  
@@ -214,6 +236,8 @@ DateData的构造函数用于初始化日期对象。
 
 ##### toString
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toString(): string
  
 以字符串格式返回当前日期值。格式为’YYYY-MM-DD'。
@@ -232,6 +256,8 @@ toString(): string
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -465,4 +491,4 @@ struct CounterPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/SXhMdTljRfWVwa0iLjV8lQ/zh-cn_image_0000002611756221.png?HW-CC-KV=V1&HW-CC-Date=20260528T013859Z&HW-CC-Expire=86400&HW-CC-Sign=E98D0D89E61CB564568333CE9958DA4583806DE652265D849336B4262C58DA86)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/SXhMdTljRfWVwa0iLjV8lQ/zh-cn_image_0000002611756221.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=49274A0E5F433A0C432323B068B643B94BCB6DCED8D0731D4300B48CB1B6DAB3)

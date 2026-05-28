@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -19,6 +21,8 @@ import { image } from '@kit.ImageKit';
   
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束：** 此接口仅可在Stage模型下使用。
  

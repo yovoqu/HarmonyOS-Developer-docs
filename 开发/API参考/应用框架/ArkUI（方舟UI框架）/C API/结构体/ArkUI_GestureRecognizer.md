@@ -12,6 +12,8 @@ typedef struct ArkUI_GestureRecognizer ArkUI_GestureRecognizer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供手势组件实例对象定义。
  
 **起始版本：** 12

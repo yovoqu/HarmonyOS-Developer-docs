@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 VideoDecoder模块提供用于视频解码的函数。
 
 对应的开发指南及样例可参考[视频解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding)。
@@ -18,6 +20,8 @@ VideoDecoder模块提供用于视频解码的函数。
 
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |

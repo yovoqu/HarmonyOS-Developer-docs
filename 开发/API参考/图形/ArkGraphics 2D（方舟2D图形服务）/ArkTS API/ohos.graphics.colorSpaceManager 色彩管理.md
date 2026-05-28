@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { colorSpaceManager } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { colorSpaceManager } from '@kit.ArkGraphics2D';
 
 
 ##### ColorSpace
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 色域类型枚举。
 
@@ -67,6 +71,8 @@ import { colorSpaceManager } from '@kit.ArkGraphics2D';
 
 ##### ColorSpacePrimaries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 色域标准三原色（红、绿、蓝）和白色，基于现实世界的色度，使用(x, y)表示其在色彩空间中的位置。
 
 **系统能力：** SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -86,6 +92,8 @@ import { colorSpaceManager } from '@kit.ArkGraphics2D';
 
 
 ##### colorSpaceManager.create
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(colorSpaceName: ColorSpace): ColorSpaceManager
 
@@ -130,6 +138,8 @@ try {
 
 
 ##### colorSpaceManager.create
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(primaries: ColorSpacePrimaries, gamma: number): ColorSpaceManager
 
@@ -187,6 +197,8 @@ try {
 
 ##### ColorSpaceManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 当前色域对象实例。
 
 下列API示例中都需先使用[create()](#colorspacemanagercreate)获取到ColorSpaceManager实例，再通过此实例调用对应方法。
@@ -194,6 +206,8 @@ try {
 
 
 ##### getColorSpaceName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getColorSpaceName(): ColorSpace
 
@@ -223,6 +237,8 @@ try {
 
 ##### getWhitePoint
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWhitePoint(): Array&lt;number&gt;
 
 获取色域白点值。
@@ -250,6 +266,8 @@ try {
 
 
 ##### getGamma
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getGamma(): number
 

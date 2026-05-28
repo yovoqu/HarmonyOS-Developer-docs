@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { invoiceAssistant } from '@kit.AccountKit';
 ```
@@ -19,6 +21,8 @@ import { invoiceAssistant } from '@kit.AccountKit';
   
 
 ##### InvoiceAssistantErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 该枚举定义了Account Kit发票助手服务相关接口的错误码。
  
@@ -46,6 +50,8 @@ import { invoiceAssistant } from '@kit.AccountKit';
 
 ##### InvoiceTitle
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 该类为发票助手服务响应的发票抬头数据对象。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -70,6 +76,8 @@ import { invoiceAssistant } from '@kit.AccountKit';
   
 
 ##### selectInvoiceTitle
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 selectInvoiceTitle(context: common.Context): Promise&lt;InvoiceTitle&gt;
  

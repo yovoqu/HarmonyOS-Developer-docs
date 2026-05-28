@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { statfs } from '@kit.CoreFileKit';
 ```
@@ -21,6 +23,8 @@ import { statfs } from '@kit.CoreFileKit';
   
 
 ##### statfs.getFreeSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFreeSize(path:string): Promise&lt;number&gt;
  
@@ -83,6 +87,8 @@ statfs.getFreeSize(path).then((number: number) => {
 
 ##### statfs.getFreeSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFreeSize(path:string, callback:AsyncCallback&lt;number&gt;): void
  
 异步方法获取指定文件系统空闲字节数，使用callback形式返回结果。
@@ -140,6 +146,8 @@ statfs.getFreeSize(path, (err: BusinessError, number: number) => {
 
 ##### statfs.getFreeSizeSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFreeSizeSync(path:string): number
  
 以同步方法获取指定文件系统空闲字节数。
@@ -196,6 +204,8 @@ console.info("getFreeSizeSync succeed, Size: " + number);
   
 
 ##### statfs.getTotalSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTotalSize(path: string): Promise&lt;number&gt;
  
@@ -258,6 +268,8 @@ statfs.getTotalSize(path).then((number: number) => {
 
 ##### statfs.getTotalSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTotalSize(path: string, callback: AsyncCallback&lt;number&gt;): void
  
 异步方法获取指定文件系统总字节数，使用callback形式返回结果。
@@ -314,6 +326,8 @@ statfs.getTotalSize(path, (err: BusinessError, number: number) => {
   
 
 ##### statfs.getTotalSizeSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTotalSizeSync(path: string): number
  

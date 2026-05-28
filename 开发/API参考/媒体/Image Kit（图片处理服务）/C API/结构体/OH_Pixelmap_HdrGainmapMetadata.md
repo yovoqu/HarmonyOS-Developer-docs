@@ -12,6 +12,8 @@ typedef struct OH_Pixelmap_HdrGainmapMetadata {...} OH_Pixelmap_HdrGainmapMetada
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 HDR_GAINMAP_METADATA关键字对应的gainmap相关元数据值，参考ISO 21496-1。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ HDR_GAINMAP_METADATA关键字对应的gainmap相关元数据值，参考ISO 2149
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

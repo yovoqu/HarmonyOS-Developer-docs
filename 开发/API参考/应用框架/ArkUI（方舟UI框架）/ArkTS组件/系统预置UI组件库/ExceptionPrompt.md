@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ExceptionPrompt, PromptOptions, MarginType } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { ExceptionPrompt, PromptOptions, MarginType } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### ExceptionPrompt
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ExceptionPrompt({ options: PromptOptions, onTipClick?: ()=>void, onActionTextClick?: ()=>void })
  
@@ -51,6 +57,8 @@ ExceptionPrompt({ options: PromptOptions, onTipClick?: ()=>void, onActionTextCli
 
 ##### PromptOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PromptOptions定义options的类型。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -72,6 +80,8 @@ PromptOptions定义options的类型。
 
 ##### MarginType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 MarginType定义marginType的类型。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -90,11 +100,15 @@ MarginType定义marginType的类型。
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -310,4 +324,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/EmSJAr1hSGuEoVCKkD37Iw/zh-cn_image_0000002611836075.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=BE86E7DE4200EDAA7E783F331672AE5339CCB0FC6438A31C379397EA76DA458C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/EmSJAr1hSGuEoVCKkD37Iw/zh-cn_image_0000002611836075.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=C02C7D3E513F5EF2E050EFBFFD3942E51806C78886E3657EDEC549DFA26D6D92)

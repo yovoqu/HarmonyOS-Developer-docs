@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { sendableColorSpaceManager } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { sendableColorSpaceManager } from '@kit.ArkGraphics2D';
 
 
 ##### ISendable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ISendable = lang.ISendable
 
@@ -36,6 +40,8 @@ type ISendable = lang.ISendable
 
 
 ##### sendableColorSpaceManager.create
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(colorSpaceName: colorSpaceManager.ColorSpace): ColorSpaceManager
 
@@ -78,6 +84,8 @@ colorSpace = sendableColorSpaceManager.create(colorSpaceManager.ColorSpace.SRGB)
 
 
 ##### sendableColorSpaceManager.create
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(primaries: colorSpaceManager.ColorSpacePrimaries, gamma: number): ColorSpaceManager
 
@@ -133,6 +141,8 @@ colorSpace = sendableColorSpaceManager.create(primaries, gamma);
 
 ##### ColorSpaceManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 当前可共享的色彩管理实例。
 
 下列API示例中都需先使用[create()](#sendablecolorspacemanagercreate)获取到ColorSpaceManager实例，再通过此实例调用对应方法。
@@ -140,6 +150,8 @@ colorSpace = sendableColorSpaceManager.create(primaries, gamma);
 
 
 ##### getColorSpaceName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getColorSpaceName(): colorSpaceManager.ColorSpace
 
@@ -164,6 +176,8 @@ let spaceName: colorSpaceManager.ColorSpace = colorSpace.getColorSpaceName();
 
 ##### getWhitePoint
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWhitePoint(): collections.Array&lt;number&gt;
 
 获取色域白点值。
@@ -187,6 +201,8 @@ let point: collections.Array<number> = colorSpace.getWhitePoint();
 
 
 ##### getGamma
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getGamma(): number
 

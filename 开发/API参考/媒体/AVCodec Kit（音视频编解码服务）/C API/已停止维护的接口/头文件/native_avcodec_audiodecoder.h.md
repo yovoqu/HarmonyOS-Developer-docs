@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 音频解码Native API的声明。
  
 **引用文件：** <multimedia/player_framework/native_avcodec_audiodecoder.h>
@@ -27,9 +29,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -54,9 +60,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_AudioDecoder_CreateByMime()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVCodec *OH_AudioDecoder_CreateByMime(const char *mime)
@@ -92,6 +102,8 @@ OH_AVCodec *OH_AudioDecoder_CreateByMime(const char *mime)
 
 ##### OH_AudioDecoder_CreateByName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVCodec *OH_AudioDecoder_CreateByName(const char *name)
 ```
@@ -126,6 +138,8 @@ OH_AVCodec *OH_AudioDecoder_CreateByName(const char *name)
 
 ##### OH_AudioDecoder_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVErrCode OH_AudioDecoder_Destroy(OH_AVCodec *codec)
 ```
@@ -159,6 +173,8 @@ OH_AVErrCode OH_AudioDecoder_Destroy(OH_AVCodec *codec)
   
 
 ##### OH_AudioDecoder_SetCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioDecoder_SetCallback(OH_AVCodec *codec, OH_AVCodecAsyncCallback callback, void *userData)
@@ -196,6 +212,8 @@ OH_AVErrCode OH_AudioDecoder_SetCallback(OH_AVCodec *codec, OH_AVCodecAsyncCallb
 
 ##### OH_AudioDecoder_Configure()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVErrCode OH_AudioDecoder_Configure(OH_AVCodec *codec, OH_AVFormat *format)
 ```
@@ -231,6 +249,8 @@ OH_AVErrCode OH_AudioDecoder_Configure(OH_AVCodec *codec, OH_AVFormat *format)
 
 ##### OH_AudioDecoder_Prepare()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVErrCode OH_AudioDecoder_Prepare(OH_AVCodec *codec)
 ```
@@ -265,6 +285,8 @@ OH_AVErrCode OH_AudioDecoder_Prepare(OH_AVCodec *codec)
 
 ##### OH_AudioDecoder_Start()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVErrCode OH_AudioDecoder_Start(OH_AVCodec *codec)
 ```
@@ -298,6 +320,8 @@ OH_AVErrCode OH_AudioDecoder_Start(OH_AVCodec *codec)
   
 
 ##### OH_AudioDecoder_Stop()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioDecoder_Stop(OH_AVCodec *codec)
@@ -335,6 +359,8 @@ OH_AVErrCode OH_AudioDecoder_Stop(OH_AVCodec *codec)
 
 ##### OH_AudioDecoder_Flush()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVErrCode OH_AudioDecoder_Flush(OH_AVCodec *codec)
 ```
@@ -371,6 +397,8 @@ OH_AVErrCode OH_AudioDecoder_Flush(OH_AVCodec *codec)
 
 ##### OH_AudioDecoder_Reset()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVErrCode OH_AudioDecoder_Reset(OH_AVCodec *codec)
 ```
@@ -404,6 +432,8 @@ OH_AVErrCode OH_AudioDecoder_Reset(OH_AVCodec *codec)
   
 
 ##### OH_AudioDecoder_GetOutputDescription()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVFormat *OH_AudioDecoder_GetOutputDescription(OH_AVCodec *codec)
@@ -441,6 +471,8 @@ OH_AVFormat *OH_AudioDecoder_GetOutputDescription(OH_AVCodec *codec)
 
 ##### OH_AudioDecoder_SetParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVErrCode OH_AudioDecoder_SetParameter(OH_AVCodec *codec, OH_AVFormat *format)
 ```
@@ -477,6 +509,8 @@ OH_AVErrCode OH_AudioDecoder_SetParameter(OH_AVCodec *codec, OH_AVFormat *format
   
 
 ##### OH_AudioDecoder_PushInputData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioDecoder_PushInputData(OH_AVCodec *codec, uint32_t index, OH_AVCodecBufferAttr attr)
@@ -518,6 +552,8 @@ OH_AVErrCode OH_AudioDecoder_PushInputData(OH_AVCodec *codec, uint32_t index, OH
 
 ##### OH_AudioDecoder_FreeOutputData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVErrCode OH_AudioDecoder_FreeOutputData(OH_AVCodec *codec, uint32_t index)
 ```
@@ -552,6 +588,8 @@ OH_AVErrCode OH_AudioDecoder_FreeOutputData(OH_AVCodec *codec, uint32_t index)
   
 
 ##### OH_AudioDecoder_IsValid()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AudioDecoder_IsValid(OH_AVCodec *codec, bool *isValid)

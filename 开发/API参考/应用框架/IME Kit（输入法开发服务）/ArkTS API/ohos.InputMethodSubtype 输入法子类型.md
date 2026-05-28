@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { InputMethodSubtype } from '@kit.IMEKit';
 ```
@@ -21,6 +23,8 @@ import { InputMethodSubtype } from '@kit.IMEKit';
   
 
 ##### InputMethodSubtype
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入法子类型属性。
  

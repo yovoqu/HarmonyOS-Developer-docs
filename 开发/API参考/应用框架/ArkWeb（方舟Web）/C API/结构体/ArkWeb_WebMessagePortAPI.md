@@ -12,6 +12,8 @@ typedef struct {...} ArkWeb_WebMessagePortAPI
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Post Message相关的Native API结构体。在调用接口前建议通过[ARKWEB_MEMBER_MISSING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h#宏定义)校验该函数结构体是否有对应函数指针，避免SDK与设备ROM不匹配导致崩溃。WebMessagePort相关接口需在UI线程中调用OH_ArkWeb_GetNativeAPI方法获取。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ Post Message相关的Native API结构体。在调用接口前建议通过[ARKWEB
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,6 +42,8 @@ Post Message相关的Native API结构体。在调用接口前建议通过[ARKWEB
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,9 +56,13 @@ Post Message相关的Native API结构体。在调用接口前建议通过[ARKWEB
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### postMessage()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ArkWeb_ErrorCode (*postMessage)(const ArkWeb_WebMessagePortPtr webMessagePort, const char* webTag, const ArkWeb_WebMessagePtr webMessage)
@@ -80,6 +92,8 @@ ArkWeb_ErrorCode (*postMessage)(const ArkWeb_WebMessagePortPtr webMessagePort, c
 
 ##### close()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*close)(const ArkWeb_WebMessagePortPtr webMessagePort, const char* webTag)
 ```
@@ -99,6 +113,8 @@ void (*close)(const ArkWeb_WebMessagePortPtr webMessagePort, const char* webTag)
   
 
 ##### setMessageEventHandler()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*setMessageEventHandler)(const ArkWeb_WebMessagePortPtr webMessagePort, const char* webTag,

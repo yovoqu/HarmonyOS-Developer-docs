@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { baseProfile } from '@kit.ConnectivityKit';
 ```
@@ -22,11 +24,15 @@ import { baseProfile } from '@kit.ConnectivityKit';
 
 ##### BaseProfile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 基础Profile接口定义，提供订阅和获取连接状态等公共能力。如：[A2dpSourceProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-a2dp#a2dpsourceprofile)、[HandsFreeAudioGatewayProfile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-hfp#handsfreeaudiogatewayprofile)等[Profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#profile)类型都继承于该类。
 
 
 
 ##### ProfileConnectionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ProfileConnectionState = constant.ProfileConnectionState
 
@@ -43,6 +49,8 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 ##### StateChangeParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 本端和对端蓝牙设备间Profile连接状态变化参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -57,6 +65,8 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 
 ##### DisconnectCause12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，Profile断开连接的原因。
 
@@ -75,6 +85,8 @@ type ProfileConnectionState = constant.ProfileConnectionState
 
 
 ##### BaseProfile.getConnectedDevices
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getConnectedDevices(): Array&lt;string&gt;
 
@@ -122,6 +134,8 @@ try {
 
 
 ##### BaseProfile.getConnectionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getConnectionState(deviceId: string): ProfileConnectionState
 
@@ -181,6 +195,8 @@ try {
 
 ##### BaseProfile.on('connectionStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'connectionStateChange', callback: Callback&lt;StateChangeParam&gt;): void
 
 订阅Profile的连接状态变化事件。使用Callback异步回调。
@@ -228,6 +244,8 @@ try {
 
 
 ##### BaseProfile.off('connectionStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'connectionStateChange', callback?: Callback<[StateChangeParam](#statechangeparam)>): void
 

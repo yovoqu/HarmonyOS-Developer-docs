@@ -12,6 +12,8 @@
 
 ##### 1009700003
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 NearLink is off.
@@ -31,6 +33,8 @@ NearLink is off.
   
 
 ##### 1009700020
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -52,6 +56,8 @@ The UUID is already registered.
 
 ##### 1009700021
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 Port is exceeds the upper limit.
@@ -71,6 +77,8 @@ Port is exceeds the upper limit.
   
 
 ##### 1009700022
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -92,6 +100,8 @@ No port associated with this UUID is registered.
 
 ##### 1009700023
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 Write data congest.
@@ -112,6 +122,8 @@ Write data congest.
 
 ##### 1009700050
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 Coordinated Devices Set Management not supported.
@@ -131,6 +143,8 @@ Coordinated Devices Set Management not supported.
   
 
 ##### 1009700099
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  

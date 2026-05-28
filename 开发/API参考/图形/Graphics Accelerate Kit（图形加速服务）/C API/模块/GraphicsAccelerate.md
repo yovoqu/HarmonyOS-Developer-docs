@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 提供Graphics Accelerate Kit图形渲染加速能力的相关接口。
  
 **系统能力：** SystemCapability.GraphicsGame.RenderAccelerate
@@ -17,9 +19,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 文件
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,6 +40,8 @@
   
 
 ##### 结构体
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -64,6 +72,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -115,6 +125,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -138,6 +150,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -198,9 +212,13 @@
 
 ##### 类型定义说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### ABR_CameraData
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct ABR_CameraData ABR_CameraData
@@ -216,6 +234,8 @@ typedef struct ABR_CameraData ABR_CameraData
 
 ##### ABR_Context
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct ABR_Context ABR_Context
 ```
@@ -229,6 +249,8 @@ typedef struct ABR_Context ABR_Context
   
 
 ##### ABR_ErrorCode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef enum ABR_ErrorCode ABR_ErrorCode
@@ -244,6 +266,8 @@ typedef enum ABR_ErrorCode ABR_ErrorCode
 
 ##### ABR_RenderAPI_Type
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef enum ABR_RenderAPI_Type ABR_RenderAPI_Type
 ```
@@ -257,6 +281,8 @@ typedef enum ABR_RenderAPI_Type ABR_RenderAPI_Type
   
 
 ##### ABR_Vector3
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct ABR_Vector3 ABR_Vector3
@@ -272,6 +298,8 @@ typedef struct ABR_Vector3 ABR_Vector3
 
 ##### FG_AlgorithmModeInfo
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct FG_AlgorithmModeInfo FG_AlgorithmModeInfo
 ```
@@ -285,6 +313,8 @@ typedef struct FG_AlgorithmModeInfo FG_AlgorithmModeInfo
   
 
 ##### FG_Context_GLES
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct FG_Context_GLES FG_Context_GLES
@@ -300,6 +330,8 @@ typedef struct FG_Context_GLES FG_Context_GLES
 
 ##### FG_Context_VK
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct FG_Context_VK FG_Context_VK
 ```
@@ -313,6 +345,8 @@ typedef struct FG_Context_VK FG_Context_VK
   
 
 ##### FG_ContextDescription_VK
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct FG_ContextDescription_VK FG_ContextDescription_VK
@@ -328,6 +362,8 @@ typedef struct FG_ContextDescription_VK FG_ContextDescription_VK
 
 ##### FG_CvvZSemantic
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef enum FG_CvvZSemantic FG_CvvZSemantic
 ```
@@ -341,6 +377,8 @@ typedef enum FG_CvvZSemantic FG_CvvZSemantic
   
 
 ##### FG_Dimension2D
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct FG_Dimension2D FG_Dimension2D
@@ -356,6 +394,8 @@ typedef struct FG_Dimension2D FG_Dimension2D
 
 ##### FG_DispatchDescription_GLES
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct FG_DispatchDescription_GLES FG_DispatchDescription_GLES
 ```
@@ -369,6 +409,8 @@ typedef struct FG_DispatchDescription_GLES FG_DispatchDescription_GLES
   
 
 ##### FG_DispatchDescription_VK
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct FG_DispatchDescription_VK FG_DispatchDescription_VK
@@ -384,6 +426,8 @@ typedef struct FG_DispatchDescription_VK FG_DispatchDescription_VK
 
 ##### FG_ErrorCode
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef enum FG_ErrorCode FG_ErrorCode
 ```
@@ -397,6 +441,8 @@ typedef enum FG_ErrorCode FG_ErrorCode
   
 
 ##### FG_Image_VK
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct FG_Image_VK FG_Image_VK
@@ -412,6 +458,8 @@ typedef struct FG_Image_VK FG_Image_VK
 
 ##### FG_ImageFormat_GLES
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef enum FG_ImageFormat_GLES FG_ImageFormat_GLES
 ```
@@ -425,6 +473,8 @@ typedef enum FG_ImageFormat_GLES FG_ImageFormat_GLES
   
 
 ##### FG_ImageFormat_VK
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct FG_ImageFormat_VK FG_ImageFormat_VK
@@ -440,6 +490,8 @@ typedef struct FG_ImageFormat_VK FG_ImageFormat_VK
 
 ##### FG_ImageInfo_VK
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct FG_ImageInfo_VK FG_ImageInfo_VK
 ```
@@ -453,6 +505,8 @@ typedef struct FG_ImageInfo_VK FG_ImageInfo_VK
   
 
 ##### FG_ImageSync_VK
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct FG_ImageSync_VK FG_ImageSync_VK
@@ -468,6 +522,8 @@ typedef struct FG_ImageSync_VK FG_ImageSync_VK
 
 ##### FG_Mat4x4
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct FG_Mat4x4 FG_Mat4x4
 ```
@@ -481,6 +537,8 @@ typedef struct FG_Mat4x4 FG_Mat4x4
   
 
 ##### FG_MeMode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef enum FG_MeMode FG_MeMode
@@ -496,6 +554,8 @@ typedef enum FG_MeMode FG_MeMode
 
 ##### FG_PredictionMode
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef enum FG_PredictionMode FG_PredictionMode
 ```
@@ -509,6 +569,8 @@ typedef enum FG_PredictionMode FG_PredictionMode
   
 
 ##### FG_PresentMode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef enum FG_PresentMode FG_PresentMode
@@ -524,6 +586,8 @@ typedef enum FG_PresentMode FG_PresentMode
 
 ##### FG_ResolutionInfo
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct FG_ResolutionInfo FG_ResolutionInfo
 ```
@@ -537,6 +601,8 @@ typedef struct FG_ResolutionInfo FG_ResolutionInfo
   
 
 ##### FG_Vec3D
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct FG_Vec3D FG_Vec3D
@@ -552,6 +618,8 @@ typedef struct FG_Vec3D FG_Vec3D
 
 ##### FG_PerFrameExtendedCameraInfo
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct FG_PerFrameExtendedCameraInfo FG_PerFrameExtendedCameraInfo
 ```
@@ -565,6 +633,8 @@ typedef struct FG_PerFrameExtendedCameraInfo FG_PerFrameExtendedCameraInfo
   
 
 ##### FG_IntegrationInfo
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct FG_IntegrationInfo
@@ -580,6 +650,8 @@ typedef struct FG_IntegrationInfo
 
 ##### OpenGTX_ConfigDescription
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct OpenGTX_ConfigDescription OpenGTX_ConfigDescription
 ```
@@ -594,6 +666,8 @@ typedef struct OpenGTX_ConfigDescription OpenGTX_ConfigDescription
 
 ##### OpenGTX_Context
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct OpenGTX_Context OpenGTX_Context
 ```
@@ -607,6 +681,8 @@ typedef struct OpenGTX_Context OpenGTX_Context
   
 
 ##### OpenGTX_DeviceInfoCallback
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef void(* OpenGTX_DeviceInfoCallback) (OpenGTX_TempLevel)
@@ -629,6 +705,8 @@ typedef void(* OpenGTX_DeviceInfoCallback) (OpenGTX_TempLevel)
 
 ##### OpenGTX_EngineType
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef enum OpenGTX_EngineType OpenGTX_EngineType
 ```
@@ -642,6 +720,8 @@ typedef enum OpenGTX_EngineType OpenGTX_EngineType
   
 
 ##### OpenGTX_ErrorCode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef enum OpenGTX_ErrorCode OpenGTX_ErrorCode
@@ -657,6 +737,8 @@ typedef enum OpenGTX_ErrorCode OpenGTX_ErrorCode
 
 ##### OpenGTX_FrameRenderInfo
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct OpenGTX_FrameRenderInfo OpenGTX_FrameRenderInfo
 ```
@@ -670,6 +752,8 @@ typedef struct OpenGTX_FrameRenderInfo OpenGTX_FrameRenderInfo
   
 
 ##### OpenGTX_GameSceneInfo
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct OpenGTX_GameSceneInfo OpenGTX_GameSceneInfo
@@ -685,6 +769,8 @@ typedef struct OpenGTX_GameSceneInfo OpenGTX_GameSceneInfo
 
 ##### OpenGTX_GameType
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef enum OpenGTX_GameType OpenGTX_GameType
 ```
@@ -698,6 +784,8 @@ typedef enum OpenGTX_GameType OpenGTX_GameType
   
 
 ##### OpenGTX_LTPO_Mode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef enum OpenGTX_LTPO_Mode OpenGTX_LTPO_Mode
@@ -713,6 +801,8 @@ typedef enum OpenGTX_LTPO_Mode OpenGTX_LTPO_Mode
 
 ##### OpenGTX_NetworkInfo
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct OpenGTX_NetworkInfo OpenGTX_NetworkInfo
 ```
@@ -726,6 +816,8 @@ typedef struct OpenGTX_NetworkInfo OpenGTX_NetworkInfo
   
 
 ##### OpenGTX_NetworkLatency
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct OpenGTX_NetworkLatency OpenGTX_NetworkLatency
@@ -741,6 +833,8 @@ typedef struct OpenGTX_NetworkLatency OpenGTX_NetworkLatency
 
 ##### OpenGTX_PictureQualityMaxLevel
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef enum OpenGTX_PictureQualityMaxLevel OpenGTX_PictureQualityMaxLevel
 ```
@@ -754,6 +848,8 @@ typedef enum OpenGTX_PictureQualityMaxLevel OpenGTX_PictureQualityMaxLevel
   
 
 ##### OpenGTX_ResolutionValue
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef struct OpenGTX_ResolutionValue OpenGTX_ResolutionValue
@@ -769,6 +865,8 @@ typedef struct OpenGTX_ResolutionValue OpenGTX_ResolutionValue
 
 ##### OpenGTX_SceneID
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef enum OpenGTX_SceneID OpenGTX_SceneID
 ```
@@ -782,6 +880,8 @@ typedef enum OpenGTX_SceneID OpenGTX_SceneID
   
 
 ##### OpenGTX_TempLevel
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 typedef enum OpenGTX_TempLevel OpenGTX_TempLevel
@@ -797,6 +897,8 @@ typedef enum OpenGTX_TempLevel OpenGTX_TempLevel
 
 ##### OpenGTX_Vector3
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 typedef struct OpenGTX_Vector3 OpenGTX_Vector3
 ```
@@ -811,9 +913,13 @@ typedef struct OpenGTX_Vector3 OpenGTX_Vector3
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### ABR_ErrorCode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 enum ABR_ErrorCode
@@ -840,6 +946,8 @@ enum ABR_ErrorCode
 
 ##### ABR_RenderAPI_Type
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 enum ABR_RenderAPI_Type
 ```
@@ -858,6 +966,8 @@ enum ABR_RenderAPI_Type
   
 
 ##### FG_CvvZSemantic
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 enum FG_CvvZSemantic
@@ -880,6 +990,8 @@ enum FG_CvvZSemantic
   
 
 ##### FG_ErrorCode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 enum FG_ErrorCode
@@ -904,6 +1016,8 @@ enum FG_ErrorCode
 
 ##### FG_ImageFormat_GLES
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 enum FG_ImageFormat_GLES
 ```
@@ -925,6 +1039,8 @@ enum FG_ImageFormat_GLES
 
 ##### FG_MeMode
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 enum FG_MeMode
 ```
@@ -944,6 +1060,8 @@ enum FG_MeMode
   
 
 ##### FG_PredictionMode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 enum FG_PredictionMode
@@ -965,6 +1083,8 @@ enum FG_PredictionMode
 
 ##### FG_PresentMode
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 enum FG_PresentMode
 ```
@@ -984,6 +1104,8 @@ enum FG_PresentMode
   
 
 ##### OpenGTX_EngineType
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 enum OpenGTX_EngineType
@@ -1008,6 +1130,8 @@ enum OpenGTX_EngineType
 
 ##### OpenGTX_ErrorCode
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 enum OpenGTX_ErrorCode
 ```
@@ -1029,6 +1153,8 @@ enum OpenGTX_ErrorCode
   
 
 ##### OpenGTX_GameType
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 enum OpenGTX_GameType
@@ -1053,6 +1179,8 @@ enum OpenGTX_GameType
 
 ##### OpenGTX_LTPO_Mode
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 enum OpenGTX_LTPO_Mode
 ```
@@ -1073,6 +1201,8 @@ enum OpenGTX_LTPO_Mode
   
 
 ##### OpenGTX_PictureQualityMaxLevel
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 enum OpenGTX_PictureQualityMaxLevel
@@ -1096,6 +1226,8 @@ enum OpenGTX_PictureQualityMaxLevel
   
 
 ##### OpenGTX_SceneID
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 enum OpenGTX_SceneID
@@ -1123,6 +1255,8 @@ enum OpenGTX_SceneID
 
 ##### OpenGTX_TempLevel
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 enum OpenGTX_TempLevel
 ```
@@ -1147,9 +1281,13 @@ enum OpenGTX_TempLevel
 
 ##### 函数说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### HMS_ABR_Activate()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 ABR_ErrorCode HMS_ABR_Activate(ABR_Context* context)
@@ -1176,6 +1314,8 @@ ABR_ErrorCode HMS_ABR_Activate(ABR_Context* context)
 
 ##### HMS_ABR_CreateContext()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 ABR_Context* HMS_ABR_CreateContext(ABR_RenderAPI_Type type)
 ```
@@ -1200,6 +1340,8 @@ ABR_Context* HMS_ABR_CreateContext(ABR_RenderAPI_Type type)
   
 
 ##### HMS_ABR_Deactivate()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 ABR_ErrorCode HMS_ABR_Deactivate(ABR_Context* context)
@@ -1226,6 +1368,8 @@ ABR_ErrorCode HMS_ABR_Deactivate(ABR_Context* context)
 
 ##### HMS_ABR_DestroyContext()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 ABR_ErrorCode HMS_ABR_DestroyContext(ABR_Context** context)
 ```
@@ -1250,6 +1394,8 @@ ABR_ErrorCode HMS_ABR_DestroyContext(ABR_Context** context)
   
 
 ##### HMS_ABR_GetScale()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 ABR_ErrorCode HMS_ABR_GetScale(ABR_Context* context, float* scale )
@@ -1277,6 +1423,8 @@ ABR_ErrorCode HMS_ABR_GetScale(ABR_Context* context, float* scale )
 
 ##### HMS_ABR_GetNextScale()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 ABR_ErrorCode HMS_ABR_GetNextScale(ABR_Context* context, float* scale)
 ```
@@ -1302,6 +1450,8 @@ ABR_ErrorCode HMS_ABR_GetNextScale(ABR_Context* context, float* scale)
   
 
 ##### HMS_ABR_IsActive()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 ABR_ErrorCode HMS_ABR_IsActive(ABR_Context* context, bool* isActive )
@@ -1329,6 +1479,8 @@ ABR_ErrorCode HMS_ABR_IsActive(ABR_Context* context, bool* isActive )
 
 ##### HMS_ABR_MarkFrameBuffer_GLES()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 ABR_ErrorCode HMS_ABR_MarkFrameBuffer_GLES(ABR_Context* context)
 ```
@@ -1353,6 +1505,8 @@ ABR_ErrorCode HMS_ABR_MarkFrameBuffer_GLES(ABR_Context* context)
   
 
 ##### HMS_ABR_GetScaledTexture_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 ABR_ErrorCode HMS_ABR_GetScaledTexture_GLES(ABR_Context* context, uint32_t originTexture, uint32_t* scaledTexture)
@@ -1381,6 +1535,8 @@ ABR_ErrorCode HMS_ABR_GetScaledTexture_GLES(ABR_Context* context, uint32_t origi
 
 ##### HMS_ABR_SetScaleRange()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 ABR_ErrorCode HMS_ABR_SetScaleRange(ABR_Context* context, const float minValue, const float maxValue )
 ```
@@ -1408,6 +1564,8 @@ ABR_ErrorCode HMS_ABR_SetScaleRange(ABR_Context* context, const float minValue, 
 
 ##### HMS_ABR_SetTargetFps()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 ABR_ErrorCode HMS_ABR_SetTargetFps(ABR_Context* context, const uint32_t targetFps )
 ```
@@ -1433,6 +1591,8 @@ ABR_ErrorCode HMS_ABR_SetTargetFps(ABR_Context* context, const uint32_t targetFp
   
 
 ##### HMS_ABR_UpdateCameraData()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 ABR_ErrorCode HMS_ABR_UpdateCameraData(ABR_Context* context, ABR_CameraData* data )
@@ -1460,6 +1620,8 @@ ABR_ErrorCode HMS_ABR_UpdateCameraData(ABR_Context* context, ABR_CameraData* dat
 
 ##### HMS_FG_Activate_GLES()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_Activate_GLES(FG_Context_GLES* context)
 ```
@@ -1484,6 +1646,8 @@ FG_ErrorCode HMS_FG_Activate_GLES(FG_Context_GLES* context)
   
 
 ##### HMS_FG_Activate_VK()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_Activate_VK(FG_Context_VK* context)
@@ -1510,6 +1674,8 @@ FG_ErrorCode HMS_FG_Activate_VK(FG_Context_VK* context)
 
 ##### HMS_FG_CreateContext_GLES()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_Context_GLES* HMS_FG_CreateContext_GLES(void )
 ```
@@ -1527,6 +1693,8 @@ FG_Context_GLES* HMS_FG_CreateContext_GLES(void )
   
 
 ##### HMS_FG_CreateContext_VK()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_Context_VK* HMS_FG_CreateContext_VK(const FG_ContextDescription_VK* contextDescription)
@@ -1552,6 +1720,8 @@ FG_Context_VK* HMS_FG_CreateContext_VK(const FG_ContextDescription_VK* contextDe
   
 
 ##### HMS_FG_CreateImage_VK()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_Image_VK* HMS_FG_CreateImage_VK(FG_Context_VK* context, VkImage image, VkImageView view )
@@ -1580,6 +1750,8 @@ FG_Image_VK* HMS_FG_CreateImage_VK(FG_Context_VK* context, VkImage image, VkImag
 
 ##### HMS_FG_Deactivate_GLES()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_Deactivate_GLES(FG_Context_GLES* context)
 ```
@@ -1604,6 +1776,8 @@ FG_ErrorCode HMS_FG_Deactivate_GLES(FG_Context_GLES* context)
   
 
 ##### HMS_FG_Deactivate_VK()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_Deactivate_VK(FG_Context_VK* context)
@@ -1630,6 +1804,8 @@ FG_ErrorCode HMS_FG_Deactivate_VK(FG_Context_VK* context)
 
 ##### HMS_FG_DestroyContext_GLES()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_DestroyContext_GLES(FG_Context_GLES** context)
 ```
@@ -1655,6 +1831,8 @@ FG_ErrorCode HMS_FG_DestroyContext_GLES(FG_Context_GLES** context)
 
 ##### HMS_FG_DestroyContext_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_DestroyContext_VK(FG_Context_VK** context)
 ```
@@ -1679,6 +1857,8 @@ FG_ErrorCode HMS_FG_DestroyContext_VK(FG_Context_VK** context)
   
 
 ##### HMS_FG_DestroyImage_VK()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_DestroyImage_VK(FG_Context_VK* context, FG_Image_VK* image )
@@ -1706,6 +1886,8 @@ FG_ErrorCode HMS_FG_DestroyImage_VK(FG_Context_VK* context, FG_Image_VK* image )
 
 ##### HMS_FG_Dispatch_GLES()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_Dispatch_GLES(FG_Context_GLES* context, const FG_DispatchDescription_GLES* desc )
 ```
@@ -1731,6 +1913,8 @@ FG_ErrorCode HMS_FG_Dispatch_GLES(FG_Context_GLES* context, const FG_DispatchDes
   
 
 ##### HMS_FG_SetExtendedCameraInfo_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_SetExtendedCameraInfo_GLES(FG_Context_GLES* context, const FG_PerFrameExtendedCameraInfo* info)
@@ -1758,6 +1942,8 @@ FG_ErrorCode HMS_FG_SetExtendedCameraInfo_GLES(FG_Context_GLES* context, const F
 
 ##### HMS_FG_Dispatch_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_Dispatch_VK(FG_Context_VK* context, const FG_DispatchDescription_VK* desc )
 ```
@@ -1783,6 +1969,8 @@ FG_ErrorCode HMS_FG_Dispatch_VK(FG_Context_VK* context, const FG_DispatchDescrip
   
 
 ##### HMS_FG_IsActive_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_IsActive_GLES(FG_Context_GLES* context, bool* isActive )
@@ -1810,6 +1998,8 @@ FG_ErrorCode HMS_FG_IsActive_GLES(FG_Context_GLES* context, bool* isActive )
 
 ##### HMS_FG_IsActive_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_IsActive_VK(FG_Context_VK* context, bool* isActive )
 ```
@@ -1835,6 +2025,8 @@ FG_ErrorCode HMS_FG_IsActive_VK(FG_Context_VK* context, bool* isActive )
   
 
 ##### HMS_FG_SetAlgorithmMode_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_SetAlgorithmMode_GLES(FG_Context_GLES* context, const FG_AlgorithmModeInfo* predictionModeInfo )
@@ -1862,6 +2054,8 @@ FG_ErrorCode HMS_FG_SetAlgorithmMode_GLES(FG_Context_GLES* context, const FG_Alg
 
 ##### HMS_FG_SetAlgorithmMode_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_SetAlgorithmMode_VK(FG_Context_VK* context, const FG_AlgorithmModeInfo* predictionModeInfo )
 ```
@@ -1887,6 +2081,8 @@ FG_ErrorCode HMS_FG_SetAlgorithmMode_VK(FG_Context_VK* context, const FG_Algorit
   
 
 ##### HMS_FG_SetCvvZSemantic_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_SetCvvZSemantic_GLES(FG_Context_GLES* context, FG_CvvZSemantic semantic )
@@ -1914,6 +2110,8 @@ FG_ErrorCode HMS_FG_SetCvvZSemantic_GLES(FG_Context_GLES* context, FG_CvvZSemant
 
 ##### HMS_FG_SetCvvZSemantic_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_SetCvvZSemantic_VK(FG_Context_VK* context, FG_CvvZSemantic semantic )
 ```
@@ -1939,6 +2137,8 @@ FG_ErrorCode HMS_FG_SetCvvZSemantic_VK(FG_Context_VK* context, FG_CvvZSemantic s
   
 
 ##### HMS_FG_SetDepthStencilYDirectionInverted_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_SetDepthStencilYDirectionInverted_GLES(FG_Context_GLES* context, bool inverted )
@@ -1966,6 +2166,8 @@ FG_ErrorCode HMS_FG_SetDepthStencilYDirectionInverted_GLES(FG_Context_GLES* cont
 
 ##### HMS_FG_SetDepthStencilYDirectionInverted_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_SetDepthStencilYDirectionInverted_VK(FG_Context_VK* context, bool inverted )
 ```
@@ -1991,6 +2193,8 @@ FG_ErrorCode HMS_FG_SetDepthStencilYDirectionInverted_VK(FG_Context_VK* context,
   
 
 ##### HMS_FG_SetImageFormat_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_SetImageFormat_GLES(FG_Context_GLES* context, FG_ImageFormat_GLES format )
@@ -2018,6 +2222,8 @@ FG_ErrorCode HMS_FG_SetImageFormat_GLES(FG_Context_GLES* context, FG_ImageFormat
 
 ##### HMS_FG_SetImageFormat_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_SetImageFormat_VK(FG_Context_VK* context, const FG_ImageFormat_VK* format )
 ```
@@ -2043,6 +2249,8 @@ FG_ErrorCode HMS_FG_SetImageFormat_VK(FG_Context_VK* context, const FG_ImageForm
   
 
 ##### HMS_FG_SetResolution_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_SetResolution_GLES(FG_Context_GLES* context, const FG_ResolutionInfo* resolutionInfo )
@@ -2070,6 +2278,8 @@ FG_ErrorCode HMS_FG_SetResolution_GLES(FG_Context_GLES* context, const FG_Resolu
 
 ##### HMS_FG_SetResolution_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_SetResolution_VK(FG_Context_VK* context, const FG_ResolutionInfo* resolutionInfo )
 ```
@@ -2095,6 +2305,8 @@ FG_ErrorCode HMS_FG_SetResolution_VK(FG_Context_VK* context, const FG_Resolution
   
 
 ##### HMS_FG_SetIntegrationMode_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_SetIntegrationMode_GLES(FG_Context_GLES* context, const FG_IntegrationInfo* integrationInfo)
@@ -2122,6 +2334,8 @@ FG_ErrorCode HMS_FG_SetIntegrationMode_GLES(FG_Context_GLES* context, const FG_I
 
 ##### HMS_FG_SetIntegrationMode_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_SetIntegrationMode_VK(FG_Context_VK* context, const FG_IntegrationInfo* integrationInfo)
 ```
@@ -2147,6 +2361,8 @@ FG_ErrorCode HMS_FG_SetIntegrationMode_VK(FG_Context_VK* context, const FG_Integ
   
 
 ##### HMS_FG_SetUiPredictionEnabled_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_SetUiPredictionEnabled_GLES(FG_Context_GLES* context, bool isEnabled)
@@ -2174,6 +2390,8 @@ FG_ErrorCode HMS_FG_SetUiPredictionEnabled_GLES(FG_Context_GLES* context, bool i
 
 ##### HMS_FG_SetUiPredictionEnabled_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_SetUiPredictionEnabled_VK(FG_Context_VK* context, bool isEnabled)
 ```
@@ -2199,6 +2417,8 @@ FG_ErrorCode HMS_FG_SetUiPredictionEnabled_VK(FG_Context_VK* context, bool isEna
   
 
 ##### HMS_FG_SetTargetFps_GLES()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ErrorCode HMS_FG_SetTargetFps_GLES(FG_Context_GLES* context, int targetFps)
@@ -2226,6 +2446,8 @@ FG_ErrorCode HMS_FG_SetTargetFps_GLES(FG_Context_GLES* context, int targetFps)
 
 ##### HMS_FG_SetTargetFps_VK()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ErrorCode HMS_FG_SetTargetFps_VK(FG_Context_VK* context, int targetFps)
 ```
@@ -2252,6 +2474,8 @@ FG_ErrorCode HMS_FG_SetTargetFps_VK(FG_Context_VK* context, int targetFps)
 
 ##### HMS_OpenGTX_Activate()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 OpenGTX_ErrorCode HMS_OpenGTX_Activate(OpenGTX_Context* context)
 ```
@@ -2276,6 +2500,8 @@ OpenGTX_ErrorCode HMS_OpenGTX_Activate(OpenGTX_Context* context)
   
 
 ##### HMS_OpenGTX_CreateContext()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 OpenGTX_Context* HMS_OpenGTX_CreateContext(OpenGTX_DeviceInfoCallback deviceInfoCallback)
@@ -2302,6 +2528,8 @@ OpenGTX_Context* HMS_OpenGTX_CreateContext(OpenGTX_DeviceInfoCallback deviceInfo
 
 ##### HMS_OpenGTX_Deactivate()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 OpenGTX_ErrorCode HMS_OpenGTX_Deactivate(OpenGTX_Context* context)
 ```
@@ -2327,6 +2555,8 @@ OpenGTX_ErrorCode HMS_OpenGTX_Deactivate(OpenGTX_Context* context)
 
 ##### HMS_OpenGTX_DestroyContext()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 OpenGTX_ErrorCode HMS_OpenGTX_DestroyContext(OpenGTX_Context** context)
 ```
@@ -2351,6 +2581,8 @@ OpenGTX_ErrorCode HMS_OpenGTX_DestroyContext(OpenGTX_Context** context)
   
 
 ##### HMS_OpenGTX_DispatchFrameRenderInfo()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 OpenGTX_ErrorCode HMS_OpenGTX_DispatchFrameRenderInfo(OpenGTX_Context* context, const OpenGTX_FrameRenderInfo* frameRenderInfo )
@@ -2378,6 +2610,8 @@ OpenGTX_ErrorCode HMS_OpenGTX_DispatchFrameRenderInfo(OpenGTX_Context* context, 
 
 ##### HMS_OpenGTX_DispatchGameSceneInfo()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 OpenGTX_ErrorCode HMS_OpenGTX_DispatchGameSceneInfo(OpenGTX_Context* context, const OpenGTX_GameSceneInfo* gameSceneInfo )
 ```
@@ -2404,6 +2638,8 @@ OpenGTX_ErrorCode HMS_OpenGTX_DispatchGameSceneInfo(OpenGTX_Context* context, co
 
 ##### HMS_OpenGTX_DispatchNetworkInfo()
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 OpenGTX_ErrorCode HMS_OpenGTX_DispatchNetworkInfo(OpenGTX_Context* context, const OpenGTX_NetworkInfo* networkInfo )
 ```
@@ -2429,6 +2665,8 @@ OpenGTX_ErrorCode HMS_OpenGTX_DispatchNetworkInfo(OpenGTX_Context* context, cons
   
 
 ##### HMS_OpenGTX_SetConfiguration()
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 OpenGTX_ErrorCode HMS_OpenGTX_SetConfiguration (OpenGTX_Context* context, const OpenGTX_ConfigDescription* config )

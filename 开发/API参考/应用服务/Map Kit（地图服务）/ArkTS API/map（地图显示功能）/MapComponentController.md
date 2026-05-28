@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
 
 
 ##### MapComponentController
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 地图的主要功能入口类，与地图有关的所有方法从此处接入，并提供事件监听管理功能。
 
@@ -94,6 +98,8 @@ struct HuaweiMapDemo {
 
 ##### animateCamera
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 animateCamera(update: CameraUpdate, duration?: number): void
 
 在指定的持续时间内以动画的形式更新相机状态。
@@ -134,6 +140,8 @@ this.mapController.animateCamera(cameraUpdate, 1000);
 
 
 ##### animateCameraStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 animateCameraStatus(update: CameraUpdate, duration?: number): Promise&lt;AnimateResult&gt;
 
@@ -191,6 +199,8 @@ let animateResult = await this.mapController.animateCameraStatus(cameraUpdate, 1
 
 
 ##### animateCameraWithMarker
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 animateCameraWithMarker(update: CameraUpdate, marker: Marker, duration: number): Promise&lt;AnimateResult&gt;
 
@@ -253,6 +263,8 @@ await this.mapController.animateCameraWithMarker(cameraUpdate, marker, 1000);
 
 
 ##### animateCameraWithMarkers
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 animateCameraWithMarkers(update: CameraUpdate, markers: Array&lt;Marker&gt;, duration: number): Promise&lt;AnimateResult&gt;
 
@@ -338,6 +350,8 @@ await this.mapController.animateCameraWithMarkers(cameraUpdate, [marker1, marker
 
 ##### stopAnimation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 stopAnimation(): void
 
 停止当前执行的改变地图状态的动画。调用该方法时，相机立即停止移动并保持在该位置。
@@ -360,6 +374,8 @@ this.mapController.stopAnimation();
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 clear(): void
 
 移除地图上所有的圆、标记、折线等覆盖物。
@@ -381,6 +397,8 @@ this.mapController.clear();
 
 
 ##### moveCamera
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 moveCamera(update: CameraUpdate): void
 
@@ -422,6 +440,8 @@ this.mapController.moveCamera(cameraUpdate);
 
 ##### getCameraPosition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getCameraPosition(): mapCommon.CameraPosition
 
 获取相机的当前状态信息。
@@ -450,6 +470,8 @@ let cameraPosition: mapCommon.CameraPosition = this.mapController.getCameraPosit
 
 
 ##### setLatLngBounds
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setLatLngBounds(bounds: mapCommon.LatLngBounds): void
 
@@ -490,6 +512,8 @@ this.mapController.setLatLngBounds(bounds);
 
 ##### setPointToCenter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setPointToCenter(point: mapCommon.MapPoint): void
 
 将屏幕上的像素位置设置为地图的中心点。使用此方法后，地图将根据设置的屏幕坐标进行缩放和旋转。
@@ -523,6 +547,8 @@ this.mapController.setPointToCenter(point);
 
 ##### setMaxZoom
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setMaxZoom(maxZoom: number): void
 
 设置相机最大缩放级别。
@@ -551,6 +577,8 @@ this.mapController.setMaxZoom(10);
 
 
 ##### setMinZoom
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setMinZoom(minZoom: number): void
 
@@ -581,6 +609,8 @@ this.mapController.setMinZoom(3);
 
 ##### getMaxZoom
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getMaxZoom(): number
 
 获取相机最大缩放级别。
@@ -609,6 +639,8 @@ let maxZoom: number = this.mapController.getMaxZoom();
 
 
 ##### getMinZoom
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getMinZoom(): number
 
@@ -639,6 +671,8 @@ let minZoom: number = this.mapController.getMinZoom();
 
 ##### setTrafficEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setTrafficEnabled(enabled: boolean): void
 
 打开或关闭路况图层。
@@ -667,6 +701,8 @@ this.mapController.setTrafficEnabled(true);
 
 
 ##### isTrafficEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isTrafficEnabled(): boolean
 
@@ -697,6 +733,8 @@ let isTrafficEnabled: boolean = this.mapController.isTrafficEnabled();
 
 ##### setBuildingEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setBuildingEnabled(enabled: boolean): void
 
 打开或者关闭3D建筑图层。
@@ -725,6 +763,8 @@ this.mapController.setBuildingEnabled(true);
 
 
 ##### isBuildingEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isBuildingEnabled(): boolean
 
@@ -755,6 +795,8 @@ let isBuildingEnabled: boolean = this.mapController.isBuildingEnabled();
 
 ##### setMyLocationEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setMyLocationEnabled(myLocationEnabled: boolean): void
 
 我的位置图层功能开关，默认使用系统的连续定位能力显示用户位置。开关打开后，“我的位置”按钮默认显示在地图的右下角。点击“我的位置”按钮，将会在屏幕中心显示当前定位，以蓝色圆点的形式呈现。如果需要自定义位置图标样式，请参见[setMyLocationStyle](#setmylocationstyle)。
@@ -783,6 +825,8 @@ this.mapController.setMyLocationEnabled(true);
 
 
 ##### setMyLocation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setMyLocation(location: geoLocationManager.Location): void
 
@@ -816,6 +860,8 @@ this.mapController.setMyLocation(location);
 
 
 ##### setMyLocationStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setMyLocationStyle(style: mapCommon.MyLocationStyle): Promise&lt;void&gt;
 
@@ -860,6 +906,8 @@ await this.mapController.setMyLocationStyle(style);
 
 ##### isMyLocationEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isMyLocationEnabled(): boolean
 
 获取我的位置图层的开启状态。
@@ -888,6 +936,8 @@ let isMyLocationEnabled: boolean = this.mapController.isMyLocationEnabled();
 
 
 ##### setZoomGesturesEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setZoomGesturesEnabled(enabled: boolean): void
 
@@ -928,6 +978,8 @@ this.mapController.setZoomGesturesEnabled(true);
 
 ##### isZoomGesturesEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isZoomGesturesEnabled(): boolean
 
 获取缩放手势功能的启用状态。
@@ -956,6 +1008,8 @@ let isZoomGesturesEnabled: boolean = this.mapController.isZoomGesturesEnabled();
 
 
 ##### setScrollGesturesEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setScrollGesturesEnabled(enabled: boolean): void
 
@@ -990,6 +1044,8 @@ this.mapController.setScrollGesturesEnabled(true);
 
 ##### isScrollGesturesEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isScrollGesturesEnabled(): boolean
 
 获取滚动手势的启用状态。
@@ -1018,6 +1074,8 @@ let isScrollGesturesEnabled: boolean = this.mapController.isScrollGesturesEnable
 
 
 ##### setRotateGesturesEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setRotateGesturesEnabled(enabled: boolean): void
 
@@ -1052,6 +1110,8 @@ this.mapController.setRotateGesturesEnabled(true);
 
 ##### isRotateGesturesEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isRotateGesturesEnabled(): boolean
 
 获取旋转手势的启用状态。
@@ -1080,6 +1140,8 @@ let isRotateGesturesEnabled: boolean = this.mapController.isRotateGesturesEnable
 
 
 ##### setTiltGesturesEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setTiltGesturesEnabled(enabled: boolean): void
 
@@ -1114,6 +1176,8 @@ this.mapController.setTiltGesturesEnabled(true);
 
 ##### isTiltGesturesEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isTiltGesturesEnabled(): boolean
 
 获取倾斜手势的启用状态。
@@ -1142,6 +1206,8 @@ let isTiltGesturesEnabled: boolean = this.mapController.isTiltGesturesEnabled();
 
 
 ##### setZoomControlsEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setZoomControlsEnabled(enabled: boolean): void
 
@@ -1176,6 +1242,8 @@ this.mapController.setZoomControlsEnabled(true);
 
 ##### isZoomControlsEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isZoomControlsEnabled(): boolean
 
 获取缩放控制器的启用状态。
@@ -1204,6 +1272,8 @@ let isZoomControlsEnabled: boolean = this.mapController.isZoomControlsEnabled();
 
 
 ##### setMyLocationControlsEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setMyLocationControlsEnabled(enabled: boolean): void
 
@@ -1234,6 +1304,8 @@ this.mapController.setMyLocationControlsEnabled(true);
 
 ##### isMyLocationControlsEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isMyLocationControlsEnabled(): boolean
 
 获取我的位置按钮的启用状态。
@@ -1262,6 +1334,8 @@ let isMyLocationControlsEnabled: boolean = this.mapController.isMyLocationContro
 
 
 ##### setScaleControlsEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setScaleControlsEnabled(enabled: boolean): void
 
@@ -1292,6 +1366,8 @@ this.mapController.setScaleControlsEnabled(true);
 
 ##### isScaleControlsEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isScaleControlsEnabled(): boolean
 
 获取比例尺的启用状态。
@@ -1320,6 +1396,8 @@ let isScaleControlsEnabled: boolean = this.mapController.isScaleControlsEnabled(
 
 
 ##### setCompassControlsEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setCompassControlsEnabled(enabled: boolean): void
 
@@ -1350,6 +1428,8 @@ this.mapController.setCompassControlsEnabled(true);
 
 ##### isCompassControlsEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isCompassControlsEnabled(): boolean
 
 获取指南针的启用状态。
@@ -1378,6 +1458,8 @@ let isCompassControlsEnabled: boolean = this.mapController.isCompassControlsEnab
 
 
 ##### setGestureScaleByMapCenter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setGestureScaleByMapCenter(enabled: boolean): void
 
@@ -1412,6 +1494,8 @@ this.mapController.setGestureScaleByMapCenter(true);
 
 ##### isGestureScaleByMapCenter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isGestureScaleByMapCenter(): boolean
 
 获取以固定屏幕中心点进行缩放功能的开启状态。
@@ -1441,6 +1525,8 @@ let isGestureScaleByMapCenter: boolean = this.mapController.isGestureScaleByMapC
 
 ##### setLogoAlignment
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setLogoAlignment(alignment: mapCommon.LogoAlignment): void
 
 设置地图Logo的对齐方式。
@@ -1469,6 +1555,8 @@ this.mapController.setLogoAlignment(mapCommon.LogoAlignment.BOTTOM_START);
 
 
 ##### setLogoPadding
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setLogoPadding(padding: mapCommon.Padding): void
 
@@ -1512,6 +1600,8 @@ this.mapController.setLogoPadding(padding);
 
 ##### getScalePerPixel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getScalePerPixel(): number
 
 获取当前缩放级别下，地图上1像素点对应的长度，单位：m。
@@ -1540,6 +1630,8 @@ let scalePerPixel: number = this.mapController.getScalePerPixel();
 
 
 ##### addMarker
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addMarker(options: mapCommon.MarkerOptions): Promise&lt;Marker&gt;
 
@@ -1606,6 +1698,8 @@ let marker: map.Marker = await this.mapController.addMarker(markerOptions);
 
 
 ##### addCircle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addCircle(options: mapCommon.MapCircleOptions): Promise&lt;MapCircle&gt;
 
@@ -1676,6 +1770,8 @@ let mapCircle: map.MapCircle = await this.mapController.addCircle(mapCircleOptio
 
 ##### addPolyline
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addPolyline(options: mapCommon.MapPolylineOptions): Promise&lt;MapPolyline&gt;
 
 在地图上添加一条折线。使用Promise异步回调。
@@ -1743,6 +1839,8 @@ let mapPolyline: map.MapPolyline = await this.mapController.addPolyline(polyline
 
 
 ##### addPolygon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addPolygon(options: mapCommon.MapPolygonOptions): Promise&lt;MapPolygon&gt;
 
@@ -1815,6 +1913,8 @@ let mapPolygon: map.MapPolygon = await this.mapController.addPolygon(polygonOpti
 
 
 ##### addPointAnnotation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addPointAnnotation(params: mapCommon.PointAnnotationParams): Promise&lt;PointAnnotation&gt;
 
@@ -1908,6 +2008,8 @@ let pointAnnotation: map.PointAnnotation = await this.mapController.addPointAnno
 
 ##### addBubble
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addBubble(params: mapCommon.BubbleParams): Promise&lt;Bubble&gt;
 
 在地图上添加气泡。使用Promise异步回调。
@@ -1977,6 +2079,8 @@ let bubble: map.Bubble = await this.mapController.addBubble(bubbleOptions);
 
 ##### setPadding
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setPadding(padding?: mapCommon.Padding): void
 
 设置地图和边界的距离来定义地图的可见区域。地图图层元素将适应填充，例如，缩放控件、指南针等将被移动到适应定义的区域，相机将相对于可见区域的中心移动。
@@ -2011,6 +2115,8 @@ this.mapController.setPadding(padding);
 
 ##### getProjection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getProjection(): Projection
 
 获取Projection对象，用于实现屏幕坐标和经纬度坐标之间的相互转换。
@@ -2039,6 +2145,8 @@ let projection: map.Projection = this.mapController.getProjection();
 
 
 ##### setCustomMapStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setCustomMapStyle(customMapStyleOptions: mapCommon.CustomMapStyleOptions): Promise&lt;void&gt;
 
@@ -2090,6 +2198,8 @@ await this.mapController.setCustomMapStyle(param);
 
 ##### getDayNightMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getDayNightMode(): mapCommon.DayNightMode
 
 查询地图的日间夜间模式。
@@ -2118,6 +2228,8 @@ let mode = this.mapController.getDayNightMode();
 
 
 ##### setDayNightMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setDayNightMode(mode: mapCommon.DayNightMode): void
 
@@ -2148,6 +2260,8 @@ this.mapController.setDayNightMode(mapCommon.DayNightMode.AUTO);
 
 ##### getMapType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getMapType(): mapCommon.MapType
 
 查询地图类型。
@@ -2177,6 +2291,8 @@ let mapType = this.mapController.getMapType();
 
 ##### setMapType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setMapType(mapType: mapCommon.MapType): void
 
 设置地图类型。
@@ -2205,6 +2321,8 @@ this.mapController.setMapType(mapCommon.MapType.TERRAIN);
 
 
 ##### setScalePosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setScalePosition(point: mapCommon.MapPoint): void
 
@@ -2241,6 +2359,8 @@ this.mapController.setScalePosition(point);
 
 ##### getScaleLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getScaleLevel(): number
 
 查询当前层级的比例尺大小。
@@ -2269,6 +2389,8 @@ let level = this.mapController.getScaleLevel();
 
 
 ##### setCompassPosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setCompassPosition(point: mapCommon.MapPoint): void
 
@@ -2303,6 +2425,8 @@ this.mapController.setCompassPosition(point);
 
 ##### setAllGesturesEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setAllGesturesEnabled(enabled: boolean): void
 
 提供禁用所有手势的接口。
@@ -2331,6 +2455,8 @@ this.mapController.setAllGesturesEnabled(true);
 
 
 ##### getScaleControlsHeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getScaleControlsHeight(): number
 
@@ -2361,6 +2487,8 @@ let height = this.mapController.getScaleControlsHeight();
 
 ##### getScaleControlsWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getScaleControlsWidth(): number
 
 获取比例尺控件的宽度。
@@ -2389,6 +2517,8 @@ let width = this.mapController.getScaleControlsWidth();
 
 
 ##### setAlwaysShowScaleEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setAlwaysShowScaleEnabled(enabled: boolean): void
 
@@ -2419,6 +2549,8 @@ this.mapController.setAlwaysShowScaleEnabled(true);
 
 ##### isAlwaysShowScaleEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isAlwaysShowScaleEnabled(): boolean
 
 返回是否始终显示比例尺。
@@ -2447,6 +2579,8 @@ let scaleEnabled: boolean = this.mapController.isAlwaysShowScaleEnabled();
 
 
 ##### addClusterOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addClusterOverlay(params: mapCommon.ClusterOverlayParams): Promise&lt;ClusterOverlay&gt;
 
@@ -2511,6 +2645,8 @@ let clusterOverlay: map.ClusterOverlay = await this.mapController.addClusterOver
 
 ##### addImageOverlay
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addImageOverlay(params: mapCommon.ImageOverlayParams): Promise&lt;ImageOverlay&gt;
 
 新增图片覆盖物。使用Promise异步回调。
@@ -2572,6 +2708,8 @@ let imageOverlay = await this.mapController?.addImageOverlay(imageOverlayParams)
 
 ##### snapshot
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 snapshot(): Promise<image.PixelMap>
 
 生成地图快照。使用Promise异步回调。
@@ -2602,6 +2740,8 @@ let image: image.PixelMap = await this.mapController.snapshot();
 
 
 ##### addBuildingOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addBuildingOverlay(params: mapCommon.BuildingOverlayParams): Promise&lt;BuildingOverlay&gt;
 
@@ -2811,6 +2951,8 @@ let buildingOverlay: map.BuildingOverlay = await this.mapController?.addBuilding
 
 ##### addTraceOverlay
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addTraceOverlay(params: mapCommon.TraceOverlayParams, markers?: Array&lt;Marker&gt;): Promise&lt;TraceOverlay&gt;
 
 绘制动态轨迹，支持传一组标记，标记将和轨迹一起移动。使用Promise异步回调。
@@ -2996,6 +3138,8 @@ let traceOverlay: map.TraceOverlay = await this.mapController.addTraceOverlay(tr
 
 ##### addArc
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addArc(params: mapCommon.MapArcParams): MapArc
 
 在地图上添加一条弧线。
@@ -3065,6 +3209,8 @@ this.mapController.addArc(mapArcParams);
 
 ##### show
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 show(): void
 
 将地图切换到前台，开发者在绘制地图页面的生命周期onPageShow中调用。
@@ -3092,6 +3238,8 @@ onPageShow(): void {
 
 
 ##### hide
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 hide(): void
 
@@ -3121,6 +3269,8 @@ onPageHide(): void {
 
 ##### getEventManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getEventManager(): MapEventManager
 
 返回地图监听事件管理器。
@@ -3149,6 +3299,8 @@ let mapEventManager: map.MapEventManager = this.mapController.getEventManager();
 
 
 ##### setDisplayOrder
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setDisplayOrder(types: Array<mapCommon.MapElementType>): void
 
@@ -3193,6 +3345,8 @@ this.mapController.setDisplayOrder(mapElementTypeArr);
 
 ##### setLogoScale
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setLogoScale(logoScale: number): void
 
 修改Logo缩放比例。
@@ -3231,6 +3385,8 @@ this.mapController.setLogoScale(0.9);
 
 ##### getLogoScale
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getLogoScale(): number
 
 查询Logo缩放比例。缩放比例取值范围是[0.8,1]。
@@ -3259,6 +3415,8 @@ let logoScale: number = this.mapController.getLogoScale();
 
 
 ##### isSphereEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isSphereEnabled(): boolean
 
@@ -3289,6 +3447,8 @@ let result: boolean = this.mapController.isSphereEnabled();
 
 ##### setSphereEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setSphereEnabled(enabled: boolean): void
 
 以动画形式切换2D或3D地球。3D地球是指将地球表面信息以三维立体的方式在数字设备上展示的技术。
@@ -3317,6 +3477,8 @@ this.mapController.setSphereEnabled(true);
 
 
 ##### setSphereEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setSphereEnabled(enabled: boolean, animateDuration: number): void
 
@@ -3348,6 +3510,8 @@ this.mapController.setSphereEnabled(true, 1000);
 
 ##### setSphereEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setSphereEnabled(enabled: boolean, animateDuration: number, cityLight: boolean): void
 
 以动画形式切换2D或3D地球。3D地球是指将地球表面信息以三维立体的方式在数字设备上展示的技术。
@@ -3378,6 +3542,8 @@ this.mapController.setSphereEnabled(true, 1000, true);
 
 
 ##### addHeatmap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addHeatmap(params: mapCommon.HeatmapParams): Promise&lt;Heatmap&gt;
 
@@ -3444,6 +3610,8 @@ await this.mapController?.addHeatmap(heatMapOptions)
 
 
 ##### addMvtOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addMvtOverlay(params: mapCommon.MvtOverlayParams): MvtOverlay
 
@@ -3512,6 +3680,8 @@ let mvtOverlay = this.mapController?.addMvtOverlay(params);
 
 ##### setFramePerSecond
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setFramePerSecond(fps: number): void
 
 设置每秒期望的帧数。
@@ -3540,6 +3710,8 @@ this.mapController?.setFramePerSecond(60);
 
 
 ##### addFlowFieldOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addFlowFieldOverlay(params: mapCommon.FlowFieldOverlayParams): Promise&lt;FlowFieldOverlay&gt;
 
@@ -3589,6 +3761,8 @@ let fieldOverlay = await this.mapController.addFlowFieldOverlay(params);
 
 
 ##### addMassPointOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addMassPointOverlay(params: mapCommon.MassPointOverlayParams): Promise&lt;MassPointOverlay&gt;
 
@@ -3654,6 +3828,8 @@ let massPointOverlay = await this.mapController?.addMassPointOverlay(params);
 
 ##### setLanguage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setLanguage(language: string): void
 
 设置地图组件语言。
@@ -3682,6 +3858,8 @@ this.mapController?.setLanguage('ja');
 
 
 ##### getLanguage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getLanguage(): string
 
@@ -3712,6 +3890,8 @@ let language = this.mapController?.getLanguage();
 
 ##### changeMyLocationLayerOrder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 changeMyLocationLayerOrder(isBelow: boolean): void
 
 更改我的位置图层相对于覆盖物的压盖顺序。
@@ -3740,6 +3920,8 @@ this.mapController?.changeMyLocationLayerOrder(true);
 
 
 ##### addTileOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addTileOverlay(params: mapCommon.TileOverlayParams | mapCommon.TileOverlayOptions): TileOverlay
 
@@ -3801,6 +3983,8 @@ let tileOverlay: map.TileOverlay = this.mapController?.addTileOverlay(params);
 
 ##### on('cameraChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'cameraChange', callback: Callback<mapCommon.LatLng>): void
 
 监听地图相机状态变化事件。使用callback异步回调。此回调不会在动画过程中触发，而是在动画结束时触发。
@@ -3834,6 +4018,8 @@ this.mapController.on("cameraChange", (position) => {
 
 
 ##### off('cameraChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraChange', callback: Callback&lt;void&gt;): void
 
@@ -3869,6 +4055,8 @@ this.mapController.off("cameraChange", (position) => {
 
 ##### on('cameraIdle')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'cameraIdle', callback: Callback&lt;void&gt;): void
 
 监听相机移动结束事件。使用callback异步回调。
@@ -3902,6 +4090,8 @@ this.mapController.on("cameraIdle", () => {
 
 
 ##### off('cameraIdle')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraIdle', callback: Callback&lt;void&gt;): void
 
@@ -3937,6 +4127,8 @@ this.mapController.off("cameraIdle", () => {
 
 ##### on('cameraMoveCancel')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'cameraMoveCancel', callback: Callback&lt;void&gt;): void
 
 监听相机移动取消事件。使用callback异步回调。
@@ -3970,6 +4162,8 @@ this.mapController.on("cameraMoveCancel", () => {
 
 
 ##### off('cameraMoveCancel')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraMoveCancel', callback: Callback&lt;void&gt;): void
 
@@ -4005,6 +4199,8 @@ this.mapController.off("cameraMoveCancel", () => {
 
 ##### on('cameraMove')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'cameraMove', callback: Callback&lt;void&gt;): void
 
 监听相机移动事件。使用callback异步回调。
@@ -4038,6 +4234,8 @@ this.mapController.on("cameraMove", () => {
 
 
 ##### off('cameraMove')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraMove', callback: Callback&lt;void&gt;): void
 
@@ -4073,6 +4271,8 @@ this.mapController.off("cameraMove", () => {
 
 ##### on('cameraMoveStart')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'cameraMoveStart', callback: Callback&lt;number&gt;): void
 
 监听相机移动开始事件。使用callback异步回调。
@@ -4106,6 +4306,8 @@ this.mapController.on("cameraMoveStart", (reason) => {
 
 
 ##### off('cameraMoveStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'cameraMoveStart', callback: Callback&lt;void&gt;): void
 
@@ -4141,6 +4343,8 @@ this.mapController.off("cameraMoveStart", () => {
 
 ##### on('mapClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'mapClick', callback: Callback<mapCommon.LatLng>): void
 
 监听地图点击事件。使用callback异步回调。
@@ -4174,6 +4378,8 @@ this.mapController.on("mapClick", (position) => {
 
 
 ##### off('mapClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'mapClick', callback: Callback&lt;void&gt;): void
 
@@ -4209,6 +4415,8 @@ this.mapController.off("mapClick", () => {
 
 ##### on('mapLoad')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'mapLoad', callback: Callback&lt;void&gt;): void
 
 监听地图加载事件。使用callback异步回调。
@@ -4242,6 +4450,8 @@ this.mapController.on("mapLoad", () => {
 
 
 ##### off('mapLoad')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'mapLoad', callback: Callback&lt;void&gt;): void
 
@@ -4277,6 +4487,8 @@ this.mapController.off("mapLoad", () => {
 
 ##### on('mapLongClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'mapLongClick', callback: Callback<mapCommon.LatLng>): void
 
 监听地图长按事件。使用callback异步回调。
@@ -4310,6 +4522,8 @@ this.mapController.on("mapLongClick", () => {
 
 
 ##### off('mapLongClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'mapLongClick', callback: Callback&lt;void&gt;): void
 
@@ -4345,6 +4559,8 @@ this.mapController.off("mapLongClick", () => {
 
 ##### on('myLocationButtonClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'myLocationButtonClick', callback: Callback&lt;void&gt;): void
 
 监听我的位置按钮点击事件。使用callback异步回调。
@@ -4378,6 +4594,8 @@ this.mapController.on("myLocationButtonClick", () => {
 
 
 ##### off('myLocationButtonClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'myLocationButtonClick', callback: Callback&lt;void&gt;): void
 
@@ -4413,6 +4631,8 @@ this.mapController.off("myLocationButtonClick", () => {
 
 ##### on('myLocationClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'myLocationClick', callback: Callback<mapCommon.LatLng>): void
 
 监听我的位置点击事件。使用callback异步回调。
@@ -4446,6 +4666,8 @@ this.mapController.on("myLocationClick", (position) => {
 
 
 ##### off('myLocationClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'myLocationClick', callback: Callback&lt;void&gt;): void
 
@@ -4481,6 +4703,8 @@ this.mapController.off("myLocationClick", () => {
 
 ##### on('poiClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'poiClick', callback: Callback<mapCommon.Poi>): void
 
 监听POI点击事件。使用callback异步回调。
@@ -4514,6 +4738,8 @@ this.mapController.on("poiClick", (poi) => {
 
 
 ##### off('poiClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'poiClick', callback: Callback&lt;void&gt;): void
 
@@ -4549,6 +4775,8 @@ this.mapController.off("poiClick", () => {
 
 ##### on('markerClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'markerClick', callback: Callback&lt;Marker&gt;): void
 
 监听标记点击事件。使用callback异步回调。
@@ -4582,6 +4810,8 @@ this.mapController.on("markerClick", (marker) => {
 
 
 ##### off('markerClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'markerClick', callback: Callback&lt;void&gt;): void
 
@@ -4617,6 +4847,8 @@ this.mapController.off("markerClick", () => {
 
 ##### on('markerDragStart')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'markerDragStart', callback: Callback&lt;Marker&gt;): void
 
 监听标记开始拖拽事件。使用callback异步回调。
@@ -4650,6 +4882,8 @@ this.mapController.on("markerDragStart", (marker) => {
 
 
 ##### off('markerDragStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'markerDragStart', callback: Callback&lt;void&gt;): void
 
@@ -4685,6 +4919,8 @@ this.mapController.off("markerDragStart", () => {
 
 ##### on('markerDrag')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'markerDrag', callback: Callback&lt;Marker&gt;): void
 
 监听标记拖拽事件。使用callback异步回调。
@@ -4718,6 +4954,8 @@ this.mapController.on("markerDrag", (marker) => {
 
 
 ##### off('markerDrag')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'markerDrag', callback: Callback&lt;void&gt;): void
 
@@ -4753,6 +4991,8 @@ this.mapController.off("markerDrag", () => {
 
 ##### on('markerDragEnd')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'markerDragEnd', callback: Callback&lt;Marker&gt;): void
 
 监听标记拖拽结束事件。使用callback异步回调。
@@ -4786,6 +5026,8 @@ this.mapController.on("markerDragEnd", (marker) => {
 
 
 ##### off('markerDragEnd')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'markerDragEnd', callback: Callback&lt;void&gt;): void
 
@@ -4821,6 +5063,8 @@ this.mapController.off("markerDragEnd", () => {
 
 ##### on('circleClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'circleClick', callback: Callback&lt;MapCircle&gt;): void
 
 监听圆点击事件。使用callback异步回调。
@@ -4854,6 +5098,8 @@ this.mapController.on("circleClick", (position) => {
 
 
 ##### off('circleClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'circleClick', callback: Callback&lt;void&gt;): void
 
@@ -4889,6 +5135,8 @@ this.mapController.off("circleClick", () => {
 
 ##### on('polylineClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'polylineClick', callback: Callback&lt;MapPolyline&gt;): void
 
 监听折线点击事件。使用callback异步回调。
@@ -4922,6 +5170,8 @@ this.mapController.on("polylineClick", (polyline) => {
 
 
 ##### off('polylineClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'polylineClick', callback: Callback&lt;void&gt;): void
 
@@ -4957,6 +5207,8 @@ this.mapController.off("polylineClick", () => {
 
 ##### on('polygonClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'polygonClick', callback: Callback&lt;MapPolygon&gt;): void
 
 监听多边形点击事件。使用callback异步回调。
@@ -4990,6 +5242,8 @@ this.mapController.on("polygonClick", (polygon) => {
 
 
 ##### off('polygonClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'polygonClick', callback: Callback&lt;void&gt;): void
 
@@ -5025,6 +5279,8 @@ this.mapController.off("polygonClick", () => {
 
 ##### on('infoWindowClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'infoWindowClick', callback: Callback&lt;Marker&gt;): void
 
 监听信息窗点击事件。使用callback异步回调。
@@ -5058,6 +5314,8 @@ this.mapController.on("infoWindowClick", (infoWindow) => {
 
 
 ##### off('infoWindowClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'infoWindowClick', callback: Callback&lt;void&gt;): void
 
@@ -5093,6 +5351,8 @@ this.mapController.off("infoWindowClick", () => {
 
 ##### on('infoWindowClose')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'infoWindowClose', callback: Callback&lt;Marker&gt;): void
 
 监听信息窗关闭事件。使用callback异步回调。
@@ -5126,6 +5386,8 @@ this.mapController.on("infoWindowClose", (infoWindowClose) => {
 
 
 ##### off('infoWindowClose')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'infoWindowClose', callback: Callback&lt;void&gt;): void
 
@@ -5161,6 +5423,8 @@ this.mapController.off("infoWindowClose", () => {
 
 ##### on('pointAnnotationClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'pointAnnotationClick', callback: Callback&lt;PointAnnotation&gt;): void
 
 监听点注释点击事件。使用callback异步回调。
@@ -5194,6 +5458,8 @@ this.mapController.on("pointAnnotationClick", (pointAnnotation) => {
 
 
 ##### off('pointAnnotationClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'pointAnnotationClick', callback: Callback&lt;void&gt;): void
 
@@ -5229,6 +5495,8 @@ this.mapController.off("pointAnnotationClick", () => {
 
 ##### on('bubbleClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'bubbleClick', callback: Callback&lt;Bubble&gt;): void
 
 监听气泡点击事件。使用callback异步回调。
@@ -5263,6 +5531,8 @@ this.mapController.on("bubbleClick", (bubble) => {
 
 ##### off('bubbleClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'bubbleClick', callback: Callback&lt;void&gt;): void
 
 取消监听气泡点击事件。使用callback异步回调。
@@ -5296,6 +5566,8 @@ this.mapController.off("bubbleClick", () => {
 
 
 ##### on('imageOverlayClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'imageOverlayClick', callback: Callback&lt;ImageOverlay&gt;): void
 
@@ -5333,6 +5605,8 @@ this.mapController.on("imageOverlayClick", imageOverlayCallback)
 
 ##### off('imageOverlayClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'imageOverlayClick', callback?: Callback&lt;ImageOverlay&gt;): void
 
 取消监听覆盖物点击事件。使用callback异步回调。
@@ -5368,6 +5642,8 @@ this.mapController.off("imageOverlayClick", imageOverlayCallback);
 
 ##### on('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'error', callback: ErrorCallback): void
 
 监听发生的异常。
@@ -5402,6 +5678,8 @@ this.mapController.on("error", (error) => {
 
 ##### off('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'error', callback: Callback&lt;void&gt;): void
 
 取消监听发生的异常。使用callback异步回调。
@@ -5435,6 +5713,8 @@ this.mapController.off("error", () => {
 
 
 ##### setIndoorMapEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setIndoorMapEnabled(enabled: boolean): void
 
@@ -5477,6 +5757,8 @@ this.mapController.setIndoorMapEnabled(true);
 
 ##### isIndoorMapEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isIndoorMapEnabled(): boolean
 
 获取室内图开启状态。
@@ -5516,6 +5798,8 @@ let isIndoorMapEnabled = this.mapController.isIndoorMapEnabled();
 
 
 ##### switchIndoorMapFloor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 switchIndoorMapFloor(buildingId: string, floorName: string): void
 
@@ -5557,6 +5841,8 @@ this.mapController?.switchIndoorMapFloor('822588304363886720', '3F');
 
 
 ##### setFloorControlsPosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setFloorControlsPosition(point: mapCommon.MapPoint): void
 
@@ -5601,6 +5887,8 @@ this.mapController?.setFloorControlsPosition({
 
 ##### isApproveNumberEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isApproveNumberEnabled(): boolean
 
 获取审图号显示状态。
@@ -5629,6 +5917,8 @@ let isApproveNumberEnabled = this.mapController?.isApproveNumberEnabled();
 
 
 ##### setApproveNumberEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setApproveNumberEnabled(enabled: boolean): void
 

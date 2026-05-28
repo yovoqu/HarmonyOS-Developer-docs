@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### deleteOrigin
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static deleteOrigin(origin: string): void
 
@@ -170,6 +174,8 @@ struct WebComponent {
 
 ##### getOrigins
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getOrigins(callback: AsyncCallback<Array&lt;WebStorageOrigin&gt;>): void
 
 以回调方式异步获取当前使用Web SQL数据库和HTML5支持的Web存储API的所有源的信息。
@@ -237,6 +243,8 @@ struct WebComponent {
 
 
 ##### getOrigins
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getOrigins(): Promise<Array&lt;WebStorageOrigin&gt;>
 
@@ -306,6 +314,8 @@ struct WebComponent {
 
 ##### getOriginQuota
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getOriginQuota(origin: string, callback: AsyncCallback&lt;number&gt;): void
 
 使用callback回调异步获取指定源的Web SQL数据库和HTML5支持的Web存储API的存储配额，配额以字节为单位。
@@ -371,6 +381,8 @@ struct WebComponent {
 
 
 ##### getOriginQuota
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getOriginQuota(origin: string): Promise&lt;number&gt;
 
@@ -444,6 +456,8 @@ struct WebComponent {
 
 ##### getOriginUsage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getOriginUsage(origin: string, callback: AsyncCallback&lt;number&gt;): void
 
 以回调方式异步获取指定源的Web SQL数据库和HTML5支持的Web存储API的存储量，存储量以字节为单位。
@@ -509,6 +523,8 @@ struct WebComponent {
 
 
 ##### getOriginUsage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getOriginUsage(origin: string): Promise&lt;number&gt;
 
@@ -579,6 +595,8 @@ struct WebComponent {
 
 
 ##### deleteAllData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static deleteAllData(incognito?: boolean): void
 

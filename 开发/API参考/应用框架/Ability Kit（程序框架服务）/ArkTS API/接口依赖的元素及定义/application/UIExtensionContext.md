@@ -14,6 +14,8 @@ UIExtensionContext是[UIExtensionAbility](https://developer.huawei.com/consumer/
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common } from '@kit.AbilityKit';
 ```
@@ -22,9 +24,13 @@ import { common } from '@kit.AbilityKit';
 
 ##### UIExtensionContext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### startAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want, callback: AsyncCallback&lt;void&gt;): void
 
@@ -119,6 +125,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### startAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want, options: StartOptions, callback: AsyncCallback&lt;void&gt;): void
 
@@ -215,6 +223,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### startAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;
 
@@ -319,6 +329,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### startAbilityForResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startAbilityForResult(want: Want, callback: AsyncCallback&lt;AbilityResult&gt;): void
 
 启动一个UIAbility，开发者可以通过回调函数接收被拉起的UIAbility退出时的返回结果。使用callback异步回调。UIAbility被启动后，有如下情况:
@@ -416,6 +428,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### startAbilityForResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback&lt;AbilityResult&gt;): void
 
@@ -517,6 +531,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### startAbilityForResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbilityForResult(want: Want, options?: StartOptions): Promise&lt;AbilityResult&gt;
 
@@ -626,6 +642,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### connectServiceExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 connectServiceExtensionAbility(want: Want, options: ConnectOptions): number
 
 将当前UIExtensionAbility连接到一个ServiceExtensionAbility，通过返回的proxy与ServiceExtensionAbility进行通信，以使用ServiceExtensionAbility对外提供的能力。
@@ -721,6 +739,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### disconnectServiceExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnectServiceExtensionAbility(connection: number): Promise&lt;void&gt;
 
 断开与ServiceExtensionAbility的连接，断开连接之后开发者需要将连接成功时返回的remote对象置空。使用Promise异步回调。
@@ -792,6 +812,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### disconnectServiceExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback&lt;void&gt;): void
 
 断开与ServiceExtensionAbility的连接，断开连接之后开发者需要将连接成功时返回的remote对象置空。使用callback异步回调。
@@ -859,6 +881,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### terminateSelf12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 terminateSelf(callback: AsyncCallback&lt;void&gt;): void
 
 销毁UIExtensionAbility自身，同时关闭对应的窗口界面。使用callback异步回调。
@@ -914,6 +938,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### terminateSelf12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 terminateSelf(): Promise&lt;void&gt;
 
 销毁UIExtensionAbility自身，同时关闭对应的窗口界面。使用Promise异步回调。
@@ -959,6 +985,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### terminateSelfWithResult12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1026,6 +1054,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### terminateSelfWithResult12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 terminateSelfWithResult(parameter: AbilityResult): Promise&lt;void&gt;
 
@@ -1098,6 +1128,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### reportDrawnCompleted12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reportDrawnCompleted(callback: AsyncCallback&lt;void&gt;): void
 
 用于应用通知系统UIExtensionAbility对应的窗口内容已绘制完成。系统会根据开发者调用的时机进行资源分配优化等，以优化应用启动及显示时间。使用callback异步回调。
@@ -1161,6 +1193,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### openAtomicService12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openAtomicService(appId: string, options?: AtomicServiceOptions): Promise&lt;AbilityResult&gt;
 
@@ -1248,6 +1282,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### openLink12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback&lt;AbilityResult&gt;): Promise&lt;void&gt;
 
@@ -1382,6 +1418,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### startUIServiceExtensionAbility14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startUIServiceExtensionAbility(want: Want): Promise&lt;void&gt;
 
 启动一个UIServiceExtensionAbility。使用Promise异步回调。
@@ -1471,6 +1509,8 @@ struct Index {
 
 
 ##### connectUIServiceExtensionAbility14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise&lt;UIServiceProxy&gt;
 
@@ -1565,6 +1605,8 @@ struct Page_UIServiceExtensionAbility {
 
 ##### disconnectUIServiceExtensionAbility14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise&lt;void&gt;
 
 断开UIServiceExtensionAbility。使用Promise异步回调。
@@ -1628,6 +1670,8 @@ struct Page_UIServiceExtensionAbility {
 
 
 ##### setColorMode18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColorMode(colorMode: ConfigurationConstant.ColorMode): void
 

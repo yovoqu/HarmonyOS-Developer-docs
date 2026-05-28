@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray } fr
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
@@ -34,11 +40,15 @@ import { SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray } fr
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### SegmentButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItemClicked: Callback&lt;number&gt;, maxFontScale: number | Resource, enableStateAnimation: boolean })
 
@@ -65,6 +75,8 @@ SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItem
 
 ##### SegmentButtonOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 不支持设置字体类型。
 
@@ -76,6 +88,8 @@ SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItem
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -110,6 +124,8 @@ SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItem
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(options: TabSegmentButtonOptions | CapsuleSegmentButtonOptions)
 
 构造函数。
@@ -130,6 +146,8 @@ constructor(options: TabSegmentButtonOptions | CapsuleSegmentButtonOptions)
 
 
 ##### tab
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static tab(options: TabSegmentButtonConstructionOptions): SegmentButtonOptions
 
@@ -159,6 +177,8 @@ static tab(options: TabSegmentButtonConstructionOptions): SegmentButtonOptions
 
 ##### capsule
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static capsule(options: CapsuleSegmentButtonConstructionOptions): SegmentButtonOptions
 
 创建胶囊类的SegmentButtonOptions。
@@ -187,6 +207,8 @@ static capsule(options: CapsuleSegmentButtonConstructionOptions): SegmentButtonO
 
 ##### DimensionNoPercentage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 不支持百分比类型的长度联合类型。
@@ -209,6 +231,8 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 
 ##### CommonSegmentButtonOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义分段按钮组件的可自定义的属性。
 
@@ -242,6 +266,8 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 ##### BorderRadiusMode20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 边框圆角模式枚举，用于控制分段按钮的圆角计算方式。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -259,6 +285,8 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 
 ##### TabSegmentButtonConstructionOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 构建页签类的SegmentButtonOptions对象。
 
@@ -279,6 +307,8 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 ##### CapsuleSegmentButtonConstructionOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于构建胶囊类的SegmentButtonOptions对象。
 
 继承[CommonSegmentButtonOptions](#commonsegmentbuttonoptions)。
@@ -298,6 +328,8 @@ type DimensionNoPercentage = PX | VP | FP | LPX | Resource
 
 
 ##### ItemRestriction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ItemRestriction&lt;T&gt; = [T, T, T?, T?, T?]
 
@@ -322,6 +354,8 @@ type ItemRestriction&lt;T&gt; = [T, T, T?, T?, T?]
 
 ##### SegmentButtonItemTuple
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SegmentButtonItemTuple = ItemRestriction&lt;SegmentButtonTextItem&gt; | ItemRestriction&lt;SegmentButtonIconItem&gt; | ItemRestriction&lt;SegmentButtonIconTextItem&gt;
 
 用于保存按钮信息的元组的联合类型。
@@ -342,6 +376,8 @@ type SegmentButtonItemTuple = ItemRestriction&lt;SegmentButtonTextItem&gt; | Ite
 
 
 ##### SegmentButtonItemArray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SegmentButtonItemArray = Array&lt;SegmentButtonTextItem&gt; | Array&lt;SegmentButtonIconItem&gt; | Array&lt;SegmentButtonIconTextItem&gt;
 
@@ -364,6 +400,8 @@ type SegmentButtonItemArray = Array&lt;SegmentButtonTextItem&gt; | Array&lt;Segm
 
 ##### SegmentButtonItemOptionsArray
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于保存按钮信息的数组。
 
 **装饰器类型：** @Observed
@@ -375,6 +413,8 @@ type SegmentButtonItemArray = Array&lt;SegmentButtonTextItem&gt; | Array&lt;Segm
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(elements: SegmentButtonItemTuple)
 
@@ -396,6 +436,8 @@ constructor(elements: SegmentButtonItemTuple)
 
 
 ##### push
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 push(...items: SegmentButtonItemArray): number
 
@@ -429,6 +471,8 @@ push(...items: SegmentButtonItemArray): number
 
 ##### pop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pop(): SegmentButtonItemOptions | undefined
 
 移除数组末尾最后一个元素，返回被移除的元素。
@@ -454,6 +498,8 @@ pop(): SegmentButtonItemOptions | undefined
 
 ##### shift
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 shift(): SegmentButtonItemOptions | undefined
 
 移除数组开头第一个元素，返回被移除的元素。
@@ -478,6 +524,8 @@ shift(): SegmentButtonItemOptions | undefined
 
 
 ##### unshift
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unshift(...items: SegmentButtonItemArray): number
 
@@ -510,6 +558,8 @@ unshift(...items: SegmentButtonItemArray): number
 
 
 ##### splice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 splice(start: number, deleteCount: number, ...items: SegmentButtonItemOptions[]): SegmentButtonItemOptions[]
 
@@ -545,6 +595,8 @@ splice(start: number, deleteCount: number, ...items: SegmentButtonItemOptions[])
 
 ##### create
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 创建一个SegmentButtonItemOptionsArray对象。
@@ -573,6 +625,8 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 ##### TabSegmentButtonOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 页签类分段按钮选项。继承自[TabSegmentButtonConstructionOptions](#tabsegmentbuttonconstructionoptions)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -589,6 +643,8 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 ##### CapsuleSegmentButtonOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 胶囊类分段按钮选项。继承自[CapsuleSegmentButtonConstructionOptions](#capsulesegmentbuttonconstructionoptions)。
 
@@ -607,6 +663,8 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 ##### SegmentButtonTextItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本按钮信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -623,6 +681,8 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 ##### SegmentButtonIconItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图标按钮信息。
 
@@ -647,6 +707,8 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 ##### SegmentButtonIconTextItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图标与文本按钮信息。
 
@@ -673,6 +735,8 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 ##### SegmentButtonItemOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 分段按钮中的按钮选项。
 
 **装饰器类型：** @Observed
@@ -680,6 +744,8 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -699,6 +765,8 @@ static create(elements: SegmentButtonItemTuple): SegmentButtonItemOptionsArray
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(options: SegmentButtonItemOptionsConstructorOptions)
 
@@ -721,6 +789,8 @@ constructor(options: SegmentButtonItemOptionsConstructorOptions)
 
 ##### SegmentButtonItemOptionsConstructorOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 构造参数用于SegmentButtonItemOptions。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -741,6 +811,8 @@ constructor(options: SegmentButtonItemOptionsConstructorOptions)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -841,7 +913,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/LGHRfR1PS628LdDI8YCyUg/zh-cn_image_0000002581276344.png?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=23E197E05F6A5057E4E83614DE02C35459CCDD5BF00025A0F3C6ADE2CC5331FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/LGHRfR1PS628LdDI8YCyUg/zh-cn_image_0000002581276344.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=6233D2642DCEF6D8E2F8DA725636DFDA7CDDF0FD03610B55BC81A8A1BC3E93B9)
 
 
 
@@ -953,7 +1025,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/hkt7V8XmSfmz2rOv0zj3RQ/zh-cn_image_0000002611756201.png?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=9526287947E63B924727BCFAEB5A4B3D32D5C227A91262778FF4FFC80F19AD9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/hkt7V8XmSfmz2rOv0zj3RQ/zh-cn_image_0000002611756201.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=F0AB2AEDF624DB61EEFB0E36CB433993C9E1A86548220503DA3F20F2DBA8ADE3)
 
 
 
@@ -1034,7 +1106,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/oV1BaecuS56r3p4Jkb1_rQ/zh-cn_image_0000002581436260.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=DB4DE074B192C52F98E0797C52A32E01DAE82011CC540F74658662088A733FDC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/oV1BaecuS56r3p4Jkb1_rQ/zh-cn_image_0000002581436260.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=8C537343BE7DCD52CE005546B477D54AC3F3B8CF47F4D51D286D72A417533F24)
 
 
 
@@ -1148,7 +1220,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/OwV4-k6TSou7E6C-SL1HrQ/zh-cn_image_0000002611836091.png?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=AF329ACC2FE78AC754C93CED9AE380219911370EBBD818223C8E676812088F6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/OwV4-k6TSou7E6C-SL1HrQ/zh-cn_image_0000002611836091.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=181A7D8ACEA043038ED31711F9E2E78777AB61CBD4630FBD4A1ACB27EEC6E71E)
 
 
 
@@ -1344,7 +1416,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/OmOZLpE3Rh6MIx5YJzZi6w/zh-cn_image_0000002581276346.png?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=E1441CDF4A4E9462016C141391894A8E28FFEE55FA8E365B4D2596967E09EA78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/OmOZLpE3Rh6MIx5YJzZi6w/zh-cn_image_0000002581276346.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=4F62AD237EDB001D0F42909D89F2E0BFDDD30235A691E3107CE59122D21A21FE)
 
 
 
@@ -1424,4 +1496,4 @@ struct Index12 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/I7OJ9l9sSHqqeWomWzO3tQ/zh-cn_image_0000002611756203.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=B98E91E50014B9F258C98A04CE5803C3EA5DA2CE919434C20903FA5D11D8C294)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/I7OJ9l9sSHqqeWomWzO3tQ/zh-cn_image_0000002611756203.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=9C2BC173F9CE1846AB4E8A3486F6F1EF52397D9541AFA9E43C249C3F86389BE3)

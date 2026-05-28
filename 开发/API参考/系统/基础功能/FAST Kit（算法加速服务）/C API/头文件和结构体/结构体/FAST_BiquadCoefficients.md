@@ -7,12 +7,14 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义单精度二阶（biquad）IIR滤波器节的系数（直接I型或II型）。
  
 传递函数：H(z) = (b0 + b1z⁻¹ + b2z⁻²) / (1 + a1z⁻¹ + a2z⁻²)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/yb2Y6NOuRRC6Bzo9EBl9Sw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013525Z&HW-CC-Expire=86400&HW-CC-Sign=26551F1A0BABE62D54EB7FC04F55A5295F93743E9141D2309C68E7DD800743DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/yb2Y6NOuRRC6Bzo9EBl9Sw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023825Z&HW-CC-Expire=86400&HW-CC-Sign=0BCCFAA82E8E983E7C6286C26104177727A0AAE6AF21717FC8A7C53109E8868E)
  
  
 分母中的1实际上为系数a0归一化后的结果。
@@ -31,9 +33,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,9 +54,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### a1
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 float FAST_BiquadCoefficients::a1
@@ -64,6 +74,8 @@ z⁻¹ 分母系数。
 
 ##### a2
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 float FAST_BiquadCoefficients::a2
 ```
@@ -75,6 +87,8 @@ z⁻² 分母系数。
   
 
 ##### b0
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 float FAST_BiquadCoefficients::b0
@@ -88,6 +102,8 @@ z⁰ 分子系数。
 
 ##### b1
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 float FAST_BiquadCoefficients::b1
 ```
@@ -99,6 +115,8 @@ z⁻¹ 分子系数。
   
 
 ##### b2
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 float FAST_BiquadCoefficients::b2

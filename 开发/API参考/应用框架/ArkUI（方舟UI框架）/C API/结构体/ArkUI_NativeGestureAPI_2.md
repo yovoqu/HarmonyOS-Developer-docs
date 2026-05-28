@@ -12,6 +12,8 @@ typedef struct {...} ArkUI_NativeGestureAPI_2
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义手势模块接口集合。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct {...} ArkUI_NativeGestureAPI_2
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,6 +42,8 @@ typedef struct {...} ArkUI_NativeGestureAPI_2
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -46,9 +54,13 @@ typedef struct {...} ArkUI_NativeGestureAPI_2
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### setGestureInterrupterToNode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setGestureInterrupterToNode)(ArkUI_NodeHandle node, void* userData, ArkUI_GestureInterruptResult (*interrupter)(ArkUI_GestureInterruptInfo* info))

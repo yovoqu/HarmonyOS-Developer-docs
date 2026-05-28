@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { sendablePhotoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -21,6 +23,8 @@ import { sendablePhotoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### sendablePhotoAccessHelper.getPhotoAccessHelper
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPhotoAccessHelper(context: Context): PhotoAccessHelper
 
@@ -81,11 +85,15 @@ struct Index {
 
 ##### PhotoAccessHelper
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供操作系统媒体资源能力的接口。
 
 
 
 ##### getAssets
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>
 
@@ -155,6 +163,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### getBurstAssets
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBurstAssets(burstKey: string, options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>
 
@@ -233,6 +243,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### createAsset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAsset(photoType: PhotoType, extension: string, options?: photoAccessHelper.CreateOptions): Promise&lt;string&gt;
 
 指定文件类型、后缀和创建选项，创建图片或视频资源。使用Promise异步回调。
@@ -299,6 +311,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### getAlbums
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;Album&gt;>
 
@@ -373,6 +387,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### getAlbums
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAlbums(options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;Album&gt;>
 
 根据检索选项获取相册。使用Promise异步回调。
@@ -444,6 +460,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放PhotoAccessHelper实例，当后续不需要使用PhotoAccessHelper实例中的方法时调用。使用Promise异步回调。
@@ -492,11 +510,15 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### PhotoAsset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供封装文件属性的方法。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
@@ -510,6 +532,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### convertToPhotoAsset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 convertToPhotoAsset(): photoAccessHelper.PhotoAsset
 
@@ -563,6 +587,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(member: string): photoAccessHelper.MemberType
 
@@ -628,6 +654,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### set
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set(member: string, value: string): void
 
 设置PhotoAsset成员参数。
@@ -680,6 +708,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### commitModify
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 commitModify(): Promise&lt;void&gt;
 
@@ -743,6 +773,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### getThumbnail
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getThumbnail(size?: image.Size): Promise<image.PixelMap>
 
@@ -814,11 +846,15 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### FetchResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件检索结果集。
 
 
 
 ##### getCount
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCount(): number
 
@@ -866,6 +902,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### isAfterLast
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isAfterLast(): boolean
 
@@ -919,6 +957,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 释放FetchResult实例并使其失效。释放后无法调用其他方法。
@@ -962,6 +1002,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### getFirstObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFirstObject(): Promise&lt;T&gt;
 
@@ -1009,6 +1051,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### getNextObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getNextObject(): Promise&lt;T&gt;
 
@@ -1060,6 +1104,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### getLastObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastObject(): Promise&lt;T&gt;
 
 获取文件检索结果中的最后一个文件资产。使用Promise异步回调。
@@ -1106,6 +1152,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### getObjectByPosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getObjectByPosition(index: number): Promise&lt;T&gt;
 
@@ -1162,6 +1210,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### getAllObjects
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllObjects(): Promise<Array&lt;T&gt;>
 
 获取文件检索结果中的所有文件资产。使用Promise异步回调。
@@ -1209,11 +1259,15 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### Album
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 实体相册
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
@@ -1232,6 +1286,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### convertToPhotoAlbum
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 convertToPhotoAlbum(): photoAccessHelper.Album
 
@@ -1290,6 +1346,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### getAssets
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAssets(options: photoAccessHelper.FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>
 
@@ -1358,6 +1416,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### commitModify
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 commitModify(): Promise&lt;void&gt;
 
 更新相册属性修改到数据库中。使用Promise异步回调。
@@ -1414,6 +1474,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### PhotoType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，媒体文件类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1429,6 +1491,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### PhotoSubtype14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，不同[PhotoAsset](#photoasset)的类型。
 
@@ -1447,6 +1511,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### DynamicRangeType14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，媒体文件的动态范围类型。
 
 **系统能力**: SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1461,6 +1527,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 ##### AlbumType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，相册类型，表示是用户相册还是系统预置相册。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1474,6 +1542,8 @@ async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelp
 
 
 ##### AlbumSubtype
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，相册子类型，表示具体的相册类型。
 

@@ -12,6 +12,8 @@ typedef struct {...} ArkUI_PickerIndicatorStyle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 选中项指示器的样式。
  
 **起始版本：** 23

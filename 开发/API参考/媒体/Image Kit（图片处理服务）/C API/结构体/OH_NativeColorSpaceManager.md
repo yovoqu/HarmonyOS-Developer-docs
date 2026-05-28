@@ -12,6 +12,8 @@ typedef struct OH_NativeColorSpaceManager OH_NativeColorSpaceManager
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 NativeColorSpaceManager结构体类型，用于执行NativeColorSpaceManager相关操作。
  
 **起始版本：** 13

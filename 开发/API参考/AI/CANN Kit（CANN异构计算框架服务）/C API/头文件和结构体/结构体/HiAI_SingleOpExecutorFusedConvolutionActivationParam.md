@@ -12,6 +12,8 @@ typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam {...} HiAI_S
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 [HMS_HiAISingleOpExecutor_CreateFusedConvolutionActivation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit#hms_hiaisingleopexecutor_createfusedconvolutionactivation)输入参数。
  
 **起始版本：** 5.0.0(12)
@@ -24,9 +26,13 @@ typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam {...} HiAI_S
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -43,9 +49,13 @@ typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam {...} HiAI_S
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### actOpDesc
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpDescriptor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::actOpDesc
@@ -59,6 +69,8 @@ HiAI_SingleOpDescriptor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::a
 
 ##### bias
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpTensor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::bias
 ```
@@ -70,6 +82,8 @@ HiAI_SingleOpTensor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::bias
   
 
 ##### convOpDesc
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpDescriptor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::convOpDesc
@@ -83,6 +97,8 @@ HiAI_SingleOpDescriptor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::c
 
 ##### filter
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpTensor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::filter
 ```
@@ -94,6 +110,8 @@ HiAI_SingleOpTensor* HiAI_SingleOpExecutorFusedConvolutionActivationParam::filte
   
 
 ##### input
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpTensorDesc* HiAI_SingleOpExecutorFusedConvolutionActivationParam::input
@@ -107,6 +125,8 @@ HiAI_SingleOpTensorDesc* HiAI_SingleOpExecutorFusedConvolutionActivationParam::i
 
 ##### options
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpOptions* HiAI_SingleOpExecutorFusedConvolutionActivationParam::options
 ```
@@ -118,6 +138,8 @@ HiAI_SingleOpOptions* HiAI_SingleOpExecutorFusedConvolutionActivationParam::opti
   
 
 ##### output
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpTensorDesc* HiAI_SingleOpExecutorFusedConvolutionActivationParam::output

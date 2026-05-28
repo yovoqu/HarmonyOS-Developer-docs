@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { netBoost } from '@kit.NetworkBoostKit';
 ```
@@ -19,6 +21,8 @@ import { netBoost } from '@kit.NetworkBoostKit';
   
 
 ##### netBoost.setSceneDesc
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setSceneDesc(sceneDesc : SceneDesc): void
  
@@ -68,6 +72,8 @@ try {
 
 ##### netBoost.setLowPowerMode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setLowPowerMode(isEnable : boolean): void
  
 设置低功耗模式。
@@ -115,6 +121,8 @@ try {
 
 ##### SceneDesc
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 业务场景描述信息。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -134,6 +142,8 @@ try {
   
 
 ##### SceneEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示业务事件枚举。
  

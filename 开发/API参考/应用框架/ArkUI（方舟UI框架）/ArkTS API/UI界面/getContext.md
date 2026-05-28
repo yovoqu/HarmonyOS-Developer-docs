@@ -14,6 +14,8 @@
 
 ##### getContext(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getContext(component?: Object):Context
 
 获取与页面上下文组件关联的Context对象。
@@ -45,6 +47,8 @@ getContext(component?: Object):Context
 
 
 ##### Context
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Context = Context
 

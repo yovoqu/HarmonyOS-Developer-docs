@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Ellipse(options?: EllipseOptions)
  
@@ -40,6 +44,8 @@ Ellipse(options?: EllipseOptions)
   
 
 ##### EllipseOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于描述Ellipse组件绘制属性。
  
@@ -63,11 +69,15 @@ Ellipse(options?: EllipseOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### fill
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fill(value: ResourceColor)
  
@@ -90,6 +100,8 @@ fill(value: ResourceColor)
 
 ##### fillOpacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fillOpacity(value: number | string | Resource)
  
 设置填充区域透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -110,6 +122,8 @@ fillOpacity(value: number | string | Resource)
   
 
 ##### stroke
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stroke(value: ResourceColor)
  
@@ -132,6 +146,8 @@ stroke(value: ResourceColor)
 
 ##### strokeDashArray
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeDashArray(value: Array&lt;any&gt;)
  
 设置边框间隙，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。取值范围应为≥0，异常值按照默认值处理。
@@ -152,6 +168,8 @@ strokeDashArray(value: Array&lt;any&gt;)
   
 
 ##### strokeDashOffset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeDashOffset(value: number | string)
  
@@ -174,6 +192,8 @@ strokeDashOffset(value: number | string)
 
 ##### strokeLineCap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeLineCap(value: LineCapStyle)
  
 设置边框端点绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -194,6 +214,8 @@ strokeLineCap(value: LineCapStyle)
   
 
 ##### strokeLineJoin
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeLineJoin(value: LineJoinStyle)
  
@@ -216,6 +238,8 @@ strokeLineJoin(value: LineJoinStyle)
 
 ##### strokeMiterLimit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeMiterLimit(value: number | string)
  
 设置斜接长度与边框宽度比值的极限值，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。Ellipse组件不支持设置尖角图形，该属性设置无效。
@@ -236,6 +260,8 @@ strokeMiterLimit(value: number | string)
   
 
 ##### strokeOpacity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeOpacity(value: number | string | Resource)
  
@@ -258,6 +284,8 @@ strokeOpacity(value: number | string | Resource)
 
 ##### strokeWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeWidth(value: Length)
  
 设置边框宽度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性若为string类型，暂不支持百分比，百分比按照1px处理。
@@ -279,6 +307,8 @@ strokeWidth(value: Length)
 
 ##### antiAlias
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 antiAlias(value: boolean)
  
 设置是否开启抗锯齿效果，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -299,6 +329,8 @@ antiAlias(value: boolean)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -356,7 +388,7 @@ struct EllipseTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/qBEji2K5SAu5nIt5JByBTg/zh-cn_image_0000002581436142.png?HW-CC-KV=V1&HW-CC-Date=20260528T013904Z&HW-CC-Expire=86400&HW-CC-Sign=8032AC0529821FFBCE6E56AEDDAE38FCAE43E2CFD502442F1D3CD0F6A04107E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/qBEji2K5SAu5nIt5JByBTg/zh-cn_image_0000002581436142.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=FE943A347A4D7F8788EE54BFE466266E7CFB8680978C88ADA5C90FFA47E70D8F)
 
  
   
@@ -398,4 +430,4 @@ struct EllipseModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/tGiBGjIeQOeYdFM04TIcTw/zh-cn_image_0000002611835971.png?HW-CC-KV=V1&HW-CC-Date=20260528T013904Z&HW-CC-Expire=86400&HW-CC-Sign=6BAE7EF84C4B1E8D23D5DEC945916F238795010540E4FD020A37C6D261E9CF24)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/tGiBGjIeQOeYdFM04TIcTw/zh-cn_image_0000002611835971.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=629250349F9517DCBFD10E20374F01D63D56C0AB4406EC842BD9B87440911CF1)

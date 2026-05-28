@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { bookParser } from '@kit.ReaderKit';
 ```
@@ -19,6 +21,8 @@ import { bookParser } from '@kit.ReaderKit';
 
 
 ##### BookInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 书籍基本信息。
 
@@ -47,6 +51,8 @@ import { bookParser } from '@kit.ReaderKit';
 
 ##### SpineItem
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 书脊（spine）内容节点，标识着可阅读的一个内容资源（例如：chapter1.xhtml)。
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
@@ -66,6 +72,8 @@ import { bookParser } from '@kit.ReaderKit';
 
 
 ##### CatalogItem
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 书籍目录节点，可用于目录列表的展示。
 
@@ -93,6 +101,8 @@ import { bookParser } from '@kit.ReaderKit';
 
 
 ##### CallbackRes
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type CallbackRes<T, V> = (data: T) => V
 
@@ -181,6 +191,8 @@ struct Reader {
 
 ##### getDefaultHandler
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getDefaultHandler(path: string): Promise&lt;BookParserHandler&gt;
 
 获取书籍默认解析器。使用Promise异步回调。
@@ -248,6 +260,8 @@ struct Reader {
 
 ##### BookParserHandler
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 书籍解析接口类。
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
@@ -259,6 +273,8 @@ struct Reader {
 
 
 ##### getBookInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getBookInfo(): BookInfo
 
@@ -319,6 +335,8 @@ struct Reader {
 
 ##### getCatalogList
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getCatalogList(): CatalogItem[]
 
 获取书籍目录列表。
@@ -378,6 +396,8 @@ struct Reader {
 
 ##### getSpineList
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getSpineList(): SpineItem[]
 
 获取书脊内容列表。
@@ -436,6 +456,8 @@ struct Reader {
 
 
 ##### getSpineItemContent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getSpineItemContent(spineIndex: number): Promise&lt;string&gt;
 
@@ -505,6 +527,8 @@ struct Reader {
 
 
 ##### getResourceContent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getResourceContent(spineIndex: number, filePath: string): ArrayBuffer
 
@@ -582,6 +606,8 @@ struct Reader {
 
 ##### getDomPosByCatalogHref
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getDomPosByCatalogHref(href: string): string
 
 获取阅读起始位置domPos，可用于阅读进度标识（例如：跳转到指定阅读位置）。
@@ -650,6 +676,8 @@ struct Reader {
 
 
 ##### getAbsoluteResourcePath
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAbsoluteResourcePath(spineIndex: number): string
 

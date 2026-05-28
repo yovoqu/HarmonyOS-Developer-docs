@@ -14,6 +14,8 @@ ImageData对象可以存储canvas渲染的像素数据。
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(width: number, height: number, data?: Uint8ClampedArray)
  
 创建宽为width，高为height，像素为data的ImageData，如果data未定义，则填充值全为0的一维数组。
@@ -36,6 +38,8 @@ constructor(width: number, height: number, data?: Uint8ClampedArray)
   
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: LengthMetricsUnit)
  
@@ -61,6 +65,8 @@ constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: Leng
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -81,6 +87,8 @@ constructor(width: number, height: number, data?: Uint8ClampedArray, unit?: Leng
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 使用getImageData接口获得一个ImageData对象。
  
@@ -113,4 +121,4 @@ struct Translate {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/SfytEVK6SaKQV3zahLU-jQ/zh-cn_image_0000002611835925.png?HW-CC-KV=V1&HW-CC-Date=20260528T013910Z&HW-CC-Expire=86400&HW-CC-Sign=02BF8D60FAF428138FFF45F80CE9E81547F4704BFCE210BE4D4DBE2D4B530FC6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/SfytEVK6SaKQV3zahLU-jQ/zh-cn_image_0000002611835925.png?HW-CC-KV=V1&HW-CC-Date=20260528T024206Z&HW-CC-Expire=86400&HW-CC-Sign=D28C16C658BC8C37A14AE5C085614BDCE83E48D8AC65F0E22DFACECC04C01948)

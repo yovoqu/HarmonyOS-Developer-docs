@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述超帧三维向量。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### x
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 float FG_Vec3D::x
@@ -50,6 +60,8 @@ float FG_Vec3D::x
 
 ##### y
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 float FG_Vec3D::y
 ```
@@ -61,6 +73,8 @@ float FG_Vec3D::y
   
 
 ##### z
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 float FG_Vec3D::z

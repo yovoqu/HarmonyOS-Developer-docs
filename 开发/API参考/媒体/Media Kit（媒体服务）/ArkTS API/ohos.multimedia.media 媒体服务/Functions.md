@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -19,6 +21,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### media.createAVPlayer9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAVPlayer(callback: AsyncCallback&lt;AVPlayer&gt;): void
 
@@ -67,6 +71,8 @@ media.createAVPlayer((error: BusinessError, video: media.AVPlayer) => {
 
 
 ##### media.createAVPlayer9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAVPlayer(): Promise&lt;AVPlayer&gt;
 
@@ -118,6 +124,8 @@ media.createAVPlayer().then((video: media.AVPlayer) => {
 
 ##### media.createAVRecorder9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAVRecorder(callback: AsyncCallback&lt;AVRecorder&gt;): void
 
 创建音视频录制实例。使用callback异步回调。
@@ -163,6 +171,8 @@ media.createAVRecorder((error: BusinessError, recorder: media.AVRecorder) => {
 
 
 ##### media.createAVRecorder9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAVRecorder(): Promise&lt;AVRecorder&gt;
 
@@ -212,6 +222,8 @@ media.createAVRecorder().then((recorder: media.AVRecorder) => {
 
 
 ##### media.createAVTranscoder12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 createAVTranscoder(): Promise&lt;AVTranscoder&gt;
 
@@ -263,6 +275,8 @@ media.createAVTranscoder().then((transcoder: media.AVTranscoder) => {
 
 ##### media.createAVMetadataExtractor11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAVMetadataExtractor(callback: AsyncCallback&lt;AVMetadataExtractor&gt;): void
 
 创建AVMetadataExtractor实例。使用callback异步回调。
@@ -304,6 +318,8 @@ media.createAVMetadataExtractor((error: BusinessError, extractor: media.AVMetada
 
 
 ##### media.createAVMetadataExtractor11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAVMetadataExtractor(): Promise&lt;AVMetadataExtractor&gt;
 
@@ -348,6 +364,8 @@ media.createAVMetadataExtractor().then((extractor: media.AVMetadataExtractor) =>
 
 
 ##### media.createSoundPool10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo, callback: AsyncCallback&lt;SoundPool&gt;): void
 
@@ -402,6 +420,8 @@ media.createSoundPool(5, audioRendererInfo, (error, soundPool_: media.SoundPool)
 
 
 ##### media.createSoundPool10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise&lt;SoundPool&gt;
 
@@ -465,6 +485,8 @@ media.createSoundPool(5, audioRendererInfo).then((soundpool_: media.SoundPool) =
 
 ##### media.createAVScreenCaptureRecorder12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 createAVScreenCaptureRecorder(): Promise&lt;AVScreenCaptureRecorder&gt;
 
 创建屏幕录制实例，使用Promise异步回调。
@@ -509,6 +531,8 @@ media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptu
 
 ##### media.createAVImageGenerator12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAVImageGenerator(callback: AsyncCallback&lt;AVImageGenerator&gt;): void
 
 创建AVImageGenerator实例。使用callback异步回调。
@@ -550,6 +574,8 @@ media.createAVImageGenerator((error: BusinessError, generator: media.AVImageGene
 
 
 ##### media.createAVImageGenerator12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAVImageGenerator(): Promise&lt;AVImageGenerator&gt;
 
@@ -594,6 +620,8 @@ media.createAVImageGenerator().then((generator: media.AVImageGenerator) => {
 
 
 ##### media.createMediaSourceWithUrl12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource
 
@@ -661,6 +689,8 @@ async function test(context: Context){
 
 ##### media.createMediaSourceWithStreamData19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createMediaSourceWithStreamData(streams: Array&lt;MediaStream&gt;): MediaSource
 
 创建流媒体多码率媒体来源实例方法，当前仅支持HTTP-FLV协议格式多码率。
@@ -697,6 +727,8 @@ let mediaSource : media.MediaSource = media.createMediaSourceWithStreamData(stre
 
 ##### media.createAudioPlayer(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAudioPlayer(): AudioPlayer
 
 同步方式创建音频播放实例。
@@ -723,6 +755,8 @@ let audioPlayer: media.AudioPlayer = media.createAudioPlayer();
 
 
 ##### media.createVideoPlayer(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createVideoPlayer(callback: AsyncCallback&lt;VideoPlayer&gt;): void
 
@@ -760,6 +794,8 @@ media.createVideoPlayer((error: BusinessError, video: media.VideoPlayer) => {
 
 
 ##### media.createVideoPlayer(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createVideoPlayer(): Promise&lt;VideoPlayer&gt;
 
@@ -799,6 +835,8 @@ media.createVideoPlayer().then((video: media.VideoPlayer) => {
 
 
 ##### media.createAudioRecorder(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAudioRecorder(): AudioRecorder
 

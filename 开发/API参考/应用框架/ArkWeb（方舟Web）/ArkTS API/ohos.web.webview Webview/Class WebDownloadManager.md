@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
   
 
 ##### setDownloadDelegate11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setDownloadDelegate(delegate: WebDownloadDelegate): void
  
@@ -131,6 +135,8 @@ struct WebComponent {
   
 
 ##### resumeDownload11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static resumeDownload(webDownloadItem: WebDownloadItem): void
  

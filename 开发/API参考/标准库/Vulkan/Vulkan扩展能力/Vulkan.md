@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供HarmonyOS平台扩展的Vulkan能力，扩展了使用OHNativeWindow创建Vulkan Surface的能力，以及获取OH_NativeBuffer和OH_NativeBuffer属性的能力。
  
 **系统能力：** SystemCapability.Graphic.Vulkan
@@ -16,6 +18,8 @@
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

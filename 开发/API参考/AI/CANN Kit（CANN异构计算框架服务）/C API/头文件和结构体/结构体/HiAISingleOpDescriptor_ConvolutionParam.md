@@ -12,6 +12,8 @@ typedef struct HiAISingleOpDescriptor_ConvolutionParam {...} HiAISingleOpDescrip
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 [HMS_HiAISingleOpDescriptor_CreateConvolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit#hms_hiaisingleopdescriptor_createconvolution)输入参数。
  
 **起始版本：** 5.0.0(12)
@@ -24,9 +26,13 @@ typedef struct HiAISingleOpDescriptor_ConvolutionParam {...} HiAISingleOpDescrip
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -42,9 +48,13 @@ typedef struct HiAISingleOpDescriptor_ConvolutionParam {...} HiAISingleOpDescrip
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### convMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpConvMode HiAISingleOpDescriptor_ConvolutionParam::convMode
@@ -58,6 +68,8 @@ HiAI_SingleOpConvMode HiAISingleOpDescriptor_ConvolutionParam::convMode
 
 ##### dilations
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 int64_t HiAISingleOpDescriptor_ConvolutionParam::dilations[2]
 ```
@@ -69,6 +81,8 @@ int64_t HiAISingleOpDescriptor_ConvolutionParam::dilations[2]
   
 
 ##### groups
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 int64_t HiAISingleOpDescriptor_ConvolutionParam::groups
@@ -82,6 +96,8 @@ int64_t HiAISingleOpDescriptor_ConvolutionParam::groups
 
 ##### padMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpPadMode HiAISingleOpDescriptor_ConvolutionParam::padMode
 ```
@@ -94,6 +110,8 @@ HiAI_SingleOpPadMode HiAISingleOpDescriptor_ConvolutionParam::padMode
 
 ##### pads
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 int64_t HiAISingleOpDescriptor_ConvolutionParam::pads[4]
 ```
@@ -105,6 +123,8 @@ int64_t HiAISingleOpDescriptor_ConvolutionParam::pads[4]
   
 
 ##### strides
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 int64_t HiAISingleOpDescriptor_ConvolutionParam::strides[2]

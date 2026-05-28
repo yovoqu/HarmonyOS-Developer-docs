@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 响应的二进制数据接收回调函数。可以通过[HMS_Rcp_SetRequestOnBinaryDataRecvCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-overview#hms_rcp_setrequestonbinarydatarecvcallback)为请求设置相应回调函数。
  
 **起始版本：** 5.0.1(13)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### callback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_OnBinaryReceiveCallbackFunc Rcp_OnBinaryReceiveCallback::callback
@@ -48,6 +58,8 @@ Rcp_OnBinaryReceiveCallbackFunc Rcp_OnBinaryReceiveCallback::callback
   
 
 ##### usrObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void* Rcp_OnBinaryReceiveCallback::usrObject

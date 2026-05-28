@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import bundle from '@ohos.bundle';
 ```
@@ -21,6 +23,8 @@ import bundle from '@ohos.bundle';
 
 
 ##### 权限列表
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 权限 | 权限等级 | 描述 |
 | --- | --- | --- |
@@ -33,6 +37,8 @@ import bundle from '@ohos.bundle';
 
 
 ##### bundle.getApplicationInfodeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
@@ -90,6 +96,8 @@ bundle.getApplicationInfo(bundleName, bundleFlags, userId)
 
 ##### bundle.getApplicationInfodeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -140,6 +148,8 @@ bundle.getApplicationInfo(bundleName, bundleFlags, userId, (err, data) => {
 
 ##### bundle.getApplicationInfodeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -187,6 +197,8 @@ bundle.getApplicationInfo(bundleName, bundleFlags, (err, data) => {
 
 
 ##### bundle.getAllBundleInfodeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
@@ -240,6 +252,8 @@ bundle.getAllBundleInfo(bundleFlag, userId)
 
 ##### bundle.getAllBundleInfodeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -283,6 +297,8 @@ bundle.getAllBundleInfo(bundleFlag, (err, data) => {
 
 
 ##### bundle.getAllBundleInfodeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
@@ -329,6 +345,8 @@ bundle.getAllBundleInfo(bundleFlag, userId, (err, data) => {
 
 
 ##### bundle.getBundleInfodeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
@@ -388,6 +406,8 @@ bundle.getBundleInfo(bundleName, bundleFlags, options)
 
 ##### bundle.getBundleInfodeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
 
@@ -435,6 +455,8 @@ bundle.getBundleInfo(bundleName, bundleFlags, (err, data) => {
 
 
 ##### bundle.getBundleInfodeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
@@ -488,6 +510,8 @@ bundle.getBundleInfo(bundleName, bundleFlags, options, (err, data) => {
 
 ##### bundle.getAllApplicationInfodeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -540,6 +564,8 @@ bundle.getAllApplicationInfo(bundleFlags, userId)
 
 ##### bundle.getAllApplicationInfodeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -586,6 +612,8 @@ bundle.getAllApplicationInfo(bundleFlags, userId, (err, data) => {
 
 ##### bundle.getAllApplicationInfodeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -629,6 +657,8 @@ bundle.getAllApplicationInfo(bundleFlags, (err, data) => {
 
 
 ##### bundle.getBundleArchiveInfodeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
@@ -678,6 +708,8 @@ bundle.getBundleArchiveInfo(hapFilePath, bundleFlags)
 
 ##### bundle.getBundleArchiveInfodeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -719,6 +751,8 @@ bundle.getBundleArchiveInfo(hapFilePath, bundleFlags, (err, data) => {
 
 
 ##### bundle.getAbilityInfodeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
@@ -774,6 +808,8 @@ bundle.getAbilityInfo(bundleName, abilityName)
 
 ##### bundle.getAbilityInfodeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -821,6 +857,8 @@ bundle.getAbilityInfo(bundleName, abilityName, (err, data) => {
 
 
 ##### bundle.getAbilityLabel8+ deprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
@@ -876,6 +914,8 @@ bundle.getAbilityLabel(bundleName, abilityName)
 
 ##### bundle.getAbilityLabel8+ deprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -923,6 +963,8 @@ bundle.getAbilityLabel(bundleName, abilityName, (err, data) => {
 
 
 ##### bundle.isAbilityEnabled8+ deprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
@@ -972,6 +1014,8 @@ bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
 
 ##### bundle.isAbilityEnabled8+ deprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -1014,6 +1058,8 @@ bundle.getAbilityInfo(bundleName, abilityName).then((abilityInfo) => {
 
 
 ##### bundle.isApplicationEnabled8+ deprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
@@ -1061,6 +1107,8 @@ bundle.isApplicationEnabled(bundleName)
 
 ##### bundle.isApplicationEnabled8+ deprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -1100,6 +1148,8 @@ bundle.isApplicationEnabled(bundleName, (err, data) => {
 
 
 ##### bundle.queryAbilityByWantdeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
@@ -1161,6 +1211,8 @@ bundle.queryAbilityByWant(want, bundleFlags, userId)
 
 ##### bundle.queryAbilityByWantdeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -1215,6 +1267,8 @@ bundle.queryAbilityByWant(want, bundleFlags, userId, (err, data) => {
 
 ##### bundle.queryAbilityByWantdeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -1267,6 +1321,8 @@ bundle.queryAbilityByWant(want, bundleFlags, (err, data) => {
 
 ##### bundle.getLaunchWantForBundledeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -1317,6 +1373,8 @@ bundle.getLaunchWantForBundle(bundleName)
 
 ##### bundle.getLaunchWantForBundledeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，替代接口仅向系统应用开放。
 
@@ -1360,6 +1418,8 @@ bundle.getLaunchWantForBundle(bundleName, (err, data) => {
 
 
 ##### bundle.getNameForUid8+ deprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 getBundleNameByUid 替代。
@@ -1407,6 +1467,8 @@ bundle.getNameForUid(uid)
 
 ##### bundle.8+ deprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 getBundleNameByUid 替代。
 
@@ -1446,6 +1508,8 @@ bundle.getNameForUid(uid, (err, data) => {
 
 
 ##### bundle.getAbilityIcon8+ deprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 resourceManager.getMediaContent 替代。
@@ -1501,6 +1565,8 @@ bundle.getAbilityIcon(bundleName, abilityName)
 
 ##### bundle.getAbilityIcon8+ deprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 8开始支持，从API version 9开始废弃，建议使用 resourceManager.getMediaContent 替代。
 
@@ -1549,6 +1615,8 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 
 ##### InstallErrorCodedeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 包管理子系统通用错误码 替代。
 
@@ -1583,6 +1651,8 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 
 ##### BundleFlagdeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.BundleFlag 替代。
 
@@ -1615,6 +1685,8 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 
 ##### BundleOptionsdeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，暂无替代接口。
 
@@ -1631,6 +1703,8 @@ bundle.getAbilityIcon(bundleName, abilityName, (err, data) => {
 
 
 ##### AbilityTypedeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.AbilityType 替代。
@@ -1652,6 +1726,8 @@ Ability组件类型。
 
 ##### DisplayOrientationdeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.DisplayOrientation 替代。
 
@@ -1672,6 +1748,8 @@ Ability组件类型。
 
 ##### LaunchModedeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.LaunchType 替代。
 
@@ -1689,6 +1767,8 @@ Ability组件的启动模式。
 
 
 ##### AbilitySubTypedeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，暂无替代接口。
@@ -1708,6 +1788,8 @@ Ability组件的子类型。
 
 ##### ColorModedeprecated
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，暂无替代接口。
 
@@ -1726,6 +1808,8 @@ Ability组件的子类型。
 
 
 ##### GrantStatusdeprecated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager.PermissionGrantState 替代。

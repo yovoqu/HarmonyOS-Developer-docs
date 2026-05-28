@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表单字段文件值。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### contentOrPathOrCb
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_ContentOrPathOrCallback Rcp_FormFieldFileValue::contentOrPathOrCb
@@ -50,6 +60,8 @@ Rcp_ContentOrPathOrCallback Rcp_FormFieldFileValue::contentOrPathOrCb
 
 ##### contentType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 char Rcp_FormFieldFileValue::contentType[RCP_MAX_CONTENT_TYPE_LEN]
 ```
@@ -61,6 +73,8 @@ char Rcp_FormFieldFileValue::contentType[RCP_MAX_CONTENT_TYPE_LEN]
   
 
 ##### remoteFileName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char Rcp_FormFieldFileValue::remoteFileName[RCP_MAX_FILENAME_LEN]

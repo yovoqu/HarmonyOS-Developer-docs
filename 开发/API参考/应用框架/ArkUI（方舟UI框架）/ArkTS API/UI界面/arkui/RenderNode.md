@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { RenderNode } from '@kit.ArkUI';
 ```
@@ -22,9 +24,13 @@ import { RenderNode } from '@kit.ArkUI';
 
 ##### RenderNode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -80,6 +86,8 @@ struct Index {
 
 
 ##### appendChild
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 appendChild(node: RenderNode): void
 
@@ -161,6 +169,8 @@ struct Index {
 
 
 ##### insertChildAfter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 insertChildAfter(child: RenderNode, sibling: RenderNode | null): void
 
@@ -257,6 +267,8 @@ struct Index {
 
 ##### removeChild
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeChild(node: RenderNode): void
 
 从RenderNode中删除指定的子节点。
@@ -334,6 +346,8 @@ struct Index {
 
 ##### clearChildren
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearChildren(): void
 
 清除当前RenderNode的所有子节点。
@@ -396,6 +410,8 @@ struct Index {
 
 
 ##### getChild
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getChild(index: number): RenderNode | null
 
@@ -484,6 +500,8 @@ struct Index {
 
 ##### getFirstChild
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFirstChild(): RenderNode | null
 
 获取当前RenderNode的第一个子节点。
@@ -568,6 +586,8 @@ struct Index {
 
 
 ##### getNextSibling
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getNextSibling(): RenderNode | null
 
@@ -655,6 +675,8 @@ struct Index {
 
 ##### getPreviousSibling
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPreviousSibling(): RenderNode | null
 
 获取当前RenderNode的上一个同级节点。
@@ -741,6 +763,8 @@ struct Index {
 
 ##### backgroundColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set backgroundColor(color: number)
 
 设置当前RenderNode的背景颜色。
@@ -814,6 +838,8 @@ struct Index {
 
 
 ##### clipToFrame
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set clipToFrame(useClip: boolean)
 
@@ -896,6 +922,8 @@ struct Index {
 
 ##### opacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set opacity(value: number)
 
 设置当前RenderNode的不透明度。若输入的数值小于0，会被视为0。若输入的数值大于1，会被视为1。
@@ -972,6 +1000,8 @@ struct Index {
 
 ##### size
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set size(size: Size)
 
 设置当前RenderNode的大小。
@@ -1046,6 +1076,8 @@ struct Index {
 
 
 ##### position
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set position(position: Position)
 
@@ -1123,6 +1155,8 @@ struct Index {
 
 ##### frame
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set frame(frame: Frame)
 
 设置当前RenderNode的大小和位置。当和[position](#position)、[size](#size)同时使用时，以后设置的为准。
@@ -1197,6 +1231,8 @@ struct Index {
 
 
 ##### pivot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set pivot(pivot: Pivot)
 
@@ -1276,6 +1312,8 @@ struct Index {
 
 ##### scale
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set scale(scale: Scale)
 
 设置当前RenderNode的比例。
@@ -1351,6 +1389,8 @@ struct Index {
 
 
 ##### translation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set translation(translation: Translation)
 
@@ -1428,6 +1468,8 @@ struct Index {
 
 ##### rotation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set rotation(rotation: Rotation)
 
 设置当前RenderNode的旋转角度。
@@ -1503,6 +1545,8 @@ struct Index {
 
 
 ##### transform
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set transform(transform: Matrix4)
 
@@ -1594,6 +1638,8 @@ struct Index {
 
 ##### shadowColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set shadowColor(color: number)
 
 设置当前RenderNode的阴影颜色，ARGB格式。若设置了[shadowAlpha](#shadowalpha)，则不透明度以shadowAlpha为准。
@@ -1670,6 +1716,8 @@ struct Index {
 
 
 ##### shadowOffset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set shadowOffset(offset: Offset)
 
@@ -1749,6 +1797,8 @@ struct Index {
 
 ##### label12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set label(label: string)
 
 设置当前RenderNode的标签。若当前节点是通过new创建的RenderNode，则设置的标签信息会在节点Inspector信息的属性中。
@@ -1825,6 +1875,8 @@ struct Index {
 
 
 ##### shadowAlpha
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set shadowAlpha(alpha: number)
 
@@ -1904,6 +1956,8 @@ struct Index {
 
 
 ##### shadowElevation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set shadowElevation(elevation: number)
 
@@ -1986,6 +2040,8 @@ struct Index {
 
 
 ##### shadowRadius
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set shadowRadius(radius: number)
 
@@ -2074,6 +2130,8 @@ struct Index {
 
 
 ##### draw
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 draw(context: DrawContext): void
 
@@ -2259,6 +2317,8 @@ export const nativeOnDraw: (id: number, context: DrawContext, width: number, hei
 
 ##### invalidate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 invalidate(): void
 
 该方法会触发RenderNode的重新渲染。
@@ -2335,6 +2395,8 @@ libentry.so的构建方式见draw方法的示例。
 
 
 ##### borderStyle12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set borderStyle(style: Edges&lt;BorderStyle&gt;)
 
@@ -2419,6 +2481,8 @@ struct Index {
 
 ##### borderWidth12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set borderWidth(width: Edges&lt;number&gt;)
 
 设置当前RenderNode的边框宽度。
@@ -2495,6 +2559,8 @@ struct Index {
 
 
 ##### borderColor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set borderColor(color: Edges&lt;number&gt;)
 
@@ -2574,6 +2640,8 @@ struct Index {
 
 ##### borderRadius12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set borderRadius(radius: BorderRadiuses)
 
 设置当前RenderNode的边框圆角。
@@ -2650,6 +2718,8 @@ struct Index {
 
 
 ##### shapeMask12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set shapeMask(shapeMask: ShapeMask)
 
@@ -2734,6 +2804,8 @@ struct Index {
 
 
 ##### shapeClip12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set shapeClip(shapeClip: ShapeClip)
 
@@ -2869,6 +2941,8 @@ struct Index {
 
 ##### dispose12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 dispose(): void
 
 立即释放当前RenderNode。
@@ -2935,12 +3009,14 @@ struct Index {
 
 ##### markNodeGroup12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set markNodeGroup(isNodeGroup: boolean)
 
 标记是否优先绘制节点及其子节点。若设置为true，则透明度等属性将在节点绘制完毕后再进行合成。设置效果如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Xj0WpJOTSVmVw62W1tZ4hA/zh-cn_image_0000002611835415.png?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=78A900B54C0361BE65B9252ABD65D9FF9C811252C9E1674C625ECCFA988823B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/Xj0WpJOTSVmVw62W1tZ4hA/zh-cn_image_0000002611835415.png?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=2E29D26C4F63C54064A0C38726C1553961249CB19033461B8A440B1823159FC2)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -3034,6 +3110,8 @@ struct Index {
 
 ##### lengthMetricsUnit12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set lengthMetricsUnit(unit: LengthMetricsUnit)
 
 设置RenderNode各个属性使用的单位。
@@ -3126,6 +3204,8 @@ struct Index {
 
 
 ##### isDisposed20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isDisposed(): boolean
 
@@ -3222,4 +3302,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/qC5O2kLiSiKJ7WFwhTeZuw/zh-cn_image_0000002581275668.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=8F62E9BC460C4A2DEF08A35D942125548F4F8AA269F92A66B3A595A1A09DC3D8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/qC5O2kLiSiKJ7WFwhTeZuw/zh-cn_image_0000002581275668.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=31F01AA1A5254AC93182EFE5F11429467D200E85872F4B7F9B763A965A848B3F)

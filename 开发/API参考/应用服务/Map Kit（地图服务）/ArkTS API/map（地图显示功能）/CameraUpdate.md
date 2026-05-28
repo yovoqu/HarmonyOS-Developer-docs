@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### CameraUpdate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 CameraUpdate定义了相机移动参数。CameraUpdate的创建方法参见[newCameraPosition](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-functions#newcameraposition)等function。
  

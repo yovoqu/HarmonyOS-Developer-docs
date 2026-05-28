@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { componentUtils } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { componentUtils } from '@kit.ArkUI';
 
 
 ##### componentUtils.getRectangleById(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRectangleById(id: string): ComponentInfo
 
@@ -68,6 +72,8 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 ##### ComponentInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 组件大小、位置、平移缩放旋转及仿射矩阵属性信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -90,6 +96,8 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 ##### Size
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -103,6 +111,8 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 ##### Offset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -118,6 +128,8 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 ##### TranslateResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -132,6 +144,8 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 ##### ScaleResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -150,6 +164,8 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 ##### RotateResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -167,6 +183,8 @@ let modePosition:componentUtils.ComponentInfo = componentUtils.getRectangleById(
 
 
 ##### Matrix4Result
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Matrix4Result = [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number]
 
@@ -204,6 +222,8 @@ type Matrix4Result = [number,number,number,number,number,number,number,number,nu
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -258,4 +278,4 @@ struct Utils {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/PuCzIxpEQ3G6fnuJVZJRig/zh-cn_image_0000002611755465.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013817Z&HW-CC-Expire=86400&HW-CC-Sign=30F44074A21D6DEA71F57547752FF57688C50C16C6ABBF5913D1F6CEC41A178F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/PuCzIxpEQ3G6fnuJVZJRig/zh-cn_image_0000002611755465.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=42761A1CDFA7BDF24EAAD3C1572450275B900B23EA2F7E3E564912BCEC06FEE3)

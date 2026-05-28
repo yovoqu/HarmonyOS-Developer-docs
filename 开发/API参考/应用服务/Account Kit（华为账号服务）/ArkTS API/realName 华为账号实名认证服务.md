@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { realName } from '@kit.AccountKit';
 ```
@@ -23,6 +25,8 @@ import { realName } from '@kit.AccountKit';
   
 
 ##### FacialRecognitionVerificationRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类为人脸核身请求对象，定义了人脸核身请求参数。
  
@@ -56,6 +60,8 @@ const request: realName.FacialRecognitionVerificationRequest = {
 
 ##### FacialRecognitionVerificationResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该类为人脸核身请求结果对象，定义了人脸核身请求返回结果数据字段。如果成功返回该对象，说明人脸核身验证成功。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -75,6 +81,8 @@ const request: realName.FacialRecognitionVerificationRequest = {
   
 
 ##### RealNameErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该枚举为Account Kit实名认证服务的错误码。
  
@@ -107,6 +115,8 @@ const request: realName.FacialRecognitionVerificationRequest = {
   
 
 ##### startFacialRecognitionVerification
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startFacialRecognitionVerification(context: common.Context, request: FacialRecognitionVerificationRequest): Promise&lt;FacialRecognitionVerificationResult&gt;
  

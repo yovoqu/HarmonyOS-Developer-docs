@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明MIDI相关的接口。MIDI是一种用于电子乐器、计算机和其他设备之间通信的技术标准。
  
  该文件中的接口用于MIDI设备管理、MIDI消息发送和接收、设备状态监控等。
@@ -35,9 +37,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -63,9 +69,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_MIDIClient_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_MIDIStatusCode OH_MIDIClient_Create(OH_MIDIClient **client, OH_MIDICallbacks callbacks, void *userData)
@@ -105,6 +115,8 @@ OH_MIDIStatusCode OH_MIDIClient_Create(OH_MIDIClient **client, OH_MIDICallbacks 
 
 ##### OH_MIDIClient_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_MIDIStatusCode OH_MIDIClient_Destroy(OH_MIDIClient *client)
 ```
@@ -137,6 +149,8 @@ OH_MIDIStatusCode OH_MIDIClient_Destroy(OH_MIDIClient *client)
 
 ##### OH_MIDIClient_GetDeviceCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_MIDIStatusCode OH_MIDIClient_GetDeviceCount(const OH_MIDIClient *client, size_t *count)
 ```
@@ -167,6 +181,8 @@ OH_MIDIStatusCode OH_MIDIClient_GetDeviceCount(const OH_MIDIClient *client, size
   
 
 ##### OH_MIDIClient_GetDeviceInfos()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_MIDIStatusCode OH_MIDIClient_GetDeviceInfos(const OH_MIDIClient *client, OH_MIDIDeviceInformation *infos, size_t capacity, size_t *actualDeviceCount)
@@ -205,6 +221,8 @@ OH_MIDIStatusCode OH_MIDIClient_GetDeviceInfos(const OH_MIDIClient *client, OH_M
 
 ##### OH_MIDIClient_OpenDevice()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_MIDIStatusCode OH_MIDIClient_OpenDevice(OH_MIDIClient *client, int64_t deviceId, OH_MIDIDevice **device)
 ```
@@ -238,6 +256,8 @@ OH_MIDIStatusCode OH_MIDIClient_OpenDevice(OH_MIDIClient *client, int64_t device
   
 
 ##### OH_MIDIClient_OpenBLEDevice()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_MIDIStatusCode OH_MIDIClient_OpenBLEDevice(OH_MIDIClient *client, const char *deviceAddr, OH_MIDIClient_OnDeviceOpened callback, void *userData)
@@ -276,6 +296,8 @@ OH_MIDIStatusCode OH_MIDIClient_OpenBLEDevice(OH_MIDIClient *client, const char 
 
 ##### OH_MIDIClient_CloseDevice()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_MIDIStatusCode OH_MIDIClient_CloseDevice(OH_MIDIClient *client, OH_MIDIDevice *device)
 ```
@@ -309,6 +331,8 @@ OH_MIDIStatusCode OH_MIDIClient_CloseDevice(OH_MIDIClient *client, OH_MIDIDevice
 
 ##### OH_MIDIClient_GetPortCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_MIDIStatusCode OH_MIDIClient_GetPortCount(const OH_MIDIClient *client, int64_t deviceId, size_t *count)
 ```
@@ -338,6 +362,8 @@ OH_MIDIStatusCode OH_MIDIClient_GetPortCount(const OH_MIDIClient *client, int64_
   
 
 ##### OH_MIDIClient_GetPortInfos()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_MIDIStatusCode OH_MIDIClient_GetPortInfos(const OH_MIDIClient *client, int64_t deviceId, OH_MIDIPortInformation *infos, size_t capacity, size_t *actualPortCount)
@@ -375,6 +401,8 @@ OH_MIDIStatusCode OH_MIDIClient_GetPortInfos(const OH_MIDIClient *client, int64_
 
 ##### OH_MIDIDevice_OpenInputPort()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_MIDIStatusCode OH_MIDIDevice_OpenInputPort(OH_MIDIDevice *device, OH_MIDIPortDescriptor descriptor, OH_MIDIDevice_OnReceived callback, void *userData)
 ```
@@ -410,6 +438,8 @@ OH_MIDIStatusCode OH_MIDIDevice_OpenInputPort(OH_MIDIDevice *device, OH_MIDIPort
 
 ##### OH_MIDIDevice_OpenOutputPort()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_MIDIStatusCode OH_MIDIDevice_OpenOutputPort(OH_MIDIDevice *device, OH_MIDIPortDescriptor descriptor)
 ```
@@ -442,6 +472,8 @@ OH_MIDIStatusCode OH_MIDIDevice_OpenOutputPort(OH_MIDIDevice *device, OH_MIDIPor
   
 
 ##### OH_MIDIDevice_CloseInputPort()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_MIDIStatusCode OH_MIDIDevice_CloseInputPort(OH_MIDIDevice *device, uint32_t portIndex)
@@ -476,6 +508,8 @@ OH_MIDIStatusCode OH_MIDIDevice_CloseInputPort(OH_MIDIDevice *device, uint32_t p
 
 ##### OH_MIDIDevice_CloseOutputPort()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_MIDIStatusCode OH_MIDIDevice_CloseOutputPort(OH_MIDIDevice *device, uint32_t portIndex)
 ```
@@ -508,6 +542,8 @@ OH_MIDIStatusCode OH_MIDIDevice_CloseOutputPort(OH_MIDIDevice *device, uint32_t 
   
 
 ##### OH_MIDIDevice_Send()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_MIDIStatusCode OH_MIDIDevice_Send(OH_MIDIDevice *device, uint32_t portIndex, const OH_MIDIEvent *events, uint32_t eventCount, uint32_t *eventsWritten)
@@ -544,6 +580,8 @@ OH_MIDIStatusCode OH_MIDIDevice_Send(OH_MIDIDevice *device, uint32_t portIndex, 
   
 
 ##### OH_MIDIDevice_SendSysEx()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_MIDIStatusCode OH_MIDIDevice_SendSysEx(OH_MIDIDevice *device, uint32_t portIndex, const uint8_t *data, uint32_t byteSize)
@@ -583,6 +621,8 @@ OH_MIDIStatusCode OH_MIDIDevice_SendSysEx(OH_MIDIDevice *device, uint32_t portIn
   
 
 ##### OH_MIDIDevice_FlushOutputPort()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_MIDIStatusCode OH_MIDIDevice_FlushOutputPort(OH_MIDIDevice *device, uint32_t portIndex)

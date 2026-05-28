@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 不支持。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -31,6 +35,8 @@
   
 
 ##### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -42,6 +48,8 @@
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -61,6 +69,8 @@
   
 
 ##### 方法
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |

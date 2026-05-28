@@ -12,6 +12,8 @@ struct OhosPixelMapInfo {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于定义PixelMap的相关信息。
  
 **起始版本：** 8
@@ -26,9 +28,13 @@ struct OhosPixelMapInfo {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

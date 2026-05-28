@@ -14,6 +14,8 @@ Web组件返回授权或拒绝权限功能的对象。示例代码参考[onPermi
 
 ##### constructor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 PermissionRequest的构造函数。
@@ -24,6 +26,8 @@ PermissionRequest的构造函数。
 
 ##### deny9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deny(): void
  
 拒绝网页所请求的权限。
@@ -33,6 +37,8 @@ deny(): void
   
 
 ##### getOrigin9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOrigin(): string
  
@@ -51,6 +57,8 @@ getOrigin(): string
 
 ##### getAccessibleResource9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAccessibleResource(): Array&lt;string&gt;
  
 获取网页所请求的权限资源列表，资源列表类型参考[ProtectedResourceType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#protectedresourcetype9)。
@@ -67,6 +75,8 @@ getAccessibleResource(): Array&lt;string&gt;
   
 
 ##### grant9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 grant(resources: Array&lt;string&gt;): void
  

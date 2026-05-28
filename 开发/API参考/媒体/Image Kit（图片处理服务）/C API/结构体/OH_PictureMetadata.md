@@ -12,6 +12,8 @@ typedef struct OH_PictureMetadata OH_PictureMetadata
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明用于Picture的元数据。
  
 **起始版本：** 13

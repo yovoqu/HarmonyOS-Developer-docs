@@ -14,15 +14,19 @@ PhotoEditorExtensionAbility继承自[ExtensionAbility](https://developer.huawei.
 
 ##### 实现效果
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
+
 下图为通过PhotoEditorExtensionAbility实现的图片编辑扩展页面示意图，页面的布局与功能可以根据实际需要开发。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/PzQmawiiT8OhtnOtRwbHRw/zh-cn_image_0000002581435520.png?HW-CC-KV=V1&HW-CC-Date=20260528T014006Z&HW-CC-Expire=86400&HW-CC-Sign=D0C93BB877BB676C64AFBC5A1E01700D0871D86D255C2896290D37C4F22ED275)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/PzQmawiiT8OhtnOtRwbHRw/zh-cn_image_0000002581435520.png?HW-CC-KV=V1&HW-CC-Date=20260528T024301Z&HW-CC-Expire=86400&HW-CC-Sign=37344B13668DF4719087200D6C88311589427ACE8D3E273A32DC80D3362F3E90)
 
  
   
 
 ##### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
 
 ```text
 import { PhotoEditorExtensionAbility } from '@kit.AbilityKit';
@@ -32,9 +36,13 @@ import { PhotoEditorExtensionAbility } from '@kit.AbilityKit';
 
 ##### PhotoEditorExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
+
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **系统能力：** SystemCapability.Ability.AppExtension.PhotoEditorExtension
   
@@ -46,6 +54,8 @@ import { PhotoEditorExtensionAbility } from '@kit.AbilityKit';
   
 
 ##### onCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onCreate(): void
  
@@ -72,6 +82,8 @@ export default class ExamplePhotoEditorAbility extends PhotoEditorExtensionAbili
   
 
 ##### onStartContentEditing
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onStartContentEditing(uri: string, want: Want, session: UIExtensionContentSession): void
  
@@ -108,6 +120,8 @@ export default class ExamplePhotoEditorAbility extends PhotoEditorExtensionAbili
 
 ##### onForeground
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onForeground(): void
  
 当PhotoEditorExtensionAbility从后台转到前台时，系统会触发该回调。
@@ -134,6 +148,8 @@ export default class ExamplePhotoEditorAbility extends PhotoEditorExtensionAbili
 
 ##### onBackground
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onBackground(): void
  
 当PhotoEditorExtensionAbility从前台转到后台时，系统会触发该回调。
@@ -159,6 +175,8 @@ export default class ExamplePhotoEditorAbility extends PhotoEditorExtensionAbili
   
 
 ##### onDestroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onDestroy(): void | Promise&lt;void&gt;
  

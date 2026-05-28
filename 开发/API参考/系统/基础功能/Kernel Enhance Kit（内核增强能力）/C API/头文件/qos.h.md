@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明QoS提供的C接口。
  
 **引用文件：** <qos/qos.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -46,6 +54,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -56,6 +66,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -72,6 +84,8 @@
   
 
 ##### 变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -83,9 +97,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### QoS_Level
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum QoS_Level
@@ -110,6 +128,8 @@ enum QoS_Level
   
 
 ##### OH_QoS_GewuErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_QoS_GewuErrorCode
@@ -137,9 +157,13 @@ enum OH_QoS_GewuErrorCode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_QoS_SetThreadQoS()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_QoS_SetThreadQoS(QoS_Level level)
@@ -173,6 +197,8 @@ int OH_QoS_SetThreadQoS(QoS_Level level)
 
 ##### OH_QoS_ResetThreadQoS()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_QoS_ResetThreadQoS()
 ```
@@ -197,6 +223,8 @@ int OH_QoS_ResetThreadQoS()
   
 
 ##### OH_QoS_GetThreadQoS()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_QoS_GetThreadQoS(QoS_Level *level)
@@ -230,6 +258,8 @@ int OH_QoS_GetThreadQoS(QoS_Level *level)
 
 ##### OH_QoS_GewuOnResponse()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_QoS_GewuOnResponse)(void* context, const char* response)
 ```
@@ -251,6 +281,8 @@ typedef void (*OH_QoS_GewuOnResponse)(void* context, const char* response)
   
 
 ##### OH_QoS_GewuCreateSession()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_QoS_GewuCreateSessionResult OH_QoS_GewuCreateSession(const char* attributes)
@@ -286,6 +318,8 @@ OH_QoS_GewuCreateSessionResult OH_QoS_GewuCreateSession(const char* attributes)
 
 ##### OH_QoS_GewuDestroySession()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_QoS_GewuErrorCode OH_QoS_GewuDestroySession(OH_QoS_GewuSession session)
 ```
@@ -313,6 +347,8 @@ OH_QoS_GewuErrorCode OH_QoS_GewuDestroySession(OH_QoS_GewuSession session)
   
 
 ##### OH_QoS_GewuAbortRequest()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_QoS_GewuErrorCode OH_QoS_GewuAbortRequest(OH_QoS_GewuSession session, OH_QoS_GewuRequest request)
@@ -342,6 +378,8 @@ OH_QoS_GewuErrorCode OH_QoS_GewuAbortRequest(OH_QoS_GewuSession session, OH_QoS_
   
 
 ##### OH_QoS_GewuSubmitRequest()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_QoS_GewuSubmitRequestResult OH_QoS_GewuSubmitRequest(OH_QoS_GewuSession session, const char* request, OH_QoS_GewuOnResponse callback, void* context)

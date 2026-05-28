@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { bundleManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### BundleFlag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 包信息标志，指示需要获取的包信息的内容。
 
@@ -46,6 +50,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### ExtensionAbilityType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 扩展组件的类型。
 
@@ -86,6 +92,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### PermissionGrantState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 权限授予状态。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -101,6 +109,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### SupportWindowMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 标识该组件所支持的窗口模式。
 
@@ -119,6 +129,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### LaunchType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 标识组件的[启动模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-launch-type)。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -136,6 +148,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### AbilityType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 标识Ability组件的类型。
 
 **模型约束：** 仅可在FA模型下使用。
@@ -152,6 +166,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### DisplayOrientation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 标识该Ability的显示模式。仅适用于FA模型的[PageAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pageability-overview)。
 
@@ -180,6 +196,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### CompatiblePolicy10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 标识动态共享库的版本兼容类型。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -194,6 +212,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### ModuleType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 标识模块类型。
 
@@ -212,6 +232,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### BundleType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 标识应用的类型。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -228,6 +250,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### MultiAppModeType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 标识应用多开的模式类型。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
@@ -242,6 +266,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### AbilityFlag20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Ability组件信息标志，指示需要获取的Ability组件信息的内容。
 
@@ -264,6 +290,8 @@ Ability组件信息标志，指示需要获取的Ability组件信息的内容。
 
 
 ##### bundleManager.getBundleInfoForSelf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBundleInfoForSelf(bundleFlags: number): Promise&lt;BundleInfo&gt;
 
@@ -323,6 +351,8 @@ try {
 
 ##### bundleManager.getBundleInfoForSelf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBundleInfoForSelf(bundleFlags: number, callback: AsyncCallback&lt;BundleInfo&gt;): void
 
 根据给定的bundleFlags获取当前应用的BundleInfo。使用callback异步回调。
@@ -377,6 +407,8 @@ try {
 
 
 ##### bundleManager.getProfileByAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getProfileByAbility(moduleName: string, abilityName: string, metadataName: string, callback: AsyncCallback<Array&lt;string&gt;>): void
 
@@ -441,6 +473,8 @@ try {
 
 
 ##### bundleManager.getProfileByAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getProfileByAbility(moduleName: string, abilityName: string, metadataName?: string): Promise<Array&lt;string&gt;>
 
@@ -532,6 +566,8 @@ try {
 
 ##### bundleManager.getProfileByAbilitySync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getProfileByAbilitySync(moduleName: string, abilityName: string, metadataName?: string): Array&lt;string&gt;
 
 以同步方法根据给定的moduleName、abilityName和metadataName（module.json5中[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#metadata标签)下的name）获取自身相应配置文件的json格式字符串，返回对象为string数组。
@@ -614,6 +650,8 @@ try {
 
 ##### bundleManager.getProfileByExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName: string, callback: AsyncCallback<Array&lt;string&gt;>): void
 
 根据给定的moduleName、extensionAbilityName和metadataName（module.json5中[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#metadata标签)下的name）获取自身相应配置文件的json格式字符串。使用callback异步回调。
@@ -674,6 +712,8 @@ try {
 
 
 ##### bundleManager.getProfileByExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getProfileByExtensionAbility(moduleName: string, extensionAbilityName: string, metadataName?: string): Promise<Array&lt;string&gt;>
 
@@ -751,6 +791,8 @@ try {
 
 ##### bundleManager.getProfileByExtensionAbilitySync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getProfileByExtensionAbilitySync(moduleName: string, extensionAbilityName: string, metadataName?: string): Array&lt;string&gt;
 
 以同步方法根据给定的moduleName、extensionAbilityName和metadataName（module.json5中[metadata标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#metadata标签)下的name）获取自身相应配置文件的json格式字符串，返回对象为string数组。
@@ -823,6 +865,8 @@ try {
 
 ##### bundleManager.getBundleInfoForSelfSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBundleInfoForSelfSync(bundleFlags: number): BundleInfo
 
 以同步方法根据给定的bundleFlags获取当前应用的BundleInfo。
@@ -875,6 +919,8 @@ try {
 
 
 ##### bundleManager.canOpenLink12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 canOpenLink(link: string): boolean
 
@@ -930,6 +976,8 @@ try {
 
 ##### bundleManager.getLaunchWant13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLaunchWant(): Want
 
 获取本应用[入口UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-glossary#uiability)的Want参数。
@@ -974,6 +1022,8 @@ try {
 
 
 ##### bundleManager.getBundleInfo14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBundleInfo(bundleName: string, bundleFlags: number, userId: number, callback: AsyncCallback&lt;BundleInfo&gt;): void
 
@@ -1068,6 +1118,8 @@ try {
 
 ##### bundleManager.getBundleInfo14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBundleInfo(bundleName: string, bundleFlags: number, callback: AsyncCallback&lt;BundleInfo&gt;): void
 
 根据给定的bundleName和bundleFlags获取BundleInfo。使用callback异步回调。
@@ -1132,6 +1184,8 @@ try {
 
 
 ##### bundleManager.getBundleInfo14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBundleInfo(bundleName: string, bundleFlags: number, userId?: number): Promise&lt;BundleInfo&gt;
 
@@ -1225,6 +1279,8 @@ try {
 
 ##### bundleManager.getBundleInfoSync14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBundleInfoSync(bundleName: string, bundleFlags: number, userId: number): BundleInfo
 
 以同步方法根据给定的bundleName、bundleFlags和userId获取BundleInfo。
@@ -1292,6 +1348,8 @@ try {
 
 ##### bundleManager.getBundleInfoSync14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBundleInfoSync(bundleName: string, bundleFlags: number): BundleInfo
 
 以同步方法根据给定的bundleName、bundleFlags获取调用方所在用户下的BundleInfo。
@@ -1355,6 +1413,8 @@ try {
 
 ##### bundleManager.getBundleNameByUid14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBundleNameByUid(uid: number, callback: AsyncCallback&lt;string&gt;): void
 
 根据给定的uid获取对应应用的bundleName。使用callback异步回调。
@@ -1411,6 +1471,8 @@ try {
 
 
 ##### bundleManager.getBundleNameByUid14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBundleNameByUid(uid: number): Promise&lt;string&gt;
 
@@ -1473,6 +1535,8 @@ try {
 
 ##### bundleManager.getBundleNameByUidSync14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBundleNameByUidSync(uid: number): string
 
 以同步方法根据给定的uid获取对应应用的bundleName。
@@ -1530,6 +1594,8 @@ try {
 
 
 ##### bundleManager.getAppCloneIdentity14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAppCloneIdentity(uid: number): Promise&lt;AppCloneIdentity&gt;;
 
@@ -1593,6 +1659,8 @@ try {
 
 ##### bundleManager.getSignatureInfo18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSignatureInfo(uid: number): SignatureInfo
 
 根据给定的uid获取对应应用的[签名信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-bundleinfo#signatureinfo)。
@@ -1645,6 +1713,8 @@ try {
 
 
 ##### bundleManager.getAbilityInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAbilityInfo(uri: string, abilityFlags: number): Promise<Array&lt;AbilityInfo&gt;>
 
@@ -1710,6 +1780,8 @@ try {
 
 ##### bundleManager.cleanBundleCacheFilesForSelf21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cleanBundleCacheFilesForSelf(): Promise&lt;void&gt;
 
 清理应用自身的缓存。使用Promise异步回调。
@@ -1739,6 +1811,8 @@ bundleManager.cleanBundleCacheFilesForSelf().then(() => {
 
 
 ##### bundleManager.getPluginBundlePathForSelf22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPluginBundlePathForSelf(pluginBundleName: string): string
 
@@ -1790,6 +1864,8 @@ try {
 
 
 ##### bundleManager.getLaunchWantForBundleSync24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLaunchWantForBundleSync(bundleName: string, userId?: number): Want
 
@@ -1874,6 +1950,8 @@ try {
 
 ##### ApplicationInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ApplicationInfo = _ApplicationInfo
 
 应用程序信息。
@@ -1890,6 +1968,8 @@ type ApplicationInfo = _ApplicationInfo
 
 
 ##### ModuleMetadata10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ModuleMetadata = _ModuleMetadata
 
@@ -1908,6 +1988,8 @@ type ModuleMetadata = _ModuleMetadata
 
 ##### Metadata
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Metadata = _Metadata
 
 元数据信息。
@@ -1924,6 +2006,8 @@ type Metadata = _Metadata
 
 
 ##### BundleInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BundleInfo = _BundleInfo.BundleInfo
 
@@ -1942,6 +2026,8 @@ type BundleInfo = _BundleInfo.BundleInfo
 
 ##### UsedScene
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type UsedScene = _BundleInfo.UsedScene
 
 权限使用的场景和时机。
@@ -1958,6 +2044,8 @@ type UsedScene = _BundleInfo.UsedScene
 
 
 ##### ReqPermissionDetail
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail
 
@@ -1976,6 +2064,8 @@ type ReqPermissionDetail = _BundleInfo.ReqPermissionDetail
 
 ##### SignatureInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SignatureInfo = _BundleInfo.SignatureInfo
 
 应用包的签名信息。
@@ -1992,6 +2082,8 @@ type SignatureInfo = _BundleInfo.SignatureInfo
 
 
 ##### HapModuleInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type HapModuleInfo = _HapModuleInfo.HapModuleInfo
 
@@ -2010,6 +2102,8 @@ type HapModuleInfo = _HapModuleInfo.HapModuleInfo
 
 ##### PreloadItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PreloadItem = _HapModuleInfo.PreloadItem
 
 元服务中模块的预加载模块信息。
@@ -2026,6 +2120,8 @@ type PreloadItem = _HapModuleInfo.PreloadItem
 
 
 ##### Dependency
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Dependency = _HapModuleInfo.Dependency
 
@@ -2044,6 +2140,8 @@ type Dependency = _HapModuleInfo.Dependency
 
 ##### RouterItem12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type RouterItem = _HapModuleInfo.RouterItem
 
 模块配置的路由表信息。
@@ -2060,6 +2158,8 @@ type RouterItem = _HapModuleInfo.RouterItem
 
 
 ##### DataItem12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type DataItem = _HapModuleInfo.DataItem
 
@@ -2078,6 +2178,8 @@ type DataItem = _HapModuleInfo.DataItem
 
 ##### AbilityInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AbilityInfo = _AbilityInfo.AbilityInfo
 
 Ability信息。
@@ -2094,6 +2196,8 @@ Ability信息。
 
 
 ##### WindowSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type WindowSize = _AbilityInfo.WindowSize
 
@@ -2112,6 +2216,8 @@ type WindowSize = _AbilityInfo.WindowSize
 
 ##### ExtensionAbilityInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ExtensionAbilityInfo = _ExtensionAbilityInfo.ExtensionAbilityInfo
 
 ExtensionAbility信息。
@@ -2128,6 +2234,8 @@ ExtensionAbility信息。
 
 
 ##### ElementName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ElementName = _ElementName
 
@@ -2146,6 +2254,8 @@ ElementName信息。
 
 ##### Skill12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Skill = _Skill.Skill
 
 skill信息。
@@ -2163,6 +2273,8 @@ skill信息。
 
 ##### SkillUrl12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SkillUrl = _Skill.SkillUri
 
 SkillUri信息。
@@ -2179,6 +2291,8 @@ SkillUri信息。
 
 
 ##### AppCloneIdentity15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AppCloneIdentity = _BundleInfo.AppCloneIdentity
 

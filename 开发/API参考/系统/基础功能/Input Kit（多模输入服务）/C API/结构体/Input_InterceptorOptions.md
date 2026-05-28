@@ -12,6 +12,8 @@ typedef struct Input_InterceptorOptions Input_InterceptorOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 事件拦截选项。
  
 **起始版本：** 12

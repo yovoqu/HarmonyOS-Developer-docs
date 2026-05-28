@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { CardRecognition, CardRecognitionResult, CardType, CardSide,
 CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@kit.VisionKit';
@@ -24,6 +26,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
   
 
 ##### CardRecognition
+
+**支持设备：** Phone | Tablet
 
 卡证识别控件，集成此控件可以实现卡证识别。
  
@@ -48,6 +52,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 
 ##### CardType
 
+**支持设备：** Phone | Tablet
+
 支持识别的卡证类型的枚举值。
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
@@ -70,6 +76,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 
 ##### CardSide
 
+**支持设备：** Phone | Tablet
+
 需要识别的卡证页面的枚举值。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -88,6 +96,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
   
 
 ##### CallbackParam(deprecated)
+
+**支持设备：** Phone | Tablet
 
 卡证识别结果返回的参数。
  
@@ -112,6 +122,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 
 ##### CardRecognitionResult
 
+**支持设备：** Phone | Tablet
+
 卡证识别结果返回的参数。
  
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
@@ -131,6 +143,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 
 ##### CardRecognitionConfig
 
+**支持设备：** Phone | Tablet
+
 卡证识别配置项。
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
@@ -148,6 +162,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
   
 
 ##### ShootingMode
+
+**支持设备：** Phone | Tablet
 
 拍摄模式的枚举值。
  
@@ -167,6 +183,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 
 ##### CardContentConfig
 
+**支持设备：** Phone | Tablet
+
 卡证内容配置项，可设置各类型卡证的具体配置。
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
@@ -182,6 +200,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
   
 
 ##### BankCardConfig
+
+**支持设备：** Phone | Tablet
 
 银行卡识别的具体配置。
  
@@ -200,6 +220,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 
 ##### IdCardConfig
 
+**支持设备：** Phone | Tablet
+
 身份证识别的具体配置。
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
@@ -215,6 +237,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
   
 
 ##### cardInfo
+
+**支持设备：** Phone | Tablet
 
 具体证件相关信息，包含身份证人像面和国徽面、银行卡、护照、驾驶证正反面、行驶证正反面。
  

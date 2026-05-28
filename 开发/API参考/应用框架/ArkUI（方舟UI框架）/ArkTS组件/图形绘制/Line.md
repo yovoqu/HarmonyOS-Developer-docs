@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Line(options?: LineOptions)
  
@@ -40,6 +44,8 @@ Line(options?: LineOptions)
   
 
 ##### LineOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于描述Line组件绘制属性。
  
@@ -63,11 +69,15 @@ Line(options?: LineOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### startPoint
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startPoint(value: Array&lt;any&gt;)
  
@@ -90,6 +100,8 @@ startPoint(value: Array&lt;any&gt;)
 
 ##### endPoint
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 endPoint(value: Array&lt;any&gt;)
  
 设置直线终点坐标点（相对坐标），支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。
@@ -110,6 +122,8 @@ endPoint(value: Array&lt;any&gt;)
   
 
 ##### fill
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fill(value: ResourceColor)
  
@@ -132,6 +146,8 @@ fill(value: ResourceColor)
 
 ##### fillOpacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fillOpacity(value: number | string | Resource)
  
 设置填充区域透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。Line组件无法形成闭合区域，该属性设置无效。
@@ -152,6 +168,8 @@ fillOpacity(value: number | string | Resource)
   
 
 ##### stroke
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stroke(value: ResourceColor)
  
@@ -174,6 +192,8 @@ stroke(value: ResourceColor)
 
 ##### strokeDashArray
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeDashArray(value: Array&lt;any&gt;)
  
 设置边框间隙，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。线段相交时可能会出现重叠现象。取值范围≥0，异常值按照默认值处理。
@@ -194,6 +214,8 @@ strokeDashArray(value: Array&lt;any&gt;)
   
 
 ##### strokeDashOffset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeDashOffset(value: number | string)
  
@@ -216,6 +238,8 @@ strokeDashOffset(value: number | string)
 
 ##### strokeLineCap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeLineCap(value: LineCapStyle)
  
 设置边框端点绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -236,6 +260,8 @@ strokeLineCap(value: LineCapStyle)
   
 
 ##### strokeLineJoin
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeLineJoin(value: LineJoinStyle)
  
@@ -258,6 +284,8 @@ strokeLineJoin(value: LineJoinStyle)
 
 ##### strokeMiterLimit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeMiterLimit(value: number | string)
  
 设置锐角绘制成斜角的极限值，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。Line组件不支持设置锐角图形，该属性设置无效。
@@ -278,6 +306,8 @@ strokeMiterLimit(value: number | string)
   
 
 ##### strokeOpacity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeOpacity(value: number | string | Resource)
  
@@ -300,6 +330,8 @@ strokeOpacity(value: number | string | Resource)
 
 ##### strokeWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeWidth(value: Length)
  
 设置边框宽度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性若为string类型, 暂不支持百分比，百分比按照1px处理。
@@ -321,6 +353,8 @@ strokeWidth(value: Length)
 
 ##### antiAlias
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 antiAlias(value: boolean)
  
 设置是否开启抗锯齿效果，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -341,6 +375,8 @@ antiAlias(value: boolean)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -563,7 +599,7 @@ struct LineTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/fOBBE2UpToGv-K_AodII2g/zh-cn_image_0000002611835973.png?HW-CC-KV=V1&HW-CC-Date=20260528T013905Z&HW-CC-Expire=86400&HW-CC-Sign=7D94E70ACEC673532B8B602F7CD4AA3C9CC7956C332F428AC58CC83B936E1679)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/fOBBE2UpToGv-K_AodII2g/zh-cn_image_0000002611835973.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=ED9917CCE019EE7E539AA7F5FD8AC71FF83BFE88E2C79E5E916117C0197C6948)
 
  
   
@@ -605,4 +641,4 @@ struct LineModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/VhHtkdZ5TzOcT-G3OPpGOw/zh-cn_image_0000002581276228.png?HW-CC-KV=V1&HW-CC-Date=20260528T013905Z&HW-CC-Expire=86400&HW-CC-Sign=C58A03D511E6981682573788C91DE9582190D13A7EA0F33C8BF96C99F43A67C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/VhHtkdZ5TzOcT-G3OPpGOw/zh-cn_image_0000002581276228.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=1AD61E9801ADF166CF15907A25EBA9C8825D1F0893501377E1452398A3F77D5F)

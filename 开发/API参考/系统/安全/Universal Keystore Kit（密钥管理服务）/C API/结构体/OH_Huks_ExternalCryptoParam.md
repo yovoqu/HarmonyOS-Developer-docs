@@ -12,6 +12,8 @@ typedef struct {...} OH_Huks_ExternalCryptoParam
 
 ##### 概述
 
+**支持设备：** PC/2in1 | Tablet
+
 定义参数集合中单个参数的结构体。
  
 **起始版本：** 22
@@ -24,9 +26,13 @@ typedef struct {...} OH_Huks_ExternalCryptoParam
 
 ##### 汇总
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

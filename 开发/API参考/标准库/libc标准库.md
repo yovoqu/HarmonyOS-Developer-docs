@@ -66,7 +66,7 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
 musl支持的字符集编码格式，以及受支持的别名。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/RBOV5PMcTc667zoz7g0g9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013349Z&HW-CC-Expire=86400&HW-CC-Sign=C1DB4EA6575AB232D6EB7D4BE195364D4C3F753D52659FDE92C83EBF321A9EC7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/RBOV5PMcTc667zoz7g0g9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023654Z&HW-CC-Expire=86400&HW-CC-Sign=06A59171840F27ACF8C48F714F9A7F2F93AF1ECF23A4A5C1E82FB74BACCBA8DB)
  
  
 在进行字符集编码格式转换时，请使用正确的源字符集编码格式，且目标字符集编码格式必须支持这些受转换的字符，否则转换失败。

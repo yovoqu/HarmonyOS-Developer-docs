@@ -27,6 +27,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { text } from '@kit.ArkGraphics2D'
 ```
@@ -34,6 +36,8 @@ import { text } from '@kit.ArkGraphics2D'
 
 
 ##### text.setTextHighContrast20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTextHighContrast(action: TextHighContrast): void
 
@@ -65,6 +69,8 @@ text.setTextHighContrast(text.TextHighContrast.TEXT_APP_DISABLE_HIGH_CONTRAST)
 
 
 ##### text.setTextUndefinedGlyphDisplay20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTextUndefinedGlyphDisplay(noGlyphShow: TextUndefinedGlyphDisplay): void
 
@@ -98,6 +104,8 @@ text.setTextUndefinedGlyphDisplay(text.TextUndefinedGlyphDisplay.USE_TOFU)
 
 
 ##### text.matchFontDescriptors18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 matchFontDescriptors(desc: FontDescriptor): Promise<Array&lt;FontDescriptor&gt;>
 
@@ -171,6 +179,8 @@ struct Index {
 
 ##### text.getSystemFontFullNamesByType14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSystemFontFullNamesByType(fontType: SystemFontType): Promise<Array&lt;string&gt;>
 
 根据字体类型返回该类型对应的所有字体的字体名称，使用Promise异步回调。
@@ -242,6 +252,8 @@ struct Index {
 
 
 ##### text.getFontDescriptorByFullName14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFontDescriptorByFullName(fullName: string, fontType: SystemFontType): Promise&lt;FontDescriptor&gt;
 
@@ -315,6 +327,8 @@ struct Index {
 
 ##### text.getFontDescriptorsFromPath22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFontDescriptorsFromPath(path: string | Resource): Promise<Array&lt;FontDescriptor&gt;>
 
 根据字体文件路径获取字体描述符数组。使用Promise异步回调。
@@ -380,6 +394,8 @@ struct GetFontDescriptorsFromPathTest {
 
 ##### text.getFontUnicodeSet23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFontUnicodeSet(path: string | Resource, index: number): Promise<Array&lt;number&gt;>
 
 根据字体文件路径获取字体unicode数组。使用Promise异步回调。
@@ -435,6 +451,8 @@ struct GetFontUnicodeSetTest {
 
 ##### text.getFontCount23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFontCount(path: string | Resource): number
 
 根据字体文件路径获取包含的字体文件数。
@@ -487,6 +505,8 @@ struct GetFontCountTest {
 
 ##### text.getFontPathsByType23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFontPathsByType(fontType: SystemFontType): Array&lt;string&gt;
 
 获取指定字体类型的所有字体文件路径。
@@ -538,6 +558,8 @@ struct GetFontPathsByTypeTest {
 
 ##### text.isFontSupported23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isFontSupported(fontURL: string | Resource): boolean
 
 检查系统是否支持指定的字体文件。
@@ -587,6 +609,8 @@ struct isFontSupportedTest {
 
 ##### TextHighContrast20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文字渲染高对比度配置类型枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -604,6 +628,8 @@ struct isFontSupportedTest {
 
 ##### TextUndefinedGlyphDisplay20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本未定义字形时的显示方式枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -619,6 +645,8 @@ struct isFontSupportedTest {
 
 
 ##### TextAlign
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文本对齐方式枚举。
 
@@ -640,6 +668,8 @@ struct isFontSupportedTest {
 
 ##### TextVerticalAlign20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本垂直对齐方式枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -658,6 +688,8 @@ struct isFontSupportedTest {
 
 ##### TextDirection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本排版方向枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -673,6 +705,8 @@ struct isFontSupportedTest {
 
 
 ##### BreakStrategy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 断行策略枚举。
 
@@ -690,6 +724,8 @@ struct isFontSupportedTest {
 
 
 ##### WordBreak
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 断词策略枚举。
 
@@ -709,6 +745,8 @@ struct isFontSupportedTest {
 
 ##### Decoration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本装饰线。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -726,6 +764,8 @@ struct isFontSupportedTest {
 
 
 ##### TextDecorationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 装饰线类型枚举。
 
@@ -745,6 +785,8 @@ struct isFontSupportedTest {
 
 ##### TextDecorationStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 装饰线样式枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -763,6 +805,8 @@ struct isFontSupportedTest {
 
 
 ##### FontWeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 字重枚举。
 
@@ -787,6 +831,8 @@ struct isFontSupportedTest {
 
 ##### FontWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 字体宽度的枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -810,6 +856,8 @@ struct isFontSupportedTest {
 
 ##### FontStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 字体样式枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -826,6 +874,8 @@ struct isFontSupportedTest {
 
 
 ##### TextHeightBehavior
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文本高度修饰符模式枚举。
 
@@ -845,6 +895,8 @@ struct isFontSupportedTest {
 
 ##### TextBaseline
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本基线类型枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -860,6 +912,8 @@ struct isFontSupportedTest {
 
 
 ##### EllipsisMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 省略号类型枚举。
 
@@ -880,6 +934,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 ##### TextShadow
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 字体阴影。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -896,6 +952,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 ##### RectStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 矩形框样式。
 
@@ -916,6 +974,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 ##### FontFeature
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本字体特征。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -932,6 +992,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 ##### FontVariation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可变字体属性。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -946,6 +1008,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 ##### TextBadgeType20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文本上下标枚举。
 
@@ -964,6 +1028,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 ##### LineHeightStyle21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 行高缩放基数枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -979,6 +1045,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 ##### TextStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文本样式。
 
@@ -1020,6 +1088,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 ##### StrutStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支柱样式，用于控制绘制文本的行间距、基线对齐方式以及其他与行高相关的属性，默认不开启。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -1044,6 +1114,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 
 ##### FontDescriptor14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 字体描述符信息。
 
@@ -1079,6 +1151,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 ##### FontVariationAxis24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 字体可变轴信息。
 
 **系统能力**：SystemCapability.Graphics.Drawing
@@ -1100,6 +1174,8 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 ##### FontVariationInstance24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 字体可变实例信息，存放预设的可变字体样式信息。
 
 **系统能力**：SystemCapability.Graphics.Drawing
@@ -1117,11 +1193,15 @@ EllipsisMode.START和EllipsisMode.MIDDLE仅在单行超长文本生效。
 
 ##### FontCollection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 字体集。
 
 
 
 ##### getGlobalInstance
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getGlobalInstance(): FontCollection
 
@@ -1165,6 +1245,8 @@ struct Index {
 
 ##### getLocalInstance22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getLocalInstance(): FontCollection
 
 获取本地FontCollection实例，推荐卡片场景使用。
@@ -1192,6 +1274,8 @@ let fontCollection = text.FontCollection.getLocalInstance();
 
 
 ##### loadFontSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadFontSync(name: string, path: string | Resource): void
 
@@ -1250,6 +1334,8 @@ struct RenderTest {
 
 
 ##### loadFont18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadFont(name: string, path: string | Resource): Promise&lt;void&gt;
 
@@ -1315,6 +1401,8 @@ struct RenderTest {
 
 
 ##### loadFontSyncWithCheck23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadFontSyncWithCheck(name: string, path: string | Resource, index?: number): void
 
@@ -1392,6 +1480,8 @@ struct Index {
 
 
 ##### loadFontWithCheck23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadFontWithCheck(name: string, path: string | Resource, index?: number): Promise&lt;void&gt;
 
@@ -1481,6 +1571,8 @@ struct Index {
 
 ##### unloadFontSync20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unloadFontSync(name: string): void
 
 卸载指定的自定义字体，此接口为同步接口。
@@ -1542,6 +1634,8 @@ struct UnloadFontSyncTest {
 
 
 ##### unloadFont20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unloadFont(name: string): Promise&lt;void&gt;
 
@@ -1612,6 +1706,8 @@ struct UnloadFontTest {
 
 ##### clearCaches
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearCaches(): void
 
 清理字体排版缓存（字体排版缓存本身设有内存上限和清理机制，所占内存有限，如无内存要求，不建议清理）。
@@ -1643,6 +1739,8 @@ struct Index {
 
 
 ##### ParagraphStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 段落样式。
 
@@ -1690,6 +1788,8 @@ struct Index {
 
 ##### PlaceholderAlignment
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 占位符相对于周围文本的纵向对齐方式。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -1719,6 +1819,8 @@ struct Index {
 
 ##### PlaceholderSpan
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述占位符样式。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -1738,6 +1840,8 @@ struct Index {
 
 ##### Range
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述左闭右开区间。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -1753,6 +1857,8 @@ struct Index {
 
 
 ##### TextRectSize24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文本布局后的矩形尺寸。值为浮点数，单位为px。
 
@@ -1772,6 +1878,8 @@ struct Index {
 
 ##### TextLayoutResult24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本布局结果。
 
 **系统能力**：SystemCapability.Graphics.Drawing
@@ -1790,6 +1898,8 @@ struct Index {
 
 ##### Paragraph
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 保存文本内容及样式的载体，支持排版与绘制操作。
 
 下列API示例中都需先使用[ParagraphBuilder](#paragraphbuilder)类的[build()](#build)接口获取到Paragraph对象实例，再通过此实例调用对应方法。
@@ -1797,6 +1907,8 @@ struct Index {
 
 
 ##### layoutSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 layoutSync(width: number): void
 
@@ -1822,6 +1934,8 @@ paragraph.layoutSync(100);
 
 
 ##### layout18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 layout(width: number): Promise&lt;void&gt;
 
@@ -1934,6 +2048,8 @@ struct Index {
 
 ##### layoutWithConstraints24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 layoutWithConstraints(size: TextRectSize): TextLayoutResult
 
 使用给定的高度和宽度进行排版并计算所有字形的位置。
@@ -1973,6 +2089,8 @@ for (let i = 0; i < result.fitStrRange.length; ++i) {
 
 ##### paint
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 paint(canvas: drawing.Canvas, x: number, y: number): void
 
 在画布上以 (x, y) 为左上角绘制文本。
@@ -2003,6 +2121,8 @@ paragraph.paint(canvas, 0, 0);
 
 
 ##### paintOnPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 paintOnPath(canvas: drawing.Canvas, path: drawing.Path, hOffset: number, vOffset: number): void
 
@@ -2038,6 +2158,8 @@ paragraph.paintOnPath(canvas, path, 0, 0);
 
 ##### getMaxWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxWidth(): number
 
 获取文本最大行宽。
@@ -2062,6 +2184,8 @@ let maxWidth = paragraph.getMaxWidth();
 
 
 ##### getHeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getHeight(): number
 
@@ -2088,6 +2212,8 @@ let height = paragraph.getHeight();
 
 ##### getLongestLine
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLongestLine(): number
 
 获取文本最长行宽。
@@ -2112,6 +2238,8 @@ let longestLine = paragraph.getLongestLine();
 
 
 ##### getLongestLineWithIndent13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLongestLineWithIndent(): number
 
@@ -2138,6 +2266,8 @@ let longestLineWithIndent = paragraph.getLongestLineWithIndent();
 
 ##### getMinIntrinsicWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMinIntrinsicWidth(): number
 
 获取段落最小固有宽度。
@@ -2162,6 +2292,8 @@ let minIntrinsicWidth = paragraph.getMinIntrinsicWidth();
 
 
 ##### getMaxIntrinsicWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMaxIntrinsicWidth(): number
 
@@ -2188,6 +2320,8 @@ let maxIntrinsicWidth = paragraph.getMaxIntrinsicWidth();
 
 ##### getAlphabeticBaseline
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAlphabeticBaseline(): number
 
 获取拉丁字母基线位置。
@@ -2213,6 +2347,8 @@ let alphabeticBaseline = paragraph.getAlphabeticBaseline();
 
 ##### getIdeographicBaseline
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getIdeographicBaseline(): number
 
 获取表意字（如CJK（中文，日文，韩文））下的基线位置。
@@ -2237,6 +2373,8 @@ let ideographicBaseline = paragraph.getIdeographicBaseline();
 
 
 ##### getRectsForRange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRectsForRange(range: Range, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array&lt;TextBox&gt;
 
@@ -2273,6 +2411,8 @@ let rects = paragraph.getRectsForRange(range, text.RectWidthStyle.TIGHT, text.Re
 
 ##### getRectsForPlaceholders
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRectsForPlaceholders(): Array&lt;TextBox&gt;
 
 获取文本中所有占位符所占的矩形区域。
@@ -2297,6 +2437,8 @@ let placeholderRects = paragraph.getRectsForPlaceholders();
 
 
 ##### getGlyphPositionAtCoordinate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity
 
@@ -2331,6 +2473,8 @@ let positionWithAffinity = paragraph.getGlyphPositionAtCoordinate(0, 0);
 
 ##### getWordBoundary
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWordBoundary(offset: number): Range
 
 返回给定offset的字形所在单词的索引区间。
@@ -2363,6 +2507,8 @@ let wordRange = paragraph.getWordBoundary(0);
 
 ##### getLineCount
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLineCount(): number
 
 返回文本行数。
@@ -2387,6 +2533,8 @@ let lineCount = paragraph.getLineCount();
 
 
 ##### getLineHeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLineHeight(line: number): number
 
@@ -2420,6 +2568,8 @@ let lineHeight = paragraph.getLineHeight(0);
 
 ##### getLineWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLineWidth(line: number): number
 
 返回指定行的行宽。
@@ -2452,6 +2602,8 @@ let lineWidth = paragraph.getLineWidth(0);
 
 ##### didExceedMaxLines
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 didExceedMaxLines(): boolean
 
 返回段落是否超过最大行数。
@@ -2477,6 +2629,8 @@ let didExceed = paragraph.didExceedMaxLines();
 
 ##### getTextLines
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTextLines(): Array&lt;TextLine&gt;
 
 返回所有的文本行。
@@ -2501,6 +2655,8 @@ let lines = paragraph.getTextLines();
 
 
 ##### getActualTextRange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getActualTextRange(lineNumber: number, includeSpaces: boolean): Range
 
@@ -2535,6 +2691,8 @@ let rang = paragraph.getActualTextRange(0, true);
 
 ##### getLineMetrics
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLineMetrics(): Array&lt;LineMetrics&gt;
 
 获取文本行的行度量数组。
@@ -2559,6 +2717,8 @@ let arrLineMetric =  paragraph.getLineMetrics();
 
 
 ##### getLineMetrics
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLineMetrics(lineNumber: number): LineMetrics | undefined
 
@@ -2592,6 +2752,8 @@ let lineMetrics =  paragraph.getLineMetrics(0);
 
 ##### updateColor20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateColor(color: common2D.Color): void;
 
 更新整个文本段落的颜色。如果当前装饰线未设置颜色，使用该接口也会同时更新装饰线的颜色。
@@ -2616,6 +2778,8 @@ paragraph.updateColor({ alpha: 255, red: 255, green: 0, blue: 0 });
 
 
 ##### updateDecoration20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateDecoration(decoration: Decoration): void;
 
@@ -2646,6 +2810,8 @@ paragraph.updateDecoration({
 
 
 ##### getCharacterRangeForGlyphRange24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCharacterRangeForGlyphRange(glyphRange: Range, encoding: drawing.TextEncoding): Array&lt;Range&gt;
 
@@ -2720,6 +2886,8 @@ struct Index {
 
 ##### getGlyphRangeForCharacterRange24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getGlyphRangeForCharacterRange(characterRange: Range, encoding: drawing.TextEncoding): Array&lt;Range&gt;
 
 获取指定字符范围对应的字形范围。
@@ -2792,6 +2960,8 @@ struct Index {
 
 
 ##### getCharacterPositionAtCoordinate24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCharacterPositionAtCoordinate(x: number, y: number, encoding: drawing.TextEncoding): PositionWithAffinity
 
@@ -2868,6 +3038,8 @@ struct Index {
 
 ##### LineTypeset18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 保存着文本内容以及样式的载体，可以用于计算单行排版信息。
 
 下列API示例中都需先使用[ParagraphBuilder](#paragraphbuilder)类的[buildLineTypeset()](#buildlinetypeset18)接口获取到LineTypeset对象实例，再通过此实例调用对应方法。
@@ -2875,6 +3047,8 @@ struct Index {
 
 
 ##### getLineBreak18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLineBreak(startIndex: number, width: number): number
 
@@ -2919,6 +3093,8 @@ let count = lineTypeset.getLineBreak(startIndex, width);
 
 
 ##### createLine18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createLine(startIndex: number, count: number): TextLine
 
@@ -2965,6 +3141,8 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 ##### RunMetrics
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述文本行中连续文本块的布局信息和度量数据。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -2980,6 +3158,8 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 ##### LineMetrics
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述文本布局中单行文字的度量信息。
 
@@ -3006,6 +3186,8 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 ##### TextBox
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本矩形区域。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -3021,6 +3203,8 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 ##### PositionWithAffinity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 位置和亲和度。
 
@@ -3038,6 +3222,8 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 ##### RectWidthStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 矩形区域宽度规格枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -3053,6 +3239,8 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 
 ##### RectHeightStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 矩形区域高度规格枚举。
 
@@ -3074,6 +3262,8 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 ##### Affinity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 位置亲和度枚举。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -3090,11 +3280,15 @@ let line : text.TextLine = lineTypeset.createLine(startIndex, count);
 
 ##### ParagraphBuilder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 段落生成器。
 
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(paragraphStyle: ParagraphStyle, fontCollection: FontCollection)
 
@@ -3147,6 +3341,8 @@ struct Index {
 
 
 ##### pushStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushStyle(textStyle: TextStyle): void
 
@@ -3207,6 +3403,8 @@ struct Index {
 
 ##### popStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popStyle(): void
 
 弹出当前文本样式。
@@ -3255,6 +3453,8 @@ struct Index {
 
 
 ##### addText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addText(text: string): void
 
@@ -3310,6 +3510,8 @@ struct Index {
 
 
 ##### addPlaceholder
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addPlaceholder(placeholderSpan: PlaceholderSpan): void
 
@@ -3368,6 +3570,8 @@ struct Index {
 
 ##### build
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 build(): Paragraph
 
 用于构建段落，生成可用于后续排版渲染的段落对象。
@@ -3422,6 +3626,8 @@ struct Index {
 
 ##### buildLineTypeset18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 buildLineTypeset(): LineTypeset
 
 构建行排版器。
@@ -3469,6 +3675,8 @@ struct Index {
 
 
 ##### addSymbol
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addSymbol(symbolId: number): void
 
@@ -3523,6 +3731,8 @@ struct Index {
 
 ##### TypographicBounds18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本行的排版边界。文本行排版边界与排版字体、排版字号有关，与字符本身无关，例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，排版边界就包括行首和末尾空格的边界。例如字符串为"j"或"E"，排版边界相同，即与字符本身无关。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -3544,6 +3754,8 @@ struct Index {
 
 
 ##### CaretOffsetsCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean) => boolean
 
@@ -3573,6 +3785,8 @@ type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean
 
 ##### TextLine
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述段落基础文本行结构的载体。
 
 下列API示例中都需先使用[Paragraph](#paragraph)类的[getTextLines()](#gettextlines)接口或者[LineTypeset](#linetypeset18)类的[createLine()](#createline18)接口获取到TextLine对象实例，再通过此实例调用对应方法。
@@ -3580,6 +3794,8 @@ type CaretOffsetsCallback = (offset: number, index: number, leadingEdge: boolean
 
 
 ##### getGlyphCount
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getGlyphCount(): number
 
@@ -3606,6 +3822,8 @@ let glyphCount = lines[0].getGlyphCount();
 
 ##### getTextRange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTextRange(): Range
 
 获取该行文本在整个段落文本中的索引区间。
@@ -3631,6 +3849,8 @@ let textRange = lines[0].getTextRange();
 
 ##### getGlyphRuns
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getGlyphRuns(): Array&lt;Run&gt;
 
 获取文本行的排版单元数组。
@@ -3655,6 +3875,8 @@ let runs = lines[0].getGlyphRuns();
 
 
 ##### paint
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 paint(canvas: drawing.Canvas, x: number, y: number): void
 
@@ -3710,6 +3932,8 @@ struct Index {
 
 
 ##### createTruncatedLine18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createTruncatedLine(width: number, ellipsisMode: EllipsisMode, ellipsis: string): TextLine
 
@@ -3772,6 +3996,8 @@ struct Index {
 
 ##### getTypographicBounds18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTypographicBounds(): TypographicBounds
 
 获取文本行的排版边界。文本行排版边界与排版字体、排版字号有关，与字符本身无关。例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，排版边界就包括行首和末尾空格的边界。例如字符串为"j"或"E"，排版边界相同，即与字符本身无关。
@@ -3802,6 +4028,8 @@ console.info('textLine ascent:' + bounds.ascent + ', descent:' + bounds.descent 
 
 ##### getImageBounds18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getImageBounds(): common2D.Rect
 
 获取文本行的图像边界。文本行图像边界与排版字体、排版字号、字符本身都有关，相当于视觉边界。例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，用户在界面上只能看到"a b"，图像边界即为不包括带行首和末尾空格的边界。例如字符串为"j"或"E"，视觉边界不同，即与字符本身有关，"j"字符串的视觉边界宽度小于"E"字符串的视觉边界宽度，"j"字符串的视觉边界高度大于"E"字符串的视觉边界高度。
@@ -3831,6 +4059,8 @@ let imageBounds = lines[0].getImageBounds();
 
 ##### getTrailingSpaceWidth18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTrailingSpaceWidth(): number
 
 获取文本行尾部空白字符的宽度。
@@ -3855,6 +4085,8 @@ let trailingSpaceWidth = lines[0].getTrailingSpaceWidth();
 
 
 ##### getStringIndexForPosition18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStringIndexForPosition(point: common2D.Point): number
 
@@ -3889,6 +4121,8 @@ let index = lines[0].getStringIndexForPosition(point);
 
 ##### getOffsetForStringIndex18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOffsetForStringIndex(index: number): number
 
 获取文本行中给定字符串索引处的偏移量。
@@ -3921,6 +4155,8 @@ let offset = lines[0].getOffsetForStringIndex(3);
 
 ##### enumerateCaretOffsets18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enumerateCaretOffsets(callback: CaretOffsetsCallback): void
 
 枚举文本行中每个字符的偏移量和索引值。
@@ -3949,6 +4185,8 @@ lines[0].enumerateCaretOffsets(callback);
 
 
 ##### getAlignmentOffset18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAlignmentOffset(alignmentFactor: number, alignmentWidth: number): number
 
@@ -3983,6 +4221,8 @@ let alignmentOffset = lines[0].getAlignmentOffset(0.5, 500);
 
 ##### Run
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本排版单元。
 
 下列API示例中都需先使用[TextLine](#textline)类的[getGlyphRuns()](#getglyphruns)接口获取Run对象实例，再通过此实例调用对应方法。
@@ -3990,6 +4230,8 @@ let alignmentOffset = lines[0].getAlignmentOffset(0.5, 500);
 
 
 ##### getGlyphCount
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getGlyphCount(): number
 
@@ -4016,6 +4258,8 @@ let glyphs = runs[0].getGlyphCount();
 
 ##### getGlyphs
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getGlyphs(): Array&lt;number&gt;
 
 获取该排版单元中每个字符的字形序号。
@@ -4040,6 +4284,8 @@ let glyph = runs[0].getGlyphs();
 
 
 ##### getGlyphs18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getGlyphs(range: Range): Array&lt;number&gt;
 
@@ -4095,6 +4341,8 @@ struct Index {
 
 ##### getPositions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPositions(): Array<common2D.Point>
 
 获取该排版单元中每个字形相对于每行的字形位置。
@@ -4119,6 +4367,8 @@ let positions = runs[0].getPositions();
 
 
 ##### getPositions18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPositions(range: Range): Array<common2D.Point>
 
@@ -4174,6 +4424,8 @@ struct Index {
 
 ##### getOffsets
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOffsets(): Array<common2D.Point>
 
 获取该排版单元中每个字形的索引偏移量。
@@ -4199,6 +4451,8 @@ let offsets = runs[0].getOffsets();
 
 ##### getFont
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFont(): drawing.Font
 
 获取排版单元的字体属性对象。
@@ -4223,6 +4477,8 @@ let font = runs[0].getFont();
 
 
 ##### paint
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 paint(canvas: drawing.Canvas, x: number, y: number): void
 
@@ -4279,6 +4535,8 @@ struct Index {
 
 ##### getStringRange18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStringRange(): Range
 
 获取排版单元生成字形的字符范围。
@@ -4305,6 +4563,8 @@ let length = runStringRange.end;
 
 
 ##### getStringIndices18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStringIndices(range?: Range): Array&lt;number&gt;
 
@@ -4360,6 +4620,8 @@ struct Index {
 
 ##### getImageBounds18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getImageBounds(): common2D.Rect
 
 获取该排版单元的图像边界，图像边界与排版字体、排版字号、字符本身都有关，相当于视觉边界，例如字符串为" a b "，'a'字符前面有1个空格，'b'字符后面有1个空格，用户在界面上只能看到"a b"，图像边界即为不包括带行首和末尾空格的边界。
@@ -4388,6 +4650,8 @@ let bounds = runs[0].getImageBounds();
 
 
 ##### getTypographicBounds18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTypographicBounds(): TypographicBounds
 
@@ -4418,6 +4682,8 @@ let typographicBounds = runs[0].getTypographicBounds();
 
 ##### getTextDirection20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTextDirection(): TextDirection
 
 获取该排版单元的文本方向。
@@ -4442,6 +4708,8 @@ let textDirection = runs[0].getTextDirection();
 
 
 ##### getAdvances20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAdvances(range: Range): Array<common2D.Point>
 
@@ -4478,6 +4746,8 @@ let advancesNull = runs[0].getAdvances(null); // null是非法参数，将返回
 
 ##### TextTab18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 段落风格的文本制表符，储存了对齐方式和位置。
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -4495,24 +4765,26 @@ let advancesNull = runs[0].getAdvances(null); // null是非法参数，将返回
 alignment为CENTER，location为200，文本为"12/t345"：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/zwsEGWR5QwK0TPanAJrw1w/zh-cn_image_0000002611836869.png?HW-CC-KV=V1&HW-CC-Date=20260528T014039Z&HW-CC-Expire=86400&HW-CC-Sign=860CBC3775B7D4F5F3639E12041A2DCB1AC788AEAB6B1379E3F3B29877E509DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/zwsEGWR5QwK0TPanAJrw1w/zh-cn_image_0000002611836869.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=21CCE8EAAD123E0A5F19A1EE6657F26E4830C431CBD3E5972ABEA8504B98BEFA)
 
 
 alignment为LEFT，location为100，文本为"abccccccccc/tdef"：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/0ux5y-n2T5eGDL9QqTYXYw/zh-cn_image_0000002581277122.png?HW-CC-KV=V1&HW-CC-Date=20260528T014039Z&HW-CC-Expire=86400&HW-CC-Sign=4A8B3897A461D72EBCDDE08F2CA1F6BF0BF54F1569592DBEF3300A82FEA88513)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/0ux5y-n2T5eGDL9QqTYXYw/zh-cn_image_0000002581277122.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=52142880B349B36B55E3C8C8A75B30D1D893DA0AF84089A8E4B50FEAA9CFD098)
 
 
 alignment为RIGHT，location为100，文本为"aabcdef/tg hi/tjkl/tmno/tp qr"：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/h8fi9knJSC2Sq1Eggfbiwg/zh-cn_image_0000002611756979.png?HW-CC-KV=V1&HW-CC-Date=20260528T014039Z&HW-CC-Expire=86400&HW-CC-Sign=8264AC3F155F491960DD786D5FD978A05F26F3A7F05EA672868B455E0C324AB4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/h8fi9knJSC2Sq1Eggfbiwg/zh-cn_image_0000002611756979.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=C893D5651935492071B68F65F231043AC534EAAC67C2A2A7B738326C2AB34E18)
 
 
 
 
 ##### SystemFontType14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 字体类型枚举，通过位或运算可实现组合类型。
 

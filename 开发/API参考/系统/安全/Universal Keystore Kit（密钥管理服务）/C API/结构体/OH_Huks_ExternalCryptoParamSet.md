@@ -12,6 +12,8 @@ typedef struct OH_Huks_ExternalCryptoParamSet {...} OH_Huks_ExternalCryptoParamS
 
 ##### 概述
 
+**支持设备：** PC/2in1 | Tablet
+
 定义外部加密参数集合的结构。
  
 **起始版本：** 22
@@ -24,9 +26,13 @@ typedef struct OH_Huks_ExternalCryptoParamSet {...} OH_Huks_ExternalCryptoParamS
 
 ##### 汇总
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ChildProcess } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { ChildProcess } from '@kit.AbilityKit';
   
 
 ##### ChildProcess.onStart
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onStart(args?: ChildProcessArgs): void
  

@@ -12,6 +12,8 @@
 
 ##### 1009200001 接口调用失败状态
 
+**支持设备：** Phone | Tablet | TV
+
 **错误信息**
 
 Failure.
@@ -132,6 +134,8 @@ GL context missing.
 
 ##### 1009200007 不支持的配置状态
 
+**支持设备：** Phone | Tablet | TV
+
 **错误信息**
 
 Configuration not supported.
@@ -151,6 +155,8 @@ AR Engine不支持当前配置。
 
 
 ##### 1009200008 资源耗尽状态
+
+**支持设备：** Phone | Tablet | TV
 
 **错误信息**
 
@@ -172,6 +178,8 @@ Resource exhausted.
 
 ##### 1009200009 服务不可用状态
 
+**支持设备：** Phone | Tablet | TV
+
 **错误信息**
 
 Service unavailable.
@@ -192,6 +200,8 @@ Service unavailable.
 
 ##### 1009200010 相机不可用
 
+**支持设备：** Phone | Tablet | TV
+
 **错误信息**
 
 Camera unavailable.
@@ -211,6 +221,8 @@ Camera unavailable.
 
 
 ##### 1009200011 添加的图片数量超过最大数量
+
+**支持设备：** Phone | Tablet | TV
 
 **错误信息**
 
@@ -235,6 +247,8 @@ The number of images added exceeds the maximum.
 
 
 ##### 1009200012 将质量不足的图像添加到图像数据库中
+
+**支持设备：** Phone | Tablet | TV
 
 **错误信息**
 
@@ -358,6 +372,8 @@ The camera service is abnormal.
 
 ##### 1009200201 非法操作状态
 
+**支持设备：** Phone | Tablet | TV
+
 **错误信息**
 
 ARView invalid operation.
@@ -377,6 +393,8 @@ ARViewContext已初始化后重复进行config/callBack等相关设置。
 
 
 ##### 1009200202 缺少AR呈现场景
+
+**支持设备：** Phone | Tablet | TV
 
 **错误信息**
 
@@ -398,6 +416,8 @@ ARViewContext初始化时未提前设置AR呈现场景 - [ARViewContext.scene](h
 
 ##### 1009200203 ARViewContext.config未配置
 
+**支持设备：** Phone | Tablet | TV
+
 **错误信息**
 
 AREngine config required.
@@ -418,6 +438,8 @@ ARViewContext初始化时未提前设置config - ARViewContext.config。
 
 ##### 1009200204 AR会话初始化失败
 
+**支持设备：** Phone | Tablet | TV
+
 **错误信息**
 
 AR session setup failed.
@@ -437,6 +459,8 @@ AR会话初始化失败。
 
 
 ##### 1009200205 AR场景相机节点创建失败
+
+**支持设备：** Phone | Tablet | TV
 
 **错误信息**
 

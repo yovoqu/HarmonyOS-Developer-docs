@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { font } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { font } from '@kit.ArkUI';
 
 
 ##### font.registerFont(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 registerFont(options: FontOptions): void
 
@@ -46,6 +50,8 @@ registerFont(options: FontOptions): void
 
 
 ##### FontOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 注册的自定义字体信息。
 
@@ -133,6 +139,8 @@ struct FontExample {
 
 ##### font.getSystemFontList(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSystemFontList(): Array&lt;string&gt;
 
 获取系统字体列表。
@@ -188,6 +196,8 @@ struct FontExample {
 
 ##### font.getFontByName(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFontByName(fontName: string): FontInfo
 
 根据传入的系统字体名称获取系统字体的相关信息。
@@ -217,6 +227,8 @@ getFontByName(fontName: string): FontInfo
 
 
 ##### FontInfo10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 字体的详细信息。
 
@@ -281,6 +293,8 @@ struct FontExample {
 
 ##### font.getUIFontConfig11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUIFontConfig() : UIFontConfig
 
 获取系统字体配置文件的UI字体配置信息。
@@ -302,6 +316,8 @@ getUIFontConfig() : UIFontConfig
 
 ##### UIFontConfig11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统的UI字体配置信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -318,6 +334,8 @@ getUIFontConfig() : UIFontConfig
 
 
 ##### UIFontGenericInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 系统所支持的通用字体集列表。
 
@@ -336,6 +354,8 @@ getUIFontConfig() : UIFontConfig
 
 ##### UIFontFallbackGroupInfo11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 备用字体集。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -351,6 +371,8 @@ getUIFontConfig() : UIFontConfig
 
 
 ##### UIFontAliasInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 别名列表。
 
@@ -368,6 +390,8 @@ getUIFontConfig() : UIFontConfig
 
 ##### UIFontAdjustInfo11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 字体原本的weight值和显示实际值的映射列表。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -383,6 +407,8 @@ getUIFontConfig() : UIFontConfig
 
 
 ##### UIFontFallbackInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该字体集的备用字体。
 

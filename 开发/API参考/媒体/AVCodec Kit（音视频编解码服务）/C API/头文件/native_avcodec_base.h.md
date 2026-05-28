@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明用于音视频封装、解封装、编解码基础功能的Native API。
 
 **引用文件：** <multimedia/player_framework/native_avcodec_base.h>
@@ -25,9 +27,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -42,6 +48,8 @@
 
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -84,6 +92,8 @@
 
 ##### 函数
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | typedef void (*OH_AVCodecOnError)(OH_AVCodec *codec, int32_t errorCode, void *userData) | OH_AVCodecOnError | 当OH_AVCodec实例运行出错时，会调用来上报具体的错误信息的函数指针。 |
@@ -99,6 +109,8 @@
 
 
 ##### 变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |
@@ -263,9 +275,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### OH_MediaType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_MediaType
@@ -292,6 +308,8 @@ enum OH_MediaType
 
 ##### OH_AACProfile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_AACProfile
 ```
@@ -315,6 +333,8 @@ AAC档次。
 
 ##### OH_AVCProfile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_AVCProfile
 ```
@@ -337,6 +357,8 @@ AVC档次。
 
 
 ##### OH_HEVCProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_HEVCProfile
@@ -362,6 +384,8 @@ HEVC档次。
 
 
 ##### OH_VVCProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_VVCProfile
@@ -398,6 +422,8 @@ VVC档次。
 
 ##### OH_MPEG2Profile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_MPEG2Profile
 ```
@@ -423,6 +449,8 @@ MPEG2档次。
 
 
 ##### OH_MPEG4Profile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_MPEG4Profile
@@ -459,6 +487,8 @@ MPEG4档次。
 
 ##### OH_H263Profile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_H263Profile
 ```
@@ -480,6 +510,8 @@ H.263档次。
 
 
 ##### OH_VC1Profile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_VC1Profile
@@ -504,6 +536,8 @@ VC-1档次。
 
 ##### OH_AV1Profile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_AV1Profile
 ```
@@ -524,6 +558,8 @@ AV1档次。
 
 
 ##### OH_VP9Profile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_VP9Profile
@@ -547,6 +583,8 @@ VP9档次。
 
 ##### OH_WVC1Profile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_WVC1Profile
 ```
@@ -565,6 +603,8 @@ WVC1档次。
 
 
 ##### OH_WMV3Profile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_WMV3Profile
@@ -587,6 +627,8 @@ WMV3档次。
 
 
 ##### OH_AVOutputFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AVOutputFormat
@@ -617,6 +659,8 @@ enum OH_AVOutputFormat
 
 ##### OH_AVSeekMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_AVSeekMode
 ```
@@ -639,6 +683,8 @@ enum OH_AVSeekMode
 
 
 ##### OH_ScalingMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_ScalingMode
@@ -665,6 +711,8 @@ enum OH_ScalingMode
 
 
 ##### OH_BitsPerSample
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_BitsPerSample
@@ -697,6 +745,8 @@ enum OH_BitsPerSample
 
 ##### OH_ColorPrimary
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_ColorPrimary
 ```
@@ -727,6 +777,8 @@ enum OH_ColorPrimary
 
 
 ##### OH_TransferCharacteristic
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_TransferCharacteristic
@@ -765,6 +817,8 @@ enum OH_TransferCharacteristic
 
 ##### OH_MatrixCoefficient
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_MatrixCoefficient
 ```
@@ -798,6 +852,8 @@ enum OH_MatrixCoefficient
 
 
 ##### OH_AVCLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AVCLevel
@@ -839,6 +895,8 @@ AVC级别。
 
 ##### OH_HEVCLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_HEVCLevel
 ```
@@ -871,6 +929,8 @@ HEVC级别。
 
 
 ##### OH_VVCLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_VVCLevel
@@ -907,6 +967,8 @@ VVC级别。
 
 ##### OH_MPEG2Level
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_MPEG2Level
 ```
@@ -930,6 +992,8 @@ MPEG2级别。
 
 
 ##### OH_MPEG4Level
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_MPEG4Level
@@ -961,6 +1025,8 @@ MPEG4级别。
 
 ##### OH_H263Level
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_H263Level
 ```
@@ -989,6 +1055,8 @@ H.263级别。
 
 ##### OH_VC1Level
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_VC1Level
 ```
@@ -1016,6 +1084,8 @@ VC-1级别。
 
 
 ##### OH_AV1Level
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AV1Level
@@ -1059,6 +1129,8 @@ AV1级别。
 
 ##### OH_VP9Level
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_VP9Level
 ```
@@ -1091,6 +1163,8 @@ VP9级别。
 
 ##### OH_WVC1Level
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_WVC1Level
 ```
@@ -1113,6 +1187,8 @@ WVC1级别。
 
 
 ##### OH_WMV3Level
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_WMV3Level
@@ -1137,6 +1213,8 @@ WMV3级别。
 
 ##### OH_TemporalGopReferenceMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_TemporalGopReferenceMode
 ```
@@ -1159,6 +1237,8 @@ enum OH_TemporalGopReferenceMode
 
 
 ##### OH_BitrateMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_BitrateMode
@@ -1184,9 +1264,13 @@ enum OH_BitrateMode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### OH_AVCodecOnError()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_AVCodecOnError)(OH_AVCodec *codec, int32_t errorCode, void *userData)
@@ -1221,6 +1305,8 @@ typedef void (*OH_AVCodecOnError)(OH_AVCodec *codec, int32_t errorCode, void *us
 
 ##### OH_AVCodecOnStreamChanged()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_AVCodecOnStreamChanged)(OH_AVCodec *codec, OH_AVFormat *format, void *userData)
 ```
@@ -1249,6 +1335,8 @@ typedef void (*OH_AVCodecOnStreamChanged)(OH_AVCodec *codec, OH_AVFormat *format
 
 
 ##### OH_AVCodecOnNeedInputData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_AVCodecOnNeedInputData)(OH_AVCodec *codec, uint32_t index, OH_AVMemory *data, void *userData)
@@ -1279,6 +1367,8 @@ typedef void (*OH_AVCodecOnNeedInputData)(OH_AVCodec *codec, uint32_t index, OH_
 
 
 ##### OH_AVCodecOnNewOutputData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_AVCodecOnNewOutputData)(OH_AVCodec *codec, uint32_t index, OH_AVMemory *data, OH_AVCodecBufferAttr *attr, void *userData)
@@ -1311,6 +1401,8 @@ typedef void (*OH_AVCodecOnNewOutputData)(OH_AVCodec *codec, uint32_t index, OH_
 
 ##### OH_AVCodecOnNeedInputBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_AVCodecOnNeedInputBuffer)(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData)
 ```
@@ -1337,6 +1429,8 @@ typedef void (*OH_AVCodecOnNeedInputBuffer)(OH_AVCodec *codec, uint32_t index, O
 
 ##### OH_AVCodecOnNewOutputBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_AVCodecOnNewOutputBuffer)(OH_AVCodec *codec, uint32_t index, OH_AVBuffer *buffer, void *userData)
 ```
@@ -1362,6 +1456,8 @@ typedef void (*OH_AVCodecOnNewOutputBuffer)(OH_AVCodec *codec, uint32_t index, O
 
 
 ##### OH_AVDataSourceReadAt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef int32_t (*OH_AVDataSourceReadAt)(OH_AVBuffer *data, int32_t length, int64_t pos)
@@ -1394,6 +1490,8 @@ typedef int32_t (*OH_AVDataSourceReadAt)(OH_AVBuffer *data, int32_t length, int6
 
 
 ##### OH_AVDataSourceReadAtExt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef int32_t (*OH_AVDataSourceReadAtExt)(OH_AVBuffer *data, int32_t length, int64_t pos, void *userData)

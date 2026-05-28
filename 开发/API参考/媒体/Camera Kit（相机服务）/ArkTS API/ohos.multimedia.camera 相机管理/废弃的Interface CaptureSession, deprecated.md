@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
 
 
 ##### beginConfig(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 beginConfig(): void
 
@@ -60,6 +64,8 @@ function beginConfig(captureSession: camera.CaptureSession): void {
 
 
 ##### commitConfig(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 commitConfig(callback: AsyncCallback&lt;void&gt;): void
 
@@ -108,6 +114,8 @@ function commitConfig(captureSession: camera.CaptureSession): void {
 
 ##### commitConfig(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 commitConfig(): Promise&lt;void&gt;
 
 提交配置信息。使用Promise异步回调。
@@ -153,6 +161,8 @@ function commitConfig(captureSession: camera.CaptureSession): void {
 
 
 ##### addInput(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addInput(cameraInput: CameraInput): void
 
@@ -201,6 +211,8 @@ function addInput(captureSession: camera.CaptureSession, cameraInput: camera.Cam
 
 ##### removeInput(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeInput(cameraInput: CameraInput): void
 
 移除[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)。
@@ -247,6 +259,8 @@ function removeInput(captureSession: camera.CaptureSession, cameraInput: camera.
 
 
 ##### addOutput(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addOutput(cameraOutput: CameraOutput): void
 
@@ -295,6 +309,8 @@ function addOutput(captureSession: camera.CaptureSession, cameraOutput: camera.C
 
 ##### removeOutput(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeOutput(cameraOutput: CameraOutput): void
 
 从会话中移除[CameraOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput)。
@@ -341,6 +357,8 @@ function removeOutput(captureSession: camera.CaptureSession, previewOutput: came
 
 
 ##### start(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(callback: AsyncCallback&lt;void&gt;): void
 
@@ -389,6 +407,8 @@ function startCaptureSession(captureSession: camera.CaptureSession): void {
 
 ##### start(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(): Promise&lt;void&gt;
 
 开始会话工作。使用Promise异步回调。
@@ -433,6 +453,8 @@ function startCaptureSession(captureSession: camera.CaptureSession): void {
 
 
 ##### stop(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(callback: AsyncCallback&lt;void&gt;): void
 
@@ -480,6 +502,8 @@ function stopCaptureSession(captureSession: camera.CaptureSession): void {
 
 ##### stop(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
 
 停止会话工作。使用Promise异步回调。
@@ -523,6 +547,8 @@ function stopCaptureSession(captureSession: camera.CaptureSession): void {
 
 
 ##### release(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(callback: AsyncCallback&lt;void&gt;): void
 
@@ -570,6 +596,8 @@ function releaseCaptureSession(captureSession: camera.CaptureSession): void {
 
 ##### release(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放会话资源。使用Promise异步回调。
@@ -613,6 +641,8 @@ function releaseCaptureSession(captureSession: camera.CaptureSession): void {
 
 
 ##### hasFlash(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasFlash(): boolean
 
@@ -661,6 +691,8 @@ function hasFlash(captureSession: camera.CaptureSession): boolean {
 
 
 ##### isFlashModeSupported(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFlashModeSupported(flashMode: FlashMode): boolean
 
@@ -717,6 +749,8 @@ function isFlashModeSupported(captureSession: camera.CaptureSession): boolean {
 
 ##### setFlashMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFlashMode(flashMode: FlashMode): void
 
 设置闪光灯模式。
@@ -767,6 +801,8 @@ function setFlashMode(captureSession: camera.CaptureSession): void {
 
 ##### getFlashMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFlashMode(): FlashMode
 
 获取当前设备的闪光灯模式。
@@ -814,6 +850,8 @@ function getFlashMode(captureSession: camera.CaptureSession): camera.FlashMode |
 
 
 ##### isExposureModeSupported(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isExposureModeSupported(aeMode: ExposureMode): boolean
 
@@ -870,6 +908,8 @@ function isExposureModeSupported(captureSession: camera.CaptureSession): boolean
 
 ##### getExposureMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getExposureMode(): ExposureMode
 
 获取当前曝光模式。
@@ -918,6 +958,8 @@ function getExposureMode(captureSession: camera.CaptureSession): camera.Exposure
 
 ##### setExposureMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setExposureMode(aeMode: ExposureMode): void
 
 设置曝光模式。进行设置之前，需要先检查设备是否支持指定的曝光模式，可使用方法[isExposureModeSupported](#isexposuremodesupporteddeprecated)。
@@ -963,6 +1005,8 @@ function setExposureMode(captureSession: camera.CaptureSession): void {
 
 
 ##### getMeteringPoint(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMeteringPoint(): Point
 
@@ -1011,6 +1055,8 @@ function getMeteringPoint(captureSession: camera.CaptureSession): camera.Point |
 
 
 ##### setMeteringPoint(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMeteringPoint(point: Point): void
 
@@ -1061,6 +1107,8 @@ function setMeteringPoint(captureSession: camera.CaptureSession): void {
 
 ##### getExposureBiasRange(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getExposureBiasRange(): Array&lt;number&gt;
 
 查询曝光补偿范围。
@@ -1108,6 +1156,8 @@ function getExposureBiasRange(captureSession: camera.CaptureSession): Array<numb
 
 
 ##### setExposureBias(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setExposureBias(exposureBias: number): void
 
@@ -1160,6 +1210,8 @@ function setExposureBias(captureSession: camera.CaptureSession, biasRangeArray: 
 
 ##### getExposureValue(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getExposureValue(): number
 
 查询当前的曝光值。
@@ -1208,6 +1260,8 @@ function getExposureValue(captureSession: camera.CaptureSession): number {
 
 
 ##### isFocusModeSupported(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFocusModeSupported(afMode: FocusMode): boolean
 
@@ -1264,6 +1318,8 @@ function isFocusModeSupported(captureSession: camera.CaptureSession): boolean {
 
 ##### setFocusMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFocusMode(afMode: FocusMode): void
 
 设置对焦模式。
@@ -1312,6 +1368,8 @@ function setFocusMode(captureSession: camera.CaptureSession): void {
 
 ##### getFocusMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFocusMode(): FocusMode
 
 获取当前的对焦模式。
@@ -1359,6 +1417,8 @@ function getFocusMode(captureSession: camera.CaptureSession): camera.FocusMode |
 
 
 ##### setFocusPoint(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFocusPoint(point: Point): void
 
@@ -1409,6 +1469,8 @@ function setFocusPoint(captureSession: camera.CaptureSession): void {
 
 ##### getFocusPoint(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFocusPoint(): Point
 
 查询焦点。
@@ -1456,6 +1518,8 @@ function getFocusPoint(captureSession: camera.CaptureSession): camera.Point | un
 
 
 ##### getFocalLength(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFocalLength(): number
 
@@ -1506,6 +1570,8 @@ function getFocalLength(captureSession: camera.CaptureSession): number {
 
 ##### getZoomRatioRange(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getZoomRatioRange(): Array&lt;number&gt;
 
 获取支持的变焦范围。
@@ -1553,6 +1619,8 @@ function getZoomRatioRange(captureSession: camera.CaptureSession): Array<number>
 
 
 ##### setZoomRatio(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setZoomRatio(zoomRatio: number): void
 
@@ -1604,6 +1672,8 @@ function setZoomRatio(captureSession: camera.CaptureSession, zoomRatioRange: Arr
 
 ##### getZoomRatio(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getZoomRatio(): number
 
 获取当前的变焦比。
@@ -1652,6 +1722,8 @@ function getZoomRatio(captureSession: camera.CaptureSession): number {
 
 
 ##### isVideoStabilizationModeSupported(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isVideoStabilizationModeSupported(vsMode: VideoStabilizationMode): boolean
 
@@ -1708,6 +1780,8 @@ function isVideoStabilizationModeSupported(captureSession: camera.CaptureSession
 
 ##### getActiveVideoStabilizationMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getActiveVideoStabilizationMode(): VideoStabilizationMode
 
 查询当前正在使用的视频防抖模式。
@@ -1756,6 +1830,8 @@ function getActiveVideoStabilizationMode(captureSession: camera.CaptureSession):
 
 ##### setVideoStabilizationMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVideoStabilizationMode(mode: VideoStabilizationMode): void
 
 设置视频防抖模式。需要先检查设备是否支持对应的防抖模式，可以通过[isVideoStabilizationModeSupported](#isvideostabilizationmodesupporteddeprecated)方法判断所设置的模式是否支持。
@@ -1802,6 +1878,8 @@ function setVideoStabilizationMode(captureSession: camera.CaptureSession): void 
 
 ##### on('focusStateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'focusStateChange', callback: AsyncCallback&lt;FocusState&gt;): void
 
 监听相机聚焦的状态变化，通过注册回调函数获取结果。使用callback异步回调。
@@ -1840,6 +1918,8 @@ function registerFocusStateChange(captureSession: camera.CaptureSession): void {
 
 ##### off('focusStateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'focusStateChange', callback?: AsyncCallback&lt;FocusState&gt;): void
 
 注销监听相机聚焦的状态变化。
@@ -1869,6 +1949,8 @@ function unregisterFocusStateChange(captureSession: camera.CaptureSession): void
 
 
 ##### on('error')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -1903,6 +1985,8 @@ function registerCaptureSessionError(captureSession: camera.CaptureSession): voi
 
 
 ##### off('error')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'error', callback?: ErrorCallback): void
 

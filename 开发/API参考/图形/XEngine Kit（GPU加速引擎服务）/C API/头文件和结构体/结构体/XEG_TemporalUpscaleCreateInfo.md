@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述创建[XEG_TemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporalupscale)对象的信息。当结构体中的信息变化时，需要创建新的[XEG_TemporalUpscale](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporalupscale)对象。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### inputSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_TemporalUpscaleCreateInfo::inputSize
@@ -53,6 +63,8 @@ VkExtent2D XEG_TemporalUpscaleCreateInfo::inputSize
 
 ##### isDepthReversed
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 bool XEG_TemporalUpscaleCreateInfo::isDepthReversed
 ```
@@ -64,6 +76,8 @@ bool XEG_TemporalUpscaleCreateInfo::isDepthReversed
   
 
 ##### jitterNum
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 int XEG_TemporalUpscaleCreateInfo::jitterNum
@@ -77,6 +91,8 @@ int XEG_TemporalUpscaleCreateInfo::jitterNum
 
 ##### outputFormat
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkFormat XEG_TemporalUpscaleCreateInfo::outputFormat
 ```
@@ -89,6 +105,8 @@ VkFormat XEG_TemporalUpscaleCreateInfo::outputFormat
 
 ##### outputRegion
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkRect2D XEG_TemporalUpscaleCreateInfo::outputRegion
 ```
@@ -100,6 +118,8 @@ VkRect2D XEG_TemporalUpscaleCreateInfo::outputRegion
   
 
 ##### outputSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_TemporalUpscaleCreateInfo::outputSize

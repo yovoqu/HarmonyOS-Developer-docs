@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { cdsm } from '@kit.NearLinkKit';
 ```
@@ -19,6 +21,8 @@ import { cdsm } from '@kit.NearLinkKit';
   
 
 ##### createCdsmClient
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createCdsmClient(address: string): CdsmClient
  
@@ -79,6 +83,8 @@ try {
 
 ##### CdsmClient
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供获取远端设备的合作设备集合信息的方法，使用前需要使用cdsm.createCdsmClient方法创建一个CdsmClient实例。
  
 一个应用针对一个远端设备只需要创建一次实例。
@@ -92,6 +98,8 @@ try {
   
 
 ##### getCdsmInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCdsmInfo(): CdsmInfo
  
@@ -143,6 +151,8 @@ let cdsmInformation: cdsm.CdsmInfo = client.getCdsmInfo();
   
 
 ##### onCdsmInfoChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCdsmInfoChange(callback: Callback&lt;CdsmInfo&gt;): void
  
@@ -196,6 +206,8 @@ try {
   
 
 ##### offCdsmInfoChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offCdsmInfoChange(callback?: Callback&lt;CdsmInfo&gt;): void
  
@@ -251,6 +263,8 @@ try {
 
 ##### CdsmInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示合作设备集合信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -267,6 +281,8 @@ try {
   
 
 ##### CdsmMemberInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示合作设备集合的成员信息。
  
@@ -285,6 +301,8 @@ try {
   
 
 ##### CdsmConnectionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示和远端设备的合作设备集合连接状态，为枚举值。
  

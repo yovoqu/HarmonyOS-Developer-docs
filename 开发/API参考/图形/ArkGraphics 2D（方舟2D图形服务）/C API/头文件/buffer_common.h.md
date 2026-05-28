@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供NativeBuffer模块的公共类型定义。
  
 **引用文件：** <native_buffer/buffer_common.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -38,6 +44,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -52,9 +60,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_NativeBuffer_ColorSpace
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_NativeBuffer_ColorSpace
@@ -112,6 +124,8 @@ API version 12之前，使用该枚举请引用native_buffer.h头文件；从API
 
 ##### OH_NativeBuffer_MetadataType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_NativeBuffer_MetadataType
 ```
@@ -140,6 +154,8 @@ OH_NativeBuffer的图像标准。
 
 ##### OH_NativeBuffer_MetadataKey
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_NativeBuffer_MetadataKey
 ```
@@ -163,6 +179,8 @@ enum OH_NativeBuffer_MetadataKey
   
 
 ##### OH_NativeBuffer_Format
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_NativeBuffer_Format
@@ -231,6 +249,8 @@ API version 22之前，使用该枚举请引用native_buffer.h头文件；从API
   
 
 ##### OH_NativeBuffer_TransformType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_NativeBuffer_TransformType

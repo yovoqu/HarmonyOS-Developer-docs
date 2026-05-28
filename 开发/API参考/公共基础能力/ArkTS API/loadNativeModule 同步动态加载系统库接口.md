@@ -14,6 +14,8 @@
 
 ##### loadNativeModule
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loadNativeModule(moduleName: string): Object
 
 loadNativeModule接口用于同步动态加载native模块，目的是按需加载所需要的模块。使用该接口会增加加载so文件的时间，开发者需评估其对功能的影响。

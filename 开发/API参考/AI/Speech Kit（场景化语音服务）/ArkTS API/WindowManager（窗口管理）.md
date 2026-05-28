@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { WindowManager } from '@kit.SpeechKit';
 ```
@@ -19,6 +21,8 @@ import { WindowManager } from '@kit.SpeechKit';
   
 
 ##### setWindowStage
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 static setWindowStage(windowStage: window.WindowStage): void
  
@@ -86,6 +90,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### getWindowStage
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 static getWindowStage(): window.WindowStage
  

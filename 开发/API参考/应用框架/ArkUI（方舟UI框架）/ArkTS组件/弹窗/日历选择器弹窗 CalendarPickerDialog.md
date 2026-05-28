@@ -14,9 +14,13 @@
 
 ##### CalendarPickerDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### show
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static show(options?: CalendarDialogOptions): void
 
@@ -38,6 +42,8 @@ static show(options?: CalendarDialogOptions): void
 
 
 ##### CalendarDialogOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 日历选择器弹窗选项。
 
@@ -75,6 +81,8 @@ static show(options?: CalendarDialogOptions): void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -400,7 +408,7 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/g-Abj26MT--BzH1YjtWXTA/zh-cn_image_0000002611756125.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=39A527090FE2737D3AE7380ED79F70BFCE20ACEF8C281D5A78546BDA8B8C9AC0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/g-Abj26MT--BzH1YjtWXTA/zh-cn_image_0000002611756125.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=541E13A1F4A8D788D970DB7722644B76AD63A54D4460DBD466CAA6FAD89AC987)
 
 
 
@@ -444,4 +452,4 @@ struct CalendarPickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/QPyQbJdNQDC9Qq9KMkTazw/zh-cn_image_0000002581436188.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=7086913D847E5403BE7F9E3AFFE994F41B866A8E417F263911F6916746FDF2CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/QPyQbJdNQDC9Qq9KMkTazw/zh-cn_image_0000002581436188.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=F95325C2FE4681B59B7B183C3E3075E5B1D55B3C5A1747817FF9E96CA980013A)

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { harmonyShare } from '@kit.ShareKit';
 ```
@@ -21,6 +23,8 @@ import { harmonyShare } from '@kit.ShareKit';
   
 
 ##### SharableErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 拒绝分享回调时，提供拒绝原因，用户可收到系统通知消息。
  
@@ -41,6 +45,8 @@ import { harmonyShare } from '@kit.ShareKit';
 
 ##### ReceivableErrorCode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 拒绝沙箱接收回调时，提供拒绝原因，用户可收到系统通知消息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -57,6 +63,8 @@ import { harmonyShare } from '@kit.ShareKit';
   
 
 ##### ShareResultCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 沙箱接收结果通知成功或失败原因。
  
@@ -78,6 +86,8 @@ import { harmonyShare } from '@kit.ShareKit';
 
 ##### SharableTarget
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 华为分享事件触发后回调参数，可通过此参数跨端分享。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -89,6 +99,8 @@ import { harmonyShare } from '@kit.ShareKit';
   
 
 ##### share
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 share(data: systemShare.SharedData): Promise&lt;void&gt;
  
@@ -127,6 +139,8 @@ share(data: systemShare.SharedData): Promise&lt;void&gt;
 
 ##### reject
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 reject(error: SharableErrorCode): Promise&lt;void&gt;
  
 当开发者收到回调时，由于某些原因无法继续分享时，可选择拒绝本次分享，使用Promise异步回调。
@@ -164,6 +178,8 @@ reject(error: SharableErrorCode): Promise&lt;void&gt;
 
 ##### updateShareData
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 updateShareData(data: UpdatedData): Promise&lt;void&gt;
  
 在分享数据未发送前，开发者可通过此接口更新预览图，使用Promise异步回调。
@@ -193,6 +209,8 @@ updateShareData(data: UpdatedData): Promise&lt;void&gt;
   
 
 ##### clarifyNonShare
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 clarifyNonShare(info: SharableErrorInfo): Promise&lt;void&gt;
  
@@ -224,6 +242,8 @@ clarifyNonShare(info: SharableErrorInfo): Promise&lt;void&gt;
 
 ##### ReceivableTarget
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 沙箱接收事件触发后回调参数，可通过此参数进行沙箱接收。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -235,6 +255,8 @@ clarifyNonShare(info: SharableErrorInfo): Promise&lt;void&gt;
   
 
 ##### receive
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 receive(receiveUri: string, callback: ReceiveCallback): Promise&lt;void&gt;
  
@@ -265,6 +287,8 @@ receive(receiveUri: string, callback: ReceiveCallback): Promise&lt;void&gt;
 
 ##### reject
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
 当开发者收到回调时，由于某些原因无法继续接收分享内容时，可选择拒绝本次接收，使用Promise异步回调。
@@ -293,6 +317,8 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
 
 ##### UpdatedData
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 华为分享事件发送的数据信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -309,6 +335,8 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
   
 
 ##### BaseCapabilityRegistry
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 华为分享事件注册基础配置。
  
@@ -327,6 +355,8 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
 
 ##### SendCapabilityRegistry
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 华为分享事件窗口注册配置项。继承[BaseCapabilityRegistry](#basecapabilityregistry)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -343,6 +373,8 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
   
 
 ##### RecvCapability
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 设置沙箱接收支持的能力范围（可接收的文件类型及最大数量限制）。
  
@@ -362,6 +394,8 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
 
 ##### RecvCapabilityRegistry
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 沙箱接收事件窗口注册配置项。继承[BaseCapabilityRegistry](#basecapabilityregistry)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -378,6 +412,8 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
   
 
 ##### TransferBaseResults
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 沙箱接收时，文件数据传输完成的回调函数。
  
@@ -396,6 +432,8 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
 
 ##### ReceiveCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 沙箱接收传输完成后回调函数。可用此方法监听完成事件，并处理接收后的数据。继承[TransferBaseResults](#transferbaseresults)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -413,6 +451,8 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
 
 ##### SharableErrorInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 提示信息，用于告知用户无法分享的原因。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -429,6 +469,8 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
   
 
 ##### on('knockShare')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(event: 'knockShare', callback: Callback&lt;SharableTarget&gt;): void
  
@@ -479,6 +521,8 @@ harmonyShare.on('knockShare', (sharableTarget: harmonyShare.SharableTarget) => {
 
 ##### off('knockShare')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(event: 'knockShare', callback?: Callback&lt;SharableTarget&gt;): void
  
 取消设备轻贴的事件监听。
@@ -516,6 +560,8 @@ harmonyShare.off('knockShare');
   
 
 ##### on('knockShare')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(event: 'knockShare', capability: SendCapabilityRegistry, callback: Callback&lt;SharableTarget&gt;): void
  
@@ -561,6 +607,8 @@ harmonyShare.on('knockShare', capabilityRegistry, (sharableTarget: harmonyShare.
 
 ##### off('knockShare')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(event: 'knockShare', capability: SendCapabilityRegistry, callback?: Callback&lt;SharableTarget&gt;): void
  
 取消设备轻贴的事件监听。
@@ -593,6 +641,8 @@ harmonyShare.off('knockShare', capabilityRegistry);
   
 
 ##### on('gesturesShare')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(event: 'gesturesShare', callback: Callback&lt;SharableTarget&gt;): void
  
@@ -634,6 +684,8 @@ harmonyShare.on('gesturesShare', (sharableTarget: harmonyShare.SharableTarget) =
 
 ##### off('gesturesShare')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(event: 'gesturesShare', callback?: Callback&lt;SharableTarget&gt;): void
  
 取消隔空传送的事件监听。
@@ -662,6 +714,8 @@ harmonyShare.off('gesturesShare');
   
 
 ##### on('gesturesShare')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(event: 'gesturesShare', capability: SendCapabilityRegistry, callback: Callback&lt;SharableTarget&gt;): void
  
@@ -707,6 +761,8 @@ harmonyShare.on('gesturesShare', capabilityRegistry, (sharableTarget: harmonySha
 
 ##### off('gesturesShare')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(event: 'gesturesShare', capability: SendCapabilityRegistry, callback?: Callback&lt;SharableTarget&gt;): void
  
 取消隔空传送的事件监听。
@@ -739,6 +795,8 @@ harmonyShare.off('gesturesShare', capabilityRegistry);
   
 
 ##### on('dataReceive')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(event: 'dataReceive', capability: RecvCapabilityRegistry, callback: Callback&lt;ReceivableTarget&gt;): void
  
@@ -798,6 +856,8 @@ harmonyShare.on('dataReceive', capabilityRegistry, (receivableTarget: harmonySha
   
 
 ##### off('dataReceive')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(event: 'dataReceive', capability: RecvCapabilityRegistry, callback?: Callback&lt;ReceivableTarget&gt;): void
  

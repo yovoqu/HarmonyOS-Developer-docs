@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 HiDebug模块代码结构体定义。
  
 **引用文件：** <hidebug/hidebug_type.h>
@@ -23,9 +25,13 @@ HiDebug模块代码结构体定义。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -49,6 +55,8 @@ HiDebug模块代码结构体定义。
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -62,6 +70,8 @@ HiDebug模块代码结构体定义。
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -102,6 +112,8 @@ HiDebug模块代码结构体定义。
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -113,9 +125,13 @@ HiDebug模块代码结构体定义。
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### HiDebug_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum HiDebug_ErrorCode
@@ -165,6 +181,8 @@ enum HiDebug_ErrorCode
 
 ##### HiDebug_TraceFlag
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum HiDebug_TraceFlag
 ```
@@ -185,6 +203,8 @@ enum HiDebug_TraceFlag
 
 ##### HiDebug_StackFrameType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum HiDebug_StackFrameType
 ```
@@ -204,6 +224,8 @@ enum HiDebug_StackFrameType
   
 
 ##### HiDebug_CrashObjType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum HiDebug_CrashObjType
@@ -229,6 +251,8 @@ enum HiDebug_CrashObjType
 
 ##### OH_HiDebug_ResourceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_HiDebug_ResourceType
 ```
@@ -252,9 +276,13 @@ enum OH_HiDebug_ResourceType
 
 ##### 宏定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### HIDEBUG_TRACE_TAG_FFRT
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_FFRT (1ULL << 13)
@@ -270,6 +298,8 @@ FFRT任务标签。
 
 ##### HIDEBUG_TRACE_TAG_COMMON_LIBRARY
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_COMMON_LIBRARY (1ULL << 16)
 ```
@@ -283,6 +313,8 @@ FFRT任务标签。
   
 
 ##### HIDEBUG_TRACE_TAG_HDF
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_HDF (1ULL << 18)
@@ -298,6 +330,8 @@ HDF子系统标签。
 
 ##### HIDEBUG_TRACE_TAG_NET
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_NET (1ULL << 23)
 ```
@@ -311,6 +345,8 @@ HDF子系统标签。
   
 
 ##### HIDEBUG_TRACE_TAG_NWEB
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_NWEB (1ULL << 24)
@@ -326,6 +362,8 @@ NWeb标签。
 
 ##### HIDEBUG_TRACE_TAG_DISTRIBUTED_AUDIO
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_DISTRIBUTED_AUDIO (1ULL << 27)
 ```
@@ -339,6 +377,8 @@ NWeb标签。
   
 
 ##### HIDEBUG_TRACE_TAG_FILE_MANAGEMENT
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_FILE_MANAGEMENT (1ULL << 29)
@@ -354,6 +394,8 @@ NWeb标签。
 
 ##### HIDEBUG_TRACE_TAG_OHOS
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_OHOS (1ULL << 30)
 ```
@@ -367,6 +409,8 @@ OHOS通用标签。
   
 
 ##### HIDEBUG_TRACE_TAG_ABILITY_MANAGER
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_ABILITY_MANAGER (1ULL << 31)
@@ -382,6 +426,8 @@ Ability Manager标签。
 
 ##### HIDEBUG_TRACE_TAG_CAMERA
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_CAMERA (1ULL << 32)
 ```
@@ -395,6 +441,8 @@ Ability Manager标签。
   
 
 ##### HIDEBUG_TRACE_TAG_MEDIA
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_MEDIA (1ULL << 33)
@@ -410,6 +458,8 @@ Ability Manager标签。
 
 ##### HIDEBUG_TRACE_TAG_IMAGE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_IMAGE (1ULL << 34)
 ```
@@ -423,6 +473,8 @@ Ability Manager标签。
   
 
 ##### HIDEBUG_TRACE_TAG_AUDIO
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_AUDIO (1ULL << 35)
@@ -438,6 +490,8 @@ Ability Manager标签。
 
 ##### HIDEBUG_TRACE_TAG_DISTRIBUTED_DATA
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_DISTRIBUTED_DATA (1ULL << 36)
 ```
@@ -451,6 +505,8 @@ Ability Manager标签。
   
 
 ##### HIDEBUG_TRACE_TAG_GRAPHICS
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_GRAPHICS (1ULL << 38)
@@ -466,6 +522,8 @@ Ability Manager标签。
 
 ##### HIDEBUG_TRACE_TAG_ARKUI
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_ARKUI (1ULL << 39)
 ```
@@ -479,6 +537,8 @@ ArkUI开发框架标签。
   
 
 ##### HIDEBUG_TRACE_TAG_NOTIFICATION
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_NOTIFICATION (1ULL << 40)
@@ -494,6 +554,8 @@ ArkUI开发框架标签。
 
 ##### HIDEBUG_TRACE_TAG_MISC
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_MISC (1ULL << 41)
 ```
@@ -507,6 +569,8 @@ MISC模块标签。
   
 
 ##### HIDEBUG_TRACE_TAG_MULTIMODAL_INPUT
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_MULTIMODAL_INPUT (1ULL << 42)
@@ -522,6 +586,8 @@ MISC模块标签。
 
 ##### HIDEBUG_TRACE_TAG_RPC
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_RPC (1ULL << 46)
 ```
@@ -535,6 +601,8 @@ RPC标签。
   
 
 ##### HIDEBUG_TRACE_TAG_ARK
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_ARK (1ULL << 47)
@@ -550,6 +618,8 @@ JSVM虚拟机标签。
 
 ##### HIDEBUG_TRACE_TAG_WINDOW_MANAGER
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_WINDOW_MANAGER (1ULL << 48)
 ```
@@ -563,6 +633,8 @@ JSVM虚拟机标签。
   
 
 ##### HIDEBUG_TRACE_TAG_DISTRIBUTED_SCREEN
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_DISTRIBUTED_SCREEN (1ULL << 50)
@@ -578,6 +650,8 @@ JSVM虚拟机标签。
 
 ##### HIDEBUG_TRACE_TAG_DISTRIBUTED_CAMERA
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_DISTRIBUTED_CAMERA (1ULL << 51)
 ```
@@ -591,6 +665,8 @@ JSVM虚拟机标签。
   
 
 ##### HIDEBUG_TRACE_TAG_DISTRIBUTED_HARDWARE_FRAMEWORK
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_DISTRIBUTED_HARDWARE_FRAMEWORK (1ULL << 52)
@@ -606,6 +682,8 @@ JSVM虚拟机标签。
 
 ##### HIDEBUG_TRACE_TAG_GLOBAL_RESOURCE_MANAGER
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_GLOBAL_RESOURCE_MANAGER (1ULL << 53)
 ```
@@ -619,6 +697,8 @@ JSVM虚拟机标签。
   
 
 ##### HIDEBUG_TRACE_TAG_DISTRIBUTED_HARDWARE_DEVICE_MANAGER
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_DISTRIBUTED_HARDWARE_DEVICE_MANAGER (1ULL << 54)
@@ -634,6 +714,8 @@ JSVM虚拟机标签。
 
 ##### HIDEBUG_TRACE_TAG_SAMGR
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_SAMGR (1ULL << 55)
 ```
@@ -647,6 +729,8 @@ SA标签。
   
 
 ##### HIDEBUG_TRACE_TAG_POWER_MANAGER
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_POWER_MANAGER (1ULL << 56)
@@ -662,6 +746,8 @@ SA标签。
 
 ##### HIDEBUG_TRACE_TAG_DISTRIBUTED_SCHEDULER
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_DISTRIBUTED_SCHEDULER (1ULL << 57)
 ```
@@ -675,6 +761,8 @@ SA标签。
   
 
 ##### HIDEBUG_TRACE_TAG_DISTRIBUTED_INPUT
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define HIDEBUG_TRACE_TAG_DISTRIBUTED_INPUT (1ULL << 59)
@@ -690,6 +778,8 @@ SA标签。
 
 ##### HIDEBUG_TRACE_TAG_BLUETOOTH
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define HIDEBUG_TRACE_TAG_BLUETOOTH (1ULL << 60)
 ```
@@ -704,9 +794,13 @@ SA标签。
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_HiDebug_RequestTraceCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_HiDebug_RequestTraceCallback)(HiDebug_ErrorCode errorCode, const char* filePath)
@@ -729,6 +823,8 @@ typedef void (*OH_HiDebug_RequestTraceCallback)(HiDebug_ErrorCode errorCode, con
   
 
 ##### OH_HiDebug_ProfilingCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_HiDebug_ProfilingCallback)(OH_HiDebug_ProfilingResult* result)

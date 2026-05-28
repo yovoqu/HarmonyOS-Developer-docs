@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { usbManager } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { usbManager } from '@kit.BasicServicesKit';
 
 
 ##### 使用说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 凡是参数类型为[USBDevicePipe](#usbdevicepipe)的接口,都需要执行如下操作：
 
@@ -36,6 +40,8 @@ import { usbManager } from '@kit.BasicServicesKit';
 
 
 ##### usbManager.getDevices
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getDevices(): Array<Readonly&lt;USBDevice&gt;>
 
@@ -125,6 +131,8 @@ console.info(`devicesList = ${devicesList}`);
 
 ##### usbManager.connectDevice
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 connectDevice(device: USBDevice): Readonly&lt;USBDevicePipe&gt;
 
 根据getDevices()返回的设备信息打开USB设备。如果USB服务异常，可能返回undefined，注意需要对接口返回值做判空处理。
@@ -178,6 +186,8 @@ function connectDevice() {
 
 
 ##### usbManager.hasRight
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 hasRight(deviceName: string): boolean
 
@@ -233,6 +243,8 @@ function hasRight(): boolean {
 
 ##### usbManager.requestRight
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 requestRight(deviceName: string): Promise&lt;boolean&gt;
 
 请求软件包的临时权限以访问设备。使用Promise异步回调。系统应用默认拥有访问设备权限，无需调用此接口申请。
@@ -286,6 +298,8 @@ function requestRight() {
 
 ##### usbManager.removeRight
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 removeRight(deviceName: string): boolean
 
 移除软件包访问设备的权限。系统应用默认拥有访问设备权限，调用此接口不会产生影响。
@@ -338,6 +352,8 @@ function removeRight(): boolean {
 
 
 ##### usbManager.claimInterface
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 claimInterface(pipe: USBDevicePipe, iface: USBInterface, force ?: boolean): number
 
@@ -398,6 +414,8 @@ function claimInterface() {
 
 ##### usbManager.releaseInterface
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number
 
 释放claim过的通信接口。
@@ -457,6 +475,8 @@ function releaseInterface() {
 
 ##### usbManager.setConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 setConfiguration(pipe: USBDevicePipe, config: USBConfiguration): number
 
 设置设备配置。
@@ -510,6 +530,8 @@ function setConfiguration() {
 
 
 ##### usbManager.setInterface
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setInterface(pipe: USBDevicePipe, iface: USBInterface): number
 
@@ -570,6 +592,8 @@ function setInterface() {
 
 ##### usbManager.getRawDescriptor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getRawDescriptor(pipe: USBDevicePipe): Uint8Array
 
 获取原始的USB描述符。如果USB服务异常，可能返回undefined，注意需要对接口返回值做判空处理。
@@ -619,6 +643,8 @@ function getRawDescriptor() {
 
 
 ##### usbManager.getFileDescriptor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getFileDescriptor(pipe: USBDevicePipe): number
 
@@ -672,6 +698,8 @@ function getFileDescriptor() {
 
 
 ##### usbManager.usbControlTransfer12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout ?: number): Promise&lt;number&gt;
 
@@ -745,6 +773,8 @@ function usbControlTransfer() {
 
 
 ##### usbManager.bulkTransfer
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 bulkTransfer(pipe: USBDevicePipe, endpoint: USBEndpoint, buffer: Uint8Array, timeout ?: number): Promise&lt;number&gt;
 
@@ -826,6 +856,8 @@ function bulkTransfer() {
 
 
 ##### usbManager.usbSubmitTransfer18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 usbSubmitTransfer(transfer: UsbDataTransferParams): void
 
@@ -916,6 +948,8 @@ function usbSubmitTransfer() {
 
 
 ##### usbManager.usbCancelTransfer18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 usbCancelTransfer(transfer: UsbDataTransferParams): void
 
@@ -1010,6 +1044,8 @@ function usbCancelTransfer() {
 
 ##### usbManager.closePipe
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 closePipe(pipe: USBDevicePipe): number
 
 关闭设备消息控制通道。
@@ -1064,6 +1100,8 @@ function closePipe() {
 
 ##### usbManager.hasAccessoryRight14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 hasAccessoryRight(accessory: USBAccessory): boolean
 
 检查应用程序是否有权访问USB配件。
@@ -1115,6 +1153,8 @@ try {
 
 
 ##### usbManager.requestAccessoryRight14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 requestAccessoryRight(accessory: USBAccessory): Promise&lt;boolean&gt;
 
@@ -1168,6 +1208,8 @@ try {
 
 ##### usbManager.cancelAccessoryRight14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 cancelAccessoryRight(accessory: USBAccessory): void
 
 取消当前应用程序访问USB配件的权限。
@@ -1214,6 +1256,8 @@ try {
 
 ##### usbManager.getAccessoryList14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getAccessoryList(): Array<Readonly&lt;USBAccessory&gt;>
 
 获取当前已接入主机的USB配件列表。
@@ -1252,6 +1296,8 @@ try {
 
 
 ##### usbManager.openAccessory14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 openAccessory(accessory: USBAccessory): USBAccessoryHandle
 
@@ -1312,6 +1358,8 @@ try {
 
 ##### usbManager.closeAccessory14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 closeAccessory(accessoryHandle: USBAccessoryHandle): void
 
 关闭配件文件描述符。
@@ -1356,6 +1404,8 @@ try {
 
 
 ##### usbManager.resetUsbDevice20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 resetUsbDevice(pipe: USBDevicePipe): boolean
 
@@ -1419,6 +1469,8 @@ function resetUsbDevice() {
 
 
 ##### usbManager.controlTransfer(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout ?: number): Promise&lt;number&gt;
 
@@ -1495,6 +1547,8 @@ function controlTransfer() {
 
 ##### USBEndpoint
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 通过USB发送和接收数据的端口。通过[USBInterface](#usbinterface)获取。
 
 > [!NOTE]
@@ -1519,6 +1573,8 @@ function controlTransfer() {
 
 ##### USBInterface
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 一个[USBConfiguration](#usbconfiguration)中可以含有多个USBInterface，每个USBInterface提供一个功能。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1538,6 +1594,8 @@ function controlTransfer() {
 
 ##### USBConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 USB配置，一个[USBDevice](#usbdevice)中可以含有多个配置。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1556,6 +1614,8 @@ USB配置，一个[USBDevice](#usbdevice)中可以含有多个配置。
 
 
 ##### USBDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 USB设备信息。
 
@@ -1582,6 +1642,8 @@ USB设备信息。
 
 ##### USBDevicePipe
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 USB设备消息传输通道，用于确定设备。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1595,6 +1657,8 @@ USB设备消息传输通道，用于确定设备。
 
 
 ##### USBDeviceRequestParams12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 控制传输参数。
 
@@ -1614,6 +1678,8 @@ USB设备消息传输通道，用于确定设备。
 
 ##### USBRequestTargetType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 请求目标类型。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1630,6 +1696,8 @@ USB设备消息传输通道，用于确定设备。
 
 ##### USBControlRequestType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 控制请求类型。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1645,6 +1713,8 @@ USB设备消息传输通道，用于确定设备。
 
 ##### USBRequestDirection
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 请求方向。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1658,6 +1728,8 @@ USB设备消息传输通道，用于确定设备。
 
 
 ##### USBAccessory14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 USB配件信息。
 
@@ -1676,6 +1748,8 @@ USB配件信息。
 
 ##### USBAccessoryHandle14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 USB配件句柄。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1688,6 +1762,8 @@ USB配件句柄。
 
 
 ##### UsbDataTransferParams18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 作为通用USB数据传输接口，客户端需要填充这个对象中的参数，用以发起传输请求。
 
@@ -1711,6 +1787,8 @@ USB配件句柄。
 
 ##### UsbTransferFlags18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 USB传输标志。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1727,6 +1805,8 @@ USB传输标志。
 
 ##### UsbEndpointTransferType18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 Usb传输类型。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1742,6 +1822,8 @@ Usb传输类型。
 
 ##### SubmitTransferCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 Usb异步传输回调。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1756,6 +1838,8 @@ Usb异步传输回调。
 
 
 ##### UsbTransferStatus18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 数据处理完成后通过回调返回的状态码。
 
@@ -1776,6 +1860,8 @@ Usb异步传输回调。
 
 ##### UsbIsoPacketDescriptor18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 实时传输模式回调返回的分包信息。
 
 **系统能力：** SystemCapability.USB.USBManager
@@ -1790,6 +1876,8 @@ Usb异步传输回调。
 
 
 ##### USBControlParams(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 控制传输参数。
 

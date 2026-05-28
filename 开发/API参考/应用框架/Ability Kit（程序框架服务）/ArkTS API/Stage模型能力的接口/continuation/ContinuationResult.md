@@ -14,6 +14,8 @@
 
 ##### ContinuationResult(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ContinuationManager的[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-continuation-continuationmanager#continuationmanagerondeviceselecteddeprecated)接口返回此对象表示流转管理入口返回的设备信息。
 
 > [!NOTE]

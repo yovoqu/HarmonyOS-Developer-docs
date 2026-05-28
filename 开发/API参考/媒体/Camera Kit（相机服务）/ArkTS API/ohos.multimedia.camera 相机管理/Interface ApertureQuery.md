@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### getSupportedPhysicalApertures24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSupportedPhysicalApertures(): Array&lt;PhysicalAperture&gt;
  

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 IPC头文件包含入口，方便开发者引用。
  
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -16,6 +18,8 @@ IPC头文件包含入口，方便开发者引用。
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

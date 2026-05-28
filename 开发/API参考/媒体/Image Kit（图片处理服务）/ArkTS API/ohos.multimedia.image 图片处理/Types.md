@@ -12,6 +12,8 @@
 
 ##### HdrMetadataValue12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type HdrMetadataValue = HdrMetadataType | HdrStaticMetadata | ArrayBuffer | HdrGainmapMetadata
  
 PixelMap使用的HDR元数据值类型，和[HdrMetadataKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#hdrmetadatakey12)关键字相对应。

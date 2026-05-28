@@ -14,6 +14,8 @@ AbilityDelegatorArgs模块提供在应用程序执行测试用例期间，获取
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 ```
@@ -22,11 +24,15 @@ import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 ##### 使用说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通过AbilityDelegatorRegistry中[getArguments](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitydelegatorregistry#abilitydelegatorregistrygetarguments)方法获取。
  
   
 
 ##### AbilityDelegatorArgs
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  

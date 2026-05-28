@@ -23,6 +23,8 @@
 
 ##### 201 鉴权失败
 
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
+
 **错误信息**
 
 Permission verification failed.
@@ -55,6 +57,8 @@ Permission verification failed.
 
 ##### 401 参数不合法
 
+**支持设备：** Phone | Tablet | Wearable
+
 **错误信息**
 
 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3.Parameter verification failed.
@@ -77,6 +81,8 @@ Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2
 
 ##### 801 该设备不支持此API
 
+**支持设备：** Phone | Tablet | Wearable
+
 **错误信息**
 
 Capability not supported. Failed to call the API due to limited device capabilities.
@@ -96,6 +102,8 @@ Capability not supported. Failed to call the API due to limited device capabilit
 
 
 ##### 1002700001 系统内部错误
+
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
 
 **错误信息**
 
@@ -117,6 +125,8 @@ System internal error.
 
 ##### 1002700002 数据库异常
 
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
+
 **错误信息**
 
 Database processing error.
@@ -136,6 +146,8 @@ Database processing error.
 
 
 ##### 1002701001 网络错误
+
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
 
 **错误信息**
 
@@ -159,6 +171,8 @@ Network error. The network is unavailable.
 
 ##### 1002702001 账号未登录
 
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
+
 **错误信息**
 
 Account error. The user has not logged in with HUAWEI ID.
@@ -181,6 +195,8 @@ Account error. The user has not logged in with HUAWEI ID.
 
 ##### 1002702002 账号异常
 
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
+
 **错误信息**
 
 Account error. Failed to obtain account information with HUAWEI ID.
@@ -201,6 +217,8 @@ Account error. Failed to obtain account information with HUAWEI ID.
 
 ##### 1002703001 用户隐私未同意
 
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
+
 **错误信息**
 
 User privacy is not agreed.
@@ -220,6 +238,8 @@ User privacy is not agreed.
 
 
 ##### 1009104001 联动已开启
+
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
 
 **错误信息**
 
@@ -243,6 +263,8 @@ Sport service busy. Workout is already started by other application.
 
 ##### 1009104002 不支持运动类型
 
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
+
 **错误信息**
 
 Unsupported sport type.
@@ -262,6 +284,8 @@ Unsupported sport type.
 
 
 ##### 1009104003 非法指令
+
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
 
 **错误信息**
 
@@ -291,6 +315,8 @@ Illegal command.
 
 ##### 1009104004 权限校验异常
 
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
+
 **错误信息**
 
 Permission verification error. Application has no permission, such as Motion Permission.
@@ -310,6 +336,8 @@ Permission verification error. Application has no permission, such as Motion Per
 
 
 ##### 1009104005 动态库加载异常
+
+**支持设备：** lite_wearable
 
 **错误信息**
 
@@ -333,6 +361,8 @@ Failed to load the dynamic library.
 
 ##### 1009104006 动态库卸载异常
 
+**支持设备：** lite_wearable
+
 **错误信息**
 
 Failed to unload the dynamic library.
@@ -355,6 +385,8 @@ Failed to unload the dynamic library.
 
 ##### 1009104999 通用错误码
 
+**支持设备：** Phone | Tablet | Wearable | lite_wearable
+
 **错误信息**
 
 System internal error.
@@ -374,6 +406,8 @@ System internal error.
 
 
 ##### 14500101 服务异常
+
+**支持设备：** Phone | Tablet | Wearable
 
 **错误信息**
 

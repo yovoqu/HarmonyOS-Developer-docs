@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { CollaborationDevicePicker } from '@kit.ServiceCollaborationKit';
 ```
@@ -21,6 +23,8 @@ import { CollaborationDevicePicker } from '@kit.ServiceCollaborationKit';
   
 
 ##### CollaborationDevicePicker
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **装饰器类型：** @Component
  
@@ -37,6 +41,8 @@ import { CollaborationDevicePicker } from '@kit.ServiceCollaborationKit';
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 build(): void
  

@@ -12,6 +12,8 @@
 
 ##### WebMessage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type WebMessage = ArrayBuffer | string
  
 用于描述[WebMessagePort](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport)所支持的数据类型。
@@ -28,6 +30,8 @@ type WebMessage = ArrayBuffer | string
 
 ##### OnProxyConfigChangeCallback15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnProxyConfigChangeCallback = () => void
  
 回调函数，回调成功表示代理设置成功。
@@ -41,6 +45,8 @@ type OnProxyConfigChangeCallback = () => void
   
 
 ##### CreateNativeMediaPlayerCallback12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type CreateNativeMediaPlayerCallback = (handler: NativeMediaPlayerHandler, mediaInfo: MediaInfo) => NativeMediaPlayerBridge
  

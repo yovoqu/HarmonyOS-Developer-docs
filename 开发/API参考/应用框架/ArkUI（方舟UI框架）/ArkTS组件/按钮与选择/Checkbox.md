@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Checkbox(options?: CheckboxOptions)
 
@@ -41,6 +45,8 @@ Checkbox(options?: CheckboxOptions)
 
 ##### CheckboxOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 多选框的信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -56,11 +62,15 @@ Checkbox(options?: CheckboxOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### select
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 select(value: boolean)
 
@@ -87,6 +97,8 @@ select(value: boolean)
 
 ##### select18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 select(isSelected: Optional&lt;boolean&gt;)
 
 设置多选框选中状态。与[select](#select)相比，isSelected参数新增了对undefined类型的支持。
@@ -110,6 +122,8 @@ select(isSelected: Optional&lt;boolean&gt;)
 
 ##### selectedColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedColor(value: ResourceColor)
 
 设置多选框选中状态颜色。
@@ -130,6 +144,8 @@ selectedColor(value: ResourceColor)
 
 
 ##### selectedColor18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
@@ -152,6 +168,8 @@ selectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 ##### unselectedColor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unselectedColor(value: ResourceColor)
 
 设置多选框非选中状态的边框颜色。
@@ -170,6 +188,8 @@ unselectedColor(value: ResourceColor)
 
 
 ##### unselectedColor18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unselectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
@@ -190,6 +210,8 @@ unselectedColor(resColor: Optional&lt;ResourceColor&gt;)
 
 ##### mark10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mark(value: MarkStyle)
 
 设置多选框内部图标的样式。
@@ -209,6 +231,8 @@ mark(value: MarkStyle)
 
 ##### mark18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mark(style: Optional&lt;MarkStyle&gt;)
 
 设置多选框内部图标的样式。与[mark](#mark10)10+相比，style参数新增了对undefined类型的支持。
@@ -227,6 +251,8 @@ mark(style: Optional&lt;MarkStyle&gt;)
 
 
 ##### shape11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 shape(value: CheckBoxShape)
 
@@ -249,6 +275,8 @@ shape(value: CheckBoxShape)
 
 ##### shape18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 shape(shape: Optional&lt;CheckBoxShape&gt;)
 
 设置Checkbox组件形状，包括圆形和圆角方形。与[shape](#shape11)11+相比，shape参数新增了对undefined类型的支持。如果想要调整当前Checkbox的样式，需使用[contentModifier](#contentmodifier12)属性自定义Checkbox样式。
@@ -270,6 +298,8 @@ shape(shape: Optional&lt;CheckBoxShape&gt;)
 
 ##### contentModifier12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 contentModifier(modifier: ContentModifier&lt;CheckBoxConfiguration&gt;)
 
 定制Checkbox内容区的方法。设置该属性时，会导致其他属性设置失效。
@@ -288,6 +318,8 @@ contentModifier(modifier: ContentModifier&lt;CheckBoxConfiguration&gt;)
 
 
 ##### contentModifier18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contentModifier(modifier: Optional<ContentModifier&lt;CheckBoxConfiguration&gt;>)
 
@@ -308,11 +340,15 @@ contentModifier(modifier: Optional<ContentModifier&lt;CheckBoxConfiguration&gt;>
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: OnCheckboxChangeCallback)
 
@@ -335,6 +371,8 @@ onChange(callback: OnCheckboxChangeCallback)
 
 ##### onChange18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onChange(callback: Optional&lt;OnCheckboxChangeCallback&gt;)
 
 当选中状态发生变化时，触发该回调。与[onChange](#onchange)相比，callback参数新增了对undefined类型的支持。
@@ -355,6 +393,8 @@ onChange(callback: Optional&lt;OnCheckboxChangeCallback&gt;)
 
 
 ##### OnCheckboxChangeCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnCheckboxChangeCallback = (value: boolean) => void
 
@@ -377,6 +417,8 @@ type OnCheckboxChangeCallback = (value: boolean) => void
 
 ##### CheckBoxConfiguration12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -393,6 +435,8 @@ type OnCheckboxChangeCallback = (value: boolean) => void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -1021,4 +1065,4 @@ enum SelectedState {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/1yNpfQeSRamES9UXktkc5Q/zh-cn_image_0000002611755769.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=8F061BBABD0E0299055BB3B1F1DE2638B884EBEB77EC306066D0DC8BF0C0D8F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/1yNpfQeSRamES9UXktkc5Q/zh-cn_image_0000002611755769.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=42BDF16C9C4ADE9D7446434E814A85C51EFE8130AC1F36E7D805126A15D2C4CD)

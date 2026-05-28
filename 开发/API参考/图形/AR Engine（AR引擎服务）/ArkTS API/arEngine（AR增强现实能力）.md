@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 import { arEngine } from '@kit.AREngine';
 ```
@@ -21,6 +23,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARFeatureType
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，AR特性类别。
 
@@ -46,6 +50,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARAddAugmentedImageMode
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，添加图片模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -63,6 +69,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARAddAugmentedImageReason
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，添加图像失败原因。
 
@@ -125,6 +133,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARAnimojiTriangleLabel
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，人脸Mesh三角面标签。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -150,6 +160,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARBlendShapeType
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，微表情类型。
 
@@ -231,6 +243,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARCameraLensFacing
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，摄像机镜头的朝向。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -248,6 +262,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARDepthMode
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，深度模式。
 
@@ -267,6 +283,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARFocusMode
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，对焦模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -284,6 +302,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARImageFormat
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，图像数据格式。
 
@@ -305,6 +325,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARMeshMode
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，网格模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -323,6 +345,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARMultiFaceMode
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，多人脸检测模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -340,6 +364,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARBodyLandmarkType
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，人体关键点类型。
 
@@ -377,6 +403,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARPlaneFindingMode
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，平面检测模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -396,6 +424,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARPlaneType
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，平面类型。
 
@@ -417,6 +447,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARPointOrientationMode
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，朝向模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -435,6 +467,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARPoseMode
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，创建世界坐标系的方式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -452,6 +486,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARPoseType
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，位姿类型。
 
@@ -472,6 +508,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARPowerMode
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，电源功耗模式。
 
@@ -494,6 +532,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARSemanticDenseMode
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，高精几何重建识别模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -514,6 +554,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARSemanticMode
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，语义模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -531,6 +573,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARSemanticPlaneLabel
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，当前平面识别到的语义类型。
 
@@ -560,6 +604,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARTrackingState
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，可追踪对象的追踪状态。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -579,6 +625,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARTrackingStateReason
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，追踪失败的原因。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -597,6 +645,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### ARTrackableType
+
+**支持设备：** Phone | Tablet | TV
 
 枚举，可追踪对象类型，如平面、点等。
 
@@ -620,6 +670,8 @@ import { arEngine } from '@kit.AREngine';
 
 ##### ARType
 
+**支持设备：** Phone | Tablet | TV
+
 枚举，AR能力类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -639,6 +691,8 @@ import { arEngine } from '@kit.AREngine';
 
 
 ##### Distortion
+
+**支持设备：** Phone | Tablet | TV
 
 type Distortion = [number, number, number, number, number]
 
@@ -661,6 +715,8 @@ type Distortion = [number, number, number, number, number]
 
 ##### ARAugmentedImageDatabase
 
+**支持设备：** Phone | Tablet | TV
+
 增强图像数据库对象。
 
 用于表示增强图像数据库的相关操作，如序列化、反序列化、添加图像、获取图像数量等。
@@ -674,6 +730,8 @@ type Distortion = [number, number, number, number, number]
 
 
 ##### ARAugmentedImageDatabase.deserialize
+
+**支持设备：** Phone | Tablet | TV
 
 deserialize(buffer: ArrayBuffer): Promise&lt;void&gt;
 
@@ -728,6 +786,8 @@ await imageDatabase.deserialize(buffer);
 
 ##### ARAugmentedImageDatabase.serialize
 
+**支持设备：** Phone | Tablet | TV
+
 serialize(): Promise&lt;ArrayBuffer&gt;
 
 将增强图像数据库数据序列化为一个缓冲区。使用Promise异步回调。
@@ -766,6 +826,8 @@ await imageDatabase.serialize();
 
 
 ##### ARAugmentedImageDatabase.addImage
+
+**支持设备：** Phone | Tablet | TV
 
 addImage(name: string, pixelMap: image.PixelMap, widthInMeters: number): Promise&lt;ARAddAugmentedImageResult&gt;
 
@@ -827,6 +889,8 @@ await imageDatabase.addImage('xx', pixelMap, 0.3);
 
 ##### ARAugmentedImageDatabase.getImageCount
 
+**支持设备：** Phone | Tablet | TV
+
 getImageCount(): number
 
 获取图像数据库中图像的数量。
@@ -865,6 +929,8 @@ imageDatabase.getImageCount();
 
 
 ##### ARAugmentedImageDatabase.getCapacity
+
+**支持设备：** Phone | Tablet | TV
 
 getCapacity(): number
 
@@ -905,6 +971,8 @@ imageDatabase.getCapacity();
 
 ##### ARAugmentedImageDatabase.getImageAddMode
 
+**支持设备：** Phone | Tablet | TV
+
 getImageAddMode(): ARAddAugmentedImageMode
 
 获取图片添加模式。
@@ -943,6 +1011,8 @@ imageDatabase.getImageAddMode();
 
 
 ##### ARAugmentedImageDatabase.setImageAddMode
+
+**支持设备：** Phone | Tablet | TV
 
 setImageAddMode(mode: ARAddAugmentedImageMode): void
 
@@ -983,6 +1053,8 @@ imageDatabase.setImageAddMode(arEngine.ARAddAugmentedImageMode.UPDATE);
 
 ##### ARAugmentedImageDatabase.release
 
+**支持设备：** Phone | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 释放增强图像数据库对象[ARAugmentedImageDatabase](#araugmentedimagedatabase)占用的内存。使用Promise异步回调。
@@ -1022,6 +1094,8 @@ await imageDatabase.release();
 
 ##### ARCameraIntrinsics
 
+**支持设备：** Phone | Tablet | TV
+
 相机内参。
 
 包括fx、fy、cx、cy和畸变参数。
@@ -1046,6 +1120,8 @@ await imageDatabase.release();
 
 
 ##### ARConfig
+
+**支持设备：** Phone | Tablet | TV
 
 [ARSession](#arsession)的功能配置参数。
 
@@ -1079,6 +1155,8 @@ await imageDatabase.release();
 
 ##### ARPointCloud
 
+**支持设备：** Phone | Tablet | TV
+
 可跟踪的3D点云集合。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1098,6 +1176,8 @@ await imageDatabase.release();
 
 
 ##### ARSemanticDenseCubeData
+
+**支持设备：** Phone | Tablet | TV
 
 高精几何重建对象的立方体数据。
 
@@ -1122,6 +1202,8 @@ await imageDatabase.release();
 
 ##### ARSemanticDensePointData
 
+**支持设备：** Phone | Tablet | TV
+
 高精几何重建对象的稠密点云数据。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1143,6 +1225,8 @@ await imageDatabase.release();
 
 ##### ARSession
 
+**支持设备：** Phone | Tablet | TV
+
 管理AR Engine的系统状态。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1156,6 +1240,8 @@ await imageDatabase.release();
 
 
 ##### ARSession.getFrame
+
+**支持设备：** Phone | Tablet | TV
 
 getFrame(): ARFrame
 
@@ -1217,6 +1303,8 @@ class ARViewCallbackImpl extends arViewController.ARViewCallback {
 
 ##### ARSession.createAnchor
 
+**支持设备：** Phone | Tablet | TV
+
 createAnchor(pose: ARPose): ARAnchor
 
 创建一个用于连续跟踪的锚点。
@@ -1275,6 +1363,8 @@ arSession.createAnchor(pose);
 
 ##### ARSession.detachAnchor
 
+**支持设备：** Phone | Tablet | TV
+
 detachAnchor(anchor: ARAnchor): void
 
 停止追踪并解绑锚点。
@@ -1323,6 +1413,8 @@ arSession.detachAnchor(anchor);
 
 ##### ARSession.getAllAnchors
 
+**支持设备：** Phone | Tablet | TV
+
 getAllAnchors(): Array&lt;ARAnchor&gt;
 
 获取所有状态的锚点。
@@ -1362,6 +1454,8 @@ arSession.getAllAnchors();
 
 
 ##### ARSession.getAllTrackables
+
+**支持设备：** Phone | Tablet | TV
 
 getAllTrackables(type: ARTrackableType): Array&lt;ARTrackable&gt;
 
@@ -1411,6 +1505,8 @@ arSession.getAllTrackables(arEngine.ARTrackableType.BASE);
 
 ##### ARSession.openFlash
 
+**支持设备：** Phone | Tablet | TV
+
 openFlash(): Promise&lt;boolean&gt;
 
 打开设备的闪光灯。使用Promise异步回调。
@@ -1449,6 +1545,8 @@ await arSession.openFlash();
 
 
 ##### ARSession.closeFlash
+
+**支持设备：** Phone | Tablet | TV
 
 closeFlash(): Promise&lt;boolean&gt;
 
@@ -1489,6 +1587,8 @@ await arSession.closeFlash();
 
 ##### ARSession.release
 
+**支持设备：** Phone | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 释放管理AR Engine系统状态对象[ARSession](#arsession)占用的内存。使用Promise异步回调。
@@ -1528,6 +1628,8 @@ await arSession.release();
 
 ##### ImageComponent
 
+**支持设备：** Phone | Tablet | TV
+
 图像组件的基本结构参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1549,6 +1651,8 @@ await arSession.release();
 
 ##### ARAddAugmentedImageResult
 
+**支持设备：** Phone | Tablet | TV
+
 添加增强图像的结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1569,6 +1673,8 @@ await arSession.release();
 
 
 ##### ARAnchor
+
+**支持设备：** Phone | Tablet | TV
 
 锚点对象。
 
@@ -1593,6 +1699,8 @@ await arSession.release();
 
 
 ##### ARAnchor.getPose
+
+**支持设备：** Phone | Tablet | TV
 
 getPose(): ARPose
 
@@ -1636,6 +1744,8 @@ anchors[0].getPose();
 
 ##### ARAnchor.detach
 
+**支持设备：** Phone | Tablet | TV
+
 detach(): void
 
 停止追踪并解绑锚点。
@@ -1674,6 +1784,8 @@ anchors[0].detach();
 
 
 ##### ARAnchor.release
+
+**支持设备：** Phone | Tablet | TV
 
 release(): Promise&lt;void&gt;
 
@@ -1717,6 +1829,8 @@ await anchors[0].release();
 
 ##### ARAugmentedImage
 
+**支持设备：** Phone | Tablet | TV
+
 增强图像对象。
 
 这个类继承自[ARTrackable](#artrackable)类。
@@ -1741,6 +1855,8 @@ await anchors[0].release();
 
 ##### ARBlendShapes
 
+**支持设备：** Phone | Tablet | TV
+
 用于管理人脸微表情，包含若干个表情参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1759,6 +1875,8 @@ await anchors[0].release();
 
 
 ##### ARBlendShapes.getData
+
+**支持设备：** Phone | Tablet | TV
 
 getData(): ArrayBuffer
 
@@ -1804,6 +1922,8 @@ faceBlendShapes.getData();
 
 ##### ARBlendShapes.getTypes
 
+**支持设备：** Phone | Tablet | TV
+
 getTypes(): Array&lt;ARBlendShapeType&gt;
 
 获取所有表情参数类型。
@@ -1847,6 +1967,8 @@ faceBlendShapes.getTypes();
 
 
 ##### ARBlendShapes.release
+
+**支持设备：** Phone | Tablet | TV
 
 release(): Promise&lt;void&gt;
 
@@ -1892,6 +2014,8 @@ faceBlendShapes.release();
 
 ##### ARLandmark
 
+**支持设备：** Phone | Tablet | TV
+
 用于管理人脸关键点对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1910,6 +2034,8 @@ faceBlendShapes.release();
 
 
 ##### ARLandmark.getVertices2D
+
+**支持设备：** Phone | Tablet | TV
 
 getVertices2D(): ArrayBuffer
 
@@ -1955,6 +2081,8 @@ faceLandmark.getVertices2D();
 
 ##### ARLandmark.getVertices3D
 
+**支持设备：** Phone | Tablet | TV
+
 getVertices3D(): ArrayBuffer
 
 获取人脸关键点的3D位姿信息。
@@ -1998,6 +2126,8 @@ faceLandmark.getVertices3D();
 
 
 ##### ARLandmark.release
+
+**支持设备：** Phone | Tablet | TV
 
 release(): Promise&lt;void&gt;
 
@@ -2043,6 +2173,8 @@ await faceLandmark.release();
 
 ##### ARCamera
 
+**支持设备：** Phone | Tablet | TV
+
 当前帧的摄像机信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2065,6 +2197,8 @@ await faceLandmark.release();
 
 
 ##### ARCamera.getPose
+
+**支持设备：** Phone | Tablet | TV
 
 getPose(): ARPose
 
@@ -2113,6 +2247,8 @@ camera.getPose();
 
 ##### ARCamera.getDisplayOrientedPose
 
+**支持设备：** Phone | Tablet | TV
+
 getDisplayOrientedPose(): ARPose
 
 获取面向显示屏的虚拟摄像机在世界空间中的位姿。
@@ -2159,6 +2295,8 @@ camera.getDisplayOrientedPose();
 
 
 ##### ARCamera.getProjectionMatrix
+
+**支持设备：** Phone | Tablet | TV
 
 getProjectionMatrix(near: number, far: number): Matrix4
 
@@ -2212,6 +2350,8 @@ camera.getProjectionMatrix(0, 1);
 
 ##### ARCamera.getImageIntrinsics
 
+**支持设备：** Phone | Tablet | TV
+
 getImageIntrinsics(): ARCameraIntrinsics
 
 获取离线相机的内参对象。
@@ -2257,6 +2397,8 @@ camera.getImageIntrinsics();
 
 ##### ARFace
 
+**支持设备：** Phone | Tablet | TV
+
 用于人脸跟踪时返回人脸跟踪的结果。
 
 这个类继承自[ARTrackable](#artrackable)类。
@@ -2270,6 +2412,8 @@ camera.getImageIntrinsics();
 
 
 ##### ARFace.getGeometry
+
+**支持设备：** Phone | Tablet | TV
 
 getGeometry(): ARGeometry
 
@@ -2314,6 +2458,8 @@ face.getGeometry();
 
 ##### ARFace.getBlendShapes
 
+**支持设备：** Phone | Tablet | TV
+
 getBlendShapes(): ARBlendShapes
 
 获取人脸微表情对象。
@@ -2356,6 +2502,8 @@ face.getBlendShapes();
 
 
 ##### ARFace.getLandmark
+
+**支持设备：** Phone | Tablet | TV
 
 getLandmark(): ARLandmark
 
@@ -2400,6 +2548,8 @@ face.getLandmark();
 
 ##### ARFaceAnchor
 
+**支持设备：** Phone | Tablet | TV
+
 一个人脸类型的锚点对象。
 
 这个类继承自[ARAnchor](#aranchor)类。
@@ -2413,6 +2563,8 @@ face.getLandmark();
 
 
 ##### ARFaceAnchor.getFace
+
+**支持设备：** Phone | Tablet | TV
 
 getFace(): ARFace
 
@@ -2460,6 +2612,8 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 ##### ARBodyLandmark2D
 
+**支持设备：** Phone | Tablet | TV
+
 人体骨骼关键点信息基本结构参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2481,6 +2635,8 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 ##### ARBody
 
+**支持设备：** Phone | Tablet | TV
+
 用于人体跟踪时返回跟踪结果，包含人体骨骼关键点数据。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2498,6 +2654,8 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 
 ##### ARBody.getLandmarks2D
+
+**支持设备：** Phone | Tablet | TV
 
 getLandmarks2D(): Array&lt;ARBodyLandmark2D&gt;
 
@@ -2544,6 +2702,8 @@ if (arbodys.length > 0) {
 
 ##### ARFrame
 
+**支持设备：** Phone | Tablet | TV
+
 AR Engine处理的一帧数据。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2563,6 +2723,8 @@ AR Engine处理的一帧数据。
 
 
 ##### ARFrame.getCamera
+
+**支持设备：** Phone | Tablet | TV
 
 getCamera(): ARCamera
 
@@ -2605,6 +2767,8 @@ frame.getCamera();
 
 
 ##### ARFrame.getUpdatedTrackables
+
+**支持设备：** Phone | Tablet | TV
 
 getUpdatedTrackables(type: ARTrackableType): Array&lt;ARTrackable&gt;
 
@@ -2655,6 +2819,8 @@ frame.getUpdatedTrackables(arEngine.ARTrackableType.BASE);
 
 
 ##### ARFrame.hitTest
+
+**支持设备：** Phone | Tablet | TV
 
 hitTest(x: number, y: number): Array&lt;ARHitResult&gt;
 
@@ -2708,6 +2874,8 @@ frame.hitTest(0, 0);
 
 ##### ARFrame.acquireSceneMesh
 
+**支持设备：** Phone | Tablet | TV
+
 acquireSceneMesh(): ARSceneMesh
 
 获取当前帧的场景网格数据。
@@ -2750,6 +2918,8 @@ frame.acquireSceneMesh();
 
 
 ##### ARFrame.acquireDepthImage16Bits
+
+**支持设备：** Phone | Tablet | TV
 
 acquireDepthImage16Bits(): ARImage
 
@@ -2795,6 +2965,8 @@ frame.acquireDepthImage16Bits();
 
 ##### ARFrame.acquireDepthConfidenceImage
 
+**支持设备：** Phone | Tablet | TV
+
 acquireDepthConfidenceImage(): ARImage
 
 获取当前帧的深度置信度图像。
@@ -2839,6 +3011,8 @@ frame.acquireDepthConfidenceImage();
 
 ##### ARFrame.acquireSemanticDense
 
+**支持设备：** Phone | Tablet | TV
+
 acquireSemanticDense(): ARSemanticDenseData
 
 获取高精几何重建对象数据。
@@ -2880,6 +3054,8 @@ frame.acquireSemanticDense();
 
 
 ##### ARFrame.acquireBodySkeleton
+
+**支持设备：** Phone | Tablet | TV
 
 acquireBodySkeleton(): Array&lt;ARBody&gt;
 
@@ -2923,6 +3099,8 @@ frame.acquireBodySkeleton();
 
 ##### ARFrame.release
 
+**支持设备：** Phone | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 释放帧数据对象[ARFrame](#arframe)占用的内存。使用Promise异步回调。
@@ -2965,6 +3143,8 @@ await frame.release();
 
 ##### ARGeometry
 
+**支持设备：** Phone | Tablet | TV
+
 用于描述人脸拓扑结构，即人脸Mesh。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2987,6 +3167,8 @@ await frame.release();
 
 
 ##### ARGeometry.getVertices
+
+**支持设备：** Phone | Tablet | TV
 
 getVertices(): ArrayBuffer
 
@@ -3032,6 +3214,8 @@ faceGeometry.getVertices();
 
 ##### ARGeometry.getTexCoord
 
+**支持设备：** Phone | Tablet | TV
+
 getTexCoord(): ArrayBuffer
 
 获取人脸Mesh纹理坐标点数组。
@@ -3075,6 +3259,8 @@ faceGeometry.getTexCoord();
 
 
 ##### ARGeometry.getIndices
+
+**支持设备：** Phone | Tablet | TV
 
 getIndices(): ArrayBuffer
 
@@ -3120,6 +3306,8 @@ faceGeometry.getIndices();
 
 ##### ARGeometry.getTriangleLabels
 
+**支持设备：** Phone | Tablet | TV
+
 getTriangleLabels(): ArrayBuffer
 
 获取人脸Mesh三角面标签。
@@ -3163,6 +3351,8 @@ faceGeometry.getTriangleLabels();
 
 
 ##### ARGeometry.release
+
+**支持设备：** Phone | Tablet | TV
 
 release(): Promise&lt;void&gt;
 
@@ -3208,6 +3398,8 @@ await faceGeometry.release();
 
 ##### ARHitResult
 
+**支持设备：** Phone | Tablet | TV
+
 命中检测结果对象，描述单个可跟踪对象的命中检测结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -3228,6 +3420,8 @@ await faceGeometry.release();
 
 
 ##### ARHitResult.getHitPose
+
+**支持设备：** Phone | Tablet | TV
 
 getHitPose(): ARPose
 
@@ -3278,6 +3472,8 @@ hitResult[0].getHitPose();
 
 ##### ARHitResult.getTrackable
 
+**支持设备：** Phone | Tablet | TV
+
 getTrackable(): ARTrackable
 
 获取被命中的可追踪对象。
@@ -3320,6 +3516,8 @@ hitResult[0].getTrackable();
 
 
 ##### ARHitResult.createAnchor
+
+**支持设备：** Phone | Tablet | TV
 
 createAnchor(): ARAnchor
 
@@ -3364,6 +3562,8 @@ hitResult[0].createAnchor();
 
 ##### ARHitResult.release
 
+**支持设备：** Phone | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 释放命中检测结果对象[ARHitResult](#arhitresult)占用的内存。使用Promise异步回调。
@@ -3407,6 +3607,8 @@ await hitResult[0].release();
 
 ##### ARImage
 
+**支持设备：** Phone | Tablet | TV
+
 相机视频流帧对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -3429,6 +3631,8 @@ await hitResult[0].release();
 
 
 ##### ARImage.release
+
+**支持设备：** Phone | Tablet | TV
 
 release(): Promise&lt;void&gt;
 
@@ -3473,6 +3677,8 @@ await image.release();
 
 ##### ARPlane
 
+**支持设备：** Phone | Tablet | TV
+
 平面对象，描述被检测到的可跟踪平面信息。
 
 这个类继承自[ARTrackable](#artrackable)类。
@@ -3496,6 +3702,8 @@ await image.release();
 
 
 ##### ARPlane.getPolygonXZ
+
+**支持设备：** Phone | Tablet | TV
 
 getPolygonXZ(): ArrayBuffer
 
@@ -3540,6 +3748,8 @@ plane.getPolygonXZ();
 
 ##### ARPlane.getSubsumedBy
 
+**支持设备：** Phone | Tablet | TV
+
 getSubsumedBy(): ARPlane
 
 获取平面的父平面（当平面与另一个平面合并时会生成父平面）。
@@ -3582,6 +3792,8 @@ plane.getSubsumedBy();
 
 
 ##### ARPlane.isPoseInExtents
+
+**支持设备：** Phone | Tablet | TV
 
 isPoseInExtents(pose: ARPose): boolean
 
@@ -3635,6 +3847,8 @@ plane.isPoseInExtents(pose);
 
 ##### ARPlane.isPoseInPolygon
 
+**支持设备：** Phone | Tablet | TV
+
 isPoseInPolygon(pose: ARPose): boolean
 
 检查给定位姿是否在平面的边界多边形内。
@@ -3687,6 +3901,8 @@ plane.isPoseInPolygon(pose);
 
 ##### ARPlaneAnchor
 
+**支持设备：** Phone | Tablet | TV
+
 一个平面类型的锚点对象。
 
 这个类继承自[ARAnchor](#aranchor)类。
@@ -3702,6 +3918,8 @@ plane.isPoseInPolygon(pose);
 
 
 ##### ARPlaneAnchor.getPlane
+
+**支持设备：** Phone | Tablet | TV
 
 getPlane(): ARPlane
 
@@ -3748,6 +3966,8 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 ##### ARPoint
 
+**支持设备：** Phone | Tablet | TV
+
 可被追踪的3D点云对象。
 
 这个类继承自[ARTrackable](#artrackable)类。
@@ -3768,6 +3988,8 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 
 ##### ARPose
+
+**支持设备：** Phone | Tablet | TV
 
 位姿对象。
 
@@ -3790,6 +4012,8 @@ async onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEng
 
 
 ##### ARPose.getMatrix
+
+**支持设备：** Phone | Tablet | TV
 
 getMatrix(): Matrix4
 
@@ -3835,6 +4059,8 @@ pose.getMatrix();
 
 ##### ARPose.release
 
+**支持设备：** Phone | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 释放位姿对象[ARPose](#arpose)占用的内存。使用Promise异步回调。
@@ -3879,6 +4105,8 @@ await pose.release();
 
 ##### ARSceneMesh
 
+**支持设备：** Phone | Tablet | TV
+
 环境网格数据集合。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -3898,6 +4126,8 @@ await pose.release();
 
 
 ##### ARSceneMesh.getVertices
+
+**支持设备：** Phone | Tablet | TV
 
 getVertices(): ArrayBuffer
 
@@ -3942,6 +4172,8 @@ sceneMesh.getVertices();
 
 ##### ARSceneMesh.getVertexNormals
 
+**支持设备：** Phone | Tablet | TV
+
 getVertexNormals(): ArrayBuffer
 
 获取场景网格中的顶点法线坐标数据。
@@ -3984,6 +4216,8 @@ sceneMesh.getVertexNormals();
 
 
 ##### ARSceneMesh.getTriangleIndices
+
+**支持设备：** Phone | Tablet | TV
 
 getTriangleIndices(): ArrayBuffer
 
@@ -4028,6 +4262,8 @@ sceneMesh.getTriangleIndices();
 
 ##### ARSceneMesh.release
 
+**支持设备：** Phone | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 释放环境网格数据对象[ARSceneMesh](#arscenemesh)占用的内存。使用Promise异步回调。
@@ -4071,6 +4307,8 @@ await sceneMesh.release();
 
 ##### ARSemanticDenseData
 
+**支持设备：** Phone | Tablet | TV
+
 表示高精几何重建对象数据的集合。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -4091,6 +4329,8 @@ await sceneMesh.release();
 
 
 ##### ARSemanticDenseData.acquirePointData
+
+**支持设备：** Phone | Tablet | TV
 
 acquirePointData(): ARSemanticDensePointData
 
@@ -4135,6 +4375,8 @@ semanticData.acquirePointData();
 
 ##### ARSemanticDenseData.acquireCubeData
 
+**支持设备：** Phone | Tablet | TV
+
 acquireCubeData(): Array&lt;ARSemanticDenseCubeData&gt;
 
 高精几何重建对象数据中立方体数据信息。
@@ -4177,6 +4419,8 @@ semanticData.acquireCubeData();
 
 
 ##### ARSemanticDenseData.release
+
+**支持设备：** Phone | Tablet | TV
 
 release(): Promise&lt;void&gt;
 
@@ -4221,6 +4465,8 @@ await semanticData.release();
 
 ##### ARTrackable
 
+**支持设备：** Phone | Tablet | TV
+
 可追踪的对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -4240,6 +4486,8 @@ await semanticData.release();
 
 
 ##### ARTrackable.getPose
+
+**支持设备：** Phone | Tablet | TV
 
 getPose(): ARPose
 
@@ -4283,6 +4531,8 @@ trackables[0].getPose();
 
 ##### ARTrackable.getAnchors
 
+**支持设备：** Phone | Tablet | TV
+
 getAnchors(): Array&lt;ARAnchor&gt;
 
 获取可跟踪对象的锚点信息。
@@ -4324,6 +4574,8 @@ trackables[0].getAnchors();
 
 
 ##### ARTrackable.createAnchor
+
+**支持设备：** Phone | Tablet | TV
 
 createAnchor(pose: ARPose): ARAnchor
 
@@ -4376,6 +4628,8 @@ trackables[0].createAnchor(pose);
 
 ##### ARTrackable.release
 
+**支持设备：** Phone | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 释放被追踪对象[ARTrackable](#artrackable)占用的内存。使用Promise异步回调。
@@ -4418,6 +4672,8 @@ await trackables[0].release();
 
 ##### arEngine.createARAugmentedImageDatabase
 
+**支持设备：** Phone | Tablet | TV
+
 createARAugmentedImageDatabase(): Promise&lt;ARAugmentedImageDatabase&gt;
 
 创建一个增强型图像数据库。使用Promise异步回调。
@@ -4455,6 +4711,8 @@ await arEngine.createARAugmentedImageDatabase();
 
 
 ##### arEngine.createARPose
+
+**支持设备：** Phone | Tablet | TV
 
 createARPose(rotation: Quaternion, translation: Vec3): ARPose
 

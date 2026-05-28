@@ -14,11 +14,15 @@
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 子组件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持<[span](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-span)>。
 
@@ -26,11 +30,15 @@
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)。
 
 
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
 
@@ -68,17 +76,23 @@
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)。
 
 
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -140,4 +154,4 @@
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/y0MfJvbNSF2eGek1SgWFvA/zh-cn_image_0000002611756281.png?HW-CC-KV=V1&HW-CC-Date=20260528T013806Z&HW-CC-Expire=86400&HW-CC-Sign=53B9A272389C8CEDAB758D729759B1F3E933B600D6A47ED11A6013D503934F7C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/y0MfJvbNSF2eGek1SgWFvA/zh-cn_image_0000002611756281.png?HW-CC-KV=V1&HW-CC-Date=20260528T024102Z&HW-CC-Expire=86400&HW-CC-Sign=6DC97B88DCC2A2EAD61F27D67D7EA5E954D7BC6D63EB6EF65CEED169C6E812F3)

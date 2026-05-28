@@ -12,6 +12,8 @@ typedef struct Http_EventsHandler {...} Http_EventsHandler
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 监听不同HTTP事件的回调函数。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ typedef struct Http_EventsHandler {...} Http_EventsHandler
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

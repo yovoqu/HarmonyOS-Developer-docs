@@ -12,6 +12,8 @@ typedef struct OH_AVMediaSource OH_AVMediaSource
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明媒体源类型。
  
 **起始版本：** 23

@@ -12,6 +12,8 @@ typedef struct ContentEmbed_Document ContentEmbed_Document
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明OE文档结构体类型。封装了被嵌入的文档的元数据、内容和存储结构。
  
 **起始版本：** 24

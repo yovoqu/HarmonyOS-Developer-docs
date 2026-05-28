@@ -12,6 +12,8 @@ typedef struct {...} ArkUI_PointF
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义一个二维坐标点结构体，坐标以浮点类型存储。
  
 **起始版本：** 24
@@ -24,9 +26,13 @@ typedef struct {...} ArkUI_PointF
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

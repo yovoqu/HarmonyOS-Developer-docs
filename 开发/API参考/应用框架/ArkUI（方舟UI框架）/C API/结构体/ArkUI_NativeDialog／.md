@@ -12,6 +12,8 @@ typedef struct ArkUI_NativeDialog* ArkUI_NativeDialogHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义ArkUI在Native侧的自定义弹窗控制器对象指针。
  
 **起始版本：** 12

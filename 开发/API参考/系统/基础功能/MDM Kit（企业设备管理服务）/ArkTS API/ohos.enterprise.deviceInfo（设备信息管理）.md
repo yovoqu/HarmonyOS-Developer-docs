@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { deviceInfo } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { deviceInfo } from '@kit.MDMKit';
 
 
 ##### deviceInfo.getDeviceInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDeviceInfo(admin: Want, label: string): string
 

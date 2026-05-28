@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 DataPanel(options: DataPanelOptions)
  
@@ -41,6 +45,8 @@ DataPanel(options: DataPanelOptions)
 
 ##### DataPanelOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据面板选项。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -60,6 +66,8 @@ DataPanel(options: DataPanelOptions)
 
 ##### DataPanelType8+枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据面板的类型。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -78,11 +86,15 @@ DataPanel(options: DataPanelOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### closeEffect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 closeEffect(value: boolean)
  
@@ -105,6 +117,8 @@ closeEffect(value: boolean)
 
 ##### valueColors10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 valueColors(value: Array<ResourceColor | LinearGradient>)
  
 设置各数据段颜色。
@@ -123,6 +137,8 @@ valueColors(value: Array<ResourceColor | LinearGradient>)
   
 
 ##### trackBackgroundColor10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 trackBackgroundColor(value: ResourceColor)
  
@@ -143,6 +159,8 @@ trackBackgroundColor(value: ResourceColor)
 
 ##### strokeWidth10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeWidth(value: Length)
  
 设置圆环粗细。数据面板的类型为DataPanelType.Line时该属性不生效。
@@ -161,6 +179,8 @@ strokeWidth(value: Length)
   
 
 ##### trackShadow10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 trackShadow(value: DataPanelShadowOptions)
  
@@ -181,6 +201,8 @@ trackShadow(value: DataPanelShadowOptions)
 
 ##### contentModifier12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 contentModifier(modifier: ContentModifier&lt;DataPanelConfiguration&gt;)
  
 定制DataPanel内容区的方法。
@@ -200,6 +222,8 @@ contentModifier(modifier: ContentModifier&lt;DataPanelConfiguration&gt;)
 
 ##### DataPanelShadowOptions10+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 DataPanelShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-information-display-common#multishadowoptions)，具有MultiShadowOptions的全部属性。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -215,9 +239,13 @@ DataPanelShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com
 
 ##### LinearGradient10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(colorStops: ColorStop[])
  
@@ -238,6 +266,8 @@ constructor(colorStops: ColorStop[])
 
 ##### ColorStop10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 颜色断点类型，用于描述渐进色颜色断点。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -254,6 +284,8 @@ constructor(colorStops: ColorStop[])
 
 ##### DataPanelConfiguration12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -269,6 +301,8 @@ constructor(colorStops: ColorStop[])
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { screenLockFileManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 
 ##### DataType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举，指定锁屏下访问的敏感数据类型。
 
@@ -36,6 +40,8 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 ##### AccessStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示锁屏下敏感数据访问权限申请的状态枚举。
 
 **系统能力：** SystemCapability.Security.ScreenLockFileManager
@@ -49,6 +55,8 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 
 ##### ReleaseStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示锁屏下敏感数据访问权限释放的状态枚举。
 
@@ -64,6 +72,8 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 ##### KeyStatus18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示锁屏下敏感数据访问权限的状态枚举。
 
 **系统能力：** SystemCapability.Security.ScreenLockFileManager
@@ -78,6 +88,8 @@ import { screenLockFileManager } from '@kit.AbilityKit';
 
 
 ##### screenLockFileManager.acquireAccess
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 acquireAccess(): AccessStatus
 
@@ -127,6 +139,8 @@ try {
 
 ##### screenLockFileManager.releaseAccess
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 releaseAccess(): ReleaseStatus
 
 以同步方法取消锁屏下本应用敏感数据访问权限。
@@ -174,6 +188,8 @@ try {
 
 
 ##### screenLockFileManager.queryAppKeyState18+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 queryAppKeyState(): KeyStatus
 

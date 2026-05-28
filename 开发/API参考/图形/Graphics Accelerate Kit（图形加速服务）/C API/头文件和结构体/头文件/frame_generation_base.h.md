@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 声明不区分图形API平台的超帧接口。
  
 **引用文件：** <graphics_game_sdk/frame_generation_base.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -41,6 +47,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -61,6 +69,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

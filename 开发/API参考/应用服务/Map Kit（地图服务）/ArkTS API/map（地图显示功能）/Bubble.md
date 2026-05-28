@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 import { image } from '@kit.ImageKit';
@@ -15,6 +17,8 @@ import { image } from '@kit.ImageKit';
   
 
 ##### Bubble
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 气泡，继承[BasePriorityOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-basepriorityoverlay)。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addBubble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addbubble)方法时会返回该类型的实例。
  
@@ -54,6 +58,8 @@ let bubble: map.Bubble = await this.mapController.addBubble(bubbleOptions);
   
 
 ##### setIcons
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setIcons(icons: Array<string | image.PixelMap | Resource>): Promise&lt;void&gt;
  
@@ -97,6 +103,8 @@ await bubble.setIcons(icons);
   
 
 ##### setPositions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setPositions(positions: Array<Array<mapCommon.LatLng>>): void
  

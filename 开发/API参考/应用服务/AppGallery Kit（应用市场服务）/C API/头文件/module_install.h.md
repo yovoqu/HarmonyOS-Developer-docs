@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 声明按需分发能力的API。
  
 **引用文件：** <AppGalleryKit/module_install.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 类型
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,6 +44,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -50,6 +58,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

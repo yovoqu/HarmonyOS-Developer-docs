@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 声明电池API以获取当前电池容量和电源类型的信息，定义电池相应常见事件。
  
 **引用文件：** <BasicServicesKit/ohbattery_info.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -45,6 +53,8 @@
   
 
 ##### 变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -57,9 +67,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### BatteryInfo_BatteryPluggedType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 enum BatteryInfo_BatteryPluggedType
@@ -84,9 +98,13 @@ enum BatteryInfo_BatteryPluggedType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### OH_BatteryInfo_GetCapacity()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 int32_t OH_BatteryInfo_GetCapacity()
@@ -110,6 +128,8 @@ int32_t OH_BatteryInfo_GetCapacity()
   
 
 ##### OH_BatteryInfo_GetPluggedType()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 BatteryInfo_BatteryPluggedType OH_BatteryInfo_GetPluggedType()

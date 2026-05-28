@@ -14,6 +14,8 @@
 
 ##### zIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 zIndex(value: number): T
  
 设置组件的堆叠顺序。
@@ -41,6 +43,8 @@ zIndex(value: number): T
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -177,4 +181,4 @@ struct ZIndexExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/6WhpjW7DQEyGM34MCSXbcw/zh-cn_image_0000002581435614.png?HW-CC-KV=V1&HW-CC-Date=20260528T013914Z&HW-CC-Expire=86400&HW-CC-Sign=E7249FB8A2A055A8F0F71DF85A7303F309B5550B3CB4F6A565BE230AAC0764C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/6WhpjW7DQEyGM34MCSXbcw/zh-cn_image_0000002581435614.png?HW-CC-KV=V1&HW-CC-Date=20260528T024209Z&HW-CC-Expire=86400&HW-CC-Sign=819D6CB05087FCF1147C04B39B37A66787D77E2641CE750CDF4C62B033C253B5)

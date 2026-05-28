@@ -12,6 +12,8 @@ typedef struct OH_AVFormat OH_AVFormat
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为OH_AVFormat接口定义native层对象。
  
 **起始版本：** 9

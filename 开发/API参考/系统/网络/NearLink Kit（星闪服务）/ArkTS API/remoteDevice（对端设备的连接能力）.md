@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { remoteDevice } from '@kit.NearLinkKit';
 ```
@@ -21,6 +23,8 @@ import { remoteDevice } from '@kit.NearLinkKit';
   
 
 ##### PairingState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PairingState = constant.PairingState
  
@@ -39,6 +43,8 @@ type PairingState = constant.PairingState
 
 ##### ConnectionState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ConnectionState = constant.ConnectionState
  
 表示和远端设备的连接状态，为枚举值。
@@ -55,6 +61,8 @@ type ConnectionState = constant.ConnectionState
   
 
 ##### DeviceClass
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type DeviceClass = constant.DeviceClass
  
@@ -73,6 +81,8 @@ type DeviceClass = constant.DeviceClass
 
 ##### AcbState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AcbState = constant.AcbState
  
 表示和远端设备的逻辑链路连接状态，为枚举值。
@@ -89,6 +99,8 @@ type AcbState = constant.AcbState
   
 
 ##### createRemoteDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createRemoteDevice(address: string): RemoteDevice
  
@@ -142,6 +154,8 @@ try {
 
 ##### RemoteDevice
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 提供远端设备的操作方法，使用前需要使用 remoteDevice.createRemoteDevice 方法创建一个远端设备 RemoteDevice 实例。一个设备只需要创建一次，无需多次创建。
 
@@ -153,6 +167,8 @@ try {
   
 
 ##### startPairing
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startPairing(): Promise&lt;void&gt;
  
@@ -205,6 +221,8 @@ try {
 
 ##### getPairingState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPairingState(): PairingState
  
 获取和远端设备的配对状态。
@@ -254,6 +272,8 @@ try {
   
 
 ##### getDeviceName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDeviceName(): string
  
@@ -305,6 +325,8 @@ try {
 
 ##### getDeviceClass
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceClass(): DeviceClass
  
 获取远端设备类型。
@@ -355,6 +377,8 @@ try {
 
 ##### getConnectionState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getConnectionState(): ConnectionState
  
 获取本端设备和远端设备的连接状态。
@@ -404,6 +428,8 @@ try {
   
 
 ##### getAcbState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAcbState(): AcbState
  
@@ -456,6 +482,8 @@ try {
   
 
 ##### getDeviceInformation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDeviceInformation(): DeviceInformation
  
@@ -510,6 +538,8 @@ try {
   
 
 ##### DeviceInformation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示远端设备信息。
  

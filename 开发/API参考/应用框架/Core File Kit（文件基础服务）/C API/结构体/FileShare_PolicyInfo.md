@@ -12,6 +12,8 @@ typedef struct FileShare_PolicyInfo {...} FileShare_PolicyInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 需要授予或使能权限URI的策略信息。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct FileShare_PolicyInfo {...} FileShare_PolicyInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

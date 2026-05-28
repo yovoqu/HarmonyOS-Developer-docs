@@ -12,6 +12,8 @@ typedef struct ArkUI_RenderNodeMaskOption ArkUI_RenderNodeMaskOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义节点遮罩配置项。
  
 **起始版本：** 20

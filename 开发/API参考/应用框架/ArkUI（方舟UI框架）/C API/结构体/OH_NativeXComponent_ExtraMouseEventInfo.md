@@ -12,6 +12,8 @@ typedef struct OH_NativeXComponent_ExtraMouseEventInfo OH_NativeXComponent_Extra
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供封装的扩展的鼠标事件信息实例。
  
 **起始版本：** 20

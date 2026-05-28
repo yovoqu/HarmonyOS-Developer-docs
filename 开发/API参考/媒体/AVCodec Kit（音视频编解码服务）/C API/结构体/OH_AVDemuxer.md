@@ -12,6 +12,8 @@ typedef struct OH_AVDemuxer OH_AVDemuxer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为OH_AVDemuxer接口定义native层对象。
  
 **起始版本：** 10

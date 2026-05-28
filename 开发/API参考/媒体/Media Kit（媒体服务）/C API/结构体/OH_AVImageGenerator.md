@@ -12,6 +12,8 @@ typedef struct OH_AVImageGenerator OH_AVImageGenerator
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义OH_AVImageGenerator类型，用于生成指定时间点视频帧。
  
 **起始版本：** 18

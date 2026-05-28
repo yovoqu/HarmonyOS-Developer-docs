@@ -12,6 +12,8 @@ typedef struct JSVM_EscapableHandleScope__* JSVM_EscapableHandleScope
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示一种特殊类型的handle scope，用于将在特定handle scope内创建的值返回到父作用域。
  
 **起始版本：** 11

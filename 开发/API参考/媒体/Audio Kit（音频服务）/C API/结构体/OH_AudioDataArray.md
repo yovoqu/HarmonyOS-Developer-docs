@@ -12,6 +12,8 @@ typedef struct {...} OH_AudioDataArray
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义多路输出渲染接口的输入数据描述。当管线中存在多输出效果节点时，通过多输出渲染接口获取处理过后的音频数据。
  
 **起始版本：** 22
@@ -24,9 +26,13 @@ typedef struct {...} OH_AudioDataArray
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

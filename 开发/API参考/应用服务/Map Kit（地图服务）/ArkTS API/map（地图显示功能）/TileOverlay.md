@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### TileOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 瓦片图层，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。瓦片图层是一种基于[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)实现的地图覆盖层，用于展示自定义瓦片。
  
@@ -45,6 +49,8 @@ let tileOverlay: map.TileOverlay = this.mapController?.addTileOverlay(params);
 
 ##### clearTileCache
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 clearTileCache(): void
  
 清除瓦片图层的缓存。
@@ -66,6 +72,8 @@ tileOverlay.clearTileCache();
   
 
 ##### setFadeIn
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setFadeIn(fadeIn: boolean): void
  
@@ -96,6 +104,8 @@ tileOverlay.setFadeIn(false);
 
 ##### setTransparency
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setTransparency(transparency: number): void
  
 设置瓦片图层的透明度。
@@ -124,6 +134,8 @@ tileOverlay.setTransparency(0.5);
   
 
 ##### getFadeIn
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getFadeIn(): boolean
  
@@ -154,6 +166,8 @@ let isFadeIn: boolean = tileOverlay.getFadeIn();
 
 ##### getTransparency
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getTransparency(): number
  
 返回瓦片图层的透明度。
@@ -182,6 +196,8 @@ let transparency: number = tileOverlay.getTransparency();
   
 
 ##### clearDiskCache
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 clearDiskCache(): Promise&lt;void&gt;
  

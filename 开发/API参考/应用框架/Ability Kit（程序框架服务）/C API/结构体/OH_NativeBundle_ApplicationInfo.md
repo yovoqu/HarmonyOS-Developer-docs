@@ -12,6 +12,8 @@ typedef struct {...} OH_NativeBundle_ApplicationInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用包信息数据结构，包含应用包名和应用指纹信息。
  
 **起始版本：** 9
@@ -24,9 +26,13 @@ typedef struct {...} OH_NativeBundle_ApplicationInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

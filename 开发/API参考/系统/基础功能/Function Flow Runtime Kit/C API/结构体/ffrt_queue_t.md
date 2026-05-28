@@ -12,6 +12,8 @@ typedef void* ffrt_queue_t
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 队列句柄。
  
 **起始版本：** 10

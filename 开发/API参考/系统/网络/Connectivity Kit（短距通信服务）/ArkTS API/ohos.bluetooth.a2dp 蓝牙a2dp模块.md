@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { a2dp } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { a2dp } from '@kit.ConnectivityKit';
 
 
 ##### BaseProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BaseProfile = baseProfile.BaseProfile
 
@@ -36,6 +40,8 @@ type BaseProfile = baseProfile.BaseProfile
 
 
 ##### a2dp.createA2dpSrcProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createA2dpSrcProfile(): A2dpSourceProfile
 
@@ -76,6 +82,8 @@ try {
 
 ##### A2dpSourceProfile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该实例表示蓝牙媒体音频中的[A2DP Source](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#a2dp-source)角色。
 
  - 该类继承于[BaseProfile](#baseprofile)，因此可以使用其父类中的方法。
@@ -86,6 +94,8 @@ try {
 
 
 ##### getPlayingState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPlayingState(deviceId: string): PlayingState
 
@@ -143,6 +153,8 @@ try {
 
 ##### PlayingState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，蓝牙媒体音频播放状态。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -156,6 +168,8 @@ try {
 
 
 ##### CodecInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 蓝牙媒体音频使用的编解码器。
 
@@ -175,6 +189,8 @@ try {
 
 ##### CodecInfoList19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 蓝牙媒体音频编解码器支持的能力集合。不同编解码器支持的位深、声道模式、采样率、码率和帧长类型与音频接收器设备端能力有关。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -192,6 +208,8 @@ try {
 
 
 ##### CodecType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙媒体音频编解码器类型。
 
@@ -211,6 +229,8 @@ try {
 
 ##### CodecChannelMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，蓝牙媒体音频编解码器的声道模式，表示音频播放时独立的空间信号路径数量。声道模式影响声音的立体感和空间定位‌。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -225,6 +245,8 @@ try {
 
 
 ##### CodecBitsPerSample11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙媒体音频编解码器的位深，表示蓝牙音频信号在数字表示中使用的位数，单位为bit。位深决定每个采样点可以表示的动态范围和精度。
 
@@ -241,6 +263,8 @@ try {
 
 
 ##### CodecSampleRate11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙媒体音频编解码器的采样率，表示每秒对蓝牙音频采样的次数，单位为Hz。采样率的选择会影响音质和传输效率。
 
@@ -260,6 +284,8 @@ try {
 
 
 ##### CodecBitRate19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙媒体音频编解码器的码率，表示单位时间内音频数据的传输量，单位为kbps。码率影响音频音质和文件大小。
 
@@ -283,6 +309,8 @@ try {
 
 
 ##### CodecFrameLength19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙媒体音频编解码器的帧长，表示一帧音频数据播放的时长。
 

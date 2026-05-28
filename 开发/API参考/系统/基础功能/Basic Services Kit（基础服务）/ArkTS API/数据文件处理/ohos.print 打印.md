@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { print } from '@kit.BasicServicesKit';
 ```
@@ -22,11 +24,15 @@ import { print } from '@kit.BasicServicesKit';
 
 ##### PrintTask
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印任务完成后的事件监听回调接口类。
 
 
 
 ##### on
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'block', callback: Callback&lt;void&gt;): void
 
@@ -76,6 +82,8 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 ##### on
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'succeed', callback: Callback&lt;void&gt;): void
 
 注册打印任务成功的监听，使用callback异步回调。
@@ -123,6 +131,8 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 ##### on
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'fail', callback: Callback&lt;void&gt;): void
 
@@ -172,6 +182,8 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 ##### on
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'cancel', callback: Callback&lt;void&gt;): void
 
 注册打印任务被取消的监听，使用callback异步回调。
@@ -219,6 +231,8 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 ##### off
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'block', callback?: Callback&lt;void&gt;): void
 
@@ -268,6 +282,8 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 ##### off
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'succeed', callback?: Callback&lt;void&gt;): void
 
 取消打印任务成功的监听，使用callback异步回调。
@@ -315,6 +331,8 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 ##### off
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'fail', callback?: Callback&lt;void&gt;): void
 
@@ -364,6 +382,8 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 ##### off
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'cancel', callback?: Callback&lt;void&gt;): void
 
 取消打印任务被取消的监听，使用callback异步回调。
@@ -412,11 +432,15 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 ##### PrintDocumentAdapter11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 第三方应用程序实现此接口来渲染要打印的文件。
 
 
 
 ##### onStartLayoutWrite11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onStartLayoutWrite(jobId: string, oldAttrs: PrintAttributes, newAttrs: PrintAttributes, fd: number, writeResultCallback: (jobId: string, writeResult: PrintFileCreationState) => void): void
 
@@ -477,6 +501,8 @@ class MyPrintDocumentAdapter implements print.PrintDocumentAdapter {
 
 ##### onJobStateChanged11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onJobStateChanged(jobId: string, state: PrintDocumentAdapterState): void
 
 实现这个接口来监听打印任务状态的改变。
@@ -534,6 +560,8 @@ class MyPrintDocumentAdapter implements print.PrintDocumentAdapter {
 
 ##### print.print
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 print(files: Array&lt;string&gt;, callback: AsyncCallback&lt;PrintTask&gt;): void
 
 打印接口，传入文件进行打印，使用callback异步回调。拉起系统打印预览界面，需要使用[print](#printprint11-1)接口，传入context。
@@ -584,6 +612,8 @@ print.print([fileUri.getUriFromPath(filePath)], (err: BusinessError, printTask: 
 
 
 ##### print.print
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 print(files: Array&lt;string&gt;): Promise&lt;PrintTask&gt;
 
@@ -639,6 +669,8 @@ print.print([fileUri.getUriFromPath(filePath)]).then((printTask: print.PrintTask
 
 
 ##### print.print11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 print(files: Array&lt;string&gt;, context: Context, callback: AsyncCallback&lt;PrintTask&gt;): void
 
@@ -707,6 +739,8 @@ struct Index {
 
 
 ##### print.print11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 print(files: Array&lt;string&gt;, context: Context): Promise&lt;PrintTask&gt;
 
@@ -779,6 +813,8 @@ struct Index {
 
 
 ##### print.print11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 print(jobName: string, printAdapter: PrintDocumentAdapter, printAttributes: PrintAttributes, context: Context): Promise&lt;PrintTask&gt;
 
@@ -867,6 +903,8 @@ struct Index {
 
 ##### PrintAttributes11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义打印参数的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -887,6 +925,8 @@ struct Index {
 
 ##### PrintPageRange11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义打印范围的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -903,6 +943,8 @@ struct Index {
 
 
 ##### PrintPageSize11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义打印页面尺寸的接口。
 
@@ -922,6 +964,8 @@ struct Index {
 
 ##### PrintDirectionMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印纸张方向的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -937,6 +981,8 @@ struct Index {
 
 ##### PrintColorMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印色彩模式的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -950,6 +996,8 @@ struct Index {
 
 
 ##### PrintDuplexMode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 打印单双面模式的枚举。
 
@@ -965,6 +1013,8 @@ struct Index {
 
 
 ##### PrintPageType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 打印纸张类型的枚举。
 
@@ -990,6 +1040,8 @@ struct Index {
 
 ##### PrintDocumentAdapterState11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印任务状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1007,6 +1059,8 @@ struct Index {
 
 ##### PrintFileCreationState11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印文件创建状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1021,6 +1075,8 @@ struct Index {
 
 
 ##### PrinterState14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 打印机状态的枚举。
 
@@ -1040,6 +1096,8 @@ struct Index {
 
 ##### PrintJobState14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印任务状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1056,6 +1114,8 @@ struct Index {
 
 
 ##### PrintJobSubState14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 打印任务子状态的枚举。
 
@@ -1102,6 +1162,8 @@ struct Index {
 
 ##### PrintErrorCode14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印错误代码的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1128,6 +1190,8 @@ struct Index {
 
 ##### ApplicationEvent14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印应用事件的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1142,6 +1206,8 @@ struct Index {
 
 
 ##### print.addPrinterToDiscovery14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addPrinterToDiscovery(printerInformation: PrinterInformation): Promise&lt;void&gt;
 
@@ -1200,6 +1266,8 @@ print.addPrinterToDiscovery(printerInformation).then(() => {
 
 
 ##### print.updatePrinterInDiscovery14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 updatePrinterInDiscovery(printerInformation: PrinterInformation): Promise&lt;void&gt;
 
@@ -1277,6 +1345,8 @@ print.updatePrinterInDiscovery(printerInformation).then(() => {
 
 ##### print.removePrinterFromDiscovery14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removePrinterFromDiscovery(printerId: string): Promise&lt;void&gt;
 
 从系统打印机发现列表里移除打印机，使用Promise异步回调。
@@ -1326,6 +1396,8 @@ print.removePrinterFromDiscovery(printerId).then(() => {
 
 
 ##### print.getPrinterInformationById14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getPrinterInformationById(printerId: string): Promise&lt;PrinterInformation&gt;
 
@@ -1377,6 +1449,8 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 ##### PrinterInformation14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义打印机信息的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1403,6 +1477,8 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 ##### PrinterCapabilities14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义打印机能力的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1424,6 +1500,8 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 ##### PrintQuality14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印质量的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1438,6 +1516,8 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 ##### PrintOrientationMode14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 打印方向的枚举。
 
@@ -1456,6 +1536,8 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 ##### PrinterStatus14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印机状态的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1470,6 +1552,8 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 ##### PrinterPreferences18+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义打印机首选项的接口。
 
@@ -1495,6 +1579,8 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 ##### PrinterEvent18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印机相关事件的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1513,6 +1599,8 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 ##### DefaultPrinterType18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 默认打印类型的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -1526,6 +1614,8 @@ print.getPrinterInformationById(printerId).then((printerInformation : print.Prin
 
 
 ##### print.getAddedPrinters18+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAddedPrinters(): Promise<Array&lt;string&gt;>
 
@@ -1569,6 +1659,8 @@ print.getAddedPrinters().then((printers: string[]) => {
 
 ##### PrinterChangeCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterInformation) => void
 
 将打印机事件和打印机信息作为参数的回调方法。
@@ -1586,6 +1678,8 @@ type PrinterChangeCallback = (event: PrinterEvent, printerInformation: PrinterIn
 
 
 ##### print.on18+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'printerChange', callback: PrinterChangeCallback): void
 
@@ -1630,6 +1724,8 @@ print.on('printerChange', onPrinterChange);
 
 ##### print.off18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'printerChange', callback?: PrinterChangeCallback): void
 
 取消注册打印机变动事件回调，使用callback回调。
@@ -1673,6 +1769,8 @@ print.off('printerChange');
 
 
 ##### print.startDiscoverPrinter20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startDiscoverPrinter(extensionList: Array&lt;string&gt;, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1721,6 +1819,8 @@ print.startDiscoverPrinter(extensionList, (err: BusinessError) => {
 
 
 ##### print.startDiscoverPrinter20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startDiscoverPrinter(extensionList: Array&lt;string&gt;): Promise&lt;void&gt;
 
@@ -1774,6 +1874,8 @@ print.startDiscoverPrinter(extensionList).then(() => {
 
 ##### print.stopDiscoverPrinter20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 stopDiscoverPrinter(callback: AsyncCallback&lt;void&gt;): void
 
 停止发现打印机，使用callback异步回调。
@@ -1817,6 +1919,8 @@ print.stopDiscoverPrinter((err: BusinessError) => {
 
 ##### print.stopDiscoverPrinter20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 stopDiscoverPrinter(): Promise&lt;void&gt;
 
 停止发现打印机，使用Promise异步回调。
@@ -1857,6 +1961,8 @@ print.stopDiscoverPrinter().then(() => {
 
 
 ##### print.connectPrinter20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 connectPrinter(printerId: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1902,6 +2008,8 @@ print.connectPrinter(printerId, (err: BusinessError) => {
 
 
 ##### print.connectPrinter20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 connectPrinter(printerId: string): Promise&lt;void&gt;
 
@@ -1951,6 +2059,8 @@ print.connectPrinter(printerId).then(() => {
 
 
 ##### print.startPrint23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startPrint(job: PrintJobData): Promise&lt;void&gt;
 
@@ -2019,6 +2129,8 @@ print.startPrint(printJobData).then(() => {
 
 ##### PrintDocumentFormat23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印数据格式的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -2039,6 +2151,8 @@ print.startPrint(printJobData).then(() => {
 
 ##### DocFlavor23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 打印数据来源形式的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -2054,6 +2168,8 @@ print.startPrint(printJobData).then(() => {
 
 
 ##### PrintJobData23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义打印任务的接口。
 
@@ -2089,6 +2205,8 @@ print.startPrint(printJobData).then(() => {
 
 ##### PrintMargin24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义打印页边距的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -2107,6 +2225,8 @@ print.startPrint(printJobData).then(() => {
 
 ##### PrinterRange24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义打印范围的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -2124,6 +2244,8 @@ print.startPrint(printJobData).then(() => {
 
 ##### PreviewAttribute24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义打印预览属性的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -2139,6 +2261,8 @@ print.startPrint(printJobData).then(() => {
 
 
 ##### PrintResolution24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义打印分辨率的接口。
 
@@ -2156,6 +2280,8 @@ print.startPrint(printJobData).then(() => {
 
 
 ##### PrinterCapability24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义打印能力的接口。
 
@@ -2177,6 +2303,8 @@ print.startPrint(printJobData).then(() => {
 
 ##### PrinterInfo24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义打印信息的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -2197,6 +2325,8 @@ print.startPrint(printJobData).then(() => {
 
 
 ##### PrintJob24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义打印任务的接口。
 
@@ -2226,6 +2356,8 @@ print.startPrint(printJobData).then(() => {
 
 
 ##### print.updatePrintJobState24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState, callback: AsyncCallback&lt;void&gt;): void
 
@@ -2276,6 +2408,8 @@ print.updatePrintJobState(jobId, state, subState, (err: BusinessError) => {
 
 
 ##### print.updatePrintJobState24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 updatePrintJobState(jobId: string, state: PrintJobState, subState: PrintJobSubState): Promise&lt;void&gt;
 
@@ -2330,6 +2464,8 @@ print.updatePrintJobState(jobId, state, subState).then(() => {
 
 
 ##### print.updatePrinterInformation24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 updatePrinterInformation(printerInformation: PrinterInformation): Promise&lt;void&gt;
 
@@ -2407,6 +2543,8 @@ print.updatePrinterInformation(printerInformation).then(() => {
 
 ##### PpdInfo24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义打印机所使用驱动的PPD文件信息的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -2426,6 +2564,8 @@ print.updatePrinterInformation(printerInformation).then(() => {
 
 ##### SharedHost24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义共享设备信息的接口。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -2444,6 +2584,8 @@ print.updatePrinterInformation(printerInformation).then(() => {
 
 
 ##### print.addPrinter24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addPrinter(printerName: string, uri: string, ppdName?: string, options?: string): Promise&lt;boolean&gt;
 
@@ -2502,6 +2644,8 @@ print.addPrinter(printerName, uri, ppdName).then(() => {
 
 ##### WatermarkHandleResult24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 强制水印处理结果的枚举。
 
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -2517,6 +2661,8 @@ print.addPrinter(printerName, uri, ppdName).then(() => {
 
 
 ##### print.WatermarkCallback24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type WatermarkCallback = (jobId: string, fd: number) => void
 
@@ -2537,6 +2683,8 @@ type WatermarkCallback = (jobId: string, fd: number) => void
 
 
 ##### print.registerWatermarkCallback24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 registerWatermarkCallback(callback: WatermarkCallback): void
 
@@ -2585,6 +2733,8 @@ try {
 
 
 ##### print.unregisterWatermarkCallback24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 unregisterWatermarkCallback(callback?: WatermarkCallback): void
 
@@ -2636,6 +2786,8 @@ try {
 
 
 ##### print.notifyWatermarkComplete24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 notifyWatermarkComplete(jobId: string, result: WatermarkHandleResult): void
 

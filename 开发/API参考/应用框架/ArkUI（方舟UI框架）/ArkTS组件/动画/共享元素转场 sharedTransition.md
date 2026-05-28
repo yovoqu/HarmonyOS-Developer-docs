@@ -14,6 +14,8 @@
 
 ##### sharedTransition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sharedTransition(id: string, options?: sharedTransitionOptions): T
  
 设置共享元素转场动效。
@@ -41,6 +43,8 @@ sharedTransition(id: string, options?: sharedTransitionOptions): T
 
 ##### sharedTransitionOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 共享元素转场动画参数。
  
 > [!NOTE]
@@ -64,6 +68,8 @@ sharedTransition(id: string, options?: sharedTransitionOptions): T
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
  示例代码为点击图片跳转页面时，显示共享元素图片的自定义转场动效。
  
@@ -112,4 +118,4 @@ struct PageBExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/EXkqVLxjQ_KGBp1M_Hn75Q/zh-cn_image_0000002611835995.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=93C2721FF4AA699D8275BD60F9CC1FAB01C45940CAC27AD4C8AA0AAEE735779E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/EXkqVLxjQ_KGBp1M_Hn75Q/zh-cn_image_0000002611835995.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=01FDA0AB3A4F3B29C6138FFAD88A86C50E148FB7F6D065206596DEADFB0C8E8D)

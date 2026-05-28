@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Wearable | lite_wearable
+
 ```text
 import brightness, { BrightnessModeResponse, BrightnessResponse } from '@system.brightness';
 ```
@@ -21,6 +23,8 @@ import brightness, { BrightnessModeResponse, BrightnessResponse } from '@system.
 
 
 ##### brightness.getValue(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 getValue(options?: GetBrightnessOptions): void
 
@@ -51,6 +55,8 @@ brightness.getValue({
 
 
 ##### brightness.setValue(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 setValue(options?: SetBrightnessOptions): void
 
@@ -83,6 +89,8 @@ brightness.setValue({
 
 ##### brightness.getMode(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 getMode(options?: GetBrightnessModeOptions): void
 
 获得当前屏幕亮度模式。
@@ -112,6 +120,8 @@ brightness.getMode({
 
 
 ##### brightness.setMode(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 setMode(options?: SetBrightnessModeOptions): void
 
@@ -144,6 +154,8 @@ brightness.setMode({
 
 ##### brightness.setKeepScreenOn(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 setKeepScreenOn(options?: SetKeepScreenOnOptions): void
 
 除Lite Wearable外，从API version 7开始不再维护，建议使用[window.setWindowKeepScreenOn()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#setwindowkeepscreenon9)替代。
@@ -151,7 +163,7 @@ setKeepScreenOn(options?: SetKeepScreenOnOptions): void
 设置屏幕是否保持常亮状态，开启常亮模式推荐在onShow()阶段调用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/s30Fu2PNRRKjM_evD95xMQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013514Z&HW-CC-Expire=86400&HW-CC-Sign=2403897AE234590A078928DFFE1B0029B905BB6325120FD490DBBCBA13883D8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/s30Fu2PNRRKjM_evD95xMQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023815Z&HW-CC-Expire=86400&HW-CC-Sign=052BA1A2AC368EEB9DCAAE041911D1A84466743806EF94B028878EB29CCB0B78)
 
 
 在Lite Wearable上，该接口仅能阻止系统无活动超时灭屏（自动），无法阻止用户主动操作（如盖屏）、常亮时刻结束等导致的灭屏。
@@ -185,6 +197,8 @@ brightness.setKeepScreenOn({
 
 ##### GetBrightnessOptions(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 获取屏幕亮度的参数对象。
 
 **系统能力：** SystemCapability.PowerManager.DisplayPowerManager.Lite
@@ -199,6 +213,8 @@ brightness.setKeepScreenOn({
 
 
 ##### SetBrightnessOptions(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 设置屏幕亮度的参数对象。
 
@@ -216,6 +232,8 @@ brightness.setKeepScreenOn({
 
 ##### BrightnessResponse(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 包含屏幕亮度的对象。
 
 **系统能力：** SystemCapability.PowerManager.DisplayPowerManager.Lite
@@ -228,6 +246,8 @@ brightness.setKeepScreenOn({
 
 
 ##### GetBrightnessModeOptions(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 获取屏幕亮度模式的参数对象。
 
@@ -243,6 +263,8 @@ brightness.setKeepScreenOn({
 
 
 ##### SetBrightnessModeOptions(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 设置屏幕亮度模式的参数对象。
 
@@ -260,6 +282,8 @@ brightness.setKeepScreenOn({
 
 ##### BrightnessModeResponse(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 包含屏幕亮度模式的对象。
 
 **系统能力：** SystemCapability.PowerManager.DisplayPowerManager.Lite
@@ -272,6 +296,8 @@ brightness.setKeepScreenOn({
 
 
 ##### SetKeepScreenOnOptions(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 设置屏幕常亮的参数对象。
 

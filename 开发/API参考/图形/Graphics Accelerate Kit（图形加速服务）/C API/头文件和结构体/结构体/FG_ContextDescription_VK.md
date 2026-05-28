@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述创建超帧上下文实例[FG_Context_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#fg_context_vk)所需的属性信息，该接口仅适配Vulkan图形API平台。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### fnVulkanLoaderFunction
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 PFN_vkGetInstanceProcAddr FG_ContextDescription_VK::fnVulkanLoaderFunction
@@ -52,6 +62,8 @@ PFN_vkGetInstanceProcAddr FG_ContextDescription_VK::fnVulkanLoaderFunction
 
 ##### framesInFlight
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 uint8_t FG_ContextDescription_VK::framesInFlight
 ```
@@ -63,6 +75,8 @@ uint8_t FG_ContextDescription_VK::framesInFlight
   
 
 ##### vkDevice
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 VkDevice FG_ContextDescription_VK::vkDevice
@@ -76,6 +90,8 @@ Vulkan逻辑设备句柄，需在[FG_Context_VK](https://developer.huawei.com/co
 
 ##### vkInstance
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 VkInstance FG_ContextDescription_VK::vkInstance
 ```
@@ -87,6 +103,8 @@ Vulkan实例，需在[FG_Context_VK](https://developer.huawei.com/consumer/cn/do
   
 
 ##### vkPhysicalDevice
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 VkPhysicalDevice FG_ContextDescription_VK::vkPhysicalDevice

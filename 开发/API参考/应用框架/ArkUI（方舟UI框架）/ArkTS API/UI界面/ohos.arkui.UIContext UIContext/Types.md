@@ -12,6 +12,8 @@
 
 ##### CustomBuilderWithId18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type CustomBuilderWithId = (id: number) => void
 
 组件属性、方法参数可使用CustomBuilderWithId类型来自定义UI描述，并且可以指定组件ID生成用户自定义组件。
@@ -30,6 +32,8 @@ type CustomBuilderWithId = (id: number) => void
 
 
 ##### ClickEventListenerCallback12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void
 
@@ -50,6 +54,8 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void
 
 
 ##### PanListenerCallback19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void
 
@@ -72,6 +78,8 @@ Pan手势事件监听函数类型。
 
 ##### GestureEventListenerCallback12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void
 
 定义了用于在UIObserver中监听手势的回调类型。
@@ -92,6 +100,8 @@ type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => v
 
 ##### NodeIdentity20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NodeIdentity = string | number
 
 组件标识。
@@ -109,6 +119,8 @@ type NodeIdentity = string | number
 
 
 ##### NodeRenderStateChangeCallback20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void
 
@@ -130,6 +142,8 @@ type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) 
 
 ##### GestureListenerCallback20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type GestureListenerCallback = (info: GestureTriggerInfo) => void
 
 定义了用于在UIObserver中监控特定手势触发信息的回调类型。
@@ -149,6 +163,8 @@ type GestureListenerCallback = (info: GestureTriggerInfo) => void
 
 ##### PointerStyle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 type PointerStyle = pointer.PointerStyle
 
 光标样式。
@@ -165,6 +181,8 @@ type PointerStyle = pointer.PointerStyle
 
 
 ##### Context12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Context = common.Context
 

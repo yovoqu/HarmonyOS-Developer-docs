@@ -14,6 +14,8 @@
 
 ##### setFrameRateRange12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFrameRateRange(range: ExpectedFrameRateRange): void
  
 设置期望帧率范围。
@@ -84,6 +86,8 @@ struct Frame {
   
 
 ##### getFrameRateRange12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFrameRateRange(): ExpectedFrameRateRange
  

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { staticMap } from '@kit.MapKit';
 ```
@@ -19,6 +21,8 @@ import { staticMap } from '@kit.MapKit';
   
 
 ##### getMapImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getMapImage(options: StaticMapOptions): Promise<image.PixelMap>
  
@@ -83,6 +87,8 @@ await staticMap.getMapImage(staticMapOptions);
   
 
 ##### getMapImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getMapImage(context: common.Context, options: StaticMapOptions): Promise<image.PixelMap>
  
@@ -149,6 +155,8 @@ await staticMap.getMapImage(this.getUIContext().getHostContext(), staticMapOptio
 
 ##### StaticMapOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 StaticMapOptions定义了静态图的参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -187,6 +195,8 @@ let staticMapOptions: staticMap.StaticMapOptions = {
   
 
 ##### StaticMapMarker
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 StaticMapMarker定义了标记点位置。
  
@@ -228,6 +238,8 @@ let staticMapMarker: staticMap.StaticMapMarker = {
 
 ##### StaticMapPath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 StaticMapPath定义了添加到地图图像上的路径信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -266,6 +278,8 @@ let staticMapPath: staticMap.StaticMapPath = {
   
 
 ##### IconSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 IconSize定义了静态地图标记的默认图标大小。
  

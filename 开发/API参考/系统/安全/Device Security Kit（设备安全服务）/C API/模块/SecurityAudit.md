@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 提供安全审计的API。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -17,9 +19,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 文件
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,6 +35,8 @@
   
 
 ##### 结构体
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,6 +47,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -50,6 +60,8 @@
   
 
 ##### 枚举
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -62,6 +74,8 @@
   
 
 ##### 函数
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -87,9 +101,13 @@
 
 ##### 类型定义说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### SecurityAudit_AuthClient
+
+**支持设备：** PC/2in1
 
 ```text
 typedef struct SecurityAudit_AuthClient_Impl SecurityAudit_AuthClient
@@ -105,6 +123,8 @@ typedef struct SecurityAudit_AuthClient_Impl SecurityAudit_AuthClient
 
 ##### SecurityAudit_Client
 
+**支持设备：** PC/2in1
+
 ```text
 typedef struct SecurityAudit_Client_Impl SecurityAudit_Client
 ```
@@ -118,6 +138,8 @@ typedef struct SecurityAudit_Client_Impl SecurityAudit_Client
   
 
 ##### SecurityAudit_Handler
+
+**支持设备：** PC/2in1
 
 ```text
 typedef void(* SecurityAudit_Handler) (const SecurityAudit_Event *events, uint64_t count)
@@ -141,9 +163,13 @@ typedef void(* SecurityAudit_Handler) (const SecurityAudit_Event *events, uint64
 
 ##### 枚举类型说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### SecurityAudit_Auth_Event
+
+**支持设备：** PC/2in1
 
 ```text
 enum SecurityAudit_Auth_Event
@@ -171,6 +197,8 @@ enum SecurityAudit_Auth_Event
 
 ##### SecurityAudit_AuthResult
 
+**支持设备：** PC/2in1
+
 ```text
 enum SecurityAudit_AuthResult
 ```
@@ -190,6 +218,8 @@ enum SecurityAudit_AuthResult
   
 
 ##### SecurityAudit_FilterType
+
+**支持设备：** PC/2in1
 
 ```text
 enum SecurityAudit_FilterType
@@ -220,6 +250,8 @@ enum SecurityAudit_FilterType
   
 
 ##### SecurityAudit_Notify_Event
+
+**支持设备：** PC/2in1
 
 ```text
 enum SecurityAudit_Notify_Event
@@ -286,9 +318,13 @@ enum SecurityAudit_Notify_Event
 
 ##### 函数说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### HMS_SecurityAudit_AddAuthEventFilter()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t HMS_SecurityAudit_AddAuthEventFilter (const SecurityAudit_AuthClient * client, SecurityAudit_Auth_Event event, const SecurityAudit_Filter * filter )
@@ -321,6 +357,8 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
 
 ##### HMS_SecurityAudit_AddFilter()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t HMS_SecurityAudit_AddFilter (const SecurityAudit_Client * client, SecurityAudit_Notify_Event event, const SecurityAudit_Filter * filter )
 ```
@@ -351,6 +389,8 @@ ohos.permission.QUERY_AUDIT_EVENT
   
 
 ##### HMS_SecurityAudit_Auth()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t HMS_SecurityAudit_Auth (const SecurityAudit_AuthClient * client, const SecurityAudit_Event * event, SecurityAudit_AuthResult authResult )
@@ -383,6 +423,8 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
 
 ##### HMS_SecurityAudit_DeleteAuthClient()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t HMS_SecurityAudit_DeleteAuthClient (SecurityAudit_AuthClient * client)
 ```
@@ -412,6 +454,8 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
 
 ##### HMS_SecurityAudit_DeleteClient()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t HMS_SecurityAudit_DeleteClient (SecurityAudit_Client * client)
 ```
@@ -440,6 +484,8 @@ ohos.permission.QUERY_AUDIT_EVENT
   
 
 ##### HMS_SecurityAudit_NewAuthClient()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t HMS_SecurityAudit_NewAuthClient (SecurityAudit_AuthClient ** client, SecurityAudit_Handler handler )
@@ -471,6 +517,8 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
 
 ##### HMS_SecurityAudit_NewClient()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t HMS_SecurityAudit_NewClient (SecurityAudit_Client ** client, SecurityAudit_Handler handler )
 ```
@@ -500,6 +548,8 @@ ohos.permission.QUERY_AUDIT_EVENT
   
 
 ##### HMS_SecurityAudit_RemoveAuthEventFilter()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t HMS_SecurityAudit_RemoveAuthEventFilter (const SecurityAudit_AuthClient * client, SecurityAudit_Auth_Event event, const SecurityAudit_Filter * filter )
@@ -532,6 +582,8 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
 
 ##### HMS_SecurityAudit_RemoveFilter()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t HMS_SecurityAudit_RemoveFilter (const SecurityAudit_Client * client, SecurityAudit_Notify_Event event, const SecurityAudit_Filter * filter )
 ```
@@ -562,6 +614,8 @@ ohos.permission.QUERY_AUDIT_EVENT
   
 
 ##### HMS_SecurityAudit_Subscribe()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t HMS_SecurityAudit_Subscribe (const SecurityAudit_Client * client, const SecurityAudit_Notify_Event * events, uint64_t count )
@@ -594,6 +648,8 @@ ohos.permission.QUERY_AUDIT_EVENT
 
 ##### HMS_SecurityAudit_SubscribeAuthEvent()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t HMS_SecurityAudit_SubscribeAuthEvent (const SecurityAudit_AuthClient * client, const SecurityAudit_Auth_Event * events, uint64_t count )
 ```
@@ -624,6 +680,8 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
   
 
 ##### HMS_SecurityAudit_Unsubscribe()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t HMS_SecurityAudit_Unsubscribe (const SecurityAudit_Client * client, const SecurityAudit_Notify_Event * events, uint64_t count )
@@ -656,6 +714,8 @@ ohos.permission.QUERY_AUDIT_EVENT
 
 ##### HMS_SecurityAudit_UnsubscribeAuthEvent()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t HMS_SecurityAudit_UnsubscribeAuthEvent (const SecurityAudit_AuthClient * client, const SecurityAudit_Auth_Event * events, uint64_t count )
 ```
@@ -687,6 +747,8 @@ ohos.permission.kernel.AUTH_AUDIT_EVENT
 
 ##### HMS_SecurityAudit_QueryAllProcesses()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t HMS_SecurityAudit_QueryAllProcesses(char** result)
 ```
@@ -715,6 +777,8 @@ ohos.permission.QUERY_AUDIT_EVENT
   
 
 ##### HMS_SecurityAudit_QueryProcesses()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t HMS_SecurityAudit_QueryProcesses(uint64_t* pids, uint64_t count, char** result)
@@ -746,6 +810,8 @@ ohos.permission.QUERY_AUDIT_EVENT
   
 
 ##### HMS_SecurityAudit_AcquireCodeSign()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t HMS_SecurityAudit_AcquireCodeSign(char* path, char** outOwnedResult)

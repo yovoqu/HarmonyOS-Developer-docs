@@ -16,6 +16,8 @@ TimeGuardExtensionAbility是屏幕时间守护扩展Ability，提供extension回
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
 ```
@@ -23,6 +25,8 @@ import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
   
 
 ##### 属性
+
+**支持设备：** Phone | Tablet
 
 **模型约束：** 属性仅可在Stage模型下使用。
  
@@ -38,6 +42,8 @@ import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
   
 
 ##### onStart
+
+**支持设备：** Phone | Tablet
 
 onStart(strategyName: string): Promise&lt;void&gt;
  
@@ -80,6 +86,8 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
 
 ##### onStop
 
+**支持设备：** Phone | Tablet
+
 onStop(strategyName: string): Promise&lt;void&gt;
  
 应用所启动的策略管控效果结束时，执行该回调。使用Promise异步回调。
@@ -121,6 +129,8 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
 
 ##### onUserAuthSwitchOn
 
+**支持设备：** Phone | Tablet
+
 onUserAuthSwitchOn(): Promise&lt;void&gt;
  
 当用户在“设置 > 健康使用设备 > 可访问健康使用设备的应用”中授予应用授权时，应用接收该回调。使用Promise异步回调。
@@ -154,6 +164,8 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
   
 
 ##### onUserAuthSwitchOff
+
+**支持设备：** Phone | Tablet
 
 onUserAuthSwitchOff(): Promise&lt;void&gt;
  

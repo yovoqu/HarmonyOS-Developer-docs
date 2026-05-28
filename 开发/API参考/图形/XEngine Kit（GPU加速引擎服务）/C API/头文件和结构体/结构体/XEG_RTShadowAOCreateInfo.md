@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述创建支持光线追踪阴影和环境光遮蔽效果[XEG_RTVisibleMask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rtvisiblemask)实例的初始化信息。当结构体中的信息变化时，需要创建新的[XEG_RTVisibleMask](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rtvisiblemask)对象。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -41,9 +47,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### aoOnlyInShadow
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 bool XEG_RTShadowAOCreateInfo::aoOnlyInShadow
@@ -57,6 +67,8 @@ bool XEG_RTShadowAOCreateInfo::aoOnlyInShadow
 
 ##### denoiseMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 XEG_DenoiseQualityMode XEG_RTShadowAOCreateInfo::denoiseMode
 ```
@@ -68,6 +80,8 @@ XEG_DenoiseQualityMode XEG_RTShadowAOCreateInfo::denoiseMode
   
 
 ##### enableRTAO
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 bool XEG_RTShadowAOCreateInfo::enableRTAO
@@ -81,6 +95,8 @@ bool XEG_RTShadowAOCreateInfo::enableRTAO
 
 ##### enableRTShadow
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 bool XEG_RTShadowAOCreateInfo::enableRTShadow
 ```
@@ -92,6 +108,8 @@ bool XEG_RTShadowAOCreateInfo::enableRTShadow
   
 
 ##### pNext
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const void* XEG_RTShadowAOCreateInfo::pNext
@@ -105,6 +123,8 @@ const void* XEG_RTShadowAOCreateInfo::pNext
 
 ##### reverseZ
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 bool XEG_RTShadowAOCreateInfo::reverseZ
 ```
@@ -116,6 +136,8 @@ bool XEG_RTShadowAOCreateInfo::reverseZ
   
 
 ##### rtInputGbufferSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_RTShadowAOCreateInfo::rtInputGbufferSize
@@ -129,6 +151,8 @@ VkExtent2D XEG_RTShadowAOCreateInfo::rtInputGbufferSize
 
 ##### rtShadowAOSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkExtent2D XEG_RTShadowAOCreateInfo::rtShadowAOSize
 ```
@@ -141,6 +165,8 @@ VkExtent2D XEG_RTShadowAOCreateInfo::rtShadowAOSize
 
 ##### sType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 XEG_StructureType XEG_RTShadowAOCreateInfo::sType
 ```
@@ -152,6 +178,8 @@ XEG_StructureType XEG_RTShadowAOCreateInfo::sType
   
 
 ##### traversalMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 XEG_TraversalMode XEG_RTShadowAOCreateInfo::traversalMode

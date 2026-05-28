@@ -14,6 +14,8 @@ ConfigurationConstant模块提供配置信息枚举值定义的能力。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import ConfigurationConstant from '@ohos.application.ConfigurationConstant';
 ```
@@ -21,6 +23,8 @@ import ConfigurationConstant from '@ohos.application.ConfigurationConstant';
   
 
 ##### ColorMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示颜色模式的枚举。
  

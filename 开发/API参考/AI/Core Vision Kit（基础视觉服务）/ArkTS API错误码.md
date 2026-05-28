@@ -12,6 +12,8 @@
 
 ##### 200 运行超时
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Run timed out, please try again later.
@@ -31,6 +33,8 @@ Run timed out, please try again later.
   
 
 ##### 401 参数错误
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -52,6 +56,8 @@ The parameter check failed.
 
 ##### 1001400001 运行失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Failed to run, please try again.
@@ -71,6 +77,8 @@ Failed to run, please try again.
   
 
 ##### 1001400002 服务异常
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -92,6 +100,8 @@ The service is abnormal.
 
 ##### 1008400001 运行失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Failed to run, please try again.
@@ -111,6 +121,8 @@ Failed to run, please try again.
   
 
 ##### 1008400002 服务异常
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -132,6 +144,8 @@ The service is abnormal.
 
 ##### 1008800001 运行失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Failed to run, please try again.
@@ -151,6 +165,8 @@ Failed to run, please try again.
   
 
 ##### 1008800002 服务异常
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -172,6 +188,8 @@ The service is abnormal.
 
 ##### 1011000001 运行失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Failed to run, please try again.
@@ -191,6 +209,8 @@ Failed to run, please try again.
   
 
 ##### 1011000002 服务异常
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -212,6 +232,8 @@ The service is abnormal.
 
 ##### 1011000003 模型运行失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Failed to run the model, please try again.
@@ -231,6 +253,8 @@ Failed to run the model, please try again.
   
 
 ##### 1011000004 模型运行超时
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

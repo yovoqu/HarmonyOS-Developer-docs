@@ -12,6 +12,8 @@ typedef struct OH_AudioDeviceDescriptor OH_AudioDeviceDescriptor
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明音频设备描述符。该实例用于获取更多音频设备详细信息属性。
  
 **起始版本：** 12

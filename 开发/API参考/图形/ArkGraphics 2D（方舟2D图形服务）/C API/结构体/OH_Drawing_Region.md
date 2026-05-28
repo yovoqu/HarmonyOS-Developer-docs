@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Region OH_Drawing_Region
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义一个区域，用于表示画布上的封闭区域，实现更精确的图形控制。
  
 **起始版本：** 12

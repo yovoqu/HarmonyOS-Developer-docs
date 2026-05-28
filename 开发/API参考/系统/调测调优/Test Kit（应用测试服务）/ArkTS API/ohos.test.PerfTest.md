@@ -14,6 +14,8 @@ PerfTest提供白盒性能测试能力，供开发者在测试场景使用，支
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { PerfMetric, PerfTest, PerfTestStrategy, PerfMeasureResult } from '@kit.TestKit';
 ```
@@ -21,6 +23,8 @@ import { PerfMetric, PerfTest, PerfTestStrategy, PerfMeasureResult } from '@kit.
   
 
 ##### PerfMetric
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 框架支持采集的性能指标。
  
@@ -49,6 +53,8 @@ import { PerfMetric, PerfTest, PerfTestStrategy, PerfMeasureResult } from '@kit.
 
 ##### PerfTestStrategy
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 性能测试执行策略。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -73,6 +79,8 @@ import { PerfMetric, PerfTest, PerfTestStrategy, PerfMeasureResult } from '@kit.
 
 ##### PerfMeasureResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 性能指标对应测量结果数据。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -92,11 +100,15 @@ import { PerfMetric, PerfTest, PerfTestStrategy, PerfMeasureResult } from '@kit.
 
 ##### PerfTest
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 PerfTest类为白盒性能测试框架的总入口，提供测试任务创建、测试代码段执行和数据采集、测量结果获取等能力。
  
   
 
 ##### create
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 static create(strategy: PerfTestStrategy): PerfTest
  
@@ -165,6 +177,8 @@ async function demo() {
 
 ##### run
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 run(): Promise&lt;void&gt;
  
 运行性能测试，迭代执行测试代码段并采集性能数据，使用Promise回调。
@@ -218,6 +232,8 @@ async function demo() {
   
 
 ##### getMeasureResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getMeasureResult(metric: PerfMetric): PerfMeasureResult
  
@@ -280,6 +296,8 @@ async function demo() {
   
 
 ##### destroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 destroy(): void
  

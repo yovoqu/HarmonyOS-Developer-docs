@@ -20,6 +20,8 @@ ImageReceiver类，用于获取组件surface id、接收最新的图片和读取
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -27,6 +29,8 @@ import { image } from '@kit.ImageKit';
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageReceiver
   
@@ -40,6 +44,8 @@ import { image } from '@kit.ImageKit';
   
 
 ##### getReceivingSurfaceId9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getReceivingSurfaceId(callback: AsyncCallback&lt;string&gt;): void
  
@@ -74,6 +80,8 @@ async function GetReceivingSurfaceId(receiver : image.ImageReceiver) {
 
 ##### getReceivingSurfaceId9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getReceivingSurfaceId(): Promise&lt;string&gt;
  
 用于获取一个surface id供Camera或其他组件使用。使用Promise异步回调。
@@ -104,6 +112,8 @@ async function GetReceivingSurfaceId(receiver : image.ImageReceiver) {
   
 
 ##### readLatestImage9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readLatestImage(callback: AsyncCallback&lt;Image&gt;): void
  
@@ -158,6 +168,8 @@ async function ReadLatestImage(receiver : image.ImageReceiver) {
 
 ##### readLatestImage9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readLatestImage(): Promise&lt;Image&gt;
  
 从ImageReceiver读取最新的图片。使用Promise异步回调。
@@ -208,6 +220,8 @@ async function ReadLatestImage(receiver : image.ImageReceiver) {
   
 
 ##### readNextImage9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readNextImage(callback: AsyncCallback&lt;Image&gt;): void
  
@@ -262,12 +276,14 @@ async function ReadNextImage(receiver : image.ImageReceiver) {
 
 ##### readNextImage9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readNextImage(): Promise&lt;Image&gt;
  
 从ImageReceiver读取下一张图片。使用Promise异步回调。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/TBxNuVHJRviF1YTKz1kQIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013654Z&HW-CC-Expire=86400&HW-CC-Sign=3E335444466C695AB96DAF81A1EAF4A66B3F6ABA143A228AF21FFFD5C777BF50)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/TBxNuVHJRviF1YTKz1kQIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023952Z&HW-CC-Expire=86400&HW-CC-Sign=07C330F744A4E0276A647591E56101DEF9F94D4D9F0C2FC46F7DB8D829B5AB14)
  
  
 此接口需要在[on](#on9)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)对象使用完毕后需要调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image#release9)方法释放，释放后才可以继续接收新的数据。
@@ -313,6 +329,8 @@ async function ReadNextImage(receiver : image.ImageReceiver) {
 
 ##### on9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'imageArrival', callback: AsyncCallback&lt;void&gt;): void
  
 接收图片时注册回调。使用callback异步回调。
@@ -347,6 +365,8 @@ async function On(receiver : image.ImageReceiver) {
 
 ##### off13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'imageArrival', callback?: AsyncCallback&lt;void&gt;): void
  
 释放buffer时移除注册回调。使用callback异步回调。
@@ -376,6 +396,8 @@ async function Off(receiver : image.ImageReceiver) {
   
 
 ##### release9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(callback: AsyncCallback&lt;void&gt;): void
  
@@ -413,6 +435,8 @@ async function Release(receiver : image.ImageReceiver) {
   
 
 ##### release9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(): Promise&lt;void&gt;
  

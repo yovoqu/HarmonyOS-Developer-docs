@@ -14,6 +14,8 @@
 
 ##### registerFont
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 registerFont(options: font.FontOptions): void
 
 在字体管理中注册自定义字体。
@@ -66,6 +68,8 @@ struct Index {
 
 ##### getSystemFontList
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSystemFontList(): Array&lt;string&gt;
 
 获取系统支持的字体名称列表。
@@ -115,6 +119,8 @@ struct Index {
 
 
 ##### getFontByName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFontByName(fontName: string): font.FontInfo
 

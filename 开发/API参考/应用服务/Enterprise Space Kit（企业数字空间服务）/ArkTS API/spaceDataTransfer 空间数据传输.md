@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { fileTransfer } from '@kit.EnterpriseSpaceKit';
 ```
@@ -21,6 +23,8 @@ import { fileTransfer } from '@kit.EnterpriseSpaceKit';
   
 
 ##### AuditInfo
+
+**支持设备：** PC/2in1
 
 审批信息。
  
@@ -41,6 +45,8 @@ import { fileTransfer } from '@kit.EnterpriseSpaceKit';
   
 
 ##### setAuditInfo
+
+**支持设备：** PC/2in1
 
 setAuditInfo(transactionNum: string, info: AuditInfo): number
  
@@ -104,6 +110,8 @@ try {
 
 ##### getAuditInfo
 
+**支持设备：** PC/2in1
+
 getAuditInfo(transactionNum: string): AuditInfo
  
 获取审批信息。
@@ -156,6 +164,8 @@ try {
   
 
 ##### policyPush
+
+**支持设备：** PC/2in1
 
 policyPush(policyContext: string): void
  

@@ -14,6 +14,8 @@
 
 ##### @Env
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Env: EnvDecorator
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -43,6 +45,8 @@ struct Index {
 
 
 ##### EnvDecorator
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type EnvDecorator = (value: SystemProperties) => PropertyDecorator
 
@@ -80,6 +84,8 @@ type EnvDecorator = (value: SystemProperties) => PropertyDecorator
 
 
 ##### SystemProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义环境变量枚举值。
 

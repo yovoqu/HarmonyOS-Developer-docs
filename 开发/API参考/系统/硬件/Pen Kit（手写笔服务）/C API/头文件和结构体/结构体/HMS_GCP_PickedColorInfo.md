@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义取色颜色信息的结构体。
  
 **系统能力：** SystemCapability.Stylus.ColorPicker
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### color
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 HMS_GCP_Color HMS_GCP_PickedColorInfo::color
@@ -52,6 +62,8 @@ HMS_GCP_Color HMS_GCP_PickedColorInfo::color
 
 ##### colorSpace
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 HMS_GCP_ColorSpace HMS_GCP_PickedColorInfo::colorSpace
 ```
@@ -63,6 +75,8 @@ HMS_GCP_ColorSpace HMS_GCP_PickedColorInfo::colorSpace
   
 
 ##### timestamp
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int64_t HMS_GCP_PickedColorInfo::timestamp

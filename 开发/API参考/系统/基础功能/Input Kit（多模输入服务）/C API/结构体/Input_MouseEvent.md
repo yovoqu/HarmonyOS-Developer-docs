@@ -12,6 +12,8 @@ typedef struct Input_MouseEvent Input_MouseEvent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 鼠标事件对象。
  
 **起始版本：** 12

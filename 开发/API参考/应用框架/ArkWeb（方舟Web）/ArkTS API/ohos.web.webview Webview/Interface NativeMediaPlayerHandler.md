@@ -14,6 +14,8 @@
 
 ##### handleStatusChanged12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 handleStatusChanged(status: PlaybackStatus): void
  
 当播放器的播放状态发生变化时，调用该方法将播放状态通知给 ArkWeb 内核。
@@ -34,6 +36,8 @@ handleStatusChanged(status: PlaybackStatus): void
   
 
 ##### handleVolumeChanged12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 handleVolumeChanged(volume: number): void
  
@@ -56,6 +60,8 @@ handleVolumeChanged(volume: number): void
 
 ##### handleMutedChanged12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 handleMutedChanged(muted: boolean): void
  
 当播放器的静音状态发生变化时，调用该方法将静音状态通知给 ArkWeb 内核。
@@ -76,6 +82,8 @@ handleMutedChanged(muted: boolean): void
   
 
 ##### handlePlaybackRateChanged12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 handlePlaybackRateChanged(playbackRate: number): void
  
@@ -98,6 +106,8 @@ handlePlaybackRateChanged(playbackRate: number): void
 
 ##### handleDurationChanged12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 handleDurationChanged(duration: number): void
  
 当播放器解析出媒体的总时长时，调用该方法将媒体的总时长通知给 ArkWeb 内核。
@@ -118,6 +128,8 @@ handleDurationChanged(duration: number): void
   
 
 ##### handleTimeUpdate12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 handleTimeUpdate(currentPlayTime: number): void
  
@@ -140,6 +152,8 @@ handleTimeUpdate(currentPlayTime: number): void
 
 ##### handleBufferedEndTimeChanged12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 handleBufferedEndTimeChanged(bufferedEndTime: number): void
  
 当媒体的缓冲时长发生变化时，调用该方法将媒体的缓冲时长通知给 ArkWeb 内核。
@@ -161,6 +175,8 @@ handleBufferedEndTimeChanged(bufferedEndTime: number): void
 
 ##### handleEnded12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 handleEnded(): void
  
 当媒体播放结束时，调用该方法将播放结束事件通知给 ArkWeb 内核。
@@ -174,6 +190,8 @@ handleEnded(): void
   
 
 ##### handleNetworkStateChanged12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 handleNetworkStateChanged(state: NetworkState): void
  
@@ -196,6 +214,8 @@ handleNetworkStateChanged(state: NetworkState): void
 
 ##### handleReadyStateChanged12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 handleReadyStateChanged(state: ReadyState): void
  
 当播放器的缓存状态发生变化时，调用该方法将播放器的缓存状态通知给 ArkWeb 内核。
@@ -216,6 +236,8 @@ handleReadyStateChanged(state: ReadyState): void
   
 
 ##### handleFullscreenChanged12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 handleFullscreenChanged(fullscreen: boolean): void
  
@@ -238,6 +260,8 @@ handleFullscreenChanged(fullscreen: boolean): void
 
 ##### handleSeeking12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 handleSeeking(): void
  
 当播放器进入seek状态时，调用该方法将seek进入事件通知 ArkWeb 内核。
@@ -252,6 +276,8 @@ handleSeeking(): void
 
 ##### handleSeekFinished12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 handleSeekFinished(): void
  
 当播放器seek完成后，调用该方法将seek完成事件通知 ArkWeb 内核。
@@ -265,6 +291,8 @@ handleSeekFinished(): void
   
 
 ##### handleError12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 handleError(error: MediaError, errorMessage: string): void
  
@@ -287,6 +315,8 @@ handleError(error: MediaError, errorMessage: string): void
   
 
 ##### handleVideoSizeChanged12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 handleVideoSizeChanged(width: number, height: number): void
  

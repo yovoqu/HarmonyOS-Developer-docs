@@ -14,6 +14,8 @@
 
 ##### get12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get(id: string, callback: AsyncCallback<image.PixelMap>, options?: componentSnapshot.SnapshotOptions): void
 
 获取已加载的组件的截图，传入组件的[组件标识](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id)，找到对应组件进行截图。使用callback异步回调。
@@ -90,12 +92,14 @@ struct SnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/GJkXX1fUT5OWv9G8f7S66Q/zh-cn_image_0000002611835363.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013824Z&HW-CC-Expire=86400&HW-CC-Sign=BDFDD8C1EB069D5FDB9FAD86B15B268CA10A4FF7C9B296F879C59BF64C34F82B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/GJkXX1fUT5OWv9G8f7S66Q/zh-cn_image_0000002611835363.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024119Z&HW-CC-Expire=86400&HW-CC-Sign=15A5B4D51AB7171EB77796CFF0FBCD6784DE058927E7033C0EA5EBF265BE9701)
 
 
 
 
 ##### get12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>
 
@@ -182,6 +186,8 @@ struct SnapshotExample {
 
 
 ##### createFromBuilder12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>, delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void
 
@@ -278,6 +284,8 @@ struct ComponentSnapshotExample {
 
 
 ##### createFromBuilder12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createFromBuilder(builder: CustomBuilder, delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>
 
@@ -381,6 +389,8 @@ struct ComponentSnapshotExample {
 
 ##### getSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap
 
 获取已加载的组件的截图。传入组件的[组件标识](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-component-id)，找到对应组件进行截图，同步等待截图完成返回[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。本方法会阻塞主线程，请谨慎使用。接口的最大等待时间为3s，如果3s后未返回将会抛出异常。
@@ -464,6 +474,8 @@ struct SnapshotExample {
 
 
 ##### getWithUniqueId15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>
 
@@ -570,6 +582,8 @@ struct SnapshotExample {
 
 ##### getSyncWithUniqueId15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSyncWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): image.PixelMap
 
 获取已加载的组件的截图，传入组件的uniqueId，找到对应组件进行截图。同步等待截图完成返回[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)。
@@ -670,6 +684,8 @@ struct SnapshotExample {
 
 
 ##### createFromComponent18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createFromComponent<T extends Object>(content: ComponentContent&lt;T&gt;, delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>
 

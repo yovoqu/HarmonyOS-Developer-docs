@@ -18,6 +18,8 @@ UIExtensionAbility组件是带界面的ExtensionAbility组件，继承自[Extens
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { UIExtensionAbility } from '@kit.AbilityKit';
 ```
@@ -26,11 +28,15 @@ import { UIExtensionAbility } from '@kit.AbilityKit';
 
 ##### UIExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示包含UI界面的扩展组件，提供组件创建、销毁、前后台切换等生命周期回调。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
   
@@ -42,6 +48,8 @@ import { UIExtensionAbility } from '@kit.AbilityKit';
   
 
 ##### onCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCreate(launchParam: AbilityConstant.LaunchParam): void
  
@@ -74,6 +82,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
   
 
 ##### onSessionCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSessionCreate(want: Want, session: UIExtensionContentSession): void
  
@@ -116,6 +126,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### onSessionDestroy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSessionDestroy(session: UIExtensionContentSession): void
  
 当UIExtensionContentSession实例销毁后，系统触发该回调。该回调用于通知开发者UIExtensionContentSession实例已被销毁，不能再继续使用。
@@ -148,6 +160,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### onForeground
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onForeground(): void
  
 当UIExtensionAbility组件首次启动到前台或者从后台转入到前台时，系统触发该回调。开发者可在该回调中实现UI可见时的资源申请操作。
@@ -173,6 +187,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### onBackground
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onBackground(): void
  
 当UIExtensionAbility组件从前台转入到后台时，系统触发该回调。开发者可在该回调中实现UI不可见时的资源释放操作。
@@ -197,6 +213,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
   
 
 ##### onDestroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDestroy(): void | Promise&lt;void&gt;
  

@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { InstantShapeGenerator, ShapeInfo } from '@kit.Penkit';
 ```
@@ -42,6 +44,8 @@ import { InstantShapeGenerator, ShapeInfo } from '@kit.Penkit';
   
 
 ##### ShapeInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 一笔成形识别结果对象，包含识别的图像的基本信息。
  
@@ -73,6 +77,8 @@ shapeType: 0
   
 
 ##### processTouchEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 processTouchEvent(event: TouchEvent): void
  
@@ -119,6 +125,8 @@ Canvas() {
   
 
 ##### getPathFromString
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getPathFromString(shapeString: string, penSize: number): Path2D
  
@@ -167,6 +175,8 @@ private shapeInfoCallback(shapeInfo: ShapeInfo) {
 
 ##### notifyAreaChange
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 notifyAreaChange(width: number, height: number): void
  
 通知组件大小更改。形状的大小（例如圆的半径）根据组件尺寸而变化。
@@ -212,6 +222,8 @@ notifyAreaChange(width: number, height: number): void
 
 ##### setPauseTime
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setPauseTime(time: number): void
  
 设置触发识别的暂停时间。
@@ -255,6 +267,8 @@ aboutToAppear() {
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 release(): void
  
 销毁一笔成形工具。
@@ -277,6 +291,8 @@ aboutToDisappear(){
   
 
 ##### onShapeRecognized
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onShapeRecognized(callback: Callback&lt;ShapeInfo&gt;): [InstantShapeGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-instantsshapegenerator)
  

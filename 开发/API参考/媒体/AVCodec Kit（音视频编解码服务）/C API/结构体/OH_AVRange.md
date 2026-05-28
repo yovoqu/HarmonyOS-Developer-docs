@@ -12,6 +12,8 @@ typedef struct OH_AVRange {...} OH_AVRange
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 范围包含最小值和最大值。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ typedef struct OH_AVRange {...} OH_AVRange
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

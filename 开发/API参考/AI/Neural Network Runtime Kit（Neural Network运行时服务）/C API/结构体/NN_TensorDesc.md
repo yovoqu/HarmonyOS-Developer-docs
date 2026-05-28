@@ -12,6 +12,8 @@ typedef struct NN_TensorDesc NN_TensorDesc
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 Tensor描述的句柄。
  
 **起始版本：** 11

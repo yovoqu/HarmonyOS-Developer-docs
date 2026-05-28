@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述相机扩展信息。当视图投影矩阵的平移分量非常大时（超过十万），可以提供更加详细的相机信息以获得更加准确的超帧预测效果。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### proj
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_Mat4x4 FG_PerFrameExtendedCameraInfo::proj
@@ -52,6 +62,8 @@ FG_Mat4x4 FG_PerFrameExtendedCameraInfo::proj
 
 ##### translatedInvViewProj
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_Mat4x4 FG_PerFrameExtendedCameraInfo::translatedInvViewProj
 ```
@@ -63,6 +75,8 @@ FG_Mat4x4 FG_PerFrameExtendedCameraInfo::translatedInvViewProj
   
 
 ##### translatedView
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_Mat4x4 FG_PerFrameExtendedCameraInfo::translatedView
@@ -76,6 +90,8 @@ FG_Mat4x4 FG_PerFrameExtendedCameraInfo::translatedView
 
 ##### translatedViewProj
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_Mat4x4 FG_PerFrameExtendedCameraInfo::translatedViewProj
 ```
@@ -87,6 +103,8 @@ FG_Mat4x4 FG_PerFrameExtendedCameraInfo::translatedViewProj
   
 
 ##### worldPosition
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_Vec3D FG_PerFrameExtendedCameraInfo::worldPosition

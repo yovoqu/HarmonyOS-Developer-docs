@@ -12,6 +12,8 @@ typedef struct {...} ArkWeb_WebMessageAPI
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Post Message数据相关的Native API结构体。在调用接口前建议通过[ARKWEB_MEMBER_MISSING](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-type-h#宏定义)校验该函数结构体是否有对应函数指针，避免SDK与设备ROM不匹配导致崩溃。WebMessage相关接口需在UI线程中调用OH_ArkWeb_GetNativeAPI方法获取。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ Post Message数据相关的Native API结构体。在调用接口前建议通过[
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,6 +42,8 @@ Post Message数据相关的Native API结构体。在调用接口前建议通过[
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -51,9 +59,13 @@ Post Message数据相关的Native API结构体。在调用接口前建议通过[
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### createWebMessage()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ArkWeb_WebMessagePtr (*createWebMessage)()
@@ -74,6 +86,8 @@ ArkWeb_WebMessagePtr (*createWebMessage)()
 
 ##### destroyWebMessage()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*destroyWebMessage)(ArkWeb_WebMessagePtr* webMessage)
 ```
@@ -92,6 +106,8 @@ void (*destroyWebMessage)(ArkWeb_WebMessagePtr* webMessage)
   
 
 ##### setType()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*setType)(ArkWeb_WebMessagePtr webMessage, ArkWeb_WebMessageType type)
@@ -113,6 +129,8 @@ void (*setType)(ArkWeb_WebMessagePtr webMessage, ArkWeb_WebMessageType type)
 
 ##### getType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ArkWeb_WebMessageType (*getType)(ArkWeb_WebMessagePtr webMessage)
 ```
@@ -131,6 +149,8 @@ ArkWeb_WebMessageType (*getType)(ArkWeb_WebMessagePtr webMessage)
   
 
 ##### setData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*setData)(ArkWeb_WebMessagePtr webMessage, void* data, size_t dataLength)
@@ -152,6 +172,8 @@ void (*setData)(ArkWeb_WebMessagePtr webMessage, void* data, size_t dataLength)
   
 
 ##### getData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void* (*getData)(ArkWeb_WebMessagePtr webMessage, size_t* dataLength)

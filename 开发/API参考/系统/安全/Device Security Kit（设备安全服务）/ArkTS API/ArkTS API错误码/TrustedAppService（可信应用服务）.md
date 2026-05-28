@@ -12,6 +12,8 @@
 
 ##### 201 权限校验失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 permission denied.
@@ -31,6 +33,8 @@ permission denied.
 
 
 ##### 401 参数检查失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -52,6 +56,8 @@ argument is invalid.
 
 ##### 1011500001 无效的算法参数
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 algorithm param is invalid.
@@ -71,6 +77,8 @@ algorithm param is invalid.
 
 
 ##### 1011500002 参数传入不足
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -92,6 +100,8 @@ algorithm param is missing.
 
 ##### 1011500003 密钥生成失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 create attestation key failed.
@@ -111,6 +121,8 @@ create attestation key failed.
 
 
 ##### 1011500004 证书创建失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -132,6 +144,8 @@ create anonymous certificate failed.
 
 ##### 1011500005 文件操作失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 operate file failed.
@@ -151,6 +165,8 @@ operate file failed.
 
 
 ##### 1011500006 IPC通信失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -172,6 +188,8 @@ IPC通信失败。
 
 ##### 1011500007 密钥不存在
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 item not found.
@@ -191,6 +209,8 @@ item not found.
 
 
 ##### 1011500008 证书校验失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -212,6 +232,8 @@ verify anonymous certificate failed.
 
 ##### 1011500009 证书已过期
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 anonymous certificate has expired.
@@ -231,6 +253,8 @@ anonymous certificate has expired.
 
 
 ##### 1011500010 密钥不匹配
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -252,6 +276,8 @@ get attestation key failed.
 
 ##### 1011500011 安全相机初始化失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 initialize secure camera failed.
@@ -271,6 +297,8 @@ initialize secure camera failed.
 
 
 ##### 1011500012 证明会话上下文异常
+
+**支持设备：** Phone | Tablet | PC/2in1
 
 **错误信息**
 
@@ -292,6 +320,8 @@ attestation context not initialized.
 
 ##### 1011500013 密钥已过期
 
+**支持设备：** Phone | Tablet | PC/2in1
+
 **错误信息**
 
 attestation key has expired.
@@ -311,6 +341,8 @@ attestation key has expired.
 
 
 ##### 1011500014 位置服务不可用
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
 
@@ -332,6 +364,8 @@ location service is unavailable.
 
 ##### 1011500015 位置信息开关关闭
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 location switch is off.
@@ -351,6 +385,8 @@ location switch is off.
 
 
 ##### 1011500016 位置信息获取失败
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
 
@@ -372,6 +408,8 @@ get secure location failed.
 
 ##### 1011500017 签名验签失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 signature verification failed.
@@ -391,6 +429,8 @@ signature verification failed.
 
 
 ##### 1011500018 安全图像处理失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 

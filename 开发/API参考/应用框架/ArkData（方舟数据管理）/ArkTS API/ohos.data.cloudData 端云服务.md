@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { cloudData } from '@kit.ArkData';
 ```
@@ -25,6 +27,8 @@ import { cloudData } from '@kit.ArkData';
 
 
 ##### StrategyType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 云同步策略类型枚举。
 
@@ -39,6 +43,8 @@ import { cloudData } from '@kit.ArkData';
 
 ##### NetWorkStrategy
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 网络策略参数枚举。
 
 **系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
@@ -52,6 +58,8 @@ import { cloudData } from '@kit.ArkData';
 
 
 ##### cloudData.setCloudStrategy
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise&lt;void&gt;
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { intelligence } from '@kit.ArkData';
 ```
@@ -21,6 +23,8 @@ import { intelligence } from '@kit.ArkData';
 
 
 ##### intelligence.getTextEmbeddingModel
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getTextEmbeddingModel(config: ModelConfig): Promise&lt;TextEmbedding&gt;
 
@@ -81,6 +85,8 @@ intelligence.getTextEmbeddingModel(textConfig)
 
 ##### intelligence.getImageEmbeddingModel
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getImageEmbeddingModel(config: ModelConfig): Promise&lt;ImageEmbedding&gt;
 
 获取图像嵌入模型。使用Promise异步回调。
@@ -140,6 +146,8 @@ intelligence.getImageEmbeddingModel(imageConfig)
 
 ##### intelligence.splitText
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 splitText(text: string, config: SplitConfig): Promise<Array&lt;string&gt;>
 
 获取文本的分块。使用Promise异步回调。
@@ -198,6 +206,8 @@ intelligence.splitText(splitText, splitConfig)
 
 ##### ModelConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 管理嵌入模型的配置信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
@@ -213,6 +223,8 @@ intelligence.splitText(splitText, splitConfig)
 
 ##### ModelVersion
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 模型版本枚举。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
@@ -225,6 +237,8 @@ intelligence.splitText(splitText, splitConfig)
 
 
 ##### Image
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Image = string
 
@@ -241,6 +255,8 @@ type Image = string
 
 ##### SplitConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 管理文本分块的配置信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataIntelligence.Core
@@ -255,6 +271,8 @@ type Image = string
 
 ##### TextEmbedding
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 描述多模态嵌入模型的文本嵌入函数。
 
 下列接口都需先使用[intelligence.getTextEmbeddingModel](#intelligencegettextembeddingmodel)获取到TextEmbedding实例，再通过此实例调用对应接口。
@@ -264,6 +282,8 @@ type Image = string
 
 
 ##### loadModel
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 loadModel(): Promise&lt;void&gt;
 
@@ -308,6 +328,8 @@ textEmbedding.loadModel()
 
 ##### releaseModel
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 releaseModel(): Promise&lt;void&gt;
 
 释放文本嵌入模型。使用Promise异步回调。
@@ -350,6 +372,8 @@ textEmbedding.releaseModel()
 
 
 ##### getEmbedding
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getEmbedding(text: string): Promise<Array&lt;number&gt;>
 
@@ -406,6 +430,8 @@ textEmbedding.getEmbedding(text)
 
 ##### getEmbedding
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getEmbedding(batchTexts: Array&lt;string&gt;): Promise<Array<Array&lt;number&gt;>>
 
 获取给定批次文本的嵌入向量。使用Promise异步回调。
@@ -461,6 +487,8 @@ textEmbedding.getEmbedding(batchTexts)
 
 ##### ImageEmbedding
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 描述多模态嵌入模型的图像嵌入函数。
 
 下列接口都需先使用[intelligence.getImageEmbeddingModel](#intelligencegetimageembeddingmodel)获取到ImageEmbedding实例，再通过此实例调用对应接口。
@@ -470,6 +498,8 @@ textEmbedding.getEmbedding(batchTexts)
 
 
 ##### loadModel
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 loadModel(): Promise&lt;void&gt;
 
@@ -514,6 +544,8 @@ imageEmbedding.loadModel()
 
 ##### releaseModel
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 releaseModel(): Promise&lt;void&gt;
 
 释放图像嵌入模型。使用Promise异步回调。
@@ -556,6 +588,8 @@ imageEmbedding.releaseModel()
 
 
 ##### getEmbedding
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getEmbedding(image: Image): Promise<Array&lt;number&gt;>
 

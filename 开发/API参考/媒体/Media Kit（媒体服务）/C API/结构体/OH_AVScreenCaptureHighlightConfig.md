@@ -12,6 +12,8 @@ typedef struct OH_AVScreenCaptureHighlightConfig {...} OH_AVScreenCaptureHighlig
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示高亮边框的样式，包括高亮边框的模式、边框宽度和边框颜色。
  
 **起始版本：** 22
@@ -24,9 +26,13 @@ typedef struct OH_AVScreenCaptureHighlightConfig {...} OH_AVScreenCaptureHighlig
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

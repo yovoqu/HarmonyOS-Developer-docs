@@ -12,6 +12,8 @@ typedef struct Input_InterceptorEventCallback {...} Input_InterceptorEventCallba
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拦截回调事件结构体，拦截鼠标事件、触屏输入事件和轴事件。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct Input_InterceptorEventCallback {...} Input_InterceptorEventCallba
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,6 +44,8 @@ typedef struct Input_InterceptorEventCallback {...} Input_InterceptorEventCallba
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -53,9 +61,13 @@ typedef struct Input_InterceptorEventCallback {...} Input_InterceptorEventCallba
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Input_KeyEventCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*Input_KeyEventCallback)(const Input_KeyEvent* keyEvent)
@@ -78,6 +90,8 @@ typedef void (*Input_KeyEventCallback)(const Input_KeyEvent* keyEvent)
 
 ##### Input_MouseEventCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*Input_MouseEventCallback)(const Input_MouseEvent* mouseEvent)
 ```
@@ -98,6 +112,8 @@ typedef void (*Input_MouseEventCallback)(const Input_MouseEvent* mouseEvent)
   
 
 ##### Input_TouchEventCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*Input_TouchEventCallback)(const Input_TouchEvent* touchEvent)
@@ -120,6 +136,8 @@ typedef void (*Input_TouchEventCallback)(const Input_TouchEvent* touchEvent)
 
 ##### Input_AxisEventCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*Input_AxisEventCallback)(const Input_AxisEvent* axisEvent)
 ```
@@ -141,6 +159,8 @@ typedef void (*Input_AxisEventCallback)(const Input_AxisEvent* axisEvent)
 
 ##### Input_DeviceAddedCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*Input_DeviceAddedCallback)(int32_t deviceId)
 ```
@@ -161,6 +181,8 @@ typedef void (*Input_DeviceAddedCallback)(int32_t deviceId)
   
 
 ##### Input_DeviceRemovedCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*Input_DeviceRemovedCallback)(int32_t deviceId)

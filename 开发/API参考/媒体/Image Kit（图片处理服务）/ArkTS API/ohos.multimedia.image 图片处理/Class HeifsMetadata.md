@@ -16,6 +16,8 @@ HEIF序列图像元数据类，用于存储图像的元数据。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -23,6 +25,8 @@ import { image } from '@kit.ImageKit';
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -36,6 +40,8 @@ import { image } from '@kit.ImageKit';
   
 
 ##### createInstance
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createInstance(): HeifsMetadata
  
@@ -66,6 +72,8 @@ async function heifsMetadataCreateInstance(context: Context) {
   
 
 ##### getProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getProperties(key: Array&lt;string&gt;): Promise<Record<string, string | null>>
  
@@ -132,6 +140,8 @@ async function heifsMetadataGetProperties(context: Context) {
   
 
 ##### setProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setProperties(records: Record<string, string | null>): Promise&lt;void&gt;
  
@@ -202,6 +212,8 @@ async function heifsMetadataSetProperties(context: Context) {
 
 ##### getAllProperties
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllProperties(): Promise<Record<string, string | null>>
  
 获取图片中所有元数据的属性的值。使用Promise异步回调。
@@ -254,6 +266,8 @@ async function heifsMetadataGetAllProperties(context: Context) {
 
 ##### clone
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clone(): Promise&lt;HeifsMetadata&gt;
  
 对Heifs元数据进行克隆。使用Promise异步回调。
@@ -303,6 +317,8 @@ async function heifsMetadataClone(context: Context) {
 
 ##### getBlob
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBlob(): Promise&lt;ArrayBuffer&gt;
  
 以二进制数据的形式获取元数据。使用Promise异步回调。
@@ -346,6 +362,8 @@ async function heifsMetadataGetBlob(context: Context) {
   
 
 ##### setBlob
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBlob(blob: ArrayBuffer): Promise&lt;void&gt;
  

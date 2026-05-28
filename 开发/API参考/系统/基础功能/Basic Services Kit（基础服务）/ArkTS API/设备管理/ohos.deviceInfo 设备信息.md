@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { deviceInfo } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!TIP]
 > 未特殊说明的字段，数据长度最大值为96字节。
@@ -253,6 +257,8 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 
 ##### PerformanceClassLevel19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示设备能力定级的枚举。
 
 **系统能力**：SystemCapability.Startup.SystemInfo
@@ -267,6 +273,8 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 
 
 ##### DeviceTypes20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设备类型枚举值，可用于校验deviceType的返回值。
 

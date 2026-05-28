@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义位置服务常用的属性。
  
 **引用文件：** <LocationKit/oh_location_type.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -37,6 +43,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -49,6 +57,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -67,9 +77,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Location_ResultCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Location_ResultCode
@@ -95,6 +109,8 @@ enum Location_ResultCode
 
 ##### Location_UseScene
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Location_UseScene
 ```
@@ -117,6 +133,8 @@ enum Location_UseScene
 
 ##### Location_PowerConsumptionScene
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Location_PowerConsumptionScene
 ```
@@ -137,6 +155,8 @@ enum Location_PowerConsumptionScene
   
 
 ##### Location_SourceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Location_SourceType
@@ -160,9 +180,13 @@ enum Location_SourceType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_LocationInfo_GetBasicInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Location_BasicInfo OH_LocationInfo_GetBasicInfo(Location_Info* location)
@@ -191,6 +215,8 @@ Location_BasicInfo OH_LocationInfo_GetBasicInfo(Location_Info* location)
   
 
 ##### OH_LocationInfo_GetAdditionalInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Location_ResultCode OH_LocationInfo_GetAdditionalInfo(Location_Info* location, char* additionalInfo, uint32_t length)
@@ -222,6 +248,8 @@ Location_ResultCode OH_LocationInfo_GetAdditionalInfo(Location_Info* location, c
 
 ##### Location_InfoCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*Location_InfoCallback)(Location_Info* location, void* userData)
 ```
@@ -244,6 +272,8 @@ typedef void (*Location_InfoCallback)(Location_Info* location, void* userData)
 
 ##### OH_Location_CreateRequestConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Location_RequestConfig* OH_Location_CreateRequestConfig(void)
 ```
@@ -265,6 +295,8 @@ Location_RequestConfig* OH_Location_CreateRequestConfig(void)
 
 ##### OH_Location_DestroyRequestConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Location_DestroyRequestConfig(Location_RequestConfig* requestConfig)
 ```
@@ -285,6 +317,8 @@ void OH_Location_DestroyRequestConfig(Location_RequestConfig* requestConfig)
   
 
 ##### OH_LocationRequestConfig_SetUseScene()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_LocationRequestConfig_SetUseScene(Location_RequestConfig* requestConfig, Location_UseScene useScene)
@@ -316,6 +350,8 @@ void OH_LocationRequestConfig_SetUseScene(Location_RequestConfig* requestConfig,
 
 ##### OH_LocationRequestConfig_SetPowerConsumptionScene()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_LocationRequestConfig_SetPowerConsumptionScene(Location_RequestConfig* requestConfig, Location_PowerConsumptionScene powerConsumptionScene)
 ```
@@ -338,6 +374,8 @@ void OH_LocationRequestConfig_SetPowerConsumptionScene(Location_RequestConfig* r
 
 ##### OH_LocationRequestConfig_SetInterval()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_LocationRequestConfig_SetInterval(Location_RequestConfig* requestConfig, int interval)
 ```
@@ -359,6 +397,8 @@ void OH_LocationRequestConfig_SetInterval(Location_RequestConfig* requestConfig,
   
 
 ##### OH_LocationRequestConfig_SetCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_LocationRequestConfig_SetCallback(Location_RequestConfig* requestConfig, Location_InfoCallback callback, void* userData)

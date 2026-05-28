@@ -12,6 +12,8 @@ typedef struct OH_AVMediaSourceLoadingRequest OH_AVMediaSourceLoadingRequest
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 加载请求对象，用于表示媒体资源的加载请求，应用通过该对象获取所请求资源的位置。
  
 **起始版本：** 23

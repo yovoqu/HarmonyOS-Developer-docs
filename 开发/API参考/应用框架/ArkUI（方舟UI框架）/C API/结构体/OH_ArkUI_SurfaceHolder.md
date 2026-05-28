@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_SurfaceHolder OH_ArkUI_SurfaceHolder
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供封装的OH_ArkUI_SurfaceHolder实例。
  
 **起始版本：** 19

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Filter } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { Filter } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### Filter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams, filterType?: FilterType, onFilterChanged: (filterResults: Array&lt;FilterResult&gt;) => void, container: ()=> void })
  
@@ -53,6 +59,8 @@ Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams
 
 ##### FilterParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -69,6 +77,8 @@ Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams
 
 ##### FilterType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -84,6 +94,8 @@ Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams
   
 
 ##### FilterResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -102,11 +114,15 @@ Filter({ multiFilters: Array&lt;FilterParams&gt;, additionFilters?: FilterParams
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例设置FilterType属性为MULTI_LINE_FILTER，实现多行可折叠类型筛选器。
  
@@ -172,4 +188,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/Cb0QWvSMQ6CkA7nqSPDvbQ/zh-cn_image_0000002581276330.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=A358872C679D3EDA09B090CC9EE1F07FFFA803C1BDD1B940F4503ADFD7675DB4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/Cb0QWvSMQ6CkA7nqSPDvbQ/zh-cn_image_0000002581276330.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=70298841F0AE412830B2D626938894A7C4D2AB2AF90803CA8EFF28E25D8F6B76)

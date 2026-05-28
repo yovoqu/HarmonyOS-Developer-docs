@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { attributionTestManager } from '@kit.AppGalleryKit';
 ```
@@ -23,6 +25,8 @@ import { attributionTestManager } from '@kit.AppGalleryKit';
 
 
 ##### attributionTestManager.validateSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 validateSource(adSourceInfo: AdSourceInfo, publicKey: string): Promise&lt;void&gt;
 
@@ -135,6 +139,8 @@ class  AttributionTest {
 
 
 ##### attributionTestManager.setPostback
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setPostback(postbackInfo: PostbackInfo): Promise&lt;void&gt;
 
@@ -251,6 +257,8 @@ struct Attribution {
 
 ##### attributionTestManager.flushPostbacks
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 flushPostbacks(adTechId: string): Promise&lt;void&gt;
 
 触发归因结果回传。验证开发者服务器接收及处理归因回传结果的逻辑是否正确。使用Promise异步回调。
@@ -338,6 +346,8 @@ struct Attribution {
 
 ##### AdSourceInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 媒体app/分发平台登记的归因来源信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -363,6 +373,8 @@ struct Attribution {
 
 ##### PostbackInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 待回传数据信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -386,6 +398,8 @@ struct Attribution {
 
 
 ##### SourceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 归因来源类型的枚举。
 

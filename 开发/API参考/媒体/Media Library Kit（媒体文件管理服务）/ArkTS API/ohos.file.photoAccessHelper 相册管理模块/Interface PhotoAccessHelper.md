@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -19,6 +21,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### getAssets
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult&lt;PhotoAsset&gt;>): void
 
@@ -84,6 +88,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getAssets
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAssets(options: FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>
 
@@ -157,6 +163,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getBurstAssets12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBurstAssets(burstKey: string, options: FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>
 
 获取连拍照片资源，使用Promise方式返回结果。
@@ -228,6 +236,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### createAsset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAsset(photoType: PhotoType, extension: string, options: CreateOptions, callback: AsyncCallback&lt;string&gt;): void
 
 指定文件类型、后缀和创建选项，创建图片或视频资源。使用callback方式返回结果。
@@ -291,6 +301,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### createAsset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAsset(photoType: PhotoType, extension: string, callback: AsyncCallback&lt;string&gt;): void
 
 指定文件类型和后缀，创建图片或视频资源，使用callback方式返回结果。
@@ -349,6 +361,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### createAsset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAsset(photoType: PhotoType, extension: string, options?: CreateOptions): Promise&lt;string&gt;
 
@@ -418,6 +432,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### createPhotoAsset23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPhotoAsset(photoType: PhotoType, extension: string, title?: string): Promise&lt;string&gt;
 
 指定文件类型、后缀和标题，创建图片或视频资源。使用Promise异步回调。
@@ -482,6 +498,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getAlbums
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAlbums(type: AlbumType, subtype: AlbumSubtype, options: FetchOptions, callback: AsyncCallback<FetchResult&lt;Album&gt;>): void
 
@@ -553,6 +571,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getAlbums
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAlbums(type: AlbumType, subtype: AlbumSubtype, callback: AsyncCallback<FetchResult&lt;Album&gt;>): void
 
 根据相册类型获取相册，使用callback方式返回结果。
@@ -613,6 +633,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getAlbums
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: FetchOptions): Promise<FetchResult&lt;Album&gt;>
 
@@ -689,6 +711,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### registerChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 registerChange(uri: string, forChildUris: boolean, callback: Callback&lt;ChangeData&gt;) : void
 
 注册指定uri的监听，并通过callback方式返回异步结果。
@@ -757,6 +781,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### unRegisterChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unRegisterChange(uri: string, callback?: Callback&lt;ChangeData&gt;): void
 
 取消指定uri的监听，一个uri可以注册多个监听，存在多个callback监听时，可以取消指定注册的callback的监听；不指定callback时取消该uri的所有监听。
@@ -823,6 +849,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### applyChanges11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 applyChanges(mediaChangeRequest: MediaChangeRequest): Promise&lt;void&gt;
 
 提交媒体变更请求，使用Promise方式返回结果。
@@ -867,6 +895,8 @@ applyChanges(mediaChangeRequest: MediaChangeRequest): Promise&lt;void&gt;
 
 
 ##### release
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(callback: AsyncCallback&lt;void&gt;): void
 
@@ -915,6 +945,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放PhotoAccessHelper实例。使用Promise异步回调。
@@ -960,6 +992,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### showAssetsCreationDialog12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showAssetsCreationDialog(srcFileUris: Array&lt;string&gt;, photoCreationConfigs: Array&lt;PhotoCreationConfig&gt;): Promise<Array&lt;string&gt;>
 
@@ -1035,6 +1069,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### showAssetsCreationDialogEx23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showAssetsCreationDialogEx(srcFileUris: Array&lt;string&gt;, creationSettings: Array&lt;CreationSetting&gt;): Promise<Array&lt;string&gt;>
 
 调用接口显示保存确认弹窗。使用Promise异步回调。
@@ -1107,6 +1143,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### showSingleAssetCreationDialogEx23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showSingleAssetCreationDialogEx(srcFileUri: string, creationSetting: CreationSetting, isImageFullyDisplayed: boolean): Promise&lt;string&gt;
 
 针对单个图片/视频调用接口显示保存确认弹窗。使用Promise异步回调。
@@ -1176,6 +1214,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### createAssetWithShortTermPermission12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAssetWithShortTermPermission(photoCreationConfig: PhotoCreationConfig): Promise&lt;string&gt;
 
@@ -1258,6 +1298,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### createAssetWithShortTermPermissionEx23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAssetWithShortTermPermissionEx(creationSetting: CreationSetting): Promise&lt;string&gt;
 
 应用调用该接口后，系统会首次拉起保存确认弹框。使用Promise异步回调。
@@ -1299,6 +1341,8 @@ createAssetWithShortTermPermissionEx(creationSetting: CreationSetting): Promise&
 
 
 ##### requestPhotoUrisReadPermission14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestPhotoUrisReadPermission(srcFileUris: Array&lt;string&gt;): Promise<Array&lt;string&gt;>
 
@@ -1358,6 +1402,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### requestPhotoUrisReadPermissionEx23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestPhotoUrisReadPermissionEx(srcFileUris: Array&lt;string&gt;): Promise&lt;RequestReadPermissionResult&gt;
 
@@ -1421,6 +1467,8 @@ console.info('requestPhotoUrisReadPermissionExDemo.');
 
 
 ##### getSupportedPhotoFormats18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSupportedPhotoFormats(photoType: PhotoType): Promise<Array&lt;string&gt;>
 
@@ -1487,6 +1535,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, phot
 
 ##### on('photoChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'photoChange', callback: Callback&lt;PhotoAssetChangeInfos&gt;): void
 
 注册'photoChange'监听媒体资产，并通过callback方式返回资产变化结果，可以注册多个callback。
@@ -1547,6 +1597,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### off('photoChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'photoChange', callback?: Callback&lt;PhotoAssetChangeInfos&gt;): void
 
@@ -1612,6 +1664,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### on('photoAlbumChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'photoAlbumChange', callback: Callback&lt;AlbumChangeInfos&gt;): void
 
 注册'photoAlbumChange'监听相册，并通过callback方式返回相册变化结果，可以注册多个callback。
@@ -1672,6 +1726,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### off('photoAlbumChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'photoAlbumChange', callback?: Callback&lt;AlbumChangeInfos&gt;): void
 
@@ -1737,6 +1793,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### getPhotoPickerComponentDefaultAlbumName20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPhotoPickerComponentDefaultAlbumName(): Promise&lt;string&gt;
 
 应用使用PhotoPickerComponent组件选择照片时，支持调用API获取组件默认显示相册的相册名字符串。跟随当前系统语言，支持返回当前语言的相册名。使用Promise异步回调。
@@ -1782,6 +1840,8 @@ async function example(context: Context) {
 
 
 ##### createDeleteRequest(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createDeleteRequest(uriList: Array&lt;string&gt;, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1854,6 +1914,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### createDeleteRequest(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createDeleteRequest(uriList: Array&lt;string&gt;): Promise&lt;void&gt;
 
@@ -1928,6 +1990,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getRecentPhotoInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRecentPhotoInfo(options?: RecentPhotoOptions): Promise&lt;RecentPhotoInfo&gt;
 
 应用使用RecentPhotoComponent组件查看最近图片时，支持调用API获取最近图片信息。使用Promise异步回调。
@@ -1976,6 +2040,8 @@ async function example(context: Context) {
 
 
 ##### getAlbumIdByLpath22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAlbumIdByLpath(lpath: string): Promise&lt;number&gt;
 
@@ -2034,6 +2100,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### onSinglePhotoChange23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSinglePhotoChange(asset: PhotoAsset, callback: Callback&lt;PhotoAssetChangeInfos&gt;): void
 
@@ -2108,6 +2176,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### offSinglePhotoChange23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offSinglePhotoChange(asset?: PhotoAsset, callback?: Callback&lt;PhotoAssetChangeInfos&gt;): void;
 
@@ -2199,6 +2269,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### onSinglePhotoAlbumChange23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSinglePhotoAlbumChange(album: Album, callback: Callback&lt;AlbumChangeInfos&gt;): void;
 
 注册对普通单个相册变化的监听。使用callback异步回调。
@@ -2270,6 +2342,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### offSinglePhotoAlbumChange23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offSinglePhotoAlbumChange(album?: Album, callback?: Callback&lt;AlbumChangeInfos&gt;): void
 
@@ -2358,6 +2432,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### setAssetCompatibleCapability24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAssetCompatibleCapability(capability: AssetCompatibleCapability): Promise&lt;void&gt;
 

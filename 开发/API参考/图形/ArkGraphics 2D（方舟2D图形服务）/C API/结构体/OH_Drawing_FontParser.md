@@ -12,6 +12,8 @@ typedef struct OH_Drawing_FontParser OH_Drawing_FontParser
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用来解析系统字体文件。
  
 **起始版本：** 12

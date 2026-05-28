@@ -14,6 +14,8 @@
 
 ##### bindTips
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 bindTips(message: TipsMessageType, options?: TipsOptions): T
  
 为组件绑定Tips悬浮气泡。
@@ -45,6 +47,8 @@ bindTips(message: TipsMessageType, options?: TipsOptions): T
 
 ##### TipsOptions类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 悬浮气泡自定义参数。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -66,6 +70,8 @@ bindTips(message: TipsMessageType, options?: TipsOptions): T
 
 ##### TipsMessageType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type TipsMessageType = ResourceStr | StyledString
  
 悬浮气泡弹窗信息。
@@ -83,6 +89,8 @@ type TipsMessageType = ResourceStr | StyledString
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
  
@@ -114,7 +122,7 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/lUUU1EliSzubbqC0A7ZMaA/zh-cn_image_0000002581275762.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013916Z&HW-CC-Expire=86400&HW-CC-Sign=FFE7FB6BE49C7DA4AB9C4F61E399451EDE7B708E5010ED43EB5544C62F8CA1CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/lUUU1EliSzubbqC0A7ZMaA/zh-cn_image_0000002581275762.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024211Z&HW-CC-Expire=86400&HW-CC-Sign=ABF33CAE5701A93A78198D90681970FDE26AFF90EA8EC51BA2E78FA7A6DFCEB1)
 
  
   
@@ -158,4 +166,4 @@ struct TipsExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/Jsb3STSsTmi4FtMNfZ0XSQ/zh-cn_image_0000002611755619.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013916Z&HW-CC-Expire=86400&HW-CC-Sign=9B837F486D1734848A7B01CFC7C76C9946D47D5D1DD0473DFBBBE4E99FCC1302)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/Jsb3STSsTmi4FtMNfZ0XSQ/zh-cn_image_0000002611755619.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024211Z&HW-CC-Expire=86400&HW-CC-Sign=4CDB9F99971E8C271C5FB67558A6EE4680A5363D10A64596F3985A518966348D)

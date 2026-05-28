@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 请求的内容。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### contentStr
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_Buffer Rcp_RequestContent::contentStr
@@ -49,6 +59,8 @@ Rcp_Buffer Rcp_RequestContent::contentStr
 
 ##### form
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Form* Rcp_RequestContent::form
 ```
@@ -60,6 +72,8 @@ Rcp_Form* Rcp_RequestContent::form
   
 
 ##### getDataCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_GetDataCallback Rcp_RequestContent::getDataCallback
@@ -73,6 +87,8 @@ Rcp_GetDataCallback Rcp_RequestContent::getDataCallback
 
 ##### multipartForm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_MultipartForm* Rcp_RequestContent::multipartForm
 ```
@@ -84,6 +100,8 @@ Rcp_MultipartForm* Rcp_RequestContent::multipartForm
   
 
 ##### type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_ContentType Rcp_RequestContent::type

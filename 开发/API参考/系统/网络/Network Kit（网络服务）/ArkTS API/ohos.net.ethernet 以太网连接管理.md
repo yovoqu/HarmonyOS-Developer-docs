@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { ethernet } from '@kit.NetworkKit';
 ```
@@ -21,6 +23,8 @@ import { ethernet } from '@kit.NetworkKit';
   
 
 ##### HttpProxy10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type HttpProxy = connection.HttpProxy
  
@@ -36,6 +40,8 @@ type HttpProxy = connection.HttpProxy
   
 
 ##### ethernet.getMacAddress14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getMacAddress(): Promise<Array&lt;MacAddressInfo&gt;>
  
@@ -77,6 +83,8 @@ ethernet.getMacAddress().then((data: Array<ethernet.MacAddressInfo>) => {
   
 
 ##### MacAddressInfo14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 以太网网卡名称及MAC地址信息。
  

@@ -14,6 +14,8 @@ HAP信息，可以通过[getBundleInfoForSelf](https://developer.huawei.com/cons
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { bundleManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### HapModuleInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
 
@@ -53,6 +57,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### PreloadItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述元服务中模块的预加载模块信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -67,6 +73,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### Dependency
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述模块所依赖的动态共享库信息。
 
@@ -84,6 +92,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### RouterItem12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述模块配置的路由表信息。
 
@@ -103,6 +113,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### DataItem12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述模块配置的路由表中的自定义数据。
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
   
 
 ##### onBeforeDownload11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onBeforeDownload(callback: Callback&lt;WebDownloadItem&gt;): void
  
@@ -131,6 +135,8 @@ struct WebComponent {
 
 ##### onDownloadUpdated11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDownloadUpdated(callback: Callback&lt;WebDownloadItem&gt;): void
  
 下载过程中的回调，通过该回调的参数可以了解下载进度等信息。
@@ -236,6 +242,8 @@ struct WebComponent {
 
 ##### onDownloadFinish11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDownloadFinish(callback: Callback&lt;WebDownloadItem&gt;): void
  
 下载完成的通知。
@@ -340,6 +348,8 @@ struct WebComponent {
   
 
 ##### onDownloadFailed11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDownloadFailed(callback: Callback&lt;WebDownloadItem&gt;): void
  

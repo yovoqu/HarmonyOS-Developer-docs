@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Divider()
  
@@ -34,11 +38,15 @@ Divider()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### vertical
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 vertical(value: boolean)
  
@@ -61,6 +69,8 @@ vertical(value: boolean)
 
 ##### color
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 color(value: ResourceColor)
  
 设置分割线的颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -81,6 +91,8 @@ color(value: ResourceColor)
   
 
 ##### strokeWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeWidth(value: number | string)
  
@@ -107,6 +119,8 @@ strokeWidth(value: number | string)
 
 ##### lineCap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lineCap(value: LineCapStyle)
  
 设置分割线的端点样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -128,11 +142,15 @@ lineCap(value: LineCapStyle)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -211,7 +229,7 @@ struct DividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/eyB0Y9MES-CcC3IjlMhB-Q/zh-cn_image_0000002581436058.png?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=24B6A3DF066F0DBA7BDA990D71C13E642451BD1F97D39BEECF4E6F80F4FB60B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/eyB0Y9MES-CcC3IjlMhB-Q/zh-cn_image_0000002581436058.png?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=5320B05D4AE55912BFB5AE07C34B079AA16D1218E1D808D01A50E09FA46B48F4)
 
  
   
@@ -254,4 +272,4 @@ struct DividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/lh0rD0PgTh-ASUDKv_SlLg/zh-cn_image_0000002611835889.png?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=6433D1C2B7165707E4797212ADF70E8A1BE949648E03D54543F83185AA6B5A1B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/lh0rD0PgTh-ASUDKv_SlLg/zh-cn_image_0000002611835889.png?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=1187043E1FFC5B044B1D0A6F4DC05D88D7E238D3970B176A11B87EEA6E911340)

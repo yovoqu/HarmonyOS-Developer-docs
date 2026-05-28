@@ -12,6 +12,8 @@ typedef struct CameraInput_Callbacks {...} CameraInput_Callbacks
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机输入错误事件的回调。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct CameraInput_Callbacks {...} CameraInput_Callbacks
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

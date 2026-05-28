@@ -12,6 +12,8 @@ typedef struct ContentEmbed_Format ContentEmbed_Format
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明ContentEmbed_Format结构体类型。包含服务端应用OE Extension注册的OEID、显示名称、描述信息、图标和文件扩展名等信息。
  
 **起始版本：** 24

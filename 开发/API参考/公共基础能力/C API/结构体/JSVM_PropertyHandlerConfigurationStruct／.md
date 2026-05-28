@@ -12,6 +12,8 @@ typedef JSVM_PropertyHandlerConfigurationStruct* JSVM_PropertyHandlerCfg
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 包含属性监听回调的结构的指针类型。
  
 **起始版本：** 12

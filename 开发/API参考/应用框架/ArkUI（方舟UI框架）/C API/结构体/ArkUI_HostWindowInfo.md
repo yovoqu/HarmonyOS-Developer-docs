@@ -12,6 +12,8 @@ typedef struct ArkUI_HostWindowInfo ArkUI_HostWindowInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义窗口属性的HostWindowInfo类信息。
  
 **起始版本：** 15

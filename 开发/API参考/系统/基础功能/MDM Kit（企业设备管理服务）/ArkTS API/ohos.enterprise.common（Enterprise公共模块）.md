@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { common } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { common } from '@kit.MDMKit';
 
 
 ##### ManagedPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 企业设备管控策略。
 
@@ -36,6 +40,8 @@ import { common } from '@kit.MDMKit';
 
 
 ##### ApplicationInstance
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 应用的实例数据。
 
@@ -54,6 +60,8 @@ import { common } from '@kit.MDMKit';
 
 ##### InstallationResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 应用安装结果。
 
 该对象目前在[EnterpriseAdminExtensionAbility.onMarketAppInstallResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onmarketappinstallresult22)作为回调入参使用。
@@ -70,6 +78,8 @@ import { common } from '@kit.MDMKit';
 
 ##### Result
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 应用安装结果码。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -83,6 +93,8 @@ import { common } from '@kit.MDMKit';
 
 
 ##### EnterpriseAdminExtensionContext23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type EnterpriseAdminExtensionContext = _EnterpriseAdminExtensionContext.default
 
@@ -100,6 +112,8 @@ EnterpriseAdminExtensionContext是[EnterpriseAdminExtensionAbility](https://deve
 
 
 ##### StartupScene24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 开机向导完成场景。端侧系统在首次切换子用户完成（仅限PC）、OTA升级完成、首次开机完成开机向导时会通过[onStartupGuideCompleted](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onstartupguidecompleted24)回调接口通知设备管理应用。
 

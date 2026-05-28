@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audioHaptic } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audioHaptic } from '@kit.AudioKit';
 
 
 ##### audioHaptic.getAudioHapticManager
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioHapticManager(): AudioHapticManager
 
@@ -47,6 +51,8 @@ let audioHapticManagerInstance: audioHaptic.AudioHapticManager = audioHaptic.get
 
 ##### AudioLatencyMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，音频时延模式。
 
 **系统能力：** SystemCapability.Multimedia.AudioHaptic.Core
@@ -60,6 +66,8 @@ let audioHapticManagerInstance: audioHaptic.AudioHapticManager = audioHaptic.get
 
 
 ##### AudioHapticPlayerOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 音振播放器选项。
 
@@ -75,10 +83,12 @@ let audioHapticManagerInstance: audioHaptic.AudioHapticManager = audioHaptic.get
 
 ##### AudioHapticFileDescriptor20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述音振文件描述符。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/_Iqp8TD0TymD7NjdcXKi7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=337DFC1A3A0AF03A3FFC1EB831E5A1A3EC32156D34B7B81EF36A4A5E1F19DDC9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/_Iqp8TD0TymD7NjdcXKi7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024007Z&HW-CC-Expire=86400&HW-CC-Sign=AE47A2E9B6EEFC53E80B0494AEED70DFD0E1B93F6D45013937B0C013D832ECAF)
 
 
 开发者需要确保fd是可用的文件描述符，且offset和length的值都是正确的。
@@ -98,18 +108,22 @@ let audioHapticManagerInstance: audioHaptic.AudioHapticManager = audioHaptic.get
 
 ##### AudioHapticManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 管理音振协同功能。在调用AudioHapticManager的接口前，需要先通过[getAudioHapticManager](#audiohapticgetaudiohapticmanager)创建实例。
 
 
 
 ##### registerSource
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 registerSource(audioUri: string, hapticUri: string): Promise&lt;number&gt;
 
 通过Uri注册音频和振动资源。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/ZXtz17osQxCotzGaqwzxMg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=D8E387CA5AA7D557CB66D0939E53B047E5E8C6DF91DD315725A14992F7445A2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/ZXtz17osQxCotzGaqwzxMg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024007Z&HW-CC-Expire=86400&HW-CC-Sign=4598AC4D66A49F65847EF61D6EA6F8A67C6A71B5EAA9B0BD353B5235E7FA8515)
 
 
 单个应用最多支持同时注册128个资源，超过之后将会注册失败（返回注册的资源ID为负数）。推荐应用合理控制注册资源数量，对于不再需要使用的资源，建议及时取消注册。
@@ -163,12 +177,14 @@ audioHapticManagerInstance.registerSource(audioUri, hapticUri).then((value: numb
 
 ##### registerSourceFromFd20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 registerSourceFromFd(audioFd: AudioHapticFileDescriptor, hapticFd: AudioHapticFileDescriptor): Promise&lt;number&gt;
 
 通过文件描述符注册音频和振动资源。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/iB5WrPlWTm-kybDbztu1Eg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=1ADE78F62E1A4EEF909B08736A41BAA4B4DA5DF5A9CDAD9424454A38EBF1892D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/iB5WrPlWTm-kybDbztu1Eg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024007Z&HW-CC-Expire=86400&HW-CC-Sign=56C5DBF07ECDBBD208EDF8D30A5AB9CB0D570259B61D190CC517E38C8E3D2021)
 
 
 单个应用最多支持同时注册128个资源，超过之后将会注册失败（返回注册的资源ID为负数）。推荐应用合理控制注册资源数量，对于不再需要使用的资源，建议及时取消注册。
@@ -228,12 +244,14 @@ audioHapticManagerInstance.registerSourceFromFd(audioFd, hapticFd).then((value: 
 
 ##### unregisterSource
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unregisterSource(id: number): Promise&lt;void&gt;
 
 取消注册音频和振动资源。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/jjGfvaOYTeKTAhmY29-gWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=9D9A81A32E4B19D5F365E5D42B5853425CE8ECC3258BC4A613ECA00C41C27B66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/jjGfvaOYTeKTAhmY29-gWw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024007Z&HW-CC-Expire=86400&HW-CC-Sign=172BB0694AC6D872E975947AEDE6B98AC86644E0FB101CC931D30C7D6BF92C83)
 
 
 对于不再需要使用的资源，建议应用及时取消注册，避免出现资源泄漏或资源数量超上限等问题。
@@ -283,6 +301,8 @@ audioHapticManagerInstance.unregisterSource(id).then(() => {
 
 ##### setAudioLatencyMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAudioLatencyMode(id:number, latencyMode: AudioLatencyMode): void
 
 设置音频时延模式。
@@ -322,6 +342,8 @@ audioHapticManagerInstance.setAudioLatencyMode(id, latencyMode);
 
 
 ##### setStreamUsage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setStreamUsage(id: number, usage: audio.StreamUsage): void
 
@@ -363,6 +385,8 @@ audioHapticManagerInstance.setStreamUsage(id, usage);
 
 
 ##### createPlayer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPlayer(id: number, options?: AudioHapticPlayerOptions): Promise&lt;AudioHapticPlayer&gt;
 
@@ -424,6 +448,8 @@ audioHapticManagerInstance.createPlayer(id, options).then((value: audioHaptic.Au
 
 ##### AudioHapticType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，音振类型。
 
 **系统能力：** SystemCapability.Multimedia.AudioHaptic.Core
@@ -438,11 +464,15 @@ audioHapticManagerInstance.createPlayer(id, options).then((value: audioHaptic.Au
 
 ##### AudioHapticPlayer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 音振播放器，提供音振协同播放功能。在调用AudioHapticPlayer的接口前，需要先通过[createPlayer](#createplayer)创建实例。
 
 
 
 ##### isMuted
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isMuted(type: AudioHapticType): boolean
 
@@ -485,6 +515,8 @@ let result: boolean = audioHapticPlayerInstance.isMuted(audioHapticType);
 
 ##### start
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(): Promise&lt;void&gt;
 
 开始播放。使用Promise异步回调。
@@ -525,6 +557,8 @@ audioHapticPlayerInstance.start().then(() => {
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
 
 停止播放。使用Promise异步回调。
@@ -564,6 +598,8 @@ audioHapticPlayerInstance.stop().then(() => {
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放音振播放器。使用Promise异步回调。
@@ -602,12 +638,14 @@ audioHapticPlayerInstance.release().then(() => {
 
 ##### setVolume20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVolume(volume: number): Promise&lt;void&gt;
 
 设置音振播放器的音量。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/Lrygpjz4TqyBJRGokzd2Lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=B75F95EED96B8DCC7EC23548E8BC0AF1F5ADD26136AB2CCBCB995E9A733C96F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/Lrygpjz4TqyBJRGokzd2Lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024007Z&HW-CC-Expire=86400&HW-CC-Sign=439D3CA5CFD00A6DC0143100BEEFB4480F8BD8159E2830440B7D3E1400CE3FB3)
 
 
 该方法需在音振播放器释放前调用。
@@ -657,12 +695,14 @@ audioHapticPlayerInstance.setVolume(0.5).then(() => {
 
 ##### setLoop20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setLoop(loop: boolean): Promise&lt;void&gt;
 
 设置音振播放器循环播放。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/LD6uTdDqSzqA6DY2lrtaxQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=5FCF32C13704EA165233C97B4DAFF6B9552A6DDB32D0C5C4CAC49BE978E814A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/LD6uTdDqSzqA6DY2lrtaxQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024007Z&HW-CC-Expire=86400&HW-CC-Sign=D23DA046C585BED62F3B0F0DAF80BEB5D30ECED5689C0445AED10C16D43EEE84)
 
 
 该方法需在音振播放器销毁前调用。
@@ -710,6 +750,8 @@ audioHapticPlayerInstance.setLoop(true).then(() => {
 
 ##### on('endOfStream')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'endOfStream', callback: Callback&lt;void&gt;): void
 
 监听流结束事件（音频流播放结束时触发）。使用callback异步回调。
@@ -735,6 +777,8 @@ audioHapticPlayerInstance.on('endOfStream', () => {
 
 
 ##### off('endOfStream')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'endOfStream', callback?: Callback&lt;void&gt;): void
 
@@ -769,6 +813,8 @@ audioHapticPlayerInstance.off('endOfStream', endOfStreamCallback);
 
 
 ##### on('audioInterrupt')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void
 
@@ -842,6 +888,8 @@ audioHapticPlayerInstance.on('audioInterrupt', (interruptEvent: audio.InterruptE
 
 
 ##### off('audioInterrupt')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void
 

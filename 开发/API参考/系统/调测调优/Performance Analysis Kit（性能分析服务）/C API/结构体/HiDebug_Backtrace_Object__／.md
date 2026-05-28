@@ -12,6 +12,8 @@ typedef struct HiDebug_Backtrace_Object__* HiDebug_Backtrace_Object
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于栈回溯及栈解析的对象。
  
 **起始版本：** 20

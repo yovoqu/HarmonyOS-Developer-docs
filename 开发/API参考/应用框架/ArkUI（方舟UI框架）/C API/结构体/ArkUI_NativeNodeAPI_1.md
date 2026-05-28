@@ -12,6 +12,8 @@ typedef struct {...} ArkUI_NativeNodeAPI_1
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ArkUI提供的Native侧Node类型接口集合。Node模块相关接口需要在主线程上调用。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ ArkUI提供的Native侧Node类型接口集合。Node模块相关接口需要在�
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,6 +42,8 @@ ArkUI提供的Native侧Node类型接口集合。Node模块相关接口需要在�
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -85,9 +93,13 @@ ArkUI提供的Native侧Node类型接口集合。Node模块相关接口需要在�
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### createNode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ArkUI_NodeHandle (*createNode)(ArkUI_NodeType type)
@@ -117,6 +129,8 @@ ArkUI_NodeHandle (*createNode)(ArkUI_NodeType type)
 
 ##### disposeNode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*disposeNode)(ArkUI_NodeHandle node)
 ```
@@ -137,6 +151,8 @@ void (*disposeNode)(ArkUI_NodeHandle node)
   
 
 ##### addChild()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*addChild)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child)
@@ -167,6 +183,8 @@ int32_t (*addChild)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child)
 
 ##### removeChild()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*removeChild)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child)
 ```
@@ -195,6 +213,8 @@ int32_t (*removeChild)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child)
   
 
 ##### insertChildAfter()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*insertChildAfter)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, ArkUI_NodeHandle sibling)
@@ -226,6 +246,8 @@ int32_t (*insertChildAfter)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, Ark
 
 ##### insertChildBefore()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*insertChildBefore)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, ArkUI_NodeHandle sibling)
 ```
@@ -256,6 +278,8 @@ int32_t (*insertChildBefore)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, Ar
 
 ##### insertChildAt()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*insertChildAt)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, int32_t position)
 ```
@@ -285,6 +309,8 @@ int32_t (*insertChildAt)(ArkUI_NodeHandle parent, ArkUI_NodeHandle child, int32_
   
 
 ##### setAttribute()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setAttribute)(ArkUI_NodeHandle node, ArkUI_NodeAttributeType attribute, const ArkUI_AttributeItem* item)
@@ -318,6 +344,8 @@ int32_t (*setAttribute)(ArkUI_NodeHandle node, ArkUI_NodeAttributeType attribute
 
 ##### getAttribute()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 const ArkUI_AttributeItem* (*getAttribute)(ArkUI_NodeHandle node, ArkUI_NodeAttributeType attribute)
 ```
@@ -347,6 +375,8 @@ const ArkUI_AttributeItem* (*getAttribute)(ArkUI_NodeHandle node, ArkUI_NodeAttr
 
 ##### resetAttribute()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*resetAttribute)(ArkUI_NodeHandle node, ArkUI_NodeAttributeType attribute)
 ```
@@ -375,6 +405,8 @@ int32_t (*resetAttribute)(ArkUI_NodeHandle node, ArkUI_NodeAttributeType attribu
   
 
 ##### registerNodeEvent()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*registerNodeEvent)(ArkUI_NodeHandle node, ArkUI_NodeEventType eventType, int32_t targetId, void* userData)
@@ -407,6 +439,8 @@ int32_t (*registerNodeEvent)(ArkUI_NodeHandle node, ArkUI_NodeEventType eventTyp
 
 ##### unregisterNodeEvent()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*unregisterNodeEvent)(ArkUI_NodeHandle node, ArkUI_NodeEventType eventType)
 ```
@@ -428,6 +462,8 @@ void (*unregisterNodeEvent)(ArkUI_NodeHandle node, ArkUI_NodeEventType eventType
   
 
 ##### registerNodeEventReceiver()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*registerNodeEventReceiver)(void (*eventReceiver)(ArkUI_NodeEvent* event))
@@ -454,6 +490,8 @@ void (*registerNodeEventReceiver)(void (*eventReceiver)(ArkUI_NodeEvent* event))
 
 ##### unregisterNodeEventReceiver()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*unregisterNodeEventReceiver)()
 ```
@@ -467,6 +505,8 @@ void (*unregisterNodeEventReceiver)()
   
 
 ##### markDirty()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*markDirty)(ArkUI_NodeHandle node, ArkUI_NodeDirtyFlag dirtyFlag)
@@ -489,6 +529,8 @@ void (*markDirty)(ArkUI_NodeHandle node, ArkUI_NodeDirtyFlag dirtyFlag)
   
 
 ##### getTotalChildCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t (*getTotalChildCount)(ArkUI_NodeHandle node)
@@ -517,6 +559,8 @@ uint32_t (*getTotalChildCount)(ArkUI_NodeHandle node)
   
 
 ##### getChildAt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ArkUI_NodeHandle (*getChildAt)(ArkUI_NodeHandle node, int32_t position)
@@ -547,6 +591,8 @@ ArkUI_NodeHandle (*getChildAt)(ArkUI_NodeHandle node, int32_t position)
 
 ##### getFirstChild()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ArkUI_NodeHandle (*getFirstChild)(ArkUI_NodeHandle node)
 ```
@@ -574,6 +620,8 @@ ArkUI_NodeHandle (*getFirstChild)(ArkUI_NodeHandle node)
   
 
 ##### getLastChild()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ArkUI_NodeHandle (*getLastChild)(ArkUI_NodeHandle node)
@@ -603,6 +651,8 @@ ArkUI_NodeHandle (*getLastChild)(ArkUI_NodeHandle node)
 
 ##### getPreviousSibling()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ArkUI_NodeHandle (*getPreviousSibling)(ArkUI_NodeHandle node)
 ```
@@ -631,6 +681,8 @@ ArkUI_NodeHandle (*getPreviousSibling)(ArkUI_NodeHandle node)
 
 ##### getNextSibling()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ArkUI_NodeHandle (*getNextSibling)(ArkUI_NodeHandle node)
 ```
@@ -658,6 +710,8 @@ ArkUI_NodeHandle (*getNextSibling)(ArkUI_NodeHandle node)
   
 
 ##### registerNodeCustomEvent()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*registerNodeCustomEvent)(ArkUI_NodeHandle node, ArkUI_NodeCustomEventType eventType, int32_t targetId, void* userData)
@@ -690,6 +744,8 @@ int32_t (*registerNodeCustomEvent)(ArkUI_NodeHandle node, ArkUI_NodeCustomEventT
 
 ##### unregisterNodeCustomEvent()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*unregisterNodeCustomEvent)(ArkUI_NodeHandle node, ArkUI_NodeCustomEventType eventType)
 ```
@@ -711,6 +767,8 @@ void (*unregisterNodeCustomEvent)(ArkUI_NodeHandle node, ArkUI_NodeCustomEventTy
   
 
 ##### registerNodeCustomEventReceiver()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*registerNodeCustomEventReceiver)(void (*eventReceiver)(ArkUI_NodeCustomEvent* event))
@@ -739,6 +797,8 @@ void (*registerNodeCustomEventReceiver)(void (*eventReceiver)(ArkUI_NodeCustomEv
 
 ##### unregisterNodeCustomEventReceiver()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*unregisterNodeCustomEventReceiver)()
 ```
@@ -752,6 +812,8 @@ void (*unregisterNodeCustomEventReceiver)()
   
 
 ##### setMeasuredSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setMeasuredSize)(ArkUI_NodeHandle node, int32_t width, int32_t height)
@@ -783,6 +845,8 @@ int32_t (*setMeasuredSize)(ArkUI_NodeHandle node, int32_t width, int32_t height)
 
 ##### setLayoutPosition()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*setLayoutPosition)(ArkUI_NodeHandle node, int32_t positionX, int32_t positionY)
 ```
@@ -813,6 +877,8 @@ int32_t (*setLayoutPosition)(ArkUI_NodeHandle node, int32_t positionX, int32_t p
 
 ##### getMeasuredSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ArkUI_IntSize (*getMeasuredSize)(ArkUI_NodeHandle node)
 ```
@@ -841,6 +907,8 @@ ArkUI_IntSize (*getMeasuredSize)(ArkUI_NodeHandle node)
 
 ##### getLayoutPosition()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ArkUI_IntOffset (*getLayoutPosition)(ArkUI_NodeHandle node)
 ```
@@ -868,6 +936,8 @@ ArkUI_IntOffset (*getLayoutPosition)(ArkUI_NodeHandle node)
   
 
 ##### measureNode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*measureNode)(ArkUI_NodeHandle node, ArkUI_LayoutConstraint* Constraint)
@@ -898,6 +968,8 @@ int32_t (*measureNode)(ArkUI_NodeHandle node, ArkUI_LayoutConstraint* Constraint
 
 ##### layoutNode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*layoutNode)(ArkUI_NodeHandle node, int32_t positionX, int32_t positionY)
 ```
@@ -927,6 +999,8 @@ int32_t (*layoutNode)(ArkUI_NodeHandle node, int32_t positionX, int32_t position
   
 
 ##### addNodeEventReceiver()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*addNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeEvent* event))
@@ -961,6 +1035,8 @@ int32_t (*addNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(Ark
 
 ##### removeNodeEventReceiver()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*removeNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeEvent* event))
 ```
@@ -989,6 +1065,8 @@ int32_t (*removeNodeEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(
   
 
 ##### addNodeCustomEventReceiver()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*addNodeCustomEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeCustomEvent* event))
@@ -1023,6 +1101,8 @@ int32_t (*addNodeCustomEventReceiver)(ArkUI_NodeHandle node, void (*eventReceive
 
 ##### removeNodeCustomEventReceiver()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*removeNodeCustomEventReceiver)(ArkUI_NodeHandle node, void (*eventReceiver)(ArkUI_NodeCustomEvent* event))
 ```
@@ -1051,6 +1131,8 @@ int32_t (*removeNodeCustomEventReceiver)(ArkUI_NodeHandle node, void (*eventRece
   
 
 ##### setUserData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setUserData)(ArkUI_NodeHandle node, void* userData)
@@ -1081,6 +1163,8 @@ int32_t (*setUserData)(ArkUI_NodeHandle node, void* userData)
 
 ##### getUserData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void* (*getUserData)(ArkUI_NodeHandle node)
 ```
@@ -1108,6 +1192,8 @@ void* (*getUserData)(ArkUI_NodeHandle node)
   
 
 ##### setLengthMetricUnit()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setLengthMetricUnit)(ArkUI_NodeHandle node, ArkUI_LengthMetricUnit unit)
@@ -1138,6 +1224,8 @@ int32_t (*setLengthMetricUnit)(ArkUI_NodeHandle node, ArkUI_LengthMetricUnit uni
 
 ##### getParent()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ArkUI_NodeHandle (*getParent)(ArkUI_NodeHandle node)
 ```
@@ -1165,6 +1253,8 @@ ArkUI_NodeHandle (*getParent)(ArkUI_NodeHandle node)
   
 
 ##### removeAllChildren()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*removeAllChildren)(ArkUI_NodeHandle parent)

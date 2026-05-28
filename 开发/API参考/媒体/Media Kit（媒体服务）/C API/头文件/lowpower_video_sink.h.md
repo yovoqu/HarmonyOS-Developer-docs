@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义LowPowerVideoSink接口。使用LowPowerVideoSink提供的Native API进行视频通路的低功耗播放。
  
 **引用文件：** <multimedia/player_framework/lowpower_video_sink.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -64,9 +70,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_LowPowerVideoSink_CreateByMime()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_LowPowerVideoSink* OH_LowPowerVideoSink_CreateByMime(const char* mime)
@@ -95,6 +105,8 @@ OH_LowPowerVideoSink* OH_LowPowerVideoSink_CreateByMime(const char* mime)
   
 
 ##### OH_LowPowerVideoSink_Configure()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_Configure(OH_LowPowerVideoSink* sink, const OH_AVFormat* format)
@@ -125,6 +137,8 @@ OH_AVErrCode OH_LowPowerVideoSink_Configure(OH_LowPowerVideoSink* sink, const OH
 
 ##### OH_LowPowerVideoSink_SetParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_SetParameter(OH_LowPowerVideoSink* sink, const OH_AVFormat* format)
 ```
@@ -153,6 +167,8 @@ OH_AVErrCode OH_LowPowerVideoSink_SetParameter(OH_LowPowerVideoSink* sink, const
   
 
 ##### OH_LowPowerVideoSink_GetParameter()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_GetParameter(OH_LowPowerVideoSink* sink, OH_AVFormat* format)
@@ -183,6 +199,8 @@ OH_AVErrCode OH_LowPowerVideoSink_GetParameter(OH_LowPowerVideoSink* sink, OH_AV
 
 ##### OH_LowPowerVideoSink_SetVideoSurface()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_SetVideoSurface(OH_LowPowerVideoSink* sink, const OHNativeWindow* surface)
 ```
@@ -212,6 +230,8 @@ OH_AVErrCode OH_LowPowerVideoSink_SetVideoSurface(OH_LowPowerVideoSink* sink, co
 
 ##### OH_LowPowerVideoSink_Prepare()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_Prepare(OH_LowPowerVideoSink* sink)
 ```
@@ -239,6 +259,8 @@ OH_AVErrCode OH_LowPowerVideoSink_Prepare(OH_LowPowerVideoSink* sink)
   
 
 ##### OH_LowPowerVideoSink_StartDecoder()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_StartDecoder(OH_LowPowerVideoSink* sink)
@@ -270,6 +292,8 @@ OH_AVErrCode OH_LowPowerVideoSink_StartDecoder(OH_LowPowerVideoSink* sink)
 
 ##### OH_LowPowerVideoSink_RenderFirstFrame()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_RenderFirstFrame(OH_LowPowerVideoSink* sink)
 ```
@@ -298,6 +322,8 @@ OH_AVErrCode OH_LowPowerVideoSink_RenderFirstFrame(OH_LowPowerVideoSink* sink)
 
 ##### OH_LowPowerVideoSink_StartRenderer()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_StartRenderer(OH_LowPowerVideoSink* sink)
 ```
@@ -325,6 +351,8 @@ OH_AVErrCode OH_LowPowerVideoSink_StartRenderer(OH_LowPowerVideoSink* sink)
   
 
 ##### OH_LowPowerVideoSink_Pause()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_Pause(OH_LowPowerVideoSink* sink)
@@ -356,6 +384,8 @@ OH_AVErrCode OH_LowPowerVideoSink_Pause(OH_LowPowerVideoSink* sink)
 
 ##### OH_LowPowerVideoSink_Resume()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_Resume(OH_LowPowerVideoSink* sink)
 ```
@@ -385,6 +415,8 @@ OH_AVErrCode OH_LowPowerVideoSink_Resume(OH_LowPowerVideoSink* sink)
   
 
 ##### OH_LowPowerVideoSink_Flush()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_Flush(OH_LowPowerVideoSink* sink)
@@ -418,6 +450,8 @@ OH_AVErrCode OH_LowPowerVideoSink_Flush(OH_LowPowerVideoSink* sink)
 
 ##### OH_LowPowerVideoSink_Stop()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_Stop(OH_LowPowerVideoSink* sink)
 ```
@@ -445,6 +479,8 @@ OH_AVErrCode OH_LowPowerVideoSink_Stop(OH_LowPowerVideoSink* sink)
   
 
 ##### OH_LowPowerVideoSink_Reset()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_Reset(OH_LowPowerVideoSink* sink)
@@ -476,6 +512,8 @@ OH_AVErrCode OH_LowPowerVideoSink_Reset(OH_LowPowerVideoSink* sink)
 
 ##### OH_LowPowerVideoSink_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_Destroy(OH_LowPowerVideoSink* sink)
 ```
@@ -503,6 +541,8 @@ OH_AVErrCode OH_LowPowerVideoSink_Destroy(OH_LowPowerVideoSink* sink)
   
 
 ##### OH_LowPowerVideoSink_SetSyncAudioSink()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_SetSyncAudioSink(OH_LowPowerVideoSink* videoSink, OH_LowPowerAudioSink* audioSink)
@@ -532,6 +572,8 @@ LowPowerVideoSink设置用于音画同步的OH_LowPowerAudioSink。
   
 
 ##### OH_LowPowerVideoSink_SetTargetStartFrame()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_SetTargetStartFrame(OH_LowPowerVideoSink* sink, const int64_t framePts, OH_LowPowerVideoSink_OnTargetArrived onTargetArrived, const int64_t timeoutMs, void* userData)
@@ -565,6 +607,8 @@ OH_AVErrCode OH_LowPowerVideoSink_SetTargetStartFrame(OH_LowPowerVideoSink* sink
 
 ##### OH_LowPowerVideoSink_SetPlaybackSpeed()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_SetPlaybackSpeed(OH_LowPowerVideoSink* sink, const float speed)
 ```
@@ -593,6 +637,8 @@ OH_AVErrCode OH_LowPowerVideoSink_SetPlaybackSpeed(OH_LowPowerVideoSink* sink, c
   
 
 ##### OH_LowPowerVideoSink_ReturnSamples()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_ReturnSamples(OH_LowPowerVideoSink* sink, OH_AVSamplesBuffer* samples)
@@ -623,6 +669,8 @@ OH_AVErrCode OH_LowPowerVideoSink_ReturnSamples(OH_LowPowerVideoSink* sink, OH_A
 
 ##### OH_LowPowerVideoSink_GetLatestPts()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_GetLatestPts(OH_LowPowerVideoSink *sink, int64_t *pts)
 ```
@@ -651,6 +699,8 @@ OH_AVErrCode OH_LowPowerVideoSink_GetLatestPts(OH_LowPowerVideoSink *sink, int64
   
 
 ##### OH_LowPowerVideoSink_RegisterCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSink_RegisterCallback(OH_LowPowerVideoSink* sink, OH_LowPowerVideoSinkCallback* callback)
@@ -681,6 +731,8 @@ OH_AVErrCode OH_LowPowerVideoSink_RegisterCallback(OH_LowPowerVideoSink* sink, O
 
 ##### OH_LowPowerVideoSinkCallback_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_LowPowerVideoSinkCallback* OH_LowPowerVideoSinkCallback_Create(void)
 ```
@@ -701,6 +753,8 @@ OH_LowPowerVideoSinkCallback* OH_LowPowerVideoSinkCallback_Create(void)
   
 
 ##### OH_LowPowerVideoSinkCallback_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSinkCallback_Destroy(OH_LowPowerVideoSinkCallback* callback)
@@ -729,6 +783,8 @@ OH_AVErrCode OH_LowPowerVideoSinkCallback_Destroy(OH_LowPowerVideoSinkCallback* 
   
 
 ##### OH_LowPowerVideoSinkCallback_SetDataNeededListener()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSinkCallback_SetDataNeededListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnDataNeeded onDataNeeded, void* userData)
@@ -760,6 +816,8 @@ OH_AVErrCode OH_LowPowerVideoSinkCallback_SetDataNeededListener(OH_LowPowerVideo
 
 ##### OH_LowPowerVideoSinkCallback_SetErrorListener()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSinkCallback_SetErrorListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnError onError, void* userData)
 ```
@@ -789,6 +847,8 @@ OH_AVErrCode OH_LowPowerVideoSinkCallback_SetErrorListener(OH_LowPowerVideoSinkC
   
 
 ##### OH_LowPowerVideoSinkCallback_SetRenderStartListener()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSinkCallback_SetRenderStartListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnRenderStarted onRenderStarted, void* userData)
@@ -820,6 +880,8 @@ OH_AVErrCode OH_LowPowerVideoSinkCallback_SetRenderStartListener(OH_LowPowerVide
 
 ##### OH_LowPowerVideoSinkCallback_SetStreamChangedListener()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSinkCallback_SetStreamChangedListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnStreamChanged onStreamChanged, void* userData)
 ```
@@ -850,6 +912,8 @@ OH_AVErrCode OH_LowPowerVideoSinkCallback_SetStreamChangedListener(OH_LowPowerVi
 
 ##### OH_LowPowerVideoSinkCallback_SetFirstFrameDecodedListener()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AVErrCode OH_LowPowerVideoSinkCallback_SetFirstFrameDecodedListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnFirstFrameDecoded onFirstFrameDecoded, void* userData)
 ```
@@ -879,6 +943,8 @@ OH_AVErrCode OH_LowPowerVideoSinkCallback_SetFirstFrameDecodedListener(OH_LowPow
   
 
 ##### OH_LowPowerVideoSinkCallback_SetEosListener()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_LowPowerVideoSinkCallback_SetEosListener(OH_LowPowerVideoSinkCallback* callback, OH_LowPowerVideoSink_OnEos onEos, void* userData)

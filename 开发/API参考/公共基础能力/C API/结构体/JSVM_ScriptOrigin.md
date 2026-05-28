@@ -12,6 +12,8 @@ typedef struct {...} JSVM_ScriptOrigin
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 某段JavaScript代码的原始信息，如sourceMap路径、源文件名、源文件中的起始行/列号等。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct {...} JSVM_ScriptOrigin
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |

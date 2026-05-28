@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述当前设备网络延迟信息，游戏应用获取到网络延迟后传递此参数。该参数通常用于针对性优化网络延迟。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### down
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 int32_t OpenGTX_NetworkLatency::down
@@ -50,6 +60,8 @@ int32_t OpenGTX_NetworkLatency::down
 
 ##### total
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 int32_t OpenGTX_NetworkLatency::total
 ```
@@ -61,6 +73,8 @@ int32_t OpenGTX_NetworkLatency::total
   
 
 ##### up
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 int32_t OpenGTX_NetworkLatency::up

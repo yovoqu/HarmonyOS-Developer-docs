@@ -12,6 +12,8 @@ typedef struct {...} ffrt_condattr_t
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 FFRT条件变量属性结构。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ FFRT条件变量属性结构。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

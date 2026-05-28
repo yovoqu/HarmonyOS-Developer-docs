@@ -20,6 +20,8 @@ FunctionalInput需要配合[functionalInputComponentManager](https://developer.h
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { FunctionalInput, functionalInputComponentManager } from '@kit.ScenarioFusionKit';
 ```
@@ -27,6 +29,8 @@ import { FunctionalInput, functionalInputComponentManager } from '@kit.ScenarioF
   
 
 ##### FunctionalInput
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 场景化Input组件。
  
@@ -53,6 +57,8 @@ FunctionalInput组件需要配合[functionalInputComponentManager](https://devel
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 build(): void
  

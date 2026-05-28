@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明了媒体数据结构AVMemory的定义。
  
 **引用文件：** <multimedia/player_framework/native_avmemory.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,9 +56,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_AVMemory_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVMemory *OH_AVMemory_Create(int32_t size)
@@ -86,6 +98,8 @@ OH_AVMemory *OH_AVMemory_Create(int32_t size)
 
 ##### OH_AVMemory_GetAddr()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint8_t *OH_AVMemory_GetAddr(struct OH_AVMemory *mem)
 ```
@@ -120,6 +134,8 @@ uint8_t *OH_AVMemory_GetAddr(struct OH_AVMemory *mem)
 
 ##### OH_AVMemory_GetSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_AVMemory_GetSize(struct OH_AVMemory *mem)
 ```
@@ -153,6 +169,8 @@ int32_t OH_AVMemory_GetSize(struct OH_AVMemory *mem)
   
 
 ##### OH_AVMemory_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVErrCode OH_AVMemory_Destroy(struct OH_AVMemory *mem)

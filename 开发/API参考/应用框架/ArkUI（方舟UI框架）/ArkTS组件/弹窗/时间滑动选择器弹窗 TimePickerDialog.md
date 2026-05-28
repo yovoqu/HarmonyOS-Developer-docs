@@ -14,9 +14,13 @@
 
 ##### TimePickerDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### show(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static show(options?: TimePickerDialogOptions)
 
@@ -42,6 +46,8 @@ static show(options?: TimePickerDialogOptions)
 
 
 ##### TimePickerDialogOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 时间选择器弹窗选项。
 
@@ -85,6 +91,8 @@ static show(options?: TimePickerDialogOptions)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 推荐通过使用 UIContext 中的 showTimePickerDialog 来明确UI的执行上下文。
@@ -522,7 +530,7 @@ struct TimePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/b4bz7Zb8TcaBH1iMK4B52w/zh-cn_image_0000002581436198.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=A39D37A418481AD0AE3B958D2E70087A1590EAFFA9C43F6D98120AB61B9C9D76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/b4bz7Zb8TcaBH1iMK4B52w/zh-cn_image_0000002581436198.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=00F3605A4D11E9CE6BF680D79E0FE0CADD88585D6A3CFC3FAB0F8B92205ADD99)
 
 
 
@@ -561,7 +569,7 @@ struct TimePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/lyoGvcWyRqKhVooN70xQcw/zh-cn_image_0000002611836029.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=A15A880DA638D19EB868CD8ABC1211C00F15BC5626AB98CA4AE71812282AA60A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/lyoGvcWyRqKhVooN70xQcw/zh-cn_image_0000002611836029.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=D7CF8599788CE6AD5A0648968553CB4DA1B8727F7E391A0096CF1E8874745AD3)
 
 
 
@@ -601,4 +609,4 @@ struct TimePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/e4dQzuueR9SCVRjLN8Rl6Q/zh-cn_image_0000002581276282.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=AA947E976DBA53044F7D3F696E002D504CF395459AFD9DC6A614EFC2960EBEC0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/e4dQzuueR9SCVRjLN8Rl6Q/zh-cn_image_0000002581276282.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=D7B8EEFF1807AC02F1C1F30E46BD3D70C5B30E42217240B4533D9807E5A57732)

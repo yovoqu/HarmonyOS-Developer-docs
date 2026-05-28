@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供操作rawfile目录和rawfile文件的功能，包括遍历、打开、搜索、读取和关闭rawfile。
  
 **起始版本：** 8
@@ -14,6 +16,8 @@
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

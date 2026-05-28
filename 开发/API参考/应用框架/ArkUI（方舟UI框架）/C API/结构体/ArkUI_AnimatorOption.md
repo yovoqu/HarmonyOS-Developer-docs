@@ -12,6 +12,8 @@ typedef struct ArkUI_AnimatorOption ArkUI_AnimatorOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义animator动画参数对象。
  
 **起始版本：** 12

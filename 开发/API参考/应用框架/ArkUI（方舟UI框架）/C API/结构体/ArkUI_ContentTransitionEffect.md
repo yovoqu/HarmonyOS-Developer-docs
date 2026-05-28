@@ -12,6 +12,8 @@ typedef struct ArkUI_ContentTransitionEffect ArkUI_ContentTransitionEffect
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 内容过渡效果。
  
 **起始版本：** 21

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { serialManager } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { serialManager } from '@kit.BasicServicesKit';
 
 
 ##### serialManager.getPortList
+
+**支持设备：** PC/2in1
 
 getPortList(): Readonly&lt;SerialPort&gt;[]
 
@@ -60,6 +64,8 @@ function getPortList() {
 
 
 ##### serialManager.hasSerialRight
+
+**支持设备：** PC/2in1
 
 hasSerialRight(portId: number): boolean
 
@@ -125,6 +131,8 @@ function hasSerialRight() {
 
 
 ##### serialManager.requestSerialRight
+
+**支持设备：** PC/2in1
 
 requestSerialRight(portId: number): Promise&lt;boolean&gt;
 
@@ -196,6 +204,8 @@ function requestSerialRight() {
 
 
 ##### serialManager.open
+
+**支持设备：** PC/2in1
 
 open(portId: number): void
 
@@ -269,6 +279,8 @@ function open() {
 
 
 ##### serialManager.getAttribute
+
+**支持设备：** PC/2in1
 
 getAttribute(portId: number): Readonly&lt;SerialAttribute&gt;
 
@@ -362,6 +374,8 @@ function getAttribute() {
 
 ##### serialManager.setAttribute
 
+**支持设备：** PC/2in1
+
 setAttribute(portId: number, attribute: SerialAttribute): void
 
 设置串口的配置参数。如果未调用该方法，使用默认配置参数（波特率：9600bps；数据位：8；校验位：0；停止位：1）。
@@ -449,6 +463,8 @@ function setAttribute() {
 
 
 ##### serialManager.read
+
+**支持设备：** PC/2in1
 
 read(portId: number, buffer: Uint8Array, timeout?: number): Promise&lt;number&gt;
 
@@ -540,6 +556,8 @@ function read() {
 
 
 ##### serialManager.readSync
+
+**支持设备：** PC/2in1
 
 readSync(portId: number, buffer: Uint8Array, timeout?: number): number
 
@@ -633,6 +651,8 @@ function readSync() {
 
 ##### serialManager.write
 
+**支持设备：** PC/2in1
+
 write(portId: number, buffer: Uint8Array, timeout?: number): Promise&lt;number&gt;
 
 向串口设备异步写数据，每次写入数据长度不超过4KB，数据过大会导致数据丢失，长数据建议分包写入。使用Promise异步回调。
@@ -724,6 +744,8 @@ function write() {
 
 
 ##### serialManager.writeSync
+
+**支持设备：** PC/2in1
 
 writeSync(portId: number, buffer: Uint8Array, timeout?: number): number
 
@@ -818,6 +840,8 @@ function writeSync() {
 
 ##### serialManager.close
 
+**支持设备：** PC/2in1
+
 close(portId: number): void
 
 关闭串口。
@@ -899,6 +923,8 @@ function close() {
 
 ##### serialManager.cancelSerialRight
 
+**支持设备：** PC/2in1
+
 cancelSerialRight(portId: number): void
 
 移除应用程序运行时访问串口设备的权限。此接口会调用close关闭已打开的串口。
@@ -972,6 +998,8 @@ function cancelSerialRight() {
 
 ##### SerialAttribute
 
+**支持设备：** PC/2in1
+
 串口的配置参数。
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
@@ -988,6 +1016,8 @@ function cancelSerialRight() {
 
 ##### SerialPort
 
+**支持设备：** PC/2in1
+
 串口参数。
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
@@ -1001,6 +1031,8 @@ function cancelSerialRight() {
 
 
 ##### BaudRates
+
+**支持设备：** PC/2in1
 
 表示波特率的枚举
 
@@ -1044,6 +1076,8 @@ function cancelSerialRight() {
 
 ##### DataBits
 
+**支持设备：** PC/2in1
+
 表示数据位宽的枚举
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
@@ -1059,6 +1093,8 @@ function cancelSerialRight() {
 
 
 ##### Parity
+
+**支持设备：** PC/2in1
 
 表示校验位的校验方式的枚举
 
@@ -1076,6 +1112,8 @@ function cancelSerialRight() {
 
 
 ##### StopBits
+
+**支持设备：** PC/2in1
 
 表示停止位宽的枚举
 

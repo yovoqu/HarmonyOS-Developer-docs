@@ -12,6 +12,8 @@ typedef struct OH_MediaAssetManager OH_MediaAssetManager
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义媒体资产管理器。
  
 此结构提供了请求媒体库资源的能力。

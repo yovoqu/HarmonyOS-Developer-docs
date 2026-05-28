@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Radio(options: RadioOptions)
 
@@ -41,6 +45,8 @@ Radio(options: RadioOptions)
 
 ##### RadioOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 单选框的信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -56,6 +62,8 @@ Radio(options: RadioOptions)
 
 
 ##### RadioIndicatorType12+枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 单选框的样式。
 
@@ -76,11 +84,15 @@ Radio(options: RadioOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### checked
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checked(value: boolean)
 
@@ -107,6 +119,8 @@ checked(value: boolean)
 
 ##### checked18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checked(isChecked: Optional&lt;boolean&gt;)
 
 设置单选框的选中状态。与[checked](#checked)相比，isChecked参数新增了对undefined类型的支持。
@@ -130,6 +144,8 @@ checked(isChecked: Optional&lt;boolean&gt;)
 
 ##### radioStyle10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 radioStyle(value?: RadioStyle)
 
 设置单选框选中状态和非选中状态的样式。
@@ -151,6 +167,8 @@ radioStyle(value?: RadioStyle)
 
 ##### contentModifier12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 contentModifier(modifier: ContentModifier&lt;RadioConfiguration&gt;)
 
 定制Radio内容区的方法。
@@ -169,6 +187,8 @@ contentModifier(modifier: ContentModifier&lt;RadioConfiguration&gt;)
 
 
 ##### contentModifier18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contentModifier(modifier: Optional<ContentModifier&lt;RadioConfiguration&gt;>)
 
@@ -189,11 +209,15 @@ contentModifier(modifier: Optional<ContentModifier&lt;RadioConfiguration&gt;>)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: (isChecked: boolean) => void)
 
@@ -216,6 +240,8 @@ onChange(callback: (isChecked: boolean) => void)
 
 ##### onChange18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onChange(callback: Optional&lt;OnRadioChangeCallback&gt;)
 
 单选框选中状态改变时触发的回调。与[onChange](#onchange)相比，callback参数新增了对undefined类型的支持。
@@ -237,6 +263,8 @@ onChange(callback: Optional&lt;OnRadioChangeCallback&gt;)
 
 ##### OnRadioChangeCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnRadioChangeCallback = (isChecked: boolean) => void
 
 单选框选中状态改变时触发的回调函数类型定义。
@@ -256,6 +284,8 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 ##### RadioStyle10+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 单选框的颜色。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -273,6 +303,8 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 ##### RadioConfiguration12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -289,6 +321,8 @@ type OnRadioChangeCallback = (isChecked: boolean) => void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -476,4 +510,4 @@ struct refreshExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/2FqbHo6uR9-MaNZeDRKDVg/zh-cn_image_0000002611755789.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=498BD40D197F721CAB8317D38BA808C6BEDF89D3374395F5B90FA1D7CA9B678A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/2FqbHo6uR9-MaNZeDRKDVg/zh-cn_image_0000002611755789.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=7B5864C4B245F9527B21607A84057DC650BE61807D5C312AD015DCA68BB7A4BA)

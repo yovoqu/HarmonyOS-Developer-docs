@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { telephonyManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { telephonyManager } from '@kit.MDMKit';
 
 
 ##### telephonyManager.setSimDisabled
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setSimDisabled(admin: Want, slotId: number): void
 
@@ -77,6 +81,8 @@ try {
 
 ##### telephonyManager.setSimEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setSimEnabled(admin: Want, slotId: number): void
 
 解除指定卡槽的SIM卡禁用。使用setSimDisabled禁用SIM卡后，再用setSimEnabled启用SIM卡，需要到设置-移动网络-SIM卡管理界面手动打开SIM卡开关。
@@ -131,6 +137,8 @@ try {
 
 
 ##### telephonyManager.isSimDisabled
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isSimDisabled(admin: Want, slotId: number): boolean
 
@@ -191,6 +199,8 @@ try {
 
 
 ##### telephonyManager.addOutgoingCallPolicyNumbers
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array&lt;string&gt;): void
 
@@ -264,6 +274,8 @@ try {
 
 ##### telephonyManager.removeOutgoingCallPolicyNumbers
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array&lt;string&gt;): void
 
 移除通话呼出的允许或禁用名单，若在该名单尚未设置时进行移除，则会移除失败。
@@ -334,6 +346,8 @@ try {
 
 ##### telephonyManager.getOutgoingCallPolicyNumbers
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getOutgoingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array&lt;string&gt;
 
 获取通话呼出的允许或禁用名单。
@@ -397,6 +411,8 @@ try {
 
 
 ##### telephonyManager.addIncomingCallPolicyNumbers
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array&lt;string&gt;): void
 
@@ -470,6 +486,8 @@ try {
 
 ##### telephonyManager.removeIncomingCallPolicyNumbers
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy, numbers: Array&lt;string&gt;): void
 
 移除通话呼入的允许或禁用名单，若在该名单尚未设置时进行移除，则会移除失败。
@@ -539,6 +557,8 @@ try {
 
 ##### telephonyManager.getIncomingCallPolicyNumbers
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getIncomingCallPolicyNumbers(admin: Want, policy: adminManager.Policy): Array&lt;string&gt;
 
 获取通话呼入的允许或禁用名单。
@@ -602,6 +622,8 @@ try {
 
 
 ##### telephonyManager.hangupCalling23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 hangupCalling(admin: Want): void
 

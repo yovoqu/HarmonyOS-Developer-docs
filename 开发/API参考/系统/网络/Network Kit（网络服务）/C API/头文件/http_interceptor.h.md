@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义HTTP全局拦截器模块的接口。通过拦截器，开发者可以监控HTTP流量，实现日志记录功能。
  
 - **只读拦截器限制**：请勿在只读拦截器中修改请求和响应的内容或释放指针。即使进行修改，该修改也不会对请求生效，但可能会影响后续只读拦截器对数据包内容的读取。此外，在只读拦截器中设置 OH_ABORT 也不会生效。
@@ -31,9 +33,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,9 +54,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Http_AddReadOnlyInterceptor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_Http_AddReadOnlyInterceptor(struct OH_Http_Interceptor *interceptor)
@@ -88,6 +98,8 @@ int32_t OH_Http_AddReadOnlyInterceptor(struct OH_Http_Interceptor *interceptor)
 
 ##### OH_Http_RemoveInterceptor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_Http_RemoveInterceptor(struct OH_Http_Interceptor *interceptor)
 ```
@@ -117,6 +129,8 @@ int32_t OH_Http_RemoveInterceptor(struct OH_Http_Interceptor *interceptor)
   
 
 ##### OH_Http_RemoveAllInterceptors()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_Http_RemoveAllInterceptors(int32_t groupId)
@@ -153,6 +167,8 @@ int32_t OH_Http_RemoveAllInterceptors(int32_t groupId)
 
 ##### OH_Http_StartAllInterceptors()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_Http_StartAllInterceptors(int32_t groupId)
 ```
@@ -185,6 +201,8 @@ int32_t OH_Http_StartAllInterceptors(int32_t groupId)
   
 
 ##### OH_Http_StopAllInterceptors()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_Http_StopAllInterceptors(int32_t groupId)

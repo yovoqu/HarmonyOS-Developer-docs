@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Array OH_Drawing_Array
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义数组对象, 用于存储多个同类型对象。
  
 **起始版本：** 14

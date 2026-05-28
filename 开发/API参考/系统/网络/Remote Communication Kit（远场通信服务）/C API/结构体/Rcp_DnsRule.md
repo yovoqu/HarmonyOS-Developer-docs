@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 DNS规则配置。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@ DNS规则配置。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@ DNS规则配置。
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### dnsServers
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_DnsServers* Rcp_DnsRule::dnsServers
@@ -49,6 +59,8 @@ DNS服务器。
 
 ##### dynamicDnsRule
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_DynamicDnsRuleFunction Rcp_DnsRule::dynamicDnsRule
 ```
@@ -61,6 +73,8 @@ Rcp_DynamicDnsRuleFunction Rcp_DnsRule::dynamicDnsRule
 
 ##### staticDnsRule
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_StaticDnsRule* Rcp_DnsRule::staticDnsRule
 ```
@@ -72,6 +86,8 @@ Rcp_StaticDnsRule* Rcp_DnsRule::staticDnsRule
   
 
 ##### type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_DnsRuleType Rcp_DnsRule::type

@@ -12,6 +12,8 @@ typedef struct Input_DeviceInfo Input_DeviceInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入设备信息。
  
 **起始版本：** 13

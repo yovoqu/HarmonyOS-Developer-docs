@@ -12,6 +12,8 @@ typedef struct CloudDisk_ChangesResult {...} CloudDisk_ChangesResult
 
 ##### 概述
 
+**支持设备：** PC/2in1 | Tablet
+
 查询同步根路径中文件变更的结果。该结构体包含同步根路径中文件的变更数据，包括下一个更新序列号、结尾标志以及变更数据项数组。
  
 **起始版本：** 21
@@ -24,9 +26,13 @@ typedef struct CloudDisk_ChangesResult {...} CloudDisk_ChangesResult
 
 ##### 汇总
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

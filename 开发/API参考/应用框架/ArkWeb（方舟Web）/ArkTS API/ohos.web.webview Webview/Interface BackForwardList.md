@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
@@ -33,6 +37,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### getItemAtIndex
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getItemAtIndex(index: number): HistoryItem
 

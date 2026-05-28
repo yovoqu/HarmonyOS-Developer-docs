@@ -14,17 +14,21 @@
 
 ##### 实现原理
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用快照只会制作一次，从应用快照启动可以省去应用初始化和AbilityStage创建所需的时间。
 
 **图1** 快照启动流程
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/i-VZMwe1RNGFnY3utTS_HA/zh-cn_image_0000002581275604.png?HW-CC-KV=V1&HW-CC-Date=20260528T013957Z&HW-CC-Expire=86400&HW-CC-Sign=39D97CC8AC04B8584B4C3B8CF0FF2B26B8F69DED41F74682E6353D0664B7428D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/i-VZMwe1RNGFnY3utTS_HA/zh-cn_image_0000002581275604.png?HW-CC-KV=V1&HW-CC-Date=20260528T024251Z&HW-CC-Expire=86400&HW-CC-Sign=1E92CA3BB34A47C9B2BB98F9A30585A6E56C269C565304993EC4DB68152CD9E8)
 
 
 
 
 ##### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { hyperSnapManager } from '@kit.AbilityKit';
@@ -33,6 +37,8 @@ import { hyperSnapManager } from '@kit.AbilityKit';
 
 
 ##### hyperSnapManager.setHyperSnapEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setHyperSnapEnabled(enableFlag: boolean): void
 
@@ -82,6 +88,8 @@ try {
 
 
 ##### hyperSnapManager.requestRebuildHyperSnap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestRebuildHyperSnap(): void
 

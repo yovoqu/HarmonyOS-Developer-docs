@@ -12,6 +12,8 @@
 
 ##### 111001 内部错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 resource loading failed.

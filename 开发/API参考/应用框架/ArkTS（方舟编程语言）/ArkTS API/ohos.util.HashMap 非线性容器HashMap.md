@@ -26,6 +26,8 @@ HashMap和[TreeMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { HashMap } from '@kit.ArkTS';
 ```
@@ -34,9 +36,13 @@ import { HashMap } from '@kit.ArkTS';
 
 ##### HashMap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -50,6 +56,8 @@ import { HashMap } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -77,6 +85,8 @@ let hashMap = new HashMap<string, number>();
 
 
 ##### isEmpty
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEmpty(): boolean
 
@@ -113,6 +123,8 @@ console.info("result = ", result) // result = true
 
 
 ##### hasKey
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasKey(key: K): boolean
 
@@ -158,6 +170,8 @@ console.info("result:", result);  // result: true
 
 ##### hasValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasValue(value: V): boolean
 
 判断此HashMap中是否包含指定value。
@@ -201,6 +215,8 @@ console.info("result:", result);  // result: true
 
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(key: K): V
 
@@ -247,6 +263,8 @@ console.info("result:", result);  // result: 356
 
 ##### setAll
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAll(map: HashMap<K, V>): void
 
 将一个HashMap中的所有元素组添加到另一个HashMap中。
@@ -288,6 +306,8 @@ console.info("result:", result);  // result: true
 
 
 ##### set
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set(key: K, value: V): Object
 
@@ -334,6 +354,8 @@ console.info("result:", hashMap.get("squirrel"));  // result: 123
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 remove(key: K): V
 
 删除指定key所对应元素。
@@ -379,6 +401,8 @@ console.info("result:", result);  // result: 356
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清除HashMap中的所有元素，并将length置为0。
@@ -410,6 +434,8 @@ console.info("result:", result);  // result: true
 
 
 ##### keys
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 keys(): IterableIterator&lt;K&gt;
 
@@ -453,6 +479,8 @@ for (let key of keys) {
 
 ##### values
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 values(): IterableIterator&lt;V&gt;
 
 返回新迭代器对象，包含此映射中所有键对应的值。
@@ -494,6 +522,8 @@ for (let value of values) {
 
 
 ##### replace
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replace(key: K, newValue: V): boolean
 
@@ -539,6 +569,8 @@ console.info("result:", result);  // result: true
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value?: V, key?: K, map?: HashMap<K, V>) => void, thisArg?: Object): void
 
@@ -604,6 +636,8 @@ for(let i = 0; i < 10; i++) {
 
 ##### entries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 entries(): IterableIterator<[K, V]>
 
 返回包含此映射中包含的键值对的新迭代器对象。
@@ -658,6 +692,8 @@ for(let i = 0; i < 10; i++) {
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator<[K, V]>
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { CircleShape, EllipseShape, PathShape, RectShape } from "@kit.ArkUI";
 ```
@@ -21,6 +23,8 @@ import { CircleShape, EllipseShape, PathShape, RectShape } from "@kit.ArkUI";
   
 
 ##### CircleShape
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于clipShape和maskShape接口的圆形形状。
  
@@ -35,6 +39,8 @@ import { CircleShape, EllipseShape, PathShape, RectShape } from "@kit.ArkUI";
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(options?: ShapeSize)
  
@@ -57,6 +63,8 @@ constructor(options?: ShapeSize)
 
 ##### EllipseShape
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于clipShape和maskShape接口的椭圆形状。
  
 继承自[BaseShape](#baseshape)。
@@ -70,6 +78,8 @@ constructor(options?: ShapeSize)
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(options?: ShapeSize)
  
@@ -92,6 +102,8 @@ constructor(options?: ShapeSize)
 
 ##### PathShape
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于clipShape和maskShape接口的路径。
  
 继承自[CommonShapeMethod](#commonshapemethod)。
@@ -105,6 +117,8 @@ constructor(options?: ShapeSize)
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(options?: PathShapeOptions)
  
@@ -126,6 +140,8 @@ constructor(options?: PathShapeOptions)
   
 
 ##### commands
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 commands(commands: string): PathShape
  
@@ -155,6 +171,8 @@ commands(commands: string): PathShape
 
 ##### RectShape
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于clipShape和maskShape接口的矩形形状。
  
 继承自[BaseShape](#baseshape)。
@@ -168,6 +186,8 @@ commands(commands: string): PathShape
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(options?: RectShapeOptions | RoundRectShapeOptions)
  
@@ -189,6 +209,8 @@ constructor(options?: RectShapeOptions | RoundRectShapeOptions)
   
 
 ##### radiusWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 radiusWidth(rWidth: number | string): RectShape
  
@@ -218,6 +240,8 @@ radiusWidth(rWidth: number | string): RectShape
 
 ##### radiusHeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 radiusHeight(rHeight: number | string): RectShape
  
 设置矩形形状圆角半径的高度。
@@ -245,6 +269,8 @@ radiusHeight(rHeight: number | string): RectShape
   
 
 ##### radius
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 radius(radius: number | string | Array<number  |  string>): RectShape
  
@@ -274,6 +300,8 @@ radius(radius: number | string | Array<number  |  string>): RectShape
 
 ##### ShapeSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 形状的尺寸参数。
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -292,6 +320,8 @@ radius(radius: number | string | Array<number  |  string>): RectShape
 
 ##### PathShapeOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PathShape的构造函数参数。
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -308,6 +338,8 @@ PathShape的构造函数参数。
   
 
 ##### RectShapeOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RectShape 的构造函数参数。
  
@@ -327,6 +359,8 @@ RectShape 的构造函数参数。
   
 
 ##### RoundRectShapeOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RectShape 带有半径的构造函数参数。
  
@@ -348,6 +382,8 @@ RectShape 带有半径的构造函数参数。
 
 ##### BaseShape
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 继承自[CommonShapeMethod](#commonshapemethod)。
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -359,6 +395,8 @@ RectShape 带有半径的构造函数参数。
   
 
 ##### width
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 width(width: Length): T
  
@@ -388,6 +426,8 @@ width(width: Length): T
 
 ##### height
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 height(height: Length): T
  
 设置形状的高度。
@@ -415,6 +455,8 @@ height(height: Length): T
   
 
 ##### size
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 size(size: SizeOptions): T
  
@@ -444,6 +486,8 @@ size(size: SizeOptions): T
 
 ##### CommonShapeMethod
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 常见的形状方法。
  
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -455,6 +499,8 @@ size(size: SizeOptions): T
   
 
 ##### offset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offset(offset: Position): T
  
@@ -484,6 +530,8 @@ offset(offset: Position): T
 
 ##### fill
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fill(color: ResourceColor): T
  
 设置形状的填充区域的透明度，黑色表示完全透明，白色表示完全不透明。
@@ -512,6 +560,8 @@ fill(color: ResourceColor): T
 
 ##### position
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 position(position: Position): T
  
 设置形状的位置。
@@ -539,6 +589,8 @@ position(position: Position): T
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例主要演示通过[clipShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#clipshape12)和[maskShape](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-sharp-clipping#maskshape12)将图片裁剪和遮罩成不同形状。
  
@@ -581,4 +633,4 @@ struct ShapeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/pXk4ZS_JSvCHDhUOYBCB9A/zh-cn_image_0000002581275612.png?HW-CC-KV=V1&HW-CC-Date=20260528T013818Z&HW-CC-Expire=86400&HW-CC-Sign=23710DAC40E8830005C845862633D8893E80287A586DB2653885E5C42D3320E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/pXk4ZS_JSvCHDhUOYBCB9A/zh-cn_image_0000002581275612.png?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=7A05479C5128EEA1D02348751F1001F94262E95726EB1F4CE71E7C67E52EA0A7)

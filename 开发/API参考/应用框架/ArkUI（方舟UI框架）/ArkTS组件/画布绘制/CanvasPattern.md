@@ -14,9 +14,13 @@
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### setTransform
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTransform(transform?: Matrix2D): void
  
@@ -38,6 +42,8 @@ setTransform(transform?: Matrix2D): void
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通过setTransform对当前CanvasPattern进行矩阵变换。
  
@@ -96,4 +102,4 @@ struct CanvasPatternPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/uyeAWSAsSJ--MREUcYzH3g/zh-cn_image_0000002581436062.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013911Z&HW-CC-Expire=86400&HW-CC-Sign=66272E3B7C7BF6A21719E9C8BF0E1100B851AD4444A8581FE3EAD13E7541522A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/uyeAWSAsSJ--MREUcYzH3g/zh-cn_image_0000002581436062.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=9501231CE958C5624BA5AE7039DACC256E749A540452AE1BFCD5A07606575069)

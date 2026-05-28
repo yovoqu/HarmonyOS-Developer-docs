@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明mutex的C接口。
  
 **引用文件：** <ffrt/mutex.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -44,9 +50,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### ffrt_mutexattr_init()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API int ffrt_mutexattr_init(ffrt_mutexattr_t* attr)
@@ -75,6 +85,8 @@ FFRT_C_API int ffrt_mutexattr_init(ffrt_mutexattr_t* attr)
   
 
 ##### ffrt_mutexattr_settype()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API int ffrt_mutexattr_settype(ffrt_mutexattr_t* attr, int type)
@@ -105,6 +117,8 @@ FFRT_C_API int ffrt_mutexattr_settype(ffrt_mutexattr_t* attr, int type)
 
 ##### ffrt_mutexattr_gettype()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API int ffrt_mutexattr_gettype(ffrt_mutexattr_t* attr, int* type)
 ```
@@ -134,6 +148,8 @@ FFRT_C_API int ffrt_mutexattr_gettype(ffrt_mutexattr_t* attr, int* type)
 
 ##### ffrt_mutexattr_destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API int ffrt_mutexattr_destroy(ffrt_mutexattr_t* attr)
 ```
@@ -161,6 +177,8 @@ FFRT_C_API int ffrt_mutexattr_destroy(ffrt_mutexattr_t* attr)
   
 
 ##### ffrt_mutex_init()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API int ffrt_mutex_init(ffrt_mutex_t* mutex, const ffrt_mutexattr_t* attr)
@@ -191,6 +209,8 @@ FFRT_C_API int ffrt_mutex_init(ffrt_mutex_t* mutex, const ffrt_mutexattr_t* attr
 
 ##### ffrt_mutex_lock()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API int ffrt_mutex_lock(ffrt_mutex_t* mutex)
 ```
@@ -218,6 +238,8 @@ FFRT_C_API int ffrt_mutex_lock(ffrt_mutex_t* mutex)
   
 
 ##### ffrt_mutex_unlock()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API int ffrt_mutex_unlock(ffrt_mutex_t* mutex)
@@ -247,6 +269,8 @@ FFRT_C_API int ffrt_mutex_unlock(ffrt_mutex_t* mutex)
 
 ##### ffrt_mutex_trylock()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API int ffrt_mutex_trylock(ffrt_mutex_t* mutex)
 ```
@@ -274,6 +298,8 @@ FFRT_C_API int ffrt_mutex_trylock(ffrt_mutex_t* mutex)
   
 
 ##### ffrt_mutex_destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API int ffrt_mutex_destroy(ffrt_mutex_t* mutex)

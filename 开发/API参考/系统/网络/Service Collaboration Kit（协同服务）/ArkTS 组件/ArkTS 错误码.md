@@ -12,6 +12,8 @@
 
 ##### 1001202001 代表对端取消流程
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
  
 The peer end cancels the operation.
@@ -31,6 +33,8 @@ The peer end cancels the operation.
   
 
 ##### 1001202002 代表协同框架内部出现错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
  
@@ -52,6 +56,8 @@ An error occurred within the collaborative framework.
 
 ##### 1001202003 代表本端取消流程
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
  
 The local end cancels the operation.
@@ -71,6 +77,8 @@ The local end cancels the operation.
   
 
 ##### 1001202004 代表跨设备互通能力开始
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
  
@@ -92,6 +100,8 @@ The device interconnectivity has been established.
 
 ##### 1001202005 代表图片全部回传结束
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
  
 All images have been successfully sent back.
@@ -111,6 +121,8 @@ All images have been successfully sent back.
   
 
 ##### 1001202006 正在回传多个图片
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
  

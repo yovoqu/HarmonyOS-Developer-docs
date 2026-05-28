@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ImageSpan(value: ResourceStr | PixelMap)
 
@@ -37,11 +41,15 @@ ImageSpan(value: ResourceStr | PixelMap)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 属性继承自[BaseSpan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-span#basespan)，通用属性方法支持[尺寸设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size)、[背景设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background)、[边框设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border)。
 
 
 
 ##### verticalAlign
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 verticalAlign(value: ImageSpanAlignment)
 
@@ -62,6 +70,8 @@ verticalAlign(value: ImageSpanAlignment)
 
 ##### objectFit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 objectFit(value: ImageFit)
 
 设置图片的缩放类型。
@@ -80,6 +90,8 @@ objectFit(value: ImageFit)
 
 
 ##### alt12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 alt(value: PixelMap)
 
@@ -100,6 +112,8 @@ alt(value: PixelMap)
 
 ##### colorFilter14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 colorFilter(filter: ColorFilter | DrawingColorFilter)
 
 为图像设置颜色滤镜效果。
@@ -118,6 +132,8 @@ colorFilter(filter: ColorFilter | DrawingColorFilter)
 
 
 ##### supportSvg222+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 supportSvg2(enable: Optional&lt;boolean&gt;)
 
@@ -140,11 +156,15 @@ ImageSpan组件创建后，不支持动态修改该属性的值。
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通用事件仅支持[点击控制事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-click)。还支持以下事件：
 
 
 
 ##### onComplete12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onComplete(callback: ImageCompleteCallback)
 
@@ -165,6 +185,8 @@ onComplete(callback: ImageCompleteCallback)
 
 ##### onError12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onError(callback: ImageErrorCallback)
 
 图片加载异常时触发该回调。
@@ -184,6 +206,8 @@ onError(callback: ImageErrorCallback)
 
 ##### ImageCompleteCallback12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ImageCompleteCallback = (result: ImageLoadResult) => void
 
 图片加载成功和解码成功时触发的回调。
@@ -202,6 +226,8 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void
 
 
 ##### ImageLoadResult12+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图片数据加载成功和解码成功触发回调时返回的对象。
 
@@ -225,6 +251,8 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 

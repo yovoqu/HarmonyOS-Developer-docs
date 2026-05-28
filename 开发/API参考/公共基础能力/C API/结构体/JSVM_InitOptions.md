@@ -12,6 +12,8 @@ typedef struct {...} JSVM_InitOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 初始化选项，用于初始化JavaScript虚拟机。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct {...} JSVM_InitOptions
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |

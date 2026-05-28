@@ -13,6 +13,8 @@
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
@@ -24,9 +26,13 @@
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### getContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getContext(contextId: string, options?: CanvasRenderingContext2DSettings): OffscreenCanvasRenderingContext2D
  
@@ -51,6 +57,8 @@ getContext(contextId: string, options?: CanvasRenderingContext2DSettings): Offsc
 
 ##### CanvasRenderingContext2DSettings
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 CanvasRenderingContext2DSettings(antialias?: boolean)
  
 用来配置OffscreenCanvasRenderingContext2D对象的参数，包括是否开启抗锯齿。
@@ -63,6 +71,8 @@ CanvasRenderingContext2DSettings(antialias?: boolean)
   
 
 ##### toDataURL
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toDataURL(type?: string, quality?:number): string
  
@@ -87,6 +97,8 @@ toDataURL(type?: string, quality?:number): string
 
 ##### transferToImageBitmap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 transferToImageBitmap(): ImageBitmap
  
 在离屏画布最近渲染的图像上创建一个ImageBitmap对象。
@@ -101,6 +113,8 @@ transferToImageBitmap(): ImageBitmap
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->

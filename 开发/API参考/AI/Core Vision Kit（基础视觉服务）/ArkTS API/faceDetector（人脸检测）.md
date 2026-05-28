@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { faceDetector } from '@kit.CoreVisionKit';
 ```
@@ -21,6 +23,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 ##### VisionInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的PixelMap类型的视觉信息。
 
@@ -39,6 +43,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 ##### FaceRecognitionConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 人脸遮挡检测的配置项。
 
 **系统能力：** SystemCapability.AI.Face.Detector
@@ -53,6 +59,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 ##### FaceBlock
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 人脸遮挡检测结果的枚举类。
 
@@ -70,6 +78,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 ##### FacePoint
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 指示像素点的位置。
 
@@ -89,6 +99,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 ##### FacePose
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 描述人脸在三维空间中的方向。坐标系可参考[世界坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/core-vision-face-detector#世界坐标系)。
 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
@@ -107,6 +119,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 ##### FaceRectangle
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示人脸的矩形框。
 
@@ -128,6 +142,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 ##### Face
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示人脸的信息列表。
 
 **系统能力：** SystemCapability.AI.Face.Detector
@@ -146,6 +162,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 
 ##### faceDetector.init
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 init(): Promise&lt;boolean&gt;
 
@@ -206,6 +224,8 @@ struct Page {
 
 
 ##### faceDetector.init
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 init(faceRecognitionConfiguration: FaceRecognitionConfiguration): Promise&lt;boolean&gt;
 
@@ -284,6 +304,8 @@ struct Page {
 
 ##### faceDetector.release
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 release(): Promise&lt;void&gt;
 
 释放人脸检测分析器服务。使用Promise异步回调。
@@ -343,6 +365,8 @@ struct Page {
 
 
 ##### faceDetector.detect
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 detect(visionInfo: VisionInfo): Promise<Array&lt;Face&gt;>
 

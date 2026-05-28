@@ -14,6 +14,8 @@
 
 ##### matchMediaSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 matchMediaSync(condition: string): mediaQuery.MediaQueryListener
 
 设置媒体查询的查询条件，并返回对应的监听句柄。

@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AAID } from '@kit.PushKit';
 ```
@@ -25,6 +27,8 @@ import { AAID } from '@kit.PushKit';
   
 
 ##### AAID.getAAID
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAAID(callback: AsyncCallback&lt;string&gt;): void
  
@@ -85,6 +89,8 @@ try {
 
 ##### AAID.getAAID
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAAID(): Promise&lt;string&gt;
  
 获取AAID，使用Promise异步回调。
@@ -140,6 +146,8 @@ try {
   
 
 ##### AAID.deleteAAID
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteAAID(callback: AsyncCallback&lt;void&gt;): void
  
@@ -198,6 +206,8 @@ try {
   
 
 ##### AAID.deleteAAID
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteAAID(): Promise&lt;void&gt;
  

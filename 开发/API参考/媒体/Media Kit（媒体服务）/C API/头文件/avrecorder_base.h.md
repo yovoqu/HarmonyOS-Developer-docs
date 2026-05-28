@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义了媒体AVRecorder的结构体和枚举。
  
 **引用文件：** <multimedia/player_framework/avrecorder_base.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -42,6 +48,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -57,6 +65,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -69,9 +79,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_AVRecorder_AudioSourceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AVRecorder_AudioSourceType
@@ -99,6 +113,8 @@ AVRecorder的音频源类型。
 
 ##### OH_AVRecorder_VideoSourceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_AVRecorder_VideoSourceType
 ```
@@ -120,6 +136,8 @@ AVRecorder的视频源类型。
   
 
 ##### OH_AVRecorder_CodecMimeType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AVRecorder_CodecMimeType
@@ -149,6 +167,8 @@ enum OH_AVRecorder_CodecMimeType
 
 ##### OH_AVRecorder_ContainerFormatType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_AVRecorder_ContainerFormatType
 ```
@@ -174,6 +194,8 @@ enum OH_AVRecorder_ContainerFormatType
   
 
 ##### OH_AVRecorder_State
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AVRecorder_State
@@ -202,6 +224,8 @@ AVRecorder状态。
 
 ##### OH_AVRecorder_StateChangeReason
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_AVRecorder_StateChangeReason
 ```
@@ -223,6 +247,8 @@ AVRecorder状态变化的原因。
   
 
 ##### OH_AVRecorder_FileGenerationMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AVRecorder_FileGenerationMode
@@ -246,9 +272,13 @@ enum OH_AVRecorder_FileGenerationMode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_AVRecorder_OnStateChange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_AVRecorder_OnStateChange)(OH_AVRecorder *recorder,OH_AVRecorder_State state, OH_AVRecorder_StateChangeReason reason, void *userData)
@@ -276,6 +306,8 @@ typedef void (*OH_AVRecorder_OnStateChange)(OH_AVRecorder *recorder,OH_AVRecorde
 
 ##### OH_AVRecorder_OnError()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_AVRecorder_OnError)(OH_AVRecorder *recorder, int32_t errorCode, const char *errorMsg,void *userData)
 ```
@@ -301,6 +333,8 @@ typedef void (*OH_AVRecorder_OnError)(OH_AVRecorder *recorder, int32_t errorCode
   
 
 ##### OH_AVRecorder_OnUri()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_AVRecorder_OnUri)(OH_AVRecorder *recorder, OH_MediaAsset *asset, void *userData)

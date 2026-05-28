@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { videoProcessingEngine } from '@kit.ImageKit';
 ```
@@ -23,6 +25,8 @@ import { videoProcessingEngine } from '@kit.ImageKit';
 
 
 ##### videoProcessingEngine.initializeEnvironment
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 initializeEnvironment(): Promise&lt;void&gt;
 
@@ -65,6 +69,8 @@ async function initializeEnvironment() {
 
 ##### videoProcessingEngine.deinitializeEnvironment
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 deinitializeEnvironment(): Promise&lt;void&gt;
 
 释放处理资源。使用Promise异步回调。
@@ -103,6 +109,8 @@ async function deinitializeEnvironment() {
 
 
 ##### videoProcessingEngine.create
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 create(): ImageProcessor
 
@@ -145,6 +153,8 @@ async function create() {
 
 ##### ImageProcessor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 图像处理类，提供图片内容的清晰度增强及缩放能力。根据源图像的宽度和高度进行必要的缩放操作，生成目标图像。提供不同级别的缩放方法以平衡性能和图像质量。
 
 规格约束如下：
@@ -156,6 +166,8 @@ async function create() {
 
 
 ##### enhanceDetail
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 enhanceDetail(sourceImage: image.PixelMap, width: number, height: number, level?: QualityLevel): Promise<image.PixelMap>
 
@@ -211,6 +223,8 @@ async function enhanceDetail(sourceImage: image.PixelMap, width: number, height:
 
 ##### enhanceDetail
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 enhanceDetail(sourceImage: image.PixelMap, scale: number, level?: QualityLevel): Promise<image.PixelMap>
 
 细节增强处理异步方法。使用Promise异步回调。
@@ -263,6 +277,8 @@ async function enhanceDetail(sourceImage: image.PixelMap, scale: number) {
 
 
 ##### enhanceDetailSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 enhanceDetailSync(sourceImage: image.PixelMap, width: number, height: number, level?: QualityLevel): image.PixelMap
 
@@ -319,6 +335,8 @@ async function enhanceDetailSync(sourceImage: image.PixelMap, width: number, hei
 
 ##### enhanceDetailSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 enhanceDetailSync(sourceImage: image.PixelMap, scale: number, level?: QualityLevel): image.PixelMap
 
 细节增强处理同步方法。
@@ -372,6 +390,8 @@ async function enhanceDetailSync(sourceImage: image.PixelMap, scale: number) {
 
 
 ##### QualityLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 枚举，算法档位。
 

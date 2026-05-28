@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 图片处理的类型定义。
  
 **引用文件：** <multimedia/video_processing_engine/image_processing_types.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -38,6 +44,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -48,6 +56,8 @@
   
 
 ##### 变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -63,9 +73,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### ImageDetailEnhancer_QualityLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum ImageDetailEnhancer_QualityLevel
@@ -94,6 +108,8 @@ enum ImageDetailEnhancer_QualityLevel
   
 
 ##### ImageProcessing_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum ImageProcessing_ErrorCode

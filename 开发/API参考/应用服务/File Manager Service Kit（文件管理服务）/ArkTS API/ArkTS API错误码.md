@@ -12,6 +12,8 @@
 
 ##### 1014000001 操作不允许
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Operation not permitted
@@ -33,6 +35,8 @@ Operation not permitted
   
 
 ##### 1014000002 没有该文件或目录
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -58,6 +62,8 @@ No such file or directory
 
 ##### 1014000003 存储空间不足
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 No space left on device
@@ -78,6 +84,8 @@ No space left on device
 
 ##### 1014000004 系统内部错误
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 System inner fail
@@ -97,6 +105,8 @@ System inner fail
   
 
 ##### 1014000005 无效的快捷方式文件
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

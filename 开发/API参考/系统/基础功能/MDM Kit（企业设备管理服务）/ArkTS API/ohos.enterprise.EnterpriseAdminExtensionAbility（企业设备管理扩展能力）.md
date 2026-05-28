@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 ```
@@ -24,11 +26,15 @@ import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 ##### EnterpriseAdminExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 企业设备管理扩展能力组件，是设备管理应用必备组件。当开发者为企业开发设备管理应用时，需继承EnterpriseAdminExtensionAbility，在EnterpriseAdminExtensionAbility实例中实现MDM业务逻辑，EnterpriseAdminExtensionAbility实现了系统管理状态变化通知功能，并定义了管理应用激活、去激活、应用安装、卸载事件等回调接口。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **系统能力**：SystemCapability.Customization.EnterpriseDeviceManager
 
@@ -40,6 +46,8 @@ import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
 
 
 ##### onAdminEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onAdminEnabled(): void
 
@@ -64,6 +72,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onAdminDisabled
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onAdminDisabled(): void
 
 当前设备管理应用被解除激活后，触发该回调。企业管理员或者员工解除激活设备管理，系统通知设备管理应用已解除激活admin权限。设备管理应用可在此回调函数中通知企业管理员设备已脱管。无需注册，解除激活后默认触发该回调。
@@ -86,6 +96,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 ##### onBundleAdded
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onBundleAdded(bundleName: string): void
 
@@ -117,6 +129,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 ##### onBundleAdded14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onBundleAdded(bundleName: string, accountId: number): void
 
@@ -151,6 +165,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onBundleRemoved
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onBundleRemoved(bundleName: string): void
 
 应用卸载事件回调，回调中包含应用包名。通过接口[adminManager.subscribeManagedEventSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagersubscribemanagedeventsync)注册MANAGED_EVENT_BUNDLE_REMOVED事件才能收到此回调。企业设备管理场景下，设备管理应用订阅应用卸载事件，端侧应用卸载事件通知设备管理应用，设备管理应用可以在此回调函数中进行事件上报，通知企业管理员。
@@ -181,6 +197,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 ##### onBundleRemoved14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onBundleRemoved(bundleName: string, accountId: number): void
 
@@ -215,6 +233,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onAppStart
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onAppStart(bundleName: string): void
 
 应用启动事件回调。通过接口[adminManager.subscribeManagedEventSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagersubscribemanagedeventsync)注册MANAGED_EVENT_APP_START事件才能收到此回调。企业设备管理场景下，设备管理应用订阅应用启动事件，端侧应用启动事件通知设备管理应用，设备管理应用可以在此回调函数中进行事件上报，通知企业管理员。
@@ -246,6 +266,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onAppStop
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onAppStop(bundleName: string): void
 
 应用停止事件回调。通过接口[adminManager.subscribeManagedEventSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagersubscribemanagedeventsync)注册MANAGED_EVENT_APP_STOP事件才能收到此回调。企业设备管理场景下，设备管理应用订阅应用停止事件，端侧应用停止事件通知设备管理应用，设备管理应用可以在此回调函数中进行事件上报，通知企业管理员。
@@ -276,6 +298,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 ##### onSystemUpdate
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onSystemUpdate(systemUpdateInfo: systemManager.SystemUpdateInfo): void
 
@@ -309,6 +333,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onStart
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onStart(): void
 
 EnterpriseAdminExtensionAbility启动事件回调。
@@ -332,6 +358,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 ##### onAccountAdded18+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onAccountAdded(accountId: number): void
 
@@ -364,6 +392,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onAccountSwitched18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onAccountSwitched(accountId: number): void
 
 系统账号切换事件回调。通过接口[adminManager.subscribeManagedEventSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagersubscribemanagedeventsync)注册MANAGED_EVENT_ACCOUNT_SWITCHED事件才能收到此回调。企业设备管理场景下，设备管理应用订阅系统账号切换事件，系统账号切换事件通知设备管理应用，设备管理应用可以在此回调函数中进行事件上报，通知企业管理员。
@@ -395,6 +425,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onAccountRemoved18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onAccountRemoved(accountId: number): void
 
 系统账号删除事件回调。通过接口[adminManager.subscribeManagedEventSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagersubscribemanagedeventsync)注册MANAGED_EVENT_ACCOUNT_REMOVED事件才能收到此回调。企业设备管理场景下，设备管理应用订阅系统账号删除事件，系统账号删除事件通知设备管理应用，设备管理应用可以在此回调函数中进行事件上报，通知企业管理员。
@@ -425,6 +457,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 ##### onKioskModeEntering20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onKioskModeEntering(bundleName: string, accountId: number): void
 
@@ -460,6 +494,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onKioskModeExiting20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onKioskModeExiting(bundleName: string, accountId: number): void
 
 应用退出Kiosk模式回调，回调中包含应用包名和用户ID。
@@ -491,6 +527,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 ##### onMarketAppInstallResult22+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onMarketAppInstallResult(bundleName: string, result: common.InstallationResult): void
 
@@ -524,6 +562,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onDeviceAdminEnabled23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onDeviceAdminEnabled(bundleName: string): void
 
 仅超级设备管理应用在普通设备管理应用被激活时会触发此回调。企业管理员或者员工部署并激活普通设备管理应用，系统通知超级设备管理应用已激活admin权限。超级设备管理应用可在此回调函数中进行初始化策略设置。不需要注册，激活后默认触发该回调。
@@ -554,6 +594,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onDeviceAdminDisabled23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onDeviceAdminDisabled(bundleName: string): void
 
 仅超级设备管理应用在普通设备管理应用被解除激活时会触发此回调。企业管理员或者员工解除激活普通设备管理应用，系统通知超级设备管理应用已解除激活admin权限。超级设备管理应用可在此回调函数中通知企业管理员设备已脱管。不需要注册，解除激活后默认触发该回调。
@@ -583,6 +625,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 ##### onKeyEvent23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onKeyEvent(keyEvent: systemManager.KeyEvent): void
 
@@ -708,6 +752,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onLogCollected23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onLogCollected(result: common.Result): void
 
 通过[systemManager.startCollectLog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#systemmanagerstartcollectlog23)接口成功创建日志收集任务后，当日志收集完成时，将触发该回调。回调中包含日志收集结果。
@@ -773,6 +819,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 ##### onStartupGuideCompleted24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onStartupGuideCompleted(scene: common.StartupScene): void
 
 开机向导完成事件回调。通过接口[adminManager.subscribeManagedEventSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagersubscribemanagedeventsync)注册MANAGED_EVENT_STARTUP_GUIDE_COMPLETED事件才能收到此回调。企业设备管理场景下，设备管理应用订阅开机向导完成事件，端侧系统在首次切换子用户完成（仅限PC）、OTA升级完成、首次开机完成开机向导时会通知设备管理应用，设备管理应用可以在此回调函数中进行事件上报，通知企业管理员。
@@ -809,6 +857,8 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 
 ##### onDeviceBootCompleted24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onDeviceBootCompleted(): void
 

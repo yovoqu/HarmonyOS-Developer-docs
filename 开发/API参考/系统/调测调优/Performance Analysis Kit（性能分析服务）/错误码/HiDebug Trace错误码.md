@@ -12,6 +12,8 @@
 
 ##### 11400102 重复采集
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Capture trace already enabled.
@@ -32,6 +34,8 @@ Capture trace already enabled.
 
 ##### 11400103 权限校验失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 No write permission on the file.
@@ -51,6 +55,8 @@ No write permission on the file.
 
 
 ##### 11400104 内部异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -76,6 +82,8 @@ Abnormal trace status.
 
 ##### 11400105 未开启trace采集
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 No capture trace running.
@@ -95,6 +103,8 @@ No capture trace running.
 
 
 ##### 11400106 接口调用配额已超出
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -118,6 +128,8 @@ Quota exceeded.
 
 ##### 11400120 trace文件存储达到限制
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Trace storage limit reached.
@@ -137,6 +149,8 @@ Trace storage limit reached.
 
 
 ##### 11400302 trace采集超出资源配额
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

@@ -14,9 +14,13 @@
 
 ##### DatePickerDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### show(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static show(options?: DatePickerDialogOptions)
 
@@ -42,6 +46,8 @@ static show(options?: DatePickerDialogOptions)
 
 
 ##### DatePickerDialogOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 日期选择器弹窗选项。
 
@@ -91,6 +97,8 @@ static show(options?: DatePickerDialogOptions)
 
 ##### LunarSwitchStyle14+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义了DatePickerDialog组件中农历切换开关的样式。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -109,6 +117,8 @@ static show(options?: DatePickerDialogOptions)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 推荐通过使用 UIContext 中的 showDatePickerDialog 来明确UI的执行上下文。
@@ -538,7 +548,7 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/s0foZT-FQ4ewXxvXsWgqwA/zh-cn_image_0000002581436192.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=2CD4C199B79DC80D866C9DF2A5EB7056BB11C930B5654ABC45FD0EA48065A05E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/s0foZT-FQ4ewXxvXsWgqwA/zh-cn_image_0000002581436192.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=0BE6021BD25675E0AD246BA297C22C6BD76E336B620D491467E446F8913D0523)
 
 
 
@@ -586,7 +596,7 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/1Ah_aiKlS7m6VNntEiCF2g/zh-cn_image_0000002611836023.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=6C3316F3EEF9A7A8BBD378D9C97DAE1EACEE1F1BB658EFFA5C25393DBE71E81A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/1Ah_aiKlS7m6VNntEiCF2g/zh-cn_image_0000002611836023.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=F5E944D9C3C973581D7ED7A0F1670B3620378A2F23A0386F30497AF239BFFBFF)
 
 
 
@@ -629,7 +639,7 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/X3iI5AmXTpG-Qx7hPyde1A/zh-cn_image_0000002581276276.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=0BFA47241C52016664C63DBFA29258FB28D3B6A398FBD69C7E42BA907675DDB0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/X3iI5AmXTpG-Qx7hPyde1A/zh-cn_image_0000002581276276.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=20D77C5F89A0D3AB39A310AEDEC89EFA2D5A263E7A9DC418A0F002000D3D9649)
 
 
 
@@ -674,4 +684,4 @@ struct DatePickerDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/BJadF-AWSa-gkouGu3sMlw/zh-cn_image_0000002611756131.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=89642652AD6A7334F3D285B79E1C3669EEF24129D135959EDB17AA41140DD07D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/BJadF-AWSa-gkouGu3sMlw/zh-cn_image_0000002611756131.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=D8EEDE9DFFF7BD18B9B0C3FE8D8130FF31098CC6DF9D2EAB56B77C2140A23509)

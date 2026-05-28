@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { netHandover } from '@kit.NetworkBoostKit';
 ```
@@ -19,6 +21,8 @@ import { netHandover } from '@kit.NetworkBoostKit';
   
 
 ##### netHandover.on( 'handoverChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'handoverChange', callback: Callback&lt;HandoverInfo&gt;): void
  
@@ -73,6 +77,8 @@ try {
 
 ##### netHandover.off( 'handoverChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'handoverChange', callback?: Callback&lt;HandoverInfo&gt;): void
  
 取消订阅连接迁移信息。
@@ -117,6 +123,8 @@ try {
   
 
 ##### netHandover.setHandoverMode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setHandoverMode(mode: HandoverMode): void
  
@@ -163,6 +171,8 @@ try {
   
 
 ##### netHandover.getMultiPathQuotaStats
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getMultiPathQuotaStats(): MultiPathQuota
  
@@ -211,6 +221,8 @@ try {
   
 
 ##### netHandover.requestMultiPath
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 requestMultiPath(callback: Callback&lt;MultiPathRequestResult&gt;): void
  
@@ -268,6 +280,8 @@ try {
 
 ##### netHandover.releaseMultiPath
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 releaseMultiPath(): void
  
 释放多网请求。
@@ -306,6 +320,8 @@ try {
   
 
 ##### netHandover.on('multiPathStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'multiPathStateChange', callback: Callback&lt;MultiPathStateInfo&gt;): void
  
@@ -355,6 +371,8 @@ try {
 
 ##### netHandover.off('multiPathStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'multiPathStateChange', callback?: Callback&lt;MultiPathStateInfo&gt;): void
  
 取消订阅多网状态变化事件。
@@ -399,6 +417,8 @@ try {
   
 
 ##### netHandover.on('multiPathRecommendation')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'multiPathRecommendation', callback: Callback&lt;MultiPathRecommendationInfo&gt;): void
  
@@ -448,6 +468,8 @@ try {
 
 ##### netHandover.off('multiPathRecommendation')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'multiPathRecommendation', callback?: Callback&lt;MultiPathRecommendationInfo&gt;): void
  
 取消订阅系统多网建议变化事件。
@@ -493,6 +515,8 @@ try {
 
 ##### HandoverInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 连接迁移回调信息。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -509,6 +533,8 @@ try {
 
 ##### HandoverStart
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 连接迁移开始信息。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -524,6 +550,8 @@ try {
   
 
 ##### HandoverComplete
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 连接迁移完成信息。
  
@@ -547,6 +575,8 @@ try {
 
 ##### DataSpeedAction
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 发包速率建议。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -563,6 +593,8 @@ try {
   
 
 ##### MultiPathStateInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 多网状态信息。
  
@@ -583,6 +615,8 @@ try {
 
 ##### MultiPathRecommendationInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 多网推荐信息。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -597,6 +631,8 @@ try {
   
 
 ##### MultiPathQuota
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 应用配额使用信息。
  
@@ -614,6 +650,8 @@ try {
 
 ##### MultiPathQuotaInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 配额信息。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -630,6 +668,8 @@ try {
 
 ##### MultiPathRequestResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 多网请求结果。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -644,6 +684,8 @@ try {
   
 
 ##### MultiPathAction
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 多网推荐动作的枚举。
  
@@ -660,6 +702,8 @@ try {
   
 
 ##### MultiPathErrorResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 多网建立结果的枚举。
  
@@ -679,6 +723,8 @@ try {
 
 ##### MultiPathState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 多网状态。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -697,6 +743,8 @@ try {
 
 ##### PathState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 多网链路状态。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -713,6 +761,8 @@ try {
   
 
 ##### MultiPathChangeCause
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 多网变化原因的枚举。
  
@@ -741,6 +791,8 @@ try {
 
 ##### HandoverMode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示连接迁移模式枚举。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -756,6 +808,8 @@ try {
   
 
 ##### ReEstAction
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示重建枚举。
  
@@ -775,6 +829,8 @@ try {
   
 
 ##### ErrorResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示连接迁移结果枚举。
  

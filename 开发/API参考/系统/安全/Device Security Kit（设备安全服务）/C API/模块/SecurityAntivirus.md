@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 SecurityAntivirus模块用于管理三方病毒防护服务应用。
  
 **系统能力：** SystemCapability.Security.SecurityAntivirus
@@ -17,9 +19,13 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 文件
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,6 +35,8 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
   
 
 ##### 结构体
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,6 +46,8 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
   
 
 ##### 枚举
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -47,6 +57,8 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
   
 
 ##### 函数
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -65,9 +77,13 @@ SecurityAntivirus模块用于管理三方病毒防护服务应用。
 
 ##### 枚举类型说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### SecurityAntivirus_ErrCode
+
+**支持设备：** PC/2in1
 
 ```text
 enum SecurityAntivirus_ErrCode
@@ -96,9 +112,13 @@ enum SecurityAntivirus_ErrCode
 
 ##### 函数说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### HMS_SecurityAntivirus_RegisterAntivirus()
+
+**支持设备：** PC/2in1
 
 ```text
 SecurityAntivirus_ErrCode HMS_SecurityAntivirus_RegisterAntivirus(const char* bundleName)
@@ -129,6 +149,8 @@ ohos.permission.REGISTER_ANTIVIRUS
 
 ##### HMS_SecurityAntivirus_UnregisterAntivirus()
 
+**支持设备：** PC/2in1
+
 ```text
 SecurityAntivirus_ErrCode HMS_SecurityAntivirus_UnregisterAntivirus(const char* bundleName)
 ```
@@ -158,6 +180,8 @@ ohos.permission.REGISTER_ANTIVIRUS
 
 ##### HMS_SecurityAntivirus_UpdateAntivirus()
 
+**支持设备：** PC/2in1
+
 ```text
 SecurityAntivirus_ErrCode HMS_SecurityAntivirus_UpdateAntivirus(const SecurityAntivirus_Antivirus* antivirus)
 ```
@@ -186,6 +210,8 @@ ohos.permission.REGISTER_ANTIVIRUS
   
 
 ##### HMS_SecurityAntivirus_QueryAntivirus()
+
+**支持设备：** PC/2in1
 
 ```text
 SecurityAntivirus_ErrCode HMS_SecurityAntivirus_QueryAntivirus(SecurityAntivirus_Antivirus** list, uint32_t* length)
@@ -217,6 +243,8 @@ ohos.permission.MANAGE_ANTIVIRUS
 
 ##### HMS_SecurityAntivirus_QueryPreinstalledAntivirus()
 
+**支持设备：** PC/2in1
+
 ```text
 SecurityAntivirus_ErrCode HMS_SecurityAntivirus_QueryPreinstalledAntivirus(SecurityAntivirus_Antivirus** list, uint32_t* length)
 ```
@@ -247,6 +275,8 @@ ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS
 
 ##### HMS_SecurityAntivirus_EnablePreinstalledAntivirus()
 
+**支持设备：** PC/2in1
+
 ```text
 SecurityAntivirus_ErrCode HMS_SecurityAntivirus_EnablePreinstalledAntivirus(void)
 ```
@@ -269,6 +299,8 @@ ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS
 
 ##### HMS_SecurityAntivirus_DisablePreinstalledAntivirus()
 
+**支持设备：** PC/2in1
+
 ```text
 SecurityAntivirus_ErrCode HMS_SecurityAntivirus_DisablePreinstalledAntivirus(void)
 ```
@@ -290,6 +322,8 @@ ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS
   
 
 ##### HMS_SecurityAntivirus_EnablePreinstalledAntivirusByAccount()
+
+**支持设备：** PC/2in1
 
 ```text
 SecurityAntivirus_ErrCode HMS_SecurityAntivirus_EnablePreinstalledAntivirusByAccount(int32_t accountId)
@@ -319,6 +353,8 @@ ohos.permission.MANAGE_PREINSTALLED_ANTIVIRUS
   
 
 ##### HMS_SecurityAntivirus_DisablePreinstalledAntivirusByAccount()
+
+**支持设备：** PC/2in1
 
 ```text
 SecurityAntivirus_ErrCode HMS_SecurityAntivirus_DisablePreinstalledAntivirusByAccount(int32_t accountId)

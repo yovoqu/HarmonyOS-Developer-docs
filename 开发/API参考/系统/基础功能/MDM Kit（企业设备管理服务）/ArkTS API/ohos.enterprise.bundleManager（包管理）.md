@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { bundleManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { bundleManager } from '@kit.MDMKit';
 
 
 ##### bundleManager.addAllowedInstallBundlesSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addAllowedInstallBundlesSync(admin: Want, appIds: Array&lt;string&gt;, accountId?: number): void
 
@@ -81,6 +85,8 @@ try {
 
 ##### bundleManager.removeAllowedInstallBundlesSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeAllowedInstallBundlesSync(admin: Want, appIds: Array&lt;string&gt;, accountId?: number): void
 
 在应用程序包安装允许名单中移除应用，在允许名单存在的情况下，不在应用程序包安装允许名单中的应用不允许在当前/指定用户下安装。
@@ -139,6 +145,8 @@ try {
 
 
 ##### bundleManager.getAllowedInstallBundlesSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAllowedInstallBundlesSync(admin: Want, accountId?: number): Array&lt;string&gt;
 
@@ -201,6 +209,8 @@ try {
 
 ##### bundleManager.addDisallowedInstallBundlesSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 addDisallowedInstallBundlesSync(admin: Want, appIds: Array&lt;string&gt;, accountId?: number): void
 
 添加应用至应用程序包安装禁止名单，添加至禁止名单的应用不允许在当前/指定用户下安装。系统应用卸载后重新安装不会受到接口限制；而普通应用在卸载后重新安装时，则会受到接口限制。
@@ -260,6 +270,8 @@ try {
 
 ##### bundleManager.removeDisallowedInstallBundlesSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDisallowedInstallBundlesSync(admin: Want, appIds: Array&lt;string&gt;, accountId?: number): void
 
 在应用程序包安装禁止名单中移除应用，在禁止名单存在的情况下，在应用程序包安装禁止名单中的应用不允许在当前/指定用户下安装。
@@ -318,6 +330,8 @@ try {
 
 
 ##### bundleManager.getDisallowedInstallBundlesSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedInstallBundlesSync(admin: Want, accountId?: number): Array&lt;string&gt;
 
@@ -381,6 +395,8 @@ try {
 
 ##### bundleManager.addDisallowedUninstallBundlesSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 addDisallowedUninstallBundlesSync(admin: Want, appIds: Array&lt;string&gt;, accountId?: number): void
 
 添加应用至包卸载禁止名单，添加至禁止名单的应用不允许在当前/指定用户下卸载。
@@ -441,6 +457,8 @@ try {
 
 ##### bundleManager.removeDisallowedUninstallBundlesSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDisallowedUninstallBundlesSync(admin: Want, appIds: Array&lt;string&gt;, accountId?: number): void
 
 在包卸载禁止名单中移除应用。在禁止名单存在的情况下，在包卸载禁止名单中的应用不允许在当前/指定用户下卸载。
@@ -500,6 +518,8 @@ try {
 
 
 ##### bundleManager.getDisallowedUninstallBundlesSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedUninstallBundlesSync(admin: Want, accountId?: number): Array&lt;string&gt;
 
@@ -562,6 +582,8 @@ try {
 
 
 ##### bundleManager.uninstall
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean): Promise&lt;void&gt;
 
@@ -630,6 +652,8 @@ bundleManager.uninstall(wantTemp, 'bundleName', 100, true).then(() => {
 
 
 ##### bundleManager.install
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 install(admin: Want, hapFilePaths: Array&lt;string&gt;, installParam?: InstallParam): Promise&lt;void&gt;
 
@@ -732,6 +756,8 @@ bundleManager.install(wantTemp, hapFilePaths, installParam).then(() => {
 
 ##### bundleManager.getInstalledBundleList20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getInstalledBundleList(admin: Want, accountId: number): Promise<Array&lt;BundleInfo&gt;>
 
 获取设备指定用户下已安装应用列表。使用Promise异步回调。
@@ -793,6 +819,8 @@ bundleManager.getInstalledBundleList(wantTemp, accountId).then((result) => {
 
 ##### bundleManager.getInstalledBundleList23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getInstalledBundleList(admin: Want, accountId: number, bundleInfoGetFlag: number): Promise<Array&lt;BundleInfo&gt;>
 
 根据给定的bundleInfoGetFlag获取设备指定用户下已安装应用列表。使用Promise异步回调。
@@ -845,7 +873,7 @@ let wantTemp: Want = {
 // 需根据实际情况进行替换
 let accountId: number = 100;
 let bundleInfoGetFlag: number = bundleManager.BundleInfoGetFlag.WITH_APPLICATION_INFO
-| bundleManager.BundleInfoGetFlag.WITH_SIGNATURE_INFO;
+  | bundleManager.BundleInfoGetFlag.WITH_SIGNATURE_INFO;
 bundleManager.getInstalledBundleList(wantTemp, accountId, bundleInfoGetFlag).then((result) => {
   console.info('Succeeded in getting installed bundle list.');
 }).catch((err: BusinessError) => {
@@ -856,6 +884,8 @@ bundleManager.getInstalledBundleList(wantTemp, accountId, bundleInfoGetFlag).the
 
 
 ##### bundleManager.addInstallationAllowedAppDistributionTypes20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array&lt;AppDistributionType&gt;): void
 
@@ -915,6 +945,8 @@ try {
 
 ##### bundleManager.removeInstallationAllowedAppDistributionTypes20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array&lt;AppDistributionType&gt;): void
 
 移除应用的分发类型。若只移除了数组中部分的分发类型，则当前设备可以安装数组中剩下的分发类型的应用，但无法安装[AppDistributionType](#appdistributiontype20)中未添加的分发类型的应用。
@@ -973,6 +1005,8 @@ try {
 
 ##### bundleManager.getInstallationAllowedAppDistributionTypes20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getInstallationAllowedAppDistributionTypes(admin: Want): Array&lt;AppDistributionType&gt;
 
 获取可安装的应用程序签名证书的分发类型。
@@ -1030,6 +1064,8 @@ try {
 
 
 ##### bundleManager.installMarketApps22+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 installMarketApps(admin: Want, bundleNames: Array&lt;string&gt;): void
 
@@ -1091,6 +1127,8 @@ try {
 
 ##### InstallParam
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 应用包安装需指定的参数信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1105,6 +1143,8 @@ try {
 
 
 ##### AppDistributionType20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 应用程序签名证书的分发类型。详细介绍请参见[ApplicationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-applicationinfo#applicationinfo-1)的appDistributionType属性。
 
@@ -1123,6 +1163,8 @@ try {
 
 
 ##### BundleInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 描述应用包信息。
 
@@ -1148,6 +1190,8 @@ try {
 
 ##### SignatureInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 描述应用包的签名信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1163,6 +1207,8 @@ try {
 
 
 ##### ApplicationInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 应用程序信息。
 
@@ -1202,6 +1248,8 @@ try {
 
 ##### Resource20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 资源相关信息，包括应用包名、应用模块名、资源id。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1216,6 +1264,8 @@ try {
 
 
 ##### BundleInfoGetFlag23+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 包信息获取标志，指示需要获取的包信息的内容。
 

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { healthStore } from '@kit.HealthServiceKit';
 ```
@@ -24,6 +26,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### bloodOxygenSaturation
 
+**支持设备：** Phone | Tablet | Wearable
+
 血氧数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -33,6 +37,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -46,6 +52,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.BloodOxygenSaturation
  
@@ -64,6 +72,8 @@ type Model = healthModels.BloodOxygenSaturation
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.BloodOxygenSaturation
  
 血氧采样数据字段列表。
@@ -80,6 +90,8 @@ type Fields = healthFields.BloodOxygenSaturation
   
 
 ##### AggregateResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateResult = healthModels.BloodOxygenSaturationAggregateResult
  
@@ -98,6 +110,8 @@ type AggregateResult = healthModels.BloodOxygenSaturationAggregateResult
 
 ##### AggregateRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 type AggregateRequest = healthModels.BloodOxygenSaturationAggregateRequest
  
 血氧采样数据聚合统计请求模型。
@@ -114,6 +128,8 @@ type AggregateRequest = healthModels.BloodOxygenSaturationAggregateRequest
   
 
 ##### AggregateFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateFields = healthFields.BloodOxygenSaturationAggregation
  
@@ -132,6 +148,8 @@ type AggregateFields = healthFields.BloodOxygenSaturationAggregation
 
 ##### bloodPressure
 
+**支持设备：** Phone | Tablet | Wearable
+
 血压数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -141,6 +159,8 @@ type AggregateFields = healthFields.BloodOxygenSaturationAggregation
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -154,6 +174,8 @@ type AggregateFields = healthFields.BloodOxygenSaturationAggregation
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.BloodPressure
  
@@ -172,6 +194,8 @@ type Model = healthModels.BloodPressure
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.BloodPressure
  
 血压采样数据字段列表。
@@ -189,6 +213,8 @@ type Fields = healthFields.BloodPressure
 
 ##### bodyTemperature
 
+**支持设备：** Phone | Tablet | Wearable
+
 体温数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -198,6 +224,8 @@ type Fields = healthFields.BloodPressure
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -211,6 +239,8 @@ type Fields = healthFields.BloodPressure
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.BodyTemperature
  
@@ -229,6 +259,8 @@ type Model = healthModels.BodyTemperature
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.BodyTemperature
  
 体温采样数据字段列表。
@@ -245,6 +277,8 @@ type Fields = healthFields.BodyTemperature
   
 
 ##### AggregateResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateResult = healthModels.BodyTemperatureAggregateResult
  
@@ -263,6 +297,8 @@ type AggregateResult = healthModels.BodyTemperatureAggregateResult
 
 ##### AggregateRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 type AggregateRequest = healthModels.BodyTemperatureAggregateRequest
  
 体温采样数据聚合统计请求模型。
@@ -279,6 +315,8 @@ type AggregateRequest = healthModels.BodyTemperatureAggregateRequest
   
 
 ##### AggregateFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateFields = healthFields.BodyTemperatureAggregation
  
@@ -297,6 +335,8 @@ type AggregateFields = healthFields.BodyTemperatureAggregation
 
 ##### dailyActivities
 
+**支持设备：** Phone | Tablet | Wearable
+
 日常活动数据类型常量及数据模型。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -308,6 +348,8 @@ type AggregateFields = healthFields.BodyTemperatureAggregation
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -323,6 +365,8 @@ type AggregateFields = healthFields.BodyTemperatureAggregation
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.DailyActivities
  
@@ -341,6 +385,8 @@ type Model = healthModels.DailyActivities
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.DailyActivities
  
 日常活动采样数据字段列表。
@@ -357,6 +403,8 @@ type Fields = healthFields.DailyActivities
   
 
 ##### AggregateResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateResult = healthModels.DailyActivitiesAggregateResult
  
@@ -377,6 +425,8 @@ type AggregateResult = healthModels.DailyActivitiesAggregateResult
 
 ##### AggregateRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 type AggregateRequest = healthModels.DailyActivitiesAggregateRequest
  
 日常活动采样数据聚合统计请求模型。
@@ -395,6 +445,8 @@ type AggregateRequest = healthModels.DailyActivitiesAggregateRequest
   
 
 ##### AggregateFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateFields = healthFields.DailyActivitiesAggregation
  
@@ -415,6 +467,8 @@ type AggregateFields = healthFields.DailyActivitiesAggregation
 
 ##### emotion
 
+**支持设备：** Phone | Tablet | Wearable
+
 情绪数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -424,6 +478,8 @@ type AggregateFields = healthFields.DailyActivitiesAggregation
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -437,6 +493,8 @@ type AggregateFields = healthFields.DailyActivitiesAggregation
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Emotion
  
@@ -455,6 +513,8 @@ type Model = healthModels.Emotion
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.Emotion
  
 情绪采样数据字段列表。
@@ -472,6 +532,8 @@ type Fields = healthFields.Emotion
 
 ##### heartRate
 
+**支持设备：** Phone | Tablet | Wearable
+
 动态心率数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -481,6 +543,8 @@ type Fields = healthFields.Emotion
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -494,6 +558,8 @@ type Fields = healthFields.Emotion
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.HeartRate
  
@@ -512,6 +578,8 @@ type Model = healthModels.HeartRate
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.HeartRate
  
 动态心率采样数据字段列表。
@@ -528,6 +596,8 @@ type Fields = healthFields.HeartRate
   
 
 ##### AggregateResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateResult = healthModels.HeartRateAggregateResult
  
@@ -546,6 +616,8 @@ type AggregateResult = healthModels.HeartRateAggregateResult
 
 ##### AggregateRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 type AggregateRequest = healthModels.HeartRateAggregateRequest
  
 动态心率采样数据聚合统计请求模型。
@@ -562,6 +634,8 @@ type AggregateRequest = healthModels.HeartRateAggregateRequest
   
 
 ##### AggregateFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateFields = healthFields.HeartRateAggregation
  
@@ -580,6 +654,8 @@ type AggregateFields = healthFields.HeartRateAggregation
 
 ##### heartRateVariability
 
+**支持设备：** Phone | Tablet | Wearable
+
 心率变异性数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -589,6 +665,8 @@ type AggregateFields = healthFields.HeartRateAggregation
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -602,6 +680,8 @@ type AggregateFields = healthFields.HeartRateAggregation
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.HeartRateVariability
  
@@ -620,6 +700,8 @@ type Model = healthModels.HeartRateVariability
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.HeartRateVariability
  
 心率变异性采样数据字段列表。
@@ -637,6 +719,8 @@ type Fields = healthFields.HeartRateVariability
 
 ##### height
 
+**支持设备：** Phone | Tablet | Wearable
+
 身高数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -646,6 +730,8 @@ type Fields = healthFields.HeartRateVariability
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -659,6 +745,8 @@ type Fields = healthFields.HeartRateVariability
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Height
  
@@ -677,6 +765,8 @@ type Model = healthModels.Height
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.Height
  
 身高采样数据字段列表。
@@ -694,6 +784,8 @@ type Fields = healthFields.Height
 
 ##### restingHeartRate
 
+**支持设备：** Phone | Tablet | Wearable
+
 静息心率数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -703,6 +795,8 @@ type Fields = healthFields.Height
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -716,6 +810,8 @@ type Fields = healthFields.Height
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.RestingHeartRate
  
@@ -734,6 +830,8 @@ type Model = healthModels.RestingHeartRate
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.RestingHeartRate
  
 静息心率采样数据字段列表。
@@ -750,6 +848,8 @@ type Fields = healthFields.RestingHeartRate
   
 
 ##### AggregateResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateResult = healthModels.RestingHeartRateAggregateResult
  
@@ -768,6 +868,8 @@ type AggregateResult = healthModels.RestingHeartRateAggregateResult
 
 ##### AggregateRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 type AggregateRequest = healthModels.RestingHeartRateAggregateRequest
  
 静息心率采样数据聚合统计请求模型。
@@ -784,6 +886,8 @@ type AggregateRequest = healthModels.RestingHeartRateAggregateRequest
   
 
 ##### AggregateFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateFields = healthFields.RestingHeartRateAggregation
  
@@ -802,6 +906,8 @@ type AggregateFields = healthFields.RestingHeartRateAggregation
 
 ##### skinTemperature
 
+**支持设备：** Phone | Tablet | Wearable
+
 皮肤体温数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -811,6 +917,8 @@ type AggregateFields = healthFields.RestingHeartRateAggregation
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -824,6 +932,8 @@ type AggregateFields = healthFields.RestingHeartRateAggregation
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.SkinTemperature
  
@@ -842,6 +952,8 @@ type Model = healthModels.SkinTemperature
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.SkinTemperature
  
 皮肤体温采样数据字段列表。
@@ -858,6 +970,8 @@ type Fields = healthFields.SkinTemperature
   
 
 ##### AggregateResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateResult = healthModels.SkinTemperatureAggregateResult
  
@@ -876,6 +990,8 @@ type AggregateResult = healthModels.SkinTemperatureAggregateResult
 
 ##### AggregateRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 type AggregateRequest = healthModels.SkinTemperatureAggregateRequest
  
 皮肤体温采样数据聚合统计请求模型。
@@ -892,6 +1008,8 @@ type AggregateRequest = healthModels.SkinTemperatureAggregateRequest
   
 
 ##### AggregateFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateFields = healthFields.SkinTemperatureAggregation
  
@@ -910,6 +1028,8 @@ type AggregateFields = healthFields.SkinTemperatureAggregation
 
 ##### stress
 
+**支持设备：** Phone | Tablet | Wearable
+
 压力数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -919,6 +1039,8 @@ type AggregateFields = healthFields.SkinTemperatureAggregation
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -932,6 +1054,8 @@ type AggregateFields = healthFields.SkinTemperatureAggregation
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Stress
  
@@ -950,6 +1074,8 @@ type Model = healthModels.Stress
 
 ##### Fields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Fields = healthFields.Stress
  
 压力采样数据字段列表。
@@ -966,6 +1092,8 @@ type Fields = healthFields.Stress
   
 
 ##### AggregateResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateResult = healthModels.StressAggregateResult
  
@@ -984,6 +1112,8 @@ type AggregateResult = healthModels.StressAggregateResult
 
 ##### AggregateRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 type AggregateRequest = healthModels.StressAggregateRequest
  
 压力采样数据聚合统计请求模型。
@@ -1000,6 +1130,8 @@ type AggregateRequest = healthModels.StressAggregateRequest
   
 
 ##### AggregateFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateFields = healthFields.StressAggregation
  
@@ -1018,6 +1150,8 @@ type AggregateFields = healthFields.StressAggregation
 
 ##### weight
 
+**支持设备：** Phone | Tablet | Wearable
+
 体重数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1027,6 +1161,8 @@ type AggregateFields = healthFields.StressAggregation
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1040,6 +1176,8 @@ type AggregateFields = healthFields.StressAggregation
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Weight
  
@@ -1057,6 +1195,8 @@ type Model = healthModels.Weight
   
 
 ##### Fields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Fields = healthFields.Weight
  

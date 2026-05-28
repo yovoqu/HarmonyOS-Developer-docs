@@ -25,6 +25,8 @@ Deque和[Queue](https://developer.huawei.com/consumer/cn/doc/harmonyos-reference
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Deque } from '@kit.ArkTS';
 ```
@@ -33,9 +35,13 @@ import { Deque } from '@kit.ArkTS';
 
 ##### Deque
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -49,6 +55,8 @@ import { Deque } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -76,6 +84,8 @@ let deque = new Deque<string | number | boolean | Object>();
 
 
 ##### insertFront
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 insertFront(element: T): void
 
@@ -124,6 +134,8 @@ console.info("result:", deque[0]);  // result: false
 
 ##### insertEnd
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 insertEnd(element: T): void
 
 在deque尾部插入元素。
@@ -171,6 +183,8 @@ console.info("result:", deque[0]);  // result: a
 
 ##### has
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 has(element: T): boolean
 
 判断此Deque中是否包含指定元素。
@@ -215,6 +229,8 @@ console.info("result:", result);  // result: true
 
 ##### popFirst
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popFirst(): T
 
 删除并返回双端队列的首元素。
@@ -256,6 +272,8 @@ console.info("result:", result);  // result: 4
 
 ##### popLast
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popLast(): T
 
 删除并返回双端队列的尾元素。
@@ -296,6 +314,8 @@ console.info("result:", result);  // result: 6
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value: T, index?: number, deque?: Deque&lt;T&gt;) => void, thisArg?: Object): void
 
@@ -355,6 +375,8 @@ deque.forEach((value: number, index: number): void => {
 
 ##### getFirst
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFirst(): T
 
 获取Deque实例的头元素。
@@ -395,6 +417,8 @@ console.info("result:", result);  // result: 4
 
 ##### getLast
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLast(): T
 
 获取Deque实例的尾元素。
@@ -434,6 +458,8 @@ console.info("result:", result);  // result: 2
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
 

@@ -12,6 +12,8 @@ typedef struct ArkUI_BarrierOption ArkUI_BarrierOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 barrier参数，用于定义barrier的id、方向和生成时所依赖的组件。
  
 **起始版本：** 12

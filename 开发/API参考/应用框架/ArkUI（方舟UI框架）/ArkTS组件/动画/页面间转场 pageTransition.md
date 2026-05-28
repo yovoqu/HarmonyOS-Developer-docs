@@ -14,6 +14,8 @@
 
 ##### PageTransitionEnter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PageTransitionEnter(value: PageTransitionOptions)
 
 设置当前页面的自定义入场动效。继承自[CommonTransition](#commontransition)。
@@ -32,6 +34,8 @@ PageTransitionEnter(value: PageTransitionOptions)
 
 
 ##### onEnter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onEnter(event: PageTransitionCallback): PageTransitionEnterInterface
 
@@ -64,6 +68,8 @@ pageTransition() {
 
 ##### PageTransitionExit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PageTransitionExit(value: PageTransitionOptions)
 
 设置当前页面的自定义退场动效。继承自[CommonTransition](#commontransition)。
@@ -82,6 +88,8 @@ PageTransitionExit(value: PageTransitionOptions)
 
 
 ##### onExit
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onExit(event: PageTransitionCallback): PageTransitionExitInterface
 
@@ -114,6 +122,8 @@ pageTransition() {
 
 ##### PageTransitionOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 退场/进场动效的参数。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -132,6 +142,8 @@ pageTransition() {
 
 ##### CommonTransition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 页面转场通用动效。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -141,6 +153,8 @@ pageTransition() {
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -153,6 +167,8 @@ constructor()
 
 
 ##### slide
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 slide(value: SlideEffect): T
 
@@ -180,6 +196,8 @@ slide(value: SlideEffect): T
 
 ##### translate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 translate(value: TranslateOptions): T
 
 设置页面转场时的平移效果。
@@ -205,6 +223,8 @@ translate(value: TranslateOptions): T
 
 
 ##### scale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 scale(value: ScaleOptions): T
 
@@ -232,6 +252,8 @@ scale(value: ScaleOptions): T
 
 ##### opacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 opacity(value: number): T
 
 设置入场的起点透明度值或者退场的终点透明度值。
@@ -258,6 +280,8 @@ opacity(value: number): T
 
 ##### PageTransitionCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 页面转场事件回调。
@@ -276,6 +300,8 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 ##### RouteType枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 页面转场类型。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -292,6 +318,8 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 
 ##### SlideEffect枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 页面转场时的滑入滑出效果。
 
@@ -312,6 +340,8 @@ type PageTransitionCallback = (type: RouteType, progress: number) => void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -616,4 +646,4 @@ struct Page1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/1QxmDhfFTX6aVNlayMH8iA/zh-cn_image_0000002611835993.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013904Z&HW-CC-Expire=86400&HW-CC-Sign=8D68A1D3C3F5BF8A5F141CC586C5B194A8D7061959317499C7A9318DA8FA84D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/1QxmDhfFTX6aVNlayMH8iA/zh-cn_image_0000002611835993.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=C942BBF02ABA8251BB6611A2A28609554140D4296CB0F8A067B883F821AAA304)

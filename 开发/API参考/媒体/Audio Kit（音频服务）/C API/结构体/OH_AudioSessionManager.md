@@ -12,6 +12,8 @@ typedef struct OH_AudioSessionManager OH_AudioSessionManager
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明音频会话管理器。用于管理音频会话相关功能。
  
 **起始版本：** 12

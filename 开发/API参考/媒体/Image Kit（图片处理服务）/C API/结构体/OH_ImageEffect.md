@@ -12,6 +12,8 @@ typedef struct OH_ImageEffect OH_ImageEffect
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义效果器结构类型。
  
 **起始版本：** 12

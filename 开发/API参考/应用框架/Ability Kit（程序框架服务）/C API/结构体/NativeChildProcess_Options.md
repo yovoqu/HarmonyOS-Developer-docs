@@ -12,6 +12,8 @@ typedef struct {...} NativeChildProcess_Options
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 启动子进程的配置选项。
  
 **起始版本：** 13
@@ -24,9 +26,13 @@ typedef struct {...} NativeChildProcess_Options
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

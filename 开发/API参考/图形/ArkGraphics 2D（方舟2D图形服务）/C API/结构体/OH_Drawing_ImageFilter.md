@@ -12,6 +12,8 @@ typedef struct OH_Drawing_ImageFilter OH_Drawing_ImageFilter
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义图像滤波器, 用于对构成图像像素的所有颜色位进行操作。
  
 **起始版本：** 12

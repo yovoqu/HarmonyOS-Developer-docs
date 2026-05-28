@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于验证远程服务器标识的证书颁发机构（CA）。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### content
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char* Rcp_CertificateAuthority::content
@@ -50,6 +60,8 @@ char* Rcp_CertificateAuthority::content
 
 ##### filePath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 char* Rcp_CertificateAuthority::filePath
 ```
@@ -61,6 +73,8 @@ char* Rcp_CertificateAuthority::filePath
   
 
 ##### folderPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char* Rcp_CertificateAuthority::folderPath

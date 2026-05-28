@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { rag } from '@kit.DataAugmentationKit';
 ```
@@ -19,6 +21,8 @@ import { rag } from '@kit.DataAugmentationKit';
   
 
 ##### LLMStreamAnswer
+
+**支持设备：** PC/2in1
 
 大模型流式问答的单次结果。
  
@@ -38,6 +42,8 @@ import { rag } from '@kit.DataAugmentationKit';
   
 
 ##### LLMRequestStatus
+
+**支持设备：** PC/2in1
 
 流式请求大语言模型请求状态的枚举值。
  
@@ -60,6 +66,8 @@ import { rag } from '@kit.DataAugmentationKit';
 
 ##### LLMRequestInfo
 
+**支持设备：** PC/2in1
+
 流式请求大语言模型请求结果的信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -78,6 +86,8 @@ import { rag } from '@kit.DataAugmentationKit';
 
 ##### ChatLLM
 
+**支持设备：** PC/2in1
+
 用于请求大模型的抽象类。开发者需继承此类并根据业务逻辑实现各接口逻辑。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -89,6 +99,8 @@ import { rag } from '@kit.DataAugmentationKit';
   
 
 ##### streamChat
+
+**支持设备：** PC/2in1
 
 abstract streamChat(query: string, callback: Callback&lt;LLMStreamAnswer&gt;): Promise&lt;LLMRequestInfo&gt;
  
@@ -160,6 +172,8 @@ class MyChatLLM extends rag.ChatLLM {
 
 ##### cancel
 
+**支持设备：** PC/2in1
+
 abstract cancel(chatId: number): void
  
 取消流式请求大语言模型，用于暂停与大语言模型交互。
@@ -202,6 +216,8 @@ class MyChatLLM extends rag.ChatLLM {
   
 
 ##### Config
+
+**支持设备：** PC/2in1
 
 RAG会话的配置项。
  
@@ -248,6 +264,8 @@ let config: rag.Config = {
 
 ##### Answer
 
+**支持设备：** PC/2in1
+
 流式问答的数据。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -265,6 +283,8 @@ let config: rag.Config = {
   
 
 ##### StreamType
+
+**支持设备：** PC/2in1
 
 流式问答回答的类型。
  
@@ -285,6 +305,8 @@ let config: rag.Config = {
 
 ##### Stream
 
+**支持设备：** PC/2in1
+
 流式问答中一次回答的结果信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -304,6 +326,8 @@ let config: rag.Config = {
 
 ##### RunConfig
 
+**支持设备：** PC/2in1
+
 流式问答的配置项。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -320,6 +344,8 @@ let config: rag.Config = {
   
 
 ##### FeedbackInfo
+
+**支持设备：** PC/2in1
 
 用户反馈信息。
  
@@ -341,6 +367,8 @@ let config: rag.Config = {
 
 ##### RagSession
 
+**支持设备：** PC/2in1
+
 RAG会话，用以提供基于知识库的智能问答能力。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -352,6 +380,8 @@ RAG会话，用以提供基于知识库的智能问答能力。
   
 
 ##### streamRun
+
+**支持设备：** PC/2in1
 
 streamRun(question: string, config: RunConfig, callback: AsyncCallback&lt;Stream&gt;): Promise&lt;number&gt;
  
@@ -444,6 +474,8 @@ if (session != null) {
 
 ##### cancel
 
+**支持设备：** PC/2in1
+
 cancel(runId: number): Promise&lt;void&gt;
  
 取消本次问答，使用Promise异步回调。
@@ -501,6 +533,8 @@ if (session != null) {
 
 ##### close
 
+**支持设备：** PC/2in1
+
 close(): Promise&lt;void&gt;
  
 关闭会话，使用Promise异步回调。
@@ -547,6 +581,8 @@ function WindowStageDestroy(): void {
   
 
 ##### createRagSession
+
+**支持设备：** PC/2in1
 
 createRagSession(context: common.Context, config: Config): Promise&lt;RagSession&gt;
  
@@ -638,6 +674,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### feedback
+
+**支持设备：** PC/2in1
 
 feedback(context: common.Context, feedbackInfo: FeedbackInfo): Promise&lt;void&gt;
  

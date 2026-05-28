@@ -12,6 +12,8 @@ typedef struct ArkUI_GridLayoutOptions ArkUI_GridLayoutOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义Grid布局选项。
  
 **起始版本：** 22

@@ -12,6 +12,8 @@ typedef struct OH_CryptoKdfParams OH_CryptoKdfParams
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义密钥派生函数(KDF)参数结构。
  
 **起始版本：** 20

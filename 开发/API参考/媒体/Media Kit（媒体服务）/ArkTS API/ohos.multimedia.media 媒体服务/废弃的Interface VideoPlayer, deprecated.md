@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -21,6 +23,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Media.VideoPlayer
 
@@ -41,6 +45,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### setDisplaySurface(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDisplaySurface(surfaceId: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -78,6 +84,8 @@ videoPlayer.setDisplaySurface(surfaceId, (err: BusinessError) => {
 
 
 ##### setDisplaySurface(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDisplaySurface(surfaceId: string): Promise&lt;void&gt;
 
@@ -120,6 +128,8 @@ videoPlayer.setDisplaySurface(surfaceId).then(() => {
 
 ##### prepare(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 prepare(callback: AsyncCallback&lt;void&gt;): void
 
 准备播放视频。通过回调函数获取返回值。
@@ -155,6 +165,8 @@ videoPlayer.prepare((err: BusinessError) => {
 
 ##### prepare(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 prepare(): Promise&lt;void&gt;
 
 准备播放视频。通过Promise获取返回值。
@@ -187,6 +199,8 @@ videoPlayer.prepare().then(() => {
 
 
 ##### play(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 play(callback: AsyncCallback&lt;void&gt;): void
 
@@ -223,6 +237,8 @@ videoPlayer.play((err: BusinessError) => {
 
 ##### play(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 play(): Promise&lt;void&gt;
 
 开始播放视频。通过Promise获取返回值。
@@ -255,6 +271,8 @@ videoPlayer.play().then(() => {
 
 
 ##### pause(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pause(callback: AsyncCallback&lt;void&gt;): void
 
@@ -291,6 +309,8 @@ videoPlayer.pause((err: BusinessError) => {
 
 ##### pause(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pause(): Promise&lt;void&gt;
 
 暂停播放视频。通过Promise获取返回值。
@@ -323,6 +343,8 @@ videoPlayer.pause().then(() => {
 
 
 ##### stop(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(callback: AsyncCallback&lt;void&gt;): void
 
@@ -359,6 +381,8 @@ videoPlayer.stop((err: BusinessError) => {
 
 ##### stop(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
 
 停止播放视频。通过Promise获取返回值。
@@ -391,6 +415,8 @@ videoPlayer.stop().then(() => {
 
 
 ##### reset(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reset(callback: AsyncCallback&lt;void&gt;): void
 
@@ -427,6 +453,8 @@ videoPlayer.reset((err: BusinessError) => {
 
 ##### reset(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset(): Promise&lt;void&gt;
 
 重置播放视频。通过Promise获取返回值。
@@ -459,6 +487,8 @@ videoPlayer.reset().then(() => {
 
 
 ##### seek(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 seek(timeMs: number, callback: AsyncCallback&lt;number&gt;): void
 
@@ -506,6 +536,8 @@ videoPlayer.seek(seekTime, (err: BusinessError, result: number) => {
 
 
 ##### seek(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 seek(timeMs: number, mode:SeekMode, callback: AsyncCallback&lt;number&gt;): void
 
@@ -555,6 +587,8 @@ if (videoPlayer) {
 
 
 ##### seek(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 seek(timeMs: number, mode?:SeekMode): Promise&lt;number&gt;
 
@@ -615,6 +649,8 @@ if (videoPlayer) {
 
 ##### setVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVolume(vol: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置音量。通过回调函数获取返回值。
@@ -651,6 +687,8 @@ videoPlayer.setVolume(vol, (err: BusinessError) => {
 
 
 ##### setVolume(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setVolume(vol: number): Promise&lt;void&gt;
 
@@ -693,6 +731,8 @@ videoPlayer.setVolume(vol).then(() => {
 
 ##### release(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(callback: AsyncCallback&lt;void&gt;): void
 
 释放视频资源。通过回调函数获取返回值。
@@ -728,6 +768,8 @@ videoPlayer.release((err: BusinessError) => {
 
 ##### release(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放视频资源。通过Promise获取返回值。
@@ -760,6 +802,8 @@ videoPlayer.release().then(() => {
 
 
 ##### getTrackDescription(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTrackDescription(callback: AsyncCallback<Array&lt;MediaDescription&gt;>): void
 
@@ -795,6 +839,8 @@ videoPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.Medi
 
 
 ##### getTrackDescription(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTrackDescription(): Promise<Array&lt;MediaDescription&gt;>
 
@@ -832,6 +878,8 @@ videoPlayer.getTrackDescription().then((arrList: Array<media.MediaDescription>) 
 
 
 ##### setSpeed(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSpeed(speed: number, callback: AsyncCallback&lt;number&gt;): void
 
@@ -880,6 +928,8 @@ if (videoPlayer) {
 
 
 ##### setSpeed(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSpeed(speed: number): Promise&lt;number&gt;
 
@@ -933,6 +983,8 @@ if (videoPlayer) {
 
 ##### on('playbackCompleted')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'playbackCompleted', callback: Callback&lt;void&gt;): void
 
 开始监听视频播放完成事件。
@@ -962,6 +1014,8 @@ videoPlayer.on('playbackCompleted', () => {
 
 
 ##### on('bufferingUpdate')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'bufferingUpdate', callback: (infoType: BufferingInfoType, value: number) => void): void
 
@@ -994,6 +1048,8 @@ videoPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: num
 
 ##### on('startRenderFrame')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'startRenderFrame', callback: Callback&lt;void&gt;): void
 
 开始监听视频播放首帧送显上报事件。
@@ -1023,6 +1079,8 @@ videoPlayer.on('startRenderFrame', () => {
 
 
 ##### on('videoSizeChanged')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'videoSizeChanged', callback: (width: number, height: number) => void): void
 
@@ -1055,6 +1113,8 @@ videoPlayer.on('videoSizeChanged', (width: number, height: number) => {
 
 ##### on('audioInterrupt')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'audioInterrupt', callback: (info: audio.InterruptEvent) => void): void
 
 监听音频焦点变化事件，参考[audio.InterruptEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#interruptevent9)。
@@ -1086,6 +1146,8 @@ videoPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
 
 
 ##### on('error')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { knowledgeProcessor } from '@kit.DataAugmentationKit';
 ```
@@ -21,6 +23,8 @@ import { knowledgeProcessor } from '@kit.DataAugmentationKit';
   
 
 ##### getKnowledgeProcessor
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getKnowledgeProcessor(context: common.BaseContext, config: KnowledgeProcessorConfig): Promise&lt;KnowledgeProcessor&gt;
  
@@ -95,6 +99,8 @@ async function getProcessor() {
 
 ##### cleanKnowledgeData
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 cleanKnowledgeData(context: common.BaseContext, config: KnowledgeProcessorConfig): Promise&lt;void&gt;
  
 根据入参中的知识加工配置获取对应知识库信息，将对应知识库进行清空。使用promise异步回调。
@@ -164,6 +170,8 @@ async function cleanKnowledgeData() {
 
 ##### KnowledgeProcessorConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 管理知识加工对象的配置。
  
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
@@ -178,6 +186,8 @@ async function cleanKnowledgeData() {
   
 
 ##### KnowledgeSourceConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 管理知识数据源配置。
  
@@ -194,6 +204,8 @@ async function cleanKnowledgeData() {
 
 ##### KnowledgeProcessConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 知识加工配置。
  
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
@@ -208,6 +220,8 @@ async function cleanKnowledgeData() {
   
 
 ##### KnowledgeProcessorMode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 知识加工模式。
  
@@ -225,6 +239,8 @@ async function cleanKnowledgeData() {
 
 ##### KnowledgeProcessor
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 知识加工对象，用于获取知识加工状态等操作。
  
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
@@ -234,6 +250,8 @@ async function cleanKnowledgeData() {
   
 
 ##### getStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getStatus(): Promise&lt;ProcessorStatus&gt;
  
@@ -296,6 +314,8 @@ async function getStatus() {
   
 
 ##### startProcess
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startProcess(config: KnowledgeProcessConfig): Promise&lt;void&gt;
  
@@ -369,6 +389,8 @@ async function startProcess() {
 
 ##### stopProcess
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 stopProcess(): Promise&lt;void&gt;
  
 停止当前知识加工。使用promise异步回调。
@@ -420,6 +442,8 @@ async function stopProcess() {
   
 
 ##### ProcessorStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 知识加工状态。
  

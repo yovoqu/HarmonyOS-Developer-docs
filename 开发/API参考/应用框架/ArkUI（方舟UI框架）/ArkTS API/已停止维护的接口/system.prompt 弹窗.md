@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import prompt from '@system.prompt';
 ```
@@ -21,6 +23,8 @@ import prompt from '@system.prompt';
   
 
 ##### prompt.showToast
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showToast(options: ShowToastOptions): void
  
@@ -53,6 +57,8 @@ export default new A()
   
 
 ##### prompt.showDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showDialog(options: ShowDialogOptions): void
  
@@ -97,6 +103,8 @@ export default new B()
   
 
 ##### prompt.showActionMenu6+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showActionMenu(options: ShowActionMenuOptions): void
  
@@ -145,6 +153,8 @@ export default new C()
 
 ##### ShowToastOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义ShowToast的选项。
  
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.ArkUI.ArkUI.Full
@@ -160,6 +170,8 @@ export default new C()
 
 ##### Button
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义按钮的提示信息。
  
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.ArkUI.ArkUI.Full
@@ -174,6 +186,8 @@ export default new C()
 
 ##### ShowDialogSuccessResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义ShowDialog的响应。
  
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.ArkUI.ArkUI.Full
@@ -186,6 +200,8 @@ export default new C()
   
 
 ##### ShowDialogOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义显示对话框的选项。
  
@@ -204,6 +220,8 @@ export default new C()
   
 
 ##### ShowActionMenuOptions6+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义ShowActionMenu的选项。
  

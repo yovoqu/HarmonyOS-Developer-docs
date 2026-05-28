@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { InsightIntentExecutor } from '@kit.AbilityKit';
 ```
@@ -24,11 +26,15 @@ import { InsightIntentExecutor } from '@kit.AbilityKit';
 
 ##### InsightIntentExecutor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示意图执行基类。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -42,6 +48,8 @@ import { InsightIntentExecutor } from '@kit.AbilityKit';
 
 
 ##### onExecuteInUIAbilityForegroundMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, pageLoader: window.WindowStage): insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>
 
@@ -163,6 +171,8 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 ##### onExecuteInUIAbilityBackgroundMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onExecuteInUIAbilityBackgroundMode(name: string, param: Record<string, Object>): insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>
 
 当意图执行依赖[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)组件后台启动时，会在UIAbility组件生命周期执行中触发本意图执行接口。支持同步返回和使用Promise异步返回。
@@ -240,6 +250,8 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 
 ##### onExecuteInUIExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession): insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>
 
@@ -348,6 +360,8 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 
 ##### onExecuteInServiceExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onExecuteInServiceExtensionAbility(name: string, param: Record<string, Object>): insightIntent.ExecuteResult | Promise<insightIntent.ExecuteResult>
 

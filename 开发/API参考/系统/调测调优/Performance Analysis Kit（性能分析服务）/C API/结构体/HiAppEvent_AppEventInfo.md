@@ -12,6 +12,8 @@ typedef struct HiAppEvent_AppEventInfo {...} HiAppEvent_AppEventInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 单个事件信息，包含事件领域、事件名称、事件类型和事件携带的用json格式字符串表示的自定义参数列表。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct HiAppEvent_AppEventInfo {...} HiAppEvent_AppEventInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

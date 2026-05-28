@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供ArkUI在Native侧的RenderNode能力，包括RenderNode的创建和销毁，树节点的操作以及属性设置。
  
 **起始版本：** 20
@@ -14,6 +16,8 @@
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

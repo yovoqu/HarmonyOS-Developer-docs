@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 InputMethod模块提供方法来使用输入法和开发输入法。
  
 **起始版本：** 12
@@ -14,6 +16,8 @@ InputMethod模块提供方法来使用输入法和开发输入法。
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

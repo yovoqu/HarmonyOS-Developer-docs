@@ -14,6 +14,8 @@ Web组件数据库管理对象。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### getHttpAuthCredentials
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getHttpAuthCredentials(host: string, realm: string): Array&lt;string&gt;
 
@@ -88,6 +92,8 @@ struct WebComponent {
 
 ##### saveHttpAuthCredentials
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void
 
 保存给定主机和域的HTTP身份验证凭据，该方法为同步方法。
@@ -147,6 +153,8 @@ struct WebComponent {
 
 ##### existHttpAuthCredentials
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static existHttpAuthCredentials(): boolean
 
 判断是否存在任何已保存的HTTP身份验证凭据，该方法为同步方法。
@@ -191,6 +199,8 @@ struct WebComponent {
 
 
 ##### deleteHttpAuthCredentials
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static deleteHttpAuthCredentials(): void
 

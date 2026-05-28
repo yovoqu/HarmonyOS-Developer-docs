@@ -14,17 +14,23 @@ tab页签容器。
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅支持<[tab-bar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tab-bar)>和<[tab-content](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-tab-content)>。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
   
@@ -38,11 +44,15 @@ tab页签容器。
 
 ##### 样式
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)。
  
   
 
 ##### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)外，还支持如下事件：
   
@@ -54,6 +64,8 @@ tab页签容器。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -123,4 +135,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/U17eMGWYRm2GbW1teRPr0w/zh-cn_image_0000002581436326.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013812Z&HW-CC-Expire=86400&HW-CC-Sign=B62305DBF1AD3E4FA2248915856FDD8469FC1970ECBE6E96F9C6BD7105913876)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/U17eMGWYRm2GbW1teRPr0w/zh-cn_image_0000002581436326.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024108Z&HW-CC-Expire=86400&HW-CC-Sign=13E1B239644BAB850F3264F39CB1969B60398B18153776F5B9F1D4C73C925B58)

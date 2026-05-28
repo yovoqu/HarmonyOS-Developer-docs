@@ -12,6 +12,8 @@ typedef struct {...} OH_IPC_MessageOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 IPC消息选项定义。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ IPC消息选项定义。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

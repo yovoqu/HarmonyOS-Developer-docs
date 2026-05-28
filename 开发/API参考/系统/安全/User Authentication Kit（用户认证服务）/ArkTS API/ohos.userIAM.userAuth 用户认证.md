@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { userAuth } from '@kit.UserAuthenticationKit';
 ```
@@ -21,6 +23,8 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **系统能力：** SystemCapability.UserIAM.UserAuth.Core
 
@@ -33,6 +37,8 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 ##### AuthLockState22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 认证类型的身份认证冻结状态。
 
@@ -50,6 +56,8 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 ##### UserAuthTipCode20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示身份认证中间状态的枚举。
 
@@ -72,6 +80,8 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 ##### EnrolledState12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用户注册凭据的状态。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -88,6 +98,8 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 ##### ReuseMode12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 复用解锁认证结果的模式。
 
 **系统能力：** SystemCapability.UserIAM.UserAuth.Core
@@ -103,6 +115,8 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 ##### ReuseUnlockResult12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 复用解锁认证结果。
 
@@ -123,6 +137,8 @@ import { userAuth } from '@kit.UserAuthenticationKit';
 
 
 ##### userAuth.getAuthLockState22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getAuthLockState(authType: UserAuthType): Promise&lt;AuthLockState&gt;
 
@@ -188,6 +204,8 @@ userAuth.getAuthLockState(queryType)
 
 ##### userAuth.getEnrolledState12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getEnrolledState(authType: UserAuthType): EnrolledState
 
 查询凭据注册的状态，以检测用户注册凭据的变更。
@@ -244,6 +262,8 @@ try {
 
 ##### AuthParam10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用户认证相关参数。
 
 **系统能力：** SystemCapability.UserIAM.UserAuth.Core
@@ -261,6 +281,8 @@ try {
 
 ##### WidgetParam10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用户认证界面配置相关参数。
 
 **系统能力：** SystemCapability.UserIAM.UserAuth.Core
@@ -275,6 +297,8 @@ try {
 
 
 ##### UserAuthResult10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 用户认证结果。认证成功时，返回认证类型和认证成功的令牌信息。
 
@@ -294,11 +318,15 @@ try {
 
 ##### IAuthCallback10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 返回认证结果的回调对象。
 
 
 
 ##### onResult10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 onResult(result: UserAuthResult): void
 
@@ -477,6 +505,8 @@ try {
 
 ##### AuthTipInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用户认证中间状态。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -492,6 +522,8 @@ try {
 
 
 ##### AuthTipCallback20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type AuthTipCallback = (authTipInfo: AuthTipInfo) => void
 
@@ -558,6 +590,8 @@ try {
 
 ##### UserAuthInstance10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用于执行用户身份认证，并支持使用统一用户身份认证控件。
 
 使用以下接口前，需先通过[getUserAuthInstance](#userauthgetuserauthinstance10)方法获取UserAuthInstance对象。
@@ -565,6 +599,8 @@ try {
 
 
 ##### on('result')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'result', callback: IAuthCallback): void
 
@@ -716,6 +752,8 @@ struct Index {
 
 ##### off('result')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'result', callback?: IAuthCallback): void
 
 取消订阅用户身份认证的结果。
@@ -793,6 +831,8 @@ try {
 
 
 ##### start10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 start(): void
 
@@ -877,6 +917,8 @@ try {
 
 ##### cancel10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 cancel(): void
 
 取消认证。
@@ -946,6 +988,8 @@ try {
 
 
 ##### on('authTip')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'authTip', callback: AuthTipCallback): void
 
@@ -1025,6 +1069,8 @@ try {
 
 ##### off('authtip')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'authTip', callback?: AuthTipCallback): void
 
 取消订阅用户身份认证中间状态。
@@ -1099,6 +1145,8 @@ try {
 
 
 ##### userAuth.getUserAuthInstance10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getUserAuthInstance(authParam: AuthParam, widgetParam: WidgetParam): UserAuthInstance
 
@@ -1181,6 +1229,8 @@ try {
 
 ##### AuthResultInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示认证结果信息，用于描述认证结果。
 
 > [!NOTE]
@@ -1201,6 +1251,8 @@ try {
 
 ##### TipInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示认证过程中的提示信息，用于提供认证过程的反馈。
 
 > [!TIP]
@@ -1218,6 +1270,8 @@ try {
 
 
 ##### EventInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type EventInfo = AuthResultInfo | TipInfo
 
@@ -1241,6 +1295,8 @@ type EventInfo = AuthResultInfo | TipInfo
 
 ##### AuthEventKey(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 type AuthEventKey = 'result' | 'tip'
 
 表示认证事件类型的关键字，作为[on](#ondeprecated)接口的参数。
@@ -1263,6 +1319,8 @@ type AuthEventKey = 'result' | 'tip'
 
 ##### AuthEvent(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 认证接口的异步回调对象。
 
 > [!NOTE]
@@ -1272,6 +1330,8 @@ type AuthEventKey = 'result' | 'tip'
 
 
 ##### callback(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 callback(result : EventInfo) : void
 
@@ -1341,6 +1401,8 @@ try {
 
 ##### AuthInstance(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 执行用户认证的对象。
 
 > [!NOTE]
@@ -1350,6 +1412,8 @@ try {
 
 
 ##### on(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on : (name : AuthEventKey, callback : AuthEvent) => void
 
@@ -1422,6 +1486,8 @@ try {
 
 ##### off(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off : (name : AuthEventKey) => void
 
 取消订阅特定类型的认证事件。
@@ -1476,6 +1542,8 @@ try {
 
 ##### start(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 start : () => void
 
 开始认证。
@@ -1529,6 +1597,8 @@ try {
 
 ##### cancel(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 cancel : () => void
 
 取消认证。
@@ -1573,6 +1643,8 @@ try {
 
 
 ##### userAuth.getAuthInstance(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getAuthInstance(challenge : Uint8Array, authType : UserAuthType, authTrustLevel : AuthTrustLevel): AuthInstance
 
@@ -1633,6 +1705,8 @@ try {
 
 ##### userAuth.getAvailableStatus9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): void
 
 查询指定类型和等级的认证能力是否支持。
@@ -1656,7 +1730,7 @@ getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): vo
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/A-oGPOjxTjm096Hyl4aUhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013626Z&HW-CC-Expire=86400&HW-CC-Sign=D5C90D13DCED7295DBFEA28837D7374C5D8F0ED278110EE4B9E7F9B37BB03848)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/A-oGPOjxTjm096Hyl4aUhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023924Z&HW-CC-Expire=86400&HW-CC-Sign=F39F934DC72ED1CE48DB62BD4D282CECE0337131A048AF0387FC42D6294E5078)
 
 
 若用户注册的锁屏口令是4位PIN时，其认证可信等级为ATL3，调用该接口查询是否支持ATL4级别的密码认证时，需返回12500010。
@@ -1695,6 +1769,8 @@ try {
 
 ##### UserAuthResultCode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示返回码的枚举。
 
 **系统能力：** SystemCapability.UserIAM.UserAuth.Core
@@ -1720,11 +1796,15 @@ try {
 
 ##### UserAuth(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 认证器对象。
 
 
 
 ##### constructor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 constructor()
 
@@ -1747,6 +1827,8 @@ let auth = new userAuth.UserAuth();
 
 
 ##### getVersion(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getVersion() : number
 
@@ -1780,6 +1862,8 @@ console.info(`auth version = ${version}`);
 
 
 ##### getAvailableStatus(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel) : number
 
@@ -1825,6 +1909,8 @@ if (checkCode == userAuth.ResultCode.SUCCESS) {
 
 
 ##### auth(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 auth(challenge: Uint8Array, authType: UserAuthType, authTrustLevel: AuthTrustLevel, callback: IUserAuthCallback): Uint8Array
 
@@ -1882,6 +1968,8 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 ##### cancelAuth(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 cancelAuth(contextID : Uint8Array) : number
 
 表示通过contextID取消本次认证。
@@ -1928,6 +2016,8 @@ if (cancelCode == userAuth.ResultCode.SUCCESS) {
 
 ##### IUserAuthCallback(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 返回认证结果的回调对象。
 
 > [!NOTE]
@@ -1937,6 +2027,8 @@ if (cancelCode == userAuth.ResultCode.SUCCESS) {
 
 
 ##### onResult(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 onResult: (result : number, extraInfo : AuthResult) => void
 
@@ -1982,6 +2074,8 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 ##### onAcquireInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 onAcquireInfo ?: (module : number, acquire : number, extraInfo : any) => void
 
@@ -2036,6 +2130,8 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 ##### AuthResult(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示认证结果的对象。
 
 > [!NOTE]
@@ -2054,6 +2150,8 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 ##### ResultCode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示返回码的枚举。
 
@@ -2082,6 +2180,8 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 ##### FaceTips(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示人脸认证过程中提示码的枚举。
 
 > [!NOTE]
@@ -2109,6 +2209,8 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 ##### FingerprintTips(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示指纹认证过程中提示码的枚举。
 
 > [!NOTE]
@@ -2131,6 +2233,8 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 ##### UserAuthType8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示身份认证的凭据类型枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -2147,6 +2251,8 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 
 ##### AuthTrustLevel8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示认证结果的信任等级枚举。
 
@@ -2168,6 +2274,8 @@ auth.auth(challenge, userAuth.UserAuthType.FACE, userAuth.AuthTrustLevel.ATL1, {
 
 ##### SecureLevel(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 type SecureLevel = string
 
 表示认证的安全级别。
@@ -2187,6 +2295,8 @@ type SecureLevel = string
 
 ##### AuthType(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 type AuthType = string
 
 表示认证类型。
@@ -2205,6 +2315,8 @@ type AuthType = string
 
 
 ##### userAuth.getAuthenticator(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getAuthenticator(): Authenticator
 
@@ -2235,6 +2347,8 @@ let authenticator = userAuth.getAuthenticator();
 
 ##### Authenticator(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 认证器对象。
 
 > [!NOTE]
@@ -2244,6 +2358,8 @@ let authenticator = userAuth.getAuthenticator();
 
 
 ##### execute(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 execute(type: AuthType, level: SecureLevel, callback: AsyncCallback&lt;number&gt;): void
 
@@ -2284,6 +2400,8 @@ authenticator.execute('FACE_ONLY', 'S2', (error, code)=>{
 
 
 ##### execute(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 execute(type : AuthType, level : SecureLevel): Promise&lt;number&gt;
 
@@ -2330,6 +2448,8 @@ try {
 
 
 ##### AuthenticationResult(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示认证结果的枚举。
 

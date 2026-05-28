@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 提供与向量条件相关的接口。
  
 **引用文件：** #include "dataaugmentation/retrieval/aip_retrieval_condition_vector.h"
@@ -22,6 +24,8 @@
   
 
 ##### 汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
   
 

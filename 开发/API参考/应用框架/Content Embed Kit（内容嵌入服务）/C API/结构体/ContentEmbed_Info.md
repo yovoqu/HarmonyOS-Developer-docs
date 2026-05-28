@@ -12,6 +12,8 @@ typedef struct ContentEmbed_Info ContentEmbed_Info
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明ContentEmbed_Info结构体类型。包含客户端可获取的[ContentEmbed_Format](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-contentembed-contentembed-format)集合信息。
  
 **起始版本：** 24

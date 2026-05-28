@@ -16,11 +16,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 LoadingProgress()
  
@@ -36,6 +40,8 @@ LoadingProgress()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
 > [!NOTE]
@@ -45,6 +51,8 @@ LoadingProgress()
   
 
 ##### color
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 color(value: ResourceColor)
  
@@ -67,6 +75,8 @@ color(value: ResourceColor)
 
 ##### enableLoading10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableLoading(value: boolean)
  
 设置LoadingProgress动画是否显示。LoadingProgress动画不显示时，该组件依旧占位。通用属性[Visibility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#visibility).Hidden隐藏的是包括[border](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-border#border)、[padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#padding)等整个组件范围，而enableLoading=false只隐藏LoadingProgress本身动画内容，不包括border等。
@@ -85,6 +95,8 @@ enableLoading(value: boolean)
   
 
 ##### contentModifier12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
  
@@ -105,11 +117,15 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### LoadingProgressConfiguration12+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
  
@@ -125,6 +141,8 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
   
 
 ##### LoadingProgressStyle枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示LoadingProgress的样式类型，不推荐使用。
  
@@ -144,6 +162,8 @@ contentModifier(modifier: ContentModifier&lt;LoadingProgressConfiguration&gt;)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -168,7 +188,7 @@ struct LoadingProgressExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/fL3RZpryTKW-KZvLCSI7kA/zh-cn_image_0000002611755983.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013928Z&HW-CC-Expire=86400&HW-CC-Sign=CD431D559650766094973650FE8E38F066F3741DDF19F975391FC118CE67CE9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/fL3RZpryTKW-KZvLCSI7kA/zh-cn_image_0000002611755983.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=02673C6C36D44F972B2541E1CAEE70171B5C2C81BBA5F27E75B9826B5A585CE6)
 
  
   
@@ -324,4 +344,4 @@ struct LoadingProgressDemoExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/JF12NlhISEWheLTWdBg66A/zh-cn_image_0000002581436044.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013928Z&HW-CC-Expire=86400&HW-CC-Sign=D4E4EFB67EAC013AC993D89B314A7F542903335B711A89A22C82473C514973D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/JF12NlhISEWheLTWdBg66A/zh-cn_image_0000002581436044.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=77B4431CCC3272AB7E94E2EE0DACC7A9BAD297B32C57654CF7B6CE3C6F81BCAF)

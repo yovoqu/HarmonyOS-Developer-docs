@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { mapCommon } from '@kit.MapKit';
 ```
@@ -19,6 +21,8 @@ import { mapCommon } from '@kit.MapKit';
 
 
 ##### MapOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 提供Map组件初始化的属性。
 
@@ -98,6 +102,8 @@ let mapOptions: mapCommon.MapOptions = {
 
 ##### LatLng
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 经纬度对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -126,6 +132,8 @@ let position: mapCommon.LatLng = {
 
 
 ##### CameraPosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 相机状态，包括位置、倾斜角、缩放级别等信息。
 
@@ -163,6 +171,8 @@ let cameraPosition: mapCommon.CameraPosition = {
 
 ##### LatLngBounds
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 经纬度划分的一个矩形区域。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -198,6 +208,8 @@ let bounds: mapCommon.LatLngBounds = {
 
 ##### PatternItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 圆、多边形或折线的边框样式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -226,6 +238,8 @@ let patternItem: mapCommon.PatternItem = {
 
 
 ##### MyLocationStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 自定义定位样式。
 
@@ -261,6 +275,8 @@ let style: mapCommon.MyLocationStyle = {
 
 ##### Poi
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 地图上的POI对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -295,6 +311,8 @@ let poi: mapCommon.Poi = {
 
 ##### BaseOverlayOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 定义覆盖物基本属性。[MarkerOptions](#markeroptions)、[MapCircleOptions](#mapcircleoptions)、[MapPolygonOptions](#mappolygonoptions)、[MapPolylineOptions](#mappolylineoptions)、[MapArcParams](#maparcparams)、[ImageOverlayParams](#imageoverlayparams)、[BasePriorityOverlayParams](#basepriorityoverlayparams)等继承该基础类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -314,6 +332,8 @@ let poi: mapCommon.Poi = {
 
 
 ##### MarkerOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 描述Marker属性，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
@@ -388,6 +408,8 @@ let markerOptions: mapCommon.MarkerOptions = {
 
 ##### MapCircleOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 描述MapCircle属性，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -430,6 +452,8 @@ let mapCircleOptions: mapCommon.MapCircleOptions = {
 
 
 ##### MapPolygonOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 描述MapPolygon属性，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
@@ -480,6 +504,8 @@ let polygonOptions: mapCommon.MapPolygonOptions = {
 
 
 ##### MapPolylineOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 描述MapPolyline属性，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
@@ -538,6 +564,8 @@ let polylineOption: mapCommon.MapPolylineOptions = {
 
 ##### BasePriorityOverlayParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 描述气泡、点注释等覆盖物的基础信息，继承[BaseOverlayOptions](#baseoverlayoptions)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -561,6 +589,8 @@ let polylineOption: mapCommon.MapPolylineOptions = {
 
 
 ##### PointAnnotationParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 描述点注释属性，继承[BasePriorityOverlayParams](#basepriorityoverlayparams)。
 
@@ -617,6 +647,8 @@ let pointAnnotationOptions: mapCommon.PointAnnotationParams = {
 
 ##### BubbleParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 描述气泡属性，继承[BasePriorityOverlayParams](#basepriorityoverlayparams)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -658,6 +690,8 @@ let bubbleOptions: mapCommon.BubbleParams = {
 
 ##### Text
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用于描述点注释标题的文本属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -695,6 +729,8 @@ let text: mapCommon.Text = {
 
 ##### Padding
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 设置地图和边界的距离的参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -727,6 +763,8 @@ let padding: mapCommon.Padding = {
 
 ##### VisibleRegion
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 VisibleRegion包含四个点，这四个点定义了地图相机的四边形可视区域。因为相机可能会倾斜，所以这个多边形也可以是梯形而不一定是矩形。如果相机正好位于可视区域中心上方，则形状为矩形，但如果相机倾斜，则形状将显示为最短边最接近视点的梯形。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -758,6 +796,8 @@ let visibleRegion: mapCommon.VisibleRegion = projection.getVisibleRegion();
 
 ##### MapPoint
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 屏幕坐标点。屏幕左顶点为（0, 0）点，positionX正值代表可视区域向右移动，负值代表可视区域向左移动。positionY正值代表可视区域向下移动，负值代表可视区域向上移动。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -786,6 +826,8 @@ let point: mapCommon.MapPoint = {
 
 
 ##### CustomMapStyleOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 自定义样式参数。
 
@@ -816,6 +858,8 @@ let param: mapCommon.CustomMapStyleOptions = {
 
 ##### ClusterItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 待聚合节点。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -845,6 +889,8 @@ let clusterItem: mapCommon.ClusterItem = {
 
 
 ##### ClusterOverlayParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 聚合图层参数。
 
@@ -894,6 +940,8 @@ let clusterOverlayParams: mapCommon.ClusterOverlayParams = { distance: 40, clust
 
 
 ##### getCustomIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getCustomIcon?(clusterItems: Array&lt;ClusterItem&gt;): Promise<image.PixelMap>
 
@@ -968,6 +1016,8 @@ export class ClusterOverlayParamsMore implements mapCommon.ClusterOverlayParams 
 
 ##### ImageOverlayParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 覆盖物参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1012,6 +1062,8 @@ let imageOverlayParams: mapCommon.ImageOverlayParams = {
 
 
 ##### BuildingOverlayParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 3D建筑参数。
 
@@ -1197,6 +1249,8 @@ let buildingOverlayOptions: mapCommon.BuildingOverlayParams =
 
 ##### BuildingTexture
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 建筑纹理。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1227,6 +1281,8 @@ let buildingTexture: mapCommon.BuildingTexture = {
 
 
 ##### TraceOverlayParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 动态轨迹的参数。
 
@@ -1397,6 +1453,8 @@ let traceOverlay = await this.mapController.addTraceOverlay(traceOptions, marker
 
 ##### MapArcParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 弧线的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1447,6 +1505,8 @@ let mapArcParams: mapCommon.MapArcParams = {
 
 ##### CoordinateLatLng
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 指定的坐标系和坐标。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1475,6 +1535,8 @@ let location: mapCommon.CoordinateLatLng = {
 
 
 ##### TileOverlayParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 瓦片图层的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
@@ -1507,6 +1569,8 @@ let params: mapCommon.TileOverlayParams = {
 
 
 ##### TileOverlayOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 瓦片图层的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
@@ -1546,6 +1610,8 @@ let params: mapCommon.TileOverlayOptions = {
 
 ##### HeatmapParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 热力图的参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1572,6 +1638,8 @@ let params: mapCommon.TileOverlayOptions = {
 
 ##### RadiusUnit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 半径单位。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1592,6 +1660,8 @@ let params: mapCommon.TileOverlayOptions = {
 
 ##### WeightedLatLng
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 加权经纬度。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1611,6 +1681,8 @@ let params: mapCommon.TileOverlayOptions = {
 
 
 ##### TileProvider
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&gt;
 
@@ -1642,6 +1714,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### MvtOverlayParams
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 矢量图层的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1660,6 +1734,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### MvtSource
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 矢量图层的来源。
 
@@ -1683,6 +1759,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### MvtLayer
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 样式数组，用于配置样式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1705,6 +1783,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### MvtPaint
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 用于配置几何体的渲染，如填充、描边等。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1725,6 +1805,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### MvtLayerType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 矢量图层类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1743,6 +1825,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### Expression
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 矢量图层叠加表达式。
 
@@ -1764,6 +1848,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### Operator
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 操作符。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1782,6 +1868,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### FlowFieldOverlayParams
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 流场图层的参数。继承[BaseOverlayOptions](#baseoverlayoptions)。
 
@@ -1802,6 +1890,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### ParticleStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 粒子样式。
 
@@ -1825,6 +1915,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### MassPointItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 海量点列表。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1846,6 +1938,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### MassPointOverlayParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 海量点的参数。
 
@@ -1870,6 +1964,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### MapType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 地图类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1890,6 +1986,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### PatternItemType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 描述圆、多边形或折线的边框样式类型。
 
@@ -1912,6 +2010,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### JointType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 折线、多边形的拐角绘制样式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1932,6 +2032,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### LogoAlignment
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 地图Logo的对齐方式。
 
@@ -1955,6 +2057,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### CapStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用于自定义折线端点（起始顶点和末端顶点）样式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1976,6 +2080,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### CollisionRule
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 地图POI之间的碰撞规则。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1995,6 +2101,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### FontStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 点注释标题的字体样式。
 
@@ -2020,6 +2128,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### CoordinateType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 坐标系类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2039,6 +2149,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### MyLocationDisplayType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 定位图标的展示模式。
 
@@ -2061,6 +2173,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### DayNightMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 地图日间夜间模式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2082,6 +2196,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 ##### ScaleUnit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 地图比例尺公英制单位。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2101,6 +2217,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### TextPosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 设置点注释的文本位置。
 
@@ -2124,6 +2242,8 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 ##### MapElementType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 地图元素类型。
 

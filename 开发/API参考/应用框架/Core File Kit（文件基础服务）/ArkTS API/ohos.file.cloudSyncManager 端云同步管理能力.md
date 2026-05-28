@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { cloudSyncManager } from '@kit.CoreFileKit';
 ```
@@ -21,6 +23,8 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
   
 
 ##### DownloadStopReason20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 全量下载停止原因的枚举，默认值为NO_STOP。
  
@@ -41,6 +45,8 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
 
 ##### DownloadState20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 全量下载任务状态的枚举。
  
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
@@ -55,6 +61,8 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
   
 
 ##### DownloadProgress20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 全量下载任务的进度信息。
  
@@ -78,6 +86,8 @@ import { cloudSyncManager } from '@kit.CoreFileKit';
   
 
 ##### CloudFileInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用本地和云端文件个数以及大小信息。
  

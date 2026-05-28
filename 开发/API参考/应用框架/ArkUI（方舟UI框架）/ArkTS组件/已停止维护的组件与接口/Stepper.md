@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅能包含子组件[StepperItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem)。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Stepper(value?: { index?: number })
 
@@ -43,15 +47,21 @@ Stepper(value?: { index?: number })
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### onFinish(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onFinish(callback: () => void)
 
@@ -76,6 +86,8 @@ onFinish(callback: () => void)
 
 ##### onSkip(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSkip(callback: () => void)
 
 当前显示的[StepperItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem)状态为ItemState.Skip时，[nextLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#nextlabeldeprecated)被点击时触发该回调。
@@ -98,6 +110,8 @@ onSkip(callback: () => void)
 
 
 ##### onChange(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: (prevIndex: number, index: number) => void)
 
@@ -123,6 +137,8 @@ onChange(callback: (prevIndex: number, index: number) => void)
 
 ##### onNext(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onNext(callback: (index: number, pendingIndex: number) => void)
 
 点击StepperItem的[nextLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#nextlabeldeprecated)切换下一步骤时，当前页面不为步骤导航器最后一个StepperItem且[ItemState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#itemstate枚举说明)属性为Normal时，触发该回调。
@@ -147,6 +163,8 @@ onNext(callback: (index: number, pendingIndex: number) => void)
 
 ##### onPrevious(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onPrevious(callback: (index: number, pendingIndex: number) => void)
 
 点击StepperItem的[prevLabel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepperitem#prevlabeldeprecated)切换上一步骤时触发该回调。
@@ -170,6 +188,8 @@ onPrevious(callback: (index: number, pendingIndex: number) => void)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -276,7 +296,7 @@ struct StepperExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/lp3RK0IkRj-N3QwJIUPzlw/zh-cn_image_0000002611836137.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013929Z&HW-CC-Expire=86400&HW-CC-Sign=51D7F15AA12A5467918B0B7B8F49D560E89A8D9EC62DF7A5830E35D583B14B81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/lp3RK0IkRj-N3QwJIUPzlw/zh-cn_image_0000002611836137.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=654C27C5960C7C3E1374FAB7327CA2ED6B66B7B2BACD366BCC39751779C9267B)
 
 
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { selectionManager } from '@kit.BasicServicesKit';
 ```
@@ -22,6 +24,8 @@ import { selectionManager } from '@kit.BasicServicesKit';
 
 ##### selectionManager
 
+**支持设备：** PC/2in1
+
 **系统能力：** SystemCapability.SelectionInput.Selection
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -29,6 +33,8 @@ import { selectionManager } from '@kit.BasicServicesKit';
 
 
 ##### selectionManager.on('selectionCompleted')
+
+**支持设备：** PC/2in1
 
 on(type: 'selectionCompleted', callback: Callback&lt;SelectionInfo&gt;): void
 
@@ -73,6 +79,8 @@ try {
 
 ##### selectionManager.off('selectionCompleted')
 
+**支持设备：** PC/2in1
+
 off(type: 'selectionCompleted', callback?: Callback&lt;SelectionInfo&gt;): void
 
 取消订阅划词完成事件。使用callback异步回调。
@@ -109,6 +117,8 @@ try {
 
 
 ##### getSelectionContent()
+
+**支持设备：** PC/2in1
 
 getSelectionContent(): Promise&lt;string&gt;
 
@@ -156,6 +166,8 @@ selectionManager.on('selectionCompleted', async (info: selectionManager.Selectio
 
 
 ##### createPanel
+
+**支持设备：** PC/2in1
 
 createPanel(ctx: Context, info: PanelInfo): Promise&lt;Panel&gt;
 
@@ -239,6 +251,8 @@ export default ServiceExtAbility;
 
 
 ##### destroyPanel
+
+**支持设备：** PC/2in1
 
 destroyPanel(panel: Panel): Promise&lt;void&gt;
 
@@ -331,6 +345,8 @@ export default ServiceExtAbility;
 
 ##### SelectionInfo
 
+**支持设备：** PC/2in1
+
 划词事件信息。
 
 **系统能力：** SystemCapability.SelectionInput.Selection
@@ -357,6 +373,8 @@ export default ServiceExtAbility;
 
 ##### Panel
 
+**支持设备：** PC/2in1
+
 划词面板。
 
 **系统能力：** SystemCapability.SelectionInput.Selection
@@ -368,6 +386,8 @@ export default ServiceExtAbility;
 
 
 ##### setUiContent
+
+**支持设备：** PC/2in1
 
 setUiContent(path: string): Promise&lt;void&gt;
 
@@ -421,6 +441,8 @@ try {
 
 ##### show
 
+**支持设备：** PC/2in1
+
 show(): Promise&lt;void&gt;
 
 显示划词面板。使用Promise异步回调。
@@ -462,6 +484,8 @@ selectionPanel.show().then(() => {
 
 ##### hide
 
+**支持设备：** PC/2in1
+
 hide(): Promise&lt;void&gt;
 
 隐藏当前划词面板。使用Promise异步回调。
@@ -502,6 +526,8 @@ selectionPanel.hide().then(() => {
 
 
 ##### startMoving
+
+**支持设备：** PC/2in1
 
 startMoving(): Promise&lt;void&gt;
 
@@ -554,6 +580,8 @@ RelativeContainer() {
 
 
 ##### moveToGlobalDisplay
+
+**支持设备：** PC/2in1
 
 moveToGlobalDisplay(x: number, y: number): Promise&lt;void&gt;
 
@@ -608,6 +636,8 @@ try {
 
 ##### on('destroyed')
 
+**支持设备：** PC/2in1
+
 on(type: 'destroyed', callback: Callback&lt;void&gt;): void
 
 订阅划词窗口销毁事件。使用callback异步回调。
@@ -642,6 +672,8 @@ try {
 
 ##### off('destroyed')
 
+**支持设备：** PC/2in1
+
 off(type: 'destroyed', callback?: Callback&lt;void&gt;): void
 
 取消订阅划词窗口销毁事件。使用callback异步回调。
@@ -673,6 +705,8 @@ try {
 
 
 ##### on('hidden')
+
+**支持设备：** PC/2in1
 
 on(type: 'hidden', callback: Callback&lt;void&gt;): void
 
@@ -708,6 +742,8 @@ try {
 
 ##### off('hidden')
 
+**支持设备：** PC/2in1
+
 off(type: 'hidden', callback?: Callback&lt;void&gt;): void
 
 取消订阅划词窗口隐藏事件。使用callback异步回调。
@@ -739,6 +775,8 @@ try {
 
 
 ##### SelectionType
+
+**支持设备：** PC/2in1
 
 定义触发划词的类型枚举。
 

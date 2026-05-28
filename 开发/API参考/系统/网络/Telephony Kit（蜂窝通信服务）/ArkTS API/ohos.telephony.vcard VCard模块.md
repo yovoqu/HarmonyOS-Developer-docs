@@ -14,6 +14,8 @@ VCard是电子名片的文件格式标准，它可包含的信息有：姓名、
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { vcard } from '@kit.TelephonyKit';
 ```
@@ -21,6 +23,8 @@ import { vcard } from '@kit.TelephonyKit';
 
 
 ##### vcard.importVCard
+
+**支持设备：** Phone | Tablet | Wearable
 
 importVCard(context: Context, filePath: string, accountId: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -75,6 +79,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### vcard.importVCard
+
+**支持设备：** Phone | Tablet | Wearable
 
 importVCard(context: Context, filePath: string, accountId?: number): Promise&lt;void&gt;
 
@@ -138,6 +144,8 @@ class EntryAbility extends UIAbility {
 
 ##### vcard.importVCard
 
+**支持设备：** Phone | Tablet | Wearable
+
 importVCard(context: Context, filePath: string, callback: AsyncCallback&lt;void&gt;): void
 
 将VCard文件导入联系人数据库。使用callback异步回调。
@@ -189,6 +197,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### vcard.exportVCard
+
+**支持设备：** Phone | Tablet | Wearable
 
 exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options: VCardBuilderOptions, callback: AsyncCallback&lt;string&gt;): void
 
@@ -248,6 +258,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### vcard.exportVCard
+
+**支持设备：** Phone | Tablet | Wearable
 
 exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options?: VCardBuilderOptions): Promise&lt;string&gt;
 
@@ -316,6 +328,8 @@ class EntryAbility extends UIAbility {
 
 ##### vcard.exportVCard
 
+**支持设备：** Phone | Tablet | Wearable
+
 exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback&lt;string&gt;): void
 
 将联系人导出为 VCF(vcard file)文件。使用callback异步回调。
@@ -371,6 +385,8 @@ class EntryAbility extends UIAbility {
 
 ##### VCardBuilderOptions
 
+**支持设备：** Phone | Tablet | Wearable
+
 VCard版本和编码信息。
 
 **系统能力**：SystemCapability.Telephony.CoreService
@@ -384,6 +400,8 @@ VCard版本和编码信息。
 
 
 ##### VCardType
+
+**支持设备：** Phone | Tablet | Wearable
 
 VCard版本类型。
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 ```
@@ -21,6 +23,8 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 
 ##### VisionObject
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 视觉信息对象。
 
@@ -40,6 +44,8 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 ##### ObjectDetectionResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 多目标检测的结果类。继承自visionBase基类的[Response](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#response)。
 
 **系统能力：** SystemCapability.AI.Vision.ObjectDetection
@@ -54,6 +60,8 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 
 ##### ObjectDetector
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义多目标识别的接口和基本结构。继承自[visionBase.Analyzer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#analyzer)类。它有以下功能函数：
 
@@ -78,6 +86,8 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 
 ##### create
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 static create(): Promise&lt;ObjectDetector&gt;
 
@@ -148,6 +158,8 @@ struct Page {
 
 ##### destroy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 destroy(): Promise&lt;void&gt;
 
 销毁多目标识别的进程。使用Promise异步回调。
@@ -206,6 +218,8 @@ struct Page {
 
 
 ##### process
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;
 

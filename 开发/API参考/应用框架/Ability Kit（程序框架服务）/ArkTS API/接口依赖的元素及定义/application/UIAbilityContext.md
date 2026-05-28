@@ -16,6 +16,8 @@ UIAbilityContext是[UIAbility](https://developer.huawei.com/consumer/cn/doc/harm
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common } from '@kit.AbilityKit';
 ```
@@ -24,9 +26,13 @@ import { common } from '@kit.AbilityKit';
 
 ##### UIAbilityContext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
@@ -41,6 +47,8 @@ import { common } from '@kit.AbilityKit';
 
 
 ##### startAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want, callback: AsyncCallback&lt;void&gt;): void
 
@@ -133,6 +141,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want, options: StartOptions, callback: AsyncCallback&lt;void&gt;): void
 
@@ -232,6 +242,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want, options?: StartOptions): Promise&lt;void&gt;
 
@@ -339,6 +351,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### startAbilityForResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startAbilityForResult(want: Want, callback: AsyncCallback&lt;AbilityResult&gt;): void
 
 启动一个UIAbility，并通过回调函数接收被拉起的UIAbility退出时的返回结果。使用callback异步回调。仅支持在主线程调用。
@@ -438,6 +452,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startAbilityForResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbilityForResult(want: Want, options: StartOptions, callback: AsyncCallback&lt;AbilityResult&gt;): void
 
@@ -540,6 +556,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startAbilityForResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbilityForResult(want: Want, options?: StartOptions): Promise&lt;AbilityResult&gt;
 
@@ -650,6 +668,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### terminateSelf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 terminateSelf(callback: AsyncCallback&lt;void&gt;): void
 
 销毁UIAbility自身。使用callback异步回调。仅支持在主线程调用。
@@ -733,6 +753,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### terminateSelf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 terminateSelf(): Promise&lt;void&gt;
 
 销毁UIAbility自身。使用Promise异步回调。仅支持在主线程调用。
@@ -815,6 +837,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### terminateSelfWithResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback&lt;void&gt;): void
 
 销毁UIAbility自身。使用callback异步回调。仅支持在主线程调用。
@@ -891,6 +915,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### terminateSelfWithResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 terminateSelfWithResult(parameter: AbilityResult): Promise&lt;void&gt;
 
@@ -974,6 +1000,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### connectServiceExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connectServiceExtensionAbility(want: Want, options: ConnectOptions): number
 
@@ -1067,6 +1095,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### disconnectServiceExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnectServiceExtensionAbility(connection: number): Promise&lt;void&gt;
 
 断开与[ServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/extensionability-overview)的连接，断开连接之后开发者需要将连接成功时返回的remote对象置空。使用Promise异步回调。仅支持在主线程调用。
@@ -1135,6 +1165,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### disconnectServiceExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnectServiceExtensionAbility(connection: number, callback: AsyncCallback&lt;void&gt;): void
 
 断开与[ServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/extensionability-overview)的连接，断开连接之后开发者需要将连接成功时返回的remote对象置空。使用callback异步回调。仅支持在主线程调用。
@@ -1198,6 +1230,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startAbilityByCall
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbilityByCall(want: Want): Promise&lt;Caller&gt;
 
@@ -1388,6 +1422,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setMissionLabel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMissionLabel(label: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置UIAbility在多任务界面中显示的名称。使用callback异步回调。
@@ -1433,6 +1469,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setMissionLabel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMissionLabel(label: string): Promise&lt;void&gt;
 
@@ -1490,6 +1528,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setMissionContinueState10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMissionContinueState(state: AbilityConstant.ContinueState, callback: AsyncCallback&lt;void&gt;): void
 
 设置UIAbility任务的流转状态。使用callback异步回调。
@@ -1535,6 +1575,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setMissionContinueState10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMissionContinueState(state: AbilityConstant.ContinueState): Promise&lt;void&gt;
 
@@ -1590,6 +1632,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### restoreWindowStage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restoreWindowStage(localStorage: LocalStorage): void
 
 恢复UIAbility中的WindowStage数据。仅支持在主线程调用。
@@ -1633,6 +1677,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### isTerminating
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isTerminating(): boolean
 
 查询UIAbility是否处于消亡中状态。
@@ -1673,6 +1719,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### requestDialogService
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestDialogService(want: Want, result: AsyncCallback<dialogRequest.RequestResult>): void
 
@@ -1754,6 +1802,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### requestDialogService
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestDialogService(want: Want): Promise<dialogRequest.RequestResult>
 
@@ -1841,6 +1891,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### reportDrawnCompleted10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reportDrawnCompleted(callback: AsyncCallback&lt;void&gt;): void
 
 用于通知系统UIAbility对应的窗口内容已经绘制完成。使用callback异步回调。
@@ -1906,6 +1958,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### startAbilityByType11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback, callback: AsyncCallback&lt;void&gt;) : void
 
 通过type隐式启动[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)。使用callback异步回调。仅支持在主线程调用，仅支持处于前台的应用调用。
@@ -1967,6 +2021,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startAbilityByType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback) : Promise&lt;void&gt;
 
@@ -2034,6 +2090,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### showAbility12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showAbility(): Promise&lt;void&gt;
 
@@ -2140,6 +2198,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### hideAbility12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hideAbility(): Promise&lt;void&gt;
 
 隐藏当前UIAbility。使用Promise异步回调。仅支持在主线程调用。
@@ -2245,6 +2305,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### moveAbilityToBackground12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveAbilityToBackground(): Promise&lt;void&gt;
 
 将处于前台的UIAbility移动到后台。使用Promise异步回调。仅支持在主线程调用。
@@ -2318,6 +2380,8 @@ struct Index {
 
 
 ##### openAtomicService12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openAtomicService(appId: string, options?: AtomicServiceOptions): Promise&lt;AbilityResult&gt;
 
@@ -2407,6 +2471,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### openLink12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openLink(link: string, options?: OpenLinkOptions, callback?: AsyncCallback&lt;AbilityResult&gt;): Promise&lt;void&gt;
 
@@ -2525,6 +2591,8 @@ struct Index {
 
 
 ##### backToCallerAbilityWithResult12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 backToCallerAbilityWithResult(abilityResult: AbilityResult, requestCode: string): Promise&lt;void&gt;
 
@@ -2679,6 +2747,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setRestoreEnabled14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setRestoreEnabled(enabled: boolean): void
 
 设置UIAbility是否启用备份恢复。
@@ -2733,6 +2803,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startUIServiceExtensionAbility14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startUIServiceExtensionAbility(want: Want): Promise&lt;void&gt;
 
@@ -2825,6 +2897,8 @@ struct Index {
 
 
 ##### connectUIServiceExtensionAbility14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connectUIServiceExtensionAbility(want: Want, callback: UIServiceExtensionConnectCallback) : Promise&lt;UIServiceProxy&gt;
 
@@ -2945,6 +3019,8 @@ struct UIServiceExtensionAbility {
 
 ##### disconnectUIServiceExtensionAbility14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise&lt;void&gt;
 
 断开与UIServiceExtensionAbility的连接。使用Promise异步回调。
@@ -3045,6 +3121,8 @@ struct UIServiceExtensionAbility {
 
 ##### setAbilityInstanceInfo15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise&lt;void&gt;
 
 设置当前UIAbility实例的图标和标签信息。图标与标签信息可在任务中心和快捷栏的界面中显示。使用Promise异步回调。
@@ -3127,6 +3205,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### revokeDelegator17+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 revokeDelegator(): Promise&lt;void&gt;
 
 如果Module下首个UIAbility启动时期望重定向到另一个UIAbility，该重定向的UIAbility被称为“DelegatorAbility”。DelegatorAbility的设置详见当前接口示例的步骤1。
@@ -3206,6 +3286,8 @@ export default class DelegatorAbility extends UIAbility {
 
 ##### setColorMode18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setColorMode(colorMode: ConfigurationConstant.ColorMode): void
 
 设置UIAbility的深浅色模式。调用该接口前需要保证该UIAbility对应页面已完成加载。仅支持主线程调用。
@@ -3258,6 +3340,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### startAppServiceExtensionAbility20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAppServiceExtensionAbility(want: Want): Promise&lt;void&gt;
 
@@ -3344,6 +3428,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### stopAppServiceExtensionAbility20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopAppServiceExtensionAbility(want: Want): Promise&lt;void&gt;
 
 停止[AppServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability)实例。使用Promise异步回调。
@@ -3424,6 +3510,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### connectAppServiceExtensionAbility20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connectAppServiceExtensionAbility(want: Want, callback: ConnectOptions): number
 
@@ -3515,6 +3603,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### disconnectAppServiceExtensionAbility20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnectAppServiceExtensionAbility(connection: number): Promise&lt;void&gt;
 
 断开与[AppServiceExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability)的连接。仅支持在主线程调用。使用Promise异步回调。
@@ -3587,6 +3677,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setOnNewWantSkipScenarios20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setOnNewWantSkipScenarios(scenarios: number): Promise&lt;void&gt;
 
 在特定场景下拉起UIAbility时，如果不需要触发[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)生命周期回调，可以通过该接口设置。仅支持在主线程调用。使用Promise异步回调。
@@ -3655,6 +3747,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### startSelfUIAbilityInCurrentProcess22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startSelfUIAbilityInCurrentProcess(want: Want, specifiedFlag: string, options?: StartOptions): Promise&lt;void&gt;
 
@@ -3744,6 +3838,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### restartApp22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restartApp(want: Want): Promise&lt;void&gt;
 
 处于获焦状态的UIAbility可以通过该接口，重启当前UIAbility所在的进程，并拉起应用内的指定UIAbility。仅支持主线程调用。使用Promise异步回调。
@@ -3831,6 +3927,8 @@ struct Index {
 
 
 ##### setMissionWindowIcon22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMissionWindowIcon(windowIcon: image.PixelMap): Promise&lt;void&gt;
 

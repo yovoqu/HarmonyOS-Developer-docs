@@ -12,6 +12,8 @@
 
 ##### 200 运行超时
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Run timed out, please try again later.
@@ -32,6 +34,8 @@ Run timed out, please try again later.
 
 ##### 1011200001 运行失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Failed to run, please try again.
@@ -51,6 +55,8 @@ Failed to run, please try again.
   
 
 ##### 1011200002 服务异常
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

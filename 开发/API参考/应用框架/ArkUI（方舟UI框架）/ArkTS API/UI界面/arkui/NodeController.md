@@ -14,6 +14,8 @@ NodeController用于实现自定义节点的创建、显示、更新等操作的
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import {  NodeController  } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import {  NodeController  } from '@kit.ArkUI';
 
 
 ##### NodeController
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通常搭配[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)进行使用。用于创建控制器管理绑定的[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件。一个NodeController只允许与一个[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)进行绑定。最佳实践请参考[组件动态创建-组件动态添加、更新和删除](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-dynamic-operations#section153921947151012)。
 
@@ -31,6 +35,8 @@ import {  NodeController  } from '@kit.ArkUI';
 
 
 ##### makeNode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 abstract makeNode(uiContext : UIContext): FrameNode | null
 
@@ -64,6 +70,8 @@ abstract makeNode(uiContext : UIContext): FrameNode | null
 
 ##### aboutToAppear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 aboutToAppear?(): void
 
 当NodeController绑定的[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)挂载显示后触发此回调。
@@ -79,6 +87,8 @@ aboutToAppear?(): void
 
 
 ##### aboutToDisappear
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 aboutToDisappear?(): void
 
@@ -96,6 +106,8 @@ aboutToDisappear?(): void
 
 ##### onAttach18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAttach?(): void
 
 当NodeController绑定的[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)挂载至主节点树时触发此回调。
@@ -112,6 +124,8 @@ onAttach?(): void
 
 ##### onDetach18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDetach?(): void
 
 当NodeController绑定的[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)从主节点树卸载时触发此回调。
@@ -127,6 +141,8 @@ onDetach?(): void
 
 
 ##### onWillBind18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWillBind?(containerId: number): void
 
@@ -147,6 +163,8 @@ onWillBind?(containerId: number): void
 
 ##### onWillUnbind18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onWillUnbind?(containerId: number): void
 
 当NodeController与[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)即将解绑前触发此回调。
@@ -165,6 +183,8 @@ onWillUnbind?(containerId: number): void
 
 
 ##### onBind18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onBind?(containerId: number): void
 
@@ -185,6 +205,8 @@ onBind?(containerId: number): void
 
 ##### onUnbind18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onUnbind?(containerId: number): void
 
 当NodeController与[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)解绑后触发此回调。
@@ -203,6 +225,8 @@ onUnbind?(containerId: number): void
 
 
 ##### aboutToResize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 aboutToResize?(size: Size): void
 
@@ -223,6 +247,8 @@ aboutToResize?(size: Size): void
 
 ##### onTouchEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onTouchEvent?(event: TouchEvent): void
 
 当NodeController绑定的[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)收到Touch事件时触发此回调。
@@ -242,6 +268,8 @@ onTouchEvent?(event: TouchEvent): void
 
 ##### rebuild
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rebuild(): void
 
 调用此接口通知[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件重新回调[makeNode](#makenode)方法，更改子节点。
@@ -257,6 +285,8 @@ rebuild(): void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -332,7 +362,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/WoCIlyIJQFiHJW5IbBBAwQ/zh-cn_image_0000002611835413.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=0A3AC523423C312883330D3A8BE4D14D6AF324EC2A1F8CC2C1051A7CE05B6A17)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/WoCIlyIJQFiHJW5IbBBAwQ/zh-cn_image_0000002611835413.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=C876D793FA27C10F8B96BAD03437A32AACAF14885EBE1FEAD39466B218A4DA5F)
 
 
 
@@ -432,4 +462,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/K45E3tNOROuIHmMnM4Qu5g/zh-cn_image_0000002581275666.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=D92E874C944A5A1A41EC067482C29379C4C9D257B76C333293E1F6F71DFBBE2F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/K45E3tNOROuIHmMnM4Qu5g/zh-cn_image_0000002581275666.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=378A22FAD9394B22339E1945F5B97A3D580650A04F2055FE6B007BA2BAFA45E0)

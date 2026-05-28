@@ -12,6 +12,8 @@ HdsVisualComponent组件承载复杂视效实现，应用开发者通过HdsVisua
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 > [!NOTE]
 > HdsVisualComponentAttribute是用于配置HdsVisualComponent组件属性的关键接口。6.0.1(21)及之前版本，导入HdsVisualComponent组件后需要开发者手动导入HdsVisualComponentAttribute，否则会编译报错。从6.0.2(22)版本开始，编译工具链识别到导入HdsVisualComponent组件后，会自动导入HdsVisualComponentAttribute，无需开发者手动导入。 如果开发者手动导入HdsVisualComponentAttribute，DevEco Studio会显示置灰，6.0.1(21)及之前版本删除会编译报错，从6.0.2(22)版本开始，删除对功能无影响。
 
@@ -32,11 +34,15 @@ import { HdsVisualComponent, HdsSceneController, HdsSceneType, hdsEffect } from 
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsVisualComponent()
  
@@ -54,11 +60,15 @@ HdsVisualComponent()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)，还支持以下属性：
  
   
 
 ##### scene
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 scene(sceneType: HdsSceneType, controller: HdsSceneController, callback?: HdsSceneFinishCallback, frameRateRange?: hdsEffect.ExpectedFrameRateRange)
  
@@ -84,11 +94,15 @@ scene(sceneType: HdsSceneType, controller: HdsSceneController, callback?: HdsSce
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### HdsSceneType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 视效场景。
  
@@ -109,6 +123,8 @@ scene(sceneType: HdsSceneType, controller: HdsSceneController, callback?: HdsSce
 
 ##### HdsSceneFinishCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 type HdsSceneFinishCallback = () => void
  
 场景视效结束回调函数。
@@ -125,6 +141,8 @@ type HdsSceneFinishCallback = () => void
 
 ##### HdsSceneController
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 场景控制器。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -138,6 +156,8 @@ type HdsSceneFinishCallback = () => void
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor()
  
@@ -155,6 +175,8 @@ HdsSceneController的构造函数。
 
 ##### start
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 start(): void
  
 开始视效场景。
@@ -168,6 +190,8 @@ start(): void
   
 
 ##### pause
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 pause(): void
  
@@ -183,6 +207,8 @@ pause(): void
 
 ##### resume
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 resume(): void
  
 恢复视效场景。
@@ -197,6 +223,8 @@ resume(): void
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 stop(): void
  
 停止视效场景。
@@ -210,6 +238,8 @@ stop(): void
   
 
 ##### setSceneParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setSceneParams(params: SceneParams): HdsSceneController
  
@@ -239,6 +269,8 @@ setSceneParams(params: SceneParams): HdsSceneController
 
 ##### SceneParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 type SceneParams = DualEdgeFlowLightWithMaskParam
  
 场景视效参数。
@@ -258,6 +290,8 @@ type SceneParams = DualEdgeFlowLightWithMaskParam
 
 ##### DualEdgeFlowLightWithMaskParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 双边边缘流光视效参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -276,6 +310,8 @@ type SceneParams = DualEdgeFlowLightWithMaskParam
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 // 从6.0.2(22)版本开始，无需手动导入HdsVisualComponentAttribute。具体请参考HdsVisualComponent的导入模块说明。
@@ -313,4 +349,4 @@ struct EdgeFlowLightVisualComponent {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/osUusgsWT1ylYK4_52m6Mw/zh-cn_image_0000002611756613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013735Z&HW-CC-Expire=86400&HW-CC-Sign=D772725E27DFBAB57C89F90579B5FA6BE9D5635AA1CF8F2E648DC4866698D88A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/osUusgsWT1ylYK4_52m6Mw/zh-cn_image_0000002611756613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024032Z&HW-CC-Expire=86400&HW-CC-Sign=7BB2E31D3357E6D075C31AD926B085F458211E7D78F8895F8671B9E98AC46056)

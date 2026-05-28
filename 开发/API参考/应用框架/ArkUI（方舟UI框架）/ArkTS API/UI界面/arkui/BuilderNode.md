@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { BuilderNode, ReactiveBuilderNode, RenderOptions, NodeRenderType } from '@kit.ArkUI';
 ```
@@ -23,6 +25,8 @@ import { BuilderNode, ReactiveBuilderNode, RenderOptions, NodeRenderType } from 
 
 
 ##### NodeRenderType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 节点渲染类型枚举。
 
@@ -44,6 +48,8 @@ import { BuilderNode, ReactiveBuilderNode, RenderOptions, NodeRenderType } from 
 
 ##### RenderOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 创建BuilderNode时的可选参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -61,6 +67,8 @@ import { BuilderNode, ReactiveBuilderNode, RenderOptions, NodeRenderType } from 
 
 ##### BuildOptions12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 build的可选参数。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -75,6 +83,8 @@ build的可选参数。
 
 
 ##### InputEventType20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type InputEventType = TouchEvent | MouseEvent | AxisEvent
 
@@ -95,6 +105,8 @@ type InputEventType = TouchEvent | MouseEvent | AxisEvent
 
 ##### BuilderNode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 class BuilderNode<Args extends Object[]>
 
 BuilderNode支持通过无状态的UI方法[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)生成组件树，并持有组件树的根节点。不支持定义为状态变量。BuilderNode中持有的FrameNode仅用于将该BuilderNode作为子节点挂载到其他FrameNode上。对BuilderNode持有的FrameNode进行属性设置与子节点操作可能会产生未定义行为，因此不建议通过BuilderNode的[getFrameNode](#getframenode)方法和[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)的[getRenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getrendernode)方法获取RenderNode，并通过[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)的接口对其进行属性设置与子节点操作。
@@ -106,6 +118,8 @@ BuilderNode支持通过无状态的UI方法[@Builder](https://developer.huawei.c
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(uiContext: UIContext, options?: RenderOptions)
 
@@ -130,6 +144,8 @@ constructor(uiContext: UIContext, options?: RenderOptions)
 
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 build(builder: WrappedBuilder&lt;Args&gt;, arg?: Object): void
 
@@ -156,6 +172,8 @@ build(builder: WrappedBuilder&lt;Args&gt;, arg?: Object): void
 
 
 ##### build12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 build(builder: WrappedBuilder&lt;Args&gt;, arg: Object, options: BuildOptions): void
 
@@ -246,6 +264,8 @@ struct Index {
 
 
 ##### getFrameNode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFrameNode(): FrameNode | null
 
@@ -477,6 +497,8 @@ struct Index {
 
 ##### update
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 update(arg: Object): void
 
 根据提供的参数更新BuilderNode，该参数与[build](#build)方法调用时传入的参数类型相同。对自定义组件进行update的时候需要在自定义组件中将使用的变量定义为[@Prop](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-prop)类型。
@@ -591,6 +613,8 @@ struct Index {
 
 
 ##### postTouchEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postTouchEvent(event: TouchEvent): boolean
 
@@ -719,6 +743,8 @@ struct MyComponent {
 
 ##### dispose12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 dispose(): void
 
 立即释放当前BuilderNode对象对[实体节点](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-node#基本概念)的引用关系。关于BuilderNode的解绑场景请参见[节点解绑](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#解除实体节点引用关系)。
@@ -819,6 +845,8 @@ struct Index {
 
 ##### reuse12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reuse(param?: Object): void
 
 触发BuilderNode中的自定义组件的复用。组件复用请参见[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。关于BuilderNode的解绑场景请参见[节点解绑](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#解除实体节点引用关系)。
@@ -837,6 +865,8 @@ reuse(param?: Object): void
 
 
 ##### recycle12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 recycle(): void
 
@@ -1035,6 +1065,8 @@ struct Index {
 
 ##### updateConfiguration12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateConfiguration(): void
 
 传递系统环境变化事件，触发节点的全量更新。系统环境变化的相关信息请参见[@ohos.app.ability.Configuration (环境变量)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)。
@@ -1206,6 +1238,8 @@ struct Index {
 
 ##### isDisposed20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isDisposed(): boolean
 
 查询当前BuilderNode对象是否已解除与后端实体节点的引用关系。前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用接口可能会出现crash、返回默认值的情况。由于业务需求，可能存在节点在dispose后仍被调用接口的情况。为此，提供此接口以供开发者在操作节点前检查其有效性，避免潜在风险。
@@ -1343,6 +1377,8 @@ struct Index {
 
 ##### postInputEvent20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 postInputEvent(event: InputEventType): boolean
 
 将事件分发到目标节点。
@@ -1382,6 +1418,8 @@ offsetA为builderNode相对于父组件的偏移，offsetB为命中位置相对�
 
 
 ##### postInputEventWithStrategy24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean
 
@@ -1425,6 +1463,8 @@ postInputEventWithStrategy(event: InputEventType, competitionStrategy?: Competit
 
 
 ##### inheritFreezeOptions20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 inheritFreezeOptions(enabled: boolean): void
 
@@ -1652,6 +1692,8 @@ struct TextBuilder {
 
 ##### ReactiveBuilderNode22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ReactiveBuilderNode支持通过无状态的UI方法[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)生成组件树，并持有该组件树的根节点，不支持定义为状态变量。ReactiveBuilderNode中持有的[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)仅用于将此ReactiveBuilderNode作为子节点挂载到其他FrameNode上。对ReactiveBuilderNode持有的FrameNode进行属性设置与子节点操作可能会导致未定义行为，因此不建议通过ReactiveBuilderNode的[getFrameNode](#getframenode)方法和[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)节点的[getRenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getrendernode)方法获取RenderNode，并通过[RenderNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-rendernode)的接口对其进行属性设置与子节点操作。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -1661,6 +1703,8 @@ ReactiveBuilderNode支持通过无状态的UI方法[@Builder](https://developer.
 
 
 ##### constructor22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(uiContext: UIContext, options?: RenderOptions)
 
@@ -1681,6 +1725,8 @@ constructor(uiContext: UIContext, options?: RenderOptions)
 
 
 ##### build22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 build(builder: WrappedBuilder&lt;Args&gt;, config: BuildOptions, ...args: Args): void
 
@@ -1770,6 +1816,8 @@ struct Index {
 
 
 ##### getFrameNode22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFrameNode(): FrameNode | null
 
@@ -1887,6 +1935,8 @@ struct Index {
 
 
 ##### postTouchEvent22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postTouchEvent(event: TouchEvent): boolean
 
@@ -2020,6 +2070,8 @@ struct MyComponent {
 
 ##### dispose22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 dispose(): void
 
 立即释放当前ReactiveBuilderNode对象对[实体节点](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-node#基本概念)的引用关系。关于ReactiveBuilderNode的解绑场景请参见[节点解绑](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#解除实体节点引用关系)。
@@ -2137,6 +2189,8 @@ struct Index {
 
 ##### reuse22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reuse(param?: Object): void
 
 触发ReactiveBuilderNode中的自定义组件的复用。组件复用请参见[@Reusable装饰器：V1组件复用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-reusable)。关于ReactiveBuilderNode的解绑场景请参见[节点解绑](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode#解除实体节点引用关系)。
@@ -2161,6 +2215,8 @@ ReactiveBuilderNode通过reuse和[recycle](#recycle22)完成其内外自定义�
 
 
 ##### recycle22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 recycle(): void
 
@@ -2360,12 +2416,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/BQPRmNVRTQOShY13dBaP0g/zh-cn_image_0000002581275642.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=F310D34A38942D1AAFDCB70E65980DD17853D50899E78D5FE6B81ED6C78E9183)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/BQPRmNVRTQOShY13dBaP0g/zh-cn_image_0000002581275642.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=80A029949CCA0EE05B87076BE2B71AB55BD83D9977902F1FAAD540C6C75BCB7E)
 
 
 
 
 ##### updateConfiguration22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateConfiguration(): void
 
@@ -2535,12 +2593,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/2sLIzXw3S1Cua8q5AcSxrg/zh-cn_image_0000002611755499.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=80B803EEAEFFEA6F848B1A2A5DC66A9EAFCE5975F1963302F8FC7CF8253FE74A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/2sLIzXw3S1Cua8q5AcSxrg/zh-cn_image_0000002611755499.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=3FAC3E05C19609AD663679B3FF2E8411B95F186B7BAB4D1900AEDACDE11A10FD)
 
 
 
 
 ##### flushState22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 flushState(): void
 
@@ -2648,12 +2708,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/IaQ1K0IsSKiKYOraZ1T4hw/zh-cn_image_0000002581435562.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=E8E91287C18C28C775D18F232F52AECE96BF439A4D4B5CDB241566CCDDCD0A1D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/IaQ1K0IsSKiKYOraZ1T4hw/zh-cn_image_0000002581435562.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=CB163ABAAB4741EBF3342091D0FC9273B42EF7885C395CFF4656AE5650D05E23)
 
 
 
 
 ##### postInputEvent22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postInputEvent(event: InputEventType): boolean
 
@@ -2662,7 +2724,7 @@ postInputEvent(event: InputEventType): boolean
 offsetA为builderNode相对于父组件的偏移，offsetB为命中位置相对于builderNode的偏移，offsetC为offsetA+offsetB，最终输入给postInputEvent当中。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/B-ee8KOARAOuxYBPkrWYUg/zh-cn_image_0000002581275638.png?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=963EE6B6634DF23B15B7D5C3FA619C29AA51E32EF97D16EBCD524248D3F4906E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/B-ee8KOARAOuxYBPkrWYUg/zh-cn_image_0000002581275638.png?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=5382A985413A043A29AE5BD5B7DD3A7C1A1F989A6872CE2BE681D459CBEAAC72)
 
 
 > [!TIP]
@@ -2695,6 +2757,8 @@ offsetA为builderNode相对于父组件的偏移，offsetB为命中位置相对�
 
 ##### postInputEventWithStrategy24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean
 
 将含有竞争策略的事件分发到目标UI组件节点。
@@ -2702,7 +2766,7 @@ postInputEventWithStrategy(event: InputEventType, competitionStrategy?: Competit
 接口调用前需要将event转化为对应的事件，并对event中的window参数的坐标进行转化：offsetA表示ReactiveBuilderNode相对于父组件的偏移量，offsetB为命中位置相对于ReactiveBuilderNode的偏移量，offsetC是offsetA与offsetB之和，最终作为event中的window参数，传递给postInputEventWithStrategy方法，具体请参考示例。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/NyTmPDvfRwqdSr61grGO-w/zh-cn_image_0000002581435558.png?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=98C58694F059A01EA15E4E472E76D913CBB0848C2E030C2501D053BCAAAF59DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/NyTmPDvfRwqdSr61grGO-w/zh-cn_image_0000002581435558.png?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=33572418ADAC4B207BC60E8AAC55811237E3EBE02DCB599BFCE56EAF750BB2B0)
 
 
 > [!WARNING]
@@ -2733,6 +2797,8 @@ postInputEventWithStrategy(event: InputEventType, competitionStrategy?: Competit
 
 
 ##### inheritFreezeOptions22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 inheritFreezeOptions(enabled: boolean): void
 
@@ -2979,12 +3045,14 @@ struct TextBuilder {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/3gwQ-9HwR_6Zsb_-qGzICQ/zh-cn_image_0000002611835393.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=F2368D2C9E0E9D83933755BCDDADC85DDA08D830577776510DE73FB4BC026688)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/3gwQ-9HwR_6Zsb_-qGzICQ/zh-cn_image_0000002611835393.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=7FD537E4F98AF5194D7037B881A36995CD8D7F74EBF1224112A976353474B55D)
 
 
 
 
 ##### isDisposed22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isDisposed(): boolean
 
@@ -3121,12 +3189,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/Hv8hCJmZQnmnsp5Ts7pFPQ/zh-cn_image_0000002581275646.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=F1D8142E95287D84C930EABC2B597622C7426605EFB4E87DF393850A51425951)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/Hv8hCJmZQnmnsp5Ts7pFPQ/zh-cn_image_0000002581275646.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=CC60724D4793F512068C22F35ED8663F3D71D1C18439FC4291E503E689F4DA58)
 
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -3267,7 +3337,7 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/kxVoLTseSuyqQgLzvngNTw/zh-cn_image_0000002611755501.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=5D92E4213F0C331FA3B20FE31985BC39BD58AEB8F91E46D788AAB8B4F6D81935)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/kxVoLTseSuyqQgLzvngNTw/zh-cn_image_0000002611755501.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=68D63AAB9D417F82D264E5AFA308204B012FCA6C723231348812333BFFE50C6D)
 
 
 
@@ -3381,7 +3451,7 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/5xGDS1_eRUunbLa3tPT9_A/zh-cn_image_0000002581435564.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=83839F56EF5D231926B3DFCBB15B2964DC5CA12A33BBBDBECF8539C0FFD6A4DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/5xGDS1_eRUunbLa3tPT9_A/zh-cn_image_0000002581435564.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=77E53F7AE5CC873214049FB2DE8CE901DCE5EFFE8B466989DF39FFA7F60B743F)
 
 
 
@@ -3481,7 +3551,7 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/oEkgffhTRBaGcOh8hzSJGg/zh-cn_image_0000002611835395.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=EF1BA79FA4105ADF22A53B02C9A993002CC0C9B22F9AD367807C8BB1B0A9F4E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/oEkgffhTRBaGcOh8hzSJGg/zh-cn_image_0000002611835395.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=984CF2FDA2ACC3D08A8CEF86B90F7BA81BF385F65251DA4C992C6BE43B474652)
 
 
 
@@ -3646,7 +3716,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/JzpYQN_vSiqVKfkbG180yA/zh-cn_image_0000002581275648.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=95606682C221BFC23B329E7EDB5516003F5A5D9EC61B27A862E6E9754F4C16F5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/JzpYQN_vSiqVKfkbG180yA/zh-cn_image_0000002581275648.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=72E973625E6FC4D636C376F630262595911B446547B644CD9753E1F767F59B56)
 
 
 
@@ -3737,7 +3807,7 @@ struct AddChild {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/VQHWNKw7TdWkP4j01FZJDw/zh-cn_image_0000002611755503.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=270B304A13F9EFAFC28B6741C90FC00503485C89CB1A7936E15F41D5F0C70536)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/VQHWNKw7TdWkP4j01FZJDw/zh-cn_image_0000002611755503.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=E4397DB0C0766E1C1EBD06778736FE89BDD0B02FCD82C680A259370C3E12C370)
 
 
 
@@ -4756,7 +4826,7 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5jaEegEKSRq2OaLL8wKgbA/zh-cn_image_0000002581435566.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=4C1EB1BAB177A183C15DD0A82167D6D3D82DEEDF8A03F41791B8D66C34DDAD61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5jaEegEKSRq2OaLL8wKgbA/zh-cn_image_0000002581435566.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=F614FB2AEF60EBC9D79E64217FAC2FCDFFA81CB6D67F75D67AA04A10C80703C8)
 
 
 
@@ -4870,7 +4940,7 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/bXmY87BrQR6UtL6wMqTiXA/zh-cn_image_0000002611835397.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=583E2FE39C7FD6D2C2E74D0967DE43E0B9FDF23F968D2FEEB0B80CE3FA837C7F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/bXmY87BrQR6UtL6wMqTiXA/zh-cn_image_0000002611835397.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=3922A51BD7D4A605635A5009F34627AEEAF7E5A7EC7BBF474A370C8F13E7CE4F)
 
 
 
@@ -4971,7 +5041,7 @@ struct MyComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ggKG3nGYRLu7hFuAeZO2Vg/zh-cn_image_0000002581275650.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013821Z&HW-CC-Expire=86400&HW-CC-Sign=7E2C22B81898C08B8678FCB93416EBF321A656D02EB6F839D20DAE6BF1317D11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ggKG3nGYRLu7hFuAeZO2Vg/zh-cn_image_0000002581275650.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=D987C6D0DAC6F24BD8EACE830B70DD0E868DA425672E4E0D9D9F75C8128C18E6)
 
 
 

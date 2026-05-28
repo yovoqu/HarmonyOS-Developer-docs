@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { mechanicManager } from '@kit.MechanicKit';
 ```
@@ -21,6 +23,8 @@ import { mechanicManager } from '@kit.MechanicKit';
   
 
 ##### mechanicManager.on('attachStateChange')
+
+**支持设备：** Phone | Tablet
 
 on(type: 'attachStateChange', callback: Callback&lt;AttachStateChangeInfo&gt;): void
  
@@ -61,6 +65,8 @@ console.info('Succeeded in registering callback.');
 
 ##### mechanicManager.off('attachStateChange')
 
+**支持设备：** Phone | Tablet
+
 off(type: 'attachStateChange', callback?: Callback&lt;AttachStateChangeInfo&gt;): void
  
 取消注册连接状态变化事件的回调监听。使用callback异步回调。
@@ -100,6 +106,8 @@ console.info('Succeeded in unregistering callback.');
 
 ##### mechanicManager.getAttachedMechDevices
 
+**支持设备：** Phone | Tablet
+
 getAttachedMechDevices(): MechInfo[]
  
 获取已连接的机械体设备列表。
@@ -133,6 +141,8 @@ console.info(`'device list:' ${mechanicInfos}`);
   
 
 ##### mechanicManager.setCameraTrackingEnabled
+
+**支持设备：** Phone | Tablet
 
 setCameraTrackingEnabled(isEnabled: boolean): void
  
@@ -170,6 +180,8 @@ console.info('Succeeded in enabling tracking.');
 
 ##### mechanicManager.getCameraTrackingEnabled
 
+**支持设备：** Phone | Tablet
+
 getCameraTrackingEnabled(): boolean
  
 检查当前机械体设备是否启用了摄像头跟踪。
@@ -204,6 +216,8 @@ console.info(`'current tracking status:' ${enabled}`);
   
 
 ##### mechanicManager.on('trackingStateChange')
+
+**支持设备：** Phone | Tablet
 
 on(type: 'trackingStateChange', callback: Callback&lt;TrackingEventInfo&gt;): void
  
@@ -244,6 +258,8 @@ console.info('Succeeded in registering callback.');
 
 ##### mechanicManager.off('trackingStateChange')
 
+**支持设备：** Phone | Tablet
+
 off(type: 'trackingStateChange', callback?: Callback&lt;TrackingEventInfo&gt;): void
  
 取消注册跟踪状态变化事件的回调监听。使用callback异步回调。
@@ -283,6 +299,8 @@ console.info('Succeeded in unregistering callback.');
 
 ##### mechanicManager.getCameraTrackingLayout
 
+**支持设备：** Phone | Tablet
+
 getCameraTrackingLayout(): CameraTrackingLayout
  
 获取当前机械体设备摄像头跟踪布局。
@@ -318,6 +336,8 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
 
 ##### MechInfo
 
+**支持设备：** Phone | Tablet
+
 机械体设备信息。
  
 **系统能力**：SystemCapability.Mechanic.Core
@@ -333,6 +353,8 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
 
 ##### TrackingEventInfo
 
+**支持设备：** Phone | Tablet
+
 跟踪事件信息。
  
 **系统能力**：SystemCapability.Mechanic.Core
@@ -345,6 +367,8 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
   
 
 ##### AttachStateChangeInfo
+
+**支持设备：** Phone | Tablet
 
 设备连接状态变化的信息。
  
@@ -359,6 +383,8 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
   
 
 ##### TrackingEvent
+
+**支持设备：** Phone | Tablet
 
 跟踪事件的枚举。
  
@@ -375,6 +401,8 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
 
 ##### MechDeviceType
 
+**支持设备：** Phone | Tablet
+
 机械体设备类型的枚举。
  
 **系统能力**：SystemCapability.Mechanic.Core
@@ -387,6 +415,8 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
   
 
 ##### AttachState
+
+**支持设备：** Phone | Tablet
 
 设备连接状态的枚举。
  
@@ -401,6 +431,8 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
   
 
 ##### CameraTrackingLayout
+
+**支持设备：** Phone | Tablet
 
 摄像头跟踪布局的枚举。
  

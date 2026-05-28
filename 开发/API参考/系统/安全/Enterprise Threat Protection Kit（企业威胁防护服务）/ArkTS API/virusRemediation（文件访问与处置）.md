@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { virusRemediation } from '@kit.EnterpriseThreatProtectionKit';
 ```
@@ -19,6 +21,8 @@ import { virusRemediation } from '@kit.EnterpriseThreatProtectionKit';
 
 
 ##### IsolatedFileInfo
+
+**支持设备：** PC/2in1
 
 隔离文件信息。
 
@@ -40,6 +44,8 @@ import { virusRemediation } from '@kit.EnterpriseThreatProtectionKit';
 
 ##### ScanTargetType
 
+**支持设备：** PC/2in1
+
 扫描对象类型的枚举。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -58,6 +64,8 @@ import { virusRemediation } from '@kit.EnterpriseThreatProtectionKit';
 
 ##### ScanCallback
 
+**支持设备：** PC/2in1
+
 扫描结果的回调类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -69,6 +77,8 @@ import { virusRemediation } from '@kit.EnterpriseThreatProtectionKit';
 
 
 ##### onReceive
+
+**支持设备：** PC/2in1
 
 onReceive(paths: string[]): void
 
@@ -101,6 +111,8 @@ let onReceive: (paths: string[]) => void = (files: Array<string>) => {
 
 ##### onComplete
 
+**支持设备：** PC/2in1
+
 onComplete(): void
 
 文件目录扫描完成信息获取回调函数。
@@ -122,6 +134,8 @@ let onComplete: () => void = () => {
 
 
 ##### onError
+
+**支持设备：** PC/2in1
 
 onError(code: number, message: string): void
 
@@ -153,6 +167,8 @@ let onError: (code: number, message: string) => void = (code: number, message: s
 
 ##### QueryCallback
 
+**支持设备：** PC/2in1
+
 查询隔离文件信息的回调类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -164,6 +180,8 @@ let onError: (code: number, message: string) => void = (code: number, message: s
 
 
 ##### onQuery
+
+**支持设备：** PC/2in1
 
 onQuery(files: IsolatedFileInfo[]): void
 
@@ -196,6 +214,8 @@ let onQuery: (files: virusRemediation.IsolatedFileInfo[]) => void = (files: viru
 
 ##### onComplete
 
+**支持设备：** PC/2in1
+
 onComplete(): void
 
 隔离文件信息查询完成信息获取回调函数。
@@ -217,6 +237,8 @@ let onComplete: () => void = () => {
 
 
 ##### onError
+
+**支持设备：** PC/2in1
 
 onError(code: number, message: string): void
 
@@ -247,6 +269,8 @@ let onError: (code: number, message: string) => void = (code: number, message: s
 
 
 ##### scanBundleFiles
+
+**支持设备：** PC/2in1
 
 scanBundleFiles(type: ScanTargetType, callback: ScanCallback, bundleName?: string, batchNum?: number): void
 
@@ -317,6 +341,8 @@ function startFileScanTask() {
 
 ##### openFile
 
+**支持设备：** PC/2in1
+
 openFile(path: string): Promise&lt;number&gt;
 
 打开文件。使用Promise异步回调。
@@ -377,6 +403,8 @@ function openFilePromise() {
 
 
 ##### queryIsolatedFiles
+
+**支持设备：** PC/2in1
 
 queryIsolatedFiles(callback: QueryCallback, batchNum?: number): void
 
@@ -441,6 +469,8 @@ function startQueryTask() {
 
 ##### isolateThreatFile
 
+**支持设备：** PC/2in1
+
 isolateThreatFile(path: string): Promise&lt;string&gt;
 
 隔离指定路径的文件，在调用前应确保当前路径正确有效且隔离区磁盘空间充足。使用Promise异步回调。
@@ -501,6 +531,8 @@ function isolateFilePromise() {
 
 ##### restoreIsolatedFile
 
+**支持设备：** PC/2in1
+
 restoreIsolatedFile(id: string): Promise&lt;string&gt;
 
 恢复指定隔离ID的文件。使用Promise异步回调。
@@ -558,6 +590,8 @@ function restoreFilePromise() {
 
 
 ##### removeIsolatedFile
+
+**支持设备：** PC/2in1
 
 removeIsolatedFile(id: string): Promise&lt;void&gt;
 

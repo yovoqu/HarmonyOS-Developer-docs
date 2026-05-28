@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { settings } from '@kit.BasicServicesKit';
 ```
@@ -22,11 +24,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### domainName
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供查询的域名。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -40,11 +46,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### date
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置时间和日期格式的数据项。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -60,11 +70,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### display
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置显示效果的数据项。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -87,11 +101,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### general
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置设备常规信息的数据项。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -119,11 +137,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### input
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置有关输入法信息的数据项。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -143,11 +165,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### network
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置网络信息的数据项。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -162,11 +188,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### phone
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置来电和去电接听方式的数据项。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -179,11 +209,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### sound
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置声音效果的数据项。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -206,11 +240,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### TTS
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置文本到语音(TTS)转换信息的数据项。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -226,11 +264,15 @@ import { settings } from '@kit.BasicServicesKit';
 
 ##### wireless
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置无线网络信息的数据项。
 
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Applications.Settings.Core
 
@@ -254,6 +296,8 @@ import { settings } from '@kit.BasicServicesKit';
 
 
 ##### settings.setValue10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setValue(context: Context, name: string, value: string, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -292,6 +336,8 @@ settings.setValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, '100', (st
 
 
 ##### settings.setValue10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setValue(context: Context, name: string, value: string): Promise&lt;boolean&gt;
 
@@ -336,6 +382,8 @@ settings.setValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, '100').the
 
 
 ##### settings.setValue11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setValue(context: Context, name: string, value: string, domainName: string): Promise&lt;boolean&gt;
 
@@ -395,6 +443,8 @@ settings.setValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, '100', set
 
 ##### settings.getValue10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getValue(context: Context, name: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取数据库中DEVICE_SHARD域指定数据项的值。使用callback异步回调。
@@ -432,6 +482,8 @@ settings.getValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, (err, valu
 
 
 ##### settings.getValue10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getValue(context: Context, name: string): Promise&lt;string&gt;
 
@@ -472,6 +524,8 @@ settings.getValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS).then((valu
 
 
 ##### settings.getValue11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getValue(context: Context, name: string, domainName: string): Promise&lt;string&gt;
 
@@ -520,6 +574,8 @@ settings.getValue(context, settings.display.SCREEN_BRIGHTNESS_STATUS, settings.d
 
 ##### settings.getValueSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getValueSync(context: Context, name: string, defValue: string): string
 
 获取数据库中DEVICE_SHARED域指定数据项的值。此方法相较getValue为同步方法。
@@ -559,6 +615,8 @@ let value = settings.getValueSync(context, settings.display.SCREEN_BRIGHTNESS_ST
 
 
 ##### settings.getValueSync11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getValueSync(context: Context, name: string, defValue: string, domainName: string): string
 
@@ -606,6 +664,8 @@ let value = settings.getValueSync(context, settings.display.SCREEN_BRIGHTNESS_ST
 
 ##### settings.setValueSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setValueSync(context: Context, name: string, value: string): boolean
 
 将数据项名称及数据项的值保存到DEVICE_SHARED域数据库中。此方法相较setValue为同步方法。
@@ -651,6 +711,8 @@ let ret = settings.setValueSync(context, settings.display.SCREEN_BRIGHTNESS_STAT
 
 
 ##### settings.setValueSync11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setValueSync(context: Context, name: string, value: string, domainName: string): boolean
 
@@ -712,6 +774,8 @@ let ret = settings.setValueSync(context, settings.display.SCREEN_BRIGHTNESS_STAT
 
 ##### settings.registerKeyObserver11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 registerKeyObserver(context: Context, name: string, domainName: string, observer:AsyncCallback&lt;void&gt;): boolean
 
 用于在指定上下文中注册一个观察者，以便在指定域名中观察指定的数据项。当该数据项的值发生变化时，将调用注册的回调函数。成功注册返回true，否则返回false。
@@ -755,6 +819,8 @@ settings.registerKeyObserver(context, settings.display.SCREEN_BRIGHTNESS_STATUS,
 
 ##### settings.unregisterKeyObserver11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unregisterKeyObserver(context: Context, name: string, domainName: string): boolean
 
 同步方法，注销指定域名下对指定数据项名称的观察者。
@@ -793,6 +859,8 @@ let ret = settings.unregisterKeyObserver(context, settings.display.SCREEN_BRIGHT
 
 
 ##### settings.openNetworkManagerSettings18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openNetworkManagerSettings(context: Context): Promise&lt;boolean&gt;
 
@@ -846,6 +914,8 @@ settings.openNetworkManagerSettings(context).then((status) => {
 
 ##### settings.enableAirplaneMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableAirplaneMode(enable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 启用或禁用飞行模式。使用callback异步回调（暂不支持）。
@@ -876,6 +946,8 @@ settings.enableAirplaneMode(isEnabled, (err:Error) => {
 
 
 ##### settings.enableAirplaneMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableAirplaneMode(enable: boolean): Promise&lt;void&gt;
 
@@ -912,6 +984,8 @@ settings.enableAirplaneMode(isEnabled).then(() => {
 
 ##### settings.canShowFloating
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 canShowFloating(callback: AsyncCallback&lt;boolean&gt;): void
 
 检查应用是否能够以悬浮窗形式显示。使用callback异步回调（暂不支持）。
@@ -941,6 +1015,8 @@ settings.canShowFloating((err:Error, status: boolean) => {
 
 ##### settings.canShowFloating
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 canShowFloating(): Promise&lt;boolean&gt;
 
 检查应用是否能够以悬浮窗形式显示。使用Promise异步回调（暂不支持）。
@@ -965,6 +1041,8 @@ settings.canShowFloating().then((status:boolean) => {
 
 
 ##### settings.getUriSync8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUriSync(name: string): string
 
@@ -997,6 +1075,8 @@ let uriVar:string = settings.getUriSync(settings.display.SCREEN_BRIGHTNESS_STATU
 
 ##### settings.getURI(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getURI(name: string, callback: AsyncCallback&lt;object&gt;): void
 
 获取数据项的URI。使用callback异步回调（暂不支持）。
@@ -1026,6 +1106,8 @@ settings.getURI(settings.display.SCREEN_BRIGHTNESS_STATUS, (uri:string) => {
 
 
 ##### settings.getURI(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getURI(name: string): Promise&lt;object&gt;
 
@@ -1062,6 +1144,8 @@ settings.getURI(settings.display.SCREEN_BRIGHTNESS_STATUS).then((uri:string) => 
 
 
 ##### settings.getValue(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getValue(dataAbilityHelper: DataAbilityHelper, name: string, callback: AsyncCallback&lt;object&gt;): void
 
@@ -1103,6 +1187,8 @@ settings.getValue(helper, settings.display.SCREEN_BRIGHTNESS_STATUS, (err:Error,
 
 
 ##### settings.getValue(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getValue(dataAbilityHelper: DataAbilityHelper, name: string): Promise&lt;object&gt;
 
@@ -1147,6 +1233,8 @@ settings.getValue(helper, settings.display.SCREEN_BRIGHTNESS_STATUS).then((value
 
 ##### settings.getValueSync(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getValueSync(dataAbilityHelper: DataAbilityHelper, name: string, defValue: string): string
 
 获取数据项的值。此方法相较getValue为同步方法。
@@ -1189,6 +1277,8 @@ let value:string = settings.getValueSync(helper, settings.display.SCREEN_BRIGHTN
 
 
 ##### settings.setValueSync(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setValueSync(dataAbilityHelper: DataAbilityHelper, name: string, value: string): boolean
 
@@ -1239,6 +1329,8 @@ let ret:string = settings.setValueSync(helper, settings.display.SCREEN_BRIGHTNES
 
 ##### settings.openInputMethodSettings23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 openInputMethodSettings(context: Context): void
 
 打开输入法设置页面。
@@ -1280,6 +1372,8 @@ settings.openInputMethodSettings(context);
 
 
 ##### settings.openInputMethodDetail23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openInputMethodDetail(context: Context, bundleName: string, inputMethodId: string): void
 
@@ -1327,6 +1421,8 @@ settings.openInputMethodDetail(context, bundleName, inputMethodId);
 
 ##### settings.openBiometricsSettingsPage24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 openBiometricsSettingsPage(context: Context): void
 
 打开生物识别和密码设置页面。
@@ -1372,6 +1468,8 @@ try {
 
 
 ##### settings.openNfcSettingsPage24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openNfcSettingsPage(context: Context): void
 

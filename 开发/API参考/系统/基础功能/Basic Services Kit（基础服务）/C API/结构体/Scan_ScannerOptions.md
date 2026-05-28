@@ -12,6 +12,8 @@ typedef struct {...} Scan_ScannerOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示一个扫描仪的所有参数选项
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct {...} Scan_ScannerOptions
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

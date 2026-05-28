@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { deviceManager } from '@kit.DriverDevelopmentKit';
 ```
@@ -21,6 +23,8 @@ import { deviceManager } from '@kit.DriverDevelopmentKit';
 
 
 ##### deviceManager.queryDevices
+
+**支持设备：** PC/2in1
 
 queryDevices(busType?: number): Array<Readonly&lt;Device&gt;>
 
@@ -73,6 +77,8 @@ try {
 
 
 ##### deviceManager.bindDriverWithDeviceId19+
+
+**支持设备：** PC/2in1
 
 bindDriverWithDeviceId(deviceId: number, onDisconnect: AsyncCallback&lt;number&gt;): Promise&lt;RemoteDeviceDriver&gt;
 
@@ -135,6 +141,8 @@ try {
 
 ##### deviceManager.unbindDriverWithDeviceId19+
 
+**支持设备：** PC/2in1
+
 unbindDriverWithDeviceId(deviceId: number): Promise&lt;number&gt;
 
 解除设备绑定。使用Promise异步回调。
@@ -189,6 +197,8 @@ try {
 
 
 ##### deviceManager.bindDevice(deprecated)
+
+**支持设备：** PC/2in1
 
 bindDevice(deviceId: number, onDisconnect: AsyncCallback&lt;number&gt;, callback: AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}>): void
 
@@ -256,6 +266,8 @@ try {
 
 ##### deviceManager.bindDeviceDriver(deprecated)
 
+**支持设备：** PC/2in1
+
 bindDeviceDriver(deviceId: number, onDisconnect: AsyncCallback&lt;number&gt;, callback: AsyncCallback&lt;RemoteDeviceDriver&gt;): void
 
 根据queryDevices()返回的设备信息绑定设备。
@@ -315,6 +327,8 @@ try {
 
 
 ##### deviceManager.bindDevice(deprecated)
+
+**支持设备：** PC/2in1
 
 bindDevice(deviceId: number, onDisconnect: AsyncCallback&lt;number&gt;): Promise<{deviceId: number; remote: rpc.IRemoteObject;}>;
 
@@ -381,6 +395,8 @@ try {
 
 ##### deviceManager.bindDeviceDriver(deprecated)
 
+**支持设备：** PC/2in1
+
 bindDeviceDriver(deviceId: number, onDisconnect: AsyncCallback&lt;number&gt;): Promise&lt;RemoteDeviceDriver&gt;;
 
 根据queryDevices()返回的设备信息绑定设备。
@@ -446,6 +462,8 @@ try {
 
 ##### deviceManager.unbindDevice(deprecated)
 
+**支持设备：** PC/2in1
+
 unbindDevice(deviceId: number, callback: AsyncCallback&lt;number&gt;): void
 
 解除设备绑定。
@@ -500,6 +518,8 @@ try {
 
 
 ##### deviceManager.unbindDevice(deprecated)
+
+**支持设备：** PC/2in1
 
 unbindDevice(deviceId: number): Promise&lt;number&gt;
 
@@ -560,6 +580,8 @@ try {
 
 ##### Device
 
+**支持设备：** PC/2in1
+
 外设信息。
 
 **系统能力：** SystemCapability.Driver.ExternalDevice
@@ -575,6 +597,8 @@ try {
 
 ##### USBDevice
 
+**支持设备：** PC/2in1
+
 USB设备信息，继承自[Device](#device)。
 
 **系统能力：** SystemCapability.Driver.ExternalDevice
@@ -589,6 +613,8 @@ USB设备信息，继承自[Device](#device)。
 
 ##### BusType
 
+**支持设备：** PC/2in1
+
 设备总线类型。
 
 **系统能力：** SystemCapability.Driver.ExternalDevice
@@ -601,6 +627,8 @@ USB设备信息，继承自[Device](#device)。
 
 
 ##### RemoteDeviceDriver11+
+
+**支持设备：** PC/2in1
 
 远程设备驱动。
 

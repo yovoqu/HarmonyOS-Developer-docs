@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 应用配额信息，包含应用已使用配额信息和剩余配额信息。
  
 **起始版本：** 6.0.2(22)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### used
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 NetworkBoost_MultiPathQuotaInfo NetworkBoost_MultiPathQuota::used
@@ -48,6 +58,8 @@ NetworkBoost_MultiPathQuotaInfo NetworkBoost_MultiPathQuota::used
   
 
 ##### remaining
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 NetworkBoost_MultiPathQuotaInfo NetworkBoost_MultiPathQuota::remaining

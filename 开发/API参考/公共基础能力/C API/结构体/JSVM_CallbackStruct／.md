@@ -12,6 +12,8 @@ typedef JSVM_CallbackStruct* JSVM_Callback
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用户提供的native函数的函数指针类型，这些函数通过JSVM-API接口暴露给JavaScript。
  
 **起始版本：** 11

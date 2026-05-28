@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { ContentFormCard, FormType } from '@kit.ArkData';
 ```
@@ -22,11 +24,15 @@ import { ContentFormCard, FormType } from '@kit.ArkData';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 无
  
   
 
 ##### ContentFormCard
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ContentFormCard({contentFormData: uniformDataStruct.ContentForm, formType: FormType, formWidth?: number, formHeight?: number, handleOnClick?: Function})
  
@@ -49,6 +55,8 @@ ContentFormCard({contentFormData: uniformDataStruct.ContentForm, formType: FormT
 
 ##### FormType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 内容卡片类型枚举，提供了大、中、小三种尺寸。
  
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
@@ -63,6 +71,8 @@ ContentFormCard({contentFormData: uniformDataStruct.ContentForm, formType: FormT
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 import { uniformDataStruct } from '@kit.ArkData'

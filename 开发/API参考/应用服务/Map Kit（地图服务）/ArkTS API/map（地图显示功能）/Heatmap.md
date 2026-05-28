@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### Heatmap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 热力图管理对象。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addHeatmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addheatmap)方法时会返回该类型的实例。
  
@@ -55,6 +59,8 @@ let heatMap = await this.mapController.addHeatmap(heatMapOptions)
 
 ##### setData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setData(data: mapCommon.WeightedLatLng[]): void
  
 更新热力图数据。
@@ -93,6 +99,8 @@ heatMap.setData(data);
 
 ##### getData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getData(): mapCommon.WeightedLatLng[]
  
 获取热力图数据。
@@ -121,6 +129,8 @@ let data: mapCommon.WeightedLatLng[] = heatMap.getData();
   
 
 ##### setColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setColor(color: Record<number, number>): void
  
@@ -161,6 +171,8 @@ heatMap.setColor(record);
 
 ##### getColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getColor(): Record<number, number>
  
 获取热力图颜色。
@@ -189,6 +201,8 @@ let record: Record<number, number> = heatMap.getColor();
   
 
 ##### setIntensity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setIntensity(intensity: number | Record<number, number>): void
  
@@ -224,6 +238,8 @@ heatMap.setIntensity(intensity);
 
 ##### getIntensity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getIntensity(): number | Record<number, number>
  
 获取热力图强度。
@@ -252,6 +268,8 @@ let intensity: Record<number, number> | number = heatMap.getIntensity();
   
 
 ##### setOpacity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setOpacity(opacity: number | Record<number, number>): void
  
@@ -287,6 +305,8 @@ heatMap.setOpacity(opacity);
 
 ##### getOpacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getOpacity(): number | Record<number, number>
  
 获取热力图透明度。
@@ -315,6 +335,8 @@ let opacity: Record<number, number> | number = heatMap.getOpacity();
   
 
 ##### setRadius
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setRadius(radius: number | Record<number, number>): void
  
@@ -345,6 +367,8 @@ heatMap.setRadius(3000);
 
 ##### getRadius
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getRadius(): number | Record<number, number>
  
 获取热力图半径。
@@ -373,6 +397,8 @@ let radius: number | Record<number, number> = heatMap.getRadius();
   
 
 ##### setRadiusUnit
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setRadiusUnit(radiusUnit: mapCommon.RadiusUnit): void
  
@@ -403,6 +429,8 @@ heatMap.setRadiusUnit(mapCommon.RadiusUnit.PIXEL_UNIT);
 
 ##### getRadiusUnit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getRadiusUnit(): mapCommon.RadiusUnit
  
 获取热力图半径单位。
@@ -431,6 +459,8 @@ let radiusUnit: mapCommon.RadiusUnit = heatMap.getRadiusUnit();
   
 
 ##### setVisible
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setVisible(visible: boolean): void
  
@@ -461,6 +491,8 @@ heatMap.setVisible(false);
 
 ##### isVisible
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isVisible(): boolean
  
 获取热力图是否可见。
@@ -489,6 +521,8 @@ let isVisible: boolean = heatMap.isVisible();
   
 
 ##### remove
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 remove(): void
  

@@ -12,6 +12,8 @@ typedef struct ArkUI_CrossLanguageOption ArkUI_CrossLanguageOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义跨语言配置项。
  
 **起始版本：** 15

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明与音频编创相关的接口。（包括引擎、管线、节点）。
  
 **引用文件：** <ohaudiosuite/native_audio_suite_engine.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -79,9 +85,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_AudioSuiteEngine_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_Create(OH_AudioSuiteEngine** audioSuiteEngine)
@@ -110,6 +120,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_Create(OH_AudioSuiteEngine** audioSuite
   
 
 ##### OH_AudioSuiteEngine_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_Destroy(OH_AudioSuiteEngine* audioSuiteEngine)
@@ -142,6 +154,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_Destroy(OH_AudioSuiteEngine* audioSuite
   
 
 ##### OH_AudioSuiteEngine_CreatePipeline()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_CreatePipeline(OH_AudioSuiteEngine* audioSuiteEngine, OH_AudioSuitePipeline** audioSuitePipeline, OH_AudioSuite_PipelineWorkMode workMode)
@@ -181,6 +195,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_CreatePipeline(OH_AudioSuiteEngine* aud
 
 ##### OH_AudioSuiteEngine_DestroyPipeline()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_DestroyPipeline(OH_AudioSuitePipeline* audioSuitePipeline)
 ```
@@ -213,6 +229,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_DestroyPipeline(OH_AudioSuitePipeline* 
 
 ##### OH_AudioSuiteEngine_StartPipeline()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_StartPipeline(OH_AudioSuitePipeline* audioSuitePipeline)
 ```
@@ -240,6 +258,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_StartPipeline(OH_AudioSuitePipeline* au
   
 
 ##### OH_AudioSuiteEngine_StopPipeline()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_StopPipeline(OH_AudioSuitePipeline* audioSuitePipeline)
@@ -269,6 +289,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_StopPipeline(OH_AudioSuitePipeline* aud
 
 ##### OH_AudioSuiteEngine_GetPipelineState()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetPipelineState(OH_AudioSuitePipeline* audioSuitePipeline, OH_AudioSuite_PipelineState* pipelineState)
 ```
@@ -297,6 +319,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetPipelineState(OH_AudioSuitePipeline*
   
 
 ##### OH_AudioSuiteEngine_RenderFrame()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_RenderFrame(OH_AudioSuitePipeline* audioSuitePipeline, void* audioData, int32_t requestFrameSize, int32_t* responseSize, bool* finishedFlag)
@@ -334,6 +358,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_RenderFrame(OH_AudioSuitePipeline* audi
 
 ##### OH_AudioSuiteEngine_MultiRenderFrame()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_MultiRenderFrame(OH_AudioSuitePipeline* audioSuitePipeline, OH_AudioDataArray* audioDataArray, int32_t* responseSize, bool* finishedFlag)
 ```
@@ -365,6 +391,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_MultiRenderFrame(OH_AudioSuitePipeline*
 
 ##### OH_AudioSuiteNodeBuilder_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_Create(OH_AudioNodeBuilder** builder)
 ```
@@ -392,6 +420,8 @@ OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_Create(OH_AudioNodeBuilder** build
   
 
 ##### OH_AudioSuiteNodeBuilder_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_Destroy(OH_AudioNodeBuilder* builder)
@@ -421,6 +451,8 @@ OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_Destroy(OH_AudioNodeBuilder* build
 
 ##### OH_AudioSuiteNodeBuilder_Reset()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_Reset(OH_AudioNodeBuilder* builder)
 ```
@@ -448,6 +480,8 @@ OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_Reset(OH_AudioNodeBuilder* builder
   
 
 ##### OH_AudioSuiteNodeBuilder_SetNodeType()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_SetNodeType(OH_AudioNodeBuilder* builder, OH_AudioNode_Type type)
@@ -477,6 +511,8 @@ OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_SetNodeType(OH_AudioNodeBuilder* b
   
 
 ##### OH_AudioSuiteNodeBuilder_SetFormat()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_SetFormat(OH_AudioNodeBuilder* builder, OH_AudioFormat audioFormat)
@@ -510,6 +546,8 @@ OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_SetFormat(OH_AudioNodeBuilder* bui
   
 
 ##### OH_InputNode_RequestDataCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef int32_t (*OH_InputNode_RequestDataCallback)(OH_AudioNode* audioNode, void* userData, void* audioData, int32_t audioDataSize, bool* finished)
@@ -547,6 +585,8 @@ typedef int32_t (*OH_InputNode_RequestDataCallback)(OH_AudioNode* audioNode, voi
 
 ##### OH_AudioSuiteNodeBuilder_SetRequestDataCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_SetRequestDataCallback(OH_AudioNodeBuilder* builder, OH_InputNode_RequestDataCallback callback, void* userData)
 ```
@@ -576,6 +616,8 @@ OH_AudioSuite_Result OH_AudioSuiteNodeBuilder_SetRequestDataCallback(OH_AudioNod
   
 
 ##### OH_AudioSuiteEngine_CreateNode()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_CreateNode(OH_AudioSuitePipeline* audioSuitePipeline, OH_AudioNodeBuilder* builder, OH_AudioNode** audioNode)
@@ -609,6 +651,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_CreateNode(OH_AudioSuitePipeline* audio
 
 ##### OH_AudioSuiteEngine_DestroyNode()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_DestroyNode(OH_AudioNode* audioNode)
 ```
@@ -636,6 +680,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_DestroyNode(OH_AudioNode* audioNode)
   
 
 ##### OH_AudioSuiteEngine_GetNodeBypassStatus()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetNodeBypassStatus(OH_AudioNode* audioNode, bool* bypassStatus)
@@ -668,6 +714,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetNodeBypassStatus(OH_AudioNode* audio
 
 ##### OH_AudioSuiteEngine_BypassEffectNode()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_BypassEffectNode(OH_AudioNode* audioNode, bool bypass)
 ```
@@ -699,6 +747,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_BypassEffectNode(OH_AudioNode* audioNod
 
 ##### OH_AudioSuiteEngine_SetAudioFormat()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetAudioFormat(OH_AudioNode* audioNode, OH_AudioFormat *audioFormat)
 ```
@@ -727,6 +777,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetAudioFormat(OH_AudioNode* audioNode,
   
 
 ##### OH_AudioSuiteEngine_ConnectNodes()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_ConnectNodes(OH_AudioNode* sourceAudioNode, OH_AudioNode* destAudioNode)
@@ -759,6 +811,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_ConnectNodes(OH_AudioNode* sourceAudioN
 
 ##### OH_AudioSuiteEngine_DisconnectNodes()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_DisconnectNodes(OH_AudioNode* sourceAudioNode, OH_AudioNode* destAudioNode)
 ```
@@ -787,6 +841,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_DisconnectNodes(OH_AudioNode* sourceAud
   
 
 ##### OH_AudioSuiteEngine_SetEqualizerFrequencyBandGains()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetEqualizerFrequencyBandGains(OH_AudioNode* audioNode, OH_EqualizerFrequencyBandGains frequencyBandGains)
@@ -817,6 +873,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetEqualizerFrequencyBandGains(OH_Audio
 
 ##### OH_AudioSuiteEngine_GetEqualizerFrequencyBandGains()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetEqualizerFrequencyBandGains(OH_AudioNode* audioNode, OH_EqualizerFrequencyBandGains* frequencyBandGains)
 ```
@@ -845,6 +903,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetEqualizerFrequencyBandGains(OH_Audio
   
 
 ##### OH_AudioSuiteEngine_SetSoundFieldType()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetSoundFieldType(OH_AudioNode* audioNode, OH_SoundFieldType soundFieldType)
@@ -875,6 +935,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetSoundFieldType(OH_AudioNode* audioNo
 
 ##### OH_AudioSuiteEngine_GetSoundFieldType()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetSoundFieldType(OH_AudioNode* audioNode, OH_SoundFieldType* soundFieldType)
 ```
@@ -903,6 +965,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetSoundFieldType(OH_AudioNode* audioNo
   
 
 ##### OH_AudioSuiteEngine_SetEnvironmentType()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetEnvironmentType(OH_AudioNode* audioNode, OH_EnvironmentType environmentType)
@@ -933,6 +997,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetEnvironmentType(OH_AudioNode* audioN
 
 ##### OH_AudioSuiteEngine_GetEnvironmentType()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetEnvironmentType(OH_AudioNode* audioNode, OH_EnvironmentType* environmentType)
 ```
@@ -961,6 +1027,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetEnvironmentType(OH_AudioNode* audioN
   
 
 ##### OH_AudioSuiteEngine_SetVoiceBeautifierType()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetVoiceBeautifierType(OH_AudioNode* audioNode, OH_VoiceBeautifierType voiceBeautifierType)
@@ -991,6 +1059,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetVoiceBeautifierType(OH_AudioNode* au
 
 ##### OH_AudioSuiteEngine_GetVoiceBeautifierType()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetVoiceBeautifierType(OH_AudioNode* audioNode, OH_VoiceBeautifierType* voiceBeautifierType)
 ```
@@ -1019,6 +1089,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetVoiceBeautifierType(OH_AudioNode* au
   
 
 ##### OH_AudioSuiteEngine_IsNodeTypeSupported()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_IsNodeTypeSupported(OH_AudioNode_Type nodeType, bool* isSupported)
@@ -1049,6 +1121,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_IsNodeTypeSupported(OH_AudioNode_Type n
 
 ##### OH_AudioSuiteEngine_SetSpaceRenderPositionParams()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetSpaceRenderPositionParams(OH_AudioNode* audioNode, OH_AudioSuite_SpaceRenderPositionParams position)
 ```
@@ -1077,6 +1151,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetSpaceRenderPositionParams(OH_AudioNo
   
 
 ##### OH_AudioSuiteEngine_GetSpaceRenderPositionParams()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetSpaceRenderPositionParams(OH_AudioNode* audioNode, OH_AudioSuite_SpaceRenderPositionParams* position)
@@ -1107,6 +1183,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetSpaceRenderPositionParams(OH_AudioNo
 
 ##### OH_AudioSuiteEngine_SetSpaceRenderRotationParams()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetSpaceRenderRotationParams(OH_AudioNode* audioNode, OH_AudioSuite_SpaceRenderRotationParams rotation)
 ```
@@ -1135,6 +1213,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetSpaceRenderRotationParams(OH_AudioNo
   
 
 ##### OH_AudioSuiteEngine_GetSpaceRenderRotationParams()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetSpaceRenderRotationParams(OH_AudioNode* audioNode, OH_AudioSuite_SpaceRenderRotationParams* rotation)
@@ -1165,6 +1245,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetSpaceRenderRotationParams(OH_AudioNo
 
 ##### OH_AudioSuiteEngine_SetSpaceRenderExtensionParams()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetSpaceRenderExtensionParams(OH_AudioNode* audioNode, OH_AudioSuite_SpaceRenderExtensionParams extension)
 ```
@@ -1194,6 +1276,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetSpaceRenderExtensionParams(OH_AudioN
 
 ##### OH_AudioSuiteEngine_GetSpaceRenderExtensionParams()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetSpaceRenderExtensionParams(OH_AudioNode* audioNode, OH_AudioSuite_SpaceRenderExtensionParams* extension)
 ```
@@ -1222,6 +1306,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetSpaceRenderExtensionParams(OH_AudioN
   
 
 ##### OH_AudioSuiteEngine_SetTempoAndPitch()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetTempoAndPitch(OH_AudioNode* audioNode, float speed, float pitch)
@@ -1253,6 +1339,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetTempoAndPitch(OH_AudioNode* audioNod
 
 ##### OH_AudioSuiteEngine_GetTempoAndPitch()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetTempoAndPitch(OH_AudioNode* audioNode, float* speed, float* pitch)
 ```
@@ -1283,6 +1371,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetTempoAndPitch(OH_AudioNode* audioNod
 
 ##### OH_AudioSuiteEngine_SetPureVoiceChangeOption()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetPureVoiceChangeOption(OH_AudioNode* audioNode, OH_AudioSuite_PureVoiceChangeOption option)
 ```
@@ -1311,6 +1401,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetPureVoiceChangeOption(OH_AudioNode* 
   
 
 ##### OH_AudioSuiteEngine_GetPureVoiceChangeOption()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetPureVoiceChangeOption(OH_AudioNode* audioNode, OH_AudioSuite_PureVoiceChangeOption* option)
@@ -1341,6 +1433,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_GetPureVoiceChangeOption(OH_AudioNode* 
 
 ##### OH_AudioSuiteEngine_SetGeneralVoiceChangeType()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_SetGeneralVoiceChangeType(OH_AudioNode* audioNode, OH_AudioSuite_GeneralVoiceChangeType type)
 ```
@@ -1369,6 +1463,8 @@ OH_AudioSuite_Result OH_AudioSuiteEngine_SetGeneralVoiceChangeType(OH_AudioNode*
   
 
 ##### OH_AudioSuiteEngine_GetGeneralVoiceChangeType()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AudioSuite_Result OH_AudioSuiteEngine_GetGeneralVoiceChangeType(OH_AudioNode* audioNode, OH_AudioSuite_GeneralVoiceChangeType* type)

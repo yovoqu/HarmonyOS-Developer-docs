@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 Neural Network Runtime定义的结构体和枚举值。
  
 **引用文件：** <neural_network_runtime/neural_network_runtime_type.h>
@@ -23,9 +25,13 @@ Neural Network Runtime定义的结构体和枚举值。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -44,6 +50,8 @@ Neural Network Runtime定义的结构体和枚举值。
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -61,6 +69,8 @@ Neural Network Runtime定义的结构体和枚举值。
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -72,9 +82,13 @@ Neural Network Runtime定义的结构体和枚举值。
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OH_NN_PerformanceMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_NN_PerformanceMode
@@ -99,6 +113,8 @@ enum OH_NN_PerformanceMode
 
 ##### OH_NN_Priority
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_NN_Priority
 ```
@@ -120,6 +136,8 @@ enum OH_NN_Priority
   
 
 ##### OH_NN_ReturnCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_NN_ReturnCode
@@ -154,6 +172,8 @@ Neural Network Runtime 定义的错误码类型。
 
 ##### OH_NN_FuseType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_NN_FuseType
 ```
@@ -174,6 +194,8 @@ Neural Network Runtime 融合算子中激活函数的类型。
   
 
 ##### OH_NN_Format
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_NN_Format
@@ -197,6 +219,8 @@ enum OH_NN_Format
 
 ##### OH_NN_DeviceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_NN_DeviceType
 ```
@@ -218,6 +242,8 @@ Neural Network Runtime 支持的设备类型。
   
 
 ##### OH_NN_DataType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_NN_DataType
@@ -249,6 +275,8 @@ Neural Network Runtime 支持的数据类型。
   
 
 ##### OH_NN_OperationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_NN_OperationType
@@ -375,6 +403,8 @@ Neural Network Runtime 支持算子的类型。
   
 
 ##### OH_NN_TensorType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_NN_TensorType
@@ -561,9 +591,13 @@ enum OH_NN_TensorType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### NN_OnRunDone()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (*NN_OnRunDone)(void *userData, OH_NN_ReturnCode errCode, void *outputTensor[], int32_t outputCount)
@@ -590,6 +624,8 @@ typedef void (*NN_OnRunDone)(void *userData, OH_NN_ReturnCode errCode, void *out
   
 
 ##### NN_OnServiceDied()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (*NN_OnServiceDied)(void *userData)

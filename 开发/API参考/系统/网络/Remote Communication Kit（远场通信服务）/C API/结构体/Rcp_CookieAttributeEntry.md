@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 响应Cookie属性条目。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### key
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const char* Rcp_CookieAttributeEntry::key
@@ -50,6 +60,8 @@ const char* Rcp_CookieAttributeEntry::key
 
 ##### next
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 struct Rcp_CookieAttributeEntry* Rcp_CookieAttributeEntry::next
 ```
@@ -61,6 +73,8 @@ struct Rcp_CookieAttributeEntry* Rcp_CookieAttributeEntry::next
   
 
 ##### value
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const char* Rcp_CookieAttributeEntry::value

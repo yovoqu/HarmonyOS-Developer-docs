@@ -12,6 +12,8 @@ typedef struct OH_AuxiliaryPictureNative OH_AuxiliaryPictureNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AuxiliaryPicture结构体类型，用于执行AuxiliaryPicture相关操作。
  
 **起始版本：** 13

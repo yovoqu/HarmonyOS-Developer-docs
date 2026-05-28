@@ -12,6 +12,8 @@ typedef struct OH_PreferencesValue OH_PreferencesValue
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义PreferencesValue对象类型。
  
 **起始版本：** 13

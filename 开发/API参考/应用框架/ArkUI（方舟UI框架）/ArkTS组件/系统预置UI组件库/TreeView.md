@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { TreeView } from "@kit.ArkUI";
 ```
@@ -24,11 +26,15 @@ import { TreeView } from "@kit.ArkUI";
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### TreeView
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TreeView({ treeController: TreeController })
  
@@ -49,6 +55,8 @@ TreeView({ treeController: TreeController })
 
 ##### TreeController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 树视图组件的控制器，可以将此对象绑定至树视图组件，然后通过它控制树的节点信息，同一个控制器不可以控制多个树视图组件。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -60,6 +68,8 @@ TreeView({ treeController: TreeController })
   
 
 ##### addNode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addNode(nodeParam?: NodeParam): TreeController
  
@@ -89,6 +99,8 @@ addNode(nodeParam?: NodeParam): TreeController
 
 ##### removeNode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeNode(): void
  
 点击某个节点后，调用该方法可以触发删除该节点。
@@ -102,6 +114,8 @@ removeNode(): void
   
 
 ##### modifyNode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 modifyNode(): void
  
@@ -117,6 +131,8 @@ modifyNode(): void
 
 ##### buildDone
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 buildDone(): void
  
 建立树视图。节点增加完毕后，必须调用该方法，触发树信息的保存。
@@ -130,6 +146,8 @@ buildDone(): void
   
 
 ##### refreshNode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void
  
@@ -153,6 +171,8 @@ refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: Reso
   
 
 ##### NodeParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -178,6 +198,8 @@ refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: Reso
 
 ##### TreeListenerManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 树视图组件的监听器，可以将此对象绑定至树视图组件，然后通过它监听树的节点的变化，同一个监听器不可以控制多个树视图组件。
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -185,6 +207,8 @@ refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: Reso
   
 
 ##### getInstance
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getInstance(): TreeListenerManager
  
@@ -207,6 +231,8 @@ static getInstance(): TreeListenerManager
 
 ##### getTreeListener
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTreeListener(): TreeListener
  
 获取监听器。
@@ -228,11 +254,15 @@ getTreeListener(): TreeListener
 
 ##### TreeListener
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 树视图组件的监听器，可以将此对象绑定至树视图组件，然后通过它监听树的节点的变化，同一个监听器不可以控制多个树视图组件。
  
   
 
 ##### on
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
  
@@ -256,6 +286,8 @@ on(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void
 
 ##### once
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 once(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
  
 注册一次监听。
@@ -277,6 +309,8 @@ once(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): vo
   
 
 ##### off
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): void;
  
@@ -300,6 +334,8 @@ off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): vo
 
 ##### TreeListenType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义树视图节点的监听事件类型。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -321,6 +357,8 @@ off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): vo
 
 ##### CallbackParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -338,11 +376,15 @@ off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): vo
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -592,4 +634,4 @@ struct TreeViewDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/jYbMeeYCS96lnCkvPXliJA/zh-cn_image_0000002581276362.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=361B5459E400A3AD5BE60B4A876C896D33003A1A7D7D6710BD787F68763C177F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/jYbMeeYCS96lnCkvPXliJA/zh-cn_image_0000002581276362.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=343184DB1397E6C12B5392CA43E5C3C83857BDFD663CBF1C5C710DCDE42B71AC)

@@ -12,6 +12,8 @@
 
 ##### CommonEventSubscriber
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示公共事件的订阅者。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -41,6 +43,8 @@ subscriber = commonEventManager.createSubscriberSync(subscribeInfo);
 
 
 ##### getCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCode(callback: AsyncCallback&lt;number&gt;): void
 
@@ -82,6 +86,8 @@ subscriber.getCode((err: BusinessError, code: number) => {
 
 ##### getCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCode(): Promise&lt;number&gt;
 
 获取有序公共事件传递的数据（number类型）。使用Promise异步回调。
@@ -111,6 +117,8 @@ subscriber.getCode().then((code: number) => {
 
 ##### getCodeSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCodeSync(): number
 
 获取有序公共事件传递的数据（number类型）。
@@ -136,6 +144,8 @@ console.info(`Succeeded in getting code, code is ${JSON.stringify(code)}`);
 
 
 ##### setCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCode(code: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -177,6 +187,8 @@ subscriber.setCode(1, (err: BusinessError) => {
 
 
 ##### setCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCode(code: number): Promise&lt;void&gt;
 
@@ -223,6 +235,8 @@ subscriber.setCode(1).then(() => {
 
 ##### setCodeSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCodeSync(code: number): void
 
 设置有序公共事件传递的数据（number类型）。
@@ -261,6 +275,8 @@ try {
 
 
 ##### getData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getData(callback: AsyncCallback&lt;string&gt;): void
 
@@ -303,6 +319,8 @@ subscriber.getData((err: BusinessError, data: string) => {
 
 ##### getData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getData(): Promise&lt;string&gt;
 
 获取有序公共事件传递的数据（string类型）。使用Promise异步回调。
@@ -332,6 +350,8 @@ subscriber.getData().then((data: string) => {
 
 ##### getDataSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDataSync(): string
 
 获取有序公共事件传递的数据（string类型）。
@@ -357,6 +377,8 @@ console.info(`Succeeded in getting data, data is ${data}`);
 
 
 ##### setData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setData(data: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -398,6 +420,8 @@ subscriber.setData('publish_data_changed', (err: BusinessError) => {
 
 
 ##### setData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setData(data: string): Promise&lt;void&gt;
 
@@ -444,6 +468,8 @@ subscriber.setData('publish_data_changed').then(() => {
 
 ##### setDataSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDataSync(data: string): void
 
 设置有序公共事件传递的数据（string类型）。
@@ -482,6 +508,8 @@ try {
 
 
 ##### setCodeAndData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCodeAndData(code: number, data: string, callback:AsyncCallback&lt;void&gt;): void
 
@@ -524,6 +552,8 @@ subscriber.setCodeAndData(1, 'publish_data_changed', (err: BusinessError) => {
 
 
 ##### setCodeAndData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCodeAndData(code: number, data: string): Promise&lt;void&gt;
 
@@ -571,6 +601,8 @@ subscriber.setCodeAndData(1, 'publish_data_changed').then(() => {
 
 ##### setCodeAndDataSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCodeAndDataSync(code: number, data: string): void
 
 设置有序公共事件传递的数据。
@@ -611,6 +643,8 @@ try {
 
 ##### isOrderedCommonEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isOrderedCommonEvent(callback: AsyncCallback&lt;boolean&gt;): void
 
 查询当前公共事件是否为有序公共事件。使用callback异步回调。
@@ -649,6 +683,8 @@ subscriber.isOrderedCommonEvent((err: BusinessError, isOrdered:boolean) => {
 
 ##### isOrderedCommonEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isOrderedCommonEvent(): Promise&lt;boolean&gt;
 
 查询当前公共事件是否为有序公共事件。使用Promise异步回调。
@@ -676,6 +712,8 @@ subscriber.isOrderedCommonEvent().then((isOrdered:boolean) => {
 
 ##### isOrderedCommonEventSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isOrderedCommonEventSync(): boolean
 
 查询当前公共事件是否为有序公共事件。
@@ -699,6 +737,8 @@ console.info(`isOrderedCommonEventSync ${JSON.stringify(isOrdered)}`);
 
 
 ##### isStickyCommonEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isStickyCommonEvent(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -738,6 +778,8 @@ subscriber.isStickyCommonEvent((err: BusinessError, isSticky:boolean) => {
 
 ##### isStickyCommonEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isStickyCommonEvent(): Promise&lt;boolean&gt;
 
 检查当前公共事件是否为一个粘性事件。使用Promise异步回调。
@@ -765,6 +807,8 @@ subscriber.isStickyCommonEvent().then((isSticky:boolean) => {
 
 ##### isStickyCommonEventSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isStickyCommonEventSync(): boolean
 
 检查当前公共事件是否为一个粘性事件。
@@ -788,6 +832,8 @@ console.info(`isStickyCommonEventSync ${JSON.stringify(isSticky)}`);
 
 
 ##### abortCommonEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 abortCommonEvent(callback: AsyncCallback&lt;void&gt;): void
 
@@ -834,6 +880,8 @@ subscriber.finishCommonEvent((err: BusinessError) => {
 
 ##### abortCommonEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 abortCommonEvent(): Promise&lt;void&gt;
 
 添加有序公共事件的中止状态。当该接口与[finishCommonEvent](#finishcommonevent9)配合使用时，可以中止当前的有序公共事件，使该公共事件不再向下一个订阅者传递。使用Promise异步回调。
@@ -866,6 +914,8 @@ subscriber.finishCommonEvent().then(() => {
 
 ##### abortCommonEventSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 abortCommonEventSync(): void
 
 添加有序公共事件的中止状态。当该接口与[finishCommonEvent](#finishcommonevent9)配合使用时，可以中止当前的有序公共事件，使该公共事件不再向下一个订阅者传递。
@@ -886,6 +936,8 @@ subscriber.finishCommonEvent().then(() => {
 
 
 ##### clearAbortCommonEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clearAbortCommonEvent(callback: AsyncCallback&lt;void&gt;): void
 
@@ -932,6 +984,8 @@ subscriber.finishCommonEvent((err: BusinessError) => {
 
 ##### clearAbortCommonEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearAbortCommonEvent(): Promise&lt;void&gt;
 
 清理有序公共事件的中止状态。当该接口与[finishCommonEvent](#finishcommonevent9)配合使用时，可以使该公共事件继续向下一个订阅者传递。使用Promise异步回调。
@@ -964,6 +1018,8 @@ subscriber.finishCommonEvent().then(() => {
 
 ##### clearAbortCommonEventSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearAbortCommonEventSync(): void
 
 清理有序公共事件的中止状态。当该接口与[finishCommonEvent](#finishcommonevent9)配合使用时，可以使该公共事件继续向下一个订阅者传递。
@@ -984,6 +1040,8 @@ subscriber.finishCommonEvent().then(() => {
 
 
 ##### getAbortCommonEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAbortCommonEvent(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -1023,6 +1081,8 @@ subscriber.getAbortCommonEvent((err: BusinessError, abortEvent: boolean) => {
 
 ##### getAbortCommonEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAbortCommonEvent(): Promise&lt;boolean&gt;
 
 获取当前有序公共事件是否处于中止状态。使用Promise异步回调。
@@ -1050,6 +1110,8 @@ subscriber.getAbortCommonEvent().then((abortEvent: boolean) => {
 
 ##### getAbortCommonEventSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAbortCommonEventSync(): boolean
 
 获取当前有序公共事件是否处于中止状态。
@@ -1073,6 +1135,8 @@ console.info(`Succeeded in getting abort common event, abortEvent is ${JSON.stri
 
 
 ##### getSubscribeInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSubscribeInfo(callback: AsyncCallback&lt;CommonEventSubscribeInfo&gt;): void
 
@@ -1114,6 +1178,8 @@ subscriber.getSubscribeInfo((err: BusinessError, subscribeInfo: commonEventManag
 
 ##### getSubscribeInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSubscribeInfo(): Promise&lt;CommonEventSubscribeInfo&gt;
 
 获取订阅者的订阅信息。使用Promise异步回调。
@@ -1143,6 +1209,8 @@ subscriber.getSubscribeInfo().then((subscribeInfo: commonEventManager.CommonEven
 
 ##### getSubscribeInfoSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSubscribeInfoSync(): CommonEventSubscribeInfo
 
 获取订阅者的订阅信息。
@@ -1168,6 +1236,8 @@ console.info(`Succeeded in getting subscribe info, subscribe info is ${JSON.stri
 
 
 ##### finishCommonEvent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 finishCommonEvent(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1206,6 +1276,8 @@ subscriber.finishCommonEvent((err: BusinessError) => {
 
 
 ##### finishCommonEvent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 finishCommonEvent(): Promise&lt;void&gt;
 

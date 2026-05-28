@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { deferredLink } from '@kit.AppLinkingKit';
 ```
@@ -19,6 +21,8 @@ import { deferredLink } from '@kit.AppLinkingKit';
   
 
 ##### popDeferredLink
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 popDeferredLink(): Promise&lt;string&gt;
  

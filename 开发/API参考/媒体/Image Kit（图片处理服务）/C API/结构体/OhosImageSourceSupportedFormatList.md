@@ -12,6 +12,8 @@ struct OhosImageSourceSupportedFormatList {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义图像源支持的格式字符串列表。由[OH_ImageSource_GetSupportedFormats](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-mdk-h#oh_imagesource_getsupportedformats)获取。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ struct OhosImageSourceSupportedFormatList {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

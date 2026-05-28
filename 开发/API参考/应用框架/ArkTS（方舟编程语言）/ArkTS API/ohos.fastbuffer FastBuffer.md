@@ -18,6 +18,8 @@ FastBuffer通过from构造时，仅支持FastBuffer、Uint8Array、string、Arra
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { fastbuffer } from '@kit.ArkTS';
 ```
@@ -25,6 +27,8 @@ import { fastbuffer } from '@kit.ArkTS';
 
 
 ##### BufferEncoding
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex'
 
@@ -52,6 +56,8 @@ type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' 
 
 
 ##### fastbuffer.alloc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 alloc(size: number, fill?: string | FastBuffer | number, encoding?: BufferEncoding): FastBuffer
 
@@ -95,6 +101,8 @@ console.info(buf3.toString());
 
 ##### fastbuffer.allocUninitializedFromPool
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 allocUninitializedFromPool(size: number): FastBuffer
 
 从缓冲池中创建指定大小未初始化的FastBuffer对象，需要使用[fill](#fill)函数来初始化FastBuffer对象。
@@ -131,6 +139,8 @@ buf.fill(0);
 
 ##### fastbuffer.allocUninitialized
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 allocUninitialized(size: number): FastBuffer
 
 创建指定大小未初始化的FastBuffer对象，需要使用[fill](#fill)函数来初始化FastBuffer对象。
@@ -166,6 +176,8 @@ buf.fill(0);
 
 
 ##### fastbuffer.byteLength
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 byteLength(value: string | FastBuffer | TypedArray | DataView | ArrayBuffer | SharedArrayBuffer, encoding?: BufferEncoding): number
 
@@ -207,6 +219,8 @@ console.info(`${str}: ${str.length} characters, ${fastbuffer.byteLength(str, 'ut
 
 
 ##### fastbuffer.compare
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 compare(buf1: FastBuffer | Uint8Array, buf2: FastBuffer | Uint8Array): -1 | 0 | 1
 
@@ -256,6 +270,8 @@ console.info(Number(res).toString());
 
 
 ##### fastbuffer.concat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 concat(list: FastBuffer[] | Uint8Array[], totalLength?: number): FastBuffer
 
@@ -309,6 +325,8 @@ console.info(buf.toString('hex'));
 
 ##### fastbuffer.from
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 from(array: number[]): FastBuffer
 
 根据指定数组创建新的FastBuffer对象。
@@ -344,6 +362,8 @@ console.info(buf.toString('hex'));
 
 
 ##### fastbuffer.from
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 from(arrayBuffer: ArrayBuffer | SharedArrayBuffer, byteOffset?: number, length?: number): FastBuffer
 
@@ -393,6 +413,8 @@ console.info(buf.length.toString());
 
 
 ##### fastbuffer.from
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 from(buffer: FastBuffer | Uint8Array): FastBuffer
 
@@ -450,6 +472,8 @@ console.info("uint8Array:", uint8Array)
 
 ##### fastbuffer.from
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 from(value: string, encoding?: BufferEncoding): FastBuffer
 
 根据指定编码格式的字符串，创建新的FastBuffer对象。
@@ -490,6 +514,8 @@ console.info(buf2.toString());
 
 
 ##### fastbuffer.isBuffer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isBuffer(obj: Object): boolean
 
@@ -539,6 +565,8 @@ console.info("result4 = " + result4);
 
 ##### fastbuffer.isEncoding
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isEncoding(encoding: string): boolean
 
 判断encoding是否为支持的编码格式。
@@ -580,6 +608,8 @@ console.info(fastbuffer.isEncoding('').toString());
 
 ##### fastbuffer.transcode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 transcode(source: FastBuffer | Uint8Array, fromEnc: string, toEnc: string): FastBuffer
 
 将FastBuffer或Uint8Array对象从fromEnc编码转换为toEnc编码。
@@ -620,9 +650,13 @@ console.info("newBuf = " + newBuf.toString('ascii'));
 
 ##### FastBuffer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -653,6 +687,8 @@ console.info(JSON.stringify(buf.byteOffset));
 
 
 ##### compare
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 compare(target: FastBuffer | Uint8Array, targetStart?: number, targetEnd?: number, sourceStart?: number, sourceEnd?: number): -1 | 0 | 1
 
@@ -710,6 +746,8 @@ console.info(buf1.compare(buf2, 5, 6, 5).toString());
 
 ##### copy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copy(target: FastBuffer| Uint8Array, targetStart?: number, sourceStart?: number, sourceEnd?: number): number
 
 将this实例中指定位置的数据复制到target的指定位置上，并返回复制的字节总长度。
@@ -766,6 +804,8 @@ console.info(buf2.toString('ascii', 0, 25));
 
 ##### entries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 entries(): IterableIterator<[number, number]>
 
 返回一个包含key值和value值的迭代器。
@@ -806,6 +846,8 @@ while (!next.done) {
 
 
 ##### equals
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 equals(otherBuffer: Uint8Array | FastBuffer): boolean
 
@@ -857,6 +899,8 @@ console.info(buf1.equals(buf3).toString());
 
 ##### fill
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fill(value: string | FastBuffer | Uint8Array | number, offset?: number, end?: number, encoding?: BufferEncoding): FastBuffer
 
 使用value填充当前对象指定位置的数据，默认为循环填充，并返回填充后的FastBuffer对象。
@@ -906,6 +950,8 @@ console.info(b.toString());
 
 ##### includes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 includes(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): boolean
 
 检查FastBuffer对象是否包含value值。
@@ -949,6 +995,8 @@ console.info(buf.includes('be').toString());
 
 
 ##### indexOf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 indexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number
 
@@ -994,6 +1042,8 @@ console.info(buf.indexOf('is').toString());
 
 ##### keys
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 keys(): IterableIterator&lt;number&gt;
 
 返回一个包含key值的迭代器。
@@ -1032,6 +1082,8 @@ for (const key of keys) {
 
 
 ##### values
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 values(): IterableIterator&lt;number&gt;
 
@@ -1073,6 +1125,8 @@ while (!next.done) {
 
 
 ##### lastIndexOf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 lastIndexOf(value: string | number | FastBuffer | Uint8Array, byteOffset?: number, encoding?: BufferEncoding): number
 
@@ -1117,6 +1171,8 @@ console.info(buf.lastIndexOf('buffer').toString());
 
 
 ##### readBigInt64BE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readBigInt64BE(offset?: number): bigint
 
@@ -1164,6 +1220,8 @@ console.info(buf.readBigInt64BE(0).toString());
 
 ##### readBigInt64LE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readBigInt64LE(offset?: number): bigint
 
 从指定的offset处读取有符号的小端序64位整数。
@@ -1209,6 +1267,8 @@ console.info(buf.readBigInt64LE(0).toString());
 
 
 ##### readBigUInt64BE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readBigUInt64BE(offset?: number): bigint
 
@@ -1256,6 +1316,8 @@ console.info(buf.readBigUInt64BE(0).toString());
 
 ##### readBigUInt64LE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readBigUInt64LE(offset?: number): bigint
 
 从指定的offset处读取无符号的小端序64位整数。
@@ -1302,6 +1364,8 @@ console.info(buf.readBigUInt64LE(0).toString());
 
 ##### readDoubleBE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readDoubleBE(offset?: number): number
 
 从指定的offset处读取64位大端序双精度值。
@@ -1346,6 +1410,8 @@ console.info(buf.readDoubleBE(0).toString());
 
 
 ##### readDoubleLE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readDoubleLE(offset?: number): number
 
@@ -1392,6 +1458,8 @@ console.info(buf.readDoubleLE(0).toString());
 
 ##### readFloatBE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readFloatBE(offset?: number): number
 
 从指定的offset处读取32位大端序浮点数。
@@ -1437,6 +1505,8 @@ console.info(buf.readFloatBE(0).toString());
 
 ##### readFloatLE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readFloatLE(offset?: number): number
 
 从指定的offset处读取32位小端序浮点数。
@@ -1481,6 +1551,8 @@ console.info(buf.readFloatLE(0).toString());
 
 
 ##### readInt8
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readInt8(offset?: number): number
 
@@ -1529,6 +1601,8 @@ console.info(buf.readInt8(1).toString());
 
 ##### readInt16BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readInt16BE(offset?: number): number
 
 从指定的offset处读取有符号的大端序16位整数。
@@ -1573,6 +1647,8 @@ console.info(buf.readInt16BE(0).toString());
 
 
 ##### readInt16LE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readInt16LE(offset?: number): number
 
@@ -1619,6 +1695,8 @@ console.info(buf.readInt16LE(0).toString());
 
 ##### readInt32BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readInt32BE(offset?: number): number
 
 从指定的offset处读取有符号的大端序32位整数。
@@ -1664,6 +1742,8 @@ console.info(buf.readInt32BE(0).toString());
 
 ##### readInt32LE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readInt32LE(offset?: number): number
 
 从指定的offset处读取有符号的小端序32位整数。
@@ -1708,6 +1788,8 @@ console.info(buf.readInt32LE(0).toString());
 
 
 ##### readIntBE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readIntBE(offset: number, byteLength: number): number
 
@@ -1756,6 +1838,8 @@ console.info(num.toString());
 
 ##### readIntLE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readIntLE(offset: number, byteLength: number): number
 
 从指定的offset处读取byteLength个字节，并将结果解释为支持最高48位精度的小端序、二进制补码有符号值。
@@ -1801,6 +1885,8 @@ console.info(buf.readIntLE(0, 6).toString(16));
 
 
 ##### readUInt8
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readUInt8(offset?: number): number
 
@@ -1849,6 +1935,8 @@ console.info(buf.readUInt8(1).toString());
 
 ##### readUInt16BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readUInt16BE(offset?: number): number
 
 从指定的offset处读取无符号的大端序16位整数。
@@ -1895,6 +1983,8 @@ console.info(buf.readUInt16BE(1).toString(16));
 
 
 ##### readUInt16LE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readUInt16LE(offset?: number): number
 
@@ -1943,6 +2033,8 @@ console.info(buf.readUInt16LE(1).toString(16));
 
 ##### readUInt32BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readUInt32BE(offset?: number): number
 
 从指定的offset处的buf读取无符号的大端序32位整数。
@@ -1988,6 +2080,8 @@ console.info(buf.readUInt32BE(0).toString(16));
 
 ##### readUInt32LE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readUInt32LE(offset?: number): number
 
 从指定的offset处的buf读取无符号的小端序32位整数。
@@ -2032,6 +2126,8 @@ console.info(buf.readUInt32LE(0).toString(16));
 
 
 ##### readUIntBE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readUIntBE(offset: number, byteLength: number): number
 
@@ -2079,6 +2175,8 @@ console.info(buf.readUIntBE(0, 6).toString(16));
 
 ##### readUIntLE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readUIntLE(offset: number, byteLength: number): number
 
 从指定的offset处的buf读取byteLength个字节，并将结果解释为支持最高48位精度的无符号小端序整数。
@@ -2125,6 +2223,8 @@ console.info(buf.readUIntLE(0, 6).toString(16));
 
 ##### subarray
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 subarray(start?: number, end?: number): FastBuffer
 
 截取当前对象指定位置的数据并返回。
@@ -2167,6 +2267,8 @@ console.info(buf2.toString('ascii', 0, buf2.length));
 
 ##### swap16
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 swap16(): FastBuffer
 
 将当前对象转换为无符号的16位整数数组，并交换字节顺序。
@@ -2207,6 +2309,8 @@ console.info(buf1.toString('hex'));
 
 
 ##### swap32
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 swap32(): FastBuffer
 
@@ -2249,6 +2353,8 @@ console.info(buf1.toString('hex'));
 
 ##### swap64
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 swap64(): FastBuffer
 
 将当前对象转换为无符号的64位整数数组，并交换字节顺序。
@@ -2290,6 +2396,8 @@ console.info(buf1.toString('hex'));
 
 ##### toJSON
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toJSON(): Object
 
 将Buffer转为JSON并返回。
@@ -2319,6 +2427,8 @@ console.info(JSON.stringify(obj));
 
 
 ##### toString
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toString(encoding?: string, start?: number, end?: number): string
 
@@ -2369,6 +2479,8 @@ console.info(buf1.toString('utf-8'));
 
 
 ##### write
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(str: string, offset?: number, length?: number, encoding?: string): number
 
@@ -2425,6 +2537,8 @@ console.info("length = " + length);
 
 ##### writeBigInt64BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeBigInt64BE(value: bigint, offset?: number): number
 
 在FastBuffer对象的offset偏移处写入有符号的大端序64位BigInt型数据。
@@ -2471,6 +2585,8 @@ console.info("result = " + result);
 
 
 ##### writeBigInt64LE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeBigInt64LE(value: bigint, offset?: number): number
 
@@ -2519,6 +2635,8 @@ console.info("result = " + result);
 
 ##### writeBigUInt64BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeBigUInt64BE(value: bigint, offset?: number): number
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
@@ -2565,6 +2683,8 @@ console.info("result = " + result);
 
 
 ##### writeBigUInt64LE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeBigUInt64LE(value: bigint, offset?: number): number
 
@@ -2613,6 +2733,8 @@ console.info("result = " + result);
 
 ##### writeDoubleBE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeDoubleBE(value: number, offset?: number): number
 
 在FastBuffer对象的offset偏移处写入大端序的64位双浮点型数据。
@@ -2659,6 +2781,8 @@ console.info("result = " + result);
 
 
 ##### writeDoubleLE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeDoubleLE(value: number, offset?: number): number
 
@@ -2707,6 +2831,8 @@ console.info("result = " + result);
 
 ##### writeFloatBE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeFloatBE(value: number, offset?: number): number
 
 在FastBuffer对象的offset偏移处写入大端序的32位浮点型数据。
@@ -2754,6 +2880,8 @@ console.info("result = " + result);
 
 ##### writeFloatLE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeFloatLE(value: number, offset?: number): number
 
 在FastBuffer对象的offset偏移处写入小端序的32位浮点型数据。
@@ -2800,6 +2928,8 @@ console.info("result = " + result);
 
 
 ##### writeInt8
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeInt8(value: number, offset?: number): number
 
@@ -2851,6 +2981,8 @@ console.info("result1 = " + result1);
 
 ##### writeInt16BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeInt16BE(value: number, offset?: number): number
 
 在FastBuffer对象的offset偏移处写入大端序的16位有符号整型数据。
@@ -2897,6 +3029,8 @@ console.info("result = " + result);
 
 
 ##### writeInt16LE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeInt16LE(value: number, offset?: number): number
 
@@ -2945,6 +3079,8 @@ console.info("result = " + result);
 
 ##### writeInt32BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeInt32BE(value: number, offset?: number): number
 
 在FastBuffer对象的offset偏移处写入大端序的32位有符号整型数据。
@@ -2992,6 +3128,8 @@ console.info("result = " + result);
 
 ##### writeInt32LE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeInt32LE(value: number, offset?: number): number
 
 在FastBuffer对象的offset偏移处写入小端序的32位有符号整型数据。
@@ -3038,6 +3176,8 @@ console.info("result = " + result);
 
 
 ##### writeIntBE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeIntBE(value: number, offset: number, byteLength: number): number
 
@@ -3087,6 +3227,8 @@ console.info("result = " + result);
 
 ##### writeIntLE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeIntLE(value: number, offset: number, byteLength: number): number
 
 在FastBuffer对象的offset偏移处写入小端序的有符号数据，字节长度为byteLength。
@@ -3134,6 +3276,8 @@ console.info("result = " + result);
 
 
 ##### writeUInt8
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeUInt8(value: number, offset?: number): number
 
@@ -3191,6 +3335,8 @@ console.info("result3 = " + result3);
 
 ##### writeUInt16BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeUInt16BE(value: number, offset?: number): number
 
 在FastBuffer对象的offset偏移处写入大端序的16位无符号整型数据。
@@ -3240,6 +3386,8 @@ console.info("result1 = " + result1);
 
 
 ##### writeUInt16LE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeUInt16LE(value: number, offset?: number): number
 
@@ -3291,6 +3439,8 @@ console.info("result1 = " + result1);
 
 ##### writeUInt32BE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeUInt32BE(value: number, offset?: number): number
 
 在FastBuffer对象的offset偏移处写入大端序的32位无符号整型数据。
@@ -3337,6 +3487,8 @@ console.info("result = " + result);
 
 
 ##### writeUInt32LE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeUInt32LE(value: number, offset?: number): number
 
@@ -3385,6 +3537,8 @@ console.info("result = " + result);
 
 ##### writeUIntBE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeUIntBE(value: number, offset: number, byteLength: number): number
 
 在FastBuffer对象的offset偏移处写入大端序的无符号数据，字节长度为byteLength。
@@ -3432,6 +3586,8 @@ console.info("result = " + result);
 
 
 ##### writeUIntLE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeUIntLE(value: number, offset: number, byteLength: number): number
 

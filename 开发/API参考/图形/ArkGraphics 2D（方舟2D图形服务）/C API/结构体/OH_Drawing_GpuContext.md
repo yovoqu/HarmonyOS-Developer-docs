@@ -12,6 +12,8 @@ typedef struct OH_Drawing_GpuContext OH_Drawing_GpuContext
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义图形处理器上下文，用于描述图形处理器后端上下文。
  
 **起始版本：** 12

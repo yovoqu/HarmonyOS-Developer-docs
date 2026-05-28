@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { shortcutManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { shortcutManager } from '@kit.AbilityKit';
 
 
 ##### ShortcutWant
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 快捷方式内定义的目标[wants](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#wants标签)信息集合。
 
@@ -37,6 +41,8 @@ import { shortcutManager } from '@kit.AbilityKit';
 
 
 ##### ShortcutInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 快捷方式的配置信息。
 
@@ -61,6 +67,8 @@ import { shortcutManager } from '@kit.AbilityKit';
 
 
 ##### ParameterItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 快捷方式配置信息中的自定义数据。由开发者自行决定传入的键值对，可以通过key值获取对应的value值。
 

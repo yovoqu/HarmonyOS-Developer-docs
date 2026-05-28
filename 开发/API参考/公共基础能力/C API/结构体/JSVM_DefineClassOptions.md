@@ -12,6 +12,8 @@ typedef struct {...} JSVM_DefineClassOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 定义Class的选项。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct {...} JSVM_DefineClassOptions
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |

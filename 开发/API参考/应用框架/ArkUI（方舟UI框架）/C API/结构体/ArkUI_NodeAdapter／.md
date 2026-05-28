@@ -12,6 +12,8 @@ typedef struct ArkUI_NodeAdapter* ArkUI_NodeAdapterHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义组件适配器对象，用于滚动类组件的元素懒加载。
  
 **起始版本：** 12

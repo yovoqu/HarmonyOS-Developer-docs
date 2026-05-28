@@ -16,6 +16,8 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 LazyForEach(dataSource: IDataSource, itemGenerator: (item: any, index: number) => void, keyGenerator?: (item: any, index: number) => string)
 
 LazyForEach从提供的数据源中按需迭代数据，并在每次迭代过程中创建相应的组件。当在滚动容器中使用了LazyForEach，框架会根据滚动容器可视区域按需创建组件，当组件滑出可视区域外时，框架会进行组件销毁回收以降低内存占用。
@@ -41,11 +43,15 @@ LazyForEach从提供的数据源中按需迭代数据，并在每次迭代过程
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[拖拽排序](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-drag-sorting)属性。
 
 
 
 ##### IDataSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 LazyForEach的数据源。
 
@@ -56,6 +62,8 @@ LazyForEach的数据源。
 
 
 ##### totalCount
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 totalCount(): number
 
@@ -75,6 +83,8 @@ totalCount(): number
 
 
 ##### getData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getData(index: number): any
 
@@ -106,6 +116,8 @@ getData(index: number): any
 
 ##### registerDataChangeListener
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 registerDataChangeListener(listener: DataChangeListener): void
 
 注册数据改变的监听器。
@@ -124,6 +136,8 @@ registerDataChangeListener(listener: DataChangeListener): void
 
 
 ##### unregisterDataChangeListener
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unregisterDataChangeListener(listener: DataChangeListener): void
 
@@ -144,6 +158,8 @@ unregisterDataChangeListener(listener: DataChangeListener): void
 
 ##### DataChangeListener
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据变化监听器。
 
 > [!NOTE]
@@ -158,6 +174,8 @@ unregisterDataChangeListener(listener: DataChangeListener): void
 
 ##### onDataReloaded
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDataReloaded(): void
 
 通知组件重新加载所有数据。键值没有变化的数据项会使用原先的子组件，键值发生变化的会重建子组件。重新加载数据完成后调用。
@@ -169,6 +187,8 @@ onDataReloaded(): void
 
 
 ##### onDataAdded(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDataAdded(index: number): void
 
@@ -190,6 +210,8 @@ onDataAdded(index: number): void
 
 
 ##### onDataMoved(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDataMoved(from: number, to: number): void
 
@@ -213,6 +235,8 @@ onDataMoved(from: number, to: number): void
 
 ##### onDataDeleted(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDataDeleted(index: number): void
 
 通知组件删除index位置的数据并刷新LazyForEach的展示内容。删除数据完成后调用。
@@ -233,6 +257,8 @@ onDataDeleted(index: number): void
 
 
 ##### onDataChanged(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDataChanged(index: number): void
 
@@ -255,6 +281,8 @@ onDataChanged(index: number): void
 
 ##### onDataAdd8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDataAdd(index: number): void
 
 通知组件index的位置有数据添加。添加数据完成后调用。
@@ -273,6 +301,8 @@ onDataAdd(index: number): void
 
 
 ##### onDataMove8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDataMove(from: number, to: number): void
 
@@ -298,6 +328,8 @@ onDataMove(from: number, to: number): void
 
 ##### onDataDelete8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDataDelete(index: number): void
 
 通知组件删除index位置的数据并刷新LazyForEach的展示内容。删除数据完成后调用。
@@ -321,6 +353,8 @@ onDataDelete(index: number): void
 
 ##### onDataChange8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDataChange(index: number): void
 
 通知组件index的位置有数据有变化。改变数据完成后调用。
@@ -339,6 +373,8 @@ onDataChange(index: number): void
 
 
 ##### onDatasetChange12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDatasetChange(dataOperations: DataOperation[]): void
 
@@ -363,6 +399,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 ##### DataOperation12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
@@ -374,6 +412,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 ##### DataAddOperation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 添加数据操作。
 
@@ -393,6 +433,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 ##### DataDeleteOperation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 删除数据操作。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -409,6 +451,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 ##### DataChangeOperation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 改变数据操作。
 
@@ -427,6 +471,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 ##### DataMoveOperation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 移动数据操作。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -443,6 +489,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 ##### DataExchangeOperation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 交换数据操作。
 
@@ -461,6 +509,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 ##### DataReloadOperation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 重载所有数据操作。当onDatasetChange含有DataOperationType.RELOAD操作时，其余操作全部失效，框架会自己调用keyGenerator进行键值比对。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -475,6 +525,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 ##### DataOperationType枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举类型，数据操作说明。
 
@@ -496,6 +548,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 ##### MoveIndex12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -510,6 +564,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 ##### ExchangeIndex12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -523,6 +579,8 @@ onDatasetChange(dataOperations: DataOperation[]): void
 
 
 ##### ExchangeKey12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 

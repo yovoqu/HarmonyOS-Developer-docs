@@ -12,6 +12,8 @@ typedef struct ArkUI_Vector2AnimatableProperty* ArkUI_Vector2AnimatablePropertyH
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义可动画的二维向量属性指针。
  
 **起始版本：** 20

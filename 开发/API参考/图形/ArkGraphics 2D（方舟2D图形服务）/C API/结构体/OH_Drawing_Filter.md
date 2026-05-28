@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Filter OH_Drawing_Filter
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义一个滤波器，用于存储颜色滤波器，蒙版滤波器和图像滤波器。
  
 **起始版本：** 11

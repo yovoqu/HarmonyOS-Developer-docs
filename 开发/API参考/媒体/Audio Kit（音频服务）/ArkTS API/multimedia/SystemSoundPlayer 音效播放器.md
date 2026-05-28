@@ -16,6 +16,8 @@ SystemSoundPlayer需要和[@ohos.multimedia.systemSoundManager](https://develope
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { systemSoundManager } from '@kit.AudioKit';
 ```
@@ -24,11 +26,15 @@ import { systemSoundManager } from '@kit.AudioKit';
 
 ##### SystemSoundPlayer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统音效播放器提供了拍照和录制视频音效的播放功能。在调用SystemSoundPlayer的接口前，需要先通过[createSystemSoundPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-systemsoundmanager#systemsoundmanagercreatesystemsoundplayer)创建系统音效播放器对象。
  
   
 
 ##### load
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 load(soundType: systemSoundManager.SystemSoundType): Promise&lt;void&gt;
  
@@ -79,6 +85,8 @@ systemSoundPlayer?.load(systemSoundManager.SystemSoundType.PHOTO_SHUTTER).then((
 
 ##### play
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 play(soundType: systemSoundManager.SystemSoundType): Promise&lt;void&gt;
  
 播放系统音效。使用Promise异步回调。
@@ -128,6 +136,8 @@ systemSoundPlayer?.play(systemSoundManager.SystemSoundType.PHOTO_SHUTTER).then((
 
 ##### unload
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unload(soundType: systemSoundManager.SystemSoundType): Promise&lt;void&gt;
  
 卸载之前已加载的系统音效。使用Promise异步回调。
@@ -175,6 +185,8 @@ systemSoundPlayer?.unload(systemSoundManager.SystemSoundType.PHOTO_SHUTTER).then
   
 
 ##### release
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(): Promise&lt;void&gt;
  

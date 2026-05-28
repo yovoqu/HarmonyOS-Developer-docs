@@ -14,6 +14,8 @@ DrawingRenderingContext对象与Canvas组件绑定后，可在Canvas组件上进
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(unit?: LengthMetricsUnit)
 
 构造使用drawing接口进行绘制的Canvas画布对象，支持配置DrawingRenderingContext对象的单位模式。
@@ -32,6 +34,8 @@ constructor(unit?: LengthMetricsUnit)
 
 
 ##### size
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get size(): Size
 
@@ -52,6 +56,8 @@ get size(): Size
 
 ##### canvas
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get canvas(): DrawingCanvas
 
 获取绘制内容的画布对象。
@@ -71,6 +77,8 @@ get canvas(): DrawingCanvas
 
 ##### invalidate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 invalidate(): void
 
 使组件无效，触发组件的重新渲染。
@@ -82,6 +90,8 @@ invalidate(): void
 
 
 ##### DrawingCanvas12+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type DrawingCanvas = Canvas
 
@@ -100,6 +110,8 @@ type DrawingCanvas = Canvas
 
 ##### Size
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 DrawingRenderingContext的尺寸信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -115,6 +127,8 @@ DrawingRenderingContext的尺寸信息。
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -224,4 +238,4 @@ struct CanvasExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/0jYT6UBOTxGf0dqj2rPdIQ/zh-cn_image_0000002611835933.png?HW-CC-KV=V1&HW-CC-Date=20260528T013912Z&HW-CC-Expire=86400&HW-CC-Sign=32C3FA4D83148BA56FF92C9D4F81C51BDFA655C08E3B8D4FABBC97BE2490E802)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/0jYT6UBOTxGf0dqj2rPdIQ/zh-cn_image_0000002611835933.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=E6D1E81DCE20DB018E2B15B51B2EEEA9498647D335A47691BCEBD64C7FE01773)

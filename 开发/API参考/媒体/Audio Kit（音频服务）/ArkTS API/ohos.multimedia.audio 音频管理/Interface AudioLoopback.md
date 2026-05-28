@@ -20,6 +20,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -27,6 +29,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### getStatus20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStatus(): Promise&lt;AudioLoopbackStatus&gt;
 
@@ -56,6 +60,8 @@ audioLoopback.getStatus().then((status: audio.AudioLoopbackStatus) => {
 
 
 ##### setVolume20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setVolume(volume: number): Promise&lt;void&gt;
 
@@ -102,6 +108,8 @@ audioLoopback.setVolume(0.5).then(() => {
 
 ##### on('statusChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'statusChange', callback: Callback&lt;AudioLoopbackStatus&gt;): void
 
 监听返听状态变化事件（当AudioLoopback的状态发生变化时触发）。使用callback异步回调。
@@ -144,6 +152,8 @@ audioLoopback.on('statusChange', (status: audio.AudioLoopbackStatus) => {
 
 
 ##### off('statusChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'statusChange', callback?: Callback&lt;AudioLoopbackStatus&gt;): void
 
@@ -195,6 +205,8 @@ audioLoopback.off('statusChange', statusChangeCallback);
 
 
 ##### enable20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enable(enable: boolean): Promise&lt;boolean&gt;
 
@@ -248,6 +260,8 @@ audioLoopback.enable(true).then((isSuccess) => {
 
 ##### setReverbPreset21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setReverbPreset(preset: AudioLoopbackReverbPreset): boolean
 
 设置音频返听器的混响模式。
@@ -292,6 +306,8 @@ try {
 
 ##### getReverbPreset21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getReverbPreset(): AudioLoopbackReverbPreset
 
 获取当前音频返听器的混响模式。
@@ -319,6 +335,8 @@ try {
 
 
 ##### setEqualizerPreset21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setEqualizerPreset(preset: AudioLoopbackEqualizerPreset): boolean
 
@@ -363,6 +381,8 @@ try {
 
 
 ##### getEqualizerPreset21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getEqualizerPreset(): AudioLoopbackEqualizerPreset
 

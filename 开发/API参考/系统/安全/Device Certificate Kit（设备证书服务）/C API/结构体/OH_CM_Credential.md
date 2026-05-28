@@ -12,6 +12,8 @@ typedef struct {...} OH_CM_Credential
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义证书凭据详情的结构体类型。
  
 **起始版本：** 22
@@ -24,9 +26,13 @@ typedef struct {...} OH_CM_Credential
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

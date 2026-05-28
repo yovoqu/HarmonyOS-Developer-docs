@@ -14,6 +14,8 @@ NotificationSubscriberExtensionContext模块提供通知订阅者扩展能力。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { NotificationSubscriberExtensionContext } from '@kit.NotificationKit';
 ```
@@ -21,6 +23,8 @@ import { NotificationSubscriberExtensionContext } from '@kit.NotificationKit';
 
 
 ##### NotificationSubscriberExtensionContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NotificationSubscriberExtensionContext继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)类，是NotificationSubscriberExtensionAbility的上下文。
 

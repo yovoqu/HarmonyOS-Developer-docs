@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { dataShare } from '@kit.ArkData';
 ```
@@ -21,6 +23,8 @@ import { dataShare } from '@kit.ArkData';
 
 
 ##### dataShare.createDataProxyHandle20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createDataProxyHandle(): Promise&lt;DataProxyHandle&gt;
 
@@ -65,6 +69,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ChangeType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据变更类型枚举。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -79,6 +85,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### ProxyData20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 共享配置的数据结构。
 
@@ -95,6 +103,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### DataProxyChangeInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通知订阅者共享配置变更的数据结构。包括数据变更类型、变化的URI、变更的数据内容。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -109,6 +119,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### DataProxyErrorCode20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 配置共享批量操作返回值的状态码枚举。
 
@@ -126,6 +138,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### DataProxyResult20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 配置共享批量操作结果的数据结构。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -139,6 +153,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### DataProxyGetResult20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 配置共享批量获取操作结果的数据结构。
 
@@ -156,6 +172,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### DataProxyType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据代理类型的枚举。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataShare.Consumer
@@ -168,6 +186,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### DataProxyConfig20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 数据代理操作配置的数据结构。
 
@@ -182,11 +202,15 @@ export default class EntryAbility extends UIAbility {
 
 ##### DataProxyHandle20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据代理操作句柄的实例，可使用此实例访问或管理共享配置信息。在调用DataProxyHandle提供的方法前，需要先通过[createDataProxyHandle](#datasharecreatedataproxyhandle20)构建一个实例。
 
 
 
 ##### on('dataChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(event: 'dataChange', uris: string[], config: DataProxyConfig, callback: AsyncCallback<DataProxyChangeInfo[]>): DataProxyResult[]
 
@@ -250,6 +274,8 @@ results.forEach((result) => {
 
 ##### off('dataChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(event: 'dataChange', uris: string[], config: DataProxyConfig, callback?: AsyncCallback<DataProxyChangeInfo[]>): DataProxyResult[]
 
 取消订阅指定URI对应代理数据变更事件。
@@ -310,6 +336,8 @@ results.forEach((result) => {
 
 ##### publish20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 publish(data: ProxyData[], config: DataProxyConfig): Promise<DataProxyResult[]>
 
 发布共享配置项。使用Promise异步回调。发布后，发布者和允许列表中指定的应用可以访问该共享配置项。如果要发布的URI已经存在，则更新对应的共享配置项。如果发布的配置项中存在任一URI的长度超出上限或者格式校验失败，则当前发布操作失败。只有发布者才允许更新共享配置项，每个应用支持最多32个共享配置。
@@ -369,6 +397,8 @@ dataProxyHandle.publish(newConfigData, config).then((results: dataShare.DataProx
 
 ##### delete20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]>
 
 根据URI删除指定的共享配置项。使用Promise异步回调。只有配置发布方能删除共享配置项。
@@ -420,6 +450,8 @@ dataProxyHandle.delete(urisToDelete, config).then((results: dataShare.DataProxyR
 
 
 ##### get20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(uris: string[], config: DataProxyConfig): Promise<DataProxyGetResult[]>
 

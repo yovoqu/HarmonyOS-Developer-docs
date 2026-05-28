@@ -12,6 +12,8 @@ typedef struct {...} Scan_PictureScanProgress
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示扫描仪扫描图片的进度
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct {...} Scan_PictureScanProgress
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

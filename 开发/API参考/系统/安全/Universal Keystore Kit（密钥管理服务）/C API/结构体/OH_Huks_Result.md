@@ -12,6 +12,8 @@ struct OH_Huks_Result {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示状态返回数据，包括返回码和消息。
  
 **起始版本：** 9
@@ -24,9 +26,13 @@ struct OH_Huks_Result {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

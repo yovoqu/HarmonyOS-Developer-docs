@@ -14,6 +14,8 @@
 
 ##### restoreDefault12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restoreDefault(): void
  
 恢复默认的光标样式。
@@ -59,6 +61,8 @@ struct CursorControlExample {
   
 
 ##### setCursor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCursor(value: PointerStyle): void
  
@@ -109,4 +113,4 @@ struct CursorControlExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/YDDA3xbnRtSwWjWn72SUPg/zh-cn_image_0000002581435534.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013823Z&HW-CC-Expire=86400&HW-CC-Sign=7785D75EA2AC6674D6DADF5846E9543CF0FB9C963827C2849862683DCB2E87F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/YDDA3xbnRtSwWjWn72SUPg/zh-cn_image_0000002581435534.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024119Z&HW-CC-Expire=86400&HW-CC-Sign=E57C9221221D4B191429C1EC441ED9171C4C084C615A77CC324C9DF8D19DE2F9)

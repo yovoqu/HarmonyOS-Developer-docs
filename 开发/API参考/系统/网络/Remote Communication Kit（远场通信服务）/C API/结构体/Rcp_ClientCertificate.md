@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 发送到远程服务器的客户端证书，远程服务器将使用它来验证客户端的标识。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### content
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char* Rcp_ClientCertificate::content
@@ -52,6 +62,8 @@ char* Rcp_ClientCertificate::content
 
 ##### filePath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 char* Rcp_ClientCertificate::filePath
 ```
@@ -63,6 +75,8 @@ char* Rcp_ClientCertificate::filePath
   
 
 ##### key
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char* Rcp_ClientCertificate::key
@@ -76,6 +90,8 @@ char* Rcp_ClientCertificate::key
 
 ##### keyPassword
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 char* Rcp_ClientCertificate::keyPassword
 ```
@@ -87,6 +103,8 @@ char* Rcp_ClientCertificate::keyPassword
   
 
 ##### type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_CertType Rcp_ClientCertificate::type

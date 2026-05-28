@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义AVTranscoder接口。使用AVTranscoder提供的Native API将源视频文件转码为新视频文件。
 
 **引用文件：** <multimedia/player_framework/avtranscoder.h>
@@ -25,9 +27,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 | 名称 | 描述 |
 | --- | --- |
@@ -58,9 +64,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### OH_AVTranscoderConfig_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVTranscoder_Config *OH_AVTranscoderConfig_Create()
@@ -84,6 +94,8 @@ OH_AVTranscoder_Config *OH_AVTranscoderConfig_Create()
 
 
 ##### OH_AVTranscoderConfig_Release()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_Release(OH_AVTranscoder_Config* config)
@@ -116,6 +128,8 @@ OH_AVErrCode OH_AVTranscoderConfig_Release(OH_AVTranscoder_Config* config)
 
 
 ##### OH_AVTranscoderConfig_SetSrcFD()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_SetSrcFD(OH_AVTranscoder_Config *config, int32_t srcFd, int64_t srcOffset, int64_t length)
@@ -152,6 +166,8 @@ OH_AVErrCode OH_AVTranscoderConfig_SetSrcFD(OH_AVTranscoder_Config *config, int3
 
 ##### OH_AVTranscoderConfig_SetDstFD()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_SetDstFD(OH_AVTranscoder_Config *config, int32_t dstFd)
 ```
@@ -184,6 +200,8 @@ OH_AVErrCode OH_AVTranscoderConfig_SetDstFD(OH_AVTranscoder_Config *config, int3
 
 
 ##### OH_AVTranscoderConfig_SetDstVideoType()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_SetDstVideoType(OH_AVTranscoder_Config *config, const char *mimeType)
@@ -220,6 +238,8 @@ OH_AVErrCode OH_AVTranscoderConfig_SetDstVideoType(OH_AVTranscoder_Config *confi
 
 ##### OH_AVTranscoderConfig_SetDstAudioType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_SetDstAudioType(OH_AVTranscoder_Config *config, const char *mimeType)
 ```
@@ -254,6 +274,8 @@ OH_AVErrCode OH_AVTranscoderConfig_SetDstAudioType(OH_AVTranscoder_Config *confi
 
 
 ##### OH_AVTranscoderConfig_SetDstFileType()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_SetDstFileType(OH_AVTranscoder_Config *config, OH_AVOutputFormat mimeType)
@@ -290,6 +312,8 @@ OH_AVErrCode OH_AVTranscoderConfig_SetDstFileType(OH_AVTranscoder_Config *config
 
 ##### OH_AVTranscoderConfig_SetDstAudioBitrate()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_SetDstAudioBitrate(OH_AVTranscoder_Config *config, int32_t bitrate)
 ```
@@ -322,6 +346,8 @@ OH_AVErrCode OH_AVTranscoderConfig_SetDstAudioBitrate(OH_AVTranscoder_Config *co
 
 
 ##### OH_AVTranscoderConfig_SetDstVideoBitrate()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_SetDstVideoBitrate(OH_AVTranscoder_Config *config, int32_t bitrate)
@@ -356,6 +382,8 @@ OH_AVErrCode OH_AVTranscoderConfig_SetDstVideoBitrate(OH_AVTranscoder_Config *co
 
 ##### OH_AVTranscoderConfig_SetDstVideoResolution()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_SetDstVideoResolution(OH_AVTranscoder_Config *config, int32_t width, int32_t height)
 ```
@@ -389,6 +417,8 @@ OH_AVErrCode OH_AVTranscoderConfig_SetDstVideoResolution(OH_AVTranscoder_Config 
 
 
 ##### OH_AVTranscoderConfig_EnableBFrame()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoderConfig_EnableBFrame(OH_AVTranscoder_Config *config, bool enabled)
@@ -425,6 +455,8 @@ B帧视频编码相关的约束和限制可以参考文档[B帧视频编码约�
 
 ##### OH_AVTranscoder_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_AVTranscoder *OH_AVTranscoder_Create(void)
 ```
@@ -447,6 +479,8 @@ OH_AVTranscoder *OH_AVTranscoder_Create(void)
 
 
 ##### OH_AVTranscoder_Prepare()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoder_Prepare(OH_AVTranscoder *transcoder, OH_AVTranscoder_Config *config)
@@ -481,6 +515,8 @@ OH_AVErrCode OH_AVTranscoder_Prepare(OH_AVTranscoder *transcoder, OH_AVTranscode
 
 ##### OH_AVTranscoder_Start()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_AVErrCode OH_AVTranscoder_Start(OH_AVTranscoder *transcoder)
 ```
@@ -512,6 +548,8 @@ OH_AVErrCode OH_AVTranscoder_Start(OH_AVTranscoder *transcoder)
 
 
 ##### OH_AVTranscoder_Pause()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoder_Pause(OH_AVTranscoder *transcoder)
@@ -545,6 +583,8 @@ OH_AVErrCode OH_AVTranscoder_Pause(OH_AVTranscoder *transcoder)
 
 ##### OH_AVTranscoder_Resume()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_AVErrCode OH_AVTranscoder_Resume(OH_AVTranscoder *transcoder)
 ```
@@ -576,6 +616,8 @@ OH_AVErrCode OH_AVTranscoder_Resume(OH_AVTranscoder *transcoder)
 
 
 ##### OH_AVTranscoder_Cancel()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoder_Cancel(OH_AVTranscoder *transcoder)
@@ -609,6 +651,8 @@ OH_AVErrCode OH_AVTranscoder_Cancel(OH_AVTranscoder *transcoder)
 
 ##### OH_AVTranscoder_Release()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_AVErrCode OH_AVTranscoder_Release(OH_AVTranscoder *transcoder)
 ```
@@ -638,6 +682,8 @@ OH_AVErrCode OH_AVTranscoder_Release(OH_AVTranscoder *transcoder)
 
 
 ##### OH_AVTranscoder_SetStateCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoder_SetStateCallback(OH_AVTranscoder *transcoder, OH_AVTranscoder_OnStateChange callback, void *userData)
@@ -676,6 +722,8 @@ OH_AVErrCode OH_AVTranscoder_SetStateCallback(OH_AVTranscoder *transcoder, OH_AV
 
 
 ##### OH_AVTranscoder_SetErrorCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoder_SetErrorCallback(OH_AVTranscoder *transcoder, OH_AVTranscoder_OnError callback, void *userData)
@@ -716,6 +764,8 @@ OH_AVErrCode OH_AVTranscoder_SetErrorCallback(OH_AVTranscoder *transcoder, OH_AV
 
 
 ##### OH_AVTranscoder_SetProgressUpdateCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_AVErrCode OH_AVTranscoder_SetProgressUpdateCallback(OH_AVTranscoder *transcoder, OH_AVTranscoder_OnProgressUpdate callback, void *userData)

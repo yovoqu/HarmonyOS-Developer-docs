@@ -12,6 +12,8 @@ struct OH_PixelmapNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 OH_PixelmapNative结构体是native层封装的图像解码后无压缩的位图格式结构体。
  
 函数创建OH_PixelmapNative使用[OH_PixelmapNative_CreatePixelmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapnative_createpixelmap)函数，默认采用BGRA_8888格式处理数据。

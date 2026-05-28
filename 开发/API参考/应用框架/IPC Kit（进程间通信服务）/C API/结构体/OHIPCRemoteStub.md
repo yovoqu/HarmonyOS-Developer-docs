@@ -12,6 +12,8 @@ typedef struct OHIPCRemoteStub OHIPCRemoteStub
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 IPC远端服务对象。
  
 **起始版本：** 12

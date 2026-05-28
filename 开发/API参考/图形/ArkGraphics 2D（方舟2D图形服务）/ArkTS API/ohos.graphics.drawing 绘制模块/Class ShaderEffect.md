@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### createComposeShader20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createComposeShader(dstShaderEffect: ShaderEffect, srcShaderEffect: ShaderEffect, blendMode: BlendMode): ShaderEffect
 
@@ -66,6 +70,8 @@ let shader = drawing.ShaderEffect.createComposeShader(dstShader, srcShader, draw
 
 
 ##### createImageShader20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createImageShader(pixelmap: image.PixelMap, tileX: TileMode, tileY: TileMode, samplingOptions: SamplingOptions, matrix?: Matrix | null): ShaderEffect
 
@@ -144,6 +150,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### createColorShader12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createColorShader(color: number): ShaderEffect
 
 创建具有单一颜色的着色器。
@@ -184,6 +192,8 @@ let shaderEffect = drawing.ShaderEffect.createColorShader(0xFFFF0000);
 
 
 ##### createLinearGradient12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createLinearGradient(startPt: common2D.Point, endPt: common2D.Point, colors: Array&lt;number&gt;, mode: TileMode, pos?: Array&lt;number&gt; | null, matrix?: Matrix | null): ShaderEffect
 
@@ -239,6 +249,8 @@ let shaderEffect = drawing.ShaderEffect.createLinearGradient(startPt, endPt, [0x
 
 ##### createRadialGradient12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createRadialGradient(centerPt: common2D.Point, radius: number, colors: Array&lt;number&gt;, mode: TileMode, pos?: Array&lt;number&gt; | null, matrix?: Matrix | null): ShaderEffect
 
 创建着色器，使用给定的圆心和半径生成径向渐变。径向渐变是指颜色从圆心逐渐向外扩散形成的渐变。
@@ -291,6 +303,8 @@ let shaderEffect = drawing.ShaderEffect.createRadialGradient(centerPt, 100, [0xF
 
 
 ##### createSweepGradient12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createSweepGradient(centerPt: common2D.Point, colors: Array&lt;number&gt;, mode: TileMode, startAngle: number, endAngle: number, pos?: Array&lt;number&gt; | null, matrix?: Matrix | null): ShaderEffect
 
@@ -346,6 +360,8 @@ let shaderEffect = drawing.ShaderEffect.createSweepGradient(centerPt, [0xFF00FF0
 
 ##### createConicalGradient12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt: common2D.Point, endRadius: number, colors: Array&lt;number&gt;, mode: TileMode, pos?: Array&lt;number&gt; | null, matrix?: Matrix | null): ShaderEffect
 
 创建着色器，在给定两个圆之间生成径向渐变。
@@ -367,7 +383,7 @@ static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/U_qI5i2_SeaKd1ISurTlDw/zh-cn_image_0000002611836839.png?HW-CC-KV=V1&HW-CC-Date=20260528T014040Z&HW-CC-Expire=86400&HW-CC-Sign=7EAE937501D0AD05A5DEB1A55A20F80D280AB7962AC3126AD3C94E958F05A137)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/U_qI5i2_SeaKd1ISurTlDw/zh-cn_image_0000002611836839.png?HW-CC-KV=V1&HW-CC-Date=20260528T024331Z&HW-CC-Expire=86400&HW-CC-Sign=4EF92721A9ADC32D43E27D99D82FC0E726B3E1F0A576144943BA723236689C04)
 
 
 如上图所示，设置颜色数组为红绿蓝，位置数组为0.0、0.5和1.0的绘制结果。左侧为起始圆不在结束圆内的绘制结果，右侧为起始圆在结束圆内的绘制结果。

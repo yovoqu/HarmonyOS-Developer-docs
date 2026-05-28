@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { PanelInfo, PanelType } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { PanelInfo, PanelType } from '@kit.BasicServicesKit';
   
 
 ##### PanelInfo
+
+**支持设备：** PC/2in1
 
 划词面板属性信息。
  
@@ -40,6 +44,8 @@ import { PanelInfo, PanelType } from '@kit.BasicServicesKit';
   
 
 ##### PanelType
+
+**支持设备：** PC/2in1
 
 划词面板类型枚举。
  

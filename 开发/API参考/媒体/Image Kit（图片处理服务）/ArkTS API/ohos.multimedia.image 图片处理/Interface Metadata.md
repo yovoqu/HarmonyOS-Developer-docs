@@ -14,6 +14,8 @@ Metadata类，用于存储图像的元数据。目前支持的元数据类型可
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -21,6 +23,8 @@ import { image } from '@kit.ImageKit';
 
 
 ##### getProperties13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getProperties(key: Array&lt;string&gt;): Promise<Record<string, string | null>>
 
@@ -85,6 +89,8 @@ async function GetProperties(context: Context) {
 
 
 ##### setProperties13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setProperties(records: Record<string, string | null>): Promise&lt;void&gt;
 
@@ -154,6 +160,8 @@ async function SetProperties(context: Context) {
 
 ##### getAllProperties13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllProperties(): Promise<Record<string, string | null>>
 
 获取图片中所有元数据的属性和值。使用Promise异步回调。
@@ -203,6 +211,8 @@ async function GetAllProperties(context: Context) {
 
 ##### clone13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clone(): Promise&lt;Metadata&gt;
 
 对元数据进行克隆。使用Promise异步回调。
@@ -249,6 +259,8 @@ async function Clone(context: Context) {
 
 ##### getBlob23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBlob(): Promise&lt;ArrayBuffer&gt;
 
 以二进制数据的形式获取元数据。使用Promise异步回调。
@@ -294,6 +306,8 @@ async function GetBlob(context: Context) {
 
 
 ##### setBlob23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBlob(blob: ArrayBuffer): Promise&lt;void&gt;
 

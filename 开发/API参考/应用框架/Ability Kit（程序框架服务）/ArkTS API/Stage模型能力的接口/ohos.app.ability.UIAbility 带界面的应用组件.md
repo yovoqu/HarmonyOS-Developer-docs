@@ -16,6 +16,8 @@ UIAbility是包含UI界面的应用组件，继承自[Ability](https://developer
 
 ##### UIAbility生命周期状态
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **图1** UIAbility生命周期状态
 
 
@@ -32,12 +34,14 @@ UIAbility是包含UI界面的应用组件，继承自[Ability](https://developer
 
 ##### 后台通信能力
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通过Call调用可以与目标UIAbility进行后台通信。Call调用示意图如下所示。
 
 **图2** Call调用示意图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/H5DK2KJ6SvmnMV2HHAc6xg/zh-cn_image_0000002611833363.png?HW-CC-KV=V1&HW-CC-Date=20260528T014007Z&HW-CC-Expire=86400&HW-CC-Sign=567CE4CCBDB9FF5B7E182E72BD2F4CDEF6B666621B598B95AA21F392099FD96E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/H5DK2KJ6SvmnMV2HHAc6xg/zh-cn_image_0000002611833363.png?HW-CC-KV=V1&HW-CC-Date=20260528T024301Z&HW-CC-Expire=86400&HW-CC-Sign=6DF94F94C3BB534A0BBF8A8EB1DE4B39DFE0C6F07ED1EF62D04E36E93274F8BD)
 
 
  - Caller UIAbility调用[startAbilityByCall()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)接口获取[Caller](#caller)对象，并使用Caller对象的[call](#call)方法向Callee UIAbility发送数据。
@@ -48,6 +52,8 @@ UIAbility是包含UI界面的应用组件，继承自[Ability](https://developer
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { UIAbility } from '@kit.AbilityKit';
 ```
@@ -56,11 +62,15 @@ import { UIAbility } from '@kit.AbilityKit';
 
 ##### UIAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示包含UI界面的应用组件，提供组件创建、销毁、前后台切换等生命周期回调，同时也具备后台通信能力。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.AbilityCore
 
@@ -76,6 +86,8 @@ import { UIAbility } from '@kit.AbilityKit';
 
 
 ##### onCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void
 
@@ -113,6 +125,8 @@ export default class MyUIAbility extends UIAbility {
 
 
 ##### onWindowStageCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWindowStageCreate(windowStage: window.WindowStage): void
 
@@ -154,6 +168,8 @@ export default class MyUIAbility extends UIAbility {
 
 ##### onWindowStageWillDestroy12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onWindowStageWillDestroy(windowStage: window.WindowStage): void
 
 当WindowStage即将销毁时，系统触发该回调。开发者可以在该生命周期中取消windowStage事件的监听。
@@ -187,6 +203,8 @@ export default class MyUIAbility extends UIAbility {
 
 ##### onWindowStageDestroy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onWindowStageDestroy(): void
 
 当WindowStage销毁后，系统触发该回调。该回调用于通知开发者WindowStage对象已被销毁，不能再继续使用。
@@ -214,6 +232,8 @@ export default class MyUIAbility extends UIAbility {
 
 
 ##### onWindowStageRestore
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWindowStageRestore(windowStage: window.WindowStage): void
 
@@ -251,6 +271,8 @@ export default class MyUIAbility extends UIAbility {
 
 
 ##### onDestroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDestroy(): void | Promise&lt;void&gt;
 
@@ -310,6 +332,8 @@ export default class MyUIAbility extends UIAbility {
 
 
 ##### onWillForeground20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWillForeground(): void
 
@@ -379,6 +403,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### onForeground
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onForeground(): void
 
 当应用首次启动到前台或者从后台转入到前台时，系统触发该回调。开发者可在该回调中实现系统所需资源的申请，如应用转到前台时申请定位服务等。
@@ -406,6 +432,8 @@ export default class MyUIAbility extends UIAbility {
 
 ##### onDidForeground20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDidForeground(): void
 
 UIAbility生命周期回调，应用转到前台后触发，在[onForeground](#onforeground)后被调用，可在该回调中实现应用切换到前台后的时间打点。如果与[onWillForeground](#onwillforeground20)配合使用，还可以统计出从应用开始进入前台到切换至前台状态的耗时。
@@ -423,6 +451,8 @@ UIAbility生命周期回调，应用转到前台后触发，在[onForeground](#o
 
 
 ##### onWillBackground20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWillBackground(): void
 
@@ -468,6 +498,8 @@ export default class MyUIAbility extends UIAbility {
 
 ##### onBackground
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onBackground(): void
 
 当应用从前台转入到后台时，系统触发该回调。开发者可在该回调中实现UI不可见时的资源释放操作，如停止定位功能等。
@@ -495,6 +527,8 @@ export default class MyUIAbility extends UIAbility {
 
 
 ##### onDidBackground20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDidBackground(): void
 
@@ -561,6 +595,8 @@ export default class MyUIAbility extends UIAbility {
 
 
 ##### onContinue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onContinue(wantParam: Record<string, Object>): AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult>
 
@@ -635,6 +671,8 @@ export default class MyUIAbility extends UIAbility {
 
 ##### onNewWant
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void
 
 当已经启动的UIAbility实例再次被拉起时，系统会触发该回调。若在特定场景下（参见[Scenarios](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-contextconstant#scenarios20)），不需要触发该生命周期回调，可以使用[setOnNewWantSkipScenarios](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#setonnewwantskipscenarios20)接口设置。
@@ -669,6 +707,8 @@ export default class MyUIAbility extends UIAbility {
 
 
 ##### onDump
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDump(params: Array&lt;string&gt;): Array&lt;string&gt;
 
@@ -708,6 +748,8 @@ export default class MyUIAbility extends UIAbility {
 
 
 ##### onSaveState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSaveState(reason: AbilityConstant.StateType, wantParam: Record<string, Object>): AbilityConstant.OnSaveResult
 
@@ -754,6 +796,8 @@ export default class MyUIAbility extends UIAbility {
 
 ##### onSaveStateAsync20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSaveStateAsync(stateType: AbilityConstant.StateType, wantParam: Record<string, Object>): Promise<AbilityConstant.OnSaveResult>
 
 该接口需要与[appRecovery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-apprecovery)配合使用。如果应用已使能故障恢复功能（即[enableAppRecovery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-apprecovery#apprecoveryenableapprecovery)接口中的saveOccasion参数设置为SAVE_WHEN_ERROR），当应用出现故障时，将触发该回调来保存UIAbility的数据。使用Promise异步回调。
@@ -797,6 +841,8 @@ class MyUIAbility extends UIAbility {
 
 ##### onShare10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onShare(wantParam: Record<string, Object>): void
 
 当跨端分享元服务时，系统触发该回调。开发者可以在该回调中设置待分享元服务的标题、摘要和URL等数据。
@@ -828,6 +874,8 @@ export default class MyUIAbility extends UIAbility {
 
 
 ##### onPrepareToTerminate10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onPrepareToTerminate(): boolean
 
@@ -889,6 +937,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### onPrepareToTerminateAsync15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onPrepareToTerminateAsync(): Promise&lt;boolean&gt;
 
 在UIAbility关闭前（例如用户通过点击应用窗口右上角的关闭按钮、或者通过Dock栏/托盘右键退出应用时），系统会触发该回调，用于在UIAbility正式关闭前执行其他操作。
@@ -937,6 +987,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### onBackPressed10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onBackPressed(): boolean
 
 UIAbility生命周期回调，当UIAbility侧滑返回时触发，根据返回值决定是否销毁UIAbility。
@@ -971,6 +1023,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### onCollaborate18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult
 
@@ -1012,11 +1066,15 @@ export default class MyAbility extends UIAbility {
 
 ##### Caller
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 调用方Caller UIAbility通过[startAbilityByCall](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startabilitybycall)接口拉起目标Callee UIAbility，目标UIAbility启动成功后，返回一个Caller对象给调用方进行通信。
 
 
 
 ##### call
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 call(method: string, data: rpc.Parcelable): Promise&lt;void&gt;
 
@@ -1112,6 +1170,8 @@ export default class MainUIAbility extends UIAbility {
 
 
 ##### callWithResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 callWithResult(method: string, data: rpc.Parcelable): Promise<rpc.MessageSequence>
 
@@ -1211,6 +1271,8 @@ export default class MainUIAbility extends UIAbility {
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): void
 
 Caller主动释放与Callee UIAbility的连接。调用该接口后，Caller不能再使用call或callWithResult向Callee方发送消息。
@@ -1259,6 +1321,8 @@ export default class MainUIAbility extends UIAbility {
 
 
 ##### onRelease
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRelease(callback: OnReleaseCallback): void
 
@@ -1316,6 +1380,8 @@ export default class MainUIAbility extends UIAbility {
 
 ##### onRemoteStateChange10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRemoteStateChange(callback: OnRemoteStateChangeCallback): void
 
 注册协同场景下跨设备组件状态变化监听通知。使用callback异步回调。
@@ -1372,6 +1438,8 @@ export default class MainAbility extends UIAbility {
 
 
 ##### on('release')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'release', callback: OnReleaseCallback): void
 
@@ -1431,6 +1499,8 @@ export default class MainUIAbility extends UIAbility {
 
 ##### off('release')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'release', callback: OnReleaseCallback): void
 
 取消注册Callee UIAbility断开通知的监听，与[on('release')](#onrelease-1)是反向操作，当前暂未支持。
@@ -1488,6 +1558,8 @@ export default class MainUIAbility extends UIAbility {
 
 
 ##### off('release')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'release'): void
 
@@ -1548,11 +1620,15 @@ export default class MainUIAbility extends UIAbility {
 
 ##### Callee
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统为UIAbility创建的后台通信对象，Callee UIAbility（被调用方）可以通过Callee对象接收Caller对象发送的数据。
 
 
 
 ##### on
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(method: string, callback: CalleeCallback): void
 
@@ -1634,6 +1710,8 @@ export default class MainUIAbility extends UIAbility {
 
 ##### off
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(method: string): void
 
 解除通用组件服务端注册消息通知callback。
@@ -1681,9 +1759,13 @@ export default class MainUIAbility extends UIAbility {
 
 ##### OnReleaseCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### (msg: string)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 (msg: string): void
 
@@ -1702,9 +1784,13 @@ export default class MainUIAbility extends UIAbility {
 
 ##### OnRemoteStateChangeCallback10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### (msg: string)10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 (msg: string): void
 
@@ -1723,9 +1809,13 @@ export default class MainUIAbility extends UIAbility {
 
 ##### CalleeCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### (indata: rpc.MessageSequence)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 (indata: rpc.MessageSequence): rpc.Parcelable
 

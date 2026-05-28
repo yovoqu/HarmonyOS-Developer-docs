@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 // 在API version 23之前的版本中，需要使用'import { api1, api2, ... } from @ohos.file.PhotoPickerComponent'的导入方式。
 import {
@@ -33,11 +35,15 @@ import {
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### PhotoPickerComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PhotoPickerComponent({ pickerOptions?: PickerOptions, onSelect?: (uri: string) => void, onDeselect?: (uri: string) => void, onItemClicked?: (itemInfo: ItemInfo, clickType: ClickType) => boolean, onItemClickedNotify?: ItemClickedNotifyCallback, onEnterPhotoBrowser?: (photoBrowserInfo: PhotoBrowserInfo) => boolean, onExitPhotoBrowser?: (photoBrowserInfo: PhotoBrowserInfo) => boolean, onPickerControllerReady?: () => void, onPhotoBrowserChanged?: (browserItemInfo: BaseItemInfo) => boolean, onSelectedItemsDeleted?: ItemsDeletedCallback, onExceedMaxSelected?: ExceedMaxSelectedCallback, onCurrentAlbumDeleted?: CurrentAlbumDeletedCallback, onVideoPlayStateChanged?: videoPlayStateChangedCallback, pickerController: PickerController })
 
@@ -81,6 +87,8 @@ PhotoPickerComponent({ pickerOptions?: PickerOptions, onSelect?: (uri: string) =
 
 ##### PickerOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Picker配置选项，继承自[photoAccessHelper.BaseSelectOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class#baseselectoptions)。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -118,6 +126,8 @@ Picker配置选项，继承自[photoAccessHelper.BaseSelectOptions](https://deve
 
 ##### ItemsDeletedCallback13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ItemsDeletedCallback = (baseItemInfos: Array&lt;BaseItemInfo&gt;) => void
 
 已勾选的图片被删除时产生的回调事件。
@@ -136,6 +146,8 @@ type ItemsDeletedCallback = (baseItemInfos: Array&lt;BaseItemInfo&gt;) => void
 
 
 ##### ExceedMaxSelectedCallback13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => void
 
@@ -156,6 +168,8 @@ type ExceedMaxSelectedCallback = (exceedMaxCountType: MaxCountType) => void
 
 ##### CurrentAlbumDeletedCallback13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type CurrentAlbumDeletedCallback = () => void
 
 当前相册被删除时的回调事件。
@@ -167,6 +181,8 @@ type CurrentAlbumDeletedCallback = () => void
 
 
 ##### videoPlayStateChangedCallback14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type videoPlayStateChangedCallback = (state: VideoPlayerState) => void
 
@@ -186,6 +202,8 @@ type videoPlayStateChangedCallback = (state: VideoPlayerState) => void
 
 
 ##### MovingPhotoBadgeStateChangedCallback22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type MovingPhotoBadgeStateChangedCallback = (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void
 
@@ -207,6 +225,8 @@ type MovingPhotoBadgeStateChangedCallback = (uri: string, state: photoAccessHelp
 
 ##### ScrollStopAtStartCallback23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ScrollStopAtStartCallback = () => void
 
 表示用户滑动picker宫格页，当滚动停止并处于宫格内容开始位置时的回调事件类型。
@@ -220,6 +240,8 @@ type ScrollStopAtStartCallback = () => void
 
 
 ##### ItemClickedNotifyCallback23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ItemClickedNotifyCallback = (itemInfo: ItemInfo, clickType: ClickType) => void
 
@@ -393,6 +415,8 @@ private isOnClickedNotify: boolean = false;
 
 ##### ScrollStopAtEndCallback23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ScrollStopAtEndCallback = () => void
 
 表示用户滑动picker宫格页，当滚动停止并处于宫格内容结束位置时的回调事件类型。
@@ -406,6 +430,8 @@ type ScrollStopAtEndCallback = () => void
 
 
 ##### PhotoBrowserChangeStartCallback23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) => void
 
@@ -428,6 +454,8 @@ type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) => void
 
 ##### PinchGridSwitchedCallback23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PinchGridSwitchedCallback = (gridLevel: photoAccessHelper.GridLevel) => void
 
 用户在宫格组件内捏合时产生的回调事件。
@@ -448,6 +476,8 @@ type PinchGridSwitchedCallback = (gridLevel: photoAccessHelper.GridLevel) => voi
 
 
 ##### ErrorCallback23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ErrorCallback = (pickerError: PickerError) => void
 
@@ -470,6 +500,8 @@ PhotoPickerComponent产生错误时的回调。
 
 ##### PickerController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用可通过PickerController向picker组件发送数据。
 
 **装饰器类型**：@Observed
@@ -481,6 +513,8 @@ PhotoPickerComponent产生错误时的回调。
 
 
 ##### setData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setData(dataType: DataType, data: Object): void
 
@@ -502,6 +536,8 @@ setData(dataType: DataType, data: Object): void
 
 ##### addData21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addData(dataType: DataType, data: Object): void
 
 应用可通过该接口向picker组件发送增加配置数据。通过[DataType](#datatype)来区分具体发送的数据类型，该方法仅支持SET_BADGE_CONFIGS类型。
@@ -521,6 +557,8 @@ addData(dataType: DataType, data: Object): void
 
 
 ##### deleteData21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteData(dataType: DataType, data: Object): void
 
@@ -542,6 +580,8 @@ deleteData(dataType: DataType, data: Object): void
 
 ##### setMaxSelected
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMaxSelected(maxSelected: MaxSelected): void
 
 应用可通过该接口，实时地设置图片的最大选择数量、视频的最大选择数量以及总的最大选择数量。
@@ -560,6 +600,8 @@ setMaxSelected(maxSelected: MaxSelected): void
 
 
 ##### setPhotoBrowserItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPhotoBrowserItem(uri: string, photoBrowserRange?: PhotoBrowserRange): void
 
@@ -581,6 +623,8 @@ setPhotoBrowserItem(uri: string, photoBrowserRange?: PhotoBrowserRange): void
 
 ##### exitPhotoBrowser13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 exitPhotoBrowser(): void
 
 应用可通过该接口，向picker发送退出大图的通知。
@@ -592,6 +636,8 @@ exitPhotoBrowser(): void
 
 
 ##### setPhotoBrowserUIElementVisibility13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPhotoBrowserUIElementVisibility(elements: Array&lt;PhotoBrowserUIElement&gt;, isVisible: boolean): void
 
@@ -612,6 +658,8 @@ setPhotoBrowserUIElementVisibility(elements: Array&lt;PhotoBrowserUIElement&gt;,
 
 
 ##### replacePhotoPickerPreview15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replacePhotoPickerPreview(originalUri: string, newUri: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -634,6 +682,8 @@ replacePhotoPickerPreview(originalUri: string, newUri: string, callback: AsyncCa
 
 ##### saveTrustedPhotoAssets15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 saveTrustedPhotoAssets(trustedUris: Array&lt;string&gt;, callback: AsyncCallback<Array&lt;string&gt;>, configs?: Array<photoAccessHelper.PhotoCreationConfig>, saveMode?: SaveMode): void
 
 应用可通过该接口，保存对应uri列表的文件。使用时，一般结合[replacePhotoPickerPreview](#replacephotopickerpreview15)接口使用，将替换显示成功后的应用沙箱图片/视频newUris保存到图库。
@@ -655,6 +705,8 @@ saveTrustedPhotoAssets(trustedUris: Array&lt;string&gt;, callback: AsyncCallback
 
 
 ##### updatePickerOptions22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise&lt;void&gt;
 
@@ -681,6 +733,8 @@ updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise&lt;void&gt;
 
 
 ##### saveTrustedPhotoAssetsEx23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 saveTrustedPhotoAssetsEx(trustedUris: Array&lt;string&gt;,settings?: Array<photoAccessHelper.CreationSetting>, saveMode?: SaveMode): Promise<Array&lt;string&gt;>
 
@@ -715,6 +769,8 @@ saveTrustedPhotoAssetsEx(trustedUris: Array&lt;string&gt;,settings?: Array<photo
 
 
 ##### setMovingPhotoState23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateType): Promise&lt;void&gt;
 
@@ -756,6 +812,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### BaseItemInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 图片、视频相关信息。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -779,6 +837,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### ItemInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 继承自[BaseItemInfo](#baseiteminfo)，增加私有参数itemType。
 
 图片、视频相关信息。
@@ -796,6 +856,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### PhotoBrowserInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 大图相关信息。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -810,6 +872,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 ##### AnimatorParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 进退大图动效参数。
 
@@ -827,6 +891,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### MaxSelected
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 最大选择数量。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -841,6 +907,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 ##### SingleLineConfig20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 单行显示模式配置项。单行模式下，组件不提供打开大图浏览相关功能。组件不支持大图相关回调，PickerController不支持大图相关的接口，接口调用将无效。
 
@@ -859,6 +927,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### BadgeConfig21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 特殊角标配置项。
 
 **元服务API**：从API version 21开始，该接口支持在元服务中使用。
@@ -874,6 +944,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 ##### ClickResult23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置指定URI的资产是否被选中。
 
@@ -893,6 +965,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### PreselectedInfo21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 预选中的文件以及文件对应的PhotoPickerComponent序号。
 
 **元服务API**：从API version 21开始，该接口支持在元服务中使用。
@@ -908,6 +982,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 ##### UpdatablePickerConfigs22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持更新的PhotoPickerComponent属性，为[PickerOptions](#pickeroptions)的子集。
 
@@ -940,6 +1016,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### PickerError23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 使用PhotoPickerComponent组件发生错误时返回的错误的接口名称、错误码和错误描述。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -959,6 +1037,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### DataType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，PickerController向picker组件发送数据的数据类型。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -976,6 +1056,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### ItemType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 被点击item的类型。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -992,6 +1074,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 ##### ClickType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 点击操作的类型。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -1007,6 +1091,8 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 ##### PickerOrientation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Picker宫格页面滑动预览的方向。
 
@@ -1026,6 +1112,8 @@ Picker宫格页面滑动预览的方向。
 
 ##### SelectMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 选择模式。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -1041,6 +1129,8 @@ Picker宫格页面滑动预览的方向。
 
 
 ##### PickerColorMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Picker的颜色模式。
 
@@ -1059,6 +1149,8 @@ Picker的颜色模式。
 
 ##### ReminderMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 最大选择数量提示方式。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -1075,6 +1167,8 @@ Picker的颜色模式。
 
 
 ##### MaxCountType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 最大选择数量的类型。
 
@@ -1093,6 +1187,8 @@ Picker的颜色模式。
 
 ##### PhotoBrowserRange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 打开大图浏览模式后，左右滑动切换浏览图片的范围。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -1108,6 +1204,8 @@ Picker的颜色模式。
 
 
 ##### PhotoBrowserUIElement13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 大图页大图预览组件外其他UI元素。
 
@@ -1125,6 +1223,8 @@ Picker的颜色模式。
 
 ##### SaveMode15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 图片/视频保存模式。
 
 **元服务API**：从API version 15开始，该接口支持在元服务中使用。
@@ -1141,6 +1241,8 @@ Picker的颜色模式。
 
 ##### BadgeType21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示特殊角标类型的枚举。
 
 **元服务API**：从API version 21开始，该接口支持在元服务中使用。
@@ -1155,6 +1257,8 @@ Picker的颜色模式。
 
 
 ##### VideoPlayerState14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 视频播放状态。
 
@@ -1175,6 +1279,8 @@ Picker的颜色模式。
 
 ##### ItemDisplayRatio20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 单行布局宫格显示宽高比模式，包括1:1和原图宽高比两种模式。
 
 **元服务API**：从API version 20开始，该接口支持在元服务中使用。
@@ -1190,6 +1296,8 @@ Picker的颜色模式。
 
 
 ##### 示例一（PhotoPickerComponent组件的使用）
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -1417,6 +1525,8 @@ struct PickerDemo {
 
 
 ##### 示例二（使用PhotoPickerComponent实现抽屉组件效果）
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 从API version 23开始，可以通过[PickerOptions](#pickeroptions)的isSlidingSupported、[PhotoPickerComponent](#photopickercomponent)的onScrollStopAtStart和onScrollStopAtEnd回调来实现抽屉效果。
 

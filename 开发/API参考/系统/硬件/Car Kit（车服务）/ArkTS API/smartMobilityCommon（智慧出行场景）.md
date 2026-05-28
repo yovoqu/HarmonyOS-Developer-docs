@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { smartMobilityCommon } from '@kit.CarKit';
 ```
@@ -19,6 +21,8 @@ import { smartMobilityCommon } from '@kit.CarKit';
   
 
 ##### SmartMobilityEvent
+
+**支持设备：** Phone | Tablet
 
 公共事件。
  
@@ -37,6 +41,8 @@ import { smartMobilityCommon } from '@kit.CarKit';
 
 ##### SmartMobilityInfo
 
+**支持设备：** Phone | Tablet
+
 该类为智慧出行的状态信息，定义了当前的业务类型、连接状态、业务数据。
  
 **系统能力：** SystemCapability.CarService.DistributedEngine
@@ -54,6 +60,8 @@ import { smartMobilityCommon } from '@kit.CarKit';
 
 ##### SmartMobilityStatus
 
+**支持设备：** Phone | Tablet
+
 业务连接状态枚举值。
  
 **系统能力：** SystemCapability.CarService.DistributedEngine
@@ -69,6 +77,8 @@ import { smartMobilityCommon } from '@kit.CarKit';
   
 
 ##### SmartMobilityType
+
+**支持设备：** Phone | Tablet
 
 业务类型枚举值。
  
@@ -86,6 +96,8 @@ import { smartMobilityCommon } from '@kit.CarKit';
   
 
 ##### getSmartMobilityAwareness
+
+**支持设备：** Phone | Tablet
 
 getSmartMobilityAwareness(): SmartMobilityAwareness
  
@@ -128,6 +140,8 @@ let awareness: smartMobilityCommon.SmartMobilityAwareness = smartMobilityCommon.
 
 ##### SmartMobilityAwareness
 
+**支持设备：** Phone | Tablet
+
 智慧出行管理类，用于调用智慧出行接口。
  
 **系统能力：** SystemCapability.CarService.DistributedEngine
@@ -137,6 +151,8 @@ let awareness: smartMobilityCommon.SmartMobilityAwareness = smartMobilityCommon.
   
 
 ##### on('smartMobilityEvent')
+
+**支持设备：** Phone | Tablet
 
 on(type: 'smartMobilityEvent', smartMobilityTypes: SmartMobilityType[],callback: Callback&lt;SmartMobilityEvent&gt;): void
  
@@ -197,6 +213,8 @@ try {
 
 ##### off('smartMobilityEvent')
 
+**支持设备：** Phone | Tablet
+
 off(type: 'smartMobilityEvent', smartMobilityTypes: SmartMobilityType[], callback?: Callback&lt;SmartMobilityEvent&gt;): void
  
 取消注册智慧出行业务的事件监听。
@@ -256,6 +274,8 @@ try {
   
 
 ##### getSmartMobilityEvent
+
+**支持设备：** Phone | Tablet
 
 getSmartMobilityEvent(type: SmartMobilityType, eventName: string): SmartMobilityEvent
  
@@ -321,6 +341,8 @@ try {
 
 ##### on('smartMobilityStatus')
 
+**支持设备：** Phone | Tablet
+
 on(type: 'smartMobilityStatus', smartMobilityTypes: SmartMobilityType[], callback: Callback&lt;SmartMobilityInfo&gt;): void
  
 注册智慧出行连接状态的监听。
@@ -380,6 +402,8 @@ try {
 
 ##### off('smartMobilityStatus')
 
+**支持设备：** Phone | Tablet
+
 off(type: 'smartMobilityStatus', smartMobilityTypes: SmartMobilityType[], callback?: Callback&lt;SmartMobilityInfo&gt;): void
  
 取消注册智慧出行连接状态的监听。
@@ -438,6 +462,8 @@ try {
   
 
 ##### getSmartMobilityStatus
+
+**支持设备：** Phone | Tablet
 
 getSmartMobilityStatus(type: SmartMobilityType): SmartMobilityInfo
  

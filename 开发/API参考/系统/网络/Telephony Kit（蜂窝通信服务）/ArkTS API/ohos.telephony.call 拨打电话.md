@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable | PC/2in1
+
 ```text
 import { call } from '@kit.TelephonyKit';
 ```
@@ -23,6 +25,8 @@ import { call } from '@kit.TelephonyKit';
 
 
 ##### call.dial(deprecated)
+
+**支持设备：** Phone | Tablet | Wearable
 
 dial(phoneNumber: string, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -57,6 +61,8 @@ call.dial("138xxxxxxxx", (err: BusinessError, data: boolean) => {
 
 
 ##### call.dial(deprecated)
+
+**支持设备：** Phone | Tablet | Wearable
 
 dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -95,6 +101,8 @@ call.dial("138xxxxxxxx", dialOptions, (err: BusinessError, data: boolean) => {
 
 
 ##### call.dial(deprecated)
+
+**支持设备：** Phone | Tablet | Wearable
 
 dial(phoneNumber: string, options?: DialOptions): Promise&lt;boolean&gt;
 
@@ -142,6 +150,8 @@ call.dial("138xxxxxxxx", dialOptions).then((data: boolean) => {
 
 ##### call.makeCall7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 makeCall(phoneNumber: string, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到拨号界面，并显示待拨出的号码。使用callback异步回调。只支持在UIAbility中调用。
@@ -188,6 +198,8 @@ call.makeCall("138xxxxxxxx", (err: BusinessError) => {
 
 
 ##### call.makeCall7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 makeCall(phoneNumber: string): Promise&lt;void&gt;
 
@@ -239,6 +251,8 @@ call.makeCall("138xxxxxxxx").then(() => {
 
 
 ##### call.makeCall24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 makeCall(phoneNumber: string, options?: MakeCallOptions): Promise&lt;void&gt;
 
@@ -296,6 +310,8 @@ call.makeCall("138xxxxxxxx", makeOptions).then(() => {
 
 ##### call.makeCall12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 makeCall(context: Context, phoneNumber: string): Promise&lt;void&gt;
 
 跳转到拨号界面，并显示待拨出的号码。使用Promise异步回调。后台调用需要申请ohos.permission.START_ABILITIES_FROM_BACKGROUND权限。
@@ -352,6 +368,8 @@ call.makeCall(context, "138xxxxxxxx").then(() => {
 
 ##### call.hasCall
 
+**支持设备：** Phone | Tablet | Wearable
+
 hasCall(callback: AsyncCallback&lt;boolean&gt;): void
 
 判断是否存在通话。使用callback异步回调。
@@ -383,6 +401,8 @@ call.hasCall((err: BusinessError, data: boolean) => {
 
 ##### call.hasCall
 
+**支持设备：** Phone | Tablet | Wearable
+
 hasCall(): Promise&lt;boolean&gt;
 
 判断是否存在通话。使用Promise异步回调。
@@ -412,6 +432,8 @@ call.hasCall().then(() => {
 
 ##### call.hasCallSync10+
 
+**支持设备：** Phone | Tablet | Wearable
+
 hasCallSync(): boolean
 
 判断是否存在通话。
@@ -435,6 +457,8 @@ console.info(`hasCallSync success, has call is ` + hasCall);
 
 
 ##### call.getCallState
+
+**支持设备：** Phone | Tablet | Wearable
 
 getCallState(callback: AsyncCallback&lt;CallState&gt;): void
 
@@ -467,6 +491,8 @@ call.getCallState((err: BusinessError, data: call.CallState) => {
 
 ##### call.getCallState
 
+**支持设备：** Phone | Tablet | Wearable
+
 getCallState(): Promise&lt;CallState&gt;
 
 获取当前通话状态。使用Promise异步回调。
@@ -496,6 +522,8 @@ call.getCallState().then((data: call.CallState) => {
 
 ##### call.getCallStateSync10+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getCallStateSync(): CallState
 
 获取当前通话状态。
@@ -520,6 +548,8 @@ console.info(`the call state is:` + callState);
 
 ##### call.hasVoiceCapability7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 hasVoiceCapability(): boolean
 
 检查当前设备是否具备语音通话能力。
@@ -541,6 +571,8 @@ console.info(`hasVoiceCapability: ${JSON.stringify(result)}`);
 
 
 ##### call.isEmergencyPhoneNumber7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 isEmergencyPhoneNumber(phoneNumber: string, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -586,6 +618,8 @@ call.isEmergencyPhoneNumber("138xxxxxxxx", (err: BusinessError, data: boolean) =
 
 
 ##### call.isEmergencyPhoneNumber7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 isEmergencyPhoneNumber(phoneNumber: string, options: EmergencyNumberOptions, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -633,6 +667,8 @@ call.isEmergencyPhoneNumber("112", options, (err: BusinessError, data: boolean) 
 
 
 ##### call.isEmergencyPhoneNumber7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 isEmergencyPhoneNumber(phoneNumber: string, options?: EmergencyNumberOptions): Promise&lt;boolean&gt;
 
@@ -685,6 +721,8 @@ call.isEmergencyPhoneNumber("138xxxxxxxx", options).then((data: boolean) => {
 
 ##### call.formatPhoneNumber7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 formatPhoneNumber(phoneNumber: string, callback: AsyncCallback&lt;string&gt;): void
 
 格式化电话号码。使用callback异步回调。
@@ -731,6 +769,8 @@ call.formatPhoneNumber("138xxxxxxxx", (err: BusinessError, data: string) => {
 
 
 ##### call.formatPhoneNumber7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 formatPhoneNumber(phoneNumber: string, options: NumberFormatOptions, callback: AsyncCallback&lt;string&gt;): void
 
@@ -782,6 +822,8 @@ call.formatPhoneNumber("138xxxxxxxx", options, (err: BusinessError, data: string
 
 
 ##### call.formatPhoneNumber7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 formatPhoneNumber(phoneNumber: string, options?: NumberFormatOptions): Promise&lt;string&gt;
 
@@ -838,6 +880,8 @@ call.formatPhoneNumber("138xxxxxxxx", options).then((data: string) => {
 
 ##### call.formatPhoneNumberToE1647+
 
+**支持设备：** Phone | Tablet | Wearable
+
 formatPhoneNumberToE164(phoneNumber: string, countryCode: string, callback: AsyncCallback&lt;string&gt;): void
 
 将电话号码格式化为E.164表示形式，使用callback异步回调。
@@ -885,6 +929,8 @@ call.formatPhoneNumberToE164("138xxxxxxxx", "CN", (err: BusinessError, data: str
 
 
 ##### call.formatPhoneNumberToE1647+
+
+**支持设备：** Phone | Tablet | Wearable
 
 formatPhoneNumberToE164(phoneNumber: string, countryCode: string): Promise&lt;string&gt;
 
@@ -940,6 +986,8 @@ call.formatPhoneNumberToE164("138xxxxxxxx", "CN").then((data: string) => {
 
 ##### call.answerCall23+
 
+**支持设备：** Phone | Tablet | Wearable
+
 answerCall(callback: AsyncCallback&lt;void&gt;): void
 
 接听来电。使用callback异步回调。
@@ -989,6 +1037,8 @@ call.answerCall((err: BusinessError) => {
 
 
 ##### call.hangUpCall23+
+
+**支持设备：** Phone | Tablet | Wearable
 
 hangUpCall(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1040,6 +1090,8 @@ call.hangUpCall((err: BusinessError) => {
 
 ##### call.rejectCall23+
 
+**支持设备：** Phone | Tablet | Wearable
+
 rejectCall(callback: AsyncCallback&lt;void&gt;): void
 
 拒绝来电。使用callback异步回调。
@@ -1090,6 +1142,8 @@ call.rejectCall((err: BusinessError) => {
 
 ##### DialOptions
 
+**支持设备：** Phone | Tablet | Wearable
+
 拨打电话的可选参数。
 
 **系统能力**：SystemCapability.Telephony.CallManager
@@ -1102,6 +1156,8 @@ call.rejectCall((err: BusinessError) => {
 
 
 ##### CallState
+
+**支持设备：** Phone | Tablet | Wearable
 
 通话状态码。
 
@@ -1120,6 +1176,8 @@ call.rejectCall((err: BusinessError) => {
 
 ##### MakeCallOptions24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 拨打电话的可选参数。
 
 **系统能力**：SystemCapability.Applications.Contacts
@@ -1134,6 +1192,8 @@ call.rejectCall((err: BusinessError) => {
 
 
 ##### TelCallState21+
+
+**支持设备：** Phone | Tablet | Wearable
 
 通话状态码。
 
@@ -1152,6 +1212,8 @@ call.rejectCall((err: BusinessError) => {
 
 
 ##### CCallState23+
+
+**支持设备：** Phone | Tablet | Wearable
 
 运营商通话状态码。
 
@@ -1176,6 +1238,8 @@ call.rejectCall((err: BusinessError) => {
 
 ##### EmergencyNumberOptions7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 判断是否是紧急电话号码的可选参数。
 
 **系统能力**：SystemCapability.Telephony.CallManager
@@ -1188,6 +1252,8 @@ call.rejectCall((err: BusinessError) => {
 
 
 ##### NumberFormatOptions7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 格式化号码的可选参数。
 

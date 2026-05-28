@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { HdsListItem } from '@kit.UIDesignKit';
 ```
@@ -19,6 +21,8 @@ import { HdsListItem } from '@kit.UIDesignKit';
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCardOptions, swipeActionOptions?: HdsSwipeActionOptions | SwipeActionOptions, listItemModifier?: ListItemModifier, menuStyle?: MenuStyle, menuBuilder?: CustomBuilder, isSelected?: boolean})
  
@@ -53,6 +57,8 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
 
 ##### HdsSwipeActionOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 设置横滑按钮的样式。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -73,6 +79,8 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
   
 
 ##### IconOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 设置图标的可用性和无障碍等属性。
  
@@ -95,6 +103,8 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
 
 ##### SwipeIconConfigurations
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 设置除删除图标外的横滑图标样式和功能。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -114,6 +124,8 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
   
 
 ##### DeleteIconOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 设置删除图标属性。
  
@@ -135,6 +147,8 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
 
 ##### FullDeleteOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 设置整个列表项的横滑删除属性。
  
 **需要权限：** ohos.permission.VIBRATE（当enableVibration为true时需要申请该权限。若不申请，不会报错，仅无法响应振动）
@@ -155,6 +169,8 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
   
 
 ##### SwipeIconType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type SwipeIconType = SymbolGlyphModifier | ImageOptions
  
@@ -178,6 +194,8 @@ type SwipeIconType = SymbolGlyphModifier | ImageOptions
 
 ##### MenuStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 设置列表项的预览菜单样式。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -196,6 +214,8 @@ type SwipeIconType = SymbolGlyphModifier | ImageOptions
 
 ##### SwipeActionCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 type SwipeActionCallback = () => void
  
 列表滑动事件触发的回调函数。
@@ -209,6 +229,8 @@ type SwipeActionCallback = () => void
   
 
 ##### OnStateChangeCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type OnStateChangeCallback = (state: SwipeActionState) => void
  
@@ -231,6 +253,8 @@ type OnStateChangeCallback = (state: SwipeActionState) => void
 
 ##### SwipeDeleteTriggerType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 列表横滑删除触发类型枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -249,6 +273,8 @@ type OnStateChangeCallback = (state: SwipeActionState) => void
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 设置一个带横滑效果的列表：
  
@@ -411,4 +437,4 @@ export class LazyDataSource<T> implements IDataSource {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/QwHzwcduSFe0sZ9Z9tjJxQ/zh-cn_image_0000002611836503.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013736Z&HW-CC-Expire=86400&HW-CC-Sign=09FF277A793198940DDBAC4672FCB53A6402AE19B5321D58C7DBCF25E5414D26)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/QwHzwcduSFe0sZ9Z9tjJxQ/zh-cn_image_0000002611836503.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024033Z&HW-CC-Expire=86400&HW-CC-Sign=3BD4BAB8615BD800CED9D5C78164F7261C1C6C75810E651B52593927CAB18D65)

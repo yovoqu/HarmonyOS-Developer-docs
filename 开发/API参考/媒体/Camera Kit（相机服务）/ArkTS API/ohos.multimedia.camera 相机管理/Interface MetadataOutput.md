@@ -14,6 +14,8 @@ metadata流。继承[CameraOutput](https://developer.huawei.com/consumer/cn/doc/
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
 
 
 ##### start
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(callback: AsyncCallback&lt;void&gt;): void
 
@@ -67,6 +71,8 @@ function startMetadataOutput(metadataOutput: camera.MetadataOutput): void {
 
 ##### start
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(): Promise&lt;void&gt;
 
 开始输出metadata。使用Promise异步回调。
@@ -110,6 +116,8 @@ function startMetadataOutput(metadataOutput: camera.MetadataOutput): void {
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(callback: AsyncCallback&lt;void&gt;): void
 
 停止输出metadata，通过注册回调函数获取结果。使用callback异步回调。
@@ -145,6 +153,8 @@ function stopMetadataOutput(metadataOutput: camera.MetadataOutput): void {
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
 
 停止输出metadata。使用Promise异步回调。
@@ -177,6 +187,8 @@ function stopMetadataOutput(metadataOutput: camera.MetadataOutput): void {
 
 
 ##### on('metadataObjectsAvailable')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'metadataObjectsAvailable', callback: AsyncCallback<Array&lt;MetadataObject&gt;>): void
 
@@ -220,6 +232,8 @@ function registerMetadataObjectsAvailable(metadataOutput: camera.MetadataOutput)
 
 ##### off('metadataObjectsAvailable')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'metadataObjectsAvailable', callback?: AsyncCallback<Array&lt;MetadataObject&gt;>): void
 
 注销监听检测到的metadata对象。
@@ -247,6 +261,8 @@ function unregisterMetadataObjectsAvailable(metadataOutput: camera.MetadataOutpu
 
 
 ##### on('error')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -286,6 +302,8 @@ function registerMetadataOutputError(metadataOutput: camera.MetadataOutput): voi
 
 ##### off('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', callback?: ErrorCallback): void
 
 注销监听metadata流的错误。
@@ -313,6 +331,8 @@ function unregisterMetadataOutputError(metadataOutput: camera.MetadataOutput): v
 
 
 ##### addMetadataObjectTypes23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addMetadataObjectTypes(types: Array&lt;MetadataObjectType&gt;): void
 
@@ -359,6 +379,8 @@ function addMetadataObjectTypes(metadataOutput: camera.MetadataOutput, types: Ar
 
 
 ##### removeMetadataObjectTypes23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeMetadataObjectTypes(types: Array&lt;MetadataObjectType&gt;): void
 

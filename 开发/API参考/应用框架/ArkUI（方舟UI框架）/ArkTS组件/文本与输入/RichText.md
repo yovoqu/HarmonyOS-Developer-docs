@@ -34,11 +34,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不包含子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RichText(content:string  |  Resource)
  
@@ -55,9 +59,13 @@ RichText(content:string  |  Resource)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### onStart
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onStart(callback: () => void)
  
@@ -74,6 +82,8 @@ onStart(callback: () => void)
 
 ##### onComplete
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onComplete(callback: () => void)
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -89,11 +99,15 @@ onComplete(callback: () => void)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 只支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)中width，height，size，layoutWeight四个属性。由于padding，margin，constraintSize属性使用时与通用属性描述不符，暂不支持。
  
   
 
 ##### 支持标签
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 | 示例 |
 | --- | --- | --- |
@@ -114,6 +128,8 @@ onComplete(callback: () => void)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
  
@@ -172,7 +188,7 @@ struct RichTextExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/88oPzmYGQoqvqsLXRbvGig/zh-cn_image_0000002611835783.png?HW-CC-KV=V1&HW-CC-Date=20260528T013932Z&HW-CC-Expire=86400&HW-CC-Sign=CA083D080C6E9E96F46B183CFB0ACC6A94F47A582EDEF539107127C03AB3FEB6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/88oPzmYGQoqvqsLXRbvGig/zh-cn_image_0000002611835783.png?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=46D6A6262BD0C5628AA9BE408E771D33EFF240CAB63674E0A2011E72A6E0A961)
 
  
 加载本地资源文件。

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述超帧输入输出图像的格式信息，该接口仅适配Vulkan图形API平台。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### inputColorFormat
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 VkFormat FG_ImageFormat_VK::inputColorFormat
@@ -50,6 +60,8 @@ VkFormat FG_ImageFormat_VK::inputColorFormat
 
 ##### inputDepthStencilFormat
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 VkFormat FG_ImageFormat_VK::inputDepthStencilFormat
 ```
@@ -61,6 +73,8 @@ VkFormat FG_ImageFormat_VK::inputDepthStencilFormat
   
 
 ##### outputColorFormat
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 VkFormat FG_ImageFormat_VK::outputColorFormat

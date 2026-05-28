@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持单个子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 StepperItem()
  
@@ -36,9 +40,13 @@ StepperItem()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### prevLabel(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 prevLabel(value: string)
  
@@ -63,6 +71,8 @@ prevLabel(value: string)
 
 ##### nextLabel(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 nextLabel(value: string)
  
 设置右侧文本按钮内容，最后一页默认值为“开始”，其余页默认值为“下一步”。
@@ -85,6 +95,8 @@ nextLabel(value: string)
   
 
 ##### status(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 status(value?: ItemState)
  
@@ -113,6 +125,8 @@ status(value?: ItemState)
 
 ##### ItemState枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 步骤导航器nextLabel的显示状态。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -130,5 +144,7 @@ status(value?: ItemState)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 见[Stepper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-stepper)。

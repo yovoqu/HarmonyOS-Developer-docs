@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_ImageAttachment OH_ArkUI_ImageAttachment
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义图片样式对象。 
  
  可以通过[OH_ArkUI_ImageAttachment_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_imageattachment_create)接口创建对应的图片样式对象。 

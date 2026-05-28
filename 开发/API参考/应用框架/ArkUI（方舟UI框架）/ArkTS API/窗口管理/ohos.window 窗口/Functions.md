@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { window } from '@kit.ArkUI';
 ```
@@ -19,6 +21,8 @@ import { window } from '@kit.ArkUI';
 
 
 ##### window.createWindow9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createWindow(config: Configuration, callback: AsyncCallback&lt;Window&gt;): void
 
@@ -94,6 +98,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### window.createWindow9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createWindow(config: Configuration): Promise&lt;Window&gt;
 
@@ -173,6 +179,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### window.findWindow9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 findWindow(name: string): Window
 
 查找指定名称对应的窗口。
@@ -219,6 +227,8 @@ try {
 
 
 ##### window.getLastWindow9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLastWindow(ctx: BaseContext, callback: AsyncCallback&lt;Window&gt;): void
 
@@ -297,6 +307,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### window.getLastWindow9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLastWindow(ctx: BaseContext): Promise&lt;Window&gt;
 
@@ -379,6 +391,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### window.shiftAppWindowFocus11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 shiftAppWindowFocus(sourceWindowId: number, targetWindowId: number): Promise&lt;void&gt;
 
@@ -493,6 +507,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### window.shiftAppWindowPointerEvent15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 shiftAppWindowPointerEvent(sourceWindowId: number, targetWindowId: number): Promise&lt;void&gt;
 
 主窗口和子窗口可正常调用，用于将鼠标输入事件从源窗口转移到目标窗口。使用Promise异步回调。
@@ -572,6 +588,8 @@ struct Index {
 
 
 ##### window.shiftAppWindowTouchEvent20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 shiftAppWindowTouchEvent(sourceWindowId: number, targetWindowId: number, fingerId: number): Promise&lt;void&gt;
 
@@ -653,6 +671,8 @@ struct Index {
 
 ##### window.getWindowsByCoordinate14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowsByCoordinate(displayId: number, windowNumber?: number, x?: number, y?: number): Promise<Array&lt;Window&gt;>
 
 查询本应用指定坐标下的可见窗口（可通过[on('windowVisibilityChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowvisibilitychange11)接口监听）数组，按当前窗口层级排列，层级最高的窗口对应数组下标为0，使用Promise异步回调。
@@ -721,6 +741,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### window.getAllWindowLayoutInfo15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllWindowLayoutInfo(displayId: number): Promise<Array&lt;WindowLayoutInfo&gt;>
 
 获取指定屏幕上可见的窗口布局信息数组，其中返回的每个Rect的宽、高是已经过缩放计算后的值，按当前窗口层级排列，层级最高的对应数组index为0，使用Promise异步回调。
@@ -781,6 +803,8 @@ try {
 
 ##### window.getVisibleWindowInfo18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getVisibleWindowInfo(): Promise<Array&lt;WindowInfo&gt;>
 
 获取当前屏幕的可见主窗口（未退至后台的主窗口）信息。使用Promise异步回调。
@@ -840,6 +864,8 @@ try {
 
 ##### window.getGlobalWindowMode20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getGlobalWindowMode(displayId?: number): Promise&lt;number&gt;
 
 获取指定屏幕上生命周期位于前台的窗口对应的窗口模式，使用Promise异步回调。
@@ -895,6 +921,8 @@ try {
 
 
 ##### window.setWatermarkImageForAppWindows21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWatermarkImageForAppWindows(pixelMap: image.PixelMap | undefined): Promise&lt;void&gt;
 
@@ -963,6 +991,8 @@ image.createPixelMap(color, initializationOptions).then((pixelMap: image.PixelMa
 
 ##### window.setStartWindowBackgroundColor20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setStartWindowBackgroundColor(moduleName: string, abilityName: string, color: ColorMetrics): Promise&lt;void&gt;
 
 设置同一应用包名下指定moduleName、abilityName对应UIAbility的启动页背景色，使用Promise异步回调。
@@ -1021,6 +1051,8 @@ try {
 
 
 ##### window.getAllMainWindowInfo21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllMainWindowInfo(): Promise<Array&lt;MainWindowInfo&gt;>
 
@@ -1103,6 +1135,8 @@ function reqPermissionsFromUser(permissions: Array<Permissions>, context: common
 
 
 ##### window.getMainWindowSnapshot21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMainWindowSnapshot(windowId: Array&lt;number&gt;, config: WindowSnapshotConfiguration): Promise<Array<image.PixelMap | undefined>>
 
@@ -1209,6 +1243,8 @@ function reqPermissionsFromUser(permissions: Array<Permissions>, context: common
 
 ##### window.create(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 create(id: string, type: WindowType, callback: AsyncCallback&lt;Window&gt;): void
 
 创建子窗口，使用callback异步回调。
@@ -1252,6 +1288,8 @@ window.create('test', window.WindowType.TYPE_APP, (err: BusinessError, data) => 
 
 
 ##### window.create(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(id: string, type: WindowType): Promise&lt;Window&gt;
 
@@ -1301,6 +1339,8 @@ promise.then((data) => {
 
 ##### window.create(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 create(ctx: BaseContext, id: string, type: WindowType, callback: AsyncCallback&lt;Window&gt;): void
 
 创建系统窗口，使用callback异步回调。
@@ -1342,6 +1382,8 @@ window.create(globalThis.getContext(), 'test', window.WindowType.TYPE_SYSTEM_ALE
 
 
 ##### window.create(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(ctx: BaseContext, id: string, type: WindowType): Promise&lt;Window&gt;
 
@@ -1388,6 +1430,8 @@ promise.then((data) => {
 
 ##### window.find(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 find(id: string, callback: AsyncCallback&lt;Window&gt;): void
 
 查找id所对应的窗口，使用callback异步回调。
@@ -1426,6 +1470,8 @@ window.find('test', (err: BusinessError, data) => {
 
 
 ##### window.find(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 find(id: string): Promise&lt;Window&gt;
 
@@ -1470,6 +1516,8 @@ promise.then((data) => {
 
 ##### window.getTopWindow(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTopWindow(callback: AsyncCallback&lt;Window&gt;): void
 
 获取当前应用内最后显示的窗口，使用callback异步回调。
@@ -1510,6 +1558,8 @@ window.getTopWindow((err: BusinessError, data) => {
 
 ##### window.getTopWindow(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTopWindow(): Promise&lt;Window&gt;
 
 获取当前应用内最后显示的窗口，使用Promise异步回调。
@@ -1547,6 +1597,8 @@ promise.then((data)=> {
 
 
 ##### window.getTopWindow(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTopWindow(ctx: BaseContext, callback: AsyncCallback&lt;Window&gt;): void
 
@@ -1597,6 +1649,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### window.getTopWindow(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTopWindow(ctx: BaseContext): Promise&lt;Window&gt;
 

@@ -20,6 +20,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { partnerAgent } from '@kit.ConnectivityKit';
 ```
@@ -27,6 +29,8 @@ import { partnerAgent } from '@kit.ConnectivityKit';
 
 
 ##### partnerAgent.isPartnerAgentSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isPartnerAgentSupported(): boolean
 
@@ -54,6 +58,8 @@ console.info(`This device support partner agent: ${isSupport}`);
 
 
 ##### partnerAgent.bindDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 bindDevice(deviceAddress: PartnerDeviceAddress, deviceCapability: DeviceCapability, businessCapability: BusinessCapability, partnerAgentExtensionAbilityName: string): Promise&lt;void&gt;
 
@@ -141,6 +147,8 @@ try {
 
 ##### partnerAgent.unbindDevice
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 unbindDevice(deviceAddress: PartnerDeviceAddress): Promise&lt;void&gt;
 
 应用解注册设备，使用Promise异步回调。
@@ -210,6 +218,8 @@ try {
 
 ##### partnerAgent.isDeviceBound
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 isDeviceBound(deviceAddress: PartnerDeviceAddress): boolean
 
 判断当前应用是否已注册过该设备。
@@ -272,6 +282,8 @@ try {
 
 ##### partnerAgent.getBoundDevices
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getBoundDevices(): PartnerDeviceAddress[]
 
 获取应用当前注册过的所有设备。
@@ -318,6 +330,8 @@ try {
 
 
 ##### partnerAgent.isDeviceControlEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isDeviceControlEnabled(deviceAddress: PartnerDeviceAddress): boolean
 
@@ -382,6 +396,8 @@ try {
 
 ##### partnerAgent.DeviceCapability
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 描述设备支持的被发现能力。
 
 **系统能力**：SystemCapability.Communication.FusionConnectivity.Core
@@ -397,6 +413,8 @@ try {
 
 
 ##### partnerAgent.BusinessCapability
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 描述设备支持的业务功能。
 
@@ -414,6 +432,8 @@ try {
 
 ##### partnerAgent.PartnerDeviceAddress
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 描述设备地址信息。
 
 **系统能力**：SystemCapability.Communication.FusionConnectivity.Core
@@ -428,6 +448,8 @@ try {
 
 
 ##### partnerAgent.PartnerAgentExtensionAbilityDestroyReason
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举，PartnerAgentExtensionAbility被销毁的原因。
 

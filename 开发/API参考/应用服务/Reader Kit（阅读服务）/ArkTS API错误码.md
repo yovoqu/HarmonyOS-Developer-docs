@@ -12,6 +12,8 @@
 
 ##### 1016900002
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Read Page Component is not initialized.
@@ -27,6 +29,8 @@ ReadPageComponent没有初始化。
   
 
 ##### 1016900003
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -44,6 +48,8 @@ Invalid request.
 
 ##### 1016900999
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Other error.
@@ -59,6 +65,8 @@ Other error.
   
 
 ##### 1016910001
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -76,6 +84,8 @@ Invalid spine item.
 
 ##### 1016910002
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Unexpected spine item resource data.
@@ -91,6 +101,8 @@ Unexpected spine item resource data.
   
 
 ##### 1016910003
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -108,6 +120,8 @@ Spine item resource data out of range.
 
 ##### 1016910004
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Invalid caller.
@@ -123,6 +137,8 @@ Invalid caller.
   
 
 ##### 1017000001
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -140,6 +156,8 @@ Book parser is not initialized
 
 ##### 1017000999
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Other error.
@@ -155,6 +173,8 @@ Other error.
   
 
 ##### 1017010001
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -172,6 +192,8 @@ Invalid spine item.
 
 ##### 1017010002
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Invalid request.
@@ -188,6 +210,8 @@ Invalid request.
 
 ##### 1017010003
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Book file format is unexpected.
@@ -203,6 +227,8 @@ Book file format is unexpected.
   
 
 ##### 1017010004
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

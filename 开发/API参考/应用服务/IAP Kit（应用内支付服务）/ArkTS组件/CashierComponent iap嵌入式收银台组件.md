@@ -14,6 +14,8 @@ CashierComponent需要配合[cashierComponentManager](https://developer.huawei.c
 
 ##### 导入模块
 
+**支持设备：** TV
+
 ```text
 import { CashierComponent, cashierComponentManager } from '@kit.IAPKit';
 ```
@@ -21,6 +23,8 @@ import { CashierComponent, cashierComponentManager } from '@kit.IAPKit';
   
 
 ##### CashierComponent
+
+**支持设备：** TV
 
 该类用来展示嵌入式收银台的UI组件。
  
@@ -46,6 +50,8 @@ import { CashierComponent, cashierComponentManager } from '@kit.IAPKit';
   
 
 ##### build
+
+**支持设备：** TV
 
 build(): void
  

@@ -14,6 +14,8 @@
 
 ##### close12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
  
 关闭菜单。
@@ -72,4 +74,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/RYbGvMM9ToCKjDHJMCGtMQ/zh-cn_image_0000002581275614.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013822Z&HW-CC-Expire=86400&HW-CC-Sign=79D58E79EA3E958544B69C544B8C95907CC019FA7DE1DDE246591F6548CCAB66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/RYbGvMM9ToCKjDHJMCGtMQ/zh-cn_image_0000002581275614.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024119Z&HW-CC-Expire=86400&HW-CC-Sign=BB1DDBB31186B26F96144F62993B104D9CFA2FD254D631DB0EC15C7947981BFB)

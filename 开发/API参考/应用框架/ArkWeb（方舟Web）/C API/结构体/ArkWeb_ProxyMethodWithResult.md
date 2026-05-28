@@ -12,6 +12,8 @@ typedef struct {...} ArkWeb_ProxyMethodWithResult
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 注入的Proxy方法通用结构体。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct {...} ArkWeb_ProxyMethodWithResult
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

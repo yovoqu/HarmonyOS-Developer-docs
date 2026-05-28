@@ -12,6 +12,8 @@ struct OH_DecodingOptionsForPicture
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Picture解码参数结构体。通过[OH_DecodingOptionsForPicture_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-native-h#oh_decodingoptionsforpicture_create)获取。
  
 **起始版本：** 13

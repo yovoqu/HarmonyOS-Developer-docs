@@ -12,6 +12,8 @@ typedef struct {...} OH_VBucket
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于存储键值对的类型。
  
 **起始版本：** 10
@@ -23,6 +25,8 @@ typedef struct {...} OH_VBucket
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,6 +37,8 @@ typedef struct {...} OH_VBucket
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -49,9 +55,13 @@ typedef struct {...} OH_VBucket
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### putText()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*putText)(OH_VBucket *bucket, const char *field, const char *value)
@@ -83,6 +93,8 @@ int (*putText)(OH_VBucket *bucket, const char *field, const char *value)
 
 ##### putInt64()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*putInt64)(OH_VBucket *bucket, const char *field, int64_t value)
 ```
@@ -113,6 +125,8 @@ int (*putInt64)(OH_VBucket *bucket, const char *field, int64_t value)
 
 ##### putReal()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*putReal)(OH_VBucket *bucket, const char *field, double value)
 ```
@@ -142,6 +156,8 @@ int (*putReal)(OH_VBucket *bucket, const char *field, double value)
   
 
 ##### putBlob()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*putBlob)(OH_VBucket *bucket, const char *field, const uint8_t *value, uint32_t size)
@@ -174,6 +190,8 @@ int (*putBlob)(OH_VBucket *bucket, const char *field, const uint8_t *value, uint
 
 ##### putNull()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*putNull)(OH_VBucket *bucket, const char *field)
 ```
@@ -203,6 +221,8 @@ int (*putNull)(OH_VBucket *bucket, const char *field)
 
 ##### clear()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*clear)(OH_VBucket *bucket)
 ```
@@ -230,6 +250,8 @@ int (*clear)(OH_VBucket *bucket)
   
 
 ##### destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*destroy)(OH_VBucket *bucket)

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { abilityAccessCtrl } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { abilityAccessCtrl } from '@kit.AbilityKit';
 
 
 ##### abilityAccessCtrl.createAtManager
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAtManager(): AtManager
 
@@ -47,6 +51,8 @@ let atManager: abilityAccessCtrl.AtManager = abilityAccessCtrl.createAtManager()
 
 ##### AtManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 管理访问控制模块的实例。
 
 AtManager接口调用依赖于tokenID，应用可通过[bundleManager.getBundleInfoForSelf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager#bundlemanagergetbundleinfoforself)获取tokenID。
@@ -54,6 +60,8 @@ AtManager接口调用依赖于tokenID，应用可通过[bundleManager.getBundleI
 
 
 ##### checkAccessToken9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkAccessToken(tokenID: number, permissionName: Permissions): Promise&lt;GrantStatus&gt;
 
@@ -107,6 +115,8 @@ atManager.checkAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSIONS
 
 ##### checkAccessTokenSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus
 
 校验应用是否被授予权限，同步返回结果。
@@ -155,6 +165,8 @@ console.info(`Result: ${data}`);
 
 
 ##### on18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'selfPermissionStateChange', permissionList: Array&lt;Permissions&gt;, callback: Callback&lt;PermissionStateChangeInfo&gt;): void
 
@@ -210,6 +222,8 @@ try {
 
 ##### off18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'selfPermissionStateChange', permissionList: Array&lt;Permissions&gt;, callback?: Callback&lt;PermissionStateChangeInfo&gt;): void
 
 取消订阅自身指定权限列表的权限状态变更事件。使用callback异步回调。
@@ -257,6 +271,8 @@ try {
 
 
 ##### requestPermissionsFromUser9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestPermissionsFromUser(context: Context, permissionList: Array&lt;Permissions&gt;, requestCallback: AsyncCallback&lt;PermissionRequestResult&gt;): void
 
@@ -324,6 +340,8 @@ atManager.requestPermissionsFromUser(context, ['ohos.permission.CAMERA'], (err: 
 
 ##### requestPermissionsFromUser9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 requestPermissionsFromUser(context: Context, permissionList: Array&lt;Permissions&gt;): Promise&lt;PermissionRequestResult&gt;
 
 用于UIAbility/UIExtensionAbility拉起弹框请求[用户授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。使用Promise异步回调。
@@ -389,6 +407,8 @@ atManager.requestPermissionsFromUser(context, ['ohos.permission.CAMERA']).then((
 
 
 ##### requestPermissionOnSetting12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestPermissionOnSetting(context: Context, permissionList: Array&lt;Permissions&gt;): Promise<Array&lt;GrantStatus&gt;>
 
@@ -456,6 +476,8 @@ atManager.requestPermissionOnSetting(context, ['ohos.permission.CAMERA']).then((
 
 ##### requestGlobalSwitch12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 requestGlobalSwitch(context: Context, type: SwitchType): Promise&lt;boolean&gt;
 
 用于UIAbility/UIExtensionAbility拉起全局开关设置弹框。使用Promise异步回调。
@@ -463,7 +485,7 @@ requestGlobalSwitch(context: Context, type: SwitchType): Promise&lt;boolean&gt;
 在某些情况下，如果录音、拍照等功能被禁用，应用可拉起此弹框请求用户同意开启对应功能。如果当前全局开关的状态为开启，则不拉起弹框。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/S-Aj_TekS0aM7vBG3WTavg/zh-cn_image_0000002611835353.png?HW-CC-KV=V1&HW-CC-Date=20260528T013956Z&HW-CC-Expire=86400&HW-CC-Sign=9BF8FD239D9879642C033FE5AE55511089F59063141E4B6A40A9C2510A2D9981)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/S-Aj_TekS0aM7vBG3WTavg/zh-cn_image_0000002611835353.png?HW-CC-KV=V1&HW-CC-Date=20260528T024251Z&HW-CC-Expire=86400&HW-CC-Sign=6AB802ED70988E26CC2AC9D570BEF6D5F6E0A6CBC3690223C00C4BFBE654CFA8)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -521,6 +543,8 @@ atManager.requestGlobalSwitch(context, abilityAccessCtrl.SwitchType.CAMERA).then
 
 ##### getSelfPermissionStatus20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSelfPermissionStatus(permissionName: Permissions): PermissionStatus
 
 查询应用权限状态，同步返回结果。
@@ -571,6 +595,8 @@ try {
 
 
 ##### openPermissionOnSetting22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openPermissionOnSetting(context: Context, permission: Permissions): Promise&lt;SelectedResult&gt;
 
@@ -628,6 +654,8 @@ atManager.openPermissionOnSetting(context, 'ohos.permission.HOOK_KEY_EVENT').the
 
 ##### verifyAccessTokenSync9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 verifyAccessTokenSync(tokenID: number, permissionName: Permissions): GrantStatus
 
 校验应用是否被授予权限，同步返回结果。
@@ -678,6 +706,8 @@ try {
 
 ##### verifyAccessToken9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 verifyAccessToken(tokenID: number, permissionName: Permissions): Promise&lt;GrantStatus&gt;
 
 校验应用是否被授予权限。使用Promise异步回调。
@@ -723,6 +753,8 @@ atManager.verifyAccessToken(tokenID, permissionName).then((data: abilityAccessCt
 
 ##### verifyAccessToken(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 verifyAccessToken(tokenID: number, permissionName: string): Promise&lt;GrantStatus&gt;
 
 校验应用是否被授予权限。使用Promise异步回调。
@@ -767,6 +799,8 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 ##### GrantStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示授权状态的枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -782,6 +816,8 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 
 ##### SwitchType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示全局开关类型的枚举。
 
@@ -800,6 +836,8 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 ##### PermissionStateChangeType18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示权限授权状态变化操作类型的枚举。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -815,6 +853,8 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 
 ##### PermissionStateChangeInfo18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示某次权限授权状态变化的详情。
 
@@ -832,6 +872,8 @@ atManager.verifyAccessToken(tokenID, 'ohos.permission.GRANT_SENSITIVE_PERMISSION
 
 
 ##### PermissionRequestResult10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PermissionRequestResult = _PermissionRequestResult
 
@@ -852,6 +894,8 @@ type PermissionRequestResult = _PermissionRequestResult
 
 ##### Context10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Context = _Context
 
 提供了ability或application的上下文的能力，包括访问特定应用程序的资源等。
@@ -871,6 +915,8 @@ type Context = _Context
 
 ##### PermissionStatus20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示权限状态的枚举。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -889,6 +935,8 @@ type Context = _Context
 
 
 ##### SelectedResult22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示跳转设置页弹窗结果的枚举。
 

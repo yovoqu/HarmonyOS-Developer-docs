@@ -14,6 +14,8 @@
 
 ##### constructor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 DataResubmissionHandler的构造函数。
@@ -23,6 +25,8 @@ DataResubmissionHandler的构造函数。
   
 
 ##### resend9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resend(): void
  
@@ -56,6 +60,8 @@ struct WebComponent {
   
 
 ##### cancel9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancel(): void
  

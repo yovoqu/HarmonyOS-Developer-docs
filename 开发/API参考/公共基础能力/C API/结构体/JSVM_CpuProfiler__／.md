@@ -12,6 +12,8 @@ typedef struct JSVM_CpuProfiler__* JSVM_CpuProfiler
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示一个JavaScript CPU时间性能分析器。
  
 **起始版本：** 12

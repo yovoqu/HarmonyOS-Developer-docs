@@ -16,6 +16,8 @@ WantAgent模块封装了[Want](https://developer.huawei.com/consumer/cn/doc/harm
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { wantAgent } from '@kit.AbilityKit';
 ```
@@ -23,6 +25,8 @@ import { wantAgent } from '@kit.AbilityKit';
 
 
 ##### wantAgent.getWantAgent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWantAgent(info: WantAgentInfo, callback: AsyncCallback&lt;WantAgent&gt;): void
 
@@ -108,6 +112,8 @@ try {
 
 ##### wantAgent.getWantAgent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWantAgent(info: WantAgentInfo): Promise&lt;WantAgent&gt;
 
 创建WantAgent。使用Promise异步回调。创建成功返回WantAgent对象，创建失败返回空值。
@@ -191,6 +197,8 @@ try {
 
 
 ##### wantAgent.getBundleName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBundleName(agent: WantAgent, callback: AsyncCallback&lt;string&gt;): void
 
@@ -289,6 +297,8 @@ try {
 
 ##### wantAgent.getBundleName
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBundleName(agent: WantAgent): Promise&lt;string&gt;
 
 获取WantAgent实例所属应用的包名。使用Promise异步回调。
@@ -386,6 +396,8 @@ try {
 
 
 ##### wantAgent.getUid
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUid(agent: WantAgent, callback: AsyncCallback&lt;number&gt;): void
 
@@ -487,6 +499,8 @@ try {
 
 
 ##### wantAgent.getUid
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUid(agent: WantAgent): Promise&lt;number&gt;
 
@@ -591,6 +605,8 @@ try {
 
 ##### wantAgent.cancel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancel(agent: WantAgent, callback: AsyncCallback&lt;void&gt;): void
 
 取消WantAgent实例，使用callback异步回调。
@@ -691,6 +707,8 @@ try {
 
 
 ##### wantAgent.cancel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancel(agent: WantAgent): Promise&lt;void&gt;
 
@@ -794,6 +812,8 @@ try {
 
 
 ##### wantAgent.trigger
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback&lt;CompleteData&gt;): void
 
@@ -901,6 +921,8 @@ try {
 
 ##### wantAgent.equal
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback&lt;boolean&gt;): void
 
 判断两个WantAgent实例是否相等，使用callback异步回调，以此来确定是否是来自同一应用的相同操作。
@@ -1000,6 +1022,8 @@ try {
 
 
 ##### wantAgent.equal
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 equal(agent: WantAgent, otherAgent: WantAgent): Promise&lt;boolean&gt;
 
@@ -1103,6 +1127,8 @@ try {
 
 ##### wantAgent.getOperationType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOperationType(agent: WantAgent, callback: AsyncCallback&lt;number&gt;): void
 
 获取一个WantAgent实例的[OperationType](#operationtype)信息，使用callback异步回调。
@@ -1200,6 +1226,8 @@ try {
 
 
 ##### wantAgent.getOperationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOperationType(agent: WantAgent): Promise&lt;number&gt;
 
@@ -1301,6 +1329,8 @@ try {
 
 ##### WantAgentFlags
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示WantAgent行为控制标志，用于配置WantAgent的创建和触发行为。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -1325,6 +1355,8 @@ try {
 
 ##### OperationType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示WantAgent支持的操作类型。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -1343,6 +1375,8 @@ try {
 
 
 ##### CompleteData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示主动触发WantAgent返回的数据。
 
@@ -1363,6 +1397,8 @@ try {
 
 ##### TriggerInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type TriggerInfo = _TriggerInfo
 
 TriggerInfo对象。
@@ -1380,6 +1416,8 @@ TriggerInfo对象。
 
 ##### WantAgentInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type WantAgentInfo = _WantAgentInfo
 
 WantAgentInfo对象。
@@ -1396,6 +1434,8 @@ WantAgentInfo对象。
 
 
 ##### WantAgent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type WantAgent = object
 

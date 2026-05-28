@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述超帧输入输出图像信息。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### finalSync
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ImageSync_VK FG_ImageInfo_VK::finalSync
@@ -50,6 +60,8 @@ FG_ImageSync_VK FG_ImageInfo_VK::finalSync
 
 ##### image
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_Image_VK* FG_ImageInfo_VK::image
 ```
@@ -61,6 +73,8 @@ FG_Image_VK* FG_ImageInfo_VK::image
   
 
 ##### initialSync
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ImageSync_VK FG_ImageInfo_VK::initialSync

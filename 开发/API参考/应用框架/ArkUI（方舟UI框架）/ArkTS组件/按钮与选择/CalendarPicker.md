@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 CalendarPicker(options?: CalendarOptions)
  
@@ -41,11 +45,15 @@ CalendarPicker(options?: CalendarOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### edgeAlign
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 edgeAlign(alignType: CalendarAlign, offset?: Offset)
  
@@ -69,6 +77,8 @@ edgeAlign(alignType: CalendarAlign, offset?: Offset)
 
 ##### edgeAlign18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 edgeAlign(alignType: Optional&lt;CalendarAlign&gt;, offset?: Offset)
  
 设置选择器与入口组件的对齐方式。与[edgeAlign](#edgealign)相比，alignType参数新增了对undefined类型的支持。
@@ -91,6 +101,8 @@ edgeAlign(alignType: Optional&lt;CalendarAlign&gt;, offset?: Offset)
 
 ##### textStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 textStyle(value: PickerTextStyle)
  
 入口区的文本颜色、字号、字体粗细。
@@ -111,6 +123,8 @@ textStyle(value: PickerTextStyle)
   
 
 ##### textStyle18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 textStyle(style: Optional&lt;PickerTextStyle&gt;)
  
@@ -133,6 +147,8 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 ##### markToday19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 markToday(enabled: boolean)
  
 设置日历选择器中系统当前日期是否保持高亮显示。
@@ -154,11 +170,15 @@ markToday(enabled: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)，还支持以下事件：
  
   
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: Callback&lt;Date&gt;)
  
@@ -180,6 +200,8 @@ onChange(callback: Callback&lt;Date&gt;)
   
 
 ##### onChange18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: Optional<Callback&lt;Date&gt;>)
  
@@ -205,6 +227,8 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
   
 
 ##### CalendarOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 日历选择器组件的参数说明。
  
@@ -237,6 +261,8 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
 
 ##### CalendarAlign枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 对齐方式类型。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -255,6 +281,8 @@ onChange(callback: Optional<Callback&lt;Date&gt;>)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -325,7 +353,7 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/BlCdMwv9TB20R78ekx8viA/zh-cn_image_0000002611835669.png?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=3B960230AB51DBA91264818E43F5CA78173321E05219C2A2553C8DB0EA58C347)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/BlCdMwv9TB20R78ekx8viA/zh-cn_image_0000002611835669.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=7E3C2C6F9EE04213A499DECFD3E112270CBE1ADE22D6DF9934D24C7D62C27F9D)
 
  
   
@@ -363,4 +391,4 @@ struct CalendarPickerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/IQ03usffRVOhKoTgTtkEKg/zh-cn_image_0000002581275920.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=96A1DE6F0C138610FF3316455D4F818A2721EA355C4EC167282412651B825727)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/IQ03usffRVOhKoTgTtkEKg/zh-cn_image_0000002581275920.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=CE50CD8CC9D22029005AD9BE8253853B88A7527AD9C0D7111E51F47BE0A3105C)

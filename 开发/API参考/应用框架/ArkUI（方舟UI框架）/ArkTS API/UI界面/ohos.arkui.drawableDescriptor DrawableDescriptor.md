@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import {
   DrawableDescriptor,
@@ -27,6 +29,8 @@ import {
 
 
 ##### DrawableDescriptorLoadedResult21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 传入的图片资源或地址的加载结果。
 
@@ -60,11 +64,15 @@ try {
 
 ##### DrawableDescriptor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 父类对象提供可重写的方法，包含：获取[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)实例，图片资源加载能力。
 
 
 
 ##### getPixelMap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPixelMap(): image.PixelMap
 
@@ -88,6 +96,8 @@ getPixelMap(): image.PixelMap
 
 
 ##### loadSync21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadSync(): DrawableDescriptorLoadedResult
 
@@ -130,6 +140,8 @@ try {
 
 
 ##### load21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 load(): Promise&lt;DrawableDescriptorLoadedResult&gt;
 
@@ -176,11 +188,15 @@ drawable.load().then((result: DrawableDescriptorLoadedResult) => {
 
 ##### PixelMapDrawableDescriptor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持通过传入PixelMap创建PixelMapDrawableDescriptor对象。继承自[DrawableDescriptor](#drawabledescriptor)。
 
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(src?: image.PixelMap)
 
@@ -200,6 +216,8 @@ PixelMapDrawableDescriptor的构造函数。
 
 
 ##### LayeredDrawableDescriptor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 当传入资源id或name为包含前景和背景资源的json文件时，生成LayeredDrawableDescriptor对象。继承自[DrawableDescriptor](#drawabledescriptor)。
 
@@ -302,6 +320,8 @@ struct Index {
 
 ##### constructor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(foreground?: DrawableDescriptor, background?: DrawableDescriptor, mask?: DrawableDescriptor)
 
 LayeredDrawableDescriptor的构造函数。
@@ -322,6 +342,8 @@ LayeredDrawableDescriptor的构造函数。
 
 
 ##### getForeground
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getForeground(): DrawableDescriptor
 
@@ -386,6 +408,8 @@ struct Index {
 
 ##### getBackground
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBackground(): DrawableDescriptor
 
 获取背景的DrawableDescriptor对象。
@@ -443,6 +467,8 @@ struct Index {
 
 
 ##### getMask
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMask(): DrawableDescriptor
 
@@ -502,6 +528,8 @@ struct Index {
 
 ##### getMaskClipPath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getMaskClipPath(): string
 
 LayeredDrawableDescriptor的静态方法，获取系统内置的裁切路径参数。
@@ -546,6 +574,8 @@ struct Index {
 
 
 ##### setBlendMode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBlendMode(mode: drawing.BlendMode): void
 
@@ -608,6 +638,8 @@ struct Index {
 
 ##### AnimationStopMode24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 动图停止模式。
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
@@ -625,6 +657,8 @@ struct Index {
 
 
 ##### AnimationOptions12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 动画播放参数。包括播放时延，迭代次数，单帧播放时间，是否自动播放。
 
@@ -696,11 +730,15 @@ struct Example {
 
 ##### AnimatedDrawableDescriptor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 使用[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)组件播放PixelMap数组或动图资源时传入AnimatedDrawableDescriptor对象，该对象继承自[DrawableDescriptor](#drawabledescriptor)。
 
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions)
 
@@ -721,6 +759,8 @@ AnimatedDrawableDescriptor的构造函数。
 
 
 ##### constructor21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(src: ResourceStr | Array<image.PixelMap>, options?: AnimationOptions)
 
@@ -773,6 +813,8 @@ struct Example {
 
 
 ##### getAnimationController21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAnimationController(id?: string): AnimationController | undefined
 
@@ -876,11 +918,15 @@ struct Example {
 
 ##### AnimationController21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 动画控制器对象。包含控制动画播放、停止、恢复、暂停和状态查询等方法。
 
 
 
 ##### start21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(): void
 
@@ -921,6 +967,8 @@ struct Example {
 
 ##### stop21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): void
 
 停止动图的播放并回到首帧。
@@ -959,6 +1007,8 @@ struct Example {
 
 
 ##### resume21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resume(): void
 
@@ -999,6 +1049,8 @@ struct Example {
 
 ##### pause21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pause(): void
 
 暂停动图的播放，保持在当前帧。
@@ -1037,6 +1089,8 @@ struct Example {
 
 
 ##### getStatus21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStatus(): AnimationStatus
 

@@ -12,6 +12,8 @@ typedef struct ArkUI_TextEditMenuOptions ArkUI_TextEditMenuOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文本菜单扩展项结构体。
  
 **起始版本：** 22

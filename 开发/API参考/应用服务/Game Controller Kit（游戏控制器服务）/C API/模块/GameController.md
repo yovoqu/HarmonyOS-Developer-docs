@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 GameController模块提供游戏控制器功能的API接口。
  
 **系统能力：** SystemCapability.Game.GameController
@@ -17,9 +19,13 @@ GameController模块提供游戏控制器功能的API接口。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,6 +39,8 @@ GameController模块提供游戏控制器功能的API接口。
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -55,6 +63,8 @@ GameController模块提供游戏控制器功能的API接口。
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -68,6 +78,8 @@ GameController模块提供游戏控制器功能的API接口。
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -157,9 +169,13 @@ GameController模块提供游戏控制器功能的API接口。
 
 ##### 类型定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### GameController_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef enum GameController_ErrorCode GameController_ErrorCode
@@ -175,6 +191,8 @@ typedef enum GameController_ErrorCode GameController_ErrorCode
 
 ##### GameDevice_AllDeviceInfos
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct GameDevice_AllDeviceInfos GameDevice_AllDeviceInfos
 ```
@@ -188,6 +206,8 @@ typedef struct GameDevice_AllDeviceInfos GameDevice_AllDeviceInfos
   
 
 ##### GameDevice_DeviceEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct GameDevice_DeviceEvent GameDevice_DeviceEvent
@@ -203,6 +223,8 @@ typedef struct GameDevice_DeviceEvent GameDevice_DeviceEvent
 
 ##### GameDevice_DeviceInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct GameDevice_DeviceInfo GameDevice_DeviceInfo
 ```
@@ -216,6 +238,8 @@ typedef struct GameDevice_DeviceInfo GameDevice_DeviceInfo
   
 
 ##### GameDevice_DeviceMonitorCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(*GameDevice_DeviceMonitorCallback) (const struct GameDevice_DeviceEvent *deviceEvent)
@@ -238,6 +262,8 @@ typedef void(*GameDevice_DeviceMonitorCallback) (const struct GameDevice_DeviceE
 
 ##### GameDevice_DeviceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef enum GameDevice_DeviceType GameDevice_DeviceType
 ```
@@ -251,6 +277,8 @@ typedef enum GameDevice_DeviceType GameDevice_DeviceType
   
 
 ##### GameDevice_StatusChangedType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef enum GameDevice_StatusChangedType GameDevice_StatusChangedType
@@ -266,6 +294,8 @@ typedef enum GameDevice_StatusChangedType GameDevice_StatusChangedType
 
 ##### GamePad_AxisEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct GamePad_AxisEvent GamePad_AxisEvent
 ```
@@ -279,6 +309,8 @@ typedef struct GamePad_AxisEvent GamePad_AxisEvent
   
 
 ##### GamePad_AxisInputMonitorCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(*GamePad_AxisInputMonitorCallback) (const struct GamePad_AxisEvent *axisEvent)
@@ -301,6 +333,8 @@ typedef void(*GamePad_AxisInputMonitorCallback) (const struct GamePad_AxisEvent 
 
 ##### GamePad_AxisSourceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef enum GamePad_AxisSourceType GamePad_AxisSourceType
 ```
@@ -314,6 +348,8 @@ typedef enum GamePad_AxisSourceType GamePad_AxisSourceType
   
 
 ##### GamePad_Button_ActionType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef enum GamePad_Button_ActionType GamePad_Button_ActionType
@@ -329,6 +365,8 @@ typedef enum GamePad_Button_ActionType GamePad_Button_ActionType
 
 ##### GamePad_ButtonEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct GamePad_ButtonEvent GamePad_ButtonEvent
 ```
@@ -342,6 +380,8 @@ typedef struct GamePad_ButtonEvent GamePad_ButtonEvent
   
 
 ##### GamePad_ButtonInputMonitorCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(*GamePad_ButtonInputMonitorCallback) (const struct GamePad_ButtonEvent *buttonEvent)
@@ -364,6 +404,8 @@ typedef void(*GamePad_ButtonInputMonitorCallback) (const struct GamePad_ButtonEv
 
 ##### GamePad_PressedButton
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct GamePad_PressedButton GamePad_PressedButton
 ```
@@ -378,9 +420,13 @@ typedef struct GamePad_PressedButton GamePad_PressedButton
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### GameController_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum GameController_ErrorCode
@@ -404,6 +450,8 @@ enum GameController_ErrorCode
 
 ##### GameDevice_DeviceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum GameDevice_DeviceType
 ```
@@ -424,6 +472,8 @@ enum GameDevice_DeviceType
 
 ##### GameDevice_StatusChangedType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum GameDevice_StatusChangedType
 ```
@@ -443,6 +493,8 @@ enum GameDevice_StatusChangedType
   
 
 ##### GamePad_AxisSourceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum GamePad_AxisSourceType
@@ -467,6 +519,8 @@ enum GamePad_AxisSourceType
 
 ##### GamePad_Button_ActionType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum GamePad_Button_ActionType
 ```
@@ -487,9 +541,13 @@ enum GamePad_Button_ActionType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OH_GameDevice_AllDeviceInfos_GetCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GameDevice_AllDeviceInfos_GetCount (const struct GameDevice_AllDeviceInfos *allDeviceInfos, int32_t *count)
@@ -520,6 +578,8 @@ GameController_ErrorCode OH_GameDevice_AllDeviceInfos_GetCount (const struct Gam
   
 
 ##### OH_GameDevice_AllDeviceInfos_GetDeviceInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GameDevice_AllDeviceInfos_GetDeviceInfo (const struct GameDevice_AllDeviceInfos *allDeviceInfos, const int32_t index, GameDevice_DeviceInfo **deviceInfo)
@@ -552,6 +612,8 @@ GameController_ErrorCode OH_GameDevice_AllDeviceInfos_GetDeviceInfo (const struc
 
 ##### OH_GameDevice_DestroyAllDeviceInfos()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GameDevice_DestroyAllDeviceInfos (GameDevice_AllDeviceInfos **allDeviceInfos)
 ```
@@ -581,6 +643,8 @@ GameController_ErrorCode OH_GameDevice_DestroyAllDeviceInfos (GameDevice_AllDevi
 
 ##### OH_GameDevice_DestroyDeviceInfo()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GameDevice_DestroyDeviceInfo (GameDevice_DeviceInfo **deviceInfo)
 ```
@@ -609,6 +673,8 @@ GameController_ErrorCode OH_GameDevice_DestroyDeviceInfo (GameDevice_DeviceInfo 
   
 
 ##### OH_GameDevice_DeviceEvent_GetChangedType()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GameDevice_DeviceEvent_GetChangedType (const struct GameDevice_DeviceEvent *deviceEvent, GameDevice_StatusChangedType *statusChangedType)
@@ -640,6 +706,8 @@ GameController_ErrorCode OH_GameDevice_DeviceEvent_GetChangedType (const struct 
 
 ##### OH_GameDevice_DeviceEvent_GetDeviceInfo()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GameDevice_DeviceEvent_GetDeviceInfo (const struct GameDevice_DeviceEvent *deviceEvent, GameDevice_DeviceInfo **deviceInfo)
 ```
@@ -669,6 +737,8 @@ GameController_ErrorCode OH_GameDevice_DeviceEvent_GetDeviceInfo (const struct G
   
 
 ##### OH_GameDevice_DeviceInfo_GetDeviceId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GameDevice_DeviceInfo_GetDeviceId (const struct GameDevice_DeviceInfo *deviceInfo, char **deviceId)
@@ -701,6 +771,8 @@ GameController_ErrorCode OH_GameDevice_DeviceInfo_GetDeviceId (const struct Game
 
 ##### OH_GameDevice_DeviceInfo_GetDeviceType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GameDevice_DeviceInfo_GetDeviceType (const struct GameDevice_DeviceInfo *deviceInfo, GameDevice_DeviceType *deviceType)
 ```
@@ -730,6 +802,8 @@ GameController_ErrorCode OH_GameDevice_DeviceInfo_GetDeviceType (const struct Ga
   
 
 ##### OH_GameDevice_DeviceInfo_GetName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GameDevice_DeviceInfo_GetName (const struct GameDevice_DeviceInfo *deviceInfo, char **name)
@@ -762,6 +836,8 @@ GameController_ErrorCode OH_GameDevice_DeviceInfo_GetName (const struct GameDevi
 
 ##### OH_GameDevice_DeviceInfo_GetPhysicalAddress()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GameDevice_DeviceInfo_GetPhysicalAddress (const struct GameDevice_DeviceInfo *deviceInfo, char **physicalAddress)
 ```
@@ -793,6 +869,8 @@ GameController_ErrorCode OH_GameDevice_DeviceInfo_GetPhysicalAddress (const stru
 
 ##### OH_GameDevice_DeviceInfo_GetProduct()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GameDevice_DeviceInfo_GetProduct (const struct GameDevice_DeviceInfo *deviceInfo, int32_t *product)
 ```
@@ -822,6 +900,8 @@ GameController_ErrorCode OH_GameDevice_DeviceInfo_GetProduct (const struct GameD
   
 
 ##### OH_GameDevice_DeviceInfo_GetVersion()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GameDevice_DeviceInfo_GetVersion (const struct GameDevice_DeviceInfo *deviceInfo, int32_t *version)
@@ -853,6 +933,8 @@ GameController_ErrorCode OH_GameDevice_DeviceInfo_GetVersion (const struct GameD
 
 ##### OH_GameDevice_GetAllDeviceInfos()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GameDevice_GetAllDeviceInfos (GameDevice_AllDeviceInfos **allDeviceInfos)
 ```
@@ -881,6 +963,8 @@ GameController_ErrorCode OH_GameDevice_GetAllDeviceInfos (GameDevice_AllDeviceIn
   
 
 ##### OH_GameDevice_RegisterDeviceMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GameDevice_RegisterDeviceMonitor (GameDevice_DeviceMonitorCallback deviceMonitorCallback)
@@ -911,6 +995,8 @@ GameController_ErrorCode OH_GameDevice_RegisterDeviceMonitor (GameDevice_DeviceM
 
 ##### OH_GameDevice_UnregisterDeviceMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GameDevice_UnregisterDeviceMonitor (void)
 ```
@@ -928,6 +1014,8 @@ GameController_ErrorCode OH_GameDevice_UnregisterDeviceMonitor (void)
   
 
 ##### OH_GamePad_AxisEvent_GetActionTime()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetActionTime (const struct GamePad_AxisEvent *axisEvent, int64_t *actionTime)
@@ -959,6 +1047,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetActionTime (const struct GamePa
 
 ##### OH_GamePad_AxisEvent_GetAxisSourceType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetAxisSourceType (const struct GamePad_AxisEvent *axisEvent, GamePad_AxisSourceType *axisSourceType)
 ```
@@ -989,6 +1079,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetAxisSourceType (const struct Ga
 
 ##### OH_GamePad_AxisEvent_GetBrakeAxisValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetBrakeAxisValue (const struct GamePad_AxisEvent *axisEvent, double *axisValue)
 ```
@@ -1018,6 +1110,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetBrakeAxisValue (const struct Ga
   
 
 ##### OH_GamePad_AxisEvent_GetDeviceId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetDeviceId (const struct GamePad_AxisEvent *axisEvent, char **deviceId)
@@ -1050,6 +1144,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetDeviceId (const struct GamePad_
 
 ##### OH_GamePad_AxisEvent_GetGasAxisValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetGasAxisValue (const struct GamePad_AxisEvent *axisEvent, double *axisValue)
 ```
@@ -1079,6 +1175,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetGasAxisValue (const struct Game
   
 
 ##### OH_GamePad_AxisEvent_GetHatXAxisValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetHatXAxisValue (const struct GamePad_AxisEvent *axisEvent, double *axisValue)
@@ -1110,6 +1208,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetHatXAxisValue (const struct Gam
 
 ##### OH_GamePad_AxisEvent_GetHatYAxisValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetHatYAxisValue (const struct GamePad_AxisEvent *axisEvent, double *axisValue)
 ```
@@ -1139,6 +1239,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetHatYAxisValue (const struct Gam
   
 
 ##### OH_GamePad_AxisEvent_GetRZAxisValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetRZAxisValue (const struct GamePad_AxisEvent *axisEvent, double *axisValue)
@@ -1170,6 +1272,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetRZAxisValue (const struct GameP
 
 ##### OH_GamePad_AxisEvent_GetXAxisValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetXAxisValue (const struct GamePad_AxisEvent *axisEvent, double *axisValue)
 ```
@@ -1199,6 +1303,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetXAxisValue (const struct GamePa
   
 
 ##### OH_GamePad_AxisEvent_GetYAxisValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetYAxisValue (const struct GamePad_AxisEvent *axisEvent, double *axisValue)
@@ -1230,6 +1336,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetYAxisValue (const struct GamePa
 
 ##### OH_GamePad_AxisEvent_GetZAxisValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_AxisEvent_GetZAxisValue (const struct GamePad_AxisEvent *axisEvent, double *axisValue)
 ```
@@ -1260,6 +1368,8 @@ GameController_ErrorCode OH_GamePad_AxisEvent_GetZAxisValue (const struct GamePa
 
 ##### OH_GamePad_ButtonA_RegisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonA_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
 ```
@@ -1289,6 +1399,8 @@ GameController_ErrorCode OH_GamePad_ButtonA_RegisterButtonInputMonitor (GamePad_
 
 ##### OH_GamePad_ButtonA_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonA_UnregisterButtonInputMonitor (void)
 ```
@@ -1306,6 +1418,8 @@ GameController_ErrorCode OH_GamePad_ButtonA_UnregisterButtonInputMonitor (void)
   
 
 ##### OH_GamePad_ButtonB_RegisterButtonInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_ButtonB_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
@@ -1336,6 +1450,8 @@ GameController_ErrorCode OH_GamePad_ButtonB_RegisterButtonInputMonitor (GamePad_
 
 ##### OH_GamePad_ButtonB_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonB_UnregisterButtonInputMonitor (void)
 ```
@@ -1353,6 +1469,8 @@ GameController_ErrorCode OH_GamePad_ButtonB_UnregisterButtonInputMonitor (void)
   
 
 ##### OH_GamePad_ButtonC_RegisterButtonInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_ButtonC_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
@@ -1383,6 +1501,8 @@ GameController_ErrorCode OH_GamePad_ButtonC_RegisterButtonInputMonitor (GamePad_
 
 ##### OH_GamePad_ButtonC_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonC_UnregisterButtonInputMonitor (void)
 ```
@@ -1400,6 +1520,8 @@ GameController_ErrorCode OH_GamePad_ButtonC_UnregisterButtonInputMonitor (void)
   
 
 ##### OH_GamePad_ButtonEvent_GetActionTime()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_ButtonEvent_GetActionTime (const struct GamePad_ButtonEvent *buttonEvent, int64_t *actionTime)
@@ -1431,6 +1553,8 @@ GameController_ErrorCode OH_GamePad_ButtonEvent_GetActionTime (const struct Game
 
 ##### OH_GamePad_ButtonEvent_GetButtonAction()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonEvent_GetButtonAction (const struct GamePad_ButtonEvent *buttonEvent, GamePad_Button_ActionType *actionType)
 ```
@@ -1461,6 +1585,8 @@ GameController_ErrorCode OH_GamePad_ButtonEvent_GetButtonAction (const struct Ga
 
 ##### OH_GamePad_ButtonEvent_GetButtonCode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonEvent_GetButtonCode (const struct GamePad_ButtonEvent *buttonEvent, int32_t *code)
 ```
@@ -1490,6 +1616,8 @@ GameController_ErrorCode OH_GamePad_ButtonEvent_GetButtonCode (const struct Game
   
 
 ##### OH_GamePad_ButtonEvent_GetButtonCodeName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_ButtonEvent_GetButtonCodeName (const struct GamePad_ButtonEvent *buttonEvent, char **codeName)
@@ -1522,6 +1650,8 @@ GameController_ErrorCode OH_GamePad_ButtonEvent_GetButtonCodeName (const struct 
 
 ##### OH_GamePad_ButtonEvent_GetDeviceId()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonEvent_GetDeviceId (const struct GamePad_ButtonEvent *buttonEvent, char **deviceId)
 ```
@@ -1553,6 +1683,8 @@ GameController_ErrorCode OH_GamePad_ButtonEvent_GetDeviceId (const struct GamePa
 
 ##### OH_GamePad_ButtonHome_RegisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonHome_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
 ```
@@ -1582,6 +1714,8 @@ GameController_ErrorCode OH_GamePad_ButtonHome_RegisterButtonInputMonitor (GameP
 
 ##### OH_GamePad_ButtonHome_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonHome_UnregisterButtonInputMonitor (void)
 ```
@@ -1599,6 +1733,8 @@ GameController_ErrorCode OH_GamePad_ButtonHome_UnregisterButtonInputMonitor (voi
   
 
 ##### OH_GamePad_ButtonMenu_RegisterButtonInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_ButtonMenu_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
@@ -1629,6 +1765,8 @@ GameController_ErrorCode OH_GamePad_ButtonMenu_RegisterButtonInputMonitor (GameP
 
 ##### OH_GamePad_ButtonMenu_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonMenu_UnregisterButtonInputMonitor (void)
 ```
@@ -1646,6 +1784,8 @@ GameController_ErrorCode OH_GamePad_ButtonMenu_UnregisterButtonInputMonitor (voi
   
 
 ##### OH_GamePad_ButtonX_RegisterButtonInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_ButtonX_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
@@ -1676,6 +1816,8 @@ GameController_ErrorCode OH_GamePad_ButtonX_RegisterButtonInputMonitor (GamePad_
 
 ##### OH_GamePad_ButtonX_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonX_UnregisterButtonInputMonitor (void)
 ```
@@ -1693,6 +1835,8 @@ GameController_ErrorCode OH_GamePad_ButtonX_UnregisterButtonInputMonitor (void)
   
 
 ##### OH_GamePad_ButtonY_RegisterButtonInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_ButtonY_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
@@ -1723,6 +1867,8 @@ GameController_ErrorCode OH_GamePad_ButtonY_RegisterButtonInputMonitor (GamePad_
 
 ##### OH_GamePad_ButtonY_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_ButtonY_UnregisterButtonInputMonitor (void)
 ```
@@ -1740,6 +1886,8 @@ GameController_ErrorCode OH_GamePad_ButtonY_UnregisterButtonInputMonitor (void)
   
 
 ##### OH_GamePad_DestroyPressedButton()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_DestroyPressedButton (GamePad_PressedButton **pressedButton)
@@ -1770,6 +1918,8 @@ GameController_ErrorCode OH_GamePad_DestroyPressedButton (GamePad_PressedButton 
 
 ##### OH_GamePad_Dpad_DownButton_RegisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_DownButton_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
 ```
@@ -1799,6 +1949,8 @@ GameController_ErrorCode OH_GamePad_Dpad_DownButton_RegisterButtonInputMonitor (
 
 ##### OH_GamePad_Dpad_DownButton_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_DownButton_UnregisterButtonInputMonitor (void)
 ```
@@ -1816,6 +1968,8 @@ GameController_ErrorCode OH_GamePad_Dpad_DownButton_UnregisterButtonInputMonitor
   
 
 ##### OH_GamePad_Dpad_LeftButton_RegisterButtonInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_LeftButton_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
@@ -1846,6 +2000,8 @@ GameController_ErrorCode OH_GamePad_Dpad_LeftButton_RegisterButtonInputMonitor (
 
 ##### OH_GamePad_Dpad_LeftButton_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_LeftButton_UnregisterButtonInputMonitor (void)
 ```
@@ -1863,6 +2019,8 @@ GameController_ErrorCode OH_GamePad_Dpad_LeftButton_UnregisterButtonInputMonitor
   
 
 ##### OH_GamePad_Dpad_RegisterAxisInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_RegisterAxisInputMonitor (GamePad_AxisInputMonitorCallback inputMonitorCallback)
@@ -1893,6 +2051,8 @@ GameController_ErrorCode OH_GamePad_Dpad_RegisterAxisInputMonitor (GamePad_AxisI
 
 ##### OH_GamePad_Dpad_RightButton_RegisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_RightButton_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
 ```
@@ -1922,6 +2082,8 @@ GameController_ErrorCode OH_GamePad_Dpad_RightButton_RegisterButtonInputMonitor 
 
 ##### OH_GamePad_Dpad_RightButton_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_RightButton_UnregisterButtonInputMonitor (void)
 ```
@@ -1940,6 +2102,8 @@ GameController_ErrorCode OH_GamePad_Dpad_RightButton_UnregisterButtonInputMonito
 
 ##### OH_GamePad_Dpad_UnregisterAxisInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_UnregisterAxisInputMonitor (void)
 ```
@@ -1957,6 +2121,8 @@ GameController_ErrorCode OH_GamePad_Dpad_UnregisterAxisInputMonitor (void)
   
 
 ##### OH_GamePad_Dpad_UpButton_RegisterButtonInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_UpButton_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
@@ -1987,6 +2153,8 @@ GameController_ErrorCode OH_GamePad_Dpad_UpButton_RegisterButtonInputMonitor (Ga
 
 ##### OH_GamePad_Dpad_UpButton_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_Dpad_UpButton_UnregisterButtonInputMonitor (void)
 ```
@@ -2004,6 +2172,8 @@ GameController_ErrorCode OH_GamePad_Dpad_UpButton_UnregisterButtonInputMonitor (
   
 
 ##### OH_GamePad_LeftShoulder_RegisterButtonInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_LeftShoulder_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
@@ -2034,6 +2204,8 @@ GameController_ErrorCode OH_GamePad_LeftShoulder_RegisterButtonInputMonitor (Gam
 
 ##### OH_GamePad_LeftShoulder_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_LeftShoulder_UnregisterButtonInputMonitor (void)
 ```
@@ -2051,6 +2223,8 @@ GameController_ErrorCode OH_GamePad_LeftShoulder_UnregisterButtonInputMonitor (v
   
 
 ##### OH_GamePad_LeftThumbstick_RegisterAxisInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_LeftThumbstick_RegisterAxisInputMonitor (GamePad_AxisInputMonitorCallback inputMonitorCallback)
@@ -2081,6 +2255,8 @@ GameController_ErrorCode OH_GamePad_LeftThumbstick_RegisterAxisInputMonitor (Gam
 
 ##### OH_GamePad_LeftThumbstick_RegisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_LeftThumbstick_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
 ```
@@ -2110,6 +2286,8 @@ GameController_ErrorCode OH_GamePad_LeftThumbstick_RegisterButtonInputMonitor (G
 
 ##### OH_GamePad_LeftThumbstick_UnregisterAxisInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_LeftThumbstick_UnregisterAxisInputMonitor (void)
 ```
@@ -2128,6 +2306,8 @@ GameController_ErrorCode OH_GamePad_LeftThumbstick_UnregisterAxisInputMonitor (v
 
 ##### OH_GamePad_LeftThumbstick_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_LeftThumbstick_UnregisterButtonInputMonitor (void)
 ```
@@ -2145,6 +2325,8 @@ GameController_ErrorCode OH_GamePad_LeftThumbstick_UnregisterButtonInputMonitor 
   
 
 ##### OH_GamePad_LeftTrigger_RegisterAxisInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_LeftTrigger_RegisterAxisInputMonitor (GamePad_AxisInputMonitorCallback inputMonitorCallback)
@@ -2175,6 +2357,8 @@ GameController_ErrorCode OH_GamePad_LeftTrigger_RegisterAxisInputMonitor (GamePa
 
 ##### OH_GamePad_LeftTrigger_RegisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_LeftTrigger_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
 ```
@@ -2204,6 +2388,8 @@ GameController_ErrorCode OH_GamePad_LeftTrigger_RegisterButtonInputMonitor (Game
 
 ##### OH_GamePad_LeftTrigger_UnregisterAxisInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_LeftTrigger_UnregisterAxisInputMonitor (void)
 ```
@@ -2222,6 +2408,8 @@ GameController_ErrorCode OH_GamePad_LeftTrigger_UnregisterAxisInputMonitor (void
 
 ##### OH_GamePad_LeftTrigger_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_LeftTrigger_UnregisterButtonInputMonitor (void)
 ```
@@ -2239,6 +2427,8 @@ GameController_ErrorCode OH_GamePad_LeftTrigger_UnregisterButtonInputMonitor (vo
   
 
 ##### OH_GamePad_PressedButton_GetButtonCode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_PressedButton_GetButtonCode (const struct GamePad_PressedButton *pressedButton, int32_t *code)
@@ -2269,6 +2459,8 @@ GameController_ErrorCode OH_GamePad_PressedButton_GetButtonCode (const struct Ga
   
 
 ##### OH_GamePad_PressedButton_GetButtonCodeName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_PressedButton_GetButtonCodeName (const struct GamePad_PressedButton *pressedButton, char **codeName)
@@ -2301,6 +2493,8 @@ GameController_ErrorCode OH_GamePad_PressedButton_GetButtonCodeName (const struc
 
 ##### OH_GamePad_PressedButtons_GetButtonInfo()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_PressedButtons_GetButtonInfo (const struct GamePad_ButtonEvent *buttonEvent, const int32_t index, GamePad_PressedButton **pressedButton)
 ```
@@ -2332,6 +2526,8 @@ GameController_ErrorCode OH_GamePad_PressedButtons_GetButtonInfo (const struct G
 
 ##### OH_GamePad_PressedButtons_GetCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_PressedButtons_GetCount (const struct GamePad_ButtonEvent *buttonEvent, int32_t *count)
 ```
@@ -2362,6 +2558,8 @@ GameController_ErrorCode OH_GamePad_PressedButtons_GetCount (const struct GamePa
 
 ##### OH_GamePad_RightShoulder_RegisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_RightShoulder_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
 ```
@@ -2391,6 +2589,8 @@ GameController_ErrorCode OH_GamePad_RightShoulder_RegisterButtonInputMonitor (Ga
 
 ##### OH_GamePad_RightShoulder_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_RightShoulder_UnregisterButtonInputMonitor (void)
 ```
@@ -2408,6 +2608,8 @@ GameController_ErrorCode OH_GamePad_RightShoulder_UnregisterButtonInputMonitor (
   
 
 ##### OH_GamePad_RightThumbstick_RegisterAxisInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_RightThumbstick_RegisterAxisInputMonitor (GamePad_AxisInputMonitorCallback inputMonitorCallback)
@@ -2438,6 +2640,8 @@ GameController_ErrorCode OH_GamePad_RightThumbstick_RegisterAxisInputMonitor (Ga
 
 ##### OH_GamePad_RightThumbstick_RegisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_RightThumbstick_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
 ```
@@ -2467,6 +2671,8 @@ GameController_ErrorCode OH_GamePad_RightThumbstick_RegisterButtonInputMonitor (
 
 ##### OH_GamePad_RightThumbstick_UnregisterAxisInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_RightThumbstick_UnregisterAxisInputMonitor (void)
 ```
@@ -2485,6 +2691,8 @@ GameController_ErrorCode OH_GamePad_RightThumbstick_UnregisterAxisInputMonitor (
 
 ##### OH_GamePad_RightThumbstick_UnregisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_RightThumbstick_UnregisterButtonInputMonitor (void)
 ```
@@ -2502,6 +2710,8 @@ GameController_ErrorCode OH_GamePad_RightThumbstick_UnregisterButtonInputMonitor
   
 
 ##### OH_GamePad_RightTrigger_RegisterAxisInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_RightTrigger_RegisterAxisInputMonitor (GamePad_AxisInputMonitorCallback inputMonitorCallback)
@@ -2532,6 +2742,8 @@ GameController_ErrorCode OH_GamePad_RightTrigger_RegisterAxisInputMonitor (GameP
 
 ##### OH_GamePad_RightTrigger_RegisterButtonInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_RightTrigger_RegisterButtonInputMonitor (GamePad_ButtonInputMonitorCallback inputMonitorCallback)
 ```
@@ -2561,6 +2773,8 @@ GameController_ErrorCode OH_GamePad_RightTrigger_RegisterButtonInputMonitor (Gam
 
 ##### OH_GamePad_RightTrigger_UnregisterAxisInputMonitor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GameController_ErrorCode OH_GamePad_RightTrigger_UnregisterAxisInputMonitor (void)
 ```
@@ -2578,6 +2792,8 @@ GameController_ErrorCode OH_GamePad_RightTrigger_UnregisterAxisInputMonitor (voi
   
 
 ##### OH_GamePad_RightTrigger_UnregisterButtonInputMonitor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GameController_ErrorCode OH_GamePad_RightTrigger_UnregisterButtonInputMonitor (void)

@@ -16,6 +16,8 @@ FormExtensionContext模块提供FormExtensionAbility具有的接口和能力。
 
 ##### 使用说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 FormExtensionContext主要用于查询所属FormExtensionAbility的信息、Module的配置信息以及HAP包的信息，开发者可根据自身业务需求使用对应的信息。
  
 ```text
@@ -38,6 +40,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   
 
 ##### FormExtensionContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 FormExtensionContext模块是[FormExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability)的上下文环境。
  

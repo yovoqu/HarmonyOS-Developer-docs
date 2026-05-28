@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import bundleState from '@ohos.bundleState'
 ```
@@ -21,6 +23,8 @@ import bundleState from '@ohos.bundleState'
   
 
 ##### bundleState.isIdleState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isIdleState(bundleName: string, callback: AsyncCallback&lt;boolean&gt;): void
   
@@ -55,6 +59,8 @@ bundleState.isIdleState("com.ohos.camera", (err: BusinessError, res: boolean) =>
   
 
 ##### bundleState.isIdleState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isIdleState(bundleName: string): Promise&lt;boolean&gt;
   

@@ -12,6 +12,8 @@ typedef struct OH_EffectFilterInfo OH_EffectFilterInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义滤镜信息结构体。
  
 **起始版本：** 12

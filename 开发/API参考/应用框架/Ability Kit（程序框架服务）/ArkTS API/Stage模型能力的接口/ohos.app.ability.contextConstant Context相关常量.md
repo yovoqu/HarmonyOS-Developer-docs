@@ -14,6 +14,8 @@ ContextConstant提供Context相关的枚举，包含文件加密分区等级、U
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { contextConstant } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { contextConstant } from '@kit.AbilityKit';
   
 
 ##### AreaMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文件加密分区等级，保证应用在不同场景下的数据安全。开发者可以根据应用的具体需求选择合适的加密等级，以保护用户的数据安全。
  
@@ -38,6 +42,8 @@ import { contextConstant } from '@kit.AbilityKit';
   
 
 ##### ProcessMode12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 UIAbility启动后的进程模式。
  
@@ -96,6 +102,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### StartupVisibility12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 UIAbility启动后是否可见。
  
 当用户设置目标UIAbility为不可见时，目标UIAbility的窗口不会显示在前台，dock栏也不会有图标，同时目标UIAbility的onForeground生命周期不会被调用。
@@ -119,6 +127,8 @@ StartupVisibility作为[StartOptions](https://developer.huawei.com/consumer/cn/d
   
 
 ##### Scenarios20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示不触发[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)生命周期回调场景的枚举，用于[setOnNewWantSkipScenarios](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#setonnewwantskipscenarios20)接口。
  

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 XEngine时域AI超分特性OpenGL ES接口。推荐超分倍率为[1.25, 2.0]，使用此头文件中的接口前需要通过[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)接口查询[XEG_TEMPORAL_UPSCALE_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_temporal_upscale_extension_name)扩展可用。
  
 **引用文件**：<xengine/xeg_gles_temporal_upscale.h>
@@ -23,9 +25,13 @@ XEngine时域AI超分特性OpenGL ES接口。推荐超分倍率为[1.25, 2.0]，
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,6 +45,8 @@ XEngine时域AI超分特性OpenGL ES接口。推荐超分倍率为[1.25, 2.0]，
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -49,6 +57,8 @@ XEngine时域AI超分特性OpenGL ES接口。推荐超分倍率为[1.25, 2.0]，
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

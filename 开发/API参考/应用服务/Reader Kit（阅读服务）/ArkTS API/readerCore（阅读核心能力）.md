@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { readerCore } from '@kit.ReaderKit';
 ```
@@ -19,6 +21,8 @@ import { readerCore } from '@kit.ReaderKit';
   
 
 ##### PageDatabaseBean
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 页面数据基础类。
  
@@ -37,6 +41,8 @@ import { readerCore } from '@kit.ReaderKit';
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 constructor(nodeType: string, nodeDataId: string)
  
@@ -60,6 +66,8 @@ constructor(nodeType: string, nodeDataId: string)
 
 ##### PageState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 页面状态。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
@@ -79,6 +87,8 @@ constructor(nodeType: string, nodeDataId: string)
   
 
 ##### PageDataInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 内容分页信息，继承[PageDatabaseBean](#pagedatabasebean)。
  
@@ -105,6 +115,8 @@ constructor(nodeType: string, nodeDataId: string)
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 constructor(nodeType: string, nodeId: string)
  
 内容分页信息构造函数。
@@ -124,6 +136,8 @@ constructor(nodeType: string, nodeId: string)
   
 
 ##### ReaderSetting
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 页面排版属性。
  
@@ -154,6 +168,8 @@ constructor(nodeType: string, nodeId: string)
 
 ##### ReaderComponentController
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 [ReadPageComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-api-readpagecomponent#readpagecomponent)组件控制器，需要配合ReadPageComponent组件一起使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
@@ -165,6 +181,8 @@ constructor(nodeType: string, nodeId: string)
   
 
 ##### init
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 init(context: common.UIAbilityContext): Promise&lt;void&gt;
  
@@ -242,6 +260,8 @@ struct Reader {
 
 ##### registerBookParser
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 registerBookParser(bookParserHandler: bookParser.BookParserHandler): void
  
 注册书籍解析器。
@@ -316,6 +336,8 @@ struct Reader {
   
 
 ##### setPageConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setPageConfig(pageConfig: ReaderSetting): void
  
@@ -402,6 +424,8 @@ struct Reader {
   
 
 ##### startPlay
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startPlay(spineIndex: number, domPos: string): Promise&lt;void&gt;
  
@@ -495,6 +519,8 @@ struct Reader {
 
 ##### flipPage
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 flipPage(isNext: boolean): void
  
 触发[ReadPageComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-api-readpagecomponent#readpagecomponent)组件进行翻页。
@@ -564,6 +590,8 @@ struct Reader {
 
 ##### releaseBook
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 releaseBook(): void
  
 释放书籍资源，在退出阅读器等释放资源场景时使用。
@@ -615,6 +643,8 @@ struct Reader {
   
 
 ##### on('pageShow')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'pageShow', callback: Callback&lt;PageDataInfo&gt;): void
  
@@ -678,6 +708,8 @@ struct Reader {
 
 ##### off('pageShow')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'pageShow', callback?: Callback&lt;PageDataInfo&gt;): void
  
 注销章节内容分页展示结果回调，可在页面销毁时调用。
@@ -737,6 +769,8 @@ struct Reader {
   
 
 ##### on('resourceRequest')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'resourceRequest', callback: bookParser.CallbackRes<string, ArrayBuffer>): void
  
@@ -824,6 +858,8 @@ struct Reader {
   
 
 ##### off('resourceRequest')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'resourceRequest', callback?: bookParser.CallbackRes<string, ArrayBuffer>): void
  

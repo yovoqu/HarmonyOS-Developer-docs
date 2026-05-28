@@ -21,6 +21,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { effectKit } from "@kit.ArkGraphics2D";
 ```
@@ -28,6 +30,8 @@ import { effectKit } from "@kit.ArkGraphics2D";
 
 
 ##### effectKit.createEffect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createEffect(source: image.PixelMap): Filter
 
@@ -76,6 +80,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 ##### effectKit.createColorPicker
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createColorPicker(source: image.PixelMap): Promise&lt;ColorPicker&gt;
 
@@ -139,6 +145,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 ##### effectKit.createColorPicker10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createColorPicker(source: image.PixelMap, region: Array&lt;number&gt;): Promise&lt;ColorPicker&gt;
 
@@ -204,6 +212,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### effectKit.createColorPicker
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createColorPicker(source: image.PixelMap, callback: AsyncCallback&lt;ColorPicker&gt;): void
 
 通过传入的PixelMap创建ColorPicker实例，使用callback异步回调。
@@ -260,6 +270,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 ##### effectKit.createColorPicker10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createColorPicker(source: image.PixelMap, region:Array&lt;number&gt;, callback: AsyncCallback&lt;ColorPicker&gt;): void
 
@@ -319,6 +331,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### Color
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 颜色类，用于保存取色的结果。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -339,6 +353,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### TileMode14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 着色器效果平铺模式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -355,11 +371,15 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### ColorPicker
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 取色类，用于从一张图像数据中获取它的主要颜色。在调用ColorPicker的方法前，需要先通过[createColorPicker](#effectkitcreatecolorpicker)创建一个ColorPicker实例。
 
 
 
 ##### getMainColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMainColor(): Promise&lt;Color&gt;
 
@@ -416,6 +436,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### getMainColorSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMainColorSync(): Color
 
 读取图像主色的颜色值，结果写入[Color](#color)里，使用同步方式返回。该接口通过图像缩放算法，根据周围像素的加权计算，将原图缩小到1个像素以得到主色。
@@ -469,6 +491,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### getLargestProportionColor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLargestProportionColor(): Color
 
 读取图像中占比最多的颜色值，结果写入[Color](#color)里，使用同步方式返回。该接口使用中位切分算法划分颜色空间，获取占比最多的颜色空间的平均颜色。
@@ -521,6 +545,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 ##### getTopProportionColors12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTopProportionColors(colorCount: number): Array<Color | null>
 
@@ -586,6 +612,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### getHighestSaturationColor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHighestSaturationColor(): Color
 
 读取图像饱和度最高的颜色值，结果写入[Color](#color)里，使用同步方式返回。
@@ -639,6 +667,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### getAverageColor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAverageColor(): Color
 
 读取图像平均的颜色值，结果写入[Color](#color)里，使用同步方式返回。
@@ -691,6 +721,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 ##### isBlackOrWhiteOrGrayColor10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isBlackOrWhiteOrGrayColor(color: number): boolean
 
@@ -748,11 +780,15 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### Filter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 图像效果类，用于将指定的效果添加到输入图像中。在调用Filter的方法前，需要先通过[createEffect](#effectkitcreateeffect)创建一个Filter实例。
 
 
 
 ##### blur
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 blur(radius: number): Filter
 
@@ -853,6 +889,8 @@ struct Index {
 
 ##### blur14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 blur(radius: number, tileMode: TileMode): Filter
 
 将模糊效果添加到效果链表中，返回链表的头节点。
@@ -949,6 +987,8 @@ struct Index {
 
 ##### invert12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 invert(): Filter
 
 将反转效果添加到效果链表中，返回链表的头节点。
@@ -1031,6 +1071,8 @@ struct Index {
 
 
 ##### setColorMatrix12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColorMatrix(colorMatrix: Array&lt;number&gt;): Filter
 
@@ -1130,12 +1172,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/E1g-r1DLQBqCwAuyzW6zNg/zh-cn_image_0000002581277086.png?HW-CC-KV=V1&HW-CC-Date=20260528T014039Z&HW-CC-Expire=86400&HW-CC-Sign=3E096322106ED9405F0C8CF4ACB6164541B2282B00E96ACDF94B938239CF7A69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/E1g-r1DLQBqCwAuyzW6zNg/zh-cn_image_0000002581277086.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=8370F2B7D18AB03D762720F0DF1869A6A29E4D84F248F5C169EE6792650EB7C1)
 
 
 
 
 ##### brightness
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 brightness(bright: number): Filter
 
@@ -1225,12 +1269,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GWcGRkjwSNiFpUha0eke8Q/zh-cn_image_0000002611756943.png?HW-CC-KV=V1&HW-CC-Date=20260528T014039Z&HW-CC-Expire=86400&HW-CC-Sign=05171B41FD365CA195612987448989EB70FAF776DFFB1AFE03FDBA5A6A48D71E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GWcGRkjwSNiFpUha0eke8Q/zh-cn_image_0000002611756943.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=7AAB5BC91A21600FCF6FE9B1DC0D7969D51228CADDEB1975AC08FE5C7DACDDEB)
 
 
 
 
 ##### grayscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 grayscale(): Filter
 
@@ -1312,12 +1358,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/OR98B4NYTJCmp8fgupzEuw/zh-cn_image_0000002581437002.png?HW-CC-KV=V1&HW-CC-Date=20260528T014039Z&HW-CC-Expire=86400&HW-CC-Sign=4C3964D2C2CCAE3D193120417ED915139393D8714D2D01CB3EC5F5007D216CC1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/OR98B4NYTJCmp8fgupzEuw/zh-cn_image_0000002581437002.png?HW-CC-KV=V1&HW-CC-Date=20260528T024330Z&HW-CC-Expire=86400&HW-CC-Sign=CF563BA69ABF78D0FB03380AEEB1A37B07E613DEBDCF8AAE8B43CDE52251FBE8)
 
 
 
 
 ##### getEffectPixelMap11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getEffectPixelMap(): Promise<image.PixelMap>
 
@@ -1361,6 +1409,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 ##### getEffectPixelMap20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getEffectPixelMap(useCpuRender : boolean): Promise<image.PixelMap>
 
@@ -1411,6 +1461,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 
 ##### getPixelMap(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPixelMap(): image.PixelMap
 

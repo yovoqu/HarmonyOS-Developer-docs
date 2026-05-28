@@ -12,6 +12,8 @@ typedef struct OH_CryptoVerify OH_CryptoVerify
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义验签结构体。
  
 **起始版本：** 12

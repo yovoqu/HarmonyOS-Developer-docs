@@ -12,6 +12,8 @@ typedef struct ArkUI_NodeContentEvent ArkUI_NodeContentEvent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义NodeContent事件的通用结构类型。
  
 **起始版本：** 12

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { PermissionRequestResult } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { PermissionRequestResult } from '@kit.AbilityKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：以下各项对应的系统能力均为SystemCapability.Security.AccessToken
 
@@ -35,6 +39,8 @@ import { PermissionRequestResult } from '@kit.AbilityKit';
 
 
 ##### 使用说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通过atManager实例来获取。
 

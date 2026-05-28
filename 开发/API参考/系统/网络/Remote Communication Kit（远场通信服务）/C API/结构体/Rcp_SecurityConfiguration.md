@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 请求的安全配置。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,9 +41,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### certificate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_ClientCertificate Rcp_SecurityConfiguration::certificate
@@ -51,6 +61,8 @@ Rcp_ClientCertificate Rcp_SecurityConfiguration::certificate
 
 ##### certificateAuthority
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_CertificateAuthority Rcp_SecurityConfiguration::certificateAuthority
 ```
@@ -63,6 +75,8 @@ Rcp_CertificateAuthority Rcp_SecurityConfiguration::certificateAuthority
 
 ##### remoteValidationType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_RemoteValidationType Rcp_SecurityConfiguration::remoteValidationType
 ```
@@ -74,6 +88,8 @@ Rcp_RemoteValidationType Rcp_SecurityConfiguration::remoteValidationType
   
 
 ##### serverAuthentication
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_ServerAuthentication Rcp_SecurityConfiguration::serverAuthentication

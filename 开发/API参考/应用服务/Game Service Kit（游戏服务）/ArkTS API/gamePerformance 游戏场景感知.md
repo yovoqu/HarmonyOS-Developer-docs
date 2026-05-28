@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { gamePerformance } from '@kit.GameServiceKit';
 ```
@@ -19,6 +21,8 @@ import { gamePerformance } from '@kit.GameServiceKit';
   
 
 ##### DeviceInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 设备信息类。
  
@@ -36,6 +40,8 @@ import { gamePerformance } from '@kit.GameServiceKit';
   
 
 ##### GpuInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 GPU性能信息类。
  
@@ -57,6 +63,8 @@ GPU性能信息类。
 
 ##### ThermalInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 温度变化趋势数据类。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
@@ -73,6 +81,8 @@ GPU性能信息类。
 
 ##### BaseGameInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 游戏基本信息类。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
@@ -88,6 +98,8 @@ GPU性能信息类。
   
 
 ##### GamePackageInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 游戏包信息类，继承[BaseGameInfo](#basegameinfo)。
  
@@ -108,6 +120,8 @@ GPU性能信息类。
   
 
 ##### GameConfigInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 游戏配置信息类，继承[BaseGameInfo](#basegameinfo)。
  
@@ -133,6 +147,8 @@ GPU性能信息类。
   
 
 ##### GameSceneInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 游戏场景信息类，继承[BaseGameInfo](#basegameinfo)。
  
@@ -170,6 +186,8 @@ GPU性能信息类。
 
 ##### GameNetInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 游戏网络信息类，继承[BaseGameInfo](#basegameinfo)。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
@@ -186,6 +204,8 @@ GPU性能信息类。
 
 ##### GamePlayerInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 游戏玩家信息类，继承[BaseGameInfo](#basegameinfo)。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
@@ -193,7 +213,7 @@ GPU性能信息类。
 **起始版本：** 5.0.0(12)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/gC8bL37mS3iKCxJe6pFA2g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013412Z&HW-CC-Expire=86400&HW-CC-Sign=B7756E3FA32CB182DBAD2EBA3CB2A3143D5A891F5D4DFA5805DB5DE5ABCA4F01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/gC8bL37mS3iKCxJe6pFA2g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023717Z&HW-CC-Expire=86400&HW-CC-Sign=16DA93EEEB6CEE1851A05109194A819D2DF0F4B99BF7D3567923B4001D2964EE)
  
  
 gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
@@ -211,6 +231,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 ##### DeviceInfoParameter
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 设备状态信息参数类。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
@@ -226,6 +248,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 
 ##### DeviceInfoType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 设备状态信息类型枚举对象。
  
@@ -243,6 +267,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 ##### DeviceInfoParameterKey
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 设备状态信息参数键值枚举对象。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
@@ -258,6 +284,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 ##### GameCustomTag
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 游戏自定义数据的标签枚举对象。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
@@ -272,6 +300,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 
 ##### GamePerformanceErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 Game Service Kit错误码类。
  
@@ -291,6 +321,8 @@ Game Service Kit错误码类。
   
 
 ##### gamePerformance.init
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 init(gamePackageInfo: GamePackageInfo): Promise&lt;void&gt;
  
@@ -351,6 +383,8 @@ try {
   
 
 ##### gamePerformance.updateGameInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 updateGameInfo<T extends BaseGameInfo>(gameInfo: T): Promise&lt;void&gt;
  
@@ -413,6 +447,8 @@ try {
 
 ##### gamePerformance.on('deviceStateChanged')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'deviceStateChanged', callback: Callback&lt;DeviceInfo&gt;): void
  
 订阅设备状态变化。使用callback回调。
@@ -467,6 +503,8 @@ try {
   
 
 ##### gamePerformance.on('deviceStateChanged')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'deviceStateChanged', callback: Callback&lt;DeviceInfo&gt;, scope: Array&lt;DeviceInfoType&gt;): void
  
@@ -525,6 +563,8 @@ try {
   
 
 ##### gamePerformance.off('deviceStateChanged')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'deviceStateChanged', callback?: Callback&lt;DeviceInfo&gt;): void
  
@@ -585,6 +625,8 @@ try {
   
 
 ##### gamePerformance.getDeviceInfoByScope
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDeviceInfoByScope(scope: Array&lt;DeviceInfoParameter&gt;): Promise&lt;DeviceInfo&gt;
  
@@ -651,6 +693,8 @@ try {
   
 
 ##### gamePerformance.addGameCustomData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addGameCustomData(data: Record<string, string>, tag: GameCustomTag): void
  

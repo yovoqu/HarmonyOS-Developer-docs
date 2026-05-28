@@ -12,6 +12,8 @@ typedef struct CloudDisk_ResultList {...} CloudDisk_ResultList
 
 ##### 概述
 
+**支持设备：** PC/2in1 | Tablet
+
 表示一个文件同步操作的结果。该结构体包含文件的绝对路径、同步结果，以及同步状态或失败原因。
  
 **起始版本：** 21
@@ -24,9 +26,13 @@ typedef struct CloudDisk_ResultList {...} CloudDisk_ResultList
 
 ##### 汇总
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

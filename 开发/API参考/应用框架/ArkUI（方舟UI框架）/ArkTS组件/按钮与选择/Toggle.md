@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅当ToggleType设置为Button时，可包含子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Toggle(options: ToggleOptions)
 
@@ -38,6 +42,8 @@ Toggle(options: ToggleOptions)
 
 
 ##### ToggleOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Toggle的信息。
 
@@ -60,6 +66,8 @@ Toggle的信息。
 
 
 ##### ToggleType枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Toggle的样式。
 
@@ -84,11 +92,15 @@ Toggle的样式。
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### selectedColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectedColor(value: ResourceColor)
 
@@ -111,6 +123,8 @@ selectedColor(value: ResourceColor)
 
 ##### switchPointColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 switchPointColor(color: ResourceColor)
 
 设置Switch类型的圆形滑块颜色。仅当type为ToggleType.Switch生效。
@@ -132,6 +146,8 @@ switchPointColor(color: ResourceColor)
 
 ##### switchStyle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 switchStyle(value: SwitchStyle)
 
 设置Switch类型的样式。仅当type为ToggleType.Switch生效。
@@ -150,6 +166,8 @@ switchStyle(value: SwitchStyle)
 
 
 ##### contentModifier12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contentModifier(modifier: ContentModifier&lt;ToggleConfiguration&gt;)
 
@@ -170,6 +188,8 @@ contentModifier(modifier: ContentModifier&lt;ToggleConfiguration&gt;)
 
 ##### SwitchStyle12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Switch类型的样式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -188,11 +208,15 @@ Switch类型的样式。
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: (isOn: boolean) => void)
 
@@ -215,6 +239,8 @@ onChange(callback: (isOn: boolean) => void)
 
 ##### ToggleConfiguration12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -231,6 +257,8 @@ onChange(callback: (isOn: boolean) => void)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -303,7 +331,7 @@ struct ToggleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/jRb9chQUROW5gRzQHBnPpA/zh-cn_image_0000002611755765.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=0116CAE9F7ABB2C520DA9795E5D212FAA546639189E3188D87832EA55F36F010)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/jRb9chQUROW5gRzQHBnPpA/zh-cn_image_0000002611755765.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=CD4389D0FE2667D134F26BDEC6CD568B27A1E71E5EE507D200B4FE6E398640D5)
 
 
 
@@ -349,7 +377,7 @@ struct ToggleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/jcEYVX7iQ3eOw13_arZaWw/zh-cn_image_0000002581435828.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=A712383B80F402F41467F472CFF592346662191745B46EB88873AF0FDEA5188F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/jcEYVX7iQ3eOw13_arZaWw/zh-cn_image_0000002581435828.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=E4A646E1D76D481D0BF767C4A7CBA22628F8FEF86CAEEFE04CAA959CC160549C)
 
 
 
@@ -409,4 +437,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/Lk_mBM8aQHmF9ZqwhOOrJQ/zh-cn_image_0000002611835659.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=2EE3F05E59727BEB6B3274E8841240CD2BE1FED9AC6697BB148C26288BC04B3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/Lk_mBM8aQHmF9ZqwhOOrJQ/zh-cn_image_0000002611835659.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=AD740EF2B11C21661036913477310328DF95F70447F0087C5F4F05AF3CF1D67A)

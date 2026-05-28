@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audio } from '@kit.AudioKit';
   
 
 ##### getAudioScene8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioScene(callback: AsyncCallback&lt;AudioScene&gt;): void
  
@@ -55,6 +59,8 @@ audioManager.getAudioScene((err: BusinessError, value: audio.AudioScene) => {
 
 ##### getAudioScene8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioScene(): Promise&lt;AudioScene&gt;
  
 获取音频场景模式。使用Promise异步回调。
@@ -83,6 +89,8 @@ audioManager.getAudioScene().then((value: audio.AudioScene) => {
   
 
 ##### getAudioSceneSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioSceneSync(): AudioScene
  
@@ -115,6 +123,8 @@ try {
 
 ##### on('audioSceneChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'audioSceneChange', callback: Callback&lt;AudioScene&gt;): void
  
 监听音频场景变化事件。使用callback异步回调。
@@ -140,6 +150,8 @@ audioManager.on('audioSceneChange', (audioScene: audio.AudioScene) => {
   
 
 ##### off('audioSceneChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'audioSceneChange', callback?: Callback&lt;AudioScene&gt;): void
  
@@ -175,6 +187,8 @@ audioManager.off('audioSceneChange', audioSceneChangeCallback);
 
 ##### getVolumeManager9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getVolumeManager(): AudioVolumeManager
  
 获取音频音量管理器。
@@ -202,6 +216,8 @@ let audioVolumeManager: audio.AudioVolumeManager = audioManager.getVolumeManager
 
 ##### getStreamManager9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStreamManager(): AudioStreamManager
  
 获取音频流管理器。
@@ -226,6 +242,8 @@ let audioStreamManager: audio.AudioStreamManager = audioManager.getStreamManager
   
 
 ##### getRoutingManager9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRoutingManager(): AudioRoutingManager
  
@@ -252,6 +270,8 @@ let audioRoutingManager: audio.AudioRoutingManager = audioManager.getRoutingMana
 
 ##### getSessionManager12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSessionManager(): AudioSessionManager
  
 获取音频会话管理器。
@@ -277,6 +297,8 @@ let audioSessionManager: audio.AudioSessionManager = audioManager.getSessionMana
 
 ##### getSpatializationManager18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getSpatializationManager(): AudioSpatializationManager
  
 获取空间音频管理器。
@@ -300,6 +322,8 @@ let audioSpatializationManager: audio.AudioSpatializationManager = audioManager.
   
 
 ##### setAudioParameter(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAudioParameter(key: string, value: string, callback: AsyncCallback&lt;void&gt;): void
  
@@ -342,6 +366,8 @@ audioManager.setAudioParameter('key_example', 'value_example', (err: BusinessErr
 
 ##### setAudioParameter(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAudioParameter(key: string, value: string): Promise&lt;void&gt;
  
 音频参数设置。使用Promise异步回调。
@@ -383,6 +409,8 @@ audioManager.setAudioParameter('key_example', 'value_example').then(() => {
 
 ##### getAudioParameter(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioParameter(key: string, callback: AsyncCallback&lt;string&gt;): void
  
 获取指定音频参数值。使用callback异步回调。
@@ -421,6 +449,8 @@ audioManager.getAudioParameter('key_example', (err: BusinessError, value: string
 
 ##### getAudioParameter(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioParameter(key: string): Promise&lt;string&gt;
  
 获取指定音频参数值。使用Promise异步回调。
@@ -458,6 +488,8 @@ audioManager.getAudioParameter('key_example').then((value: string) => {
   
 
 ##### setVolume(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setVolume(volumeType: AudioVolumeType, volume: number, callback: AsyncCallback&lt;void&gt;): void
  
@@ -500,6 +532,8 @@ audioManager.setVolume(audio.AudioVolumeType.MEDIA, 10, (err: BusinessError) => 
 
 ##### setVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVolume(volumeType: AudioVolumeType, volume: number): Promise&lt;void&gt;
  
 设置指定流的音量等级。使用Promise异步回调。
@@ -541,6 +575,8 @@ audioManager.setVolume(audio.AudioVolumeType.MEDIA, 10).then(() => {
 
 ##### getVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getVolume(volumeType: AudioVolumeType, callback: AsyncCallback&lt;number&gt;): void
  
 获取指定流的音量等级。使用callback异步回调。
@@ -576,6 +612,8 @@ audioManager.getVolume(audio.AudioVolumeType.MEDIA, (err: BusinessError, value: 
   
 
 ##### getVolume(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getVolume(volumeType: AudioVolumeType): Promise&lt;number&gt;
  
@@ -613,6 +651,8 @@ audioManager.getVolume(audio.AudioVolumeType.MEDIA).then((value: number) => {
 
 ##### getMinVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback&lt;number&gt;): void
  
 获取指定流的最小音量等级。使用callback异步回调。
@@ -648,6 +688,8 @@ audioManager.getMinVolume(audio.AudioVolumeType.MEDIA, (err: BusinessError, valu
   
 
 ##### getMinVolume(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMinVolume(volumeType: AudioVolumeType): Promise&lt;number&gt;
  
@@ -685,6 +727,8 @@ audioManager.getMinVolume(audio.AudioVolumeType.MEDIA).then((value: number) => {
 
 ##### getMaxVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback&lt;number&gt;): void
  
 获取指定流的最大音量等级。使用callback异步回调。
@@ -721,6 +765,8 @@ audioManager.getMaxVolume(audio.AudioVolumeType.MEDIA, (err: BusinessError, valu
 
 ##### getMaxVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxVolume(volumeType: AudioVolumeType): Promise&lt;number&gt;
  
 获取指定流的最大音量等级。使用Promise异步回调。
@@ -756,6 +802,8 @@ audioManager.getMaxVolume(audio.AudioVolumeType.MEDIA).then((data: number) => {
   
 
 ##### mute(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mute(volumeType: AudioVolumeType, mute: boolean, callback: AsyncCallback&lt;void&gt;): void
  
@@ -796,6 +844,8 @@ audioManager.mute(audio.AudioVolumeType.MEDIA, true, (err: BusinessError) => {
 
 ##### mute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mute(volumeType: AudioVolumeType, mute: boolean): Promise&lt;void&gt;
  
 设置指定音量流静音。使用Promise异步回调。
@@ -835,6 +885,8 @@ audioManager.mute(audio.AudioVolumeType.MEDIA, true).then(() => {
 
 ##### isMute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMute(volumeType: AudioVolumeType, callback: AsyncCallback&lt;boolean&gt;): void
  
 获取指定音量流的静音状态。使用callback异步回调。
@@ -870,6 +922,8 @@ audioManager.isMute(audio.AudioVolumeType.MEDIA, (err: BusinessError, value: boo
   
 
 ##### isMute(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isMute(volumeType: AudioVolumeType): Promise&lt;boolean&gt;
  
@@ -907,6 +961,8 @@ audioManager.isMute(audio.AudioVolumeType.MEDIA).then((value: boolean) => {
 
 ##### isActive(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isActive(volumeType: AudioVolumeType, callback: AsyncCallback&lt;boolean&gt;): void
  
 获取指定音量流的活跃状态。使用callback异步回调。
@@ -943,6 +999,8 @@ audioManager.isActive(audio.AudioVolumeType.MEDIA, (err: BusinessError, value: b
 
 ##### isActive(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isActive(volumeType: AudioVolumeType): Promise&lt;boolean&gt;
  
 获取指定音量流的活跃状态。使用Promise异步回调。
@@ -978,6 +1036,8 @@ audioManager.isActive(audio.AudioVolumeType.MEDIA).then((value: boolean) => {
   
 
 ##### setRingerMode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRingerMode(mode: AudioRingMode, callback: AsyncCallback&lt;void&gt;): void
  
@@ -1019,6 +1079,8 @@ audioManager.setRingerMode(audio.AudioRingMode.RINGER_MODE_NORMAL, (err: Busines
 
 ##### setRingerMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setRingerMode(mode: AudioRingMode): Promise&lt;void&gt;
  
 设置铃声模式。使用Promise异步回调。
@@ -1059,6 +1121,8 @@ audioManager.setRingerMode(audio.AudioRingMode.RINGER_MODE_NORMAL).then(() => {
 
 ##### getRingerMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRingerMode(callback: AsyncCallback&lt;AudioRingMode&gt;): void
  
 获取铃声模式。使用callback异步回调。
@@ -1094,6 +1158,8 @@ audioManager.getRingerMode((err: BusinessError, value: audio.AudioRingMode) => {
 
 ##### getRingerMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRingerMode(): Promise&lt;AudioRingMode&gt;
  
 获取铃声模式。使用Promise异步回调。
@@ -1122,6 +1188,8 @@ audioManager.getRingerMode().then((value: audio.AudioRingMode) => {
   
 
 ##### getDevices(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback&lt;AudioDeviceDescriptors&gt;): void
  
@@ -1159,6 +1227,8 @@ audioManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG, (err: BusinessErro
 
 ##### getDevices(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDevices(deviceFlag: DeviceFlag): Promise&lt;AudioDeviceDescriptors&gt;
  
 获取音频设备列表。使用Promise异步回调。
@@ -1194,6 +1264,8 @@ audioManager.getDevices(audio.DeviceFlag.OUTPUT_DEVICES_FLAG).then((data: audio.
   
 
 ##### setDeviceActive(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDeviceActive(deviceType: ActiveDeviceType, active: boolean, callback: AsyncCallback&lt;void&gt;): void
  
@@ -1232,6 +1304,8 @@ audioManager.setDeviceActive(audio.ActiveDeviceType.SPEAKER, true, (err: Busines
 
 ##### setDeviceActive(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDeviceActive(deviceType: ActiveDeviceType, active: boolean): Promise&lt;void&gt;
  
 设置设备激活状态。使用Promise异步回调。
@@ -1269,6 +1343,8 @@ audioManager.setDeviceActive(audio.ActiveDeviceType.SPEAKER, true).then(() => {
 
 ##### isDeviceActive(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isDeviceActive(deviceType: ActiveDeviceType, callback: AsyncCallback&lt;boolean&gt;): void
  
 获取指定设备的激活状态。使用callback异步回调。
@@ -1305,6 +1381,8 @@ audioManager.isDeviceActive(audio.ActiveDeviceType.SPEAKER, (err: BusinessError,
 
 ##### isDeviceActive(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isDeviceActive(deviceType: ActiveDeviceType): Promise&lt;boolean&gt;
  
 获取指定设备的激活状态。使用Promise异步回调。
@@ -1340,6 +1418,8 @@ audioManager.isDeviceActive(audio.ActiveDeviceType.SPEAKER).then((value: boolean
   
 
 ##### setMicrophoneMute(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMicrophoneMute(mute: boolean, callback: AsyncCallback&lt;void&gt;): void
  
@@ -1379,6 +1459,8 @@ audioManager.setMicrophoneMute(true, (err: BusinessError) => {
 
 ##### setMicrophoneMute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMicrophoneMute(mute: boolean): Promise&lt;void&gt;
  
 设置麦克风静音状态。使用Promise异步回调。
@@ -1417,6 +1499,8 @@ audioManager.setMicrophoneMute(true).then(() => {
 
 ##### isMicrophoneMute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMicrophoneMute(callback: AsyncCallback&lt;boolean&gt;): void
  
 获取麦克风静音状态。使用callback异步回调。
@@ -1454,6 +1538,8 @@ audioManager.isMicrophoneMute((err: BusinessError, value: boolean) => {
 
 ##### isMicrophoneMute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMicrophoneMute(): Promise&lt;boolean&gt;
  
 获取麦克风静音状态。使用Promise异步回调。
@@ -1484,6 +1570,8 @@ audioManager.isMicrophoneMute().then((value: boolean) => {
   
 
 ##### on('deviceChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'deviceChange', callback: Callback&lt;DeviceChangeAction&gt;): void
  
@@ -1517,6 +1605,8 @@ audioManager.on('deviceChange', (deviceChanged: audio.DeviceChangeAction) => {
   
 
 ##### off('deviceChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'deviceChange', callback?: Callback&lt;DeviceChangeAction&gt;): void
  
@@ -1558,6 +1648,8 @@ audioManager.off('deviceChange', deviceChangeCallback);
   
 
 ##### on('interrupt')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'interrupt', interrupt: AudioInterrupt, callback: Callback&lt;InterruptAction&gt;): void
  
@@ -1606,6 +1698,8 @@ audioManager.on('interrupt', interAudioInterrupt, (interruptAction: audio.Interr
   
 
 ##### off('interrupt')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'interrupt', interrupt: AudioInterrupt, callback?: Callback&lt;InterruptAction&gt;): void
  

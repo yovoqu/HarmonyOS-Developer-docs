@@ -12,6 +12,8 @@
 
 ##### MemberType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type MemberType = number | string | boolean
  
 PhotoAsset的成员类型。
@@ -31,6 +33,8 @@ PhotoAsset的成员类型。
 
 ##### PhotoAssetParams21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PhotoAssetParams = Record<string, MemberType>[]
  
 文件属性名称及其值的Record类型数组。
@@ -45,6 +49,8 @@ type PhotoAssetParams = Record<string, MemberType>[]
   
 
 ##### OperationValueType22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OperationValueType = number | string | boolean
  

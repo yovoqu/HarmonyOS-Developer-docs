@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -21,6 +23,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
   
 
 ##### onProgress15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onProgress(progress: number): void
  

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { shippingAddress } from '@kit.AccountKit';
 ```
@@ -19,6 +21,8 @@ import { shippingAddress } from '@kit.AccountKit';
   
 
 ##### ShippingAddressErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 该枚举定义了Account Kit收货地址管理服务错误码。
  
@@ -44,6 +48,8 @@ import { shippingAddress } from '@kit.AccountKit';
   
 
 ##### AddressInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 该类为收货地址管理服务响应的收货地址数据对象。应用可根据实际场景获取相关收货地址信息。
  
@@ -72,6 +78,8 @@ import { shippingAddress } from '@kit.AccountKit';
   
 
 ##### chooseAddress
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 chooseAddress(context: common.Context): Promise&lt;AddressInfo&gt;
  

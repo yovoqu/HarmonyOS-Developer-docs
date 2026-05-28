@@ -12,6 +12,8 @@ typedef struct JSVM_Data__* JSVM_Data
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示一个 JavaScript Data。
  
 **起始版本：** 18

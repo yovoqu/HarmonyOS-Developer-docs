@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { cloudDatabase } from '@kit.CloudFoundationKit';
 ```
@@ -19,6 +21,8 @@ import { cloudDatabase } from '@kit.CloudFoundationKit';
   
 
 ##### zone
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 zone(zone: string): DatabaseZone
  
@@ -58,6 +62,8 @@ let databaseZone = cloudDatabase.zone("storageArea");
 
 ##### DatabaseZone
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云数据库处理数据的实例。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -71,6 +77,8 @@ let databaseZone = cloudDatabase.zone("storageArea");
   
 
 ##### query
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 query<T extends DatabaseObject>(condition: DatabaseQuery&lt;T&gt;): Promise<T[]>
  
@@ -162,6 +170,8 @@ try {
 
 ##### query
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 query<T extends DatabaseObject>(condition: DatabaseQuery&lt;T&gt;, callback: AsyncCallback<T[]>): void
  
 通过条件查询数据。使用callback异步回调。
@@ -223,6 +233,8 @@ databaseZone.query(condition, (err: BusinessError, bookInfoArray) => {
   
 
 ##### calculateQuery
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 calculateQuery<T extends DatabaseObject>(condition: DatabaseQuery&lt;T&gt;, fieldName: string, calculate: QueryCalculate): Promise&lt;number&gt;
  
@@ -292,6 +304,8 @@ try {
 
 ##### calculateQuery
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 calculateQuery<T extends DatabaseObject>(condition: DatabaseQuery&lt;T&gt;, fieldName: string, calculate: QueryCalculate, callback: AsyncCallback&lt;number&gt;): void
  
 从数据库中查询符合条件的数据，并对指定字段进行算术计算。使用callback异步回调。
@@ -356,6 +370,8 @@ databaseZone.calculateQuery(condition, 'key_integer', cloudDatabase.QueryCalcula
   
 
 ##### upsert
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 upsert<T extends DatabaseObject>(objectList: T[] | T): Promise&lt;number&gt;
  
@@ -427,6 +443,8 @@ try {
 
 ##### upsert
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 upsert<T extends DatabaseObject>(objectList: T[] | T, callback: AsyncCallback&lt;number&gt;): void
  
 向数据库更新数据。使用callback异步回调。
@@ -492,6 +510,8 @@ databaseZone.upsert([book, book1], (err: BusinessError, num) => {
   
 
 ##### delete
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 delete<T extends DatabaseObject>(objectList: T[] | T): Promise&lt;number&gt;
  
@@ -560,6 +580,8 @@ try {
 
 ##### delete
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 delete<T extends DatabaseObject>(objectList: T[] | T, callback: AsyncCallback&lt;number&gt;): void
  
 在数据库中删除一条或者多条数据。使用callback异步回调。
@@ -627,6 +649,8 @@ try {
 
 ##### DatabaseObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据库数据类型基类，在云端生成表结构时继承。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -640,6 +664,8 @@ try {
   
 
 ##### naturalbase_ClassName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 naturalbase_ClassName(): string
  
@@ -679,6 +705,8 @@ export { BookInfo };
 
 ##### FieldType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type FieldType = string | number | boolean | Uint8Array | Date
  
 云数据库支持的数据类型。取值类型为下表类型中的并集/交集。
@@ -704,6 +732,8 @@ type FieldType = string | number | boolean | Uint8Array | Date
 
 ##### QueryCalculate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举， 查询算术计算类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -727,6 +757,8 @@ type FieldType = string | number | boolean | Uint8Array | Date
 
 ##### DatabaseQuery<T extends DatabaseObject>
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供丰富的谓词查询来构建查询条件。根据谓词查询方法构造自己的DatabaseQuery对象。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -740,6 +772,8 @@ type FieldType = string | number | boolean | Uint8Array | Date
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(entityClass: new () => T)
  
@@ -763,6 +797,8 @@ constructor(entityClass: new () => T)
   
 
 ##### equalTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 equalTo(fieldName: string, value: FieldType): DatabaseQuery&lt;T&gt;
  
@@ -813,6 +849,8 @@ try {
 
 ##### notEqualTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 notEqualTo(fieldName: string, value: FieldType): DatabaseQuery&lt;T&gt;
  
 添加实体类中某个字段的值不等于指定值的查询条件。
@@ -861,6 +899,8 @@ try {
   
 
 ##### beginsWith
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 beginsWith(fieldName: string, value: FieldType): DatabaseQuery&lt;T&gt;
  
@@ -911,6 +951,8 @@ try {
 
 ##### endsWith
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 endsWith(fieldName: string, value: FieldType): DatabaseQuery&lt;T&gt;
  
 添加实体类中string类型字段值以指定子串结尾的查询条件。
@@ -959,6 +1001,8 @@ try {
   
 
 ##### contains
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contains(fieldName: string, value: FieldType): DatabaseQuery&lt;T&gt;
  
@@ -1009,6 +1053,8 @@ try {
 
 ##### greaterThan
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 greaterThan(fieldName: string, value: FieldType): DatabaseQuery&lt;T&gt;
  
 添加实体类字段值大于指定值的查询条件。
@@ -1057,6 +1103,8 @@ try {
   
 
 ##### greaterThanOrEqualTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 greaterThanOrEqualTo(fieldName: string, value: FieldType): DatabaseQuery&lt;T&gt;
  
@@ -1107,6 +1155,8 @@ try {
 
 ##### lessThan
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lessThan(fieldName: string, value: FieldType): DatabaseQuery&lt;T&gt;
  
 添加实体类字段值小于指定值的查询条件。
@@ -1155,6 +1205,8 @@ try {
   
 
 ##### lessThanOrEqualTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 lessThanOrEqualTo(fieldName: string, value: FieldType): DatabaseQuery&lt;T&gt;
  
@@ -1205,6 +1257,8 @@ try {
 
 ##### in
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 in(fieldName: string, values: FieldType[]): DatabaseQuery&lt;T&gt;
  
 添加实体类字段值包含在指定数组中的查询条件。
@@ -1254,6 +1308,8 @@ try {
 
 ##### isNull
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isNull(fieldName: string): DatabaseQuery&lt;T&gt;
  
 添加实体类某字段值为空的查询条件。
@@ -1301,6 +1357,8 @@ try {
   
 
 ##### isNotNull
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isNotNull(fieldName: string): DatabaseQuery&lt;T&gt;
  
@@ -1350,6 +1408,8 @@ try {
 
 ##### orderByAsc
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 orderByAsc(fieldName: string): DatabaseQuery&lt;T&gt;
  
 按指定字段升序对查询结果进行排序。
@@ -1397,6 +1457,8 @@ try {
   
 
 ##### orderByDesc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 orderByDesc(fieldName: string): DatabaseQuery&lt;T&gt;
  
@@ -1446,6 +1508,8 @@ try {
 
 ##### orderByRandom
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 orderByRandom(): DatabaseQuery&lt;T&gt;
  
 调用此方法可以将查询结果按随机顺序展示。
@@ -1490,6 +1554,8 @@ try {
   
 
 ##### limit
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 limit(count: number, offset?: number): DatabaseQuery&lt;T&gt;
  
@@ -1541,6 +1607,8 @@ try {
 
 ##### beginGroup
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 beginGroup(): DatabaseQuery&lt;T&gt;
  
 调用此方法是为了放置左括号“(”附加到任何查询条件并将右括号“)”与相同的查询连接起来组合使用。
@@ -1585,6 +1653,8 @@ try {
   
 
 ##### endGroup
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 endGroup(): DatabaseQuery&lt;T&gt;
  
@@ -1631,6 +1701,8 @@ try {
 
 ##### or
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 or(): DatabaseQuery&lt;T&gt;
  
 使用or运算组合两个条件并返回两个查询结果的并集。
@@ -1675,6 +1747,8 @@ try {
   
 
 ##### and
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 and(): DatabaseQuery&lt;T&gt;
  

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { systemTime } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { systemTime } from '@kit.BasicServicesKit';
   
 
 ##### systemTime.getCurrentTime8+(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentTime(isNano: boolean, callback: AsyncCallback&lt;number&gt;): void
  
@@ -72,6 +76,8 @@ try {
 
 ##### systemTime.getCurrentTime8+(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentTime(callback: AsyncCallback&lt;number&gt;): void
  
 获取自Unix纪元以来经过的时间，使用callback异步回调。
@@ -120,6 +126,8 @@ try {
   
 
 ##### systemTime.getCurrentTime8+(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentTime(isNano?: boolean): Promise&lt;number&gt;
  
@@ -175,6 +183,8 @@ try {
 
 ##### systemTime.getRealActiveTime8+(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRealActiveTime(isNano: boolean, callback: AsyncCallback&lt;number&gt;): void
  
 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
@@ -225,6 +235,8 @@ try {
 
 ##### systemTime.getRealActiveTime8+(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRealActiveTime(callback: AsyncCallback&lt;number&gt;): void
  
 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
@@ -273,6 +285,8 @@ try {
   
 
 ##### systemTime.getRealActiveTime8+(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRealActiveTime(isNano?: boolean): Promise&lt;number&gt;
  
@@ -328,6 +342,8 @@ try {
 
 ##### systemTime.getRealTime8+(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRealTime(isNano: boolean, callback: AsyncCallback&lt;number&gt;): void
  
 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
@@ -378,6 +394,8 @@ try {
 
 ##### systemTime.getRealTime8+(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRealTime(callback: AsyncCallback&lt;number&gt;): void
  
 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
@@ -426,6 +444,8 @@ try {
   
 
 ##### systemTime.getRealTime8+(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRealTime(isNano?: boolean): Promise&lt;number&gt;
  
@@ -481,6 +501,8 @@ try {
 
 ##### systemTime.getDate8+(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDate(callback: AsyncCallback&lt;Date&gt;): void
  
 获取当前系统日期，使用callback异步回调。
@@ -530,6 +552,8 @@ try {
 
 ##### systemTime.getDate8+(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDate(): Promise&lt;Date&gt;
  
 获取当前系统日期，使用Promise异步回调。
@@ -576,6 +600,8 @@ try {
   
 
 ##### systemTime.getTimezone8+(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTimezone(callback: AsyncCallback&lt;string&gt;): void
  
@@ -626,6 +652,8 @@ try {
 
 ##### systemTime.getTimezone8+(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTimezone(): Promise&lt;string&gt;
  
 获取系统时区，使用Promise异步回调。
@@ -672,6 +700,8 @@ try {
   
 
 ##### systemTime.setTime(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTime(time : number, callback : AsyncCallback&lt;void&gt;) : void
  
@@ -726,6 +756,8 @@ try {
   
 
 ##### systemTime.setTime(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTime(time : number) : Promise&lt;void&gt;
  
@@ -785,6 +817,8 @@ try {
 
 ##### systemTime.setDate(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDate(date: Date, callback: AsyncCallback&lt;void&gt;): void
  
 设置系统日期，使用callback异步回调。
@@ -837,6 +871,8 @@ try {
   
 
 ##### systemTime.setDate(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDate(date: Date): Promise&lt;void&gt;
  
@@ -895,6 +931,8 @@ try {
 
 ##### systemTime.setTimezone(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setTimezone(timezone: string, callback: AsyncCallback&lt;void&gt;): void
  
 设置系统时区，使用callback异步回调。
@@ -946,6 +984,8 @@ try {
   
 
 ##### systemTime.setTimezone(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTimezone(timezone: string): Promise&lt;void&gt;
  
@@ -1002,6 +1042,8 @@ try {
   
 
 ##### 支持的系统时区
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持的系统时区及各时区与0时区相比的偏移量（单位：h）可见下表。
   

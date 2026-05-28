@@ -14,6 +14,8 @@
 
 ##### clearFocus12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearFocus(): void
 
 清除焦点，将焦点强制转移到页面根容器节点，焦点链路上其他节点失焦。
@@ -76,6 +78,8 @@ struct ClearFocusExample {
 
 
 ##### requestFocus12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestFocus(key: string): void
 
@@ -163,6 +167,8 @@ struct RequestExample {
 
 ##### activate14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 activate(isActive: boolean, autoInactive?: boolean): void
 
 设置当前界面的[焦点激活态](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-events-focus-event)。
@@ -219,6 +225,8 @@ struct ActivateExample {
 
 
 ##### isActive20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isActive(): boolean
 
@@ -292,6 +300,8 @@ struct ClearFocusExample {
 
 ##### setAutoFocusTransfer14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAutoFocusTransfer(isAutoFocusTransfer: boolean): void
 
 设置页面切换时，新的页面是否需要主动获取焦点。
@@ -362,6 +372,8 @@ struct CustomDialogUser {
 
 
 ##### setKeyProcessingMode15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setKeyProcessingMode(mode: KeyProcessingMode): void
 

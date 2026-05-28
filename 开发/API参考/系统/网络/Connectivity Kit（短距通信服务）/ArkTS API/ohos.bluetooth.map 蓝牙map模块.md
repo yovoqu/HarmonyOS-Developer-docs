@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { map } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { map } from '@kit.ConnectivityKit';
 
 
 ##### BaseProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BaseProfile = baseProfile.BaseProfile
 
@@ -36,6 +40,8 @@ type BaseProfile = baseProfile.BaseProfile
 
 
 ##### map.createMapMseProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createMapMseProfile(): MapMseProfile
 
@@ -76,6 +82,8 @@ try {
 
 
 ##### MapMseProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该实例表示蓝牙消息访问协议中的[MSE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#mse)角色。
 

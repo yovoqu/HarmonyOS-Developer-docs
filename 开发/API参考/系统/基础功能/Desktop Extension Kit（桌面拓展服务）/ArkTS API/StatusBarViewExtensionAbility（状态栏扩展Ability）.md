@@ -18,6 +18,8 @@ StatusBarViewExtensionAbility为状态栏扩展Ability，继承自[UIExtensionAb
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { StatusBarViewExtensionAbility } from '@kit.DeskTopExtensionKit';
 ```

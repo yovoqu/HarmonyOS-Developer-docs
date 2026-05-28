@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { StartupConfigEntry } from '@kit.AbilityKit';
 ```
@@ -22,9 +24,13 @@ import { StartupConfigEntry } from '@kit.AbilityKit';
 
 ##### StartupConfigEntry
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### onConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onConfig?(): StartupConfig
 
@@ -75,6 +81,8 @@ export default class MyStartupConfigEntry extends StartupConfigEntry {
 
 
 ##### onRequestCustomMatchRule20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRequestCustomMatchRule(want: Want): string
 

@@ -12,6 +12,8 @@ typedef struct Hid_MscEventArray {...} Hid_MscEventArray
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 其他特殊事件属性数组。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct Hid_MscEventArray {...} Hid_MscEventArray
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

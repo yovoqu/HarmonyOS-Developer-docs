@@ -12,6 +12,8 @@ typedef struct {...} OH_Drawing_BitmapFormat
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 结构体用于描述位图像素的格式，包括颜色类型和透明度类型。
  
 **起始版本：** 8
@@ -24,9 +26,13 @@ typedef struct {...} OH_Drawing_BitmapFormat
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

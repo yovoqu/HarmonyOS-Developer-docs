@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### constructor20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -55,6 +59,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### constructor20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(region: Region)
 
@@ -100,6 +106,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### constructor20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(left: number, top: number, right: number, bottom: number)
 
 构造矩形区域。
@@ -144,6 +152,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### isEqual20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEqual(other: Region): boolean
 
@@ -201,6 +211,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### isComplex20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isComplex(): boolean
 
 判断当前区域是否包含多个矩形。
@@ -250,6 +262,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### isEmpty20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isEmpty(): boolean
 
 判断当前区域是否为空。
@@ -297,6 +311,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### getBounds20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBounds(): common2D.Rect
 
 获取区域的边界。
@@ -323,6 +339,8 @@ let rect = region.getBounds();
 
 ##### getBoundaryPath20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBoundaryPath(): Path
 
 返回一个新路径，该路径取自当前区域的边界。
@@ -348,6 +366,8 @@ let path = region.getBoundaryPath();
 
 
 ##### isPointContained12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isPointContained(x: number, y: number) : boolean
 
@@ -413,6 +433,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### offset20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offset(dx: number, dy: number): void
 
 对区域进行平移。
@@ -458,6 +480,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### isRegionContained12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isRegionContained(other: Region) : boolean
 
@@ -524,6 +548,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### op12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 op(region: Region, regionOp: RegionOp) : boolean
 
 将当前区域与指定区域进行运算，并替换为运算结果。
@@ -588,6 +614,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### quickReject12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 quickReject(left: number, top: number, right: number, bottom: number) : boolean
 
@@ -654,6 +682,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### quickRejectRegion20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 quickRejectRegion(region: Region): boolean
 
 判断当前区域是否与另一个区域不相交。实际上比较的是两个区域的外接矩形是否不相交，因此会有误差。
@@ -707,6 +737,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### setPath12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPath(path: Path, clip: Region) : boolean
 
@@ -773,6 +805,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setRegion20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setRegion(region: Region): void
 
 设置当前区域为另一块区域。
@@ -818,6 +852,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setEmpty20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setEmpty(): void
 
 设置当前区域为空。
@@ -846,6 +882,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### setRect12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRect(left: number, top: number, right: number, bottom: number) : boolean
 
@@ -911,6 +949,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### isRect23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isRect(): boolean
 
 判断当前区域是否等同于单个矩形。
@@ -964,6 +1004,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### quickContains23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 quickContains(left: number, top: number, right: number, bottom: number): boolean
 

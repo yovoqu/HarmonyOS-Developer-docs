@@ -12,6 +12,8 @@ typedef struct OH_AVScreenCapture_UserSelectionInfo OH_AVScreenCapture_UserSelec
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 通过OH_AVScreenCapture_UserSelectionInfo获取用户在授权界面（选择界面）选择的参数。
  
 **起始版本：** 20

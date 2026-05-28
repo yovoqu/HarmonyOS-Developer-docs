@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 提供USB Serial DDK接口，包括枚举类型和USB Serial DDK API使用的数据结构。工业用途及一些老旧设备会使用到串口通信，如：发卡机、身份证读卡器等。通过构建USB Serial DDK，支持外设扩展驱动基于USB Serial DDK开发非标外设扩展驱动。
  
 **系统能力：** SystemCapability.Driver.UsbSerial.Extension
@@ -16,6 +18,8 @@
   
 
 ##### 文件汇总
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

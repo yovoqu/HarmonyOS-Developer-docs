@@ -20,15 +20,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不包含子组件。
  
   
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### IndicatorComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 IndicatorComponent(controller?: IndicatorComponentController)
  
@@ -51,11 +57,15 @@ IndicatorComponent(controller?: IndicatorComponentController)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性。
  
   
 
 ##### style
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 style(indicatorStyle: DotIndicator | DigitIndicator)
  
@@ -82,6 +92,8 @@ style(indicatorStyle: DotIndicator | DigitIndicator)
 
 ##### count
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 count(totalCount: number)
  
 设置导航点总数量。
@@ -104,6 +116,8 @@ count(totalCount: number)
   
 
 ##### initialIndex
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 initialIndex(index: number)
  
@@ -128,6 +142,8 @@ initialIndex(index: number)
 
 ##### loop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loop(isLoop: boolean)
  
 设置是否开启循环。
@@ -150,6 +166,8 @@ loop(isLoop: boolean)
   
 
 ##### vertical
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 vertical(isVertical: boolean)
  
@@ -174,11 +192,15 @@ vertical(isVertical: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
  
   
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(event: Callback&lt;number&gt;)
  
@@ -201,11 +223,15 @@ onChange(event: Callback&lt;number&gt;)
 
 ##### IndicatorComponentController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Indicator组件的控制器，可以将此对象绑定至Indicator组件来控制翻页。
  
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
  
@@ -221,6 +247,8 @@ IndicatorComponentController的构造函数。
 
 ##### showNext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showNext(): void
  
 跳转到下一导航点。
@@ -235,6 +263,8 @@ showNext(): void
 
 ##### showPrevious
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showPrevious(): void
  
 跳转到上一导航点。
@@ -248,6 +278,8 @@ showPrevious(): void
   
 
 ##### changeIndex
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 changeIndex(index: number, useAnimation?: boolean): void
  
@@ -270,6 +302,8 @@ changeIndex(index: number, useAnimation?: boolean): void
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -337,7 +371,7 @@ struct DotIndicatorDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/5Ce1z2NGQSmsHSFRLLlcww/zh-cn_image_0000002581435792.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013934Z&HW-CC-Expire=86400&HW-CC-Sign=498EDE2DDA1AE556B5F74AB27A5D44AA5D818861691544A7C5C731F4C7C7CB01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/5Ce1z2NGQSmsHSFRLLlcww/zh-cn_image_0000002581435792.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024229Z&HW-CC-Expire=86400&HW-CC-Sign=2F6530A146DDB81F15DE55A7B3C07B554DA71570EBDC7E310B5EED8835FB2158)
 
  
   
@@ -403,4 +437,4 @@ struct DigitIndicatorDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/bFQ-hriBQx2XlvJbVDa01g/zh-cn_image_0000002611835621.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013934Z&HW-CC-Expire=86400&HW-CC-Sign=04C9CEB7AF43323066E3357BADBCE82EF73221B4FFE925C9D12436627425A3DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/bFQ-hriBQx2XlvJbVDa01g/zh-cn_image_0000002611835621.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024229Z&HW-CC-Expire=86400&HW-CC-Sign=A9B7DD5EFC5949FB15B0C966D72FCDC0CB996CCB94BCA23957225670E5A04E05)

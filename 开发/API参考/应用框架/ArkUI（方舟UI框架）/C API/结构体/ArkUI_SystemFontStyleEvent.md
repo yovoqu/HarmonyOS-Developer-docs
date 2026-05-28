@@ -12,6 +12,8 @@ typedef struct ArkUI_SystemFontStyleEvent ArkUI_SystemFontStyleEvent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统字体变更事件定义。
  
 **起始版本：** 12

@@ -12,6 +12,8 @@ typedef struct OH_UdmfDataLoadParams OH_UdmfDataLoadParams
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示数据加载参数结构体。
  
 **起始版本：** 20

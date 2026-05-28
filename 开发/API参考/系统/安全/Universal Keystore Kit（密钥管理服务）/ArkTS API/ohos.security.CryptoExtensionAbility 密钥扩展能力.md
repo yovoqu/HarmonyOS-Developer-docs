@@ -26,6 +26,8 @@ init操作，初始化密钥会话，并返回会话句柄信息。
 
 ##### 导入模块
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 import { huks, huksExternalCrypto, CryptoExtensionAbility } from '@kit.UniversalKeystoreKit';
 ```
@@ -33,6 +35,8 @@ import { huks, huksExternalCrypto, CryptoExtensionAbility } from '@kit.Universal
 
 
 ##### HuksCryptoExtensionResultCode
+
+**支持设备：** PC/2in1 | Tablet
 
 [HuksCryptoExtensionResult](#hukscryptoextensionresult)中的resultCode枚举值。
 
@@ -56,6 +60,8 @@ import { huks, huksExternalCrypto, CryptoExtensionAbility } from '@kit.Universal
 
 ##### HuksCryptoExtensionCertInfo
 
+**支持设备：** PC/2in1 | Tablet
+
 [HuksCryptoExtensionResult](#hukscryptoextensionresult)中的certs数组中的元素。
 
 **系统能力：** SystemCapability.Security.Huks.CryptoExtension
@@ -70,6 +76,8 @@ import { huks, huksExternalCrypto, CryptoExtensionAbility } from '@kit.Universal
 
 
 ##### HuksCryptoExtensionResult
+
+**支持设备：** PC/2in1 | Tablet
 
 接口返回值的通用类型。
 
@@ -89,6 +97,8 @@ import { huks, huksExternalCrypto, CryptoExtensionAbility } from '@kit.Universal
 
 
 ##### CryptoExtensionAbility.onOpenResource
+
+**支持设备：** PC/2in1 | Tablet
 
 onOpenResource(resourceId: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise&lt;HuksCryptoExtensionResult&gt;
 
@@ -134,6 +144,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 ##### CryptoExtensionAbility.onCloseResource
 
+**支持设备：** PC/2in1 | Tablet
+
 onCloseResource(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise&lt;HuksCryptoExtensionResult&gt;
 
 根据参数中的handle，关闭Ukey的密钥资源。使用Promise异步回调。
@@ -176,6 +188,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 ##### CryptoExtensionAbility.onGetProperty
+
+**支持设备：** PC/2in1 | Tablet
 
 onGetProperty(handle: string, propertyId: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise&lt;HuksCryptoExtensionResult&gt;
 
@@ -223,6 +237,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 ##### CryptoExtensionAbility.onAuthUkeyPin
 
+**支持设备：** PC/2in1 | Tablet
+
 onAuthUkeyPin(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise&lt;HuksCryptoExtensionResult&gt;
 
 请求Ukey认证PIN码。使用Promise异步回调。
@@ -266,6 +282,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 ##### CryptoExtensionAbility.onGetUkeyPinAuthState
+
+**支持设备：** PC/2in1 | Tablet
 
 onGetUkeyPinAuthState(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise&lt;HuksCryptoExtensionResult&gt;
 
@@ -311,6 +329,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 ##### CryptoExtensionAbility.onClearUkeyPinAuthState
 
+**支持设备：** PC/2in1 | Tablet
+
 onClearUkeyPinAuthState(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise&lt;HuksCryptoExtensionResult&gt;
 
 清除应用维度PIN码的认证状态。使用Promise异步回调。
@@ -352,6 +372,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 ##### CryptoExtensionAbility.onInitSession
+
+**支持设备：** PC/2in1 | Tablet
 
 onInitSession(handle: string, params: huks.HuksOptions): Promise&lt;HuksCryptoExtensionResult&gt;
 
@@ -395,6 +417,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 ##### CryptoExtensionAbility.onUpdateSession
+
+**支持设备：** PC/2in1 | Tablet
 
 onUpdateSession(initHandle: string, params: huks.HuksOptions): Promise&lt;HuksCryptoExtensionResult&gt;
 
@@ -440,6 +464,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 ##### CryptoExtensionAbility.onFinishSession
 
+**支持设备：** PC/2in1 | Tablet
+
 onFinishSession(initHandle: string, params: huks.HuksOptions): Promise&lt;HuksCryptoExtensionResult&gt;
 
 三段式密钥会话结束操作。使用Promise异步回调。
@@ -483,6 +509,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 ##### CryptoExtensionAbility.onExportCertificate
+
+**支持设备：** PC/2in1 | Tablet
 
 onExportCertificate(resourceId: string, params?: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise&lt;HuksCryptoExtensionResult&gt;
 
@@ -528,6 +556,8 @@ export default class CryptoExtension extends CryptoExtensionAbility {
 
 
 ##### CryptoExtensionAbility.onEnumCertificates
+
+**支持设备：** PC/2in1 | Tablet
 
 onEnumCertificates(params?: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise&lt;HuksCryptoExtensionResult&gt;
 

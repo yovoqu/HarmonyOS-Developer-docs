@@ -12,6 +12,8 @@ typedef struct Camera_ConcurrentInfo {...} Camera_ConcurrentInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机并发能力信息。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct Camera_ConcurrentInfo {...} Camera_ConcurrentInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

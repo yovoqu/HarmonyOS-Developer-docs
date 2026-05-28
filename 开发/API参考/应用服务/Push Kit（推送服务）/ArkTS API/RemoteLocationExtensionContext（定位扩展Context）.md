@@ -16,6 +16,8 @@ RemoteLocationExtensionContext是[RemoteLocationExtensionAbility](https://develo
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { RemoteLocationExtensionContext } from '@kit.PushKit';
 ```
@@ -23,6 +25,8 @@ import { RemoteLocationExtensionContext } from '@kit.PushKit';
   
 
 ##### RemoteLocationExtensionContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束：** 属性仅可在Stage模型下使用。
  

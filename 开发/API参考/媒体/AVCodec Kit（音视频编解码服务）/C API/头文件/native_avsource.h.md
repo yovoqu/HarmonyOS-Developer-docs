@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明用于音视频媒体数据解析的接口。
  
 **引用文件：** <multimedia/player_framework/native_avsource.h>
@@ -25,9 +27,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -37,6 +43,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -54,9 +62,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_AVSource_CreateWithDataSource()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVSource *OH_AVSource_CreateWithDataSource(OH_AVDataSource *dataSource)
@@ -89,6 +101,8 @@ OH_AVSource *OH_AVSource_CreateWithDataSource(OH_AVDataSource *dataSource)
   
 
 ##### OH_AVSource_CreateWithDataSourceExt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVSource *OH_AVSource_CreateWithDataSourceExt(OH_AVDataSourceExt *dataSource, void *userData)
@@ -125,6 +139,8 @@ OH_AVSource *OH_AVSource_CreateWithDataSourceExt(OH_AVDataSourceExt *dataSource,
 
 ##### OH_AVSource_CreateWithURI()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVSource *OH_AVSource_CreateWithURI(char *uri)
 ```
@@ -154,6 +170,8 @@ OH_AVSource *OH_AVSource_CreateWithURI(char *uri)
   
 
 ##### OH_AVSource_CreateWithFD()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVSource *OH_AVSource_CreateWithFD(int32_t fd, int64_t offset, int64_t size)
@@ -189,6 +207,8 @@ OH_AVSource *OH_AVSource_CreateWithFD(int32_t fd, int64_t offset, int64_t size)
 
 ##### OH_AVSource_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVErrCode OH_AVSource_Destroy(OH_AVSource *source)
 ```
@@ -220,6 +240,8 @@ OH_AVErrCode OH_AVSource_Destroy(OH_AVSource *source)
   
 
 ##### OH_AVSource_GetSourceFormat()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVFormat *OH_AVSource_GetSourceFormat(OH_AVSource *source)
@@ -253,6 +275,8 @@ OH_AVFormat *OH_AVSource_GetSourceFormat(OH_AVSource *source)
 
 ##### OH_AVSource_GetTrackFormat()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AVFormat *OH_AVSource_GetTrackFormat(OH_AVSource *source, uint32_t trackIndex)
 ```
@@ -285,6 +309,8 @@ OH_AVFormat *OH_AVSource_GetTrackFormat(OH_AVSource *source, uint32_t trackIndex
   
 
 ##### OH_AVSource_GetCustomMetadataFormat()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AVFormat *OH_AVSource_GetCustomMetadataFormat(OH_AVSource *source)

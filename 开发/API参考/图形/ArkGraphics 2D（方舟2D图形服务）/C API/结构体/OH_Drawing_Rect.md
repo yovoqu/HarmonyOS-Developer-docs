@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Rect OH_Drawing_Rect
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于描述矩形。
  
 **起始版本：** 11

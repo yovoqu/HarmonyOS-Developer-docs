@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { TabTitleBar } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { TabTitleBar } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### TabTitleBar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TabTitleBar({tabItems: Array&lt;TabTitleBarTabItem&gt;, menuItems?: Array&lt;TabTitleBarMenuItem&gt;, swiperContent: () => void})
  
@@ -53,6 +59,8 @@ TabTitleBar({tabItems: Array&lt;TabTitleBarTabItem&gt;, menuItems?: Array&lt;Tab
 
 ##### TabTitleBarMenuItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -73,6 +81,8 @@ TabTitleBar({tabItems: Array&lt;TabTitleBarTabItem&gt;, menuItems?: Array&lt;Tab
 
 ##### TabTitleBarTabItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
 **设备行为差异：** 该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
@@ -88,11 +98,15 @@ TabTitleBar({tabItems: Array&lt;TabTitleBarTabItem&gt;, menuItems?: Array&lt;Tab
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -302,7 +316,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/9UF1lnsPRIit1mVU6VwHyA/zh-cn_image_0000002611836105.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=A131832150AE325A3913D4B18FEF6096C21FC07A1587AD2B0233E2E0A883B2BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/9UF1lnsPRIit1mVU6VwHyA/zh-cn_image_0000002611836105.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=3A1FC4C1D4957D39C12E4A8AEA9357FEC311381F25FD78D6F121E73D4101437B)
 
  
   
@@ -421,4 +435,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/GTf1R0q5QAGekKcW3ICRdA/zh-cn_image_0000002581276360.png?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=C8414CFD6483AB1CC93F53CC4AD02FB77792BA76F46A3F0CB745D4EC6C1455E4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/GTf1R0q5QAGekKcW3ICRdA/zh-cn_image_0000002581276360.png?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=7BA1FD0FDD62AC88CBE08233B694B0BBEE830D0BE0EB6EFFAF821E5A930702A2)

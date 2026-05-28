@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { errorManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { errorManager } from '@kit.AbilityKit';
   
 
 ##### LoopObserver.onLoopTimeOut
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onLoopTimeOut?(timeout: number): void
  

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -19,6 +21,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### PhotoType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，媒体文件类型。
 
@@ -35,6 +39,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### PhotoSubtype12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoasset)类型的枚举。
 
@@ -53,6 +59,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 ##### DynamicRangeType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，媒体文件的动态范围类型。
 
 **系统能力**: SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -66,6 +74,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 ##### AlbumType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，相册类型。例如，用户相册、系统预置相册或由应用创建的相册。
 
@@ -81,6 +91,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 ##### AlbumSubtype
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，相册子类型，表示具体的相册类型。
 
@@ -100,6 +112,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 ##### PositionType16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，文件位置，表示文件在本地或云端。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -114,6 +128,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 ##### PhotoKeys
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，图片和视频文件关键信息。
 
@@ -155,6 +171,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 ##### AlbumKeys
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，相册关键信息。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -170,6 +188,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 ##### ResourceType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，写入资源的类型。
 
@@ -187,6 +207,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 ##### ImageFileType13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，图片保存类型。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -200,6 +222,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 ##### NotifyType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，通知事件的类型。
 
@@ -218,6 +242,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 ##### DefaultChangeUri
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，DefaultChangeUri子类型。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -231,6 +257,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 ##### PhotoViewMIMETypes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，可选择的媒体文件类型。
 
@@ -247,6 +275,8 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 
 
 ##### RecommendationType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，推荐的图片类型。
 
@@ -298,6 +328,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### SingleSelectionMode18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，单选模式类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -314,6 +346,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### FilterOperator19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，支持进行过滤的操作符。
 
@@ -336,6 +370,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### DeliveryMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，资源分发模式。
 
 该模式适用于分段式拍照或分段式视频。如果当前设备不具备分段式能力，则以下三种分发模式无区别，直接返回请求的图片或视频资源。请求的结果通过[onDataPrepared](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetdatahandler#ondataprepared11)回调返回。
@@ -353,6 +389,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### CompatibleMode15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 配置转码模式。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -366,6 +404,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### CompleteButtonText14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 配置完成按钮显示内容。
 
@@ -382,6 +422,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### NotifyChangeType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，媒体资产（图片/视频）或相册变更事件的通知类型。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -397,6 +439,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### PhotoSource20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，图片或者视频数据的来源类型。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -411,6 +455,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### MovingPhotoBadgeStateType22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，动态照片状态。
 
@@ -428,6 +474,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### SceneType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，动态照片播放的场景。
 
@@ -447,6 +495,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### PlayMode23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，是否支持动态照片自动播放。
 
 **模型约束**：此接口仅可在Stage模型下使用。
@@ -465,6 +515,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### VideoMode22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，视频文件的log模式。
 
 **系统能力**: SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -478,6 +530,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### OperationType22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示各类谓词的枚举。
 
@@ -509,6 +563,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### GridLevel23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举类型，用于设置拉起picker后的宫格列数档位。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
@@ -527,6 +583,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### GridPinchModeType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，宫格捏合模式类型。
 

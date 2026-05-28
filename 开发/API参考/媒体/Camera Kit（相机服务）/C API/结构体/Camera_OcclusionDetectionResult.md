@@ -12,6 +12,8 @@ typedef struct {...} Camera_OcclusionDetectionResult
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机镜头遮挡、脏污检测结果。
  
 **起始版本：** 23
@@ -24,9 +26,13 @@ typedef struct {...} Camera_OcclusionDetectionResult
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

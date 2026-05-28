@@ -14,6 +14,8 @@ StartOptions可以作为启动UIAbility接口（例如[startAbility()](https://d
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { StartOptions } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { StartOptions } from '@kit.AbilityKit';
 
 
 ##### StartOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 StartOptions用于指定启动目标UIAbility时的选项。
 

@@ -12,6 +12,8 @@ typedef struct ArkUI_XComponentSurfaceConfig ArkUI_XComponentSurfaceConfig
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义XComponent组件持有的Surface选项，用于设置XComponent组件持有的Surface在渲染时是否被视为不透明。
  
 **起始版本：** 22

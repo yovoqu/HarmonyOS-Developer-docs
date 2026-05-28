@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import prompt from '@ohos.prompt'
 ```
@@ -21,6 +23,8 @@ import prompt from '@ohos.prompt'
   
 
 ##### prompt.showToast
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showToast(options: ShowToastOptions): void
  
@@ -53,6 +57,8 @@ prompt.showToast({
 
 ##### ShowToastOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本提示框的选项。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full。
@@ -67,6 +73,8 @@ prompt.showToast({
   
 
 ##### prompt.showDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showDialog(options: ShowDialogOptions): Promise&lt;ShowDialogSuccessResponse&gt;
  
@@ -122,6 +130,8 @@ prompt.showDialog({
 
 ##### prompt.showDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showDialog(options: ShowDialogOptions, callback: AsyncCallback&lt;ShowDialogSuccessResponse&gt;):void
  
 创建并显示对话框，对话框响应结果异步返回。
@@ -170,6 +180,8 @@ prompt.showDialog({
 
 ##### ShowDialogOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 对话框的选项。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -185,6 +197,8 @@ prompt.showDialog({
 
 ##### ShowDialogSuccessResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 对话框的响应结果。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -197,6 +211,8 @@ prompt.showDialog({
   
 
 ##### prompt.showActionMenu
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showActionMenu(options: ActionMenuOptions, callback: AsyncCallback&lt;ActionMenuSuccessResponse&gt;):void
  
@@ -245,6 +261,8 @@ prompt.showActionMenu({
 
 ##### prompt.showActionMenu
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showActionMenu(options: ActionMenuOptions): Promise&lt;ActionMenuSuccessResponse&gt;
  
 创建并显示操作菜单，菜单响应后同步返回结果。
@@ -291,12 +309,14 @@ prompt.showActionMenu({
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/iX5IyZuAQEmyqik31wEMDA/zh-cn_image_0000002611755493.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013816Z&HW-CC-Expire=86400&HW-CC-Sign=EA3455220022DAD67CA847E911A700564250C77F0F2743C36DC2436CE5550804)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/iX5IyZuAQEmyqik31wEMDA/zh-cn_image_0000002611755493.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=AF56FE4E1AB310ED4954E65FC331A6E7E0C79A2C071C3988439836921ECF7467)
 
  
   
 
 ##### ActionMenuOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 操作菜单的选项。
  
@@ -312,6 +332,8 @@ prompt.showActionMenu({
 
 ##### ActionMenuSuccessResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 操作菜单的响应结果。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -324,6 +346,8 @@ prompt.showActionMenu({
   
 
 ##### Button
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 菜单中的菜单项按钮。
  

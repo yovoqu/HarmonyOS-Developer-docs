@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 提供USB Serial DDK中的枚举变量、结构体定义与宏定义。
  
 **引用文件：** <usb_serial/usb_serial_types.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 结构体
+
+**支持设备：** PC/2in1
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 枚举
+
+**支持设备：** PC/2in1
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -48,9 +56,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### UsbSerial_DdkRetCode
+
+**支持设备：** PC/2in1
 
 ```text
 enum UsbSerial_DdkRetCode
@@ -79,6 +91,8 @@ enum UsbSerial_DdkRetCode
 
 ##### UsbSerial_FlowControl
 
+**支持设备：** PC/2in1
+
 ```text
 enum UsbSerial_FlowControl
 ```
@@ -99,6 +113,8 @@ enum UsbSerial_FlowControl
   
 
 ##### UsbSerial_Parity
+
+**支持设备：** PC/2in1
 
 ```text
 enum UsbSerial_Parity

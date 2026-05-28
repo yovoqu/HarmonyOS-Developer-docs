@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { HalfScreenLaunchComponent } from '@kit.ArkUI';
 ```
@@ -22,17 +24,23 @@ import { HalfScreenLaunchComponent } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
 
 
 
 ##### HalfScreenLaunchComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 HalfScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback&lt;TerminationInfo&gt; })
 
@@ -55,6 +63,8 @@ HalfScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, option
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例展示如何嵌入式拉起手机充值服务。
 

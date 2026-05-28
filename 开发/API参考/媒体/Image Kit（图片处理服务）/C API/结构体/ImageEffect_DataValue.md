@@ -12,6 +12,8 @@ typedef union ImageEffect_DataValue {...} ImageEffect_DataValue
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 数据值联合体。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef union ImageEffect_DataValue {...} ImageEffect_DataValue
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

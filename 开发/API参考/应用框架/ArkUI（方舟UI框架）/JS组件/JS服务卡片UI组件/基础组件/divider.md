@@ -14,6 +14,8 @@
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)外，还支持如下属性：
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
@@ -24,6 +26,8 @@
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 仅支持如下样式：
   
@@ -46,11 +50,15 @@
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -90,4 +98,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/2H5h-s7vTl6T8BA1S4STWA/zh-cn_image_0000002611836401.png?HW-CC-KV=V1&HW-CC-Date=20260528T013757Z&HW-CC-Expire=86400&HW-CC-Sign=4437FACAD44B06A0693D5063D4B987782DBD597F9966B5151405AB071A7ECBB7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/2H5h-s7vTl6T8BA1S4STWA/zh-cn_image_0000002611836401.png?HW-CC-KV=V1&HW-CC-Date=20260528T024054Z&HW-CC-Expire=86400&HW-CC-Sign=94CB2449C54B141D961A99FCF3E3E6811198CDB47BF2BCB9B0CB503DF466A4E8)

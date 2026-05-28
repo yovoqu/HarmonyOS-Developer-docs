@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
+
 ```text
 import router from '@system.router';
 ```
@@ -21,6 +23,8 @@ import router from '@system.router';
   
 
 ##### router.push
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 push(options: RouterOptions): void
  
@@ -77,6 +81,8 @@ export default new B()
 
 ##### router.replace
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 replace(options: RouterOptions): void
  
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
@@ -122,6 +128,8 @@ export default new Area()
   
 
 ##### router.back
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 back(options?: BackRouterOptions): void
  
@@ -205,6 +213,8 @@ export default new H()
 
 ##### router.getParams7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getParams(): ParamsInterface
  
 获取当前页面的参数信息。
@@ -221,6 +231,8 @@ getParams(): ParamsInterface
   
 
 ##### router.clear
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clear(): void
  
@@ -243,6 +255,8 @@ export default new I()
   
 
 ##### router.getLength
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLength(): string
  
@@ -273,6 +287,8 @@ export default new J()
   
 
 ##### router.getState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getState(): RouterState
  
@@ -305,6 +321,8 @@ export default new K()
   
 
 ##### router.enableAlertBeforeBackPage6+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableAlertBeforeBackPage(options: EnableAlertBeforeBackPageOptions): void
  
@@ -343,6 +361,8 @@ export default new L()
 
 ##### router.disableAlertBeforeBackPage6+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disableAlertBeforeBackPage(options?: DisableAlertBeforeBackPageOptions): void
  
 禁用页面返回询问对话框。
@@ -379,6 +399,8 @@ export default new Z()
 
 ##### RouterOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 定义路由器的选项。
  
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.ArkUI.ArkUI.Lite
@@ -392,6 +414,8 @@ export default new Z()
   
 
 ##### BackRouterOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
 定义路由器返回的选项。
  
@@ -407,6 +431,8 @@ export default new Z()
 
 ##### RouterState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义路由器的状态。
  
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.ArkUI.ArkUI.Full
@@ -421,6 +447,8 @@ export default new Z()
   
 
 ##### EnableAlertBeforeBackPageOptions6+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义EnableAlertBeforeBackPage选项。
  
@@ -438,6 +466,8 @@ export default new Z()
 
 ##### DisableAlertBeforeBackPageOptions6+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义DisableAlertBeforeBackPage参数选项。
  
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.ArkUI.ArkUI.Full
@@ -452,6 +482,8 @@ export default new Z()
   
 
 ##### ParamsInterface
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
  
 | 名称 | 参数类型 | 说明 |
 | --- | --- | --- |

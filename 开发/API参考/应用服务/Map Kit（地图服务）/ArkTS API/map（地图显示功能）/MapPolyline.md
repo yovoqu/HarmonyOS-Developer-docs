@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### MapPolyline
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 折线，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addpolyline)方法时会返回该类型的实例。
  
@@ -54,6 +58,8 @@ let mapPolyline = await this.mapController.addPolyline(polylineOption);
 
 ##### getColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getColor(): number
  
 获取折线的颜色值。
@@ -82,6 +88,8 @@ let color: number = mapPolyline.getColor();
   
 
 ##### getColors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getColors(): Array&lt;number&gt;
  
@@ -112,6 +120,8 @@ let colors: Array<number> = mapPolyline.getColors();
 
 ##### getEndCap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getEndCap(): mapCommon.CapStyle
  
 获取折线的末尾端点样式。
@@ -140,6 +150,8 @@ let endCap: mapCommon.CapStyle = mapPolyline.getEndCap();
   
 
 ##### getJointType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getJointType(): mapCommon.JointType
  
@@ -170,6 +182,8 @@ let jointType: mapCommon.JointType = mapPolyline.getJointType();
 
 ##### getPatterns
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getPatterns(): Array<mapCommon.PatternItem>
  
 获取折线的样式属性。
@@ -198,6 +212,8 @@ let patterns: Array<mapCommon.PatternItem> = mapPolyline.getPatterns();
   
 
 ##### getPoints
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getPoints(): Array<mapCommon.LatLng>
  
@@ -228,6 +244,8 @@ let points: Array<mapCommon.LatLng> = mapPolyline.getPoints();
 
 ##### getStartCap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getStartCap(): mapCommon.CapStyle
  
 获取折线的起始端点样式。
@@ -256,6 +274,8 @@ let startCap: mapCommon.CapStyle = mapPolyline.getStartCap();
   
 
 ##### getWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getWidth(): number
  
@@ -286,6 +306,8 @@ let width: number = mapPolyline.getWidth();
 
 ##### isClickable
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isClickable(): boolean
  
 获取折线的可点击属性。
@@ -314,6 +336,8 @@ let isClickable: boolean = mapPolyline.isClickable();
   
 
 ##### isGeodesic
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isGeodesic(): boolean
  
@@ -344,6 +368,8 @@ let isGeodesic: boolean = mapPolyline.isGeodesic();
 
 ##### isGradient
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isGradient(): boolean
  
 获取折线的渐变属性。
@@ -372,6 +398,8 @@ let isGradient: boolean = mapPolyline.isGradient();
   
 
 ##### setClickable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setClickable(clickable: boolean): void
  
@@ -402,6 +430,8 @@ mapPolyline.setClickable(true);
 
 ##### setColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setColor(color: number): void
  
 设置折线的颜色值。
@@ -430,6 +460,8 @@ mapPolyline.setColor(0xff000000);
   
 
 ##### setColors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setColors(colors: Array&lt;number&gt;): void
  
@@ -460,6 +492,8 @@ mapPolyline.setColors([0xffffff00, 0xff000000]);
 
 ##### setEndCap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setEndCap(endCap: mapCommon.CapStyle): void
  
 设置折线的末尾端点样式。
@@ -488,6 +522,8 @@ mapPolyline.setEndCap(mapCommon.CapStyle.BUTT);
   
 
 ##### setGeodesic
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setGeodesic(geodesic: boolean): void
  
@@ -518,6 +554,8 @@ mapPolyline.setGeodesic(true);
 
 ##### setGradient
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setGradient(gradient: boolean): void
  
 设置折线的渐变属性是否启用。需设置折线颜色方可生效。
@@ -547,6 +585,8 @@ mapPolyline.setGradient(true);
 
 ##### setJointType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setJointType(jointType: mapCommon.JointType): void
  
 设置折线除起始和结束顶点之外的所有顶点的节点类型。
@@ -575,6 +615,8 @@ mapPolyline.setJointType(mapCommon.JointType.DEFAULT);
   
 
 ##### setPatterns
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setPatterns(patterns: Array<mapCommon.PatternItem>): void
  
@@ -609,6 +651,8 @@ mapPolyline.setPatterns(linePattern);
   
 
 ##### setPoints
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setPoints(points: Array<mapCommon.LatLng>): void
  
@@ -646,6 +690,8 @@ mapPolyline.setPoints(points);
 
 ##### setStartCap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setStartCap(startCap: mapCommon.CapStyle): void
  
 设置折线的起始端点样式。
@@ -675,6 +721,8 @@ mapPolyline.setStartCap(mapCommon.CapStyle.BUTT);
 
 ##### setWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setWidth(width: number): void
  
 设置折线的宽度。
@@ -703,6 +751,8 @@ mapPolyline.setWidth(20);
   
 
 ##### setCustomTexture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setCustomTexture(customTexture: ResourceStr | image.PixelMap): Promise&lt;void&gt;
  
@@ -741,6 +791,8 @@ await mapPolyline.setCustomTexture("icon/naviline_arrow.png");
 
 ##### setCustomTexture
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setCustomTexture(customTexture: ResourceStr | image.PixelMap, isTextureMappingUsed: boolean): Promise&lt;void&gt;
  
 设置折线纹理。使用Promise异步回调。
@@ -778,6 +830,8 @@ await mapPolyline.setCustomTexture("icon/naviline_arrow.png", true);
   
 
 ##### setCustomTextureIndexes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setCustomTextureIndexes(customTextureIndexes: number[]): Promise&lt;void&gt;
  

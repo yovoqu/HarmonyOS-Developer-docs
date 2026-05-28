@@ -14,17 +14,23 @@
 
 ##### 需要权限
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 跳转的目标应用使用网络时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
 
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Hyperlink(address: string | Resource, content?: string | Resource)
 
@@ -44,11 +50,15 @@ Hyperlink(address: string | Resource, content?: string | Resource)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### color
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 color(value: Color | number | string | Resource)
 
@@ -68,6 +78,8 @@ color(value: Color | number | string | Resource)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例展示了超链接图片和文本跳转的效果。
 
@@ -97,4 +109,4 @@ struct HyperlinkExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/TllbxEXuTLiArCbO6MmtFg/zh-cn_image_0000002581435952.png?HW-CC-KV=V1&HW-CC-Date=20260528T013932Z&HW-CC-Expire=86400&HW-CC-Sign=ACB3A020E36120BD8ACC72A6D09255C3BED0DD6C0D97840951EC7654D48242BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/TllbxEXuTLiArCbO6MmtFg/zh-cn_image_0000002581435952.png?HW-CC-KV=V1&HW-CC-Date=20260528T024227Z&HW-CC-Expire=86400&HW-CC-Sign=8E02D0DE696369CCA340DB4C36A12CE2C29A16AC907402D24758D0BB5DC52207)

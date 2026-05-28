@@ -12,6 +12,8 @@ typedef struct ContentEmbed_Object ContentEmbed_Object
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明ContentEmbed_Object结构体类型。用于指向OE文档在服务端封装的文档嵌入和编辑的程序对象（简称服务端OE对象）。
  
 **起始版本：** 24

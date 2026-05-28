@@ -12,6 +12,8 @@ typedef struct OH_CryptoSm2CiphertextSpec OH_CryptoSm2CiphertextSpec
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义SM2密文规格结构。
  
 **起始版本：** 20

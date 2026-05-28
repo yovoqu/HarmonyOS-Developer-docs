@@ -12,6 +12,8 @@ typedef struct OH_Drawing_MaskFilter OH_Drawing_MaskFilter
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义蒙版滤波器。
  
 **起始版本：** 11

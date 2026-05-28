@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供与存储数据值相关的结构定义、函数和枚举。
  
 **引用文件：** <database/data/oh_data_values_buckets.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -49,9 +57,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_VBuckets_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Data_VBuckets *OH_VBuckets_Create(void)
@@ -73,6 +85,8 @@ OH_Data_VBuckets *OH_VBuckets_Create(void)
   
 
 ##### OH_VBuckets_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_VBuckets_Destroy(OH_Data_VBuckets *buckets)
@@ -101,6 +115,8 @@ int OH_VBuckets_Destroy(OH_Data_VBuckets *buckets)
   
 
 ##### OH_VBuckets_PutRow()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_VBuckets_PutRow(OH_Data_VBuckets *buckets, const OH_VBucket *row)
@@ -131,6 +147,8 @@ int OH_VBuckets_PutRow(OH_Data_VBuckets *buckets, const OH_VBucket *row)
 
 ##### OH_VBuckets_PutRows()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_VBuckets_PutRows(OH_Data_VBuckets *buckets, const OH_Data_VBuckets *rows)
 ```
@@ -159,6 +177,8 @@ int OH_VBuckets_PutRows(OH_Data_VBuckets *buckets, const OH_Data_VBuckets *rows)
   
 
 ##### OH_VBuckets_RowCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_VBuckets_RowCount(OH_Data_VBuckets *buckets, size_t *count)

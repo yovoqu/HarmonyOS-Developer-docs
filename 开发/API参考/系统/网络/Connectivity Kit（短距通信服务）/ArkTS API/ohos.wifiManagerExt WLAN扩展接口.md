@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { wifiManagerExt } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { wifiManagerExt } from '@kit.ConnectivityKit';
   
 
 ##### wifiManagerExt.enableHotspot(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableHotspot(): void
  
@@ -61,6 +65,8 @@ import { wifiManagerExt } from '@kit.ConnectivityKit';
 
 ##### wifiManagerExt.disableHotspot(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disableHotspot(): void
  
 去使能WLAN热点。
@@ -100,6 +106,8 @@ import { wifiManagerExt } from '@kit.ConnectivityKit';
 
 ##### wifiManagerExt.getSupportedPowerMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSupportedPowerMode(): Promise<Array&lt;PowerMode&gt;>
  
 获取支持的功率模式。使用Promise异步回调。
@@ -130,6 +138,8 @@ getSupportedPowerMode(): Promise<Array&lt;PowerMode&gt;>
 
 ##### PowerMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示功率模式的枚举。
  
 **系统能力：** SystemCapability.Communication.WiFi.AP.Extension
@@ -144,6 +154,8 @@ getSupportedPowerMode(): Promise<Array&lt;PowerMode&gt;>
   
 
 ##### wifiManagerExt.getSupportedPowerMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSupportedPowerMode(callback: AsyncCallback<Array&lt;PowerMode&gt;>): void
  
@@ -188,6 +200,8 @@ wifiManagerExt.getSupportedPowerMode((err, data: wifiManagerExt.PowerMode[]) => 
   
 
 ##### wifiManagerExt.getPowerMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPowerMode(): Promise&lt;PowerMode&gt;
  
@@ -236,6 +250,8 @@ async function getWifiPowerMode() {
   
 
 ##### wifiManagerExt.getPowerMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPowerMode(callback: AsyncCallback&lt;PowerMode&gt;): void
  
@@ -286,6 +302,8 @@ import { wifiManagerExt } from '@kit.ConnectivityKit';
   
 
 ##### wifiManagerExt.setPowerMode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPowerMode(mode: PowerMode) : void
  

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** lite_wearable
+
 ```text
 import healthStore from '@hms.health.store';
 ```
@@ -19,6 +21,8 @@ import healthStore from '@hms.health.store';
 
 
 ##### AuthorizationBase
+
+**支持设备：** lite_wearable
 
 授权信息基类。
 
@@ -37,6 +41,8 @@ import healthStore from '@hms.health.store';
 
 
 ##### AuthorizationRequest
+
+**支持设备：** lite_wearable
 
 授权请求参数类型，继承[AuthorizationBase](#authorizationbase)。
 
@@ -57,6 +63,8 @@ import healthStore from '@hms.health.store';
 
 ##### AuthorizationResponse
 
+**支持设备：** lite_wearable
+
 授权响应返回类型，继承[AuthorizationBase](#authorizationbase)。
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -76,6 +84,8 @@ import healthStore from '@hms.health.store';
 
 ##### DataReadRequest
 
+**支持设备：** lite_wearable
+
 读取请求参数基类，继承[DataRequest](#datarequest)。
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -94,6 +104,8 @@ import healthStore from '@hms.health.store';
 
 
 ##### DataRequest
+
+**支持设备：** lite_wearable
 
 请求参数基类。
 
@@ -116,6 +128,8 @@ import healthStore from '@hms.health.store';
 
 ##### DataSourceOptions
 
+**支持设备：** lite_wearable
+
 数据源选项类，用于查询和删除。
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -136,6 +150,8 @@ import healthStore from '@hms.health.store';
 
 ##### DataType
 
+**支持设备：** lite_wearable
+
 定义数据类型的类，每个数据类型字段都有唯一的id来标识。
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -153,6 +169,8 @@ import healthStore from '@hms.health.store';
 
 
 ##### ExerciseSequence
+
+**支持设备：** lite_wearable
 
 ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> = Record<string, [ExerciseSummary](#exercisesummary)>,DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
@@ -176,6 +194,8 @@ ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> =
 
 ##### ExerciseSequenceReadRequest
 
+**支持设备：** lite_wearable
+
 ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
 读取锻炼记录请求类，继承Omit<[DataReadRequest](#datareadrequest), 'startLocalDate' | 'endLocalDate'>。
@@ -196,6 +216,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 ##### ExerciseSummary
 
+**支持设备：** lite_wearable
+
 锻炼记录统计数据类，继承Record<string, [HealthValueType](#healthvaluetype) | [PaceValueType](#pacevaluetype)>。
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -212,6 +234,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 
 ##### HealthValueType
+
+**支持设备：** lite_wearable
 
 type HealthValueType = number | string | boolean | undefined
 
@@ -235,6 +259,8 @@ type HealthValueType = number | string | boolean | undefined
 
 ##### PaceValueType
 
+**支持设备：** lite_wearable
+
 type PaceValueType = Record<string, number>
 
 配速数据类型。
@@ -253,6 +279,8 @@ type PaceValueType = Record<string, number>
 
 
 ##### SampleDataBase
+
+**支持设备：** lite_wearable
 
 健康数据基类。
 
@@ -277,6 +305,8 @@ type PaceValueType = Record<string, number>
 
 ##### SequencePoint
 
+**支持设备：** lite_wearable
+
 运动健康数据详情点，继承Record<string, [HealthValueType](#healthvaluetype)>。
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -294,6 +324,8 @@ type PaceValueType = Record<string, number>
 
 
 ##### SequenceReadOptions
+
+**支持设备：** lite_wearable
 
 SequenceReadOptions<DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
@@ -315,6 +347,8 @@ SequenceReadOptions<DK extends Record<string, [SequencePoint](#sequencepoint)[]>
 
 ##### SortOrder
 
+**支持设备：** lite_wearable
+
 结果排序类型枚举对象。
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -332,6 +366,8 @@ SequenceReadOptions<DK extends Record<string, [SequencePoint](#sequencepoint)[]>
 
 
 ##### SubDataType
+
+**支持设备：** lite_wearable
 
 type SubDataType = DataType
 
@@ -351,6 +387,8 @@ type SubDataType = DataType
 
 
 ##### healthStore.saveData
+
+**支持设备：** lite_wearable
 
 saveData(exerciseSequence: ExerciseSequence): void
 
@@ -429,6 +467,8 @@ try {
 
 ##### healthStore.readData
 
+**支持设备：** lite_wearable
+
 readData<T extends ExerciseSequence>(request: ExerciseSequenceReadRequest, callback: Callback<T[]>): void
 
 读取锻炼记录数据。使用callback异步回调。
@@ -497,6 +537,8 @@ try {
 
 ##### healthStore.requestAuthorizations
 
+**支持设备：** lite_wearable
+
 requestAuthorizations(request: AuthorizationRequest): AuthorizationResponse
 
 用户授权。
@@ -543,6 +585,8 @@ try {
 
 
 ##### healthStore.getAuthorizations
+
+**支持设备：** lite_wearable
 
 getAuthorizations(request: AuthorizationRequest): AuthorizationResponse
 

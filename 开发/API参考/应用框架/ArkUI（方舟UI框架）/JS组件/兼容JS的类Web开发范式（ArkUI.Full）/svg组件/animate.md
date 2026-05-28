@@ -14,17 +14,23 @@
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -47,6 +53,8 @@
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -126,4 +134,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/K2vbyUiqR6GgzWSOQn9w7Q/zh-cn_image_0000002581436394.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013809Z&HW-CC-Expire=86400&HW-CC-Sign=05956B0A89E4A6C9B1F29EA3AD9C72BE5D7E51B5D1F24B98772BD77563D13331)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/K2vbyUiqR6GgzWSOQn9w7Q/zh-cn_image_0000002581436394.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024105Z&HW-CC-Expire=86400&HW-CC-Sign=F7507DB50243F61682120AA0BE7D0E3D06DF7BBF792D83EB2D163F505D028CF0)

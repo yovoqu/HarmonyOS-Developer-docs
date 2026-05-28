@@ -12,6 +12,8 @@ typedef struct {...} OH_MIDIDeviceInformation
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 设备信息结构体。储存设备ID等相关信息。
  
 **起始版本：** 24
@@ -24,9 +26,13 @@ typedef struct {...} OH_MIDIDeviceInformation
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

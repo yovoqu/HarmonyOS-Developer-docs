@@ -14,6 +14,8 @@
 
 ##### setTimeout
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setTimeout(handler: Function | string, delay?: number, ...arguments: any[]): number
  
 设置一个定时器，该定时器在定时器到期后执行一个函数。
@@ -89,6 +91,8 @@ setTimeout(myFunction, 1000, 'hello');
 
 ##### clearTimeout
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearTimeout(timeoutID?: number): void
  
 可取消通过调用setTimeout()建立的定时器。
@@ -118,6 +122,8 @@ clearTimeout(timeoutID);
   
 
 ##### setInterval
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setInterval(handler: Function | string, delay: number, ...arguments: any[]): number
  
@@ -157,6 +163,8 @@ setInterval(() => {
 
 ##### clearInterval
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearInterval(intervalID?: number): void
  
 可取消通过setInterval()设置的重复定时任务。
@@ -186,6 +194,8 @@ clearInterval(intervalID);
   
 
 ##### 其他说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 

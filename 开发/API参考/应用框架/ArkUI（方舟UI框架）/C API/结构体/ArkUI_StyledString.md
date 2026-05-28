@@ -12,6 +12,8 @@ typedef struct ArkUI_StyledString ArkUI_StyledString
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文本组件支持的格式化字符串数据对象。
  
 **起始版本：** 12

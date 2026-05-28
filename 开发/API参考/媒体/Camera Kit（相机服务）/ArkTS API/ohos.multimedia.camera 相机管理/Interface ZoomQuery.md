@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### getZoomRatioRange11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getZoomRatioRange(): Array&lt;number&gt;
  
@@ -67,6 +71,8 @@ function getZoomRatioRange(photoSession: camera.PhotoSession): Array<number> {
   
 
 ##### getRAWCaptureZoomRatioRange24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRAWCaptureZoomRatioRange(): Array&lt;number&gt;
  

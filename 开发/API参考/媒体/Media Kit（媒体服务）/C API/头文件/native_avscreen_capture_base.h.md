@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 声明用于运行屏幕录制通用的结构体、字符常量、枚举。
  
 **引用文件：** <multimedia/player_framework/native_avscreen_capture_base.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -53,6 +59,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -75,6 +83,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -94,9 +104,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OH_CaptureMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_CaptureMode
@@ -121,6 +135,8 @@ enum OH_CaptureMode
   
 
 ##### OH_AudioCaptureSourceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_AudioCaptureSourceType
@@ -147,6 +163,8 @@ enum OH_AudioCaptureSourceType
 
 ##### OH_AudioCodecFormat
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_AudioCodecFormat
 ```
@@ -169,6 +187,8 @@ enum OH_AudioCodecFormat
   
 
 ##### OH_VideoCodecFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_VideoCodecFormat
@@ -197,6 +217,8 @@ enum OH_VideoCodecFormat
 
 ##### OH_DataType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_DataType
 ```
@@ -220,6 +242,8 @@ enum OH_DataType
   
 
 ##### OH_VideoSourceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_VideoSourceType
@@ -245,6 +269,8 @@ enum OH_VideoSourceType
 
 ##### OH_ContainerFormatType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_ContainerFormatType
 ```
@@ -266,6 +292,8 @@ enum OH_ContainerFormatType
   
 
 ##### OH_AVScreenCaptureStateCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_AVScreenCaptureStateCode
@@ -298,6 +326,8 @@ enum OH_AVScreenCaptureStateCode
 
 ##### OH_AVScreenCaptureBufferType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_AVScreenCaptureBufferType
 ```
@@ -321,6 +351,8 @@ enum OH_AVScreenCaptureBufferType
 
 ##### OH_AVScreenCaptureFilterableAudioContent
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_AVScreenCaptureFilterableAudioContent
 ```
@@ -342,6 +374,8 @@ enum OH_AVScreenCaptureFilterableAudioContent
   
 
 ##### OH_AVScreenCaptureContentChangedEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_AVScreenCaptureContentChangedEvent
@@ -366,6 +400,8 @@ enum OH_AVScreenCaptureContentChangedEvent
 
 ##### OH_AVScreenCapture_FillMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_AVScreenCapture_FillMode
 ```
@@ -386,6 +422,8 @@ enum OH_AVScreenCapture_FillMode
 
 ##### OH_ScreenCaptureHighlightMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum OH_ScreenCaptureHighlightMode
 ```
@@ -405,6 +443,8 @@ enum OH_ScreenCaptureHighlightMode
   
 
 ##### OH_CapturePickerMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_CapturePickerMode
@@ -427,9 +467,13 @@ enum OH_CapturePickerMode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OH_AVScreenCaptureOnError()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (*OH_AVScreenCaptureOnError)(OH_AVScreenCapture *capture, int32_t errorCode)
@@ -456,6 +500,8 @@ typedef void (*OH_AVScreenCaptureOnError)(OH_AVScreenCapture *capture, int32_t e
   
 
 ##### OH_AVScreenCaptureOnAudioBufferAvailable()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (*OH_AVScreenCaptureOnAudioBufferAvailable)(OH_AVScreenCapture *capture, bool isReady, OH_AudioCaptureSourceType type)
@@ -484,6 +530,8 @@ typedef void (*OH_AVScreenCaptureOnAudioBufferAvailable)(OH_AVScreenCapture *cap
 
 ##### OH_AVScreenCaptureOnVideoBufferAvailable()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void (*OH_AVScreenCaptureOnVideoBufferAvailable)(OH_AVScreenCapture *capture, bool isReady)
 ```
@@ -510,6 +558,8 @@ typedef void (*OH_AVScreenCaptureOnVideoBufferAvailable)(OH_AVScreenCapture *cap
 
 ##### OH_AVScreenCapture_OnStateChange()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void (*OH_AVScreenCapture_OnStateChange)(struct OH_AVScreenCapture *capture, OH_AVScreenCaptureStateCode stateCode, void *userData)
 ```
@@ -535,6 +585,8 @@ typedef void (*OH_AVScreenCapture_OnStateChange)(struct OH_AVScreenCapture *capt
 
 ##### OH_AVScreenCapture_OnError()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void (*OH_AVScreenCapture_OnError)(OH_AVScreenCapture *capture, int32_t errorCode, void *userData)
 ```
@@ -559,6 +611,8 @@ typedef void (*OH_AVScreenCapture_OnError)(OH_AVScreenCapture *capture, int32_t 
   
 
 ##### OH_AVScreenCapture_OnBufferAvailable()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (*OH_AVScreenCapture_OnBufferAvailable)(OH_AVScreenCapture *capture, OH_AVBuffer *buffer, OH_AVScreenCaptureBufferType bufferType, int64_t timestamp, void *userData)
@@ -587,6 +641,8 @@ typedef void (*OH_AVScreenCapture_OnBufferAvailable)(OH_AVScreenCapture *capture
 
 ##### OH_AVScreenCapture_OnDisplaySelected()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void (*OH_AVScreenCapture_OnDisplaySelected)(OH_AVScreenCapture *capture, uint64_t displayId, void *userData)
 ```
@@ -611,6 +667,8 @@ typedef void (*OH_AVScreenCapture_OnDisplaySelected)(OH_AVScreenCapture *capture
   
 
 ##### OH_AVScreenCapture_OnCaptureContentChanged()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (*OH_AVScreenCapture_OnCaptureContentChanged)(OH_AVScreenCapture* capture, OH_AVScreenCaptureContentChangedEvent event, OH_Rect* area, void *userData)
@@ -638,6 +696,8 @@ typedef void (*OH_AVScreenCapture_OnCaptureContentChanged)(OH_AVScreenCapture* c
 
 ##### OH_AVScreenCapture_OnUserSelected()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void (*OH_AVScreenCapture_OnUserSelected)(OH_AVScreenCapture* capture, OH_AVScreenCapture_UserSelectionInfo* selections, void *userData)
 ```
@@ -660,6 +720,8 @@ typedef void (*OH_AVScreenCapture_OnUserSelected)(OH_AVScreenCapture* capture, O
   
 
 ##### OH_AVScreenCapture_OnPrivacyProtect()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (*OH_AVScreenCapture_OnPrivacyProtect)(OH_AVScreenCapture* capture, OH_PrivacyProtectInfo* privacyProtect, void *userData)

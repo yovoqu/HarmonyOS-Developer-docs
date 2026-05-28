@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -23,6 +25,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Media.AVRecorder
 
@@ -34,6 +38,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### prepare9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 prepare(config: AVRecorderConfig, callback: AsyncCallback&lt;void&gt;): void
 
@@ -107,6 +113,8 @@ avRecorder.prepare(avRecorderConfig, (err: BusinessError) => {
 
 
 ##### prepare9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 prepare(config: AVRecorderConfig): Promise&lt;void&gt;
 
@@ -188,6 +196,8 @@ avRecorder.prepare(avRecorderConfig).then(() => {
 
 ##### getInputSurface9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getInputSurface(callback: AsyncCallback&lt;string&gt;): void
 
 获得录制需要的surface。使用callback异步回调。
@@ -239,6 +249,8 @@ avRecorder.getInputSurface((err: BusinessError, surfaceId: string) => {
 
 ##### getInputSurface9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getInputSurface(): Promise&lt;string&gt;
 
 获得录制需要的surface。使用Promise异步回调。
@@ -288,6 +300,8 @@ avRecorder.getInputSurface().then((surfaceId: string) => {
 
 
 ##### updateRotation12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateRotation(rotation: number): Promise&lt;void&gt;
 
@@ -342,6 +356,8 @@ avRecorder.updateRotation(rotation).then(() => {
 
 ##### setWillMuteWhenInterrupted20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise&lt;void&gt;
 
 设置当前录制音频流是否启用静音打断模式。使用Promise异步回调。
@@ -389,6 +405,8 @@ avRecorder.setWillMuteWhenInterrupted(true).then(() => {
 
 ##### start9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(callback: AsyncCallback&lt;void&gt;): void
 
 开始视频录制。使用callback异步回调。
@@ -432,6 +450,8 @@ avRecorder.start((err: BusinessError) => {
 
 
 ##### start9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(): Promise&lt;void&gt;
 
@@ -478,6 +498,8 @@ avRecorder.start().then(() => {
 
 ##### pause9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pause(callback: AsyncCallback&lt;void&gt;): void
 
 暂停视频录制。使用callback异步回调。
@@ -521,6 +543,8 @@ avRecorder.pause((err: BusinessError) => {
 
 
 ##### pause9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pause(): Promise&lt;void&gt;
 
@@ -567,6 +591,8 @@ avRecorder.pause().then(() => {
 
 ##### resume9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 resume(callback: AsyncCallback&lt;void&gt;): void
 
 恢复视频录制。使用callback异步回调。
@@ -610,6 +636,8 @@ avRecorder.resume((err: BusinessError) => {
 
 
 ##### resume9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resume(): Promise&lt;void&gt;
 
@@ -656,6 +684,8 @@ avRecorder.resume().then(() => {
 
 ##### stop9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(callback: AsyncCallback&lt;void&gt;): void
 
 停止视频录制。使用callback异步回调。
@@ -701,6 +731,8 @@ avRecorder.stop((err: BusinessError) => {
 
 
 ##### stop9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(): Promise&lt;void&gt;
 
@@ -749,6 +781,8 @@ avRecorder.stop().then(() => {
 
 ##### reset9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset(callback: AsyncCallback&lt;void&gt;): void
 
 重置音视频录制。使用callback异步回调。
@@ -792,6 +826,8 @@ avRecorder.reset((err: BusinessError) => {
 
 ##### reset9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset(): Promise&lt;void&gt;
 
 重置音视频录制。使用Promise异步回调。
@@ -833,6 +869,8 @@ avRecorder.reset().then(() => {
 
 
 ##### release9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(callback: AsyncCallback&lt;void&gt;): void
 
@@ -876,6 +914,8 @@ avRecorder.release((err: BusinessError) => {
 
 ##### release9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放音视频录制资源。使用Promise异步回调。
@@ -918,6 +958,8 @@ avRecorder.release().then(() => {
 
 
 ##### getCurrentAudioCapturerInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void
 
@@ -967,6 +1009,8 @@ avRecorder.getCurrentAudioCapturerInfo((err: BusinessError, capturerInfo: audio.
 
 ##### getCurrentAudioCapturerInfo11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>
 
 获取当前音频采集参数。使用Promise异步回调。
@@ -1013,6 +1057,8 @@ avRecorder.getCurrentAudioCapturerInfo().then((capturerInfo: audio.AudioCapturer
 
 
 ##### getAudioCapturerMaxAmplitude11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioCapturerMaxAmplitude(callback: AsyncCallback&lt;number&gt;): void
 
@@ -1062,6 +1108,8 @@ avRecorder.getAudioCapturerMaxAmplitude((err: BusinessError, amplitude: number) 
 
 ##### getAudioCapturerMaxAmplitude11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioCapturerMaxAmplitude(): Promise&lt;number&gt;
 
 获取当前音频最大振幅。使用Promise异步回调。
@@ -1108,6 +1156,8 @@ avRecorder.getAudioCapturerMaxAmplitude().then((amplitude: number) => {
 
 
 ##### getAvailableEncoder11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAvailableEncoder(callback: AsyncCallback<Array&lt;EncoderInfo&gt;>): void
 
@@ -1157,6 +1207,8 @@ avRecorder.getAvailableEncoder((err: BusinessError, info: media.EncoderInfo[]) =
 
 ##### getAvailableEncoder11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAvailableEncoder(): Promise<Array&lt;EncoderInfo&gt;>
 
 获取可用的编码器参数。使用Promise异步回调。
@@ -1203,6 +1255,8 @@ avRecorder.getAvailableEncoder().then((info: media.EncoderInfo[]) => {
 
 
 ##### getAVRecorderConfig11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAVRecorderConfig(callback: AsyncCallback&lt;AVRecorderConfig&gt;): void
 
@@ -1251,6 +1305,8 @@ avRecorder.getAVRecorderConfig((err: BusinessError, config: media.AVRecorderConf
 
 ##### getAVRecorderConfig11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAVRecorderConfig(): Promise&lt;AVRecorderConfig&gt;;
 
 获取实时的配置参数。使用Promise异步回调。
@@ -1297,6 +1353,8 @@ avRecorder.getAVRecorderConfig().then((config: media.AVRecorderConfig) => {
 
 ##### on('stateChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler): void
 
 订阅录制状态机AVRecorderState切换的事件，当AVRecorderState状态机发生变化时，会通过订阅的回调方法通知用户。用户只能订阅一个录制状态机切换事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。使用callback异步回调。
@@ -1335,6 +1393,8 @@ avRecorder.on('stateChange', async (state: media.AVRecorderState, reason: media.
 
 ##### off('stateChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'stateChange', callback?: OnAVRecorderStateChangeHandler): void
 
 取消订阅录制状态机[AVRecorderState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avrecorderstate9)切换的事件。使用callback异步回调。
@@ -1360,6 +1420,8 @@ avRecorder.off('stateChange');
 
 
 ##### on('error')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -1411,6 +1473,8 @@ avRecorder.on('error', (err: BusinessError) => {
 
 ##### off('error')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', callback?: ErrorCallback): void
 
 取消订阅录制错误事件，取消后不再接收到AVRecorder的错误事件。使用callback异步回调。
@@ -1436,6 +1500,8 @@ avRecorder.off('error');
 
 
 ##### on('audioCapturerChange')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void
 
@@ -1479,6 +1545,8 @@ avRecorder.on('audioCapturerChange',  (audioCapturerChangeInfo: audio.AudioCaptu
 
 ##### off('audioCapturerChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'audioCapturerChange', callback?: Callback<audio.AudioCapturerChangeInfo>): void
 
 取消订阅录音变化的回调事件。使用callback异步回调。
@@ -1502,6 +1570,8 @@ avRecorder.off('audioCapturerChange');
 
 
 ##### on('photoAssetAvailable')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'photoAssetAvailable', callback: Callback<photoAccessHelper.PhotoAsset>): void
 
@@ -1564,6 +1634,8 @@ avRecorder.on('photoAssetAvailable', (asset: photoAccessHelper.PhotoAsset) => {
 
 
 ##### off('photoAssetAvailable')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'photoAssetAvailable', callback?: Callback<photoAccessHelper.PhotoAsset>): void
 

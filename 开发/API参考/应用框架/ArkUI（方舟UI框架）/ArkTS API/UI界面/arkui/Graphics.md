@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, LengthMetricsUnit } from "@kit.ArkUI";
 ```
@@ -21,6 +23,8 @@ import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
 
 
 ##### Size
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于返回组件布局大小的宽和高。默认单位为vp，不同的接口使用Size类型时会再定义单位，以接口定义的单位为准。
 
@@ -37,6 +41,8 @@ import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
 
 
 ##### Position
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Position = Vector2
 
@@ -55,6 +61,8 @@ type Position = Vector2
 
 ##### PositionT12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PositionT&lt;T&gt; = Vector2T&lt;T&gt;
 
 用于设置或返回组件的位置。
@@ -71,6 +79,8 @@ type PositionT&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 ##### Frame
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于设置或返回组件的布局大小和位置。
 
@@ -90,6 +100,8 @@ type PositionT&lt;T&gt; = Vector2T&lt;T&gt;
 
 ##### Pivot
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Pivot = Vector2
 
 用于设置组件的轴心坐标，轴心会作为组件的旋转/缩放中心点，影响旋转和缩放效果。
@@ -106,6 +118,8 @@ type Pivot = Vector2
 
 
 ##### Scale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Scale = Vector2
 
@@ -124,6 +138,8 @@ type Scale = Vector2
 
 ##### Translation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Translation = Vector2
 
 用于设置组件的平移量。
@@ -140,6 +156,8 @@ type Translation = Vector2
 
 
 ##### Rotation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Rotation = Vector3
 
@@ -158,6 +176,8 @@ type Rotation = Vector3
 
 ##### Offset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Offset = Vector2
 
 用于设置组件或效果的偏移。
@@ -174,6 +194,8 @@ type Offset = Vector2
 
 
 ##### Matrix4
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Matrix4 = [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number]
 
@@ -203,6 +225,8 @@ const transform: Matrix4 = [
 
 ##### Vector2
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于表示包含x和y两个值的向量。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -218,6 +242,8 @@ const transform: Matrix4 = [
 
 
 ##### Vector3
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于表示包含x、y、z三个值的向量。
 
@@ -236,6 +262,8 @@ const transform: Matrix4 = [
 
 ##### Vector2T&lt;T&gt;12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于表示T类型的包含x和y两个值的向量。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -252,11 +280,15 @@ const transform: Matrix4 = [
 
 ##### DrawContext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 图形绘制上下文，提供绘制所需的画布宽度和高度。
 
 
 
 ##### size
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get size(): Size
 
@@ -277,6 +309,8 @@ get size(): Size
 
 ##### sizeInPixel12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get sizeInPixel(): Size
 
 获取以px为单位的画布的宽度和高度。
@@ -295,6 +329,8 @@ get sizeInPixel(): Size
 
 
 ##### canvas
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get canvas(): drawing.Canvas
 
@@ -366,6 +402,8 @@ struct Index {
 
 ##### Edges&lt;T&gt;12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置边框的属性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -383,6 +421,8 @@ struct Index {
 
 
 ##### LengthUnit12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 长度属性单位枚举。
 
@@ -403,6 +443,8 @@ struct Index {
 
 ##### SizeT&lt;T&gt;12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置宽高的属性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -418,6 +460,8 @@ struct Index {
 
 
 ##### LengthMetricsUnit12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 长度属性单位枚举。
 
@@ -435,11 +479,15 @@ struct Index {
 
 ##### LengthMetrics12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置长度属性，当长度单位为PERCENT时，值为1表示100%。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -454,6 +502,8 @@ struct Index {
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(value: number, unit?: LengthUnit)
 
@@ -474,6 +524,8 @@ LengthMetrics的构造函数。若参数unit不传入值或传入undefined，返
 
 
 ##### px12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static px(value: number): LengthMetrics
 
@@ -501,6 +553,8 @@ static px(value: number): LengthMetrics
 
 ##### vp12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static vp(value: number): LengthMetrics
 
 用于生成单位为VP的长度属性。
@@ -526,6 +580,8 @@ static vp(value: number): LengthMetrics
 
 
 ##### fp12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static fp(value: number): LengthMetrics
 
@@ -553,6 +609,8 @@ static fp(value: number): LengthMetrics
 
 ##### percent12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static percent(value: number): LengthMetrics
 
 用于生成单位为PERCENT的长度属性，值为1表示100%。
@@ -579,6 +637,8 @@ static percent(value: number): LengthMetrics
 
 ##### lpx12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static lpx(value: number): LengthMetrics
 
 用于生成单位为LPX的长度属性。
@@ -604,6 +664,8 @@ static lpx(value: number): LengthMetrics
 
 
 ##### resource12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static resource(value: Resource): LengthMetrics
 
@@ -681,6 +743,8 @@ struct SizeExample {
 
 ##### ColorMetrics12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于混合颜色。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -688,6 +752,8 @@ struct SizeExample {
 
 
 ##### numeric12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static numeric(value: number): ColorMetrics
 
@@ -714,6 +780,8 @@ static numeric(value: number): ColorMetrics
 
 
 ##### rgba12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics
 
@@ -744,6 +812,8 @@ static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetr
 
 ##### colorWithSpace20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static colorWithSpace(colorSpace: ColorSpace, red: number, green: number, blue: number, alpha?: number): ColorMetrics
 
 使用[ColorSpace](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#colorspace20)和rgba格式颜色实例化ColorMetrics类。仅部分属性支持在display-p3色彩空间中设置颜色。
@@ -773,6 +843,8 @@ static colorWithSpace(colorSpace: ColorSpace, red: number, green: number, blue: 
 
 
 ##### resourceColor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static resourceColor(color: ResourceColor): ColorMetrics
 
@@ -809,6 +881,8 @@ static resourceColor(color: ResourceColor): ColorMetrics
 
 
 ##### blendColor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 blendColor(overlayColor: ColorMetrics): ColorMetrics
 
@@ -851,6 +925,8 @@ result_rgb = overlay_rgb*(overlay_alpha) + (1 - overlay_alpha) * base_rgb
 
 ##### color12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get color(): string
 
 获取ColorMetrics的颜色，返回的是rgba字符串的格式。
@@ -869,6 +945,8 @@ get color(): string
 
 
 ##### red12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get red(): number
 
@@ -889,6 +967,8 @@ get red(): number
 
 ##### green12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get green(): number
 
 获取ColorMetrics颜色的G分量（绿色）。
@@ -908,6 +988,8 @@ get green(): number
 
 ##### blue12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get blue(): number
 
 获取ColorMetrics颜色的B分量（蓝色）。
@@ -926,6 +1008,8 @@ get blue(): number
 
 
 ##### alpha12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get alpha(): number
 
@@ -1008,6 +1092,8 @@ struct ColorMetricsSample {
 
 ##### Corners&lt;T&gt;12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置四个角的圆角属性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1026,6 +1112,8 @@ struct ColorMetricsSample {
 
 ##### CornerRadius12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type CornerRadius = Corners&lt;Vector2&gt;
 
 设置四个角的圆角x轴与y轴的半轴长。
@@ -1042,6 +1130,8 @@ type CornerRadius = Corners&lt;Vector2&gt;
 
 
 ##### BorderRadiuses12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BorderRadiuses = Corners&lt;number&gt;
 
@@ -1060,6 +1150,8 @@ type BorderRadiuses = Corners&lt;number&gt;
 
 ##### Rect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Rect = common2D.Rect
 
 用于设置矩形的形状。
@@ -1077,6 +1169,8 @@ type Rect = common2D.Rect
 
 ##### RoundRect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置带有圆角的矩形。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1092,6 +1186,8 @@ type Rect = common2D.Rect
 
 
 ##### Circle12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于设置圆形的属性。
 
@@ -1110,6 +1206,8 @@ type Rect = common2D.Rect
 
 ##### CommandPath12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置路径绘制的指令。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1125,11 +1223,15 @@ type Rect = common2D.Rect
 
 ##### ShapeMask12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置图形遮罩。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1146,6 +1248,8 @@ type Rect = common2D.Rect
 
 ##### constructor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
 
 ShapeMask的构造函数。
@@ -1157,6 +1261,8 @@ ShapeMask的构造函数。
 
 
 ##### setRectShape12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRectShape(rect: Rect): void
 
@@ -1233,6 +1339,8 @@ struct Index {
 
 ##### setRoundRectShape12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setRoundRectShape(roundRect: RoundRect): void
 
 用于设置圆角矩形遮罩。
@@ -1307,6 +1415,8 @@ struct Index {
 
 ##### setCircleShape12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCircleShape(circle: Circle): void
 
 用于设置圆形遮罩。
@@ -1377,6 +1487,8 @@ struct Index {
 
 ##### setOvalShape12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setOvalShape(oval: Rect): void
 
 用于设置椭圆形遮罩。
@@ -1441,6 +1553,8 @@ struct Index {
 
 
 ##### setCommandPath12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCommandPath(path: CommandPath): void
 
@@ -1513,11 +1627,15 @@ struct Index {
 
 ##### ShapeClip12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置图形裁剪。
 
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -1530,6 +1648,8 @@ ShapeClip的构造函数。
 
 
 ##### setRectShape12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRectShape(rect: Rect): void
 
@@ -1612,6 +1732,8 @@ struct Index {
 
 
 ##### setRoundRectShape12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRoundRectShape(roundRect: RoundRect): void
 
@@ -1696,6 +1818,8 @@ struct Index {
 
 ##### setCircleShape12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCircleShape(circle: Circle): void
 
 用于裁剪圆形。
@@ -1766,6 +1890,8 @@ struct Index {
 
 
 ##### setOvalShape12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOvalShape(oval: Rect): void
 
@@ -1842,6 +1968,8 @@ struct Index {
 
 ##### setCommandPath12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCommandPath(path: CommandPath): void
 
 用于裁剪路径绘制指令。
@@ -1912,6 +2040,8 @@ struct Index {
 
 ##### edgeColors12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 edgeColors(all: number): Edges&lt;number&gt;
 
 用于生成边框颜色均设置为传入值的边框颜色对象。
@@ -1981,6 +2111,8 @@ struct Index {
 
 
 ##### edgeWidths12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 edgeWidths(all: number): Edges&lt;number&gt;
 
@@ -2061,6 +2193,8 @@ struct Index {
 
 
 ##### borderStyles12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 borderStyles(all: BorderStyle): Edges&lt;BorderStyle&gt;
 
@@ -2148,6 +2282,8 @@ struct Index {
 
 ##### borderRadiuses12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 borderRadiuses(all: number): BorderRadiuses
 
 用于生成边框圆角均设置为传入值的边框圆角对象。
@@ -2215,4 +2351,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/DXfHNJf9R1aLhOhjEZfvYQ/zh-cn_image_0000002581435582.png?HW-CC-KV=V1&HW-CC-Date=20260528T013820Z&HW-CC-Expire=86400&HW-CC-Sign=3636D02112968BFD822440EE4BE1DE697EEC20453686850CAAD113D78521C60E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/DXfHNJf9R1aLhOhjEZfvYQ/zh-cn_image_0000002581435582.png?HW-CC-KV=V1&HW-CC-Date=20260528T024117Z&HW-CC-Expire=86400&HW-CC-Sign=D7F0739843183B9EED99C8FE647725C4096571426BD1222FE0CF63F420F2A9BD)

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { pointer } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { pointer } from '@kit.InputKit';
 
 
 ##### pointer.setPointerVisible
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setPointerVisible(visible: boolean, callback: AsyncCallback&lt;void&gt;): void
 
@@ -79,6 +83,8 @@ struct Index {
 
 
 ##### pointer.setPointerVisible
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setPointerVisible(visible: boolean): Promise&lt;void&gt;
 
@@ -142,6 +148,8 @@ struct Index {
 
 ##### pointer.setPointerVisibleSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 setPointerVisibleSync(visible: boolean): void
 
 设置当前窗口鼠标光标的显示状态，使用同步方式。
@@ -191,6 +199,8 @@ struct Index {
 
 
 ##### pointer.isPointerVisible
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 isPointerVisible(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -248,6 +258,8 @@ struct Index {
 
 ##### pointer.isPointerVisible
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 isPointerVisible(): Promise&lt;boolean&gt;
 
 获取鼠标光标显示状态，使用Promise异步回调。
@@ -293,6 +305,8 @@ struct Index {
 
 ##### pointer.isPointerVisibleSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 isPointerVisibleSync(): boolean
 
 获取当前窗口鼠标光标的显示状态，使用同步方式。
@@ -333,6 +347,8 @@ struct Index {
 
 
 ##### pointer.getPointerStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getPointerStyle(windowId: number, callback: AsyncCallback&lt;PointerStyle&gt;): void
 
@@ -398,6 +414,8 @@ struct Index {
 
 
 ##### pointer.getPointerStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getPointerStyle(windowId: number): Promise&lt;PointerStyle&gt;
 
@@ -472,6 +490,8 @@ struct Index {
 
 ##### pointer.getPointerStyleSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getPointerStyleSync(windowId: number): PointerStyle
 
 查询指定窗口的鼠标样式类型，如向东箭头、向西箭头、向南箭头、向北箭头等。
@@ -529,6 +549,8 @@ struct Index {
 
 
 ##### pointer.setPointerStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback&lt;void&gt;): void
 
@@ -595,6 +617,8 @@ struct Index {
 
 
 ##### pointer.setPointerStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise&lt;void&gt;
 
@@ -670,6 +694,8 @@ struct Index {
 
 ##### pointer.setPointerStyleSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void
 
 设置指定窗口的鼠标样式类型，使用同步方式返回结果。
@@ -734,6 +760,8 @@ struct Index {
 
 ##### PrimaryButton10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 鼠标主键类型。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
@@ -747,6 +775,8 @@ struct Index {
 
 
 ##### RightClickType10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 右键菜单的触发方式。
 
@@ -764,6 +794,8 @@ struct Index {
 
 
 ##### PointerStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 鼠标光标样式类型。
 
@@ -829,6 +861,8 @@ struct Index {
 
 
 ##### pointer.setCustomCursor11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setCustomCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): Promise&lt;void&gt;
 
@@ -908,6 +942,8 @@ struct Index {
 
 ##### CustomCursor15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 自定义光标资源。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
@@ -923,6 +959,8 @@ struct Index {
 
 ##### CursorConfig15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 自定义光标配置。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
@@ -935,6 +973,8 @@ struct Index {
 
 
 ##### pointer.setCustomCursor15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise&lt;void&gt;
 
@@ -1016,6 +1056,8 @@ struct Index {
 
 
 ##### pointer.setCustomCursorSync11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): void
 

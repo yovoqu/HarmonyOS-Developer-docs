@@ -14,6 +14,8 @@
 
 ##### createComponentObserver
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createComponentObserver(id: string): inspector.ComponentObserver
  
 注册组件布局和组件绘制送显完成回调通知。
@@ -82,6 +84,8 @@ struct UIInspectorExample {
   
 
 ##### createComponentObserver23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createComponentObserver(id: string | number): inspector.ComponentObserver
  

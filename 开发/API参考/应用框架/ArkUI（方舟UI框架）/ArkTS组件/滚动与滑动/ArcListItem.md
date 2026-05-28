@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > ArcListItemAttribute是用于配置ArcListItem组件属性的关键接口。API version 21及之前版本，导入ArcListItem组件后需要开发者手动导入ArcListItemAttribute，否则会编译报错。从API version 22开始，编译工具链识别到导入ArcListItem组件后，会自动导入ArcListItemAttribute，无需开发者手动导入ArcListItemAttribute。 如果开发者手动导入ArcListItemAttribute，DevEco Studio会显示置灰，API version 21及之前版本删除会编译报错，从API version 22开始，删除对功能无影响。
 
@@ -34,11 +36,15 @@ import { ArcListItem } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含单个子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArcListItem()
 
@@ -52,11 +58,15 @@ ArcListItem()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### autoScale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 autoScale(enable: Optional&lt;boolean&gt;)
 
@@ -77,6 +87,8 @@ autoScale(enable: Optional&lt;boolean&gt;)
 
 ##### swipeAction
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 swipeAction(options: Optional&lt;SwipeActionOptions&gt;)
 
 用于设置ArcListItem的划出组件。
@@ -95,6 +107,8 @@ swipeAction(options: Optional&lt;SwipeActionOptions&gt;)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例展示了子项关闭自动缩放和开启自动缩放后的对比效果。
 
@@ -153,4 +167,4 @@ struct ArcListItemExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/AaWW0X8eR-eW8qRwmlkHwA/zh-cn_image_0000002611835579.png?HW-CC-KV=V1&HW-CC-Date=20260528T013920Z&HW-CC-Expire=86400&HW-CC-Sign=49BD630E236FB8BC28E4818325B624872D85188C6F4FEB402B46782F68C35100)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/AaWW0X8eR-eW8qRwmlkHwA/zh-cn_image_0000002611835579.png?HW-CC-KV=V1&HW-CC-Date=20260528T024216Z&HW-CC-Expire=86400&HW-CC-Sign=F50D300574239FA6E3BCCF7FD85793EF9C3A406456D835CAEF41EE78835A2325)

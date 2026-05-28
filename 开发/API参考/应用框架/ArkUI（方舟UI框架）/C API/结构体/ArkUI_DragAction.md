@@ -12,6 +12,8 @@ typedef struct ArkUI_DragAction ArkUI_DragAction
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拖拽行为，用于主动发起拖拽。
  
 **起始版本：** 12

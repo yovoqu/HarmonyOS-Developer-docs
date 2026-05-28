@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { advertising } from '@kit.AdsKit';
 ```
@@ -21,6 +23,8 @@ import { advertising } from '@kit.AdsKit';
   
 
 ##### advertising.showAd
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 showAd(ad: Advertisement, options: AdDisplayOptions, context?: common.UIAbilityContext): void
  
@@ -73,6 +77,8 @@ function showAd(ad: advertising.Advertisement, context?: common.UIAbilityContext
   
 
 ##### advertising.getAdRequestBody12+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAdRequestBody(adParams: AdRequestParams[], adOptions: AdOptions): Promise&lt;string&gt;
  
@@ -127,6 +133,8 @@ async function getAdRequestBody(adRequestParamsArray: advertising.AdRequestParam
   
 
 ##### advertising.parseAdResponse12+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 parseAdResponse(adResponse: string, listener: MultiSlotsAdLoadListener, context: common.UIAbilityContext): void
  
@@ -186,6 +194,8 @@ function parseAdResponse(adResponse: string, context: common.UIAbilityContext): 
 
 ##### advertising.registerWebAdInterface12+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext): void
  
 注入广告JavaScript对象到Web组件中（该接口仅对部分系统预置应用开放）。
@@ -244,6 +254,8 @@ struct Index {
   
 
 ##### advertising.registerWebAdInterface16+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext, needRefresh: boolean): void
  
@@ -305,6 +317,8 @@ struct Index {
 
 ##### advertising.deleteWebAdInterface16+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 deleteWebAdInterface(controller: web_webview.WebviewController, needRefresh: boolean): void
  
 删除通过registerWebAdInterface注入的广告JavaScript对象（该接口仅对部分系统预置应用开放）。
@@ -361,6 +375,8 @@ struct Index {
 
 ##### AdLoader
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 提供加载广告的功能
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -370,6 +386,8 @@ struct Index {
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 constructor(context: common.Context)
  
@@ -403,6 +421,8 @@ function createAdLoader(context: common.Context): void {
   
 
 ##### loadAd
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 loadAd(adParam: AdRequestParams, adOptions: AdOptions, listener: AdLoadListener): void
  
@@ -467,6 +487,8 @@ function loadAd(context: common.Context, adRequestParams: advertising.AdRequestP
   
 
 ##### loadAdWithMultiSlots
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 loadAdWithMultiSlots(adParams: AdRequestParams[], adOptions: AdOptions, listener: MultiSlotsAdLoadListener): void
  
@@ -533,6 +555,8 @@ function loadAdWithMultiSlots(context: common.Context, adRequestParamsArray: adv
 
 ##### AdLoadListener
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 单广告位广告请求回调。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -542,6 +566,8 @@ function loadAdWithMultiSlots(context: common.Context, adRequestParamsArray: adv
   
 
 ##### onAdLoadFailure
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onAdLoadFailure(errorCode: number, errorMsg: string): void
  
@@ -577,6 +603,8 @@ const adLoaderListener: advertising.AdLoadListener = {
 
 ##### onAdLoadSuccess
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onAdLoadSuccess(ads: Array&lt;Advertisement&gt;): void
  
 广告请求成功后回调。
@@ -610,6 +638,8 @@ const adLoaderListener: advertising.AdLoadListener = {
 
 ##### MultiSlotsAdLoadListener
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 多广告位广告请求回调。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -619,6 +649,8 @@ const adLoaderListener: advertising.AdLoadListener = {
   
 
 ##### onAdLoadFailure
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onAdLoadFailure(errorCode: number, errorMsg: string): void
  
@@ -654,6 +686,8 @@ const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
 
 ##### onAdLoadSuccess
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onAdLoadSuccess(adsMap: Map<string, Array&lt;Advertisement&gt;>): void
  
 多广告位广告请求成功后回调。
@@ -687,6 +721,8 @@ const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
 
 ##### AdInteractionListener
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 广告状态变化回调。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -696,6 +732,8 @@ const multiSlotsAdLoadListener: advertising.MultiSlotsAdLoadListener = {
   
 
 ##### onStatusChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onStatusChanged(status: string, ad: Advertisement, data: string)
  
@@ -783,6 +821,8 @@ const adInteractionListener: advertising.AdInteractionListener = {
 
 ##### AdOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 广告配置参数。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -800,6 +840,8 @@ const adInteractionListener: advertising.AdInteractionListener = {
   
 
 ##### AdRequestParams
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 广告请求参数。
  
@@ -821,6 +863,8 @@ const adInteractionListener: advertising.AdInteractionListener = {
   
 
 ##### AdDisplayOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 广告展示参数。
  

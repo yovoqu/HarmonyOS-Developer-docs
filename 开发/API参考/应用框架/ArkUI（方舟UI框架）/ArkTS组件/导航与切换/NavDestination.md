@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 子组件类型：系统组件和自定义组件，支持渲染控制类型（ if/else 、 ForEach 和 LazyForEach ）。 子组件个数：多个。
 
@@ -21,6 +23,8 @@
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NavDestination()
 
@@ -34,11 +38,15 @@ NavDestination()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### title
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle | Resource, options?: NavigationTitleOptions)
 
@@ -64,6 +72,8 @@ title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestination
 
 ##### hideTitleBar
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hideTitleBar(value: boolean)
 
 设置是否隐藏标题栏。
@@ -82,6 +92,8 @@ hideTitleBar(value: boolean)
 
 
 ##### hideTitleBar13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hideTitleBar(hide: boolean, animated: boolean)
 
@@ -102,6 +114,8 @@ hideTitleBar(hide: boolean, animated: boolean)
 
 
 ##### toolbarConfiguration13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toolbarConfiguration(toolbarParam: Array&lt;ToolbarItem&gt; | CustomBuilder, options?: NavigationToolbarOptions)
 
@@ -127,6 +141,8 @@ toolbarConfiguration(toolbarParam: Array&lt;ToolbarItem&gt; | CustomBuilder, opt
 
 ##### hideToolBar13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hideToolBar(hide: boolean, animated?: boolean)
 
 设置是否隐藏工具栏。
@@ -146,6 +162,8 @@ hideToolBar(hide: boolean, animated?: boolean)
 
 
 ##### mode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mode(value: NavDestinationMode)
 
@@ -170,6 +188,8 @@ mode(value: NavDestinationMode)
 
 ##### backButtonIcon11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier)
 
 设置标题栏返回键图标。
@@ -192,6 +212,8 @@ backButtonIcon(value: ResourceStr | PixelMap | SymbolGlyphModifier)
 
 
 ##### backButtonIcon19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier, accessibilityText?: ResourceStr)
 
@@ -217,6 +239,8 @@ backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier, accessibility
 
 ##### menus12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 menus(value: Array&lt;NavigationMenuItem&gt; | CustomBuilder)
 
 设置页面右上角菜单。不设置时不显示菜单项。使用Array<[NavigationMenuItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navigationmenuitem)> 写法时，竖屏最多支持显示3个图标，横屏最多支持显示5个图标，多余的图标会被放入自动生成的更多图标。
@@ -239,6 +263,8 @@ menus(value: Array&lt;NavigationMenuItem&gt; | CustomBuilder)
 
 
 ##### menus19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 menus(items: Array&lt;NavigationMenuItem&gt; | CustomBuilder, options?: NavigationMenuOptions)
 
@@ -264,6 +290,8 @@ menus(items: Array&lt;NavigationMenuItem&gt; | CustomBuilder, options?: Navigati
 
 ##### ignoreLayoutSafeArea12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;LayoutSafeAreaEdge&gt;)
 
 控制组件的布局，使其扩展到非安全区域。
@@ -288,6 +316,8 @@ ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;L
 
 ##### systemBarStyle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 systemBarStyle(style: Optional&lt;SystemBarStyle&gt;)
 
 当Navigation中显示当前NavDestination时，设置对应系统状态栏的样式。
@@ -311,6 +341,8 @@ systemBarStyle(style: Optional&lt;SystemBarStyle&gt;)
 
 ##### systemTransition14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 systemTransition(type: NavigationSystemTransitionType)
 
 设置NavDestination系统转场动画，支持分别设置系统标题栏动画和内容动画。
@@ -329,6 +361,8 @@ systemTransition(type: NavigationSystemTransitionType)
 
 
 ##### recoverable14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 recoverable(recoverable: Optional&lt;boolean&gt;)
 
@@ -350,6 +384,8 @@ recoverable(recoverable: Optional&lt;boolean&gt;)
 
 
 ##### bindToScrollable14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bindToScrollable(scrollers: Array&lt;Scroller&gt;)
 
@@ -374,6 +410,8 @@ bindToScrollable(scrollers: Array&lt;Scroller&gt;)
 
 ##### bindToNestedScrollable14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 bindToNestedScrollable(scrollInfos: Array&lt;NestedScrollInfo&gt;)
 
 绑定NavDestination组件和嵌套的可滚动容器组件（支持[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)），当滑动父组件或子组件时，会触发所有与其绑定的NavDestination组件的标题栏和工具栏的显示和隐藏动效，上滑隐藏，下滑显示。一个NavDestination可与多个嵌套的可滚动容器组件绑定，嵌套的可滚动容器组件也可与多个NavDestination绑定。使用示例参见[示例1](#示例1标题栏工具栏与可滚动类组件联动)。
@@ -397,6 +435,8 @@ bindToNestedScrollable(scrollInfos: Array&lt;NestedScrollInfo&gt;)
 
 ##### hideBackButton15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hideBackButton(hide: Optional&lt;boolean&gt;)
 
 设置是否隐藏标题栏中的返回键。
@@ -415,6 +455,8 @@ hideBackButton(hide: Optional&lt;boolean&gt;)
 
 
 ##### customTransition15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 customTransition(delegate: NavDestinationTransitionDelegate)
 
@@ -439,6 +481,8 @@ customTransition(delegate: NavDestinationTransitionDelegate)
 
 ##### preferredOrientation19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 preferredOrientation(orientation: Optional&lt;Orientation&gt;)
 
 设置NavDestination对应的显示方向。转场到该NavDestination后，系统也会将应用主窗口切到该显示方向。
@@ -461,6 +505,8 @@ preferredOrientation(orientation: Optional&lt;Orientation&gt;)
 
 
 ##### enableStatusBar19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableStatusBar(enabled: Optional&lt;boolean&gt;, animated?: boolean)
 
@@ -486,6 +532,8 @@ enableStatusBar(enabled: Optional&lt;boolean&gt;, animated?: boolean)
 
 ##### enableNavigationIndicator19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableNavigationIndicator(enabled: Optional&lt;boolean&gt;)
 
 设置进入该NavDestination后，显示或者隐藏系统的导航条。
@@ -509,6 +557,8 @@ enableNavigationIndicator(enabled: Optional&lt;boolean&gt;)
 
 ##### NavDestinationMode枚举说明11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 NavDestination类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -524,6 +574,8 @@ NavDestination类型。
 
 
 ##### NavigationSystemTransitionType14+枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 系统转场动画类型。
 
@@ -549,11 +601,15 @@ NavDestination类型。
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持如下事件：
 
 
 
 ##### onShown10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onShown(callback: Callback&lt;VisibilityChangeReason&gt;)
 
@@ -574,6 +630,8 @@ onShown(callback: Callback&lt;VisibilityChangeReason&gt;)
 
 ##### onHidden10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onHidden(callback: Callback&lt;VisibilityChangeReason&gt;)
 
 当该NavDestination页面隐藏时触发此回调。从API version 21开始，支持通过VisibilityChangeReason说明onHidden触发的原因。
@@ -592,6 +650,8 @@ onHidden(callback: Callback&lt;VisibilityChangeReason&gt;)
 
 
 ##### onWillAppear12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWillAppear(callback: Callback&lt;void&gt;)
 
@@ -616,6 +676,8 @@ onWillAppear(callback: Callback&lt;void&gt;)
 
 ##### onWillShow12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onWillShow(callback: Callback&lt;void&gt;)
 
 当该NavDestination显示之前触发此回调。
@@ -638,6 +700,8 @@ onWillShow(callback: Callback&lt;void&gt;)
 
 
 ##### onWillHide12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWillHide(callback: Callback&lt;void&gt;)
 
@@ -662,6 +726,8 @@ onWillHide(callback: Callback&lt;void&gt;)
 
 ##### onWillDisappear12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onWillDisappear(callback: Callback&lt;void&gt;)
 
 当该NavDestination卸载之前触发的生命周期(有转场动画时，在转场动画开始之前触发)。
@@ -685,6 +751,8 @@ onWillDisappear(callback: Callback&lt;void&gt;)
 
 ##### onBackPressed10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onBackPressed(callback: () => boolean)
 
 当与Navigation绑定的导航控制器中存在内容时，此回调生效。当点击返回键时，触发该回调。
@@ -705,6 +773,8 @@ onBackPressed(callback: () => boolean)
 
 
 ##### onReady11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onReady(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-base#callback)<[NavDestinationContext](#navdestinationcontext11)>)
 
@@ -729,6 +799,8 @@ onReady(callback: [Callback](https://developer.huawei.com/consumer/cn/doc/harmon
 
 ##### onResult15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onResult(callback: Optional<Callback&lt;ESObject&gt;>)
 
 NavDestination返回时触发该回调。
@@ -751,6 +823,8 @@ NavDestination返回时触发该回调。
 
 
 ##### onActive17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onActive(callback: Optional<Callback&lt;NavDestinationActiveReason&gt;>)
 
@@ -775,6 +849,8 @@ NavDestination处于激活态（处于栈顶可操作，且上层无特殊组件
 
 ##### onInactive17+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onInactive(callback: Optional<Callback&lt;NavDestinationActiveReason&gt;>)
 
 NavDestination处于非激活态（处于非栈顶不可操作，或处于栈顶时上层有特殊组件遮挡）时，触发该回调。使用示例参见[示例5](#示例5navdestination的onactive与oninactive生命周期)。
@@ -797,6 +873,8 @@ NavDestination处于非激活态（处于非栈顶不可操作，或处于栈顶
 
 
 ##### onNewParam19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onNewParam(callback: Optional<Callback&lt;ESObject&gt;>)
 
@@ -821,6 +899,8 @@ onNewParam(callback: Optional<Callback&lt;ESObject&gt;>)
 
 ##### NavDestinationCommonTitle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 NavDestination通用标题。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -836,6 +916,8 @@ NavDestination通用标题。
 
 
 ##### NavDestinationCustomTitle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NavDestination自定义标题。
 
@@ -853,6 +935,8 @@ NavDestination自定义标题。
 
 ##### NavDestinationContext11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 NavDestination上下文信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -868,6 +952,8 @@ NavDestination上下文信息。
 
 
 ##### getConfigInRouteMap12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getConfigInRouteMap(): RouteMapConfig | undefined
 
@@ -888,6 +974,8 @@ getConfigInRouteMap(): RouteMapConfig | undefined
 
 ##### RouteMapConfig12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 路由配置信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -905,6 +993,8 @@ getConfigInRouteMap(): RouteMapConfig | undefined
 
 ##### NestedScrollInfo14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 嵌套可滚动容器组件信息
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -920,6 +1010,8 @@ getConfigInRouteMap(): RouteMapConfig | undefined
 
 
 ##### NavDestinationActiveReason17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NavDestination激活态或者非激活态变化的原因。
 
@@ -941,6 +1033,8 @@ NavDestination激活态或者非激活态变化的原因。
 
 ##### VisibilityChangeReason21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 NavDestination可见性发生变化的原因。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
@@ -957,6 +1051,8 @@ NavDestination可见性发生变化的原因。
 
 
 ##### NavDestinationTransition15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NavDestination自定义动画接口。
 
@@ -976,6 +1072,8 @@ NavDestination自定义动画接口。
 
 
 ##### NavDestinationTransitionDelegate15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NavDestinationTransitionDelegate = (operation: NavigationOperation, isEnter: boolean) => Array&lt;NavDestinationTransition&gt; | undefined
 
@@ -1004,6 +1102,8 @@ NavDestination自定义转场动画的代理函数。
 
 ##### Orientation19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Orientation = Orientation
 
 Orientation实例对象。
@@ -1020,6 +1120,8 @@ Orientation实例对象。
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -1168,7 +1270,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/6Admv0TMSWSnc37_S-lkbg/zh-cn_image_0000002581435802.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=DB07C9A141C8887262CD3E02CAB1C18ACD8DD11D349F8902CE56A750768FC847)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/6Admv0TMSWSnc37_S-lkbg/zh-cn_image_0000002581435802.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=FCBBFAE7679A9D0B675ACE69288284965ECDC8CB9AEFE2776C5586D088868DCA)
 
 
 
@@ -1314,7 +1416,7 @@ struct NavDest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/h_ooRZ01SRy-hj8Sv3gCLg/zh-cn_image_0000002611835631.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=8CD8FE7AED938DB0D6F6B251848BD0A237707BA59BAF4C19D617FBC524502E8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/h_ooRZ01SRy-hj8Sv3gCLg/zh-cn_image_0000002611835631.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=57198C3AE4C510BA8A3C0FE3A776E7C8D9F39E2FE48984D48A6698F5C432145E)
 
 
 
@@ -1566,19 +1668,19 @@ struct HomeBody {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/kjeCsREvRO-sX75hCtGUew/zh-cn_image_0000002581275884.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=3BDC65C4F093E146382752D4D56D3805A6DCA46353150E814843D56635D23545)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/kjeCsREvRO-sX75hCtGUew/zh-cn_image_0000002581275884.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=9956B1B890DD1A46ABAB4279778EFE716713B652150D937276DCBE45AC01C3D6)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/e_0OwC92SK-qg4IRuW95-A/zh-cn_image_0000002611755741.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=61CBF21BC4B743913DCF4D9C8F1FC59F53093D3867EC98D82011368A60EBF72E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/e_0OwC92SK-qg4IRuW95-A/zh-cn_image_0000002611755741.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=7402AFD02B74BBACEFBE1BFF060A329264DBE125C6CCE81E9BDEC006007DE024)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/EKstPjABTx-wvy1iu_ydHw/zh-cn_image_0000002581435804.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=D5062D7E317B58C2BED8EDFE4FD277625612916F83F5FA99C23DB5F1CA738ABB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/EKstPjABTx-wvy1iu_ydHw/zh-cn_image_0000002581435804.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=5B0BDF19EA36A0B4072A7778D12A2A95B365D1071E5E6CE87747FABE0B8084DE)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/zIrXrMxfTTGRDw9I9iq4yg/zh-cn_image_0000002611835635.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=4EF69BFD067155B84CE24ECE3C47887FF8659AC8CC0773EBA08B7BE8F23952CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/zIrXrMxfTTGRDw9I9iq4yg/zh-cn_image_0000002611835635.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=9D227CF0F02920F7E9B29E9832B2843AD967AE28C2B488C084FC63CD3E24A693)
 
 
 
@@ -1673,7 +1775,7 @@ struct ExamplePage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/ytbhJULYTV-9N9Wp5byzwQ/zh-cn_image_0000002581275886.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=2382E48329F217F53A36144716A1D2DE326BE92E6679E84E6C6ADCCEBECC0852)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/ytbhJULYTV-9N9Wp5byzwQ/zh-cn_image_0000002581275886.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=5DB32CE11F882820C2B47D8FDF58E9201497D31A575EF7C800B99AFC2CB236C9)
 
 
 
@@ -1894,7 +1996,7 @@ struct NavBody {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/HrTVBdWWSZGpF4ZUOVYU2A/zh-cn_image_0000002611755743.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=436371CF0E073D11631D2F986345C18001A53D628FA32383CA3955D5947FFA3A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/HrTVBdWWSZGpF4ZUOVYU2A/zh-cn_image_0000002611755743.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=493393E3116A546F577CF756AB33D9FD25D27C76180A65842DA21438F75E8E4E)
 
 
 NavDestination其他用法可参考[Navigation示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#示例)。

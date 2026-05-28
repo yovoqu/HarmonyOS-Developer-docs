@@ -12,6 +12,8 @@ typedef struct OH_Rdb_CryptoParam OH_Rdb_CryptoParam
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指定打开加密数据库时使用的加密参数。
  
 **起始版本：** 20

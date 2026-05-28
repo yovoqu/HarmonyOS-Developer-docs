@@ -12,6 +12,8 @@ typedef struct OH_NativeXComponent_Callback {...} OH_NativeXComponent_Callback
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 注册Surface生命周期和触摸事件回调。
  
 **起始版本：** 8
@@ -24,9 +26,13 @@ typedef struct OH_NativeXComponent_Callback {...} OH_NativeXComponent_Callback
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,9 +46,13 @@ typedef struct OH_NativeXComponent_Callback {...} OH_NativeXComponent_Callback
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OnSurfaceCreated()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*OnSurfaceCreated)(OH_NativeXComponent* component, void* window)
@@ -66,6 +76,8 @@ void (*OnSurfaceCreated)(OH_NativeXComponent* component, void* window)
 
 ##### OnSurfaceChanged()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*OnSurfaceChanged)(OH_NativeXComponent* component, void* window)
 ```
@@ -88,6 +100,8 @@ void (*OnSurfaceChanged)(OH_NativeXComponent* component, void* window)
 
 ##### OnSurfaceDestroyed()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*OnSurfaceDestroyed)(OH_NativeXComponent* component, void* window)
 ```
@@ -109,6 +123,8 @@ void (*OnSurfaceDestroyed)(OH_NativeXComponent* component, void* window)
   
 
 ##### DispatchTouchEvent()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*DispatchTouchEvent)(OH_NativeXComponent* component, void* window)

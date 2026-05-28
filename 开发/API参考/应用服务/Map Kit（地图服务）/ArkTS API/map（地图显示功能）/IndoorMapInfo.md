@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map } from '@kit.MapKit';
   
 
 ##### IndoorMapInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 室内图信息。使用[on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapeventmanager#onindoormapenter)(type: 'indoorMapEnter', callback: Callback<[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)>)方法会在进入室内图时触发回调，并返回[IndoorMapInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo)类型的实例。
  

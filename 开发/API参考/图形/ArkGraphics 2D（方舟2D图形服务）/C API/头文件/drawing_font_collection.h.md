@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义绘制模块中与字体集合相关的函数。
  
 **引用文件：** <native_drawing/drawing_font_collection.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -42,9 +48,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_CreateFontCollection()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_FontCollection* OH_Drawing_CreateFontCollection(void)
@@ -69,6 +79,8 @@ OH_Drawing_FontCollection* OH_Drawing_CreateFontCollection(void)
 
 ##### OH_Drawing_DestroyFontCollection()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyFontCollection(OH_Drawing_FontCollection* fontCollection)
 ```
@@ -91,6 +103,8 @@ void OH_Drawing_DestroyFontCollection(OH_Drawing_FontCollection* fontCollection)
   
 
 ##### OH_Drawing_DisableFontCollectionFallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_DisableFontCollectionFallback(OH_Drawing_FontCollection* fontCollection)
@@ -119,6 +133,8 @@ void OH_Drawing_DisableFontCollectionFallback(OH_Drawing_FontCollection* fontCol
 
 ##### OH_Drawing_DisableFontCollectionSystemFont()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DisableFontCollectionSystemFont(OH_Drawing_FontCollection* fontCollection)
 ```
@@ -141,6 +157,8 @@ void OH_Drawing_DisableFontCollectionSystemFont(OH_Drawing_FontCollection* fontC
   
 
 ##### OH_Drawing_CreateSharedFontCollection()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_FontCollection* OH_Drawing_CreateSharedFontCollection(void)
@@ -165,6 +183,8 @@ OH_Drawing_FontCollection* OH_Drawing_CreateSharedFontCollection(void)
 
 ##### OH_Drawing_ClearFontCaches()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_ClearFontCaches(OH_Drawing_FontCollection* fontCollection)
 ```
@@ -187,6 +207,8 @@ void OH_Drawing_ClearFontCaches(OH_Drawing_FontCollection* fontCollection)
   
 
 ##### OH_Drawing_GetFontCollectionGlobalInstance()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_FontCollection* OH_Drawing_GetFontCollectionGlobalInstance(void)

@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### MapPolygon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 多边形，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。多边形可以是凸面或凹面，它可以跨越180子午线并且可以具有未填充的孔。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addpolygon)方法时会返回该类型的实例。
  
@@ -44,6 +48,8 @@ let mapPolygon = await this.mapController.addPolygon(polygonOptions);
 
 ##### getFillColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getFillColor(): number
  
 获取ARGB格式的多边形的填充色值。
@@ -72,6 +78,8 @@ let fillColor: number = mapPolygon.getFillColor();
   
 
 ##### getHoles
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getHoles(): Array<Array<mapCommon.LatLng>>
  
@@ -106,6 +114,8 @@ let holes: Array<Array<mapCommon.LatLng>> = mapPolygon.getHoles();
 
 ##### getPoints
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getPoints(): Array<mapCommon.LatLng>
  
 获取多边形的顶点坐标。
@@ -134,6 +144,8 @@ let points: Array<mapCommon.LatLng> = mapPolygon.getPoints();
   
 
 ##### getStrokeColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getStrokeColor(): number
  
@@ -164,6 +176,8 @@ let strokeColor: number = mapPolygon.getStrokeColor();
 
 ##### getJointType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getJointType(): mapCommon.JointType
  
 获取多边形的顶点样式。
@@ -192,6 +206,8 @@ let jointType: mapCommon.JointType = mapPolygon.getJointType();
   
 
 ##### getPatterns
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getPatterns(): Array<mapCommon.PatternItem>
  
@@ -222,6 +238,8 @@ let patterns: Array<mapCommon.PatternItem> = mapPolygon.getPatterns();
 
 ##### getStrokeWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getStrokeWidth(): number
  
 获取多边形的边框宽度。
@@ -250,6 +268,8 @@ let strokeWidth: number = mapPolygon.getStrokeWidth();
   
 
 ##### isClickable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isClickable(): boolean
  
@@ -280,6 +300,8 @@ let clickable: boolean = mapPolygon.isClickable();
 
 ##### isGeodesic
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isGeodesic(): boolean
  
 获取多边形的每个线段是否为大地线。
@@ -308,6 +330,8 @@ let geodesic: boolean = mapPolygon.isGeodesic();
   
 
 ##### setClickable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setClickable(clickable: boolean): void
  
@@ -338,6 +362,8 @@ mapPolygon.setClickable(true);
 
 ##### setFillColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setFillColor(color: number): void
  
 设置多边形的填充色。
@@ -367,6 +393,8 @@ mapPolygon.setFillColor(0xff000FFF);
 
 ##### setGeodesic
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setGeodesic(geodesic: boolean): void
  
 设置是否将多边形的每个线段绘制为大地线。
@@ -395,6 +423,8 @@ mapPolygon.setGeodesic(true);
   
 
 ##### setHoles
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setHoles(holes: Array<Array<mapCommon.LatLng>>): void
  
@@ -453,6 +483,8 @@ mapPolygon.setHoles(holes);
 
 ##### setPoints
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setPoints(points: Array<mapCommon.LatLng>): void
  
 重新设置多边形的顶点坐标。
@@ -500,6 +532,8 @@ mapPolygon.setPoints(points);
 
 ##### setStrokeColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setStrokeColor(color: number): void
  
 设置多边形的边框颜色。
@@ -529,6 +563,8 @@ mapPolygon.setStrokeColor(0xff00DB93);
 
 ##### setJointType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setJointType(jointType: mapCommon.JointType): void
  
 设置多边形的顶点样式。
@@ -557,6 +593,8 @@ mapPolygon.setJointType(mapCommon.JointType.ROUND);
   
 
 ##### setPatterns
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setPatterns(patterns: Array<mapCommon.PatternItem>): void
  
@@ -600,6 +638,8 @@ mapPolygon.setPatterns(linePatterns);
   
 
 ##### setStrokeWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setStrokeWidth(width: number): void
  

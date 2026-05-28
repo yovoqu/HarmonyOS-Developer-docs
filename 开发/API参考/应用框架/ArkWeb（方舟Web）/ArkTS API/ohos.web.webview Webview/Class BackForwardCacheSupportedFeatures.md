@@ -14,6 +14,8 @@
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.Web.Webview.Core
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -25,6 +27,8 @@
   
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
  

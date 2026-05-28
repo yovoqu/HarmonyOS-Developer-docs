@@ -14,6 +14,8 @@ linkEnhance模块提供高效的蓝牙连接和数据传输功能，增强设备
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { linkEnhance } from '@kit.DistributedServiceKit';
 ```
@@ -21,6 +23,8 @@ import { linkEnhance } from '@kit.DistributedServiceKit';
 
 
 ##### linkEnhance.createServer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createServer(name: string): Server
 
@@ -80,6 +84,8 @@ try {
 
 
 ##### linkEnhance.createConnection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createConnection(deviceId: string, name: string): Connection
 
@@ -141,6 +147,8 @@ try {
 
 ##### Server
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 服务对象，提供启动服务、停止服务、关闭服务、注册/取消注册服务端回调等方法。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
@@ -152,6 +160,8 @@ try {
 
 
 ##### start()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(): void
 
@@ -198,6 +208,8 @@ try {
 
 ##### stop()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): void
 
 使用完服务时，调用stop停止服务，停止后可以调用start重新开启服务。
@@ -242,6 +254,8 @@ try {
 
 ##### close()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 当业务执行完毕，服务端清理资源时，调用close()方法，销毁Server对象，释放相关资源。之后如果再次与对端设备交互，需要重新创建Server对象。
@@ -285,6 +299,8 @@ try {
 
 
 ##### on('connectionAccepted')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'connectionAccepted', callback: Callback&lt;Connection&gt;): void
 
@@ -345,6 +361,8 @@ try {
 
 ##### off('connectionAccepted')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'connectionAccepted', callback?: Callback&lt;Connection&gt;): void
 
 取消注册connectionAccepted事件的回调监听。使用callback异步回调。
@@ -403,6 +421,8 @@ try {
 
 
 ##### on('serverStopped')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'serverStopped', callback: Callback&lt;number&gt;): void
 
@@ -463,6 +483,8 @@ try {
 
 ##### off('serverStopped')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'serverStopped', callback?: Callback&lt;number&gt;): void
 
 取消注册serverStopped事件的回调监听。使用callback异步回调。
@@ -522,6 +544,8 @@ try {
 
 ##### ConnectResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 客户端调用connect()后，返回的连接结果。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
@@ -539,6 +563,8 @@ try {
 
 ##### Connection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 连接对象，提供连接、断连、获取对端设备ID、发送数据、注册/取消注册回调等方法。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
@@ -548,6 +574,8 @@ try {
 
 
 ##### connect()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connect(): void
 
@@ -601,6 +629,8 @@ try {
 
 ##### disconnect()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnect(): void
 
 业务执行完毕后，双端任意设备可调用该接口断开连接。创建的connection对象仍有效，需要时可调用connect()重新连接。
@@ -650,6 +680,8 @@ try {
 
 ##### close()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 业务执行完毕后，任意设备可调用该接口销毁connection对象，释放资源。若需再次与对端设备交互，必须重新创建connection对象并调用connect()发起连接。
@@ -698,6 +730,8 @@ try {
 
 
 ##### getPeerDeviceId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPeerDeviceId(): string
 
@@ -749,6 +783,8 @@ try {
 
 
 ##### sendData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendData(data: ArrayBuffer): void
 
@@ -813,6 +849,8 @@ try {
 
 ##### on('connectResult')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'connectResult', callback: Callback&lt;ConnectResult&gt;): void
 
 注册connect事件的回调监听，通过回调函数获取连接结果。使用callback进行异步回调。
@@ -870,6 +908,8 @@ try {
 
 
 ##### off('connectResult')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'connectResult', callback?: Callback&lt;ConnectResult&gt;): void
 
@@ -929,6 +969,8 @@ try {
 
 ##### on('disconnected')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'disconnected', callback: Callback&lt;number&gt;): void
 
 注册disconnected事件的回调监听，连接被动断开或者底层异常断开时触发该事件。使用callback异步回调。
@@ -983,6 +1025,8 @@ try {
 
 
 ##### off('disconnected')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'disconnected', callback?: Callback&lt;number&gt;): void
 
@@ -1042,6 +1086,8 @@ try {
 
 ##### on('dataReceived')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'dataReceived', callback: Callback&lt;ArrayBuffer&gt;): void
 
 注册dataReceived事件的回调监听。使用callback异步回调。
@@ -1098,6 +1144,8 @@ try {
 
 
 ##### off('dataReceived')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'dataReceived', callback?: Callback&lt;ArrayBuffer&gt;): void
 

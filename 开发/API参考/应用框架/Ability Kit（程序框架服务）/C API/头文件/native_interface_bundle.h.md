@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供查询应用包信息的功能，包括应用包名、应用指纹、应用appId等。
 
 **引用文件：** <bundle/native_interface_bundle.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -38,6 +44,8 @@
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |
@@ -55,9 +63,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### OH_NativeBundle_GetCurrentApplicationInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_NativeBundle_ApplicationInfo OH_NativeBundle_GetCurrentApplicationInfo()
@@ -80,6 +92,8 @@ OH_NativeBundle_ApplicationInfo OH_NativeBundle_GetCurrentApplicationInfo()
 
 ##### OH_NativeBundle_GetAppId()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 char* OH_NativeBundle_GetAppId()
 ```
@@ -100,6 +114,8 @@ char* OH_NativeBundle_GetAppId()
 
 
 ##### OH_NativeBundle_GetAppIdentifier()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char* OH_NativeBundle_GetAppIdentifier()
@@ -122,6 +138,8 @@ char* OH_NativeBundle_GetAppIdentifier()
 
 ##### OH_NativeBundle_GetMainElementName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_NativeBundle_ElementName OH_NativeBundle_GetMainElementName()
 ```
@@ -143,6 +161,8 @@ OH_NativeBundle_ElementName OH_NativeBundle_GetMainElementName()
 
 ##### OH_NativeBundle_GetCompatibleDeviceType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 char* OH_NativeBundle_GetCompatibleDeviceType()
 ```
@@ -163,6 +183,8 @@ char* OH_NativeBundle_GetCompatibleDeviceType()
 
 
 ##### OH_NativeBundle_IsDebugMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_NativeBundle_IsDebugMode(bool* isDebugMode)
@@ -192,6 +214,8 @@ bool OH_NativeBundle_IsDebugMode(bool* isDebugMode)
 
 ##### OH_NativeBundle_GetModuleMetadata()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_NativeBundle_ModuleMetadata* OH_NativeBundle_GetModuleMetadata(size_t* size)
 ```
@@ -219,6 +243,8 @@ OH_NativeBundle_ModuleMetadata* OH_NativeBundle_GetModuleMetadata(size_t* size)
 
 
 ##### OH_NativeBundle_GetAbilityResourceInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 BundleManager_ErrorCode OH_NativeBundle_GetAbilityResourceInfo(char* fileType, OH_NativeBundle_AbilityResourceInfo** abilityResourceInfo, size_t* size)

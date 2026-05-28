@@ -14,6 +14,8 @@
 
 ##### on('navDestinationUpdate')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'navDestinationUpdate', callback: Callback<observer.NavDestinationInfo>): void
  
 监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化。
@@ -89,6 +91,8 @@ struct Index {
 
 ##### off('navDestinationUpdate')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void
  
 取消监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化。
@@ -112,6 +116,8 @@ off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInf
   
 
 ##### on('navDestinationUpdate')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<observer.NavDestinationInfo>): void
  
@@ -190,6 +196,8 @@ struct Index {
 
 ##### off('navDestinationUpdate')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback<observer.NavDestinationInfo>): void
  
 取消通过[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的id监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的状态变化。
@@ -214,6 +222,8 @@ off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callba
   
 
 ##### on('navDestinationUpdateByUniqueId')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void
  
@@ -305,6 +315,8 @@ struct Index {
 
 ##### off('navDestinationUpdateByUniqueId')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void
  
 取消通过[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的uniqueId监听[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)组件的变化。
@@ -329,6 +341,8 @@ off(type: 'navDestinationUpdateByUniqueId', navigationUniqueId: number, callback
   
 
 ##### on('scrollEvent')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'scrollEvent', callback: Callback<observer.ScrollEventInfo>): void
  
@@ -425,6 +439,8 @@ struct Index {
 
 ##### off('scrollEvent')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void
  
 取消监听所有滚动组件滚动事件的开始和结束。滚动组件包括[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)、[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)。
@@ -448,6 +464,8 @@ off(type: 'scrollEvent', callback?: Callback<observer.ScrollEventInfo>): void
   
 
 ##### on('scrollEvent')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<observer.ScrollEventInfo>): void
  
@@ -474,6 +492,8 @@ on(type: 'scrollEvent', options: observer.ObserverOptions, callback: Callback<ob
 
 ##### off('scrollEvent')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<observer.ScrollEventInfo>): void
  
 取消监听指定id的滚动组件滚动事件的开始和结束。滚动组件包括[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)、[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)。
@@ -498,6 +518,8 @@ off(type: 'scrollEvent', options: observer.ObserverOptions, callback?: Callback<
   
 
 ##### on('routerPageUpdate')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'routerPageUpdate', callback: Callback<observer.RouterPageInfo>): void
  
@@ -568,6 +590,8 @@ struct Index {
 
 ##### off('routerPageUpdate')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): void
  
 取消监听[Router](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-router)中page页面的状态变化。
@@ -591,6 +615,8 @@ off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): voi
   
 
 ##### on('densityUpdate')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void
  
@@ -656,6 +682,8 @@ struct Index {
 
 ##### off('densityUpdate')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void
  
 取消监听屏幕像素密度的变化。
@@ -679,6 +707,8 @@ off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void
   
 
 ##### on('willDraw')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'willDraw', callback: Callback&lt;void&gt;): void
  
@@ -733,6 +763,8 @@ struct Index {
 
 ##### off('willDraw')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'willDraw', callback?: Callback&lt;void&gt;): void
  
 取消监听每一帧绘制指令下发情况。
@@ -756,6 +788,8 @@ off(type: 'willDraw', callback?: Callback&lt;void&gt;): void
   
 
 ##### on('didLayout')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'didLayout', callback: Callback&lt;void&gt;): void
  
@@ -810,6 +844,8 @@ struct Index {
 
 ##### off('didLayout')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'didLayout', callback?: Callback&lt;void&gt;): void
  
 取消监听每一帧布局完成情况。
@@ -833,6 +869,8 @@ off(type: 'didLayout', callback?: Callback&lt;void&gt;): void
   
 
 ##### on('navDestinationSwitch')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'navDestinationSwitch', callback: Callback<observer.NavDestinationSwitchInfo>): void
  
@@ -916,6 +954,8 @@ struct Index {
 
 ##### off('navDestinationSwitch')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'navDestinationSwitch', callback?: Callback<observer.NavDestinationSwitchInfo>): void
  
 取消监听[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的页面切换事件。
@@ -939,6 +979,8 @@ off(type: 'navDestinationSwitch', callback?: Callback<observer.NavDestinationSwi
   
 
 ##### on('navDestinationSwitch')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'navDestinationSwitch', observerOptions: observer.NavDestinationSwitchObserverOptions, callback: Callback<observer.NavDestinationSwitchInfo>): void
  
@@ -1024,6 +1066,8 @@ struct Index {
 
 ##### off('navDestinationSwitch')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'navDestinationSwitch', observerOptions: observer.NavDestinationSwitchObserverOptions, callback?: Callback<observer.NavDestinationSwitchInfo>): void
  
 取消通过监听选项监听[Navigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation)的页面切换事件。
@@ -1048,6 +1092,8 @@ off(type: 'navDestinationSwitch', observerOptions: observer.NavDestinationSwitch
   
 
 ##### on('willClick')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'willClick', callback: GestureEventListenerCallback): void
  
@@ -1157,6 +1203,8 @@ struct ClickExample {
 
 ##### off('willClick')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'willClick', callback?: GestureEventListenerCallback): void
  
 取消监听[on('willClick')](#onwillclick12)中的点击事件指令下发情况。从API version 20开始，支持屏幕朗读触控模式。
@@ -1180,6 +1228,8 @@ off(type: 'willClick', callback?: GestureEventListenerCallback): void
   
 
 ##### on('didClick')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'didClick', callback: GestureEventListenerCallback): void
  
@@ -1205,6 +1255,8 @@ on(type: 'didClick', callback: GestureEventListenerCallback): void
 
 ##### off('didClick')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'didClick', callback?: GestureEventListenerCallback): void
  
 取消监听[on('didClick')](#ondidclick12)中的点击事件指令下发情况。从API version 20开始，支持屏幕朗读触控模式。
@@ -1228,6 +1280,8 @@ off(type: 'didClick', callback?: GestureEventListenerCallback): void
   
 
 ##### on('willClick')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'willClick', callback: ClickEventListenerCallback): void
  
@@ -1253,6 +1307,8 @@ on(type: 'willClick', callback: ClickEventListenerCallback): void
 
 ##### off('willClick')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'willClick', callback?: ClickEventListenerCallback): void
  
 取消监听[on('willClick')](#onwillclick12-1)中的点击事件指令下发情况。从API version 20开始，支持屏幕朗读触控模式。
@@ -1276,6 +1332,8 @@ off(type: 'willClick', callback?: ClickEventListenerCallback): void
   
 
 ##### on('didClick')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'didClick', callback: ClickEventListenerCallback): void
  
@@ -1301,6 +1359,8 @@ on(type: 'didClick', callback: ClickEventListenerCallback): void
 
 ##### off('didClick')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'didClick', callback?: ClickEventListenerCallback): void
  
 取消监听[on('didClick')](#ondidclick12-1)中的点击事件指令下发情况。从API version 20开始，支持屏幕朗读触控模式。
@@ -1324,6 +1384,8 @@ off(type: 'didClick', callback?: ClickEventListenerCallback): void
   
 
 ##### on('tabContentUpdate')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'tabContentUpdate', callback: Callback<observer.TabContentInfo>): void
  
@@ -1403,6 +1465,8 @@ struct TabsExample {
 
 ##### off('tabContentUpdate')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): void
  
 取消监听[TabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent)页面的切换事件。
@@ -1426,6 +1490,8 @@ off(type: 'tabContentUpdate', callback?: Callback<observer.TabContentInfo>): voi
   
 
 ##### on('tabContentUpdate')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'tabContentUpdate', options: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void
  
@@ -1506,6 +1572,8 @@ struct TabsExample {
 
 ##### off('tabContentUpdate')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void
  
 取消通过[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)组件的id监听[TabContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabcontent)页面的切换事件。
@@ -1530,6 +1598,8 @@ off(type: 'tabContentUpdate', options: observer.ObserverOptions, callback?: Call
   
 
 ##### on('tabChange')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'tabChange', callback: Callback<observer.TabContentInfo>): void
  
@@ -1632,6 +1702,8 @@ struct TabsExample {
 
 ##### off('tabChange')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void
  
 取消监听所有的[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)组件页签的切换事件。
@@ -1655,6 +1727,8 @@ off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void
   
 
 ##### on('tabChange')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'tabChange', config: observer.ObserverOptions, callback: Callback<observer.TabContentInfo>): void
  
@@ -1755,6 +1829,8 @@ struct TabsExample {
 
 ##### off('tabChange')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'tabChange', config: observer.ObserverOptions, callback?: Callback<observer.TabContentInfo>): void
  
 取消监听指定[Tabs](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-tabs)组件页签的切换事件。
@@ -1779,6 +1855,8 @@ off(type: 'tabChange', config: observer.ObserverOptions, callback?: Callback<obs
   
 
 ##### on('textChange')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'textChange', callback: Callback<observer.TextChangeEventInfo>): void
  
@@ -1888,6 +1966,8 @@ struct TextUiObserver {
 
 ##### off('textChange')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'textChange', callback?: Callback<observer.TextChangeEventInfo>): void
  
 取消输入框文本变化的全局监听。
@@ -1911,6 +1991,8 @@ off(type: 'textChange', callback?: Callback<observer.TextChangeEventInfo>): void
   
 
 ##### on('textChange')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'textChange', identity: observer.ObserverOptions, callback:Callback<observer.TextChangeEventInfo>): void
  
@@ -1937,6 +2019,8 @@ on(type: 'textChange', identity: observer.ObserverOptions, callback:Callback<obs
 
 ##### off('textChange')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void
  
 取消指定ID输入框文本变化的局部监听。
@@ -1961,6 +2045,8 @@ off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<
   
 
 ##### on('beforePanStart')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'beforePanStart', callback: PanListenerCallback): void
  
@@ -2093,6 +2179,8 @@ struct PanExample {
 
 ##### off('beforePanStart')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'beforePanStart', callback?: PanListenerCallback): void
  
 取消[on('beforePanStart')](#onbeforepanstart19)监听Pan手势[onActionStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionstart)事件执行前的callback回调。
@@ -2116,6 +2204,8 @@ off(type: 'beforePanStart', callback?: PanListenerCallback): void
   
 
 ##### on('afterPanStart')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'afterPanStart', callback: PanListenerCallback): void
  
@@ -2141,6 +2231,8 @@ on(type: 'afterPanStart', callback: PanListenerCallback): void
 
 ##### off('afterPanStart')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'afterPanStart', callback?: PanListenerCallback): void
  
 取消[on('afterPanStart')](#onafterpanstart19)监听Pan手势[onActionStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionstart)事件执行后的callback回调。
@@ -2164,6 +2256,8 @@ off(type: 'afterPanStart', callback?: PanListenerCallback): void
   
 
 ##### on('beforePanEnd')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'beforePanEnd', callback: PanListenerCallback): void
  
@@ -2189,6 +2283,8 @@ on(type: 'beforePanEnd', callback: PanListenerCallback): void
 
 ##### off('beforePanEnd')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'beforePanEnd', callback?: PanListenerCallback): void
  
 取消[on('beforePanEnd')](#onbeforepanend19)监听Pan手势[onActionEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionend)事件执行前的callback回调。
@@ -2212,6 +2308,8 @@ off(type: 'beforePanEnd', callback?: PanListenerCallback): void
   
 
 ##### on('afterPanEnd')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'afterPanEnd', callback: PanListenerCallback): void
  
@@ -2237,6 +2335,8 @@ on(type: 'afterPanEnd', callback: PanListenerCallback): void
 
 ##### off('afterPanEnd')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'afterPanEnd', callback?: PanListenerCallback): void
  
 取消[on('afterPanEnd')](#onafterpanend19)监听Pan手势[onActionEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-gestures-pangesture#onactionend)事件执行后的callback回调。
@@ -2260,6 +2360,8 @@ off(type: 'afterPanEnd', callback?: PanListenerCallback): void
   
 
 ##### on('nodeRenderState')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void
  
@@ -2413,6 +2515,8 @@ struct Index {
 
 ##### off('nodeRenderState')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void
  
 取消监听节点渲染状态发生变化的callback回调。
@@ -2437,6 +2541,8 @@ off(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback?: NodeRenderSt
   
 
 ##### addGlobalGestureListener20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addGlobalGestureListener(type: GestureListenerType, option: GestureObserverConfigs, callback: GestureListenerCallback): void
  
@@ -2642,6 +2748,8 @@ struct Index {
 
 ##### removeGlobalGestureListener20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void
  
 移除某一手势监听器类型的回调函数。
@@ -2665,6 +2773,8 @@ removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListene
   
 
 ##### on('windowSizeLayoutBreakpointChange')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void
  
@@ -2739,6 +2849,8 @@ struct Index {
 
 ##### off('windowSizeLayoutBreakpointChange')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void
  
 移除之前注册的窗口尺寸布局断点变化回调函数。如果未提供回调函数参数，将移除指定上下文的所有回调函数。使用callback异步回调。
@@ -2762,6 +2874,8 @@ off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.Windo
   
 
 ##### onSwiperContentUpdate22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSwiperContentUpdate(callback: Callback&lt;SwiperContentInfo&gt;): void
  
@@ -2834,6 +2948,8 @@ struct SwiperExample {
 
 ##### offSwiperContentUpdate22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offSwiperContentUpdate(callback?: Callback&lt;SwiperContentInfo&gt;): void
  
 取消监听Swiper内容的切换事件。
@@ -2856,6 +2972,8 @@ offSwiperContentUpdate(callback?: Callback&lt;SwiperContentInfo&gt;): void
   
 
 ##### onSwiperContentUpdate22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback&lt;SwiperContentInfo&gt;): void
  
@@ -2930,6 +3048,8 @@ struct SwiperExample {
 
 ##### offSwiperContentUpdate22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback&lt;SwiperContentInfo&gt;): void
  
 取消通过Swiper组件id监听的Swiper内容切换事件。
@@ -2953,6 +3073,8 @@ offSwiperContentUpdate(config: observer.ObserverOptions, callback?: Callback&lt;
   
 
 ##### onRouterPageSizeChange23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRouterPageSizeChange(callback: Callback<observer.RouterPageInfo>): void
  
@@ -3008,6 +3130,8 @@ struct QueryRouterPageSize {
 
 ##### offRouterPageSizeChange23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offRouterPageSizeChange(callback?: Callback<observer.RouterPageInfo>): void
  
 移除使用onRouterPageSizeChange接口注册的监听回调函数。使用callback异步回调。
@@ -3030,6 +3154,8 @@ offRouterPageSizeChange(callback?: Callback<observer.RouterPageInfo>): void
   
 
 ##### onNavDestinationSizeChange23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onNavDestinationSizeChange(callback: Callback<observer.NavDestinationInfo>): void
  
@@ -3118,6 +3244,8 @@ struct QueryNavDestinationSize {
 
 ##### offNavDestinationSizeChange23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offNavDestinationSizeChange(callback?: Callback<observer.NavDestinationInfo>): void
  
 移除使用onNavDestinationSizeChange接口注册的监听回调函数。使用callback异步回调。
@@ -3140,6 +3268,8 @@ offNavDestinationSizeChange(callback?: Callback<observer.NavDestinationInfo>): v
   
 
 ##### onNavDestinationSizeChangeByUniqueId23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onNavDestinationSizeChangeByUniqueId(navigationUniqueId: number, callback: Callback<observer.NavDestinationInfo>): void
  
@@ -3234,6 +3364,8 @@ struct QueryNavDestinationSize {
   
 
 ##### offNavDestinationSizeChangeByUniqueId23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offNavDestinationSizeChangeByUniqueId(navigationUniqueId: number, callback?: Callback<observer.NavDestinationInfo>): void
  

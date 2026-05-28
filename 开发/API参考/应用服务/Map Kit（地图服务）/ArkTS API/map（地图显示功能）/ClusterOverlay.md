@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### ClusterOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 聚合图层类。
  
@@ -55,6 +59,8 @@ let clusterOverlay: map.ClusterOverlay = await this.mapController.addClusterOver
 
 ##### on('clusterClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'clusterClick', callback: Callback<Array<mapCommon.ClusterItem>>): void
  
 监听cluster的点击事件。使用callback异步回调。
@@ -89,6 +95,8 @@ clusterOverlay.on("clusterClick", (clusterItems) => {
 
 ##### off('clusterClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'clusterClick', callback?: Callback&lt;void&gt;): void
  
 取消监听cluster的点击事件。使用callback异步回调。
@@ -122,6 +130,8 @@ clusterOverlay.off("clusterClick", () => {
   
 
 ##### on('click')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'click', callback: Callback<Array<mapCommon.ClusterItem>>): void
  
@@ -163,6 +173,8 @@ clusterOverlay.on("click", callback3);
   
 
 ##### off('click')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'click', callback?: Callback<Array<mapCommon.ClusterItem>>): void
  
@@ -210,6 +222,8 @@ clusterOverlay.off('click');
 
 ##### on('markerClusterClick')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'markerClusterClick', callback: Callback&lt;MarkerClusterInfo&gt;): void
  
 监听聚合图层的标记点击事件。使用callback异步回调。
@@ -250,6 +264,8 @@ clusterOverlay.on("markerClusterClick", callback3);
   
 
 ##### off('markerClusterClick')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'markerClusterClick', callback?: Callback&lt;MarkerClusterInfo&gt;): void
  
@@ -296,6 +312,8 @@ clusterOverlay.off('markerClusterClick');
 
 ##### addItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addItem(item: mapCommon.ClusterItem): Promise&lt;void&gt;
  
 新增聚合节点。使用Promise异步回调。
@@ -337,6 +355,8 @@ await clusterOverlay.addItem(clusterItem);
   
 
 ##### remove
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 remove(): Promise&lt;void&gt;
  

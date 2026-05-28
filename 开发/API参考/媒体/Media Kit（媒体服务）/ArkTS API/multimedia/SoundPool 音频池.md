@@ -16,6 +16,8 @@ SoundPool需要和@ohos.multimedia.media配合使用，需要先通过[media.cre
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 import { audio } from '@kit.AudioKit';
@@ -24,6 +26,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### PlayParameters
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频池播放参数设置。
 
@@ -44,6 +48,8 @@ import { audio } from '@kit.AudioKit';
 
 ##### ErrorType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，错误类型（用于区分错误发生阶段）。
 
 **系统能力：** SystemCapability.Multimedia.Media.SoundPool
@@ -57,6 +63,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### ErrorInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 错误信息。
 
@@ -74,6 +82,8 @@ import { audio } from '@kit.AudioKit';
 
 ##### SoundPool
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 音频池提供了系统声音的加载、播放、音量设置、循环设置、停止播放和资源卸载等功能，在调用SoundPool的接口前，需要先通过[media.createSoundPool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-f#mediacreatesoundpool10)创建实例。
 
 > [!NOTE]
@@ -83,6 +93,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### load
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 load(uri: string, callback: AsyncCallback&lt;number&gt;): void
 
@@ -160,6 +172,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### load
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 load(uri: string): Promise&lt;number&gt;
 
@@ -243,6 +257,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### load
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 load(fd: number, offset: number, length: number, callback: AsyncCallback&lt;number&gt;): void
 
@@ -360,6 +376,8 @@ function create(context: Context) {
 
 
 ##### load
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 load(fd: number, offset: number, length: number): Promise&lt;number&gt;
 
@@ -480,6 +498,8 @@ function create(context: Context) {
 
 ##### play
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 play(soundID: number, params: PlayParameters, callback: AsyncCallback&lt;number&gt;): void
 
 播放音频资源，获取音频流streamID。使用callback异步回调。
@@ -551,6 +571,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### play
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 play(soundID: number, callback: AsyncCallback&lt;number&gt;): void
 
 使用默认参数播放音频资源，获取音频流streamID。使用callback异步回调。
@@ -613,6 +635,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### play
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 play(soundID: number, params?: PlayParameters): Promise&lt;number&gt;
 
@@ -690,6 +714,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(streamID: number, callback: AsyncCallback&lt;void&gt;): void
 
 停止播放音频资源。使用callback异步回调。
@@ -751,6 +777,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### stop
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(streamID: number): Promise&lt;void&gt;
 
@@ -818,6 +846,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### setLoop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setLoop(streamID: number, loop: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置循环模式。使用callback异步回调。
@@ -881,6 +911,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### setLoop
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setLoop(streamID: number, loop: number): Promise&lt;void&gt;
 
@@ -950,6 +982,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### setPriority
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPriority(streamID: number, priority: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置音频流播放的优先级。使用callback异步回调。
@@ -1013,6 +1047,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### setPriority
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPriority(streamID: number, priority: number): Promise&lt;void&gt;
 
@@ -1083,6 +1119,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### setRate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setRate(streamID: number, rate: audio.AudioRendererRate, callback: AsyncCallback&lt;void&gt;): void
 
 设置音频流播放速率。使用callback异步回调。
@@ -1146,6 +1184,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### setRate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRate(streamID: number, rate: audio.AudioRendererRate): Promise&lt;void&gt;
 
@@ -1215,6 +1255,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### setVolume
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVolume(streamID: number, leftVolume: number, rightVolume: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置音频流播放音量。使用callback异步回调。
@@ -1279,6 +1321,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### setVolume
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setVolume(streamID: number, leftVolume: number, rightVolume: number): Promise&lt;void&gt;
 
@@ -1349,6 +1393,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### setInterruptMode23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setInterruptMode(interruptMode: media.SoundInterruptMode): void
 
 设置同一ID音频在播放时的打断模式。创建soundPool之后，该接口仅在首次调用soundPool的Play函数之前设置有效，期间可多次设置，否则将默认使用[SAME_SOUND_INTERRUPT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#soundinterruptmode23)，即对同一ID的音频，如果前者尚未播放完成，后者在播放前会先打断前者的播放。
@@ -1393,6 +1439,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### unload
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unload(soundID: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1455,6 +1503,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### unload
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unload(soundID: number): Promise&lt;void&gt;
 
@@ -1523,6 +1573,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(callback: AsyncCallback&lt;void&gt;): void
 
 释放音频池实例。使用callback异步回调。
@@ -1580,6 +1632,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放音频池实例。使用Promise异步回调。
@@ -1635,6 +1689,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### on('loadComplete')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'loadComplete', callback: Callback&lt;number&gt;): void
 
 音频池资源加载完成监听。使用callback异步回调。
@@ -1680,6 +1736,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### off('loadComplete')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'loadComplete'): void
 
 取消监听资源的加载完成。
@@ -1721,6 +1779,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### on('playFinishedWithStreamId')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'playFinishedWithStreamId', callback: Callback&lt;number&gt;): void
 
@@ -1770,6 +1830,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool: me
 
 ##### off('playFinishedWithStreamId')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'playFinishedWithStreamId'): void
 
 取消监听音频池资源播放完成。
@@ -1810,6 +1872,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool: me
 
 
 ##### on('playFinished')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'playFinished', callback: Callback&lt;void&gt;): void
 
@@ -1856,6 +1920,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### off('playFinished')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'playFinished'): void
 
 取消监听音频池资源播放完成。
@@ -1897,6 +1963,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### on('error')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -1944,6 +2012,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 ##### off('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error'): void
 
 取消监听音频池的错误事件。
@@ -1985,6 +2055,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### on('errorOccurred')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'errorOccurred', callback: Callback&lt;ErrorInfo&gt;): void
 
@@ -2034,6 +2106,8 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
 
 
 ##### off('errorOccurred')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'errorOccurred', callback?: Callback&lt;ErrorInfo&gt;): void
 

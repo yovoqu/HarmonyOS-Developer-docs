@@ -12,6 +12,8 @@ typedef struct Http_Headers Http_Headers
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 HTTP请求或者是响应中的标头。
  
 **起始版本：** 20

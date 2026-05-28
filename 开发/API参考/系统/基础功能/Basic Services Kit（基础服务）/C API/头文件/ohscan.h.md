@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明用于发现和连接扫描仪、从扫描仪扫描图像、获取页面扫描进度和设置扫描图像参数等功能的API
  
 **引用文件：** <BasicServicesKit/ohscan.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -37,6 +43,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -46,6 +54,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -66,9 +76,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### Scan_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum Scan_ErrorCode
@@ -103,9 +117,13 @@ enum Scan_ErrorCode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### Scan_ScannerDiscoveryCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void (*Scan_ScannerDiscoveryCallback)(Scan_ScannerDevice** devices, int32_t deviceCount)
@@ -128,6 +146,8 @@ typedef void (*Scan_ScannerDiscoveryCallback)(Scan_ScannerDevice** devices, int3
   
 
 ##### OH_Scan_Init()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t OH_Scan_Init()
@@ -153,6 +173,8 @@ int32_t OH_Scan_Init()
   
 
 ##### OH_Scan_StartScannerDiscovery()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t OH_Scan_StartScannerDiscovery(Scan_ScannerDiscoveryCallback callback)
@@ -186,6 +208,8 @@ int32_t OH_Scan_StartScannerDiscovery(Scan_ScannerDiscoveryCallback callback)
 
 ##### OH_Scan_OpenScanner()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 int32_t OH_Scan_OpenScanner(const char* scannerId)
 ```
@@ -217,6 +241,8 @@ int32_t OH_Scan_OpenScanner(const char* scannerId)
   
 
 ##### OH_Scan_CloseScanner()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t OH_Scan_CloseScanner(const char* scannerId)
@@ -250,6 +276,8 @@ int32_t OH_Scan_CloseScanner(const char* scannerId)
 
 ##### OH_Scan_GetScannerParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 Scan_ScannerOptions* OH_Scan_GetScannerParameter(const char* scannerId, int32_t* errorCode)
 ```
@@ -282,6 +310,8 @@ Scan_ScannerOptions* OH_Scan_GetScannerParameter(const char* scannerId, int32_t*
   
 
 ##### OH_Scan_SetScannerParameter()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t OH_Scan_SetScannerParameter(const char* scannerId, const int32_t option, const char* value)
@@ -317,6 +347,8 @@ int32_t OH_Scan_SetScannerParameter(const char* scannerId, const int32_t option,
 
 ##### OH_Scan_StartScan()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 int32_t OH_Scan_StartScan(const char* scannerId, bool batchMode)
 ```
@@ -350,6 +382,8 @@ int32_t OH_Scan_StartScan(const char* scannerId, bool batchMode)
 
 ##### OH_Scan_CancelScan()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 int32_t OH_Scan_CancelScan(const char* scannerId)
 ```
@@ -381,6 +415,8 @@ int32_t OH_Scan_CancelScan(const char* scannerId)
   
 
 ##### OH_Scan_GetPictureScanProgress()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t OH_Scan_GetPictureScanProgress(const char* scannerId, Scan_PictureScanProgress* prog)
@@ -414,6 +450,8 @@ int32_t OH_Scan_GetPictureScanProgress(const char* scannerId, Scan_PictureScanPr
   
 
 ##### OH_Scan_Exit()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t OH_Scan_Exit()

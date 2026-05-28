@@ -18,11 +18,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 包含[Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-rect)、[Path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-path)、[Circle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-circle)、[Ellipse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-ellipse)、[Polyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polyline)、[Polygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-drawing-components-polygon)、[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)、[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)、[Column](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column)、[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)和Shape子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Shape(value?: PixelMap)
 
@@ -44,6 +48,8 @@ Shape(value?: PixelMap)
 
 
 ##### ViewportRect18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于描述Viewport的绘制属性。
 
@@ -69,11 +75,15 @@ Shape(value?: PixelMap)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### viewPort
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 viewPort(value: ViewportRect)
 
@@ -96,6 +106,8 @@ viewPort(value: ViewportRect)
 
 ##### fill
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fill(value: ResourceColor)
 
 设置填充区域的颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
@@ -116,6 +128,8 @@ fill(value: ResourceColor)
 
 
 ##### fillOpacity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fillOpacity(value: number | string | Resource)
 
@@ -138,6 +152,8 @@ fillOpacity(value: number | string | Resource)
 
 ##### stroke
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stroke(value: ResourceColor)
 
 设置边框颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，不设置时，默认边框透明度为0，即没有边框。
@@ -158,6 +174,8 @@ stroke(value: ResourceColor)
 
 
 ##### strokeDashArray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeDashArray(value: Array&lt;any&gt;)
 
@@ -180,6 +198,8 @@ strokeDashArray(value: Array&lt;any&gt;)
 
 ##### strokeDashOffset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeDashOffset(value: Length)
 
 设置边框绘制起点的偏移量，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。异常值按照默认值处理。
@@ -200,6 +220,8 @@ strokeDashOffset(value: Length)
 
 
 ##### strokeLineCap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeLineCap(value: LineCapStyle)
 
@@ -222,6 +244,8 @@ strokeLineCap(value: LineCapStyle)
 
 ##### strokeLineJoin
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeLineJoin(value: LineJoinStyle)
 
 设置边框拐角绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -242,6 +266,8 @@ strokeLineJoin(value: LineJoinStyle)
 
 
 ##### strokeMiterLimit
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeMiterLimit(value: Length)
 
@@ -266,6 +292,8 @@ strokeMiterLimit(value: Length)
 
 ##### strokeOpacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeOpacity(value: number | string | Resource)
 
 设置边框透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性的取值范围是[0.0, 1.0]，若给定值小于0.0，则取值为0.0；若给定值大于1.0，则取值为1.0。
@@ -286,6 +314,8 @@ strokeOpacity(value: number | string | Resource)
 
 
 ##### strokeWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeWidth(value: Length)
 
@@ -308,6 +338,8 @@ strokeWidth(value: Length)
 
 ##### antiAlias
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 antiAlias(value: boolean)
 
 设置是否开启抗锯齿效果，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -328,6 +360,8 @@ antiAlias(value: boolean)
 
 
 ##### mesh8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mesh(value: Array&lt;any&gt;, column: number, row: number)
 
@@ -355,6 +389,8 @@ mesh(value: Array&lt;any&gt;, column: number, row: number)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -563,7 +599,7 @@ struct ShapeTypeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/jKgjihRIQGaMgNFCiHkjWw/zh-cn_image_0000002611835983.png?HW-CC-KV=V1&HW-CC-Date=20260528T013905Z&HW-CC-Expire=86400&HW-CC-Sign=1DE704129B7B6B03B9AE7B5BDB000F32CD385622FC638BE55267DF4264C56323)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/jKgjihRIQGaMgNFCiHkjWw/zh-cn_image_0000002611835983.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=F9BC500964BED069D216EED29699E8DEFEE9438C9CE8EA12DDA74EE8DE88CBAC)
 
 
 
@@ -611,7 +647,7 @@ struct ShapeModifierDemo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/_pNgcJu8QlqN-dQxxQLItw/zh-cn_image_0000002581276236.png?HW-CC-KV=V1&HW-CC-Date=20260528T013905Z&HW-CC-Expire=86400&HW-CC-Sign=22B768A9D1F15287C8CEB8079AF1D97661CC361FE47523FA12C12878CB6BB981)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/_pNgcJu8QlqN-dQxxQLItw/zh-cn_image_0000002581276236.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=7E30165C67908422C550B61D1ABCEA7B9DD7C42552232B0FA9B8756DEC2A4C1B)
 
 
 
@@ -656,4 +692,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/WT8zYUJOTTmDnF0_pVIXWQ/zh-cn_image_0000002611756091.png?HW-CC-KV=V1&HW-CC-Date=20260528T013905Z&HW-CC-Expire=86400&HW-CC-Sign=4E1F3943BA8D52BE192146CE60D3BC89BE8174A84D5C4721908C857AC02CFFCF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/WT8zYUJOTTmDnF0_pVIXWQ/zh-cn_image_0000002611756091.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=4CAFBCC000056AC36E1E0E37C18936BEA8519E90138DC7CAEE29DB6603E76F3E)

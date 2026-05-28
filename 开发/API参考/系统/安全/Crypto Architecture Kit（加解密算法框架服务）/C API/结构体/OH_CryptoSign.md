@@ -12,6 +12,8 @@ typedef struct OH_CryptoSign OH_CryptoSign
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义签名结构体。
  
 **起始版本：** 20

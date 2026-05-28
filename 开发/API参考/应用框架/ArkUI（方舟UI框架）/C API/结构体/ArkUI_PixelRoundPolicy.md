@@ -12,6 +12,8 @@ typedef struct ArkUI_PixelRoundPolicy ArkUI_PixelRoundPolicy
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义组件的像素取整策略结构体。
  
 **起始版本：** 21

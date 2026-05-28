@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { uniformDataStruct } from '@kit.ArkData';
 ```
@@ -21,6 +23,8 @@ import { uniformDataStruct } from '@kit.ArkData';
 
 
 ##### PlainText
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 纯文本类型数据。
 
@@ -62,6 +66,8 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 ##### Hyperlink
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 超链接类型数据。
 
 **系统能力**：SystemCapability.DistributedDataManager.UDMF.Core
@@ -96,6 +102,8 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 ##### HTML
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 HTML类型数据，用于描述超文本标记语言数据。
 
 **系统能力**：SystemCapability.DistributedDataManager.UDMF.Core
@@ -129,6 +137,8 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 ##### OpenHarmonyAppItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 系统定义的桌面图标类型数据。
 
@@ -174,6 +184,8 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 ##### ContentForm14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 内容卡片类型数据。
 
 **系统能力**：SystemCapability.DistributedDataManager.UDMF.Core
@@ -211,6 +223,8 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 ##### Form15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 系统定义的卡片类型数据。
 
@@ -254,6 +268,8 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 ##### FileUri15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 文件地址类型数据。
 
 **系统能力**：SystemCapability.DistributedDataManager.UDMF.Core
@@ -290,6 +306,8 @@ let record = new unifiedDataChannel.UnifiedRecord(uniformTypeDescriptor.UniformD
 
 
 ##### PixelMap15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 系统定义的像素图类型数据。
 

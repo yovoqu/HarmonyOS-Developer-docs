@@ -22,6 +22,8 @@ ImagePacker类，用于图片压缩和编码。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -29,6 +31,8 @@ import { image } from '@kit.ImageKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
 
@@ -40,6 +44,8 @@ import { image } from '@kit.ImageKit';
 
 
 ##### packToData13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 packToData(source: ImageSource, options: PackingOption): Promise&lt;ArrayBuffer&gt;
 
@@ -104,6 +110,8 @@ async function PackToData(context : Context) {
 
 
 ##### packToData13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 packToData(source: PixelMap, options: PackingOption): Promise&lt;ArrayBuffer&gt;
 
@@ -180,6 +188,8 @@ async function PackToData() {
 
 ##### packing13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 packing(picture: Picture, options: PackingOption): Promise&lt;ArrayBuffer&gt;
 
 将图像压缩或重新编码。使用Promise异步回调。
@@ -246,6 +256,8 @@ async function Packing(context: Context) {
 
 ##### packToDataFromPixelmapSequence18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 packToDataFromPixelmapSequence(pixelmapSequence: Array&lt;PixelMap&gt;, options: PackingOptionsForSequence): Promise&lt;ArrayBuffer&gt;
 
 将多个PixelMap编码成GIF数据。使用Promise异步回调。
@@ -309,6 +321,8 @@ async function PackToDataFromPixelmapSequence(context : Context) {
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(callback: AsyncCallback&lt;void&gt;): void
 
 释放图片编码实例。使用callback异步回调。
@@ -347,6 +361,8 @@ async function Release() {
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放图片编码实例。使用Promise异步回调。
@@ -382,6 +398,8 @@ async function Release() {
 
 
 ##### packToFile11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 packToFile(source: ImageSource, fd: number, options: PackingOption, callback: AsyncCallback&lt;void&gt;): void
 
@@ -443,6 +461,8 @@ async function PackToFile(context : Context) {
 
 
 ##### packToFile11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 packToFile (source: ImageSource, fd: number, options: PackingOption): Promise&lt;void&gt;
 
@@ -508,6 +528,8 @@ async function PackToFile(context : Context) {
 
 
 ##### packToFile11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 packToFile (source: PixelMap, fd: number, options: PackingOption, callback: AsyncCallback&lt;void&gt;): void
 
@@ -578,6 +600,8 @@ async function PackToFile(context : Context) {
 
 
 ##### packToFile11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 packToFile (source: PixelMap, fd: number, options: PackingOption): Promise&lt;void&gt;
 
@@ -654,6 +678,8 @@ async function PackToFile(context : Context) {
 
 ##### packToFile13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 packToFile(picture: Picture, fd: number, options: PackingOption): Promise&lt;void&gt;
 
 指定编码参数，将Picture直接编码进文件。使用Promise异步回调。
@@ -725,6 +751,8 @@ async function PackToFile(context: Context) {
 
 ##### packToFileFromPixelmapSequence18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 packToFileFromPixelmapSequence(pixelmapSequence: Array&lt;PixelMap&gt;, fd: number, options: PackingOptionsForSequence): Promise&lt;void&gt;
 
 指定编码参数，将多个PixelMap编码成GIF文件。使用Promise异步回调。
@@ -792,6 +820,8 @@ async function PackToFile(context : Context) {
 
 ##### packing(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 packing(source: ImageSource, option: PackingOption, callback: AsyncCallback&lt;ArrayBuffer&gt;): void
 
 图片压缩或重新编码。使用callback异步回调。
@@ -837,6 +867,8 @@ async function Packing(context : Context) {
 
 
 ##### packing(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 packing(source: ImageSource, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 
@@ -889,6 +921,8 @@ async function Packing(context : Context) {
 
 ##### packing(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 packing(source: PixelMap, option: PackingOption, callback: AsyncCallback&lt;ArrayBuffer&gt;): void
 
 图片压缩或重新编码。使用callback异步回调。
@@ -898,7 +932,7 @@ packing(source: PixelMap, option: PackingOption, callback: AsyncCallback&lt;Arra
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uQnB4kYhT5ebqdC9hXaszg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013655Z&HW-CC-Expire=86400&HW-CC-Sign=8E79303E87072FC80BE3A83DFC3F6A6EC185B776F6E0D7AAF388E356B1DB582E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uQnB4kYhT5ebqdC9hXaszg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023952Z&HW-CC-Expire=86400&HW-CC-Sign=48EC7995E1C12C920FDB70616BDB9976D33158028700C029685EBC25D8C17C86)
 
 
 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
@@ -946,6 +980,8 @@ async function Packing() {
 
 ##### packing(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 packing(source: PixelMap, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 
 图片压缩或重新编码。使用Promise异步回调。
@@ -955,7 +991,7 @@ packing(source: PixelMap, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/zS5pVm0RQA655-8ER39DtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013655Z&HW-CC-Expire=86400&HW-CC-Sign=D79A43B5A1FA61DB7FB1DDF6BB62D18398F7A1AC37E07760A85EB994EBC92303)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/zS5pVm0RQA655-8ER39DtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023952Z&HW-CC-Expire=86400&HW-CC-Sign=417A06E1A1065CC2181BF8CA1603BF52BFEE9E14515E63C72959D57AA894103B)
 
 
 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。

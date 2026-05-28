@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { dataTransfer } from '@kit.NearLinkKit';
 ```
@@ -19,6 +21,8 @@ import { dataTransfer } from '@kit.NearLinkKit';
 
 
 ##### ConnectionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ConnectionState = constant.ConnectionState
 
@@ -36,6 +40,8 @@ type ConnectionState = constant.ConnectionState
 
 
 ##### createPort
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPort(uuid: string): void
 
@@ -88,6 +94,8 @@ try {
 
 ##### destroyPort
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 destroyPort(uuid: string): void
 
 销毁端口通道。
@@ -137,6 +145,8 @@ try {
 
 
 ##### connect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connect(params: ConnectionParams): Promise&lt;void&gt;
 
@@ -200,6 +210,8 @@ try {
 
 ##### disconnect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnect(params: ConnectionParams): Promise&lt;void&gt;
 
 断连远端设备，销毁端口通道。使用Promise异步回调。
@@ -262,6 +274,8 @@ try {
 
 ##### on('connectionStateChanged')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'connectionStateChanged', callback: Callback&lt;ConnectionResult&gt;): void
 
 订阅端口通道连接状态变更事件。
@@ -313,6 +327,8 @@ try {
 
 ##### off('connectionStateChanged')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'connectionStateChanged', callback?: Callback&lt;ConnectionResult&gt;): void
 
 取消订阅端口通道连接状态变更事件。
@@ -359,6 +375,8 @@ try {
 
 
 ##### getConnectionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getConnectionState(params: ConnectionStateParams): ConnectionState
 
@@ -418,6 +436,8 @@ try {
 
 
 ##### writeData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeData(params: DataParams): Promise&lt;void&gt;
 
@@ -487,6 +507,8 @@ try {
 
 ##### on('readData')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'readData', callback: Callback&lt;DataParams&gt;): void
 
 订阅端口通道数据接收事件。
@@ -538,6 +560,8 @@ try {
 
 ##### off('readData')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'readData', callback?: Callback&lt;DataParams&gt;): void
 
 取消订阅端口通道数据接收事件。
@@ -585,6 +609,8 @@ try {
 
 ##### ConnectionParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 发起端口连接的参数。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -603,6 +629,8 @@ try {
 
 ##### DataParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 端口数据发送和接收的参数。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -619,6 +647,8 @@ try {
 
 
 ##### ConnectionResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 与远端设备端口连接参数的协商结果
 
@@ -638,6 +668,8 @@ try {
 
 ##### ConnectionStateParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 获取端口通道连接状态所需参数。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -653,6 +685,8 @@ try {
 
 
 ##### TransferMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示和远端设备的数据传输模式，为枚举值。
 

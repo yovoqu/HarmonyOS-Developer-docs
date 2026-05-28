@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### fetchCookieSync11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static fetchCookieSync(url: string, incognito?: boolean): string
 
@@ -90,6 +94,8 @@ struct WebComponent {
 
 ##### fetchCookie11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static fetchCookie(url: string, callback: AsyncCallback&lt;string&gt;): void
 
 异步callback方式获取指定url对应cookie的值。
@@ -153,6 +159,8 @@ struct WebComponent {
 
 
 ##### fetchCookie11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static fetchCookie(url: string): Promise&lt;string&gt;
 
@@ -221,6 +229,8 @@ struct WebComponent {
 
 
 ##### fetchCookie14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static fetchCookie(url: string, incognito: boolean): Promise&lt;string&gt;
 
@@ -291,6 +301,8 @@ struct WebComponent {
 
 ##### configCookieSync11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static configCookieSync(url: string, value: string, incognito?: boolean): void
 
 为指定url设置单个cookie的值。
@@ -353,6 +365,8 @@ struct WebComponent {
 
 
 ##### configCookieSync14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static configCookieSync(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): void
 
@@ -418,6 +432,8 @@ struct WebComponent {
 
 ##### configCookie11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static configCookie(url: string, value: string, callback: AsyncCallback&lt;void&gt;): void
 
 异步callback方式为指定url设置单个cookie的值。
@@ -479,6 +495,8 @@ struct WebComponent {
 
 
 ##### configCookie11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static configCookie(url: string, value: string): Promise&lt;void&gt;
 
@@ -549,6 +567,8 @@ struct WebComponent {
 
 
 ##### configCookie14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static configCookie(url: string, value: string, incognito: boolean, includeHttpOnly: boolean): Promise&lt;void&gt;
 
@@ -622,6 +642,8 @@ struct WebComponent {
 
 ##### saveCookieSync15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static saveCookieSync(): void
 
 将当前可通过fetchCookie获取到的所有需要持久化的cookie同步保存到磁盘中。
@@ -663,6 +685,8 @@ struct WebComponent {
 
 
 ##### saveCookieAsync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static saveCookieAsync(callback: AsyncCallback&lt;void&gt;): void
 
@@ -721,6 +745,8 @@ struct WebComponent {
 
 
 ##### saveCookieAsync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static saveCookieAsync(): Promise&lt;void&gt;
 
@@ -782,6 +808,8 @@ struct WebComponent {
 
 ##### putAcceptCookieEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static putAcceptCookieEnabled(accept: boolean): void
 
 设置WebCookieManager实例是否拥有发送和接收cookie的权限。
@@ -836,6 +864,8 @@ struct WebComponent {
 
 ##### isCookieAllowed
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static isCookieAllowed(): boolean
 
 获取WebCookieManager实例是否拥有发送和接收cookie的权限。
@@ -876,6 +906,8 @@ struct WebComponent {
 
 
 ##### putAcceptThirdPartyCookieEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static putAcceptThirdPartyCookieEnabled(accept: boolean): void
 
@@ -931,6 +963,8 @@ struct WebComponent {
 
 ##### isThirdPartyCookieAllowed
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static isThirdPartyCookieAllowed(): boolean
 
 获取WebCookieManager实例是否拥有发送和接收第三方cookie的权限。
@@ -971,6 +1005,8 @@ struct WebComponent {
 
 
 ##### existCookie
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static existCookie(incognito?: boolean): boolean
 
@@ -1020,6 +1056,8 @@ struct WebComponent {
 
 ##### clearAllCookiesSync11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static clearAllCookiesSync(incognito?: boolean): void
 
 清除所有cookie。
@@ -1059,6 +1097,8 @@ struct WebComponent {
 
 
 ##### clearAllCookies11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static clearAllCookies(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1118,6 +1158,8 @@ struct WebComponent {
 
 ##### clearAllCookies11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static clearAllCookies(): Promise&lt;void&gt;
 
 清除所有cookie。使用Promise异步回调。
@@ -1174,6 +1216,8 @@ struct WebComponent {
 
 ##### clearSessionCookieSync11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static clearSessionCookieSync(): void
 
 清除所有会话cookie。
@@ -1206,6 +1250,8 @@ struct WebComponent {
 
 
 ##### clearSessionCookie11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static clearSessionCookie(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1264,6 +1310,8 @@ struct WebComponent {
 
 
 ##### clearSessionCookie11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static clearSessionCookie(): Promise&lt;void&gt;
 
@@ -1325,6 +1373,8 @@ struct WebComponent {
 
 ##### setLazyInitializeWebEngine22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setLazyInitializeWebEngine(lazy: boolean): void
 
 设置是否延后初始化ArkWeb内核，不调用该方法时，默认不延后初始化ArkWeb内核。
@@ -1371,6 +1421,8 @@ struct WebComponent {
 
 
 ##### fetchAllCookies23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static fetchAllCookies(incognito: boolean): Promise<Array&lt;WebHttpCookie&gt;>
 
@@ -1436,6 +1488,8 @@ struct WebComponent {
 
 
 ##### getCookie(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getCookie(url: string): string
 
@@ -1504,6 +1558,8 @@ struct WebComponent {
 
 ##### setCookie(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setCookie(url: string, value: string): void
 
 为指定url设置单个cookie的值。
@@ -1565,6 +1621,8 @@ struct WebComponent {
 
 ##### deleteEntireCookie(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static deleteEntireCookie(): void
 
 清除所有cookie。
@@ -1601,6 +1659,8 @@ struct WebComponent {
 
 
 ##### deleteSessionCookie(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static deleteSessionCookie(): void
 

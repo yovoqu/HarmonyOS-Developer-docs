@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { PanelInfo, PanelType, PanelFlag } from '@kit.IMEKit';
 ```
@@ -21,6 +23,8 @@ import { PanelInfo, PanelType, PanelFlag } from '@kit.IMEKit';
   
 
 ##### PanelInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入法面板属性信息。
  
@@ -36,6 +40,8 @@ import { PanelInfo, PanelType, PanelFlag } from '@kit.IMEKit';
 
 ##### PanelType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入法面板类型枚举。
  
 **系统能力**：SystemCapability.MiscServices.InputMethodFramework
@@ -49,6 +55,8 @@ import { PanelInfo, PanelType, PanelFlag } from '@kit.IMEKit';
   
 
 ##### PanelFlag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入法面板状态类型枚举。
  

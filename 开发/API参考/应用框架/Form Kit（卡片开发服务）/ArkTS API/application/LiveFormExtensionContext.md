@@ -14,6 +14,8 @@ LiveFormExtensionContext是[LiveFormExtensionAbility](https://developer.huawei.c
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common } from '@kit.AbilityKit';
 ```
@@ -26,11 +28,15 @@ import { common } from '@kit.AbilityKit';
 
 ##### LiveFormExtensionContext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 LiveFormExtensionContext提供允许访问特定于LiveFormExtensionAbility资源的能力，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
 
 
 
 ##### startAbilityByLiveForm
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbilityByLiveForm(want: Want): Promise&lt;void&gt;
 

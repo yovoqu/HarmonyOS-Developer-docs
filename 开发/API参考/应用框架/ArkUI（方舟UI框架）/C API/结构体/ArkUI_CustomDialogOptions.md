@@ -12,6 +12,8 @@ typedef struct ArkUI_CustomDialogOptions ArkUI_CustomDialogOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义自定义弹窗的内容对象。
  
 **起始版本：** 19

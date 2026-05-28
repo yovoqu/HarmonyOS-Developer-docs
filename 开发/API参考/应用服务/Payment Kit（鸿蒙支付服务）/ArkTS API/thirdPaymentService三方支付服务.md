@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { thirdPaymentService } from '@kit.PaymentKit';
 ```
@@ -25,6 +27,8 @@ import { thirdPaymentService } from '@kit.PaymentKit';
   
 
 ##### PayMethod
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 三方支付方式。
  
@@ -47,6 +51,8 @@ import { thirdPaymentService } from '@kit.PaymentKit';
 
 ##### ThirdPayClient
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 支付请求客户端。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -60,6 +66,8 @@ import { thirdPaymentService } from '@kit.PaymentKit';
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 constructor(context: common.UIAbilityContext, payMethod: PayMethod, thirdAppId: string);
  
@@ -133,6 +141,8 @@ struct Index {
   
 
 ##### pay
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 pay(payInfo: string): Promise&lt;void&gt;;
  
@@ -217,6 +227,8 @@ struct Index {
   
 
 ##### handlePayCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 handlePayCallback(want: Want): boolean;
  

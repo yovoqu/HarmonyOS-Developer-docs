@@ -14,6 +14,8 @@
 
 ##### console.debug
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static debug(message: string, ...arguments: any[]): void
 
 以格式化输出方式打印调试信息。
@@ -47,6 +49,8 @@ console.debug('count:'); // 仅打印message
 
 
 ##### console.log
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static log(message: string, ...arguments: any[]): void
 
@@ -82,6 +86,8 @@ console.log('count:'); // 仅打印message
 
 ##### console.info
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static info(message: string, ...arguments: any[]): void
 
 以格式化输出方式打印日志信息。(console.log()的别名）。
@@ -115,6 +121,8 @@ console.info('count:'); // 仅打印message
 
 
 ##### console.warn
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static warn(message: string, ...arguments: any[]): void
 
@@ -150,6 +158,8 @@ console.warn('warn:'); // 仅打印message
 
 ##### console.error
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static error(message: string, ...arguments: any[]): void
 
 以格式化输出方式打印错误信息。
@@ -183,6 +193,8 @@ console.error('error:'); // 仅打印message
 
 
 ##### console.assert10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static assert(value?: Object, ...arguments: Object[]): void
 
@@ -225,6 +237,8 @@ console.assert();
 
 
 ##### console.count10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static count(label?: string): void
 
@@ -271,6 +285,8 @@ console.count()
 
 ##### console.countReset10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static countReset(label?: string): void
 
 清除指定标签名的计数。
@@ -308,6 +324,8 @@ console.count('abc');
 
 
 ##### console.dir10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static dir(dir?: Object): void
 
@@ -349,6 +367,8 @@ console.dir(); // 无打印
 
 ##### console.dirxml10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static dirxml(...arguments: Object[]): void
 
 此方法通过内部调用console.log()实现。此方法不会产生任何 XML 格式。使用方法与console.log()一致。
@@ -379,6 +399,8 @@ console.dirxml('count:');
 
 
 ##### console.group10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static group(...arguments: Object[]): void
 
@@ -415,6 +437,8 @@ console.info("level 2");
 
 ##### console.groupCollapsed10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static groupCollapsed(...arguments: Object[]): void
 
 使用与功能同console.group()一致。
@@ -448,6 +472,8 @@ console.info("level 2");
 
 ##### console.groupEnd10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static groupEnd(): void
 
 将后续行的缩进减少两个空格。
@@ -472,6 +498,8 @@ console.info("outer");
 
 
 ##### console.table10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static table(tableData?: Object): void
 
@@ -515,6 +543,8 @@ console.table({ a: [1, 2, 3, 4, 5], b: 5, c: { e: 5 } });
 
 ##### console.time10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static time(label?: string): void
 
 启动可用于计算操作持续时间的计时器。可使用console.timeEnd()关闭计时器并打印经过的时间(单位：ms)。
@@ -548,6 +578,8 @@ console.time('abc');
 
 
 ##### console.timeEnd10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static timeEnd(label?: string): void
 
@@ -584,6 +616,8 @@ console.timeEnd('abc');
 
 
 ##### console.timeLog10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static timeLog(label?: string, ...arguments: Object[]): void
 
@@ -624,6 +658,8 @@ console.timeEnd('timer1');
 
 ##### console.trace10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static trace(...arguments: Object[]): void
 
 打印当前堆栈。
@@ -653,6 +689,8 @@ console.trace("Show the trace");
 
 
 ##### console.traceHybridStack12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static traceHybridStack(): void
 

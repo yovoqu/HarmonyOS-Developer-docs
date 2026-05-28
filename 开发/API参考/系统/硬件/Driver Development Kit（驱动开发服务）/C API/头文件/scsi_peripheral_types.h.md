@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 提供在SCSI Peripheral DDK（驱动开发工具包）API中使用的枚举变量、结构体和宏。
  
 **引用文件：** <scsi_peripheral/scsi_peripheral_types.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 结构体
+
+**支持设备：** PC/2in1
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -47,6 +53,8 @@
   
 
 ##### 枚举
+
+**支持设备：** PC/2in1
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -58,9 +66,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### ScsiPeripheral_DdkErrCode
+
+**支持设备：** PC/2in1
 
 ```text
 enum ScsiPeripheral_DdkErrCode
@@ -90,6 +102,8 @@ SCSI Peripheral DDK错误码。
 
 ##### ScsiPeripheral_Status
 
+**支持设备：** PC/2in1
+
 ```text
 enum ScsiPeripheral_Status
 ```
@@ -116,6 +130,8 @@ enum ScsiPeripheral_Status
 
 ##### SCSIPERIPHERAL_MIN_DESCRIPTOR_FORMAT_SENSE
 
+**支持设备：** PC/2in1
+
 ```text
 SCSIPERIPHERAL_MIN_DESCRIPTOR_FORMAT_SENSE 8
 ```
@@ -129,6 +145,8 @@ SCSIPERIPHERAL_MIN_DESCRIPTOR_FORMAT_SENSE 8
   
 
 ##### SCSIPERIPHERAL_MIN_FIXED_FORMAT_SENSE
+
+**支持设备：** PC/2in1
 
 ```text
 SCSIPERIPHERAL_MIN_FIXED_FORMAT_SENSE 18
@@ -144,6 +162,8 @@ SCSIPERIPHERAL_MIN_FIXED_FORMAT_SENSE 18
 
 ##### SCSIPERIPHERAL_MAX_CMD_DESC_BLOCK_LEN
 
+**支持设备：** PC/2in1
+
 ```text
 SCSIPERIPHERAL_MAX_CMD_DESC_BLOCK_LEN 16
 ```
@@ -157,6 +177,8 @@ SCSIPERIPHERAL_MAX_CMD_DESC_BLOCK_LEN 16
   
 
 ##### SCSIPERIPHERAL_MAX_SENSE_DATA_LEN
+
+**支持设备：** PC/2in1
 
 ```text
 SCSIPERIPHERAL_MAX_SENSE_DATA_LEN 252
@@ -172,6 +194,8 @@ SCSIPERIPHERAL_MAX_SENSE_DATA_LEN 252
 
 ##### SCSIPERIPHERAL_VENDOR_ID_LEN
 
+**支持设备：** PC/2in1
+
 ```text
 SCSIPERIPHERAL_VENDOR_ID_LEN 8
 ```
@@ -186,6 +210,8 @@ SCSIPERIPHERAL_VENDOR_ID_LEN 8
 
 ##### SCSIPERIPHERAL_PRODUCT_ID_LEN
 
+**支持设备：** PC/2in1
+
 ```text
 SCSIPERIPHERAL_PRODUCT_ID_LEN 16
 ```
@@ -199,6 +225,8 @@ SCSIPERIPHERAL_PRODUCT_ID_LEN 16
   
 
 ##### SCSIPERIPHERAL_PRODUCT_REV_LEN
+
+**支持设备：** PC/2in1
 
 ```text
 SCSIPERIPHERAL_PRODUCT_REV_LEN 4

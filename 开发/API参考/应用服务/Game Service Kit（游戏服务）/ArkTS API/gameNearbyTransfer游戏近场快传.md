@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { gameNearbyTransfer } from '@kit.GameServiceKit';
 ```
@@ -19,6 +21,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### CreateParameters
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 创建参数类。
 
@@ -41,6 +45,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### ConnectNotification
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 连接通知类。
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -58,6 +64,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### BindParameters
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 绑定参数类。
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -73,6 +81,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### NearbyGameDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 近场快传设备类。
 
@@ -91,6 +101,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### DiscoveryResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 发现结果类。
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -105,6 +117,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### CreateResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 创建结果类。
 
@@ -121,6 +135,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### TransferNotification
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 传输通知类。
 
@@ -139,6 +155,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### FileInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 文件信息类。
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -154,6 +172,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### PackageInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 包信息类。
 
@@ -173,6 +193,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### PackageFile
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 传输包文件类。
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -188,6 +210,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### PackageData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 传输包数据类。
 
@@ -206,6 +230,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### ReturnResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 返回结果类。
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -222,6 +248,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### PackageInfoResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 包信息对比结果类。
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -237,6 +265,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### TransferInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 传输信息类。
 
@@ -256,6 +286,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### RemoteInstallationInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 安装信息类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -272,6 +304,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### Mode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 接入模式枚举对象。
 
@@ -290,6 +324,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### ConnectState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 连接状态枚举对象。
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -305,6 +341,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### TransferState
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 传输状态枚举对象。
 
@@ -328,6 +366,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 ##### PackageInfoResultCode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 包信息对比结果码值枚举对象。
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -344,6 +384,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### ContentType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 传输的内容类型枚举对象。
 
@@ -362,6 +404,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### NearbyTransferErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 错误码类。
 
@@ -386,6 +430,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 
 ##### gameNearbyTransfer.on('connectNotify')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'connectNotify', callback: Callback&lt;ConnectNotification&gt;): void
 
@@ -438,6 +484,8 @@ function connectNotifyCallBack(callback: gameNearbyTransfer.ConnectNotification)
 
 ##### gameNearbyTransfer.off('connectNotify')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'connectNotify', callback?: Callback&lt;ConnectNotification&gt;): void
 
 取消订阅连接通知事件。使用callback回调。
@@ -488,6 +536,8 @@ function connectNotifyCallBack(callback: gameNearbyTransfer.ConnectNotification)
 
 
 ##### gameNearbyTransfer.on('discovery')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'discovery', callback: Callback&lt;DiscoveryResult&gt;): void
 
@@ -542,6 +592,8 @@ function discoveryCallBack(callback: gameNearbyTransfer.DiscoveryResult) {
 
 ##### gameNearbyTransfer.off('discovery')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'discovery', callback?: Callback&lt;DiscoveryResult&gt;): void
 
 取消订阅发现结果事件。使用callback回调。
@@ -595,6 +647,8 @@ function discoveryCallBack(callback: gameNearbyTransfer.DiscoveryResult) {
 
 ##### gameNearbyTransfer.on('receivePackageInfo')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'receivePackageInfo', callback: Callback&lt;PackageInfo&gt;): void
 
 订阅收到包信息事件。使用callback回调。
@@ -644,6 +698,8 @@ function receivePackageInfoCallBack(callback: gameNearbyTransfer.PackageInfo) {
 
 
 ##### gameNearbyTransfer.off('receivePackageInfo')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'receivePackageInfo', callback?: Callback&lt;PackageInfo&gt;): void
 
@@ -696,6 +752,8 @@ function receivePackageInfoCallBack(callback: gameNearbyTransfer.PackageInfo) {
 
 ##### gameNearbyTransfer.on('transferNotify')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'transferNotify', callback: Callback&lt;TransferNotification&gt;): void
 
 订阅传输通知事件。使用callback回调。
@@ -746,6 +804,8 @@ function transferNotifyCallBack(callback: gameNearbyTransfer.TransferNotificatio
 
 
 ##### gameNearbyTransfer.off('transferNotify')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'transferNotify', callback?: Callback&lt;TransferNotification&gt;): void
 
@@ -798,6 +858,8 @@ function transferNotifyCallBack(callback: gameNearbyTransfer.TransferNotificatio
 
 ##### gameNearbyTransfer.on('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'error', callback: Callback&lt;ReturnResult&gt;): void
 
 订阅错误事件。使用callback回调。
@@ -848,6 +910,8 @@ function errorCallBack(callback: gameNearbyTransfer.ReturnResult) {
 
 ##### gameNearbyTransfer.off('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'error', callback?: Callback&lt;ReturnResult&gt;): void
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -895,6 +959,8 @@ function errorCallBack(callback: gameNearbyTransfer.ReturnResult) {
 
 
 ##### gameNearbyTransfer.onRemoteInstallationInfoNotify
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onRemoteInstallationInfoNotify(callback: Callback&lt;RemoteInstallationInfo&gt;): void
 
@@ -946,6 +1012,8 @@ function remoteCallBack(callback: gameNearbyTransfer.RemoteInstallationInfo) {
 
 ##### gameNearbyTransfer.offRemoteInstallationInfoNotify
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 offRemoteInstallationInfoNotify(callback?: Callback&lt;RemoteInstallationInfo&gt;): void
 
 取消订阅近场快传远程安装包信息通知事件。使用callback回调。
@@ -995,6 +1063,8 @@ function remoteCallBack(callback: gameNearbyTransfer.RemoteInstallationInfo) {
 
 
 ##### gameNearbyTransfer.create
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 create(createParameters: CreateParameters): Promise&lt;CreateResult&gt;
 
@@ -1123,6 +1193,8 @@ struct Create {
 
 ##### gameNearbyTransfer.publishNearbyGame
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 publishNearbyGame(): Promise&lt;void&gt;
 
 发布近场快传服务。使用Promise异步回调。
@@ -1173,6 +1245,8 @@ try {
 
 ##### gameNearbyTransfer.discoveryNearbyGame
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 discoveryNearbyGame(): Promise&lt;void&gt;
 
 发送端执行发现附近设备。使用Promise异步回调。
@@ -1222,6 +1296,8 @@ try {
 
 
 ##### gameNearbyTransfer.bindNearbyGame
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 bindNearbyGame(bindParameters: BindParameters): Promise&lt;void&gt;
 
@@ -1287,6 +1363,8 @@ try {
 
 ##### gameNearbyTransfer.autoBindNearbyGame
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 autoBindNearbyGame(): Promise&lt;void&gt;
 
 自动绑定近场快传服务。使用Promise异步回调。
@@ -1339,6 +1417,8 @@ try {
 
 
 ##### gameNearbyTransfer.acceptCollaboration
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 acceptCollaboration(acceptParameters: Record<string, object>): Promise&lt;void&gt;
 
@@ -1403,6 +1483,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### gameNearbyTransfer.sendPackageInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 sendPackageInfo(packageInfo: PackageInfo): Promise&lt;void&gt;
 
@@ -1474,6 +1556,8 @@ try {
 
 ##### gameNearbyTransfer.replyPackageInfoResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 replyPackageInfoResult(packageInfoResult: PackageInfoResult): Promise&lt;void&gt;
 
 发送端向近场快传服务上报包信息对比结果。使用Promise异步回调。
@@ -1536,6 +1620,8 @@ try {
 
 
 ##### gameNearbyTransfer.transferPackageData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 transferPackageData(packageData: PackageData): Promise&lt;void&gt;
 
@@ -1602,6 +1688,8 @@ try {
 
 
 ##### gameNearbyTransfer.destroy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 destroy(): Promise&lt;void&gt;
 

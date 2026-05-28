@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { pushService } from '@kit.PushKit';
 ```
@@ -25,6 +27,8 @@ import { pushService } from '@kit.PushKit';
 
 
 ##### pushService.getToken
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getToken(callback: AsyncCallback&lt;string&gt;): void
 
@@ -90,6 +94,8 @@ try {
 
 ##### pushService.getToken
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getToken(): Promise&lt;string&gt;
 
 获取推送服务的Token，使用Promise异步回调。
@@ -151,6 +157,8 @@ try {
 
 ##### pushService.deleteToken
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteToken(callback: AsyncCallback&lt;void&gt;): void
 
 删除推送服务的Token，使用callback异步回调。
@@ -211,6 +219,8 @@ try {
 
 ##### pushService.deleteToken
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteToken(): Promise&lt;void&gt;
 
 删除推送服务的Token，使用Promise异步回调。
@@ -267,6 +277,8 @@ try {
 
 
 ##### pushService.bindAppProfileId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -330,6 +342,8 @@ try {
 
 
 ##### pushService.bindAppProfileId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bindAppProfileId(appProfileType: pushCommon.AppProfileType, appProfileId: string): Promise&lt;void&gt;
 
@@ -399,6 +413,8 @@ try {
 
 ##### pushService.unbindAppProfileId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unbindAppProfileId(appProfileId: string, callback: AsyncCallback&lt;void&gt;): void
 
 解绑应用内账号匿名标识，使用callback异步回调。
@@ -458,6 +474,8 @@ try {
 
 
 ##### pushService.unbindAppProfileId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unbindAppProfileId(appProfileId: string): Promise&lt;void&gt;
 
@@ -523,6 +541,8 @@ try {
 
 ##### pushService.PushType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PushType = 'DEFAULT' |'IM' | 'VoIP' | 'BACKGROUND' | 'EMERGENCY'
 
 场景化消息类型，取值类型为下表类型中的并集。
@@ -547,6 +567,8 @@ type PushType = 'DEFAULT' |'IM' | 'VoIP' | 'BACKGROUND' | 'EMERGENCY'
 
 
 ##### pushService.receiveMessage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 receiveMessage(pushType: PushType, ability: Ability, onMessage: Callback<pushCommon.PushPayload>): void
 
@@ -616,6 +638,8 @@ export default class PushMessageAbility extends UIAbility {
 
 ##### pushService.on('tokenUpdate')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'tokenUpdate', ability: Ability, callback: Callback&lt;string&gt;): void
 
 注册token更新，使用callback异步回调。
@@ -683,6 +707,8 @@ export default class PushMessageAbility extends UIAbility {
 
 ##### pushService.off('tokenUpdate')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'tokenUpdate', callback?: Callback&lt;string&gt;): void
 
 解除注册token更新，使用callback异步回调。
@@ -739,6 +765,8 @@ export default class PushMessageAbility extends UIAbility {
 
 
 ##### pushService.on('distributedMessageReceive')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'distributedMessageReceive', callee: Callee, callback: DistributedMessageCallback): void
 
@@ -814,6 +842,8 @@ export default class PushMessageAbility extends UIAbility {
 
 ##### pushService.off('distributedMessageReceive')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'distributedMessageReceive', callback?: DistributedMessageCallback): void
 
 解除注册分布式消息接收事件监听，使用callback异步回调。
@@ -883,6 +913,8 @@ export default class PushMessageAbility extends UIAbility {
 
 ##### DistributedMessageCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type DistributedMessageCallback = (PushPayload: pushCommon.PushPayload) => Promise&lt;DistributedMessageResult&gt;
 
 分布式消息接收事件中使用的回调函数。
@@ -913,6 +945,8 @@ type DistributedMessageCallback = (PushPayload: pushCommon.PushPayload) => Promi
 
 ##### DistributedMessageResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 distributedMessageReceive事件中使用的回调类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -933,6 +967,8 @@ distributedMessageReceive事件中使用的回调类型。
 
 
 ##### ResultCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示[DistributedMessageCallback](#distributedmessagecallback)回调函数执行结果的枚举。
 

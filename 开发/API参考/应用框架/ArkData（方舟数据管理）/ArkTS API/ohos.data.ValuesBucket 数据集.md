@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ValueType, ValuesBucket } from '@kit.ArkData';
 ```
@@ -21,6 +23,8 @@ import { ValueType, ValuesBucket } from '@kit.ArkData';
   
 
 ##### ValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ValueType = number | string | boolean
  
@@ -40,6 +44,8 @@ type ValueType = number | string | boolean
   
 
 ##### ValuesBucket
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ValuesBucket = Record<string, ValueType | Uint8Array | null>
  

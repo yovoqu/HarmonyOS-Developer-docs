@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { speechRecognizer } from '@kit.CoreSpeechKit';
 ```
@@ -21,6 +23,8 @@ import { speechRecognizer } from '@kit.CoreSpeechKit';
 
 
 ##### speechRecognizer.createEngine
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback&lt;SpeechRecognitionEngine&gt;): void
 
@@ -93,6 +97,8 @@ struct Page {
 
 
 ##### speechRecognizer.createEngine
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 createEngine(createEngineParams: CreateEngineParams): Promise&lt;SpeechRecognitionEngine&gt;
 
@@ -167,6 +173,8 @@ struct Page {
 
 ##### SpeechRecognitionEngine
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 语音识别类，用于执行语音识别过程中的相关操作。在调用SpeechRecognitionEngine的方法前，需要先通过[createEngine](#speechrecognizercreateengine)方法创建一个[SpeechRecognitionEngine](#speechrecognitionengine)实例。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
@@ -176,6 +184,8 @@ struct Page {
 
 
 ##### listLanguages
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 listLanguages(params: LanguageQuery, callback: AsyncCallback<Array&lt;string&gt;>): void
 
@@ -241,6 +251,8 @@ struct Page {
 
 
 ##### listLanguages
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 listLanguages(params: LanguageQuery): Promise<Array&lt;string&gt;>
 
@@ -310,6 +322,8 @@ struct Page {
 
 ##### setListener
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setListener(listener: RecognitionListener): void
 
 设置语音识别回调。
@@ -373,6 +387,8 @@ struct Page {
 
 ##### startListening
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 startListening(params: StartParams): void
 
 启动语音识别。
@@ -428,6 +444,8 @@ struct Page {
 
 
 ##### writeAudio
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 writeAudio(sessionId: string, audio: Uint8Array): void
 
@@ -487,6 +505,8 @@ struct Page {
 
 
 ##### finish
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 finish(sessionId: string): void
 
@@ -560,6 +580,8 @@ struct Page {
 
 ##### cancel
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 cancel(sessionId: string): void
 
 取消识别。为了确保事件回调，请优先调用[setListener](#setlistener)。
@@ -632,6 +654,8 @@ struct Page {
 
 ##### isBusy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 isBusy(): boolean
 
 判断引擎是否繁忙。
@@ -703,6 +727,8 @@ struct Page {
 
 ##### shutdown
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 shutdown(): void
 
 关闭引擎，释放资源。
@@ -757,6 +783,8 @@ struct Page {
 
 ##### RecognitionListener
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 语音识别的回调对象，通过此对象可返回识别过程的相关状态，例如识别开始、识别完成、音频开始、音频结束等。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
@@ -766,6 +794,8 @@ struct Page {
 
 
 ##### onStart
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onStart(sessionId: string, eventMessage: string): void
 
@@ -830,6 +860,8 @@ struct Page {
 
 
 ##### onEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onEvent(sessionId: string, eventCode: number, eventMessage: string): void
 
@@ -896,6 +928,8 @@ struct Page {
 
 ##### onResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onResult(sessionId: string, result: SpeechRecognitionResult): void
 
 识别的中间结果和最终结果都通过此方法返回。
@@ -960,6 +994,8 @@ struct Page {
 
 ##### onComplete
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onComplete(sessionId: string, eventMessage: string): void
 
 识别结束或者调用[finish](#finish)方法主动结束识别时回调此方法，返回会话ID、识别完成的相关描述信息。
@@ -1023,6 +1059,8 @@ struct Page {
 
 
 ##### onError
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onError(sessionId: string, errorCode: number, errorMessage: string): void
 
@@ -1089,6 +1127,8 @@ struct Page {
 
 ##### CreateEngineParams
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 创建引擎实例的相关参数，用于配置语种、模式、区域信息等。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
@@ -1106,6 +1146,8 @@ struct Page {
 
 ##### LanguageQuery
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 查询语种信息时的相关参数，例如查询离线模式下服务支持的语种信息，需将online参数设置为1。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
@@ -1121,6 +1163,8 @@ struct Page {
 
 
 ##### StartParams
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 启动语音识别的相关参数，用于设置会话ID、音频配置信息等。
 
@@ -1178,6 +1222,8 @@ struct Page {
 
 ##### AudioInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 音频配置信息。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
@@ -1196,6 +1242,8 @@ struct Page {
 
 
 ##### SpeechRecognitionResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 音频识别结果信息。
 

@@ -14,6 +14,8 @@
 
 ##### wrapBuilder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder&lt;Args&gt;
 
 wrapBuilder是一个模板函数，返回一个WrappedBuilder对象。模板参数Args extends Object[]是需要包装的builder函数的参数列表。
@@ -52,11 +54,15 @@ let builderVar: WrappedBuilder<[string, number]> = wrapBuilder(MyBuilder);
 
 ##### WrappedBuilder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 @Builder函数的包装类。模板参数Args extends Object[]应传入@Builder函数的参数类型列表。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -70,6 +76,8 @@ let builderVar: WrappedBuilder<[string, number]> = wrapBuilder(MyBuilder);
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(builder: (...args: Args) => void)
 

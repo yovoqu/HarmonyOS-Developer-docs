@@ -12,6 +12,8 @@
 
 ##### KeyboardAvoidMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 配置键盘弹出时页面的避让模式。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -29,6 +31,8 @@
 
 ##### SwiperDynamicSyncSceneType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举值，表示动态帧率场景的类型。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -45,6 +49,8 @@
 
 ##### MarqueeDynamicSyncSceneType14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举值，表示Marquee的动态帧率场景的类型。
  
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -59,6 +65,8 @@
   
 
 ##### NodeRenderState20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 组件的渲染状态。
  
@@ -76,6 +84,8 @@
 
 ##### GestureActionPhase20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 此枚举类型表示手势回调触发阶段，对应gesture.d.ts中定义的动作回调，但不同手势类型支持的阶段不同（如SwipeGesture仅包含WILL_START枚举值）。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -91,6 +101,8 @@
   
 
 ##### GestureListenerType20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 此枚举类型用于指定需要监控的手势类型。
  
@@ -112,6 +124,8 @@
 
 ##### ResolveStrategy22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 UIContext对象的解析策略。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -131,6 +145,8 @@ UIContext对象的解析策略。
   
 
 ##### CustomKeyboardContinueFeature23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 指定自定义键盘切换时是否接续。
  

@@ -20,6 +20,8 @@ js标签中包含了实例名称、页面路由信息。
 
 ##### pages
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 定义每个页面的路由信息，每个页面由页面路径和页面名组成，页面的文件名即为页面名，例如：
  
 ```json
@@ -40,6 +42,8 @@ js标签中包含了实例名称、页面路由信息。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 ```json
 {

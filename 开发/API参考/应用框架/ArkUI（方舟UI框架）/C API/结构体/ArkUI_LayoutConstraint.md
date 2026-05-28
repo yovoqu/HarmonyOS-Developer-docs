@@ -12,6 +12,8 @@ typedef struct ArkUI_LayoutConstraint ArkUI_LayoutConstraint
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 约束尺寸，组件布局时，进行尺寸范围限制。
  
 **起始版本：** 12

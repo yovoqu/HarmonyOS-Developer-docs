@@ -12,6 +12,8 @@ typedef struct CommonEvent_SubscribeInfo CommonEvent_SubscribeInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供CommonEvent_SubscribeInfo订阅者信息结构体声明。
  
 **起始版本：** 12

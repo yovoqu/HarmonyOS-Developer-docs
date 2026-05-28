@@ -14,6 +14,8 @@ LoginWithHuaweiIDButton需要配合[loginComponentManager](https://developer.hua
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { LoginWithHuaweiIDButton, loginComponentManager } from '@kit.AccountKit';
 ```
@@ -21,6 +23,8 @@ import { LoginWithHuaweiIDButton, loginComponentManager } from '@kit.AccountKit'
   
 
 ##### LoginWithHuaweiIDButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该类为用来展示登录华为账号按钮的UI组件。
  
@@ -43,6 +47,8 @@ import { LoginWithHuaweiIDButton, loginComponentManager } from '@kit.AccountKit'
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 build(): void
  

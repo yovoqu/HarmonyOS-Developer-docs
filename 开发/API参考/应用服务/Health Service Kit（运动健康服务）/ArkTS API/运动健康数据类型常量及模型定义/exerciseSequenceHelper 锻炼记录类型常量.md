@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { healthStore } from '@kit.HealthServiceKit';
 ```
@@ -23,6 +25,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -37,6 +41,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 ##### adventures
 
+**支持设备：** Phone | Tablet | Wearable
+
 户外探险数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -46,6 +52,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -59,6 +67,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Adventures
  
@@ -77,6 +87,8 @@ type Model = healthModels.Adventures
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.AdventuresSummary
  
 户外探险统计数据字段列表。
@@ -93,6 +105,8 @@ type SummaryFields = healthFields.AdventuresSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.AdventuresDetail
  
@@ -111,6 +125,8 @@ type DetailFields = healthFields.AdventuresDetail
 
 ##### basketball
 
+**支持设备：** Phone | Tablet | Wearable
+
 篮球数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -120,6 +136,8 @@ type DetailFields = healthFields.AdventuresDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -133,6 +151,8 @@ type DetailFields = healthFields.AdventuresDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Basketball
  
@@ -151,6 +171,8 @@ type Model = healthModels.Basketball
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.BasketballSummary
  
 篮球统计数据字段列表。
@@ -167,6 +189,8 @@ type SummaryFields = healthFields.BasketballSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.BasketballDetail
  
@@ -185,6 +209,8 @@ type DetailFields = healthFields.BasketballDetail
 
 ##### biathlon
 
+**支持设备：** Phone | Tablet | Wearable
+
 冬季两项数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -194,6 +220,8 @@ type DetailFields = healthFields.BasketballDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -207,6 +235,8 @@ type DetailFields = healthFields.BasketballDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Biathlon
  
@@ -225,6 +255,8 @@ type Model = healthModels.Biathlon
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.BiathlonSummary
  
 冬季两项统计数据字段列表。
@@ -241,6 +273,8 @@ type SummaryFields = healthFields.BiathlonSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.BiathlonDetail
  
@@ -259,6 +293,8 @@ type DetailFields = healthFields.BiathlonDetail
 
 ##### bmx
 
+**支持设备：** Phone | Tablet | Wearable
+
 BMX自行车数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -268,6 +304,8 @@ BMX自行车数据类型常量及数据模型。
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -281,6 +319,8 @@ BMX自行车数据类型常量及数据模型。
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Bmx
  
@@ -299,6 +339,8 @@ BMX自行车锻炼记录数据模型。
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.CyclingSummary
  
 BMX自行车统计数据字段列表。
@@ -315,6 +357,8 @@ BMX自行车统计数据字段列表。
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.CyclingDetail
  
@@ -333,6 +377,8 @@ BMX自行车详情数据字段列表。
 
 ##### breathHoldingTest
 
+**支持设备：** Phone | Tablet | Wearable
+
 闭气测试数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -342,6 +388,8 @@ BMX自行车详情数据字段列表。
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -355,6 +403,8 @@ BMX自行车详情数据字段列表。
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.BreathHoldingTest
  
@@ -373,6 +423,8 @@ type Model = healthModels.BreathHoldingTest
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.BreathHoldingTestSummary
  
 闭气测试统计数据字段列表。
@@ -389,6 +441,8 @@ type SummaryFields = healthFields.BreathHoldingTestSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.BreathHoldingTestDetail
  
@@ -407,6 +461,8 @@ type DetailFields = healthFields.BreathHoldingTestDetail
 
 ##### breathHoldingTrain
 
+**支持设备：** Phone | Tablet | Wearable
+
 闭气训练数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -416,6 +472,8 @@ type DetailFields = healthFields.BreathHoldingTestDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -429,6 +487,8 @@ type DetailFields = healthFields.BreathHoldingTestDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.BreathHoldingTrain
  
@@ -447,6 +507,8 @@ type Model = healthModels.BreathHoldingTrain
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.BreathHoldingTrainSummary
  
 闭气训练统计数据字段列表。
@@ -463,6 +525,8 @@ type SummaryFields = healthFields.BreathHoldingTrainSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.BreathHoldingTrainDetail
  
@@ -481,6 +545,8 @@ type DetailFields = healthFields.BreathHoldingTrainDetail
 
 ##### cycling
 
+**支持设备：** Phone | Tablet | Wearable
+
 户外骑行数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -490,6 +556,8 @@ type DetailFields = healthFields.BreathHoldingTrainDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -503,6 +571,8 @@ type DetailFields = healthFields.BreathHoldingTrainDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Cycling
  
@@ -521,6 +591,8 @@ type Model = healthModels.Cycling
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.CyclingSummary
  
 户外骑行统计数据字段列表。
@@ -537,6 +609,8 @@ type SummaryFields = healthFields.CyclingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.CyclingDetail
  
@@ -555,6 +629,8 @@ type DetailFields = healthFields.CyclingDetail
 
 ##### diving
 
+**支持设备：** Phone | Tablet | Wearable
+
 自由潜水数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -564,6 +640,8 @@ type DetailFields = healthFields.CyclingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -577,6 +655,8 @@ type DetailFields = healthFields.CyclingDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Diving
  
@@ -595,6 +675,8 @@ type Model = healthModels.Diving
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.DivingSummary
  
 自由潜水统计数据字段列表。
@@ -611,6 +693,8 @@ type SummaryFields = healthFields.DivingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.DivingDetail
  
@@ -629,6 +713,8 @@ type DetailFields = healthFields.DivingDetail
 
 ##### elliptical
 
+**支持设备：** Phone | Tablet | Wearable
+
 椭圆机数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -638,6 +724,8 @@ type DetailFields = healthFields.DivingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -651,6 +739,8 @@ type DetailFields = healthFields.DivingDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Elliptical
  
@@ -669,6 +759,8 @@ type Model = healthModels.Elliptical
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.EllipticalSummary
  
 椭圆机统计数据字段列表。
@@ -685,6 +777,8 @@ type SummaryFields = healthFields.EllipticalSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.EllipticalDetail
  
@@ -703,6 +797,8 @@ type DetailFields = healthFields.EllipticalDetail
 
 ##### golfCourseModel
 
+**支持设备：** Phone | Tablet | Wearable
+
 高尔夫场地模式数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -712,6 +808,8 @@ type DetailFields = healthFields.EllipticalDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -725,6 +823,8 @@ type DetailFields = healthFields.EllipticalDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.GolfCourseModel
  
@@ -743,6 +843,8 @@ type Model = healthModels.GolfCourseModel
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.GolfCourseModelSummary
  
 高尔夫场地模式统计数据字段列表。
@@ -759,6 +861,8 @@ type SummaryFields = healthFields.GolfCourseModelSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.GolfCourseModelDetail
  
@@ -777,6 +881,8 @@ type DetailFields = healthFields.GolfCourseModelDetail
 
 ##### golfPractice
 
+**支持设备：** Phone | Tablet | Wearable
+
 高尔夫练习场模式数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -786,6 +892,8 @@ type DetailFields = healthFields.GolfCourseModelDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -799,6 +907,8 @@ type DetailFields = healthFields.GolfCourseModelDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.GolfPractice
  
@@ -817,6 +927,8 @@ type Model = healthModels.GolfPractice
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.GolfPracticeSummary
  
 高尔夫练习场模式统计数据字段列表。
@@ -833,6 +945,8 @@ type SummaryFields = healthFields.GolfPracticeSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.GolfPracticeDetail
  
@@ -851,6 +965,8 @@ type DetailFields = healthFields.GolfPracticeDetail
 
 ##### hiking
 
+**支持设备：** Phone | Tablet | Wearable
+
 徒步数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -860,6 +976,8 @@ type DetailFields = healthFields.GolfPracticeDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -873,6 +991,8 @@ type DetailFields = healthFields.GolfPracticeDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Hiking
  
@@ -891,6 +1011,8 @@ type Model = healthModels.Hiking
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.WalkingSummary
  
 徒步统计数据字段列表。
@@ -907,6 +1029,8 @@ type SummaryFields = healthFields.WalkingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.WalkingDetail
  
@@ -925,6 +1049,8 @@ type DetailFields = healthFields.WalkingDetail
 
 ##### indoorCycling
 
+**支持设备：** Phone | Tablet | Wearable
+
 室内骑行数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -934,6 +1060,8 @@ type DetailFields = healthFields.WalkingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -947,6 +1075,8 @@ type DetailFields = healthFields.WalkingDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.IndoorCycling
  
@@ -965,6 +1095,8 @@ type Model = healthModels.IndoorCycling
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.CyclingSummary
  
 室内骑行统计数据字段列表。
@@ -981,6 +1113,8 @@ type SummaryFields = healthFields.CyclingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.CyclingDetail
  
@@ -999,6 +1133,8 @@ type DetailFields = healthFields.CyclingDetail
 
 ##### indoorRunning
 
+**支持设备：** Phone | Tablet | Wearable
+
 室内跑步数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1008,6 +1144,8 @@ type DetailFields = healthFields.CyclingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1021,6 +1159,8 @@ type DetailFields = healthFields.CyclingDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.IndoorRunning
  
@@ -1039,6 +1179,8 @@ type Model = healthModels.IndoorRunning
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.RunningSummary
  
 室内跑步统计数据字段列表。
@@ -1055,6 +1197,8 @@ type SummaryFields = healthFields.RunningSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.RunningDetail
  
@@ -1073,6 +1217,8 @@ type DetailFields = healthFields.RunningDetail
 
 ##### indoorWalking
 
+**支持设备：** Phone | Tablet | Wearable
+
 室内步行数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1082,6 +1228,8 @@ type DetailFields = healthFields.RunningDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1095,6 +1243,8 @@ type DetailFields = healthFields.RunningDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.IndoorWalking
  
@@ -1113,6 +1263,8 @@ type Model = healthModels.IndoorWalking
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.WalkingSummary
  
 室内步行统计数据字段列表。
@@ -1129,6 +1281,8 @@ type SummaryFields = healthFields.WalkingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.WalkingDetail
  
@@ -1147,6 +1301,8 @@ type DetailFields = healthFields.WalkingDetail
 
 ##### jumpingRope
 
+**支持设备：** Phone | Tablet | Wearable
+
 跳绳数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1156,6 +1312,8 @@ type DetailFields = healthFields.WalkingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1169,6 +1327,8 @@ type DetailFields = healthFields.WalkingDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.JumpingRope
  
@@ -1187,6 +1347,8 @@ type Model = healthModels.JumpingRope
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.JumpingRopeSummary
  
 跳绳统计数据字段列表。
@@ -1203,6 +1365,8 @@ type SummaryFields = healthFields.JumpingRopeSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.JumpingRopeDetail
  
@@ -1221,6 +1385,8 @@ type DetailFields = healthFields.JumpingRopeDetail
 
 ##### mountainHike
 
+**支持设备：** Phone | Tablet | Wearable
+
 登山数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1230,6 +1396,8 @@ type DetailFields = healthFields.JumpingRopeDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1243,6 +1411,8 @@ type DetailFields = healthFields.JumpingRopeDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.MountainHike
  
@@ -1261,6 +1431,8 @@ type Model = healthModels.MountainHike
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.MountainHikeSummary
  
 登山统计数据字段列表。
@@ -1277,6 +1449,8 @@ type SummaryFields = healthFields.MountainHikeSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.MountainHikeDetail
  
@@ -1295,6 +1469,8 @@ type DetailFields = healthFields.MountainHikeDetail
 
 ##### openWaterSwim
 
+**支持设备：** Phone | Tablet | Wearable
+
 开放水域游泳数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1304,6 +1480,8 @@ type DetailFields = healthFields.MountainHikeDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1317,6 +1495,8 @@ type DetailFields = healthFields.MountainHikeDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.OpenWaterSwim
  
@@ -1335,6 +1515,8 @@ type Model = healthModels.OpenWaterSwim
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.OpenWaterSwimSummary
  
 开放水域游泳统计数据字段列表。
@@ -1351,6 +1533,8 @@ type SummaryFields = healthFields.OpenWaterSwimSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.OpenWaterSwimDetail
  
@@ -1369,6 +1553,8 @@ type DetailFields = healthFields.OpenWaterSwimDetail
 
 ##### poolSwim
 
+**支持设备：** Phone | Tablet | Wearable
+
 泳池游泳数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1378,6 +1564,8 @@ type DetailFields = healthFields.OpenWaterSwimDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1391,6 +1579,8 @@ type DetailFields = healthFields.OpenWaterSwimDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.PoolSwim
  
@@ -1409,6 +1599,8 @@ type Model = healthModels.PoolSwim
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.PoolSwimSummary
  
 泳池游泳统计数据字段列表。
@@ -1425,6 +1617,8 @@ type SummaryFields = healthFields.PoolSwimSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.PoolSwimDetail
  
@@ -1443,6 +1637,8 @@ type DetailFields = healthFields.PoolSwimDetail
 
 ##### rower
 
+**支持设备：** Phone | Tablet | Wearable
+
 划船机数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1452,6 +1648,8 @@ type DetailFields = healthFields.PoolSwimDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1465,6 +1663,8 @@ type DetailFields = healthFields.PoolSwimDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Rower
  
@@ -1483,6 +1683,8 @@ type Model = healthModels.Rower
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.RowerSummary
  
 划船机统计数据字段列表。
@@ -1499,6 +1701,8 @@ type SummaryFields = healthFields.RowerSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.RowerDetail
  
@@ -1517,6 +1721,8 @@ type DetailFields = healthFields.RowerDetail
 
 ##### rowing
 
+**支持设备：** Phone | Tablet | Wearable
+
 赛艇数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1526,6 +1732,8 @@ type DetailFields = healthFields.RowerDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1539,6 +1747,8 @@ type DetailFields = healthFields.RowerDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Rowing
  
@@ -1557,6 +1767,8 @@ type Model = healthModels.Rowing
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.RowingSummary
  
 赛艇统计数据字段列表。
@@ -1573,6 +1785,8 @@ type SummaryFields = healthFields.RowingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.RowingDetail
  
@@ -1591,6 +1805,8 @@ type DetailFields = healthFields.RowingDetail
 
 ##### running
 
+**支持设备：** Phone | Tablet | Wearable
+
 户外跑步数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1600,6 +1816,8 @@ type DetailFields = healthFields.RowingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1613,6 +1831,8 @@ type DetailFields = healthFields.RowingDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Running
  
@@ -1631,6 +1851,8 @@ type Model = healthModels.Running
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.RunningSummary
  
 户外跑步统计数据字段列表。
@@ -1647,6 +1869,8 @@ type SummaryFields = healthFields.RunningSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.RunningDetail
  
@@ -1665,6 +1889,8 @@ type DetailFields = healthFields.RunningDetail
 
 ##### scubaDiving
 
+**支持设备：** Phone | Tablet | Wearable
+
 水肺潜水数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1674,6 +1900,8 @@ type DetailFields = healthFields.RunningDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1687,6 +1915,8 @@ type DetailFields = healthFields.RunningDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.ScubaDiving
  
@@ -1705,6 +1935,8 @@ type Model = healthModels.ScubaDiving
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.ScubaDivingSummary
  
 水肺潜水统计数据字段列表。
@@ -1721,6 +1953,8 @@ type SummaryFields = healthFields.ScubaDivingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.ScubaDivingDetail
  
@@ -1739,6 +1973,8 @@ type DetailFields = healthFields.ScubaDivingDetail
 
 ##### skiing
 
+**支持设备：** Phone | Tablet | Wearable
+
 滑雪数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1748,6 +1984,8 @@ type DetailFields = healthFields.ScubaDivingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1761,6 +1999,8 @@ type DetailFields = healthFields.ScubaDivingDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Skiing
  
@@ -1779,6 +2019,8 @@ type Model = healthModels.Skiing
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.SkiingSummary
  
 滑雪统计数据字段列表。
@@ -1795,6 +2037,8 @@ type SummaryFields = healthFields.SkiingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.SkiingDetail
  
@@ -1813,6 +2057,8 @@ type DetailFields = healthFields.SkiingDetail
 
 ##### sled
 
+**支持设备：** Phone | Tablet | Wearable
+
 滑雪橇数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1822,6 +2068,8 @@ type DetailFields = healthFields.SkiingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1835,6 +2083,8 @@ type DetailFields = healthFields.SkiingDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Sled
  
@@ -1853,6 +2103,8 @@ type Model = healthModels.Sled
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.SledSummary
  
 滑雪橇统计数据字段列表。
@@ -1869,6 +2121,8 @@ type SummaryFields = healthFields.SledSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.SledDetail
  
@@ -1887,6 +2141,8 @@ type DetailFields = healthFields.SledDetail
 
 ##### snowboarding
 
+**支持设备：** Phone | Tablet | Wearable
+
 单板滑雪数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1896,6 +2152,8 @@ type DetailFields = healthFields.SledDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1909,6 +2167,8 @@ type DetailFields = healthFields.SledDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Snowboarding
  
@@ -1927,6 +2187,8 @@ type Model = healthModels.Snowboarding
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.SnowboardingSummary
  
 单板滑雪统计数据字段列表。
@@ -1943,6 +2205,8 @@ type SummaryFields = healthFields.SnowboardingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.SnowboardingDetail
  
@@ -1961,6 +2225,8 @@ type DetailFields = healthFields.SnowboardingDetail
 
 ##### spinning
 
+**支持设备：** Phone | Tablet | Wearable
+
 动感单车数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -1970,6 +2236,8 @@ type DetailFields = healthFields.SnowboardingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -1983,6 +2251,8 @@ type DetailFields = healthFields.SnowboardingDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Spinning
  
@@ -2001,6 +2271,8 @@ type Model = healthModels.Spinning
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.CyclingSummary
  
 动感单车统计数据字段列表。
@@ -2017,6 +2289,8 @@ type SummaryFields = healthFields.CyclingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.CyclingDetail
  
@@ -2035,6 +2309,8 @@ type DetailFields = healthFields.CyclingDetail
 
 ##### sports
 
+**支持设备：** Phone | Tablet | Wearable
+
 其他运动数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2044,6 +2320,8 @@ type DetailFields = healthFields.CyclingDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -2144,6 +2422,8 @@ type DetailFields = healthFields.CyclingDetail
 
 ##### Model
 
+**支持设备：** Phone | Tablet | Wearable
+
 type Model = healthModels.Sports
  
 通用锻炼记录数据模型。
@@ -2160,6 +2440,8 @@ type Model = healthModels.Sports
   
 
 ##### SummaryFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type SummaryFields = healthFields.SportsSummary
  
@@ -2178,6 +2460,8 @@ type SummaryFields = healthFields.SportsSummary
 
 ##### DetailFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type DetailFields = healthFields.SportsDetail
  
 通用详情数据字段列表。
@@ -2195,6 +2479,8 @@ type DetailFields = healthFields.SportsDetail
 
 ##### trailRunning
 
+**支持设备：** Phone | Tablet | Wearable
+
 越野跑数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2204,6 +2490,8 @@ type DetailFields = healthFields.SportsDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -2217,6 +2505,8 @@ type DetailFields = healthFields.SportsDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.TrailRunning
  
@@ -2235,6 +2525,8 @@ type Model = healthModels.TrailRunning
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.RunningSummary
  
 越野跑统计数据字段列表。
@@ -2251,6 +2543,8 @@ type SummaryFields = healthFields.RunningSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.RunningDetail
  
@@ -2269,6 +2563,8 @@ type DetailFields = healthFields.RunningDetail
 
 ##### walking
 
+**支持设备：** Phone | Tablet | Wearable
+
 户外步行数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore
@@ -2278,6 +2574,8 @@ type DetailFields = healthFields.RunningDetail
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  
@@ -2291,6 +2589,8 @@ type DetailFields = healthFields.RunningDetail
   
 
 ##### Model
+
+**支持设备：** Phone | Tablet | Wearable
 
 type Model = healthModels.Walking
  
@@ -2309,6 +2609,8 @@ type Model = healthModels.Walking
 
 ##### SummaryFields
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SummaryFields = healthFields.WalkingSummary
  
 户外步行统计数据字段列表。
@@ -2325,6 +2627,8 @@ type SummaryFields = healthFields.WalkingSummary
   
 
 ##### DetailFields
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DetailFields = healthFields.WalkingDetail
  

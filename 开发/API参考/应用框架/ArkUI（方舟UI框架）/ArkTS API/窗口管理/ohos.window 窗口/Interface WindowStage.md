@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { window } from '@kit.ArkUI';
 ```
@@ -23,6 +25,8 @@ import { window } from '@kit.ArkUI';
 
 
 ##### getMainWindow9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMainWindow(callback: AsyncCallback&lt;Window&gt;): void
 
@@ -91,6 +95,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getMainWindow9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMainWindow(): Promise&lt;Window&gt;
 
 获取该WindowStage实例下的主窗口，使用Promise异步回调。
@@ -156,6 +162,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getMainWindowSync9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMainWindowSync(): Window
 
 获取该WindowStage实例下的主窗口，该接口为同步调用。
@@ -216,6 +224,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### createSubWindow9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSubWindow(name: string, callback: AsyncCallback&lt;Window&gt;): void
 
@@ -288,6 +298,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### createSubWindow9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createSubWindow(name: string): Promise&lt;Window&gt;
 
 创建该WindowStage实例下的子窗口，使用Promise异步回调。
@@ -356,6 +368,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### createSubWindowWithOptions11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise&lt;Window&gt;
 
@@ -435,6 +449,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getSubWindow9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSubWindow(callback: AsyncCallback<Array&lt;Window&gt;>): void
 
 获取该WindowStage实例下的所有子窗口，使用callback异步回调。
@@ -492,6 +508,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getSubWindow9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSubWindow(): Promise<Array&lt;Window&gt;>
 
 获取该WindowStage实例下的所有子窗口，使用Promise异步回调。
@@ -546,6 +564,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### loadContent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContent(path: string, storage: LocalStorage, callback: AsyncCallback&lt;void&gt;): void
 
@@ -613,6 +633,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### loadContent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContent(path: string, storage?: LocalStorage): Promise&lt;void&gt;
 
@@ -686,6 +708,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### loadContent9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loadContent(path: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据当前工程中指定的页面路径为WindowStage的主窗口加载具体页面内容，使用callback异步回调。
@@ -748,6 +772,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### loadContentByName11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback&lt;void&gt;): void
 
@@ -839,6 +865,8 @@ export struct Index {
 
 ##### loadContentByName11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loadContentByName(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据指定路由页面名称为当前WindowStage加载[命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)页面，使用callback异步回调。
@@ -923,6 +951,8 @@ export struct Index {
 
 
 ##### loadContentByName11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContentByName(name: string, storage?: LocalStorage): Promise&lt;void&gt;
 
@@ -1018,6 +1048,8 @@ export struct Index {
 
 ##### releaseUIContent24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 releaseUIContent(): Promise&lt;void&gt;
 
 销毁WindowStage的主窗页面内容，使用Promise异步回调。
@@ -1087,6 +1119,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### on('windowStageEvent')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(eventType: 'windowStageEvent', callback: Callback&lt;WindowStageEventType&gt;): void
 
 开启WindowStage生命周期变化的监听。
@@ -1142,6 +1176,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### off('windowStageEvent')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(eventType: 'windowStageEvent', callback?: Callback&lt;WindowStageEventType&gt;): void
 
@@ -1218,6 +1254,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### on('windowStageLifecycleEvent')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(eventType: 'windowStageLifecycleEvent', callback: Callback&lt;WindowStageLifecycleEventType&gt;): void
 
 开启WindowStage生命周期变化的监听。
@@ -1292,6 +1330,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### off('windowStageLifecycleEvent')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(eventType: 'windowStageLifecycleEvent', callback?: Callback&lt;WindowStageLifecycleEventType&gt;): void
 
 关闭WindowStage生命周期变化的监听。
@@ -1353,6 +1393,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### on('windowStageClose')14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(eventType: 'windowStageClose', callback: Callback&lt;void&gt;): void
 
@@ -1423,6 +1465,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### off('windowStageClose')14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(eventType: 'windowStageClose', callback?: Callback&lt;void&gt;): void
 
 关闭主窗口关闭事件的监听。
@@ -1488,6 +1532,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setDefaultDensityEnabled12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDefaultDensityEnabled(enabled: boolean): void
 
@@ -1556,6 +1602,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setCustomDensity15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCustomDensity(density: number): void
 
 支持应用主窗口自定义其显示大小缩放系数。
@@ -1614,6 +1662,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setCustomDensity20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCustomDensity(density: number, applyToSubWindow?: boolean): void
 
 支持应用主窗口自定义显示大小缩放系数，并设置已创建的子窗和系统窗口跟随主窗重新布局的生效时机。
@@ -1669,6 +1719,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWindowModal14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowModal(isModal: boolean): Promise&lt;void&gt;
 
@@ -1741,6 +1793,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### removeStartingWindow14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeStartingWindow(): Promise&lt;void&gt;
 
 支持应用控制启动页消失时机。
@@ -1800,6 +1854,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWindowRectAutoSave14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowRectAutoSave(enabled: boolean): Promise&lt;void&gt;
 
@@ -1887,6 +1943,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWindowRectAutoSave17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowRectAutoSave(enabled: boolean, isSaveBySpecifiedFlag: boolean): Promise&lt;void&gt;
 
@@ -1976,6 +2034,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### isWindowRectAutoSave14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isWindowRectAutoSave(): Promise&lt;boolean&gt;
 
 判断当前主窗口是否已经启用尺寸记忆，使用Promise异步回调。
@@ -2039,6 +2099,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSupportedWindowModes15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>): Promise&lt;void&gt;
 
@@ -2114,6 +2176,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSupportedWindowModes20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSupportedWindowModes(supportedWindowModes: Array<bundleManager.SupportWindowMode>, grayOutMaximizeButton: boolean): Promise&lt;void&gt;
 

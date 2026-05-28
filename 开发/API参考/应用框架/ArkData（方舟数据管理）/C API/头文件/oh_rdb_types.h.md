@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供与数据值相关的类型定义。
  
 **引用文件：** <database/rdb/oh_rdb_types.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -44,6 +52,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -59,9 +69,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Rdb_ConflictResolution
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Rdb_ConflictResolution
@@ -87,9 +101,13 @@ enum Rdb_ConflictResolution
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_RDB_CreateReturningContext()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_RDB_ReturningContext *OH_RDB_CreateReturningContext(void)
@@ -112,6 +130,8 @@ OH_RDB_ReturningContext *OH_RDB_CreateReturningContext(void)
 
 ##### OH_RDB_DestroyReturningContext()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_RDB_DestroyReturningContext(OH_RDB_ReturningContext *context)
 ```
@@ -132,6 +152,8 @@ void OH_RDB_DestroyReturningContext(OH_RDB_ReturningContext *context)
   
 
 ##### OH_RDB_SetReturningFields()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_RDB_SetReturningFields(OH_RDB_ReturningContext *context, const char *const fields[], int32_t len)
@@ -163,6 +185,8 @@ int OH_RDB_SetReturningFields(OH_RDB_ReturningContext *context, const char *cons
 
 ##### OH_RDB_SetMaxReturningCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_RDB_SetMaxReturningCount(OH_RDB_ReturningContext *context, int32_t count)
 ```
@@ -192,6 +216,8 @@ int OH_RDB_SetMaxReturningCount(OH_RDB_ReturningContext *context, int32_t count)
 
 ##### OH_RDB_GetReturningValues()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Cursor *OH_RDB_GetReturningValues(OH_RDB_ReturningContext *context)
 ```
@@ -219,6 +245,8 @@ OH_Cursor *OH_RDB_GetReturningValues(OH_RDB_ReturningContext *context)
   
 
 ##### OH_RDB_GetChangedCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int64_t OH_RDB_GetChangedCount(OH_RDB_ReturningContext *context)

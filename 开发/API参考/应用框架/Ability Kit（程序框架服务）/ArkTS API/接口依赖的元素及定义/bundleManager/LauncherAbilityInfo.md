@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { launcherBundleManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { launcherBundleManager } from '@kit.AbilityKit';
   
 
 ##### LauncherAbilityInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Launcher
   

@@ -12,6 +12,8 @@ typedef struct {...} OH_NativeBundle_ElementName
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 elementName信息。
  
 **起始版本：** 13
@@ -24,9 +26,13 @@ elementName信息。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

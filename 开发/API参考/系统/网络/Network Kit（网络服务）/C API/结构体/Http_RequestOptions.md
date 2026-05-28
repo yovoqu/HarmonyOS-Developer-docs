@@ -12,6 +12,8 @@ typedef struct Http_RequestOptions {...} Http_RequestOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义HTTP请求配置的结构体。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ typedef struct Http_RequestOptions {...} Http_RequestOptions
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

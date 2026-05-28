@@ -14,6 +14,8 @@
 
 ##### \$r
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 \$r(value: string, ...params: any[]): Resource
 
 获取应用资源或系统资源的信息。$r会在编译期由工具链转换为[Resource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#resource9)对象。通过$r访问应用资源或系统资源，可参考[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access)。
@@ -62,6 +64,8 @@ struct Page {
 
 
 ##### \$rawfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 \$rawfile(value: string): Resource
 

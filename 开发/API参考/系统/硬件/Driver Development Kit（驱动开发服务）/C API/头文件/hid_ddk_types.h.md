@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 提供HID DDK中的枚举变量与结构体定义。
  
 **引用文件：** <hid/hid_ddk_types.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 结构体
+
+**支持设备：** PC/2in1
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -44,6 +50,8 @@
   
 
 ##### 枚举
+
+**支持设备：** PC/2in1
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -61,6 +69,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -71,9 +81,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### Hid_DeviceProp
+
+**支持设备：** PC/2in1
 
 ```text
 enum Hid_DeviceProp
@@ -100,6 +114,8 @@ enum Hid_DeviceProp
 
 ##### Hid_EventType
 
+**支持设备：** PC/2in1
+
 ```text
 enum Hid_EventType
 ```
@@ -123,6 +139,8 @@ enum Hid_EventType
 
 ##### Hid_SynEvent
 
+**支持设备：** PC/2in1
+
 ```text
 enum Hid_SynEvent
 ```
@@ -144,6 +162,8 @@ enum Hid_SynEvent
   
 
 ##### Hid_KeyCode
+
+**支持设备：** PC/2in1
 
 ```text
 enum Hid_KeyCode
@@ -273,6 +293,8 @@ enum Hid_KeyCode
 
 ##### Hid_AbsAxes
 
+**支持设备：** PC/2in1
+
 ```text
 enum Hid_AbsAxes
 ```
@@ -317,6 +339,8 @@ enum Hid_AbsAxes
 
 ##### Hid_RelAxes
 
+**支持设备：** PC/2in1
+
 ```text
 enum Hid_RelAxes
 ```
@@ -348,6 +372,8 @@ enum Hid_RelAxes
 
 ##### Hid_MscEvent
 
+**支持设备：** PC/2in1
+
 ```text
 enum Hid_MscEvent
 ```
@@ -371,6 +397,8 @@ enum Hid_MscEvent
   
 
 ##### Hid_DdkErrCode
+
+**支持设备：** PC/2in1
 
 ```text
 enum Hid_DdkErrCode
@@ -402,6 +430,8 @@ HID DDK错误码定义。
 
 ##### Hid_ReportType
 
+**支持设备：** PC/2in1
+
 ```text
 enum Hid_ReportType
 ```
@@ -422,6 +452,8 @@ enum Hid_ReportType
   
 
 ##### HID_MAX_REPORT_BUFFER_SIZE
+
+**支持设备：** PC/2in1
 
 ```text
 HID_MAX_REPORT_BUFFER_SIZE (16 * 1024 - 1)

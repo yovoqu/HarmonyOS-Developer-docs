@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { superPrivacyMode } from '@kit.DeviceSecurityKit';
 ```
@@ -19,6 +21,8 @@ import { superPrivacyMode } from '@kit.DeviceSecurityKit';
 
 
 ##### SuperPrivacyMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示超级隐私模式状态的枚举。
 
@@ -38,6 +42,8 @@ import { superPrivacyMode } from '@kit.DeviceSecurityKit';
 
 
 ##### getSuperPrivacyMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSuperPrivacyMode(): Promise&lt;SuperPrivacyMode&gt;
 
@@ -87,6 +93,8 @@ try {
 
 
 ##### on('superPrivacyModeChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'superPrivacyModeChange', callback: Callback&lt;SuperPrivacyMode&gt;): void
 
@@ -142,6 +150,8 @@ try {
 
 
 ##### off('superPrivacyModeChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'superPrivacyModeChange', callback?: Callback&lt;SuperPrivacyMode&gt;): void
 

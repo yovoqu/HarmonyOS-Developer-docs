@@ -20,6 +20,8 @@
 
 ##### constructor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 EventResult的构造函数。
@@ -29,6 +31,8 @@ EventResult的构造函数。
   
 
 ##### setGestureEventResult12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setGestureEventResult(result: boolean): void
  
@@ -51,6 +55,8 @@ setGestureEventResult(result: boolean): void
 
 ##### setGestureEventResult14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setGestureEventResult(result: boolean, stopPropagation: boolean): void
  
 设置手势事件消费结果。
@@ -72,6 +78,8 @@ setGestureEventResult(result: boolean, stopPropagation: boolean): void
   
 
 ##### setMouseEventResult20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMouseEventResult(result: boolean, stopPropagation?: boolean): void
  

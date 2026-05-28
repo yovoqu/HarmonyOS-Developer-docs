@@ -14,17 +14,23 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持。
  
   
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)。
  
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)外，还支持如下样式：
   
@@ -48,11 +54,15 @@
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 1. Flex样式
 
   
@@ -152,4 +162,4 @@
   **4*4卡片**
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/oieaBw-STmGZkXpgeydUXw/zh-cn_image_0000002581276650.png?HW-CC-KV=V1&HW-CC-Date=20260528T013759Z&HW-CC-Expire=86400&HW-CC-Sign=CF7BC8757B4EE9B0B946C70AA8438950694D7AF6B2221BF2D87553921A16973F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/oieaBw-STmGZkXpgeydUXw/zh-cn_image_0000002581276650.png?HW-CC-KV=V1&HW-CC-Date=20260528T024056Z&HW-CC-Expire=86400&HW-CC-Sign=E5FB3CED224CF5182DE987C526CD9C545CEE2FB55B2DEB1D0FC0112E28FE8EF4)

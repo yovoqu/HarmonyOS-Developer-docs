@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述使用[XEG_HPS_RADIX_SORT_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_hps_radix_sort_extension_name)扩展进行排序时所需的信息。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### indexBuffer
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkBuffer XEG_HPSRadixSortDescription::indexBuffer
@@ -52,6 +62,8 @@ VkBuffer XEG_HPSRadixSortDescription::indexBuffer
 
 ##### keyBuffer
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkBuffer XEG_HPSRadixSortDescription::keyBuffer
 ```
@@ -63,6 +75,8 @@ VkBuffer XEG_HPSRadixSortDescription::keyBuffer
   
 
 ##### pNext
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const void* XEG_HPSRadixSortDescription::pNext
@@ -76,6 +90,8 @@ const void* XEG_HPSRadixSortDescription::pNext
 
 ##### sortCount
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkBuffer XEG_HPSRadixSortDescription::sortCount
 ```
@@ -87,6 +103,8 @@ VkBuffer XEG_HPSRadixSortDescription::sortCount
   
 
 ##### sType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 XEG_StructureType XEG_HPSRadixSortDescription::sType

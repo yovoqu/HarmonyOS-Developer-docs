@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-groupunionid-code
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/hCmXeps2Tmap2d7hRkF9sQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013441Z&HW-CC-Expire=86400&HW-CC-Sign=AE484412CD4CAA032D37EB0C728A1E226600454D3A03A9CB3018CE6A71788278)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/hCmXeps2Tmap2d7hRkF9sQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=319420C644E1771D7F34979DCC5035F798AA5FD304D9309439F9676580579299)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。

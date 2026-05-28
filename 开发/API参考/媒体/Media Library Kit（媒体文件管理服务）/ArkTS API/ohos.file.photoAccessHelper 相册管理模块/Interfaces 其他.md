@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -20,10 +22,12 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 ##### MediaChangeRequest11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 媒体变更请求，资产变更请求和相册变更请求的父类型。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/RPk60WouQbe923dJ7Z-Amg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013706Z&HW-CC-Expire=86400&HW-CC-Sign=DFC28614EB3AF57B36F19568C901A25BF26967FF8E64169E0CB6A1EA5CF3E713)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/RPk60WouQbe923dJ7Z-Amg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024004Z&HW-CC-Expire=86400&HW-CC-Sign=B09ADEA03A9FC1C5C33196B74098EEBE89CC50117BAF0E40D1BB32C41A3304A5)
 
 
 媒体变更请求必须在调用[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)后才会生效。
@@ -33,6 +37,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -48,6 +54,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### CreateOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图片或视频的创建选项。
 
@@ -69,6 +77,8 @@ title参数的规格如下：
 
 ##### FetchOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 检索条件。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -82,6 +92,8 @@ title参数的规格如下：
 
 
 ##### RequestOptions11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 请求策略。
 
@@ -98,6 +110,8 @@ title参数的规格如下：
 
 ##### ChangeData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 监听器回调函数的返回值。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -112,6 +126,8 @@ title参数的规格如下：
 
 
 ##### TextContextInfo12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文本信息，用于推荐图片的文本信息。
 
@@ -159,6 +175,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### PhotoCreationConfig12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 保存图片/视频到媒体库的配置，包括保存的文件名等。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -176,6 +194,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### CreationSetting23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 保存图片或视频到媒体库时的配置项，包括保存的文件名、文件类型和其他相关参数。
 
@@ -196,6 +216,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### PhotoAssetChangeInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 媒体资产（图片/视频）信息。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -210,6 +232,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### PhotoAssetChangeData20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 媒体资产（图片/视频）的具体变更数据。
 
@@ -227,6 +251,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### PhotoAssetChangeInfos20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 媒体资产（图片/视频）的变更通知信息。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -241,6 +267,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### AlbumChangeInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相册信息。
 
@@ -262,6 +290,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### AlbumChangeData20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相册的具体变更数据。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -275,6 +305,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### AlbumChangeInfos20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相册的变更通知信息。
 
@@ -290,6 +322,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### GridPinchMode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 picker内宫格的捏合模式。
 
@@ -308,6 +342,8 @@ picker内宫格的捏合模式。
 
 
 ##### AssetCompatibleCapability24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 资产兼容能力。
 

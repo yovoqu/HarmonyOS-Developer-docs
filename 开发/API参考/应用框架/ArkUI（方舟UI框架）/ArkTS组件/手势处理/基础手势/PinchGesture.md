@@ -14,9 +14,13 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### PinchGesture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PinchGesture(value?: { fingers?: number; distance?: number })
  
@@ -37,6 +41,8 @@ PinchGesture(value?: { fingers?: number; distance?: number })
 
 ##### PinchGesture15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PinchGesture(options?: PinchGestureHandlerOptions)
  
 设置捏合手势事件。与[PinchGesture](#pinchgesture-1)相比，options参数新增isFingerCountLimited，表示是否检查触摸屏幕的手指数量。
@@ -56,6 +62,8 @@ PinchGesture(options?: PinchGestureHandlerOptions)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!TIP]
 > 在 GestureEvent 的fingerList元素中，手指索引编号与位置相对应，即fingerList[index]的id为index。对于先按下但未参与当前手势触发的手指，fingerList中对应的位置为空。建议开发者优先使用fingerInfos。
 
@@ -63,6 +71,8 @@ PinchGesture(options?: PinchGestureHandlerOptions)
   
 
 ##### onActionStart
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onActionStart(event: (event: GestureEvent) => void)
  
@@ -83,6 +93,8 @@ Pinch手势识别成功后触发回调。
 
 ##### onActionUpdate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionUpdate(event: (event: GestureEvent) => void)
  
 Pinch手势移动过程中回调。
@@ -101,6 +113,8 @@ Pinch手势移动过程中回调。
   
 
 ##### onActionEnd
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onActionEnd(event: (event: GestureEvent) => void)
  
@@ -121,6 +135,8 @@ Pinch手势识别成功，当抬起最后一根满足手势触发条件的手指
 
 ##### onActionCancel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionCancel(event: () => void)
  
 Pinch手势识别成功，接收到触摸取消事件触发的回调，不返回手势事件信息。
@@ -140,6 +156,8 @@ Pinch手势识别成功，接收到触摸取消事件触发的回调，不返回
 
 ##### onActionCancel18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionCancel(event: Callback&lt;GestureEvent&gt;)
  
 Pinch手势识别成功并接收到触摸取消事件的回调。与[onActionCancel](#onactioncancel)相比，该回调返回手势事件信息。
@@ -158,6 +176,8 @@ Pinch手势识别成功并接收到触摸取消事件的回调。与[onActionCan
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -211,7 +231,7 @@ struct PinchGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/9eSHq7HBSyqEE8--gOUtsQ/zh-cn_image_0000002581275794.png?HW-CC-KV=V1&HW-CC-Date=20260528T013905Z&HW-CC-Expire=86400&HW-CC-Sign=0CBCA7590202FFC851E6CA7CB759C88BBCD868ABF9D02C190BAF167446442403)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/9eSHq7HBSyqEE8--gOUtsQ/zh-cn_image_0000002581275794.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=7F07FDFA12EAC82F5AC6AC2F8A5198CEE524D0115C5F0E25C42C4B3A6B0954EA)
 
  
   
@@ -312,4 +332,4 @@ struct PinchGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/30TmiqlXStCwAWpwkIScrA/zh-cn_image_0000002611755651.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013905Z&HW-CC-Expire=86400&HW-CC-Sign=A8D3768AF272FB906DFF1CD3605F70632FCD92F1409EC0D6E403F0F66E93E052)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/30TmiqlXStCwAWpwkIScrA/zh-cn_image_0000002611755651.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=6E143957A64EB7867B7C4E8318FC92E7B249476EBB767CE6CBECBD6B7A4FC058)

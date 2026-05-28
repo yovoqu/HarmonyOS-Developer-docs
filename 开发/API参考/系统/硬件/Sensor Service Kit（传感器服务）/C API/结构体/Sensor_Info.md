@@ -12,6 +12,8 @@ typedef struct Sensor_Info Sensor_Info
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义传感器信息。
  
 **起始版本：** 11

@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
   
@@ -30,6 +34,8 @@
   
 
 ##### 文本选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -42,6 +48,8 @@
   
 
 ##### 时间选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -53,6 +61,8 @@
   
 
 ##### 日期选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -66,6 +76,8 @@
   
 
 ##### 日期时间选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -78,6 +90,8 @@
   
 
 ##### 多列文本选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -89,6 +103,8 @@
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
   
@@ -107,11 +123,15 @@
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅支持如下事件：
  
   
 
 ##### 文本选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -121,6 +141,8 @@
   
 
 ##### 时间选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -130,6 +152,8 @@
   
 
 ##### 日期选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -139,6 +163,8 @@
   
 
 ##### 日期时间选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -148,6 +174,8 @@
   
 
 ##### 多列文本选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -158,15 +186,21 @@
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
  
   
 
 ##### 示例
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 文本选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -216,6 +250,8 @@ export default {
   
 
 ##### 时间选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -279,6 +315,8 @@ export default {
 
 ##### 日期选择器
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div class="container">
@@ -324,6 +362,8 @@ export default {
   
 
 ##### 日期时间选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -371,6 +411,8 @@ export default {
 
 ##### 多列文本选择器
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div class="container">
@@ -415,4 +457,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nAuQ0GZbQjySB7QofKGAqw/zh-cn_image_0000002611836165.png?HW-CC-KV=V1&HW-CC-Date=20260528T013805Z&HW-CC-Expire=86400&HW-CC-Sign=4C27983DA9C53F4FFB0814F985946072D68EE7CE5E43FDFB5587B84028431897)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nAuQ0GZbQjySB7QofKGAqw/zh-cn_image_0000002611836165.png?HW-CC-KV=V1&HW-CC-Date=20260528T024102Z&HW-CC-Expire=86400&HW-CC-Sign=6B6AB3A0B0D8C7CC98770DD1C22C4171189105A46ABA6D0ADD5949E24E5B4788)

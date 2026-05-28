@@ -12,6 +12,8 @@ typedef struct JSVM_Value__* JSVM_Value
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示JavaScript值。
  
 **起始版本：** 11

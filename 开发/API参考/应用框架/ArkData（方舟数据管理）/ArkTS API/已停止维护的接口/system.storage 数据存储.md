@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Wearable | lite_wearable
+
 ```text
 import storage from '@system.storage';
 ```
@@ -19,6 +21,8 @@ import storage from '@system.storage';
   
 
 ##### storage.get
+
+**支持设备：** Wearable | lite_wearable
 
 get(options: GetStorageOptions): void
  
@@ -120,6 +124,8 @@ export default {
 
 ##### storage.set
 
+**支持设备：** Wearable | lite_wearable
+
 set(options: SetStorageOptions): void
  
 修改缓存中索引对应的值。
@@ -219,6 +225,8 @@ export default {
 
 ##### storage.clear
 
+**支持设备：** Wearable | lite_wearable
+
 clear(options?: ClearStorageOptions): void
  
 清空缓存中存储的键值对。
@@ -314,11 +322,15 @@ export default {
 
 ##### storage.get
 
+**支持设备：** Wearable | lite_wearable
+
 get(options: GetStorageOptions): void
  
   
 
 ##### storage.delete
+
+**支持设备：** Wearable | lite_wearable
 
 delete(options: DeleteStorageOptions): void
  
@@ -417,6 +429,8 @@ export default {
 
 ##### GetStorageOptions
 
+**支持设备：** Wearable | lite_wearable
+
 **系统能力：** SystemCapability.DistributedDataManager.Preferences.Core.Lite
   
 | 名称 | 类型 | 必填 | 说明 |
@@ -431,6 +445,8 @@ export default {
   
 
 ##### SetStorageOptions
+
+**支持设备：** Wearable | lite_wearable
 
 **系统能力：** SystemCapability.DistributedDataManager.Preferences.Core.Lite
   
@@ -447,6 +463,8 @@ export default {
 
 ##### ClearStorageOptions
 
+**支持设备：** Wearable | lite_wearable
+
 **系统能力：** SystemCapability.DistributedDataManager.Preferences.Core.Lite
   
 | 名称 | 类型 | 必填 | 说明 |
@@ -459,6 +477,8 @@ export default {
   
 
 ##### DeleteStorageOptions
+
+**支持设备：** Wearable | lite_wearable
 
 **系统能力：** SystemCapability.DistributedDataManager.Preferences.Core.Lite
   

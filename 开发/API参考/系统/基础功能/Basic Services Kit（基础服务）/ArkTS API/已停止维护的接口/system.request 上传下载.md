@@ -14,6 +14,8 @@ system.request部件主要给应用提供上传下载文件的基础能力。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Request } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { Request } from '@kit.BasicServicesKit';
   
 
 ##### request.upload(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 upload(options: UploadRequestOptions): void
  
@@ -80,6 +84,8 @@ try {
 
 ##### UploadRequestOptions(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力**：SystemCapability.MiscServices.Upload
  
 > [!NOTE]
@@ -102,6 +108,8 @@ try {
 
 ##### UploadResponse(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力**：SystemCapability.MiscServices.Upload
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -114,6 +122,8 @@ try {
   
 
 ##### RequestFile(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.MiscServices.Upload
   
@@ -129,6 +139,8 @@ try {
 
 ##### RequestData(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力**：SystemCapability.MiscServices.Upload
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -140,6 +152,8 @@ try {
   
 
 ##### request.download(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 download(options: DownloadRequestOptions): void
  
@@ -187,6 +201,8 @@ try {
 
 ##### DownloadRequestOptions(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力**：SystemCapability.MiscServices.Download
  
 > [!NOTE]
@@ -210,6 +226,8 @@ try {
 
 ##### DownloadResponse(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力**：SystemCapability.MiscServices.Download
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -220,6 +238,8 @@ try {
   
 
 ##### request.onDownloadComplete(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDownloadComplete(options: OnDownloadCompleteOptions): void
  
@@ -259,6 +279,8 @@ Request.onDownloadComplete(onDownloadCompleteOptions);
 
 ##### OnDownloadCompleteOptions(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力**：SystemCapability.MiscServices.Download
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -272,6 +294,8 @@ Request.onDownloadComplete(onDownloadCompleteOptions);
   
 
 ##### OnDownloadCompleteResponse(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.MiscServices.Download
   

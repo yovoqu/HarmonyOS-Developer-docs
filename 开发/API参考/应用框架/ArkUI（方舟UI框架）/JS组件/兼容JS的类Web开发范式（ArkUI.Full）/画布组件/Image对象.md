@@ -13,6 +13,8 @@
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 属性 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -26,6 +28,8 @@
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -55,4 +59,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/Gf957t1BSDyaG3gTHeUVvg/zh-cn_image_0000002611836201.png?HW-CC-KV=V1&HW-CC-Date=20260528T013803Z&HW-CC-Expire=86400&HW-CC-Sign=F7995C6E0C73E1BD17F2B23B874EE150091C2114C482AD8643A865AFC17ACD7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/Gf957t1BSDyaG3gTHeUVvg/zh-cn_image_0000002611836201.png?HW-CC-KV=V1&HW-CC-Date=20260528T024100Z&HW-CC-Expire=86400&HW-CC-Sign=C0A01F86FEFEE1AE3EBFAFCB2D23EBF0F10753CBC321EA56880C1A31F9B809B7)

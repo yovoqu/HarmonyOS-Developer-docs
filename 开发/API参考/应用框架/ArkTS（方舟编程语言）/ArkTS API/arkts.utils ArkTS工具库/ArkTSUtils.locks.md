@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ArkTSUtils } from '@kit.ArkTS'
 ```
@@ -25,6 +27,8 @@ import { ArkTSUtils } from '@kit.ArkTS'
 
 
 ##### AsyncLockCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AsyncLockCallback&lt;T&gt; = () => T | Promise&lt;T&gt;
 
@@ -38,11 +42,15 @@ type AsyncLockCallback&lt;T&gt; = () => T | Promise&lt;T&gt;
 
 ##### AsyncLock
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 实现异步锁功能的类，允许在锁下执行异步操作。该类使用[@Sendable装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)装饰。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
@@ -101,6 +109,8 @@ async function foo(a: A) {
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
 
 默认构造函数。创建一个异步锁。
@@ -118,6 +128,8 @@ let lock = new ArkTSUtils.locks.AsyncLock();
 
 
 ##### request
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static request(name: string): AsyncLock
 
@@ -151,6 +163,8 @@ let lock = ArkTSUtils.locks.AsyncLock.request(lockName);
 
 
 ##### query
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static query(name: string): AsyncLockState
 
@@ -209,6 +223,8 @@ try {
 
 ##### queryAll
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static queryAll(): AsyncLockState[]
 
 查询所有现有锁的信息。
@@ -238,6 +254,8 @@ console.info("The states size is " + states.length);
 
 
 ##### lockAsync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;): Promise&lt;T&gt;
 
@@ -284,6 +302,8 @@ let p1 = lock.lockAsync<void>(() => {
 
 ##### lockAsync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lockAsync&lt;T&gt;(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode): Promise&lt;T&gt;
 
 在获取的锁下执行操作。该方法首先获取锁，然后调用回调，最后释放锁。回调在调用[lockAsync](#lockasync)的同一线程中以异步方式执行。
@@ -329,6 +349,8 @@ let p1 = lock.lockAsync<void>(() => {
 
 
 ##### lockAsync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 lockAsync<T, U>(callback: AsyncLockCallback&lt;T&gt;, mode: AsyncLockMode, options: AsyncLockOptions&lt;U&gt;): Promise<T | U>
 
@@ -384,6 +406,8 @@ let p: Promise<void> = lock.lockAsync<void, void>(
 
 ##### AsyncLockMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 锁操作对应的模式枚举。
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
@@ -431,6 +455,8 @@ lock.lockAsync(async () => {
 
 ##### AsyncLockOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 class AsyncLockOptions&lt;T&gt;
 
 表示锁操作选项的类。
@@ -442,6 +468,8 @@ class AsyncLockOptions&lt;T&gt;
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -483,6 +511,8 @@ let p = lock.lockAsync<void, string>(
 
 ##### AsyncLockState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于存储异步锁实例上当前执行的所有锁操作的信息的类。
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
@@ -502,6 +532,8 @@ let p = lock.lockAsync<void, string>(
 
 
 ##### AsyncLockInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 关于锁的信息。
 
@@ -524,6 +556,8 @@ let p = lock.lockAsync<void, string>(
 
 ##### AbortSignal
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于终止异步操作的对象。该类的实例必须在其创建的同一线程中访问。从其他线程访问此类的字段会导致未定义的行为。
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
@@ -544,6 +578,8 @@ let p = lock.lockAsync<void, string>(
 
 ##### ConditionVariable18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 实现异步等待功能的类，支持异步等待通知操作。该类使用[@Sendable装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)装饰。
 
 **元服务API**：从API version 18 开始，该接口支持在元服务中使用。
@@ -553,6 +589,8 @@ let p = lock.lockAsync<void, string>(
 
 
 ##### constructor18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -571,6 +609,8 @@ let conditionVariable = new ArkTSUtils.locks.ConditionVariable();
 
 
 ##### request18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static request(name: string): ConditionVariable
 
@@ -604,6 +644,8 @@ let conditionVariable = ArkTSUtils.locks.ConditionVariable.request("conditionNam
 
 ##### wait18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 wait(): Promise&lt;void&gt;
 
 异步调用进入等待中，将在被唤醒后继续执行。使用Promise异步回调。
@@ -631,6 +673,8 @@ conditionVariable.wait().then(() => {
 
 
 ##### waitFor18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 waitFor(timeout : number) : Promise&lt;void&gt;
 
@@ -667,6 +711,8 @@ conditionVariable.waitFor(3000).then(() => {
 
 ##### notifyAll18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 notifyAll() : void
 
 通知所有等待的线程。
@@ -689,6 +735,8 @@ conditionVariable.notifyAll();
 
 
 ##### notifyOne18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 notifyOne() : void
 

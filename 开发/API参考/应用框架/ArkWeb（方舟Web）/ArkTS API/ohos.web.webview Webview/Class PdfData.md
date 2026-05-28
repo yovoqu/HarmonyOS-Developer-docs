@@ -14,6 +14,8 @@ PdfData类用于封装createPdf函数输出的数据流。
 
 ##### pdfArrayBuffer14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pdfArrayBuffer(): Uint8Array
  
 获取网页生成的PDF数据流。完整示例代码参考[createPdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#createpdf14)。

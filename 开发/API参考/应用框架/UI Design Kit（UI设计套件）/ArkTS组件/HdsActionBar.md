@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { HdsActionBar } from '@kit.UIDesignKit';
 ```
@@ -19,6 +21,8 @@ import { HdsActionBar } from '@kit.UIDesignKit';
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsActionBar({ primaryButton?: ActionBarButton, primaryButtonBuilder?: CustomBuilder, primaryButtonBuilderWidth?: LengthMetrics, startButtons?: Array&lt;ActionBarButton&gt;, endButtons?: Array&lt;ActionBarButton&gt;, actionBarStyle?: ActionBarStyle, isExpand?: boolean, $isExpand?: Callback&lt;boolean&gt;, blurStrategy?: BlurStrategy})
  
@@ -51,6 +55,8 @@ HdsActionBar核心操作组件。
 
 ##### ActionBarButton
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义HdsActionBar的按钮。
  
 **装饰器类型：** @ObservedV2
@@ -64,6 +70,8 @@ HdsActionBar核心操作组件。
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ActionBarButton的属性。
  
@@ -99,6 +107,8 @@ ActionBarButton的属性。
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 constructor(options: ActionBarButtonOptions)
  
 ActionBarButton的构造函数。
@@ -119,6 +129,8 @@ ActionBarButton的构造函数。
   
 
 ##### ActionBarButtonOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义ActionBarButton的constructor参数。
  
@@ -155,6 +167,8 @@ ActionBarButton的构造函数。
 
 ##### ActionBarStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义HdsActionBar的样式。
  
 **装饰器类型：** @ObservedV2
@@ -168,6 +182,8 @@ ActionBarButton的构造函数。
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ActionBarStyle的属性。
  
@@ -197,6 +213,8 @@ ActionBarStyle的属性。
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 constructor(options: ActionBarStyleOptions)
  
 ActionBarStyle的构造函数。
@@ -217,6 +235,8 @@ ActionBarStyle的构造函数。
   
 
 ##### ActionBarStyleOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义ActionBarStyle的constructor参数。
  
@@ -245,6 +265,8 @@ ActionBarStyle的构造函数。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsActionBar提供一种多按钮组件。
  

@@ -12,6 +12,8 @@ typedef struct ArkUI_GestureEvent ArkUI_GestureEvent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供手势事件数据类型对象定义。
  
 **起始版本：** 12

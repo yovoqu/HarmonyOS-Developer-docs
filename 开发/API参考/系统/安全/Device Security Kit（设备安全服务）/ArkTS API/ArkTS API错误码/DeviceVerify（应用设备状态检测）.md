@@ -12,6 +12,8 @@
 
 ##### 201 权限校验失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 has no permission.
@@ -32,6 +34,8 @@ has no permission.
 
 ##### 1003300005 内部异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 internal error.
@@ -51,6 +55,8 @@ internal error.
 
 
 ##### 1003300006 访问云端服务器异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

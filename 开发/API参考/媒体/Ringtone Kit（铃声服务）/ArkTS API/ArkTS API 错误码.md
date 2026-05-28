@@ -12,6 +12,8 @@
 
 ##### 1011600001 用户取消
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
  
 User canceled.
@@ -31,6 +33,8 @@ User canceled.
   
 
 ##### 1011600002 文件不存在
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -52,6 +56,8 @@ The media file is not found.
 
 ##### 1011600003 弹出框错误
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
  
 Failed to show the dialog box.
@@ -72,6 +78,8 @@ Failed to show the dialog box.
 
 ##### 1011600004 调用系统接口失败
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
  
 Failed to call the system API.
@@ -91,6 +99,8 @@ Failed to call the system API.
   
 
 ##### 1011699999 系统内部错误
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  

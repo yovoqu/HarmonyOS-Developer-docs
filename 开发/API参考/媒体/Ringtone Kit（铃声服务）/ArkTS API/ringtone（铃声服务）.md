@@ -12,6 +12,8 @@ ringtone提供铃声设置的功能。
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { ringtone } from '@kit.RingtoneKit'
 ```
@@ -19,6 +21,8 @@ import { ringtone } from '@kit.RingtoneKit'
   
 
 ##### RingtoneType
+
+**支持设备：** Phone | Tablet
 
 描述铃声的类型枚举。
  
@@ -37,6 +41,8 @@ import { ringtone } from '@kit.RingtoneKit'
   
 
 ##### RingtoneErrors
+
+**支持设备：** Phone | Tablet
 
 该枚举为设置铃声，获取铃声支持类型和获取铃声支持文件类型等接口的错误码。
  
@@ -57,6 +63,8 @@ import { ringtone } from '@kit.RingtoneKit'
   
 
 ##### ringtone.getSupportedRingtoneTypes
+
+**支持设备：** Phone | Tablet
 
 getSupportedRingtoneTypes(): Array&lt;RingtoneType&gt;
  
@@ -110,6 +118,8 @@ struct Index {
   
 
 ##### ringtone.getSupportedDataTypes
+
+**支持设备：** Phone | Tablet
 
 getSupportedDataTypes(ringtoneType: RingtoneType): Array<uniformTypeDescriptor.UniformDataType>
  
@@ -189,6 +199,8 @@ struct Index {
 
 ##### ringtone.getSupportedMaxDuration
 
+**支持设备：** Phone | Tablet
+
 getSupportedMaxDuration(ringtoneType: RingtoneType, dataType: uniformTypeDescriptor.UniformDataType): number
  
 查询对应铃声类型以及文件类型支持的时长。
@@ -267,6 +279,8 @@ struct Index {
   
 
 ##### ringtone.startRingtoneSetting
+
+**支持设备：** Phone | Tablet
 
 startRingtoneSetting(context: common.UIAbilityContext, path: string, name: string, callback: AsyncCallback&lt;RingtoneType&gt;): void
  
@@ -352,6 +366,8 @@ struct Index {
   
 
 ##### ringtone.startRingtoneSetting
+
+**支持设备：** Phone | Tablet
 
 startRingtoneSetting(context: common.UIAbilityContext, path: string, name: string): Promise&lt;RingtoneType&gt;
  

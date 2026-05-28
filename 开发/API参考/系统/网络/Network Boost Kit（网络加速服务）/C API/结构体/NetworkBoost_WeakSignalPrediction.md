@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 弱信号预测相关信息。
  
 **起始版本：** 5.1.0(18)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### duration
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint32_t NetworkBoost_WeakSignalPrediction::duration
@@ -50,6 +60,8 @@ uint32_t NetworkBoost_WeakSignalPrediction::duration
 
 ##### isLastPredictionValid
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 bool NetworkBoost_WeakSignalPrediction::isLastPredictionValid
 ```
@@ -61,6 +73,8 @@ bool NetworkBoost_WeakSignalPrediction::isLastPredictionValid
   
 
 ##### startTime
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint32_t NetworkBoost_WeakSignalPrediction::startTime

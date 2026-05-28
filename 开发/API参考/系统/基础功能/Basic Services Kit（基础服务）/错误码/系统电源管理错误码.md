@@ -12,6 +12,8 @@
 
 ##### 4900101 连接服务失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to connect to the service.

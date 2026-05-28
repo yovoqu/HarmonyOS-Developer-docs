@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { Environment } from '@kit.CoreFileKit';
 ```
@@ -21,6 +23,8 @@ import { Environment } from '@kit.CoreFileKit';
 
 
 ##### Environment.getUserDownloadDir
+
+**支持设备：** PC/2in1
 
 getUserDownloadDir(): string
 
@@ -65,6 +69,8 @@ function getUserDownloadDirExample() {
 
 ##### Environment.getUserDesktopDir
 
+**支持设备：** PC/2in1
+
 getUserDesktopDir(): string
 
 获取当前用户预授权桌面目录的沙箱路径。
@@ -107,6 +113,8 @@ function getUserDesktopDirExample() {
 
 
 ##### Environment.getUserDocumentDir
+
+**支持设备：** PC/2in1
 
 getUserDocumentDir(): string
 

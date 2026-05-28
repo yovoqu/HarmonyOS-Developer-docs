@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
  
 RowSplit通过分割线限制子组件的宽度。初始化时，分割线位置根据子组件的宽度来计算。初始化后，动态修改子组件的宽度不生效，分割线位置保持不变，可以通过拖动相邻分割线改变子组件宽度。
@@ -23,6 +25,8 @@ RowSplit通过分割线限制子组件的宽度。初始化时，分割线位置
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RowSplit()
  
@@ -36,6 +40,8 @@ RowSplit()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
 > [!NOTE]
@@ -45,6 +51,8 @@ RowSplit()
   
 
 ##### resizeable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resizeable(value: boolean)
  
@@ -69,11 +77,15 @@ resizeable(value: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RowSplit的基本用法。设置可拖动的、横向布局的子组件。
  
@@ -100,4 +112,4 @@ struct RowSplitExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/mJrfprH8QaieSv6ZwI8eFQ/zh-cn_image_0000002611755671.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=5626CAD848B8E9E6715C132AE1BDB9FDEB1B6F6B90301456E8ADB802C7A34252)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/mJrfprH8QaieSv6ZwI8eFQ/zh-cn_image_0000002611755671.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=D15559147FAC0A401627C23964F61BFE24150D6A36B5951A519D08A9DC7003BB)

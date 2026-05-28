@@ -12,6 +12,8 @@ typedef struct {...} OH_Cursor
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示结果集。提供通过查询数据库生成的数据库结果集的访问方法。
  
 **起始版本：** 10
@@ -23,6 +25,8 @@ typedef struct {...} OH_Cursor
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -32,6 +36,8 @@ typedef struct {...} OH_Cursor
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -56,9 +62,13 @@ typedef struct {...} OH_Cursor
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### getColumnCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*getColumnCount)(OH_Cursor *cursor, int *count)
@@ -88,6 +98,8 @@ int (*getColumnCount)(OH_Cursor *cursor, int *count)
   
 
 ##### getColumnType()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*getColumnType)(OH_Cursor *cursor, int32_t columnIndex, OH_ColumnType *columnType)
@@ -119,6 +131,8 @@ int (*getColumnType)(OH_Cursor *cursor, int32_t columnIndex, OH_ColumnType *colu
 
 ##### getColumnIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*getColumnIndex)(OH_Cursor *cursor, const char *name, int *columnIndex)
 ```
@@ -148,6 +162,8 @@ int (*getColumnIndex)(OH_Cursor *cursor, const char *name, int *columnIndex)
   
 
 ##### getColumnName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*getColumnName)(OH_Cursor *cursor, int32_t columnIndex, char *name, int length)
@@ -180,6 +196,8 @@ int (*getColumnName)(OH_Cursor *cursor, int32_t columnIndex, char *name, int len
 
 ##### getRowCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*getRowCount)(OH_Cursor *cursor, int *count)
 ```
@@ -209,6 +227,8 @@ int (*getRowCount)(OH_Cursor *cursor, int *count)
 
 ##### goToNextRow()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*goToNextRow)(OH_Cursor *cursor)
 ```
@@ -236,6 +256,8 @@ int (*goToNextRow)(OH_Cursor *cursor)
   
 
 ##### getSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*getSize)(OH_Cursor *cursor, int32_t columnIndex, size_t *size)
@@ -266,6 +288,8 @@ int (*getSize)(OH_Cursor *cursor, int32_t columnIndex, size_t *size)
   
 
 ##### getText()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*getText)(OH_Cursor *cursor, int32_t columnIndex, char *value, int length)
@@ -298,6 +322,8 @@ int (*getText)(OH_Cursor *cursor, int32_t columnIndex, char *value, int length)
 
 ##### getInt64()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*getInt64)(OH_Cursor *cursor, int32_t columnIndex, int64_t *value)
 ```
@@ -328,6 +354,8 @@ int (*getInt64)(OH_Cursor *cursor, int32_t columnIndex, int64_t *value)
 
 ##### getReal()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*getReal)(OH_Cursor *cursor, int32_t columnIndex, double *value)
 ```
@@ -357,6 +385,8 @@ int (*getReal)(OH_Cursor *cursor, int32_t columnIndex, double *value)
   
 
 ##### getBlob()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*getBlob)(OH_Cursor *cursor, int32_t columnIndex, unsigned char *value, int length)
@@ -389,6 +419,8 @@ int (*getBlob)(OH_Cursor *cursor, int32_t columnIndex, unsigned char *value, int
 
 ##### isNull()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*isNull)(OH_Cursor *cursor, int32_t columnIndex, bool *isNull)
 ```
@@ -419,6 +451,8 @@ int (*isNull)(OH_Cursor *cursor, int32_t columnIndex, bool *isNull)
 
 ##### destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int (*destroy)(OH_Cursor *cursor)
 ```
@@ -446,6 +480,8 @@ int (*destroy)(OH_Cursor *cursor)
   
 
 ##### getAsset()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*getAsset)(OH_Cursor *cursor, int32_t columnIndex, Data_Asset *value)
@@ -476,6 +512,8 @@ int (*getAsset)(OH_Cursor *cursor, int32_t columnIndex, Data_Asset *value)
   
 
 ##### getAssets()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*getAssets)(OH_Cursor *cursor, int32_t columnIndex, Data_Asset **value, uint32_t *length)

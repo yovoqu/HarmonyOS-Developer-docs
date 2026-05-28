@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import bluetooth from '@ohos.bluetooth';
 ```
@@ -21,6 +23,8 @@ import bluetooth from '@ohos.bluetooth';
   
 
 ##### bluetooth.enableBluetooth(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableBluetooth(): boolean
  
@@ -51,6 +55,8 @@ let enable : boolean = bluetooth.enableBluetooth();
 
 ##### bluetooth.disableBluetooth(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disableBluetooth(): boolean
  
 关闭蓝牙。
@@ -79,6 +85,8 @@ let disable : boolean = bluetooth.disableBluetooth();
   
 
 ##### bluetooth.getLocalName(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLocalName(): string
  
@@ -109,6 +117,8 @@ let localName : string = bluetooth.getLocalName();
 
 ##### bluetooth.getState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getState(): BluetoothState
  
 获取蓝牙开关状态。
@@ -138,6 +148,8 @@ let state : bluetooth.BluetoothState = bluetooth.getState();
 
 ##### bluetooth.getBtConnectionState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBtConnectionState(): ProfileConnectionState
  
 获取蓝牙本端的Profile连接状态，例如：任意一个支持的Profile连接状态为已连接，则此接口返回状态为已连接。
@@ -166,6 +178,8 @@ let connectionState : bluetooth.ProfileConnectionState = bluetooth.getBtConnecti
   
 
 ##### bluetooth.setLocalName(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setLocalName(name: string): boolean
  
@@ -202,6 +216,8 @@ let ret : boolean = bluetooth.setLocalName('device_name');
   
 
 ##### bluetooth.pairDevice(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pairDevice(deviceId: string): boolean
  
@@ -240,6 +256,8 @@ let result : boolean = bluetooth.pairDevice("XX:XX:XX:XX:XX:XX");
 
 ##### bluetooth.getProfileConnState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getProfileConnState(profileId: ProfileId): ProfileConnectionState
  
 依据ProfileId获取指定profile的连接状态。
@@ -275,6 +293,8 @@ let result : bluetooth.ProfileConnectionState = bluetooth.getProfileConnState(bl
   
 
 ##### bluetooth.getRemoteDeviceName(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRemoteDeviceName(deviceId: string): string
  
@@ -312,6 +332,8 @@ let remoteDeviceName : string = bluetooth.getRemoteDeviceName("XX:XX:XX:XX:XX:XX
 
 ##### bluetooth.getRemoteDeviceClass(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRemoteDeviceClass(deviceId: string): DeviceClass
  
 获取对端蓝牙设备的类别。
@@ -348,6 +370,8 @@ let remoteDeviceClass : bluetooth.DeviceClass = bluetooth.getRemoteDeviceClass("
 
 ##### bluetooth.getPairedDevices(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPairedDevices(): Array&lt;string&gt;
  
 获取蓝牙配对列表。
@@ -376,6 +400,8 @@ let devices : Array<string> = bluetooth.getPairedDevices();
   
 
 ##### bluetooth.setBluetoothScanMode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBluetoothScanMode(mode: ScanMode, duration: number): boolean
  
@@ -416,6 +442,8 @@ let result : boolean = bluetooth.setBluetoothScanMode(bluetooth.ScanMode
 
 ##### bluetooth.getBluetoothScanMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBluetoothScanMode(): ScanMode
  
 获取蓝牙扫描模式。
@@ -444,6 +472,8 @@ let scanMode : bluetooth.ScanMode = bluetooth.getBluetoothScanMode();
   
 
 ##### bluetooth.startBluetoothDiscovery(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startBluetoothDiscovery(): boolean
  
@@ -479,6 +509,8 @@ let result : boolean = bluetooth.startBluetoothDiscovery();
 
 ##### bluetooth.stopBluetoothDiscovery(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopBluetoothDiscovery(): boolean
  
 关闭蓝牙扫描。
@@ -507,6 +539,8 @@ let result : boolean = bluetooth.stopBluetoothDiscovery();
   
 
 ##### bluetooth.setDevicePairingConfirmation(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDevicePairingConfirmation(device: string, accept: boolean): boolean
  
@@ -550,6 +584,8 @@ bluetooth.on("pinRequired", onReceivePinRequiredEvent);
 
 ##### bluetooth.on('bluetoothDeviceFind')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'bluetoothDeviceFind', callback: Callback<Array&lt;string&gt;>): void
  
 订阅蓝牙设备发现上报事件。
@@ -586,6 +622,8 @@ bluetooth.on('bluetoothDeviceFind', onReceiveEvent);
   
 
 ##### bluetooth.off('bluetoothDeviceFind')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'bluetoothDeviceFind', callback?: Callback<Array&lt;string&gt;>): void
  
@@ -625,6 +663,8 @@ bluetooth.off('bluetoothDeviceFind', onReceiveEvent);
 
 ##### bluetooth.on('pinRequired')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'pinRequired', callback: Callback&lt;PinRequiredParam&gt;): void
  
 订阅远端蓝牙设备的配对请求事件。
@@ -661,6 +701,8 @@ bluetooth.on('pinRequired', onReceiveEvent);
   
 
 ##### bluetooth.off('pinRequired')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'pinRequired', callback?: Callback&lt;PinRequiredParam&gt;): void
  
@@ -700,6 +742,8 @@ bluetooth.off('pinRequired', onReceiveEvent);
 
 ##### bluetooth.on('bondStateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'bondStateChange', callback: Callback&lt;BondStateParam&gt;): void
  
 订阅蓝牙配对状态改变事件。
@@ -736,6 +780,8 @@ bluetooth.on('bondStateChange', onReceiveEvent);
   
 
 ##### bluetooth.off('bondStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'bondStateChange', callback?: Callback&lt;BondStateParam&gt;): void
  
@@ -775,6 +821,8 @@ bluetooth.off('bondStateChange', onReceiveEvent);
 
 ##### bluetooth.on('stateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'stateChange', callback: Callback&lt;BluetoothState&gt;): void
  
 订阅蓝牙连接状态改变事件。
@@ -811,6 +859,8 @@ bluetooth.on('stateChange', onReceiveEvent);
   
 
 ##### bluetooth.off('stateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'stateChange', callback?: Callback&lt;BluetoothState&gt;): void
  
@@ -849,6 +899,8 @@ bluetooth.off('stateChange', onReceiveEvent);
   
 
 ##### bluetooth.sppListen(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppListen(name: string, option: SppOption, callback: AsyncCallback&lt;number&gt;): void
  
@@ -891,6 +943,8 @@ bluetooth.sppListen('server1', sppOption, serverSocket);
   
 
 ##### bluetooth.sppAccept(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppAccept(serverSocket: number, callback: AsyncCallback&lt;number&gt;): void
  
@@ -938,6 +992,8 @@ bluetooth.sppAccept(serverNumber, acceptClientSocket);
 
 ##### bluetooth.sppConnect(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sppConnect(device: string, option: SppOption, callback: AsyncCallback&lt;number&gt;): void
  
 客户端向远端设备发起spp连接。
@@ -980,6 +1036,8 @@ bluetooth.sppConnect('XX:XX:XX:XX:XX:XX', sppOption, clientSocket);
 
 ##### bluetooth.sppCloseServerSocket(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sppCloseServerSocket(socket: number): void
  
 关闭服务端监听Socket，入参socket由sppListen接口返回。
@@ -1015,6 +1073,8 @@ bluetooth.sppCloseServerSocket(serverNumber);
   
 
 ##### bluetooth.sppCloseClientSocket(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppCloseClientSocket(socket: number): void
  
@@ -1052,6 +1112,8 @@ bluetooth.sppCloseClientSocket(clientNumber);
   
 
 ##### bluetooth.sppWrite(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppWrite(clientSocket: number, data: ArrayBuffer): boolean
  
@@ -1106,6 +1168,8 @@ if (ret) {
 
 ##### bluetooth.on('sppRead')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'sppRead', clientSocket: number, callback: Callback&lt;ArrayBuffer&gt;): void
  
 > [!NOTE]
@@ -1152,6 +1216,8 @@ bluetooth.on('sppRead', clientNumber, dataRead);
 
 ##### bluetooth.off('sppRead')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'sppRead', clientSocket: number, callback?: Callback&lt;ArrayBuffer&gt;): void
  
 取消订阅spp读请求事件，入参clientSocket由sppAccept或sppConnect接口获取。
@@ -1195,6 +1261,8 @@ bluetooth.off('sppRead', clientNumber);
 
 ##### bluetooth.getProfile(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getProfile(profileId: ProfileId): A2dpSourceProfile | HandsFreeAudioGatewayProfile
  
 通过ProfileId，获取profile的对象实例。
@@ -1229,9 +1297,13 @@ let a2dpSrc : bluetooth.A2dpSourceProfile = bluetooth.getProfile(bluetooth.Profi
 
 ##### BLE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### createGattServer(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createGattServer(): GattServer
  
@@ -1259,6 +1331,8 @@ let gattServer : bluetooth.GattServer = bluetooth.BLE.createGattServer();
   
 
 ##### createGattClientDevice(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createGattClientDevice(deviceId: string): GattClientDevice
  
@@ -1294,6 +1368,8 @@ let device : bluetooth.GattClientDevice = bluetooth.BLE.createGattClientDevice('
 
 ##### getConnectedBLEDevices(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getConnectedBLEDevices(): Array&lt;string&gt;
  
 获取和当前设备连接的BLE设备。
@@ -1322,6 +1398,8 @@ let result : Array<string> = bluetooth.BLE.getConnectedBLEDevices();
   
 
 ##### startBLEScan(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startBLEScan(filters: Array&lt;ScanFilter&gt;, options?: ScanOptions): void
  
@@ -1374,6 +1452,8 @@ bluetooth.BLE.startBLEScan(
 
 ##### stopBLEScan(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopBLEScan(): void
  
 停止BLE扫描流程。
@@ -1399,6 +1479,8 @@ bluetooth.BLE.stopBLEScan();
   
 
 ##### on('BLEDeviceFind')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'BLEDeviceFind', callback: Callback<Array&lt;ScanResult&gt;>): void
  
@@ -1436,6 +1518,8 @@ bluetooth.BLE.on('BLEDeviceFind', onReceiveEvent);
   
 
 ##### off('BLEDeviceFind')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'BLEDeviceFind', callback?: Callback<Array&lt;ScanResult&gt;>): void
  
@@ -1475,11 +1559,15 @@ bluetooth.BLE.off('BLEDeviceFind', onReceiveEvent);
 
 ##### BaseProfile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 profile基类。
  
   
 
 ##### getConnectionDevices(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getConnectionDevices(): Array&lt;string&gt;
  
@@ -1510,6 +1598,8 @@ let retArray : Array<string> = a2dpSrc.getConnectionDevices();
   
 
 ##### getDeviceState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDeviceState(device: string): ProfileConnectionState
  
@@ -1548,11 +1638,15 @@ let ret : bluetooth.ProfileConnectionState = a2dpSrc.getDeviceState('XX:XX:XX:XX
 
 ##### A2dpSourceProfile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 使用A2dpSourceProfile方法之前需要创建该类的实例进行操作，通过getProfile()方法构造此实例。
  
   
 
 ##### connect(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connect(device: string): boolean
  
@@ -1591,6 +1685,8 @@ let ret : boolean = a2dpSrc.connect('XX:XX:XX:XX:XX:XX');
 
 ##### disconnect(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnect(device: string): boolean
  
 断开设备的a2dp服务连接。
@@ -1628,6 +1724,8 @@ let ret : boolean = a2dpSrc.disconnect('XX:XX:XX:XX:XX:XX');
 
 ##### on('connectionStateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'connectionStateChange', callback: Callback<[StateChangeParam](#statechangeparamdeprecated)>): void
  
 订阅a2dp连接状态变化事件。
@@ -1663,6 +1761,8 @@ a2dpSrc.on('connectionStateChange', onReceiveEvent);
   
 
 ##### off('connectionStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'connectionStateChange', callback?: Callback<[StateChangeParam](#statechangeparamdeprecated)>): void
  
@@ -1701,6 +1801,8 @@ a2dpSrc.off('connectionStateChange', onReceiveEvent);
 
 ##### getPlayingState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPlayingState(device: string): PlayingState
  
 获取设备的播放状态。
@@ -1736,11 +1838,15 @@ let state : bluetooth.PlayingState = a2dpSrc.getPlayingState('XX:XX:XX:XX:XX:XX'
 
 ##### HandsFreeAudioGatewayProfile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 使用HandsFreeAudioGatewayProfile方法之前需要创建该类的实例进行操作，通过getProfile()方法构造此实例。
  
   
 
 ##### connect(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connect(device: string): boolean
  
@@ -1780,6 +1886,8 @@ let ret : boolean = hfpAg.connect('XX:XX:XX:XX:XX:XX');
 
 ##### disconnect(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnect(device: string): boolean
  
 断开连接设备的HFP服务。
@@ -1818,6 +1926,8 @@ let ret : boolean = hfpAg.disconnect('XX:XX:XX:XX:XX:XX');
 
 ##### on('connectionStateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'connectionStateChange', callback: Callback<[StateChangeParam](#statechangeparamdeprecated)>): void
  
 订阅HFP连接状态变化事件。
@@ -1854,6 +1964,8 @@ hfpAg.on('connectionStateChange', onReceiveEvent);
   
 
 ##### off('connectionStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'connectionStateChange', callback?: Callback<[StateChangeParam](#statechangeparamdeprecated)>): void
  
@@ -1893,11 +2005,15 @@ hfpAg.off('connectionStateChange', onReceiveEvent);
 
 ##### GattServer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 server端类，使用server端方法之前需要创建该类的实例进行操作，通过createGattServer()方法构造此实例。
  
   
 
 ##### startAdvertising(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAdvertising(setting: AdvertiseSetting, advData: AdvertiseData, advResponse?: AdvertiseData): void
  
@@ -1975,6 +2091,8 @@ gattServer.startAdvertising(setting, advData, advResponse);
 
 ##### stopAdvertising(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopAdvertising(): void
  
 停止发送BLE广播。
@@ -2001,6 +2119,8 @@ server.stopAdvertising();
   
 
 ##### addService(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addService(service: GattService): boolean
  
@@ -2068,6 +2188,8 @@ if (ret) {
 
 ##### removeService(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeService(serviceUuid: string): boolean
  
 删除已添加的服务。
@@ -2105,6 +2227,8 @@ server.removeService('00001810-0000-1000-8000-00805F9B34FB');
 
 ##### close(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
  
 关闭服务端功能，去注册server在协议栈的注册，调用该接口后[GattServer](#gattserver)实例将不能再使用。
@@ -2127,6 +2251,8 @@ server.close();
   
 
 ##### notifyCharacteristicChanged(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 notifyCharacteristicChanged(deviceId: string, notifyCharacteristic: NotifyCharacteristic): boolean
  
@@ -2179,6 +2305,8 @@ server.notifyCharacteristicChanged('XX:XX:XX:XX:XX:XX', notifyCharacteristic);
   
 
 ##### sendResponse(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendResponse(serverResponse: ServerResponse): boolean
  
@@ -2233,6 +2361,8 @@ if (ret) {
   
 
 ##### on('characteristicRead')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'characteristicRead', callback: Callback&lt;CharacteristicReadReq&gt;): void
  
@@ -2289,6 +2419,8 @@ gattServer.on("characteristicRead", ReadCharacteristicReq);
 
 ##### off('characteristicRead')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'characteristicRead', callback?: Callback&lt;CharacteristicReadReq&gt;): void
  
 server端取消订阅特征值读请求事件。
@@ -2323,6 +2455,8 @@ gattServer.off("characteristicRead");
   
 
 ##### on('characteristicWrite')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'characteristicWrite', callback: Callback&lt;CharacteristicWriteReq&gt;): void
  
@@ -2382,6 +2516,8 @@ gattServer.on("characteristicWrite", WriteCharacteristicReq);
 
 ##### off('characteristicWrite')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'characteristicWrite', callback?: Callback&lt;CharacteristicWriteReq&gt;): void
  
 server端取消订阅特征值写请求事件。
@@ -2416,6 +2552,8 @@ gattServer.off("characteristicWrite");
   
 
 ##### on('descriptorRead')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'descriptorRead', callback: Callback&lt;DescriptorReadReq&gt;): void
  
@@ -2472,6 +2610,8 @@ gattServer.on("descriptorRead", ReadDescriptorReq);
 
 ##### off('descriptorRead')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'descriptorRead', callback?: Callback&lt;DescriptorReadReq&gt;): void
  
 server端取消订阅描述符读请求事件。
@@ -2506,6 +2646,8 @@ gattServer.off("descriptorRead");
   
 
 ##### on('descriptorWrite')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'descriptorWrite', callback: Callback&lt;DescriptorWriteReq&gt;): void
  
@@ -2564,6 +2706,8 @@ gattServer.on("descriptorWrite", WriteDescriptorReq);
 
 ##### off('descriptorWrite')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'descriptorWrite', callback?: Callback&lt;DescriptorWriteReq&gt;): void
  
 server端取消订阅描述符写请求事件。
@@ -2598,6 +2742,8 @@ gattServer.off("descriptorWrite");
   
 
 ##### on('connectStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'connectStateChange', callback: Callback&lt;BLEConnectChangedState&gt;): void
  
@@ -2639,6 +2785,8 @@ gattServer.on("connectStateChange", Connected);
 
 ##### off('connectStateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'connectStateChange', callback?: Callback&lt;BLEConnectChangedState&gt;): void
  
 server端取消订阅BLE连接状态变化事件。
@@ -2674,11 +2822,15 @@ gattServer.off("connectStateChange");
 
 ##### GattClientDevice
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 client端类，使用client端方法之前需要创建该类的实例进行操作，通过createGattClientDevice(deviceId: string)方法构造此实例。
  
   
 
 ##### connect(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connect(): boolean
  
@@ -2710,6 +2862,8 @@ let ret : boolean = device.connect();
 
 ##### disconnect(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnect(): boolean
  
 client端断开与远端蓝牙低功耗设备的连接。
@@ -2740,6 +2894,8 @@ let ret : boolean = device.disconnect();
 
 ##### close(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): boolean
  
 关闭客户端功能，注销client在协议栈的注册，调用该接口后[GattClientDevice](#gattclientdevice)实例将不能再使用。
@@ -2769,6 +2925,8 @@ let ret : boolean = device.close();
   
 
 ##### getServices(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getServices(callback: AsyncCallback<Array&lt;GattService&gt;>): void
  
@@ -2818,6 +2976,8 @@ device.getServices(getServices);
 
 ##### getServices(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getServices(): Promise<Array&lt;GattService&gt;>
  
 client端获取蓝牙低功耗设备的所有服务，即服务发现。
@@ -2851,6 +3011,8 @@ device.getServices().then((result : Array<bluetooth.GattService>) => {
   
 
 ##### readCharacteristicValue(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readCharacteristicValue(characteristic: BLECharacteristic, callback: AsyncCallback&lt;BLECharacteristic&gt;): void
  
@@ -2912,6 +3074,8 @@ device.readCharacteristicValue(characteristic, readCcc);
 
 ##### readCharacteristicValue(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readCharacteristicValue(characteristic: BLECharacteristic): Promise&lt;BLECharacteristic&gt;
  
 client端读取蓝牙低功耗设备特定服务的特征值。
@@ -2965,6 +3129,8 @@ device.readCharacteristicValue(characteristic);
 
 ##### readDescriptorValue(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readDescriptorValue(descriptor: BLEDescriptor, callback: AsyncCallback&lt;BLEDescriptor&gt;): void
  
 client端读取蓝牙低功耗设备特定的特征包含的描述符。
@@ -3015,6 +3181,8 @@ device.readDescriptorValue(descriptor, readDesc);
 
 ##### readDescriptorValue(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readDescriptorValue(descriptor: BLEDescriptor): Promise&lt;BLEDescriptor&gt;
  
 client端读取蓝牙低功耗设备特定的特征包含的描述符。
@@ -3057,6 +3225,8 @@ device.readDescriptorValue(descriptor);
   
 
 ##### writeCharacteristicValue(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeCharacteristicValue(characteristic: BLECharacteristic): boolean
  
@@ -3115,6 +3285,8 @@ if (retWriteCcc) {
 
 ##### writeDescriptorValue(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeDescriptorValue(descriptor: BLEDescriptor): boolean
  
 client端向低功耗蓝牙设备特定的描述符写入二进制数据。
@@ -3163,6 +3335,8 @@ if (retWriteDesc) {
 
 ##### setBLEMtuSize(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBLEMtuSize(mtu: number): boolean
  
 client协商远端蓝牙低功耗设备的最大传输单元（Maximum Transmission Unit, MTU），调用[connect](#connectdeprecated)接口连接成功后才能使用。
@@ -3199,6 +3373,8 @@ device.setBLEMtuSize(128);
   
 
 ##### setNotifyCharacteristicChanged(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setNotifyCharacteristicChanged(characteristic: BLECharacteristic, enable: boolean): boolean
  
@@ -3250,6 +3426,8 @@ device.setNotifyCharacteristicChanged(characteristic, false);
 
 ##### on('BLECharacteristicChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'BLECharacteristicChange', callback: Callback&lt;BLECharacteristic&gt;): void
  
 订阅蓝牙低功耗设备的特征值变化事件。需要先调用setNotifyCharacteristicChanged接口才能接收server端的通知。
@@ -3290,6 +3468,8 @@ device.on('BLECharacteristicChange', CharacteristicChange);
 
 ##### off('BLECharacteristicChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'BLECharacteristicChange', callback?: Callback&lt;BLECharacteristic&gt;): void
  
 取消订阅蓝牙低功耗设备的特征值变化事件。
@@ -3324,6 +3504,8 @@ device.off('BLECharacteristicChange');
   
 
 ##### on('BLEConnectionStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'BLEConnectionStateChange', callback: Callback&lt;BLEConnectChangedState&gt;): void
  
@@ -3364,6 +3546,8 @@ device.on('BLEConnectionStateChange', ConnectStateChanged);
 
 ##### off('BLEConnectionStateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'BLEConnectionStateChange', callback?: Callback&lt;BLEConnectChangedState&gt;): void
  
 取消订阅蓝牙低功耗设备的连接状态变化事件。
@@ -3398,6 +3582,8 @@ device.off('BLEConnectionStateChange');
   
 
 ##### getDeviceName(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDeviceName(callback: AsyncCallback&lt;string&gt;): void
  
@@ -3438,6 +3624,8 @@ let deviceName : void = gattClient.getDeviceName((err : BusinessError, data : st
 
 ##### getDeviceName(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceName(): Promise&lt;string&gt;
  
 client获取远端蓝牙低功耗设备名。
@@ -3470,6 +3658,8 @@ gattClient.getDeviceName().then((data) => {
   
 
 ##### getRssiValue(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRssiValue(callback: AsyncCallback&lt;number&gt;): void
  
@@ -3511,6 +3701,8 @@ gattClient.getRssiValue((err : BusinessError, data : number)=> {
 
 ##### getRssiValue(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRssiValue(): Promise&lt;number&gt;
  
 client获取远端蓝牙低功耗设备的信号强度 (Received Signal Strength Indication, RSSI)，调用[connect](#connectdeprecated)接口连接成功后才能使用。
@@ -3544,6 +3736,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### ScanMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，扫描模式。
  
 > [!NOTE]
@@ -3566,6 +3760,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### BondState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，配对状态。
  
 > [!NOTE]
@@ -3584,6 +3780,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### SppOption(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述spp的配置参数。
  
@@ -3604,6 +3802,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### SppType(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，Spp链路类型。
  
 > [!NOTE]
@@ -3620,6 +3820,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### GattService(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述service的接口参数定义。
  
@@ -3641,6 +3843,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### BLECharacteristic(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述characteristic的接口参数定义 。
  
 > [!NOTE]
@@ -3660,6 +3864,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### BLEDescriptor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述descriptor的接口参数定义 。
  
@@ -3681,6 +3887,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### NotifyCharacteristic(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述server端特征值变化时发送的特征通知参数定义。
  
 > [!NOTE]
@@ -3700,6 +3908,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### CharacteristicReadReq(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述server端订阅后收到的特征值读请求事件参数结构。
  
@@ -3721,6 +3931,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### CharacteristicWriteReq(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述server端订阅后收到的特征值写请求事件参数结构。
  
@@ -3746,6 +3958,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### DescriptorReadReq(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述server端订阅后收到的描述符读请求事件参数结构。
  
 > [!NOTE]
@@ -3767,6 +3981,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### DescriptorWriteReq(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述server端订阅后收到的描述符写请求事件参数结构。
  
@@ -3793,6 +4009,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### ServerResponse(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述server端回复client端读/写请求的响应参数结构。
  
 > [!NOTE]
@@ -3814,6 +4032,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### BLEConnectChangedState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述Gatt profile连接状态 。
  
 > [!NOTE]
@@ -3831,6 +4051,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### ProfileConnectionState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙设备的profile连接状态。
  
@@ -3852,6 +4074,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### ScanFilter(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 扫描过滤参数。
  
 > [!NOTE]
@@ -3870,6 +4094,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### ScanOptions(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 扫描的配置参数。
  
@@ -3890,6 +4116,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### ScanDuty(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，扫描模式。
  
 > [!NOTE]
@@ -3909,6 +4137,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### MatchMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，硬件过滤匹配模式。
  
 > [!NOTE]
@@ -3926,6 +4156,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### ScanResult(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 扫描结果上报数据。
  
@@ -3945,6 +4177,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### BluetoothState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙开关状态。
  
@@ -3969,6 +4203,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### AdvertiseSetting(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述蓝牙低功耗设备发送广播的参数。
  
 > [!NOTE]
@@ -3987,6 +4223,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### AdvertiseData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述BLE广播数据包的内容。
  
@@ -4007,6 +4245,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### ManufactureData(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述BLE广播数据包的内容。
  
 > [!NOTE]
@@ -4024,6 +4264,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### ServiceData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述广播包中服务数据内容。
  
@@ -4043,6 +4285,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### PinRequiredParam(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述配对请求参数。
  
 > [!NOTE]
@@ -4060,6 +4304,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### BondStateParam(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述配对状态参数。
  
@@ -4079,6 +4325,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### StateChangeParam(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述profile状态改变参数。
  
 > [!NOTE]
@@ -4096,6 +4344,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### DeviceClass(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述蓝牙设备的类别。
  
@@ -4115,6 +4365,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### MajorClass(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙设备主要类别。
  
@@ -4142,6 +4394,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### MajorMinorClass(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，主要次要蓝牙设备类别。
  
@@ -4245,6 +4499,8 @@ gattClient.getRssiValue().then((data : number) => {
 
 ##### PlayingState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，蓝牙A2DP 播放状态。
  
 > [!NOTE]
@@ -4262,6 +4518,8 @@ gattClient.getRssiValue().then((data : number) => {
   
 
 ##### ProfileId(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 蓝牙profile枚举，API9新增PROFILE_HID_HOST，PROFILE_PAN_NETWORK。
  

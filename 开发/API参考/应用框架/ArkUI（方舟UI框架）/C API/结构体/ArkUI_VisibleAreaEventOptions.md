@@ -12,6 +12,8 @@ typedef struct ArkUI_VisibleAreaEventOptions ArkUI_VisibleAreaEventOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可见区域变化监听的参数。
  
 开发者在使用该类型时，首先需要调用[OH_ArkUI_VisibleAreaEventOptions_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#oh_arkui_visibleareaeventoptions_create)创建一个ArkUI_VisibleAreaEventOptions参数对象。然后可通过如下接口配置监听行为：

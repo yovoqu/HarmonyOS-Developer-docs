@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { deviceSettings } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { deviceSettings } from '@kit.MDMKit';
 
 
 ##### deviceSettings.setValue
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setValue(admin: Want, item: string, value: string): void
 
@@ -79,6 +83,8 @@ try {
 
 
 ##### deviceSettings.getValue
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getValue(admin: Want, item: string): string
 
@@ -141,6 +147,8 @@ try {
 
 
 ##### deviceSettings.setHomeWallpaper20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setHomeWallpaper(admin: Want, fd: number): Promise&lt;void&gt;
 
@@ -212,6 +220,8 @@ deviceSettings.setHomeWallpaper(wantTemp, fd).then(() => {
 
 ##### deviceSettings.setUnlockWallpaper20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setUnlockWallpaper(admin: Want, fd: number): Promise&lt;void&gt;
 
 设置锁屏壁纸，使用Promise异步回调。
@@ -280,6 +290,8 @@ deviceSettings.setUnlockWallpaper(wantTemp, fd).then(() => {
 
 ##### deviceSettings.setValueForAccount24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setValueForAccount(admin: Want, item: SettingsItem, accountId: number, value: string): void
 
 设置指定用户的设备设置策略。该接口可以设置指定用户在设置应用中的某个参数，比如设置用户100的设备名称等。
@@ -339,6 +351,8 @@ try {
 
 
 ##### deviceSettings.getValueForAccount24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getValueForAccount(admin: Want, item: SettingsItem, accountId: number): string
 
@@ -405,6 +419,8 @@ try {
 
 ##### deviceSettings.addHiddenSettingsMenu24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 addHiddenSettingsMenu(admin: Want, menusToHidden: Array&lt;SettingsMenu&gt;): void
 
 添加设置项至当前用户下的隐藏设置项列表。添加至隐藏设置项列表的设置项在当前用户的设置菜单中会被隐藏，隐藏后不可以在设置的搜索中搜索到。如果通过某种方式搜索到该设置项，点击后也无法打开。调用接口后即刻生效，无需重启设置应用。
@@ -469,6 +485,8 @@ try {
 
 ##### deviceSettings.removeHiddenSettingsMenu24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeHiddenSettingsMenu(admin: Want, menusToHidden: Array&lt;SettingsMenu&gt;): void
 
 将设置项从当前用户下的隐藏设置项列表中移除。隐藏设置项列表中的设置项在当前用户的设置菜单中会被隐藏，隐藏后不可以在设置的搜索中搜索到，如果通过某种方式搜索到该设置项，点击后也无法打开。若移除后剩余的隐藏设置项列表为空，则设置项会全部显示。调用接口后即刻生效，无需重启设置应用。
@@ -532,6 +550,8 @@ try {
 
 
 ##### deviceSettings.getHiddenSettingsMenu24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getHiddenSettingsMenu(admin: Want): Array&lt;SettingsMenu&gt;
 
@@ -599,6 +619,8 @@ try {
 
 ##### SettingsItem24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 设置的策略类型。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -612,6 +634,8 @@ try {
 
 
 ##### SettingsMenu24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 设置项列表。
 

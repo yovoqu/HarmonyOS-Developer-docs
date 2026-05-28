@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { wifiManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { wifiManager } from '@kit.MDMKit';
 
 
 ##### wifiManager.isWifiActiveSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isWifiActiveSync(admin: Want): boolean
 
@@ -80,6 +84,8 @@ try {
 
 
 ##### wifiManager.setWifiProfileSync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setWifiProfileSync(admin: Want, profile: WifiProfile): void
 
@@ -465,6 +471,8 @@ try {
 
 ##### wifiManager.addAllowedWifiList19+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 addAllowedWifiList(admin: Want, list: Array&lt;WifiAccessInfo&gt;): void
 
 添加Wi-Fi允许名单。添加允许名单后当前设备仅允许连接该名单下的Wi-Fi。
@@ -529,6 +537,8 @@ try {
 
 ##### wifiManager.removeAllowedWifiList19+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeAllowedWifiList(admin: Want, list: Array&lt;WifiAccessInfo&gt;): void
 
 移除Wi-Fi允许名单。若移除允许名单中的部分Wi-Fi，则当前设备仅允许连接剩下未移除的Wi-Fi。若移除允许名单中的所有Wi-Fi，则当前设备可以连接任意Wi-Fi。
@@ -588,6 +598,8 @@ try {
 
 ##### wifiManager.getAllowedWifiList19+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getAllowedWifiList(admin: Want): Array&lt;WifiAccessInfo&gt;
 
 获取Wi-Fi允许名单。
@@ -645,6 +657,8 @@ try {
 
 
 ##### wifiManager.addDisallowedWifiList19+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addDisallowedWifiList(admin: Want, list: Array&lt;WifiAccessInfo&gt;): void
 
@@ -710,6 +724,8 @@ try {
 
 ##### wifiManager.removeDisallowedWifiList19+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDisallowedWifiList(admin: Want, list: Array&lt;WifiAccessInfo&gt;): void
 
 移除Wi-Fi禁用名单。若移除禁用名单中的部分Wi-Fi，则当前设备不允许连接禁用名单内剩余的Wi-Fi。若移除禁用名单中的所有Wi-Fi，则当前设备可以连接任意的Wi-Fi。
@@ -769,6 +785,8 @@ try {
 
 ##### wifiManager.getDisallowedWifiList19+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getDisallowedWifiList(admin: Want): Array&lt;WifiAccessInfo&gt;
 
 获取Wi-Fi禁用名单。
@@ -826,6 +844,8 @@ try {
 
 
 ##### wifiManager.turnOnWifi20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 turnOnWifi(admin: Want, isForce: boolean): void
 
@@ -885,6 +905,8 @@ try {
 
 ##### wifiManager.turnOffWifi20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 turnOffWifi(admin: Want): void
 
 关闭Wi-Fi开关。
@@ -942,6 +964,8 @@ try {
 
 ##### WifiAccessInfo19+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 Wi-Fi的SSID和BSSID信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -955,6 +979,8 @@ Wi-Fi的SSID和BSSID信息。
 
 
 ##### WifiProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 Wi-Fi配置信息。
 
@@ -981,6 +1007,8 @@ Wi-Fi配置信息。
 
 ##### WifiSecurityType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示加密类型的枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1003,6 +1031,8 @@ Wi-Fi配置信息。
 
 ##### IpType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示IP类型的枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1017,6 +1047,8 @@ Wi-Fi配置信息。
 
 
 ##### IpProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 IP配置信息。
 
@@ -1034,6 +1066,8 @@ IP配置信息。
 
 
 ##### WifiEapProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 可扩展身份验证协议配置信息。
 
@@ -1062,6 +1096,8 @@ IP配置信息。
 
 ##### EapMethod
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示EAP认证方式的枚举。
 
 > [!NOTE]
@@ -1086,6 +1122,8 @@ IP配置信息。
 
 
 ##### Phase2Method
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示第二阶段认证方式的枚举。
 

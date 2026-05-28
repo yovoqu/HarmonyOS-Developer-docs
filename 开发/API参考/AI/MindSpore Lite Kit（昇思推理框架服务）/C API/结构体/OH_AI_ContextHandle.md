@@ -12,6 +12,8 @@ typedef void *OH_AI_ContextHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 MindSpore上下文信息的指针，该指针会指向Context。
  
 **起始版本：** 9

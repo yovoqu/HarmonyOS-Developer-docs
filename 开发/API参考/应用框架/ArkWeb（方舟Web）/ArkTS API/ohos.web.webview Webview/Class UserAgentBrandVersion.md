@@ -14,6 +14,8 @@
 
 ##### setBrand
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBrand(brand: string): void
  
 设置品牌名称。
@@ -36,6 +38,8 @@ setBrand(brand: string): void
   
 
 ##### getBrand
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBrand(): string
  
@@ -60,6 +64,8 @@ getBrand(): string
 
 ##### setMajorVersion
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMajorVersion(majorVersion: string): void
  
 设置主版本号。
@@ -82,6 +88,8 @@ setMajorVersion(majorVersion: string): void
   
 
 ##### getMajorVersion
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMajorVersion(): string
  
@@ -106,6 +114,8 @@ getMajorVersion(): string
 
 ##### setFullVersion
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFullVersion(fullVersion: string): void
  
 设置完整版本号。
@@ -128,6 +138,8 @@ setFullVersion(fullVersion: string): void
   
 
 ##### getFullVersion
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFullVersion(): string
  

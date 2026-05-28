@@ -12,6 +12,8 @@ typedef struct OH_NativeBuffer OH_NativeBuffer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供OH_NativeBuffer结构体声明。
  
 **起始版本：** 9

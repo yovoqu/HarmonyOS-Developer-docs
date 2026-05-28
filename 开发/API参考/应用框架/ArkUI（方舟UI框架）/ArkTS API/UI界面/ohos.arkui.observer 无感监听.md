@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { uiObserver } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { uiObserver } from '@kit.ArkUI';
   
 
 ##### NavDestinationState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NavDestination组件状态。
  
@@ -45,6 +49,8 @@ NavDestination组件状态。
 
 ##### ScrollEventType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 滚动事件的类型。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -60,6 +66,8 @@ NavDestination组件状态。
   
 
 ##### RouterPageState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 routerPage生命周期触发时对应的状态。RouterPageState用于[RouterPageInfo](#routerpageinfo)中，作为[routerPageUpdate](#uiobserveronrouterpageupdate11)无感监听的返回值。
  
@@ -80,6 +88,8 @@ routerPage生命周期触发时对应的状态。RouterPageState用于[RouterPag
 
 ##### TabContentState12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 TabContent组件的状态。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -95,6 +105,8 @@ TabContent组件的状态。
   
 
 ##### NavDestinationInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NavDestination组件信息，由系统返回给开发者。
  
@@ -117,6 +129,8 @@ NavDestination组件信息，由系统返回给开发者。
 
 ##### NavigationInfo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Navigation组件信息。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -131,6 +145,8 @@ Navigation组件信息。
   
 
 ##### ScrollEventInfo12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ScrollEvent滚动信息。
  
@@ -149,6 +165,8 @@ ScrollEvent滚动信息。
 
 ##### ObserverOptions12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Observer选项。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -163,6 +181,8 @@ Observer选项。
   
 
 ##### RouterPageInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RouterPageInfo包含的信息，由系统返回给开发者。
  
@@ -183,6 +203,8 @@ RouterPageInfo包含的信息，由系统返回给开发者。
 
 ##### DensityInfo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 屏幕像素密度变化回调包含的信息。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -198,6 +220,8 @@ RouterPageInfo包含的信息，由系统返回给开发者。
   
 
 ##### NavDestinationSwitchInfo12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Navigation组件页面切换的信息。
  
@@ -217,6 +241,8 @@ Navigation组件页面切换的信息。
 
 ##### NavDestinationSwitchObserverOptions12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Navigation组件页面切换事件的监听选项。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -231,6 +257,8 @@ Navigation组件页面切换事件的监听选项。
   
 
 ##### TextChangeEventInfo22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入框文本变化的信息。
  
@@ -248,6 +276,8 @@ Navigation组件页面切换事件的监听选项。
   
 
 ##### TabContentInfo12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TabContent页面的切换信息。
  
@@ -268,6 +298,8 @@ TabContent页面的切换信息。
 
 ##### WindowSizeLayoutBreakpointInfo22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口尺寸布局断点变化回调的信息。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -283,6 +315,8 @@ TabContent页面的切换信息。
   
 
 ##### uiObserver.on('navDestinationUpdate')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'navDestinationUpdate', callback: Callback&lt;NavDestinationInfo&gt;): void
  
@@ -359,6 +393,8 @@ struct Index {
 
 ##### uiObserver.off('navDestinationUpdate')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'navDestinationUpdate', callback?: Callback&lt;NavDestinationInfo&gt;): void
  
 取消监听NavDestination组件的状态变化。
@@ -382,6 +418,8 @@ off(type: 'navDestinationUpdate', callback?: Callback&lt;NavDestinationInfo&gt;)
   
 
 ##### uiObserver.on('navDestinationUpdate')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback&lt;NavDestinationInfo&gt;): void
  
@@ -460,6 +498,8 @@ struct Index {
 
 ##### uiObserver.off('navDestinationUpdate')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback?: Callback&lt;NavDestinationInfo&gt;): void
  
 取消监听NavDestination组件的状态变化。与[uiObserver.off](#uiobserveroffnavdestinationupdate)相比，新增了options参数，即支持指定监听的Navigation的id。
@@ -485,6 +525,8 @@ off(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callba
 
 ##### uiObserver.on('scrollEvent')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'scrollEvent', callback: Callback&lt;ScrollEventInfo&gt;): void
  
 监听所有滚动组件滚动事件的开始和结束。滚动组件包括[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)、[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)。
@@ -508,6 +550,8 @@ on(type: 'scrollEvent', callback: Callback&lt;ScrollEventInfo&gt;): void
   
 
 ##### uiObserver.off('scrollEvent')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'scrollEvent', callback?: Callback&lt;ScrollEventInfo&gt;): void
  
@@ -533,6 +577,8 @@ off(type: 'scrollEvent', callback?: Callback&lt;ScrollEventInfo&gt;): void
 
 ##### uiObserver.on('scrollEvent')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'scrollEvent', options: ObserverOptions, callback: Callback&lt;ScrollEventInfo&gt;): void
  
 监听指定id的滚动组件滚动事件的开始和结束。滚动组件包括[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)、[Grid](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid)、[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)、[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)、[ArcList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist)。
@@ -557,6 +603,8 @@ on(type: 'scrollEvent', options: ObserverOptions, callback: Callback&lt;ScrollEv
   
 
 ##### uiObserver.off('scrollEvent')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback&lt;ScrollEventInfo&gt;): void
  
@@ -648,6 +696,8 @@ struct Index {
 
 ##### uiObserver.on('routerPageUpdate')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback: Callback&lt;RouterPageInfo&gt;): void
  
 监听router中page页面的状态变化。
@@ -705,6 +755,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### uiObserver.off('routerPageUpdate')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback&lt;RouterPageInfo&gt;): void
  
 取消监听router中page页面的状态变化。
@@ -752,6 +804,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### uiObserver.on('densityUpdate')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'densityUpdate', context: UIContext, callback: Callback&lt;DensityInfo&gt;): void
  
@@ -804,6 +858,8 @@ struct Index {
   
 
 ##### uiObserver.off('densityUpdate')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'densityUpdate', context: UIContext, callback?: Callback&lt;DensityInfo&gt;): void
  
@@ -861,6 +917,8 @@ struct Index {
 
 ##### uiObserver.on('willDraw')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'willDraw', context: UIContext, callback: Callback&lt;void&gt;): void
  
 监听每一帧绘制指令下发情况。
@@ -903,6 +961,8 @@ struct Index {
   
 
 ##### uiObserver.off('willDraw')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'willDraw', context: UIContext, callback?: Callback&lt;void&gt;): void
  
@@ -951,6 +1011,8 @@ struct Index {
 
 ##### uiObserver.on('didLayout')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'didLayout', context: UIContext, callback: Callback&lt;void&gt;): void
  
 监听每一帧布局完成情况。
@@ -993,6 +1055,8 @@ struct Index {
   
 
 ##### uiObserver.off('didLayout')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'didLayout', context: UIContext, callback?: Callback&lt;void&gt;): void
  
@@ -1040,6 +1104,8 @@ struct Index {
   
 
 ##### uiObserver.on('navDestinationSwitch')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, callback: Callback&lt;NavDestinationSwitchInfo&gt;): void
  
@@ -1170,6 +1236,8 @@ struct Index {
 
 ##### uiObserver.off('navDestinationSwitch')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, callback?: Callback&lt;NavDestinationSwitchInfo&gt;): void
  
 取消监听Navigation的页面切换事件。
@@ -1194,6 +1262,8 @@ off(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, callbac
   
 
 ##### uiObserver.on('navDestinationSwitch')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, observerOptions: NavDestinationSwitchObserverOptions, callback: Callback&lt;NavDestinationSwitchInfo&gt;): void
  
@@ -1330,6 +1400,8 @@ struct Index {
 
 ##### uiObserver.off('navDestinationSwitch')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, observerOptions: NavDestinationSwitchObserverOptions, callback?: Callback&lt;NavDestinationSwitchInfo&gt;): void
  
 取消监听Navigation的页面切换事件。与[uiObserver.off](#uiobserveroffnavdestinationswitch12)相比，新增了observerOptions参数，即支持设置监听选项。
@@ -1355,6 +1427,8 @@ off(type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, observe
   
 
 ##### uiObserver.on('tabContentUpdate')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'tabContentUpdate', callback: Callback&lt;TabContentInfo&gt;): void
  
@@ -1427,6 +1501,8 @@ struct TabsExample {
 
 ##### uiObserver.off('tabContentUpdate')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'tabContentUpdate', callback?: Callback&lt;TabContentInfo&gt;): void
  
 取消监听TabContent页面的切换事件。
@@ -1450,6 +1526,8 @@ off(type: 'tabContentUpdate', callback?: Callback&lt;TabContentInfo&gt;): void
   
 
 ##### uiObserver.on('tabContentUpdate')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'tabContentUpdate', options: ObserverOptions, callback: Callback&lt;TabContentInfo&gt;): void
  
@@ -1522,6 +1600,8 @@ struct TabsExample {
   
 
 ##### uiObserver.off('tabContentUpdate')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback&lt;TabContentInfo&gt;): void
  

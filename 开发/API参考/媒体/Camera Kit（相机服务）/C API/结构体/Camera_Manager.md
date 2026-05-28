@@ -12,6 +12,8 @@ typedef struct Camera_Manager Camera_Manager
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机管理器对象。
  
  可以使用[OH_Camera_GetCameraManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h#oh_camera_getcameramanager)方法创建指针。

@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map } from '@kit.MapKit';
   
 
 ##### Animation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 动画抽象类。
  
@@ -60,6 +64,8 @@ animation.on("animationEnd", callbackEnd);
 
 ##### setDuration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setDuration(duration: number): void
  
 设置动画持续时间。
@@ -88,6 +94,8 @@ animation.setDuration(3000);
   
 
 ##### setFillMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setFillMode(fillMode: AnimationFillMode): void
  
@@ -118,6 +126,8 @@ animation.setFillMode(map.AnimationFillMode.BACKWARDS);
 
 ##### setInterpolator
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setInterpolator(curve: Curves.Curve): void
  
 设置动画插值器。
@@ -146,6 +156,8 @@ animation.setInterpolator(Curve.Linear);
   
 
 ##### setRepeatCount
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setRepeatCount(repeatCount: number): void
  
@@ -176,6 +188,8 @@ animation.setRepeatCount(100);
 
 ##### setRepeatMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setRepeatMode(repeatMode: AnimationRepeatMode): void
  
 设置重复执行的模式，默认从前往后执行。
@@ -204,6 +218,8 @@ animation.setRepeatMode(map.AnimationRepeatMode.RESTART);
   
 
 ##### on('start')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'start', callback: Callback&lt;void&gt;): void
  
@@ -239,6 +255,8 @@ animation.on("start", () => {
 
 ##### off('start')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'start', callback: Callback&lt;void&gt;): void
  
 取消监听动画开始事件。使用callback异步回调。
@@ -272,6 +290,8 @@ animation.off("start", () => {
   
 
 ##### on('end')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'end', callback: Callback&lt;void&gt;): void
  
@@ -307,6 +327,8 @@ animation.on("end", () => {
 
 ##### off('end')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'end', callback: Callback&lt;void&gt;): void
  
 取消监听动画结束事件。使用callback异步回调。
@@ -340,6 +362,8 @@ animation.off("end", () => {
   
 
 ##### on('animationStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'animationStart', callback: Callback&lt;void&gt;): void
  
@@ -381,6 +405,8 @@ animation.on("animationStart", callback3);
   
 
 ##### off('animationStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'animationStart', callback?: Callback&lt;void&gt;): void
  
@@ -428,6 +454,8 @@ animation.off('animationStart');
 
 ##### on('animationEnd')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'animationEnd', callback: Callback&lt;void&gt;): void
  
 监听动画结束事件。支持传递多个callback异步回调。
@@ -468,6 +496,8 @@ animation.on("animationEnd", callback3);
   
 
 ##### off('animationEnd')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'animationEnd', callback?: Callback&lt;void&gt;): void
  

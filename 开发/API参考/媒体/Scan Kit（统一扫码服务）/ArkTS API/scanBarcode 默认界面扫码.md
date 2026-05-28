@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { scanBarcode } from '@kit.ScanKit';
 ```
@@ -21,6 +23,8 @@ import { scanBarcode } from '@kit.ScanKit';
   
 
 ##### ScanResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 扫码结果。
  
@@ -41,6 +45,8 @@ import { scanBarcode } from '@kit.ScanKit';
   
 
 ##### ScanCodeRect
+
+**支持设备：** Phone | Tablet | Wearable
 
 码的位置信息。使用默认界面扫码（startScan和startScanForResult）不返回码位置。
  
@@ -64,6 +70,8 @@ import { scanBarcode } from '@kit.ScanKit';
 
 ##### Point
 
+**支持设备：** Phone | Tablet | Wearable
+
 点坐标，该坐标系左上角为{0，0}，此坐标系是以设备充电口在右侧时的横向设备方向为基准的。
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
@@ -79,6 +87,8 @@ import { scanBarcode } from '@kit.ScanKit';
   
 
 ##### ScanOptions
+
+**支持设备：** Phone | Tablet | Wearable
 
 扫码、识码参数。
  
@@ -124,6 +134,8 @@ function loadPage(uiContext: UIContext) {
   
 
 ##### scanBarcode.startScanForResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 startScanForResult(context: common.Context, options?: ScanOptions): Promise&lt;ScanResult&gt;
  
@@ -195,6 +207,8 @@ function loadPage(uiContext: UIContext) {
 
 ##### scanBarcode.startScanForResult
 
+**支持设备：** Phone | Tablet | Wearable
+
 startScanForResult(context: common.Context, callback: AsyncCallback&lt;ScanResult&gt;): void
  
 启动默认界面扫码，返回扫码结果。需要在页面和组件的生命周期内调用。使用callback异步回调。
@@ -258,6 +272,8 @@ function loadPage(uiContext: UIContext) {
   
 
 ##### scanBarcode.startScanForResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 startScanForResult(context: common.Context, options: ScanOptions, callback: AsyncCallback&lt;ScanResult&gt;): void
  
@@ -327,6 +343,8 @@ function loadPage(uiContext: UIContext) {
 
 ##### scanBarcode.startScan(deprecated)
 
+**支持设备：** Phone | Tablet | Wearable
+
 startScan(options?: ScanOptions): Promise&lt;ScanResult&gt;
  
 通过配置参数调用默认界面扫码，返回扫码结果。使用Promise异步回调。
@@ -389,6 +407,8 @@ try {
 
 ##### scanBarcode.startScan(deprecated)
 
+**支持设备：** Phone | Tablet | Wearable
+
 startScan(callback: AsyncCallback&lt;ScanResult&gt;): void
  
 启动默认界面扫码，返回扫码结果。使用callback异步回调。
@@ -443,6 +463,8 @@ try {
   
 
 ##### scanBarcode.startScan(deprecated)
+
+**支持设备：** Phone | Tablet | Wearable
 
 startScan(options: ScanOptions, callback: AsyncCallback&lt;ScanResult&gt;): void
  

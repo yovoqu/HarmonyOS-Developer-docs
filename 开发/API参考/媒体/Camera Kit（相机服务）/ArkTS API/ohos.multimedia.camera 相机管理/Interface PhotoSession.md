@@ -18,6 +18,8 @@ PhotoSession继承自[Session](https://developer.huawei.com/consumer/cn/doc/harm
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -25,6 +27,8 @@ import { camera } from '@kit.CameraKit';
 
 
 ##### canPreconfig12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 canPreconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): boolean
 
@@ -79,6 +83,8 @@ function testCanPreconfig(photoSession: camera.PhotoSession, preconfigType: came
 
 ##### preconfig12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 preconfig(preconfigType: PreconfigType, preconfigRatio?: PreconfigRatio): void
 
 对当前Session进行预配置。
@@ -125,6 +131,8 @@ function testPreconfig(photoSession: camera.PhotoSession, preconfigType: camera.
 
 ##### on('error')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'error', callback: ErrorCallback): void
 
 监听普通拍照会话的错误事件，通过注册回调函数获取结果。使用callback异步回调。
@@ -163,6 +171,8 @@ function registerSessionError(photoSession: camera.PhotoSession): void {
 
 ##### off('error')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', callback?: ErrorCallback): void
 
 注销监听普通拍照会话的错误事件，通过注册回调函数获取结果。
@@ -190,6 +200,8 @@ function unregisterSessionError(photoSession: camera.PhotoSession): void {
 
 
 ##### on('focusStateChange')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'focusStateChange', callback: AsyncCallback&lt;FocusState&gt;): void
 
@@ -233,6 +245,8 @@ function registerFocusStateChange(photoSession: camera.PhotoSession): void {
 
 ##### off('focusStateChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'focusStateChange', callback?: AsyncCallback&lt;FocusState&gt;): void
 
 注销监听相机聚焦的状态变化。
@@ -260,6 +274,8 @@ function unregisterFocusStateChange(photoSession: camera.PhotoSession): void {
 
 
 ##### on('smoothZoomInfoAvailable')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'smoothZoomInfoAvailable', callback: AsyncCallback&lt;SmoothZoomInfo&gt;): void
 
@@ -303,6 +319,8 @@ function registerSmoothZoomInfo(photoSession: camera.PhotoSession): void {
 
 ##### off('smoothZoomInfoAvailable')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'smoothZoomInfoAvailable', callback?: AsyncCallback&lt;SmoothZoomInfo&gt;): void
 
 注销监听相机平滑变焦的状态变化。
@@ -330,6 +348,8 @@ function unregisterSmoothZoomInfo(photoSession: camera.PhotoSession): void {
 
 
 ##### on('autoDeviceSwitchStatusChange')13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'autoDeviceSwitchStatusChange', callback: AsyncCallback&lt;AutoDeviceSwitchStatus&gt;): void
 
@@ -373,6 +393,8 @@ function registerAutoDeviceSwitchStatus(photoSession: camera.PhotoSession): void
 
 ##### off('autoDeviceSwitchStatusChange')13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'autoDeviceSwitchStatusChange', callback?: AsyncCallback&lt;AutoDeviceSwitchStatus&gt;): void
 
 注销监听相机自动切换镜头状态变化。
@@ -400,6 +422,8 @@ function unregisterSmoothZoomInfo(photoSession: camera.PhotoSession): void {
 
 
 ##### on('systemPressureLevelChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'systemPressureLevelChange', callback: AsyncCallback&lt;SystemPressureLevel&gt;): void
 
@@ -443,6 +467,8 @@ function registerSystemPressureLevelChangeCallback(photoSession: camera.PhotoSes
 
 ##### off('systemPressureLevelChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'systemPressureLevelChange', callback?: AsyncCallback&lt;SystemPressureLevel&gt;): void
 
 注销监听系统压力状态变化。
@@ -470,6 +496,8 @@ function unregisterSystemPressureLevelChangeCallback(photoSession: camera.PhotoS
 
 
 ##### on('macroStatusChanged')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'macroStatusChanged', callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -509,6 +537,8 @@ function registerMacroStatusChanged(photoSession: camera.PhotoSession): void {
 
 ##### off('macroStatusChanged')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'macroStatusChanged', callback?: AsyncCallback&lt;boolean&gt;): void
 
 注销相机微距状态变化的监听。
@@ -536,6 +566,8 @@ function unregisterMacroStatusChanged(photoSession: camera.PhotoSession): void {
 
 
 ##### onIsoInfoChange24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onIsoInfoChange(callback: Callback&lt;IsoInfo&gt;): void
 
@@ -568,6 +600,8 @@ function onIsoInfoChange(photoSession: camera.PhotoSession): void {
 
 ##### offIsoInfoChange24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offIsoInfoChange(callback?: Callback&lt;IsoInfo&gt;): void
 
 取消订阅ISO信息变化事件回调。
@@ -596,6 +630,8 @@ function offIsoInfoChange(photoSession: camera.PhotoSession): void {
 
 
 ##### onExposureInfoChange24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onExposureInfoChange(callback: Callback&lt;ExposureInfo&gt;): void
 
@@ -627,6 +663,8 @@ function onExposureInfoChange(photoSession: camera.PhotoSession): void {
 
 
 ##### offExposureInfoChange24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offExposureInfoChange(callback?: Callback&lt;ExposureInfo&gt;): void
 

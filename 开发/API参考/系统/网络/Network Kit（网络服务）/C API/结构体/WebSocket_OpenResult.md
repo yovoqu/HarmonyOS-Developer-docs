@@ -12,6 +12,8 @@ struct WebSocket_OpenResult {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 websocket客户端来自服务端连接成功的参数。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ websocket客户端来自服务端连接成功的参数。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

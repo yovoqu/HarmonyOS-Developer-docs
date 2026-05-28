@@ -27,6 +27,8 @@ LightWeightSet和[HashSet](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 ##### 规格限制
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 当LightWeightSet存入的value为number类型且值大于INT32_MAX或小于INT32_MIN时，针对LightWeightSet的操作，其结果可能与预期不一致。
 
 这是因为，当value为number类型且值大于INT32_MAX或小于INT32_MIN时，存储结构会发生改变。
@@ -45,6 +47,8 @@ console.info("result:", st.has(value));  // result: true
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { LightWeightSet } from '@kit.ArkTS';
 ```
@@ -53,9 +57,13 @@ import { LightWeightSet } from '@kit.ArkTS';
 
 ##### LightWeightSet
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -69,6 +77,8 @@ import { LightWeightSet } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -96,6 +106,8 @@ let lightWeightSet = new LightWeightSet<number | string>();
 
 
 ##### isEmpty
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEmpty(): boolean
 
@@ -132,6 +144,8 @@ console.info("result:", result);  // result: true
 
 
 ##### add
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 add(obj: T): boolean
 
@@ -175,6 +189,8 @@ console.info("result:", result);  // result: true
 
 
 ##### addAll
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAll(set: LightWeightSet&lt;T&gt;): boolean
 
@@ -225,6 +241,8 @@ console.info("result:", result);  // result: true
 
 ##### hasAll
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasAll(set: LightWeightSet&lt;T&gt;): boolean
 
 判断容器中是否包含指定set中的所有元素。
@@ -273,6 +291,8 @@ console.info("result:", result);  // result: true
 
 ##### has
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 has(key: T): boolean
 
 判断容器中是否包含指定的key。
@@ -317,6 +337,8 @@ console.info("result:", result);  // result: true
 
 ##### increaseCapacityTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 increaseCapacityTo(minimumCapacity: number): void
 
 将当前LightWeightSet扩容至指定容量。如果传入的容量值大于或等于当前LightWeightSet中的元素个数，将容量变更为新容量，小于则不会变更。
@@ -353,6 +375,8 @@ lightWeightSet.increaseCapacityTo(10);
 
 
 ##### getIndexOf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getIndexOf(key: T): number
 
@@ -399,6 +423,8 @@ console.info("result:", result);  // result: 0
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 remove(key: T): T
 
 删除并返回指定key对应的元素。
@@ -443,6 +469,8 @@ console.info("result:", result);  // result: sparrow
 
 
 ##### removeAt
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeAt(index: number): boolean
 
@@ -490,6 +518,8 @@ console.info("result:", result);  // result: true
 
 ##### getValueAt
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getValueAt(index: number): T
 
 获取容器中指定下标对应的元素。
@@ -536,6 +566,8 @@ console.info("result:", result);  // result: squirrel
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清除容器中的所有元素，并将length置为0。
@@ -568,6 +600,8 @@ console.info("result:", result);  // result: true
 
 ##### toString
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toString(): String
 
 获取包含容器中所有键和值的字符串。
@@ -596,6 +630,8 @@ console.info("result:", result);  // result: sparrow,squirrel
 
 
 ##### toArray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toArray(): Array&lt;T&gt;
 
@@ -635,6 +671,8 @@ console.info(result.toString());
 
 
 ##### values
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 values(): IterableIterator&lt;T&gt;
 
@@ -677,6 +715,8 @@ for (let value of values) {
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value?: T, key?: T, set?: LightWeightSet&lt;T&gt;) => void, thisArg?: Object): void
 
@@ -741,6 +781,8 @@ for(let i = 0; i < 10; i++) {
 
 ##### entries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 entries(): IterableIterator<[T, T]>
 
 返回包含此映射中包含的键值对的新迭代器对象。
@@ -793,6 +835,8 @@ for(let i = 0; i < 10; i++) {
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
 
@@ -857,6 +901,8 @@ for(let i = 0; i < 10; i++) {
 
 
 ##### equal(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 equal(obj: Object): boolean
 

@@ -12,6 +12,8 @@ typedef struct {...} OH_AVMetadataExtractor_FrameInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义从视频中提取出的帧的信息。
  
 **起始版本：** 23
@@ -24,9 +26,13 @@ typedef struct {...} OH_AVMetadataExtractor_FrameInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

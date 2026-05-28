@@ -12,6 +12,8 @@ CallerInfoQueryExtensionContext为CallerInfoQueryExtensionAbility的上下文环
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import {CallerInfoQueryExtensionContext} from '@kit.CallServiceKit';
 ```
@@ -19,6 +21,8 @@ import {CallerInfoQueryExtensionContext} from '@kit.CallServiceKit';
   
 
 ##### CallerInfoQueryExtensionContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **模型约束：** 属性仅可在Stage模型下使用。
  

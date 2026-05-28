@@ -260,7 +260,7 @@ media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptu
 单设备应用开发时，DevEco Studio只识别到一种设备类型，适配开发过程如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/R9qMpc_IQ061M7LvN-r-LA/zh-cn_image_0000002581435518.png?HW-CC-KV=V1&HW-CC-Date=20260528T014028Z&HW-CC-Expire=86400&HW-CC-Sign=D3CA9598EF5EEE973D90F580A158316EFD43431269FF9A6B327A97FD989107D9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/R9qMpc_IQ061M7LvN-r-LA/zh-cn_image_0000002581435518.png?HW-CC-KV=V1&HW-CC-Date=20260528T024320Z&HW-CC-Expire=86400&HW-CC-Sign=36EF80A0243E7D815D89977E93426CB3516C6C926D9294BCEEF61D5068961681)
 
 1. 如果存在API在同一设备类型下的不同设备型号存在能力不一致的情况，需使用能力查询接口判断接口能力可用性（注意：此处的能力查询机制并非canIUse，请参见[使用能力查询接口判断API是否可用](#使用能力查询接口判断api是否可用)）；
 2. 为了避免调用接口出现的异常情况，需要开发者进行错误码异常处理。
@@ -272,7 +272,7 @@ media.createAVScreenCaptureRecorder().then((captureRecorder: media.AVScreenCaptu
 多设备应用开发时，DevEco Studio需同时识别多种设备类型，适配开发过程如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/z6plMjWfR6yLAsYX1yfQmQ/zh-cn_image_0000002611835349.png?HW-CC-KV=V1&HW-CC-Date=20260528T014028Z&HW-CC-Expire=86400&HW-CC-Sign=F7212C6FD5DEBBB47C3D0F56FE5EA819CE5084F553AEF53A6AA505223B6BB3C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/z6plMjWfR6yLAsYX1yfQmQ/zh-cn_image_0000002611835349.png?HW-CC-KV=V1&HW-CC-Date=20260528T024320Z&HW-CC-Expire=86400&HW-CC-Sign=23306C496F767CCCF5000BCBD2E28646FB644B2DFF44B7E78B240BA7320B345B)
 
 1. 使用canIUse判断并集内交集外的SysCap集合是否可用；
 

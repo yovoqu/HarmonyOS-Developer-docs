@@ -12,6 +12,8 @@ typedef struct OH_AI_CallBackParam {...} OH_AI_CallBackParam
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 回调函数中传入的算子信息。
  
 **起始版本：** 9
@@ -24,9 +26,13 @@ typedef struct OH_AI_CallBackParam {...} OH_AI_CallBackParam
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

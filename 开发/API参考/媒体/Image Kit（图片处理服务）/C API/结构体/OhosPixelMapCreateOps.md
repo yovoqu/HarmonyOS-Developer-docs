@@ -12,6 +12,8 @@ struct OhosPixelMapCreateOps {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于定义创建 pixel map 设置选项的相关信息。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ struct OhosPixelMapCreateOps {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

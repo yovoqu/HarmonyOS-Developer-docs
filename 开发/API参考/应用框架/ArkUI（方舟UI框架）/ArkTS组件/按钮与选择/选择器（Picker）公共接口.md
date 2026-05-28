@@ -14,6 +14,8 @@
 
 ##### PickerTextStyle对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 选择器组件的文本样式。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -29,6 +31,8 @@
   
 
 ##### PickerDialogButtonStyle12+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 选择器弹窗的按钮样式。
  
@@ -54,6 +58,8 @@
   
 
 ##### DateRange19+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 日期区间，用于描述起止日期区间。
  

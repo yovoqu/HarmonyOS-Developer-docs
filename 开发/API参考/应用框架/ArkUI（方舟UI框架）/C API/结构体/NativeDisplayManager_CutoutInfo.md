@@ -12,6 +12,8 @@ typedef struct {...} NativeDisplayManager_CutoutInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 挖孔屏、刘海屏、瀑布屏等不可用屏幕区域信息。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct {...} NativeDisplayManager_CutoutInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

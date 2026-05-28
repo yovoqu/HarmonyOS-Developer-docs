@@ -12,6 +12,8 @@ typedef struct JSVM_Ref__* JSVM_Ref
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示JavaScript值的引用。
  
 **起始版本：** 11

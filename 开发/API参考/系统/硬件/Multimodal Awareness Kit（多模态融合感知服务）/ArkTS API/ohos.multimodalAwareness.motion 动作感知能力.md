@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone
+
 ```text
 import { motion } from '@kit.MultimodalAwarenessKit';
 ```
@@ -21,6 +23,8 @@ import { motion } from '@kit.MultimodalAwarenessKit';
 
 
 ##### OperatingHandStatus
+
+**支持设备：** Phone
 
 触控操作手状态信息。
 
@@ -36,6 +40,8 @@ import { motion } from '@kit.MultimodalAwarenessKit';
 
 
 ##### HoldingHandStatus20+
+
+**支持设备：** Phone
 
 手机握持手状态信息，表示握持手状态变化感知事件的结果。订阅握持手状态变化感知事件后，返回当前握持手状态信息。
 
@@ -53,6 +59,8 @@ import { motion } from '@kit.MultimodalAwarenessKit';
 
 
 ##### motion.on('operatingHandChanged')
+
+**支持设备：** Phone
 
 on(type: 'operatingHandChanged', callback: Callback&lt;OperatingHandStatus&gt;): void
 
@@ -107,6 +115,8 @@ try {
 
 ##### motion.off('operatingHandChanged')
 
+**支持设备：** Phone
+
 off(type: 'operatingHandChanged', callback?: Callback&lt;OperatingHandStatus&gt;): void
 
 取消订阅触控操作手感知事件。
@@ -154,6 +164,8 @@ try {
 
 ##### motion.getRecentOperatingHandStatus()
 
+**支持设备：** Phone
+
 getRecentOperatingHandStatus(): OperatingHandStatus
 
 获取最新触控操作手状态。
@@ -197,6 +209,8 @@ try {
 
 
 ##### motion.on('holdingHandChanged') 20+
+
+**支持设备：** Phone
 
 on(type: 'holdingHandChanged', callback: Callback&lt;HoldingHandStatus&gt;): void
 
@@ -247,6 +261,8 @@ try {
 
 
 ##### motion.off('holdingHandChanged') 20+
+
+**支持设备：** Phone
 
 off(type: 'holdingHandChanged', callback?: Callback&lt;HoldingHandStatus&gt;): void
 

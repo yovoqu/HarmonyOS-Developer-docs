@@ -12,6 +12,8 @@ typedef struct OH_NativeXComponent_MouseEvent_Callback {...} OH_NativeXComponent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 注册鼠标事件的回调。
  
 **起始版本：** 9
@@ -24,9 +26,13 @@ typedef struct OH_NativeXComponent_MouseEvent_Callback {...} OH_NativeXComponent
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,9 +44,13 @@ typedef struct OH_NativeXComponent_MouseEvent_Callback {...} OH_NativeXComponent
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### DispatchMouseEvent()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*DispatchMouseEvent)(OH_NativeXComponent* component, void* window)
@@ -63,6 +73,8 @@ void (*DispatchMouseEvent)(OH_NativeXComponent* component, void* window)
   
 
 ##### DispatchHoverEvent()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*DispatchHoverEvent)(OH_NativeXComponent* component, bool isHover)

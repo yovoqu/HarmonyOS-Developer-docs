@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义LowPowerVideoSink的结构体和枚举。
  
 **引用文件：** <multimedia/player_framework/lowpower_video_sink_base.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -52,9 +60,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_LowPowerVideoSink_OnDataNeeded()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void (*OH_LowPowerVideoSink_OnDataNeeded)(OH_LowPowerVideoSink* sink,OH_AVSamplesBuffer* buffer,void *userData)
@@ -78,6 +90,8 @@ LowPowerVideoSink需要数据时调用该方法，包含在[OH_LowPowerVideoSink
   
 
 ##### OH_LowPowerVideoSink_OnError()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void (*OH_LowPowerVideoSink_OnError)(OH_LowPowerVideoSink* sink,OH_AVErrCode errCode,const char* errMsg,void* userData)
@@ -103,6 +117,8 @@ LowPowerVideoSink发生错误时调用该方法。
 
 ##### OH_LowPowerVideoSink_OnTargetArrived()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 typedef void (*OH_LowPowerVideoSink_OnTargetArrived)(OH_LowPowerVideoSink* sink,const int64_t targetPts,const bool isTimeout,void* userData)
 ```
@@ -127,6 +143,8 @@ LowPowerVideoSink到达目标点时调用该方法，包含在[OH_LowPowerVideoS
 
 ##### OH_LowPowerVideoSink_OnRenderStarted()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 typedef void (*OH_LowPowerVideoSink_OnRenderStarted)(OH_LowPowerVideoSink* sink, void* userData)
 ```
@@ -148,6 +166,8 @@ LowPowerVideoSink开始渲染时调用该方法，包含在[OH_LowPowerVideoSink
   
 
 ##### OH_LowPowerVideoSink_OnStreamChanged()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void (*OH_LowPowerVideoSink_OnStreamChanged)(OH_LowPowerVideoSink* sink, OH_AVFormat* format, void* userData)
@@ -172,6 +192,8 @@ LowPowerVideoSink流切换调用该方法，包含在[OH_LowPowerVideoSinkCallba
 
 ##### OH_LowPowerVideoSink_OnFirstFrameDecoded()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 typedef void (*OH_LowPowerVideoSink_OnFirstFrameDecoded)(OH_LowPowerVideoSink* sink, void* userData)
 ```
@@ -193,6 +215,8 @@ LowPowerVideoSink第一帧解码成功时调用该方法，包含在[OH_LowPower
   
 
 ##### OH_LowPowerVideoSink_OnEos()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void (*OH_LowPowerVideoSink_OnEos)(OH_LowPowerVideoSink* sink, void* userData)

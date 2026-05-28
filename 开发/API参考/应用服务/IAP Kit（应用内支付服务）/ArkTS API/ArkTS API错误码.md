@@ -12,6 +12,8 @@
 
 ##### 1001860000 用户取消当前操作
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The operation was canceled by the user.
@@ -31,6 +33,8 @@ The operation was canceled by the user.
 
 
 ##### 1001860001 内部错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -54,6 +58,8 @@ System internal error.
 
 ##### 1001860002 应用未被授权访问接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The application is not authorized.
@@ -75,6 +81,8 @@ The application is not authorized.
 
 ##### 1001860003 无效的商品信息
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Invalid product information.
@@ -94,6 +102,8 @@ Invalid product information.
 
 
 ##### 1001860004 接口访问过频
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -115,6 +125,8 @@ Too frequent API calls.
 
 ##### 1001860005 网络连接异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Network connection error.
@@ -134,6 +146,8 @@ Network connection error.
 
 
 ##### 1001860007 商品所属的应用未在指定国家/地区上架
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -155,6 +169,8 @@ The app to which the product belongs is not released in a specified location.
 
 ##### 1001860050 未登录华为账号
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The HUAWEI ID is not signed in.
@@ -174,6 +190,8 @@ The HUAWEI ID is not signed in.
 
 
 ##### 1001860051 由于已经拥有该商品，购买失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -199,6 +217,8 @@ Failed to purchase a product because the user already owns the product.
 
 ##### 1001860052 由于未支付该商品，发货失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The purchase cannot be finished because the user has not paid for it.
@@ -218,6 +238,8 @@ The purchase cannot be finished because the user has not paid for it.
 
 
 ##### 1001860053 此次购买已经完成发货，无需重复发货
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -239,6 +261,8 @@ The purchase has been finished and cannot be finished again.
 
 ##### 1001860054 用户账号所在服务地不在IAP Kit支持结算的国家/地区中
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The country or region of the signed-in HUAWEI ID does not support IAP.
@@ -259,6 +283,8 @@ The country or region of the signed-in HUAWEI ID does not support IAP.
 
 ##### 1001860056 用户交易被拒绝
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The user is not allowed to make purchase.
@@ -278,6 +304,8 @@ The user is not allowed to make purchase.
 
 
 ##### 1001860057 当前应用不是debug签名的应用
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -301,6 +329,8 @@ The app provision type is not debug.
 
 ##### 1001860058 登录的华为账号不是配置的测试账号
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The HUAWEI ID is not test account.
@@ -320,6 +350,8 @@ The HUAWEI ID is not test account.
 
 
 ##### 1001860059 无效的优惠信息
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -341,6 +373,8 @@ Invalid promotional offer id.
 
 ##### 1001860060 无效的签名信息
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Invalid purchase signature.
@@ -360,6 +394,8 @@ Invalid purchase signature.
 
 
 ##### 1001860061 商品已退款或退款中
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -381,6 +417,8 @@ The purchase has been refunded or in refund.
 
 ##### 1001860062 不允许退款
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Refund is not allowed.
@@ -401,6 +439,8 @@ Refund is not allowed.
 
 ##### 1001860064 登录的华为账号上找不到该笔订单
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 The purchase order is not found for the signed-in HUAWEI ID.
@@ -420,6 +460,8 @@ The purchase order is not found for the signed-in HUAWEI ID.
 
 
 ##### 1001860065 不支持开票操作
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 

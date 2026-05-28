@@ -14,6 +14,8 @@ ConfigurationConstant模块提供了[Configuration](https://developer.huawei.com
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ConfigurationConstant } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { ConfigurationConstant } from '@kit.AbilityKit';
   
 
 ##### ColorMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示深浅色模式的枚举，用于[Configuration.colorMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration#configuration)字段。开发者可以使用这些预置枚举设置或获取系统/应用的深浅色模式。
  
@@ -39,6 +43,8 @@ import { ConfigurationConstant } from '@kit.AbilityKit';
 
 ##### Direction
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示屏幕方向的枚举，用于[Configuration.direction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration#configuration)字段。开发者可以使用这些预置枚举设置或获取系统/应用的显示方向。
  
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -55,6 +61,8 @@ import { ConfigurationConstant } from '@kit.AbilityKit';
   
 
 ##### ScreenDensity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示屏幕像素密度的枚举，用于[Configuration.screenDensity](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration#configuration)字段。开发者可以使用这些预置枚举设置或获取屏幕的像素密度。
  

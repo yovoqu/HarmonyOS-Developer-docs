@@ -23,6 +23,8 @@
 
 ##### **导入模块**
 
+**支持设备：** Phone | Wearable
+
 ```text
 import { omapi } from '@kit.ConnectivityKit';
 ```
@@ -30,6 +32,8 @@ import { omapi } from '@kit.ConnectivityKit';
   
 
 ##### ServiceState
+
+**支持设备：** Phone | Wearable
 
 定义不同的SE服务状态值。
  
@@ -44,6 +48,8 @@ import { omapi } from '@kit.ConnectivityKit';
   
 
 ##### omapi.newSEService(deprecated)
+
+**支持设备：** Phone | Wearable
 
 newSEService(type: 'serviceState', callback: Callback&lt;ServiceState&gt;): SEService
  
@@ -110,6 +116,8 @@ function secureElementDemo() {
 
 ##### omapi.createService12+
 
+**支持设备：** Phone | Wearable
+
 createService(): Promise&lt;SEService&gt;;
  
 建立一个可用于连接到系统中所有可用SE的新连接（服务）。连接过程较为耗时，所以此方法仅提供异步方式。使用Promise异步回调。
@@ -161,6 +169,8 @@ function secureElementDemo() {
 
 ##### omapi.on18+
 
+**支持设备：** Phone | Wearable
+
 on(type: 'stateChanged', callback: Callback&lt;ServiceState&gt;): void;
  
 注册监听服务状态变化事件。
@@ -193,6 +203,8 @@ on(type: 'stateChanged', callback: Callback&lt;ServiceState&gt;): void;
   
 
 ##### omapi.off18+
+
+**支持设备：** Phone | Wearable
 
 off(type: 'stateChanged', callback?: Callback&lt;ServiceState&gt;): void;
  
@@ -266,11 +278,15 @@ function secureElementDemo() {
 
 ##### SEService
 
+**支持设备：** Phone | Wearable
+
 SEService表示可用于连接到系统中所有可用SE的连接（服务），通过[createService](#omapicreateservice12)获取SEService实例。
  
   
 
 ##### SEService.getReaders
+
+**支持设备：** Phone | Wearable
 
 getReaders(): Reader[]
  
@@ -324,6 +340,8 @@ function secureElementDemo() {
 
 ##### SEService.isConnected
 
+**支持设备：** Phone | Wearable
+
 isConnected(): boolean
  
 检查SE服务是否已连接。
@@ -373,6 +391,8 @@ function secureElementDemo() {
 
 ##### SEService.shutdown
 
+**支持设备：** Phone | Wearable
+
 shutdown(): void
  
 释放该Service分配的所有SE资源。此后[isConnected](#seserviceisconnected)将返回false。
@@ -409,6 +429,8 @@ try {
   
 
 ##### SEService.getVersion
+
+**支持设备：** Phone | Wearable
 
 getVersion(): string
  
@@ -455,11 +477,15 @@ try {
 
 ##### Reader
 
+**支持设备：** Phone | Wearable
+
 Reader的实例表示该设备支持的SE，如果支持eSE、SIM和SIM2，则返回3个实例，其中SIM2从API version 22开始支持。通过[SEService.getReaders](#seservicegetreaders)获取Reader实例。
  
   
 
 ##### Reader.getName
+
+**支持设备：** Phone | Wearable
 
 getName(): string
  
@@ -506,6 +532,8 @@ try {
 
 ##### Reader.isSecureElementPresent
 
+**支持设备：** Phone | Wearable
+
 isSecureElementPresent(): boolean
  
 检查当前Reader所对应的安全单元是否可用。
@@ -551,6 +579,8 @@ try {
   
 
 ##### Reader.openSession
+
+**支持设备：** Phone | Wearable
 
  openSession(): Session
  
@@ -604,6 +634,8 @@ function secureElementDemo() {
 
 ##### Reader.closeSessions
 
+**支持设备：** Phone | Wearable
+
  closeSessions(): void
  
 关闭在此Reader上打开的所有Session。所有这些Session打开的所有Channel都将关闭。
@@ -656,11 +688,15 @@ function secureElementDemo() {
 
 ##### Session
 
+**支持设备：** Phone | Wearable
+
 Session的实例表示在某个SE Reader实例上创建连接会话。通过[Reader.openSession](#readeropensession)获取Session实例。
  
   
 
 ##### Session.getReader
+
+**支持设备：** Phone | Wearable
 
 getReader(): Reader
  
@@ -718,6 +754,8 @@ function secureElementDemo() {
 
 ##### Session.getATR
 
+**支持设备：** Phone | Wearable
+
 getATR(): number[]
  
 获取该SE的ATR。如果该SE的ATR不可用，则应返回空数组。
@@ -763,6 +801,8 @@ try {
 
 ##### Session.close
 
+**支持设备：** Phone | Wearable
+
 close(): void
  
 关闭与SE的当前会话连接。这将关闭此Session打开的所有Channel。
@@ -799,6 +839,8 @@ try {
   
 
 ##### Session. isClosed
+
+**支持设备：** Phone | Wearable
 
 isClosed(): boolean
  
@@ -844,6 +886,8 @@ try {
 
 ##### Session.closeChannels
 
+**支持设备：** Phone | Wearable
+
 closeChannels(): void
  
 关闭此Session上打开的所有Channel。
@@ -880,6 +924,8 @@ try {
   
 
 ##### Session.openBasicChannel
+
+**支持设备：** Phone | Wearable
 
 openBasicChannel(aid: number[]): Promise&lt;Channel&gt;
  
@@ -948,6 +994,8 @@ function secureElementDemo() {
 
 ##### Session.openBasicChannel
 
+**支持设备：** Phone | Wearable
+
  openBasicChannel(aid: number[], callback: AsyncCallback&lt;Channel&gt;): void
  
 打开基础通道，参考[ISO 7816-4]协议，返回基础Channel实例对象。SE不能提供基础Channel或应用程序没有访问SE的权限时，返回null。使用callback异步回调。
@@ -1010,6 +1058,8 @@ function secureElementDemo() {
   
 
 ##### Session.openBasicChannel
+
+**支持设备：** Phone | Wearable
 
 openBasicChannel(aid: number[], p2: number): Promise&lt;Channel&gt;
  
@@ -1080,6 +1130,8 @@ function secureElementDemo() {
 
 ##### Session.openBasicChannel
 
+**支持设备：** Phone | Wearable
+
 openBasicChannel(aid: number[], p2:number, callback: AsyncCallback&lt;Channel&gt;): void
  
 打开基础通道，参考[ISO 7816-4]协议，返回基础Channel实例对象。SE不能提供基础Channel或应用程序没有访问SE的权限时，返回null。使用callback异步回调。
@@ -1144,6 +1196,8 @@ function secureElementDemo() {
   
 
 ##### Session.openLogicalChannel
+
+**支持设备：** Phone | Wearable
 
 openLogicalChannel(aid: number[]): Promise&lt;Channel&gt;
  
@@ -1212,6 +1266,8 @@ function secureElementDemo() {
 
 ##### Session.openLogicalChannel
 
+**支持设备：** Phone | Wearable
+
  openLogicalChannel(aid: number[], callback: AsyncCallback&lt;Channel&gt;): void
  
 打开逻辑通道，参考[ISO 7816-4]协议，返回逻辑Channel实例对象。SE不能提供逻辑Channel或应用程序没有访问SE的权限时，返回null。使用callback异步回调。
@@ -1274,6 +1330,8 @@ function secureElementDemo() {
   
 
 ##### Session.openLogicalChannel
+
+**支持设备：** Phone | Wearable
 
 openLogicalChannel(aid: number[], p2: number): Promise&lt;Channel&gt;
  
@@ -1344,6 +1402,8 @@ function secureElementDemo() {
 
 ##### Session.openLogicalChannel
 
+**支持设备：** Phone | Wearable
+
 openLogicalChannel(aid: number[], p2: number, callback: AsyncCallback&lt;Channel&gt;):void
  
 打开逻辑通道，参考[ISO 7816-4]协议，返回Channel实例对象。SE不能提供逻辑Channel或应用程序没有访问SE的权限时，返回null。使用callback异步回调。
@@ -1409,11 +1469,15 @@ function secureElementDemo() {
 
 ##### Channel
 
+**支持设备：** Phone | Wearable
+
 Channel的实例表示在某个Session实例上创建通道，可能为基础通道或逻辑通道。通过[Session.openBasicChannel](#sessionopenbasicchannel)或[Session.openLogicalChannel](#sessionopenlogicalchannel)获取Channel实例。
  
   
 
 ##### Channel.getSession
+
+**支持设备：** Phone | Wearable
 
  getSession(): Session
  
@@ -1459,6 +1523,8 @@ try {
 
 ##### Channel.close
 
+**支持设备：** Phone | Wearable
+
 close(): void
  
 关闭Channel。
@@ -1493,6 +1559,8 @@ try {
   
 
 ##### Channel.isBasicChannel
+
+**支持设备：** Phone | Wearable
 
 isBasicChannel(): boolean
  
@@ -1537,6 +1605,8 @@ try {
 
 ##### Channel.isClosed
 
+**支持设备：** Phone | Wearable
+
 isClosed(): boolean
  
 检查该Channel是否已被关闭。
@@ -1580,6 +1650,8 @@ try {
 
 ##### Channel.getSelectResponse
 
+**支持设备：** Phone | Wearable
+
 getSelectResponse(): number[]
  
 获取SELECT Applet时的响应数据，包含状态字。
@@ -1622,6 +1694,8 @@ try {
   
 
 ##### Channel.transmit
+
+**支持设备：** Phone | Wearable
 
 transmit(command: number[]): Promise<number[]>
  
@@ -1681,6 +1755,8 @@ try {
   
 
 ##### Channel.transmit
+
+**支持设备：** Phone | Wearable
 
 transmit(command: number[], callback: AsyncCallback<number[]>): void
  

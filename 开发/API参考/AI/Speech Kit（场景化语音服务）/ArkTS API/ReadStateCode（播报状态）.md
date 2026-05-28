@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { ReadStateCode } from '@kit.SpeechKit';
 ```
@@ -19,6 +21,8 @@ import { ReadStateCode } from '@kit.SpeechKit';
   
 
 ##### ReadStateCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 播报状态枚举类。
  

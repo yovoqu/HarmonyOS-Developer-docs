@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { cameraPicker } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { cameraPicker } from '@kit.CameraKit';
 
 
 ##### cameraPicker.pick
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pick(context: Context, mediaTypes: Array&lt;PickerMediaType&gt;, pickerProfile: PickerProfile): Promise&lt;PickerResult&gt;
 
@@ -76,6 +80,8 @@ async function demo(context: Context) {
 
 ##### PickerMediaType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，相机选择器的媒体类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -91,6 +97,8 @@ async function demo(context: Context) {
 
 
 ##### PickerProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相机选择器的配置信息。
 
@@ -108,6 +116,8 @@ async function demo(context: Context) {
 
 
 ##### PickerResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相机选择器的处理结果。
 

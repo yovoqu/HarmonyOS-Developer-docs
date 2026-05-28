@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { trustedAuthentication } from '@kit.DeviceSecurityKit';
 ```
@@ -19,6 +21,8 @@ import { trustedAuthentication } from '@kit.DeviceSecurityKit';
   
 
 ##### enableTrustedAuthentication
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 enableTrustedAuthentication(challenge: Uint8Array, pwdInfo: PasswordInfo, label: TUILable): Promise&lt;AuthInfo&gt;
  
@@ -100,6 +104,8 @@ try {
   
 
 ##### modifyTrustedAuthenticationPwd
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 modifyTrustedAuthenticationPwd(challenge: Uint8Array, pwdInfo: PasswordInfo, authID: bigint, label: TUILable): Promise&lt;AuthToken&gt;
  
@@ -188,6 +194,8 @@ try {
 
 ##### disableTrustedAuthentication
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 disableTrustedAuthentication(challenge: Uint8Array, needAuth: boolean, authID: bigint, label: TUILable): Promise&lt;AuthToken&gt;
  
 关闭数字盾服务，开发者可通过参数needAuth控制密码关闭前是否需要密码认证。使用Promise异步回调。
@@ -269,6 +277,8 @@ try {
 
 ##### trustedAuthentication
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 trustedAuthentication(challenge: Uint8Array, authID: bigint, label: TUILable): Promise&lt;AuthToken&gt;
  
 提供数字盾密码认证能力，开发者可使用该接口完成绑定生物特征支付前的密码认证。使用Promise异步回调。
@@ -346,6 +356,8 @@ try {
   
 
 ##### procContentAuthentication
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 procContentAuthentication(challenge: Uint8Array, authID: bigint, authMsg: AuthReqParams, label: TUILable): Promise&lt;AuthToken&gt;
  
@@ -429,6 +441,8 @@ try {
   
 
 ##### getBiometricAuthToken
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getBiometricAuthToken(operType: OperateType, tuiAuthToken: Uint8Array, bioAuthToken: Uint8Array): Promise&lt;AuthToken&gt;
  
@@ -541,6 +555,8 @@ try {
 
 ##### importData
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 importData(data: ArrayBuffer, authID: bigint): Promise&lt;void&gt;
  
 导入备份的数据信息（即与HUKS签名验签时使用的加密密钥信息）。使用Promise异步回调。
@@ -602,6 +618,8 @@ try {
   
 
 ##### exportData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 exportData(authID: bigint, label: TUILable): Promise&lt;ArrayBuffer&gt;
  
@@ -673,6 +691,8 @@ try {
 
 ##### checkConfirmUITextFormat
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 checkConfirmUITextFormat(text: string): Promise&lt;TextCheckResult&gt;
  
 检查将在TUI呈现的内容是否可以在屏幕上单行完整展示。使用Promise异步回调。
@@ -735,6 +755,8 @@ try {
 
 ##### getRemainAuthTimes
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getRemainAuthTimes(authID: bigint): Promise&lt;number&gt;
  
 获取数字盾剩余认证次数。使用Promise异步回调。
@@ -792,6 +814,8 @@ try {
   
 
 ##### disableTrustedBioAuthentication
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 disableTrustedBioAuthentication(authID: bigint, authType: AuthType): Promise&lt;void&gt;
  
@@ -853,6 +877,8 @@ try {
 
 ##### PasswordInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 设置密码时业务对密码规格参数要求。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
@@ -871,6 +897,8 @@ try {
 
 ##### TUILable
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 TUI页面下的定制信息，包括定制图像logo和页面标题。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
@@ -886,6 +914,8 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
   
 
 ##### AuthInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 开通数字盾服务对应的参数信息。
  
@@ -903,6 +933,8 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 
 ##### AuthToken
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 经数字盾服务指定操作获取的authToken，不同操作流程中authToken包括的加密信息不同，详细可参考各个接口参数说明。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
@@ -917,6 +949,8 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
   
 
 ##### AuthType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 交易认证类型定义。
  
@@ -935,6 +969,8 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 
 ##### PasswordType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 密码类型定义，根据密码类型TUI界面弹出不同类型的安全键盘。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
@@ -950,6 +986,8 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
   
 
 ##### OperateType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 操作类型定义。
  
@@ -967,6 +1005,8 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 
 ##### AuthReqParams
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 交易认证请求相关参数。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
@@ -983,6 +1023,8 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 
 ##### TextCheckResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 TUI界面文本信息是否可以单行显示的检查结果。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
@@ -998,6 +1040,8 @@ TUI界面文本信息是否可以单行显示的检查结果。
   
 
 ##### TrustedAuthErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 数字盾服务开放接口执行失败错误码。
  

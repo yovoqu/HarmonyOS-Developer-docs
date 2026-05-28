@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Range OH_Drawing_Range
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于接收字体的起始位置和结束位置。
  
 **起始版本：** 11

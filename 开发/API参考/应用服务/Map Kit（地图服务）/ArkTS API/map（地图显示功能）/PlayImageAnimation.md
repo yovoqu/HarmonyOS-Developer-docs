@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map } from '@kit.MapKit';
 import { image } from '@kit.ImageKit';
@@ -15,6 +17,8 @@ import { image } from '@kit.ImageKit';
   
 
 ##### PlayImageAnimation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 控制多张图片的帧动画，继承[Animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animation)。
  
@@ -45,6 +49,8 @@ await playImageAnimation.addImages(images);
   
 
 ##### addImages
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addImages(images: Array<ResourceStr | image.PixelMap>): Promise&lt;void&gt;
  

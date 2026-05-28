@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { securityAudit } from '@kit.DeviceSecurityKit';
 ```
@@ -19,6 +21,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
   
 
 ##### AuditEventInfo
+
+**支持设备：** PC/2in1
 
 用于订阅或取消订阅接口的请求参数。
  
@@ -34,6 +38,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
   
 
 ##### AuditEvent
+
+**支持设备：** PC/2in1
 
 安全审计数据。
  
@@ -55,6 +61,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
   
 
 ##### NotifyEvent
+
+**支持设备：** PC/2in1
 
 通知类事件枚举。
  
@@ -115,6 +123,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 
 ##### FilterType
 
+**支持设备：** PC/2in1
+
 事件过滤类型枚举。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -139,6 +149,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 
 ##### AuthEvent
 
+**支持设备：** PC/2in1
+
 阻断类事件枚举。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -159,6 +171,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 
 ##### AuthResult
 
+**支持设备：** PC/2in1
+
 阻断结果的枚举。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -174,6 +188,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
   
 
 ##### on('auditEventOccur')
+
+**支持设备：** PC/2in1
 
 on(type: 'auditEventOccur', auditEventInfo: [AuditEventInfo](#auditeventinfo), callback: Callback<[AuditEvent](#auditevent)>): void
  
@@ -237,6 +253,8 @@ try {
 
 ##### off('auditEventOccur')
 
+**支持设备：** PC/2in1
+
 off(type: 'auditEventOccur', auditEventInfo: [AuditEventInfo](#auditeventinfo), callback?: Callback<[AuditEvent](#auditevent)>): void
  
 取消订阅安全审计数据。
@@ -291,6 +309,8 @@ try {
 
 ##### Filter
 
+**支持设备：** PC/2in1
+
 用户提供的过滤条件信息。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -308,6 +328,8 @@ try {
 
 ##### Client
 
+**支持设备：** PC/2in1
+
 为通知客户端提供条件。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -321,6 +343,8 @@ try {
   
 
 ##### subscribe
+
+**支持设备：** PC/2in1
 
 subscribe(events: NotifyEvent[]): void
  
@@ -379,6 +403,8 @@ try {
 
 ##### unsubscribe
 
+**支持设备：** PC/2in1
+
 unsubscribe(events: NotifyEvent[]): void
  
 取消订阅通知事件。
@@ -435,6 +461,8 @@ try {
   
 
 ##### addFilter
+
+**支持设备：** PC/2in1
 
 addFilter(event: NotifyEvent, filter: Filter): void
  
@@ -501,6 +529,8 @@ try {
 
 ##### removeFilter
 
+**支持设备：** PC/2in1
+
 removeFilter(event: NotifyEvent, filter: Filter): void
  
 删除通知事件的过滤条件，满足该过滤条件的事件将不会再根据过滤器中的过滤标签进行处理。
@@ -564,6 +594,8 @@ try {
   
 
 ##### newClient
+
+**支持设备：** PC/2in1
 
 newClient(callback: Callback<[AuditEvent](#auditevent)>): Client
  
@@ -630,6 +662,8 @@ try {
 
 ##### deleteClient
 
+**支持设备：** PC/2in1
+
 deleteClient(client: Client): void
  
 删除通知客户端，用户将无法使用该客户端提供的方法，并会清空客户端记录的订阅与过滤信息。
@@ -687,6 +721,8 @@ try {
 
 ##### AuthClient
 
+**支持设备：** PC/2in1
+
 为阻断类事件客户端提供条件。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -700,6 +736,8 @@ try {
   
 
 ##### subscribe
+
+**支持设备：** PC/2in1
 
 subscribe(events: AuthEvent[]): void
  
@@ -759,6 +797,8 @@ try {
   
 
 ##### unsubscribe
+
+**支持设备：** PC/2in1
 
 unsubscribe(events: AuthEvent[]): void
  
@@ -824,6 +864,8 @@ try {
   
 
 ##### addFilter
+
+**支持设备：** PC/2in1
 
 addFilter(event: AuthEvent, filter: Filter): void
  
@@ -891,6 +933,8 @@ try {
   
 
 ##### removeFilter
+
+**支持设备：** PC/2in1
 
 removeFilter(event: AuthEvent, filter: Filter): void
  
@@ -964,6 +1008,8 @@ try {
 
 ##### auth
 
+**支持设备：** PC/2in1
+
 auth(auditEvent: AuditEvent, authResult: AuthResult): void
  
 设置阻断事件的阻断结果，审计模块会根据阻断结果对事件进行放行或拒绝的处理。
@@ -1024,6 +1070,8 @@ try {
   
 
 ##### newAuthClient
+
+**支持设备：** PC/2in1
 
 newAuthClient(callback: Callback<[AuditEvent](#auditevent)>): AuthClient
  
@@ -1087,6 +1135,8 @@ try {
 
 ##### deleteAuthClient
 
+**支持设备：** PC/2in1
+
 deleteAuthClient(client: AuthClient): void
  
 删除阻断客户端，用户将无法使用该客户端提供的方法，并会清空客户端记录的订阅与过滤信息。
@@ -1146,6 +1196,8 @@ try {
 
 ##### queryAllProcesses
 
+**支持设备：** PC/2in1
+
 queryAllProcesses(): string;
  
 查询获取所有的应用进程信息。
@@ -1194,6 +1246,8 @@ try {
   
 
 ##### queryProcesses
+
+**支持设备：** PC/2in1
 
 queryProcesses(pids: number[]): string;
  
@@ -1252,6 +1306,8 @@ try {
   
 
 ##### acquireCodeSign
+
+**支持设备：** PC/2in1
 
 acquireCodeSign(path: string): string
  

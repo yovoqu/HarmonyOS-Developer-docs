@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { FullScreenLaunchComponent } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { FullScreenLaunchComponent } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
@@ -34,11 +40,15 @@ import { FullScreenLaunchComponent } from '@kit.ArkUI';
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### FullScreenLaunchComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 FullScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback&lt;TerminationInfo&gt; })
 
@@ -63,6 +73,8 @@ FullScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, option
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本示例展示组件使用方法和扩展的元服务。实际运行时请使用开发者自己的元服务appId。
 
@@ -257,4 +269,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/1Wn1MargQPagqYD4Tkfjuw/zh-cn_image_0000002581276340.png?HW-CC-KV=V1&HW-CC-Date=20260528T013859Z&HW-CC-Expire=86400&HW-CC-Sign=7DF201C172EA8ABFCF8C4CEDA2B381BFDDD71937268F15E1191091087537203D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/1Wn1MargQPagqYD4Tkfjuw/zh-cn_image_0000002581276340.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=C8B9178E9DD796EF977FFD34A5934E8A0CEB7DC98C043D5A801C1E8CBFE59934)

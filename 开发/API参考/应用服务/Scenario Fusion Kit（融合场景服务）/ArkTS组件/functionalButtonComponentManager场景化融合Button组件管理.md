@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 ```
@@ -23,6 +25,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### OpenType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该枚举定义了FunctionalButton组件的功能类型，通过设置该参数来指定FunctionalButton的功能。
 
@@ -56,6 +60,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### SizeType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该枚举定义了FunctionalButton的尺寸类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -75,6 +81,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### HoverClassType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该枚举定义了FunctionalButton点击态的类型。
 
@@ -96,6 +104,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### ColorType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该枚举定义了FunctionalButton的颜色类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -116,6 +126,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### CredentialType(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 > [!NOTE]
 > 从5.0.0(12)开始新增此接口，功能不可用，从6.0.2(22)开始废弃，无替代接口。
@@ -139,6 +151,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### RealNameAuthenticationInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 > [!NOTE]
 > 从5.0.0(12)开始支持，从6.0.2(22)开始废弃，无替代接口。
@@ -166,6 +180,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### StyleOption
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了FunctionalButton组件的样式信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -192,6 +208,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### FunctionalButtonParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了FunctionalButton组件的参数，定义Button功能以及样式等。
 
@@ -221,6 +239,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### GetPhoneNumberResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了使用快速验证功能成功验证的响应。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -241,6 +261,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### GetRealtimePhoneNumberResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了使用实时验证功能成功验证的响应。
 
@@ -263,6 +285,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### OpenSettingResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了使用打开授权设置页功能，成功跳转授权设置页后返回应用或结束设置应用，应用权限设置情况的响应。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -283,6 +307,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### ChooseAvatarResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了使用选择头像功能成功选择的响应。
 
@@ -305,6 +331,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### AppParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了FunctionalButton为打开APP功能时，通过该参数指定打开的应用对应的包名和Ability名称。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -326,6 +354,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### ChooseAddressResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了FunctionalButton为选择收货地址功能时，通过该参数指定选择收货地址对应的返回体。
 
@@ -357,6 +387,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### ChooseInvoiceTitleResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了FunctionalButton为选择发票抬头功能时，通过该参数指定选择发票抬头对应的返回体。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -384,6 +416,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### RealNameAuthenticationResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了FunctionalButton为实名信息校验功能时，通过该参数指定实名信息校验对应的返回体。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -405,6 +439,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### FaceAuthenticationResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了FunctionalButton为人脸核身功能时，通过该参数指定人脸认证对应的返回体。
 
@@ -428,6 +464,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### FaceVerificationResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了FunctionalButton为人脸核身功能时，通过该参数指定人脸核身对应的返回体。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -449,6 +487,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### ChooseLocationResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了FunctionalButton为地图选点功能时，通过该参数指定地图选点对应的返回体。
 
@@ -474,6 +514,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### SubscribeLiveViewParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了FunctionalButton组件为实况窗订阅功能时，通过该参数指定实况窗订阅对应的订阅事件和计时器。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -495,6 +537,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### SubscribeLiveViewResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了FunctionalButton组件为实况窗订阅功能时，通过该参数指定实况窗订阅对应的返回体。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -513,6 +557,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### PermissionSettingResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了FunctionalButton组件为权限设置功能时，通过该参数指定权限设置的返回体，用于UIAbility/UIExtensionAbility二次拉起权限设置弹框。
 
@@ -541,6 +587,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### RequestSubscribeMessageResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义请求订阅消息的返回体。
 
 > [!NOTE]
@@ -565,6 +613,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 
 ##### ShareParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义分享的参数。
 
@@ -592,6 +642,8 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### GetPhoneNumberAndRiskLevelResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义获取手机号和风险等级的返回体。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -613,11 +665,15 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 不支持通用事件，仅支持以下事件：
 
 
 
 ##### FunctionalButtonController
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 FunctionalButton组件控制器，用来回调组件内部的点击事件。
 
@@ -632,6 +688,8 @@ FunctionalButton组件控制器，用来回调组件内部的点击事件。
 
 
 ##### onGetPhoneNumber
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onGetPhoneNumber(callback: AsyncCallback&lt;GetPhoneNumberResult&gt;): FunctionalButtonController
 
@@ -710,6 +768,8 @@ struct Index {
 
 
 ##### onGetRealtimePhoneNumber
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onGetRealtimePhoneNumber(callback: AsyncCallback&lt;GetRealtimePhoneNumberResult&gt;): FunctionalButtonController
 
@@ -790,6 +850,8 @@ struct Index {
 
 
 ##### onLaunchApp
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onLaunchApp(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController
 
@@ -875,6 +937,8 @@ struct Index {
 
 ##### onOpenSetting
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onOpenSetting(callback: AsyncCallback&lt;OpenSettingResult&gt;): FunctionalButtonController
 
 注册FunctionalButton组件为打开授权设置页的点击事件，使用callback异步回调。
@@ -952,6 +1016,8 @@ struct Index {
 
 
 ##### onChooseAvatar
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onChooseAvatar(callback: AsyncCallback&lt;ChooseAvatarResult&gt;): FunctionalButtonController
 
@@ -1035,6 +1101,8 @@ struct Index {
 
 
 ##### onChooseAddress
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onChooseAddress(callback: AsyncCallback&lt;ChooseAddressResult&gt;): FunctionalButtonController
 
@@ -1129,6 +1197,8 @@ struct Index {
 
 ##### onChooseInvoiceTitle
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onChooseInvoiceTitle(callback: AsyncCallback&lt;ChooseInvoiceTitleResult&gt;): FunctionalButtonController
 
 注册FunctionalButton组件为选择发票抬头的点击事件，使用callback异步回调。
@@ -1220,6 +1290,8 @@ struct Index {
 
 
 ##### onRealNameAuthentication
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onRealNameAuthentication(callback: AsyncCallback&lt;RealNameAuthenticationResult&gt;): FunctionalButtonController
 
@@ -1368,6 +1440,8 @@ struct SecondPage {
 
 
 ##### onFaceAuthentication
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onFaceAuthentication(callback: AsyncCallback&lt;FaceAuthenticationResult&gt;): FunctionalButtonController
 
@@ -1524,6 +1598,8 @@ struct SecondPage {
 
 ##### onFaceVerification
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onFaceVerification(verifyToken: string, callback: AsyncCallback&lt;FaceVerificationResult&gt;): void
 
 注册FunctionalButton组件为人脸验证的点击事件，使用callback异步回调。
@@ -1673,6 +1749,8 @@ struct SecondPage {
 
 ##### onChooseLocation
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onChooseLocation(callback: AsyncCallback&lt;ChooseLocationResult&gt;): FunctionalButtonController
 
 注册FunctionalButton组件为打开地图选点的点击事件，使用callback异步回调。
@@ -1761,6 +1839,8 @@ struct Index {
 
 ##### onSubscribeLiveView
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onSubscribeLiveView(callback: AsyncCallback&lt;SubscribeLiveViewResult&gt;): FunctionalButtonController
 
 注册FunctionalButton组件为实况窗订阅的点击事件，使用callback异步回调。
@@ -1840,6 +1920,8 @@ struct Index {
 
 
 ##### onPermissionSetting
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onPermissionSetting(callback: AsyncCallback&lt;PermissionSettingResult&gt;): FunctionalButtonController
 
@@ -1951,6 +2033,8 @@ struct Index {
 
 ##### onRequestSubscribeMessage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onRequestSubscribeMessage(callback: AsyncCallback&lt;RequestSubscribeMessageResult&gt;): FunctionalButtonController
 
 注册FunctionalButton组件为服务动态授权码按钮的点击事件，使用callback异步回调。
@@ -2039,6 +2123,8 @@ struct Index {
 
 
 ##### onShare
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onShare(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController
 
@@ -2131,6 +2217,8 @@ struct Index {
 
 ##### onFeedback
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onFeedback(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController
 
 注册FunctionalButton组件为反馈按钮的点击事件，使用callback异步回调。
@@ -2216,6 +2304,8 @@ struct Index {
 
 ##### onGetPhoneNumberAndRiskLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onGetPhoneNumberAndRiskLevel(callback: Callback&lt;GetPhoneNumberAndRiskLevelResult&gt;): FunctionalButtonController
 
 注册FunctionalButton组件为获取手机号和风险等级的点击事件，使用callback同步回调。
@@ -2292,6 +2382,8 @@ struct Index {
 
 ##### ButtonConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该类提供了实现FunctionalButton自定义属性的方法。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2305,6 +2397,8 @@ struct Index {
 
 
 ##### type
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type(value: ButtonType): ButtonConfig
 
@@ -2336,6 +2430,8 @@ type(value: ButtonType): ButtonConfig
 
 ##### stateEffect
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 stateEffect(value: boolean): ButtonConfig
 
 设置FunctionalButton是否开启按压态显示效果属性。
@@ -2365,6 +2461,8 @@ stateEffect(value: boolean): ButtonConfig
 
 
 ##### fontColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 fontColor(value: ResourceColor): ButtonConfig
 
@@ -2396,6 +2494,8 @@ fontColor(value: ResourceColor): ButtonConfig
 
 ##### fontSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 fontSize(value: Length): ButtonConfig
 
 设置FunctionalButton的字体大小属性。
@@ -2425,6 +2525,8 @@ fontSize(value: Length): ButtonConfig
 
 
 ##### fontWeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 fontWeight(value: string | number | FontWeight): ButtonConfig
 
@@ -2456,6 +2558,8 @@ fontWeight(value: string | number | FontWeight): ButtonConfig
 
 ##### fontStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 fontStyle(value: FontStyle): ButtonConfig
 
 设置FunctionalButton的字体样式属性。
@@ -2485,6 +2589,8 @@ fontStyle(value: FontStyle): ButtonConfig
 
 
 ##### fontFamily
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 fontFamily(value: string | Resource): ButtonConfig
 
@@ -2516,6 +2622,8 @@ fontFamily(value: string | Resource): ButtonConfig
 
 ##### width
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 width(value: Length): ButtonConfig
 
 设置FunctionalButton的宽度属性。
@@ -2545,6 +2653,8 @@ width(value: Length): ButtonConfig
 
 
 ##### height
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 height(value: Length): ButtonConfig
 
@@ -2576,6 +2686,8 @@ height(value: Length): ButtonConfig
 
 ##### size
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 size(value: SizeOptions): ButtonConfig
 
 设置FunctionalButton的高宽尺寸属性。
@@ -2605,6 +2717,8 @@ size(value: SizeOptions): ButtonConfig
 
 
 ##### constraintSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constraintSize(value: ConstraintSizeOptions): ButtonConfig
 
@@ -2636,6 +2750,8 @@ constraintSize(value: ConstraintSizeOptions): ButtonConfig
 
 ##### padding
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 padding(value: Length | Padding): ButtonConfig
 
 设置FunctionalButton的内边距属性。
@@ -2665,6 +2781,8 @@ padding(value: Length | Padding): ButtonConfig
 
 
 ##### margin
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 margin(value: Length | Padding): ButtonConfig
 
@@ -2696,6 +2814,8 @@ margin(value: Length | Padding): ButtonConfig
 
 ##### backgroundColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 backgroundColor(value: ResourceColor): ButtonConfig
 
 设置FunctionalButton的背景色属性。
@@ -2725,6 +2845,8 @@ backgroundColor(value: ResourceColor): ButtonConfig
 
 
 ##### backgroundImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 backgroundImage(src: ResourceStr, repeat?: ImageRepeat): ButtonConfig
 
@@ -2757,6 +2879,8 @@ backgroundImage(src: ResourceStr, repeat?: ImageRepeat): ButtonConfig
 
 ##### backgroundImageSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 backgroundImageSize(value: SizeOptions | ImageSize): ButtonConfig
 
 设置FunctionalButton的背景图像的高度和宽度属性。
@@ -2786,6 +2910,8 @@ backgroundImageSize(value: SizeOptions | ImageSize): ButtonConfig
 
 
 ##### backgroundImagePosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 backgroundImagePosition(value: Position | Alignment): ButtonConfig
 
@@ -2817,6 +2943,8 @@ backgroundImagePosition(value: Position | Alignment): ButtonConfig
 
 ##### opacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 opacity(value: number | Resource): ButtonConfig
 
 设置FunctionalButton的透明度属性。
@@ -2846,6 +2974,8 @@ opacity(value: number | Resource): ButtonConfig
 
 
 ##### border
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 border(value: BorderOptions): ButtonConfig
 
@@ -2877,6 +3007,8 @@ border(value: BorderOptions): ButtonConfig
 
 ##### borderStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 borderStyle(value: BorderStyle | EdgeStyles): ButtonConfig
 
 设置FunctionalButton的边框样式属性。
@@ -2906,6 +3038,8 @@ borderStyle(value: BorderStyle | EdgeStyles): ButtonConfig
 
 
 ##### borderWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 borderWidth(value: Length | EdgeWidths): ButtonConfig
 
@@ -2937,6 +3071,8 @@ borderWidth(value: Length | EdgeWidths): ButtonConfig
 
 ##### borderColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 borderColor(value: ResourceColor | EdgeColors): ButtonConfig
 
 设置FunctionalButton的边框颜色属性。
@@ -2966,6 +3102,8 @@ borderColor(value: ResourceColor | EdgeColors): ButtonConfig
 
 
 ##### borderRadius
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 borderRadius(value: Length | BorderRadiuses): ButtonConfig
 
@@ -2997,6 +3135,8 @@ borderRadius(value: Length | BorderRadiuses): ButtonConfig
 
 ##### borderImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 borderImage(value: BorderImageOption): ButtonConfig
 
 设置FunctionalButton的图片边框属性。
@@ -3026,6 +3166,8 @@ borderImage(value: BorderImageOption): ButtonConfig
 
 
 ##### scale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 scale(value: ScaleOptions): ButtonConfig
 
@@ -3057,6 +3199,8 @@ scale(value: ScaleOptions): ButtonConfig
 
 ##### align
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 align(value: Alignment): ButtonConfig
 
 设置FunctionalButton的对齐方式属性。
@@ -3086,6 +3230,8 @@ align(value: Alignment): ButtonConfig
 
 
 ##### markAnchor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 markAnchor(value: Position): ButtonConfig
 
@@ -3117,6 +3263,8 @@ markAnchor(value: Position): ButtonConfig
 
 ##### offset
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 offset(value: Position): ButtonConfig
 
 设置FunctionalButton在位置坐标偏移量。
@@ -3146,6 +3294,8 @@ offset(value: Position): ButtonConfig
 
 
 ##### enabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 enabled(value: boolean): ButtonConfig
 
@@ -3177,6 +3327,8 @@ enabled(value: boolean): ButtonConfig
 
 ##### loadingColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 loadingColor(value: ResourceColor): ButtonConfig
 
 设置FunctionalButton中的LoadingProgress图标的颜色属性。
@@ -3206,6 +3358,8 @@ loadingColor(value: ResourceColor): ButtonConfig
 
 
 ##### loadingWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 loadingWidth(value: Length): ButtonConfig
 
@@ -3237,6 +3391,8 @@ loadingWidth(value: Length): ButtonConfig
 
 ##### loadingHeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 loadingHeight(value: Length): ButtonConfig
 
 设置FunctionalButton中的LoadingProgress图标的高度属性。
@@ -3266,6 +3422,8 @@ loadingHeight(value: Length): ButtonConfig
 
 
 ##### loadingPadding
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 loadingPadding(value: Length | Padding): ButtonConfig
 
@@ -3297,6 +3455,8 @@ loadingPadding(value: Length | Padding): ButtonConfig
 
 ##### loadingMargin
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 loadingMargin(value: Length | Padding): ButtonConfig
 
 设置FunctionalButton中的LoadingProgress图标的外边距属性。
@@ -3326,6 +3486,8 @@ loadingMargin(value: Length | Padding): ButtonConfig
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 
 
@@ -3379,4 +3541,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/he5jOBb8S2ef-X4hZOD4uA/zh-cn_image_0000002611836883.png?HW-CC-KV=V1&HW-CC-Date=20260528T013443Z&HW-CC-Expire=86400&HW-CC-Sign=950BBAC6ED5A2FC7AC0E584BD2CBFD8204283D5095408F773D3F962EE5610E4B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/he5jOBb8S2ef-X4hZOD4uA/zh-cn_image_0000002611836883.png?HW-CC-KV=V1&HW-CC-Date=20260528T023746Z&HW-CC-Expire=86400&HW-CC-Sign=3DA71CFE79174A3A8D043426D7D09D2BB06BE7FAD51FB23B1FE152E9F9B66128)

@@ -12,6 +12,8 @@ typedef void *OH_AI_ModelHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指向模型对象的指针。
  
 **起始版本：** 9

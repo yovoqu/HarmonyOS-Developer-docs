@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1 | Tablet
+
 定义面向外部密钥管理扩展的通用密钥库（HUKS）API。
  
 **引用文件：** <huks/native_huks_external_crypto_api.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### 函数
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -46,9 +52,13 @@
 
 ##### 函数说明
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### OH_Huks_RegisterProvider()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 struct OH_Huks_Result OH_Huks_RegisterProvider(const struct OH_Huks_Blob *providerName, const OH_Huks_ExternalCryptoParamSet *paramSet)
@@ -81,6 +91,8 @@ struct OH_Huks_Result OH_Huks_RegisterProvider(const struct OH_Huks_Blob *provid
 
 ##### OH_Huks_UnregisterProvider()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 struct OH_Huks_Result OH_Huks_UnregisterProvider(const struct OH_Huks_Blob *providerName, const OH_Huks_ExternalCryptoParamSet *paramSet)
 ```
@@ -111,6 +123,8 @@ struct OH_Huks_Result OH_Huks_UnregisterProvider(const struct OH_Huks_Blob *prov
   
 
 ##### OH_Huks_OpenResource()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 struct OH_Huks_Result OH_Huks_OpenResource(const struct OH_Huks_Blob *resourceId, const OH_Huks_ExternalCryptoParamSet *paramSet)
@@ -143,6 +157,8 @@ struct OH_Huks_Result OH_Huks_OpenResource(const struct OH_Huks_Blob *resourceId
 
 ##### OH_Huks_CloseResource()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 struct OH_Huks_Result OH_Huks_CloseResource(const struct OH_Huks_Blob *resourceId, const OH_Huks_ExternalCryptoParamSet *paramSet)
 ```
@@ -171,6 +187,8 @@ struct OH_Huks_Result OH_Huks_CloseResource(const struct OH_Huks_Blob *resourceI
   
 
 ##### OH_Huks_GetUkeyPinAuthState()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 struct OH_Huks_Result OH_Huks_GetUkeyPinAuthState(const struct OH_Huks_Blob *resourceId, const OH_Huks_ExternalCryptoParamSet *paramSet, OH_Huks_ExternalPinAuthState *authState)
@@ -201,6 +219,8 @@ struct OH_Huks_Result OH_Huks_GetUkeyPinAuthState(const struct OH_Huks_Blob *res
   
 
 ##### OH_Huks_GetProperty()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 struct OH_Huks_Result OH_Huks_GetProperty(const struct OH_Huks_Blob *resourceId, const struct OH_Huks_Blob *propertyId, const OH_Huks_ExternalCryptoParamSet *paramSetIn, OH_Huks_ExternalCryptoParamSet **paramSetOut)
@@ -233,6 +253,8 @@ struct OH_Huks_Result OH_Huks_GetProperty(const struct OH_Huks_Blob *resourceId,
 
 ##### OH_Huks_InitExternalCryptoParamSet()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 struct OH_Huks_Result OH_Huks_InitExternalCryptoParamSet(OH_Huks_ExternalCryptoParamSet **paramSet)
 ```
@@ -260,6 +282,8 @@ struct OH_Huks_Result OH_Huks_InitExternalCryptoParamSet(OH_Huks_ExternalCryptoP
   
 
 ##### OH_Huks_AddExternalCryptoParams()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 struct OH_Huks_Result OH_Huks_AddExternalCryptoParams(OH_Huks_ExternalCryptoParamSet *paramSet, const OH_Huks_ExternalCryptoParam *params, uint32_t paramCnt)
@@ -291,6 +315,8 @@ struct OH_Huks_Result OH_Huks_AddExternalCryptoParams(OH_Huks_ExternalCryptoPara
 
 ##### OH_Huks_BuildExternalCryptoParamSet()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 struct OH_Huks_Result OH_Huks_BuildExternalCryptoParamSet(OH_Huks_ExternalCryptoParamSet **paramSet)
 ```
@@ -319,6 +345,8 @@ struct OH_Huks_Result OH_Huks_BuildExternalCryptoParamSet(OH_Huks_ExternalCrypto
 
 ##### OH_Huks_FreeExternalCryptoParamSet()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 void OH_Huks_FreeExternalCryptoParamSet(OH_Huks_ExternalCryptoParamSet **paramSet)
 ```
@@ -339,6 +367,8 @@ void OH_Huks_FreeExternalCryptoParamSet(OH_Huks_ExternalCryptoParamSet **paramSe
   
 
 ##### OH_Huks_GetExternalCryptoParam()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 struct OH_Huks_Result OH_Huks_GetExternalCryptoParam(OH_Huks_ExternalCryptoParamSet *paramSet, const uint32_t tag, OH_Huks_ExternalCryptoParam **param)

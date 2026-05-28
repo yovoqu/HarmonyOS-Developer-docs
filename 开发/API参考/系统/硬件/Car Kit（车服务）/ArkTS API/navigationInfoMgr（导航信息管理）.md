@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { navigationInfoMgr } from '@kit.CarKit';
 ```
@@ -19,6 +21,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
   
 
 ##### NavigationStatus
+
+**支持设备：** Phone | Tablet
 
 该类为导航信息状态对象，定义了导航的状态信息，包括地图状态、导航类型、导航目的地、导航途经点、路线、地图和主题等。
  
@@ -42,6 +46,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ##### MapStatus
 
+**支持设备：** Phone | Tablet
+
 地图状态枚举值，列举出地图具体的状态。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
@@ -62,6 +68,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ##### NaviType
 
+**支持设备：** Phone | Tablet
+
 导航类型枚举值。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
@@ -79,6 +87,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
   
 
 ##### Location
+
+**支持设备：** Phone | Tablet
 
 地理位置坐标编码。
  
@@ -99,6 +109,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ##### LocationCoordType
 
+**支持设备：** Phone | Tablet
+
 地理位置坐标系编码枚举值。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
@@ -114,6 +126,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
   
 
 ##### RoutePreference
+
+**支持设备：** Phone | Tablet
 
 路线偏好枚举值。
  
@@ -136,6 +150,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ##### ThemeType
 
+**支持设备：** Phone | Tablet
+
 地图主题颜色枚举值。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
@@ -151,6 +167,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
   
 
 ##### NavigationMetadata
+
+**支持设备：** Phone | Tablet
 
 该类为导航信息数据对象，定义了导航的数据信息，包括导航转向模式、引导距离、当前道路名、即将进入的下一个道路名等。
  
@@ -183,6 +201,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 ##### SystemNavigationListener
 
+**支持设备：** Phone | Tablet
+
 系统导航监听回调。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
@@ -192,6 +212,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
   
 
 ##### onQueryNavigationInfo
+
+**支持设备：** Phone | Tablet
 
 onQueryNavigationInfo(query: QueryType, args: Record<string, Object>): Promise&lt;ResultData&gt;
  
@@ -228,6 +250,8 @@ onQueryNavigationInfo(query: QueryType, args: Record<string, Object>): Promise&l
 
 ##### onReceiveNavigationCmd
 
+**支持设备：** Phone | Tablet
+
 onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Promise&lt;ResultData&gt;
  
 应用收到系统发送的指令，返回执行指令的结果。
@@ -263,6 +287,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 
 ##### QueryType
 
+**支持设备：** Phone | Tablet
+
 查询导航信息枚举类型。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
@@ -278,6 +304,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
   
 
 ##### CommandType
+
+**支持设备：** Phone | Tablet
 
 发送指令枚举类型。
  
@@ -305,6 +333,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 
 ##### ResultData
 
+**支持设备：** Phone | Tablet
+
 查询导航信息或发送指令的结果。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
@@ -321,6 +351,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
   
 
 ##### getNavigationController
+
+**支持设备：** Phone | Tablet
 
 getNavigationController(): NavigationController
  
@@ -363,6 +395,8 @@ let navInfoController: navigationInfoMgr.NavigationController = navigationInfoMg
 
 ##### NavigationController
 
+**支持设备：** Phone | Tablet
+
 导航信息服务的控制器，用于获取导航信息服务。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
@@ -372,6 +406,8 @@ let navInfoController: navigationInfoMgr.NavigationController = navigationInfoMg
   
 
 ##### updateNavigationStatus
+
+**支持设备：** Phone | Tablet
 
 updateNavigationStatus(navigationStatus: NavigationStatus): void
  
@@ -462,6 +498,8 @@ try {
 
 ##### updateNavigationMetadata
 
+**支持设备：** Phone | Tablet
+
 updateNavigationMetadata(navigationMetadata: NavigationMetadata): void
  
 设置导航数据，包含导航转向模式、引导距离、当前道路名、下一次进入道路名等。
@@ -533,6 +571,8 @@ try {
   
 
 ##### registerSystemNavigationListener
+
+**支持设备：** Phone | Tablet
 
 registerSystemNavigationListener(listener: SystemNavigationListener): void
  
@@ -612,6 +652,8 @@ try {
   
 
 ##### unregisterSystemNavigationListener
+
+**支持设备：** Phone | Tablet
 
 unregisterSystemNavigationListener(): void
  

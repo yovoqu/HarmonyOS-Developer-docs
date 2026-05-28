@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { commonEventManager } from '@kit.BasicServicesKit';
 ```
@@ -22,11 +24,15 @@ import { commonEventManager } from '@kit.BasicServicesKit';
 
 ##### Support
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统公共事件是指由系统服务或系统应用发布的事件，订阅这些公共事件需要特定的权限、使用相应的值，详见[系统定义的公共事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions)。
 
 
 
 ##### commonEventManager.publish
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 publish(event: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -79,6 +85,8 @@ try {
 
 
 ##### commonEventManager.publish
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 publish(event: string, options: CommonEventPublishData, callback: AsyncCallback&lt;void&gt;): void
 
@@ -140,6 +148,8 @@ try {
 
 ##### commonEventManager.createSubscriber
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback&lt;CommonEventSubscriber&gt;): void
 
 创建订阅者。使用callback异步回调。
@@ -198,6 +208,8 @@ try {
 
 ##### commonEventManager.createSubscriber
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise&lt;CommonEventSubscriber&gt;
 
 创建订阅者。使用Promise异步回调。
@@ -253,6 +265,8 @@ commonEventManager.createSubscriber(subscribeInfo).then((commonEventSubscriber: 
 
 ##### commonEventManager.createSubscriberSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createSubscriberSync(subscribeInfo: CommonEventSubscribeInfo): CommonEventSubscriber
 
 createSubscriber的同步接口。
@@ -307,6 +321,8 @@ try {
 
 
 ##### commonEventManager.subscribe
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback&lt;CommonEventData&gt;): void
 
@@ -381,6 +397,8 @@ try {
 
 
 ##### commonEventManager.unsubscribe
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback&lt;void&gt;): void
 
@@ -475,6 +493,8 @@ setTimeout(() => {
 
 ##### commonEventManager.subscribeToEvent20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 subscribeToEvent(subscriber: CommonEventSubscriber, callback: Callback&lt;CommonEventData&gt;): Promise&lt;void&gt;
 
 订阅公共事件，并返回订阅成功或失败信息。使用Promise异步回调。
@@ -556,6 +576,8 @@ try {
 
 ##### CommonEventData10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type CommonEventData = _CommonEventData
 
 表示公共事件的数据。
@@ -572,6 +594,8 @@ type CommonEventData = _CommonEventData
 
 
 ##### CommonEventSubscriber10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type CommonEventSubscriber = _CommonEventSubscriber
 
@@ -590,6 +614,8 @@ type CommonEventSubscriber = _CommonEventSubscriber
 
 ##### CommonEventSubscribeInfo10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type CommonEventSubscribeInfo = _CommonEventSubscribeInfo
 
 用于表示订阅者的信息。
@@ -606,6 +632,8 @@ type CommonEventSubscribeInfo = _CommonEventSubscribeInfo
 
 
 ##### CommonEventPublishData10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type CommonEventPublishData = _CommonEventPublishData
 

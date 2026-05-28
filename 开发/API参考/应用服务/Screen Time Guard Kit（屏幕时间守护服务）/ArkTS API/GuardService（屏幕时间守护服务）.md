@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { guardService } from '@kit.ScreenTimeGuardKit';
 ```
@@ -23,6 +25,8 @@ import { guardService } from '@kit.ScreenTimeGuardKit';
   
 
 ##### GuardServiceErrorCode
+
+**支持设备：** Phone | Tablet
 
 该枚举定义了Screen Time Guard Kit屏幕时间守护服务错误码。
  
@@ -49,6 +53,8 @@ import { guardService } from '@kit.ScreenTimeGuardKit';
   
 
 ##### requestUserAuth
+
+**支持设备：** Phone | Tablet
 
 requestUserAuth(context: common.UIAbilityContext): Promise&lt;void&gt;
  
@@ -117,6 +123,8 @@ struct TestPage {
   
 
 ##### requestUserAuth
+
+**支持设备：** Phone | Tablet
 
 requestUserAuth(context: common.UIAbilityContext, appConfig: AppConfig): Promise&lt;void&gt;
  
@@ -190,6 +198,8 @@ struct TestPage {
 
 ##### AppConfig
 
+**支持设备：** Phone | Tablet
+
 该接口为应用配置信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -206,6 +216,8 @@ struct TestPage {
   
 
 ##### revokeUserAuth
+
+**支持设备：** Phone | Tablet
 
 revokeUserAuth(): Promise&lt;void&gt;
  
@@ -255,6 +267,8 @@ function testRevokeUserAuth() {
   
 
 ##### getUserAuthStatus
+
+**支持设备：** Phone | Tablet
 
 getUserAuthStatus(): Promise&lt;AuthStatus&gt;
  
@@ -306,6 +320,8 @@ function testGetUserAuthStatus() {
 
 ##### AuthStatus
 
+**支持设备：** Phone | Tablet
+
 用户授权状态类型的枚举。
  
 **模型约束：** 此枚举仅可在Stage模型下使用。
@@ -325,6 +341,8 @@ function testGetUserAuthStatus() {
 
 ##### AppInfo
 
+**支持设备：** Phone | Tablet
+
 该接口为应用token信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -341,6 +359,8 @@ function testGetUserAuthStatus() {
   
 
 ##### addGuardStrategy
+
+**支持设备：** Phone | Tablet
 
 addGuardStrategy(guardStrategy: GuardStrategy): Promise&lt;void&gt;
  
@@ -417,6 +437,8 @@ function testAddGuardStrategy() {
 
 ##### GuardStrategy
 
+**支持设备：** Phone | Tablet
+
 该接口为守护策略对象。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -436,6 +458,8 @@ function testAddGuardStrategy() {
   
 
 ##### TimeStrategy
+
+**支持设备：** Phone | Tablet
 
 该接口为时间策略对象。
  
@@ -458,6 +482,8 @@ function testAddGuardStrategy() {
 
 ##### TimeStrategyType
 
+**支持设备：** Phone | Tablet
+
 时长策略类型的枚举。
  
 **模型约束：** 此枚举仅可在Stage模型下使用。
@@ -477,6 +503,8 @@ function testAddGuardStrategy() {
 
 ##### RestrictionType
 
+**支持设备：** Phone | Tablet
+
 限制类型的枚举。
  
 **模型约束：** 此枚举仅可在Stage模型下使用。
@@ -494,6 +522,8 @@ function testAddGuardStrategy() {
   
 
 ##### updateGuardStrategy
+
+**支持设备：** Phone | Tablet
 
 updateGuardStrategy(strategyName: string, guardStrategy: GuardStrategy): Promise&lt;void&gt;
  
@@ -571,6 +601,8 @@ function testUpdateGuardService() {
 
 ##### queryGuardStrategies
 
+**支持设备：** Phone | Tablet
+
 queryGuardStrategies(): Promise<GuardStrategy[]>
  
 查询该应用下的所有管控策略，使用Promise异步回调。
@@ -620,6 +652,8 @@ function testQueryGuardService() {
   
 
 ##### removeGuardStrategy
+
+**支持设备：** Phone | Tablet
 
 removeGuardStrategy(strategyName: string): Promise&lt;void&gt;
  
@@ -679,6 +713,8 @@ function testRemoveGuardService() {
   
 
 ##### startGuardStrategy
+
+**支持设备：** Phone | Tablet
 
 startGuardStrategy(strategyName: string): Promise&lt;void&gt;
  
@@ -740,6 +776,8 @@ function testGuardService() {
 
 ##### stopGuardStrategy
 
+**支持设备：** Phone | Tablet
+
 stopGuardStrategy(strategyName: string): Promise&lt;void&gt;
  
 根据策略名称，立即停止指定的管控策略，使用Promise异步回调。
@@ -799,6 +837,8 @@ function testStopGuardService() {
   
 
 ##### setAppsRestriction
+
+**支持设备：** Phone | Tablet
 
 setAppsRestriction(appInfo: AppInfo, restrictionType: RestrictionType): Promise&lt;void&gt;
  
@@ -861,6 +901,8 @@ function testSetAppsRestriction() {
   
 
 ##### releaseAppsRestriction
+
+**支持设备：** Phone | Tablet
 
 releaseAppsRestriction(appInfo: AppInfo, restrictionType: RestrictionType): Promise&lt;void&gt;
  

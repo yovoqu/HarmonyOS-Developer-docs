@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
   
 
 ##### Action
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 触屏输入事件类型。
  
@@ -37,6 +41,8 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
   
 
 ##### ToolType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 操作触屏的工具类型。
  
@@ -58,6 +64,8 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
 
 ##### SourceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 触屏来源的设备类型，当前仅支持触摸屏、触控板类型上报。
  
 **系统能力：** SystemCapability.MultimodalInput.Input.Core
@@ -72,6 +80,8 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
   
 
 ##### Touch
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 触屏点信息。
  
@@ -104,6 +114,8 @@ import { Action,ToolType,SourceType,Touch,TouchEvent } from '@kit.InputKit';
   
 
 ##### TouchEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 触屏输入事件。
  

@@ -12,6 +12,8 @@ typedef struct AbilityBase_Element {...} AbilityBase_Element
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-want-h)中Element结构体。
  
 **起始版本：** 15
@@ -24,9 +26,13 @@ typedef struct AbilityBase_Element {...} AbilityBase_Element
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

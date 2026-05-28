@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { cloudResPrefetch } from '@kit.CloudFoundationKit';
 ```
@@ -19,6 +21,8 @@ import { cloudResPrefetch } from '@kit.CloudFoundationKit';
   
 
 ##### registerPrefetchTask
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 registerPrefetchTask(options: PrefetchOptions): void
  
@@ -70,6 +74,8 @@ try {
 
 ##### PrefetchOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 周期性预加载任务初始化配置参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -89,6 +95,8 @@ try {
   
 
 ##### getPrefetchResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getPrefetchResult(mode: PrefetchMode, callback: AsyncCallback&lt;PrefetchResult&gt;, params?: PrefetchParams): void
  
@@ -169,6 +177,8 @@ cloudResPrefetch.getPrefetchResult(cloudResPrefetch.PrefetchMode.LINK_PREFETCH,
 
 ##### getPrefetchResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getPrefetchResult(mode: PrefetchMode, params?: PrefetchParams): Promise&lt;PrefetchResult&gt;
  
 获取预加载数据。安装预加载和周期性预加载均适用。使用Promise异步回调。
@@ -248,6 +258,8 @@ cloudResPrefetch.getPrefetchResult(cloudResPrefetch.PrefetchMode.LINK_PREFETCH, 
 
 ##### PrefetchMode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 枚举， 预加载类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -267,6 +279,8 @@ cloudResPrefetch.getPrefetchResult(cloudResPrefetch.PrefetchMode.LINK_PREFETCH, 
 
 ##### PrefetchParams
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 预加载参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -283,6 +297,8 @@ cloudResPrefetch.getPrefetchResult(cloudResPrefetch.PrefetchMode.LINK_PREFETCH, 
   
 
 ##### PrefetchResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 获取预加载数据返回的结果。
  

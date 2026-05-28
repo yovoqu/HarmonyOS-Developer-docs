@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Wearable | lite_wearable
+
 ```text
 import bluetooth from '@system.bluetooth';
 ```
@@ -19,6 +21,8 @@ import bluetooth from '@system.bluetooth';
   
 
 ##### bluetooth.startBLEScan(OBJECT)
+
+**支持设备：** Wearable | lite_wearable
 
 开始搜寻附近的低功耗蓝牙外围设备。此操作比较耗费系统资源，请在搜索并连接到设备后调用[bluetooth.stopBLEScan](#bluetoothstopblescanobject)方法停止搜索。
  
@@ -57,6 +61,8 @@ bluetooth.startBLEScan({
 
 ##### bluetooth.stopBLEScan(OBJECT)
 
+**支持设备：** Wearable | lite_wearable
+
 停止搜寻附近的低功耗蓝牙外围设备。与[bluetooth.startBLEScan(OBJECT)](#bluetoothstartblescanobject)接口配套使用。
  
 **系统能力：** SystemCapability.Communication.Bluetooth.Lite
@@ -91,6 +97,8 @@ bluetooth.stopBLEScan({
   
 
 ##### bluetooth.subscribeBLEFound(OBJECT)
+
+**支持设备：** Wearable | lite_wearable
 
 订阅寻找到新设备。再次调用时，会覆盖前一次调用效果，即仅最后一次调用生效。
  
@@ -141,6 +149,8 @@ bluetooth.subscribeBLEFound({
 
 ##### bluetooth.unsubscribeBLEFound()
 
+**支持设备：** Wearable | lite_wearable
+
 解除订阅寻找到新设备。
  
 **系统能力：** SystemCapability.Communication.Bluetooth.Lite
@@ -154,6 +164,8 @@ bluetooth.unsubscribeBLEFound();
   
 
 ##### 常见错误码
+
+**支持设备：** Wearable | lite_wearable
  
 | 错误码 | 说明 |
 | --- | --- |

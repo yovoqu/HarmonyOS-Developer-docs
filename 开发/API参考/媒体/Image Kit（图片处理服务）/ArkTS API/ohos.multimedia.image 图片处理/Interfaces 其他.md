@@ -12,6 +12,8 @@
 
 ##### PositionArea7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示图片指定区域内的数据。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -32,6 +34,8 @@
 
 ##### ImageInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示图片信息。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -51,6 +55,8 @@
 
 ##### Size
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示图片尺寸。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -69,6 +75,8 @@
 
 ##### HdrComposeOptions23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Picture合成HDR时可配置的参数选项。
 
 **模型约束**：此接口仅可在Stage模型下使用。
@@ -83,6 +91,8 @@ Picture合成HDR时可配置的参数选项。
 
 
 ##### AuxiliaryPictureInfo13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示辅助图图像信息。
 
@@ -100,6 +110,8 @@ Picture合成HDR时可配置的参数选项。
 
 
 ##### SourceOptions9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ImageSource的初始化选项。
 
@@ -120,6 +132,8 @@ ImageSource的初始化选项。
 
 ##### InitializationOptions8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PixelMap的初始化选项。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -137,6 +151,8 @@ PixelMap的初始化选项。
 
 
 ##### DecodingOptions7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图像解码设置选项。
 
@@ -161,6 +177,8 @@ PixelMap的初始化选项。
 
 ##### DecodingOptionsForPicture13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 图像解码设置选项。
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
@@ -175,6 +193,8 @@ PixelMap的初始化选项。
 
 
 ##### Region8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示区域信息。
 
@@ -195,6 +215,8 @@ PixelMap的初始化选项。
 
 ##### PackingOption
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示图片编码选项。
 
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
@@ -212,6 +234,8 @@ PixelMap的初始化选项。
 
 ##### PackingOptionsForSequence18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述动图编码参数的选项。
 
 **系统能力：** SystemCapability.Multimedia.Image.ImagePacker
@@ -228,6 +252,8 @@ PixelMap的初始化选项。
 
 ##### ImagePropertyOptions11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示查询图片属性的索引。
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
@@ -241,6 +267,8 @@ PixelMap的初始化选项。
 
 
 ##### Component9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述图像颜色分量。
 
@@ -257,6 +285,8 @@ PixelMap的初始化选项。
 
 
 ##### HdrStaticMetadata12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 静态元数据值，[HdrMetadataKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#hdrmetadatakey12)中HDR_STATIC_METADATA关键字对应的值。
 
@@ -278,6 +308,8 @@ PixelMap的初始化选项。
 
 ##### GainmapChannel12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Gainmap图单个通道的数据内容，参考ISO 21496-1。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -294,6 +326,8 @@ Gainmap图单个通道的数据内容，参考ISO 21496-1。
 
 
 ##### ImageMetadata23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图像的元数据集。
 
@@ -313,6 +347,8 @@ Gainmap图单个通道的数据内容，参考ISO 21496-1。
 
 
 ##### DngMetadata24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Dng图像元数据类，用于存储图像的元数据。
 
@@ -417,6 +453,8 @@ Dng图像元数据类，用于存储图像的元数据。
 
 ##### HdrGainmapMetadata12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Gainmap使用的元数据值，[HdrMetadataKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#hdrmetadatakey12)中HDR_GAINMAP_METADATA关键字对应的值，参考ISO 21496-1。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -436,6 +474,8 @@ Gainmap使用的元数据值，[HdrMetadataKey](https://developer.huawei.com/con
 
 ##### ImageReceiverOptions23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ImageReceiver的初始化选项。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -451,6 +491,8 @@ ImageReceiver的初始化选项。
 
 
 ##### ImageBufferData23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 保存图像缓冲区数据的指针、不同颜色分量的行间距与像素间距信息。
 
@@ -469,6 +511,8 @@ ImageReceiver的初始化选项。
 
 ##### ImageRawData24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 图像的RAW数据。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -484,6 +528,8 @@ ImageReceiver的初始化选项。
 
 
 ##### GetImagePropertyOptions(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示查询图片属性的索引。
 

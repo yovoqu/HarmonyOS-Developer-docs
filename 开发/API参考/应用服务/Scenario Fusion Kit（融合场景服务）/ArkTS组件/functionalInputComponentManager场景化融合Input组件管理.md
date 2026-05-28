@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
 ```
@@ -25,6 +27,8 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
   
 
 ##### InputType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该枚举定义省市区选择器的功能类型。
  
@@ -44,6 +48,8 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
   
 
 ##### FunctionalInputParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了FunctionalInput组件的参数，包括省市区选择器的类型，样式，图标等。
  
@@ -69,6 +75,8 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### DistrictSelectResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了选择地区的返回体。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -91,11 +99,15 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 不支持通用事件，仅支持以下事件：
  
   
 
 ##### FunctionalInputController
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 FunctionalInput组件控制器，用来回调组件内部的点击事件。
  
@@ -110,6 +122,8 @@ FunctionalInput组件控制器，用来回调组件内部的点击事件。
   
 
 ##### onSelectDistrict
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onSelectDistrict(callback: AsyncCallback&lt;DistrictSelectResult&gt;): FunctionalInputController
  

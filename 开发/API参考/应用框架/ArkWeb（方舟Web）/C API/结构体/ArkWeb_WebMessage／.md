@@ -12,6 +12,8 @@ typedef struct ArkWeb_WebMessage* ArkWeb_WebMessagePtr
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Post Message数据结构体指针。
  
 **起始版本：** 12

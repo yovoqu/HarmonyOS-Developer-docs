@@ -16,6 +16,8 @@ Picture类，一些包含特殊信息的图片可以解码为Picture（也可以
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -23,6 +25,8 @@ import { image } from '@kit.ImageKit';
 
 
 ##### getMainPixelmap13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMainPixelmap(): PixelMap
 
@@ -64,6 +68,8 @@ async function GetMainPixelmap(pictureObj : image.Picture) {
 
 
 ##### getHdrComposedPixelmap13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getHdrComposedPixelmap(): Promise&lt;PixelMap&gt;
 
@@ -115,6 +121,8 @@ async function GetHdrComposedPixelmap(pictureObj : image.Picture) {
 
 
 ##### getHdrComposedPixelmapWithOptions23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getHdrComposedPixelmapWithOptions(options?: HdrComposeOptions): Promise<PixelMap | undefined>
 
@@ -184,6 +192,8 @@ async function GetHdrComposedPixelmapWithOptions(picture : image.Picture) {
 
 ##### getGainmapPixelmap13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getGainmapPixelmap(): PixelMap | null
 
 获取增益图的pixelmap。
@@ -228,6 +238,8 @@ async function GetGainmapPixelmap(pictureObj : image.Picture) {
 
 
 ##### setAuxiliaryPicture13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAuxiliaryPicture(type: AuxiliaryPictureType, auxiliaryPicture: AuxiliaryPicture): void
 
@@ -284,6 +296,8 @@ async function SetAuxiliaryPicture(context: Context) {
 
 ##### getAuxiliaryPicture13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAuxiliaryPicture(type: AuxiliaryPictureType): AuxiliaryPicture | null
 
 根据类型获取辅助图。
@@ -327,6 +341,8 @@ async function GetAuxiliaryPicture(pictureObj : image.Picture) {
 
 
 ##### setMetadata13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMetadata(metadataType: MetadataType, metadata: Metadata): Promise&lt;void&gt;
 
@@ -397,6 +413,8 @@ async function SetPictureObjMetadata(exifContext: Context) {
 
 ##### getMetadata13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMetadata(metadataType: MetadataType): Promise&lt;Metadata&gt;
 
 获取主图的元数据。使用Promise异步回调。
@@ -448,6 +466,8 @@ async function GetPictureObjMetadataProperties(pictureObj : image.Picture) {
 
 
 ##### marshalling13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 marshalling(sequence: rpc.MessageSequence): void
 
@@ -522,6 +542,8 @@ async function Marshalling_UnMarshalling(pictureObj : image.Picture) {
 
 
 ##### release13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(): void
 

@@ -12,6 +12,8 @@ typedef struct VideoProcessing_ColorSpaceInfo {...} VideoProcessing_ColorSpaceIn
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 视频颜色空间信息数据结构。
 
 **参考：** [OH_VideoProcessing_IsColorSpaceConversionSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-video-processing-h#oh_videoprocessing_iscolorspaceconversionsupported)
@@ -26,9 +28,13 @@ typedef struct VideoProcessing_ColorSpaceInfo {...} VideoProcessing_ColorSpaceIn
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 | 名称 | 描述 |
 | --- | --- |

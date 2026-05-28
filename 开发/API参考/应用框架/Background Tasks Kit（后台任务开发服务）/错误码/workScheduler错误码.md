@@ -12,6 +12,8 @@
 
 ##### 9700001 内存操作失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Memory operation failed.
@@ -31,6 +33,8 @@ Memory operation failed.
 
 
 ##### 9700002 Parcel读写操作失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -52,6 +56,8 @@ IPC通信读写Parcel数据失败。
 
 ##### 9700003 系统服务失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 System service operation failed.
@@ -72,6 +78,8 @@ System service operation failed.
 
 ##### 9700004 workInfo校验失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Check on workInfo failed.
@@ -91,6 +99,8 @@ Check on workInfo failed.
 
 
 ##### 9700005 StartWork失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

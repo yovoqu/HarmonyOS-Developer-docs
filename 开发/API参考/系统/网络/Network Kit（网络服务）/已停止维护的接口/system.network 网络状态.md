@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import network from '@system.network';
 ```
@@ -20,6 +22,8 @@ import network from '@system.network';
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ohos.permission.GET_WIFI_INFO
  
 ohos.permission.GET_NETWORK_INFO
@@ -27,6 +31,8 @@ ohos.permission.GET_NETWORK_INFO
   
 
 ##### network.getType3+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getType(options?: {
  
@@ -76,6 +82,8 @@ export default class Network {
 
 ##### network.subscribe3+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 subscribe(options?:{
  
   success?: (data: NetworkResponse) => void;
@@ -122,6 +130,8 @@ export default class Network {
 
 ##### network.unsubscribe3+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unsubscribe(): void
  
 取消订阅设备的网络连接状态。
@@ -139,6 +149,8 @@ network.unsubscribe();
   
 
 ##### NetworkResponse3+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Communication.NetManager.Core
   

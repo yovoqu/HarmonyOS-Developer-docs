@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { HdsSnackBar } from '@kit.UIDesignKit';
 ```
@@ -19,6 +21,8 @@ import { HdsSnackBar } from '@kit.UIDesignKit';
   
 
 ##### HdsSnackBar
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义HdsSnackBar类。
  
@@ -31,6 +35,8 @@ import { HdsSnackBar } from '@kit.UIDesignKit';
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor(uiContext: UIContext)
  
@@ -50,6 +56,8 @@ constructor(uiContext: UIContext)
   
 
 ##### show
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 show(icon: SnackBarIconOptions, message: SnackBarMessageOptions, operation: SnackBarOperationOptions, style?: SnackBarStyleOptions): void
  
@@ -73,6 +81,8 @@ show(icon: SnackBarIconOptions, message: SnackBarMessageOptions, operation: Snac
 
 ##### dismiss
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 dismiss(): void
  
 关闭HdsSnackBar弹窗。
@@ -86,6 +96,8 @@ dismiss(): void
   
 
 ##### SnackBarIconOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义HdsSnackBar的左侧图标。
  
@@ -107,6 +119,8 @@ dismiss(): void
 
 ##### SnackBarMessageOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义HdsSnackBar的中间文本。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -126,6 +140,8 @@ dismiss(): void
   
 
 ##### SnackBarOperationOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义HdsSnackBar的右侧操作区。
  
@@ -162,6 +178,8 @@ dismiss(): void
 
 ##### SnackBarStyleOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义HdsSnackBar的样式。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -190,6 +208,8 @@ dismiss(): void
 
 ##### SnackBarOperationType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义SnackBarOperationType枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -211,6 +231,8 @@ dismiss(): void
 
 ##### SnackBarIconType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义SnackBarIconType枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -228,6 +250,8 @@ dismiss(): void
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsSnackBar提供带按钮操作的通知弹窗。
  
@@ -289,4 +313,4 @@ struct TestSnackBar {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/6DNzlC2pTLumAcRquB0eyQ/zh-cn_image_0000002581436666.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013736Z&HW-CC-Expire=86400&HW-CC-Sign=FF83F5C0EC935B305F316E38459F6F78EFFC8137072FE6B490E6090407F866CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/6DNzlC2pTLumAcRquB0eyQ/zh-cn_image_0000002581436666.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024032Z&HW-CC-Expire=86400&HW-CC-Sign=75977A7304DD13563066A81F4EEACEFC6A3319A2CDE7BA860CA1B14DC62E3454)

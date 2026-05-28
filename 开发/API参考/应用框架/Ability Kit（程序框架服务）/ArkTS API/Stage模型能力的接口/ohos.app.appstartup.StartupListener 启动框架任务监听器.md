@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { StartupListener } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { StartupListener } from '@kit.AbilityKit';
 
 
 ##### StartupListener.onCompleted
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCompleted?(error: BusinessError&lt;void&gt;): void
 

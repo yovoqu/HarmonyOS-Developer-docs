@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Wearable | lite_wearable
+
 ```text
 import device from '@system.device';
 ```
@@ -21,6 +23,8 @@ import device from '@system.device';
   
 
 ##### device.getInfo(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 getInfo(options?: GetDeviceOptions): void
  
@@ -148,6 +152,8 @@ export default {
 
 ##### GetDeviceOptions(deprecated)
 
+**支持设备：** Wearable | lite_wearable
+
 定义设备信息获取的参数选项。
  
 **系统能力：** SystemCapability.Startup.SystemInfo.Lite
@@ -162,6 +168,8 @@ export default {
   
 
 ##### DeviceResponse(deprecated)
+
+**支持设备：** Wearable | lite_wearable
 
 设备信息。
  

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 描述AppGallery kit提供按需分发能力。
  
 **起始版本：** 5.0.3(15)
@@ -15,9 +17,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -27,6 +33,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,6 +47,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -51,6 +61,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -78,9 +90,13 @@
 
 ##### 类型定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### ModuleInstall_InstalledModule
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct ModuleInstall_InstalledModule ModuleInstall_InstalledModule
@@ -96,6 +112,8 @@ typedef struct ModuleInstall_InstalledModule ModuleInstall_InstalledModule
 
 ##### ModuleInstall_FetchModulesResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct ModuleInstall_FetchModulesResult ModuleInstall_FetchModulesResult
 ```
@@ -109,6 +127,8 @@ typedef struct ModuleInstall_FetchModulesResult ModuleInstall_FetchModulesResult
   
 
 ##### ModuleInstall_StatusCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct ModuleInstall_StatusCallback ModuleInstall_StatusCallback
@@ -124,6 +144,8 @@ typedef struct ModuleInstall_StatusCallback ModuleInstall_StatusCallback
 
 ##### ModuleInstall_OnStatusCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void (*ModuleInstall_OnStatusCallback)(char *bundleName, char *eventInfo)
 ```
@@ -138,9 +160,13 @@ typedef void (*ModuleInstall_OnStatusCallback)(char *bundleName, char *eventInfo
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### ModuleInstall_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum ModuleInstall_ErrCode
@@ -171,6 +197,8 @@ enum ModuleInstall_ErrCode
 
 ##### ModuleInstall_InstallStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum ModuleInstall_InstallStatus
 ```
@@ -190,6 +218,8 @@ enum ModuleInstall_InstallStatus
   
 
 ##### ModuleInstall_RequestCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum ModuleInstall_RequestCode
@@ -218,6 +248,8 @@ enum ModuleInstall_RequestCode
   
 
 ##### ModuleInstall_TaskStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum ModuleInstall_TaskStatus
@@ -252,9 +284,13 @@ enum ModuleInstall_TaskStatus
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### HMS_ModuleInstall_GetInstalledModule
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ModuleInstall_ErrCode HMS_ModuleInstall_GetInstalledModule(const char *moduleName, unsigned int length,
@@ -286,6 +322,8 @@ ModuleInstall_ErrCode HMS_ModuleInstall_GetInstalledModule(const char *moduleNam
 
 ##### HMS_ModuleInstall_GetInstalledModuleName
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 char *HMS_ModuleInstall_GetInstalledModuleName(const ModuleInstall_InstalledModule *installedModule)
 ```
@@ -312,6 +350,8 @@ char *HMS_ModuleInstall_GetInstalledModuleName(const ModuleInstall_InstalledModu
   
 
 ##### HMS_ModuleInstall_GetInstalledModuleType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 int HMS_ModuleInstall_GetInstalledModuleType(const ModuleInstall_InstalledModule *installedModule)
@@ -340,6 +380,8 @@ int HMS_ModuleInstall_GetInstalledModuleType(const ModuleInstall_InstalledModule
 
 ##### HMS_ModuleInstall_GetModuleInstallStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ModuleInstall_InstallStatus HMS_ModuleInstall_GetModuleInstallStatus(const ModuleInstall_InstalledModule *installedModule)
 ```
@@ -366,6 +408,8 @@ ModuleInstall_InstallStatus HMS_ModuleInstall_GetModuleInstallStatus(const Modul
   
 
 ##### HMS_ModuleInstall_FetchModules
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ModuleInstall_ErrCode HMS_ModuleInstall_FetchModules(const char *bundleName, unsigned int length, char **moduleNames, unsigned int moduleNamesLength, ModuleInstall_FetchModulesResult **fetchModulesResult)
@@ -398,6 +442,8 @@ ModuleInstall_ErrCode HMS_ModuleInstall_FetchModules(const char *bundleName, uns
 
 ##### HMS_ModuleInstall_GetFetchModulesRequestCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ModuleInstall_RequestCode HMS_ModuleInstall_GetFetchModulesRequestCode(const ModuleInstall_FetchModulesResult *fetchModulesResult)
 ```
@@ -424,6 +470,8 @@ ModuleInstall_RequestCode HMS_ModuleInstall_GetFetchModulesRequestCode(const Mod
   
 
 ##### HMS_ModuleInstall_GetFetchModulesTaskStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ModuleInstall_TaskStatus HMS_ModuleInstall_GetFetchModulesTaskStatus(const ModuleInstall_FetchModulesResult *fetchModulesResult)
@@ -452,6 +500,8 @@ ModuleInstall_TaskStatus HMS_ModuleInstall_GetFetchModulesTaskStatus(const Modul
 
 ##### HMS_ModuleInstall_GetFetchModulesTaskId
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 char *HMS_ModuleInstall_GetFetchModulesTaskId(const ModuleInstall_FetchModulesResult *fetchModulesResult)
 ```
@@ -478,6 +528,8 @@ char *HMS_ModuleInstall_GetFetchModulesTaskId(const ModuleInstall_FetchModulesRe
   
 
 ##### HMS_ModuleInstall_GetFetchModulesDesc
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 char *HMS_ModuleInstall_GetFetchModulesDesc(const ModuleInstall_FetchModulesResult *fetchModulesResult)
@@ -506,6 +558,8 @@ char *HMS_ModuleInstall_GetFetchModulesDesc(const ModuleInstall_FetchModulesResu
 
 ##### HMS_ModuleInstall_GetFetchModules
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 char* HMS_ModuleInstall_GetFetchModules(const ModuleInstall_FetchModulesResult *fetchModulesResult)
 ```
@@ -532,6 +586,8 @@ char* HMS_ModuleInstall_GetFetchModules(const ModuleInstall_FetchModulesResult *
   
 
 ##### HMS_ModuleInstall_GetFetchModulesTotalSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 int HMS_ModuleInstall_GetFetchModulesTotalSize(const ModuleInstall_FetchModulesResult *fetchModulesResult)
@@ -560,6 +616,8 @@ int HMS_ModuleInstall_GetFetchModulesTotalSize(const ModuleInstall_FetchModulesR
 
 ##### HMS_ModuleInstall_GetFetchModulesDownloadedSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 int HMS_ModuleInstall_GetFetchModulesDownloadedSize(const ModuleInstall_FetchModulesResult *fetchModulesResult)
 ```
@@ -586,6 +644,8 @@ int HMS_ModuleInstall_GetFetchModulesDownloadedSize(const ModuleInstall_FetchMod
   
 
 ##### HMS_ModuleInstall_CancelTask
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ModuleInstall_ErrCode HMS_ModuleInstall_CancelTask(const char *taskId, unsigned int length, unsigned int cancelResult)
@@ -616,6 +676,8 @@ ModuleInstall_ErrCode HMS_ModuleInstall_CancelTask(const char *taskId, unsigned 
 
 ##### HMS_ModuleInstall_ShowCellularDataConfirmation
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ModuleInstall_ErrCode HMS_ModuleInstall_ShowCellularDataConfirmation(const char *taskId, unsigned int length, unsigned int showResult)
 ```
@@ -645,6 +707,8 @@ ModuleInstall_ErrCode HMS_ModuleInstall_ShowCellularDataConfirmation(const char 
 
 ##### HMS_ModuleInstall_CreateStatusCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ModuleInstall_StatusCallback *HMS_ModuleInstall_CreateStatusCallback(ModuleInstall_OnStatusCallback *onStatusCallback)
 ```
@@ -671,6 +735,8 @@ ModuleInstall_StatusCallback *HMS_ModuleInstall_CreateStatusCallback(ModuleInsta
   
 
 ##### HMS_ModuleInstall_On
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ModuleInstall_ErrCode HMS_ModuleInstall_On(const char *bundleName, unsigned int length, unsigned int appIndex, unsigned int period, ModuleInstall_StatusCallback **callback)
@@ -703,6 +769,8 @@ ModuleInstall_ErrCode HMS_ModuleInstall_On(const char *bundleName, unsigned int 
 
 ##### HMS_ModuleInstall_ReleaseStatusCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void HMS_ModuleInstall_ReleaseStatusCallback(ModuleInstall_StatusCallback *statusCallback)
 ```
@@ -725,6 +793,8 @@ void HMS_ModuleInstall_ReleaseStatusCallback(ModuleInstall_StatusCallback *statu
   
 
 ##### HMS_ModuleInstall_Off
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ModuleInstall_ErrCode HMS_ModuleInstall_Off(const char *bundleName, unsigned int length, unsigned int appIndex)

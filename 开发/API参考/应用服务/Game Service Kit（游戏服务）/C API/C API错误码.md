@@ -32,6 +32,8 @@ Game Service Kit系统内部错误。
 
 ##### 1010300002 鉴权失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Auth failed.
@@ -51,6 +53,8 @@ Auth failed.
   
 
 ##### 1010300003 非法请求
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

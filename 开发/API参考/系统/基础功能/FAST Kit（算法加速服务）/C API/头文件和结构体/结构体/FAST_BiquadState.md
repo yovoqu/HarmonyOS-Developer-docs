@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义单精度二阶IIR滤波器节的状态变量。
  
 **系统能力：** SystemCapability.FAST.Core
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,9 +41,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### d1
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 float FAST_BiquadState::d1
@@ -50,6 +60,8 @@ float FAST_BiquadState::d1
   
 
 ##### d2
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 float FAST_BiquadState::d2

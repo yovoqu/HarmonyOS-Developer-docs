@@ -12,6 +12,8 @@ typedef struct OH_UdsDetails OH_UdsDetails
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 描述字典类型的统一数据结构。
  
 **起始版本：** 22

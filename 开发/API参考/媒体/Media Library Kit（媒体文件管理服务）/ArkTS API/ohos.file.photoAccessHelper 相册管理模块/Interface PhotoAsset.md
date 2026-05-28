@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -21,6 +23,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
@@ -34,6 +38,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(member: string): MemberType
 
@@ -97,6 +103,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### set
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set(member: string, value: string): void
 
 设置PhotoAsset成员参数。
@@ -150,6 +158,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### commitModify
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 commitModify(callback: AsyncCallback&lt;void&gt;): void
 
@@ -217,6 +227,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### commitModify
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 commitModify(): Promise&lt;void&gt;
 
@@ -290,6 +302,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### close(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(fd: number, callback: AsyncCallback&lt;void&gt;): void
 
 关闭当前文件。使用callback异步回调。
@@ -354,6 +368,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### close(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 close(fd: number): Promise&lt;void&gt;
 
@@ -421,6 +437,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getThumbnail
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getThumbnail(callback: AsyncCallback<image.PixelMap>): void
 
 获取文件的缩略图。使用callback异步回调。
@@ -482,6 +500,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getThumbnail
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getThumbnail(size: image.Size, callback: AsyncCallback<image.PixelMap>): void
 
@@ -551,6 +571,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getThumbnail
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getThumbnail(size?: image.Size): Promise<image.PixelMap>
 
@@ -622,6 +644,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### clone14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clone(title: string): Promise&lt;PhotoAsset&gt;
 
 克隆资产，可设置文件名，但不支持修改文件类型。使用promise异步回调。
@@ -684,6 +708,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getReadOnlyFd(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getReadOnlyFd(callback: AsyncCallback&lt;number&gt;): void
 
@@ -751,6 +777,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getReadOnlyFd(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getReadOnlyFd(): Promise&lt;number&gt;
 

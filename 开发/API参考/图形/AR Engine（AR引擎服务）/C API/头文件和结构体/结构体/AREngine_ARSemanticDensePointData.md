@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 高精几何重建对象的稠密点云数据。
  
 作为[HMS_AREngine_ARSemanticDense_AcquirePointData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsemanticdense_acquirepointdata)接口输入。
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -42,9 +48,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### id
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 int32_t AREngine_ARSemanticDensePointData::id
@@ -58,6 +68,8 @@ int32_t AREngine_ARSemanticDensePointData::id
 
 ##### x
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 float AREngine_ARSemanticDensePointData::x
 ```
@@ -69,6 +81,8 @@ float AREngine_ARSemanticDensePointData::x
   
 
 ##### y
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 float AREngine_ARSemanticDensePointData::y
@@ -82,6 +96,8 @@ float AREngine_ARSemanticDensePointData::y
 
 ##### z
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 float AREngine_ARSemanticDensePointData::z
 ```
@@ -93,6 +109,8 @@ float AREngine_ARSemanticDensePointData::z
   
 
 ##### r
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 int32_t AREngine_ARSemanticDensePointData::r
@@ -106,6 +124,8 @@ int32_t AREngine_ARSemanticDensePointData::r
 
 ##### g
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 int32_t AREngine_ARSemanticDensePointData::g
 ```
@@ -117,6 +137,8 @@ int32_t AREngine_ARSemanticDensePointData::g
   
 
 ##### b
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 int32_t AREngine_ARSemanticDensePointData::b
@@ -130,6 +152,8 @@ int32_t AREngine_ARSemanticDensePointData::b
 
 ##### a
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 int32_t AREngine_ARSemanticDensePointData::a
 ```
@@ -141,6 +165,8 @@ int32_t AREngine_ARSemanticDensePointData::a
   
 
 ##### confidence
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 float AREngine_ARSemanticDensePointData::confidence

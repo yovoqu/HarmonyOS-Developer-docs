@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### onRequestStart12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRequestStart(callback: (request: WebSchemeHandlerRequest, handler: WebResourceHandler) => boolean): void
 
@@ -148,6 +152,8 @@ struct WebComponent {
 
 
 ##### onRequestStop12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRequestStop(callback: Callback&lt;WebSchemeHandlerRequest&gt;): void
 

@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { FaultLogger } from '@kit.PerformanceAnalysisKit';
 ```
@@ -23,6 +25,8 @@ import { FaultLogger } from '@kit.PerformanceAnalysisKit';
 
 
 ##### FaultType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 故障类型枚举。
 
@@ -39,6 +43,8 @@ import { FaultLogger } from '@kit.PerformanceAnalysisKit';
 
 
 ##### FaultLogInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 故障信息数据结构，获取到的故障信息的数据结构。
 
@@ -59,6 +65,8 @@ import { FaultLogger } from '@kit.PerformanceAnalysisKit';
 
 
 ##### FaultLogger.query9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 query(faultType: FaultType, callback: AsyncCallback<Array&lt;FaultLogInfo&gt;>) : void
 
@@ -120,6 +128,8 @@ try {
 
 
 ##### FaultLogger.query9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 query(faultType: FaultType) : Promise<Array&lt;FaultLogInfo&gt;>
 
@@ -186,6 +196,8 @@ async function getLog() {
 
 ##### FaultLogger.querySelfFaultLog(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 querySelfFaultLog(faultType: FaultType, callback: AsyncCallback<Array&lt;FaultLogInfo&gt;>) : void
 
 > [!NOTE]
@@ -235,6 +247,8 @@ FaultLogger.querySelfFaultLog(FaultLogger.FaultType.JS_CRASH, queryFaultLogCallb
 
 
 ##### FaultLogger.querySelfFaultLog(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 querySelfFaultLog(faultType: FaultType) : Promise<Array&lt;FaultLogInfo&gt;>
 

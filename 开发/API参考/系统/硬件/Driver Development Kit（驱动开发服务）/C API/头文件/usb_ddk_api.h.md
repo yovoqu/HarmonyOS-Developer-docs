@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 声明用于主机侧访问设备的USB DDK接口。
  
 **引用文件：** <usb/usb_ddk_api.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 函数
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -52,9 +58,13 @@
 
 ##### 函数说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### OH_Usb_Init()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_Usb_Init(void)
@@ -79,6 +89,8 @@ int32_t OH_Usb_Init(void)
 
 ##### OH_Usb_Release()
 
+**支持设备：** PC/2in1
+
 ```text
 void OH_Usb_Release(void)
 ```
@@ -94,6 +106,8 @@ void OH_Usb_Release(void)
   
 
 ##### OH_Usb_ReleaseResource()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_Usb_ReleaseResource(void)
@@ -117,6 +131,8 @@ int32_t OH_Usb_ReleaseResource(void)
   
 
 ##### OH_Usb_GetDeviceDescriptor()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_Usb_GetDeviceDescriptor(uint64_t deviceId, struct UsbDeviceDescriptor *desc)
@@ -148,6 +164,8 @@ int32_t OH_Usb_GetDeviceDescriptor(uint64_t deviceId, struct UsbDeviceDescriptor
   
 
 ##### OH_Usb_GetConfigDescriptor()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_Usb_GetConfigDescriptor(uint64_t deviceId, uint8_t configIndex, struct UsbDdkConfigDescriptor ** const config)
@@ -181,6 +199,8 @@ int32_t OH_Usb_GetConfigDescriptor(uint64_t deviceId, uint8_t configIndex, struc
 
 ##### OH_Usb_FreeConfigDescriptor()
 
+**支持设备：** PC/2in1
+
 ```text
 void OH_Usb_FreeConfigDescriptor(struct UsbDdkConfigDescriptor * const config)
 ```
@@ -203,6 +223,8 @@ void OH_Usb_FreeConfigDescriptor(struct UsbDdkConfigDescriptor * const config)
   
 
 ##### OH_Usb_ClaimInterface()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_Usb_ClaimInterface(uint64_t deviceId, uint8_t interfaceIndex, uint64_t *interfaceHandle)
@@ -236,6 +258,8 @@ int32_t OH_Usb_ClaimInterface(uint64_t deviceId, uint8_t interfaceIndex, uint64_
 
 ##### OH_Usb_ReleaseInterface()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_Usb_ReleaseInterface(uint64_t interfaceHandle)
 ```
@@ -265,6 +289,8 @@ int32_t OH_Usb_ReleaseInterface(uint64_t interfaceHandle)
   
 
 ##### OH_Usb_SelectInterfaceSetting()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_Usb_SelectInterfaceSetting(uint64_t interfaceHandle, uint8_t settingIndex)
@@ -297,6 +323,8 @@ int32_t OH_Usb_SelectInterfaceSetting(uint64_t interfaceHandle, uint8_t settingI
 
 ##### OH_Usb_GetCurrentInterfaceSetting()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_Usb_GetCurrentInterfaceSetting(uint64_t interfaceHandle, uint8_t *settingIndex)
 ```
@@ -327,6 +355,8 @@ int32_t OH_Usb_GetCurrentInterfaceSetting(uint64_t interfaceHandle, uint8_t *set
   
 
 ##### OH_Usb_SendControlReadRequest()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_Usb_SendControlReadRequest(uint64_t interfaceHandle, const struct UsbControlRequestSetup *setup,uint32_t timeout, uint8_t *data, uint32_t *dataLen)
@@ -362,6 +392,8 @@ int32_t OH_Usb_SendControlReadRequest(uint64_t interfaceHandle, const struct Usb
 
 ##### OH_Usb_SendControlWriteRequest()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_Usb_SendControlWriteRequest(uint64_t interfaceHandle, const struct UsbControlRequestSetup *setup,uint32_t timeout, const uint8_t *data, uint32_t dataLen)
 ```
@@ -396,6 +428,8 @@ int32_t OH_Usb_SendControlWriteRequest(uint64_t interfaceHandle, const struct Us
 
 ##### OH_Usb_SendPipeRequest()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_Usb_SendPipeRequest(const struct UsbRequestPipe *pipe, UsbDeviceMemMap *devMmap)
 ```
@@ -427,6 +461,8 @@ int32_t OH_Usb_SendPipeRequest(const struct UsbRequestPipe *pipe, UsbDeviceMemMa
 
 ##### OH_Usb_SendPipeRequestWithAshmem()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_Usb_SendPipeRequestWithAshmem(const struct UsbRequestPipe *pipe, DDK_Ashmem *ashmem)
 ```
@@ -457,6 +493,8 @@ int32_t OH_Usb_SendPipeRequestWithAshmem(const struct UsbRequestPipe *pipe, DDK_
   
 
 ##### OH_Usb_CreateDeviceMemMap()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_Usb_CreateDeviceMemMap(uint64_t deviceId, size_t size, UsbDeviceMemMap **devMmap)
@@ -490,6 +528,8 @@ int32_t OH_Usb_CreateDeviceMemMap(uint64_t deviceId, size_t size, UsbDeviceMemMa
 
 ##### OH_Usb_DestroyDeviceMemMap()
 
+**支持设备：** PC/2in1
+
 ```text
 void OH_Usb_DestroyDeviceMemMap(UsbDeviceMemMap *devMmap)
 ```
@@ -512,6 +552,8 @@ void OH_Usb_DestroyDeviceMemMap(UsbDeviceMemMap *devMmap)
   
 
 ##### OH_Usb_GetDevices()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_Usb_GetDevices(struct Usb_DeviceArray *devices)

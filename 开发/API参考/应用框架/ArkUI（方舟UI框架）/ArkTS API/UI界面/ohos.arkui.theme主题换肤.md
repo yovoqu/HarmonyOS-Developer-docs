@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColors } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 
 
 ##### Theme
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 当前生效的主题风格对象，可从[onWillApplyTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#onwillapplytheme12)中获取。
 
@@ -36,6 +40,8 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 
 
 ##### Colors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 主题颜色资源。
 
@@ -106,6 +112,8 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 
 ##### CustomTheme
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义主题风格对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -119,6 +127,8 @@ import { Theme, ThemeControl, CustomColors, Colors, CustomTheme, CustomDarkColor
 
 
 ##### CustomColors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type CustomColors = Partial&lt;Colors&gt;
 
@@ -137,6 +147,8 @@ type CustomColors = Partial&lt;Colors&gt;
 
 ##### CustomDarkColors20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type CustomDarkColors = Partial&lt;Colors&gt;
 
 自定义深色主题颜色资源类型。
@@ -154,6 +166,8 @@ type CustomDarkColors = Partial&lt;Colors&gt;
 
 ##### ThemeControl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ThemeControl将自定义Theme应用于App组件内，实现App组件风格跟随Theme切换。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -163,6 +177,8 @@ ThemeControl将自定义Theme应用于App组件内，实现App组件风格跟随
 
 
 ##### setDefaultTheme
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDefaultTheme(theme: [CustomTheme](#customtheme)): void
 
@@ -232,8 +248,8 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/NgBmT124SkS9UeYrdOdqdg/zh-cn_image_0000002611755469.png?HW-CC-KV=V1&HW-CC-Date=20260528T013819Z&HW-CC-Expire=86400&HW-CC-Sign=7AB057C83E04C71379C94E53EE8F6A49BDCBAF258CA27DD976798EE4DD10F8B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/NgBmT124SkS9UeYrdOdqdg/zh-cn_image_0000002611755469.png?HW-CC-KV=V1&HW-CC-Date=20260528T024116Z&HW-CC-Expire=86400&HW-CC-Sign=5897A3A3B3FE07870B92977DCD3F67D0B9368BE2B6E56C3607759BF4A221F5E1)
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/JxqKQO0fSCWR3HvXV5a7hg/zh-cn_image_0000002581435532.png?HW-CC-KV=V1&HW-CC-Date=20260528T013819Z&HW-CC-Expire=86400&HW-CC-Sign=D87AD67E827DB16AA0F7E0A66D9A71B537EFD9847BD9B36DB242B8CC4A4B289E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/JxqKQO0fSCWR3HvXV5a7hg/zh-cn_image_0000002581435532.png?HW-CC-KV=V1&HW-CC-Date=20260528T024116Z&HW-CC-Expire=86400&HW-CC-Sign=52E9C9D5E7541BC87F0482EC6F866AF79997D0FDD67BB91ADE0E5C351297F018)

@@ -12,6 +12,8 @@ typedef struct ArkUI_DragAndDropInfo ArkUI_DragAndDropInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 主动发起拖拽后，通过拖拽状态监听返回的系统拖拽相关数据。
  
 **起始版本：** 12

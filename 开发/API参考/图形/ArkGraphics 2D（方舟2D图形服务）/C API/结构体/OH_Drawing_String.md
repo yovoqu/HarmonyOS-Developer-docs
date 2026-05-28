@@ -12,6 +12,8 @@ typedef struct {...} OH_Drawing_String
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 采用UTF-16编码的字符串信息结构体。
  
 **起始版本：** 14
@@ -24,9 +26,13 @@ typedef struct {...} OH_Drawing_String
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

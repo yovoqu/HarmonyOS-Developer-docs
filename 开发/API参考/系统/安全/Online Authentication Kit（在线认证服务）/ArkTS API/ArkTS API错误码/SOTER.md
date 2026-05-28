@@ -12,6 +12,8 @@
 
 ##### 1014500001 服务异常
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 The service is abnormal.

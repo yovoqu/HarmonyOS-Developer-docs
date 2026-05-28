@@ -12,6 +12,8 @@
 
 ##### 24700101 未知错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Unknown error.
@@ -31,6 +33,8 @@ Unknown error.
 
 
 ##### 24700103 MediaKeySystem数量达到极限
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -52,6 +56,8 @@ MediaKeySystem实例数量超过上限（64个）。
 
 ##### 24700104 MediaKeySession数量达到极限
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Too many MediaKeySession instances.
@@ -71,6 +77,8 @@ MediaKeySession实例数量超过上限（64个）。
 
 
 ##### 24700201 服务异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

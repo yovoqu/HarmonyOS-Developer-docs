@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -21,6 +23,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### requestImage11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static requestImage(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: MediaAssetDataHandler<image.ImageSource>): Promise&lt;string&gt;
 
@@ -109,6 +113,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### requestImageData11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static requestImageData(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: MediaAssetDataHandler&lt;ArrayBuffer&gt;): Promise&lt;string&gt;
 
 根据不同的策略模式，请求图片资源数据。使用Promise异步回调。
@@ -195,6 +201,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### requestMovingPhoto12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static requestMovingPhoto(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: MediaAssetDataHandler&lt;MovingPhoto&gt;): Promise&lt;string&gt;
 
 根据不同的策略模式，请求动态照片对象（动态照片对象可用于请求动态照片的资源数据）。使用Promise异步回调。
@@ -280,6 +288,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### requestVideoFile12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static requestVideoFile(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, fileUri: string, dataHandler: MediaAssetDataHandler&lt;boolean&gt;): Promise&lt;string&gt;
 
 根据不同的策略模式，请求视频资源数据到沙箱路径。使用Promise异步回调。
@@ -360,6 +370,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### cancelRequest12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static cancelRequest(context: Context, requestId: string): Promise&lt;void&gt;
 
 取消未触发回调的资产内容请求。使用Promise异步回调。
@@ -414,6 +426,8 @@ async function example(context: Context) {
 
 ##### loadMovingPhoto12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static loadMovingPhoto(context: Context, imageFileUri: string, videoFileUri: string): Promise&lt;MovingPhoto&gt;
 
 加载应用沙箱的动态照片。使用Promise异步回调。
@@ -465,6 +479,8 @@ async function example(context: Context) {
 
 
 ##### quickRequestImage13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static quickRequestImage(context: Context, asset: PhotoAsset, requestOptions: RequestOptions, dataHandler: QuickImageDataHandler<image.Picture>): Promise&lt;string&gt;
 

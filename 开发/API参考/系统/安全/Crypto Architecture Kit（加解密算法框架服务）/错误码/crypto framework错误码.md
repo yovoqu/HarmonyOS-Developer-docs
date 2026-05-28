@@ -12,6 +12,8 @@
 
 ##### 17620001 内存操作失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
+
 **错误信息**
 
 Memory operation failed.
@@ -31,6 +33,8 @@ Memory operation failed.
 
 
 ##### 17620002 ArkTS和C之间转换参数失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
 **错误信息**
 
@@ -52,6 +56,8 @@ ArkTS和C之间转换参数失败。
 
 ##### 17620003 参数校验失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Parameter check failed.
@@ -71,6 +77,8 @@ Parameter check failed.
 
 
 ##### 17630001 算法相关的操作错误，调用三方算法库API出错
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
 **错误信息**
 

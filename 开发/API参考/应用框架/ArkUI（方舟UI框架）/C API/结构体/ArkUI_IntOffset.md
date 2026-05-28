@@ -12,6 +12,8 @@ typedef struct {...} ArkUI_IntOffset
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 位置，用于描述组件的位置。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct {...} ArkUI_IntOffset
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

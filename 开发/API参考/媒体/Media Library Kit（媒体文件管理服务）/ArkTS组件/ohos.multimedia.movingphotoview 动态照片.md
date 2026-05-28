@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > MovingPhotoViewAttribute是用于配置MovingPhotoView组件属性的关键接口。API version 21及之前版本，导入MovingPhotoView组件后需要开发者手动导入MovingPhotoViewAttribute，否则会编译报错。从API version 22开始，编译工具链识别到导入MovingPhotoView组件后，会自动导入MovingPhotoViewAttribute，无需开发者手动导入。 如果开发者手动导入MovingPhotoViewAttribute，DevEco Studio会将其显示置灰，API version 21及之前版本删除会编译报错，从API version 22开始，删除对功能无影响。
 
@@ -34,6 +36,8 @@ import { MovingPhotoView, MovingPhotoViewController } from '@kit.MediaLibraryKit
 
 ##### MovingPhotoView
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 当前不支持动态属性设置。 当前不支持ArkUI通用属性ComponentOptions中expandSafeArea属性设置。 该组件长按触发播放时组件区域放大为1.1倍。 该组件使用 AVPlayer 进行播放，同时开启的AVPlayer个数不建议超过3个，超过3个可能会出现视频播放卡顿现象。
 
@@ -51,6 +55,8 @@ MovingPhotoView(options: MovingPhotoViewOptions)
 
 ##### MovingPhotoViewOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | movingPhoto | photoAccessHelper.MovingPhoto | 否 | 否 | 支持媒体库MovingPhoto数据源，具体信息详见MovingPhoto说明。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -62,11 +68,15 @@ MovingPhotoView(options: MovingPhotoViewOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### muted
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 muted(isMuted: boolean)
 
@@ -87,6 +97,8 @@ muted(isMuted: boolean)
 
 ##### objectFit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 objectFit(value: ImageFit)
 
 设置动态照片显示模式。
@@ -105,6 +117,8 @@ objectFit(value: ImageFit)
 
 
 ##### autoPlayPeriod13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 autoPlayPeriod(startTime: number, endTime: number)
 
@@ -128,6 +142,8 @@ autoPlayPeriod(startTime: number, endTime: number)
 
 ##### autoPlay13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 autoPlay(isAutoPlay: boolean)
 
 设置自动播放，自动播放一遍视频。
@@ -149,6 +165,8 @@ autoPlay(isAutoPlay: boolean)
 
 ##### repeatPlay13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 repeatPlay(isRepeatPlay: boolean)
 
 设置循环播放，重复播放视频。 repeatPlay与autoPlay及长按播放互斥，repeatPlay设置时，autoPlay和长按播放均不生效。
@@ -167,6 +185,8 @@ repeatPlay(isRepeatPlay: boolean)
 
 
 ##### enableAnalyzer18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableAnalyzer(enabled: boolean)
 
@@ -187,11 +207,15 @@ enableAnalyzer(enabled: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onComplete13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onComplete(callback: MovingPhotoViewEventCallback)
 
@@ -212,6 +236,8 @@ onComplete(callback: MovingPhotoViewEventCallback)
 
 ##### onStart
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onStart(callback: MovingPhotoViewEventCallback)
 
 播放时触发该事件。使用callback异步回调。
@@ -230,6 +256,8 @@ onStart(callback: MovingPhotoViewEventCallback)
 
 
 ##### onPause
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onPause(callback: MovingPhotoViewEventCallback)
 
@@ -250,6 +278,8 @@ onPause(callback: MovingPhotoViewEventCallback)
 
 ##### onFinish
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onFinish(callback: MovingPhotoViewEventCallback)
 
 播放结束时触发该事件。使用callback异步回调。
@@ -268,6 +298,8 @@ onFinish(callback: MovingPhotoViewEventCallback)
 
 
 ##### onError
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onError(callback: MovingPhotoViewEventCallback)
 
@@ -288,6 +320,8 @@ onError(callback: MovingPhotoViewEventCallback)
 
 ##### onStop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onStop(callback: MovingPhotoViewEventCallback)
 
 播放停止时触发该事件(当stop()方法被调用后触发)。使用callback异步回调。
@@ -306,6 +340,8 @@ onStop(callback: MovingPhotoViewEventCallback)
 
 
 ##### onPrepared20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onPrepared(callback: MovingPhotoViewEventCallback)
 
@@ -326,6 +362,8 @@ onPrepared(callback: MovingPhotoViewEventCallback)
 
 ##### MovingPhotoViewEventCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 declare type MovingPhotoViewEventCallback = () => void
 
 动态照片播放状态发生变化时触发的回调。
@@ -338,11 +376,15 @@ declare type MovingPhotoViewEventCallback = () => void
 
 ##### MovingPhotoViewController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 一个MovingPhotoViewController对象可以控制一个MovingPhotoView，可用视频播放实例请参考[@ohos.multimedia.media](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media)。
 
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -356,6 +398,8 @@ MovingPhotoViewController的构造函数。
 
 ##### startPlayback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startPlayback()
 
 开始播放，动态照片加载完成后，在播放准备，暂停，完成时调用。
@@ -367,6 +411,8 @@ startPlayback()
 
 
 ##### stopPlayback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stopPlayback()
 
@@ -380,6 +426,8 @@ stopPlayback()
 
 ##### refreshMovingPhoto18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 refreshMovingPhoto()
 
 强制刷新动态照片组件加载的视频和图片资源，会打断组件当前的行为，使用时要谨慎。
@@ -391,6 +439,8 @@ refreshMovingPhoto()
 
 
 ##### 示例1：多种形式播放动态照片
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -539,12 +589,14 @@ class MediaDataHandlerMovingPhoto implements photoAccessHelper.MediaAssetDataHan
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/KvJjjyM6SYWauqyhlAyD8Q/zh-cn_image_0000002611756937.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=1B8E7583167AD8290C40FF6BD2711DA8BBBD20D2F2D3575633FC94D4B4C460BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/KvJjjyM6SYWauqyhlAyD8Q/zh-cn_image_0000002611756937.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024006Z&HW-CC-Expire=86400&HW-CC-Sign=EAE6EE329ABD85D661B94C5A0309E9A4CEC5507146EA1488B5C2AD0E9D027372)
 
 
 
 
 ##### 示例2：在元服务中使用动态照片
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -639,12 +691,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/YLM6sSIGQtGm5yuCZfXGww/zh-cn_image_0000002581436996.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=76304CE317E026FFA5791B1A3A3659F4232F525DEC4204C9536668A0EA20D170)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/YLM6sSIGQtGm5yuCZfXGww/zh-cn_image_0000002581436996.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024006Z&HW-CC-Expire=86400&HW-CC-Sign=1785D01587AFA3BF4B125934D71CC9FB3577D6A05C3801E72A421F7D8EA824B8)
 
 
 
 
 ##### 示例3：图像分析功能使用
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -799,4 +853,4 @@ class MediaDataHandlerMovingPhoto implements photoAccessHelper.MediaAssetDataHan
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/Xvr8l_t6R7aYRU1fTsxqoQ/zh-cn_image_0000002611836829.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013709Z&HW-CC-Expire=86400&HW-CC-Sign=F8F3084F927B147CA6F4081CEBD873C4D880786A032A94B17810CAC95F260C6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/Xvr8l_t6R7aYRU1fTsxqoQ/zh-cn_image_0000002611836829.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024006Z&HW-CC-Expire=86400&HW-CC-Sign=9B13ED4B79ACC2EF8B65F1CD3FD8A9756601FE62F0FA4D8CEE87258739835C8D)

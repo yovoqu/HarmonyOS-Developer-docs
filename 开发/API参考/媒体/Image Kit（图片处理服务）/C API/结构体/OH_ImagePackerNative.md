@@ -12,6 +12,8 @@ typedef struct OH_ImagePackerNative OH_ImagePackerNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ImagePacker结构体类型，用于执行ImagePacker相关操作。
  
 此结构体内容不可直接操作，采用函数调用方式操作具体字段，结构体内容和操作方式如下：

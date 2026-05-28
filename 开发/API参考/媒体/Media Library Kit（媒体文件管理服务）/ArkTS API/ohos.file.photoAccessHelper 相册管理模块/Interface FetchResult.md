@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -21,6 +23,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### getCount
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCount(): number
 
@@ -70,6 +74,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### isAfterLast
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isAfterLast(): boolean
 
@@ -125,6 +131,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 释放FetchResult实例并使其失效，释放后无法再调用其他方法。
@@ -170,6 +178,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getFirstObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFirstObject(callback: AsyncCallback&lt;T&gt;): void
 
@@ -225,6 +235,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getFirstObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFirstObject(): Promise&lt;T&gt;
 
 获取文件检索结果中的第一个文件资产。使用Promise异步回调。
@@ -273,6 +285,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getNextObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getNextObject(callback: AsyncCallback&lt;T&gt;): void
 
@@ -333,6 +347,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getNextObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getNextObject(): Promise&lt;T&gt;
 
 获取文件检索结果中的下一个文件资产。使用Promise异步回调。
@@ -386,6 +402,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getLastObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLastObject(callback: AsyncCallback&lt;T&gt;): void
 
@@ -441,6 +459,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getLastObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastObject(): Promise&lt;T&gt;
 
 获取文件检索结果中的最后一个文件资产。使用Promise异步回调。
@@ -489,6 +509,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getObjectByPosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getObjectByPosition(index: number, callback: AsyncCallback&lt;T&gt;): void
 
@@ -544,6 +566,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getObjectByPosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getObjectByPosition(index: number): Promise&lt;T&gt;
 
@@ -605,6 +629,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getAllObjects
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllObjects(callback: AsyncCallback<Array&lt;T&gt;>): void
 
 获取文件检索结果中的所有文件资产。使用callback异步回调。
@@ -659,6 +685,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getAllObjects
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllObjects(): Promise<Array&lt;T&gt;>
 
 获取文件检索结果中的所有文件资产。使用Promise异步回调。
@@ -707,6 +735,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### contains23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contains(object: T): Promise&lt;boolean&gt;
 
@@ -760,6 +790,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getObjectsByIndexSet23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getObjectsByIndexSet(indexSet: number[]): Promise<T[]>
 
@@ -823,6 +855,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getIndex23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getIndex(object: T): Promise&lt;number&gt;
 
 获取指定文件资产在文件检索结果中的索引。使用Promise异步回调。
@@ -875,6 +909,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getRangeObjects23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRangeObjects(index: number, offset: number): Promise<T[]>
 

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { pdfService, pdfViewManager, PdfView } from '@kit.PDFKit';
 ```
@@ -19,6 +21,8 @@ import { pdfService, pdfViewManager, PdfView } from '@kit.PDFKit';
   
 
 ##### PdfView
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 该类是用来展示PDF文档预览的UI组件。
  
@@ -40,6 +44,8 @@ import { pdfService, pdfViewManager, PdfView } from '@kit.PDFKit';
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 build(): void
  

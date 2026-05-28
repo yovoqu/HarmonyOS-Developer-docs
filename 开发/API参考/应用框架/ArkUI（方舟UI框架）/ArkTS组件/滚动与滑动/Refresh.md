@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持单个子组件。
 
 从API version 11开始，Refresh子组件会跟随手势下拉而下移。
@@ -21,6 +23,8 @@
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Refresh(value: RefreshOptions)
 
@@ -40,6 +44,8 @@ Refresh(value: RefreshOptions)
 
 
 ##### RefreshOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于设置Refresh组件参数。
 
@@ -63,11 +69,15 @@ Refresh(value: RefreshOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### refreshOffset12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 refreshOffset(value: number)
 
@@ -88,6 +98,8 @@ refreshOffset(value: number)
 
 ##### pullToRefresh12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pullToRefresh(value: boolean)
 
 设置当下拉距离超过[refreshOffset](#refreshoffset12)时是否能触发刷新。
@@ -106,6 +118,8 @@ pullToRefresh(value: boolean)
 
 
 ##### pullUpToCancelRefresh23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pullUpToCancelRefresh(enabled: boolean | undefined)
 
@@ -126,6 +140,8 @@ pullUpToCancelRefresh(enabled: boolean | undefined)
 
 ##### pullDownRatio12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pullDownRatio(ratio: [Optional](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-custom-property#optionalt)&lt;number&gt;)
 
 设置下拉跟手系数。
@@ -144,6 +160,8 @@ pullDownRatio(ratio: [Optional](https://developer.huawei.com/consumer/cn/doc/har
 
 
 ##### maxPullDownDistance20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 maxPullDownDistance(distance: Optional&lt;number&gt;)
 
@@ -164,11 +182,15 @@ maxPullDownDistance(distance: Optional&lt;number&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onStateChange(callback: (state: RefreshStatus) => void)
 
@@ -189,6 +211,8 @@ onStateChange(callback: (state: RefreshStatus) => void)
 
 ##### onRefreshing
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRefreshing(callback: () => void)
 
 进入刷新状态时触发回调。
@@ -207,6 +231,8 @@ onRefreshing(callback: () => void)
 
 
 ##### onOffsetChange12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onOffsetChange(callback: Callback&lt;number&gt;)
 
@@ -231,6 +257,8 @@ onOffsetChange(callback: Callback&lt;number&gt;)
 
 ##### RefreshStatus枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 RefreshStatus刷新状态枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -249,6 +277,8 @@ RefreshStatus刷新状态枚举。
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 

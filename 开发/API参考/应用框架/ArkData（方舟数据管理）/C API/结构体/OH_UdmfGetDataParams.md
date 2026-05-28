@@ -12,6 +12,8 @@ typedef struct OH_UdmfGetDataParams OH_UdmfGetDataParams
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义异步获取UDMF数据的请求参数。
  
 **起始版本：** 15

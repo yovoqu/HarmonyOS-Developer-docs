@@ -16,11 +16,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 interface ParticleInterface {
@@ -59,11 +63,15 @@ interface ParticleInterface {
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外还支持以下属性：
 
 
 
 ##### disturbanceFields12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disturbanceFields(fields: Array&lt;DisturbanceFieldOptions&gt;)
 
@@ -84,6 +92,8 @@ disturbanceFields(fields: Array&lt;DisturbanceFieldOptions&gt;)
 
 ##### emitter12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 emitter(value: Array&lt;EmitterProperty&gt;)
 
 支持发射器位置动态更新
@@ -102,6 +112,8 @@ emitter(value: Array&lt;EmitterProperty&gt;)
 
 
 ##### rippleFields22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rippleFields(fields: Array&lt;RippleFieldOptions&gt;|undefined)
 
@@ -122,6 +134,8 @@ rippleFields(fields: Array&lt;RippleFieldOptions&gt;|undefined)
 
 ##### velocityFields22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 velocityFields(fields: Array&lt;VelocityFieldOptions&gt;|undefined)
 
 设置粒子速度场。速度场会对影响范围内的粒子施加一个力，使粒子在原有速度的基础上叠加速度场指定的速度。
@@ -141,11 +155,15 @@ velocityFields(fields: Array&lt;VelocityFieldOptions&gt;|undefined)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### ParticleOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 interface ParticleOptions<
@@ -188,6 +206,8 @@ interface ParticleOptions<
 
 ##### EmitterOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 interface EmitterOptions<PARTICLE extends ParticleType> {
   particle: EmitterParticleOptions<PARTICLE>;
@@ -217,6 +237,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
 ##### ParticleConfigs
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置粒子配置项。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -233,6 +255,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
 ##### PointParticleParameters
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置粒子半径。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -247,6 +271,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
 
 ##### ImageParticleParameters
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置图片选项。
 
@@ -264,6 +290,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 
 
 ##### ParticleColorPropertyOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
@@ -288,6 +316,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
 
 ##### ParticleColorPropertyUpdaterConfigs
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置粒子颜色属性更新器的配置。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -304,6 +334,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
 
 
 ##### ParticlePropertyOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
@@ -327,6 +359,8 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
 
 
 ##### ParticlePropertyUpdaterConfigs
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 interface ParticlePropertyUpdaterConfigs<T> {
@@ -352,6 +386,8 @@ interface ParticlePropertyUpdaterConfigs<T> {
 
 
 ##### ParticlePropertyAnimation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 interface ParticlePropertyAnimation<T> {
@@ -382,6 +418,8 @@ interface ParticlePropertyAnimation<T> {
 
 ##### ParticleType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 粒子类型。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -397,6 +435,8 @@ interface ParticlePropertyAnimation<T> {
 
 
 ##### ParticleEmitterShape
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 粒子发射器形状。
 
@@ -414,6 +454,8 @@ interface ParticlePropertyAnimation<T> {
 
 ##### DistributionType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 初始颜色随机值分布类型。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -429,6 +471,8 @@ interface ParticlePropertyAnimation<T> {
 
 
 ##### ParticleUpdater
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 粒子变化类型。
 
@@ -446,6 +490,8 @@ interface ParticlePropertyAnimation<T> {
 
 
 ##### DisturbanceFieldOptions12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置粒子扰动场参数。
 
@@ -469,6 +515,8 @@ interface ParticlePropertyAnimation<T> {
 
 ##### DisturbanceFieldShape12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 粒子形状。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -486,6 +534,8 @@ interface ParticlePropertyAnimation<T> {
 
 ##### EmitterProperty12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置发射器属性。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -502,6 +552,8 @@ interface ParticlePropertyAnimation<T> {
 
 
 ##### ParticleTuple18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 declare type ParticleTuple<T1, T2> = [T1, T2];
@@ -521,6 +573,8 @@ declare type ParticleTuple<T1, T2> = [T1, T2];
 
 
 ##### Particles18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 interface Particles<
@@ -565,6 +619,8 @@ interface Particles<
 
 ##### VelocityOptions18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 粒子速度配置。
 
 > [!NOTE]
@@ -584,6 +640,8 @@ interface Particles<
 
 
 ##### AccelerationOptions18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 declare interface AccelerationOptions<
@@ -614,6 +672,8 @@ declare interface AccelerationOptions<
 
 
 ##### EmitterParticleOptions18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 interface EmitterParticleOptions<PARTICLE extends ParticleType> {
@@ -648,6 +708,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
 
 ##### ParticleUpdaterOptions18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   type: UPDATER;
@@ -674,6 +736,8 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
 
 
 ##### ParticleColorUpdaterOptions18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
@@ -702,6 +766,8 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 
 ##### ParticleColorOptions18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 颜色变化方式为均匀变化的时候，在区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。
 
 > [!NOTE]
@@ -723,6 +789,8 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 
 
 ##### ParticleAnnulusRegion20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于设置环形发射器区域的配置信息。
 
@@ -747,6 +815,8 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 
 ##### Vector2T&lt;T&gt;22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 定义Vector2T类型。其中Vector2T类型包含x和y两个属性值。
@@ -763,6 +833,8 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 ##### FieldRegion22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于设置粒子场的区域信息。
 
@@ -782,6 +854,8 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 ##### RippleFieldOptions22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于描述粒子波动场信息的参数。
 
@@ -805,6 +879,8 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 ##### VelocityFieldOptions22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于描述粒子速度场信息的参数。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -820,6 +896,8 @@ type Vector2T&lt;T&gt; = Vector2T&lt;T&gt;
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -942,7 +1020,7 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/31B59YzoSXifMpKFiHCFkQ/zh-cn_image_0000002611835997.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=778478976348B0A945CB5ED9BDC08CBC859BD4B103324CBCA0B2E73A2CA509E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/31B59YzoSXifMpKFiHCFkQ/zh-cn_image_0000002611835997.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=1431EAB9CEAEBE22293390326B62D9E5BF35F5CB42A001F97665E965B62B6CDF)
 
 
 
@@ -1340,7 +1418,7 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/j9jYRx4cTve_uj_grBAt3w/zh-cn_image_0000002581276250.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=805CACF921084EF7ED1800CDE987FC31C447C9A952DC8B8F4005CC2C8CC2218B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/j9jYRx4cTve_uj_grBAt3w/zh-cn_image_0000002581276250.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=2853A4B17A5FCFA3F37321EBDA7CB2903030B98749AE094582AA99E8CC8E430D)
 
 
 
@@ -1471,7 +1549,7 @@ struct ParticleExample3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/ALQ-GiwQQwub_xJ81IaiAg/zh-cn_image_0000002611756105.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=D60D50DC1727BFC94EBEA91265C7A07C57F261926AF2592D59D79966A22D2F75)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/ALQ-GiwQQwub_xJ81IaiAg/zh-cn_image_0000002611756105.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=8348BEE89B093D417BBC3A55BB831FF297982077272362FACE6875C9000F302C)
 
 
 
@@ -1554,7 +1632,7 @@ struct ParticleExample4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/iWP_krCCQIq087liX03JCg/zh-cn_image_0000002581436168.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=1E0E37359E7845D9F91ECA56DA11E11900D4C5E170DFA9C9331417AF65106612)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/iWP_krCCQIq087liX03JCg/zh-cn_image_0000002581436168.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=6BA3459F68042048FC93130D8743585B4C617984A8217CF67488F44D89348FF0)
 
 
 
@@ -1645,7 +1723,7 @@ struct ParticleExample5 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/-vsP12uPRIS7ab4S6Gzmww/zh-cn_image_0000002611835999.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=E0D75469F521B28898AA52C3E0AC2D1629551B9DD6CC825EF0101228E2DABCBF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/-vsP12uPRIS7ab4S6Gzmww/zh-cn_image_0000002611835999.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=0F72C19AAAC1A6B4FD9D2270C0CACFEA86E59B28600C1C8D17D872896E01A45F)
 
 
 
@@ -1765,7 +1843,7 @@ struct ParticleExample6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/VlX5-t1DR_upWZfxsMVACQ/zh-cn_image_0000002581276252.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=D1590104CC9AA1AD5A4FF5D0287D555CB4810B2EF8148DE830BC3DD44ADE443E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/VlX5-t1DR_upWZfxsMVACQ/zh-cn_image_0000002581276252.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=AB7F5B4753A61A6299E9125FE1E35A902C331ECDB7BE9D882B4A86B9DB9F3840)
 
 
 
@@ -1898,4 +1976,4 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/q87D954dTIuInJKAcMuH3g/zh-cn_image_0000002611756107.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=AC8F9CE0082375DBD7F630907130AEFE9391AF06DE1769B143C27EAAB1A2B7F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/q87D954dTIuInJKAcMuH3g/zh-cn_image_0000002611756107.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=2757803E039B7254014B59B497617441812DB30EE58876224B2F527748F9A5D1)

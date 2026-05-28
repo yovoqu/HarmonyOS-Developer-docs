@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortComponentOptions, GridObjectSortComponentType , SymbolGlyphModifier } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { GridObjectSortComponent, GridObjectSortComponentItem, GridObjectSortCom
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### GridObjectSortComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Array&lt;GridObjectSortComponentItem&gt;, onSave: (select: Array&lt;GridObjectSortComponentItem&gt;, unselect: Array&lt;GridObjectSortComponentItem&gt;) => void, onCancel: () => void })
  
@@ -52,6 +58,8 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
 
 ##### GridObjectSortComponentOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 网格对象排序组件的组件配置信息。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -74,6 +82,8 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
 
 ##### GridObjectSortComponentType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 配置网格对象排序组件节点的类型，配置名称 IMAGE_TEXT 为图片文字类型，TEXT 为文字类型。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -91,6 +101,8 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
   
 
 ##### GridObjectSortComponentItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 网格对象排序组件的组件数据配置信息。
  
@@ -112,11 +124,15 @@ GridObjectSortComponent({options: GridObjectSortComponentOptions, dataList: Arra
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 网格对象的编辑排序组件基础用法，涉及对组件配置信息初始化，数据初始化，保存、取消方法的使用。
  
@@ -191,4 +207,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/PjmSjN65RBONTnJ7pRYFKg/zh-cn_image_0000002611756197.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013859Z&HW-CC-Expire=86400&HW-CC-Sign=35AA11DAC8E62904739D4601908D4650191ACC7611D72DF6A3DEDC571685A352)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/PjmSjN65RBONTnJ7pRYFKg/zh-cn_image_0000002611756197.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=6DA8B4DE57DE759E7CBDB22C8773F61696C7C432F32B7823BE086CBAA7102785)

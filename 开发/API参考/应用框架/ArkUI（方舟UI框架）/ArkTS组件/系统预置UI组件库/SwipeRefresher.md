@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { SwipeRefresher } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { SwipeRefresher } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### SwipeRefresher
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SwipeRefresher ({content?: ResourceStr, isLoading: boolean})
  
@@ -50,11 +56,15 @@ SwipeRefresher ({content?: ResourceStr, isLoading: boolean})
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 展示设置属性content为空字符串及不为空、isLoading为true和false的不同加载效果。
  
@@ -84,4 +94,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/Xgt1K8G2Qnm9EMLR3-3kFg/zh-cn_image_0000002611756215.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=5D5E6DDA642A0B03D32688395CFA7485CD88271E0B59199D447BB31981EB58F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/Xgt1K8G2Qnm9EMLR3-3kFg/zh-cn_image_0000002611756215.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=B393E46ECCE4D57D0F3536F33F042F5E543B4CD20E8B6C521B2D7662EA0F0E74)

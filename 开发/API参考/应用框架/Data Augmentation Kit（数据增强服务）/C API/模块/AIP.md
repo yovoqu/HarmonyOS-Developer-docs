@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 智慧化数据平台（AIP）为应用提供构建端侧智慧化解决方案，提供向量化、知识检索和知识问答的能力。
  
 **起始版本：** 6.0.0(20)
@@ -15,9 +17,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -27,6 +33,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,6 +44,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -46,9 +56,13 @@
 
 ##### 类型定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_Aip_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef enum OH_Aip_ErrCode OH_Aip_ErrCode;
@@ -64,9 +78,13 @@ typedef enum OH_Aip_ErrCode OH_Aip_ErrCode;
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_Aip_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum OH_Aip_ErrCode;

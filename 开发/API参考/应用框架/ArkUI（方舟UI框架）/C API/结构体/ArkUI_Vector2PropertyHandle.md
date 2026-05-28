@@ -12,6 +12,8 @@ typedef struct ArkUI_Vector2Property* ArkUI_Vector2PropertyHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义二维向量属性指针。
  
 **起始版本：** 20

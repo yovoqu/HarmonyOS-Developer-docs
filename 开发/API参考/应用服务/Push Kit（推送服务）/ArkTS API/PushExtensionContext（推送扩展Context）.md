@@ -16,6 +16,8 @@ PushExtensionContext是[PushExtensionAbility](https://developer.huawei.com/consu
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { PushExtensionContext } from '@kit.PushKit';
 ```
@@ -23,6 +25,8 @@ import { PushExtensionContext } from '@kit.PushKit';
   
 
 ##### PushExtensionContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束：** 属性仅可在Stage模型下使用。
  

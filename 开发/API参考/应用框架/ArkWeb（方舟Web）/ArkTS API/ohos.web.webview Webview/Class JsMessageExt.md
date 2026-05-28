@@ -14,6 +14,8 @@
 
 ##### getType10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getType(): JsMessageType
  
 获取数据对象的类型。完整示例代码参考[runJavaScriptExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascriptext10)。
@@ -30,6 +32,8 @@ getType(): JsMessageType
   
 
 ##### getString10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getString(): string
  
@@ -57,6 +61,8 @@ getString(): string
 
 ##### getNumber10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getNumber(): number
  
 获取数据对象的数值类型数据。完整示例代码参考[runJavaScriptExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascriptext10)。
@@ -82,6 +88,8 @@ getNumber(): number
   
 
 ##### getBoolean10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBoolean(): boolean
  
@@ -109,6 +117,8 @@ getBoolean(): boolean
 
 ##### getArrayBuffer10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getArrayBuffer(): ArrayBuffer
  
 获取数据对象的原始二进制数据。完整示例代码参考[runJavaScriptExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascriptext10)。
@@ -135,6 +145,8 @@ getArrayBuffer(): ArrayBuffer
 
 ##### getArray10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getArray(): Array<string | number | boolean>
  
 获取数据对象的数组类型数据。完整示例代码参考[runJavaScriptExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller#runjavascriptext10)。
@@ -160,6 +172,8 @@ getArray(): Array<string | number | boolean>
   
 
 ##### getErrorDescription22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getErrorDescription(): string | null
  

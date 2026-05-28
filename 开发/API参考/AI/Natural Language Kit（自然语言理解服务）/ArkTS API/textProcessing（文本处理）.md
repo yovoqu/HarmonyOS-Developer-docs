@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 ```
@@ -21,6 +23,8 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 
 ##### WordSegment
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 分词的输出结果，包含词语和词性。
 
@@ -38,6 +42,8 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 ##### EntityConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 可选配置项，实体的类别。
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
@@ -52,6 +58,8 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 
 ##### EntityType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 实体类别的枚举类。
 
@@ -77,6 +85,8 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 ##### Entity
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 实体抽取的结果。
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
@@ -94,6 +104,8 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 
 ##### textProcessing.getWordSegment
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getWordSegment(text: string): Promise<Array&lt;WordSegment&gt;>
 
@@ -173,6 +185,8 @@ struct Page {
 
 
 ##### textProcessing.getEntity
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getEntity(text: string, entityConfig?: EntityConfig): Promise<Array&lt;Entity&gt;>
 
@@ -263,6 +277,8 @@ struct Page {
 
 ##### textProcessing.init
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 init(): Promise&lt;boolean&gt;
 
 初始化自然语言处理的引擎。使用Promise异步回调。
@@ -320,6 +336,8 @@ struct Page {
 
 
 ##### textProcessing.release
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 release(): Promise&lt;boolean&gt;
 

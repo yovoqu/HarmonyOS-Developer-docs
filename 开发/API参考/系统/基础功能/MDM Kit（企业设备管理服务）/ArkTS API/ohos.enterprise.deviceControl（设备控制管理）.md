@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { deviceControl } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { deviceControl } from '@kit.MDMKit';
 
 
 ##### deviceControl.operateDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 operateDevice(admin: Want, operate: string, addition?: string): void
 

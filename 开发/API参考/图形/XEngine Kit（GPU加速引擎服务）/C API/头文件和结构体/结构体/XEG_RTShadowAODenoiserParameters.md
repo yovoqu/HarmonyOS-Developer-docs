@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 光线追踪阴影和环境光遮蔽算法去噪参数。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### ghostingAlpha
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_RTShadowAODenoiserParameters::ghostingAlpha = 0.0f
@@ -53,6 +63,8 @@ float XEG_RTShadowAODenoiserParameters::ghostingAlpha = 0.0f
 
 ##### positionConstantDistance
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_RTShadowAODenoiserParameters::positionConstantDistance = 1.0f
 ```
@@ -64,6 +76,8 @@ float XEG_RTShadowAODenoiserParameters::positionConstantDistance = 1.0f
   
 
 ##### spatialDenoiseTimes
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 uint32_t XEG_RTShadowAODenoiserParameters::spatialDenoiseTimes = 2
@@ -77,6 +91,8 @@ uint32_t XEG_RTShadowAODenoiserParameters::spatialDenoiseTimes = 2
 
 ##### spatialMaxKernelStep
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t XEG_RTShadowAODenoiserParameters::spatialMaxKernelStep = 0
 ```
@@ -89,6 +105,8 @@ uint32_t XEG_RTShadowAODenoiserParameters::spatialMaxKernelStep = 0
 
 ##### spatialNormalWeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_RTShadowAODenoiserParameters::spatialNormalWeight = 1.0f
 ```
@@ -100,6 +118,8 @@ float XEG_RTShadowAODenoiserParameters::spatialNormalWeight = 1.0f
   
 
 ##### temporalBlendFactor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_RTShadowAODenoiserParameters::temporalBlendFactor = 0.075f

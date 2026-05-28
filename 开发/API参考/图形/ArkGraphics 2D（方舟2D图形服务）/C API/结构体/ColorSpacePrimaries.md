@@ -12,6 +12,8 @@ typedef struct {...} ColorSpacePrimaries
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供色彩原色结构体声明。
  
 **起始版本：** 13
@@ -24,9 +26,13 @@ typedef struct {...} ColorSpacePrimaries
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

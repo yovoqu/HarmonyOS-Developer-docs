@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_TextEditorSelectionMenuOptions OH_ArkUI_TextEditorSelect
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文本编辑器的文本选择菜单选项。
  
 **起始版本：** 24

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import mediaquery from '@system.mediaquery';
 ```
@@ -21,6 +23,8 @@ import mediaquery from '@system.mediaquery';
   
 
 ##### MediaQuery
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义MediaQuery接口。
  
@@ -31,6 +35,8 @@ import mediaquery from '@system.mediaquery';
   
 
 ##### matchMedia
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 matchMedia(condition: string): MediaQueryList
  
@@ -64,6 +70,8 @@ let mMediaQueryList = mediaquery.matchMedia('(max-width: 466)');
 
 ##### MediaQueryEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义MediaQuery事件。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -79,11 +87,15 @@ let mMediaQueryList = mediaquery.matchMedia('(max-width: 466)');
 
 ##### MediaQueryList
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义MediaQuery列表信息。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
@@ -99,6 +111,8 @@ let mMediaQueryList = mediaquery.matchMedia('(max-width: 466)');
   
 
 ##### MediaQueryList.addListener
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addListener(callback: (event: MediaQueryEvent) => void): void
  
@@ -132,6 +146,8 @@ mMediaQueryList.addListener(maxWidthMatch);
   
 
 ##### MediaQueryList.removeListener
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeListener(callback: (event: MediaQueryEvent) => void): void
  

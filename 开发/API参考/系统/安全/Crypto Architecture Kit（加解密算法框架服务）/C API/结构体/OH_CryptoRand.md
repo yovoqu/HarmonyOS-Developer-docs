@@ -12,6 +12,8 @@ typedef struct OH_CryptoRand OH_CryptoRand
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义随机数生成器结构。
  
 **起始版本：** 20

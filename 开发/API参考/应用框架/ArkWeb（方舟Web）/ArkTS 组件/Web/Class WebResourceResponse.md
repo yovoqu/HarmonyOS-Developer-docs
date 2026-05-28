@@ -14,6 +14,8 @@ Web组件资源响应对象。示例代码参考[onHttpErrorReceive事件](https
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 WebResourceResponse的构造函数。
@@ -23,6 +25,8 @@ WebResourceResponse的构造函数。
   
 
 ##### getReasonMessage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getReasonMessage(): string
  
@@ -41,6 +45,8 @@ getReasonMessage(): string
 
 ##### getResponseCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getResponseCode(): number
  
 获取资源响应的状态码。
@@ -57,6 +63,8 @@ getResponseCode(): number
   
 
 ##### getResponseData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getResponseData(): string
  
@@ -75,6 +83,8 @@ getResponseData(): string
 
 ##### getResponseEncoding
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getResponseEncoding(): string
  
 获取资源响应的编码。
@@ -91,6 +101,8 @@ getResponseEncoding(): string
   
 
 ##### getResponseHeader
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getResponseHeader() : Array&lt;Header&gt;
  
@@ -109,6 +121,8 @@ getResponseHeader() : Array&lt;Header&gt;
 
 ##### getResponseMimeType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getResponseMimeType(): string
  
 获取资源响应的媒体（MIME）类型。
@@ -125,6 +139,8 @@ getResponseMimeType(): string
   
 
 ##### getResponseDataEx13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined
  
@@ -143,6 +159,8 @@ getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined
 
 ##### getResponseIsReady13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getResponseIsReady(): boolean
  
 获取响应数据是否已准备就绪。
@@ -159,6 +177,8 @@ getResponseIsReady(): boolean
   
 
 ##### setResponseData9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setResponseData(data: string | number | Resource | ArrayBuffer): void
  
@@ -177,6 +197,8 @@ setResponseData(data: string | number | Resource | ArrayBuffer): void
 
 ##### setResponseEncoding9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setResponseEncoding(encoding: string): void
  
 设置资源响应的编码。
@@ -193,6 +215,8 @@ setResponseEncoding(encoding: string): void
   
 
 ##### setResponseMimeType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setResponseMimeType(mimeType: string): void
  
@@ -211,6 +235,8 @@ setResponseMimeType(mimeType: string): void
 
 ##### setReasonMessage9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setReasonMessage(reason: string): void
  
 设置资源响应的状态码描述。
@@ -227,6 +253,8 @@ setReasonMessage(reason: string): void
   
 
 ##### setResponseHeader9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setResponseHeader(header: Array&lt;Header&gt;): void
  
@@ -245,6 +273,8 @@ setResponseHeader(header: Array&lt;Header&gt;): void
 
 ##### setResponseCode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setResponseCode(code: number): void
  
 设置资源响应的状态码。
@@ -261,6 +291,8 @@ setResponseCode(code: number): void
   
 
 ##### setResponseIsReady9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setResponseIsReady(IsReady: boolean): void
  

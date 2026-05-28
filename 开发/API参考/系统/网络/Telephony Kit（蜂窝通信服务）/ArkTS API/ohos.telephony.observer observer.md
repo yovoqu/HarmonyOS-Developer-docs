@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { observer } from '@kit.TelephonyKit';
 ```
@@ -21,6 +23,8 @@ import { observer } from '@kit.TelephonyKit';
 
 
 ##### NetworkState
+
+**支持设备：** Phone | Tablet | Wearable
 
 type NetworkState = radio.NetworkState
 
@@ -37,6 +41,8 @@ type NetworkState = radio.NetworkState
 
 ##### SignalInformation
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SignalInformation = radio.SignalInformation
 
 网络信号强度信息对象。
@@ -51,6 +57,8 @@ type SignalInformation = radio.SignalInformation
 
 
 ##### DataConnectState
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DataConnectState = data.DataConnectState
 
@@ -67,6 +75,8 @@ type DataConnectState = data.DataConnectState
 
 ##### RatType
 
+**支持设备：** Phone | Tablet | Wearable
+
 type RatType = radio.RadioTechnology
 
 无线接入技术。
@@ -81,6 +91,8 @@ type RatType = radio.RadioTechnology
 
 
 ##### DataFlowType
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DataFlowType = data.DataFlowType
 
@@ -97,6 +109,8 @@ type DataFlowType = data.DataFlowType
 
 ##### CallState
 
+**支持设备：** Phone | Tablet | Wearable
+
 type CallState = call.CallState
 
 通话状态码。
@@ -111,6 +125,8 @@ type CallState = call.CallState
 
 
 ##### CCallState23+
+
+**支持设备：** Phone | Tablet | Wearable
 
 type CCallState = call.CCallState
 
@@ -127,6 +143,8 @@ type CCallState = call.CCallState
 
 ##### CardType
 
+**支持设备：** Phone | Tablet | Wearable
+
 type CardType = sim.CardType
 
 卡类型。
@@ -141,6 +159,8 @@ type CardType = sim.CardType
 
 
 ##### SimState
+
+**支持设备：** Phone | Tablet | Wearable
 
 type SimState = sim.SimState
 
@@ -157,6 +177,8 @@ SIM卡状态。
 
 ##### TelCallState21+
 
+**支持设备：** Phone | Tablet | Wearable
+
 type TelCallState = call.TelCallState
 
 通话状态码。
@@ -171,6 +193,8 @@ type TelCallState = call.TelCallState
 
 
 ##### observer.on('networkStateChange')
+
+**支持设备：** Phone | Tablet | Wearable
 
 on(type: 'networkStateChange', callback: Callback&lt;NetworkState&gt;): void
 
@@ -213,6 +237,8 @@ observer.on('networkStateChange', (data: observer.NetworkState) => {
 
 
 ##### observer.on('networkStateChange')
+
+**支持设备：** Phone | Tablet | Wearable
 
 on(type: 'networkStateChange', options: ObserverOptions, callback: Callback&lt;NetworkState&gt;): void
 
@@ -259,6 +285,8 @@ observer.on('networkStateChange', options, (data: observer.NetworkState) => {
 
 
 ##### observer.off('networkStateChange')
+
+**支持设备：** Phone | Tablet | Wearable
 
 off(type: 'networkStateChange', callback?: Callback&lt;NetworkState&gt;): void
 
@@ -307,6 +335,8 @@ observer.off('networkStateChange');
 
 ##### observer.on('signalInfoChange')
 
+**支持设备：** Phone | Tablet | Wearable
+
 on(type: 'signalInfoChange', callback: Callback<Array&lt;SignalInformation&gt;>): void
 
 订阅信号状态变化事件，使用callback方式作为异步方法。
@@ -347,6 +377,8 @@ observer.on('signalInfoChange', (data: Array<radio.SignalInformation>) => {
 
 
 ##### observer.on('signalInfoChange')
+
+**支持设备：** Phone | Tablet | Wearable
 
 on(type: 'signalInfoChange', options: ObserverOptions, callback: Callback<Array&lt;SignalInformation&gt;>): void
 
@@ -392,6 +424,8 @@ observer.on('signalInfoChange', options, (data: Array<radio.SignalInformation>) 
 
 
 ##### observer.off('signalInfoChange')
+
+**支持设备：** Phone | Tablet | Wearable
 
 off(type: 'signalInfoChange', callback?: Callback<Array&lt;SignalInformation&gt;>): void
 
@@ -442,6 +476,8 @@ observer.off('signalInfoChange');
 
 ##### observer.on('callStateChange')
 
+**支持设备：** Phone | Tablet | Wearable
+
 on(type: 'callStateChange', callback: Callback&lt;CallStateInfo&gt;): void
 
 订阅通话状态变化事件，使用callback方式作为异步方法。
@@ -480,6 +516,8 @@ observer.on('callStateChange', (data: observer.CallStateInfo) => {
 
 
 ##### observer.on('callStateChange')
+
+**支持设备：** Phone | Tablet | Wearable
 
 on(type: 'callStateChange', options: ObserverOptions, callback: Callback&lt;CallStateInfo&gt;): void
 
@@ -523,6 +561,8 @@ observer.on('callStateChange', options, (data: observer.CallStateInfo) => {
 
 
 ##### observer.off('callStateChange')
+
+**支持设备：** Phone | Tablet | Wearable
 
 off(type: 'callStateChange', callback?: Callback&lt;CallStateInfo&gt;): void
 
@@ -571,6 +611,8 @@ observer.off('callStateChange');
 
 ##### observer.on('callStateChangeEx')21+
 
+**支持设备：** Phone | Tablet | Wearable
+
 on(type: 'callStateChangeEx', callback: Callback&lt;TelCallState&gt;, options?: ObserverOptions): void
 
 订阅通话状态变化拓展事件，使用callback方式作为异步方法。
@@ -617,6 +659,8 @@ observer.on('callStateChangeEx', callback);
 
 
 ##### observer.off('callStateChangeEx')21+
+
+**支持设备：** Phone | Tablet | Wearable
 
 off(type: 'callStateChangeEx', callback?: Callback&lt;TelCallState&gt;): void
 
@@ -665,6 +709,8 @@ observer.off('callStateChangeEx');
 
 ##### observer.on('cellularDataConnectionStateChange')7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 on(type: 'cellularDataConnectionStateChange', callback: Callback&lt;DataConnectionStateInfo&gt;): void
 
 订阅蜂窝数据链路连接状态，使用callback方式作为异步方法。
@@ -703,6 +749,8 @@ observer.on('cellularDataConnectionStateChange', (data: observer.DataConnectionS
 
 
 ##### observer.on('cellularDataConnectionStateChange')7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 on(type: 'cellularDataConnectionStateChange', options: ObserverOptions, callback: Callback&lt;DataConnectionStateInfo&gt;): void
 
@@ -746,6 +794,8 @@ observer.on('cellularDataConnectionStateChange', options, (data: observer.DataCo
 
 
 ##### observer.off('cellularDataConnectionStateChange')7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 off(type: 'cellularDataConnectionStateChange', callback?: Callback&lt;DataConnectionStateInfo&gt;): void
 
@@ -794,6 +844,8 @@ observer.off('cellularDataConnectionStateChange');
 
 ##### observer.on('cellularDataFlowChange')7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 on(type: 'cellularDataFlowChange', callback: Callback&lt;DataFlowType&gt;): void
 
 订阅蜂窝数据业务的上下行数据流状态，使用callback方式作为异步方法。
@@ -834,6 +886,8 @@ observer.on('cellularDataFlowChange', (data: data.DataFlowType) => {
 
 
 ##### observer.on('cellularDataFlowChange')7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 on(type: 'cellularDataFlowChange', options: ObserverOptions, callback: Callback&lt;DataFlowType&gt;): void
 
@@ -879,6 +933,8 @@ observer.on('cellularDataFlowChange', options, (data: data.DataFlowType) => {
 
 
 ##### observer.off('cellularDataFlowChange')7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 off(type: 'cellularDataFlowChange', callback?: Callback&lt;DataFlowType&gt;): void
 
@@ -929,6 +985,8 @@ observer.off('cellularDataFlowChange');
 
 ##### observer.on('simStateChange')7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 on(type: 'simStateChange', callback: Callback&lt;SimStateData&gt;): void
 
 订阅sim状态更改事件，使用callback方式作为异步方法。
@@ -972,6 +1030,8 @@ observer.on('simStateChange', (data: observer.SimStateData) => {
 
 ##### observer.on('simStateChange')7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 on(type: 'simStateChange', options: ObserverOptions, callback: Callback&lt;SimStateData&gt;): void
 
 订阅指定卡槽位的sim状态更改事件，使用callback方式作为异步方法。
@@ -1014,6 +1074,8 @@ observer.on('simStateChange', options, (data: observer.SimStateData) => {
 
 
 ##### observer.off('simStateChange')7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 off(type: 'simStateChange', callback?: Callback&lt;SimStateData&gt;): void
 
@@ -1062,6 +1124,8 @@ observer.off('simStateChange');
 
 ##### observer.on('iccAccountInfoChange')10+
 
+**支持设备：** Phone | Tablet | Wearable
+
 on(type: 'iccAccountInfoChange', callback: Callback&lt;void&gt;): void
 
 订阅卡帐户变化事件，使用callback方式作为异步方法。
@@ -1100,6 +1164,8 @@ observer.on('iccAccountInfoChange', () => {
 
 
 ##### observer.off('iccAccountInfoChange')10+
+
+**支持设备：** Phone | Tablet | Wearable
 
 off(type: 'iccAccountInfoChange', callback?: Callback&lt;void&gt;): void
 
@@ -1148,6 +1214,8 @@ observer.off('iccAccountInfoChange');
 
 ##### observer.onGetSimActiveState23+
 
+**支持设备：** Phone | Tablet | Wearable
+
 onGetSimActiveState(slotId: number, callback: Callback&lt;boolean&gt;): void
 
 SIM卡激活状态变化的监听，使用callback方式作为异步方法。
@@ -1194,6 +1262,8 @@ observer.onGetSimActiveState(sislotId, simActiveState);
 
 ##### observer.offGetSimActiveState23+
 
+**支持设备：** Phone | Tablet | Wearable
+
 offGetSimActiveState(callback?: Callback&lt;boolean&gt;): void
 
 取消SIM卡激活状态变化的监听，使用callback方式作为异步方法。
@@ -1237,6 +1307,8 @@ observer.offGetSimActiveState(simActiveState);
 
 
 ##### observer.onCCallStateChange23+
+
+**支持设备：** Phone | Tablet | Wearable
 
 onCCallStateChange(callback: Callback&lt;CCallStateInfo&gt;, options?: ObserverOptions): void
 
@@ -1287,6 +1359,8 @@ observer.onCCallStateChange(callback);
 
 ##### observer.offCCallStateChange23+
 
+**支持设备：** Phone | Tablet | Wearable
+
 offCCallStateChange(callback?: Callback&lt;CCallStateInfo&gt;): void
 
 取消三方应用监听运营商通话状态并获取通话号码，使用callback方式作为异步方法。
@@ -1332,6 +1406,8 @@ observer.offCCallStateChange();
 
 ##### LockReason8+
 
+**支持设备：** Phone | Tablet | Wearable
+
 SIM卡锁类型。
 
 **系统能力**：SystemCapability.Telephony.StateRegistry
@@ -1357,6 +1433,8 @@ SIM卡锁类型。
 
 ##### SimStateData7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 SIM卡类型和状态。
 
 **系统能力**：SystemCapability.Telephony.StateRegistry
@@ -1372,6 +1450,8 @@ SIM卡类型和状态。
 
 ##### CallStateInfo11+
 
+**支持设备：** Phone | Tablet | Wearable
+
 通话状态相关信息。
 
 **系统能力**：SystemCapability.Telephony.StateRegistry
@@ -1385,6 +1465,8 @@ SIM卡类型和状态。
 
 
 ##### CCallStateInfo23+
+
+**支持设备：** Phone | Tablet | Wearable
 
 通话状态相关信息。
 
@@ -1400,6 +1482,8 @@ SIM卡类型和状态。
 
 ##### DataConnectionStateInfo11+
 
+**支持设备：** Phone | Tablet | Wearable
+
 数据连接状态相关信息。
 
 **系统能力**：SystemCapability.Telephony.StateRegistry
@@ -1413,6 +1497,8 @@ SIM卡类型和状态。
 
 
 ##### ObserverOptions11+
+
+**支持设备：** Phone | Tablet | Wearable
 
 电话相关事件订阅参数可选项。
 

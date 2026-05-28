@@ -12,6 +12,8 @@ typedef struct {...} JSVM_VMInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 JavaScript虚拟机信息。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ JavaScript虚拟机信息。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |

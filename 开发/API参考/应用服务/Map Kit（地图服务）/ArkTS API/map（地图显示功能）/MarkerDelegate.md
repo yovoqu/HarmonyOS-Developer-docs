@@ -7,6 +7,8 @@
 
 ##### MarkerDelegate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 标记代理。
  
 **模型约束：** 此接口仅可在Stage模型下使用。

@@ -20,6 +20,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import backgroundTaskManager from '@ohos.backgroundTaskManager';
 ```
@@ -27,6 +29,8 @@ import backgroundTaskManager from '@ohos.backgroundTaskManager';
   
 
 ##### backgroundTaskManager.requestSuspendDelay(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestSuspendDelay(reason: string, callback: Callback&lt;void&gt;): DelaySuspendInfo
  
@@ -78,6 +82,8 @@ console.info("The actualDelayTime is: " + time);
 
 ##### backgroundTaskManager.getRemainingDelayTime(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRemainingDelayTime(requestId: number, callback: AsyncCallback&lt;number&gt;): void
  
 获取应用程序进入挂起状态前的剩余时间，使用callback形式返回。
@@ -115,6 +121,8 @@ backgroundTaskManager.getRemainingDelayTime(delayInfo.requestId, (err: BusinessE
   
 
 ##### backgroundTaskManager.getRemainingDelayTime(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRemainingDelayTime(requestId: number): Promise&lt;number&gt;
  
@@ -158,6 +166,8 @@ let delayInfo = backgroundTaskManager.requestSuspendDelay("test", () => {});
 
 ##### backgroundTaskManager.cancelSuspendDelay(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelSuspendDelay(requestId: number): void
  
 取消延迟挂起。
@@ -185,6 +195,8 @@ backgroundTaskManager.cancelSuspendDelay(delayInfo.requestId);
   
 
 ##### backgroundTaskManager.startBackgroundRunning(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback&lt;void&gt;): void
  
@@ -288,6 +300,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.startBackgroundRunning(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise&lt;void&gt;
  
 向系统申请长时任务，使用promise形式返回结果。
@@ -390,6 +404,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.stopBackgroundRunning(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopBackgroundRunning(context: Context, callback: AsyncCallback&lt;void&gt;): void
  
 向系统申请取消长时任务，使用callback形式返回结果。
@@ -455,6 +471,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### backgroundTaskManager.stopBackgroundRunning(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stopBackgroundRunning(context: Context): Promise&lt;void&gt;
  
@@ -522,6 +540,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### DelaySuspendInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 延迟挂起信息。
  
 > [!NOTE]
@@ -539,6 +559,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### BackgroundMode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 长时任务类型。
  

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 ```
@@ -21,6 +23,8 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 ##### CertificateDialogPageType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示证书管理对话框的页面类型。
 
@@ -39,6 +43,8 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 ##### CertificateType14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示安装证书的类型。
 
@@ -59,6 +65,8 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 ##### CertificateScope14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示安装证书的使用范围。
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
@@ -75,6 +83,8 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 ##### CertificateDialogErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示调用证书管理对话框相关API的错误码。
 
@@ -97,6 +107,8 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 ##### CertificateDialogProperty18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示证书管理对话框的属性。
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
@@ -111,6 +123,8 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 
 ##### CertReference22+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示证书凭据的引用信息。
 
@@ -128,6 +142,8 @@ import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
 
 ##### UkeyAuthRequest22+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 USB证书凭据授权请求信息。
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
@@ -142,6 +158,8 @@ USB证书凭据授权请求信息。
 
 
 ##### AuthorizeRequest22+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 证书授权请求信息。
 
@@ -158,6 +176,8 @@ USB证书凭据授权请求信息。
 
 
 ##### certificateManagerDialog.openCertificateManagerDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 openCertificateManagerDialog(context: common.Context, pageType: CertificateDialogPageType): Promise&lt;void&gt;
 
@@ -221,6 +241,8 @@ try {
 
 
 ##### certificateManagerDialog.openInstallCertificateDialog14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise&lt;string&gt;
 
@@ -299,6 +321,8 @@ try {
 
 ##### certificateManagerDialog.openUninstallCertificateDialog18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 openUninstallCertificateDialog(context: common.Context, certType: CertificateType, certUri: string): Promise&lt;void&gt;
 
 表示拉起证书管理删除证书向导，显示相应的页面。使用Promise异步回调。
@@ -370,6 +394,8 @@ try {
 
 
 ##### certificateManagerDialog.openCertificateDetailDialog18+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property: CertificateDialogProperty): Promise&lt;void&gt;
 
@@ -444,6 +470,8 @@ try {
 
 ##### certificateManagerDialog.openAuthorizeDialog20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 openAuthorizeDialog(context: common.Context): Promise&lt;string&gt;
 
 打开证书管理对话框的授权页面。在弹出的页面中，用户可以为应用授权证书。使用Promise异步回调。
@@ -505,6 +533,8 @@ try {
 
 
 ##### certificateManagerDialog.openAuthorizeDialog22+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise&lt;CertReference&gt;
 
@@ -580,6 +610,8 @@ try {
 
 
 ##### certificateManagerDialog.openUkeyAuthDialog22+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): Promise&lt;void&gt;
 

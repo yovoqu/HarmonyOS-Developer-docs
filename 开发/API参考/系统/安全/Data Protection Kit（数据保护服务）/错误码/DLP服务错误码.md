@@ -12,6 +12,8 @@
 
 ##### 19100001 入参错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 Invalid parameter value.
@@ -39,6 +41,8 @@ Invalid parameter value.
 
 ##### 19100002 加解密出错
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 Credential service busy due to too many tasks or duplicate tasks.
@@ -58,6 +62,8 @@ Credential service busy due to too many tasks or duplicate tasks.
 
 
 ##### 19100003 加解密超时
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -79,6 +85,8 @@ DLP文件加解密时间超过10秒。
 
 ##### 19100004 凭据服务错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 Credential service error.
@@ -98,6 +106,8 @@ Credential service error.
 
 
 ##### 19100005 凭据认证服务器错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -119,6 +129,8 @@ Credential authentication server error.
 
 ##### 19100006 非DLP沙箱应用
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 No permission to call this API, which is available only for DLP sandbox applications.
@@ -138,6 +150,8 @@ No permission to call this API, which is available only for DLP sandbox applicat
 
 
 ##### 19100007 DLP沙箱应用不允许调用此接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -159,6 +173,8 @@ No permission to call this API, which is available only for non-DLP sandbox appl
 
 ##### 19100008 非DLP文件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The file is not a DLP file.
@@ -178,6 +194,8 @@ The file is not a DLP file.
 
 
 ##### 19100009 操作DLP文件失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -200,6 +218,8 @@ Failed to operate the DLP file.
 
 
 ##### 19100011 系统服务工作异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -244,6 +264,8 @@ System memory is insufficient.
 
 ##### 19100013 用户无权限
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The user does not have the permission.
@@ -263,6 +285,8 @@ The user does not have the permission.
 
 
 ##### 19100014 账号未登录
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -284,6 +308,8 @@ Account not logged in.
 
 ##### 19100016 want参数中没有uri
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The uri field is missing in the want parameter.
@@ -303,6 +329,8 @@ want参数中没有uri。
 
 
 ##### 19100017 want参数中parameters内没有displayName
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -324,6 +352,8 @@ want参数中parameters内没有displayName。
 
 ##### 19100018 应用未授权
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The application is not authorized.
@@ -343,6 +373,8 @@ The application is not authorized.
 
 
 ##### 19100021 设置企业应用策略失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -364,6 +396,8 @@ Failed to set the enterprise policy.
 
 ##### 19110001 参数错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 Parameter error.
@@ -383,6 +417,8 @@ Parameter error.
 
 
 ##### 19110002 文件敏感信息识别超时
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -404,6 +440,8 @@ Sensitive file content identification timed out.
 
 ##### 19110003 文件不支持
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The file is not supported.
@@ -424,6 +462,8 @@ The file is not supported.
 
 
 ##### 19110004 系统功能运行异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 

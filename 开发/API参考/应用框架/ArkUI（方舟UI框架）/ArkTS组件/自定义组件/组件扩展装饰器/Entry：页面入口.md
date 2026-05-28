@@ -14,6 +14,8 @@
 
 ##### @Entry
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 在单个UI页面中，仅允许存在一个由@Entry装饰的自定义组件作为页面的入口。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -38,6 +40,8 @@ struct Index {
 
 
 ##### EntryOptions10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 命名路由跳转选项。
 

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述创建[XEG_AdaptiveVRS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_adaptivevrs)对象的参数信息，当结构体中的信息变化时，需要创建新的[XEG_AdaptiveVRS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_adaptivevrs)对象。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### adaptiveTileSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 int32_t XEG_AdaptiveVRSCreateInfo::adaptiveTileSize
@@ -52,6 +62,8 @@ int32_t XEG_AdaptiveVRSCreateInfo::adaptiveTileSize
 
 ##### errorSensitivity
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_AdaptiveVRSCreateInfo::errorSensitivity
 ```
@@ -63,6 +75,8 @@ float XEG_AdaptiveVRSCreateInfo::errorSensitivity
   
 
 ##### flip
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 bool XEG_AdaptiveVRSCreateInfo::flip
@@ -76,6 +90,8 @@ bool XEG_AdaptiveVRSCreateInfo::flip
 
 ##### inputRegion
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkRect2D XEG_AdaptiveVRSCreateInfo::inputRegion
 ```
@@ -87,6 +103,8 @@ VkRect2D XEG_AdaptiveVRSCreateInfo::inputRegion
   
 
 ##### inputSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_AdaptiveVRSCreateInfo::inputSize

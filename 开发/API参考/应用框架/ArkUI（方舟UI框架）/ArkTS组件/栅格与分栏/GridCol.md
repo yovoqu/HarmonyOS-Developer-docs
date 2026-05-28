@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含单个子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 GridCol(option?: GridColOptions)
  
@@ -40,6 +44,8 @@ GridCol(option?: GridColOptions)
   
 
 ##### GridColOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置栅格列布局组件布局选项。
  
@@ -64,11 +70,15 @@ API version 20之后，span的继承规则见[GridColColumnOption](#gridcolcolum
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### span
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 span(value: number | GridColColumnOption)
  
@@ -91,6 +101,8 @@ span(value: number | GridColColumnOption)
 
 ##### gridColOffset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 gridColOffset(value: number | GridColColumnOption)
  
 设置相对于前一个栅格子组件偏移的列数。
@@ -112,6 +124,8 @@ gridColOffset(value: number | GridColColumnOption)
 
 ##### order
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 order(value: number | GridColColumnOption)
  
 设置栅格子组件的序号，根据序号从小到大对栅格子组件进行排序。
@@ -132,6 +146,8 @@ order(value: number | GridColColumnOption)
   
 
 ##### GridColColumnOption
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于自定义指定在不同宽度设备类型上，栅格子组件占据的栅格数量单位。
  
@@ -170,11 +186,15 @@ span: {md:4, lg:8} // 等于配置 span: {xs:4, sm:4, md:4, lg:8, xl:8, xxl:8}
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 GridCol的基本用法示例。
  
@@ -218,4 +238,4 @@ struct GridColExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/vBvIq44RQHKgz75e2AoeLg/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T013923Z&HW-CC-Expire=86400&HW-CC-Sign=429E37EE6F14A9585B7193627FD472B3842996C8C7E444416C492831DC53D37C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/vBvIq44RQHKgz75e2AoeLg/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=4462EB247E46581FF25B489D8130062538A99441FC48A4C0593D13282B711B5B)

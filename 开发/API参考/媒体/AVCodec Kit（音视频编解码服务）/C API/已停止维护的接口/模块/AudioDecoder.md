@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AudioDecoder模块提供用于音频解码功能的函数。
  
 **系统能力：** SystemCapability.Multimedia.Media.AudioDecoder
@@ -20,6 +22,8 @@ AudioDecoder模块提供用于音频解码功能的函数。
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

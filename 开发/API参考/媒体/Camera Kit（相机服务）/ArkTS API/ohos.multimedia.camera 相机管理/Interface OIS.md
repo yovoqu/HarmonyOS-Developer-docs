@@ -16,6 +16,8 @@ OIS继承自[OISQuery](https://developer.huawei.com/consumer/cn/doc/harmonyos-re
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -23,6 +25,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### setOISMode24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOISMode(mode: OISMode): void
  
@@ -69,6 +73,8 @@ function setOISMode(photoSession: camera.PhotoSession, mode: camera.OISMode): vo
   
 
 ##### setOISModeCustom24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOISModeCustom(pitch: number, yaw: number): void
  

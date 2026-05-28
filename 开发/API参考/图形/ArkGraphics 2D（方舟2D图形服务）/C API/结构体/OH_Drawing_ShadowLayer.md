@@ -12,6 +12,8 @@ typedef struct OH_Drawing_ShadowLayer OH_Drawing_ShadowLayer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义一个阴影层，用于描述绘制内容的阴影层。
  
 **起始版本：** 12

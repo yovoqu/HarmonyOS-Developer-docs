@@ -12,6 +12,8 @@ typedef struct MediaLibrary_RequestId {...} MediaLibrary_RequestId
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义请求ID。
  
 当请求媒体库资源时，会返回此类型。
@@ -30,9 +32,13 @@ typedef struct MediaLibrary_RequestId {...} MediaLibrary_RequestId
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

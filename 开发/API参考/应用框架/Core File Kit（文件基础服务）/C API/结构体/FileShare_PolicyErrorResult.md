@@ -12,6 +12,8 @@ typedef struct FileShare_PolicyErrorResult {...} FileShare_PolicyErrorResult
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 授予或使能权限失败的URI策略结果。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct FileShare_PolicyErrorResult {...} FileShare_PolicyErrorResult
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

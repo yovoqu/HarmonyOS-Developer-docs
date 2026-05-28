@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -19,6 +21,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
@@ -37,6 +41,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### getAssets
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAssets(options: FetchOptions, callback: AsyncCallback<FetchResult&lt;PhotoAsset&gt;>): void
 
@@ -101,6 +107,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### getAssets
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAssets(options: FetchOptions): Promise<FetchResult&lt;PhotoAsset&gt;>
 

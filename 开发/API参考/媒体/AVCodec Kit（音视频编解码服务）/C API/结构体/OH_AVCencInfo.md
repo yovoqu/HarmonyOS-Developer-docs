@@ -12,6 +12,8 @@ typedef struct OH_AVCencInfo OH_AVCencInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AVCencInfo结构。
  
 **起始版本：** 12

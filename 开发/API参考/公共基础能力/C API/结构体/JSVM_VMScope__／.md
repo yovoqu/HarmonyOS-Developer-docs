@@ -12,6 +12,8 @@ typedef struct JSVM_VMScope__* JSVM_VMScope
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示JavaScript虚拟机作用域。
  
 **起始版本：** 11

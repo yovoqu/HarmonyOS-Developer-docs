@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { vpn } from '@kit.NetworkKit';
 ```
@@ -21,6 +23,8 @@ import { vpn } from '@kit.NetworkKit';
 
 
 ##### LinkAddress
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type LinkAddress = connection.LinkAddress
 
@@ -37,6 +41,8 @@ type LinkAddress = connection.LinkAddress
 
 ##### RouteInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type RouteInfo = connection.RouteInfo
 
 获取网络路由信息。
@@ -51,6 +57,8 @@ type RouteInfo = connection.RouteInfo
 
 
 ##### AbilityContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AbilityContext = _AbilityContext
 

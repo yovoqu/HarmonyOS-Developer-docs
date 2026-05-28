@@ -12,6 +12,8 @@
 
 ##### 6800101 无效入参
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Invalid parameter.
@@ -31,6 +33,8 @@ Invalid parameter.
 
 
 ##### 6800102 分配内存失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -52,6 +56,8 @@ Memory allocation failed.
 
 ##### 6800103 状态不支持
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Operation not permitted at current state.
@@ -71,6 +77,8 @@ Operation not permitted at current state.
 
 
 ##### 6800104 参数选项不支持
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -131,6 +139,8 @@ Too many audio streams.
 
 
 ##### 6800301 系统处理异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

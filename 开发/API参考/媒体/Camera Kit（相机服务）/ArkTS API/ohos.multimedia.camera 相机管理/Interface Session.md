@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### beginConfig11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 beginConfig(): void
  
@@ -59,6 +63,8 @@ function beginConfig(session: camera.Session): void {
   
 
 ##### commitConfig11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 commitConfig(callback: AsyncCallback&lt;void&gt;): void
  
@@ -105,6 +111,8 @@ function commitConfig(session: camera.Session): void {
 
 ##### commitConfig11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 commitConfig(): Promise&lt;void&gt;
  
 提交配置信息。使用Promise异步回调。
@@ -149,6 +157,8 @@ function commitConfig(session: camera.Session): void {
 
 ##### canAddInput11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 canAddInput(cameraInput: CameraInput): boolean
  
 判断当前cameraInput是否可以添加到session中。当前函数需要在[beginConfig](#beginconfig11)和[commitConfig](#commitconfig11-1)之间生效。
@@ -183,6 +193,8 @@ function canAddInput(session: camera.Session, cameraInput: camera.CameraInput): 
   
 
 ##### addInput11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addInput(cameraInput: CameraInput): void
  
@@ -230,6 +242,8 @@ function addInput(session: camera.Session, cameraInput: camera.CameraInput): voi
 
 ##### removeInput11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeInput(cameraInput: CameraInput): void
  
 移除[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)。当前函数需要在[beginConfig](#beginconfig11)和[commitConfig](#commitconfig11-1)之间生效。
@@ -276,6 +290,8 @@ function removeInput(session: camera.Session, cameraInput: camera.CameraInput): 
 
 ##### canAddOutput11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 canAddOutput(cameraOutput: CameraOutput): boolean
  
 判断当前cameraOutput是否可以添加到session中。当前函数需要在[addInput](#addinput11)和[commitConfig](#commitconfig11-1)之间生效。
@@ -310,6 +326,8 @@ function canAddOutput(session: camera.Session, cameraOutput: camera.CameraOutput
   
 
 ##### addOutput11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addOutput(cameraOutput: CameraOutput): void
  
@@ -357,6 +375,8 @@ function addOutput(session: camera.Session, cameraOutput: camera.CameraOutput): 
 
 ##### removeOutput11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeOutput(cameraOutput: CameraOutput): void
  
 从会话中移除[CameraOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameraoutput)。
@@ -402,6 +422,8 @@ function removeOutput(session: camera.Session, previewOutput: camera.PreviewOutp
   
 
 ##### start11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(callback: AsyncCallback&lt;void&gt;): void
  
@@ -449,6 +471,8 @@ function startCaptureSession(session: camera.Session): void {
 
 ##### start11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(): Promise&lt;void&gt;
  
 开始会话工作。使用Promise异步回调。
@@ -492,6 +516,8 @@ function startCaptureSession(session: camera.Session): void {
   
 
 ##### stop11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(callback: AsyncCallback&lt;void&gt;): void
  
@@ -537,6 +563,8 @@ function stopCaptureSession(session: camera.Session): void {
 
 ##### stop11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
  
 停止会话工作。使用Promise异步回调。
@@ -578,6 +606,8 @@ function stopCaptureSession(session: camera.Session): void {
   
 
 ##### release11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(callback: AsyncCallback&lt;void&gt;): void
  
@@ -622,6 +652,8 @@ function releaseCaptureSession(session: camera.Session): void {
   
 
 ##### release11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(): Promise&lt;void&gt;
  

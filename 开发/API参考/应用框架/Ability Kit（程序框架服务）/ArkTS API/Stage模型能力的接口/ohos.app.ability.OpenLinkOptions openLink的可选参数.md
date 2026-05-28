@@ -14,6 +14,8 @@ OpenLinkOptions可以作为[openLink()](https://developer.huawei.com/consumer/cn
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { OpenLinkOptions } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { OpenLinkOptions } from '@kit.AbilityKit';
 
 
 ##### OpenLinkOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
 

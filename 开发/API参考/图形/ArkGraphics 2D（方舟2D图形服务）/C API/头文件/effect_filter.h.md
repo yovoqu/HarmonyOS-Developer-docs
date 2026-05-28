@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明滤镜效果的接口。
  
 **引用文件：** <native_effect/effect_filter.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -44,9 +50,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Filter_CreateEffect()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 EffectErrorCode OH_Filter_CreateEffect(OH_PixelmapNative* pixelmap, OH_Filter** filter)
@@ -77,6 +87,8 @@ EffectErrorCode OH_Filter_CreateEffect(OH_PixelmapNative* pixelmap, OH_Filter** 
 
 ##### OH_Filter_Release()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 EffectErrorCode OH_Filter_Release(OH_Filter* filter)
 ```
@@ -104,6 +116,8 @@ EffectErrorCode OH_Filter_Release(OH_Filter* filter)
   
 
 ##### OH_Filter_Blur()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 EffectErrorCode OH_Filter_Blur(OH_Filter* filter, float radius)
@@ -133,6 +147,8 @@ EffectErrorCode OH_Filter_Blur(OH_Filter* filter, float radius)
   
 
 ##### OH_Filter_BlurWithTileMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 EffectErrorCode OH_Filter_BlurWithTileMode(OH_Filter* filter, float radius, EffectTileMode tileMode)
@@ -164,6 +180,8 @@ EffectErrorCode OH_Filter_BlurWithTileMode(OH_Filter* filter, float radius, Effe
 
 ##### OH_Filter_Brighten()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 EffectErrorCode OH_Filter_Brighten(OH_Filter* filter, float brightness)
 ```
@@ -193,6 +211,8 @@ EffectErrorCode OH_Filter_Brighten(OH_Filter* filter, float brightness)
 
 ##### OH_Filter_GrayScale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 EffectErrorCode OH_Filter_GrayScale(OH_Filter* filter)
 ```
@@ -220,6 +240,8 @@ EffectErrorCode OH_Filter_GrayScale(OH_Filter* filter)
   
 
 ##### OH_Filter_Invert()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 EffectErrorCode OH_Filter_Invert(OH_Filter* filter)
@@ -249,6 +271,8 @@ EffectErrorCode OH_Filter_Invert(OH_Filter* filter)
 
 ##### OH_Filter_SetColorMatrix()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 EffectErrorCode OH_Filter_SetColorMatrix(OH_Filter* filter, OH_Filter_ColorMatrix* matrix)
 ```
@@ -277,6 +301,8 @@ EffectErrorCode OH_Filter_SetColorMatrix(OH_Filter* filter, OH_Filter_ColorMatri
   
 
 ##### OH_Filter_GetEffectPixelMap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 EffectErrorCode OH_Filter_GetEffectPixelMap(OH_Filter* filter, OH_PixelmapNative** pixelmap)

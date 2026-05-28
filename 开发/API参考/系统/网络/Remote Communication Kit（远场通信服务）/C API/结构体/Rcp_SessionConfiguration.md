@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 会话配置。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,9 +46,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### baseUrl
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const char* Rcp_SessionConfiguration::baseUrl
@@ -58,6 +68,8 @@ const char* Rcp_SessionConfiguration::baseUrl
 
 ##### connectionConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_ConnectionConfiguration Rcp_SessionConfiguration::connectionConfiguration
 ```
@@ -71,6 +83,8 @@ Rcp_ConnectionConfiguration Rcp_SessionConfiguration::connectionConfiguration
   
 
 ##### cookies
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_RequestCookies* Rcp_SessionConfiguration::cookies
@@ -86,6 +100,8 @@ Rcp_RequestCookies* Rcp_SessionConfiguration::cookies
 
 ##### headers
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Headers* Rcp_SessionConfiguration::headers
 ```
@@ -99,6 +115,8 @@ Rcp_Headers* Rcp_SessionConfiguration::headers
   
 
 ##### interceptors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_InterceptorArray Rcp_SessionConfiguration::interceptors
@@ -116,6 +134,8 @@ Rcp_InterceptorArray Rcp_SessionConfiguration::interceptors
 
 ##### requestConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Configuration* Rcp_SessionConfiguration::requestConfiguration
 ```
@@ -128,6 +148,8 @@ Rcp_Configuration* Rcp_SessionConfiguration::requestConfiguration
 
 ##### sessionListener
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_SessionListener Rcp_SessionConfiguration::sessionListener
 ```
@@ -139,6 +161,8 @@ Rcp_SessionListener Rcp_SessionConfiguration::sessionListener
   
 
 ##### syncInterceptors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_SyncInterceptorArray Rcp_SessionConfiguration::syncInterceptors
@@ -155,6 +179,8 @@ Rcp_SyncInterceptorArray Rcp_SessionConfiguration::syncInterceptors
   
 
 ##### type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_SessionType Rcp_SessionConfiguration::type

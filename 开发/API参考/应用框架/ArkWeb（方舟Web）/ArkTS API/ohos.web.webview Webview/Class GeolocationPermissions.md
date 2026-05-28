@@ -14,6 +14,8 @@ Web组件地理位置权限管理对象。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -22,11 +24,15 @@ import { webview } from '@kit.ArkWeb';
 
 ##### 需要权限
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 访问地理位置时需添加权限：ohos.permission.LOCATION、ohos.permission.APPROXIMATELY_LOCATION、ohos.permission.LOCATION_IN_BACKGROUND，具体权限说明请参考[位置服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocation)。
 
 
 
 ##### allowGeolocation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static allowGeolocation(origin: string, incognito?: boolean): void
 
@@ -85,6 +91,8 @@ struct WebComponent {
 
 ##### deleteGeolocation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static deleteGeolocation(origin: string, incognito?: boolean): void
 
 清除指定源的地理位置权限状态。
@@ -141,6 +149,8 @@ struct WebComponent {
 
 
 ##### getAccessibleGeolocation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getAccessibleGeolocation(origin: string, callback: AsyncCallback&lt;boolean&gt;, incognito?: boolean): void
 
@@ -205,6 +215,8 @@ struct WebComponent {
 
 
 ##### getAccessibleGeolocation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getAccessibleGeolocation(origin: string, incognito?: boolean): Promise&lt;boolean&gt;
 
@@ -275,6 +287,8 @@ struct WebComponent {
 
 ##### getStoredGeolocation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getStoredGeolocation(callback: AsyncCallback<Array&lt;string&gt;>, incognito?: boolean): void
 
 以回调方式异步获取已存储地理位置权限状态的所有源信息。
@@ -336,6 +350,8 @@ struct WebComponent {
 
 
 ##### getStoredGeolocation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getStoredGeolocation(incognito?: boolean): Promise<Array&lt;string&gt;>
 
@@ -403,6 +419,8 @@ struct WebComponent {
 
 
 ##### deleteAllGeolocation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static deleteAllGeolocation(incognito?: boolean): void
 

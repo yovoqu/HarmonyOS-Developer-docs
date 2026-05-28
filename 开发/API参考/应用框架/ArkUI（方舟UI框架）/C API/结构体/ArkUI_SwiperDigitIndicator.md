@@ -12,6 +12,8 @@ typedef struct ArkUI_SwiperDigitIndicator ArkUI_SwiperDigitIndicator
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义 Swiper 组件的数字导航指示器风格。
  
 **起始版本：** 19

@@ -12,6 +12,8 @@ struct OH_ImageSourceNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 OH_ImageSourceNative是native层封装的ImageSource结构体，用于创建图片数据。OH_ImageSourceNative结构体不可直接操作，而是采用函数调用方式创建、释放结构体以及操作具体字段。
  
 有多种方式创建OH_ImageSourceNative，具体如下：

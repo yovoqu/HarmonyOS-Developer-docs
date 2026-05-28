@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { HandwriteController } from '@kit.Penkit';
 ```
@@ -36,6 +38,8 @@ import { HandwriteController } from '@kit.Penkit';
 
 
 ##### load
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 load(path: string): void
 
@@ -70,6 +74,8 @@ load(path: string): void
 
 
 ##### save
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 save(path: string): Promise&lt;void&gt;
 
@@ -112,6 +118,8 @@ save(path: string): Promise&lt;void&gt;
 
 ##### onLoad
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onLoad(callback: AsyncCallback&lt;string&gt;): void
 
 注册回调，加载完成后将会触发此回调，使用callback异步回调。
@@ -142,6 +150,8 @@ onLoad(callback: AsyncCallback&lt;string&gt;): void
 
 ##### getContentRange
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getContentRange(): Rect
 
 获取笔迹范围。
@@ -162,6 +172,8 @@ getContentRange(): Rect
 
 
 ##### getThumbnail
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getThumbnail(rect: Rect): Promise&lt;PixelMap&gt;
 
@@ -191,6 +203,8 @@ getThumbnail(rect: Rect): Promise&lt;PixelMap&gt;
 
 ##### Rect
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 Rect信息参数，表示矩形区域。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -210,6 +224,8 @@ Rect信息参数，表示矩形区域。
 
 
 ##### scrollTo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 scrollTo(yOffset: number): void
 
@@ -235,6 +251,8 @@ scrollTo(yOffset: number): void
 
 
 ##### **示例**
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 import { HandwriteController, HandwriteComponent, PenType, PenHspInfo } from '@kit.Penkit';

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 多网请求结果，发起多网请求后，回调该信息获取多网请求的结果。
  
 **起始版本：** 6.0.2(22)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -32,9 +38,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### result
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 NetworkBoost_MultiPathErrorResult NetworkBoost_MultiPathRequestResult::used

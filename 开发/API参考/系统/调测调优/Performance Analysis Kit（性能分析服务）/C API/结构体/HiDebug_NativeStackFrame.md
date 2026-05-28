@@ -12,6 +12,8 @@ typedef struct HiDebug_NativeStackFrame {...} HiDebug_NativeStackFrame
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 native栈帧内容的定义。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ native栈帧内容的定义。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

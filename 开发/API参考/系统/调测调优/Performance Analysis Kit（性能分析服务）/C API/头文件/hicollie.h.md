@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 HiCollie模块对外提供检测业务线程卡死、卡顿，以及上报卡死事件的能力。
 
 **引用文件：** <hicollie/hicollie.h>
@@ -23,9 +25,13 @@ HiCollie模块对外提供检测业务线程卡死、卡顿，以及上报卡死
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -37,6 +43,8 @@ HiCollie模块对外提供检测业务线程卡死、卡顿，以及上报卡死
 
 ##### 枚举
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | HiCollie_ErrorCode | HiCollie_ErrorCode | 错误码定义。 |
@@ -47,6 +55,8 @@ HiCollie模块对外提供检测业务线程卡死、卡顿，以及上报卡死
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -70,9 +80,13 @@ HiCollie模块对外提供检测业务线程卡死、卡顿，以及上报卡死
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### HiCollie_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum HiCollie_ErrorCode
@@ -101,6 +115,8 @@ enum HiCollie_ErrorCode
 
 ##### HiCollie_Flag
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum HiCollie_Flag
 ```
@@ -122,6 +138,8 @@ enum HiCollie_Flag
 
 
 ##### OH_HiCollie_Freeze_Type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_HiCollie_Freeze_Type
@@ -149,9 +167,13 @@ enum OH_HiCollie_Freeze_Type
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### OH_HiCollie_Task()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_HiCollie_Task)(void)
@@ -170,6 +192,8 @@ HiCollie将在业务线程中每3秒调用一次该函数。
 
 
 ##### OH_HiCollie_BeginFunc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_HiCollie_BeginFunc)(const char* eventName)
@@ -196,6 +220,8 @@ typedef void (*OH_HiCollie_BeginFunc)(const char* eventName)
 
 ##### OH_HiCollie_EndFunc()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_HiCollie_EndFunc)(const char* eventName)
 ```
@@ -220,6 +246,8 @@ typedef void (*OH_HiCollie_EndFunc)(const char* eventName)
 
 
 ##### OH_HiCollie_Init_StuckDetection()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 HiCollie_ErrorCode OH_HiCollie_Init_StuckDetection(OH_HiCollie_Task task)
@@ -255,6 +283,8 @@ HiCollie_ErrorCode OH_HiCollie_Init_StuckDetection(OH_HiCollie_Task task)
 
 ##### OH_HiCollie_Init_StuckDetectionWithTimeout()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 HiCollie_ErrorCode OH_HiCollie_Init_StuckDetectionWithTimeout(OH_HiCollie_Task task, uint32_t stuckTimeout)
 ```
@@ -289,6 +319,8 @@ HiCollie_ErrorCode OH_HiCollie_Init_StuckDetectionWithTimeout(OH_HiCollie_Task t
 
 
 ##### OH_HiCollie_Init_JankDetection()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 HiCollie_ErrorCode OH_HiCollie_Init_JankDetection(OH_HiCollie_BeginFunc* beginFunc, OH_HiCollie_EndFunc* endFunc, HiCollie_DetectionParam param)
@@ -326,6 +358,8 @@ HiCollie_ErrorCode OH_HiCollie_Init_JankDetection(OH_HiCollie_BeginFunc* beginFu
 
 ##### OH_HiCollie_Report()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 HiCollie_ErrorCode OH_HiCollie_Report(bool* isSixSecond)
 ```
@@ -362,6 +396,8 @@ HiCollie_ErrorCode OH_HiCollie_Report(bool* isSixSecond)
 
 ##### OH_HiCollie_ReportInputBlock()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 HiCollie_ErrorCode OH_HiCollie_ReportInputBlock()
 ```
@@ -391,6 +427,8 @@ HiCollie_ErrorCode OH_HiCollie_ReportInputBlock()
 
 ##### OH_HiCollie_Callback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_HiCollie_Callback)(void*)
 ```
@@ -404,6 +442,8 @@ typedef void (*OH_HiCollie_Callback)(void*)
 
 
 ##### OH_HiCollie_SetTimer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 HiCollie_ErrorCode OH_HiCollie_SetTimer(HiCollie_SetTimerParam param, int *id)
@@ -436,6 +476,8 @@ HiCollie_ErrorCode OH_HiCollie_SetTimer(HiCollie_SetTimerParam param, int *id)
 
 ##### OH_HiCollie_CancelTimer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_HiCollie_CancelTimer(int id)
 ```
@@ -460,6 +502,8 @@ void OH_HiCollie_CancelTimer(int id)
 
 
 ##### OH_HiCollie_FreezeCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef size_t (*OH_HiCollie_FreezeCallback)(OH_HiCollie_Freeze_Type type, void* buffer, size_t size)
@@ -488,7 +532,7 @@ typedef size_t (*OH_HiCollie_FreezeCallback)(OH_HiCollie_Freeze_Type type, void*
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/mr8LiVnYTU2Z-P8A1oJdvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013534Z&HW-CC-Expire=86400&HW-CC-Sign=7B5904D8D234A70E605E0FF97017349469430BFDE40EED395E7E15B8C1D2635C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/mr8LiVnYTU2Z-P8A1oJdvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023833Z&HW-CC-Expire=86400&HW-CC-Sign=10525EC3F84B77630FF7877AE6EC3124C4AD965764717CC943E79860B95202A1)
 
 
 返回值超过64KB时，日志内容可能为空。
@@ -498,6 +542,8 @@ typedef size_t (*OH_HiCollie_FreezeCallback)(OH_HiCollie_Freeze_Type type, void*
 
 
 ##### OH_HiCollie_SetFreezeCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void* OH_HiCollie_SetFreezeCallback(OH_HiCollie_FreezeCallback callback)
@@ -526,6 +572,8 @@ void* OH_HiCollie_SetFreezeCallback(OH_HiCollie_FreezeCallback callback)
 
 
 ##### OH_HiCollie_AssociateProcessReport()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 HiCollie_ErrorCode OH_HiCollie_AssociateProcessReport(bool isFreezeEvent)

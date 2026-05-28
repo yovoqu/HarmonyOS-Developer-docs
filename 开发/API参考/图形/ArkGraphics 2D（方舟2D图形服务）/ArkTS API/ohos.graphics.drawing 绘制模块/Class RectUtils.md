@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -25,6 +27,8 @@ import { drawing } from '@kit.ArkGraphics2D';
   
 
 ##### makeEmpty20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeEmpty(): common2D.Rect
  
@@ -50,6 +54,8 @@ let rect = drawing.RectUtils.makeEmpty();
   
 
 ##### makeLtrb20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeLtrb(left: number, top: number, right: number, bottom: number): common2D.Rect
  
@@ -85,6 +91,8 @@ let rect = drawing.RectUtils.makeLtrb(10, 10, 20, 20);
   
 
 ##### makeCopy20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeCopy(src: common2D.Rect): common2D.Rect
  
@@ -123,6 +131,8 @@ console.info('rect2.bottom: ', rect2.bottom);
 
 ##### getWidth20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getWidth(rect: common2D.Rect): number
  
 获取矩形的宽度。
@@ -157,6 +167,8 @@ console.info('width:', width);
 
 ##### getHeight20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getHeight(rect: common2D.Rect): number
  
 获取矩形的高度。
@@ -189,6 +201,8 @@ let height = drawing.RectUtils.getHeight(rect);
   
 
 ##### centerX20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static centerX(rect: common2D.Rect): number
  
@@ -223,6 +237,8 @@ let x = drawing.RectUtils.centerX(rect);
 
 ##### centerY20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static centerY(rect: common2D.Rect): number
  
 获取矩形中心的纵坐标。
@@ -255,6 +271,8 @@ let x = drawing.RectUtils.centerY(rect);
   
 
 ##### contains20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static contains(rect: common2D.Rect, other: common2D.Rect): boolean
  
@@ -291,6 +309,8 @@ console.info('isContains: ', isContains);
   
 
 ##### contains20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static contains(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): boolean
  
@@ -330,6 +350,8 @@ console.info('isContains :', isContains);
 
 ##### contains20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static contains(rect: common2D.Rect, x: number, y: number): boolean
  
 判断一个矩形是否完全包含一个点。
@@ -366,6 +388,8 @@ console.info('isContains: ', isContains);
 
 ##### inset20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static inset(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): void
  
 将指定矩形的左边界、上边界、右边界和下边界分别和传入的"左上右下"的值相加。
@@ -399,6 +423,8 @@ console.info('rect.bottom: ', rect.bottom);
   
 
 ##### intersect20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static intersect(rect: common2D.Rect, other: common2D.Rect): boolean
  
@@ -440,6 +466,8 @@ console.info('rect.bottom: ', rect.bottom);
 
 ##### isIntersect20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static isIntersect(rect: common2D.Rect, other: common2D.Rect): boolean
  
 判断两个矩形是否相交。
@@ -476,6 +504,8 @@ console.info('isIntersect :', isIntersect);
 
 ##### union20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static union(rect: common2D.Rect, other: common2D.Rect): void
  
 计算矩形的并集区域，并将并集结果更新到第一个入参表示的矩形区域。如果第一个入参矩形为空，则将并集结果更新到第二个入参代表的矩形区域；如果第二个入参的矩形为空，则不进行任何操作。
@@ -507,6 +537,8 @@ console.info('rect.bottom: ', rect.bottom);
   
 
 ##### isEmpty20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static isEmpty(rect: common2D.Rect): boolean
  
@@ -545,6 +577,8 @@ console.info('isEmpty :', isEmpty);
 
 ##### offset20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static offset(rect: common2D.Rect, dx: number, dy: number): void
  
 对矩形进行平移。
@@ -576,6 +610,8 @@ console.info('rect.bottom: ', rect.bottom);
   
 
 ##### offsetTo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static offsetTo(rect: common2D.Rect, newLeft: number, newTop: number): void
  
@@ -609,6 +645,8 @@ console.info('rect.bottom: ', rect.bottom);
 
 ##### setRect20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setRect(rect: common2D.Rect, other: common2D.Rect): void
  
 使用另一个矩形对当前矩形进行赋值。
@@ -640,6 +678,8 @@ console.info('rect2.bottom: ', rect2.bottom);
   
 
 ##### setLtrb20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setLtrb(rect: common2D.Rect, left: number, top: number, right: number, bottom: number): void
  
@@ -675,6 +715,8 @@ console.info('rect.bottom: ', rect.bottom);
 
 ##### setEmpty20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setEmpty(rect: common2D.Rect): void
  
 将矩形的上下左右边界都设为0。
@@ -704,6 +746,8 @@ console.info('rect.bottom: ', rect.bottom);
   
 
 ##### sort20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static sort(rect: common2D.Rect): void
  
@@ -736,6 +780,8 @@ console.info('rect.bottom: ', rect.bottom);
   
 
 ##### isEqual20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static isEqual(rect: common2D.Rect, other: common2D.Rect): boolean
  

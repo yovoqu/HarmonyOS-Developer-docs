@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
  
   
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### GridContainer(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 GridContainer(value?: GridContainerOptions)
  
@@ -45,6 +51,8 @@ GridContainer(value?: GridContainerOptions)
 
 ##### GridContainerOptions(deprecated)对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!TIP]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 GridColOptions 或 GridRowOptions 替代。
 
@@ -62,6 +70,8 @@ GridContainer(value?: GridContainerOptions)
   
 
 ##### SizeType(deprecated)枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 GridColColumnOption 或 GridRowColumnOption 替代。
@@ -82,17 +92,23 @@ GridContainer(value?: GridContainerOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)和Column组件的[属性方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-column#属性)。
  
   
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -165,4 +181,4 @@ struct GridContainerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/Jf5V2unBS3aGpn_5ooHg4Q/zh-cn_image_0000002581436304.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013929Z&HW-CC-Expire=86400&HW-CC-Sign=4A5D1D509FF188B4D0B5C1BEC3DE22B82353B8D6F824920624F0322BDFB66A19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/Jf5V2unBS3aGpn_5ooHg4Q/zh-cn_image_0000002581436304.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024225Z&HW-CC-Expire=86400&HW-CC-Sign=5E1FD761F9D50BCEBAC45E1B2E2F65F6BC641703AA10C42358D675B78E756D6C)

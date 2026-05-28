@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义所有预定义事件的事件名称。除了与特定应用关联的自定义事件之外，开发者还可以使用预定义事件进行打点。
  
 **引用文件：** <hiappevent/hiappevent_event.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -52,9 +58,13 @@
 
 ##### 宏定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### EVENT_USER_LOGIN
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define EVENT_USER_LOGIN "hiappevent.user_login"
@@ -70,6 +80,8 @@
 
 ##### EVENT_USER_LOGOUT
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define EVENT_USER_LOGOUT "hiappevent.user_logout"
 ```
@@ -83,6 +95,8 @@
   
 
 ##### EVENT_DISTRIBUTED_SERVICE_START
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define EVENT_DISTRIBUTED_SERVICE_START "hiappevent.distributed_service_start"
@@ -98,6 +112,8 @@
 
 ##### EVENT_APP_CRASH
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define EVENT_APP_CRASH "APP_CRASH"
 ```
@@ -111,6 +127,8 @@
   
 
 ##### EVENT_APP_FREEZE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define EVENT_APP_FREEZE "APP_FREEZE"
@@ -126,6 +144,8 @@
 
 ##### EVENT_APP_LAUNCH
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define EVENT_APP_LAUNCH "APP_LAUNCH"
 ```
@@ -139,6 +159,8 @@
   
 
 ##### EVENT_SCROLL_JANK
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define EVENT_SCROLL_JANK "SCROLL_JANK"
@@ -154,6 +176,8 @@
 
 ##### EVENT_CPU_USAGE_HIGH
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define EVENT_CPU_USAGE_HIGH "CPU_USAGE_HIGH"
 ```
@@ -167,6 +191,8 @@ CPU高负载事件。
   
 
 ##### EVENT_BATTERY_USAGE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define EVENT_BATTERY_USAGE "BATTERY_USAGE"
@@ -182,6 +208,8 @@ CPU高负载事件。
 
 ##### EVENT_RESOURCE_OVERLIMIT
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define EVENT_RESOURCE_OVERLIMIT "RESOURCE_OVERLIMIT"
 ```
@@ -195,6 +223,8 @@ CPU高负载事件。
   
 
 ##### EVENT_ADDRESS_SANITIZER
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define EVENT_ADDRESS_SANITIZER "ADDRESS_SANITIZER"
@@ -210,6 +240,8 @@ CPU高负载事件。
 
 ##### EVENT_MAIN_THREAD_JANK
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define EVENT_MAIN_THREAD_JANK "MAIN_THREAD_JANK"
 ```
@@ -223,6 +255,8 @@ CPU高负载事件。
   
 
 ##### EVENT_APP_HICOLLIE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define EVENT_APP_HICOLLIE "APP_HICOLLIE"
@@ -238,6 +272,8 @@ CPU高负载事件。
 
 ##### EVENT_APP_KILLED
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define EVENT_APP_KILLED "APP_KILLED"
 ```
@@ -251,6 +287,8 @@ CPU高负载事件。
   
 
 ##### EVENT_AUDIO_JANK_FRAME
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define EVENT_AUDIO_JANK_FRAME "AUDIO_JANK_FRAME"
@@ -266,6 +304,8 @@ CPU高负载事件。
 
 ##### DOMAIN_OS
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define DOMAIN_OS "OS"
 ```
@@ -279,6 +319,8 @@ OS作用域。
   
 
 ##### EVENT_MAIN_THREAD_JANK_V2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define EVENT_MAIN_THREAD_JANK_V2 "MAIN_THREAD_JANK_V2"

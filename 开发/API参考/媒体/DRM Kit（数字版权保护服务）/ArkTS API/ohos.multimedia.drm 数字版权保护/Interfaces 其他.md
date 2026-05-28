@@ -12,6 +12,8 @@
 
 ##### ProvisionRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设备证书请求。
  
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -28,6 +30,8 @@
 
 ##### OptionsData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设备证书请求的可选数据。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -43,6 +47,8 @@
   
 
 ##### MediaKeyRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 媒体密钥请求参数。
  
@@ -61,6 +67,8 @@
 
 ##### EventInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 事件信息。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -76,6 +84,8 @@
   
 
 ##### StatisticKeyValue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 度量记录。
  
@@ -93,6 +103,8 @@
 
 ##### MediaKeyStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 媒体密钥状态。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -108,6 +120,8 @@
   
 
 ##### KeysInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 媒体密钥中密钥信息。
  
@@ -125,6 +139,8 @@
 
 ##### MediaKeySystemInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 加密媒体内容的DRM信息。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -140,6 +156,8 @@
   
 
 ##### MediaKeySystemDescription12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 插件信息。
  

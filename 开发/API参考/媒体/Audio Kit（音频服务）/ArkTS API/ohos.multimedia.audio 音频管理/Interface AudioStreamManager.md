@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### getCurrentAudioRendererInfoArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentAudioRendererInfoArray(callback: AsyncCallback&lt;AudioRendererChangeInfoArray&gt;): void
 
@@ -59,6 +63,8 @@ audioStreamManager.getCurrentAudioRendererInfoArray((err: BusinessError, audioRe
 
 ##### getCurrentAudioRendererInfoArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentAudioRendererInfoArray(): Promise&lt;AudioRendererChangeInfoArray&gt;
 
 获取当前音频渲染器的信息。使用Promise异步回调。
@@ -91,6 +97,8 @@ audioStreamManager.getCurrentAudioRendererInfoArray().then((audioRendererChangeI
 
 
 ##### getCurrentAudioRendererInfoArraySync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentAudioRendererInfoArraySync(): AudioRendererChangeInfoArray
 
@@ -127,6 +135,8 @@ try {
 
 ##### getCurrentAudioCapturerInfoArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentAudioCapturerInfoArray(callback: AsyncCallback&lt;AudioCapturerChangeInfoArray&gt;): void
 
 获取当前音频采集器的信息。使用callback异步回调。
@@ -162,6 +172,8 @@ audioStreamManager.getCurrentAudioCapturerInfoArray((err: BusinessError, audioCa
 
 ##### getCurrentAudioCapturerInfoArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentAudioCapturerInfoArray(): Promise&lt;AudioCapturerChangeInfoArray&gt;
 
 获取当前音频采集器的信息。使用Promise异步回调。
@@ -194,6 +206,8 @@ audioStreamManager.getCurrentAudioCapturerInfoArray().then((audioCapturerChangeI
 
 
 ##### getCurrentAudioCapturerInfoArraySync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentAudioCapturerInfoArraySync(): AudioCapturerChangeInfoArray
 
@@ -229,6 +243,8 @@ try {
 
 
 ##### on('audioRendererChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'audioRendererChange', callback: Callback&lt;AudioRendererChangeInfoArray&gt;): void
 
@@ -269,6 +285,8 @@ audioStreamManager.on('audioRendererChange',  (audioRendererChangeInfoArray: aud
 
 
 ##### off('audioRendererChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'audioRendererChange', callback?: Callback&lt;AudioRendererChangeInfoArray&gt;): void
 
@@ -315,6 +333,8 @@ audioStreamManager.off('audioRendererChange', audioRendererChangeCallback);
 
 ##### on('audioCapturerChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'audioCapturerChange', callback: Callback&lt;AudioCapturerChangeInfoArray&gt;): void
 
 监听音频采集器更改事件（当音频录制流状态变化或设备变化时触发）。使用callback异步回调。
@@ -354,6 +374,8 @@ audioStreamManager.on('audioCapturerChange', (audioCapturerChangeInfoArray: audi
 
 
 ##### off('audioCapturerChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'audioCapturerChange', callback?: Callback&lt;AudioCapturerChangeInfoArray&gt;): void
 
@@ -400,6 +422,8 @@ audioStreamManager.off('audioCapturerChange', audioCapturerChangeCallback);
 
 ##### isActive(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isActive(volumeType: AudioVolumeType, callback: AsyncCallback&lt;boolean&gt;): void
 
 获取指定音频流活跃状态。使用callback异步回调。
@@ -436,6 +460,8 @@ if (err) {
 
 ##### isActive(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isActive(volumeType: AudioVolumeType): Promise&lt;boolean&gt;
 
 获取指定音频流是否为活跃状态。使用Promise异步回调。
@@ -471,6 +497,8 @@ audioStreamManager.isActive(audio.AudioVolumeType.MEDIA).then((value: boolean) =
 
 
 ##### isActiveSync(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isActiveSync(volumeType: AudioVolumeType): boolean
 
@@ -524,6 +552,8 @@ try {
 
 ##### isStreamActive20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isStreamActive(streamUsage: StreamUsage): boolean
 
 获取指定音频流是否为活跃状态。同步返回结果。
@@ -571,6 +601,8 @@ try {
 
 ##### getAudioEffectInfoArray10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioEffectInfoArray(usage: StreamUsage, callback: AsyncCallback&lt;AudioEffectInfoArray&gt;): void
 
 获取当前音效模式的信息。使用callback异步回调。
@@ -612,6 +644,8 @@ audioStreamManager.getAudioEffectInfoArray(audio.StreamUsage.STREAM_USAGE_MUSIC,
 
 
 ##### getAudioEffectInfoArray10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioEffectInfoArray(usage: StreamUsage): Promise&lt;AudioEffectInfoArray&gt;
 
@@ -658,6 +692,8 @@ audioStreamManager.getAudioEffectInfoArray(audio.StreamUsage.STREAM_USAGE_MUSIC)
 
 
 ##### getAudioEffectInfoArraySync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioEffectInfoArraySync(usage: StreamUsage): AudioEffectInfoArray
 
@@ -707,6 +743,8 @@ try {
 
 ##### isAcousticEchoCancelerSupported20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isAcousticEchoCancelerSupported(sourceType: SourceType): boolean
 
 查询指定的source type是否支持回声消除。
@@ -754,6 +792,8 @@ try {
 
 ##### isAudioLoopbackSupported20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isAudioLoopbackSupported(mode: AudioLoopbackMode): boolean
 
 查询当前系统是否支持指定的音频返听模式。
@@ -800,6 +840,8 @@ try {
 
 
 ##### isRecordingAvailable20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isRecordingAvailable(capturerInfo: AudioCapturerInfo): boolean
 
@@ -871,6 +913,8 @@ audio.createAudioCapturer(audioCapturerOptions, (err: BusinessError, audioCaptur
 
 
 ##### isIntelligentNoiseReductionEnabledForCurrentDevice21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isIntelligentNoiseReductionEnabledForCurrentDevice(sourceType: SourceType): boolean
 

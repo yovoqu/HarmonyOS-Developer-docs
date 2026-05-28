@@ -14,6 +14,8 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 
 ##### 约束限制
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
  - 当前仅支持2in1设备。
  - 应用集成AppServiceExtensionAbility的组件需要申请ACL权限（ohos.permission.SUPPORT_APP_SERVICE_EXTENSION）。该ACL权限当前只对企业普通应用开放申请，申请方式参考[权限申请指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
@@ -22,10 +24,12 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 
 ##### 生命周期
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AppServiceExtensionAbility提供了[onCreate()](#oncreate)、[onRequest()](#onrequest)、[onConnect()](#onconnect)、[onDisconnect()](#ondisconnect)和[onDestroy()](#ondestroy)生命周期回调，开发者可根据需要重写对应的回调方法。下图展示了AppServiceExtensionAbility的生命周期。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/CJC-3m7QRmmDqt7stj20-w/zh-cn_image_0000002611755457.png?HW-CC-KV=V1&HW-CC-Date=20260528T014008Z&HW-CC-Expire=86400&HW-CC-Sign=9C0BD3A5A16C39579EC8EA16CC70E131A04A573A4DA07ECD019206B9C6E052E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/CJC-3m7QRmmDqt7stj20-w/zh-cn_image_0000002611755457.png?HW-CC-KV=V1&HW-CC-Date=20260528T024302Z&HW-CC-Expire=86400&HW-CC-Sign=EC4FED7494ECA01749D7F1111C5F0171F6E014429CDB6576EE80B686D1FA38D2)
 
 
  - **onCreate**
@@ -49,6 +53,8 @@ AppServiceExtensionAbility提供了[onCreate()](#oncreate)、[onRequest()](#onre
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AppServiceExtensionAbility } from '@kit.AbilityKit';
 ```
@@ -57,11 +63,15 @@ import { AppServiceExtensionAbility } from '@kit.AbilityKit';
 
 ##### AppServiceExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后台服务的创建、销毁、连接、断开等生命周期回调。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 
@@ -73,6 +83,8 @@ AppServiceExtensionAbility模块提供后台服务相关扩展能力，包括后
 
 
 ##### onCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCreate(want: Want): void
 
@@ -110,6 +122,8 @@ export default class AppServiceExtAbility extends AppServiceExtensionAbility {
 
 ##### onDestroy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDestroy(): void
 
 在AppServiceExtensionAbility实例销毁时，系统会触发该回调。应用可以在该接口中执行资源清理等操作，如注销监听等。
@@ -134,6 +148,8 @@ export default class AppServiceExtAbility extends AppServiceExtensionAbility {
 
 
 ##### onRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRequest(want: Want, startId: number): void
 
@@ -167,6 +183,8 @@ export default class AppServiceExtAbility extends AppServiceExtensionAbility {
 
 
 ##### onConnect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onConnect(want: Want): rpc.RemoteObject
 
@@ -219,6 +237,8 @@ export default class AppServiceExtAbility extends AppServiceExtensionAbility {
 
 
 ##### onDisconnect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDisconnect(want: Want): void
 

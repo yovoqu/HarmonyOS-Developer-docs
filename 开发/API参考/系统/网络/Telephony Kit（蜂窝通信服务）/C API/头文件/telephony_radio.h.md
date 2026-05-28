@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | Wearable
+
 为网络搜索模块定义C接口。
  
 **引用文件：** <telephony/core_service/telephony_radio.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | Wearable
+
   
 
 ##### 函数
+
+**支持设备：** Phone | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | Tablet | Wearable
+
   
 
 ##### OH_Telephony_GetNetworkState()
+
+**支持设备：** Phone | Tablet | Wearable
 
 ```text
 Telephony_RadioResult OH_Telephony_GetNetworkState(Telephony_NetworkState *state)
@@ -72,6 +82,8 @@ Telephony_RadioResult OH_Telephony_GetNetworkState(Telephony_NetworkState *state
   
 
 ##### OH_Telephony_GetNetworkStateForSlot()
+
+**支持设备：** Phone | Tablet | Wearable
 
 ```text
 Telephony_RadioResult OH_Telephony_GetNetworkStateForSlot(int32_t slotId, Telephony_NetworkState *state)

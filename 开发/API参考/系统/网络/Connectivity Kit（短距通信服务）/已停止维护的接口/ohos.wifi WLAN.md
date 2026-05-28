@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import wifi from '@ohos.wifi';
 ```
@@ -21,6 +23,8 @@ import wifi from '@ohos.wifi';
   
 
 ##### wifi.isWifiActive(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isWifiActive(): boolean
  
@@ -58,6 +62,8 @@ try {
 
 ##### wifi.scan(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 scan(): boolean
  
 启动WLAN扫描。
@@ -93,6 +99,8 @@ try {
 
 ##### wifi.getScanInfos(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getScanInfos(): Promise<Array&lt;WifiScanInfo&gt;>
  
 获取扫描结果，使用Promise异步回调。
@@ -117,6 +125,8 @@ ohos.permission.GET_WIFI_PEERS_MAC权限仅系统应用可申请。
   
 
 ##### wifi.getScanInfos(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getScanInfos(callback: AsyncCallback<Array&lt;WifiScanInfo&gt;>): void
  
@@ -165,6 +175,8 @@ wifi.getScanInfos().then(result => {
 
 ##### WifiScanInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 WLAN热点信息。
  
 > [!NOTE]
@@ -190,6 +202,8 @@ WLAN热点信息。
 
 ##### WifiSecurityType(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示加密类型的枚举。
  
 > [!NOTE]
@@ -211,6 +225,8 @@ WLAN热点信息。
 
 ##### WifiDeviceConfig(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 WLAN配置信息。
  
 > [!NOTE]
@@ -231,6 +247,8 @@ WLAN配置信息。
   
 
 ##### wifi.addUntrustedConfig(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addUntrustedConfig(config: WifiDeviceConfig): Promise&lt;boolean&gt;
  
@@ -295,6 +313,8 @@ try {
 
 ##### wifi.addUntrustedConfig(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback&lt;boolean&gt;): void
  
 添加不可信网络配置，使用callback异步回调。
@@ -351,6 +371,8 @@ try {
   
 
 ##### wifi.removeUntrustedConfig(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeUntrustedConfig(config: WifiDeviceConfig): Promise&lt;boolean&gt;
  
@@ -415,6 +437,8 @@ try {
 
 ##### wifi.removeUntrustedConfig(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeUntrustedConfig(config: WifiDeviceConfig, callback: AsyncCallback&lt;boolean&gt;): void
  
 移除不可信网络配置，使用callback异步回调。
@@ -472,6 +496,8 @@ try {
 
 ##### wifi.getSignalLevel(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSignalLevel(rssi: number, band: number): number
  
 查询WLAN信号强度。
@@ -518,6 +544,8 @@ try {
 
 ##### wifi.getLinkedInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLinkedInfo(): Promise&lt;WifiLinkedInfo&gt;
  
 获取WLAN连接信息。使用Promise异步回调。
@@ -540,6 +568,8 @@ getLinkedInfo(): Promise&lt;WifiLinkedInfo&gt;
   
 
 ##### wifi.getLinkedInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLinkedInfo(callback: AsyncCallback&lt;WifiLinkedInfo&gt;): void
  
@@ -584,6 +614,8 @@ wifi.getLinkedInfo().then(data => {
 
 ##### WifiLinkedInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供WLAN连接的相关信息。
  
 > [!NOTE]
@@ -611,6 +643,8 @@ wifi.getLinkedInfo().then(data => {
 
 ##### ConnState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示WLAN连接状态的枚举。
  
 > [!NOTE]
@@ -635,6 +669,8 @@ wifi.getLinkedInfo().then(data => {
 
 ##### wifi.isConnected(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isConnected(): boolean
  
 查询WLAN是否已连接。
@@ -657,6 +693,8 @@ isConnected(): boolean
   
 
 ##### wifi.isFeatureSupported(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFeatureSupported(featureId: number): boolean
  
@@ -702,6 +740,8 @@ try {
 
 ##### wifi.getIpInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getIpInfo(): IpInfo
  
 获取IP信息。
@@ -738,6 +778,8 @@ try {
 
 ##### IpInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 IP信息。
  
 > [!TIP]
@@ -760,6 +802,8 @@ IP信息。
   
 
 ##### wifi.getCountryCode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCountryCode(): string
  
@@ -797,6 +841,8 @@ try {
 
 ##### wifi.getP2pLinkedInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getP2pLinkedInfo(): Promise&lt;WifiP2pLinkedInfo&gt;
  
 获取P2P连接信息。使用Promise异步回调。
@@ -820,6 +866,8 @@ getP2pLinkedInfo(): Promise&lt;WifiP2pLinkedInfo&gt;
 
 ##### WifiP2pLinkedInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供WLAN连接的相关信息。
  
 > [!NOTE]
@@ -839,6 +887,8 @@ getP2pLinkedInfo(): Promise&lt;WifiP2pLinkedInfo&gt;
 
 ##### P2pConnectState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示P2P连接状态的枚举。
  
 > [!NOTE]
@@ -856,6 +906,8 @@ getP2pLinkedInfo(): Promise&lt;WifiP2pLinkedInfo&gt;
   
 
 ##### wifi.getP2pLinkedInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getP2pLinkedInfo(callback: AsyncCallback&lt;WifiP2pLinkedInfo&gt;): void
  
@@ -898,6 +950,8 @@ wifi.getP2pLinkedInfo().then(data => {
 
 ##### wifi.getCurrentGroup(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentGroup(): Promise&lt;WifiP2pGroupInfo&gt;
  
 获取P2P当前组信息。使用Promise异步回调。
@@ -920,6 +974,8 @@ getCurrentGroup(): Promise&lt;WifiP2pGroupInfo&gt;
   
 
 ##### wifi.getCurrentGroup(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentGroup(callback: AsyncCallback&lt;WifiP2pGroupInfo&gt;): void
  
@@ -962,6 +1018,8 @@ wifi.getCurrentGroup().then(data => {
 
 ##### wifi.getP2pPeerDevices(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getP2pPeerDevices(): Promise<WifiP2pDevice[]>
  
 获取P2P对端设备列表信息。使用Promise异步回调。
@@ -984,6 +1042,8 @@ getP2pPeerDevices(): Promise<WifiP2pDevice[]>
   
 
 ##### wifi.getP2pPeerDevices(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void
  
@@ -1026,6 +1086,8 @@ wifi.getP2pPeerDevices().then(data => {
 
 ##### WifiP2pDevice(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示P2P设备信息。
  
 > [!NOTE]
@@ -1047,6 +1109,8 @@ wifi.getP2pPeerDevices().then(data => {
 
 ##### P2pDeviceStatus(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示设备状态的枚举。
  
 > [!NOTE]
@@ -1067,6 +1131,8 @@ wifi.getP2pPeerDevices().then(data => {
   
 
 ##### wifi.createGroup(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createGroup(config: WifiP2PConfig): boolean
  
@@ -1118,6 +1184,8 @@ try {
 
 ##### WifiP2PConfig(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示P2P配置信息。
  
 > [!NOTE]
@@ -1139,6 +1207,8 @@ try {
 
 ##### GroupOwnerBand(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示群组带宽的枚举。
  
 > [!NOTE]
@@ -1157,6 +1227,8 @@ try {
   
 
 ##### wifi.removeGroup(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeGroup(): boolean
  
@@ -1192,6 +1264,8 @@ try {
   
 
 ##### wifi.p2pConnect(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 p2pConnect(config: WifiP2PConfig): boolean
  
@@ -1291,6 +1365,8 @@ console.info("start discover devices -> " + wifi.startDiscoverDevices());
 
 ##### wifi.p2pCancelConnect(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 p2pCancelConnect(): boolean
  
 取消P2P连接。
@@ -1325,6 +1401,8 @@ try {
   
 
 ##### wifi.startDiscoverDevices(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startDiscoverDevices(): boolean
  
@@ -1361,6 +1439,8 @@ try {
 
 ##### wifi.stopDiscoverDevices(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopDiscoverDevices(): boolean
  
 停止发现设备。
@@ -1396,6 +1476,8 @@ try {
 
 ##### WifiP2pGroupInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示P2P群组相关信息。
  
 > [!NOTE]
@@ -1420,6 +1502,8 @@ try {
   
 
 ##### wifi.on('wifiStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'wifiStateChange', callback: Callback&lt;number&gt;): void
  
@@ -1454,6 +1538,8 @@ on(type: 'wifiStateChange', callback: Callback&lt;number&gt;): void
   
 
 ##### wifi.off('wifiStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'wifiStateChange', callback?: Callback&lt;number&gt;): void
  
@@ -1495,6 +1581,8 @@ wifi.off("wifiStateChange", recvPowerNotifyFunc);
 
 ##### wifi.on('wifiConnectionChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'wifiConnectionChange', callback: Callback&lt;number&gt;): void
  
 注册WLAN连接状态改变事件。
@@ -1526,6 +1614,8 @@ on(type: 'wifiConnectionChange', callback: Callback&lt;number&gt;): void
   
 
 ##### wifi.off('wifiConnectionChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'wifiConnectionChange', callback?: Callback&lt;number&gt;): void
  
@@ -1567,6 +1657,8 @@ wifi.off("wifiConnectionChange", recvWifiConnectionChangeFunc);
 
 ##### wifi.on('wifiScanStateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'wifiScanStateChange', callback: Callback&lt;number&gt;): void
  
 注册扫描状态改变事件。
@@ -1598,6 +1690,8 @@ on(type: 'wifiScanStateChange', callback: Callback&lt;number&gt;): void
   
 
 ##### wifi.off('wifiScanStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'wifiScanStateChange', callback?: Callback&lt;number&gt;): void
  
@@ -1639,6 +1733,8 @@ wifi.off("wifiScanStateChange", recvWifiScanStateChangeFunc);
 
 ##### wifi.on('wifiRssiChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'wifiRssiChange', callback: Callback&lt;number&gt;): void
  
 注册RSSI状态改变事件。
@@ -1662,6 +1758,8 @@ on(type: 'wifiRssiChange', callback: Callback&lt;number&gt;): void
   
 
 ##### wifi.off('wifiRssiChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'wifiRssiChange', callback?: Callback&lt;number&gt;): void
  
@@ -1702,6 +1800,8 @@ wifi.off("wifiRssiChange", recvWifiRssiChangeFunc);
   
 
 ##### wifi.on('hotspotStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'hotspotStateChange', callback: Callback&lt;number&gt;): void
  
@@ -1753,6 +1853,8 @@ wifi.off("hotspotStateChange", recvHotspotStateChangeFunc);
 
 ##### wifi.off('hotspotStateChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'hotspotStateChange', callback?: Callback&lt;number&gt;): void
  
 取消注册热点状态改变事件。
@@ -1776,6 +1878,8 @@ off(type: 'hotspotStateChange', callback?: Callback&lt;number&gt;): void
   
 
 ##### wifi.on('p2pStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'p2pStateChange', callback: Callback&lt;number&gt;): void
  
@@ -1811,6 +1915,8 @@ on(type: 'p2pStateChange', callback: Callback&lt;number&gt;): void
   
 
 ##### wifi.off('p2pStateChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pStateChange', callback?: Callback&lt;number&gt;): void
  
@@ -1852,6 +1958,8 @@ wifi.off("p2pStateChange", recvP2pStateChangeFunc);
 
 ##### wifi.on('p2pConnectionChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pConnectionChange', callback: Callback&lt;WifiP2pLinkedInfo&gt;): void
  
 注册P2P连接状态改变事件。
@@ -1875,6 +1983,8 @@ on(type: 'p2pConnectionChange', callback: Callback&lt;WifiP2pLinkedInfo&gt;): vo
   
 
 ##### wifi.off('p2pConnectionChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pConnectionChange', callback?: Callback&lt;WifiP2pLinkedInfo&gt;): void
  
@@ -1916,6 +2026,8 @@ wifi.off("p2pConnectionChange", recvP2pConnectionChangeFunc);
 
 ##### wifi.on('p2pDeviceChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pDeviceChange', callback: Callback&lt;WifiP2pDevice&gt;): void
  
 注册P2P设备状态改变事件。
@@ -1939,6 +2051,8 @@ on(type: 'p2pDeviceChange', callback: Callback&lt;WifiP2pDevice&gt;): void
   
 
 ##### wifi.off('p2pDeviceChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pDeviceChange', callback?: Callback&lt;WifiP2pDevice&gt;): void
  
@@ -1980,6 +2094,8 @@ wifi.off("p2pDeviceChange", recvP2pDeviceChangeFunc);
 
 ##### wifi.on('p2pPeerDeviceChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pPeerDeviceChange', callback: Callback<WifiP2pDevice[]>): void
  
 注册P2P对端设备状态改变事件。
@@ -2003,6 +2119,8 @@ on(type: 'p2pPeerDeviceChange', callback: Callback<WifiP2pDevice[]>): void
   
 
 ##### wifi.off('p2pPeerDeviceChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pPeerDeviceChange', callback?: Callback<WifiP2pDevice[]>): void
  
@@ -2044,6 +2162,8 @@ wifi.off("p2pPeerDeviceChange", recvP2pPeerDeviceChangeFunc);
 
 ##### wifi.on('p2pPersistentGroupChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pPersistentGroupChange', callback: Callback&lt;void&gt;): void
  
 注册P2P永久组状态改变事件。
@@ -2067,6 +2187,8 @@ on(type: 'p2pPersistentGroupChange', callback: Callback&lt;void&gt;): void
   
 
 ##### wifi.off('p2pPersistentGroupChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pPersistentGroupChange', callback?: Callback&lt;void&gt;): void
  
@@ -2108,6 +2230,8 @@ wifi.off("p2pPersistentGroupChange", recvP2pPersistentGroupChangeFunc);
 
 ##### wifi.on('p2pDiscoveryChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pDiscoveryChange', callback: Callback&lt;number&gt;): void
  
 注册发现设备状态改变事件。
@@ -2139,6 +2263,8 @@ on(type: 'p2pDiscoveryChange', callback: Callback&lt;number&gt;): void
   
 
 ##### wifi.off('p2pDiscoveryChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pDiscoveryChange', callback?: Callback&lt;number&gt;): void
  

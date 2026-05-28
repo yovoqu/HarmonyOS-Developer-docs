@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { EditableTitleBar } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { EditableTitleBar } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### EditableTitleBar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 EditableTitleBar({leftIconStyle: EditableLeftIconType, imageItem?: EditableTitleBarItem, title: ResourceStr, subtitle?: ResourceStr, menuItems?: Array&lt;EditableTitleBarMenuItem&gt;, isSaveIconRequired: boolean, onSave?: () => void, onCancel?: () =>void, options: EditableTitleBarOptions, contentMargin?: LocalizedMargin, leftIconDefaultFocus?: boolean, saveIconDefaultFocus?: boolean})
  
@@ -60,6 +66,8 @@ EditableTitleBar({leftIconStyle: EditableLeftIconType, imageItem?: EditableTitle
 
 ##### EditableLeftIconType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -75,6 +83,8 @@ EditableTitleBar({leftIconStyle: EditableLeftIconType, imageItem?: EditableTitle
   
 
 ##### EditableTitleBarMenuItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
  
@@ -97,6 +107,8 @@ EditableTitleBar({leftIconStyle: EditableLeftIconType, imageItem?: EditableTitle
 
 ##### EditableTitleBarItem12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type EditableTitleBarItem = EditableTitleBarMenuItem
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -113,6 +125,8 @@ type EditableTitleBarItem = EditableTitleBarMenuItem
   
 
 ##### EditableTitleBarOptions12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
  
@@ -132,11 +146,15 @@ type EditableTitleBarItem = EditableTitleBarMenuItem
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -457,7 +475,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/K3mDzW7FSWCoGiN_0YnY9w/zh-cn_image_0000002611836073.png?HW-CC-KV=V1&HW-CC-Date=20260528T013859Z&HW-CC-Expire=86400&HW-CC-Sign=C81B2F94CC82E9790E0DFB213A33D1F3A8B4628105AE1BBFF7D4B3E2BD6B7A00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/K3mDzW7FSWCoGiN_0YnY9w/zh-cn_image_0000002611836073.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=F6C8ACCA284CF19BC524049F191A59E686320D4A842B7F6373E7C78F73A15034)
 
  
   
@@ -530,4 +548,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/q-WpuxmhTXCczT5iWWZ-Xw/zh-cn_image_0000002581276328.png?HW-CC-KV=V1&HW-CC-Date=20260528T013859Z&HW-CC-Expire=86400&HW-CC-Sign=3B1614E0E298A1810EF13557E2933D1FB67C1229D5B68446FEBFE9FF052CCCF9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/q-WpuxmhTXCczT5iWWZ-Xw/zh-cn_image_0000002581276328.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=A4E367FD063644AC396622C4328005B3D4F49C325FB15E857DC7BB1CA01C5684)

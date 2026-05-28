@@ -12,6 +12,8 @@ typedef struct UsbSerial_Params {...} __attribute__((aligned(8))) UsbSerial_Para
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 定义USB Serial DDK使用的USB串口参数。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct UsbSerial_Params {...} __attribute__((aligned(8))) UsbSerial_Para
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

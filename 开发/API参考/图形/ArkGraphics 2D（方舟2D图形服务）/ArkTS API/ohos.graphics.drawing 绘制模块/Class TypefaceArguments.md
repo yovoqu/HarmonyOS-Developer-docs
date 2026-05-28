@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
   
 
 ##### constructor20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
  
@@ -40,6 +44,8 @@ let typeFaceArgument = new drawing.TypefaceArguments();
   
 
 ##### addVariation20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addVariation(axis: string, value: number)
  

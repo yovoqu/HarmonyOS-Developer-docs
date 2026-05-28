@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { BasicPrefetcher, IDataSourcePrefetching, IPrefetcher } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { BasicPrefetcher, IDataSourcePrefetching, IPrefetcher } from '@kit.ArkUI
   
 
 ##### IPrefetcher
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 实现此接口以提供预取能力。
  
@@ -31,6 +35,8 @@ import { BasicPrefetcher, IDataSourcePrefetching, IPrefetcher } from '@kit.ArkUI
   
 
 ##### setDataSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDataSource(dataSource: IDataSourcePrefetching): void;
  
@@ -64,6 +70,8 @@ class MyPrefetcher implements IPrefetcher {
   
 
 ##### visibleAreaChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 visibleAreaChanged(minVisible: number, maxVisible: number): void;
  
@@ -99,6 +107,8 @@ class MyPrefetcher implements IPrefetcher {
 
 ##### BasicPrefetcher
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 BasicPrefetcher是IPrefetcher的基础实现。它提供了一种智能数据预取算法，以根据屏幕上可见区域的实时变化和预取持续时间的变化来决定应预取哪些数据项。它还可以根据用户的滚动操作来确定哪些预取请求应该被取消。
  
 BasicPrefetcher对象不支持使用JSON序列化。
@@ -110,6 +120,8 @@ BasicPrefetcher对象不支持使用JSON序列化。
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(dataSource?: IDataSourcePrefetching);
  
@@ -130,6 +142,8 @@ constructor(dataSource?: IDataSourcePrefetching);
 
 ##### setDataSource
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDataSource(dataSource: IDataSourcePrefetching): void;
  
 设置支持预取的DataSource以绑定到Prefetcher。
@@ -148,6 +162,8 @@ setDataSource(dataSource: IDataSourcePrefetching): void;
   
 
 ##### visibleAreaChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 visibleAreaChanged(minVisible: number, maxVisible: number): void;
  
@@ -169,6 +185,8 @@ visibleAreaChanged(minVisible: number, maxVisible: number): void;
 
 ##### IDataSourcePrefetching
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 继承自[IDataSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-lazyforeach#idatasource)。实现该接口，提供具备预取能力的DataSource。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -178,6 +196,8 @@ visibleAreaChanged(minVisible: number, maxVisible: number): void;
   
 
 ##### prefetch
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 prefetch(index: number): Promise&lt;void&gt; | void;
  
@@ -204,6 +224,8 @@ prefetch(index: number): Promise&lt;void&gt; | void;
   
 
 ##### cancel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancel?(index: number): Promise&lt;void&gt; | void;
  
@@ -232,6 +254,8 @@ cancel?(index: number): Promise&lt;void&gt; | void;
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 下面示例展示了Prefetcher的预加载能力。该示例采用分页的方式，配合LazyForEach实现懒加载效果，并通过添加延时来模拟加载过程。
  
@@ -452,11 +476,13 @@ function create10x10Bitmap(color: number): ArrayBuffer {
 演示效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/nlPplXUYSgmWtgundVwSzA/zh-cn_image_0000002611835361.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013817Z&HW-CC-Expire=86400&HW-CC-Sign=D888A87015B29BC0E4777DEA7A6EB262CB2A4586F3CE4678D956580E679FC438)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/nlPplXUYSgmWtgundVwSzA/zh-cn_image_0000002611835361.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=A4AE30CAD43372BE8A6663A7B8DB18CBF9C95A5E65B657BEDA064C9887039239)
 
  
   
 
 ##### 补充说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 开发者也可使用HarmonyOS三方库[@netteam/prefetcher](https://ohpm.openharmony.cn/#/cn/detail/@netteam%2Fprefetcher)开发预加载功能。该三方库提供了更多的接口，可以更加便捷有效地实现数据预加载。

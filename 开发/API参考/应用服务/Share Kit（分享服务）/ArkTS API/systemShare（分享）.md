@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { systemShare } from '@kit.ShareKit';
 ```
@@ -25,6 +27,8 @@ import { systemShare } from '@kit.ShareKit';
   
 
 ##### SharedRecord
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 用于构造一条分享数据记录。包含数据类型、数据内容及描述等信息。
  
@@ -52,6 +56,8 @@ import { systemShare } from '@kit.ShareKit';
 
 ##### ShareControllerOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 分享控制器配置项。用于配置分享预览模式，选择模式等，决定了分享面板的显示样式。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -75,6 +81,8 @@ import { systemShare } from '@kit.ShareKit';
 
 ##### ShareControllerAnchor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 分享悬浮窗视图依附锚点，分享面板会根据屏幕大小选择是否在指定的位置显示悬浮窗。
  
 > [!NOTE]
@@ -97,6 +105,8 @@ import { systemShare } from '@kit.ShareKit';
 
 ##### Offset
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 可以设置的相对锚点的窗口偏移值。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -114,6 +124,8 @@ import { systemShare } from '@kit.ShareKit';
   
 
 ##### Size
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 锚点矩形的尺寸，缺省时，锚点是一个点，即宽高都为0。
  
@@ -133,6 +145,8 @@ import { systemShare } from '@kit.ShareKit';
 
 ##### ShareOperationResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 shareCompleted事件的返回值，用于获知用户分享渠道信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -149,6 +163,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
   
 
 ##### ShareAbilityInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 用户分享渠道的信息。
  
@@ -167,6 +183,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
 
 ##### ContactInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 意图框架推荐联系人的信息。当分享到推荐联系人时，携带此参数用于区分。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -184,6 +202,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
   
 
 ##### RevisitShareRecordData
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 复访分享数据。
  
@@ -204,6 +224,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
   
 
 ##### ReadingExtendedShareRecordData
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 阅读分享拓展数据记录，ReadingExtendedShareRecordData继承自RevisitShareRecordData。
  
@@ -237,6 +259,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
 
 ##### SharePreviewMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 分享预览模式。图片、视频等格式推荐使用详细预览图模式。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -255,6 +279,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
 
 ##### SelectionMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 分享面板选择模式。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -272,6 +298,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
   
 
 ##### ShareAbilityType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 系统能力类型定义。用于排除操作区的系统能力。
  
@@ -294,6 +322,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
 
 ##### ShareAbilityResultCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 从UIExtensionAbility返回的Code值。可控制分享面板的行为。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -312,6 +342,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
   
 
 ##### ShareAbilityName
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 系统操作的名称，用于返回分享结果数据。
  
@@ -337,6 +369,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
 
 ##### RevisitShareRecordType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义复访分享的类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -353,6 +387,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
   
 
 ##### ReadingShareRecordStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 阅读分享场景显示模版类型。
  
@@ -372,6 +408,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
 
 ##### SharedData
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示分享数据对象，提供封装一组数据记录的方法。
  
 一个分享数据对象至少存在一条记录，开发者需要在SharedData实例化过程中，通过构造器第一个参数传入；当分享数据包含多条数据记录时，则需要使用addRecord(record: SharedRecord)方法追加记录。
@@ -389,6 +427,8 @@ shareCompleted事件的返回值，用于获知用户分享渠道信息。
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor(record: SharedRecord)
  
@@ -431,6 +471,8 @@ let data: systemShare.SharedData = new systemShare.SharedData({
   
 
 ##### addRecord
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 addRecord(record: SharedRecord): void
  
@@ -480,6 +522,8 @@ data.addRecord({
 
 ##### getRecords
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getRecords(): Array&lt;SharedRecord&gt;
  
 获取当前分享数据中的所有数据记录。
@@ -518,6 +562,8 @@ records.forEach((record: systemShare.SharedRecord) => {
 
 ##### ShareController
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 分享面板在不同设备下有不同的展示形式，根据屏幕规格&参数为应用提供不同的预览形式以及分享方式。
  
 - 例如手机设备中，分享以模态显示；横屏/折叠屏展开状态时，分享面板以对话框形式显示；
@@ -533,6 +579,8 @@ records.forEach((record: systemShare.SharedRecord) => {
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor(data: SharedData)
  
@@ -577,6 +625,8 @@ let controller: systemShare.ShareController = new systemShare.ShareController(da
   
 
 ##### show
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 show(context: common.UIAbilityContext, options: ShareControllerOptions): Promise&lt;void&gt;
  
@@ -653,6 +703,8 @@ export struct ShareUtdText {
 
 ##### on('dismiss')
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 on(event: 'dismiss', callback: () => void): void
  
 注册分享面板关闭事件监听。
@@ -704,6 +756,8 @@ controller.on('dismiss', () => {
   
 
 ##### off('dismiss')
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(event: 'dismiss', callback: () => void): void
  
@@ -759,6 +813,8 @@ controller.off('dismiss', callback);
 
 ##### on('shareCompleted')
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 on(type: 'shareCompleted', callback: Callback&lt;ShareOperationResult&gt;): void
  
 注册用户完成分享事件监听。返回用户分享渠道，可用于数据统计等。
@@ -808,6 +864,8 @@ controller.on('shareCompleted', (result: systemShare.ShareOperationResult) => {
   
 
 ##### off('shareCompleted')
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'shareCompleted', callback?: Callback&lt;ShareOperationResult&gt;): void
  
@@ -860,6 +918,8 @@ controller.off('shareCompleted', callback);
   
 
 ##### getSharedData
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getSharedData(want: Want): Promise&lt;SharedData&gt;
  
@@ -923,6 +983,8 @@ export default class TestShareAbility extends ShareExtensionAbility {
 
 ##### getContactInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getContactInfo(want: Want): Promise&lt;ContactInfo&gt;
  
 通过目标应用获取的want信息，从中解析联系人信息，使用Promise异步回调。
@@ -984,6 +1046,8 @@ export default class TestShareAbility extends ShareExtensionAbility {
   
 
 ##### getWant
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getWant(data: SharedData, options?: ShareControllerOptions): Promise&lt;Want&gt;
  

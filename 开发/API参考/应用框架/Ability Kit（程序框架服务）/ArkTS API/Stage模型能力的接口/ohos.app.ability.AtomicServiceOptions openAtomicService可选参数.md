@@ -14,6 +14,8 @@ AtomicServiceOptions可以作为[openAtomicService()](https://developer.huawei.c
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AtomicServiceOptions } from '@kit.AbilityKit';
 ```
@@ -22,9 +24,13 @@ import { AtomicServiceOptions } from '@kit.AbilityKit';
 
 ##### AtomicServiceOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
  

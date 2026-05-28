@@ -12,6 +12,8 @@ typedef struct {...} Print_DefaultValue
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示当前属性。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct {...} Print_DefaultValue
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

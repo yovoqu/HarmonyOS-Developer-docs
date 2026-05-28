@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### BasePriorityOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 具有优先级控制的覆盖物基础类，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。[PointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation)和[Bubble](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-bubble)继承该基础类。
  
@@ -28,6 +32,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### getMaxZoom
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getMaxZoom(): number
  
@@ -71,6 +77,8 @@ let maxZoom: number = pointAnnotation.getMaxZoom();
 
 ##### getMinZoom
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getMinZoom(): number
  
 获取覆盖物的最小展示层级。
@@ -100,6 +108,8 @@ let minZoom: number = pointAnnotation.getMinZoom();
   
 
 ##### setPriority
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setPriority(priority: number): void
  
@@ -131,6 +141,8 @@ pointAnnotation.setPriority(100);
 
 ##### setZoom
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setZoom(minZoom: number, maxZoom: number): void
  
 设置覆盖物的显示层级。
@@ -161,6 +173,8 @@ pointAnnotation.setZoom(3, 10);
   
 
 ##### setAnimation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setAnimation(animation: Animation): void
  
@@ -214,6 +228,8 @@ pointAnnotation.setAnimation(animation);
 
 ##### startAnimation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 startAnimation(): void
  
 启动覆盖物的动画。
@@ -260,6 +276,8 @@ pointAnnotation.startAnimation();
   
 
 ##### clearAnimation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 clearAnimation(): void
  

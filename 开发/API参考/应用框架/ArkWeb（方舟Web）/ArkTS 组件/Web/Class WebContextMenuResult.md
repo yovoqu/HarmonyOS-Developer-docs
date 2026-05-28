@@ -14,6 +14,8 @@
 
 ##### constructor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
 
 WebContextMenuResult的构造函数。
@@ -23,6 +25,8 @@ WebContextMenuResult的构造函数。
 
 
 ##### closeContextMenu9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 closeContextMenu(): void
 
@@ -34,6 +38,8 @@ closeContextMenu(): void
 
 ##### copyImage9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copyImage(): void
 
 当WebContextMenuParam包含图片内容时，用于复制该图片。从API version 24开始支持对canvas图片进行复制。
@@ -44,6 +50,8 @@ copyImage(): void
 
 ##### copy9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copy(): void
 
 执行复制文本操作。
@@ -53,6 +61,8 @@ copy(): void
 
 
 ##### paste9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 paste(): void
 
@@ -68,6 +78,8 @@ paste(): void
 
 ##### cut9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cut(): void
 
 执行剪切操作。
@@ -77,6 +89,8 @@ cut(): void
 
 
 ##### selectAll9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectAll(): void
 
@@ -88,6 +102,8 @@ selectAll(): void
 
 ##### undo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 undo(): void
 
 执行撤销操作。
@@ -98,6 +114,8 @@ undo(): void
 
 ##### redo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 redo(): void
 
 执行重做操作，即取消用户上一次的撤销操作。
@@ -107,6 +125,8 @@ redo(): void
 
 
 ##### pasteAndMatchStyle20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pasteAndMatchStyle(): void
 
@@ -122,6 +142,8 @@ pasteAndMatchStyle(): void
 
 ##### requestPasswordAutoFill23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 requestPasswordAutoFill(): void
 
 请求密码保险箱中的用户名或密码数据自动填充到当前获得焦点的输入框中。
@@ -131,6 +153,8 @@ requestPasswordAutoFill(): void
 
 
 ##### saveImage24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 saveImage(): void
 

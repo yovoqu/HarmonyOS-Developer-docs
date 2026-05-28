@@ -17,6 +17,8 @@ CallerInfoQueryExtensionAbility是来去电信息查询扩展Ability，提供通
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { CallerInfoQueryExtensionAbility, CallerInfo, numberIdentify } from '@kit.CallServiceKit';
 ```
@@ -24,6 +26,8 @@ import { CallerInfoQueryExtensionAbility, CallerInfo, numberIdentify } from '@ki
   
 
 ##### CallerInfoQueryExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **模型约束：** 属性仅可在Stage模型下使用。
  
@@ -43,6 +47,8 @@ import { CallerInfoQueryExtensionAbility, CallerInfo, numberIdentify } from '@ki
   
 
 ##### onQueryCallerInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 onQueryCallerInfo(phoneNumber: string):Promise<[CallerInfo](#callerinfo)>
  
@@ -131,6 +137,8 @@ export default class EntryCallerInfoQueryExtAbility extends CallerInfoQueryExten
 
 ##### onQueryBusinessServiceData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 onQueryBusinessServiceData(phoneNumber: string): Promise<Array&lt;BusinessServiceData&gt;>
  
 查询企业服务信息，用于来电和去电页面展示。使用Promise异步回调。
@@ -198,6 +206,8 @@ export default class EntryCallerInfoQueryExtAbility extends CallerInfoQueryExten
   
 
 ##### CallerInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 联系人信息。
  

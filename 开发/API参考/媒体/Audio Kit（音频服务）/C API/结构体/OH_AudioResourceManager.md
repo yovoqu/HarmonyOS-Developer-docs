@@ -12,6 +12,8 @@ typedef struct OH_AudioResourceManager OH_AudioResourceManager
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明音频资源管理器。用于管理音频资源相关功能。
  
 **起始版本：** 20

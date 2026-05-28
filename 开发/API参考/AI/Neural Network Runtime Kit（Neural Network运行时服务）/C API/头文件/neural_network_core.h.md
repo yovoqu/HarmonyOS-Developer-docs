@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 Neural Network Core模块接口定义，AI推理框架使用Neural Network Core提供的Native接口，完成模型编译，并在加速硬件上执行推理和计算。
  
 部分接口定义从neural_network_runtime.h移动至此头文件统一呈现，对于此类接口，API version 11 版本之前即支持使用，各版本均可正常使用。
@@ -27,9 +29,13 @@ Neural Network Core的接口目前均不支持多线程并发调用。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -89,9 +95,13 @@ Neural Network Core的接口目前均不支持多线程并发调用。
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OH_NNCompilation_Construct()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NNCompilation *OH_NNCompilation_Construct(const OH_NNModel *model)
@@ -137,6 +147,8 @@ OH_NNCompilation *OH_NNCompilation_Construct(const OH_NNModel *model)
 
 ##### OH_NNCompilation_ConstructWithOfflineModelFile()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NNCompilation *OH_NNCompilation_ConstructWithOfflineModelFile(const char *modelPath)
 ```
@@ -171,6 +183,8 @@ OH_NNCompilation *OH_NNCompilation_ConstructWithOfflineModelFile(const char *mod
 
 ##### OH_NNCompilation_ConstructWithOfflineModelBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NNCompilation *OH_NNCompilation_ConstructWithOfflineModelBuffer(const void *modelBuffer, size_t modelSize)
 ```
@@ -204,6 +218,8 @@ OH_NNCompilation *OH_NNCompilation_ConstructWithOfflineModelBuffer(const void *m
 
 ##### OH_NNCompilation_ConstructForCache()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NNCompilation *OH_NNCompilation_ConstructForCache()
 ```
@@ -230,6 +246,8 @@ OH_NNCompilation *OH_NNCompilation_ConstructForCache()
   
 
 ##### OH_NNCompilation_ExportCacheToBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNCompilation_ExportCacheToBuffer(OH_NNCompilation *compilation,const void *buffer,size_t length,size_t *modelSize)
@@ -266,6 +284,8 @@ OH_NN_ReturnCode OH_NNCompilation_ExportCacheToBuffer(OH_NNCompilation *compilat
 
 ##### OH_NNCompilation_ImportCacheFromBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNCompilation_ImportCacheFromBuffer(OH_NNCompilation *compilation,const void *buffer,size_t modelSize)
 ```
@@ -301,6 +321,8 @@ OH_NN_ReturnCode OH_NNCompilation_ImportCacheFromBuffer(OH_NNCompilation *compil
   
 
 ##### OH_NNCompilation_AddExtensionConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNCompilation_AddExtensionConfig(OH_NNCompilation *compilation,const char *configName,const void *configValue,const size_t configValueSize)
@@ -339,6 +361,8 @@ OH_NN_ReturnCode OH_NNCompilation_AddExtensionConfig(OH_NNCompilation *compilati
 
 ##### OH_NNCompilation_SetDevice()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNCompilation_SetDevice(OH_NNCompilation *compilation, size_t deviceID)
 ```
@@ -369,6 +393,8 @@ OH_NN_ReturnCode OH_NNCompilation_SetDevice(OH_NNCompilation *compilation, size_
   
 
 ##### OH_NNCompilation_SetCache()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNCompilation_SetCache(OH_NNCompilation *compilation, const char *cachePath, uint32_t version)
@@ -412,6 +438,8 @@ OH_NN_ReturnCode OH_NNCompilation_SetCache(OH_NNCompilation *compilation, const 
 
 ##### OH_NNCompilation_SetPerformanceMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNCompilation_SetPerformanceMode(OH_NNCompilation *compilation,OH_NN_PerformanceMode performanceMode)
 ```
@@ -443,6 +471,8 @@ Neural Network Runtime 支持为模型计算设置性能模式，满足低功耗
 
 ##### OH_NNCompilation_SetPriority()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNCompilation_SetPriority(OH_NNCompilation *compilation, OH_NN_Priority priority)
 ```
@@ -473,6 +503,8 @@ Neural Network Runtime 支持为模型设置计算优先级，优先级仅作用
   
 
 ##### OH_NNCompilation_EnableFloat16()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNCompilation_EnableFloat16(OH_NNCompilation *compilation, bool enableFloat16)
@@ -507,6 +539,8 @@ OH_NN_ReturnCode OH_NNCompilation_EnableFloat16(OH_NNCompilation *compilation, b
 
 ##### OH_NNCompilation_Build()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNCompilation_Build(OH_NNCompilation *compilation)
 ```
@@ -539,6 +573,8 @@ OH_NN_ReturnCode OH_NNCompilation_Build(OH_NNCompilation *compilation)
 
 ##### OH_NNCompilation_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void OH_NNCompilation_Destroy(OH_NNCompilation **compilation)
 ```
@@ -561,6 +597,8 @@ void OH_NNCompilation_Destroy(OH_NNCompilation **compilation)
   
 
 ##### OH_NNTensorDesc_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 NN_TensorDesc *OH_NNTensorDesc_Create()
@@ -595,6 +633,8 @@ NN_TensorDesc *OH_NNTensorDesc_Create()
 
 ##### OH_NNTensorDesc_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_Destroy(NN_TensorDesc **tensorDesc)
 ```
@@ -626,6 +666,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_Destroy(NN_TensorDesc **tensorDesc)
   
 
 ##### OH_NNTensorDesc_SetName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_SetName(NN_TensorDesc *tensorDesc, const char *name)
@@ -659,6 +701,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_SetName(NN_TensorDesc *tensorDesc, const char *
   
 
 ##### OH_NNTensorDesc_GetName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_GetName(const NN_TensorDesc *tensorDesc, const char **name)
@@ -697,6 +741,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_GetName(const NN_TensorDesc *tensorDesc, const 
 
 ##### OH_NNTensorDesc_SetDataType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_SetDataType(NN_TensorDesc *tensorDesc, OH_NN_DataType dataType)
 ```
@@ -729,6 +775,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_SetDataType(NN_TensorDesc *tensorDesc, OH_NN_Da
   
 
 ##### OH_NNTensorDesc_GetDataType()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_GetDataType(const NN_TensorDesc *tensorDesc, OH_NN_DataType *dataType)
@@ -763,6 +811,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_GetDataType(const NN_TensorDesc *tensorDesc, OH
 
 ##### OH_NNTensorDesc_SetShape()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_SetShape(NN_TensorDesc *tensorDesc, const int32_t *shape, size_t shapeLength)
 ```
@@ -796,6 +846,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_SetShape(NN_TensorDesc *tensorDesc, const int32
   
 
 ##### OH_NNTensorDesc_GetShape()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_GetShape(const NN_TensorDesc *tensorDesc, int32_t **shape, size_t *shapeLength)
@@ -835,6 +887,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_GetShape(const NN_TensorDesc *tensorDesc, int32
 
 ##### OH_NNTensorDesc_SetFormat()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_SetFormat(NN_TensorDesc *tensorDesc, OH_NN_Format format)
 ```
@@ -868,6 +922,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_SetFormat(NN_TensorDesc *tensorDesc, OH_NN_Form
 
 ##### OH_NNTensorDesc_GetFormat()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_GetFormat(const NN_TensorDesc *tensorDesc, OH_NN_Format *format)
 ```
@@ -900,6 +956,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_GetFormat(const NN_TensorDesc *tensorDesc, OH_N
   
 
 ##### OH_NNTensorDesc_GetElementCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_GetElementCount(const NN_TensorDesc *tensorDesc, size_t *elementCount)
@@ -935,6 +993,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_GetElementCount(const NN_TensorDesc *tensorDesc
   
 
 ##### OH_NNTensorDesc_GetByteSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNTensorDesc_GetByteSize(const NN_TensorDesc *tensorDesc, size_t *byteSize)
@@ -972,6 +1032,8 @@ OH_NN_ReturnCode OH_NNTensorDesc_GetByteSize(const NN_TensorDesc *tensorDesc, si
   
 
 ##### OH_NNTensor_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 NN_Tensor *OH_NNTensor_Create(size_t deviceID, NN_TensorDesc *tensorDesc)
@@ -1013,6 +1075,8 @@ NN_Tensor *OH_NNTensor_Create(size_t deviceID, NN_TensorDesc *tensorDesc)
   
 
 ##### OH_NNTensor_CreateWithSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 NN_Tensor *OH_NNTensor_CreateWithSize(size_t deviceID, NN_TensorDesc *tensorDesc, size_t size)
@@ -1056,6 +1120,8 @@ NN_Tensor *OH_NNTensor_CreateWithSize(size_t deviceID, NN_TensorDesc *tensorDesc
 
 ##### OH_NNTensor_CreateWithFd()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 NN_Tensor *OH_NNTensor_CreateWithFd(size_t deviceID,NN_TensorDesc *tensorDesc,int fd,size_t size,size_t offset)
 ```
@@ -1098,6 +1164,8 @@ NN_Tensor *OH_NNTensor_CreateWithFd(size_t deviceID,NN_TensorDesc *tensorDesc,in
 
 ##### OH_NNTensor_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNTensor_Destroy(NN_Tensor **tensor)
 ```
@@ -1129,6 +1197,8 @@ OH_NN_ReturnCode OH_NNTensor_Destroy(NN_Tensor **tensor)
   
 
 ##### OH_NNTensor_GetTensorDesc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 NN_TensorDesc *OH_NNTensor_GetTensorDesc(const NN_Tensor *tensor)
@@ -1166,6 +1236,8 @@ NN_TensorDesc *OH_NNTensor_GetTensorDesc(const NN_Tensor *tensor)
 
 ##### OH_NNTensor_GetDataBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void *OH_NNTensor_GetDataBuffer(const NN_Tensor *tensor)
 ```
@@ -1200,6 +1272,8 @@ void *OH_NNTensor_GetDataBuffer(const NN_Tensor *tensor)
 
 ##### OH_NNTensor_GetFd()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNTensor_GetFd(const NN_Tensor *tensor, int *fd)
 ```
@@ -1232,6 +1306,8 @@ OH_NN_ReturnCode OH_NNTensor_GetFd(const NN_Tensor *tensor, int *fd)
   
 
 ##### OH_NNTensor_GetSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNTensor_GetSize(const NN_Tensor *tensor, size_t *size)
@@ -1268,6 +1344,8 @@ OH_NN_ReturnCode OH_NNTensor_GetSize(const NN_Tensor *tensor, size_t *size)
 
 ##### OH_NNTensor_GetOffset()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNTensor_GetOffset(const NN_Tensor *tensor, size_t *offset)
 ```
@@ -1303,6 +1381,8 @@ OH_NN_ReturnCode OH_NNTensor_GetOffset(const NN_Tensor *tensor, size_t *offset)
 
 ##### OH_NNExecutor_Construct()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NNExecutor *OH_NNExecutor_Construct(OH_NNCompilation *compilation)
 ```
@@ -1332,6 +1412,8 @@ OH_NNExecutor *OH_NNExecutor_Construct(OH_NNCompilation *compilation)
   
 
 ##### OH_NNExecutor_GetOutputShape()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNExecutor_GetOutputShape(OH_NNExecutor *executor,uint32_t outputIndex,int32_t **shape,uint32_t *shapeLength)
@@ -1372,6 +1454,8 @@ OH_NN_ReturnCode OH_NNExecutor_GetOutputShape(OH_NNExecutor *executor,uint32_t o
 
 ##### OH_NNExecutor_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void OH_NNExecutor_Destroy(OH_NNExecutor **executor)
 ```
@@ -1394,6 +1478,8 @@ void OH_NNExecutor_Destroy(OH_NNExecutor **executor)
   
 
 ##### OH_NNExecutor_GetInputCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNExecutor_GetInputCount(const OH_NNExecutor *executor, size_t *inputCount)
@@ -1426,6 +1512,8 @@ OH_NN_ReturnCode OH_NNExecutor_GetInputCount(const OH_NNExecutor *executor, size
 
 ##### OH_NNExecutor_GetOutputCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNExecutor_GetOutputCount(const OH_NNExecutor *executor, size_t *outputCount)
 ```
@@ -1456,6 +1544,8 @@ OH_NN_ReturnCode OH_NNExecutor_GetOutputCount(const OH_NNExecutor *executor, siz
   
 
 ##### OH_NNExecutor_CreateInputTensorDesc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 NN_TensorDesc *OH_NNExecutor_CreateInputTensorDesc(const OH_NNExecutor *executor, size_t index)
@@ -1488,6 +1578,8 @@ NN_TensorDesc *OH_NNExecutor_CreateInputTensorDesc(const OH_NNExecutor *executor
 
 ##### OH_NNExecutor_CreateOutputTensorDesc()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 NN_TensorDesc *OH_NNExecutor_CreateOutputTensorDesc(const OH_NNExecutor *executor, size_t index)
 ```
@@ -1518,6 +1610,8 @@ NN_TensorDesc *OH_NNExecutor_CreateOutputTensorDesc(const OH_NNExecutor *executo
   
 
 ##### OH_NNExecutor_GetInputDimRange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNExecutor_GetInputDimRange(const OH_NNExecutor *executor,size_t index,size_t **minInputDims,size_t **maxInputDims,size_t *shapeLength)
@@ -1561,6 +1655,8 @@ OH_NN_ReturnCode OH_NNExecutor_GetInputDimRange(const OH_NNExecutor *executor,si
 
 ##### OH_NNExecutor_SetOnRunDone()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNExecutor_SetOnRunDone(OH_NNExecutor *executor, NN_OnRunDone onRunDone)
 ```
@@ -1592,6 +1688,8 @@ OH_NN_ReturnCode OH_NNExecutor_SetOnRunDone(OH_NNExecutor *executor, NN_OnRunDon
 
 ##### OH_NNExecutor_SetOnServiceDied()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNExecutor_SetOnServiceDied(OH_NNExecutor *executor, NN_OnServiceDied onServiceDied)
 ```
@@ -1622,6 +1720,8 @@ OH_NN_ReturnCode OH_NNExecutor_SetOnServiceDied(OH_NNExecutor *executor, NN_OnSe
   
 
 ##### OH_NNExecutor_RunSync()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNExecutor_RunSync(OH_NNExecutor *executor,NN_Tensor *inputTensor[],size_t inputCount,NN_Tensor *outputTensor[],size_t outputCount)
@@ -1658,6 +1758,8 @@ OH_NN_ReturnCode OH_NNExecutor_RunSync(OH_NNExecutor *executor,NN_Tensor *inputT
   
 
 ##### OH_NNExecutor_RunAsync()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNExecutor_RunAsync(OH_NNExecutor *executor,NN_Tensor *inputTensor[],size_t inputCount,NN_Tensor *outputTensor[],size_t outputCount,int32_t timeout,void *userData)
@@ -1705,6 +1807,8 @@ userData是区分不同次异步执行的标识符，会作为回调函数的第
 
 ##### OH_NNDevice_GetAllDevicesID()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNDevice_GetAllDevicesID(const size_t **allDevicesID, uint32_t *deviceCount)
 ```
@@ -1738,6 +1842,8 @@ OH_NN_ReturnCode OH_NNDevice_GetAllDevicesID(const size_t **allDevicesID, uint32
 
 ##### OH_NNDevice_GetName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode OH_NNDevice_GetName(size_t deviceID, const char **name)
 ```
@@ -1768,6 +1874,8 @@ OH_NN_ReturnCode OH_NNDevice_GetName(size_t deviceID, const char **name)
   
 
 ##### OH_NNDevice_GetType()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode OH_NNDevice_GetType(size_t deviceID, OH_NN_DeviceType *deviceType)

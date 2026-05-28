@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { SplitLayout } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { SplitLayout } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### SplitLayout
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SplitLayout({mainImage: Resource, primaryText: string, secondaryText?: string, tertiaryText?: string, container: () => void })
  
@@ -51,11 +57,15 @@ SplitLayout({mainImage: Resource, primaryText: string, secondaryText?: string, t
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例通过SplitLayout实现了页面布局，并具备自适应能力。
  
@@ -101,4 +111,4 @@ struct Index {
 大于840vp布局：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/nwZRSuPcRoihoHfiRv1QHg/zh-cn_image_0000002581436268.png?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=D9C78FEDBE4BDA902F47AFA58DE3EB7551A1B4D367FA8C6945DE243175E66F21)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/nwZRSuPcRoihoHfiRv1QHg/zh-cn_image_0000002581436268.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=D3E9F43B5939B00C09B0E27DA5E47D1592B3DFF356E771992C688115AC7BF652)

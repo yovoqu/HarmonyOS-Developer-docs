@@ -14,17 +14,23 @@
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 <[option](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-option)>子组件。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
   
@@ -43,6 +49,8 @@
 
 ##### 样式
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅支持如下样式：
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
@@ -60,6 +68,8 @@
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅支持如下事件：
   
 | 名称 | 参数 | 描述 |
@@ -72,6 +82,8 @@
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅支持如下方法。
   
 | 名称 | 参数 | 描述 |
@@ -82,6 +94,8 @@
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -117,4 +131,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/GBmHv2vnSNCkT0hQtKzPGg/zh-cn_image_0000002611756273.png?HW-CC-KV=V1&HW-CC-Date=20260528T013805Z&HW-CC-Expire=86400&HW-CC-Sign=75872B3152BE907E23AFF6BF396808C177C75503ECE4329F90AC4FF7F06BF298)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/GBmHv2vnSNCkT0hQtKzPGg/zh-cn_image_0000002611756273.png?HW-CC-KV=V1&HW-CC-Date=20260528T024101Z&HW-CC-Expire=86400&HW-CC-Sign=C15FCDFDCB7F9AB70D7D45C84B07CFE1A48732B4B09519E1FC7C7793D52DC68D)

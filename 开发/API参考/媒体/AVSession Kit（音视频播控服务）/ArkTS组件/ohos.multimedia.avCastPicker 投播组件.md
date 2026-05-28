@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { AVCastPicker } from '@kit.AVSessionKit';
 ```
@@ -22,11 +24,15 @@ import { AVCastPicker } from '@kit.AVSessionKit';
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### AVCastPicker
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 AVCastPicker({
@@ -65,11 +71,15 @@ AVCastPicker({
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 投播功能的示例说明参考如下。
 

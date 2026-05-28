@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 ```
@@ -21,6 +23,8 @@ import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 
 ##### AbilityStageMonitor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 

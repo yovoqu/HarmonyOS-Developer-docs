@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 HiAppEvent模块为应用开发者提供的事件订阅和事件打点函数定义。在执行应用事件打点之前，开发者必须先构造一个参数列表对象来存储输入的事件参数，并指定事件领域、事件名称和事件类型。
 
 事件领域：用于标识事件打点的领域的字符串。
@@ -31,9 +33,13 @@ HiAppEvent模块为应用开发者提供的事件订阅和事件打点函数定�
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -49,6 +55,8 @@ HiAppEvent模块为应用开发者提供的事件订阅和事件打点函数定�
 
 ##### 枚举
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | HiAppEvent_ErrorCode | HiAppEvent_ErrorCode | 错误码定义。 |
@@ -58,6 +66,8 @@ HiAppEvent模块为应用开发者提供的事件订阅和事件打点函数定�
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -116,9 +126,13 @@ HiAppEvent模块为应用开发者提供的事件订阅和事件打点函数定�
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### HiAppEvent_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum HiAppEvent_ErrorCode
@@ -146,6 +160,8 @@ enum HiAppEvent_ErrorCode
 
 ##### EventType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum EventType
 ```
@@ -168,9 +184,13 @@ enum EventType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### OH_HiAppEvent_OnReceive()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, const struct HiAppEvent_AppEventGroup* appEventGroups, uint32_t groupLen)
@@ -194,6 +214,8 @@ typedef void (*OH_HiAppEvent_OnReceive)(const char* domain, const struct HiAppEv
 
 
 ##### OH_HiAppEvent_OnTrigger()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_HiAppEvent_OnTrigger)(int row, int size)
@@ -219,6 +241,8 @@ typedef void (*OH_HiAppEvent_OnTrigger)(int row, int size)
 
 ##### OH_HiAppEvent_OnTake()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_HiAppEvent_OnTake)(const char* const *events, uint32_t eventLen)
 ```
@@ -241,6 +265,8 @@ typedef void (*OH_HiAppEvent_OnTake)(const char* const *events, uint32_t eventLe
 
 ##### OH_HiAppEvent_CreateParamList()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ParamList OH_HiAppEvent_CreateParamList(void)
 ```
@@ -250,7 +276,7 @@ ParamList OH_HiAppEvent_CreateParamList(void)
 创建一个指向参数列表对象的指针。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/tHL0SABtStqmM0c9qm0SWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013534Z&HW-CC-Expire=86400&HW-CC-Sign=611B822823A9A7254894D469BB26B6B29B6A951812E1B83C15D797B1EE89C8F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/tHL0SABtStqmM0c9qm0SWA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023834Z&HW-CC-Expire=86400&HW-CC-Sign=8A20783DCC84DC2353929024E963917AEE0E9D68917438812B197B034CEC5B07)
 
 
 创建的指向参数列表对象的指针不再使用后，必须通过[OH_HiAppEvent_DestroyParamList](#oh_hiappevent_destroyparamlist)接口进行销毁。
@@ -269,6 +295,8 @@ ParamList OH_HiAppEvent_CreateParamList(void)
 
 
 ##### OH_HiAppEvent_DestroyParamList()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_HiAppEvent_DestroyParamList(ParamList list)
@@ -290,6 +318,8 @@ void OH_HiAppEvent_DestroyParamList(ParamList list)
 
 
 ##### OH_HiAppEvent_AddBoolParam()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ParamList OH_HiAppEvent_AddBoolParam(ParamList list, const char* name, bool boolean)
@@ -320,6 +350,8 @@ ParamList OH_HiAppEvent_AddBoolParam(ParamList list, const char* name, bool bool
 
 
 ##### OH_HiAppEvent_AddBoolArrayParam()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ParamList OH_HiAppEvent_AddBoolArrayParam(ParamList list, const char* name, const bool* booleans, int arrSize)
@@ -352,6 +384,8 @@ ParamList OH_HiAppEvent_AddBoolArrayParam(ParamList list, const char* name, cons
 
 ##### OH_HiAppEvent_AddInt8Param()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ParamList OH_HiAppEvent_AddInt8Param(ParamList list, const char* name, int8_t num)
 ```
@@ -381,6 +415,8 @@ ParamList OH_HiAppEvent_AddInt8Param(ParamList list, const char* name, int8_t nu
 
 
 ##### OH_HiAppEvent_AddInt8ArrayParam()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ParamList OH_HiAppEvent_AddInt8ArrayParam(ParamList list, const char* name, const int8_t* nums, int arrSize)
@@ -413,6 +449,8 @@ ParamList OH_HiAppEvent_AddInt8ArrayParam(ParamList list, const char* name, cons
 
 ##### OH_HiAppEvent_AddInt16Param()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ParamList OH_HiAppEvent_AddInt16Param(ParamList list, const char* name, int16_t num)
 ```
@@ -442,6 +480,8 @@ ParamList OH_HiAppEvent_AddInt16Param(ParamList list, const char* name, int16_t 
 
 
 ##### OH_HiAppEvent_AddInt16ArrayParam()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ParamList OH_HiAppEvent_AddInt16ArrayParam(ParamList list, const char* name, const int16_t* nums, int arrSize)
@@ -474,6 +514,8 @@ ParamList OH_HiAppEvent_AddInt16ArrayParam(ParamList list, const char* name, con
 
 ##### OH_HiAppEvent_AddInt32Param()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ParamList OH_HiAppEvent_AddInt32Param(ParamList list, const char* name, int32_t num)
 ```
@@ -503,6 +545,8 @@ ParamList OH_HiAppEvent_AddInt32Param(ParamList list, const char* name, int32_t 
 
 
 ##### OH_HiAppEvent_AddInt32ArrayParam()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ParamList OH_HiAppEvent_AddInt32ArrayParam(ParamList list, const char* name, const int32_t* nums, int arrSize)
@@ -535,6 +579,8 @@ ParamList OH_HiAppEvent_AddInt32ArrayParam(ParamList list, const char* name, con
 
 ##### OH_HiAppEvent_AddInt64Param()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ParamList OH_HiAppEvent_AddInt64Param(ParamList list, const char* name, int64_t num)
 ```
@@ -564,6 +610,8 @@ ParamList OH_HiAppEvent_AddInt64Param(ParamList list, const char* name, int64_t 
 
 
 ##### OH_HiAppEvent_AddInt64ArrayParam()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ParamList OH_HiAppEvent_AddInt64ArrayParam(ParamList list, const char* name, const int64_t* nums, int arrSize)
@@ -596,6 +644,8 @@ ParamList OH_HiAppEvent_AddInt64ArrayParam(ParamList list, const char* name, con
 
 ##### OH_HiAppEvent_AddFloatParam()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ParamList OH_HiAppEvent_AddFloatParam(ParamList list, const char* name, float num)
 ```
@@ -625,6 +675,8 @@ ParamList OH_HiAppEvent_AddFloatParam(ParamList list, const char* name, float nu
 
 
 ##### OH_HiAppEvent_AddFloatArrayParam()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ParamList OH_HiAppEvent_AddFloatArrayParam(ParamList list, const char* name, const float* nums, int arrSize)
@@ -657,6 +709,8 @@ ParamList OH_HiAppEvent_AddFloatArrayParam(ParamList list, const char* name, con
 
 ##### OH_HiAppEvent_AddDoubleParam()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ParamList OH_HiAppEvent_AddDoubleParam(ParamList list, const char* name, double num)
 ```
@@ -686,6 +740,8 @@ ParamList OH_HiAppEvent_AddDoubleParam(ParamList list, const char* name, double 
 
 
 ##### OH_HiAppEvent_AddDoubleArrayParam()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ParamList OH_HiAppEvent_AddDoubleArrayParam(ParamList list, const char* name, const double* nums, int arrSize)
@@ -718,6 +774,8 @@ ParamList OH_HiAppEvent_AddDoubleArrayParam(ParamList list, const char* name, co
 
 ##### OH_HiAppEvent_AddStringParam()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 ParamList OH_HiAppEvent_AddStringParam(ParamList list, const char* name, const char* str)
 ```
@@ -747,6 +805,8 @@ ParamList OH_HiAppEvent_AddStringParam(ParamList list, const char* name, const c
 
 
 ##### OH_HiAppEvent_AddStringArrayParam()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ParamList OH_HiAppEvent_AddStringArrayParam(ParamList list, const char* name, const char * const *strs, int arrSize)
@@ -779,6 +839,8 @@ ParamList OH_HiAppEvent_AddStringArrayParam(ParamList list, const char* name, co
 
 ##### OH_HiAppEvent_Write()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_Write(const char* domain, const char* name, enum EventType type, const ParamList list)
 ```
@@ -810,6 +872,8 @@ int OH_HiAppEvent_Write(const char* domain, const char* name, enum EventType typ
 
 ##### OH_HiAppEvent_Configure()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool OH_HiAppEvent_Configure(const char* name, const char* value)
 ```
@@ -839,6 +903,8 @@ bool OH_HiAppEvent_Configure(const char* name, const char* value)
 
 ##### OH_HiAppEvent_CreateWatcher()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 HiAppEvent_Watcher* OH_HiAppEvent_CreateWatcher(const char* name)
 ```
@@ -848,7 +914,7 @@ HiAppEvent_Watcher* OH_HiAppEvent_CreateWatcher(const char* name)
 创建一个用于监听app事件的监听器。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/2Ui1GTe5SZGZUjQpmBB9tQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013534Z&HW-CC-Expire=86400&HW-CC-Sign=14C90FAD9D18917C534A929DB9D0D7162344179EC9699EB315F6842D354D4169)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/2Ui1GTe5SZGZUjQpmBB9tQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023834Z&HW-CC-Expire=86400&HW-CC-Sign=9EECD4F7DBE9842D1A689DF8E25AA4218771234A52100E3380EDE2A795BDE6BD)
 
 
 创建的监听器不再使用后，必须通过[OH_HiAppEvent_DestroyWatcher](#oh_hiappevent_destroywatcher)接口进行销毁。
@@ -875,6 +941,8 @@ HiAppEvent_Watcher* OH_HiAppEvent_CreateWatcher(const char* name)
 
 ##### OH_HiAppEvent_DestroyWatcher()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_HiAppEvent_DestroyWatcher(HiAppEvent_Watcher* watcher)
 ```
@@ -895,6 +963,8 @@ void OH_HiAppEvent_DestroyWatcher(HiAppEvent_Watcher* watcher)
 
 
 ##### OH_HiAppEvent_SetTriggerCondition()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_HiAppEvent_SetTriggerCondition(HiAppEvent_Watcher* watcher, int row, int size, int timeOut)
@@ -929,6 +999,8 @@ int OH_HiAppEvent_SetTriggerCondition(HiAppEvent_Watcher* watcher, int row, int 
 
 ##### OH_HiAppEvent_SetAppEventFilter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_SetAppEventFilter(HiAppEvent_Watcher* watcher, const char* domain, uint8_t eventTypes, const char* const *names, int namesLen)
 ```
@@ -961,6 +1033,8 @@ int OH_HiAppEvent_SetAppEventFilter(HiAppEvent_Watcher* watcher, const char* dom
 
 ##### OH_HiAppEvent_SetWatcherOnTrigger()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_SetWatcherOnTrigger(HiAppEvent_Watcher* watcher, OH_HiAppEvent_OnTrigger onTrigger)
 ```
@@ -992,6 +1066,8 @@ int OH_HiAppEvent_SetWatcherOnTrigger(HiAppEvent_Watcher* watcher, OH_HiAppEvent
 
 ##### OH_HiAppEvent_SetWatcherOnReceive()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_SetWatcherOnReceive(HiAppEvent_Watcher* watcher, OH_HiAppEvent_OnReceive onReceive)
 ```
@@ -1020,6 +1096,8 @@ int OH_HiAppEvent_SetWatcherOnReceive(HiAppEvent_Watcher* watcher, OH_HiAppEvent
 
 
 ##### OH_HiAppEvent_TakeWatcherData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_HiAppEvent_TakeWatcherData(HiAppEvent_Watcher* watcher, uint32_t eventNum, OH_HiAppEvent_OnTake onTake)
@@ -1051,6 +1129,8 @@ int OH_HiAppEvent_TakeWatcherData(HiAppEvent_Watcher* watcher, uint32_t eventNum
 
 ##### OH_HiAppEvent_AddWatcher()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_AddWatcher(HiAppEvent_Watcher* watcher)
 ```
@@ -1060,7 +1140,7 @@ int OH_HiAppEvent_AddWatcher(HiAppEvent_Watcher* watcher)
 添加监听器的接口，监听器开始监听系统消息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/K_NGe7CFRbKzWYxpY0yJcQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013534Z&HW-CC-Expire=86400&HW-CC-Sign=B5771A9CEF056D54DB3204F8B28A33E5A4AE9E9DDCF2B41C3F2A7E5774119649)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/K_NGe7CFRbKzWYxpY0yJcQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023834Z&HW-CC-Expire=86400&HW-CC-Sign=7F67D7902C0FDF72AB2635EE4FAF9561BC5344B306B541B7F0F8E83EF3245265)
 
 
 OH_HiAppEvent_AddWatcher接口涉及I/O操作。在对性能敏感的业务场景中，开发者应根据实际需要确定该接口是在主线程还是在子线程中调用。
@@ -1088,6 +1168,8 @@ OH_HiAppEvent_AddWatcher接口涉及I/O操作。在对性能敏感的业务场�
 
 
 ##### OH_HiAppEvent_RemoveWatcher()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_HiAppEvent_RemoveWatcher(HiAppEvent_Watcher* watcher)
@@ -1117,6 +1199,8 @@ int OH_HiAppEvent_RemoveWatcher(HiAppEvent_Watcher* watcher)
 
 ##### OH_HiAppEvent_ClearData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_HiAppEvent_ClearData()
 ```
@@ -1131,6 +1215,8 @@ void OH_HiAppEvent_ClearData()
 
 ##### OH_HiAppEvent_CreateProcessor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 HiAppEvent_Processor* OH_HiAppEvent_CreateProcessor(const char* name)
 ```
@@ -1140,7 +1226,7 @@ HiAppEvent_Processor* OH_HiAppEvent_CreateProcessor(const char* name)
 创建一个用于处理app事件上报的处理者。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/zD91vGcWRpiYMsltghvArg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013534Z&HW-CC-Expire=86400&HW-CC-Sign=03377365E4ECA86C7A3572BE77610A8041A17FDF60F8C1EF1CF8F736C105EBF9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/zD91vGcWRpiYMsltghvArg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023834Z&HW-CC-Expire=86400&HW-CC-Sign=5A2F4B957B1359D8CE4FF61E65B6A11B12D8A1BE36F8E5FF7C2EF4DD8F5A1E24)
 
 
 创建的处理者不再使用后，必须通过[OH_HiAppEvent_DestroyProcessor](#oh_hiappevent_destroyprocessor)接口进行销毁。
@@ -1166,6 +1252,8 @@ HiAppEvent_Processor* OH_HiAppEvent_CreateProcessor(const char* name)
 
 
 ##### OH_HiAppEvent_SetReportRoute()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_HiAppEvent_SetReportRoute(HiAppEvent_Processor* processor, const char* appId, const char* routeInfo)
@@ -1196,6 +1284,8 @@ int OH_HiAppEvent_SetReportRoute(HiAppEvent_Processor* processor, const char* ap
 
 
 ##### OH_HiAppEvent_SetReportPolicy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_HiAppEvent_SetReportPolicy(HiAppEvent_Processor* processor, int periodReport, int batchReport, bool onStartReport, bool onBackgroundReport)
@@ -1229,6 +1319,8 @@ int OH_HiAppEvent_SetReportPolicy(HiAppEvent_Processor* processor, int periodRep
 
 ##### OH_HiAppEvent_SetReportEvent()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_SetReportEvent(HiAppEvent_Processor* processor, const char* domain, const char* name, bool isRealTime)
 ```
@@ -1260,6 +1352,8 @@ int OH_HiAppEvent_SetReportEvent(HiAppEvent_Processor* processor, const char* do
 
 ##### OH_HiAppEvent_SetCustomConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_SetCustomConfig(HiAppEvent_Processor* processor, const char* key, const char* value)
 ```
@@ -1290,6 +1384,8 @@ int OH_HiAppEvent_SetCustomConfig(HiAppEvent_Processor* processor, const char* k
 
 ##### OH_HiAppEvent_SetConfigId()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_SetConfigId(HiAppEvent_Processor* processor, int configId)
 ```
@@ -1319,6 +1415,8 @@ int OH_HiAppEvent_SetConfigId(HiAppEvent_Processor* processor, int configId)
 
 ##### OH_HiAppEvent_SetConfigName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_SetConfigName(HiAppEvent_Processor* processor, const char* configName)
 ```
@@ -1347,6 +1445,8 @@ int OH_HiAppEvent_SetConfigName(HiAppEvent_Processor* processor, const char* con
 
 
 ##### OH_HiAppEvent_SetReportUserId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_HiAppEvent_SetReportUserId(HiAppEvent_Processor* processor, const char* const * userIdNames, int size)
@@ -1378,6 +1478,8 @@ int OH_HiAppEvent_SetReportUserId(HiAppEvent_Processor* processor, const char* c
 
 ##### OH_HiAppEvent_SetReportUserProperty()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_HiAppEvent_SetReportUserProperty(HiAppEvent_Processor* processor, const char* const * userPropertyNames, int size)
 ```
@@ -1408,6 +1510,8 @@ int OH_HiAppEvent_SetReportUserProperty(HiAppEvent_Processor* processor, const c
 
 ##### OH_HiAppEvent_AddProcessor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int64_t OH_HiAppEvent_AddProcessor(HiAppEvent_Processor* processor)
 ```
@@ -1436,6 +1540,8 @@ int64_t OH_HiAppEvent_AddProcessor(HiAppEvent_Processor* processor)
 
 ##### OH_HiAppEvent_DestroyProcessor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_HiAppEvent_DestroyProcessor(HiAppEvent_Processor* processor)
 ```
@@ -1456,6 +1562,8 @@ void OH_HiAppEvent_DestroyProcessor(HiAppEvent_Processor* processor)
 
 
 ##### OH_HiAppEvent_RemoveProcessor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_HiAppEvent_RemoveProcessor(int64_t processorId)
@@ -1485,6 +1593,8 @@ int OH_HiAppEvent_RemoveProcessor(int64_t processorId)
 
 ##### OH_HiAppEvent_CreateConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 HiAppEvent_Config* OH_HiAppEvent_CreateConfig(void)
 ```
@@ -1494,7 +1604,7 @@ HiAppEvent_Config* OH_HiAppEvent_CreateConfig(void)
 创建一个指向设置系统事件触发条件的配置对象的指针。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/eXSX2ygKTn-tAAodr5HZyA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013534Z&HW-CC-Expire=86400&HW-CC-Sign=F837DD6578E67B02DE9EECD8053B05D1FDE46D4A5600EAEA735ECB3D6873FF56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/eXSX2ygKTn-tAAodr5HZyA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023834Z&HW-CC-Expire=86400&HW-CC-Sign=D6C7D27CBC34E72CD6B26E4B89C942E3F5134494B406C08DCC6F9807E01A2A23)
 
 
 创建的指向设置系统事件触发条件的配置对象的指针不再使用后，必须通过[OH_HiAppEvent_DestroyConfig](#oh_hiappevent_destroyconfig)接口进行销毁。
@@ -1513,6 +1623,8 @@ HiAppEvent_Config* OH_HiAppEvent_CreateConfig(void)
 
 
 ##### OH_HiAppEvent_DestroyConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_HiAppEvent_DestroyConfig(HiAppEvent_Config* config)
@@ -1534,6 +1646,8 @@ void OH_HiAppEvent_DestroyConfig(HiAppEvent_Config* config)
 
 
 ##### OH_HiAppEvent_SetConfigItem()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_HiAppEvent_SetConfigItem(HiAppEvent_Config* config, const char* itemName, const char* itemValue)
@@ -1564,6 +1678,8 @@ int OH_HiAppEvent_SetConfigItem(HiAppEvent_Config* config, const char* itemName,
 
 
 ##### OH_HiAppEvent_SetEventConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_HiAppEvent_SetEventConfig(const char* name, HiAppEvent_Config* config)

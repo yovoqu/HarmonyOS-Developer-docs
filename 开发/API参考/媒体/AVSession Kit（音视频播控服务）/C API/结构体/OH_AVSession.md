@@ -12,6 +12,8 @@ typedef struct OH_AVSession OH_AVSession
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 播控会话对象定义。可以用OH_AVSession_Create创建一个会话对象。
  
 **起始版本：** 13

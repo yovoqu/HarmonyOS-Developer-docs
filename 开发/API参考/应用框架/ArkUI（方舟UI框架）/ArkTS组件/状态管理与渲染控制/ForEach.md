@@ -16,6 +16,8 @@ ForEach接口基于数组类型数据来进行循环渲染。
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ForEach(arr: Array&lt;any&gt;, itemGenerator: (item: any, index: number) => void, keyGenerator?: (item: any, index: number) => string)
 
 ForEach接口基于数组类型数据来进行循环渲染，需要与容器组件配合使用，且接口返回的组件应当是允许包含在ForEach父容器组件中的子组件。例如，[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)组件要求ForEach的父容器组件必须为[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件或[ListItemGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitemgroup)组件。
@@ -56,5 +58,7 @@ ForEach(this.arr, (item: Type1 | Type2) => {...}, (item: Type1 | Type2) => item.
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持[拖拽排序](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-drag-sorting)属性。

@@ -12,6 +12,8 @@
 
 ##### MessageLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ConsoleMessage的信息级别。
  
 > [!NOTE]
@@ -32,6 +34,8 @@ ConsoleMessage的信息级别。
   
 
 ##### ConsoleMessageSource23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ConsoleMessage的日志来源。
  
@@ -58,6 +62,8 @@ ConsoleMessage的日志来源。
 
 ##### MixedMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 混合内容模式。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -72,6 +78,8 @@ ConsoleMessage的日志来源。
   
 
 ##### HitTestType(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 点击事件检测结果类型。
  
@@ -97,6 +105,8 @@ ConsoleMessage的日志来源。
 
 ##### CacheMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 缓存模式。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -113,6 +123,8 @@ ConsoleMessage的日志来源。
 
 ##### OverScrollMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置Web的过滚动模式为关闭或开启。
  
  **系统能力：** SystemCapability.Web.Webview.Core
@@ -126,6 +138,8 @@ ConsoleMessage的日志来源。
   
 
 ##### BlurOnKeyboardHideMode14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置手动收起软键盘时Web元素是否失焦。
  
@@ -143,6 +157,8 @@ ConsoleMessage的日志来源。
 
 ##### WebDarkMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Web深色模式的配置。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -158,6 +174,8 @@ Web深色模式的配置。
 
 ##### WebCaptureMode10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Web屏幕捕获模式。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -170,6 +188,8 @@ Web屏幕捕获模式。
   
 
 ##### ThreatType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义网站风险类型。
  
@@ -189,6 +209,8 @@ Web屏幕捕获模式。
 
 ##### RenderExitReason9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRenderExited接口返回的渲染进程退出的具体原因。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -206,6 +228,8 @@ onRenderExited接口返回的渲染进程退出的具体原因。
 
 ##### SslError9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSslErrorEventReceive接口返回的SSL错误的具体原因。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -221,6 +245,8 @@ onSslErrorEventReceive接口返回的SSL错误的具体原因。
   
 
 ##### FileSelectorMode9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文件选择器的模式。
  
@@ -238,6 +264,8 @@ onSslErrorEventReceive接口返回的SSL错误的具体原因。
 
 ##### WebLayoutMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Web布局模式的配置。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -251,6 +279,8 @@ Web布局模式的配置。
   
 
 ##### RenderProcessNotRespondingReason12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 触发渲染进程无响应回调的原因。
  
@@ -266,6 +296,8 @@ Web布局模式的配置。
 
 ##### ProtectedResourceType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.Web.Webview.Core
   
 | 名称 | 值 | 说明 | 可申请的权限 |
@@ -279,6 +311,8 @@ Web布局模式的配置。
   
 
 ##### ContextMenuSourceType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 触发上下文菜单的事件来源。
  
@@ -295,6 +329,8 @@ Web布局模式的配置。
 
 ##### ContextMenuMediaType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 触发上下文菜单的网页元素类型。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -308,6 +344,8 @@ Web布局模式的配置。
   
 
 ##### ContextMenuDataMediaType22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 触发上下文菜单的网页元素类型（增强获取类型能力）。
  
@@ -325,6 +363,8 @@ Web布局模式的配置。
   
 
 ##### ContextMenuInputFieldType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入框类型。
  
@@ -344,6 +384,8 @@ Web布局模式的配置。
 
 ##### NativeEmbedStatus11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义同层标签生命周期，当加载页面中有同层标签会触发CREATE，同层标签移动或者放大会触发UPDATE，退出页面会触发DESTROY。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -361,6 +403,8 @@ Web布局模式的配置。
 
 ##### NativeEmbedParamStatus21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义同层渲染object标签内嵌param元素的状态变化类型，当添加param元素时触发ADD，修改param元素属性触发UPDATE，删除param元素触发DELETE。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -375,6 +419,8 @@ Web布局模式的配置。
   
 
 ##### ContextMenuEditStateFlags9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持以按位或的方式使用此枚举。例如，如果需要同时支持CAN_CUT、CAN_COPY和CAN_SELECT_ALL，可使用CAN_CUT | CAN_COPY | CAN_SELECT_ALL或11。
  
@@ -393,6 +439,8 @@ Web布局模式的配置。
 
 ##### WebNavigationType11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义navigation类型。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -410,6 +458,8 @@ Web布局模式的配置。
 
 ##### RenderMode12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义Web组件的渲染方式，默认为异步渲染模式。
  
 建议使用异步渲染模式，异步渲染模式有更好的性能和更低的功耗。
@@ -426,6 +476,8 @@ Web布局模式的配置。
 
 ##### ViewportFit12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 网页meta中viewport-fit配置的视口类型。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -440,6 +492,8 @@ Web布局模式的配置。
   
 
 ##### WebKeyboardAvoidMode12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 软键盘避让的模式。
  
@@ -456,6 +510,8 @@ Web布局模式的配置。
   
 
 ##### WebElementType13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 网页元素信息。
  
@@ -474,6 +530,8 @@ Web布局模式的配置。
 
 ##### WebResponseType13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 菜单的响应类型。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -490,6 +548,8 @@ Web布局模式的配置。
 
 ##### AudioSessionType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用中Web音频类型。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -505,6 +565,8 @@ Web布局模式的配置。
 
 ##### GestureFocusMode20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 手势获焦的模式。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -518,6 +580,8 @@ Web布局模式的配置。
   
 
 ##### WebRotateEffect22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 组件旋转时，宽高动画过程中组件内容如何填充以适应新尺寸的方式。
  
@@ -533,6 +597,8 @@ Web布局模式的配置。
 
 ##### WebBypassVsyncCondition20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 跳过渲染vsync条件。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -546,6 +612,8 @@ Web布局模式的配置。
   
 
 ##### PdfLoadResult20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义PDF页面的加载结果。
  
@@ -564,6 +632,8 @@ Web布局模式的配置。
 
 ##### DetectedBlankScreenReason22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 白屏的具体原因。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -578,6 +648,8 @@ Web布局模式的配置。
 
 ##### BlankScreenDetectionMethod22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 白屏检测使用的检测策略的方法。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -590,6 +662,8 @@ Web布局模式的配置。
   
 
 ##### CredentialType22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 凭证类型。
  
@@ -606,6 +680,8 @@ Web布局模式的配置。
 
 ##### PinVerifyResult22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PIN码认证结果。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -619,6 +695,8 @@ PIN码认证结果。
   
 
 ##### CameraCaptureState23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义摄像头使用状态的值。
  
@@ -635,6 +713,8 @@ PIN码认证结果。
 
 ##### MicrophoneCaptureState23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义麦克风使用状态的值。
  
 **系统能力：** SystemCapability.Web.Webview.Core
@@ -649,6 +729,8 @@ PIN码认证结果。
   
 
 ##### NavigationPolicy23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 WebView中新窗口的打开方式。
  

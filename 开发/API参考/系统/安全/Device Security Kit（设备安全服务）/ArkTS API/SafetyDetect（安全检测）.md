@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { safetyDetect } from '@kit.DeviceSecurityKit';
 ```
@@ -21,6 +23,8 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 
 ##### SysIntegrityRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 系统完整性检测的请求参数。
 
@@ -39,6 +43,8 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 ##### SysIntegrityResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 系统完整性检测返回值。
 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
@@ -55,6 +61,8 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 
 ##### UrlCheckRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 URL检测请求参数。
 
@@ -73,6 +81,8 @@ URL检测请求参数。
 
 ##### UrlCheckResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 URL检测返回值。
 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
@@ -89,6 +99,8 @@ URL检测返回值。
 
 
 ##### UrlCheckResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 URL检测结果详情。
 
@@ -107,6 +119,8 @@ URL检测结果详情。
 
 
 ##### UrlThreatType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 枚举URL威胁类型。
 
@@ -128,12 +142,14 @@ URL检测结果详情。
 
 ##### checkSysIntegrity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 checkSysIntegrity(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[SysIntegrityResponse](#sysintegrityresponse)>
 
 获取本设备的系统完整性的在线检测结果。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/0EWTH04WSs2emgX6euJDMg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=F5A5768D25388EAA14EC926E788262E7E0910B20492EC1534F01A3C0F05CCD0B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/0EWTH04WSs2emgX6euJDMg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023909Z&HW-CC-Expire=86400&HW-CC-Sign=62278C10BE95E2E2A78898FA43C51F5D890DB4756D1B8F45EDEFF9B0BF205841)
 
 
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
@@ -205,12 +221,14 @@ try {
 
 ##### checkUrlThreat
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 checkUrlThreat(req: [UrlCheckRequest](#urlcheckrequest)): Promise<[UrlCheckResponse](#urlcheckresponse)>
 
 检测URL是否为恶意网址。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/REE4jbqhTpOTOixmgVRP0g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=CE7569F3EF1586782143C60DE748BB3AEB4C1831C94976192507B2596BDD8FD3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/REE4jbqhTpOTOixmgVRP0g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023909Z&HW-CC-Expire=86400&HW-CC-Sign=80B5A51FC8C9744C13D08D85B3A841477467ABEB1AB4623A539CFA37A613A3C5)
 
 
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
@@ -282,6 +300,8 @@ try {
 
 ##### checkSysIntegrityOnLocal
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 checkSysIntegrityOnLocal(): Promise&lt;string&gt;
 
 获取本设备的系统完整性的本地检测结果。使用Promise异步回调。
@@ -337,12 +357,14 @@ try {
 
 ##### checkSysIntegrityEnhanced
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 checkSysIntegrityEnhanced(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[SysIntegrityResponse](#sysintegrityresponse)>
 
 获取本设备的系统完整性的在线增强检测结果。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/DBsNpbmYQB6ZCIIx1oJMwg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013610Z&HW-CC-Expire=86400&HW-CC-Sign=091BC717B4D2ACD2B27B99A090CD54A9502314E0A5E8EB7E5298160671B56F06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/DBsNpbmYQB6ZCIIx1oJMwg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023909Z&HW-CC-Expire=86400&HW-CC-Sign=9F9DCE5AB2E189B153D2A68175E852C0B3D3F9406471D6017072D6E0D39D9CBD)
 
 
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。

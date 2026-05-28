@@ -12,6 +12,8 @@
 
 ##### 501 无法调用接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Resource unavailable.
@@ -31,6 +33,8 @@ Resource unavailable.
 
 
 ##### 62980096 操作失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -54,6 +58,8 @@ The operation failed. Possible cause: 1.Image upload exception. 2. Decoding proc
 
 
 ##### 62980097 pixelmap序列化传输失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -98,6 +104,8 @@ Shared memory does not exist.
 
 ##### 62980099 共享内存数据异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The shared memory data is abnormal.
@@ -141,6 +149,8 @@ Image decoding abnormal.
 
 ##### 62980101 图片输入数据错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The image data is abnormal.
@@ -182,6 +192,8 @@ Image malloc abnormal. This status code is thrown when an error occurs during th
 
 ##### 62980103 图片类型不支持
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The image data is not supported.
@@ -201,6 +213,8 @@ The image data is not supported.
 
 
 ##### 62980104 图片初始化错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -223,6 +237,8 @@ Image initialization abnormal. This status code is thrown when an error occurs d
 
 ##### 62980105 图片获取数据错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to get the data.
@@ -242,6 +258,8 @@ Failed to get the data.
 
 
 ##### 62980106 图片数据太大
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -283,6 +301,8 @@ Image conversion abnormal.
 
 ##### 62980108 图片颜色转换错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to convert the color space.
@@ -302,6 +322,8 @@ Failed to convert the color space.
 
 
 ##### 62980109 裁剪错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -323,6 +345,8 @@ Failed to crop the image.
 
 ##### 62980110 图片源数据错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The image source data is incorrect.
@@ -342,6 +366,8 @@ The image source data is incorrect.
 
 
 ##### 62980111 图片源数据不完整
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -363,6 +389,8 @@ The image source data is incomplete.
 
 ##### 62980112 图片格式不匹配
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The image format does not match.
@@ -382,6 +410,8 @@ The image format does not match.
 
 
 ##### 62980113 图片未知格式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -423,6 +453,8 @@ Image source not parsed.
 
 ##### 62980115 图片无效参数
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Invalid image parameter.
@@ -442,6 +474,8 @@ Invalid image parameter.
 
 
 ##### 62980116 解码失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -484,6 +518,8 @@ Failed to register the plugin.
 
 ##### 62980118 创建插件失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to create the image plugin.
@@ -504,6 +540,8 @@ Failed to create the image plugin.
 
 ##### 62980119 图片编码失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to encode the image.
@@ -523,6 +561,8 @@ Failed to encode the image.
 
 
 ##### 62980120 图片添加像素映射失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -564,6 +604,8 @@ Image hardware decoding is not supported.
 
 ##### 62980122 解码图片头异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to decode the image header.
@@ -583,6 +625,8 @@ Failed to decode the image header.
 
 
 ##### 62980123 图片不支持exif解码
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -624,6 +668,8 @@ The image property does not exist.
 
 ##### 62980133 图片属性赋值超出范围
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The EXIF data is out of range.
@@ -643,6 +689,8 @@ The EXIF data is out of range.
 
 
 ##### 62980135 图片属性值无效
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -664,6 +712,8 @@ The EXIF value is invalid.
 
 ##### 62980137 图片操作无效
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Invalid media operation.
@@ -683,6 +733,8 @@ Invalid media operation.
 
 
 ##### 62980146 图片属性值写入文件失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -704,6 +756,8 @@ The EXIF data failed to be written to the file.
 
 ##### 62980149 图片参数无效
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Invalid MIME type for the image source.
@@ -724,6 +778,8 @@ Invalid MIME type for the image source.
 
 ##### 62980172 编码ICC失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to encode icc.
@@ -743,6 +799,8 @@ Failed to encode icc.
 
 
 ##### 62980173 DMA内存空间错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -765,6 +823,8 @@ DMA内存空间错误。
 
 ##### 62980174 DMA内存数据异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The DMA memory data is abnormal.
@@ -786,6 +846,8 @@ DMA内存数据异常。
 
 ##### 62980177 API环境异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Abnormal API environment.
@@ -805,6 +867,8 @@ API使用环境存在问题。
 
 
 ##### 62980178 PixelMap创建失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -826,6 +890,8 @@ PixelMap创建失败。
 
 ##### 62980179 缓冲区大小异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Abnormal buffer size.
@@ -846,6 +912,8 @@ Abnormal buffer size.
 
 ##### 62980180 文件描述符映射失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 FD mapping failed.
@@ -865,6 +933,8 @@ FD mapping failed.
 
 
 ##### 62980246 读取PixelMap失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -906,6 +976,8 @@ Failed to write the pixel map.
 
 ##### 62980248 PixelMap不允许修改
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 PixelMap does not allow modification.
@@ -925,6 +997,8 @@ PixelMap不允许修改。
 
 
 ##### 62980252 创建surface失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -966,6 +1040,8 @@ Configuration error.
 
 ##### 62980274 图片转换失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The conversion failed.
@@ -985,6 +1061,8 @@ The conversion failed.
 
 
 ##### 62980276 不支持图片转换目标类型
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1006,6 +1084,8 @@ The type to be converted is an unsupported target pixel format.
 
 ##### 62980286 PixelMap设置内存标识符失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Memory format not supported.
@@ -1026,6 +1106,8 @@ PixelMap设置内存标识符失败。
 
 
 ##### 62980302 内存拷贝失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1108,6 +1190,8 @@ Too large data or image.
 
 ##### 7600104 获取图像数据失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to get the data from Surface.
@@ -1168,6 +1252,8 @@ DMA内存操作失败。
 
 ##### 7600201 不支持的操作
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Unsupported operation, e.g. on cross-platform.
@@ -1187,6 +1273,8 @@ Unsupported operation, e.g. on cross-platform.
 
 
 ##### 7600202 不支持的元数据读写
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1228,6 +1316,8 @@ PixelMap的格式不支持转换。
 
 ##### 7600204 无效的区域
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Invalid region.
@@ -1247,6 +1337,8 @@ Region中设置的顶点位置、宽度或高度超出图片尺寸范围。
 
 
 ##### 7600205 不支持的内存格式或像素格式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1268,6 +1360,8 @@ Unsupported memory format or pixel format.
 
 ##### 7600206 无效参数
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Invalid parameter.
@@ -1288,6 +1382,8 @@ Invalid parameter.
 
 ##### 7600301 申请内存失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Memory alloc failed.
@@ -1307,6 +1403,8 @@ Memory alloc failed.
 
 
 ##### 7600302 内存拷贝失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1348,6 +1446,8 @@ PixelMap或内存地址无效。
 
 ##### 7600305 创建PixelMap失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to create the PixelMap.
@@ -1388,6 +1488,8 @@ Unsupported allocator mode, e.g., use share memory to create a HDR image as only
 
 ##### 7600901 未知错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Unknown error.
@@ -1407,6 +1509,8 @@ Unknown error.
 
 
 ##### 7700101 图片源存在问题
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1429,6 +1533,8 @@ Bad source.
 
 ##### 7700102 不支持的MIME类型
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Unsupported MIME type.
@@ -1448,6 +1554,8 @@ Unsupported MIME type.
 
 
 ##### 7700103 图片太大
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1469,6 +1577,8 @@ Image too large.
 
 ##### 7700201 不支持的内存分配类型
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Unsupported allocator type, e.g., use share memory to decode a HDR image as only DMA supported hdr metadata.
@@ -1488,6 +1598,8 @@ Unsupported allocator type, e.g., use share memory to decode a HDR image as only
 
 
 ##### 7700202 不支持的元数据
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1509,6 +1621,8 @@ Unsupported metadata.
 
 ##### 7700203 不支持的选项
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Unsupported options, e.g, cannot convert image into desired pixel format.
@@ -1529,6 +1643,8 @@ Unsupported options, e.g, cannot convert image into desired pixel format.
 
 ##### 7700204 无效参数
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Invalid parameter.
@@ -1548,6 +1664,8 @@ Invalid parameter.
 
 
 ##### 7700301 解码失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1570,6 +1688,8 @@ Decode failed.
 
 ##### 7700302 内存分配失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Memory allocation failed.
@@ -1589,6 +1709,8 @@ Memory allocation failed.
 
 
 ##### 7700304 图片信息写入文件失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -1650,6 +1772,8 @@ Invalid parameter for ImagePacker.
 
 ##### 7800301 编码失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Encode failed.
@@ -1669,6 +1793,8 @@ Encode failed.
 
 
 ##### 7900201 无效参数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

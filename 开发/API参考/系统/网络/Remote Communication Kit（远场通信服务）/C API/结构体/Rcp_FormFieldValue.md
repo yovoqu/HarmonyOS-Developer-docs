@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 简单表单数据字段值，参见[Rcp_Form](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-overview#rcp_form)和[Rcp_MultipartFormFieldValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___multipart_form_field_value)。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### next
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 struct Rcp_FormFieldValue* Rcp_FormFieldValue::next
@@ -50,6 +60,8 @@ struct Rcp_FormFieldValue* Rcp_FormFieldValue::next
 
 ##### type
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_FormValueType Rcp_FormFieldValue::type
 ```
@@ -61,6 +73,8 @@ Rcp_FormValueType Rcp_FormFieldValue::type
   
 
 ##### varBool
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint8_t Rcp_FormFieldValue::varBool
@@ -74,6 +88,8 @@ bool类型。值为0表示false，值大于0表示true。
 
 ##### varDouble
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double Rcp_FormFieldValue::varDouble
 ```
@@ -85,6 +101,8 @@ double类型。
   
 
 ##### varInt32
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t Rcp_FormFieldValue::varInt32
@@ -98,6 +116,8 @@ int32类型。
 
 ##### varInt64
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int64_t Rcp_FormFieldValue::varInt64
 ```
@@ -109,6 +129,8 @@ int64类型。
   
 
 ##### varStr
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_Buffer Rcp_FormFieldValue::varStr

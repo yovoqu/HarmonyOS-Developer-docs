@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { imageFeaturePicker } from '@kit.Penkit';
 ```
@@ -21,6 +23,8 @@ import { imageFeaturePicker } from '@kit.Penkit';
   
 
 ##### PickedColorInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 全局取色结果对象，包含取色的基本信息。
  
@@ -40,6 +44,8 @@ import { imageFeaturePicker } from '@kit.Penkit';
   
 
 ##### pickForResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 pickForResult(x?:number, y?:number):Promise&lt;PickedColorInfo&gt;
  
@@ -99,6 +105,8 @@ try {
   
 
 ##### pickForResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 pickForResult(x?:number, y?:number, showValue?:boolean):Promise&lt;PickedColorInfo&gt;
  

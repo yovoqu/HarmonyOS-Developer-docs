@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 声明用于跨设备的文件的权限管理、加密存储、授权访问等能力的接口。
  
 **库：** libohdlp_permission.so
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -51,9 +59,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### DLP_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum DLP_ErrCode
@@ -80,6 +92,8 @@ DLP错误码的枚举。
 
 ##### DLP_FileAccess
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum DLP_FileAccess
 ```
@@ -102,9 +116,13 @@ DLP文件授权类型的枚举。
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OH_DLP_GetDlpPermissionInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 DLP_ErrCode OH_DLP_GetDlpPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t *flags)
@@ -135,6 +153,8 @@ DLP_ErrCode OH_DLP_GetDlpPermissionInfo(DLP_FileAccess *dlpFileAccess, uint32_t 
 
 ##### OH_DLP_GetOriginalFileName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char **originalFileName)
 ```
@@ -164,6 +184,8 @@ DLP_ErrCode OH_DLP_GetOriginalFileName(const char *fileName, char **originalFile
 
 ##### OH_DLP_IsInSandbox()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 DLP_ErrCode OH_DLP_IsInSandbox(bool *isInSandbox)
 ```
@@ -191,6 +213,8 @@ DLP_ErrCode OH_DLP_IsInSandbox(bool *isInSandbox)
   
 
 ##### OH_DLP_SetSandboxAppConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 DLP_ErrCode OH_DLP_SetSandboxAppConfig(const char *configInfo)
@@ -220,6 +244,8 @@ DLP_ErrCode OH_DLP_SetSandboxAppConfig(const char *configInfo)
 
 ##### OH_DLP_GetSandboxAppConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 DLP_ErrCode OH_DLP_GetSandboxAppConfig(char **configInfo)
 ```
@@ -247,6 +273,8 @@ DLP_ErrCode OH_DLP_GetSandboxAppConfig(char **configInfo)
   
 
 ##### OH_DLP_CleanSandboxAppConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 DLP_ErrCode OH_DLP_CleanSandboxAppConfig()

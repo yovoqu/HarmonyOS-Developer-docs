@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import {
   ArcSlider,
@@ -33,11 +35,15 @@ import {
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
  
@@ -45,11 +51,15 @@ import {
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### ArcSlider
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArcSlider({ options: ArcSliderOptions })
  
@@ -71,6 +81,8 @@ ArcSlider({ options: ArcSliderOptions })
   
 
 ##### ArcSliderOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 配置弧形Slider的信息。
  
@@ -99,6 +111,8 @@ ArcSlider({ options: ArcSliderOptions })
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(options?: ArcSliderOptionsConstructorOptions)
  
 ArcSliderOptions的构造函数。
@@ -117,6 +131,8 @@ ArcSliderOptions的构造函数。
   
 
 ##### ArcSliderValueOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 配置弧形Slider的数值信息。
  
@@ -141,6 +157,8 @@ ArcSliderOptions的构造函数。
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(options?: ArcSliderValueOptionsConstructorOptions)
  
 ArcSliderValueOptions的构造函数。
@@ -159,6 +177,8 @@ ArcSliderValueOptions的构造函数。
   
 
 ##### ArcSliderLayoutOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 配置弧形Slider的布局信息。
  
@@ -182,6 +202,8 @@ ArcSliderValueOptions的构造函数。
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(options?: ArcSliderLayoutOptionsConstructorOptions)
  
 ArcSliderLayoutOptions的构造函数。
@@ -200,6 +222,8 @@ ArcSliderLayoutOptions的构造函数。
   
 
 ##### ArcSliderStyleOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 配置弧形Slider的样式信息。
  
@@ -226,6 +250,8 @@ ArcSliderLayoutOptions的构造函数。
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(options?: ArcSliderStyleOptionsConstructorOptions)
  
 ArcSliderStyleOptions的构造函数。
@@ -245,6 +271,8 @@ ArcSliderStyleOptions的构造函数。
 
 ##### ArcSliderPosition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 配置弧形Slider的屏幕显示位置。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -260,6 +288,8 @@ ArcSliderStyleOptions的构造函数。
   
 
 ##### ArcSliderTouchHandler
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ArcSliderTouchHandler = (event: TouchEvent) => void
  
@@ -280,6 +310,8 @@ type ArcSliderTouchHandler = (event: TouchEvent) => void
 
 ##### ArcSliderChangeHandler
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ArcSliderChangeHandler = (progress: number) => void
  
 弧形Slider的进度值发生变化时，告知应用。
@@ -299,6 +331,8 @@ type ArcSliderChangeHandler = (progress: number) => void
 
 ##### ArcSliderEnlargeHandler
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void
  
 弧形Slider放大或缩小时，告知应用。
@@ -317,6 +351,8 @@ type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void
   
 
 ##### ArcSliderOptionsConstructorOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArcSliderOptions的构造信息。
  
@@ -339,6 +375,8 @@ ArcSliderOptions的构造信息。
 
 ##### ArcSliderValueOptionsConstructorOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ArcSliderValueOptions的构造信息。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -356,6 +394,8 @@ ArcSliderValueOptions的构造信息。
 
 ##### ArcSliderLayoutOptionsConstructorOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ArcSliderLayoutValueOptions的构造信息。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -371,6 +411,8 @@ ArcSliderLayoutValueOptions的构造信息。
   
 
 ##### ArcSliderStyleOptionsConstructorOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArcSliderStyleOptions的构造信息。
  
@@ -390,6 +432,8 @@ ArcSliderStyleOptions的构造信息。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 从API version 18开始，该示例展示了ArcSlider组件的基本用法。
  
@@ -454,4 +498,4 @@ struct ArcSliderExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/_eXd_2fJT0uNUoHtyM576w/zh-cn_image_0000002581435864.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=AE25E40EDB9C52791804C85AA50554FCAD1507249671EAC4ECE931A284CFC61E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/_eXd_2fJT0uNUoHtyM576w/zh-cn_image_0000002581435864.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=22F462F63A19C9818F91503FC0E3A00D9AC9B6161F659C2749C29D974F2F0362)

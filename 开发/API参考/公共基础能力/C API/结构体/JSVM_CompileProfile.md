@@ -12,6 +12,8 @@ typedef const struct {...} JSVM_CompileProfile
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 与JSVM_COMPILE_COMPILE_PROFILE一起传递的编译采样文件。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef const struct {...} JSVM_CompileProfile
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |

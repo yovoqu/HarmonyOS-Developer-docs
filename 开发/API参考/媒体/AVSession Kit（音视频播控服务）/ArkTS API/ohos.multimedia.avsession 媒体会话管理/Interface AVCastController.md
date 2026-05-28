@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { avSession } from '@kit.AVSessionKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -22,6 +24,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 ##### getAVPlaybackState10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getAVPlaybackState(callback: AsyncCallback&lt;AVPlaybackState&gt;): void
 
@@ -61,6 +65,8 @@ avCastController.getAVPlaybackState((err: BusinessError, state: avSession.AVPlay
 
 ##### getAVPlaybackState10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getAVPlaybackState(): Promise&lt;AVPlaybackState&gt;
 
 获取当前的远端播放状态。结果通过Promise异步回调方式返回。
@@ -98,6 +104,8 @@ avCastController.getAVPlaybackState().then((state: avSession.AVPlaybackState) =>
 
 
 ##### getSupportedDecoders19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getSupportedDecoders(): Promise<Array&lt;DecoderType&gt;>
 
@@ -139,6 +147,8 @@ avCastController.getSupportedDecoders().then((decoderTypes: avSession.DecoderTyp
 
 
 ##### getRecommendedResolutionLevel19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getRecommendedResolutionLevel(decoderType: DecoderType): Promise&lt;ResolutionLevel&gt;
 
@@ -186,6 +196,8 @@ avCastController.getRecommendedResolutionLevel(decoderType).then((resolutionLeve
 
 ##### getSupportedHdrCapabilities19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>
 
 获取当前的远端设备所支持的HDR能力。使用Promise异步回调。
@@ -229,6 +241,8 @@ avCastController.getSupportedHdrCapabilities().then((hdrFormats: hdrCapability.H
 
 ##### getSupportedPlaySpeeds19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getSupportedPlaySpeeds(): Promise<Array&lt;number&gt;>
 
 获取当前的远端设备所支持倍速播放列表，仅支持使用cast+协议连接的设备。使用Promise异步回调。
@@ -269,6 +283,8 @@ avCastController.getSupportedPlaySpeeds().then((nums: number[]) => {
 
 
 ##### sendControlCommand10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 sendControlCommand(command: AVCastControlCommand): Promise&lt;void&gt;
 
@@ -319,6 +335,8 @@ avCastController.sendControlCommand(avCommand).then(() => {
 
 ##### sendControlCommand10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 sendControlCommand(command: AVCastControlCommand, callback: AsyncCallback&lt;void&gt;): void
 
 通过会话控制器发送命令到其对应的会话。结果通过callback异步回调方式返回。
@@ -361,6 +379,8 @@ avCastController.sendControlCommand(avCommand, (err: BusinessError) => {
 
 
 ##### sendCustomData20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 sendCustomData(data: Record<string, Object>): Promise&lt;void&gt;
 
@@ -406,6 +426,8 @@ avCastController.sendCustomData({customData : "This is custom data"}).then(() =>
 
 
 ##### prepare10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 prepare(item: AVQueueItem, callback: AsyncCallback&lt;void&gt;): void
 
@@ -465,6 +487,8 @@ avCastController.prepare(playItem, (err: BusinessError) => {
 
 
 ##### prepare10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 prepare(item: AVQueueItem): Promise&lt;void&gt;
 
@@ -531,6 +555,8 @@ avCastController.prepare(playItem).then(() => {
 
 ##### start10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 start(item: AVQueueItem, callback: AsyncCallback&lt;void&gt;): void
 
 启动播放某个媒体资源。结果通过callback异步回调方式返回。
@@ -594,6 +620,8 @@ avCastController.start(playItem, (err: BusinessError) => {
 
 
 ##### start10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 start(item: AVQueueItem): Promise&lt;void&gt;
 
@@ -664,6 +692,8 @@ avCastController.start(playItem).then(() => {
 
 ##### getCurrentItem10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getCurrentItem(callback: AsyncCallback&lt;AVQueueItem&gt;): void
 
 获取当前投播的资源信息。结果通过callback异步回调方式返回。
@@ -701,6 +731,8 @@ avCastController.getCurrentItem((err: BusinessError, value: avSession.AVQueueIte
 
 
 ##### getCurrentItem10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getCurrentItem(): Promise&lt;AVQueueItem&gt;
 
@@ -740,6 +772,8 @@ avCastController.getCurrentItem().then((value: avSession.AVQueueItem) => {
 
 ##### getValidCommands11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getValidCommands(callback: AsyncCallback<Array&lt;AVCastControlCommandType&gt;>): void
 
 获取当前支持的命令。结果通过callback异步回调方式返回。
@@ -778,6 +812,8 @@ avCastController.getValidCommands((err: BusinessError, state: avSession.AVCastCo
 
 ##### getValidCommands11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getValidCommands(): Promise<Array&lt;AVCastControlCommandType&gt;>
 
 获取当前支持的命令。结果通过Promise异步回调方式返回。
@@ -813,6 +849,8 @@ avCastController.getValidCommands().then((state: avSession.AVCastControlCommandT
 
 
 ##### processMediaKeyResponse12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 processMediaKeyResponse(assetId: string, response: Uint8Array): Promise&lt;void&gt;
 
@@ -868,6 +906,8 @@ let keyRequestCallback: avSession.KeyRequestCallback = async(assetId: string, re
 
 ##### release11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 release(callback: AsyncCallback&lt;void&gt;): void
 
 销毁当前controller，结果通过callback异步回调方式返回。
@@ -906,6 +946,8 @@ avCastController.release((err: BusinessError) => {
 
 ##### release11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 销毁当前controller。结果通过Promise异步回调方式返回。
@@ -943,6 +985,8 @@ avCastController.release().then(() => {
 
 
 ##### on('playbackStateChange')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'playbackStateChange', filter: Array<keyof AVPlaybackState> | 'all', callback: (state: AVPlaybackState) => void): void
 
@@ -990,6 +1034,8 @@ avCastController.on('playbackStateChange', playbackFilter, (playbackState: avSes
 
 ##### off('playbackStateChange')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'playbackStateChange', callback?: (state: AVPlaybackState) => void): void
 
 取消播放状态变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1025,6 +1071,8 @@ avCastController.off('playbackStateChange');
 
 
 ##### on('mediaItemChange')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'mediaItemChange', callback: Callback&lt;AVQueueItem&gt;): void
 
@@ -1066,6 +1114,8 @@ avCastController.on('mediaItemChange', (item: avSession.AVQueueItem) => {
 
 ##### off('mediaItemChange')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'mediaItemChange'): void
 
 取消设置投播当前播放媒体内容事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1100,6 +1150,8 @@ avCastController.off('mediaItemChange');
 
 
 ##### on('playNext')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'playNext', callback: Callback&lt;void&gt;): void
 
@@ -1141,6 +1193,8 @@ avCastController.on('playNext', () => {
 
 ##### off('playNext')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'playNext'): void
 
 取消设置播放下一首资源事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1175,6 +1229,8 @@ avCastController.off('playNext');
 
 
 ##### on('playPrevious')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'playPrevious', callback: Callback&lt;void&gt;): void
 
@@ -1216,6 +1272,8 @@ avCastController.on('playPrevious', () => {
 
 ##### off('playPrevious')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'playPrevious'): void
 
 取消设置播放上一首资源事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1250,6 +1308,8 @@ avCastController.off('playPrevious');
 
 
 ##### on('requestPlay')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'requestPlay', callback: Callback&lt;AVQueueItem&gt;): void
 
@@ -1289,6 +1349,8 @@ avCastController.on('requestPlay', (item: avSession.AVQueueItem) => {
 
 ##### off('requestPlay')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'requestPlay', callback?: Callback&lt;AVQueueItem&gt;): void
 
 取消设置请求播放事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1322,6 +1384,8 @@ avCastController.off('requestPlay');
 
 
 ##### on('endOfStream')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'endOfStream', callback: Callback&lt;void&gt;): void
 
@@ -1361,6 +1425,8 @@ avCastController.on('endOfStream', () => {
 
 ##### off('endOfStream')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'endOfStream', callback?: Callback&lt;void&gt;): void
 
 取消设置播放结束事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1394,6 +1460,8 @@ avCastController.off('endOfStream');
 
 
 ##### on('seekDone')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'seekDone', callback: Callback&lt;number&gt;): void
 
@@ -1435,6 +1503,8 @@ avCastController.on('seekDone', (pos: number) => {
 
 ##### off('seekDone')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'seekDone'): void
 
 取消设置seek结束事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1469,6 +1539,8 @@ avCastController.off('seekDone');
 
 
 ##### on('validCommandChange')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'validCommandChange', callback: Callback<Array&lt;AVCastControlCommandType&gt;>)
 
@@ -1510,6 +1582,8 @@ avCastController.on('validCommandChange', (validCommands: avSession.AVCastContro
 
 ##### off('validCommandChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'validCommandChange', callback?: Callback<Array&lt;AVCastControlCommandType&gt;>)
 
 取消会话有效命令变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1544,6 +1618,8 @@ avCastController.off('validCommandChange');
 
 
 ##### on('videoSizeChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'videoSizeChange', callback: (width: number, height: number) => void): void
 
@@ -1583,6 +1659,8 @@ avCastController.on('videoSizeChange', (width: number, height: number) => {
 
 ##### off('videoSizeChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'videoSizeChange'): void
 
 取消视频尺寸事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1615,6 +1693,8 @@ avCastController.off('videoSizeChange');
 
 
 ##### on('error')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -1664,6 +1744,8 @@ avCastController.on('error', (error: BusinessError) => {
 
 ##### off('error')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'error'): void
 
 取消播放的错误事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1704,6 +1786,8 @@ avCastController.off('error')
 
 
 ##### on('keyRequest')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'keyRequest', callback: KeyRequestCallback): void
 
@@ -1746,6 +1830,8 @@ avCastController.on('keyRequest', keyRequestCallback);
 
 ##### off('keyRequest')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'keyRequest', callback?: KeyRequestCallback): void
 
 取消许可证请求事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1781,6 +1867,8 @@ avCastController.off('keyRequest');
 
 
 ##### on('castControlGenericError')13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'castControlGenericError', callback: ErrorCallback): void
 
@@ -1837,6 +1925,8 @@ avCastController.on('castControlGenericError', (error: BusinessError) => {
 
 ##### off('castControlGenericError')13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'castControlGenericError', callback?: ErrorCallback): void
 
 取消投播通用的错误事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1871,6 +1961,8 @@ avCastController.off('castControlGenericError');
 
 
 ##### on('castControlIoError')13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'castControlIoError', callback: ErrorCallback): void
 
@@ -1930,6 +2022,8 @@ avCastController.on('castControlIoError', (error: BusinessError) => {
 
 ##### off('castControlIoError')13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'castControlIoError', callback?: ErrorCallback): void
 
 取消投播输入/输出的错误事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -1964,6 +2058,8 @@ avCastController.off('castControlIoError');
 
 
 ##### on('castControlParsingError')13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'castControlParsingError', callback: ErrorCallback): void
 
@@ -2011,6 +2107,8 @@ avCastController.on('castControlParsingError', (error: BusinessError) => {
 
 ##### off('castControlParsingError')13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'castControlParsingError', callback?: ErrorCallback): void
 
 取消投播解析的错误事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -2045,6 +2143,8 @@ avCastController.off('castControlParsingError');
 
 
 ##### on('castControlDecodingError')13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'castControlDecodingError', callback: ErrorCallback): void
 
@@ -2093,6 +2193,8 @@ avCastController.on('castControlDecodingError', (error: BusinessError) => {
 
 ##### off('castControlDecodingError')13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'castControlDecodingError', callback?: ErrorCallback): void
 
 取消投播解码的错误事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -2127,6 +2229,8 @@ avCastController.off('castControlDecodingError');
 
 
 ##### on('castControlAudioRendererError')13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'castControlAudioRendererError', callback: ErrorCallback): void
 
@@ -2172,6 +2276,8 @@ avCastController.on('castControlAudioRendererError', (error: BusinessError) => {
 
 ##### off('castControlAudioRendererError')13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'castControlAudioRendererError', callback?: ErrorCallback): void
 
 取消投播音频渲染器的错误事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -2206,6 +2312,8 @@ avCastController.off('castControlAudioRendererError');
 
 
 ##### on('castControlDrmError')13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'castControlDrmError', callback: ErrorCallback): void
 
@@ -2258,6 +2366,8 @@ avCastController.on('castControlDrmError', (error: BusinessError) => {
 
 ##### off('castControlDrmError')13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'castControlDrmError', callback?: ErrorCallback): void
 
 取消投播drm的错误事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
@@ -2292,6 +2402,8 @@ avCastController.off('castControlDrmError');
 
 
 ##### on('customDataChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'customDataChange', callback: Callback<Record<string, Object>>): void
 
@@ -2329,6 +2441,8 @@ avCastController.on('customDataChange', (callback) => {
 
 
 ##### off('customDataChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'customDataChange', callback?: Callback<Record<string, Object>>): void
 

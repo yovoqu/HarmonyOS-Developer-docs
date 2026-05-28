@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map } from '@kit.MapKit';
   
 
 ##### AnimationSet
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 动画类的集合，继承[Animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animation)。
  
@@ -28,6 +32,8 @@ import { map } from '@kit.MapKit';
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 constructor(shareInterpolator: boolean)
  
@@ -70,6 +76,8 @@ animation.clearAnimation();
 
 ##### addAnimation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addAnimation(animation: Animation): void
  
 动画类集合增加动画。
@@ -104,6 +112,8 @@ animation.addAnimation(animation3);
   
 
 ##### clearAnimation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 clearAnimation(): void
  

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { netQuality } from '@kit.NetworkBoostKit';
 ```
@@ -19,6 +21,8 @@ import { netQuality } from '@kit.NetworkBoostKit';
   
 
 ##### netQuality.on( 'netQosChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'netQosChange', callback: Callback<Array&lt;NetworkQos&gt;>): void
  
@@ -72,6 +76,8 @@ try {
 
 ##### netQuality.off( 'netQosChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'netQosChange', callback?: Callback<Array&lt;NetworkQos&gt;>): void
  
 取消订阅网络质量信息。
@@ -116,6 +122,8 @@ try {
   
 
 ##### netQuality.on( 'netSceneChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'netSceneChange', callback: Callback<Array&lt;NetworkScene&gt;>): void
  
@@ -172,6 +180,8 @@ try {
 
 ##### netQuality.off( 'netSceneChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'netSceneChange', callback?: Callback<Array&lt;NetworkScene&gt;>): void
  
 取消订阅网络场景信息。
@@ -216,6 +226,8 @@ try {
   
 
 ##### netQuality.reportQoe
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 reportQoe(appQoe: AppQoe): void
  
@@ -267,6 +279,8 @@ try {
 
 ##### AppQoe
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 应用传输体验信息。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -282,6 +296,8 @@ try {
   
 
 ##### NetworkQos
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 网络质量回调信息。
  
@@ -305,6 +321,8 @@ try {
 
 ##### PathType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 数据路径类型，枚举值。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -323,6 +341,8 @@ try {
 
 ##### RateBps
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 type RateBps = number
  
 带宽或速率的抽象表示。
@@ -339,6 +359,8 @@ type RateBps = number
   
 
 ##### ServiceType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type ServiceType = 'default' | 'background' | 'realtimeVoice' | 'realtimeVideo' | 'callSignaling' | 'realtimeGame' | 'normalGame' | 'shortVideo' | 'longVideo' | 'livestreamingAnchor' | 'livestreamingWatcher' | 'download' | 'upload' | 'browser' | 'transaction' | 'shopping' | 'detection' | 'cloudService' | 'voiceConference' | 'videoConference' | 'audio' | 'navigation' | 'seckillService' | 'login'
  
@@ -380,6 +402,8 @@ type ServiceType = 'default' | 'background' | 'realtimeVoice' | 'realtimeVideo' 
 
 ##### QoeType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 type QoeType = 'good' | BadQoeCause
  
 应用体验类型。
@@ -397,6 +421,8 @@ type QoeType = 'good' | BadQoeCause
   
 
 ##### BadQoeCause
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOutOfOrder' | 'highJitter' | 'highLatency'
  
@@ -421,6 +447,8 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
 
 ##### 速率带宽级别
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义了多个速率或带宽的常量值。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -440,6 +468,8 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
 
 ##### NetworkScene
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 网络场景状态变更回调信息。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -458,6 +488,8 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
 
 ##### WeakSignalPrediction
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 弱信号预测相关信息。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -474,6 +506,8 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
   
 
 ##### Scene
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type Scene = 'normal' | 'congestion' | 'frequentHandover' | 'weakSignal'
  
@@ -495,6 +529,8 @@ type Scene = 'normal' | 'congestion' | 'frequentHandover' | 'weakSignal'
 
 ##### DataSpeedSimpleAction
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 type DataSpeedSimpleAction = 'suspendData' | 'decreaseData' | 'increaseData' | 'keepData'
  
 应用发包策略的简单建议。
@@ -514,6 +550,8 @@ type DataSpeedSimpleAction = 'suspendData' | 'decreaseData' | 'increaseData' | '
   
 
 ##### RecommendedAction
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type RecommendedAction = 'doCaching' | DataSpeedSimpleAction
  

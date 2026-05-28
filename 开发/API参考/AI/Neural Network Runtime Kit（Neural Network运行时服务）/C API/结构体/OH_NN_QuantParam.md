@@ -12,6 +12,8 @@ typedef struct OH_NN_QuantParam {...} OH_NN_QuantParam
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 量化信息。
  
 在量化的场景中，32位浮点型数据根据以下公式量化为定点数据：
@@ -50,9 +52,13 @@ clamp函数定义如下：
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

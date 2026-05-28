@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { notificationExtensionSubscription } from '@kit.NotificationKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -22,6 +24,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 ##### notificationExtensionSubscription.openSubscriptionSettings
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openSubscriptionSettings(context: UIAbilityContext): Promise&lt;void&gt;
 
@@ -80,6 +84,8 @@ try {
 
 ##### notificationExtensionSubscription.subscribe
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise&lt;void&gt;
 
 订阅通知扩展。使用[蓝牙模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/connectivity-kit-intro#蓝牙简介)相关接口获取蓝牙设备的唯一地址后方可订阅。使用Promise异步回调。
@@ -134,6 +140,8 @@ notificationExtensionSubscription.subscribe(infos).then(() => {
 
 ##### notificationExtensionSubscription.unsubscribe
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unsubscribe(): Promise&lt;void&gt;
 
 取消通知扩展的订阅。使用Promise异步回调。
@@ -174,6 +182,8 @@ notificationExtensionSubscription.unsubscribe().then(() => {
 
 ##### notificationExtensionSubscription.getSubscribeInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>
 
 获取当前应用的通知扩展订阅信息。使用Promise异步回调。
@@ -213,6 +223,8 @@ notificationExtensionSubscription.getSubscribeInfo().then((data: notificationExt
 
 
 ##### notificationExtensionSubscription.isUserGranted
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isUserGranted(): Promise&lt;boolean&gt;
 
@@ -258,6 +270,8 @@ notificationExtensionSubscription.isUserGranted().then((isOpen: boolean) => {
 
 ##### notificationExtensionSubscription.getUserGrantedEnabledBundles
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUserGrantedEnabledBundles(): Promise<GrantedBundleInfo[]>
 
 获取指定应用中“已获取的本机通知”通知开关开启的应用列表。使用Promise异步回调。
@@ -298,6 +312,8 @@ notificationExtensionSubscription.getUserGrantedEnabledBundles().then((data: not
 
 ##### NotificationExtensionSubscriptionInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NotificationExtensionSubscriptionInfo = _NotificationExtensionSubscriptionInfo
 
 用于描述通知扩展订阅的信息。
@@ -312,6 +328,8 @@ type NotificationExtensionSubscriptionInfo = _NotificationExtensionSubscriptionI
 
 
 ##### NotificationInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NotificationInfo = _NotificationInfo
 
@@ -328,6 +346,8 @@ type NotificationInfo = _NotificationInfo
 
 ##### SubscribeType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示通知扩展订阅的类型。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -340,6 +360,8 @@ type NotificationInfo = _NotificationInfo
 
 
 ##### BundleOption
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BundleOption = _BundleOption
 
@@ -355,6 +377,8 @@ type BundleOption = _BundleOption
 
 
 ##### GrantedBundleInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type GrantedBundleInfo = _GrantedBundleInfo
 

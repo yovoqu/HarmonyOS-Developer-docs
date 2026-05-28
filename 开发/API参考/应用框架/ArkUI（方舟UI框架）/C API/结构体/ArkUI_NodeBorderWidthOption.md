@@ -12,6 +12,8 @@ typedef struct ArkUI_NodeBorderWidth ArkUI_NodeBorderWidthOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义边框宽度配置项。
  
 **起始版本：** 20

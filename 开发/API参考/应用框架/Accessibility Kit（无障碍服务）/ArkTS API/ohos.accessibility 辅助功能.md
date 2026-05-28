@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { accessibility } from '@kit.AccessibilityKit';
 ```
@@ -21,6 +23,8 @@ import { accessibility } from '@kit.AccessibilityKit';
 
 
 ##### AbilityState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type AbilityState = 'enable' | 'disable' | 'install'
 
@@ -42,6 +46,8 @@ type AbilityState = 'enable' | 'disable' | 'install'
 
 
 ##### AbilityType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all'
 
@@ -66,6 +72,8 @@ type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all
 
 
 ##### AccessibilityAbilityInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 辅助应用信息。
 
@@ -96,6 +104,8 @@ type AbilityType = 'audible' | 'generic' | 'haptic' | 'spoken' | 'visual' | 'all
 
 
 ##### Action
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clearFocus' | 'clearSelection' |
 
@@ -144,6 +154,8 @@ type Action = 'accessibilityFocus' | 'clearAccessibilityFocus' | 'focus' | 'clea
 
 ##### Capability
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 type Capability = 'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'gesture'
 
 辅助应用能力类型。
@@ -167,6 +179,8 @@ type Capability = 'retrieve' | 'touchGuide' | 'keyEventObserver' | 'zoom' | 'ges
 
 ##### CaptionsFontEdgeType8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 type CaptionsFontEdgeType = 'none' | 'raised' | 'depressed' | 'uniform' | 'dropShadow'
 
 字幕字体边缘类型。
@@ -189,6 +203,8 @@ type CaptionsFontEdgeType = 'none' | 'raised' | 'depressed' | 'uniform' | 'dropS
 
 
 ##### CaptionsFontFamily8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' | 'monospacedSansSerif' |
 
@@ -218,6 +234,8 @@ type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' | 'monospacedS
 
 ##### CaptionsStyle8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 字幕风格。
 
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
@@ -240,6 +258,8 @@ type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' | 'monospacedS
 
 ##### CaptionsManager8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 字幕配置管理，在调用CaptionsManager的方法前，需要先通过 [accessibility.getCaptionsManager() ](#accessibilitygetcaptionsmanagerdeprecated)获取 CaptionsManager实例。
 
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
@@ -261,6 +281,8 @@ type CaptionsFontFamily = 'default' | 'monospacedSerif' | 'serif' | 'monospacedS
 
 
 ##### on('enableChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'enableChange', callback: Callback&lt;boolean&gt;): void;
 
@@ -318,6 +340,8 @@ struct Index {
 
 ##### on('styleChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'styleChange', callback: Callback&lt;CaptionsStyle&gt;): void;
 
 监听字幕风格变化事件，使用callback异步回调。
@@ -373,6 +397,8 @@ struct Index {
 
 
 ##### off('enableChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'enableChange', callback?: Callback&lt;boolean&gt;): void;
 
@@ -435,6 +461,8 @@ struct Index {
 
 ##### off('styleChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'styleChange', callback?: Callback&lt;CaptionsStyle&gt;): void;
 
 取消字幕风格变化监听事件，使用callback异步回调。
@@ -496,6 +524,8 @@ struct Index {
 
 ##### EventInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 界面变更事件。
 
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
@@ -534,6 +564,8 @@ struct Index {
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 constructor(jsonObject: Object)
 
 构造函数，通过JSON对象构造EventInfo实例。
@@ -567,6 +599,8 @@ let eventInfo: accessibility.EventInfo = ({
 
 ##### constructor11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 constructor(type: EventType, bundleName: string, triggerAction: Action)
 
 构造函数，通过独立参数构造EventInfo实例。
@@ -597,6 +631,8 @@ let eventInfo = new accessibility.EventInfo('click', 'com.example.MyApplication'
 
 
 ##### EventType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
 
@@ -641,6 +677,8 @@ type EventType = 'accessibilityFocus' | 'accessibilityFocusClear' |
 
 ##### TextMoveUnit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph'
 
 文本无障碍导航移动粒度。
@@ -664,6 +702,8 @@ type TextMoveUnit = 'char' | 'word' | 'line' | 'page' | 'paragraph'
 
 ##### WindowUpdateType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 type WindowUpdateType = 'add' | 'remove' | 'bounds' | 'active' | 'focus'
 
 窗口变化类型。
@@ -686,6 +726,8 @@ type WindowUpdateType = 'add' | 'remove' | 'bounds' | 'active' | 'focus'
 
 
 ##### accessibility.getAbilityLists(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getAbilityLists(abilityType: AbilityType, stateType: AbilityState): Promise<Array&lt;AccessibilityAbilityInfo&gt;>
 
@@ -732,6 +774,8 @@ accessibility.getAbilityLists(abilityType, abilityState).then((data: accessibili
 
 ##### accessibility.getAbilityLists(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getAbilityLists(abilityType: AbilityType, stateType: AbilityState,callback: AsyncCallback<Array&lt;AccessibilityAbilityInfo&gt;>): void
 
 查询辅助应用列表，使用callback异步回调。
@@ -772,6 +816,8 @@ accessibility.getAbilityLists(abilityType, abilityState, (err: BusinessError, da
 
 
 ##### accessibility.getAccessibilityExtensionList9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getAccessibilityExtensionList(abilityType: AbilityType, stateType: AbilityState): Promise<Array&lt;AccessibilityAbilityInfo&gt;>
 
@@ -865,6 +911,8 @@ accessibility.getAccessibilityExtensionList(abilityType, abilityState).then((dat
 
 ##### accessibility.getAccessibilityExtensionList9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getAccessibilityExtensionList(abilityType: AbilityType, stateType: AbilityState, callback: AsyncCallback<Array&lt;AccessibilityAbilityInfo&gt;>): void
 
 查询辅助应用列表，使用callback异步回调。
@@ -954,6 +1002,8 @@ accessibility.getAccessibilityExtensionList(abilityType, abilityState,(err: Busi
 
 
 ##### accessibility.getAccessibilityExtensionListSync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getAccessibilityExtensionListSync(abilityType: AbilityType, stateType: AbilityState): Array&lt;AccessibilityAbilityInfo&gt;
 
@@ -1079,6 +1129,8 @@ try {
 
 ##### accessibility.getCaptionsManager(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getCaptionsManager(): CaptionsManager
 
 获取无障碍字幕配置管理实例。
@@ -1107,6 +1159,8 @@ let captionsManager = accessibility.getCaptionsManager();
 
 
 ##### accessibility.on('accessibilityStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'accessibilityStateChange', callback: Callback&lt;boolean&gt;): void
 
@@ -1192,6 +1246,8 @@ accessibility.on('accessibilityStateChange', onAccessibilityStateChangeListener)
 
 ##### accessibility.on('touchGuideStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'touchGuideStateChange', callback: Callback&lt;boolean&gt;): void
 
 监听触摸浏览功能启用状态变化事件，使用callback异步回调。如需获取系统内辅助应用信息，推荐使用[accessibility.getAccessibilityExtensionListSync](#accessibilitygetaccessibilityextensionlistsync12)。
@@ -1240,6 +1296,8 @@ accessibility.on('touchGuideStateChange', (data: boolean) => {
 
 ##### accessibility.on('screenReaderStateChange')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'screenReaderStateChange', callback: Callback&lt;boolean&gt;): void
 
 监听屏幕朗读功能启用状态变化事件，使用callback异步回调。
@@ -1284,6 +1342,8 @@ accessibility.on('screenReaderStateChange', (data: boolean) => {
 
 
 ##### accessibility.on('touchModeChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'touchModeChange', callback: Callback&lt;string&gt;): void
 
@@ -1344,6 +1404,8 @@ struct Index {
 
 ##### accessibility.onAnimationReduceStateChange23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 onAnimationReduceStateChange(callback: Callback&lt;boolean&gt;): void
 
 监听减弱动效功能启用状态变化事件。使用callback异步回调。
@@ -1390,6 +1452,8 @@ struct Index {
 
 
 ##### accessibility.onFlashReminderStateChange23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 onFlashReminderStateChange(callback: Callback&lt;boolean&gt;): void
 
@@ -1438,6 +1502,8 @@ struct Index {
 
 ##### accessibility.onAudioMonoStateChange23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 onAudioMonoStateChange(callback: Callback&lt;boolean&gt;): void
 
 监听单声道音频功能启用状态变化事件。使用callback异步回调。
@@ -1485,6 +1551,8 @@ struct Index {
 
 ##### accessibility.off('accessibilityStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'accessibilityStateChange', callback?: Callback&lt;boolean&gt;): void
 
 取消监听辅助应用启用状态变化事件，使用callback异步回调。
@@ -1525,6 +1593,8 @@ accessibility.off('accessibilityStateChange', (data: boolean) => {
 
 
 ##### accessibility.off('touchGuideStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'touchGuideStateChange', callback?: Callback&lt;boolean&gt;): void
 
@@ -1567,6 +1637,8 @@ accessibility.off('touchGuideStateChange', (data: boolean) => {
 
 ##### accessibility.off('screenReaderStateChange')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'screenReaderStateChange', callback?: Callback&lt;boolean&gt;): void
 
 取消监听屏幕朗读启用状态变化事件，使用callback异步回调。
@@ -1607,6 +1679,8 @@ accessibility.off('screenReaderStateChange', (data: boolean) => {
 
 
 ##### accessibility.off('touchModeChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'touchModeChange', callback?: Callback&lt;string&gt;): void
 
@@ -1667,6 +1741,8 @@ struct Index {
 
 ##### accessibility.offAnimationReduceStateChange23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 offAnimationReduceStateChange(callback?: Callback&lt;boolean&gt;): void
 
 取消监听减弱动效模式变化事件。使用callback异步回调。
@@ -1713,6 +1789,8 @@ struct Index {
 
 
 ##### accessibility.offFlashReminderStateChange23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 offFlashReminderStateChange(callback?: Callback&lt;boolean&gt;): void
 
@@ -1761,6 +1839,8 @@ struct Index {
 
 ##### accessibility.offAudioMonoStateChange23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 offAudioMonoStateChange(callback?: Callback&lt;boolean&gt;): void
 
 取消监听单声道音频模式变化事件。使用callback异步回调。
@@ -1808,6 +1888,8 @@ struct Index {
 
 ##### accessibility.isOpenAccessibility(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isOpenAccessibility(): Promise&lt;boolean&gt;
 
 判断是否启用了辅助应用，使用Promise异步回调。
@@ -1841,6 +1923,8 @@ accessibility.isOpenAccessibility().then((data: boolean) => {
 
 
 ##### accessibility.isOpenAccessibility(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isOpenAccessibility(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -1878,6 +1962,8 @@ accessibility.isOpenAccessibility((err: BusinessError, data: boolean) => {
 
 ##### accessibility.isOpenAccessibilitySync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isOpenAccessibilitySync(): boolean
 
 查询当前系统内是否存在已开启的辅助应用。如需获取系统内辅助应用信息，推荐使用[accessibility.getAccessibilityExtensionListSync](#accessibilitygetaccessibilityextensionlistsync12)。
@@ -1909,6 +1995,8 @@ let status: boolean = accessibility.isOpenAccessibilitySync();
 
 
 ##### accessibility.isOpenTouchGuide(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isOpenTouchGuide(): Promise&lt;boolean&gt;
 
@@ -1943,6 +2031,8 @@ accessibility.isOpenTouchGuide().then((data: boolean) => {
 
 
 ##### accessibility.isOpenTouchGuide(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isOpenTouchGuide(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -1980,6 +2070,8 @@ accessibility.isOpenTouchGuide((err: BusinessError, data: boolean) => {
 
 ##### accessibility.isOpenTouchGuideSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isOpenTouchGuideSync(): boolean
 
 是否开启了触摸浏览模式。
@@ -2009,6 +2101,8 @@ let status: boolean = accessibility.isOpenTouchGuideSync();
 
 ##### accessibility.isScreenReaderOpenSync18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isScreenReaderOpenSync(): boolean
 
 是否开启了屏幕朗读模式。
@@ -2037,6 +2131,8 @@ let status: boolean = accessibility.isScreenReaderOpenSync();
 
 
 ##### accessibility.isAnimationReduceEnabled23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isAnimationReduceEnabled(): Promise&lt;boolean&gt;
 
@@ -2081,6 +2177,8 @@ struct Index {
 
 ##### accessibility.isAnimationReduceEnabledSync23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isAnimationReduceEnabledSync(): boolean
 
 使用同步方法判断减弱动效模式是否开启。
@@ -2119,6 +2217,8 @@ struct Index {
 
 
 ##### accessibility.isFlashReminderEnabled23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isFlashReminderEnabled(): Promise&lt;boolean&gt;
 
@@ -2163,6 +2263,8 @@ struct Index {
 
 ##### accessibility.isFlashReminderEnabledSync23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isFlashReminderEnabledSync(): boolean
 
 使用同步方法判断闪烁提醒模式是否开启。
@@ -2201,6 +2303,8 @@ struct Index {
 
 
 ##### accessibility.isAudioMonoEnabled23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isAudioMonoEnabled(): Promise&lt;boolean&gt;
 
@@ -2245,6 +2349,8 @@ struct Index {
 
 ##### accessibility.isAudioMonoEnabledSync23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isAudioMonoEnabledSync(): boolean
 
 使用同步方法判断单声道音频模式是否开启。
@@ -2283,6 +2389,8 @@ struct Index {
 
 
 ##### accessibility.sendEvent(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 sendEvent(event: EventInfo): Promise&lt;void&gt;
 
@@ -2331,6 +2439,8 @@ accessibility.sendEvent(eventInfo).then(() => {
 
 ##### accessibility.sendEvent(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 sendEvent(event: EventInfo, callback: AsyncCallback&lt;void&gt;): void
 
 发送无障碍事件，使用callback异步回调。
@@ -2373,6 +2483,8 @@ accessibility.sendEvent(eventInfo, (err: BusinessError) => {
 
 
 ##### accessibility.sendAccessibilityEvent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 sendAccessibilityEvent(event: EventInfo): Promise&lt;void&gt;
 
@@ -2429,6 +2541,8 @@ accessibility.sendAccessibilityEvent(eventInfo).then(() => {
 
 
 ##### accessibility.sendAccessibilityEvent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 sendAccessibilityEvent(event: EventInfo, callback: AsyncCallback&lt;void&gt;): void
 
@@ -2539,6 +2653,8 @@ accessibility.sendAccessibilityEvent(eventInfo, (err: BusinessError) => {
 
 
 ##### accessibility.getTouchModeSync20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getTouchModeSync(): string
 

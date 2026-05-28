@@ -12,6 +12,8 @@ typedef union Rdb_SubscribeCallback {...} Rdb_SubscribeCallback
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示回调函数。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef union Rdb_SubscribeCallback {...} Rdb_SubscribeCallback
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

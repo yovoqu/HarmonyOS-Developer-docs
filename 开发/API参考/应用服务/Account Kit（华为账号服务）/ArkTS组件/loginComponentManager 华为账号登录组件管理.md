@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { loginComponentManager } from '@kit.AccountKit';
 ```
@@ -19,6 +21,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 ##### LoginType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该枚举定义了华为账号登录类型。
 
@@ -40,6 +44,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 ##### AppInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了用于显示登录面板的应用信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -59,6 +65,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 ##### TextType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该枚举定义了显示在登录面板上的隐私文本类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -76,6 +84,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 ##### PrivacyText
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了使用登录面板或登录按钮时需要展示的隐私文本。
 
@@ -96,6 +106,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 ##### LoginIcon
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了可选登录区域展示的登录Icon属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -114,6 +126,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 ##### OptionalLoginButtonAttr
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了可选登录按钮的属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -131,6 +145,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 ##### OptionalLoginAreaAttr
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了可选登录区域的属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -147,6 +163,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 ##### LoginPanelParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了显示在登录面板上的信息。
 
@@ -173,6 +191,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 ##### ClickEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该枚举定义了用户点击华为账号登录按钮事件。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -189,6 +209,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 ##### AgreementStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该枚举定义了用户是否同意通过[TextType.RICH_TEXT](#texttype)设置的协议的状态。
 
@@ -207,6 +229,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 ##### HuaweiIDCredential
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义使用华为账号登录成功响应结果。用于获取用户相关信息和关联华为账号。
 
@@ -229,11 +253,15 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 不支持通用事件，仅支持以下事件：
 
 
 
 ##### LoginPanelController
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 [LoginPanel](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-loginpanel)组件控制器，用来注册组件内部的点击事件。
 
@@ -246,6 +274,8 @@ import { loginComponentManager } from '@kit.AccountKit';
 
 
 ##### onClickLoginWithHuaweiIDButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;): LoginPanelController
 
@@ -300,6 +330,8 @@ onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;
 
 ##### onClickOptionalLoginButton
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onClickOptionalLoginButton(callback: AsyncCallback&lt;void&gt;): LoginPanelController
 
 注册可选登录按钮的点击事件。使用callback异步回调。用于应用跳转其他登录方式。
@@ -331,6 +363,8 @@ onClickOptionalLoginButton(callback: AsyncCallback&lt;void&gt;): LoginPanelContr
 
 
 ##### onClickOptionalLoginIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onClickOptionalLoginIcon(callback: AsyncCallback&lt;string&gt;): LoginPanelController
 
@@ -364,6 +398,8 @@ onClickOptionalLoginIcon(callback: AsyncCallback&lt;string&gt;): LoginPanelContr
 
 ##### onClickPrivacyText
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onClickPrivacyText(callback: AsyncCallback&lt;string&gt;): LoginPanelController
 
 注册隐私内容为富文本的点击事件。使用callback异步回调。应用可以让用户点击跳转到应用的隐私协议。
@@ -395,6 +431,8 @@ onClickPrivacyText(callback: AsyncCallback&lt;string&gt;): LoginPanelController
 
 
 ##### onChangeAgreementStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onChangeAgreementStatus(callback: AsyncCallback&lt;AgreementStatus&gt;): LoginPanelController
 
@@ -428,6 +466,8 @@ onChangeAgreementStatus(callback: AsyncCallback&lt;AgreementStatus&gt;): LoginPa
 
 ##### setAgreementStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 setAgreementStatus(agreementStatus: AgreementStatus): LoginPanelController
 
 设置用户协议的状态。
@@ -460,6 +500,8 @@ setAgreementStatus(agreementStatus: AgreementStatus): LoginPanelController
 
 ##### setShowAgreementForOptionalLogin
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 setShowAgreementForOptionalLogin(): LoginPanelController
 
 设置用户点击其他方式登录选项时展示隐私协议弹框。
@@ -484,6 +526,8 @@ setShowAgreementForOptionalLogin(): LoginPanelController
 
 
 ##### onClickEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onClickEvent(callback: AsyncCallback&lt;ClickEvent&gt;): LoginPanelController
 
@@ -516,6 +560,8 @@ onClickEvent(callback: AsyncCallback&lt;ClickEvent&gt;): LoginPanelController
 
 
 ##### onClickCloseButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onClickCloseButton(callback: AsyncCallback&lt;void&gt;): LoginPanelController
 
@@ -711,6 +757,8 @@ export enum ErrorCode {
 
 ##### LoginWithHuaweiIDButtonParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了华为账号登录按钮的属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -738,6 +786,8 @@ export enum ErrorCode {
 
 
 ##### Style
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该枚举表示华为账号登录按钮的类型。
 
@@ -768,6 +818,8 @@ export enum ErrorCode {
 
 ##### LoginButtonTextType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该枚举表示华为账号一键登录按钮显示的文本内容。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -785,6 +837,8 @@ export enum ErrorCode {
 
 
 ##### CustomButtonParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了[BUTTON_CUSTOM](#style)按钮的参数。
 
@@ -804,6 +858,8 @@ export enum ErrorCode {
 
 ##### FontColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该枚举定义了[BUTTON_CUSTOM](#style)按钮可以使用的文字颜色。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -821,6 +877,8 @@ export enum ErrorCode {
 
 
 ##### ExtraStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了华为账号登录按钮拓展参数。
 
@@ -842,6 +900,8 @@ export enum ErrorCode {
 
 ##### RadialGradient
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了华为账号登录按钮径向渐变的样式。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -861,6 +921,8 @@ export enum ErrorCode {
 
 
 ##### SweepGradient
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了华为账号登录按钮角度渐变的样式。
 
@@ -884,6 +946,8 @@ export enum ErrorCode {
 
 ##### ButtonStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该类定义了华为账号登录按钮的通用属性。通过new loginComponentManager.ButtonStyle()构造实例。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -895,6 +959,8 @@ export enum ErrorCode {
 
 
 ##### buttonSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 buttonSize(value: ButtonSize): ButtonStyle
 
@@ -928,6 +994,8 @@ buttonSize(value: ButtonSize): ButtonStyle
 
 ##### fontSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 fontSize(value: Length): ButtonStyle
 
 调用该方法设置华为账号登录按钮的字号。
@@ -959,6 +1027,8 @@ fontSize(value: Length): ButtonStyle
 
 
 ##### fontColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 fontColor(value: ResourceColor | FontColor): ButtonStyle
 
@@ -992,6 +1062,8 @@ fontColor(value: ResourceColor | FontColor): ButtonStyle
 
 ##### fontWeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 fontWeight(value: string | number | FontWeight): ButtonStyle
 
 调用该方法设置华为账号登录按钮的文字字重。
@@ -1023,6 +1095,8 @@ fontWeight(value: string | number | FontWeight): ButtonStyle
 
 
 ##### fontFamily
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 fontFamily(value: ResourceStr): ButtonStyle
 
@@ -1056,6 +1130,8 @@ fontFamily(value: ResourceStr): ButtonStyle
 
 ##### backgroundColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 backgroundColor(value: ResourceColor): ButtonStyle
 
 调用该方法设置华为账号登录按钮的背景颜色。
@@ -1087,6 +1163,8 @@ backgroundColor(value: ResourceColor): ButtonStyle
 
 
 ##### backgroundEffect
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 backgroundEffect(value: BackgroundEffectOptions): ButtonStyle
 
@@ -1120,6 +1198,8 @@ backgroundEffect(value: BackgroundEffectOptions): ButtonStyle
 
 ##### backgroundBrightness
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 backgroundBrightness(value: BackgroundBrightnessOptions): ButtonStyle
 
 调用该方法设置华为账号登录按钮的背景提亮效果。
@@ -1151,6 +1231,8 @@ backgroundBrightness(value: BackgroundBrightnessOptions): ButtonStyle
 
 
 ##### linearGradient
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 linearGradient(value: LinearGradient): ButtonStyle
 
@@ -1184,6 +1266,8 @@ linearGradient(value: LinearGradient): ButtonStyle
 
 ##### sweepGradient
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 sweepGradient(value: SweepGradient): ButtonStyle
 
 调用该方法设置华为账号登录按钮的背景颜色角度渐变效果。
@@ -1215,6 +1299,8 @@ sweepGradient(value: SweepGradient): ButtonStyle
 
 
 ##### radialGradient
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 radialGradient(value: RadialGradient): ButtonStyle
 
@@ -1248,6 +1334,8 @@ radialGradient(value: RadialGradient): ButtonStyle
 
 ##### shadow
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 shadow(value: ShadowOptions | ShadowStyle): ButtonStyle
 
 调用该方法设置华为账号登录按钮的阴影效果。
@@ -1279,6 +1367,8 @@ shadow(value: ShadowOptions | ShadowStyle): ButtonStyle
 
 
 ##### opacity
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 opacity(value: number | Resource): ButtonStyle
 
@@ -1312,6 +1402,8 @@ opacity(value: number | Resource): ButtonStyle
 
 ##### border
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 border(value: BorderOptions): ButtonStyle
 
 调用该方法设置华为账号登录按钮的边框样式。
@@ -1343,6 +1435,8 @@ border(value: BorderOptions): ButtonStyle
 
 
 ##### borderImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 borderImage(value: BorderImageOption): ButtonStyle
 
@@ -1376,6 +1470,8 @@ borderImage(value: BorderImageOption): ButtonStyle
 
 ##### outline
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 outline(value: OutlineOptions): ButtonStyle
 
 调用该方法设置华为账号登录按钮的外描边样式。
@@ -1407,6 +1503,8 @@ outline(value: OutlineOptions): ButtonStyle
 
 
 ##### hoverEffect
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 hoverEffect(value: HoverEffect): ButtonStyle
 
@@ -1440,6 +1538,8 @@ hoverEffect(value: HoverEffect): ButtonStyle
 
 ##### clickEffect
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 clickEffect(value: ClickEffect): ButtonStyle
 
 调用该方法设置华为账号登录按钮的点击回弹效果。
@@ -1471,6 +1571,8 @@ clickEffect(value: ClickEffect): ButtonStyle
 
 
 ##### loadingStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 loadingStyle(value: LoadingStyle): ButtonStyle
 
@@ -1566,6 +1668,8 @@ struct QuickLoginButtonComponent {
 
 ##### ButtonSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了华为账号登录按钮的尺寸参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1584,6 +1688,8 @@ struct QuickLoginButtonComponent {
 
 ##### LoadingStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了华为账号登录按钮在登录过程中是否展示加载态。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1600,6 +1706,8 @@ struct QuickLoginButtonComponent {
 
 
 ##### TextAndIconButtonParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了华为账号登录按钮为图文按钮时的图文间距。
 
@@ -1618,6 +1726,8 @@ struct QuickLoginButtonComponent {
 
 ##### IconButtonParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该接口定义了华为账号登录按钮为纯图标按钮时的华为图标的半径。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1634,6 +1744,8 @@ struct QuickLoginButtonComponent {
 
 
 ##### StateStyles
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该接口定义了华为账号登录按钮的多态样式。
 
@@ -1655,6 +1767,8 @@ struct QuickLoginButtonComponent {
 
 ##### LoginWithHuaweiIDButtonController
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 [LoginWithHuaweiIDButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-huawei-id-button#loginwithhuaweiidbutton)组件控制器，用来回调组件内部的点击事件。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1666,6 +1780,8 @@ struct QuickLoginButtonComponent {
 
 
 ##### setAgreementStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setAgreementStatus(agreementStatus: AgreementStatus): LoginWithHuaweiIDButtonController
 
@@ -1699,6 +1815,8 @@ setAgreementStatus(agreementStatus: AgreementStatus): LoginWithHuaweiIDButtonCon
 
 ##### onClickEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onClickEvent(callback: AsyncCallback&lt;ClickEvent&gt;): LoginWithHuaweiIDButtonController
 
 华为账号登录按钮的点击事件。使用callback异步回调。应用可以在用户点击华为账号登录按钮后收到回调，可用于记录运营事件等场景。
@@ -1730,6 +1848,8 @@ onClickEvent(callback: AsyncCallback&lt;ClickEvent&gt;): LoginWithHuaweiIDButton
 
 
 ##### onClickLoginWithHuaweiIDButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;): LoginWithHuaweiIDButtonController
 
@@ -1784,6 +1904,8 @@ onClickLoginWithHuaweiIDButton(callback: AsyncCallback&lt;HuaweiIDCredential&gt;
 
 ##### setEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 setEnabled(enabled: boolean): LoginWithHuaweiIDButtonController
 
 设置华为账号登录按钮是否可点击。
@@ -1815,6 +1937,8 @@ setEnabled(enabled: boolean): LoginWithHuaweiIDButtonController
 
 
 ##### continueLogin
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 continueLogin(callback: AsyncCallback&lt;void&gt;): LoginWithHuaweiIDButtonController
 

@@ -12,6 +12,8 @@ typedef struct ArkUI_CustomProperty ArkUI_CustomProperty
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义自定义属性的CustomProperty类信息。
  
 **起始版本：** 14

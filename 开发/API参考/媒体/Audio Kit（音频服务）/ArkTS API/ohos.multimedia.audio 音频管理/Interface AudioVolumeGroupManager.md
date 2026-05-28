@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### getVolume(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getVolume(volumeType: AudioVolumeType, callback: AsyncCallback&lt;number&gt;): void
 
@@ -60,6 +64,8 @@ audioVolumeGroupManager.getVolume(audio.AudioVolumeType.MEDIA, (err: BusinessErr
 
 ##### getVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getVolume(volumeType: AudioVolumeType): Promise&lt;number&gt;
 
 获取指定流的音量等级。使用Promise异步回调。
@@ -95,6 +101,8 @@ audioVolumeGroupManager.getVolume(audio.AudioVolumeType.MEDIA).then((value: numb
 
 
 ##### getVolumeSync(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getVolumeSync(volumeType: AudioVolumeType): number
 
@@ -148,6 +156,8 @@ try {
 
 ##### getMinVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback&lt;number&gt;): void
 
 获取指定流的最小音量等级。使用callback异步回调。
@@ -184,6 +194,8 @@ audioVolumeGroupManager.getMinVolume(audio.AudioVolumeType.MEDIA, (err: Business
 
 ##### getMinVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMinVolume(volumeType: AudioVolumeType): Promise&lt;number&gt;
 
 获取指定流的最小音量等级。使用Promise异步回调。
@@ -219,6 +231,8 @@ audioVolumeGroupManager.getMinVolume(audio.AudioVolumeType.MEDIA).then((value: n
 
 
 ##### getMinVolumeSync(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMinVolumeSync(volumeType: AudioVolumeType): number
 
@@ -272,6 +286,8 @@ try {
 
 ##### getMaxVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback&lt;number&gt;): void
 
 获取指定流的最大音量等级。使用callback异步回调。
@@ -308,6 +324,8 @@ audioVolumeGroupManager.getMaxVolume(audio.AudioVolumeType.MEDIA, (err: Business
 
 ##### getMaxVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxVolume(volumeType: AudioVolumeType): Promise&lt;number&gt;
 
 获取指定流的最大音量等级。使用Promise异步回调。
@@ -343,6 +361,8 @@ audioVolumeGroupManager.getMaxVolume(audio.AudioVolumeType.MEDIA).then((value: n
 
 
 ##### getMaxVolumeSync(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMaxVolumeSync(volumeType: AudioVolumeType): number
 
@@ -396,6 +416,8 @@ try {
 
 ##### isMute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMute(volumeType: AudioVolumeType, callback: AsyncCallback&lt;boolean&gt;): void
 
 获取指定音量流静音状态。使用callback异步回调。
@@ -432,6 +454,8 @@ audioVolumeGroupManager.isMute(audio.AudioVolumeType.MEDIA, (err: BusinessError,
 
 ##### isMute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMute(volumeType: AudioVolumeType): Promise&lt;boolean&gt;
 
 获取指定音量流是否被静音。使用Promise异步回调。
@@ -467,6 +491,8 @@ audioVolumeGroupManager.isMute(audio.AudioVolumeType.MEDIA).then((value: boolean
 
 
 ##### isMuteSync(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isMuteSync(volumeType: AudioVolumeType): boolean
 
@@ -520,6 +546,8 @@ try {
 
 ##### getRingerMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRingerMode(callback: AsyncCallback&lt;AudioRingMode&gt;): void
 
 获取铃声模式。使用callback异步回调。
@@ -551,6 +579,8 @@ audioVolumeGroupManager.getRingerMode((err: BusinessError, value: audio.AudioRin
 
 ##### getRingerMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRingerMode(): Promise&lt;AudioRingMode&gt;
 
 获取铃声模式。使用Promise异步回调。
@@ -579,6 +609,8 @@ audioVolumeGroupManager.getRingerMode().then((value: audio.AudioRingMode) => {
 
 
 ##### getRingerModeSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRingerModeSync(): AudioRingMode
 
@@ -610,6 +642,8 @@ try {
 
 
 ##### on('ringerModeChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'ringerModeChange', callback: Callback&lt;AudioRingMode&gt;): void
 
@@ -646,6 +680,8 @@ audioVolumeGroupManager.on('ringerModeChange', (ringerMode: audio.AudioRingMode)
 
 
 ##### off('ringerModeChange')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'ringerModeChange', callback?: Callback&lt;AudioRingMode&gt;): void
 
@@ -690,6 +726,8 @@ audioVolumeGroupManager.off('ringerModeChange', ringerModeChangeCallback);
 
 ##### isMicrophoneMute9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMicrophoneMute(callback: AsyncCallback&lt;boolean&gt;): void
 
 获取麦克风静音状态。使用callback异步回调。
@@ -721,6 +759,8 @@ audioVolumeGroupManager.isMicrophoneMute((err: BusinessError, value: boolean) =>
 
 ##### isMicrophoneMute9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMicrophoneMute(): Promise&lt;boolean&gt;
 
 获取麦克风静音状态。使用Promise异步回调。
@@ -749,6 +789,8 @@ audioVolumeGroupManager.isMicrophoneMute().then((value: boolean) => {
 
 
 ##### isMicrophoneMuteSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isMicrophoneMuteSync(): boolean
 
@@ -780,6 +822,8 @@ try {
 
 
 ##### on('micStateChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'micStateChange', callback: Callback&lt;MicStateChangeEvent&gt;): void
 
@@ -818,6 +862,8 @@ audioVolumeGroupManager.on('micStateChange', (micStateChange: audio.MicStateChan
 
 
 ##### off('micStateChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'micStateChange', callback?: Callback&lt;MicStateChangeEvent&gt;): void
 
@@ -863,6 +909,8 @@ audioVolumeGroupManager.off('micStateChange', micStateChangeCallback);
 
 ##### isVolumeUnadjustable10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isVolumeUnadjustable(): boolean
 
 获取固定音量模式开关状态，打开时进入固定音量模式，此时音量固定无法被调节。同步返回结果。
@@ -886,6 +934,8 @@ console.info(`Succeeded in using isVolumeUnadjustable function. VolumeUnadjustab
 
 
 ##### getSystemVolumeInDb(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType, callback: AsyncCallback&lt;number&gt;): void
 
@@ -935,6 +985,8 @@ audioVolumeGroupManager.getSystemVolumeInDb(audio.AudioVolumeType.MEDIA, 3, audi
 
 
 ##### getSystemVolumeInDb(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSystemVolumeInDb(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): Promise&lt;number&gt;
 
@@ -989,6 +1041,8 @@ audioVolumeGroupManager.getSystemVolumeInDb(audio.AudioVolumeType.MEDIA, 3, audi
 
 ##### getSystemVolumeInDbSync(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSystemVolumeInDbSync(volumeType: AudioVolumeType, volumeLevel: number, device: DeviceType): number
 
 获取音量增益dB值。同步返回结果。
@@ -1042,6 +1096,8 @@ try {
 
 
 ##### getMaxAmplitudeForInputDevice12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMaxAmplitudeForInputDevice(inputDevice: AudioDeviceDescriptor): Promise&lt;number&gt;
 
@@ -1099,6 +1155,8 @@ audio.getAudioManager().getRoutingManager().getPreferredInputDeviceForCapturerIn
 
 ##### getMaxAmplitudeForOutputDevice12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxAmplitudeForOutputDevice(outputDevice: AudioDeviceDescriptor): Promise&lt;number&gt;
 
 获取输出设备音频流的最大电平值，取值范围为[0, 1]。使用Promise异步回调。
@@ -1155,6 +1213,8 @@ audio.getAudioManager().getRoutingManager().getPreferOutputDeviceForRendererInfo
 
 ##### setMicrophoneMute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMicrophoneMute(mute: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置麦克风静音状态。使用callback异步回调。
@@ -1192,6 +1252,8 @@ audioVolumeGroupManager.setMicrophoneMute(true, (err: BusinessError) => {
 
 
 ##### setMicrophoneMute(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMicrophoneMute(mute: boolean): Promise&lt;void&gt;
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { cloudSync } from '@kit.CoreFileKit';
 ```
@@ -21,6 +23,8 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 ##### SyncState12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 端云同步状态，为枚举类型。
 
@@ -43,6 +47,8 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 ##### ErrorType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 端云同步失败类型，为枚举类型。
 
@@ -71,11 +77,15 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 ##### SyncProgress12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 端云同步过程。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
 
@@ -88,6 +98,8 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 ##### State11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 云文件下载状态，为枚举类型。
 
@@ -105,11 +117,15 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 ##### DownloadProgress11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云文件下载过程。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
 
@@ -126,6 +142,8 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 ##### FileSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云盘同步对象，用于支撑文件管理器应用完成云盘文件的端云同步流程。在使用前，需要先创建FileSync实例。
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -133,6 +151,8 @@ import { cloudSync } from '@kit.CoreFileKit';
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -158,6 +178,8 @@ let fileSync = new cloudSync.FileSync()
 
 
 ##### on('progress')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(event: 'progress', callback: Callback&lt;SyncProgress&gt;): void
 
@@ -197,6 +219,8 @@ fileSync.on('progress', callback);
 
 
 ##### off('progress')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(event: 'progress', callback?: Callback&lt;SyncProgress&gt;): void
 
@@ -239,6 +263,8 @@ fileSync.off('progress', callback);
 
 
 ##### start12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(): Promise&lt;void&gt;
 
@@ -290,6 +316,8 @@ fileSync.start().then(() => {
 
 ##### start12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(callback: AsyncCallback&lt;void&gt;): void
 
 异步方法启动云盘端云同步。使用callback异步回调。
@@ -336,6 +364,8 @@ fileSync.start((err: BusinessError) => {
 
 ##### stop12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
 
 异步方法停止云盘端云同步。使用Promise异步回调。
@@ -378,6 +408,8 @@ fileSync.stop().then(() => {
 
 
 ##### stop12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(callback: AsyncCallback&lt;void&gt;): void
 
@@ -424,6 +456,8 @@ fileSync.stop((err: BusinessError) => {
 
 ##### getLastSyncTime12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastSyncTime(): Promise&lt;number&gt;
 
 异步方法获取上次同步时间。使用Promise异步回调。
@@ -465,6 +499,8 @@ fileSync.getLastSyncTime().then((timeStamp: number) => {
 
 
 ##### getLastSyncTime12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLastSyncTime(callback: AsyncCallback&lt;number&gt;): void
 
@@ -510,6 +546,8 @@ fileSync.getLastSyncTime((err: BusinessError, timeStamp: number) => {
 
 ##### CloudFileCache11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云盘文件缓存对象，用来支撑文件管理应用原文件下载流程。
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -517,6 +555,8 @@ fileSync.getLastSyncTime((err: BusinessError, timeStamp: number) => {
 
 
 ##### construct11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -542,6 +582,8 @@ let fileCache = new cloudSync.CloudFileCache();
 
 
 ##### on('progress')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(event: 'progress', callback: Callback&lt;DownloadProgress&gt;): void
 
@@ -588,6 +630,8 @@ try {
 
 
 ##### on('batchDownload')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(event: 'batchDownload', callback: Callback&lt;MultiDownloadProgress&gt;): void
 
@@ -640,6 +684,8 @@ try {
 
 ##### off('progress')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(event: 'progress', callback?: Callback&lt;DownloadProgress&gt;): void
 
 云盘文件缓存对象移除'progress'类型的指定callback回调。
@@ -688,6 +734,8 @@ try {
 
 ##### off('batchDownload')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(event: 'batchDownload', callback?: Callback&lt;MultiDownloadProgress&gt;): void
 
 云盘文件缓存对象移除由[on](#onbatchdownload20)接口添加的云文件批量缓存过程事件的监听。
@@ -734,6 +782,8 @@ try {
 
 
 ##### start11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(uri: string): Promise&lt;void&gt;
 
@@ -798,6 +848,8 @@ fileCache.start(uri).then(() => {
 
 ##### start11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(uri: string, callback: AsyncCallback&lt;void&gt;): void
 
 异步方法启动云盘文件缓存。使用callback异步回调。
@@ -847,6 +899,8 @@ fileCache.start(uri, (err: BusinessError) => {
 
 
 ##### startBatch20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startBatch(uris: Array&lt;string&gt;, fileType?: DownloadFileType): Promise&lt;number&gt;
 
@@ -911,6 +965,8 @@ fileCache.startBatch(uriList, cloudSync.DownloadFileType.CONTENT).then((download
 
 ##### stop11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(uri: string, needClean?: boolean): Promise&lt;void&gt;
 
 异步方法停止云盘文件缓存。使用Promise异步回调。
@@ -967,6 +1023,8 @@ fileCache.stop(uri, true).then(() => {
 
 ##### stop11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(uri: string, callback: AsyncCallback&lt;void&gt;): void
 
 异步方法停止云盘文件缓存。使用callback异步回调。
@@ -1017,6 +1075,8 @@ fileCache.stop(uri, (err: BusinessError) => {
 
 
 ##### stopBatch20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stopBatch(downloadId: number, needClean?: boolean): Promise&lt;void&gt;
 
@@ -1081,6 +1141,8 @@ if (needStop && taskId > 0) {
 
 ##### cleanFileCache20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cleanFileCache(uri: string): void
 
 同步方法删除文件缓存。
@@ -1131,6 +1193,8 @@ try {
 
 ##### DownloadErrorType11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 端云下载错误类型，为枚举类型。
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1149,6 +1213,8 @@ try {
 
 ##### DownloadFileType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云盘缓存文件类型的枚举。
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1164,6 +1230,8 @@ try {
 
 ##### FailedFileInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云文件批量缓存失败列表及失败原因。
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1178,11 +1246,15 @@ try {
 
 ##### MultiDownloadProgress20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云文件批量缓存的进度信息。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
 
@@ -1201,6 +1273,8 @@ try {
 
 
 ##### getFailedFiles20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFailedFiles(): Array&lt;FailedFileInfo&gt;
 
@@ -1260,6 +1334,8 @@ fileCache.startBatch(uriList, cloudSync.DownloadFileType.CONTENT).then((download
 
 ##### getSuccessfulFiles20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSuccessfulFiles(): Array&lt;string&gt;
 
 获取批量缓存成功的文件列表。
@@ -1316,6 +1392,8 @@ fileCache.startBatch(uriList, cloudSync.DownloadFileType.CONTENT).then((download
 
 ##### cloudSync.registerChange12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 registerChange(uri: string, recursion: boolean, callback: Callback&lt;ChangeData&gt;): void
 
 订阅监听指定文件的变化通知。callback返回更改的数据。
@@ -1367,6 +1445,8 @@ cloudSync.unregisterChange(uri);
 
 ##### cloudSync.unregisterChange12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unregisterChange(uri: string): void
 
 取消订阅监听指定文件的变化通知。
@@ -1416,6 +1496,8 @@ cloudSync.unregisterChange(uri);
 
 ##### NotifyType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据变更通知类型。
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1432,6 +1514,8 @@ cloudSync.unregisterChange(uri);
 
 ##### ChangeData12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义变更数据。
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
@@ -1447,11 +1531,15 @@ cloudSync.unregisterChange(uri);
 
 ##### HistoryVersion20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 端云文件历史版本信息，调用端云文件版本管理类[FileVersion](#fileversion20)的[gethistoryversionlist](#gethistoryversionlist20)方法时，历史版本列表中的属性。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
 
@@ -1483,11 +1571,15 @@ cloudSync.unregisterChange(uri);
 
 ##### VersionDownloadProgress20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 历史版本文件下载状态和进度信息，调用端云文件版本管理类[FileVersion](#fileversion20)的[downloadHistoryVersion](#downloadhistoryversion20)方法时，回调函数的入参类型。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
 
@@ -1502,11 +1594,15 @@ cloudSync.unregisterChange(uri);
 
 ##### FileVersion20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 端云文件版本管理类。支持对端云文件的历史版本进行管理，提供获取文件历史版本信息列表的能力，通过历史版本信息，可将历史版本下载到本地；并提供历史版本文件替换当前本地文件的能力，针对版本冲突，提供查询冲突标志，解除冲突标志的能力。
 
 
 
 ##### construct20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -1532,6 +1628,8 @@ let fileVersion = new cloudSync.FileVersion();
 
 
 ##### getHistoryVersionList20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getHistoryVersionList(uri: string, versionNumLimit: number): Promise<Array&lt;HistoryVersion&gt;>
 
@@ -1598,6 +1696,8 @@ fileVersion.getHistoryVersionList(uri, limit).then((versionList: Array<cloudSync
 
 
 ##### downloadHistoryVersion20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 downloadHistoryVersion(uri: string, versionId: string, callback: Callback<[VersionDownloadProgress](#versiondownloadprogress20)>): Promise&lt;string&gt;
 
@@ -1669,6 +1769,8 @@ fileVersion.downloadHistoryVersion(uri, versionId, callback).then((fileUri: stri
 
 
 ##### replaceFileWithHistoryVersion20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replaceFileWithHistoryVersion(originalUri: string, versionUri: string): Promise&lt;void&gt;
 
@@ -1749,6 +1851,8 @@ fileVersion.replaceFileWithHistoryVersion(uri, versionUri).then(() => {
 
 ##### isFileConflict20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isFileConflict(uri: string): Promise&lt;boolean&gt;
 
 获取本地文件版本冲突标志。使用Promise异步回调。此方法只有应用在配置手动解冲突后才会生效，否则默认自动解冲突，返回值为false，由同步流程自动完成解冲突；
@@ -1807,6 +1911,8 @@ fileVersion.isFileConflict(uri).then((isConflict: boolean) => {
 
 
 ##### clearFileConflict20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clearFileConflict(uri: string): Promise&lt;void&gt;
 
@@ -1872,6 +1978,8 @@ fileVersion.clearFileConflict(uri).then(() => {
 
 ##### cloudSync.getCoreFileSyncState20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCoreFileSyncState(uri: string): FileState
 
 同步方法获取云盘文件同步上行状态。
@@ -1928,6 +2036,8 @@ try {
 
 
 ##### FileState20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 端云文件同步状态，为枚举类型。
 

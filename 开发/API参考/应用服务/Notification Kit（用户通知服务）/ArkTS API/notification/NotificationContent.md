@@ -14,6 +14,8 @@
 
 ##### NotificationContent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通知内容。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -33,6 +35,8 @@
 
 ##### NotificationBasicContent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述普通文本通知。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -48,6 +52,8 @@
 
 
 ##### NotificationLongTextContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述长文本通知。继承自[NotificationBasicContent](#notificationbasiccontent)。
 
@@ -68,6 +74,8 @@
 
 ##### NotificationMultiLineContent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述多行文本通知。继承自[NotificationBasicContent](#notificationbasiccontent)。
 
 > [!NOTE]
@@ -86,6 +94,8 @@
 
 
 ##### NotificationPictureContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述附有图片的通知。继承自[NotificationBasicContent](#notificationbasiccontent)。
 
@@ -106,6 +116,8 @@
 
 ##### NotificationSystemLiveViewContent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述系统实况窗通知内容。不支持三方应用直接创建该类型通知，可以由系统代理创建系统实况窗类型通知后，三方应用发布同ID的通知来更新指定内容。继承自[NotificationBasicContent](#notificationbasiccontent)。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -123,6 +135,8 @@
 
 ##### NotificationCapsule11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述通知胶囊。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -138,6 +152,8 @@
 
 ##### NotificationButton11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述通知按钮。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -152,6 +168,8 @@
 
 
 ##### NotificationTime11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述通知计时信息。
 
@@ -180,6 +198,8 @@ time: {
 
 
 ##### NotificationProgress11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述通知进度。
 

@@ -21,6 +21,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { collections } from '@kit.ArkTS';
 ```
@@ -28,6 +30,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
@@ -41,6 +45,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(values?: readonly T[] | null)
 
@@ -98,6 +104,8 @@ const mySet2: collections.Set<number|SharedClass> = new collections.Set<number|O
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(iterable: Iterable&lt;T&gt;)
 
 创建ArkTS Set对象的构造函数。
@@ -138,6 +146,8 @@ console.info(newSet.has('b').toString()); // 预期输出： true
 
 
 ##### entries
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 entries(): IterableIterator<[T, T]>
 
@@ -180,6 +190,8 @@ console.info(iterator.next().value);
 
 ##### keys
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 keys(): IterableIterator&lt;T&gt;
 
 返回一个Set迭代器对象，该对象包含了此Set中每个元素的键。
@@ -220,6 +232,8 @@ console.info(iterator.next().value);
 
 
 ##### values
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 values(): IterableIterator&lt;T&gt;
 
@@ -278,6 +292,8 @@ console.info("size:" + mySet.size);
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 删除该Set中的所有元素。
@@ -310,6 +326,8 @@ console.info("size:" + mySet.size);
 
 
 ##### delete
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 delete(value: T): boolean
 
@@ -358,6 +376,8 @@ console.info("result:" + mySet.delete("hello"));
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value: T, value2: T, set: Set&lt;T&gt;) => void): void
 
@@ -415,6 +435,8 @@ new collections.Set<string>(['foo', 'bar', 'baz']).forEach((value1, value2, set)
 
 ##### has
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 has(value: T): boolean
 
 判断该Set中是否存在指定元素。
@@ -461,6 +483,8 @@ console.info("result:" + mySet.has("world"));
 
 
 ##### add
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 add(value: T): Set&lt;T&gt;
 
@@ -513,6 +537,8 @@ mySet.add(obj);
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
 

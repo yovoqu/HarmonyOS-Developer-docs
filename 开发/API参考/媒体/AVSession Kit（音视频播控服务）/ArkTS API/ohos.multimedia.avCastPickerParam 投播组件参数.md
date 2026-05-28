@@ -14,6 +14,8 @@ avCastPickerParam提供了[@ohos.multimedia.avCastPicker](https://developer.huaw
 
 ##### AVCastPickerState
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 投播组件设备列表状态参数选项。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -30,6 +32,8 @@ avCastPickerParam提供了[@ohos.multimedia.avCastPicker](https://developer.huaw
 
 ##### AVCastPickerStyle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 投播组件样式参数选项。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -45,6 +49,8 @@ avCastPickerParam提供了[@ohos.multimedia.avCastPicker](https://developer.huaw
   
 
 ##### AVCastPickerColorMode12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 投播组件显示模式参数选项。
  

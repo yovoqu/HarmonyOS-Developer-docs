@@ -14,6 +14,8 @@
 
 ##### getTopOrder18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTopOrder(): LevelOrder
 
 返回最顶层显示的弹窗的顺序。
@@ -97,6 +99,8 @@ struct Index {
 
 ##### getBottomOrder18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBottomOrder(): LevelOrder
 
 获取最底层显示的弹窗的顺序，可以在下一个弹窗时指定期望的顺序。
@@ -177,6 +181,8 @@ struct Index {
 
 
 ##### openToast18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openToast(options: promptAction.ShowToastOptions): Promise&lt;number&gt;
 
@@ -260,6 +266,8 @@ struct Index {
 
 ##### closeToast18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeToast(toastId: number): void
 
 关闭即时反馈。
@@ -293,6 +301,8 @@ closeToast(toastId: number): void
 
 
 ##### showToast
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showToast(options: promptAction.ShowToastOptions): void
 
@@ -355,6 +365,8 @@ struct Index {
 
 
 ##### showDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showDialog(options: promptAction.ShowDialogOptions, callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void
 
@@ -435,6 +447,8 @@ struct Index {
 
 ##### showDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>
 
 创建并显示对话框，使用Promise异步回调获取对话框的响应结果。
@@ -513,6 +527,8 @@ struct Index {
 
 ##### showActionMenu11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showActionMenu(options: promptAction.ActionMenuOptions, callback: AsyncCallback<[promptAction.ActionMenuSuccessResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenusuccessresponse)>): void
 
 创建并显示操作菜单，菜单响应结果使用callback异步回调返回。
@@ -589,6 +605,8 @@ struct Index {
 
 ##### showActionMenu
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>
 
 创建并显示操作菜单，通过Promise异步回调获取菜单的响应结果。
@@ -664,6 +682,8 @@ struct Index {
 
 
 ##### openCustomDialog12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openCustomDialog<T extends Object>(dialogContent: ComponentContent&lt;T&gt;, options?: promptAction.BaseDialogOptions): Promise&lt;void&gt;
 
@@ -801,6 +821,8 @@ struct Index {
 
 ##### openCustomDialog12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 openCustomDialog(options: promptAction.CustomDialogOptions): Promise&lt;number&gt;
 
 创建并弹出自定义弹窗。使用Promise异步回调返回对话框的id，可供closeCustomDialog使用。
@@ -912,6 +934,8 @@ struct Index {
 
 ##### openCustomDialogWithController18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent&lt;T&gt;, controller: promptAction.DialogController, options?: promptAction.BaseDialogOptions): Promise&lt;void&gt;
 
 创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。支持传入弹窗控制器与自定义弹窗绑定，后续可以通过控制器控制自定义弹窗。
@@ -1019,6 +1043,8 @@ struct Index {
 
 ##### updateCustomDialog12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateCustomDialog<T extends Object>(dialogContent: ComponentContent&lt;T&gt;, options: promptAction.BaseDialogOptions): Promise&lt;void&gt;
 
 更新已弹出的dialogContent对应的自定义弹窗的样式，使用Promise异步回调。
@@ -1123,6 +1149,8 @@ struct Index {
 
 ##### closeCustomDialog12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeCustomDialog<T extends Object>(dialogContent: ComponentContent&lt;T&gt;): Promise&lt;void&gt;
 
 关闭已弹出的dialogContent对应的自定义弹窗，使用Promise异步回调。
@@ -1225,6 +1253,8 @@ struct Index {
 
 ##### closeCustomDialog12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeCustomDialog(dialogId: number): void
 
 关闭自定义弹窗。
@@ -1311,6 +1341,8 @@ struct Index {
 
 
 ##### presentCustomDialog18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 presentCustomDialog(builder: CustomBuilder | CustomBuilderWithId, controller?: promptAction.DialogController, options?: promptAction.DialogOptions): Promise&lt;number&gt;
 
@@ -1429,6 +1461,8 @@ struct Index {
 
 
 ##### openPopup18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openPopup<T extends Object>(content: ComponentContent&lt;T&gt;, target: TargetInfo, options?: PopupCommonOptions): Promise&lt;void&gt;
 
@@ -1561,6 +1595,8 @@ struct Index {
 
 ##### updatePopup18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updatePopup<T extends Object>(content: ComponentContent&lt;T&gt;, options: PopupCommonOptions, partialUpdate?: boolean ): Promise&lt;void&gt;
 
 更新content对应的Popup弹窗的样式，使用Promise异步回调。
@@ -1608,6 +1644,8 @@ updatePopup<T extends Object>(content: ComponentContent&lt;T&gt;, options: Popup
 
 ##### closePopup18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closePopup<T extends Object>(content: ComponentContent&lt;T&gt;): Promise&lt;void&gt;
 
 关闭content对应的Popup弹窗，使用Promise异步回调。
@@ -1648,6 +1686,8 @@ closePopup<T extends Object>(content: ComponentContent&lt;T&gt;): Promise&lt;voi
 
 
 ##### openMenu18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openMenu<T extends Object>(content: ComponentContent&lt;T&gt;, target: TargetInfo, options?: MenuOptions): Promise&lt;void&gt;
 
@@ -1746,6 +1786,8 @@ struct Index {
 
 
 ##### updateMenu18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateMenu<T extends Object>(content: ComponentContent&lt;T&gt;, options: MenuOptions, partialUpdate?: boolean ): Promise&lt;void&gt;
 
@@ -1848,6 +1890,8 @@ struct Index {
 
 ##### closeMenu18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeMenu<T extends Object>(content: ComponentContent&lt;T&gt;): Promise&lt;void&gt;
 
 关闭content对应的Menu弹窗。使用Promise异步回调。
@@ -1940,6 +1984,8 @@ struct Index {
 
 
 ##### showActionMenu(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showActionMenu(options: promptAction.ActionMenuOptions, callback: [promptAction.ActionMenuSuccessResponse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-promptaction#actionmenusuccessresponse)): void
 

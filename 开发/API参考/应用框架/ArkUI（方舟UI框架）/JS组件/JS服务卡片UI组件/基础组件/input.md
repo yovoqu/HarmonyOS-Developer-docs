@@ -14,6 +14,8 @@
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)外，还支持如下属性：
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
@@ -28,11 +30,15 @@
 
 ##### 样式
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)。
  
   
 
 ##### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -43,6 +49,8 @@
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -79,4 +87,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/YlfC4OL_SleuIXNDVouwuQ/zh-cn_image_0000002611756513.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013758Z&HW-CC-Expire=86400&HW-CC-Sign=CAB22C784E5FFA12F88FE25C328B79047D60AC82ACD54838ECD9D6D406EE17F4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/YlfC4OL_SleuIXNDVouwuQ/zh-cn_image_0000002611756513.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024055Z&HW-CC-Expire=86400&HW-CC-Sign=DD5A9D786DC72976D8DA44B86DD8F351D53CCCE2276BB18B581A7D1C371778CB)

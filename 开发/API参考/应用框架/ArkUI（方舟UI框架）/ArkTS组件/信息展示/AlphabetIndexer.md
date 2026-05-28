@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AlphabetIndexer(options: AlphabetIndexerOptions)
 
@@ -38,6 +42,8 @@ AlphabetIndexer(options: AlphabetIndexerOptions)
 
 
 ##### AlphabetIndexerOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于设置索引条参数。
 
@@ -59,6 +65,8 @@ AlphabetIndexer(options: AlphabetIndexerOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [width](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#width)属性设置"auto"时表示自适应宽度，宽度会随索引项最大宽度变化。
 
 [padding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#padding)属性默认为4vp。
@@ -70,6 +78,8 @@ AlphabetIndexer(options: AlphabetIndexerOptions)
 
 
 ##### color
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 color(value: ResourceColor)
 
@@ -90,6 +100,8 @@ color(value: ResourceColor)
 
 ##### selectedColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedColor(value: ResourceColor)
 
 设置选中项文本颜色。
@@ -108,6 +120,8 @@ selectedColor(value: ResourceColor)
 
 
 ##### popupColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 popupColor(value: ResourceColor)
 
@@ -128,6 +142,8 @@ popupColor(value: ResourceColor)
 
 ##### selectedBackgroundColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedBackgroundColor(value: ResourceColor)
 
 设置选中项背景颜色。
@@ -146,6 +162,8 @@ selectedBackgroundColor(value: ResourceColor)
 
 
 ##### popupBackground
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 popupBackground(value: ResourceColor)
 
@@ -166,6 +184,8 @@ popupBackground(value: ResourceColor)
 
 ##### usingPopup
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 usingPopup(value: boolean)
 
 设置是否显示提示弹窗。
@@ -184,6 +204,8 @@ usingPopup(value: boolean)
 
 
 ##### selectedFont
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectedFont(value: Font)
 
@@ -204,6 +226,8 @@ selectedFont(value: Font)
 
 ##### popupFont
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popupFont(value: Font)
 
 设置提示弹窗一级索引文本样式。
@@ -222,6 +246,8 @@ popupFont(value: Font)
 
 
 ##### font
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 font(value: Font)
 
@@ -242,6 +268,8 @@ font(value: Font)
 
 ##### itemSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 itemSize(value: string | number)
 
 设置索引项区域大小。
@@ -260,6 +288,8 @@ itemSize(value: string | number)
 
 
 ##### alignStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 alignStyle(value: IndexerAlign, offset?: Length)
 
@@ -280,6 +310,8 @@ alignStyle(value: IndexerAlign, offset?: Length)
 
 
 ##### selected8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selected(index: number)
 
@@ -302,6 +334,8 @@ selected(index: number)
 
 ##### popupPosition8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popupPosition(value: Position)
 
 设置弹出窗口相对于索引条上边框中点的位置。
@@ -320,6 +354,8 @@ popupPosition(value: Position)
 
 
 ##### popupSelectedColor10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 popupSelectedColor(value: ResourceColor)
 
@@ -340,6 +376,8 @@ popupSelectedColor(value: ResourceColor)
 
 ##### popupUnselectedColor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popupUnselectedColor(value: ResourceColor)
 
 设置提示弹窗二级索引未选中项文本颜色。
@@ -358,6 +396,8 @@ popupUnselectedColor(value: ResourceColor)
 
 
 ##### popupItemFont10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 popupItemFont(value: Font)
 
@@ -378,6 +418,8 @@ popupItemFont(value: Font)
 
 ##### popupItemBackgroundColor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popupItemBackgroundColor(value: ResourceColor)
 
 设置提示弹窗二级索引项背景颜色。
@@ -396,6 +438,8 @@ popupItemBackgroundColor(value: ResourceColor)
 
 
 ##### autoCollapse11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 autoCollapse(value: boolean)
 
@@ -424,6 +468,8 @@ autoCollapse(value: boolean)
 
 ##### popupItemBorderRadius12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popupItemBorderRadius(value: number)
 
 设置提示弹窗索引项背板圆角半径。
@@ -442,6 +488,8 @@ popupItemBorderRadius(value: number)
 
 
 ##### itemBorderRadius12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 itemBorderRadius(value: number)
 
@@ -462,6 +510,8 @@ itemBorderRadius(value: number)
 
 ##### popupBackgroundBlurStyle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popupBackgroundBlurStyle(value: BlurStyle)
 
 设置提示弹窗的背景模糊材质。未通过该接口设置时，默认为组件普通材质模糊，对应取值为BlurStyle中的COMPONENT_REGULAR。
@@ -480,6 +530,8 @@ popupBackgroundBlurStyle(value: BlurStyle)
 
 
 ##### popupTitleBackground12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 popupTitleBackground(value: ResourceColor)
 
@@ -500,6 +552,8 @@ popupTitleBackground(value: ResourceColor)
 
 ##### enableHapticFeedback12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableHapticFeedback(value: boolean)
 
 设置是否开启触控反馈。
@@ -519,6 +573,8 @@ enableHapticFeedback(value: boolean)
 
 ##### IndexerAlign枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 索引条提示弹窗的对齐样式枚举。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -535,11 +591,15 @@ enableHapticFeedback(value: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onSelected(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSelected(callback: (index: number) => void)
 
@@ -562,6 +622,8 @@ onSelected(callback: (index: number) => void)
 
 ##### onSelect8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSelect(callback: OnAlphabetIndexerSelectCallback)
 
 索引项选中事件，回调参数为当前选中项索引。
@@ -580,6 +642,8 @@ onSelect(callback: OnAlphabetIndexerSelectCallback)
 
 
 ##### onRequestPopupData8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback)
 
@@ -600,6 +664,8 @@ onRequestPopupData(callback: OnAlphabetIndexerRequestPopupDataCallback)
 
 ##### onPopupSelect8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback)
 
 提示弹窗二级索引选中事件，回调参数为当前选中二级索引项索引。
@@ -618,6 +684,8 @@ onPopupSelect(callback: OnAlphabetIndexerPopupSelectCallback)
 
 
 ##### OnAlphabetIndexerSelectCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnAlphabetIndexerSelectCallback = (index: number) => void
 
@@ -638,6 +706,8 @@ type OnAlphabetIndexerSelectCallback = (index: number) => void
 
 ##### OnAlphabetIndexerPopupSelectCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnAlphabetIndexerPopupSelectCallback = (index: number) => void
 
 提示弹窗二级索引项被选中时触发的事件。
@@ -656,6 +726,8 @@ type OnAlphabetIndexerPopupSelectCallback = (index: number) => void
 
 
 ##### OnAlphabetIndexerRequestPopupDataCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array&lt;string&gt;
 
@@ -682,6 +754,8 @@ type OnAlphabetIndexerRequestPopupDataCallback = (index: number) => Array&lt;str
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -800,7 +874,7 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/i9o3G2AsTu-fWvKqk8GYgA/zh-cn_image_0000002611835863.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013928Z&HW-CC-Expire=86400&HW-CC-Sign=51DFA36BB1BA8673A40B5FDE5F3444B8E83C42C66CA6D623D28C9488731AD2AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/i9o3G2AsTu-fWvKqk8GYgA/zh-cn_image_0000002611835863.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=F7F23BC2FD8BAA3C93B8001446728B53698B8653B9B0467A3D1FB07FE7CCC353)
 
 
 
@@ -946,7 +1020,7 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HLNUmapRAi3nInoQEb3AA/zh-cn_image_0000002581276118.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013928Z&HW-CC-Expire=86400&HW-CC-Sign=1FA1468BF94E310524C39513AC2D53A5E97F4200EA51239A50414CE685CDF806)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/3HLNUmapRAi3nInoQEb3AA/zh-cn_image_0000002581276118.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=7770641A53D0F2F1099D6269D4F9BBAE6C706303C0CEF089345797CFD764D7EF)
 
 
 
@@ -1081,4 +1155,4 @@ struct AlphabetIndexerSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/1rZqsomSQXOi4_bJAYl50Q/zh-cn_image_0000002611755973.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013928Z&HW-CC-Expire=86400&HW-CC-Sign=982A0F60D2B5A62A7FD25EF1F0E89CD5205921F11D8D607EBABB17DB54D293D1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/1rZqsomSQXOi4_bJAYl50Q/zh-cn_image_0000002611755973.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=8FBA2431B2BC415D913D4E4D809957B3DCA8DC3DFF53996B3B2947F718AB9C88)

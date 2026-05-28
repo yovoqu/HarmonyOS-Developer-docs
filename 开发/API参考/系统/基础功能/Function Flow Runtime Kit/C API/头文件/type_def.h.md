@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义通用类型。
  
 **引用文件：** <ffrt/type_def.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -37,6 +43,8 @@
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -58,6 +66,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -74,6 +84,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -86,9 +98,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### ffrt_queue_priority_t
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum ffrt_queue_priority_t
@@ -111,6 +127,8 @@ enum ffrt_queue_priority_t
   
 
 ##### ffrt_qos_default_t
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum ffrt_qos_default_t
@@ -138,6 +156,8 @@ enum ffrt_qos_default_t
 
 ##### ffrt_storage_size_t
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum ffrt_storage_size_t
 ```
@@ -163,6 +183,8 @@ enum ffrt_storage_size_t
 
 ##### ffrt_function_kind_t
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum ffrt_function_kind_t
 ```
@@ -183,6 +205,8 @@ enum ffrt_function_kind_t
 
 ##### ffrt_dependence_type_t
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum ffrt_dependence_type_t
 ```
@@ -202,6 +226,8 @@ enum ffrt_dependence_type_t
   
 
 ##### ffrt_error_t
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum ffrt_error_t
@@ -227,6 +253,8 @@ FFRT错误码。
 
 ##### ffrt_mutex_type
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum ffrt_mutex_type
 ```
@@ -247,6 +275,8 @@ enum ffrt_mutex_type
   
 
 ##### qos_default
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum qos_default
@@ -274,9 +304,13 @@ enum qos_default
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### ffrt_function_t()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void(*ffrt_function_t)(void*)
@@ -292,6 +326,8 @@ typedef void(*ffrt_function_t)(void*)
 
 ##### ffrt_poller_cb()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*ffrt_poller_cb)(void* data, uint32_t event)
 ```
@@ -305,6 +341,8 @@ poller回调函数定义。
   
 
 ##### ffrt_timer_cb()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*ffrt_timer_cb)(void* data)

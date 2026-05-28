@@ -14,6 +14,8 @@
 
 ##### measureText12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 measureText(options: MeasureOptions): number
 
 计算指定文本作为单行文本显示时的宽度。如果文本包含多行（由换行符\n分隔），则返回其中最长的行的宽度。
@@ -72,6 +74,8 @@ struct Index {
 
 
 ##### measureTextSize12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 measureTextSize(options: MeasureOptions): SizeOptions
 
@@ -242,6 +246,8 @@ struct TextDemo {
 
 
 ##### getParagraphs20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getParagraphs(styledString: StyledString, options?: TextLayoutOptions): Array&lt;Paragraph&gt;
 

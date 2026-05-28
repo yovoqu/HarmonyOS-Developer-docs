@@ -12,6 +12,8 @@
 
 ##### 1012500001 内部异常
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 Internal error.
@@ -31,6 +33,8 @@ Internal error.
 
 
 ##### 1012500002 设备网络异常
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
 
@@ -52,6 +56,8 @@ The network is unreachable.
 
 ##### 1012500003 访问云端服务器异常
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 Access cloud server fail.
@@ -72,6 +78,8 @@ Access cloud server fail.
 
 ##### 1012500004 权限校验失败
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 Verify cloud capability fail.
@@ -91,6 +99,8 @@ Verify cloud capability fail.
 
 
 ##### 1012500005 API调用次数超过限制
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
 
@@ -114,6 +124,8 @@ API调用次数超过限制。
 
 ##### 1012500006 API调用超时
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 Internal timeout.
@@ -133,6 +145,8 @@ API调用超时。
 
 
 ##### 1012500007 参数检查失败
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
 

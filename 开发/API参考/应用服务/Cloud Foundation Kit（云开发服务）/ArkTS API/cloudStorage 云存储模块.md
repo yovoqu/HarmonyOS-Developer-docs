@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { cloudStorage } from '@kit.CloudFoundationKit';
 ```
@@ -19,6 +21,8 @@ import { cloudStorage } from '@kit.CloudFoundationKit';
   
 
 ##### bucket
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bucket(name?: string): StorageBucket
  
@@ -73,6 +77,8 @@ let bucket2: cloudStorage.StorageBucket = cloudStorage.bucket('mybucket-duaf5');
 
 ##### StorageBucket
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云存储的实例，提供云存储的上传、下载等相关能力，通过[bucket](#bucket)初始化。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -86,6 +92,8 @@ let bucket2: cloudStorage.StorageBucket = cloudStorage.bucket('mybucket-duaf5');
   
 
 ##### uploadFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 uploadFile(context: common.BaseContext, parameters: UploadParams): Promise<request.agent.Task>
  
@@ -173,6 +181,8 @@ bucket.uploadFile(context, {  // context表示应用上下文
 
 ##### uploadFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 uploadFile(context: common.BaseContext, parameters: UploadParams, callback: AsyncCallback<request.agent.Task>): void
  
 上传指定文件至云侧。使用callback异步回调。
@@ -254,6 +264,8 @@ bucket.uploadFile(context, {  // context表示应用上下文
   
 
 ##### downloadFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 downloadFile(context: common.BaseContext, parameters: DownloadParams): Promise<request.agent.Task>
  
@@ -342,6 +354,8 @@ bucket.downloadFile(context, {  // context表示应用上下文
 
 ##### downloadFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 downloadFile(context: common.BaseContext, parameters: DownloadParams, callback: AsyncCallback<request.agent.Task>): void
  
 下载云侧文件至本地。使用callback异步回调。
@@ -425,6 +439,8 @@ bucket.downloadFile(context, {  // context表示应用上下文
 
 ##### getDownloadURL
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDownloadURL(cloudPath: string): Promise&lt;string&gt;
  
 获取云侧文件下载地址。使用Promise异步回调。
@@ -487,6 +503,8 @@ bucket.getDownloadURL('cloudPath').then((downloadURL: string) => {
 
 ##### getDownloadURL
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDownloadURL(cloudPath: string, callback: AsyncCallback&lt;string&gt;): void
  
 获取云侧文件下载地址。使用callback异步回调。
@@ -544,6 +562,8 @@ bucket.getDownloadURL('cloudPath', (err: BusinessError, downloadURL: string) => 
   
 
 ##### deleteFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteFile(cloudPath: string): Promise&lt;void&gt;
  
@@ -607,6 +627,8 @@ bucket.deleteFile('cloudPath').then(() => {
 
 ##### deleteFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteFile(cloudPath: string, callback: AsyncCallback&lt;void&gt;): void
  
 删除云侧文件。使用callback异步回调。
@@ -664,6 +686,8 @@ bucket.deleteFile('cloudPath', (err: BusinessError) => {
   
 
 ##### list
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 list(cloudPath: string, options?: ListOptions): Promise&lt;ListResults&gt;
  
@@ -735,6 +759,8 @@ bucket.list('some_directory/').then((result: cloudStorage.ListResults) => {
 
 ##### list
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 list(cloudPath: string, options: ListOptions, callback: AsyncCallback&lt;ListResults&gt;): void
  
 获取云侧文件列表。使用callback异步回调。
@@ -803,6 +829,8 @@ bucket.list('some_directory/', {}, (err: BusinessError, result: cloudStorage.Lis
 
 ##### getMetadata
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMetadata(cloudPath: string): Promise&lt;Metadata&gt;
  
 获取云侧文件的元数据。使用Promise异步回调。
@@ -865,6 +893,8 @@ bucket.getMetadata('cloudPath').then((data: cloudStorage.Metadata) => {
 
 ##### getMetadata
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMetadata(cloudPath: string, callback: AsyncCallback&lt;Metadata&gt;): void
  
 获取云侧文件的元数据。使用callback异步回调。
@@ -922,6 +952,8 @@ bucket.getMetadata('cloudPath', (err: BusinessError, data: cloudStorage.Metadata
   
 
 ##### setMetadata
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMetadata(cloudPath: string, metadata: MetadataUpdatable): Promise&lt;Metadata&gt;
  
@@ -991,6 +1023,8 @@ bucket.setMetadata('cloudPath', {
 
 ##### setMetadata
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMetadata(cloudPath: string, metadata: MetadataUpdatable, callback: AsyncCallback&lt;Metadata&gt;): void
  
 设置云侧文件的元数据。使用callback异步回调。
@@ -1055,6 +1089,8 @@ bucket.setMetadata('cloudPath', {
 
 ##### UploadParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 上传相关参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1077,6 +1113,8 @@ bucket.setMetadata('cloudPath', {
   
 
 ##### DownloadParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 下载相关参数。
  
@@ -1101,6 +1139,8 @@ bucket.setMetadata('cloudPath', {
 
 ##### ListOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 列举操作的相关参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1120,6 +1160,8 @@ bucket.setMetadata('cloudPath', {
   
 
 ##### ListResults
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 列举操作的结果。
  
@@ -1141,6 +1183,8 @@ bucket.setMetadata('cloudPath', {
   
 
 ##### MetadataUpdatable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可更新参数的元数据信息。
  
@@ -1165,6 +1209,8 @@ bucket.setMetadata('cloudPath', {
   
 
 ##### Metadata
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 完整的元数据信息，继承自[MetadataUpdatable](#metadataupdatable)。
  

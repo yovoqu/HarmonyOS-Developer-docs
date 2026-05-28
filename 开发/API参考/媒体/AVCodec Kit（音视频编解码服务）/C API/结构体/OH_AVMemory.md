@@ -12,6 +12,8 @@ typedef struct OH_AVMemory OH_AVMemory
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为音视频内存接口定义native层对象。
  
 **起始版本：** 9

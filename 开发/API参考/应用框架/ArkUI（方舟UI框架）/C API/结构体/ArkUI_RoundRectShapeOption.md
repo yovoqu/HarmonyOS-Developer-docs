@@ -12,6 +12,8 @@ typedef struct ArkUI_RoundRectShape ArkUI_RoundRectShapeOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义圆角矩形形状配置项。
  
 **起始版本：** 20

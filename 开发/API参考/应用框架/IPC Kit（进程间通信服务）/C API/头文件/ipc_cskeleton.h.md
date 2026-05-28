@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供IPC框架tokenId、凭据、PID/UID、线程池配置等功能C接口。
  
 **引用文件：** <IPCKit/ipc_cskeleton.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -47,9 +53,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_IPCSkeleton_JoinWorkThread()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_IPCSkeleton_JoinWorkThread(void)
@@ -67,6 +77,8 @@ void OH_IPCSkeleton_JoinWorkThread(void)
 
 ##### OH_IPCSkeleton_StopWorkThread()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_IPCSkeleton_StopWorkThread(void)
 ```
@@ -82,6 +94,8 @@ void OH_IPCSkeleton_StopWorkThread(void)
   
 
 ##### OH_IPCSkeleton_GetCallingTokenId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint64_t OH_IPCSkeleton_GetCallingTokenId(void)
@@ -106,6 +120,8 @@ uint64_t OH_IPCSkeleton_GetCallingTokenId(void)
 
 ##### OH_IPCSkeleton_GetFirstTokenId()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint64_t OH_IPCSkeleton_GetFirstTokenId(void)
 ```
@@ -128,6 +144,8 @@ uint64_t OH_IPCSkeleton_GetFirstTokenId(void)
   
 
 ##### OH_IPCSkeleton_GetSelfTokenId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint64_t OH_IPCSkeleton_GetSelfTokenId(void)
@@ -152,6 +170,8 @@ uint64_t OH_IPCSkeleton_GetSelfTokenId(void)
 
 ##### OH_IPCSkeleton_GetCallingPid()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint64_t OH_IPCSkeleton_GetCallingPid(void)
 ```
@@ -174,6 +194,8 @@ uint64_t OH_IPCSkeleton_GetCallingPid(void)
   
 
 ##### OH_IPCSkeleton_GetCallingUid()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint64_t OH_IPCSkeleton_GetCallingUid(void)
@@ -198,6 +220,8 @@ uint64_t OH_IPCSkeleton_GetCallingUid(void)
 
 ##### OH_IPCSkeleton_IsLocalCalling()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCSkeleton_IsLocalCalling(void)
 ```
@@ -220,6 +244,8 @@ int OH_IPCSkeleton_IsLocalCalling(void)
   
 
 ##### OH_IPCSkeleton_SetMaxWorkThreadNum()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCSkeleton_SetMaxWorkThreadNum(const int maxThreadNum)
@@ -250,6 +276,8 @@ int OH_IPCSkeleton_SetMaxWorkThreadNum(const int maxThreadNum)
   
 
 ##### OH_IPCSkeleton_ResetCallingIdentity()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCSkeleton_ResetCallingIdentity(char **identity, int32_t *len, OH_IPC_MemAllocator allocator)
@@ -283,6 +311,8 @@ int OH_IPCSkeleton_ResetCallingIdentity(char **identity, int32_t *len, OH_IPC_Me
 
 ##### OH_IPCSkeleton_SetCallingIdentity()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_IPCSkeleton_SetCallingIdentity(const char *identity)
 ```
@@ -312,6 +342,8 @@ int OH_IPCSkeleton_SetCallingIdentity(const char *identity)
   
 
 ##### OH_IPCSkeleton_IsHandlingTransaction()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_IPCSkeleton_IsHandlingTransaction(void)

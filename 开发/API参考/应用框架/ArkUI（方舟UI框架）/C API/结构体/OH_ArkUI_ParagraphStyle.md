@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_ParagraphStyle OH_ArkUI_ParagraphStyle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义段落样式。 
  
  可以通过[OH_ArkUI_ParagraphStyle_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_paragraphstyle_create)接口创建对应的段落样式对象。 

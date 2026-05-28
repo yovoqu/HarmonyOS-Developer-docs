@@ -14,6 +14,8 @@ CompletionHandlerForAtomicService作为[AtomicServiceOptions](https://developer.
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { CompletionHandlerForAtomicService } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { CompletionHandlerForAtomicService } from '@kit.AbilityKit';
   
 
 ##### FailureCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 打开元服务失败的特定错误码。
  
@@ -39,11 +43,15 @@ import { CompletionHandlerForAtomicService } from '@kit.AbilityKit';
 
 ##### CompletionHandlerForAtomicService
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 CompletionHandlerForAtomicService提供了[onAtomicServiceRequestSuccess](#onatomicservicerequestsuccess)和[onAtomicServiceRequestFailure](#onatomicservicerequestfailure)两个回调函数，分别在打开元服务成功和失败时回调。
  
   
 
 ##### onAtomicServiceRequestSuccess
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAtomicServiceRequestSuccess(appId: string): void
  
@@ -67,6 +75,8 @@ onAtomicServiceRequestSuccess(appId: string): void
   
 
 ##### onAtomicServiceRequestFailure
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string): void
  

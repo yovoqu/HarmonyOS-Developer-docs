@@ -12,6 +12,8 @@ typedef struct OH_UdmfRecordProvider OH_UdmfRecordProvider
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义统一数据对象中的数据提供者。
  
 **起始版本：** 13

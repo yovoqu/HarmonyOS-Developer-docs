@@ -14,6 +14,8 @@
 
 ##### mutableBuilder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder&lt;Args&gt;
 
 mutableBuilder是一个模板函数，它返回一个MutableBuilder对象，只接受一个全局的@Builder函数作为其参数。
@@ -84,6 +86,8 @@ struct MyApp {
 
 ##### MutableBuilder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 class MutableBuilder<Args extends Object[]> extends WrappedBuilder&lt;Args&gt; { }
 
 用于实现包装[全局@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)的动态切换的类，MutableBuilder继承自[WrappedBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-wrapbuilder#wrappedbuilder)，其模板参数Args extends Object[]应传入@Builder函数的参数类型列表。[mutableBuilder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-mutablebuilder)函数返回MutableBuilder对象。
@@ -95,6 +99,8 @@ class MutableBuilder<Args extends Object[]> extends WrappedBuilder&lt;Args&gt; {
 
 
 ##### BuilderCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BuilderCallback = (...args: Args) => void
 

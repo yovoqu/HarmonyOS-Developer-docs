@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { bundleManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### ApplicationInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**: SystemCapability.BundleManager.BundleFramework.Core
 
@@ -64,6 +68,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### MultiAppMode12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示[应用多开](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multiinstance)模式。
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
@@ -77,6 +83,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### ModuleMetadata10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述模块的元数据信息。
 

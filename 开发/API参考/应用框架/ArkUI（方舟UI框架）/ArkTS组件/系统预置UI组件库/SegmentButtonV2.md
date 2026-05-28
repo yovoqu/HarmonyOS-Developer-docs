@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2, SegmentButtonV2Items } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
  
@@ -34,11 +40,15 @@ import { TabSegmentButtonV2, CapsuleSegmentButtonV2, MultiCapsuleSegmentButtonV2
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### TabSegmentButtonV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 TabSegmentButtonV2({
@@ -125,6 +135,8 @@ TabSegmentButtonV2({
 
 ##### CapsuleSegmentButtonV2
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 CapsuleSegmentButtonV2({
   items: SegmentButtonV2Items,
@@ -210,6 +222,8 @@ CapsuleSegmentButtonV2({
 
 ##### MultiCapsuleSegmentButtonV2
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 MultiCapsuleSegmentButtonV2({
   items: SegmentButtonV2Items,
@@ -287,6 +301,8 @@ MultiCapsuleSegmentButtonV2({
 
 ##### SegmentButtonV2Items
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 分段按钮选项集合。
  
 继承自 Array<[SegmentButtonV2Item](#segmentbuttonv2item)>
@@ -296,6 +312,8 @@ MultiCapsuleSegmentButtonV2({
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(items: SegmentButtonV2ItemOptions[])
  
@@ -318,6 +336,8 @@ constructor(items: SegmentButtonV2ItemOptions[])
 
 ##### hasHybrid
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get hasHybrid():boolean
  
 是否支持图文混合选项。
@@ -339,11 +359,15 @@ get hasHybrid():boolean
 
 ##### SegmentButtonV2Item
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **装饰器类型：** @ObservedV2
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
@@ -373,6 +397,8 @@ get hasHybrid():boolean
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(options: SegmentButtonV2ItemOptions)
  
 构造函数。
@@ -394,6 +420,8 @@ constructor(options: SegmentButtonV2ItemOptions)
 
 ##### isHybrid
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get isHybrid():boolean
  
 检查分段按钮选项是否已配置文本和图标。
@@ -414,6 +442,8 @@ get isHybrid():boolean
   
 
 ##### SegmentButtonV2ItemOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 配置分段按钮选项参数。
  
@@ -445,6 +475,8 @@ get isHybrid():boolean
 
 ##### OnSelectedIndexChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnSelectedIndexChange = (selectedIndex: number) => void
  
 单选分段按钮选中项变更时调用的回调函数类型。
@@ -466,6 +498,8 @@ type OnSelectedIndexChange = (selectedIndex: number) => void
 
 ##### OnSelectedIndexesChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnSelectedIndexesChange = (selectedIndexes: number[]) => void
  
 多选分段按钮选中项变更时调用的回调函数类型。
@@ -486,6 +520,8 @@ type OnSelectedIndexesChange = (selectedIndexes: number[]) => void
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -894,7 +930,7 @@ export struct VCard {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/QJo5dENtT_a1-G7qabQf-w/zh-cn_image_0000002581276348.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=14085845AB728427B023F2B2C77C1ACF366DCA261BF82492CD3E3E64EDB40B21)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/QJo5dENtT_a1-G7qabQf-w/zh-cn_image_0000002581276348.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=55332C5DD1A852D1FA3E2EF4FBD5F4B9A7DCD50D4F453B37EAD9FB186D572E34)
 
  
   
@@ -993,7 +1029,7 @@ export struct VCard {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/hflpXYlvSkCUV5sA4Cy0hw/zh-cn_image_0000002611756205.png?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=DDC4D7DD06DC4752301FC8DED1A8AF7DC5CD1D2EB145E2BBD98A7444FCD2D528)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/hflpXYlvSkCUV5sA4Cy0hw/zh-cn_image_0000002611756205.png?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=27FEB0F5B6F95493CF0548CD58D2337BE1C36D50DA58CDF500EE524114A1AB5E)
 
  
   
@@ -1092,4 +1128,4 @@ export struct VCard {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/apeUz4WDReGT58VMyCc5iw/zh-cn_image_0000002581436264.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=459BFF0AB2D3CCC77C3EF61CAC997C9AF52B50A0659BCE7CC7E21198B6158817)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/apeUz4WDReGT58VMyCc5iw/zh-cn_image_0000002581436264.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024154Z&HW-CC-Expire=86400&HW-CC-Sign=7721D1C4E3CE2C0293E95442E97528E487797FA95E74D64AE886FC76B8F12CE8)

@@ -12,6 +12,8 @@ typedef struct OH_VideoCaptureInfo {...} OH_VideoCaptureInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 视频录制信息。当videoFrameWidth和videoFrameHeight同时为0时，忽略视频相关参数不录制屏幕数据。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ typedef struct OH_VideoCaptureInfo {...} OH_VideoCaptureInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

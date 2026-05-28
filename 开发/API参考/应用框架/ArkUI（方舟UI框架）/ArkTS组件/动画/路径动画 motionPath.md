@@ -14,6 +14,8 @@
 
 ##### motionPath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 motionPath(value: MotionPathOptions): T
 
 设置组件的路径动画。
@@ -40,6 +42,8 @@ motionPath(value: MotionPathOptions): T
 
 ##### MotionPathOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置组件的运动路径。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -57,6 +61,8 @@ motionPath(value: MotionPathOptions): T
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例主要演示如何设置组件进行位移动画时的运动路径。
 
@@ -87,4 +93,4 @@ struct MotionPathExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/MvpGWuYLT4CYSsyO9L_vkQ/zh-cn_image_0000002611756103.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=51EFE40DA96AB87893C4A2DF1C0CCCED41FA802EA8647262443F26A08FD7B2A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/MvpGWuYLT4CYSsyO9L_vkQ/zh-cn_image_0000002611756103.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=E66E305ECF888D5218B31CC300BAC6EAAA585A6B2398AB6DA927C8868C921301)

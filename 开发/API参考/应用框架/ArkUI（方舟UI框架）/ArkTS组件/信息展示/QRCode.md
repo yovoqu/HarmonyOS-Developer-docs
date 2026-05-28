@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 QRCode(value: ResourceStr)
  
@@ -41,11 +45,15 @@ QRCode(value: ResourceStr)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### color
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 color(value: ResourceColor)
  
@@ -68,6 +76,8 @@ color(value: ResourceColor)
 
 ##### backgroundColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 backgroundColor(value: ResourceColor)
  
 设置二维码背景颜色。
@@ -89,6 +99,8 @@ backgroundColor(value: ResourceColor)
 
 ##### contentOpacity11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 contentOpacity(value: number | Resource)
  
 设置二维码内容颜色的不透明度。不透明度最小值为0，最大值为1。
@@ -108,11 +120,15 @@ contentOpacity(value: number | Resource)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通用事件支持[点击事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)、[触摸事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch)和[挂载卸载事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-show-hide)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 

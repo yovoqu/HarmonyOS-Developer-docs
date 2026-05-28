@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件中定义了用于绘制2d图形的数据类型，包括画布、画笔、画刷、位图和路径。
  
 **引用文件：** <native_drawing/drawing_types.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -77,6 +83,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -90,9 +98,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_ColorFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_ColorFormat
@@ -118,6 +130,8 @@ enum OH_Drawing_ColorFormat
 
 ##### OH_Drawing_AlphaFormat
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_Drawing_AlphaFormat
 ```
@@ -139,6 +153,8 @@ enum OH_Drawing_AlphaFormat
   
 
 ##### OH_Drawing_BlendMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_BlendMode
@@ -206,6 +222,8 @@ rc : 如果操作3个颜色通道，用rc表示。
   
 
 ##### OH_Drawing_TextEncoding
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextEncoding

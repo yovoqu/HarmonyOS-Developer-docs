@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_CustomSpan OH_ArkUI_CustomSpan
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义自定义绘制Span。 
  
  可以通过[OH_ArkUI_CustomSpan_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_customspan_create)接口创建对应的自定义绘制Span对象。 

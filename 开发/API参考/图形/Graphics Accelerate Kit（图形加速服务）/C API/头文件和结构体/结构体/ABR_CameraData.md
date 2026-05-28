@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述游戏应用每帧的相机运动数据，ABR会结合相机运动数据自适应调整FrameBuffer（帧缓冲，下文简称Buffer）分辨率因子。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### position
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 ABR_Vector3 ABR_CameraData::position
@@ -48,6 +58,8 @@ ABR_Vector3 ABR_CameraData::position
   
 
 ##### rotation
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 ABR_Vector3 ABR_CameraData::rotation

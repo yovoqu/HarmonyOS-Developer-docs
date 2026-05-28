@@ -14,17 +14,23 @@
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[animate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animate)、[animateMotion](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatemotion)、[animateTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatetransform)。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持Svg组件[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-common-attributes)和以下属性。
   
@@ -38,6 +44,8 @@
 
 ##### 示例
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div class="container">
@@ -49,4 +57,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/CqCRGk2LSt2xplGRXA9fMw/zh-cn_image_0000002611756323.png?HW-CC-KV=V1&HW-CC-Date=20260528T013809Z&HW-CC-Expire=86400&HW-CC-Sign=DD155F5BEB972564A01DC947C2E5576B380131DAE77D86CFCED6E7DF21A90703)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/CqCRGk2LSt2xplGRXA9fMw/zh-cn_image_0000002611756323.png?HW-CC-KV=V1&HW-CC-Date=20260528T024105Z&HW-CC-Expire=86400&HW-CC-Sign=28F45EBD0D2DED6AAEFE992894A9042B69A23AC4CECA63BF4CEAD05078661FBA)

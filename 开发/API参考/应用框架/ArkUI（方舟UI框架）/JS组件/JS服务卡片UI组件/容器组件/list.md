@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅支持<[list-item](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-container-list-item)>子组件。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-attributes)外，还支持如下属性：
   
@@ -38,6 +42,8 @@
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-styles)外，还支持如下样式：
   
@@ -61,11 +67,15 @@
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-common-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- index.html -->
@@ -123,4 +133,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/ptSmX0MNR6KTQQFrTe79jQ/zh-cn_image_0000002611756507.png?HW-CC-KV=V1&HW-CC-Date=20260528T013759Z&HW-CC-Expire=86400&HW-CC-Sign=5B0B6DB82A840C884E10BF56905718BA20EA929EA27BE0630BAB8C72DFB54A31)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/ptSmX0MNR6KTQQFrTe79jQ/zh-cn_image_0000002611756507.png?HW-CC-KV=V1&HW-CC-Date=20260528T024056Z&HW-CC-Expire=86400&HW-CC-Sign=70D8C700BA66AC2113228AB2F72D4B6B85FADBDAF9CA3093AC2A3261F383B7C6)

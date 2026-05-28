@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供远端对象创建、销毁、数据发送、远端对象死亡状态监听等功能C接口。
  
 **系统能力：** SystemCapability.Communication.IPC.Core
@@ -16,6 +18,8 @@
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

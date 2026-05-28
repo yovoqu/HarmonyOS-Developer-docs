@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 必须包含两个子组件，其中第二个子组件必须为[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)。
  
 > [!NOTE]
@@ -24,9 +26,13 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### NavRouter(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NavRouter()
  
@@ -41,6 +47,8 @@ NavRouter()
   
 
 ##### NavRouter(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NavRouter(value: RouteInfo)
  
@@ -65,11 +73,15 @@ NavRouter(value: RouteInfo)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### mode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mode(mode: NavRouteMode)
  
@@ -94,6 +106,8 @@ mode(mode: NavRouteMode)
 
 ##### RouteInfo(deprecated)对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 路由信息。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -109,6 +123,8 @@ mode(mode: NavRouteMode)
   
 
 ##### NavRouteMode(deprecated)枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 路由模式。
  
@@ -131,9 +147,13 @@ mode(mode: NavRouteMode)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### onStateChange(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onStateChange(callback: (isActivated: boolean) => void)
  
@@ -157,6 +177,8 @@ onStateChange(callback: (isActivated: boolean) => void)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -239,4 +261,4 @@ struct NavRouterExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/s7WZm4opRSq9sBGoiyiSxg/zh-cn_image_0000002581276388.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013929Z&HW-CC-Expire=86400&HW-CC-Sign=DD067391C9C1451718A03CEF0704B203BDE255CE3C63335319E13DC460362DE4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/s7WZm4opRSq9sBGoiyiSxg/zh-cn_image_0000002581276388.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024225Z&HW-CC-Expire=86400&HW-CC-Sign=3BE27DCA17CA3FF48F6A636C1628A398E28444BCF54F1499FD4FDB4FD99FEC7F)

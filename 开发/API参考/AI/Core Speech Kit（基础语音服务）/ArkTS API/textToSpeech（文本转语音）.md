@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { textToSpeech } from '@kit.CoreSpeechKit';
 ```
@@ -21,6 +23,8 @@ import { textToSpeech } from '@kit.CoreSpeechKit';
 
 
 ##### textToSpeech.createEngine
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback&lt;TextToSpeechEngine&gt;): void
 
@@ -91,6 +95,8 @@ struct Page {
 
 
 ##### textToSpeech.createEngine
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 createEngine(createEngineParams: CreateEngineParams): Promise&lt;TextToSpeechEngine&gt;
 
@@ -167,6 +173,8 @@ struct Page {
 
 ##### textToSpeech.listVoices
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 listVoices(queryParams: VoiceQuery): Promise<VoiceInfo[]>
 
 查询支持的语种音色信息，使用Promise异步回调。
@@ -234,6 +242,8 @@ struct Page {
 
 
 ##### textToSpeech.downloadVoice
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 downloadVoice(downloadParams: VoiceDownload, callback: AsyncCallback&lt;DownloadResponse&gt;): void
 
@@ -360,6 +370,8 @@ struct Page {
 
 ##### TextToSpeechEngine
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 文本转语音类，用于执行文本转语音过程中的相关操作。在调用TextToSpeechEngine的方法前，需要先通过[createEngine](#texttospeechcreateengine)方法创建一个[TextToSpeechEngine](#texttospeechengine)实例。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -371,6 +383,8 @@ struct Page {
 
 
 ##### listVoices
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 listVoices(params: VoiceQuery, callback: AsyncCallback<Array&lt;VoiceInfo&gt;>): void
 
@@ -436,6 +450,8 @@ struct Page {
 
 
 ##### listVoices
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 listVoices(params: VoiceQuery): Promise<Array&lt;VoiceInfo&gt;>
 
@@ -506,6 +522,8 @@ struct Page {
 
 ##### setListener
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setListener(listener: SpeakListener): void
 
 设置合成播报回调。
@@ -570,6 +588,8 @@ struct Page {
 
 
 ##### speak
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 speak(text: string, speakParams: SpeakParams): void
 
@@ -640,6 +660,8 @@ struct Page {
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 stop(): void
 
 同时停止合成及播报，请先调用[setListener](#setlistener)方法，否则无法接收stop的回调。
@@ -698,6 +720,8 @@ struct Page {
 
 
 ##### isBusy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isBusy(): boolean
 
@@ -766,6 +790,8 @@ struct Page {
 
 ##### shutdown
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 shutdown(): void
 
 关闭引擎，释放引擎资源。
@@ -825,6 +851,8 @@ struct Page {
 
 ##### SpeakListener
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 合成及播报的回调对象，通过此对象可返回合成及播报过程的相关状态，例如开始合成及播报、合成完成、播报完成、停止播报完成等。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -836,6 +864,8 @@ struct Page {
 
 
 ##### onStart
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onStart(requestId: string, response: StartResponse): void
 
@@ -903,6 +933,8 @@ struct Page {
 
 ##### onStop
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onStop(requestId: string, response: StopResponse): void
 
 调用stop()方法时，回调此接口，表示stop已完成。
@@ -968,6 +1000,8 @@ struct Page {
 
 
 ##### onComplete
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 onComplete(requestId: string, response: CompleteResponse): void
 
@@ -1039,6 +1073,8 @@ struct Page {
 
 ##### onData
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onData?: OnDataCallback
 
 合成播报过程中回调此接口，返回请求ID，音频流信息，音频附加信息如格式、时长等。若需要返回音频流信息，请实现此接口。
@@ -1108,6 +1144,8 @@ struct Page {
 
 ##### onError
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 onError(requestId: string, errorCode: number, errorMessage: string): void
 
 合成播报过程中，出现错误时回调，返回请求ID、错误码及错误描述。
@@ -1175,6 +1213,8 @@ struct Page {
 
 ##### OnDataCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 type OnDataCallback = (requestId: string, audio: ArrayBuffer, response: SynthesisResponse) => void
 
 合成的回调，通过音频的参数返回音频数据。
@@ -1197,6 +1237,8 @@ type OnDataCallback = (requestId: string, audio: ArrayBuffer, response: Synthesi
 
 
 ##### CreateEngineParams
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 创建引擎实例的相关参数，用于配置语种、模式、音色和风格等。
 
@@ -1242,6 +1284,8 @@ struct Page {
 
 ##### VoiceQuery
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 查询音色语种信息的相关参数。例如查询离线模式、中文语种所支持的音色信息，需将online参数设置为1，language参数设置为“zh-CN”。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -1284,6 +1328,8 @@ struct Page {
 
 ##### VoiceDownload
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 下载音色时的相关参数，所有参数通过listVoices接口获取。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -1318,6 +1364,8 @@ let voicesDownload: textToSpeech.VoiceDownload = {
 
 ##### DownloadResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 下载音色语种时的回调对象。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -1336,6 +1384,8 @@ let voicesDownload: textToSpeech.VoiceDownload = {
 
 
 ##### on('start')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'start', callback: Callback&lt;string&gt;): void
 
@@ -1374,6 +1424,8 @@ downloadResponse.off('start', startCallback);
 
 ##### on('progress')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'progress', callback: Callback&lt;string&gt;): void
 
 音色下载过程中，触发此接口，接收下载进度信息。
@@ -1410,6 +1462,8 @@ downloadResponse.off('progress', progressCallback);
 
 
 ##### on('complete')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'complete', callback: Callback&lt;VoiceInfo&gt;): void
 
@@ -1448,6 +1502,8 @@ downloadResponse.off('complete', completeCallback);
 
 
 ##### on('cancel')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'cancel', callback: Callback&lt;string&gt;): void
 
@@ -1490,6 +1546,8 @@ downloadResponse.off('cancel', cancelCallback);
 
 ##### on('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'error', callback: ErrorCallback&lt;BusinessError&gt;): void
 
 音色下载错误时，触发此接口，接收下载错误信息。
@@ -1528,6 +1586,8 @@ downloadResponse.off('error', errorCallback);
 
 ##### off('start')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'start', callback?: Callback&lt;string&gt;): void
 
 取消监听音色下载开始事件。
@@ -1565,6 +1625,8 @@ downloadResponse.off('start', startCallback);
 
 ##### off('progress')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'progress', callback?: Callback&lt;string&gt;): void
 
 取消监听音色下载过程事件。
@@ -1601,6 +1663,8 @@ downloadResponse.off('progress', progressCallback);
 
 
 ##### off('complete')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'complete', callback?: Callback&lt;VoiceInfo&gt;): void
 
@@ -1640,6 +1704,8 @@ downloadResponse.off('complete', completeCallback);
 
 ##### off('cancel')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'cancel', callback?: Callback&lt;string&gt;): void
 
 取消监听音色下载取消事件。
@@ -1676,6 +1742,8 @@ downloadResponse.off('cancel', cancelCallback);
 
 
 ##### off('error')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'error', callback?: ErrorCallback&lt;BusinessError&gt;): void
 
@@ -1714,6 +1782,8 @@ downloadResponse.off('error', errorCallback);
 
 
 ##### SpeakParams
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 合成播报音频流的相关参数，用于配置语速、音量、音调、合成类型等。
 
@@ -1764,6 +1834,8 @@ struct Page {
 
 ##### VoiceInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 返回查询的相关参数。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -1786,6 +1858,8 @@ struct Page {
 
 ##### StartResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 返回播放的相关参数。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -1807,6 +1881,8 @@ struct Page {
 
 ##### StopResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 返回停止播报时的相关参数。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -1825,6 +1901,8 @@ struct Page {
 
 ##### CompleteResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 返回完成播报时的相关参数。
 
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
@@ -1842,6 +1920,8 @@ struct Page {
 
 
 ##### SynthesisResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 返回的音频流相关信息。
 

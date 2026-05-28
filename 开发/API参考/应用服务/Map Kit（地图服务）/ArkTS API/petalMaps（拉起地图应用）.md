@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { petalMaps } from '@kit.MapKit';
 ```
@@ -19,6 +21,8 @@ import { petalMaps } from '@kit.MapKit';
   
 
 ##### openMapHomePage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 openMapHomePage(context: common.Context): Promise&lt;void&gt;
  
@@ -66,6 +70,8 @@ await petalMaps.openMapHomePage(this.getUIContext().getHostContext());
   
 
 ##### openMapPoiDetail
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 openMapPoiDetail(context: common.Context, poiDetailParams: PoiDetailParams): Promise&lt;void&gt;
  
@@ -121,6 +127,8 @@ await petalMaps.openMapPoiDetail(this.getUIContext().getHostContext(), params);
 
 ##### openMapTextSearch
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 openMapTextSearch(context: common.Context, textSearchParams: TextSearchParams): Promise&lt;void&gt;
  
 打开地图应用的文本搜索页面。使用Promise异步回调。
@@ -171,6 +179,8 @@ await petalMaps.openMapTextSearch(this.getUIContext().getHostContext(), params);
   
 
 ##### openMapRoutePlan
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 openMapRoutePlan(context: common.Context, routePlanParams: RoutePlanParams): Promise&lt;void&gt;
  
@@ -226,6 +236,8 @@ await petalMaps.openMapRoutePlan(this.getUIContext().getHostContext(), params);
 
 ##### openMapNavi
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 openMapNavi(context: common.Context, naviParams: NaviParams): Promise&lt;void&gt;
  
 打开地图应用的导航页面。使用Promise异步回调。
@@ -280,6 +292,8 @@ await petalMaps.openMapNavi(this.getUIContext().getHostContext(), params);
 
 ##### openMapTaxi
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 openMapTaxi(context: common.Context, taxiParams: TaxiParams): Promise&lt;void&gt;
  
 打开地图应用的打车页面。使用Promise异步回调。
@@ -333,6 +347,8 @@ await petalMaps.openMapTaxi(this.getUIContext().getHostContext(), params);
 
 ##### openMapOfflineDataManagement
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 openMapOfflineDataManagement(context: common.Context, offlineDataParams: OfflineDataParams): Promise&lt;void&gt;
  
 打开地图应用的离线地图管理页面。使用Promise异步回调。
@@ -383,6 +399,8 @@ await petalMaps.openMapOfflineDataManagement(this.getUIContext().getHostContext(
 
 ##### PoiDetailParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 POI详情的参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -422,6 +440,8 @@ let params: petalMaps.PoiDetailParams = {
 
 ##### TextSearchParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 文本搜索的参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -448,6 +468,8 @@ let params: petalMaps.TextSearchParams = {
   
 
 ##### RoutePlanParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 路线规划的参数。
  
@@ -486,6 +508,8 @@ let params: petalMaps.RoutePlanParams = {
 
 ##### NaviParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 导航的参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -523,6 +547,8 @@ let params: petalMaps.NaviParams = {
 
 ##### OfflineDataParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 离线地图管理参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -551,6 +577,8 @@ let params: petalMaps.OfflineDataParams = {
 
 ##### VehicleType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 出行方式。地图应用侧目前出行方式暂时仅支持驾车、步行、骑行、公交。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -572,6 +600,8 @@ let params: petalMaps.OfflineDataParams = {
   
 
 ##### TaxiParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 打车的参数。
  

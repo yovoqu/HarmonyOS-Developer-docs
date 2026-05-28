@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { AdComponent } from '@kit.AdsKit';
 ```
@@ -21,6 +23,8 @@ import { AdComponent } from '@kit.AdsKit';
 
 
 ##### AdComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 AdComponent({
@@ -100,6 +104,8 @@ struct Index {
 
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 build(): void
 

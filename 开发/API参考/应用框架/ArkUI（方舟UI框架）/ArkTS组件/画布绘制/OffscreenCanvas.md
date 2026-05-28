@@ -16,15 +16,21 @@ OffscreenCanvas组件用于绘制自定义图形。
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
 
 
 
 ##### 构造函数
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(width: number, height: number)
 
@@ -48,6 +54,8 @@ constructor(width: number, height: number)
 
 ##### constructor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(width: number, height: number, unit: LengthMetricsUnit)
 
 构造用于创建离屏画布对象的OffscreenCanvas，支持配置OffscreenCanvas的单位模式。
@@ -70,6 +78,8 @@ constructor(width: number, height: number, unit: LengthMetricsUnit)
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
 
@@ -169,9 +179,13 @@ struct OffscreenCanvasPage {
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### transferToImageBitmap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 transferToImageBitmap(): ImageBitmap
 
@@ -233,6 +247,8 @@ struct OffscreenCanvasPage {
 
 
 ##### getContext10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D
 
@@ -313,6 +329,8 @@ struct OffscreenCanvasExamplePage {
 
 
 ##### OffscreenCanvas支持并发线程绘制
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 从API version 11开始，当应用创建[Worker线程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction)，支持使用postMessage将OffscreenCanvas实例传到Worker中进行绘制，并使用onmessage接收Worker线程发送的绘制结果进行显示。
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { storageStatistics } from '@kit.CoreFileKit';
 ```
@@ -21,6 +23,8 @@ import { storageStatistics } from '@kit.CoreFileKit';
 
 
 ##### storageStatistics.getCurrentBundleStats9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getCurrentBundleStats(): Promise&lt;BundleStats&gt;
 
@@ -60,6 +64,8 @@ storageStatistics.getCurrentBundleStats().then((BundleStats: storageStatistics.B
 
 
 ##### storageStatistics.getCurrentBundleStats9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getCurrentBundleStats(callback: AsyncCallback&lt;BundleStats&gt;): void
 
@@ -103,6 +109,8 @@ storageStatistics.getCurrentBundleStats((error: BusinessError, bundleStats: stor
 
 ##### storageStatistics.getTotalSize15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getTotalSize(): Promise&lt;number&gt;
 
 获取内置存储的总空间大小（单位为Byte），使用Promise异步回调。
@@ -140,6 +148,8 @@ storageStatistics.getTotalSize().then((number: number) => {
 
 
 ##### storageStatistics.getTotalSize15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getTotalSize(callback: AsyncCallback&lt;number&gt;): void
 
@@ -183,6 +193,8 @@ storageStatistics.getTotalSize((error: BusinessError, number: number) => {
 
 ##### storageStatistics.getTotalSizeSync15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getTotalSizeSync(): number
 
 同步获取内置存储的总空间大小（单位为Byte）。
@@ -223,6 +235,8 @@ try {
 
 ##### storageStatistics.getFreeSize15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getFreeSize(): Promise&lt;number&gt;
 
 获取内置存储的可用空间大小（单位为Byte），使用Promise异步回调。
@@ -260,6 +274,8 @@ storageStatistics.getFreeSize().then((number: number) => {
 
 
 ##### storageStatistics.getFreeSize15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getFreeSize(callback: AsyncCallback&lt;number&gt;): void
 
@@ -303,6 +319,8 @@ storageStatistics.getFreeSize((error: BusinessError, number: number) => {
 
 ##### storageStatistics.getFreeSizeSync15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getFreeSizeSync(): number
 
 同步获取内置存储的可用空间大小（单位为Byte）。
@@ -343,6 +361,8 @@ try {
 
 ##### BundleStats9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **系统能力**：SystemCapability.FileManagement.StorageService.SpatialStatistics
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -355,6 +375,8 @@ try {
 
 
 ##### storageStatistics.getTotalInodes24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getTotalInodes(): Promise&lt;number&gt;
 
@@ -397,6 +419,8 @@ storageStatistics.getTotalInodes().then((totalInodes: number) => {
 
 ##### storageStatistics.getFreeInodes24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getFreeInodes(): Promise&lt;number&gt;
 
 获取文件系统的inode资源剩余量，仅支持查询系统数据分区。使用Promise异步回调。
@@ -437,6 +461,8 @@ storageStatistics.getFreeInodes().then((freeInodes: number) => {
 
 
 ##### storageStatistics.getCurrentBundleInodes24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getCurrentBundleInodes(): Promise&lt;number&gt;
 

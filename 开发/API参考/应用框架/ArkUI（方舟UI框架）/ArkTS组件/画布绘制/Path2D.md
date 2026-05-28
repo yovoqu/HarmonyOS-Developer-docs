@@ -14,9 +14,13 @@
 
 ##### 构造函数
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
  
@@ -31,6 +35,8 @@ constructor()
   
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(unit: LengthMetricsUnit)
  
@@ -53,6 +59,8 @@ constructor(unit: LengthMetricsUnit)
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(path: Path2D)
  
 使用路径对象构造Path2D对象。
@@ -73,6 +81,8 @@ constructor(path: Path2D)
   
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(path: Path2D, unit: LengthMetricsUnit)
  
@@ -96,6 +106,8 @@ constructor(path: Path2D, unit: LengthMetricsUnit)
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(d: string)
  
 使用符合SVG路径描述规范的路径字符串构造Path2D对象。
@@ -116,6 +128,8 @@ constructor(d: string)
   
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(description: string, unit: LengthMetricsUnit)
  
@@ -139,9 +153,13 @@ constructor(description: string, unit: LengthMetricsUnit)
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### addPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addPath(path: Path2D, transform?: Matrix2D): void
  
@@ -198,6 +216,8 @@ struct AddPath {
 
 ##### closePath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closePath(): void
  
 将路径的当前点移回到路径的起点，当前点到起点间画一条直线。如果形状已经闭合或只有一个点，则此功能不执行任何操作。
@@ -246,6 +266,8 @@ struct ClosePath {
   
 
 ##### moveTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveTo(x: number, y: number): void
  
@@ -308,6 +330,8 @@ struct MoveTo {
 
 ##### lineTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lineTo(x: number, y: number): void
  
 从当前点绘制一条直线到目标点。
@@ -365,6 +389,8 @@ struct LineTo {
   
 
 ##### bezierCurveTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
  
@@ -425,6 +451,8 @@ struct BezierCurveTo {
 
 ##### quadraticCurveTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
  
 创建二次贝塞尔曲线的路径。
@@ -481,6 +509,8 @@ struct QuadraticCurveTo {
   
 
 ##### arc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
  
@@ -540,6 +570,8 @@ struct Arc {
 
 ##### arcTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void
  
 依据圆弧经过的点和圆弧半径创建圆弧路径。
@@ -597,6 +629,8 @@ struct ArcTo {
   
 
 ##### ellipse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
  
@@ -658,6 +692,8 @@ struct CanvasExample {
 
 ##### rect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rect(x: number, y: number, w: number, h: number): void
  
 创建矩形路径。
@@ -707,12 +743,14 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/XwSR4Mj1QHa0zX5LBUqxsw/zh-cn_image_0000002611756077.png?HW-CC-KV=V1&HW-CC-Date=20260528T013911Z&HW-CC-Expire=86400&HW-CC-Sign=1399B7A4A94B6206B4D02B1EB78E1BE547C333849DDDB5863F01D0D0475C960F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/XwSR4Mj1QHa0zX5LBUqxsw/zh-cn_image_0000002611756077.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=964D672C7B03971021AA047FFB2491477C0B4A238ECC3D417C5287DA6C124D73)
 
  
   
 
 ##### roundRect20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 roundRect(x: number, y: number, w: number, h: number, radii?: number | Array&lt;number&gt;): void
  
@@ -802,4 +840,4 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/Wmk42hZiR_G7Ph53QjS5FA/zh-cn_image_0000002581276170.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T013911Z&HW-CC-Expire=86400&HW-CC-Sign=7798AFEE680D2CE9B0594FF0B2090B98B2568E754A84CA98D07FF6DA66F08F69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/Wmk42hZiR_G7Ph53QjS5FA/zh-cn_image_0000002581276170.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=AC835C8517F08E567156832412B5B43B7DEC7D9FF82877D33F60F0B15F5DF82E)

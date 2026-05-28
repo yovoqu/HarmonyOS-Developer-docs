@@ -12,6 +12,8 @@ typedef struct OH_CryptoMac OH_CryptoMac
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义MAC结构。
  
 **起始版本：** 20

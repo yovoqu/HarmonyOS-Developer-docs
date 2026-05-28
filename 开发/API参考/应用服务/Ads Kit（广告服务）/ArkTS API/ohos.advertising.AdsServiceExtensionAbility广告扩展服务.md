@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { RespCallback } from '@kit.AdsKit';
 ```
@@ -21,6 +23,8 @@ import { RespCallback } from '@kit.AdsKit';
   
 
 ##### RespCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 (respData: Map<string, Array<advertising.Advertisement>>): void
  

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import {antifraudPicker} from '@kit.DeviceSecurityKit';
 ```
@@ -19,6 +21,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
   
 
 ##### AntifraudMessageOptions
+
+**支持设备：** Phone | Tablet
 
 获取诈骗消息的请求参数。
  
@@ -34,6 +38,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
   
 
 ##### SingleAntifraudMessageInfo
+
+**支持设备：** Phone | Tablet
 
 单条诈骗消息信息。
  
@@ -57,6 +63,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 
 ##### MmsAttachmentInfo
 
+**支持设备：** Phone | Tablet
+
 彩信附件信息。
  
 **系统能力：** SystemCapability.Security.Antifraud
@@ -73,6 +81,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 
 ##### AntifraudMessageResult
 
+**支持设备：** Phone | Tablet
+
 诈骗消息结果。
  
 **系统能力：** SystemCapability.Security.Antifraud
@@ -87,6 +97,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
   
 
 ##### SingleAntifraudCallLogInfo
+
+**支持设备：** Phone | Tablet
 
 单条诈骗通话记录信息。
  
@@ -107,6 +119,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 
 ##### AntifraudCallLogResult
 
+**支持设备：** Phone | Tablet
+
 诈骗通话记录结果。
  
 **系统能力：** SystemCapability.Security.Antifraud
@@ -122,6 +136,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 
 ##### AntifraudCallLogOptions
 
+**支持设备：** Phone | Tablet
+
 获取诈骗通话记录的请求参数。
  
 **系统能力：** SystemCapability.Security.Antifraud
@@ -136,6 +152,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
   
 
 ##### selectFraudMessage
+
+**支持设备：** Phone | Tablet
 
 selectFraudMessage(context: common.Context, options?: [AntifraudMessageOptions](#antifraudmessageoptions)): Promise<[AntifraudMessageResult](#antifraudmessageresult)>
  
@@ -202,6 +220,8 @@ try {
 
 ##### selectFraudCallLog
 
+**支持设备：** Phone | Tablet
+
 selectFraudCallLog(context: common.Context, options?: [AntifraudCallLogOptions](#antifraudcalllogoptions)): Promise<[AntifraudCallLogResult](#antifraudcalllogresult)>
  
 拉起诈骗通话记录选择器，并获取用户选择的诈骗通话记录信息。使用Promise异步回调。
@@ -267,6 +287,8 @@ try {
 
 ##### AntifraudAppOptions
 
+**支持设备：** Phone | Tablet
+
 获取诈骗应用的请求参数。
  
 **系统能力：** SystemCapability.Security.Antifraud
@@ -282,6 +304,8 @@ try {
 
 ##### AntifraudAppResult
 
+**支持设备：** Phone | Tablet
+
 诈骗应用结果。
  
 **系统能力：** SystemCapability.Security.Antifraud
@@ -296,6 +320,8 @@ try {
   
 
 ##### SingleAntifraudAppInfo
+
+**支持设备：** Phone | Tablet
 
 单条诈骗应用信息。
  
@@ -318,6 +344,8 @@ try {
   
 
 ##### selectFraudApp
+
+**支持设备：** Phone | Tablet
 
 selectFraudApp(context: common.Context, options?: [AntifraudAppOptions](#antifraudappoptions)): Promise<[AntifraudAppResult](#antifraudappresult)>
  

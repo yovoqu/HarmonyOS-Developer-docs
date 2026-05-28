@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { hash } from '@kit.CoreFileKit';
 ```
@@ -21,6 +23,8 @@ import { hash } from '@kit.CoreFileKit';
 
 
 ##### 使用说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 使用该功能模块对文件/目录进行操作前，需要先获取其应用沙箱路径，获取方式及其接口用法请参考：
 
@@ -41,6 +45,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### hash.hash
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hash(path: string, algorithm: string): Promise&lt;string&gt;
 
@@ -91,6 +97,8 @@ hash.hash(filePath, "sha256").then((str: string) => {
 
 ##### hash.hash
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hash(path: string, algorithm: string, callback: AsyncCallback&lt;string&gt;): void
 
 计算文件的哈希值，使用callback异步回调。
@@ -135,6 +143,8 @@ hash.hash(filePath, "sha256", (err: BusinessError, str: string) => {
 
 
 ##### hash.createHash12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createHash(algorithm: string): HashStream
 
@@ -195,11 +205,15 @@ function hashFileWithStream() {
 
 ##### HashStream12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 HashStream 类是用于创建数据的哈希摘要的实用工具。由 [createHash](#hashcreatehash12) 接口获得。
 
 
 
 ##### update12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 update(data: ArrayBuffer): void
 
@@ -239,6 +253,8 @@ console.info(`hashResult: ${hashResult}`);
 
 
 ##### digest12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 digest(): string
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { metadataBinding } from '@kit.MultimodalAwarenessKit';
 ```
@@ -21,6 +23,8 @@ import { metadataBinding } from '@kit.MultimodalAwarenessKit';
   
 
 ##### metadataBinding.submitMetadata
+
+**支持设备：** Phone | Tablet
 
 submitMetadata(metadata: string): void
  
@@ -62,6 +66,8 @@ try {
   
 
 ##### metadataBinding.on('operationSubmitMetadata')
+
+**支持设备：** Phone | Tablet
 
 on(type: 'operationSubmitMetadata', bundleName: string, callback: Callback&lt;number&gt;): void
  
@@ -110,6 +116,8 @@ try {
   
 
 ##### metadataBinding.off('operationSubmitMetadata')
+
+**支持设备：** Phone | Tablet
 
 off(type: 'operationSubmitMetadata', bundleName: string, callback?: Callback&lt;number&gt;): void
  

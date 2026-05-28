@@ -12,6 +12,8 @@
 
 ##### 201 权限校验失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Permission denied.
@@ -33,6 +35,8 @@ Permission denied.
   
 
 ##### 401 参数检查失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -56,6 +60,8 @@ Parameter error.
 
 ##### 1010600011 初始化失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Initialize failed.
@@ -77,6 +83,8 @@ TextReader初始化失败。
   
 
 ##### 1010600012 未初始化
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -100,6 +108,8 @@ The TextReader is not initialized.
 
 ##### 1010600013 TTS音频合成错误
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Text-to-speech engine error.
@@ -119,6 +129,8 @@ TTS引擎侧合成音频异常。
   
 
 ##### 1010600014 播放器错误
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -142,6 +154,8 @@ AudioRenderer播放器播放异常。
 
 ##### 1010600015 解码错误
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Audio decode error.
@@ -161,6 +175,8 @@ TTS引擎侧音频解码失败。
   
 
 ##### 1010600016 播控中心同步错误
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -182,6 +198,8 @@ AVSession播控中心同步封面图片或播放状态错误。
 
 ##### 1010600017 其他错误
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Other error.
@@ -201,6 +219,8 @@ Other error.
   
 
 ##### 1010600018 播放前一首失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -224,6 +244,8 @@ playPrev failed.
 
 ##### 1010600019 播放后一首失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 playNext failed.
@@ -245,6 +267,8 @@ playNext failed.
   
 
 ##### 1010600020 释放异常
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -268,6 +292,8 @@ TextReader释放失败。
 
 ##### 1012900010 AI字幕服务忙
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 AI caption service is busy.
@@ -287,6 +313,8 @@ AI字幕服务忙造成的异常。
   
 
 ##### 1012900011 AI字幕控制器初始化失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -310,6 +338,8 @@ AI字幕控制器初始化失败造成的异常。
 
 ##### 1012900012 音频识别失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 Audio recognition failed.
@@ -331,6 +361,8 @@ AI字幕音频识别失败造成的异常。
   
 
 ##### 1012900013 初始化参数错误
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

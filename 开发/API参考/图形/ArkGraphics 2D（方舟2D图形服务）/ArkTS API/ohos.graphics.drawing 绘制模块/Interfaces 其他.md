@@ -12,6 +12,8 @@
 
 ##### TextBlobRunBuffer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述一行文字中具有相同属性的连续字形。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -26,6 +28,8 @@
   
 
 ##### FontMetrics
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述字形大小和布局的属性信息，同一种字体中的字符属性大致相同。
  
@@ -56,6 +60,8 @@
   
 
 ##### FontFeature20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示字体特征。字体特征是字体内置的排版规则，用于控制字形的显示效果，具体包括连字、替代字形、上下标等功能。
  

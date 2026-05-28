@@ -16,11 +16,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TextTimer(options?: TextTimerOptions)
  
@@ -41,6 +45,8 @@ TextTimer(options?: TextTimerOptions)
 
 ##### TextTimerOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于构建TextTimer组件的选项。
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -60,11 +66,15 @@ TextTimer(options?: TextTimerOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### format
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 format(value: string)
  
@@ -89,6 +99,8 @@ format(value: string)
 
 ##### fontColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontColor(value: ResourceColor)
  
 设置字体颜色。
@@ -109,6 +121,8 @@ fontColor(value: ResourceColor)
   
 
 ##### fontSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontSize(value: Length)
  
@@ -131,6 +145,8 @@ fontSize(value: Length)
 
 ##### fontStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontStyle(value: FontStyle)
  
 设置字体样式。
@@ -151,6 +167,8 @@ fontStyle(value: FontStyle)
   
 
 ##### fontWeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontWeight(value: number | FontWeight | ResourceStr)
  
@@ -173,6 +191,8 @@ fontWeight(value: number | FontWeight | ResourceStr)
 
 ##### fontFamily
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontFamily(value: ResourceStr)
  
 设置字体列表。
@@ -193,6 +213,8 @@ fontFamily(value: ResourceStr)
   
 
 ##### textShadow11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
  
@@ -217,6 +239,8 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 ##### contentModifier12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 contentModifier(modifier: ContentModifier&lt;TextTimerConfiguration&gt;)
  
 定制TextTimer内容区的方法。
@@ -236,9 +260,13 @@ contentModifier(modifier: ContentModifier&lt;TextTimerConfiguration&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### onTimer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onTimer(event: (utc: number, elapsedTime: number) => void)
  
@@ -262,6 +290,8 @@ onTimer(event: (utc: number, elapsedTime: number) => void)
 
 ##### TextTimerController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 TextTimer组件的控制器，用于控制文本计时器。一个TextTimer组件仅支持绑定一个控制器，组件创建完成后相关指令才能被调用。一个TextTimerController只能控制最后一个绑定此TextTimerController的TextTimer组件。
  
 **卡片能力：** 从API version 10开始，该接口支持在ArkTS卡片中使用。
@@ -280,6 +310,8 @@ textTimerController: TextTimerController = new TextTimerController();
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 TextTimerController的构造函数。
@@ -293,6 +325,8 @@ TextTimerController的构造函数。
   
 
 ##### start
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start()
  
@@ -308,6 +342,8 @@ start()
 
 ##### pause
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pause()
  
 计时暂停。
@@ -322,6 +358,8 @@ pause()
 
 ##### reset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset()
  
 重置计时器。
@@ -335,6 +373,8 @@ reset()
   
 
 ##### TextTimerConfiguration12+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ContentModifier接口使用的TextTimer配置。
  
@@ -355,6 +395,8 @@ ContentModifier接口使用的TextTimer配置。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 

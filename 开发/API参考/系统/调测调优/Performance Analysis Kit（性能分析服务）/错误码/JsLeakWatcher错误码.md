@@ -12,6 +12,8 @@
 
 ##### 10801001 参数isEnabled无效
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The parameter isEnabled is invalid.
@@ -33,6 +35,8 @@ The parameter isEnabled is invalid.
 
 
 ##### 10801002 参数config无效
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -57,6 +61,8 @@ The parameter config is invalid.
 
 
 ##### 10801003 参数callback无效
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

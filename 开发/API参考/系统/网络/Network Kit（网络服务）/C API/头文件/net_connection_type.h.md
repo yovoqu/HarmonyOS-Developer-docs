@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为网络管理数据网络连接模块提供C接口。
  
 **引用文件：** <network/netmanager/net_connection_type.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -46,6 +52,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -58,6 +66,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -74,6 +84,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -91,9 +103,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### NetConn_NetCap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum NetConn_NetCap
@@ -120,6 +136,8 @@ enum NetConn_NetCap
 
 ##### NetConn_NetBearerType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum NetConn_NetBearerType
 ```
@@ -142,6 +160,8 @@ enum NetConn_NetBearerType
   
 
 ##### NetConn_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum NetConn_ErrorCode
@@ -166,6 +186,8 @@ enum NetConn_ErrorCode
 
 ##### NetConn_PacketsType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum NetConn_PacketsType
 ```
@@ -186,9 +208,13 @@ enum NetConn_PacketsType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_NetConn_CustomDnsResolver()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef int (*OH_NetConn_CustomDnsResolver)(const char *host, const char *serv,const struct addrinfo *hint, struct addrinfo **res)
@@ -214,6 +240,8 @@ typedef int (*OH_NetConn_CustomDnsResolver)(const char *host, const char *serv,c
 
 ##### OH_NetConn_AppHttpProxyChange()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_NetConn_AppHttpProxyChange)(NetConn_HttpProxy *proxy)
 ```
@@ -235,6 +263,8 @@ typedef void (*OH_NetConn_AppHttpProxyChange)(NetConn_HttpProxy *proxy)
 
 ##### OH_NetConn_NetworkAvailable()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_NetConn_NetworkAvailable)(NetConn_NetHandle *netHandle)
 ```
@@ -255,6 +285,8 @@ typedef void (*OH_NetConn_NetworkAvailable)(NetConn_NetHandle *netHandle)
   
 
 ##### OH_NetConn_NetCapabilitiesChange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_NetConn_NetCapabilitiesChange)(NetConn_NetHandle *netHandle,NetConn_NetCapabilities *netCapabilities)
@@ -278,6 +310,8 @@ typedef void (*OH_NetConn_NetCapabilitiesChange)(NetConn_NetHandle *netHandle,Ne
 
 ##### OH_NetConn_NetConnectionPropertiesChange()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_NetConn_NetConnectionPropertiesChange)(NetConn_NetHandle *netHandle,NetConn_ConnectionProperties *connConnetionProperties)
 ```
@@ -300,6 +334,8 @@ typedef void (*OH_NetConn_NetConnectionPropertiesChange)(NetConn_NetHandle *netH
 
 ##### OH_NetConn_NetLost()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_NetConn_NetLost)(NetConn_NetHandle *netHandle)
 ```
@@ -321,6 +357,8 @@ typedef void (*OH_NetConn_NetLost)(NetConn_NetHandle *netHandle)
 
 ##### OH_NetConn_NetUnavailable()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_NetConn_NetUnavailable)(void)
 ```
@@ -334,6 +372,8 @@ typedef void (*OH_NetConn_NetUnavailable)(void)
   
 
 ##### OH_NetConn_NetBlockStatusChange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_NetConn_NetBlockStatusChange)(NetConn_NetHandle *netHandle, bool blocked)

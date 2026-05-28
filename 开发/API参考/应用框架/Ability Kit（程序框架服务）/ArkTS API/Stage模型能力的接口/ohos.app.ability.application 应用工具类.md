@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { application } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { application } from '@kit.AbilityKit';
 
 
 ##### AppPreloadType22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示应用当前进程的预加载类型枚举。
 
@@ -38,6 +42,8 @@ import { application } from '@kit.AbilityKit';
 
 
 ##### application.createModuleContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createModuleContext(context: Context, moduleName: string): Promise&lt;Context&gt;
 
@@ -106,6 +112,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### application.getApplicationContext14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getApplicationContext(): ApplicationContext
 
 获取应用上下文。开发者使用该接口时，无需依赖Context基类。
@@ -155,6 +163,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### application.getApplicationContextInstance23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getApplicationContextInstance(): ApplicationContext
 
 获取应用上下文。开发者使用该接口时，无需依赖Context基类。
@@ -203,6 +213,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### application.createPluginModuleContext19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise&lt;Context&gt;
 
@@ -258,6 +270,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### application.promoteCurrentToCandidateMasterProcess20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 promoteCurrentToCandidateMasterProcess(insertToHead: boolean): Promise&lt;void&gt;
 
@@ -333,6 +347,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### application.demoteCurrentFromCandidateMasterProcess20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 demoteCurrentFromCandidateMasterProcess(): Promise&lt;void&gt;
 
 撤销当前进程的备选主控进程资格。使用Promise异步回调。
@@ -388,6 +404,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### application.exitMasterProcessRole21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 exitMasterProcessRole(): Promise&lt;void&gt;
 
 放弃当前进程的[主控进程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#masterprocess主控进程)身份。使用Promise异步回调。
@@ -442,6 +460,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### application.getAppPreloadType22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAppPreloadType(): AppPreloadType
 

@@ -12,6 +12,8 @@ typedef struct Camera_FrameShutterInfo {...} Camera_FrameShutterInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 帧快门回调信息。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct Camera_FrameShutterInfo {...} Camera_FrameShutterInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

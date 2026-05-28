@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drm } from '@kit.DrmKit';
 ```
@@ -21,6 +23,8 @@ import { drm } from '@kit.DrmKit';
 
 
 ##### generateMediaKeyRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 generateMediaKeyRequest(mimeType: string, initData: Uint8Array, mediaKeyType: number, options?: OptionsData[]): Promise&lt;MediaKeyRequest&gt;
 
@@ -76,6 +80,8 @@ mediaKeySession.generateMediaKeyRequest("video/avc", uint8pssh, drm.MediaKeyType
 
 ##### processMediaKeyResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 processMediaKeyResponse(response: Uint8Array): Promise&lt;Uint8Array&gt;
 
 处理媒体密钥响应。使用Promise异步回调。
@@ -127,6 +133,8 @@ mediaKeySession.processMediaKeyResponse(mediaKeyResponse).then((mediaKeyId: Uint
 
 ##### checkMediaKeyStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkMediaKeyStatus(): MediaKeyStatus[]
 
 检查当前媒体密钥状态。
@@ -166,6 +174,8 @@ let keyStatus: drm.MediaKeyStatus[] =  mediaKeySession.checkMediaKeyStatus();
 
 ##### clearMediaKeys
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearMediaKeys(): void
 
 清除当前媒体密钥。
@@ -202,6 +212,8 @@ mediaKeySession.clearMediaKeys();
 
 
 ##### generateOfflineReleaseRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 generateOfflineReleaseRequest(mediaKeyId: Uint8Array): Promise&lt;Uint8Array&gt;
 
@@ -253,6 +265,8 @@ mediaKeySession.generateOfflineReleaseRequest(mediaKeyId).then((offlineReleaseRe
 
 
 ##### processOfflineReleaseResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 processOfflineReleaseResponse(mediaKeyId: Uint8Array, response: Uint8Array): Promise&lt;void&gt;
 
@@ -313,6 +327,8 @@ mediaKeySession.processOfflineReleaseResponse(mediaKeyId, offlineReleaseResponse
 
 ##### restoreOfflineMediaKeys
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restoreOfflineMediaKeys(mediaKeyId: Uint8Array): Promise&lt;void&gt;
 
 恢复离线媒体密钥。使用Promise异步回调。
@@ -364,6 +380,8 @@ mediaKeySession.restoreOfflineMediaKeys(mediaKeyId).then(() => {
 
 ##### getContentProtectionLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getContentProtectionLevel(): ContentProtectionLevel
 
 获取当前会话的内容保护级别。
@@ -403,6 +421,8 @@ console.info(`contentProtectionLevel: ${contentProtectionLevel}`);
 
 
 ##### requireSecureDecoderModule
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requireSecureDecoderModule(mimeType: string): boolean
 
@@ -451,6 +471,8 @@ let status: boolean = mediaKeySession.requireSecureDecoderModule("video/avc");
 
 ##### on('keyRequired')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void
 
 监听密钥请求事件。使用callback异步回调。
@@ -492,6 +514,8 @@ mediaKeySession.on('keyRequired', (eventInfo: drm.EventInfo) => {
 
 
 ##### off('keyRequired')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void
 
@@ -535,6 +559,8 @@ mediaKeySession.off('keyRequired');
 
 ##### on('keyExpired')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void
 
 监听密钥过期事件。使用callback异步回调。
@@ -577,6 +603,8 @@ mediaKeySession.on('keyExpired', (eventInfo: drm.EventInfo) => {
 
 ##### off('keyExpired')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void
 
 注销密钥过期事件监听。使用callback异步回调。
@@ -616,6 +644,8 @@ mediaKeySession.off('keyExpired');
 
 
 ##### on('vendorDefined')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void
 
@@ -659,6 +689,8 @@ mediaKeySession.on('vendorDefined', (eventInfo: drm.EventInfo) => {
 
 ##### off('vendorDefined')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void
 
 注销DRM解决方案自定义事件监听。使用callback异步回调。
@@ -698,6 +730,8 @@ mediaKeySession.off('vendorDefined');
 
 
 ##### on('expirationUpdate')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void
 
@@ -741,6 +775,8 @@ mediaKeySession.on('expirationUpdate', (eventInfo: drm.EventInfo) => {
 
 ##### off('expirationUpdate')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void
 
 注销过期更新事件监听。使用callback异步回调。
@@ -780,6 +816,8 @@ mediaKeySession.off('expirationUpdate');
 
 
 ##### on('keysChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void
 
@@ -825,6 +863,8 @@ mediaKeySession.on('keysChange', (keyInfo: drm.KeysInfo[], newKeyAvailable: bool
 
 ##### off('keysChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void
 
 注销密钥变化事件监听。使用callback异步回调。
@@ -864,6 +904,8 @@ mediaKeySession.off('keysChange');
 
 
 ##### destroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 destroy(): void
 

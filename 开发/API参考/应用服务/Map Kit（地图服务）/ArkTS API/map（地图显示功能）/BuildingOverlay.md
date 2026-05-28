@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### BuildingOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 3D建筑。缩放层级达到16级或以上，才可正常显示3D建筑效果。
  
@@ -195,6 +199,8 @@ let buildingOverlay: map.BuildingOverlay= await this.mapController.addBuildingOv
 
 ##### getId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getId(): string
  
 返回3D建筑的ID。
@@ -224,6 +230,8 @@ let id: String = buildingOverlay.getId();
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 remove(): void
  
 移除3D建筑。
@@ -245,6 +253,8 @@ buildingOverlay.remove();
   
 
 ##### setSideVisible
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setSideVisible(visible: boolean): void
  
@@ -275,6 +285,8 @@ buildingOverlay.setSideVisible(true);
 
 ##### setFloorVisible
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setFloorVisible(visible: boolean): void
  
 设置是否显示选中的楼层。
@@ -303,6 +315,8 @@ buildingOverlay.setFloorVisible(true);
   
 
 ##### setFloorBottomHeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setFloorBottomHeight(height: number): void
  

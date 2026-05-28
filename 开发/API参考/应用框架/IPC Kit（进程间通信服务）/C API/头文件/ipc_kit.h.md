@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 IPC头文件包含入口，方便开发者引用。
  
 **引用文件：** <IPCKit/ipc_kit.h>

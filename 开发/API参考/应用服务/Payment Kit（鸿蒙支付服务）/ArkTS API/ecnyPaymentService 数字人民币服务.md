@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { ecnyPaymentService } from '@kit.PaymentKit';
 ```
@@ -25,6 +27,8 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 
 
 ##### EcnyOrderInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 拉起数字人民币收银台时传入的订单信息。
 
@@ -57,6 +61,8 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 
 ##### EcnyPayResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 数字人民币支付结果。
 
 **模型约束：** 本模块接口仅可在Stage模型下使用。
@@ -76,6 +82,8 @@ import { ecnyPaymentService } from '@kit.PaymentKit';
 
 
 ##### requestEcnyPayment
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 requestEcnyPayment(context: common.Context, orderInfo: EcnyOrderInfo): Promise&lt;EcnyPayResult&gt;
 

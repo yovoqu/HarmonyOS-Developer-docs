@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { uiExtension } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { uiExtension } from '@kit.ArkUI';
 
 ##### WindowProxy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 UIExtension宿主窗代理。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -40,6 +46,8 @@ UIExtension宿主窗代理。
 
 
 ##### getWindowAvoidArea
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWindowAvoidArea(type: window.AvoidAreaType): window.AvoidArea
 
@@ -93,6 +101,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### on('avoidAreaChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'avoidAreaChange', callback: Callback&lt;AvoidAreaInfo&gt;): void
 
 注册宿主应用窗口避让区变化的监听。
@@ -140,6 +150,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### off('avoidAreaChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'avoidAreaChange', callback?: Callback&lt;AvoidAreaInfo&gt;): void
 
 注销宿主应用窗口避让区变化的监听。
@@ -183,6 +195,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 ##### on('windowSizeChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'windowSizeChange', callback: Callback<window.Size>): void
 
@@ -231,6 +245,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### off('windowSizeChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'windowSizeChange', callback?: Callback<window.Size>): void
 
 注销组件（EmbeddedComponent或UIExtensionComponent）尺寸变化的监听。
@@ -274,6 +290,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 ##### on('rectChange')14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'rectChange', reasons: number, callback: Callback&lt;RectChangeOptions&gt;): void
 
@@ -326,6 +344,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### off('rectChange')14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'rectChange', callback?: Callback&lt;RectChangeOptions&gt;): void
 
 注销组件（EmbeddedComponent或UIExtensionComponent）位置及尺寸变化的监听。
@@ -372,6 +392,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 ##### createSubWindowWithOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSubWindowWithOptions(name: string, subWindowOptions: window.SubWindowOptions): Promise<window.Window>
 
@@ -463,6 +485,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### createSubWindowWithOptions23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createSubWindowWithOptions(name: string, subWindowConfig: window.SubWindowOptions, followCreatorLifecycle: boolean): Promise<window.Window>
 
 创建该WindowProxy实例下的子窗口，可通过设置followCreatorLifecycle，决定子窗是否跟随组件（EmbeddedComponent或UIExtensionComponent）的生命周期，使用Promise异步回调。
@@ -551,6 +575,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### occupyEvents18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 occupyEvents(eventFlags: number): Promise&lt;void&gt;
 
 设置组件（EmbeddedComponent或UIExtensionComponent）占用事件，宿主将不响应组件区域内被占用的事件。
@@ -617,6 +643,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### EventFlag18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 事件类型枚举。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -638,6 +666,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### AvoidAreaInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于表示窗口避让区的信息。
 
 **系统能力**：SystemCapability.ArkUI.ArkUI.Full
@@ -654,6 +684,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### WindowProxyProperties14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于表示组件的相关信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -668,6 +700,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 ##### RectChangeReason14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 组件（EmbeddedComponent或UIExtensionComponent）矩形（位置及尺寸）变化的原因。
 
@@ -684,6 +718,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 ##### RectChangeOptions14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 组件（EmbeddedComponent或UIExtensionComponent）矩形（位置及尺寸）变化返回的值及变化原因。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -699,6 +735,8 @@ export default class EntryAbility extends EmbeddedUIExtensionAbility {
 
 
 ##### 完整示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本示例展示文档中所有API在[EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/embeddeduiextensionability)中的基础使用方式，示例应用的bundleName为"com.example.embeddeddemo"，被拉起的EmbeddedUIExtensionAbility为"ExampleEmbeddedAbility"。
 

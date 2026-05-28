@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { inputMethod } from '@kit.IMEKit';
 ```
@@ -21,6 +23,8 @@ import { inputMethod } from '@kit.IMEKit';
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 常量值。
 
@@ -34,6 +38,8 @@ import { inputMethod } from '@kit.IMEKit';
 
 
 ##### InputMethodProperty8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入法应用属性。
 
@@ -57,6 +63,8 @@ import { inputMethod } from '@kit.IMEKit';
 
 ##### CapitalizeMode20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，定义了文本首字母大写的不同模式。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -72,6 +80,8 @@ import { inputMethod } from '@kit.IMEKit';
 
 
 ##### inputMethod.getController9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getController(): InputMethodController
 
@@ -105,6 +115,8 @@ let inputMethodController: inputMethod.InputMethodController = inputMethod.getCo
 
 ##### inputMethod.getDefaultInputMethod11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDefaultInputMethod(): InputMethodProperty
 
 获取默认输入法。
@@ -136,6 +148,8 @@ let defaultIme: inputMethod.InputMethodProperty = inputMethod.getDefaultInputMet
 
 
 ##### inputMethod.getSystemInputMethodConfigAbility11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSystemInputMethodConfigAbility(): ElementName
 
@@ -171,6 +185,8 @@ let inputMethodConfig: bundleManager.ElementName = inputMethod.getSystemInputMet
 
 ##### inputMethod.getSetting9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSetting(): InputMethodSetting
 
 获取客户端设置实例[InputMethodSetting](#inputmethodsetting8)。
@@ -202,6 +218,8 @@ let inputMethodSetting: inputMethod.InputMethodSetting = inputMethod.getSetting(
 
 
 ##### inputMethod.switchInputMethod9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 switchInputMethod(target: InputMethodProperty, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -258,6 +276,8 @@ inputMethod.switchInputMethod(currentIme, (err: BusinessError, result: boolean) 
 
 
 ##### inputMethod.switchInputMethod9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 switchInputMethod(target: InputMethodProperty): Promise&lt;boolean&gt;
 
@@ -319,6 +339,8 @@ inputMethod.switchInputMethod(currentIme).then((result: boolean) => {
 
 ##### inputMethod.getCurrentInputMethod9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentInputMethod(): InputMethodProperty
 
 使用同步方法获取当前输入法。
@@ -341,6 +363,8 @@ let currentIme: inputMethod.InputMethodProperty = inputMethod.getCurrentInputMet
 
 
 ##### inputMethod.switchCurrentInputMethodSubtype9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 switchCurrentInputMethodSubtype(target: InputMethodSubtype, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -408,6 +432,8 @@ inputMethod.switchCurrentInputMethodSubtype({
 
 
 ##### inputMethod.switchCurrentInputMethodSubtype9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 switchCurrentInputMethodSubtype(target: InputMethodSubtype): Promise&lt;boolean&gt;
 
@@ -480,6 +506,8 @@ inputMethod.switchCurrentInputMethodSubtype({
 
 ##### inputMethod.getCurrentInputMethodSubtype9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentInputMethodSubtype(): InputMethodSubtype
 
 获取当前输入法的子类型。
@@ -504,6 +532,8 @@ let currentImeSubType: InputMethodSubtype = inputMethod.getCurrentInputMethodSub
 
 
 ##### inputMethod.switchCurrentInputMethodAndSubtype9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 switchCurrentInputMethodAndSubtype(inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -563,6 +593,8 @@ inputMethod.switchCurrentInputMethodAndSubtype(currentIme, imSubType, (err: Busi
 
 
 ##### inputMethod.switchCurrentInputMethodAndSubtype9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 switchCurrentInputMethodAndSubtype(inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype): Promise&lt;boolean&gt;
 
@@ -627,6 +659,8 @@ inputMethod.switchCurrentInputMethodAndSubtype(currentIme, imSubType).then((resu
 
 ##### inputMethod.getInputMethodController(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getInputMethodController(): InputMethodController
 
 获取客户端实例[InputMethodController](#inputmethodcontroller)。
@@ -653,6 +687,8 @@ let inputMethodController: inputMethod.InputMethodController = inputMethod.getIn
 
 
 ##### inputMethod.getInputMethodSetting(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getInputMethodSetting(): InputMethodSetting
 
@@ -681,6 +717,8 @@ let inputMethodSetting: inputMethod.InputMethodSetting = inputMethod.getInputMet
 
 ##### inputMethod.setSimpleKeyboardEnabled20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSimpleKeyboardEnabled(enable: boolean): void
 
 编辑框应用设置简单键盘标志。
@@ -704,6 +742,8 @@ let enable: boolean = false;
 
 
 ##### inputMethod.onAttachmentDidFail22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAttachmentDidFail(callback: Callback&lt;AttachFailureReason&gt;): void
 
@@ -736,6 +776,8 @@ inputMethod.onAttachmentDidFail(attachmentDidFailCallback);
 
 
 ##### inputMethod.offAttachmentDidFail22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offAttachmentDidFail(callback?: Callback&lt;AttachFailureReason&gt;): void
 
@@ -770,6 +812,8 @@ inputMethod.offAttachmentDidFail(attachmentDidFailCallback);
 
 ##### TextInputType10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本输入类型。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -797,6 +841,8 @@ inputMethod.offAttachmentDidFail(attachmentDidFailCallback);
 
 ##### EnterKeyType10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Enter键的功能类型。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -818,6 +864,8 @@ Enter键的功能类型。
 
 ##### KeyboardStatus10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入法软键盘状态。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -832,6 +880,8 @@ Enter键的功能类型。
 
 
 ##### Direction10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 光标移动方向。
 
@@ -849,6 +899,8 @@ Enter键的功能类型。
 
 ##### ExtendAction10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 编辑框中文本的扩展编辑操作类型，如剪切、复制等。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -865,6 +917,8 @@ Enter键的功能类型。
 
 ##### FunctionKey10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入法功能键类型。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -877,6 +931,8 @@ Enter键的功能类型。
 
 
 ##### InputAttribute10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 编辑框属性，包含文本输入类型和Enter键功能类型。
 
@@ -893,6 +949,8 @@ Enter键的功能类型。
 
 
 ##### TextConfig10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 编辑框的配置信息。
 
@@ -912,6 +970,8 @@ Enter键的功能类型。
 
 ##### CursorInfo10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 光标信息。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -928,6 +988,8 @@ Enter键的功能类型。
 
 ##### Range10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本的选中范围。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -942,6 +1004,8 @@ Enter键的功能类型。
 
 ##### Movement10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 选中文本时，光标移动的方向。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -954,6 +1018,8 @@ Enter键的功能类型。
 
 
 ##### InputWindowInfo10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入法软键盘的窗口信息。
 
@@ -973,6 +1039,8 @@ Enter键的功能类型。
 
 ##### EnabledState15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入法启用状态。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -987,6 +1055,8 @@ Enter键的功能类型。
 
 
 ##### RequestKeyboardReason15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 请求键盘输入的原因。
 
@@ -1004,6 +1074,8 @@ Enter键的功能类型。
 
 ##### MessageHandler15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义通信对象。
 
 > [!NOTE]
@@ -1013,6 +1085,8 @@ Enter键的功能类型。
 
 
 ##### onMessage15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onMessage(msgId: string, msgParam?: ArrayBuffer): void
 
@@ -1052,6 +1126,8 @@ inputMethodController.recvMessage(messageHandler);
 
 ##### onTerminated15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onTerminated(): void
 
 监听对象终止回调函数。
@@ -1082,6 +1158,8 @@ inputMethodController.recvMessage(messageHandler);
 
 ##### SetPreviewTextCallback17+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SetPreviewTextCallback = (text: string, range: Range) => void
 
 当输入法框架需要显示预览文本时触发的回调。
@@ -1100,6 +1178,8 @@ type SetPreviewTextCallback = (text: string, range: Range) => void
 
 ##### AttachFailureReason22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，绑定失败的原因。
 
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -1114,6 +1194,8 @@ type SetPreviewTextCallback = (text: string, range: Range) => void
 
 
 ##### AttachOptions23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 绑定输入法的附加选项。
 
@@ -1131,11 +1213,15 @@ type SetPreviewTextCallback = (text: string, range: Range) => void
 
 ##### InputMethodController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下列API示例中都需使用[getController](#inputmethodgetcontroller9)获取到InputMethodController实例，再通过实例调用对应方法。
 
 
 
 ##### attach10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 attach(showKeyboard: boolean, textConfig: TextConfig, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1189,6 +1275,8 @@ inputMethod.getController().attach(true, textConfig, (err: BusinessError) => {
 
 
 ##### attach10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 attach(showKeyboard: boolean, textConfig: TextConfig): Promise&lt;void&gt;
 
@@ -1246,6 +1334,8 @@ inputMethod.getController().attach(true, textConfig).then(() => {
 
 
 ##### attach15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason): Promise&lt;void&gt;
 
@@ -1306,6 +1396,8 @@ inputMethod.getController().attach(true, textConfig, requestKeyboardReason).then
 
 
 ##### attachWithUIContext23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 attachWithUIContext(uiContext: UIContext, textConfig: TextConfig, attachOptions?: AttachOptions): Promise&lt;void&gt;
 
@@ -1369,6 +1461,8 @@ inputMethod.getController().attachWithUIContext(uiContext, textConfig, attachOpt
 
 ##### discardTypingText20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 discardTypingText(): Promise&lt;void&gt;
 
 编辑框应用发送“清空正在输入的文字”命令到输入法。使用promise异步回调。
@@ -1412,6 +1506,8 @@ inputMethod.getController().discardTypingText().then(() => {
 
 
 ##### showTextInput10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showTextInput(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1459,6 +1555,8 @@ inputMethod.getController().showTextInput((err: BusinessError) => {
 
 ##### showTextInput10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showTextInput(): Promise&lt;void&gt;
 
 进入文本编辑状态。使用promise异步回调。
@@ -1502,6 +1600,8 @@ inputMethod.getController().showTextInput().then(() => {
 
 
 ##### showTextInput15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showTextInput(requestKeyboardReason: RequestKeyboardReason): Promise&lt;void&gt;
 
@@ -1556,6 +1656,8 @@ inputMethod.getController().showTextInput(requestKeyboardReason).then(() => {
 
 ##### hideTextInput10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hideTextInput(callback: AsyncCallback&lt;void&gt;): void
 
 退出文本编辑状态。使用callback异步回调。
@@ -1602,6 +1704,8 @@ inputMethod.getController().hideTextInput((err: BusinessError) => {
 
 ##### hideTextInput10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hideTextInput(): Promise&lt;void&gt;
 
 退出文本编辑状态。使用promise异步回调。
@@ -1646,6 +1750,8 @@ inputMethod.getController().hideTextInput().then(() => {
 
 ##### detach10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 detach(callback: AsyncCallback&lt;void&gt;): void
 
 自绘控件解除与输入法的绑定。使用callback异步回调。
@@ -1687,6 +1793,8 @@ inputMethod.getController().detach((err: BusinessError) => {
 
 ##### detach10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 detach(): Promise&lt;void&gt;
 
 自绘控件解除与输入法的绑定。使用promise异步回调。
@@ -1725,6 +1833,8 @@ inputMethod.getController().detach().then(() => {
 
 
 ##### setCallingWindow10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCallingWindow(windowId: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1774,6 +1884,8 @@ inputMethod.getController().setCallingWindow(windowId, (err: BusinessError) => {
 
 
 ##### setCallingWindow10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCallingWindow(windowId: number): Promise&lt;void&gt;
 
@@ -1828,6 +1940,8 @@ inputMethod.getController().setCallingWindow(windowId).then(() => {
 
 ##### updateCursor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateCursor(cursorInfo: CursorInfo, callback: AsyncCallback&lt;void&gt;): void
 
 当编辑框内的光标信息发生变化时，调用该接口使输入法感知到光标变化。使用callback异步回调。
@@ -1877,6 +1991,8 @@ inputMethod.getController().updateCursor(cursorInfo, (err: BusinessError) => {
 
 
 ##### updateCursor10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateCursor(cursorInfo: CursorInfo): Promise&lt;void&gt;
 
@@ -1932,6 +2048,8 @@ inputMethod.getController().updateCursor(cursorInfo).then(() => {
 
 ##### changeSelection10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 changeSelection(text: string, start: number, end: number, callback: AsyncCallback&lt;void&gt;): void
 
 当编辑框内被选中的文本信息内容或文本范围发生变化时，可调用该接口更新文本信息，使输入法应用感知到变化。使用callback异步回调。
@@ -1977,6 +2095,8 @@ inputMethod.getController().changeSelection('text', 0, 5, (err: BusinessError) =
 
 
 ##### changeSelection10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 changeSelection(text: string, start: number, end: number): Promise&lt;void&gt;
 
@@ -2028,6 +2148,8 @@ inputMethod.getController().changeSelection('test', 0, 5).then(() => {
 
 ##### updateAttribute10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateAttribute(attribute: InputAttribute, callback: AsyncCallback&lt;void&gt;): void
 
 更新编辑框属性信息。使用callback异步回调。
@@ -2072,6 +2194,8 @@ inputMethod.getController().updateAttribute(inputAttribute, (err: BusinessError)
 
 
 ##### updateAttribute10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateAttribute(attribute: InputAttribute): Promise&lt;void&gt;
 
@@ -2122,6 +2246,8 @@ inputMethod.getController().updateAttribute(inputAttribute).then(() => {
 
 ##### stopInputSession9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopInputSession(callback: AsyncCallback&lt;boolean&gt;): void
 
 结束输入会话。使用callback异步回调。
@@ -2171,6 +2297,8 @@ inputMethod.getController().stopInputSession((err: BusinessError, result: boolea
 
 ##### stopInputSession9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopInputSession(): Promise&lt;boolean&gt;
 
 结束输入会话。使用promise异步回调。
@@ -2217,6 +2345,8 @@ inputMethod.getController().stopInputSession().then((result: boolean) => {
 
 
 ##### showSoftKeyboard9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showSoftKeyboard(callback: AsyncCallback&lt;void&gt;): void
 
@@ -2266,6 +2396,8 @@ inputMethod.getController().showSoftKeyboard((err: BusinessError) => {
 
 ##### showSoftKeyboard9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showSoftKeyboard(): Promise&lt;void&gt;
 
 显示输入法软键盘。使用Promise异步回调。
@@ -2311,6 +2443,8 @@ inputMethod.getController().showSoftKeyboard().then(() => {
 
 
 ##### hideSoftKeyboard9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hideSoftKeyboard(callback: AsyncCallback&lt;void&gt;): void
 
@@ -2360,6 +2494,8 @@ inputMethod.getController().hideSoftKeyboard((err: BusinessError) => {
 
 ##### hideSoftKeyboard9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hideSoftKeyboard(): Promise&lt;void&gt;
 
 隐藏输入法软键盘。使用Promise异步回调。
@@ -2405,6 +2541,8 @@ inputMethod.getController().hideSoftKeyboard().then(() => {
 
 
 ##### sendMessage15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendMessage(msgId: string, msgParam?: ArrayBuffer): Promise&lt;void&gt;
 
@@ -2463,6 +2601,8 @@ inputMethod.getController().sendMessage(msgId, msgParam).then(() => {
 
 ##### recvMessage15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 recvMessage(msgHandler?: MessageHandler): void
 
 注册或取消注册MessageHandler。
@@ -2512,6 +2652,8 @@ inputMethodController.recvMessage();
 
 ##### stopInput(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopInput(callback: AsyncCallback&lt;boolean&gt;): void
 
 结束输入会话。使用callback异步回调。
@@ -2551,6 +2693,8 @@ inputMethod.getController().stopInput((err: BusinessError, result: boolean) => {
 
 ##### stopInput(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopInput(): Promise&lt;boolean&gt;
 
 结束输入会话。使用promise异步回调。
@@ -2587,6 +2731,8 @@ inputMethod.getController().stopInput().then((result: boolean) => {
 
 
 ##### on('insertText')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'insertText', callback: (text: string) => void): void
 
@@ -2637,6 +2783,8 @@ inputMethodController.off('insertText');
 
 ##### off('insertText')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'insertText', callback?: (text: string) => void): void
 
 取消订阅输入法应用插入文本事件。
@@ -2668,6 +2816,8 @@ inputMethodController.off('insertText');
 
 
 ##### on('deleteLeft')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'deleteLeft', callback: (length: number) => void): void
 
@@ -2705,6 +2855,8 @@ inputMethod.getController().on('deleteLeft', (length: number) => {
 
 ##### off('deleteLeft')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'deleteLeft', callback?: (length: number) => void): void
 
 取消订阅输入法应用向左删除文本事件。
@@ -2736,6 +2888,8 @@ inputMethodController.off('deleteLeft');
 
 
 ##### on('deleteRight')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'deleteRight', callback: (length: number) => void): void
 
@@ -2773,6 +2927,8 @@ inputMethod.getController().on('deleteRight', (length: number) => {
 
 ##### off('deleteRight')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'deleteRight', callback?: (length: number) => void): void
 
 取消订阅输入法应用向右删除文本事件。
@@ -2803,6 +2959,8 @@ inputMethodController.off('deleteRight');
 
 
 ##### on('sendKeyboardStatus')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'sendKeyboardStatus', callback: (keyboardStatus: KeyboardStatus) => void): void
 
@@ -2840,6 +2998,8 @@ inputMethod.getController().on('sendKeyboardStatus', (keyboardStatus: inputMetho
 
 ##### off('sendKeyboardStatus')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'sendKeyboardStatus', callback?: (keyboardStatus: KeyboardStatus) => void): void
 
 取消订阅输入法应用发送输入法软键盘状态事件。
@@ -2871,6 +3031,8 @@ inputMethodController.off('sendKeyboardStatus');
 
 
 ##### on('sendFunctionKey')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'sendFunctionKey', callback: (functionKey: FunctionKey) => void): void
 
@@ -2908,6 +3070,8 @@ inputMethod.getController().on('sendFunctionKey', (functionKey: inputMethod.Func
 
 ##### off('sendFunctionKey')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'sendFunctionKey', callback?: (functionKey: FunctionKey) => void): void
 
 取消订阅输入法应用发送功能键事件。
@@ -2939,6 +3103,8 @@ inputMethodController.off('sendFunctionKey');
 
 
 ##### on('moveCursor')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'moveCursor', callback: (direction: Direction) => void): void
 
@@ -2976,6 +3142,8 @@ inputMethod.getController().on('moveCursor', (direction: inputMethod.Direction) 
 
 ##### off('moveCursor')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'moveCursor', callback?: (direction: Direction) => void): void
 
 取消订阅输入法应用移动光标事件。
@@ -3007,6 +3175,8 @@ inputMethodController.off('moveCursor');
 
 
 ##### on('handleExtendAction')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'handleExtendAction', callback: (action: ExtendAction) => void): void
 
@@ -3044,6 +3214,8 @@ inputMethod.getController().on('handleExtendAction', (action: inputMethod.Extend
 
 ##### off('handleExtendAction')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'handleExtendAction', callback?: (action: ExtendAction) => void): void
 
 取消订阅输入法应用发送扩展编辑操作事件。使用callback异步回调。
@@ -3075,6 +3247,8 @@ inputMethodController.off('handleExtendAction');
 
 
 ##### on('selectByRange')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'selectByRange', callback: Callback&lt;Range&gt;): void
 
@@ -3111,6 +3285,8 @@ inputMethod.getController().on('selectByRange', (range: inputMethod.Range) => {
 
 ##### off('selectByRange')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'selectByRange', callback?: Callback&lt;Range&gt;): void
 
 取消订阅输入法应用按范围选中文本事件。使用callback异步回调。
@@ -3142,6 +3318,8 @@ inputMethodController.off('selectByRange');
 
 
 ##### on('selectByMovement')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'selectByMovement', callback: Callback&lt;Movement&gt;): void
 
@@ -3178,6 +3356,8 @@ inputMethod.getController().on('selectByMovement', (movement: inputMethod.Moveme
 
 ##### off('selectByMovement')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'selectByMovement', callback?: Callback&lt;Movement&gt;): void
 
 取消订阅输入法应用按光标移动方向，选中文本事件。使用callback异步回调。
@@ -3209,6 +3389,8 @@ inputMethodController.off('selectByMovement');
 
 
 ##### on('getLeftTextOfCursor')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'getLeftTextOfCursor', callback: (length: number) => string): void
 
@@ -3248,6 +3430,8 @@ inputMethod.getController().on('getLeftTextOfCursor', (length: number) => {
 
 ##### off('getLeftTextOfCursor')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'getLeftTextOfCursor', callback?: (length: number) => string): void
 
 取消订阅输入法应用获取光标左侧指定长度文本事件。使用callback异步回调。
@@ -3279,6 +3463,8 @@ inputMethodController.off('getLeftTextOfCursor');
 
 
 ##### on('getRightTextOfCursor')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'getRightTextOfCursor', callback: (length: number) => string): void
 
@@ -3318,6 +3504,8 @@ inputMethod.getController().on('getRightTextOfCursor', (length: number) => {
 
 ##### off('getRightTextOfCursor')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'getRightTextOfCursor', callback?: (length: number) => string): void
 
 取消订阅输入法应用获取光标右侧指定长度文本事件。使用callback异步回调。
@@ -3349,6 +3537,8 @@ inputMethodController.off('getRightTextOfCursor');
 
 
 ##### on('getTextIndexAtCursor')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'getTextIndexAtCursor', callback: () => number): void
 
@@ -3388,6 +3578,8 @@ inputMethod.getController().on('getTextIndexAtCursor', () => {
 
 ##### off('getTextIndexAtCursor')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'getTextIndexAtCursor', callback?: () => number): void
 
 取消订阅输入法应用获取光标处文本索引事件。使用callback异步回调。
@@ -3419,6 +3611,8 @@ inputMethodController.off('getTextIndexAtCursor');
 
 
 ##### on('setPreviewText')17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'setPreviewText', callback: SetPreviewTextCallback): void
 
@@ -3475,6 +3669,8 @@ console.info(`All callbacks unsubscribed from setPreviewText`);
 
 ##### off('setPreviewText')17+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'setPreviewText', callback?: SetPreviewTextCallback): void
 
 取消订阅输入法应用操作文本预览内容的事件。使用callback异步回调。
@@ -3516,6 +3712,8 @@ console.info(`All callbacks unsubscribed from setPreviewText`);
 
 
 ##### on('finishTextPreview')17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'finishTextPreview', callback: Callback&lt;void&gt;): void
 
@@ -3573,6 +3771,8 @@ console.info(`All callbacks unsubscribed from finishTextPreview`);
 
 ##### off('finishTextPreview')17+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'finishTextPreview', callback?: Callback&lt;void&gt;): void
 
 取消订阅结束文本预览事件。使用callback异步回调。
@@ -3616,11 +3816,15 @@ console.info(`All callbacks unsubscribed from finishTextPreview`);
 
 ##### InputMethodSetting8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下列API均需使用[getSetting](#inputmethodgetsetting9)获取到InputMethodSetting实例后，通过实例调用。
 
 
 
 ##### on('imeChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'imeChange', callback: (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void): void
 
@@ -3652,6 +3856,8 @@ inputMethod.getSetting()
 
 ##### off('imeChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'imeChange', callback?: (inputMethodProperty: InputMethodProperty, inputMethodSubtype: InputMethodSubtype) => void): void
 
 取消订阅输入法及子类型变化监听事件。使用callback异步回调。
@@ -3675,6 +3881,8 @@ inputMethod.getSetting().off('imeChange');
 
 
 ##### listInputMethodSubtype9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 listInputMethodSubtype(inputMethodProperty: InputMethodProperty, callback: AsyncCallback<Array&lt;InputMethodSubtype&gt;>): void
 
@@ -3728,6 +3936,8 @@ inputMethodSetting.listInputMethodSubtype(inputMethodProperty,
 
 
 ##### listInputMethodSubtype9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 listInputMethodSubtype(inputMethodProperty: InputMethodProperty): Promise<Array&lt;InputMethodSubtype&gt;>
 
@@ -3785,6 +3995,8 @@ inputMethodSetting.listInputMethodSubtype(inputMethodProperty).then((data: Array
 
 ##### listCurrentInputMethodSubtype9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 listCurrentInputMethodSubtype(callback: AsyncCallback<Array&lt;InputMethodSubtype&gt;>): void
 
 查询当前输入法应用的所有子类型。使用callback异步回调。
@@ -3828,6 +4040,8 @@ inputMethodSetting.listCurrentInputMethodSubtype((err: BusinessError, data: Arra
 
 ##### listCurrentInputMethodSubtype9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 listCurrentInputMethodSubtype(): Promise<Array&lt;InputMethodSubtype&gt;>
 
 查询当前输入法应用的所有子类型。使用promise异步回调。
@@ -3869,6 +4083,8 @@ inputMethodSetting.listCurrentInputMethodSubtype().then((data: Array<InputMethod
 
 
 ##### getInputMethods9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getInputMethods(enable: boolean, callback: AsyncCallback<Array&lt;InputMethodProperty&gt;>): void
 
@@ -3916,6 +4132,8 @@ inputMethod.getSetting().getInputMethods(true, (err: BusinessError, data: Array<
 
 
 ##### getInputMethods9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getInputMethods(enable: boolean): Promise<Array&lt;InputMethodProperty&gt;>
 
@@ -3968,6 +4186,8 @@ inputMethod.getSetting().getInputMethods(true).then((data: Array<inputMethod.Inp
 
 ##### getInputMethodsSync11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getInputMethodsSync(enable: boolean): Array&lt;InputMethodProperty&gt;
 
 获取已激活/未激活的输入法应用列表。同步接口。
@@ -4013,6 +4233,8 @@ let imeProperty: Array<inputMethod.InputMethodProperty> = inputMethod.getSetting
 
 ##### getAllInputMethods11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllInputMethods(callback: AsyncCallback<Array&lt;InputMethodProperty&gt;>): void
 
 获取所有输入法应用列表。使用callback异步回调。
@@ -4054,6 +4276,8 @@ inputMethod.getSetting().getAllInputMethods((err: BusinessError, data: Array<inp
 
 ##### getAllInputMethods11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllInputMethods(): Promise<Array&lt;InputMethodProperty&gt;>
 
 获取所有输入法应用列表。使用promise异步回调。
@@ -4093,6 +4317,8 @@ inputMethod.getSetting().getAllInputMethods().then((data: Array<inputMethod.Inpu
 
 ##### getAllInputMethodsSync11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllInputMethodsSync(): Array&lt;InputMethodProperty&gt;
 
 获取所有输入法应用列表。同步接口。
@@ -4125,6 +4351,8 @@ let imeProperty: Array<inputMethod.InputMethodProperty> = inputMethod.getSetting
 
 
 ##### showOptionalInputMethods(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showOptionalInputMethods(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -4174,6 +4402,8 @@ inputMethod.getSetting().showOptionalInputMethods((err: BusinessError, result: b
 
 ##### showOptionalInputMethods(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showOptionalInputMethods(): Promise&lt;boolean&gt;
 
 显示输入法选择对话框。使用promise异步回调。
@@ -4220,6 +4450,8 @@ inputMethod.getSetting().showOptionalInputMethods().then((result: boolean) => {
 
 ##### listInputMethod(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 listInputMethod(callback: AsyncCallback<Array&lt;InputMethodProperty&gt;>): void
 
 查询已安装的输入法列表。使用callback异步回调。
@@ -4255,6 +4487,8 @@ inputMethod.getSetting().listInputMethod((err: BusinessError, data: Array<inputM
 
 ##### listInputMethod(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 listInputMethod(): Promise<Array&lt;InputMethodProperty&gt;>
 
 查询已安装的输入法列表。使用promise异步回调。
@@ -4287,6 +4521,8 @@ inputMethod.getSetting().listInputMethod().then((data: Array<inputMethod.InputMe
 
 
 ##### displayOptionalInputMethod(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 displayOptionalInputMethod(callback: AsyncCallback&lt;void&gt;): void
 
@@ -4323,6 +4559,8 @@ inputMethod.getSetting().displayOptionalInputMethod((err: BusinessError) => {
 
 ##### displayOptionalInputMethod(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 displayOptionalInputMethod(): Promise&lt;void&gt;
 
 显示输入法选择对话框。使用promise异步回调。
@@ -4355,6 +4593,8 @@ inputMethod.getSetting().displayOptionalInputMethod().then(() => {
 
 
 ##### getInputMethodState15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getInputMethodState(): Promise&lt;EnabledState&gt;
 

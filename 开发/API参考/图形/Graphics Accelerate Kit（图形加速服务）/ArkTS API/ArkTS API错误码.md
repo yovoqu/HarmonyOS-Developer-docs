@@ -12,6 +12,8 @@
 
 ##### 1016600000 当前API不允许在资源加速ExtensionAbility中调用
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 The API call from an ExtensionAbility is not allowed.
@@ -42,6 +44,8 @@ The API call from an ExtensionAbility is not allowed.
 
 ##### 1016600001 下载任务的域名不在域名白名单中
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 The domain name of the download task is not in the domain name trustlist.
@@ -64,6 +68,8 @@ The domain name of the download task is not in the domain name trustlist.
 
 ##### 1016600002 暂停/恢复/获取下载任务时任务ID或组ID不存在
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 The task ID or group ID entered during operations such as pause, resume, and fetch does not exist.
@@ -84,6 +90,8 @@ The task ID or group ID entered during operations such as pause, resume, and fet
 
 ##### 1016600003 当前任务状态不支持当前操作
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 The current task status does not support the current operator.
@@ -103,6 +111,8 @@ The current task status does not support the current operator.
 
 
 ##### 1016600004 任务队列已满
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
 
@@ -164,6 +174,8 @@ An exception occurs in the callback extension js.
 
 ##### 1016600094 服务异常
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
 
 Task service ability error.
@@ -183,6 +195,8 @@ Task service ability error.
 
 
 ##### 1016600401 参数错误
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
 

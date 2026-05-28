@@ -12,6 +12,8 @@ typedef struct OH_OnFrameAvailableListener {...} OH_OnFrameAvailableListener
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 一个OH_NativeImage的监听者，通过[OH_NativeImage_SetOnFrameAvailableListener](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-image-h#oh_nativeimage_setonframeavailablelistener)接口注册该监听结构体，当有buffer可获取时，将触发回调给用户。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct OH_OnFrameAvailableListener {...} OH_OnFrameAvailableListener
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,6 +43,8 @@ typedef struct OH_OnFrameAvailableListener {...} OH_OnFrameAvailableListener
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -47,9 +55,13 @@ typedef struct OH_OnFrameAvailableListener {...} OH_OnFrameAvailableListener
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_OnFrameAvailable()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_OnFrameAvailable)(void *context)

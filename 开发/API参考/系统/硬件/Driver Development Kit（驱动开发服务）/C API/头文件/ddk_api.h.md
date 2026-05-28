@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 声明主机侧访问的Base DDK接口。
  
 **引用文件：** <ddk/ddk_api.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 函数
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,9 +45,13 @@
 
 ##### 函数说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### OH_DDK_CreateAshmem()
+
+**支持设备：** PC/2in1
 
 ```text
 DDK_RetCode OH_DDK_CreateAshmem(const uint8_t *name, uint32_t size, DDK_Ashmem **ashmem)
@@ -73,6 +83,8 @@ DDK_RetCode OH_DDK_CreateAshmem(const uint8_t *name, uint32_t size, DDK_Ashmem *
 
 ##### OH_DDK_MapAshmem()
 
+**支持设备：** PC/2in1
+
 ```text
 DDK_RetCode OH_DDK_MapAshmem(DDK_Ashmem *ashmem, const uint8_t ashmemMapType)
 ```
@@ -102,6 +114,8 @@ DDK_RetCode OH_DDK_MapAshmem(DDK_Ashmem *ashmem, const uint8_t ashmemMapType)
 
 ##### OH_DDK_UnmapAshmem()
 
+**支持设备：** PC/2in1
+
 ```text
 DDK_RetCode OH_DDK_UnmapAshmem(DDK_Ashmem *ashmem)
 ```
@@ -129,6 +143,8 @@ DDK_RetCode OH_DDK_UnmapAshmem(DDK_Ashmem *ashmem)
   
 
 ##### OH_DDK_DestroyAshmem()
+
+**支持设备：** PC/2in1
 
 ```text
 DDK_RetCode OH_DDK_DestroyAshmem(DDK_Ashmem *ashmem)

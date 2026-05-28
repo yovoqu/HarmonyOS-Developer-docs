@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { securityLabel } from '@kit.CoreFileKit';
 ```
@@ -21,6 +23,8 @@ import { securityLabel } from '@kit.CoreFileKit';
 
 
 ##### 使用说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 使用该功能模块对文件/目录进行操作前，需要先获取其应用沙箱路径，获取方式及其接口用法请参考：
 
@@ -42,6 +46,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### DataLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4'
 
 数据安全等级。
@@ -62,6 +68,8 @@ type DataLevel = 's0' | 's1' | 's2' | 's3' | 's4'
 
 
 ##### securityLabel.setSecurityLabel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSecurityLabel(path:string, type:DataLevel):Promise&lt;void&gt;
 
@@ -116,6 +124,8 @@ securityLabel.setSecurityLabel(filePath, "s0").then(() => {
 
 ##### securityLabel.setSecurityLabel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSecurityLabel(path:string, type:DataLevel, callback: AsyncCallback&lt;void&gt;):void
 
 设置文件或目录的数据安全等级。数据安全等级仅可由低向高或平级设置。使用callback异步回调。
@@ -165,6 +175,8 @@ securityLabel.setSecurityLabel(filePath, "s0", (err: BusinessError) => {
 
 ##### securityLabel.setSecurityLabelSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSecurityLabelSync(path:string, type:DataLevel):void
 
 以同步方法设置文件或目录的数据安全等级。数据安全等级仅可由低向高或平级设置。
@@ -205,6 +217,8 @@ securityLabel.setSecurityLabelSync(filePath, "s0");
 
 
 ##### securityLabel.getSecurityLabel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSecurityLabel(path:string):Promise&lt;string&gt;
 
@@ -258,6 +272,8 @@ securityLabel.getSecurityLabel(filePath).then((type: string) => {
 
 ##### securityLabel.getSecurityLabel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSecurityLabel(path:string, callback:AsyncCallback&lt;string&gt;): void
 
 获取文件或目录的数据安全等级。若未设置过数据安全等级则默认返回“s3”。使用callback异步回调。
@@ -305,6 +321,8 @@ securityLabel.getSecurityLabel(filePath, (err: BusinessError, type: string) => {
 
 
 ##### securityLabel.getSecurityLabelSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSecurityLabelSync(path:string):string
 

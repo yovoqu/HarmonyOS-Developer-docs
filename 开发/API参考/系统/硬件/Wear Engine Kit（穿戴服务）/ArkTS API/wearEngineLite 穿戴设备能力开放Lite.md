@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Wearable | lite_wearable
+
 ```text
 import WearEngineLite from '@hms.health.WearEngineLite';
 ```
@@ -19,6 +21,8 @@ import WearEngineLite from '@hms.health.WearEngineLite';
   
 
 ##### onConnectionStateChange
+
+**支持设备：** Wearable | lite_wearable
 
 static onConnectionStateChange(callback: MonitorEventCallback): void
  
@@ -64,6 +68,8 @@ let eventCallback = {
 
 ##### offConnectionStateChange
 
+**支持设备：** Wearable | lite_wearable
+
 static offConnectionStateChange(callback?: MonitorEventCallback): void
  
 取消监听设备状态变化，使用callback异步回调。
@@ -103,11 +109,15 @@ let eventCallback = {
 
 ##### MonitorEventCallback
 
+**支持设备：** Wearable | lite_wearable
+
 作为[onConnectionStateChange](#onconnectionstatechange)接口的入参，当订阅监听的事件触发时，将变化后的设备状态信息传递给回调函数；作为[offConnectionStateChange](#offconnectionstatechange)接口的入参，用于取消监听设备连接状态的变化。
  
   
 
 ##### eventChange
+
+**支持设备：** Wearable | lite_wearable
 
 eventChange(data: MonitorEventData): void
  
@@ -145,6 +155,8 @@ let eventCallback = {
 
 ##### success
 
+**支持设备：** Wearable | lite_wearable
+
 success(code: number, data?: string): void
  
 表示订阅成功或者是取消订阅成功。
@@ -180,6 +192,8 @@ let eventCallback = {
   
 
 ##### fail
+
+**支持设备：** Wearable | lite_wearable
 
 fail(code: number, data?: string): void
  
@@ -217,6 +231,8 @@ let eventCallback = {
 
 ##### MonitorData
 
+**支持设备：** Wearable | lite_wearable
+
 设备的状态信息。
  
 **模型约束：** 此接口仅可在FA模型下使用。
@@ -234,6 +250,8 @@ let eventCallback = {
   
 
 ##### MonitorEventData
+
+**支持设备：** Wearable | lite_wearable
 
 作为[eventChange](#eventchange)的参数，当订阅监听的事件触发时，将设备状态的变化信息传递给回调函数。
  

@@ -12,6 +12,8 @@ typedef struct OH_AudioCapturerStruct OH_AudioCapturer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明输入音频流。输入音频流的实例被用来获取音频数据。
  
 **起始版本：** 10

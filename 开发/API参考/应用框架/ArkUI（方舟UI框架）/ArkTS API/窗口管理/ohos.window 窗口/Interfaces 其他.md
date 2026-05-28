@@ -12,6 +12,8 @@
 
 ##### Configuration9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 创建子窗口或系统窗口时的参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -30,6 +32,8 @@
 
 
 ##### SystemBarProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 状态栏属性。
 
@@ -51,6 +55,8 @@
 
 ##### StatusBarProperty18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 状态栏的属性。在获取状态栏属性信息时返回。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -63,6 +69,8 @@
 
 
 ##### SystemBarStyle12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 状态栏的属性。在设置页面级状态栏属性时使用。
 
@@ -79,6 +87,8 @@
 
 ##### FrameMetrics22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 帧率指标。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -94,6 +104,8 @@
 
 
 ##### Rect7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口矩形区域。
 
@@ -113,6 +125,8 @@
 
 ##### RectInVP23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口矩形区域，单位为vp。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -130,6 +144,8 @@
 
 
 ##### AvoidArea7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口内容的避让区域。
 
@@ -158,6 +174,8 @@
 
 ##### UIEnvAvoidAreaVP23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 以vp为单位表示的窗口避让区域信息，在进行[沉浸式布局](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#沉浸式布局)适配时需关注。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -175,6 +193,8 @@
 
 ##### UIEnvWindowAvoidAreaInfoPX23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口不同类型避让区域信息组成的[环境变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-env-system-property)数据类型，每种类型避让区域单位为px。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -190,6 +210,8 @@
 
 
 ##### UIEnvWindowAvoidAreaInfoVP23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口不同类型避让区域信息组成的[环境变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-env-system-property)数据类型，每种类型避让区域单位为vp。
 
@@ -207,6 +229,8 @@
 
 ##### Size7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口大小，单位为px。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
@@ -222,6 +246,8 @@
 
 
 ##### SizeInVP23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口大小，单位为vp。
 
@@ -239,6 +265,8 @@
 
 ##### Position20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口或组件的位置。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -252,6 +280,8 @@
 
 
 ##### RectChangeOptions12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口矩形（窗口位置及窗口大小）变化返回的值及变化原因。
 
@@ -269,6 +299,8 @@
 
 ##### AvoidAreaOptions12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统避让区变化后返回当前避让区域以及避让区域类型。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
@@ -284,6 +316,8 @@
 
 
 ##### WindowProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口属性。
 
@@ -312,6 +346,8 @@
 
 ##### DecorButtonStyle14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统装饰栏按钮样式。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -329,6 +365,8 @@
 
 
 ##### WindowLimits11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口尺寸限制参数，应用可以通过[getWindowLimits](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowlimits11)获得当前窗口的尺寸限制（单位为px）；从API version 22开始，还可以通过[getWindowLimitsVP](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#getwindowlimitsvp22)获取窗口尺寸限制（单位为vp）。
 
@@ -357,6 +395,8 @@
 
 ##### TitleButtonRect11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 标题栏上的最小化、最大化、关闭按钮矩形区域，该区域位置坐标相对窗口右上角。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -375,6 +415,8 @@
 
 ##### MoveConfiguration15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口移动选项。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -389,6 +431,8 @@
 
 
 ##### WindowDensityInfo15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口所在显示设备和窗口自定义的显示密度信息，是与像素单位无关的缩放系数，即显示大小缩放系数。
 
@@ -407,6 +451,8 @@
 
 ##### WindowLayoutInfo15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口布局信息。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -421,6 +467,8 @@
 
 
 ##### KeyboardInfo18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 软键盘窗口信息。
 
@@ -438,6 +486,8 @@
 
 ##### ShowWindowOptions20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 显示子窗口或系统窗口时的参数。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -452,6 +502,8 @@
 
 
 ##### WindowAnimationConfig20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口动画参数配置。
 
@@ -469,6 +521,8 @@
 
 
 ##### WindowInfo18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 当前窗口的详细信息。
 
@@ -489,6 +543,8 @@
 
 ##### TransitionAnimation20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口转场动画配置。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -504,6 +560,8 @@
 
 
 ##### StartAnimationParams20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 启动动画配置。
 
@@ -524,6 +582,8 @@
 
 ##### WindowCreateParams20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用启动时的窗口参数配置。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -538,9 +598,13 @@
 
 ##### Callback15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### (data: T)15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 (data: T): V
 
@@ -570,6 +634,8 @@
 
 ##### RotationChangeInfo19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口旋转变化时的窗口信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -588,6 +654,8 @@
 
 ##### RotationChangeResult19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用在窗口旋转变化时返回的信息，系统会根据此信息改变当前窗口矩形区域大小。当返回主窗口旋转变化的信息时，系统不改变主窗口的大小。
 
 应用窗口与系统窗口大小存在限制，具体限制与相关规则可见[resize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#resize9)。
@@ -605,6 +673,8 @@
 
 
 ##### SubWindowOptions11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 子窗口创建参数。
 
@@ -626,6 +696,8 @@
 
 ##### KeyFramePolicy20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 关键帧的策略配置。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -643,6 +715,8 @@
 
 ##### MainWindowInfo21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 主窗口信息。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -658,6 +732,8 @@
 
 
 ##### WindowSnapshotConfiguration21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 主窗口截图的配置项。
 

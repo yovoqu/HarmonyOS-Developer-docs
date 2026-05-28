@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供接口所需要的枚举类型和结构体。
  
 **引用文件：** <resourcemanager/resmgr_common.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -49,9 +57,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### ResourceManager_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum ResourceManager_ErrorCode
@@ -84,6 +96,8 @@ enum ResourceManager_ErrorCode
 
 ##### ScreenDensity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum ScreenDensity
 ```
@@ -108,6 +122,8 @@ enum ScreenDensity
 
 ##### ResourceManager_Direction
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum ResourceManager_Direction
 ```
@@ -128,6 +144,8 @@ enum ResourceManager_Direction
 
 ##### ResourceManager_ColorMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum ResourceManager_ColorMode
 ```
@@ -147,6 +165,8 @@ enum ResourceManager_ColorMode
   
 
 ##### ResourceManager_DeviceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum ResourceManager_DeviceType

@@ -12,6 +12,8 @@
 
 ##### 3100101 开关NFC异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The NFC state is abnormal in the service.
@@ -31,6 +33,8 @@ NFC服务内部执行NFC打开或关闭异常。
 
 
 ##### 3100201 NFC服务读写Tag错误
+
+**支持设备：** Phone | Wearable
 
 **错误信息**
 
@@ -58,6 +62,8 @@ NFC服务执行Tag业务逻辑遇到错误。
 
 ##### 3100202 应用状态错误
 
+**支持设备：** Phone | Wearable
+
 **错误信息**
 
 The element state is invalid.
@@ -78,6 +84,8 @@ The element state is invalid.
 
 ##### 3100203 接口调用顺序错误
 
+**支持设备：** Phone | Wearable
+
 **错误信息**
 
 The off() API can be called only when the on() has been called.
@@ -97,6 +105,8 @@ The off() API can be called only when the on() has been called.
 
 
 ##### 3100204 NFC芯片I/O异常
+
+**支持设备：** Phone | Wearable
 
 **错误信息**
 
@@ -138,6 +148,8 @@ NFC标签已离开nfc设备感应范围。
 
 ##### 3100301 NFC卡模拟状态异常
 
+**支持设备：** Phone | Wearable | lite_wearable
+
 **错误信息**
 
 Card emulation running state is abnormal in service.
@@ -157,6 +169,8 @@ NFC服务执行卡模拟业务逻辑遇到错误。
 
 
 ##### 3200101 有源NFC标签状态异常
+
+**支持设备：** PC/2in1
 
 **错误信息**
 

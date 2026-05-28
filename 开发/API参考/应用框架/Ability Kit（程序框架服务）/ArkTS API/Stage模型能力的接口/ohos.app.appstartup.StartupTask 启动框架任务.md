@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { StartupTask } from '@kit.AbilityKit';
 ```
@@ -22,6 +24,8 @@ import { StartupTask } from '@kit.AbilityKit';
 
 ##### StartupTask
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该类提供启动任务的相关能力，使用[@Sendable装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable装饰器)装饰。
 
 **装饰器类型**：@Sendable
@@ -29,6 +33,8 @@ import { StartupTask } from '@kit.AbilityKit';
 
 
 ##### onDependencyCompleted
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDependencyCompleted?(dependency: string, result: Object): void
 
@@ -71,6 +77,8 @@ export default class StartupTask_001 extends StartupTask {
 
 
 ##### init
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 init(context: AbilityStageContext): Promise<Object | void>
 

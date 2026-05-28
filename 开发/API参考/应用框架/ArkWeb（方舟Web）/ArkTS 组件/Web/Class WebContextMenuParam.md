@@ -14,6 +14,8 @@
 
 ##### constructor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 WebContextMenuParam的构造函数。
@@ -23,6 +25,8 @@ WebContextMenuParam的构造函数。
   
 
 ##### x9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 x(): number
  
@@ -41,6 +45,8 @@ x(): number
 
 ##### y9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 y(): number
  
 弹出菜单的y坐标。
@@ -57,6 +63,8 @@ y(): number
   
 
 ##### getLinkUrl9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLinkUrl(): string
  
@@ -75,6 +83,8 @@ getLinkUrl(): string
 
 ##### getUnfilteredLinkUrl9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUnfilteredLinkUrl(): string
  
 获取原始URL链接地址。
@@ -91,6 +101,8 @@ getUnfilteredLinkUrl(): string
   
 
 ##### getSourceUrl9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSourceUrl(): string
  
@@ -109,6 +121,8 @@ getSourceUrl(): string
 
 ##### existsImageContents9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 existsImageContents(): boolean
  
 是否存在图像内容。
@@ -125,6 +139,8 @@ existsImageContents(): boolean
   
 
 ##### getMediaType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMediaType(): ContextMenuMediaType
  
@@ -143,6 +159,8 @@ getMediaType(): ContextMenuMediaType
 
 ##### getSelectionText9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSelectionText(): string
  
 获取选中文本。
@@ -159,6 +177,8 @@ getSelectionText(): string
   
 
 ##### getSourceType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSourceType(): ContextMenuSourceType
  
@@ -177,6 +197,8 @@ getSourceType(): ContextMenuSourceType
 
 ##### getInputFieldType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getInputFieldType(): ContextMenuInputFieldType
  
 获取网页元素输入框类型。
@@ -193,6 +215,8 @@ getInputFieldType(): ContextMenuInputFieldType
   
 
 ##### isEditable9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEditable(): boolean
  
@@ -211,6 +235,8 @@ isEditable(): boolean
 
 ##### getEditStateFlags9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getEditStateFlags(): number
  
 获取网页元素可编辑标识。
@@ -227,6 +253,8 @@ getEditStateFlags(): number
   
 
 ##### getPreviewWidth13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreviewWidth(): number
  
@@ -245,6 +273,8 @@ getPreviewWidth(): number
 
 ##### getPreviewHeight13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPreviewHeight(): number
  
 获取预览图的高。
@@ -261,6 +291,8 @@ getPreviewHeight(): number
   
 
 ##### getContextMenuMediaType22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getContextMenuMediaType(): ContextMenuDataMediaType
  

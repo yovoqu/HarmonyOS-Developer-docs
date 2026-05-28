@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { statusBarManager } from '@kit.DeskTopExtensionKit';
 ```
@@ -19,6 +21,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
   
 
 ##### StatusBarItem
+
+**支持设备：** PC/2in1
 
 状态栏图标详细参数。
  
@@ -38,6 +42,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 
 ##### StatusBarIcon
 
+**支持设备：** PC/2in1
+
 状态栏图标的图片信息。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
@@ -53,6 +59,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
   
 
 ##### QuickOperation
+
+**支持设备：** PC/2in1
 
 状态栏图标左键业务弹窗的详细信息。
  
@@ -73,6 +81,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 
 ##### StatusBarGroupMenu
 
+**支持设备：** PC/2in1
+
 type StatusBarGroupMenu = StatusBarMenuItem[]
  
 状态栏图标右键菜单的分组菜单信息。
@@ -89,6 +99,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
   
 
 ##### StatusBarMenuItem
+
+**支持设备：** PC/2in1
 
 状态栏图标右键菜单的一级菜单项信息。
  
@@ -109,6 +121,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 
 ##### StatusBarMenuAction
 
+**支持设备：** PC/2in1
+
 状态栏图标右键菜单的菜单项点击行为信息。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
@@ -126,6 +140,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
   
 
 ##### StatusBarSubMenuItem
+
+**支持设备：** PC/2in1
 
 状态栏图标右键菜单中的二级菜单项信息。
  
@@ -145,6 +161,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 
 ##### StatusBarItemIcon
 
+**支持设备：** PC/2in1
+
 菜单项中显示的图标，继承自[StatusBarIcon](#statusbaricon)。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
@@ -160,6 +178,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
   
 
 ##### StatusBarMenuItemOptions
+
+**支持设备：** PC/2in1
 
 菜单项的可选参数，支持配置菜单项的默认显示图标、及选中时显示的图标。
  
@@ -177,6 +197,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
   
 
 ##### statusBarManager.addToStatusBar
+
+**支持设备：** PC/2in1
 
 addToStatusBar(context: common.Context, statusBarItem: StatusBarItem): void
  
@@ -295,6 +317,8 @@ async function addToStatusBar(context: Context) {
   
 
 ##### statusBarManager.addToStatusBar
+
+**支持设备：** PC/2in1
 
 addToStatusBar(context: common.Context, statusBarItem: StatusBarItem, callback: AsyncCallback&lt;void&gt;): void
  
@@ -422,6 +446,8 @@ async function addToStatusBar(context: Context) {
 
 ##### statusBarManager.removeFromStatusBar
 
+**支持设备：** PC/2in1
+
 removeFromStatusBar(context: common.Context): void
  
 应用移除状态栏对应图标方法。
@@ -473,6 +499,8 @@ function removeFromStatusBar(context: Context) {
   
 
 ##### statusBarManager.removeFromStatusBar
+
+**支持设备：** PC/2in1
 
 removeFromStatusBar(context: common.Context, callback: AsyncCallback&lt;void&gt;): void
  
@@ -534,6 +562,8 @@ function removeFromStatusBar(context: Context) {
 
 ##### statusBarManager.updateQuickOperationHeight
 
+**支持设备：** PC/2in1
+
 updateQuickOperationHeight(context: common.Context, height: number): void
  
 应用更新状态栏图标的左键弹窗应用定制区域高度。
@@ -586,6 +616,8 @@ function updateQuickOperationHeight(context: Context) {
   
 
 ##### statusBarManager.updateQuickOperationHeight
+
+**支持设备：** PC/2in1
 
 updateQuickOperationHeight(context: common.Context, height: number, callback: AsyncCallback&lt;void&gt;): void
  
@@ -647,6 +679,8 @@ function updateQuickOperationHeight(context: Context) {
   
 
 ##### statusBarManager.updateStatusBarMenu
+
+**支持设备：** PC/2in1
 
 updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[]): void
  
@@ -721,6 +755,8 @@ function updateStatusBarMenu(context: Context) {
   
 
 ##### statusBarManager.updateStatusBarMenu
+
+**支持设备：** PC/2in1
 
 updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroupMenu[], callback: AsyncCallback&lt;void&gt;): void
  
@@ -804,6 +840,8 @@ function updateStatusBarMenu(context: Context) {
 
 ##### statusBarManager.updateStatusBarIcon
 
+**支持设备：** PC/2in1
+
 updateStatusBarIcon(context: common.Context, statusBarIcon: StatusBarIcon): void
  
 应用更新接入状态栏的图标。
@@ -879,6 +917,8 @@ async function updateStatusBarIcon(context: Context) {
   
 
 ##### statusBarManager.updateStatusBarIcon
+
+**支持设备：** PC/2in1
 
 updateStatusBarIcon(context: common.Context, statusBarIcon: StatusBarIcon, callback: AsyncCallback&lt;void&gt;): void
  
@@ -964,6 +1004,8 @@ async function updateStatusBarIcon(context: Context) {
 
 ##### statusBarManager.on('statusBarIconClick')
 
+**支持设备：** PC/2in1
+
 on(type: 'statusBarIconClick', callback: Callback<emitter.EventData>): void
  
 监听状态栏图标点击事件。使用callback异步回调。
@@ -1004,6 +1046,8 @@ statusBarManager.on('statusBarIconClick', this.onStatusBarIconClick);
   
 
 ##### statusBarManager.off('statusBarIconClick')
+
+**支持设备：** PC/2in1
 
 off(type: 'statusBarIconClick', callback?: Callback<emitter.EventData>): void
  
@@ -1048,6 +1092,8 @@ statusBarManager.off('statusBarIconClick');
 
 ##### statusBarManager.on('rightMenuClick')
 
+**支持设备：** PC/2in1
+
 on(type: 'rightMenuClick', callback: Callback<emitter.EventData>): void
  
 监听状态栏图标右键菜单点击事件。使用callback异步回调。
@@ -1083,6 +1129,8 @@ statusBarManager.on('rightMenuClick', this.onRightMenuClick);
   
 
 ##### statusBarManager.off('rightMenuClick')
+
+**支持设备：** PC/2in1
 
 off(type: 'rightMenuClick', callback?: Callback<emitter.EventData>): void
  
@@ -1122,6 +1170,8 @@ statusBarManager.off('rightMenuClick');
   
 
 ##### statusBarManager.updateStatusBarHoverTips
+
+**支持设备：** PC/2in1
 
 updateStatusBarHoverTips(context: common.Context, hoverTips: string): Promise&lt;void&gt;
  
@@ -1182,6 +1232,8 @@ async function updateStatusBarHoverTips(context: Context) {
   
 
 ##### statusBarManager.updateStatusBarMenuItem
+
+**支持设备：** PC/2in1
 
 updateStatusBarMenuItem(context: common.Context, item: StatusBarMenuItem): Promise&lt;void&gt;
  
@@ -1281,6 +1333,8 @@ async function updateStatusBarMenuItemTest(context: Context) {
   
 
 ##### statusBarManager.updateStatusBarSubMenuItem
+
+**支持设备：** PC/2in1
 
 updateStatusBarSubMenuItem(context: common.Context, item: StatusBarSubMenuItem): Promise&lt;void&gt;
  

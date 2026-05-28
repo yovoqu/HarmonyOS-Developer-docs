@@ -14,6 +14,8 @@ AbilityStateData是Ability状态信息的数据结构。使用[on](https://devel
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { appManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { appManager } from '@kit.AbilityKit';
 
 
 ##### AbilityStateData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 

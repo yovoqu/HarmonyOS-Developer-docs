@@ -12,6 +12,8 @@ typedef struct {...} OH_MIDICallbacks
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 客户端回调结构体，包含设备变化和错误处理的回调函数。
  
 **起始版本：** 24
@@ -24,9 +26,13 @@ typedef struct {...} OH_MIDICallbacks
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

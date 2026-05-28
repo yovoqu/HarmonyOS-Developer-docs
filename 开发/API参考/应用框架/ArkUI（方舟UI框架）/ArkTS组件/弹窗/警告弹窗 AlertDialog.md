@@ -14,6 +14,8 @@
 
 ##### AlertDialogParam对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 警告弹窗的样式。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -61,6 +63,8 @@
 
 ##### LevelOrder18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type LevelOrder = LevelOrder
 
 弹窗的显示顺序。
@@ -77,6 +81,8 @@ type LevelOrder = LevelOrder
 
 
 ##### AlertDialogParamWithConfirm对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 继承自[AlertDialogParam](#alertdialogparam对象说明)。
 
@@ -112,6 +118,8 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 ##### AlertDialogParamWithButtons对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 继承自[AlertDialogParam](#alertdialogparam对象说明)。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -127,6 +135,8 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 ##### AlertDialogParamWithOptions10+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 继承自[AlertDialogParam](#alertdialogparam对象说明)。
 
@@ -144,6 +154,8 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 ##### AlertDialogButtonOptions10+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 继承自[AlertDialogButtonBaseOptions](#alertdialogbuttonbaseoptions18对象说明)。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -156,6 +168,8 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 ##### AlertDialogButtonBaseOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 警告弹窗中按钮的样式。
 
@@ -182,6 +196,8 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 ##### DialogButtonDirection10+枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 警告弹窗中按钮的对齐方式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -198,6 +214,8 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 
 ##### DialogAlignment枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 警告弹窗的对齐方式。
 
@@ -223,6 +241,8 @@ confirm参数优先级：fontColor、backgroundColor > style > defaultFocus
 
 ##### Rectangle8+类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Rectangle是各种Dialog中maskRect参数的类型。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -247,6 +267,8 @@ Rectangle是各种Dialog中maskRect参数的类型。
 
 ##### DismissDialogAction12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Dialog关闭的信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -267,6 +289,8 @@ Dialog关闭的信息。
 
 ##### TextStyle12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 弹窗中message的截断方式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -282,9 +306,13 @@ Dialog关闭的信息。
 
 ##### AlertDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### show(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions)
 
@@ -308,6 +336,8 @@ static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | A
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 直接使用AlertDialog可能导致 UI上下文不明确 的问题，建议使用getUIContext()获取 UIContext 实例，并使用 showAlertDialog 调用绑定实例的AlertDialog.show()。
@@ -652,7 +682,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ILyLAPlnQqe4ZrOsghhkSQ/zh-cn_image_0000002581436172.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=61F37145EB095C1F025FCC20D9DA430B639DBF819B448C7DEDE60D4ECED6878F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ILyLAPlnQqe4ZrOsghhkSQ/zh-cn_image_0000002581436172.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=67DADF59F9EC723F9C0BE051E5F63CFB1A28ACFDBE1F4FA4EA2F153E360D4CCB)
 
 
 
@@ -708,7 +738,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/7mjagJ6xTjaBEs2kNXJiGQ/zh-cn_image_0000002611836003.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=DA3F82BDF1DAAC25E78BD9C0B61B54B400BD5B81C768395AABDAA2EBDEB50437)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/7mjagJ6xTjaBEs2kNXJiGQ/zh-cn_image_0000002611836003.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=0AD245B8E711CD8FC5ED7AC56B92109CC0D8011724E562604A893A514D4F05AF)
 
 
 
@@ -768,7 +798,7 @@ struct Example2 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/_y24HFxQTLWWe4Gb8PjrMA/zh-cn_image_0000002581276256.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=6B1687243D0FFE0888FE38DB809C9AE3FACDD65209B6EDB5A83BFBAEC7944351)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/_y24HFxQTLWWe4Gb8PjrMA/zh-cn_image_0000002581276256.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=95D2BA345C7E72C800F8B4C5BC5AC3FABFA8CB7F4807C7358985F3414026DCD5)
 
 
 
@@ -823,7 +853,7 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/zxZikaQlToSEm4jZmfBmmg/zh-cn_image_0000002611756111.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=18C2894D5D6D3574CF91D4D7619211B6C625138497C76A160456167AEBB1A359)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/zxZikaQlToSEm4jZmfBmmg/zh-cn_image_0000002611756111.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=83AE68056A508DDFA444A52C9458D903F5C0BC5107F551FA9329E6DD5E46AE81)
 
 
 
@@ -879,4 +909,4 @@ struct AlertDialogExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/ep_HVjW7QqiRz8z5ttexfQ/zh-cn_image_0000002581436174.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=4041E10DCD0B64041E1CB665CF0F2086DC077D440E720D72D5A2C4001FA92DE4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/ep_HVjW7QqiRz8z5ttexfQ/zh-cn_image_0000002581436174.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=84433C34516EECD7F22C8A13F67A0AC482170A262CBEAE094C524E53B75BFD85)

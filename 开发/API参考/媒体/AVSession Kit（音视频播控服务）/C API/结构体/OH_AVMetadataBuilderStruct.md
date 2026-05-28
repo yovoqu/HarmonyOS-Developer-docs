@@ -12,6 +12,8 @@ typedef struct OH_AVMetadataBuilderStruct OH_AVMetadataBuilder
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 会话元数据构造器。构造器用于构造会话元数据。
  
 **起始版本：** 13

@@ -12,6 +12,8 @@ struct OhosImageSourceUpdateData {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义图像源更新数据选项，由[OH_ImageSource_UpdateData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-mdk-h#oh_imagesource_updatedata)获取。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ struct OhosImageSourceUpdateData {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

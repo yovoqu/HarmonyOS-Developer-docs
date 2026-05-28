@@ -12,6 +12,8 @@ typedef struct {...} Region
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示本地窗口OHNativeWindow需要更新内容的矩形区域（脏区）。
  
 **起始版本：** 8
@@ -24,9 +26,13 @@ typedef struct {...} Region
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

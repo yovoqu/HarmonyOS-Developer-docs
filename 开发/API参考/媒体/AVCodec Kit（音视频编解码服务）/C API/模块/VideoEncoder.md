@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 VideoEncoder模块提供用于视频编码的接口。
 
 开发者可根据实际的开发需求，参考对应的开发指南及样例：
@@ -22,6 +24,8 @@ VideoEncoder模块提供用于视频编码的接口。
 
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |

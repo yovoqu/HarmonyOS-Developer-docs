@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义历史触摸点信息的结构体。
  
 **系统能力：** SystemCapability.Stylus.HandWrite
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### x
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 float HandWrite_HistoricalPoint::x
@@ -53,6 +63,8 @@ float HandWrite_HistoricalPoint::x
 
 ##### y
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 float HandWrite_HistoricalPoint::y
 ```
@@ -65,6 +77,8 @@ float HandWrite_HistoricalPoint::y
 
 ##### timeStamp
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 int64_t HandWrite_HistoricalPoint::timeStamp
 ```
@@ -76,6 +90,8 @@ int64_t HandWrite_HistoricalPoint::timeStamp
   
 
 ##### force
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 float HandWrite_HistoricalPoint::force

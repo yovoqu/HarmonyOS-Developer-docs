@@ -14,6 +14,8 @@ Ability模块将二级模块API组织在一起方便开发者进行导出。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ability } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { ability } from '@kit.AbilityKit';
   
 
 ##### DataAbilityHelper
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type DataAbilityHelper = _DataAbilityHelper
  
@@ -39,6 +43,8 @@ DataAbilityHelper二级模块。
 
 ##### PacMap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PacMap = _PacMap
  
 PacMap二级模块。
@@ -53,6 +59,8 @@ PacMap二级模块。
   
 
 ##### DataAbilityOperation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type DataAbilityOperation = _DataAbilityOperation
  
@@ -71,6 +79,8 @@ DataAbilityOperation二级模块。
 
 ##### DataAbilityResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type DataAbilityResult = _DataAbilityResult
  
 DataAbilityResult二级模块。
@@ -87,6 +97,8 @@ DataAbilityResult二级模块。
   
 
 ##### AbilityResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AbilityResult = _AbilityResult
  
@@ -105,6 +117,8 @@ AbilityResult二级模块。
 
 ##### ConnectOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ConnectOptions = _ConnectOptions
  
 ConnectOptions二级模块。
@@ -121,6 +135,8 @@ ConnectOptions二级模块。
   
 
 ##### StartAbilityParameter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type StartAbilityParameter = _StartAbilityParameter
  

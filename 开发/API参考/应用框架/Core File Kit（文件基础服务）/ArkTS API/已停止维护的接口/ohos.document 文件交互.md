@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import document from '@ohos.document';
 ```
@@ -19,6 +21,8 @@ import document from '@ohos.document';
   
 
 ##### document.choose(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 choose(types?: string[]): Promise&lt;string&gt;
  
@@ -51,6 +55,8 @@ document.choose(types);
 
 ##### document.choose(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 choose(callback:AsyncCallback&lt;string&gt;): void
  
 通过文件管理器选择文件，异步返回文件URI，使用callback形式返回结果。
@@ -76,6 +82,8 @@ document.choose((err: TypeError, uri: string) => {
   
 
 ##### document.choose(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 choose(types:string[], callback:AsyncCallback&lt;string&gt;): void
  
@@ -104,6 +112,8 @@ document.choose(types, (err: TypeError, uri: string) => {
   
 
 ##### document.show(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 show(uri:string, type:string):Promise&lt;void&gt;
  
@@ -137,6 +147,8 @@ document.show(uri, type);
   
 
 ##### document.show(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 show(uri:string, type:string, callback:AsyncCallback&lt;void&gt;): void
  

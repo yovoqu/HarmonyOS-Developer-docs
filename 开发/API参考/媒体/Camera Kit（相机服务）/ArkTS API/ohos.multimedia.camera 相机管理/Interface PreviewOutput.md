@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
 
 
 ##### on('frameStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void
 
@@ -64,6 +68,8 @@ function registerPreviewOutputFrameStart(previewOutput: camera.PreviewOutput): v
 
 ##### off('frameStart')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void
 
 注销预览帧启动的监听。
@@ -91,6 +97,8 @@ function unregisterPreviewOutputFrameStart(previewOutput: camera.PreviewOutput):
 
 
 ##### on('frameEnd')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void
 
@@ -134,6 +142,8 @@ function registerPreviewOutputFrameEnd(previewOutput: camera.PreviewOutput): voi
 
 ##### off('frameEnd')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void
 
 注销监听预览帧结束。
@@ -161,6 +171,8 @@ function unregisterPreviewOutputFrameEnd(previewOutput: camera.PreviewOutput): v
 
 
 ##### on('error')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -200,6 +212,8 @@ function registerPreviewOutputError(previewOutput: camera.PreviewOutput): void {
 
 ##### off('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', callback?: ErrorCallback): void
 
 注销监听预览输出的错误事件。
@@ -228,6 +242,8 @@ function unregisterPreviewOutputError(previewOutput: camera.PreviewOutput): void
 
 ##### getSupportedFrameRates12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSupportedFrameRates(): Array&lt;FrameRateRange&gt;
 
 查询支持的帧率范围。
@@ -255,6 +271,8 @@ function getSupportedFrameRates(previewOutput: camera.PreviewOutput): Array<came
 
 
 ##### setFrameRate12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFrameRate(minFps: number, maxFps: number): void
 
@@ -300,6 +318,8 @@ function setFrameRateRange(previewOutput: camera.PreviewOutput, frameRateRange: 
 
 ##### getActiveFrameRate12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getActiveFrameRate(): FrameRateRange
 
 获取已设置的帧率范围。
@@ -329,6 +349,8 @@ function getActiveFrameRate(previewOutput: camera.PreviewOutput): camera.FrameRa
 
 
 ##### getActiveProfile12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getActiveProfile(): Profile
 
@@ -375,6 +397,8 @@ function testGetActiveProfile(previewOutput: camera.PreviewOutput): camera.Profi
 
 
 ##### getPreviewRotation12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreviewRotation(displayRotation?: number): ImageRotation
 
@@ -450,6 +474,8 @@ function testGetPreviewRotationWithOutParam(previewOutput: camera.PreviewOutput)
 
 ##### setPreviewRotation12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPreviewRotation(previewRotation: ImageRotation, isDisplayLocked?: boolean): void
 
 设置预览旋转角度。
@@ -497,6 +523,8 @@ function testSetPreviewRotation(previewOutput: camera.PreviewOutput, previewRota
 
 ##### start(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(callback: AsyncCallback&lt;void&gt;): void
 
 开始输出预览流，通过注册回调函数获取结果。使用callback异步回调。
@@ -543,6 +571,8 @@ function startPreviewOutput(previewOutput: camera.PreviewOutput): void {
 
 ##### start(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(): Promise&lt;void&gt;
 
 开始输出预览流。使用Promise异步回调。
@@ -587,6 +617,8 @@ function startPreviewOutput(previewOutput: camera.PreviewOutput): void {
 
 ##### stop(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(callback: AsyncCallback&lt;void&gt;): void
 
 停止输出预览流，通过注册回调函数获取结果。使用callback异步回调。
@@ -624,6 +656,8 @@ function stopPreviewOutput(previewOutput: camera.PreviewOutput): void {
 
 ##### stop(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
 
 停止输出预览流。使用Promise异步回调。
@@ -658,6 +692,8 @@ function stopPreviewOutput(previewOutput: camera.PreviewOutput): void {
 
 
 ##### isBandwidthCompressionSupported23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isBandwidthCompressionSupported(): boolean
 
@@ -695,6 +731,8 @@ function isBandwidthCompressionSupported(previewOutput: camera.PreviewOutput): b
 
 
 ##### enableBandwidthCompression23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableBandwidthCompression(enabled: boolean): void
 
@@ -747,6 +785,8 @@ function enableBandwidthCompression(previewOutput: camera.PreviewOutput, enabled
 
 
 ##### addDeferredSurface24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addDeferredSurface(surfaceId: string): void
 

@@ -12,6 +12,8 @@ typedef struct {...} ArkUI_NativeDialogAPI_1
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ArkUI提供的Native侧自定义弹窗接口集合。
 
 **起始版本：** 12
@@ -24,9 +26,13 @@ ArkUI提供的Native侧自定义弹窗接口集合。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |
@@ -54,9 +60,13 @@ ArkUI提供的Native侧自定义弹窗接口集合。
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ArkUI_NativeDialogHandle (*create)()
@@ -81,6 +91,8 @@ ArkUI_NativeDialogHandle (*create)()
 
 ##### dispose()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*dispose)(ArkUI_NativeDialogHandle handle)
 ```
@@ -97,6 +109,8 @@ void (*dispose)(ArkUI_NativeDialogHandle handle)
 
 
 ##### setContent()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setContent)(ArkUI_NativeDialogHandle handle, ArkUI_NodeHandle content)
@@ -129,6 +143,8 @@ int32_t (*setContent)(ArkUI_NativeDialogHandle handle, ArkUI_NodeHandle content)
 
 ##### removeContent()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*removeContent)(ArkUI_NativeDialogHandle handle)
 ```
@@ -158,6 +174,8 @@ int32_t (*removeContent)(ArkUI_NativeDialogHandle handle)
 
 
 ##### setContentAlignment()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setContentAlignment)(ArkUI_NativeDialogHandle handle, int32_t alignment, float offsetX, float offsetY)
@@ -192,6 +210,8 @@ int32_t (*setContentAlignment)(ArkUI_NativeDialogHandle handle, int32_t alignmen
 
 ##### resetContentAlignment()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*resetContentAlignment)(ArkUI_NativeDialogHandle handle)
 ```
@@ -221,6 +241,8 @@ int32_t (*resetContentAlignment)(ArkUI_NativeDialogHandle handle)
 
 
 ##### setModalMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal)
@@ -253,6 +275,8 @@ int32_t (*setModalMode)(ArkUI_NativeDialogHandle handle, bool isModal)
 
 ##### setAutoCancel()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*setAutoCancel)(ArkUI_NativeDialogHandle handle, bool autoCancel)
 ```
@@ -283,6 +307,8 @@ int32_t (*setAutoCancel)(ArkUI_NativeDialogHandle handle, bool autoCancel)
 
 
 ##### setMask()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setMask)(ArkUI_NativeDialogHandle handle, uint32_t maskColor, const ArkUI_Rect* maskRect)
@@ -316,6 +342,8 @@ int32_t (*setMask)(ArkUI_NativeDialogHandle handle, uint32_t maskColor, const Ar
 
 ##### setBackgroundColor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*setBackgroundColor)(ArkUI_NativeDialogHandle handle, uint32_t backgroundColor)
 ```
@@ -346,6 +374,8 @@ int32_t (*setBackgroundColor)(ArkUI_NativeDialogHandle handle, uint32_t backgrou
 
 
 ##### setCornerRadius()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float topRight,float bottomLeft, float bottomRight)
@@ -381,6 +411,8 @@ int32_t (*setCornerRadius)(ArkUI_NativeDialogHandle handle, float topLeft, float
 
 ##### setGridColumnCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*setGridColumnCount)(ArkUI_NativeDialogHandle handle, int32_t gridCount)
 ```
@@ -411,6 +443,8 @@ int32_t (*setGridColumnCount)(ArkUI_NativeDialogHandle handle, int32_t gridCount
 
 
 ##### enableCustomStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*enableCustomStyle)(ArkUI_NativeDialogHandle handle, bool enableCustomStyle)
@@ -443,6 +477,8 @@ int32_t (*enableCustomStyle)(ArkUI_NativeDialogHandle handle, bool enableCustomS
 
 ##### enableCustomAnimation()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*enableCustomAnimation)(ArkUI_NativeDialogHandle handle, bool enableCustomAnimation)
 ```
@@ -473,6 +509,8 @@ int32_t (*enableCustomAnimation)(ArkUI_NativeDialogHandle handle, bool enableCus
 
 
 ##### registerOnWillDismiss()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*registerOnWillDismiss)(ArkUI_NativeDialogHandle handle, ArkUI_OnWillDismissEvent eventHandler)
@@ -505,6 +543,8 @@ int32_t (*registerOnWillDismiss)(ArkUI_NativeDialogHandle handle, ArkUI_OnWillDi
 
 ##### show()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*show)(ArkUI_NativeDialogHandle handle, bool showInSubWindow)
 ```
@@ -532,6 +572,8 @@ int32_t (*show)(ArkUI_NativeDialogHandle handle, bool showInSubWindow)
 
 ##### close()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t (*close)(ArkUI_NativeDialogHandle handle)
 ```
@@ -557,6 +599,8 @@ int32_t (*close)(ArkUI_NativeDialogHandle handle)
 
 
 ##### registerOnWillDismissWithUserData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t (*registerOnWillDismissWithUserData)(ArkUI_NativeDialogHandle handle, void* userData, void (*callback)(ArkUI_DialogDismissEvent* event))

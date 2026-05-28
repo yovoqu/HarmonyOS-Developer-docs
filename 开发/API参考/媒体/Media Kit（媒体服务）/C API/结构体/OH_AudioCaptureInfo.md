@@ -12,6 +12,8 @@ typedef struct OH_AudioCaptureInfo {...} OH_AudioCaptureInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 音频采样信息。
  
 当audioSampleRate和audioChannels同时为0时，忽略该类型音频相关参数，不录制该类型音频数据。
@@ -26,9 +28,13 @@ typedef struct OH_AudioCaptureInfo {...} OH_AudioCaptureInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

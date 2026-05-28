@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### createBlurImageFilter12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createBlurImageFilter(sigmaX: number, sigmaY: number, tileMode: TileMode, imageFilter?: ImageFilter | null ): ImageFilter
 
@@ -65,6 +69,8 @@ let imgFilter = drawing.ImageFilter.createBlurImageFilter(5, 10, drawing.TileMod
 
 
 ##### createFromImage20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createFromImage(pixelmap: image.PixelMap, srcRect?: common2D.Rect | null, dstRect?: common2D.Rect | null): ImageFilter
 
@@ -140,6 +146,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### createBlendImageFilter20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createBlendImageFilter(mode: BlendMode, background: ImageFilter, foreground: ImageFilter): ImageFilter
 
 按照指定的混合模式对两个滤波器进行叠加，生成一个新的滤波器。
@@ -189,6 +197,8 @@ let blendImageFilter = drawing.ImageFilter.createBlendImageFilter(drawing.BlendM
 
 ##### createComposeImageFilter20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createComposeImageFilter(cOuter: ImageFilter, cInner: ImageFilter): ImageFilter
 
 将两个图像滤波器进行级联生成新的图像滤波器，级联时会将第一级滤波器的输出作为第二级滤波器的输入，经过第二级滤波器处理后，输出最终的滤波结果。
@@ -232,6 +242,8 @@ let composedImageFilter = drawing.ImageFilter.createComposeImageFilter(colorFilt
 
 
 ##### createFromColorFilter12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createFromColorFilter(colorFilter: ColorFilter, imageFilter?: ImageFilter | null): ImageFilter
 
@@ -277,6 +289,8 @@ let imgFilter1 = drawing.ImageFilter.createFromColorFilter(colorFilter, imgFilte
 
 ##### createOffsetImageFilter20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createOffsetImageFilter(dx: number, dy: number, input?: ImageFilter | null): ImageFilter
 
 创建一个偏移滤波器，将输入的滤波器按照指定向量进行平移。
@@ -312,6 +326,8 @@ let offsetFilter = drawing.ImageFilter.createOffsetImageFilter(dx, dy, null);
 
 
 ##### createFromShaderEffect20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createFromShaderEffect(shader: ShaderEffect): ImageFilter
 

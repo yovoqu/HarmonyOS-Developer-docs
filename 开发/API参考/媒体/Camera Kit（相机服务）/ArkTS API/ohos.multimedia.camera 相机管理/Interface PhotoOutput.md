@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
 
 
 ##### capture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 capture(callback: AsyncCallback&lt;void&gt;): void
 
@@ -67,6 +71,8 @@ function capture(photoOutput: camera.PhotoOutput): void {
 
 ##### capture
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 capture(): Promise&lt;void&gt;
 
 以默认设置触发一次拍照。使用Promise异步回调。
@@ -109,6 +115,8 @@ function capture(photoOutput: camera.PhotoOutput): void {
 
 
 ##### capture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 capture(setting: PhotoCaptureSetting, callback: AsyncCallback&lt;void&gt;): void
 
@@ -167,6 +175,8 @@ function capture(photoOutput: camera.PhotoOutput): void {
 
 
 ##### capture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 capture(setting: PhotoCaptureSetting): Promise&lt;void&gt;
 
@@ -230,6 +240,8 @@ function capture(photoOutput: camera.PhotoOutput): void {
 
 ##### on('photoAvailable')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'photoAvailable', callback: AsyncCallback&lt;Photo&gt;): void
 
 注册监听拍照返回照片上报事件。使用callback异步回调。
@@ -274,6 +286,8 @@ function registerPhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutput): voi
 
 ##### off('photoAvailable')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'photoAvailable', callback?: AsyncCallback&lt;Photo&gt;): void
 
 注销监听拍照返回照片上报事件。
@@ -312,6 +326,8 @@ function unRegisterPhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutput): v
 
 
 ##### onCapturePhotoAvailable23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCapturePhotoAvailable(callback: Callback&lt;CapturePhoto&gt;): void
 
@@ -353,6 +369,8 @@ function registerCapturePhotoOutputPhotoAvailable(photoOutput: camera.PhotoOutpu
 
 ##### offCapturePhotoAvailable23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offCapturePhotoAvailable(callback?: Callback&lt;CapturePhoto&gt;): void
 
 注销监听全质量图和未压缩图。使用callback异步回调。
@@ -388,6 +406,8 @@ function unRegisterCapturePhotoOutputPhotoAvailable(photoOutput: camera.PhotoOut
 
 
 ##### on('captureStartWithInfo')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'captureStartWithInfo', callback: AsyncCallback&lt;CaptureStartInfo&gt;): void
 
@@ -431,6 +451,8 @@ function registerCaptureStartWithInfo(photoOutput: camera.PhotoOutput): void {
 
 ##### off('captureStartWithInfo')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'captureStartWithInfo', callback?: AsyncCallback&lt;CaptureStartInfo&gt;): void
 
 注销监听拍照。
@@ -460,6 +482,8 @@ function unRegisterCaptureStartWithInfo(photoOutput: camera.PhotoOutput): void {
 
 
 ##### isMovingPhotoSupported12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isMovingPhotoSupported(): boolean
 
@@ -506,6 +530,8 @@ function isMovingPhotoSupported(photoOutput: camera.PhotoOutput): boolean {
 
 
 ##### enableMovingPhoto12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableMovingPhoto(enabled: boolean): void
 
@@ -555,6 +581,8 @@ function enableMovingPhoto(photoOutput: camera.PhotoOutput): void {
 
 ##### on('photoAssetAvailable')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'photoAssetAvailable', callback: AsyncCallback<photoAccessHelper.PhotoAsset>): void
 
 注册监听photoAsset上报。使用callback异步回调。
@@ -599,6 +627,8 @@ function onPhotoOutputPhotoAssetAvailable(photoOutput: camera.PhotoOutput): void
 
 ##### off('photoAssetAvailable')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'photoAssetAvailable', callback?: AsyncCallback<photoAccessHelper.PhotoAsset>): void
 
 注销photoAsset上报。
@@ -627,6 +657,8 @@ function offPhotoOutputPhotoAssetAvailable(photoOutput: camera.PhotoOutput): voi
 
 ##### isMirrorSupported
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMirrorSupported(): boolean
 
 查询是否支持镜像拍照。
@@ -654,6 +686,8 @@ function isMirrorSupported(photoOutput: camera.PhotoOutput): boolean {
 
 
 ##### enableMirror13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableMirror(enabled: boolean): void
 
@@ -703,6 +737,8 @@ function enableMirror(photoOutput: camera.PhotoOutput): void {
 
 ##### getSupportedMovingPhotoVideoCodecTypes13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSupportedMovingPhotoVideoCodecTypes(): Array&lt;VideoCodecType&gt;
 
 查询支持的动态照片短视频编码类型。
@@ -740,6 +776,8 @@ function getSupportedMovingPhotoVideoCodecType(photoOutput: camera.PhotoOutput):
 
 ##### setMovingPhotoVideoCodecType13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMovingPhotoVideoCodecType(codecType: VideoCodecType): void
 
 设置动态照片短视频编码类型。
@@ -775,6 +813,8 @@ function setMovingPhotoVideoCodecTypes(photoOutput: camera.PhotoOutput, videoCod
 
 
 ##### on('frameShutter')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'frameShutter', callback: AsyncCallback&lt;FrameShutterInfo&gt;): void
 
@@ -815,6 +855,8 @@ function registerPhotoOutputFrameShutter(photoOutput: camera.PhotoOutput): void 
 
 ##### off('frameShutter')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'frameShutter', callback?: AsyncCallback&lt;FrameShutterInfo&gt;): void
 
 注销监听拍照帧输出捕获。
@@ -842,6 +884,8 @@ function unregisterPhotoOutputFrameShutter(photoOutput: camera.PhotoOutput): voi
 
 
 ##### on('captureEnd')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'captureEnd', callback: AsyncCallback&lt;CaptureEndInfo&gt;): void
 
@@ -886,6 +930,8 @@ function registerPhotoOutputCaptureEnd(photoOutput: camera.PhotoOutput): void {
 
 ##### off('captureEnd')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'captureEnd', callback?: AsyncCallback&lt;CaptureEndInfo&gt;): void
 
 注销监听拍照结束。
@@ -913,6 +959,8 @@ function unregisterPhotoOutputCaptureEnd(photoOutput: camera.PhotoOutput): void 
 
 
 ##### on('frameShutterEnd')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'frameShutterEnd', callback: AsyncCallback&lt;FrameShutterEndInfo&gt;): void
 
@@ -956,6 +1004,8 @@ function registerPhotoOutputFrameShutterEnd(photoOutput: camera.PhotoOutput): vo
 
 ##### off('frameShutterEnd')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'frameShutterEnd', callback?: AsyncCallback&lt;FrameShutterEndInfo&gt;): void
 
 注销监听拍照曝光结束捕获。
@@ -983,6 +1033,8 @@ function unregisterPhotoOutputFrameShutterEnd(photoOutput: camera.PhotoOutput): 
 
 
 ##### on('captureReady')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'captureReady', callback: AsyncCallback&lt;void&gt;): void
 
@@ -1026,6 +1078,8 @@ function registerPhotoOutputCaptureReady(photoOutput: camera.PhotoOutput): void 
 
 ##### off('captureReady')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'captureReady', callback?: AsyncCallback&lt;void&gt;): void
 
 注销监听可拍下一张。
@@ -1053,6 +1107,8 @@ function unregisterPhotoOutputCaptureReady(photoOutput: camera.PhotoOutput): voi
 
 
 ##### on('estimatedCaptureDuration')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'estimatedCaptureDuration', callback: AsyncCallback&lt;number&gt;): void
 
@@ -1096,6 +1152,8 @@ function registerPhotoOutputEstimatedCaptureDuration(photoOutput: camera.PhotoOu
 
 ##### off('estimatedCaptureDuration')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'estimatedCaptureDuration', callback?: AsyncCallback&lt;number&gt;): void
 
 注销监听预估的拍照时间。
@@ -1123,6 +1181,8 @@ function unregisterPhotoOutputEstimatedCaptureDuration(photoOutput: camera.Photo
 
 
 ##### on('error')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -1162,6 +1222,8 @@ function registerPhotoOutputError(photoOutput: camera.PhotoOutput): void {
 
 ##### off('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', callback?: ErrorCallback): void
 
 注销监听拍照输出发生错误。
@@ -1189,6 +1251,8 @@ function unregisterPhotoOutputError(photoOutput: camera.PhotoOutput): void {
 
 
 ##### getActiveProfile12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getActiveProfile(): Profile
 
@@ -1235,6 +1299,8 @@ function testGetActiveProfile(photoOutput: camera.PhotoOutput): camera.Profile |
 
 
 ##### getPhotoRotation12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPhotoRotation(deviceDegree?: number): ImageRotation
 
@@ -1309,6 +1375,8 @@ function testGetPhotoRotationWithOutParam(photoOutput: camera.PhotoOutput): came
 
 ##### on('captureStart')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'captureStart', callback: AsyncCallback&lt;number&gt;): void
 
 监听拍照开始，通过注册回调函数获取Capture ID。使用callback异步回调。
@@ -1349,6 +1417,8 @@ function registerPhotoOutputCaptureStart(photoOutput: camera.PhotoOutput): void 
 
 ##### off('captureStart')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'captureStart', callback?: AsyncCallback&lt;number&gt;): void
 
 注销拍照开始的监听。
@@ -1378,6 +1448,8 @@ function unregisterPhotoOutputCaptureStart(photoOutput: camera.PhotoOutput): voi
 
 
 ##### isPhotoQualityPrioritizationSupported21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isPhotoQualityPrioritizationSupported(qualityPrioritization: PhotoQualityPrioritization): boolean
 
@@ -1433,6 +1505,8 @@ function isPhotoQualityPrioritizationSupported(qualityPrioritization: camera.Pho
 
 
 ##### setPhotoQualityPrioritization21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPhotoQualityPrioritization(qualityPrioritization: PhotoQualityPrioritization): void
 

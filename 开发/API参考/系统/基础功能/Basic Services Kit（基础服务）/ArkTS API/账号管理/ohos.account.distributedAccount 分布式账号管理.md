@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { distributedAccount } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { distributedAccount } from '@kit.BasicServicesKit';
 
 
 ##### distributedAccount.getDistributedAccountAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDistributedAccountAbility(): DistributedAccountAbility
 
@@ -45,11 +49,15 @@ const accountAbility: distributedAccount.DistributedAccountAbility = distributed
 
 ##### DistributedAccountAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供查询和更新分布式账号登录状态方法（需要先获取分布式账号的单实例对象）。
 
 
 
 ##### getOsAccountDistributedInfo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountDistributedInfo(callback: AsyncCallback&lt;DistributedInfo&gt;): void
 
@@ -102,6 +110,8 @@ try {
 
 ##### getOsAccountDistributedInfo9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountDistributedInfo(): Promise&lt;DistributedInfo&gt;
 
 获取分布式账号信息。使用Promise异步回调。
@@ -149,6 +159,8 @@ try {
 
 ##### queryOsAccountDistributedInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryOsAccountDistributedInfo(callback: AsyncCallback&lt;DistributedInfo&gt;): void
 
 获取分布式账号信息。使用callback异步回调。
@@ -188,6 +200,8 @@ accountAbility.queryOsAccountDistributedInfo(
 
 ##### queryOsAccountDistributedInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryOsAccountDistributedInfo(): Promise&lt;DistributedInfo&gt;
 
 获取分布式账号信息。使用Promise异步回调。
@@ -223,6 +237,8 @@ accountAbility.queryOsAccountDistributedInfo().then((data: distributedAccount.Di
 
 
 ##### setOsAccountDistributedInfo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback&lt;void&gt;): void
 
@@ -278,6 +294,8 @@ try {
 
 
 ##### setOsAccountDistributedInfo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise&lt;void&gt;
 
@@ -338,6 +356,8 @@ try {
 
 ##### updateOsAccountDistributedInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateOsAccountDistributedInfo(accountInfo: DistributedInfo, callback: AsyncCallback&lt;void&gt;): void
 
 更新分布式账号信息。使用callback异步回调。
@@ -378,6 +398,8 @@ accountAbility.updateOsAccountDistributedInfo(accountInfo, (err: BusinessError) 
 
 
 ##### updateOsAccountDistributedInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateOsAccountDistributedInfo(accountInfo: DistributedInfo): Promise&lt;void&gt;
 
@@ -424,6 +446,8 @@ accountAbility.updateOsAccountDistributedInfo(accountInfo).then(() => {
 
 ##### DistributedInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供操作系统账号的分布式信息。
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -442,6 +466,8 @@ accountAbility.updateOsAccountDistributedInfo(accountInfo).then(() => {
 
 
 ##### DistributedAccountStatus10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示分布式账号状态枚举。
 

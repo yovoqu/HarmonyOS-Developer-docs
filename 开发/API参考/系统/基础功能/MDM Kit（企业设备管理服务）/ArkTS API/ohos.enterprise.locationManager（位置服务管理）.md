@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { locationManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { locationManager } from '@kit.MDMKit';
 
 
 ##### locationManager.setLocationPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setLocationPolicy(admin: Want, policy: LocationPolicy): void
 
@@ -77,6 +81,8 @@ try {
 
 
 ##### locationManager.getLocationPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getLocationPolicy(admin: Want): LocationPolicy
 
@@ -137,6 +143,8 @@ try {
 
 
 ##### LocationPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 位置服务策略值。
 

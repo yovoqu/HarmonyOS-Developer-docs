@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义获取和使用NativeFence的相关函数。
  
 **引用文件：** <native_fence/native_fence.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,9 +45,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_NativeFence_IsValid()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_NativeFence_IsValid(int fenceFd)
@@ -70,6 +80,8 @@ bool OH_NativeFence_IsValid(int fenceFd)
   
 
 ##### OH_NativeFence_Wait()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_NativeFence_Wait(int fenceFd, uint32_t timeout)
@@ -100,6 +112,8 @@ bool OH_NativeFence_Wait(int fenceFd, uint32_t timeout)
 
 ##### OH_NativeFence_WaitForever()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool OH_NativeFence_WaitForever(int fenceFd)
 ```
@@ -127,6 +141,8 @@ bool OH_NativeFence_WaitForever(int fenceFd)
   
 
 ##### OH_NativeFence_Close()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_NativeFence_Close(int fenceFd)

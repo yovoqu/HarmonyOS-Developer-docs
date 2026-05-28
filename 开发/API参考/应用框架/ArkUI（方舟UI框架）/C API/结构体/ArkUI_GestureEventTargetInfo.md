@@ -12,6 +12,8 @@ typedef struct ArkUI_GestureEventTargetInfo ArkUI_GestureEventTargetInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供手势事件目标信息类型对象定义。
  
 **起始版本：** 12

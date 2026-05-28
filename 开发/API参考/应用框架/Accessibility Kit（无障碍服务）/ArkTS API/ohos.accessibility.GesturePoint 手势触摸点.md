@@ -16,6 +16,8 @@ GesturePoint表示手势触摸点。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { GesturePoint } from '@kit.AccessibilityKit';
 ```
@@ -23,6 +25,8 @@ import { GesturePoint } from '@kit.AccessibilityKit';
   
 
 ##### GesturePoint
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示手势触摸点。
  
@@ -41,6 +45,8 @@ import { GesturePoint } from '@kit.AccessibilityKit';
   
 
 ##### constructor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 constructor(positionX: number, positionY: number);
  

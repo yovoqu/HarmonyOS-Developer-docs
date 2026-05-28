@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** lite_wearable
+
 ```text
 import healthService from '@hms.health.service';
 ```
@@ -19,6 +21,8 @@ import healthService from '@hms.health.service';
   
 
 ##### SampleReal
+
+**支持设备：** lite_wearable
 
 SampleReal<K extends Record<string, [healthStore.HealthValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite#healthvaluetype)> = Record<string, [healthStore.HealthValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite#healthvaluetype)>>
  
@@ -42,6 +46,8 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
 
 ##### workout
 
+**支持设备：** lite_wearable
+
 提供运动健康实时数据。
  
 **系统能力：** SystemCapability.Health.HealthService.lite
@@ -53,6 +59,8 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
   
 
 ##### ConfigType
+
+**支持设备：** lite_wearable
 
 type ConfigType = number | string | boolean
  
@@ -75,6 +83,8 @@ type ConfigType = number | string | boolean
 
 ##### DeviceState
 
+**支持设备：** lite_wearable
+
 联动设备状态。
  
 **系统能力：** SystemCapability.Health.HealthService.Lite
@@ -94,6 +104,8 @@ type ConfigType = number | string | boolean
 
 ##### Goal
 
+**支持设备：** lite_wearable
+
 联动运动目标。
  
 **系统能力：** SystemCapability.Health.HealthService.Lite
@@ -112,6 +124,8 @@ type ConfigType = number | string | boolean
 
 ##### LinkageType
 
+**支持设备：** lite_wearable
+
 联动类型。
  
 **系统能力：** SystemCapability.Health.HealthService.Lite
@@ -129,6 +143,8 @@ type ConfigType = number | string | boolean
   
 
 ##### StartCode
+
+**支持设备：** lite_wearable
 
 联动开启结果码。
  
@@ -150,6 +166,8 @@ type ConfigType = number | string | boolean
 
 ##### StartResult
 
+**支持设备：** lite_wearable
+
 联动开启结果。
  
 **系统能力：** SystemCapability.Health.HealthService.Lite
@@ -167,6 +185,8 @@ type ConfigType = number | string | boolean
   
 
 ##### TargetType
+
+**支持设备：** lite_wearable
 
 联动目标类型。
  
@@ -189,6 +209,8 @@ type ConfigType = number | string | boolean
 
 ##### WorkoutConfig
 
+**支持设备：** lite_wearable
+
 联动配置项。
  
 **系统能力：** SystemCapability.Health.HealthService.Lite
@@ -209,6 +231,8 @@ type ConfigType = number | string | boolean
 
 ##### DynamicLibResult
 
+**支持设备：** lite_wearable
+
 加载算法库操作结果类型。
  
 **系统能力：** SystemCapability.Health.HealthService.Lite
@@ -225,6 +249,8 @@ type ConfigType = number | string | boolean
   
 
 ##### DynamicLibErrorCode
+
+**支持设备：** lite_wearable
 
 加载或卸载算法库文件操作结果码。
  
@@ -246,6 +272,8 @@ type ConfigType = number | string | boolean
   
 
 ##### workout.config
+
+**支持设备：** lite_wearable
 
 config(workoutConfig: WorkoutConfig): void
  
@@ -295,6 +323,8 @@ try {
   
 
 ##### workout.start
+
+**支持设备：** lite_wearable
 
 start(): StartResult
  
@@ -348,6 +378,8 @@ try {
 
 ##### workout.pause
 
+**支持设备：** lite_wearable
+
 pause(): void
  
 暂停运动联动。
@@ -389,6 +421,8 @@ try {
   
 
 ##### workout.resume
+
+**支持设备：** lite_wearable
 
 resume(): void
  
@@ -432,6 +466,8 @@ try {
 
 ##### workout.stop
 
+**支持设备：** lite_wearable
+
 stop(): void
  
 停止联动。
@@ -472,6 +508,8 @@ try {
   
 
 ##### workout.onData
+
+**支持设备：** lite_wearable
 
 onData(dataType: undefined, listener: Callback<SampleReal[]>): void
  
@@ -526,6 +564,8 @@ try {
 
 ##### workout.offData
 
+**支持设备：** lite_wearable
+
 offData(dataType: undefined, listener?: Callback<SampleReal[]>): void
  
 取消所有联动运动数据的监听，使用callback异步回调。
@@ -577,6 +617,8 @@ try {
   
 
 ##### workout.sendData
+
+**支持设备：** lite_wearable
 
 sendData(sampleReal: SampleReal[]): void
  
@@ -634,6 +676,8 @@ try {
 
 ##### workout.load
 
+**支持设备：** lite_wearable
+
 load(path: string): void
  
 加载算法库文件，加载后可使用算法库算法。
@@ -681,6 +725,8 @@ try {
   
 
 ##### workout.load
+
+**支持设备：** lite_wearable
 
 load(path: string, callback: Callback<[DynamicLibResult](#dynamiclibresult)>): void
  
@@ -748,6 +794,8 @@ try {
 
 ##### workout.unload
 
+**支持设备：** lite_wearable
+
 unload(path: string): void
  
 卸载算法库文件，卸载后无法使用算法库算法。
@@ -795,6 +843,8 @@ try {
   
 
 ##### workout.unload
+
+**支持设备：** lite_wearable
 
 unload(path: string, callback: Callback<[DynamicLibResult](#dynamiclibresult)>): void
  

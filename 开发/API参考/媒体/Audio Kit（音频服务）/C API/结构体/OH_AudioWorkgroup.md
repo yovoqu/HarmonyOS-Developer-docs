@@ -12,6 +12,8 @@ typedef struct OH_AudioWorkgroup OH_AudioWorkgroup
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明音频工作组。将音频关键线程进行分组管理。
  
 **起始版本：** 20

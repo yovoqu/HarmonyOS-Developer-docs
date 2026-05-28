@@ -14,6 +14,8 @@ eSIM卡管理模块提供了eSIM卡管理的基础能力，包括获取指定卡
 
 ##### 导入模块
 
+**支持设备：** Phone | Wearable
+
 ```text
 import { eSIM } from '@kit.TelephonyKit';
 ```
@@ -21,6 +23,8 @@ import { eSIM } from '@kit.TelephonyKit';
 
 
 ##### eSIM.isSupported
+
+**支持设备：** Phone | Wearable
 
 isSupported(slotId: number): boolean
 
@@ -65,6 +69,8 @@ console.info(`the esim is Supported:` + isSupported);
 
 
 ##### eSIM.addProfile
+
+**支持设备：** Phone | Wearable
 
 addProfile(profile: DownloadableProfile): Promise&lt;boolean&gt;
 
@@ -129,6 +135,8 @@ eSIM.addProfile(profile).then(() => {
 
 ##### DownloadableProfile
 
+**支持设备：** Phone | Wearable
+
 可下载的配置文件。
 
 **系统能力**：SystemCapability.Telephony.CoreService.Esim
@@ -144,6 +152,8 @@ eSIM.addProfile(profile).then(() => {
 
 
 ##### AccessRule20+
+
+**支持设备：** Phone | Wearable
 
 访问规则。
 

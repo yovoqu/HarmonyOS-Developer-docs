@@ -12,6 +12,8 @@ typedef struct {...} ArkUI_TextChangeEvent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义组件事件的混合类型数据。
  
 **起始版本：** 15
@@ -24,9 +26,13 @@ typedef struct {...} ArkUI_TextChangeEvent
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

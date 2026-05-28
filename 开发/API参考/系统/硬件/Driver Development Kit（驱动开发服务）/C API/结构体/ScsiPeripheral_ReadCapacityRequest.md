@@ -12,6 +12,8 @@ typedef struct ScsiPeripheral_ReadCapacityRequest {...} ScsiPeripheral_ReadCapac
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 SCSI命令（read capacity）的请求结构体。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ SCSI命令（read capacity）的请求结构体。
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

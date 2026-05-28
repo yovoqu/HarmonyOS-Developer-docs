@@ -12,6 +12,8 @@ typedef struct NativeChildProcess_FdList {...} NativeChildProcess_FdList
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 传递给子进程的文件描述符信息列表，文件描述符记录个数不能超过16个。
  
 **起始版本：** 13
@@ -24,9 +26,13 @@ typedef struct NativeChildProcess_FdList {...} NativeChildProcess_FdList
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

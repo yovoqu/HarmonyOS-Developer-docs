@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 提供CANN Kit模型推理的相关接口。
  
 提供用于LLM模型推理的API。
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,6 +46,8 @@
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -51,6 +59,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -73,6 +83,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -101,6 +113,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -241,9 +255,13 @@
 
 ##### 类型定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### callbackFunctionType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(* callbackFunctionType) (const HMS_LLMEngine_Context *)
@@ -259,6 +277,8 @@ typedef void(* callbackFunctionType) (const HMS_LLMEngine_Context *)
 
 ##### HiAI_AippParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct HiAI_AippParam HiAI_AippParam
 ```
@@ -272,6 +292,8 @@ AIPP参数对象。
   
 
 ##### HiAI_SingleOpBuffer
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct HiAI_SingleOpBuffer HiAI_SingleOpBuffer
@@ -287,6 +309,8 @@ typedef struct HiAI_SingleOpBuffer HiAI_SingleOpBuffer
 
 ##### HiAI_SingleOpDescriptor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct HiAI_SingleOpDescriptor HiAI_SingleOpDescriptor
 ```
@@ -300,6 +324,8 @@ typedef struct HiAI_SingleOpDescriptor HiAI_SingleOpDescriptor
   
 
 ##### HiAISingleOpDescriptor_ConvolutionParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct HiAISingleOpDescriptor_ConvolutionParam
@@ -315,6 +341,8 @@ typedef struct HiAISingleOpDescriptor_ConvolutionParam
 
 ##### HiAI_SingleOpExecutor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct HiAI_SingleOpExecutor HiAI_SingleOpExecutor
 ```
@@ -328,6 +356,8 @@ typedef struct HiAI_SingleOpExecutor HiAI_SingleOpExecutor
   
 
 ##### HiAI_SingleOpExecutorConvolutionParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct HiAI_SingleOpExecutorConvolutionParam
@@ -343,6 +373,8 @@ typedef struct HiAI_SingleOpExecutorConvolutionParam
 
 ##### HiAI_SingleOpExecutorFusedConvolutionActivationParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam
 ```
@@ -356,6 +388,8 @@ typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam
   
 
 ##### HiAI_SingleOpOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct HiAI_SingleOpOptions HiAI_SingleOpOptions
@@ -371,6 +405,8 @@ typedef struct HiAI_SingleOpOptions HiAI_SingleOpOptions
 
 ##### HiAI_SingleOpTensor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct HiAI_SingleOpTensor HiAI_SingleOpTensor
 ```
@@ -384,6 +420,8 @@ typedef struct HiAI_SingleOpTensor HiAI_SingleOpTensor
   
 
 ##### HiAI_SingleOpTensorDesc
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct HiAI_SingleOpTensorDesc HiAI_SingleOpTensorDesc
@@ -399,6 +437,8 @@ typedef struct HiAI_SingleOpTensorDesc HiAI_SingleOpTensorDesc
 
 ##### HMS_LLMEngine_Context
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct HMS_LLMEngine_Context HMS_LLMEngine_Context
 ```
@@ -412,6 +452,8 @@ typedef struct HMS_LLMEngine_Context HMS_LLMEngine_Context
   
 
 ##### HMS_LLMEngine_Executor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct HMS_LLMEngine_Executor HMS_LLMEngine_Executor
@@ -427,6 +469,8 @@ LLM引擎执行器。
 
 ##### HMS_LLMEngine_Prompt
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct HMS_LLMEngine_Prompt HMS_LLMEngine_Prompt
 ```
@@ -441,9 +485,13 @@ LLM引擎文本输入。
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### HiAI_BandMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum HiAI_BandMode
@@ -467,6 +515,8 @@ enum HiAI_BandMode
 
 ##### HiAI_Compatibility
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_Compatibility
 ```
@@ -486,6 +536,8 @@ enum HiAI_Compatibility
   
 
 ##### HiAI_DeviceMemoryReusePlan
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum HiAI_DeviceMemoryReusePlan
@@ -508,6 +560,8 @@ enum HiAI_DeviceMemoryReusePlan
 
 ##### HiAI_DynamicShapeCacheMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_DynamicShapeCacheMode
 ```
@@ -528,6 +582,8 @@ enum HiAI_DynamicShapeCacheMode
 
 ##### HiAI_DynamicShapeStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_DynamicShapeStatus
 ```
@@ -547,6 +603,8 @@ enum HiAI_DynamicShapeStatus
   
 
 ##### HiAI_ExecuteDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum HiAI_ExecuteDevice
@@ -569,6 +627,8 @@ enum HiAI_ExecuteDevice
 
 ##### HiAI_FallbackMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_FallbackMode
 ```
@@ -589,6 +649,8 @@ enum HiAI_FallbackMode
 
 ##### HiAI_FormatMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_FormatMode
 ```
@@ -608,6 +670,8 @@ enum HiAI_FormatMode
   
 
 ##### HiAI_ImageColorSpace
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum HiAI_ImageColorSpace
@@ -631,6 +695,8 @@ enum HiAI_ImageColorSpace
   
 
 ##### HiAI_ImageFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum HiAI_ImageFormat
@@ -662,6 +728,8 @@ CANN Kit推理支持的输入和输出Tensor的图片格式的枚举。
 
 ##### HiAI_OmType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_OmType
 ```
@@ -683,6 +751,8 @@ enum HiAI_OmType
 
 ##### HiAI_SingleOpActivationType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_SingleOpActivationType
 ```
@@ -702,6 +772,8 @@ enum HiAI_SingleOpActivationType
   
 
 ##### HiAI_SingleOpConvMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum HiAI_SingleOpConvMode
@@ -724,6 +796,8 @@ enum HiAI_SingleOpConvMode
 
 ##### HiAI_SingleOpDataType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_SingleOpDataType
 ```
@@ -744,6 +818,8 @@ enum HiAI_SingleOpDataType
   
 
 ##### HiAI_SingleOpFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum HiAI_SingleOpFormat
@@ -770,6 +846,8 @@ enum HiAI_SingleOpFormat
 
 ##### HiAI_SingleOpPadMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_SingleOpPadMode
 ```
@@ -793,6 +871,8 @@ enum HiAI_SingleOpPadMode
 
 ##### HiAI_SingleOpSupportStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_SingleOpSupportStatus
 ```
@@ -813,6 +893,8 @@ enum HiAI_SingleOpSupportStatus
   
 
 ##### HiAI_TuningMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum HiAI_TuningMode
@@ -835,6 +917,8 @@ enum HiAI_TuningMode
 
 ##### HiAI_TuningStrategy
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum HiAI_TuningStrategy
 ```
@@ -856,6 +940,8 @@ enum HiAI_TuningStrategy
   
 
 ##### HMS_LLMEngine_InferPerfMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum HMS_LLMEngine_InferPerfMode
@@ -880,9 +966,13 @@ enum HMS_LLMEngine_InferPerfMode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### HMS_HiAI_GetVersion()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const char* HMS_HiAI_GetVersion (void)
@@ -901,6 +991,8 @@ const char* HMS_HiAI_GetVersion (void)
   
 
 ##### HMS_HiAIAippParam_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_AippParam* HMS_HiAIAippParam_Create (uint32_t batchNum)
@@ -929,6 +1021,8 @@ HiAI_AippParam* HMS_HiAIAippParam_Create (uint32_t batchNum)
 
 ##### HMS_HiAIAippParam_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void HMS_HiAIAippParam_Destroy (HiAI_AippParam ** aippParam)
 ```
@@ -951,6 +1045,8 @@ void HMS_HiAIAippParam_Destroy (HiAI_AippParam ** aippParam)
   
 
 ##### HMS_HiAIAippParam_GetBatchCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 uint32_t HMS_HiAIAippParam_GetBatchCount (HiAI_AippParam * aippParam)
@@ -978,6 +1074,8 @@ uint32_t HMS_HiAIAippParam_GetBatchCount (HiAI_AippParam * aippParam)
   
 
 ##### HMS_HiAIAippParam_GetChannelPadding()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetChannelPadding (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t paddingValues[], uint32_t channelCount)
@@ -1009,6 +1107,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetChannelPadding (HiAI_AippParam * aippParam
 
 ##### HMS_HiAIAippParam_GetChannelSwapConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetChannelSwapConfig (HiAI_AippParam * aippParam, bool * rbuvSwapSwitch, bool * axSwapSwitch)
 ```
@@ -1037,6 +1137,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetChannelSwapConfig (HiAI_AippParam * aippPa
   
 
 ##### HMS_HiAIAippParam_GetCropConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetCropConfig (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t * startPosW, uint32_t * startPosH, uint32_t * croppedW, uint32_t * croppedH)
@@ -1070,6 +1172,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetCropConfig (HiAI_AippParam * aippParam, ui
 
 ##### HMS_HiAIAippParam_GetCscConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetCscConfig (HiAI_AippParam * aippParam, HiAI_ImageFormat * inputFormat, HiAI_ImageFormat * outputFormat, HiAI_ImageColorSpace * space)
 ```
@@ -1100,6 +1204,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetCscConfig (HiAI_AippParam * aippParam, HiA
 
 ##### HMS_HiAIAippParam_GetData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void* HMS_HiAIAippParam_GetData (HiAI_AippParam * aippParam)
 ```
@@ -1127,6 +1233,8 @@ void* HMS_HiAIAippParam_GetData (HiAI_AippParam * aippParam)
 
 ##### HMS_HiAIAippParam_GetDataSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t HMS_HiAIAippParam_GetDataSize (HiAI_AippParam * aippParam)
 ```
@@ -1153,6 +1261,8 @@ uint32_t HMS_HiAIAippParam_GetDataSize (HiAI_AippParam * aippParam)
   
 
 ##### HMS_HiAIAippParam_GetDtcMeanPixel()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetDtcMeanPixel (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t meanPixel[], uint32_t channelCount)
@@ -1184,6 +1294,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetDtcMeanPixel (HiAI_AippParam * aippParam, 
 
 ##### HMS_HiAIAippParam_GetDtcMinPixel()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetDtcMinPixel (HiAI_AippParam * aippParam, uint32_t batchIndex, float minPixel[], uint32_t channelCount)
 ```
@@ -1213,6 +1325,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetDtcMinPixel (HiAI_AippParam * aippParam, u
   
 
 ##### HMS_HiAIAippParam_GetDtcVarReciPixel()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetDtcVarReciPixel (HiAI_AippParam * aippParam, uint32_t batchIndex, float varReciPixel[], uint32_t channelCount)
@@ -1244,6 +1358,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetDtcVarReciPixel (HiAI_AippParam * aippPara
 
 ##### HMS_HiAIAippParam_GetInputAippIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 int HMS_HiAIAippParam_GetInputAippIndex (HiAI_AippParam * aippParam)
 ```
@@ -1270,6 +1386,8 @@ int HMS_HiAIAippParam_GetInputAippIndex (HiAI_AippParam * aippParam)
   
 
 ##### HMS_HiAIAippParam_GetInputFormat()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_ImageFormat HMS_HiAIAippParam_GetInputFormat (HiAI_AippParam * aippParam)
@@ -1298,6 +1416,8 @@ HiAI_ImageFormat HMS_HiAIAippParam_GetInputFormat (HiAI_AippParam * aippParam)
 
 ##### HMS_HiAIAippParam_GetInputIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 int HMS_HiAIAippParam_GetInputIndex (HiAI_AippParam * aippParam)
 ```
@@ -1324,6 +1444,8 @@ int HMS_HiAIAippParam_GetInputIndex (HiAI_AippParam * aippParam)
   
 
 ##### HMS_HiAIAippParam_GetInputShape()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetInputShape (HiAI_AippParam * aippParam, uint32_t * srcImageW, uint32_t * srcImageH)
@@ -1353,6 +1475,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetInputShape (HiAI_AippParam * aippParam, ui
   
 
 ##### HMS_HiAIAippParam_GetPadConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetPadConfig (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t * leftPadSize, uint32_t * rightPadSize, uint32_t * topPadSize, uint32_t * bottomPadSize)
@@ -1386,6 +1510,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetPadConfig (HiAI_AippParam * aippParam, uin
 
 ##### HMS_HiAIAippParam_GetResizeConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetResizeConfig (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t * resizedW, uint32_t * resizedH)
 ```
@@ -1416,6 +1542,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetResizeConfig (HiAI_AippParam * aippParam, 
 
 ##### HMS_HiAIAippParam_GetRotationAngle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_GetRotationAngle (HiAI_AippParam * aippParam, uint32_t batchIndex, float * rotationAngle)
 ```
@@ -1445,6 +1573,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_GetRotationAngle (HiAI_AippParam * aippParam,
 
 ##### HMS_HiAIAippParam_GetSingleBatchMultiCrop()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 bool HMS_HiAIAippParam_GetSingleBatchMultiCrop (HiAI_AippParam * aippParam)
 ```
@@ -1471,6 +1601,8 @@ bool HMS_HiAIAippParam_GetSingleBatchMultiCrop (HiAI_AippParam * aippParam)
   
 
 ##### HMS_HiAIAippParam_SetChannelPadding()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetChannelPadding (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t paddingValues[], uint32_t channelCount)
@@ -1501,6 +1633,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetChannelPadding (HiAI_AippParam * aippParam
   
 
 ##### HMS_HiAIAippParam_SetChannelSwapConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetChannelSwapConfig (HiAI_AippParam * aippParam, bool rbuvSwapSwitch, bool axSwapSwitch)
@@ -1547,6 +1681,8 @@ YUV400_U8是灰度图，不支持通道交换。
 
 ##### HMS_HiAIAippParam_SetCropConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetCropConfig (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t startPosW, uint32_t startPosH, uint32_t croppedW, uint32_t croppedH)
 ```
@@ -1579,6 +1715,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetCropConfig (HiAI_AippParam * aippParam, ui
 
 ##### HMS_HiAIAippParam_SetCscConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetCscConfig (HiAI_AippParam * aippParam, HiAI_ImageFormat inputFormat, HiAI_ImageFormat outputFormat, HiAI_ImageColorSpace space)
 ```
@@ -1608,6 +1746,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetCscConfig (HiAI_AippParam * aippParam, HiA
   
 
 ##### HMS_HiAIAippParam_SetDtcMeanPixel()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetDtcMeanPixel (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t meanPixel[], uint32_t channelCount)
@@ -1643,6 +1783,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetDtcMeanPixel (HiAI_AippParam * aippParam, 
 
 ##### HMS_HiAIAippParam_SetDtcMinPixel()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetDtcMinPixel (HiAI_AippParam * aippParam, uint32_t batchIndex, float minPixel[], uint32_t channelCount)
 ```
@@ -1672,6 +1814,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetDtcMinPixel (HiAI_AippParam * aippParam, u
   
 
 ##### HMS_HiAIAippParam_SetDtcVarReciPixel()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetDtcVarReciPixel (HiAI_AippParam * aippParam, uint32_t batchIndex, float varReciPixel[], uint32_t channelCount)
@@ -1703,6 +1847,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetDtcVarReciPixel (HiAI_AippParam * aippPara
 
 ##### HMS_HiAIAippParam_SetInputAippIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetInputAippIndex (HiAI_AippParam * aippParam, uint32_t inputAippIndex)
 ```
@@ -1730,6 +1876,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetInputAippIndex (HiAI_AippParam * aippParam
   
 
 ##### HMS_HiAIAippParam_SetInputFormat()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetInputFormat (HiAI_AippParam * aippParam, HiAI_ImageFormat inputFormat)
@@ -1759,6 +1907,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetInputFormat (HiAI_AippParam * aippParam, H
 
 ##### HMS_HiAIAippParam_SetInputIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetInputIndex (HiAI_AippParam * aippParam, uint32_t inputIndex)
 ```
@@ -1786,6 +1936,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetInputIndex (HiAI_AippParam * aippParam, ui
   
 
 ##### HMS_HiAIAippParam_SetInputShape()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetInputShape (HiAI_AippParam * aippParam, uint32_t srcImageW, uint32_t srcImageH)
@@ -1815,6 +1967,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetInputShape (HiAI_AippParam * aippParam, ui
   
 
 ##### HMS_HiAIAippParam_SetPadConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetPadConfig (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t leftPadSize, uint32_t rightPadSize, uint32_t topPadSize, uint32_t bottomPadSize)
@@ -1848,6 +2002,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetPadConfig (HiAI_AippParam * aippParam, uin
 
 ##### HMS_HiAIAippParam_SetResizeConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetResizeConfig (HiAI_AippParam * aippParam, uint32_t batchIndex, uint32_t resizedW, uint32_t resizedH)
 ```
@@ -1878,6 +2034,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetResizeConfig (HiAI_AippParam * aippParam, 
 
 ##### HMS_HiAIAippParam_SetRotationAngle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetRotationAngle (HiAI_AippParam * aippParam, uint32_t batchIndex, float rotationAngle)
 ```
@@ -1907,6 +2065,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetRotationAngle (HiAI_AippParam * aippParam,
 
 ##### HMS_HiAIAippParam_SetSingleBatchMultiCrop()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIAippParam_SetSingleBatchMultiCrop (HiAI_AippParam * aippParam, bool singleBatchMultiCrop)
 ```
@@ -1935,6 +2095,8 @@ OH_NN_ReturnCode HMS_HiAIAippParam_SetSingleBatchMultiCrop (HiAI_AippParam * aip
 
 ##### HMS_HiAICompatibility_CheckFromBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_Compatibility HMS_HiAICompatibility_CheckFromBuffer (const void * data, size_t size)
 ```
@@ -1961,6 +2123,8 @@ HiAI_Compatibility HMS_HiAICompatibility_CheckFromBuffer (const void * data, siz
 
 ##### HMS_HiAICompatibility_CheckFromFile()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_Compatibility HMS_HiAICompatibility_CheckFromFile (const char * file)
 ```
@@ -1985,6 +2149,8 @@ HiAI_Compatibility HMS_HiAICompatibility_CheckFromFile (const char * file)
   
 
 ##### HMS_HiAIOptions_GetBandMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_BandMode HMS_HiAIOptions_GetBandMode (const OH_NNCompilation * compilation)
@@ -2011,6 +2177,8 @@ HiAI_BandMode HMS_HiAIOptions_GetBandMode (const OH_NNCompilation * compilation)
 
 ##### HMS_HiAIOptions_GetDeviceMemoryReusePlan()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_DeviceMemoryReusePlan HMS_HiAIOptions_GetDeviceMemoryReusePlan (const OH_NNCompilation * compilation)
 ```
@@ -2035,6 +2203,8 @@ HiAI_DeviceMemoryReusePlan HMS_HiAIOptions_GetDeviceMemoryReusePlan (const OH_NN
   
 
 ##### HMS_HiAIOptions_GetDynamicShapeCacheMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_DynamicShapeCacheMode HMS_HiAIOptions_GetDynamicShapeCacheMode (const OH_NNCompilation * compilation)
@@ -2061,6 +2231,8 @@ HiAI_DynamicShapeCacheMode HMS_HiAIOptions_GetDynamicShapeCacheMode (const OH_NN
 
 ##### HMS_HiAIOptions_GetDynamicShapeMaxCache()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 size_t HMS_HiAIOptions_GetDynamicShapeMaxCache (const OH_NNCompilation * compilation)
 ```
@@ -2085,6 +2257,8 @@ size_t HMS_HiAIOptions_GetDynamicShapeMaxCache (const OH_NNCompilation * compila
   
 
 ##### HMS_HiAIOptions_GetDynamicShapeStatus()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_DynamicShapeStatus HMS_HiAIOptions_GetDynamicShapeStatus (const OH_NNCompilation * compilation)
@@ -2111,6 +2285,8 @@ HiAI_DynamicShapeStatus HMS_HiAIOptions_GetDynamicShapeStatus (const OH_NNCompil
 
 ##### HMS_HiAIOptions_GetFallbackMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_FallbackMode HMS_HiAIOptions_GetFallbackMode (const OH_NNCompilation * compilation)
 ```
@@ -2136,6 +2312,8 @@ HiAI_FallbackMode HMS_HiAIOptions_GetFallbackMode (const OH_NNCompilation * comp
 
 ##### HMS_HiAIOptions_GetFormatMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_FormatMode HMS_HiAIOptions_GetFormatMode (const OH_NNCompilation * compilation)
 ```
@@ -2160,6 +2338,8 @@ HiAI_FormatMode HMS_HiAIOptions_GetFormatMode (const OH_NNCompilation * compilat
   
 
 ##### HMS_HiAIOptions_GetInputTensorShape()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 NN_TensorDesc* HMS_HiAIOptions_GetInputTensorShape (const OH_NNCompilation * compilation, size_t index)
@@ -2187,6 +2367,8 @@ NN_TensorDesc* HMS_HiAIOptions_GetInputTensorShape (const OH_NNCompilation * com
 
 ##### HMS_HiAIOptions_GetInputTensorShapeSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 size_t HMS_HiAIOptions_GetInputTensorShapeSize (const OH_NNCompilation * compilation)
 ```
@@ -2211,6 +2393,8 @@ size_t HMS_HiAIOptions_GetInputTensorShapeSize (const OH_NNCompilation * compila
   
 
 ##### HMS_HiAIOptions_GetModelDeviceCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 size_t HMS_HiAIOptions_GetModelDeviceCount (const OH_NNCompilation * compilation)
@@ -2237,6 +2421,8 @@ size_t HMS_HiAIOptions_GetModelDeviceCount (const OH_NNCompilation * compilation
 
 ##### HMS_HiAIOptions_GetModelDeviceOrder()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_ExecuteDevice* HMS_HiAIOptions_GetModelDeviceOrder (const OH_NNCompilation * compilation)
 ```
@@ -2261,6 +2447,8 @@ HiAI_ExecuteDevice* HMS_HiAIOptions_GetModelDeviceOrder (const OH_NNCompilation 
   
 
 ##### HMS_HiAIOptions_GetOperatorDeviceCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 size_t HMS_HiAIOptions_GetOperatorDeviceCount (const OH_NNCompilation * compilation, const char * operatorName)
@@ -2288,6 +2476,8 @@ size_t HMS_HiAIOptions_GetOperatorDeviceCount (const OH_NNCompilation * compilat
 
 ##### HMS_HiAIOptions_GetOperatorDeviceOrder()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_ExecuteDevice* HMS_HiAIOptions_GetOperatorDeviceOrder (const OH_NNCompilation * compilation, const char * operatorName)
 ```
@@ -2314,6 +2504,8 @@ HiAI_ExecuteDevice* HMS_HiAIOptions_GetOperatorDeviceOrder (const OH_NNCompilati
 
 ##### HMS_HiAIOptions_GetQuantConfigData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void* HMS_HiAIOptions_GetQuantConfigData (const OH_NNCompilation * compilation)
 ```
@@ -2338,6 +2530,8 @@ void* HMS_HiAIOptions_GetQuantConfigData (const OH_NNCompilation * compilation)
   
 
 ##### HMS_HiAIOptions_GetQuantConfigSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 size_t HMS_HiAIOptions_GetQuantConfigSize (const OH_NNCompilation * compilation)
@@ -2364,6 +2558,8 @@ size_t HMS_HiAIOptions_GetQuantConfigSize (const OH_NNCompilation * compilation)
 
 ##### HMS_HiAIOptions_GetTuningCacheDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 const char* HMS_HiAIOptions_GetTuningCacheDir (const OH_NNCompilation * compilation)
 ```
@@ -2388,6 +2584,8 @@ const char* HMS_HiAIOptions_GetTuningCacheDir (const OH_NNCompilation * compilat
   
 
 ##### HMS_HiAIOptions_GetTuningMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_TuningMode HMS_HiAIOptions_GetTuningMode (const OH_NNCompilation * compilation)
@@ -2414,6 +2612,8 @@ HiAI_TuningMode HMS_HiAIOptions_GetTuningMode (const OH_NNCompilation * compilat
 
 ##### HMS_HiAIOptions_GetTuningStrategy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_TuningStrategy HMS_HiAIOptions_GetTuningStrategy (const OH_NNCompilation * compilation)
 ```
@@ -2438,6 +2638,8 @@ HiAI_TuningStrategy HMS_HiAIOptions_GetTuningStrategy (const OH_NNCompilation * 
   
 
 ##### HMS_HiAIOptions_SetBandMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetBandMode (OH_NNCompilation * compilation, HiAI_BandMode bandMode)
@@ -2467,6 +2669,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetBandMode (OH_NNCompilation * compilation, Hi
 
 ##### HMS_HiAIOptions_SetDeviceMemoryReusePlan()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetDeviceMemoryReusePlan (OH_NNCompilation * compilation, HiAI_DeviceMemoryReusePlan deviceMemoryReusePlan)
 ```
@@ -2494,6 +2698,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetDeviceMemoryReusePlan (OH_NNCompilation * co
   
 
 ##### HMS_HiAIOptions_SetDynamicShapeCacheMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetDynamicShapeCacheMode (OH_NNCompilation * compilation, HiAI_DynamicShapeCacheMode mode)
@@ -2523,6 +2729,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetDynamicShapeCacheMode (OH_NNCompilation * co
 
 ##### HMS_HiAIOptions_SetDynamicShapeMaxCache()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetDynamicShapeMaxCache (OH_NNCompilation * compilation, size_t maxCacheCount)
 ```
@@ -2550,6 +2758,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetDynamicShapeMaxCache (OH_NNCompilation * com
   
 
 ##### HMS_HiAIOptions_SetDynamicShapeStatus()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetDynamicShapeStatus (OH_NNCompilation * compilation, HiAI_DynamicShapeStatus status)
@@ -2579,6 +2789,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetDynamicShapeStatus (OH_NNCompilation * compi
 
 ##### HMS_HiAIOptions_SetFallbackMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetFallbackMode (OH_NNCompilation * compilation, HiAI_FallbackMode fallbackMode)
 ```
@@ -2607,6 +2819,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetFallbackMode (OH_NNCompilation * compilation
 
 ##### HMS_HiAIOptions_SetFormatMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetFormatMode (OH_NNCompilation * compilation, HiAI_FormatMode formatMode)
 ```
@@ -2634,6 +2848,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetFormatMode (OH_NNCompilation * compilation, 
   
 
 ##### HMS_HiAIOptions_SetInputTensorShapes()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetInputTensorShapes (OH_NNCompilation * compilation, NN_TensorDesc * inputTensorDescs[], size_t shapeCount)
@@ -2664,6 +2880,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetInputTensorShapes (OH_NNCompilation * compil
 
 ##### HMS_HiAIOptions_SetModelDeviceOrder()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetModelDeviceOrder (OH_NNCompilation * compilation, HiAI_ExecuteDevice * executeDevices, size_t deviceCount)
 ```
@@ -2693,6 +2911,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetModelDeviceOrder (OH_NNCompilation * compila
 
 ##### HMS_HiAIOptions_SetOmOptions()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetOmOptions (OH_NNCompilation * compilation, HiAI_OmType type, const char * outputDir)
 ```
@@ -2721,6 +2941,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetOmOptions (OH_NNCompilation * compilation, H
   
 
 ##### HMS_HiAIOptions_SetOperatorDeviceOrder()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetOperatorDeviceOrder (OH_NNCompilation * compilation, const char * operatorName, HiAI_ExecuteDevice * executeDevices, size_t deviceCount)
@@ -2752,6 +2974,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetOperatorDeviceOrder (OH_NNCompilation * comp
 
 ##### HMS_HiAIOptions_SetQuantConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetQuantConfig (OH_NNCompilation * compilation, void * data, size_t size)
 ```
@@ -2781,6 +3005,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetQuantConfig (OH_NNCompilation * compilation,
 
 ##### HMS_HiAIOptions_SetTuningCacheDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetTuningCacheDir (OH_NNCompilation * compilation, const char * cacheDir)
 ```
@@ -2808,6 +3034,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetTuningCacheDir (OH_NNCompilation * compilati
   
 
 ##### HMS_HiAIOptions_SetTuningMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetTuningMode (OH_NNCompilation * compilation, HiAI_TuningMode tuningMode)
@@ -2837,6 +3065,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetTuningMode (OH_NNCompilation * compilation, 
 
 ##### HMS_HiAIOptions_SetTuningStrategy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAIOptions_SetTuningStrategy (OH_NNCompilation * compilation, HiAI_TuningStrategy tuningStrategy)
 ```
@@ -2865,6 +3095,8 @@ OH_NN_ReturnCode HMS_HiAIOptions_SetTuningStrategy (OH_NNCompilation * compilati
 
 ##### HMS_HiAISingleOpBuffer_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpBuffer* HMS_HiAISingleOpBuffer_Create (size_t dataSize)
 ```
@@ -2891,6 +3123,8 @@ HiAI_SingleOpBuffer* HMS_HiAISingleOpBuffer_Create (size_t dataSize)
   
 
 ##### HMS_HiAISingleOpBuffer_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAISingleOpBuffer_Destroy (HiAI_SingleOpBuffer ** buffer)
@@ -2919,6 +3153,8 @@ OH_NN_ReturnCode HMS_HiAISingleOpBuffer_Destroy (HiAI_SingleOpBuffer ** buffer)
 
 ##### HMS_HiAISingleOpBuffer_GetData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void* HMS_HiAISingleOpBuffer_GetData (const HiAI_SingleOpBuffer * buffer)
 ```
@@ -2946,6 +3182,8 @@ Buffer的内存地址。
 
 ##### HMS_HiAISingleOpBuffer_GetSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 size_t HMS_HiAISingleOpBuffer_GetSize (const HiAI_SingleOpBuffer * buffer)
 ```
@@ -2972,6 +3210,8 @@ Buffer的字节大小。
   
 
 ##### HMS_HiAISingleOpDescriptor_CreateActivation()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpDescriptor* HMS_HiAISingleOpDescriptor_CreateActivation (HiAI_SingleOpActivationType activationType, float coef)
@@ -3001,6 +3241,8 @@ HiAI_SingleOpDescriptor* HMS_HiAISingleOpDescriptor_CreateActivation (HiAI_Singl
 
 ##### HMS_HiAISingleOpDescriptor_CreateConvolution()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpDescriptor* HMS_HiAISingleOpDescriptor_CreateConvolution (HiAISingleOpDescriptor_ConvolutionParam param)
 ```
@@ -3028,6 +3270,8 @@ HiAI_SingleOpDescriptor* HMS_HiAISingleOpDescriptor_CreateConvolution (HiAISingl
 
 ##### HMS_HiAISingleOpDescriptor_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void HMS_HiAISingleOpDescriptor_Destroy (HiAI_SingleOpDescriptor ** opDesc)
 ```
@@ -3050,6 +3294,8 @@ void HMS_HiAISingleOpDescriptor_Destroy (HiAI_SingleOpDescriptor ** opDesc)
   
 
 ##### HMS_HiAISingleOpExecutor_CreateConvolution()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpExecutor* HMS_HiAISingleOpExecutor_CreateConvolution (HiAI_SingleOpExecutorConvolutionParam param)
@@ -3080,6 +3326,8 @@ HiAI_SingleOpExecutor* HMS_HiAISingleOpExecutor_CreateConvolution (HiAI_SingleOp
 
 ##### HMS_HiAISingleOpExecutor_CreateFusedConvolutionActivation()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpExecutor* HMS_HiAISingleOpExecutor_CreateFusedConvolutionActivation (HiAI_SingleOpExecutorFusedConvolutionActivationParam param)
 ```
@@ -3109,6 +3357,8 @@ HiAI_SingleOpExecutor* HMS_HiAISingleOpExecutor_CreateFusedConvolutionActivation
 
 ##### HMS_HiAISingleOpExecutor_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAISingleOpExecutor_Destroy (HiAI_SingleOpExecutor ** executor)
 ```
@@ -3137,6 +3387,8 @@ OH_NN_ReturnCode HMS_HiAISingleOpExecutor_Destroy (HiAI_SingleOpExecutor ** exec
   
 
 ##### HMS_HiAISingleOpExecutor_Execute()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAISingleOpExecutor_Execute (HiAI_SingleOpExecutor * executor, HiAI_SingleOpTensor * input[], int32_t inputNum, HiAI_SingleOpTensor * output[], int32_t outputNum)
@@ -3169,6 +3421,8 @@ OH_NN_ReturnCode HMS_HiAISingleOpExecutor_Execute (HiAI_SingleOpExecutor * execu
 
 ##### HMS_HiAISingleOpExecutor_GetWorkspaceSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 size_t HMS_HiAISingleOpExecutor_GetWorkspaceSize (const HiAI_SingleOpExecutor * executor)
 ```
@@ -3197,6 +3451,8 @@ size_t HMS_HiAISingleOpExecutor_GetWorkspaceSize (const HiAI_SingleOpExecutor * 
   
 
 ##### HMS_HiAISingleOpExecutor_Init()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAISingleOpExecutor_Init (HiAI_SingleOpExecutor * executor, void * workspace, size_t workspaceSize)
@@ -3227,6 +3483,8 @@ OH_NN_ReturnCode HMS_HiAISingleOpExecutor_Init (HiAI_SingleOpExecutor * executor
 
 ##### HMS_HiAISingleOpExecutor_PreCheckConvolution()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpSupportStatus HMS_HiAISingleOpExecutor_PreCheckConvolution (HiAI_SingleOpExecutorConvolutionParam param)
 ```
@@ -3254,6 +3512,8 @@ HiAI_SingleOpSupportStatus HMS_HiAISingleOpExecutor_PreCheckConvolution (HiAI_Si
 
 ##### HMS_HiAISingleOpExecutor_PreCheckFusedConvolutionActivation()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpSupportStatus HMS_HiAISingleOpExecutor_PreCheckFusedConvolutionActivation (HiAI_SingleOpExecutorFusedConvolutionActivationParam param)
 ```
@@ -3280,6 +3540,8 @@ HiAI_SingleOpSupportStatus HMS_HiAISingleOpExecutor_PreCheckFusedConvolutionActi
   
 
 ##### HMS_HiAISingleOpExecutor_UpdateOutputTensorDesc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAISingleOpExecutor_UpdateOutputTensorDesc (const HiAI_SingleOpExecutor * executor, uint32_t index, HiAI_SingleOpTensorDesc * output)
@@ -3310,6 +3572,8 @@ OH_NN_ReturnCode HMS_HiAISingleOpExecutor_UpdateOutputTensorDesc (const HiAI_Sin
 
 ##### HMS_HiAISingleOpOptions_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpOptions* HMS_HiAISingleOpOptions_Create (void)
 ```
@@ -3329,6 +3593,8 @@ HiAI_SingleOpOptions* HMS_HiAISingleOpOptions_Create (void)
   
 
 ##### HMS_HiAISingleOpOptions_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 void HMS_HiAISingleOpOptions_Destroy (HiAI_SingleOpOptions ** options)
@@ -3352,6 +3618,8 @@ void HMS_HiAISingleOpOptions_Destroy (HiAI_SingleOpOptions ** options)
   
 
 ##### HMS_HiAISingleOpTensor_CreateFromConst()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpTensor* HMS_HiAISingleOpTensor_CreateFromConst (const HiAI_SingleOpTensorDesc * desc, void * data, size_t dataSize)
@@ -3388,6 +3656,8 @@ HiAI_SingleOpTensor* HMS_HiAISingleOpTensor_CreateFromConst (const HiAI_SingleOp
 
 ##### HMS_HiAISingleOpTensor_CreateFromSingleOpBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpTensor* HMS_HiAISingleOpTensor_CreateFromSingleOpBuffer (const HiAI_SingleOpTensorDesc * desc, void * data, size_t dataSize)
 ```
@@ -3421,6 +3691,8 @@ HiAI_SingleOpTensor* HMS_HiAISingleOpTensor_CreateFromSingleOpBuffer (const HiAI
 
 ##### HMS_HiAISingleOpTensor_CreateFromTensorDesc()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpTensor* HMS_HiAISingleOpTensor_CreateFromTensorDesc (const HiAI_SingleOpTensorDesc * desc)
 ```
@@ -3452,6 +3724,8 @@ HiAI_SingleOpTensor* HMS_HiAISingleOpTensor_CreateFromTensorDesc (const HiAI_Sin
 
 ##### HMS_HiAISingleOpTensor_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_HiAISingleOpTensor_Destroy (HiAI_SingleOpTensor ** tensor)
 ```
@@ -3478,6 +3752,8 @@ OH_NN_ReturnCode HMS_HiAISingleOpTensor_Destroy (HiAI_SingleOpTensor ** tensor)
   
 
 ##### HMS_HiAISingleOpTensor_GetBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpBuffer* HMS_HiAISingleOpTensor_GetBuffer (const HiAI_SingleOpTensor * tensor)
@@ -3506,6 +3782,8 @@ HiAI_SingleOpBuffer* HMS_HiAISingleOpTensor_GetBuffer (const HiAI_SingleOpTensor
 
 ##### HMS_HiAISingleOpTensor_GetTensorDesc()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpTensorDesc* HMS_HiAISingleOpTensor_GetTensorDesc (const HiAI_SingleOpTensor * tensor)
 ```
@@ -3532,6 +3810,8 @@ HiAI_SingleOpTensorDesc* HMS_HiAISingleOpTensor_GetTensorDesc (const HiAI_Single
   
 
 ##### HMS_HiAISingleOpTensorDesc_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpTensorDesc* HMS_HiAISingleOpTensorDesc_Create (const int64_t * dims, size_t dimNum, HiAI_SingleOpDataType dataType, HiAI_SingleOpFormat format, bool isVirtual)
@@ -3568,6 +3848,8 @@ HiAI_SingleOpTensorDesc* HMS_HiAISingleOpTensorDesc_Create (const int64_t * dims
 
 ##### HMS_HiAISingleOpTensorDesc_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void HMS_HiAISingleOpTensorDesc_Destroy (HiAI_SingleOpTensorDesc ** tensorDesc)
 ```
@@ -3590,6 +3872,8 @@ void HMS_HiAISingleOpTensorDesc_Destroy (HiAI_SingleOpTensorDesc ** tensorDesc)
   
 
 ##### HMS_HiAISingleOpTensorDesc_GetByteSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 size_t HMS_HiAISingleOpTensorDesc_GetByteSize (const HiAI_SingleOpTensorDesc * tensorDesc)
@@ -3618,6 +3902,8 @@ size_t HMS_HiAISingleOpTensorDesc_GetByteSize (const HiAI_SingleOpTensorDesc * t
 
 ##### HMS_HiAISingleOpTensorDesc_GetDataType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpDataType HMS_HiAISingleOpTensorDesc_GetDataType (const HiAI_SingleOpTensorDesc * tensorDesc)
 ```
@@ -3644,6 +3930,8 @@ HiAI_SingleOpDataType HMS_HiAISingleOpTensorDesc_GetDataType (const HiAI_SingleO
   
 
 ##### HMS_HiAISingleOpTensorDesc_GetDimension()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 int64_t HMS_HiAISingleOpTensorDesc_GetDimension (const HiAI_SingleOpTensorDesc * tensorDesc, size_t index)
@@ -3673,6 +3961,8 @@ int64_t HMS_HiAISingleOpTensorDesc_GetDimension (const HiAI_SingleOpTensorDesc *
 
 ##### HMS_HiAISingleOpTensorDesc_GetDimensionCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 size_t HMS_HiAISingleOpTensorDesc_GetDimensionCount (const HiAI_SingleOpTensorDesc * tensorDesc)
 ```
@@ -3699,6 +3989,8 @@ size_t HMS_HiAISingleOpTensorDesc_GetDimensionCount (const HiAI_SingleOpTensorDe
   
 
 ##### HMS_HiAISingleOpTensorDesc_GetFormat()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpFormat HMS_HiAISingleOpTensorDesc_GetFormat (const HiAI_SingleOpTensorDesc * tensorDesc)
@@ -3727,6 +4019,8 @@ HiAI_SingleOpFormat HMS_HiAISingleOpTensorDesc_GetFormat (const HiAI_SingleOpTen
 
 ##### HMS_HiAISingleOpTensorDesc_IsVirtual()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 bool HMS_HiAISingleOpTensorDesc_IsVirtual (const HiAI_SingleOpTensorDesc * tensorDesc)
 ```
@@ -3754,6 +4048,8 @@ bool HMS_HiAISingleOpTensorDesc_IsVirtual (const HiAI_SingleOpTensorDesc * tenso
 
 ##### HMS_HiAITensor_GetSizeWithImageFormat()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 size_t HMS_HiAITensor_GetSizeWithImageFormat (NN_TensorDesc * desc, HiAI_ImageFormat format)
 ```
@@ -3779,6 +4075,8 @@ size_t HMS_HiAITensor_GetSizeWithImageFormat (NN_TensorDesc * desc, HiAI_ImageFo
   
 
 ##### HMS_HiAITensor_SetAippParams()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_HiAITensor_SetAippParams (NN_Tensor * tensor, HiAI_AippParam * aippParams[], size_t aippNum)
@@ -3809,6 +4107,8 @@ AIPP参数设置给NN_Tensor后，其内存在tensor使用完成后，调用[HMS
 
 ##### HMS_LLMEngine_Context_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void HMS_LLMEngine_Context_Destroy (HMS_LLMEngine_Context ** ctx)
 ```
@@ -3829,6 +4129,8 @@ void HMS_LLMEngine_Context_Destroy (HMS_LLMEngine_Context ** ctx)
   
 
 ##### HMS_LLMEngineContext_CreateFromContextJson()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```json
 HMS_LLMEngine_Context* HMS_LLMEngineContext_CreateFromContextJson (const char * jsonFile)
@@ -3854,6 +4156,8 @@ HMS_LLMEngine_Context* HMS_LLMEngineContext_CreateFromContextJson (const char * 
   
 
 ##### HMS_LLMEngineContext_GetAllGeneration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetAllGeneration (const HMS_LLMEngine_Context * ctx, char * generation, uint32_t len )
@@ -3882,6 +4186,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetAllGeneration (const HMS_LLMEngine_Cont
 
 ##### HMS_LLMEngineContext_GetAllGenerationLen()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetAllGenerationLen (const HMS_LLMEngine_Context * ctx, uint32_t * len )
 ```
@@ -3907,6 +4213,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetAllGenerationLen (const HMS_LLMEngine_C
   
 
 ##### HMS_LLMEngineContext_GetAllTokenGeneration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetAllTokenGeneration (const HMS_LLMEngine_Context * ctx, int32_t * genToken, uint32_t len )
@@ -3935,6 +4243,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetAllTokenGeneration (const HMS_LLMEngine
 
 ##### HMS_LLMEngineContext_GetAllTokenGenerationLen()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetAllTokenGenerationLen (const HMS_LLMEngine_Context * ctx, uint32_t * len )
 ```
@@ -3960,6 +4270,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetAllTokenGenerationLen (const HMS_LLMEng
   
 
 ##### HMS_LLMEngineContext_GetDecodeTimeMs()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetDecodeTimeMs (const HMS_LLMEngine_Context * ctx, double * ms )
@@ -3987,6 +4299,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetDecodeTimeMs (const HMS_LLMEngine_Conte
 
 ##### HMS_LLMEngineContext_GetInputTokenCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetInputTokenCount (const HMS_LLMEngine_Context * ctx, uint64_t * count )
 ```
@@ -4012,6 +4326,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetInputTokenCount (const HMS_LLMEngine_Co
   
 
 ##### HMS_LLMEngineContext_GetOneGeneration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetOneGeneration (const HMS_LLMEngine_Context * ctx, char * generation, uint32_t len )
@@ -4040,6 +4356,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetOneGeneration (const HMS_LLMEngine_Cont
 
 ##### HMS_LLMEngineContext_GetOneGenerationLen()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetOneGenerationLen (const HMS_LLMEngine_Context * ctx, uint32_t * len )
 ```
@@ -4065,6 +4383,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetOneGenerationLen (const HMS_LLMEngine_C
   
 
 ##### HMS_LLMEngineContext_GetOneTokenGeneration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetOneTokenGeneration (const HMS_LLMEngine_Context * ctx, int32_t * genToken )
@@ -4092,6 +4412,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetOneTokenGeneration (const HMS_LLMEngine
 
 ##### HMS_LLMEngineContext_GetOutputTokenCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetOutputTokenCount (const HMS_LLMEngine_Context * ctx, uint64_t * count )
 ```
@@ -4117,6 +4439,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetOutputTokenCount (const HMS_LLMEngine_C
   
 
 ##### HMS_LLMEngineContext_GetPrefillTimeMs()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetPrefillTimeMs (const HMS_LLMEngine_Context * ctx, double * ms )
@@ -4144,6 +4468,8 @@ LLM引擎预填充阶段消耗时间。
 
 ##### HMS_LLMEngineContext_GetTotalTimeMs()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_GetTotalTimeMs (const HMS_LLMEngine_Context * ctx, double * ms )
 ```
@@ -4169,6 +4495,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_GetTotalTimeMs (const HMS_LLMEngine_Contex
   
 
 ##### HMS_LLMEngineContext_SetOnAllTokensGenerateDoneFunc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_SetOnAllTokensGenerateDoneFunc (HMS_LLMEngine_Context * ctx, callbackFunctionType func )
@@ -4196,6 +4524,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_SetOnAllTokensGenerateDoneFunc (HMS_LLMEng
 
 ##### HMS_LLMEngineContext_SetOnGenerateAsyncFailed()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_SetOnGenerateAsyncFailed (HMS_LLMEngine_Context * ctx, callbackFunctionType func )
 ```
@@ -4221,6 +4551,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_SetOnGenerateAsyncFailed (HMS_LLMEngine_Co
   
 
 ##### HMS_LLMEngineContext_SetOnOneTokenGenerateDoneFunc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEngineContext_SetOnOneTokenGenerateDoneFunc (HMS_LLMEngine_Context * ctx, callbackFunctionType func )
@@ -4248,6 +4580,8 @@ OH_NN_ReturnCode HMS_LLMEngineContext_SetOnOneTokenGenerateDoneFunc (HMS_LLMEngi
 
 ##### HMS_LLMEngineExecutor_CreateFromExecutorJson()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```json
 HMS_LLMEngine_Executor* HMS_LLMEngineExecutor_CreateFromExecutorJson (const char * jsonFile)
 ```
@@ -4273,6 +4607,8 @@ HMS_LLMEngine_Executor* HMS_LLMEngineExecutor_CreateFromExecutorJson (const char
 
 ##### HMS_LLMEngineExecutor_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 void HMS_LLMEngineExecutor_Destroy (HMS_LLMEngine_Executor ** executor)
 ```
@@ -4293,6 +4629,8 @@ void HMS_LLMEngineExecutor_Destroy (HMS_LLMEngine_Executor ** executor)
   
 
 ##### HMS_LLMEngineExecutor_Generate()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEngineExecutor_Generate (HMS_LLMEngine_Executor * executor, HMS_LLMEngine_Context * ctx, const HMS_LLMEngine_Prompt * prompt )
@@ -4321,6 +4659,8 @@ OH_NN_ReturnCode HMS_LLMEngineExecutor_Generate (HMS_LLMEngine_Executor * execut
 
 ##### HMS_LLMEngineExecutor_GenerateAsync()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEngineExecutor_GenerateAsync (HMS_LLMEngine_Executor * executor, HMS_LLMEngine_Context * ctx, const HMS_LLMEngine_Prompt * prompt )
 ```
@@ -4348,6 +4688,8 @@ OH_NN_ReturnCode HMS_LLMEngineExecutor_GenerateAsync (HMS_LLMEngine_Executor * e
 
 ##### HMS_LLMEngineExecutor_SetInferencePerfMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEngineExecutor_SetInferencePerfMode (HMS_LLMEngine_Executor * executor, HMS_LLMEngine_InferPerfMode inferPerfMode )
 ```
@@ -4374,6 +4716,8 @@ OH_NN_ReturnCode HMS_LLMEngineExecutor_SetInferencePerfMode (HMS_LLMEngine_Execu
 
 ##### HMS_LLMEnginePrompt_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HMS_LLMEngine_Prompt* HMS_LLMEnginePrompt_Create (void )
 ```
@@ -4391,6 +4735,8 @@ HMS_LLMEngine_Prompt* HMS_LLMEnginePrompt_Create (void )
   
 
 ##### HMS_LLMEnginePrompt_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 void HMS_LLMEnginePrompt_Destroy (HMS_LLMEngine_Prompt ** prompt)
@@ -4413,6 +4759,8 @@ void HMS_LLMEnginePrompt_Destroy (HMS_LLMEngine_Prompt ** prompt)
 
 ##### HMS_LLMEnginePrompt_SetText()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_NN_ReturnCode HMS_LLMEnginePrompt_SetText (HMS_LLMEngine_Prompt * prompt, const char * text )
 ```
@@ -4434,6 +4782,8 @@ OH_NN_ReturnCode HMS_LLMEnginePrompt_SetText (HMS_LLMEngine_Prompt * prompt, con
   
 
 ##### HMS_LLMEnginePrompt_SetTokenId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_NN_ReturnCode HMS_LLMEnginePrompt_SetTokenId (HMS_LLMEngine_Prompt * prompt, int32_t * tokenIds, uint32_t tokenNum )

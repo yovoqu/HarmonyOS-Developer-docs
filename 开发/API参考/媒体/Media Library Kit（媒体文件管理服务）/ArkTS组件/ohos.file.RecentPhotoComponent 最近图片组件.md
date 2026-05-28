@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 // 在API version 23之前的版本中，需要使用 'import { api1, api2, ... } from @ohos.file.RecentPhotoComponent'的导入方式。
 import {
@@ -26,11 +28,15 @@ import {
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### RecentPhotoComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RecentPhotoComponent({ recentPhotoOptions?: RecentPhotoOptions, onRecentPhotoCheckResult?: RecentPhotoCheckResultCallback, onRecentPhotoClick: RecentPhotoClickCallback, onRecentPhotoCheckInfo?: RecentPhotoCheckInfoCallback, })
 
@@ -54,6 +60,8 @@ RecentPhotoComponent，是最近图片组件，可用于访问按创建时间排
 
 ##### RecentPhotoOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 最近图片配置选项。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -71,6 +79,8 @@ RecentPhotoComponent，是最近图片组件，可用于访问按创建时间排
 
 ##### RecentPhotoInfo13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 最近图片相关信息。
 
 **元服务API**：从API version 13开始，该接口支持在元服务中使用。
@@ -86,6 +96,8 @@ RecentPhotoComponent，是最近图片组件，可用于访问按创建时间排
 
 
 ##### RecentPhotoCheckResultCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type RecentPhotoCheckResultCallback = (recentPhotoExists: boolean) => void
 
@@ -105,6 +117,8 @@ type RecentPhotoCheckResultCallback = (recentPhotoExists: boolean) => void
 
 
 ##### RecentPhotoClickCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type RecentPhotoClickCallback = (recentPhotoInfo: BaseItemInfo) => boolean
 
@@ -132,6 +146,8 @@ type RecentPhotoClickCallback = (recentPhotoInfo: BaseItemInfo) => boolean
 
 ##### RecentPhotoCheckInfoCallback13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: RecentPhotoInfo) => void
 
 最近图片是否存在查询结果以及最近图片相关信息的回调事件。
@@ -152,6 +168,8 @@ type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: RecentPho
 
 ##### PhotoSource
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，图片或者视频数据的来源类型。
 
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
@@ -168,6 +186,8 @@ type RecentPhotoCheckInfoCallback = (recentPhotoExists: boolean, info: RecentPho
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets

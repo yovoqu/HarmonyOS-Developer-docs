@@ -12,6 +12,8 @@ typedef struct OH_NNModel OH_NNModel
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 模型句柄。
  
 **起始版本：** 9

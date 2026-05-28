@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 作为Ability Kit的基础定义模块，AbilityBase提供了组件启动参数[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-want-h)的定义与接口，可以用于应用组件间的信息传递。
  
 **系统能力：** SystemCapability.Ability.AbilityBase
@@ -16,6 +18,8 @@
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

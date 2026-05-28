@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义事件打点配置函数的所有配置项名称。如果开发者想要对应用事件打点功能进行配置，可以直接使用配置项常量。
  
 **引用文件：** <hiappevent/hiappevent_cfg.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 宏定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### DISABLE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define DISABLE "disable"
@@ -54,6 +64,8 @@
   
 
 ##### MAX_STORAGE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define MAX_STORAGE "max_storage"

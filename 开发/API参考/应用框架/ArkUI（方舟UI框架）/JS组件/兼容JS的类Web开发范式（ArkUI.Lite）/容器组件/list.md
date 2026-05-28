@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 仅支持<[list-item](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-container-list-item)>。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -31,6 +35,8 @@
   
 
 ##### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -45,6 +51,8 @@
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -67,6 +75,8 @@
   
 
 ##### 方法
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -77,6 +87,8 @@
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 ```text
 <!-- index.hml -->
@@ -153,4 +165,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/yMRc3aciSzCKCIeOV7j5Qg/zh-cn_image_0000002611756487.png?HW-CC-KV=V1&HW-CC-Date=20260528T013803Z&HW-CC-Expire=86400&HW-CC-Sign=371FA4C2947CCC887C138BF7DD8FEF9E9B45933BDD18C4CF06155FA6822A1AB6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/yMRc3aciSzCKCIeOV7j5Qg/zh-cn_image_0000002611756487.png?HW-CC-KV=V1&HW-CC-Date=20260528T024059Z&HW-CC-Expire=86400&HW-CC-Sign=A629894779D3A7D64EA23E641732F9B6DCA48ADA5DC0EC1D7BD42F948EE5A441)

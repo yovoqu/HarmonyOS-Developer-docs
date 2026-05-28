@@ -12,6 +12,8 @@ typedef struct OH_ImageNative OH_ImageNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为图像接口定义native层图像对象的别名。
  
 此结构体内容不可直接操作，采用函数调用方式操作具体字段，结构体内容和操作方式如下：

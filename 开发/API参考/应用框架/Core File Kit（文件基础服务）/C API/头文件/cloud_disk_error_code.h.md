@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1 | Tablet
+
 提供云盘管理模块的错误码定义。
  
 **引用文件：** <filemanagement/clouddiskmanager/cloud_disk_error_code.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### 枚举
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### CloudDisk_ErrorCode
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 enum CloudDisk_ErrorCode

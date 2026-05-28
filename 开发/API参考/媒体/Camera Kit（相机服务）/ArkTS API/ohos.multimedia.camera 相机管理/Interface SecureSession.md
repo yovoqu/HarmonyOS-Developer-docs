@@ -18,6 +18,8 @@ SecureSession继承自[Session](https://developer.huawei.com/consumer/cn/doc/har
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -25,6 +27,8 @@ import { camera } from '@kit.CameraKit';
 
 
 ##### addSecureOutput12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addSecureOutput(previewOutput: PreviewOutput): void
 
@@ -71,6 +75,8 @@ function addSecureOutput(session: camera.SecureSession, previewOutput: camera.Pr
 
 ##### on('error')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'error', callback: ErrorCallback): void
 
 监听安全相机会话的错误事件，通过注册回调函数获取结果。使用callback异步回调。
@@ -109,6 +115,8 @@ function registerSessionError(secureSession: camera.SecureSession): void {
 
 ##### off('error')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', callback?: ErrorCallback): void
 
 注销监听安全相机会话的错误事件，通过注册回调函数获取结果。
@@ -136,6 +144,8 @@ function unregisterSessionError(secureSession: camera.SecureSession): void {
 
 
 ##### on('focusStateChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'focusStateChange', callback: AsyncCallback&lt;FocusState&gt;): void
 
@@ -178,6 +188,8 @@ function registerFocusStateChange(secureSession: camera.SecureSession): void {
 
 
 ##### off('focusStateChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'focusStateChange', callback?: AsyncCallback&lt;FocusState&gt;): void
 

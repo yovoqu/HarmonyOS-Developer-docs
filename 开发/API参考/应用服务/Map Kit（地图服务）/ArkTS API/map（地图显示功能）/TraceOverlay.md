@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### TraceOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 动态轨迹。
  
@@ -173,6 +177,8 @@ let traceOverlay: map.TraceOverlay = await this.mapController.addTraceOverlay(tr
 
 ##### getId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getId(): string
  
 返回动态轨迹的ID。
@@ -202,6 +208,8 @@ let id: string = traceOverlay.getId();
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 remove(): void
  
 删除动态轨迹。
@@ -224,6 +232,8 @@ traceOverlay.remove();
 
 ##### pause
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 pause(): void
  
 暂停动态轨迹回放。
@@ -245,6 +255,8 @@ traceOverlay.pause();
   
 
 ##### resume
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 resume(): void
  

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { systemSoundManager } from '@kit.AudioKit';
 ```
@@ -21,6 +23,8 @@ import { systemSoundManager } from '@kit.AudioKit';
   
 
 ##### SystemSoundType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，表示系统音效类型。
  
@@ -38,6 +42,8 @@ import { systemSoundManager } from '@kit.AudioKit';
   
 
 ##### systemSoundManager.createSystemSoundPlayer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSystemSoundPlayer(): Promise<SystemSoundPlayer | null>
  
@@ -79,6 +85,8 @@ systemSoundManager.createSystemSoundPlayer().then((systemSoundPlayerInstance) =>
   
 
 ##### SystemSoundPlayer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SystemSoundPlayer = _SystemSoundPlayer
  

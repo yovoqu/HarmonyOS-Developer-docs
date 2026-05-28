@@ -12,6 +12,8 @@
 
 ##### 1007200001 参数无效
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Invalid parameter value.
@@ -42,6 +44,8 @@ Invalid parameter value.
 
 ##### 1007200002 服务未启动
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Operation failed. Cannot connect to service.
@@ -61,6 +65,8 @@ Call Service Kit未启动。
 
 
 ##### 1007200003 内部错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -84,6 +90,8 @@ Call Service Kit内部错误。
 
 ##### 1007200999 未知错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Unknown error code.
@@ -103,6 +111,8 @@ Call Service Kit未知错误。
 
 
 ##### 8300001 参数无效
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -128,6 +138,8 @@ Invalid parameter value.
 
 ##### 8300002 无企业来电权限
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The enterprise permission is not verified.
@@ -148,6 +160,8 @@ The enterprise permission is not verified.
 
 ##### 8300003 内部错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 System internal error.
@@ -167,6 +181,8 @@ Call Service Kit内部错误。
 
 
 ##### 8300999 未知错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 

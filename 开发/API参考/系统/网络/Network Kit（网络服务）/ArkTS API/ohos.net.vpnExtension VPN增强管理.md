@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { vpnExtension } from '@kit.NetworkKit';
 ```
@@ -21,6 +23,8 @@ import { vpnExtension } from '@kit.NetworkKit';
 
 
 ##### LinkAddress
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type LinkAddress = connection.LinkAddress
 
@@ -37,6 +41,8 @@ type LinkAddress = connection.LinkAddress
 
 ##### RouteInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type RouteInfo = connection.RouteInfo
 
 获取网络路由信息。
@@ -52,6 +58,8 @@ type RouteInfo = connection.RouteInfo
 
 ##### VpnExtensionContext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type VpnExtensionContext = _VpnExtensionContext
 
 VPN扩展的上下文。它允许访问serviceExtension特定资源。
@@ -66,6 +74,8 @@ VPN扩展的上下文。它允许访问serviceExtension特定资源。
 
 
 ##### vpnExtension.startVpnExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startVpnExtensionAbility(want: Want): Promise&lt;void&gt;
 
@@ -149,6 +159,8 @@ struct Index {
 
 
 ##### vpnExtension.stopVpnExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stopVpnExtensionAbility(want: Want): Promise&lt;void&gt;
 
@@ -241,6 +253,8 @@ struct Index {
 
 ##### vpnExtension.createVpnConnection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 createVpnConnection(context: VpnExtensionContext): VpnConnection
 
 创建一个三方VPN连接对象。
@@ -297,11 +311,15 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 ##### VpnConnection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 VPN连接对象。在调用VpnConnection的方法前，需要先通过vpnExt.createVpnConnection创建VPN连接对象。
 
 
 
 ##### create
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 create(config: VpnConfig): Promise&lt;number&gt;
 
@@ -424,6 +442,8 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 ##### protect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 protect(socketFd: number): Promise&lt;void&gt;
 
 保护套接字不受VPN连接影响，通过该套接字发送的数据将直接基于物理网络收发，因此其流量不会通过VPN转发。使用Promise方式作为异步方法。
@@ -493,6 +513,8 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 ##### destroy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 destroy(): Promise&lt;void&gt;
 
 销毁启动的VPN网络。使用Promise异步回调。
@@ -541,6 +563,8 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 
 ##### destroy20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 destroy(vpnId: string): Promise&lt;void&gt;
 
@@ -597,6 +621,8 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 ##### generateVpnId20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 generateVpnId(): Promise&lt;string&gt;
 
 生成VPN唯一标识。使用Promise异步回调。
@@ -604,7 +630,7 @@ generateVpnId(): Promise&lt;string&gt;
 如需使用系统多VPN能力，需调用该接口生成vpnId，配置到VpnConfig中。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/0HGkO29lQcG7PSto2dtfUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013537Z&HW-CC-Expire=86400&HW-CC-Sign=47BBACA2F7D608B8EE8FC67AA7C70A1E8BDD81C7CEA7910DBE0EEFA81A824F34)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/0HGkO29lQcG7PSto2dtfUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023836Z&HW-CC-Expire=86400&HW-CC-Sign=15E0787DD0DF3EFB020C03EC3CC226DA884F1E4A16DE46F97E02B8E8459C4821)
 
 
 当前系统多VPN能力仅支持IPv4。
@@ -654,6 +680,8 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 ##### protectProcessNet22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 protectProcessNet(): Promise&lt;void&gt;
 
 保护应用进程不受VPN连接影响，被保护的进程直接基于物理网络收发数据，流量不通过VPN转发。使用Promise异步回调。
@@ -699,6 +727,8 @@ export default class MyVpnExtAbility  extends VpnExtensionAbility {
 
 
 ##### VpnConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 三方VPN配置参数。
 

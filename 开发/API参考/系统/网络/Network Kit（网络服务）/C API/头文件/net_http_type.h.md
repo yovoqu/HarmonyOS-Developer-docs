@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义HTTP请求模块的C接口需要的数据结构。
  
 **引用文件：** <network/netstack/net_http_type.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -46,6 +52,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -60,6 +68,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -79,6 +89,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -93,9 +105,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Http_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Http_ErrCode
@@ -148,6 +164,8 @@ enum Http_ErrCode
   
 
 ##### Http_ResponseCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Http_ResponseCode
@@ -203,6 +221,8 @@ enum Http_ResponseCode
 
 ##### Http_AddressFamilyType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Http_AddressFamilyType
 ```
@@ -223,6 +243,8 @@ enum Http_AddressFamilyType
   
 
 ##### Http_HttpProtocol
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Http_HttpProtocol
@@ -246,6 +268,8 @@ HTTP协议版本号枚举定义。
 
 ##### Http_CertType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Http_CertType
 ```
@@ -266,6 +290,8 @@ enum Http_CertType
   
 
 ##### Http_ProxyType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Http_ProxyType
@@ -288,9 +314,13 @@ enum Http_ProxyType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Http_ResponseCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*Http_ResponseCallback)(struct Http_Response *response, uint32_t errCode)
@@ -314,6 +344,8 @@ typedef void (*Http_ResponseCallback)(struct Http_Response *response, uint32_t e
 
 ##### Http_OnDataReceiveCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*Http_OnDataReceiveCallback)(const char *data, size_t length)
 ```
@@ -335,6 +367,8 @@ typedef void (*Http_OnDataReceiveCallback)(const char *data, size_t length)
   
 
 ##### Http_OnProgressCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*Http_OnProgressCallback)(uint64_t totalSize, uint64_t transferredSize)
@@ -358,6 +392,8 @@ typedef void (*Http_OnProgressCallback)(uint64_t totalSize, uint64_t transferred
 
 ##### Http_OnHeaderReceiveCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*Http_OnHeaderReceiveCallback)(Http_Headers *headers)
 ```
@@ -378,6 +414,8 @@ typedef void (*Http_OnHeaderReceiveCallback)(Http_Headers *headers)
   
 
 ##### Http_OnVoidCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*Http_OnVoidCallback)(void)

@@ -12,6 +12,8 @@
 
 ##### AVCastControlCommand10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 投播控制器接受的命令的对象描述。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -27,6 +29,8 @@
 
 
 ##### CastDisplayInfo12+
+
+**支持设备：** Phone | Tablet
 
 扩展屏投播显示设备相关属性。
 
@@ -46,6 +50,8 @@
 
 
 ##### AVMetadata10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 媒体元数据的相关属性。
 
@@ -83,6 +89,8 @@
 
 ##### AVMediaDescription10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 播放列表媒体元数据的相关属性。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -117,6 +125,8 @@
 
 ##### AVQueueItem10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 播放列表中单项的相关属性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -132,6 +142,8 @@
 
 
 ##### AVPlaybackState10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 媒体播放状态的相关属性。
 
@@ -159,6 +171,8 @@
 
 ##### PlaybackPosition10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 媒体播放位置的相关属性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -174,6 +188,8 @@
 
 
 ##### CallMetadata11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通话会话元数据相关属性。
 
@@ -192,6 +208,8 @@
 
 ##### AVCallState11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通话状态相关属性。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -207,6 +225,8 @@
 
 
 ##### DeviceInfo10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 播放设备的相关信息。
 
@@ -228,6 +248,8 @@
 
 ##### OutputDeviceInfo10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 播放设备的相关信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -242,6 +264,8 @@
 
 
 ##### AVControlCommand10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 会话接受的命令的对象描述。
 
@@ -258,6 +282,8 @@
 
 ##### AVCastPickerOptions14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 拉起的投播组件包含的配置属性。
 
 **系统能力：** SystemCapability.Multimedia.AVSession.AVCast
@@ -272,6 +298,8 @@
 
 
 ##### AudioCapabilities20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 表示投播设备支持的音频能力。
 
@@ -288,6 +316,8 @@
 
 ##### CommandInfo22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义要发送到会话的命令信息。
 
 **系统能力：** SystemCapability.Multimedia.AVSession.Core
@@ -303,6 +333,8 @@
 
 
 ##### MenuPosition 22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义可弹出菜单的组件的位置。
 
@@ -322,6 +354,8 @@
 
 ##### AVSessionDescriptor 23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 会话的相关描述信息。
 
 **系统能力：** SystemCapability.Multimedia.AVSession.Manager
@@ -339,6 +373,8 @@
 
 
 ##### DesktopLyricState23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 桌面歌词状态。
 

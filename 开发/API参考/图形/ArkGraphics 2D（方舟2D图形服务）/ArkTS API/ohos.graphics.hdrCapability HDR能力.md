@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { hdrCapability } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { hdrCapability } from '@kit.ArkGraphics2D';
   
 
 ##### HDRFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 HDR格式枚举。
  

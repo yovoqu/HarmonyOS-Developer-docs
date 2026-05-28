@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { TextReader } from '@kit.SpeechKit';
 ```
@@ -20,11 +22,15 @@ import { TextReader } from '@kit.SpeechKit';
 
 ##### 注意事项
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 调用朗读控件接口前，必须先调用[init](#init)初始化，否则会报错。
 
 
 
 ##### init
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 init(context: common.BaseContext, readParams: ReaderParam): Promise&lt;void&gt;
 
@@ -107,6 +113,8 @@ struct Index {
 
 ##### start
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 start(readInfoList: ReadInfo[], articleId?: string): Promise&lt;void&gt;
 
 朗读控件起播。播放失败返回对应错误码。
@@ -182,6 +190,8 @@ TextReader.start(readInfoList).then(() => {
 
 
 ##### start
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 start(readInfoList: ReadInfo[], articleId: string | undefined, startParams: StartParams): Promise&lt;void&gt;
 
@@ -264,6 +274,8 @@ TextReader.start(readInfoList, undefined, startParams).then(() => {
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 stop(): Promise&lt;void&gt;
 
 朗读控件停止朗读，执行播放面板的关闭，注销监听，重置参数。
@@ -309,6 +321,8 @@ TextReader.stop().then(() => {
 
 ##### resetParam
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 resetParam(paramName: ResetParamType) : void
 
 提供重置初始化参数、清除播放列表接口。
@@ -351,6 +365,8 @@ try {
 
 
 ##### release
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 release(): Promise&lt;void&gt;
 
@@ -398,6 +414,8 @@ TextReader.release().then(() => {
 
 ##### pause
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 pause(): void
 
 暂停播放。
@@ -432,6 +450,8 @@ try {
 
 
 ##### resume
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 resume(): void
 
@@ -472,6 +492,8 @@ try {
 
 ##### playPrev
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 playPrev(): void
 
 播放上一篇文章。
@@ -507,6 +529,8 @@ try {
 
 
 ##### playNext
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 playNext(): void
 
@@ -544,6 +568,8 @@ try {
 
 ##### hidePanel
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 hidePanel(): void
 
 隐藏播放面板。
@@ -578,6 +604,8 @@ try {
 
 
 ##### showPanel
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 showPanel(): void
 
@@ -614,6 +642,8 @@ try {
 
 ##### showMinibar
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 showMinibar(): void
 
 显示Minibar。
@@ -649,6 +679,8 @@ try {
 
 ##### hideMinibar
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 hideMinibar(): void
 
 隐藏Minibar。
@@ -683,6 +715,8 @@ try {
 
 
 ##### queryReadState
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 queryReadState(id?: string): ReadState
 
@@ -734,6 +768,8 @@ try {
 
 ##### setArticleContent
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setArticleContent(id: string, content?: string): void
 
 设置文章内容。
@@ -776,6 +812,8 @@ try {
 
 
 ##### setArticle
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setArticle(readInfo: ReadInfo): void
 
@@ -836,6 +874,8 @@ try {
 
 
 ##### loadMore
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 loadMore(readInfos: ReadInfo[], isEnd: boolean): void
 
@@ -964,6 +1004,8 @@ struct Index {
 
 ##### queryReadStateByCategoryId
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 queryReadStateByCategoryId(categoryId: string): ReadState
 
 根据分类id查询文章状态，查询当前分类是否有正在播报的文章。
@@ -1012,6 +1054,8 @@ try {
 
 ##### on('setArticle')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'setArticle', callback: Callback&lt;string&gt;): void
 
 注册设置文章回调函数，点击文章或者切换文章时，若目标文章内容为空（bodyInfo值为空）时，触发该回调执行。同一类型监听，注册多个回调函数，仅第一次注册有效。使用callback异步回调。
@@ -1057,6 +1101,8 @@ try {
 
 ##### off('setArticle')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'setArticle', callback?: Callback&lt;string&gt;): void
 
 在on(type: 'setArticle')函数调用之后使用，用于注销设置文章回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -1099,6 +1145,8 @@ try {
 
 
 ##### on('clickArticle')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'clickArticle', callback: Callback&lt;string&gt;): void
 
@@ -1145,6 +1193,8 @@ try {
 
 ##### off('clickArticle')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'clickArticle', callback?: Callback&lt;string&gt;): void
 
 在on(type: 'clickArticle')函数调用之后使用，用于注销点击事件回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -1187,6 +1237,8 @@ try {
 
 
 ##### on('clickAuthor')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'clickAuthor', callback: Callback&lt;string&gt;): void
 
@@ -1233,6 +1285,8 @@ try {
 
 ##### off('clickAuthor')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'clickAuthor', callback?: Callback&lt;string&gt;): void
 
 在on('clickAuthor')函数调用之后使用，用于注销点击事件回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -1275,6 +1329,8 @@ try {
 
 
 ##### on( 'clickNotification')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'clickNotification', callback: Callback&lt;string&gt;): void
 
@@ -1321,6 +1377,8 @@ try {
 
 ##### off('clickNotification')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'clickNotification', callback?: Callback&lt;string&gt;): void
 
 在on(type: 'clickNotification')函数调用之后使用，用于注销点击事件回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -1363,6 +1421,8 @@ try {
 
 
 ##### on('showPanel')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'showPanel', callback: Callback&lt;void&gt;): void
 
@@ -1409,6 +1469,8 @@ try {
 
 ##### off('showPanel')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'showPanel', callback?: Callback&lt;void&gt;): void
 
 在on(type: 'showPanel')函数调用之后使用，用于注销拉起播放面板监听事件。注销监听后，可以重新注册。使用callback异步回调。
@@ -1452,6 +1514,8 @@ try {
 
 
 ##### on('hidePanel')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'hidePanel', callback: Callback&lt;void&gt;): void
 
@@ -1498,6 +1562,8 @@ try {
 
 ##### off('hidePanel')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'hidePanel', callback?: Callback&lt;void&gt;): void
 
 在on(type: 'hidePanel')函数调用之后使用，用于注销收回播放面板监听事件。注销监听后，可以重新注册。使用callback异步回调。
@@ -1541,6 +1607,8 @@ try {
 
 
 ##### on('stop')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'stop', callback: Callback&lt;void&gt;): void
 
@@ -1587,6 +1655,8 @@ try {
 
 ##### off('stop')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'stop', callback?: Callback&lt;void&gt;): void
 
 在on(type: 'stop')函数调用之后使用，用于注销stop事件的回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -1629,6 +1699,8 @@ try {
 
 
 ##### on('release')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type:'release', callback: Callback&lt;void&gt;): void
 
@@ -1675,6 +1747,8 @@ try {
 
 ##### off('release')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'release', callback?: Callback&lt;void&gt;): void
 
 在on(type: 'release')函数调用之后使用，用于注销release事件的回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -1717,6 +1791,8 @@ try {
 
 
 ##### on('stateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'stateChange', callback: Callback&lt;ReadState&gt;): void
 
@@ -1763,6 +1839,8 @@ try {
 
 ##### off('stateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'stateChange', callback?: Callback&lt;ReadState&gt;): void
 
 在on(type: 'stateChange')函数调用之后使用，用于注销正在播放的文章状态变更的回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -1805,6 +1883,8 @@ try {
 
 
 ##### on('requestMore')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'requestMore', callback: Callback&lt;void&gt;): void
 
@@ -1851,6 +1931,8 @@ try {
 
 ##### on('requestMore')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'requestMore', callback: Callback&lt;string&gt;): void
 
 注册请求更多文章回调函数，拉到播放列表底端或播放到文章最后一篇，触发该回调执行，返回用户自定义参数。同一类型监听，注册多个回调函数，仅第一次注册有效。使用callback异步回调。
@@ -1894,6 +1976,8 @@ try {
 
 ##### off('requestMore')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'requestMore', callback?: Callback&lt;void&gt;): void
 
 在on(type: 'requestMore')函数调用之后使用，用于注销拉到播放列表底端或播放到文章最后一篇的回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -1936,6 +2020,8 @@ try {
 
 
 ##### off('requestMore')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'requestMore', callback: Callback&lt;string&gt;): void
 
@@ -1982,6 +2068,8 @@ try {
 
 ##### on('eventNotification')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'eventNotification' , callback: Callback&lt;NotificationEvent&gt;): void
 
 注册播控中心状态回调函数，播控中心状态发生变化时，触发该回调执行。同一类型监听，注册多个回调函数，仅第一次注册有效。使用callback异步回调。
@@ -2027,6 +2115,8 @@ try {
 
 ##### off('eventNotification')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'eventNotification', callback?: Callback&lt;NotificationEvent&gt;): void
 
 在on(type: 'eventNotification')函数调用之后使用，用于注销播控中心状态发生变化的回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -2069,6 +2159,8 @@ try {
 
 
 ##### on('eventPanel')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'eventPanel', callback: Callback&lt;PanelEvent&gt;): void
 
@@ -2115,6 +2207,8 @@ try {
 
 ##### off('eventPanel')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'eventPanel', callback?: Callback&lt;PanelEvent&gt;): void
 
 在on(type: 'eventPanel')函数调用之后使用，用于播放面板状态发生变化的回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -2158,6 +2252,8 @@ try {
 
 
 ##### on( 'eventReadList')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'eventReadList', callback: Callback<Array&lt;ListEventState&gt;>): void
 
@@ -2206,6 +2302,8 @@ try {
 
 ##### off('eventReadList')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'eventReadList', callback?: Callback<Array&lt;ListEventState&gt;>): void
 
 在on(type: 'eventReadList')函数调用之后使用，用于注销播报列表相关事件的回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -2248,6 +2346,8 @@ try {
 
 
 ##### on('readProgress')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'readProgress', callback: Callback&lt;ReadProgress&gt;): void
 
@@ -2294,6 +2394,8 @@ try {
 
 ##### off('readProgress')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'readProgress', callback?: Callback&lt;ReadProgress&gt;): void
 
 在on(type: 'readProgress')函数调用之后使用，用于注销已播放时长相关事件的回调函数。注销监听后，可以重新注册。使用callback异步回调。
@@ -2337,6 +2439,8 @@ try {
 
 ##### Person
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 人物语气和风格信息
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2354,6 +2458,8 @@ try {
 
 
 ##### ReaderParam
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 朗读参数
 
@@ -2382,6 +2488,8 @@ try {
 
 ##### StartParams
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 朗读控件起播参数
 
 **系统能力：** SystemCapability.AI.Component.TextReader
@@ -2398,6 +2506,8 @@ try {
 
 
 ##### MinibarParams
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 起播时控制Minibar的参数，可以设置Minibar初始化位置，以及与底部边框的距离。
 
@@ -2416,6 +2526,8 @@ try {
 
 
 ##### BusinessBrandInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 播报品牌信息
 
@@ -2437,6 +2549,8 @@ try {
 
 ##### ReadState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 播报状态。
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2456,6 +2570,8 @@ try {
 
 
 ##### CustomFeature
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 朗读控件面板中的自定义功能。
 
@@ -2519,6 +2635,8 @@ struct Index {
 
 ##### ReadInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 朗读信息。
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2547,6 +2665,8 @@ struct Index {
 
 ##### CategoryInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 文章分类信息
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2568,6 +2688,8 @@ struct Index {
 
 ##### TextInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 文字信息
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2588,6 +2710,8 @@ struct Index {
 
 ##### BodyInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 readInfo的正文内容信息
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2607,6 +2731,8 @@ readInfo的正文内容信息
 
 
 ##### AudioInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 朗读控件中的音频信息
 
@@ -2631,6 +2757,8 @@ readInfo的正文内容信息
 
 ##### ReadProgress
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 朗读控件中的音频信息
 
 **系统能力：** SystemCapability.AI.Component.TextReader
@@ -2653,6 +2781,8 @@ readInfo的正文内容信息
 
 ##### PanelEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 播放面板事件
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2673,6 +2803,8 @@ readInfo的正文内容信息
 
 
 ##### NotificationEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 通知栏事件
 
@@ -2696,6 +2828,8 @@ readInfo的正文内容信息
 
 ##### ListEventState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 列表事件状态
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2716,6 +2850,8 @@ readInfo的正文内容信息
 
 ##### ResetParamType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 用于确定重置类型的枚举类。
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2734,6 +2870,8 @@ readInfo的正文内容信息
 
 
 ##### DisplayTab
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 用于确定播控面板显示的Tab标签及Tab内容的枚举类。
 
@@ -2756,6 +2894,8 @@ readInfo的正文内容信息
 
 ##### BarAlignment
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 用于确定Minibar默认吸附位置的枚举类。
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2773,6 +2913,8 @@ readInfo的正文内容信息
 
 
 ##### BodyInfoType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 用于确定正文信息类型的枚举类。
 
@@ -2792,6 +2934,8 @@ readInfo的正文内容信息
 
 ##### CustomFeatureType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 用于确定自定义特征类型的枚举类。
 
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
@@ -2809,6 +2953,8 @@ readInfo的正文内容信息
 
 
 ##### ReadProgressType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 用于确定已播报时长上报类型的枚举类。
 

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { HdsSideBar } from '@kit.UIDesignKit';
 ```
@@ -19,6 +21,8 @@ import { HdsSideBar } from '@kit.UIDesignKit';
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsSideBar({contentAreaMask?: boolean, isShowSideBar?: boolean, $isShowSideBar?: Callback&lt;boolean&gt;, minSideBarWidth?: Length, maxSideBarWidth?: Length, minContentWidth?: Length, sideBarColor?: ResourceColor, contentColor?: ResourceColor, sideBarWidth?: Length, autoHide?: boolean, isSideBarBlur?: boolean, sideBarPosition?: sideBarPosition, onChange?: Callback&lt;boolean&gt;, sideBarPanelBuilder: CustomBuilder, contentPanelBuilder: CustomBuilder, sideBarContainerType?: SideBarContainerType, scaleContentEnabled?: boolean, swipeEnabled?: boolean})
  
@@ -58,6 +62,8 @@ HdsSideBar({contentAreaMask?: boolean, isShowSideBar?: boolean, $isShowSideBar?:
 
 ##### build
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 build(): void
  
 struct的默认构造函数，无法直接调用此方法。
@@ -71,6 +77,8 @@ struct的默认构造函数，无法直接调用此方法。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsSideBar提供侧边栏可以显示和隐藏的侧边栏容器，可以自定义侧边栏区和内容区。
  

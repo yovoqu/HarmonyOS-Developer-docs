@@ -21,6 +21,8 @@ RemoteNotificationExtensionAbility为通知扩展Ability，提供获取场景化
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { RemoteNotificationExtensionAbility } from '@kit.PushKit';
 ```
@@ -28,6 +30,8 @@ import { RemoteNotificationExtensionAbility } from '@kit.PushKit';
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束：** 属性仅可在Stage模型下使用。
  
@@ -45,6 +49,8 @@ import { RemoteNotificationExtensionAbility } from '@kit.PushKit';
   
 
 ##### onReceiveMessage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onReceiveMessage(remoteNotificationInfo: pushCommon.RemoteNotificationInfo): Promise<pushCommon.RemoteNotificationContent>
  
@@ -101,6 +107,8 @@ export default class RemoteNotificationExtAbility extends RemoteNotificationExte
   
 
 ##### onDestroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDestroy(): void
  

@@ -12,6 +12,8 @@ typedef struct ArkUI_TransitionEffect ArkUI_TransitionEffect
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义transition属性配置转场参数对象。
  
 **起始版本：** 12

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### constructor20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(roundRect: RoundRect)
 
@@ -48,6 +52,8 @@ let roundRect2 = new drawing.RoundRect(roundRect);
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(rect: common2D.Rect, xRadii: number, yRadii: number)
 
@@ -86,6 +92,8 @@ let roundRect = new drawing.RoundRect(rect, 50, 50);
 
 ##### setCorner12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCorner(pos: CornerPos, x: number, y: number): void
 
 设置圆角矩形中指定圆角位置的圆角半径。
@@ -122,6 +130,8 @@ roundRect.setCorner(drawing.CornerPos.TOP_LEFT_POS, 150, 150);
 
 
 ##### getCorner12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCorner(pos: CornerPos): common2D.Point
 
@@ -166,6 +176,8 @@ console.info("getCorner---"+cornerRadius.y)
 
 
 ##### offset12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offset(dx: number, dy: number): void
 

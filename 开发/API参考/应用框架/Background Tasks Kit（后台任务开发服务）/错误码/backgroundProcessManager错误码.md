@@ -12,6 +12,8 @@
 
 ##### 31800002 参数错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. PowerSaveMode status is out of range.
@@ -33,6 +35,8 @@ Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
 
 ##### 31800003 已经被任务管理器设置
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Setup error, This setting is overridden by setting in Task Manager.
@@ -52,6 +56,8 @@ Setup error, This setting is overridden by setting in Task Manager.
 
 
 ##### 31800004 系统调度原因导致设置失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

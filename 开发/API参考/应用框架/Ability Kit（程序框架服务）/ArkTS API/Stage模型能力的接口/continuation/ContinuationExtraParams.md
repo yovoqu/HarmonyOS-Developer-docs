@@ -14,6 +14,8 @@
 
 ##### ContinuationExtraParams(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示流转管理入口中设备选择模块所需的过滤参数。
 
 > [!NOTE]

@@ -14,6 +14,8 @@
 
 ##### setVisible11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVisible(visible: boolean): void
  
 通过该方法设置元服务menuBar是否可见。
@@ -61,6 +63,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### setBackgroundColor11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBackgroundColor(color:Nullable<Color | number | string>): void
  
@@ -110,6 +114,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setTitleContent11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setTitleContent(content:string): void
  
 通过该方法设置元服务menuBar的标题内容。
@@ -157,6 +163,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### setTitleFontStyle11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTitleFontStyle(font:FontStyle):void
  
@@ -206,6 +214,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setIconColor11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setIconColor(color:Nullable<Color | number | string>): void
  
 通过该方法设置元服务图标的颜色。
@@ -253,6 +263,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### getBarRect15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBarRect(): Frame
  

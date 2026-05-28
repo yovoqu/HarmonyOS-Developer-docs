@@ -62,6 +62,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { relationalStore } from '@kit.ArkData';
 ```
@@ -69,6 +71,8 @@ import { relationalStore } from '@kit.ArkData';
 
 
 ##### commit14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 commit(): Promise&lt;void&gt;
 
@@ -125,6 +129,8 @@ if (store != undefined) {
 
 ##### rollback14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rollback(): Promise&lt;void&gt;
 
 回滚已经执行的SQL语句，使用Promise异步回调。调用rollback接口之后，该Transaction对象及创建的ResultSet对象都会被关闭。
@@ -179,6 +185,8 @@ if (store != undefined) {
 
 
 ##### insert14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 insert(table: string, values: ValuesBucket, conflict?: ConflictResolution): Promise&lt;number&gt;
 
@@ -259,6 +267,8 @@ if (store != undefined) {
 
 
 ##### insertSync14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 insertSync(table: string, values: ValuesBucket | sendableRelationalStore.ValuesBucket, conflict?: ConflictResolution): number
 
@@ -346,6 +356,8 @@ if (store != undefined) {
 
 
 ##### batchInsert14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 batchInsert(table: string, values: Array&lt;ValuesBucket&gt;): Promise&lt;number&gt;
 
@@ -441,6 +453,8 @@ if (store != undefined) {
 
 ##### batchInsertSync14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 batchInsertSync(table: string, values: Array&lt;ValuesBucket&gt;): number
 
 向目标表中插入一组数据。
@@ -534,6 +548,8 @@ if (store != undefined) {
 
 
 ##### batchInsertWithConflictResolution18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 batchInsertWithConflictResolution(table: string, values: Array&lt;ValuesBucket&gt;, conflict: ConflictResolution): Promise&lt;number&gt;
 
@@ -642,6 +658,8 @@ if (store != undefined) {
 
 ##### batchInsertWithConflictResolutionSync18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 batchInsertWithConflictResolutionSync(table: string, values: Array&lt;ValuesBucket&gt;, conflict: ConflictResolution): number
 
 向目标表中插入一组数据，可以通过conflict参数指定冲突解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)。
@@ -748,6 +766,8 @@ if (store != undefined) {
 
 ##### batchInsertWithReturning23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 batchInsertWithReturning(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;
 
 向目标表中插入一组数据，可以通过conflict参数指定当发生数据冲突时的解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，返回[Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#result23)。使用Promise异步回调。
@@ -827,6 +847,8 @@ async function transBatchInsertWithReturningExample(trans: relationalStore.Trans
 
 
 ##### batchInsertWithReturningSync23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 batchInsertWithReturningSync(table: string, values: Array&lt;ValuesBucket&gt;, config: ReturningConfig, conflict?: ConflictResolution): Result
 
@@ -908,6 +930,8 @@ function transBatchInsertWithReturningSyncExample(trans: relationalStore.Transac
 
 ##### update14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 update(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): Promise&lt;number&gt;
 
 根据RdbPredicates的指定实例对象更新数据库中的数据，使用Promise异步回调。由于共享内存的大小限制为2MB，因此单条数据的大小也必须严格小于2MB。如果单条数据超过此限制，在后续通过RdbStore的[query](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#query)或[querySql](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore#querysql)接口获取ResultSet后，调用[getValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getvalue12)、[getString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset#getstring)等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
@@ -987,6 +1011,8 @@ if (store != undefined) {
 
 
 ##### updateSync14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateSync(values: ValuesBucket, predicates: RdbPredicates, conflict?: ConflictResolution): number
 
@@ -1068,6 +1094,8 @@ if (store != undefined) {
 
 ##### updateWithReturning23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateWithReturning(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Promise&lt;Result&gt;
 
 根据RdbPredicates的指定实例对象更新数据库中的数据，可以通过conflict参数指定当发生数据冲突时的解决模式[ConflictResolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-e#conflictresolution10)，返回[Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#result23)，使用Promise异步回调。
@@ -1143,6 +1171,8 @@ async function transUpdateWithReturningExample(trans: relationalStore.Transactio
 
 
 ##### updateWithReturningSync23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateWithReturningSync(values: ValuesBucket, predicates: RdbPredicates, config: ReturningConfig, conflict?: ConflictResolution): Result
 
@@ -1220,6 +1250,8 @@ function transUpdateWithReturningSyncExample(trans: relationalStore.Transaction)
 
 ##### delete14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 delete(predicates: RdbPredicates):Promise&lt;number&gt;
 
 根据RdbPredicates的指定实例对象从数据库中删除数据，使用Promise异步回调。
@@ -1292,6 +1324,8 @@ if (store != undefined) {
 
 ##### deleteSync14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteSync(predicates: RdbPredicates): number
 
 根据RdbPredicates的指定实例对象从数据库中删除数据。
@@ -1363,6 +1397,8 @@ if (store != undefined) {
 
 ##### deleteWithReturning23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteWithReturning(predicates: RdbPredicates, config: ReturningConfig): Promise&lt;Result&gt;
 
 根据RdbPredicates的实例对象从数据库中删除数据，返回[Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#result23)，使用Promise异步回调。
@@ -1432,6 +1468,8 @@ async function transDeleteWithReturningExample(trans: relationalStore.Transactio
 
 ##### deleteWithReturningSync23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteWithReturningSync(predicates: RdbPredicates, config: ReturningConfig): Result
 
 根据RdbPredicates的实例对象从数据库中删除数据，返回[Result](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#result23)。
@@ -1500,6 +1538,8 @@ function transDeleteWithReturningSyncExample(trans: relationalStore.Transaction)
 
 
 ##### query14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 query(predicates: RdbPredicates, columns?: Array&lt;string&gt;): Promise&lt;ResultSet&gt;
 
@@ -1578,6 +1618,8 @@ if (store != undefined) {
 
 
 ##### querySync14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 querySync(predicates: RdbPredicates, columns?: Array&lt;string&gt;): ResultSet
 
@@ -1658,6 +1700,8 @@ if (store != undefined) {
 
 ##### querySql14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 querySql(sql: string, args?: Array&lt;ValueType&gt;): Promise&lt;ResultSet&gt;
 
 根据指定SQL语句查询数据库中的数据，SQL语句中的各种表达式和操作符之间的关系操作符号不超过1000个，使用Promise异步回调。
@@ -1733,6 +1777,8 @@ if (store != undefined) {
 
 
 ##### querySqlSync14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 querySqlSync(sql: string, args?: Array&lt;ValueType&gt;): ResultSet
 
@@ -1810,6 +1856,8 @@ if (store != undefined) {
 
 ##### queryWithoutRowCount23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryWithoutRowCount(predicates: RdbPredicates, columns?: Array&lt;string&gt;): Promise&lt;LiteResultSet&gt;
 
 根据指定条件查询数据库中的数据，查询时不计算行数，性能优于[query](#query14)接口。使用Promise异步回调。
@@ -1885,6 +1933,8 @@ async function queryWithoutRowCountExample(store : relationalStore.RdbStore) {
 
 
 ##### queryWithoutRowCountSync23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryWithoutRowCountSync(predicates: RdbPredicates, columns?: Array&lt;string&gt;): LiteResultSet
 
@@ -1962,6 +2012,8 @@ async function queryWithoutRowCountSyncExample(store : relationalStore.RdbStore)
 
 ##### querySqlWithoutRowCount23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 querySqlWithoutRowCount(sql: string, bindArgs?: Array&lt;ValueType&gt;): Promise&lt;LiteResultSet&gt;
 
 根据指定条件查询数据库中的数据，查询时不计算行数。使用Promise异步回调。性能优于[querySql](#querysql14)接口。SQL语句中的各种表达式和操作符之间的关系操作符号不超过1000个。
@@ -2037,6 +2089,8 @@ async function querySqlWithoutRowCountExample(store : relationalStore.RdbStore) 
 
 ##### querySqlWithoutRowCountSync23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 querySqlWithoutRowCountSync(sql: string, bindArgs?: Array&lt;ValueType&gt;):LiteResultSet
 
 根据指定SQL语句查询数据库中的数据，查询时不计算行数。SQL语句中的各种表达式和操作符之间的关系操作符号不超过1000个。对querySqlWithoutRowCountSync同步接口获得的LiteResultSet进行操作时，若逻辑复杂且循环次数过多，可能造成freeze问题，建议将此步骤放到[taskpool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-taskpool)线程中执行。
@@ -2111,6 +2165,8 @@ async function querySqlWithoutRowCountSyncExample(store : relationalStore.RdbSto
 
 
 ##### execute14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 execute(sql: string, args?: Array&lt;ValueType&gt;): Promise&lt;ValueType&gt;
 
@@ -2192,6 +2248,8 @@ if (store != undefined) {
 
 
 ##### executeSync14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 executeSync(sql: string, args?: Array&lt;ValueType&gt;): ValueType
 

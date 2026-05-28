@@ -12,6 +12,8 @@
 
 ##### 1014400001 系统内部错误
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 System service exception.
@@ -31,6 +33,8 @@ System service exception.
 
 
 ##### 1014400006 用户取消身份认证流程
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -52,6 +56,8 @@ The user canceled the identity authentication process.
 
 ##### 1014400102 身份认证超时
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Identity authentication timed out.
@@ -71,6 +77,8 @@ Identity authentication timed out.
 
 
 ##### 1014400103 用户认证失败
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -92,6 +100,8 @@ Authentication is failed.
 
 ##### 1014400201 无效设备类型
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Invalid device type, current device is not enterprise device.
@@ -111,6 +121,8 @@ Invalid device type, current device is not enterprise device.
 
 
 ##### 1014400202 无效userId
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -132,6 +144,8 @@ Invalid userId.
 
 ##### 1014400203 企业恢复密钥已存在
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Enterprise recovery key is already existed.
@@ -151,6 +165,8 @@ Enterprise recovery key is already existed.
 
 
 ##### 1014400204 签名校验失败
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -173,6 +189,8 @@ Invalid signature.
 
 ##### 1014400205 证书校验失败
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Invalid cert.
@@ -194,6 +212,8 @@ Invalid cert.
 
 ##### 1001700001 系统内部错误
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Internal error.
@@ -213,6 +233,8 @@ Internal error.
 
 
 ##### 1001700101 无效用户ID
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -234,6 +256,8 @@ Invalid user ID.
 
 ##### 1001700103 需打标签的文件不存在
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 The path is not exist.
@@ -253,6 +277,8 @@ The path is not exist.
 
 
 ##### 1001700104 标签列表检查失败
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -276,6 +302,8 @@ The tag list check failed.
 
 ##### 1001700105 无效的appId
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Invalid app ID.
@@ -295,6 +323,8 @@ appId校验失败。
 
 
 ##### 1001700201 HDC状态异常
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -316,6 +346,8 @@ HDC状态异常。
 
 ##### 1001700202 私钥保存失败
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Failed to save the private key.
@@ -336,6 +368,8 @@ Failed to save the private key.
 
 ##### 1001700203 公钥保存失败
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Failed to save the public key.
@@ -355,6 +389,8 @@ Failed to save the public key.
 
 
 ##### 1001700204 密钥类型与设备类型不匹配
+
+**支持设备：** PC/2in1
 
 **错误信息**
 

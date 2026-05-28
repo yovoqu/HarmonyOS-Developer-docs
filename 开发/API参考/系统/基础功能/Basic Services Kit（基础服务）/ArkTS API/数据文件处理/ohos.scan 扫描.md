@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { scan } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { scan } from '@kit.BasicServicesKit';
   
 
 ##### ScanErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义扫描错误码的枚举。
  
@@ -49,6 +53,8 @@ import { scan } from '@kit.BasicServicesKit';
 
 ##### ConstraintType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义参数限制类型的枚举。
  
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -64,6 +70,8 @@ import { scan } from '@kit.BasicServicesKit';
   
 
 ##### PhysicalUnit
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义物理单位的枚举。
  
@@ -84,6 +92,8 @@ import { scan } from '@kit.BasicServicesKit';
 
 ##### OptionValueType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义选项值类型的枚举。
  
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -100,6 +110,8 @@ import { scan } from '@kit.BasicServicesKit';
 
 ##### ScannerSyncMode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义扫描仪同步码的枚举。
  
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -114,6 +126,8 @@ import { scan } from '@kit.BasicServicesKit';
 
 ##### ScannerDiscoveryMode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义扫描仪发现方式的枚举。
  
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -127,6 +141,8 @@ import { scan } from '@kit.BasicServicesKit';
   
 
 ##### Range
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义范围的接口。
  
@@ -144,6 +160,8 @@ import { scan } from '@kit.BasicServicesKit';
   
 
 ##### ScannerParameter
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义扫描仪参数的接口。
  
@@ -169,6 +187,8 @@ import { scan } from '@kit.BasicServicesKit';
 
 ##### ScannerOptionValue
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义扫描仪选项值的接口。
  
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -187,6 +207,8 @@ import { scan } from '@kit.BasicServicesKit';
 
 ##### PictureScanProgress
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义图片扫描进度的接口。
  
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -203,6 +225,8 @@ import { scan } from '@kit.BasicServicesKit';
   
 
 ##### ScannerDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义扫描仪设备的接口。
  
@@ -224,6 +248,8 @@ import { scan } from '@kit.BasicServicesKit';
 
 ##### ScannerSyncDevice
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义扫描仪同步设备的接口。
  
 **系统能力：** SystemCapability.Print.PrintFramework
@@ -242,6 +268,8 @@ import { scan } from '@kit.BasicServicesKit';
   
 
 ##### scan.init
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 init(): Promise&lt;void&gt;
  
@@ -282,6 +310,8 @@ scan.init().then(() => {
 
 ##### scan.exit
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 exit(): Promise&lt;void&gt;
  
 退出扫描服务。使用Promise异步回调。
@@ -321,6 +351,8 @@ scan.exit().then(() => {
 
 ##### scan.startScannerDiscovery
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 startScannerDiscovery(): Promise&lt;void&gt;
  
 开始发现扫描仪。使用Promise异步回调。
@@ -359,6 +391,8 @@ scan.startScannerDiscovery().then(() => {
   
 
 ##### scan.openScanner
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 openScanner(scannerId: string): Promise&lt;void&gt;
  
@@ -407,6 +441,8 @@ scan.openScanner(scannerId).then(() => {
 
 ##### scan.closeScanner
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 closeScanner(scannerId: string): Promise&lt;void&gt;
  
 关闭扫描仪。使用Promise异步回调。
@@ -454,6 +490,8 @@ scan.closeScanner(scannerId).then(() => {
 
 ##### scan.getScannerParameter
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getScannerParameter(scannerId: string): Promise<ScannerParameter[]>
  
 获取扫描仪参数。使用Promise异步回调。
@@ -500,6 +538,8 @@ scan.getScannerParameter(scannerId).then((parameters: scan.ScannerParameter[]) =
   
 
 ##### scan.setScannerParameter
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setScannerParameter(scannerId: string, optionIndex: number, value: ScannerOptionValue): Promise&lt;void&gt;
  
@@ -555,6 +595,8 @@ scan.setScannerParameter(scannerId, optionIndex, value).then(() => {
 
 ##### scan.setScanAutoOption
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setScanAutoOption(scannerId: string, optionIndex: number): Promise&lt;void&gt;
  
 设置扫描选项为自动模式。使用Promise异步回调。
@@ -603,6 +645,8 @@ scan.setScanAutoOption(scannerId, optionIndex).then(() => {
   
 
 ##### scan.getScannerCurrentSetting
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getScannerCurrentSetting(scannerId: string, optionIndex: number): Promise&lt;ScannerOptionValue&gt;
  
@@ -653,6 +697,8 @@ scan.getScannerCurrentSetting(scannerId, optionIndex).then((value: scan.ScannerO
 
 ##### scan.startScan
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 startScan(scannerId: string, batchMode: boolean): Promise&lt;void&gt;
  
 开始扫描。使用Promise异步回调。
@@ -702,6 +748,8 @@ scan.startScan(scannerId, batchMode).then(() => {
 
 ##### scan.cancelScan
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 cancelScan(scannerId: string): Promise&lt;void&gt;
  
 取消扫描。使用Promise异步回调。
@@ -748,6 +796,8 @@ scan.cancelScan(scannerId).then(() => {
   
 
 ##### scan.getPictureScanProgress
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getPictureScanProgress(scannerId: string): Promise&lt;PictureScanProgress&gt;
  
@@ -796,6 +846,8 @@ scan.getPictureScanProgress(scannerId).then((progress: scan.PictureScanProgress)
 
 ##### scan.on
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'scanDeviceFound', callback: Callback&lt;ScannerDevice&gt;): void
  
 注册扫描仪设备发现事件回调。使用callback异步回调。
@@ -832,6 +884,8 @@ scan.on('scanDeviceFound', (device: scan.ScannerDevice) => {
   
 
 ##### scan.off
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'scanDeviceFound', callback?: Callback&lt;ScannerDevice&gt;): void
  
@@ -873,6 +927,8 @@ scan.off('scanDeviceFound', callback);
 
 ##### scan.on
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 on(type: 'scanDeviceSync', callback: Callback&lt;ScannerSyncDevice&gt;): void
  
 注册扫描仪设备同步事件回调。使用callback异步回调。
@@ -909,6 +965,8 @@ scan.on('scanDeviceSync', (device: scan.ScannerSyncDevice) => {
   
 
 ##### scan.off
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'scanDeviceSync', callback?: Callback&lt;ScannerSyncDevice&gt;): void
  

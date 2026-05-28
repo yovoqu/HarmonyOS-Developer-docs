@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供远程通信能力相关接口。
  
 支持http会话功能。
@@ -17,9 +19,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,6 +35,8 @@
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -90,6 +98,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -112,6 +122,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -206,6 +218,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -229,6 +243,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -277,9 +293,13 @@
 
 ##### 宏定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### RCP_HOST_MAX_LEN
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define RCP_HOST_MAX_LEN   256
@@ -295,6 +315,8 @@
 
 ##### RCP_IP_MAX_LEN
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define RCP_IP_MAX_LEN   40
 ```
@@ -308,6 +330,8 @@ IP地址的最大长度。
   
 
 ##### RCP_MAX_CONTENT_TYPE_LEN
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define RCP_MAX_CONTENT_TYPE_LEN   64
@@ -323,6 +347,8 @@ IP地址的最大长度。
 
 ##### RCP_MAX_FILENAME_LEN
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define RCP_MAX_FILENAME_LEN   128
 ```
@@ -336,6 +362,8 @@ IP地址的最大长度。
   
 
 ##### RCP_MAX_PATH_LEN
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define RCP_MAX_PATH_LEN   128
@@ -351,6 +379,8 @@ IP地址的最大长度。
 
 ##### RCP_MAX_REQUEST_ID_LEN
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define RCP_MAX_REQUEST_ID_LEN   32
 ```
@@ -364,6 +394,8 @@ IP地址的最大长度。
   
 
 ##### RCP_METHOD_DELETE
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define RCP_METHOD_DELETE   "DELETE"
@@ -379,6 +411,8 @@ HTTP delete方法。
 
 ##### RCP_METHOD_GET
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define RCP_METHOD_GET   "GET"
 ```
@@ -392,6 +426,8 @@ HTTP get方法。
   
 
 ##### RCP_METHOD_HEAD
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define RCP_METHOD_HEAD   "HEAD"
@@ -407,6 +443,8 @@ HTTP head方法。
 
 ##### RCP_METHOD_OPTIONS
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define RCP_METHOD_OPTIONS   "OPTIONS"
 ```
@@ -420,6 +458,8 @@ HTTP options方法。
   
 
 ##### RCP_METHOD_PATCH
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define RCP_METHOD_PATCH   "PATCH"
@@ -435,6 +475,8 @@ HTTP patch方法。
 
 ##### RCP_METHOD_POST
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define RCP_METHOD_POST   "POST"
 ```
@@ -448,6 +490,8 @@ HTTP post方法。
   
 
 ##### RCP_METHOD_PUT
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define RCP_METHOD_PUT   "PUT"
@@ -463,6 +507,8 @@ HTTP put方法。
 
 ##### RCP_METHOD_TRACE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define RCP_METHOD_TRACE   "TRACE"
 ```
@@ -477,9 +523,13 @@ HTTP trace方法。
 
 ##### 类型定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Rcp_AuthenticationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef enum Rcp_AuthenticationType Rcp_AuthenticationType
@@ -495,6 +545,8 @@ typedef enum Rcp_AuthenticationType Rcp_AuthenticationType
 
 ##### Rcp_Buffer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_Buffer Rcp_Buffer
 ```
@@ -508,6 +560,8 @@ typedef struct Rcp_Buffer Rcp_Buffer
   
 
 ##### Rcp_CertificateAuthority
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_CertificateAuthority Rcp_CertificateAuthority
@@ -523,6 +577,8 @@ typedef struct Rcp_CertificateAuthority Rcp_CertificateAuthority
 
 ##### Rcp_CertType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef enum Rcp_CertType Rcp_CertType
 ```
@@ -536,6 +592,8 @@ typedef enum Rcp_CertType Rcp_CertType
   
 
 ##### Rcp_ClientCertificate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_ClientCertificate Rcp_ClientCertificate
@@ -551,6 +609,8 @@ typedef struct Rcp_ClientCertificate Rcp_ClientCertificate
 
 ##### Rcp_Configuration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_Configuration Rcp_Configuration
 ```
@@ -564,6 +624,8 @@ typedef struct Rcp_Configuration Rcp_Configuration
   
 
 ##### Rcp_ConnectionConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_ConnectionConfiguration Rcp_ConnectionConfiguration
@@ -579,6 +641,8 @@ typedef struct Rcp_ConnectionConfiguration Rcp_ConnectionConfiguration
 
 ##### Rcp_ContentOrPathOrCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_ContentOrPathOrCallback Rcp_ContentOrPathOrCallback
 ```
@@ -592,6 +656,8 @@ typedef struct Rcp_ContentOrPathOrCallback Rcp_ContentOrPathOrCallback
   
 
 ##### Rcp_ContentOrPathOrCallbackType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef enum Rcp_ContentOrPathOrCallbackType Rcp_ContentOrPathOrCallbackType
@@ -607,6 +673,8 @@ typedef enum Rcp_ContentOrPathOrCallbackType Rcp_ContentOrPathOrCallbackType
 
 ##### Rcp_ContentType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef enum Rcp_ContentType Rcp_ContentType
 ```
@@ -620,6 +688,8 @@ typedef enum Rcp_ContentType Rcp_ContentType
   
 
 ##### Rcp_CookieAttributeEntry
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_CookieAttributeEntry Rcp_CookieAttributeEntry
@@ -635,6 +705,8 @@ typedef struct Rcp_CookieAttributeEntry Rcp_CookieAttributeEntry
 
 ##### Rcp_CookieAttributes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_CookieAttributes Rcp_CookieAttributes
 ```
@@ -648,6 +720,8 @@ typedef struct Rcp_CookieAttributes Rcp_CookieAttributes
   
 
 ##### Rcp_Credential
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_Credential Rcp_Credential
@@ -663,6 +737,8 @@ typedef struct Rcp_Credential Rcp_Credential
 
 ##### Rcp_DebugEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef enum Rcp_DebugEvent Rcp_DebugEvent
 ```
@@ -676,6 +752,8 @@ typedef enum Rcp_DebugEvent Rcp_DebugEvent
   
 
 ##### Rcp_DebugInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_DebugInfo Rcp_DebugInfo
@@ -691,6 +769,8 @@ typedef struct Rcp_DebugInfo Rcp_DebugInfo
 
 ##### Rcp_DnsConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_DnsConfiguration Rcp_DnsConfiguration
 ```
@@ -704,6 +784,8 @@ DNS解析配置。
   
 
 ##### Rcp_DnsOverHttps
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_DnsOverHttps Rcp_DnsOverHttps
@@ -719,6 +801,8 @@ typedef struct Rcp_DnsOverHttps Rcp_DnsOverHttps
 
 ##### Rcp_DnsRule
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_DnsRule Rcp_DnsRule
 ```
@@ -732,6 +816,8 @@ DNS规则配置。
   
 
 ##### Rcp_DnsRuleType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef enum Rcp_DnsRuleType Rcp_DnsRuleType
@@ -747,6 +833,8 @@ DNS规则类型。用于区分[Rcp_DnsRule](https://developer.huawei.com/consume
 
 ##### Rcp_DnsServers
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_DnsServers Rcp_DnsServers
 ```
@@ -760,6 +848,8 @@ DNS服务器。[Rcp_DnsConfiguration.dnsRules](https://developer.huawei.com/cons
   
 
 ##### Rcp_DynamicDnsRuleFunction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef Rcp_IpAddress*(* Rcp_DynamicDnsRuleFunction) (const char *host, uint16_t port)
@@ -787,6 +877,8 @@ Rcp_IpAddress* 指向[Rcp_IpAddress](https://developer.huawei.com/consumer/cn/do
 
 ##### Rcp_EventsHandler
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_EventsHandler Rcp_EventsHandler
 ```
@@ -800,6 +892,8 @@ typedef struct Rcp_EventsHandler Rcp_EventsHandler
   
 
 ##### Rcp_ExclusionFunction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef bool(* Rcp_ExclusionFunction) (const char *url)
@@ -826,6 +920,8 @@ bool 返回是否使用代理。true代表使用，false代表不使用。
 
 ##### Rcp_Exclusions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_Exclusions Rcp_Exclusions
 ```
@@ -842,6 +938,8 @@ typedef struct Rcp_Exclusions Rcp_Exclusions
 
 ##### Rcp_ExclusionsValueType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef enum Rcp_ExclusionsValueType Rcp_ExclusionsValueType
 ```
@@ -855,6 +953,8 @@ typedef enum Rcp_ExclusionsValueType Rcp_ExclusionsValueType
   
 
 ##### Rcp_Form
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_Form Rcp_Form
@@ -870,6 +970,8 @@ typedef struct Rcp_Form Rcp_Form
 
 ##### Rcp_FormFieldFileValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_FormFieldFileValue Rcp_FormFieldFileValue
 ```
@@ -883,6 +985,8 @@ typedef struct Rcp_FormFieldFileValue Rcp_FormFieldFileValue
   
 
 ##### Rcp_FormFieldValue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_FormFieldValue Rcp_FormFieldValue
@@ -898,6 +1002,8 @@ typedef struct Rcp_FormFieldValue Rcp_FormFieldValue
 
 ##### Rcp_FormValueType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef enum Rcp_FormValueType Rcp_FormValueType
 ```
@@ -911,6 +1017,8 @@ typedef enum Rcp_FormValueType Rcp_FormValueType
   
 
 ##### Rcp_GetDataCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef int(* Rcp_GetDataCallback) (char *out, uint32_t size)
@@ -940,6 +1048,8 @@ int 返回值为-1表示错误，返回值0表示停止传输。
 
 ##### Rcp_HeaderEntry
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_HeaderEntry Rcp_HeaderEntry
 ```
@@ -953,6 +1063,8 @@ typedef struct Rcp_HeaderEntry Rcp_HeaderEntry
   
 
 ##### Rcp_Headers
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_Headers Rcp_Headers
@@ -968,6 +1080,8 @@ typedef struct Rcp_Headers Rcp_Headers
 
 ##### Rcp_HeaderValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_HeaderValue Rcp_HeaderValue
 ```
@@ -981,6 +1095,8 @@ typedef struct Rcp_HeaderValue Rcp_HeaderValue
   
 
 ##### Rcp_InfoToCollect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_InfoToCollect Rcp_InfoToCollect
@@ -996,6 +1112,8 @@ typedef struct Rcp_InfoToCollect Rcp_InfoToCollect
 
 ##### Rcp_Interceptor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_Interceptor Rcp_Interceptor
 ```
@@ -1009,6 +1127,8 @@ typedef struct Rcp_Interceptor Rcp_Interceptor
   
 
 ##### Rcp_InterceptorArray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_InterceptorArray Rcp_InterceptorArray
@@ -1024,6 +1144,8 @@ typedef struct Rcp_InterceptorArray Rcp_InterceptorArray
 
 ##### Rcp_IpAddress
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_IpAddress Rcp_IpAddress
 ```
@@ -1037,6 +1159,8 @@ typedef struct Rcp_IpAddress Rcp_IpAddress
   
 
 ##### Rcp_IpAndPort
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_IpAndPort Rcp_IpAndPort
@@ -1052,6 +1176,8 @@ typedef struct Rcp_IpAndPort Rcp_IpAndPort
 
 ##### Rcp_MultipartForm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_MultipartForm Rcp_MultipartForm
 ```
@@ -1065,6 +1191,8 @@ typedef struct Rcp_MultipartForm Rcp_MultipartForm
   
 
 ##### Rcp_MultipartFormFieldValue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_MultipartFormFieldValue Rcp_MultipartFormFieldValue
@@ -1080,6 +1208,8 @@ typedef struct Rcp_MultipartFormFieldValue Rcp_MultipartFormFieldValue
 
 ##### Rcp_MultipartValueType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef enum Rcp_MultipartValueType Rcp_MultipartValueType
 ```
@@ -1094,6 +1224,8 @@ typedef enum Rcp_MultipartValueType Rcp_MultipartValueType
 
 ##### Rcp_OnDataReceiveCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_OnDataReceiveCallback Rcp_OnDataReceiveCallback
 ```
@@ -1107,6 +1239,8 @@ typedef struct Rcp_OnDataReceiveCallback Rcp_OnDataReceiveCallback
   
 
 ##### Rcp_OnDataReceiveCallbackFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef size_t(* Rcp_OnDataReceiveCallbackFunc) (void *usrObject, const char *data)
@@ -1134,6 +1268,8 @@ size_t 响应体的长度。
 
 ##### Rcp_OnBinaryReceiveCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_OnBinaryReceiveCallback Rcp_OnBinaryReceiveCallback
 ```
@@ -1147,6 +1283,8 @@ typedef struct Rcp_OnBinaryReceiveCallback Rcp_OnBinaryReceiveCallback
   
 
 ##### Rcp_OnBinaryReceiveCallbackFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef size_t(* Rcp_OnBinaryReceiveCallbackFunc) (void *usrObject, Rcp_Buffer *buffer)
@@ -1174,6 +1312,8 @@ size_t 响应体二进制数据的长度。
 
 ##### Rcp_OnStatusCodeReceiveCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_OnStatusCodeReceiveCallback Rcp_OnStatusCodeReceiveCallback
 ```
@@ -1187,6 +1327,8 @@ typedef struct Rcp_OnStatusCodeReceiveCallback Rcp_OnStatusCodeReceiveCallback
   
 
 ##### Rcp_OnStatusCodeReceiveCallbackFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*Rcp_OnStatusCodeReceiveCallbackFunc) (void *usrObject, uint32_t statusCode)
@@ -1210,6 +1352,8 @@ typedef void (*Rcp_OnStatusCodeReceiveCallbackFunc) (void *usrObject, uint32_t s
 
 ##### Rcp_OnHeaderReceiveCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_OnHeaderReceiveCallback Rcp_OnHeaderReceiveCallback
 ```
@@ -1223,6 +1367,8 @@ typedef struct Rcp_OnHeaderReceiveCallback Rcp_OnHeaderReceiveCallback
   
 
 ##### Rcp_OnHeaderReceiveCallbackFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void(* Rcp_OnHeaderReceiveCallbackFunc) (void *usrObject, Rcp_Headers *headers)
@@ -1246,6 +1392,8 @@ typedef void(* Rcp_OnHeaderReceiveCallbackFunc) (void *usrObject, Rcp_Headers *h
 
 ##### Rcp_OnProgressCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_OnProgressCallback Rcp_OnProgressCallback
 ```
@@ -1259,6 +1407,8 @@ typedef struct Rcp_OnProgressCallback Rcp_OnProgressCallback
   
 
 ##### Rcp_OnProgressCallbackFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void(* Rcp_OnProgressCallbackFunc) (void *usrObject, uint64_t totalSize, uint64_t transferredSize)
@@ -1283,6 +1433,8 @@ typedef void(* Rcp_OnProgressCallbackFunc) (void *usrObject, uint64_t totalSize,
 
 ##### Rcp_OnVoidCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_OnVoidCallback Rcp_OnVoidCallback
 ```
@@ -1296,6 +1448,8 @@ typedef struct Rcp_OnVoidCallback Rcp_OnVoidCallback
   
 
 ##### Rcp_OnVoidCallbackFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void(* Rcp_OnVoidCallbackFunc) (void *usrObject)
@@ -1318,6 +1472,8 @@ typedef void(* Rcp_OnVoidCallbackFunc) (void *usrObject)
 
 ##### Rcp_PathPreference
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef enum Rcp_PathPreference Rcp_PathPreference
 ```
@@ -1334,6 +1490,8 @@ typedef enum Rcp_PathPreference Rcp_PathPreference
 
 ##### Rcp_ProxyConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_ProxyConfiguration Rcp_ProxyConfiguration
 ```
@@ -1347,6 +1505,8 @@ typedef struct Rcp_ProxyConfiguration Rcp_ProxyConfiguration
   
 
 ##### Rcp_ProxyTunnelMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef enum Rcp_ProxyTunnelMode Rcp_ProxyTunnelMode
@@ -1362,6 +1522,8 @@ typedef enum Rcp_ProxyTunnelMode Rcp_ProxyTunnelMode
 
 ##### Rcp_ProxyType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef enum Rcp_ProxyType Rcp_ProxyType
 ```
@@ -1375,6 +1537,8 @@ typedef enum Rcp_ProxyType Rcp_ProxyType
   
 
 ##### Rcp_RemoteValidationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef enum Rcp_RemoteValidationType Rcp_RemoteValidationType
@@ -1392,6 +1556,8 @@ typedef enum Rcp_RemoteValidationType Rcp_RemoteValidationType
 
 ##### Rcp_Request
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_Request Rcp_Request
 ```
@@ -1405,6 +1571,8 @@ typedef struct Rcp_Request Rcp_Request
   
 
 ##### Rcp_RequestContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_RequestContent Rcp_RequestContent
@@ -1420,6 +1588,8 @@ typedef struct Rcp_RequestContent Rcp_RequestContent
 
 ##### Rcp_RequestCookieEntry
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_RequestCookieEntry Rcp_RequestCookieEntry
 ```
@@ -1433,6 +1603,8 @@ typedef struct Rcp_RequestCookieEntry Rcp_RequestCookieEntry
   
 
 ##### Rcp_RequestCookies
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_RequestCookies Rcp_RequestCookies
@@ -1450,6 +1622,8 @@ typedef struct Rcp_RequestCookies Rcp_RequestCookies
 
 ##### Rcp_RequestHandler
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_RequestHandler Rcp_RequestHandler
 ```
@@ -1464,6 +1638,8 @@ typedef struct Rcp_RequestHandler Rcp_RequestHandler
 
 ##### Rcp_Response
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_Response Rcp_Response
 ```
@@ -1477,6 +1653,8 @@ typedef struct Rcp_Response Rcp_Response
   
 
 ##### Rcp_ResponseCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void(* Rcp_ResponseCallback) (void *usrCtx, Rcp_Response *response, uint32_t errCode)
@@ -1501,6 +1679,8 @@ typedef void(* Rcp_ResponseCallback) (void *usrCtx, Rcp_Response *response, uint
 
 ##### Rcp_ResponseCallbackObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_ResponseCallbackObject Rcp_ResponseCallbackObject
 ```
@@ -1514,6 +1694,8 @@ typedef struct Rcp_ResponseCallbackObject Rcp_ResponseCallbackObject
   
 
 ##### Rcp_ResponseCookies
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_ResponseCookies Rcp_ResponseCookies
@@ -1529,6 +1711,8 @@ typedef struct Rcp_ResponseCookies Rcp_ResponseCookies
 
 ##### Rcp_SecurityConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_SecurityConfiguration Rcp_SecurityConfiguration
 ```
@@ -1542,6 +1726,8 @@ typedef struct Rcp_SecurityConfiguration Rcp_SecurityConfiguration
   
 
 ##### Rcp_ServerAuthentication
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_ServerAuthentication Rcp_ServerAuthentication
@@ -1557,6 +1743,8 @@ typedef struct Rcp_ServerAuthentication Rcp_ServerAuthentication
 
 ##### Rcp_Session
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_Session Rcp_Session
 ```
@@ -1570,6 +1758,8 @@ typedef struct Rcp_Session Rcp_Session
   
 
 ##### Rcp_SessionConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_SessionConfiguration Rcp_SessionConfiguration
@@ -1585,6 +1775,8 @@ typedef struct Rcp_SessionConfiguration Rcp_SessionConfiguration
 
 ##### Rcp_SessionListener
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_SessionListener Rcp_SessionListener
 ```
@@ -1598,6 +1790,8 @@ typedef struct Rcp_SessionListener Rcp_SessionListener
   
 
 ##### Rcp_SessionType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef enum Rcp_SessionType Rcp_SessionType
@@ -1613,6 +1807,8 @@ typedef enum Rcp_SessionType Rcp_SessionType
 
 ##### Rcp_StaticDnsRule
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_StaticDnsRule Rcp_StaticDnsRule
 ```
@@ -1626,6 +1822,8 @@ typedef struct Rcp_StaticDnsRule Rcp_StaticDnsRule
   
 
 ##### Rcp_StaticDnsRuleItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_StaticDnsRuleItem Rcp_StaticDnsRuleItem
@@ -1641,6 +1839,8 @@ typedef struct Rcp_StaticDnsRuleItem Rcp_StaticDnsRuleItem
 
 ##### Rcp_StatusCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef enum Rcp_StatusCode Rcp_StatusCode
 ```
@@ -1654,6 +1854,8 @@ typedef enum Rcp_StatusCode Rcp_StatusCode
   
 
 ##### Rcp_SyncInterceptor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_SyncInterceptor Rcp_SyncInterceptor
@@ -1669,6 +1871,8 @@ typedef struct Rcp_SyncInterceptor Rcp_SyncInterceptor
 
 ##### Rcp_SyncInterceptorArray
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_SyncInterceptorArray Rcp_SyncInterceptorArray
 ```
@@ -1683,6 +1887,8 @@ typedef struct Rcp_SyncInterceptorArray Rcp_SyncInterceptorArray
 
 ##### Rcp_SyncRequestHandler
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_SyncRequestHandler Rcp_SyncRequestHandler
 ```
@@ -1696,6 +1902,8 @@ typedef struct Rcp_SyncRequestHandler Rcp_SyncRequestHandler
   
 
 ##### Rcp_TimeInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_TimeInfo Rcp_TimeInfo
@@ -1713,6 +1921,8 @@ typedef struct Rcp_TimeInfo Rcp_TimeInfo
 
 ##### Rcp_Timeout
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_Timeout Rcp_Timeout
 ```
@@ -1726,6 +1936,8 @@ typedef struct Rcp_Timeout Rcp_Timeout
   
 
 ##### Rcp_TracingConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_TracingConfiguration Rcp_TracingConfiguration
@@ -1741,6 +1953,8 @@ typedef struct Rcp_TracingConfiguration Rcp_TracingConfiguration
 
 ##### Rcp_TransferConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_TransferConfiguration Rcp_TransferConfiguration
 ```
@@ -1754,6 +1968,8 @@ typedef struct Rcp_TransferConfiguration Rcp_TransferConfiguration
   
 
 ##### Rcp_TransferRange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_TransferRange Rcp_TransferRange
@@ -1769,6 +1985,8 @@ HTTP传输范围。该设置将转换为HTTP Range标头。具有范围标头的
 
 ##### Rcp_Urls
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef struct Rcp_Urls Rcp_Urls
 ```
@@ -1782,6 +2000,8 @@ URLs，用于确定主机是否正在使用代理。
   
 
 ##### Rcp_WebProxy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef struct Rcp_WebProxy Rcp_WebProxy
@@ -1797,9 +2017,13 @@ typedef struct Rcp_WebProxy Rcp_WebProxy
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Rcp_AuthenticationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Rcp_AuthenticationType
@@ -1823,6 +2047,8 @@ enum Rcp_AuthenticationType
 
 ##### Rcp_CertType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Rcp_CertType
 ```
@@ -1843,6 +2069,8 @@ enum Rcp_CertType
   
 
 ##### Rcp_ContentOrPathOrCallbackType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Rcp_ContentOrPathOrCallbackType
@@ -1865,6 +2093,8 @@ enum Rcp_ContentOrPathOrCallbackType
 
 ##### Rcp_ContentType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Rcp_ContentType
 ```
@@ -1886,6 +2116,8 @@ enum Rcp_ContentType
   
 
 ##### Rcp_DebugEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Rcp_DebugEvent
@@ -1912,6 +2144,8 @@ enum Rcp_DebugEvent
 
 ##### Rcp_DnsRuleType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Rcp_DnsRuleType
 ```
@@ -1933,6 +2167,8 @@ DNS规则类型。用于区分[Rcp_DnsRule](https://developer.huawei.com/consume
 
 ##### Rcp_ExclusionsValueType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Rcp_ExclusionsValueType
 ```
@@ -1952,6 +2188,8 @@ enum Rcp_ExclusionsValueType
   
 
 ##### Rcp_FormValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Rcp_FormValueType
@@ -1976,6 +2214,8 @@ enum Rcp_FormValueType
 
 ##### Rcp_MultipartValueType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Rcp_MultipartValueType
 ```
@@ -1995,6 +2235,8 @@ enum Rcp_MultipartValueType
   
 
 ##### Rcp_PathPreference
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Rcp_PathPreference
@@ -2019,6 +2261,8 @@ enum Rcp_PathPreference
 
 ##### Rcp_ProxyTunnelMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Rcp_ProxyTunnelMode
 ```
@@ -2038,6 +2282,8 @@ enum Rcp_ProxyTunnelMode
   
 
 ##### Rcp_ProxyType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Rcp_ProxyType
@@ -2059,6 +2305,8 @@ enum Rcp_ProxyType
   
 
 ##### Rcp_RemoteValidationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Rcp_RemoteValidationType
@@ -2083,6 +2331,8 @@ enum Rcp_RemoteValidationType
 
 ##### Rcp_SessionType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Rcp_SessionType
 ```
@@ -2102,6 +2352,8 @@ enum Rcp_SessionType
   
 
 ##### Rcp_StatusCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Rcp_StatusCode
@@ -2157,9 +2409,13 @@ enum Rcp_StatusCode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### HMS_Rcp_CallNextRequestHandler()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t HMS_Rcp_CallNextRequestHandler (Rcp_Request * request, const Rcp_RequestHandler * next, const Rcp_ResponseCallbackObject * responseCallback )
@@ -2188,6 +2444,8 @@ uint32_t。[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-referenc
 
 ##### HMS_Rcp_CallNextSyncRequestHandler()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Response* HMS_Rcp_CallNextSyncRequestHandler (Rcp_Request * request, const Rcp_SyncRequestHandler * next, uint32_t * errCode )
 ```
@@ -2214,6 +2472,8 @@ Rcp_Response* 返回响应。
   
 
 ##### HMS_Rcp_CancelRequest()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t HMS_Rcp_CancelRequest (Rcp_Session * session, const Rcp_Request * request )
@@ -2243,6 +2503,8 @@ uint32_t HMS_Rcp_CancelRequest (Rcp_Session * session, const Rcp_Request * reque
 
 ##### HMS_Rcp_CancelSession()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint32_t HMS_Rcp_CancelSession (Rcp_Session * session)
 ```
@@ -2269,6 +2531,8 @@ uint32_t HMS_Rcp_CancelSession (Rcp_Session * session)
   
 
 ##### HMS_Rcp_CloseSession()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t HMS_Rcp_CloseSession (Rcp_Session ** session)
@@ -2297,6 +2561,8 @@ uint32_t HMS_Rcp_CloseSession (Rcp_Session ** session)
 
 ##### HMS_Rcp_CreateForm()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Form* HMS_Rcp_CreateForm (void)
 ```
@@ -2314,6 +2580,8 @@ Rcp_Form* 指向[Rcp_Form](#rcp_form)的指针。
   
 
 ##### HMS_Rcp_CreateHeaders()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_Headers* HMS_Rcp_CreateHeaders (void)
@@ -2333,6 +2601,8 @@ Rcp_Headers* 创建的标头。指向[Rcp_Headers](#rcp_headers)的指针。
 
 ##### HMS_Rcp_CreateMultipartForm()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_MultipartForm* HMS_Rcp_CreateMultipartForm (void)
 ```
@@ -2350,6 +2620,8 @@ Rcp_MultipartForm* 返回创建的多部分表单，指向[Rcp_MultipartForm](#r
   
 
 ##### HMS_Rcp_CreateRequest()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_Request* HMS_Rcp_CreateRequest (const char * url)
@@ -2376,6 +2648,8 @@ Rcp_Request* 返回创建的请求。指向[Rcp_Request](https://developer.huawe
 
 ##### HMS_Rcp_CreateRequestCookies()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_RequestCookies* HMS_Rcp_CreateRequestCookies (void)
 ```
@@ -2393,6 +2667,8 @@ Rcp_RequestCookies* 返回指向已创建的[Rcp_RequestCookies](#rcp_requestcoo
   
 
 ##### HMS_Rcp_CreateSession()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_Session* HMS_Rcp_CreateSession (const Rcp_SessionConfiguration * configuration, uint32_t * errCode )
@@ -2421,6 +2697,8 @@ Rcp_Session* 返回创建的会话。指向[Rcp_Session](#rcp_session)的指针�
   
 
 ##### HMS_Rcp_GetDefaultSession()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t HMS_Rcp_GetDefaultSession (Rcp_Session ** session)
@@ -2451,6 +2729,8 @@ uint32_t HMS_Rcp_GetDefaultSession (Rcp_Session ** session)
 
 ##### HMS_Rcp_DestroyForm()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void HMS_Rcp_DestroyForm (Rcp_Form * form)
 ```
@@ -2471,6 +2751,8 @@ void HMS_Rcp_DestroyForm (Rcp_Form * form)
   
 
 ##### HMS_Rcp_DestroyHeaderEntries()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void HMS_Rcp_DestroyHeaderEntries (Rcp_HeaderEntry * headerEntry)
@@ -2493,6 +2775,8 @@ void HMS_Rcp_DestroyHeaderEntries (Rcp_HeaderEntry * headerEntry)
 
 ##### HMS_Rcp_DestroyHeaders()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void HMS_Rcp_DestroyHeaders (Rcp_Headers * headers)
 ```
@@ -2513,6 +2797,8 @@ void HMS_Rcp_DestroyHeaders (Rcp_Headers * headers)
   
 
 ##### HMS_Rcp_DestroyMultipartForm()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void HMS_Rcp_DestroyMultipartForm (Rcp_MultipartForm * multipartForm)
@@ -2535,6 +2821,8 @@ void HMS_Rcp_DestroyMultipartForm (Rcp_MultipartForm * multipartForm)
 
 ##### HMS_Rcp_DestroyRequest()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void HMS_Rcp_DestroyRequest (Rcp_Request * request)
 ```
@@ -2555,6 +2843,8 @@ void HMS_Rcp_DestroyRequest (Rcp_Request * request)
   
 
 ##### HMS_Rcp_DestroyRequestCookieEntries()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void HMS_Rcp_DestroyRequestCookieEntries (Rcp_RequestCookieEntry * cookieEntry)
@@ -2577,6 +2867,8 @@ void HMS_Rcp_DestroyRequestCookieEntries (Rcp_RequestCookieEntry * cookieEntry)
 
 ##### HMS_Rcp_DestroyRequestCookies()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void HMS_Rcp_DestroyRequestCookies (Rcp_RequestCookies * cookies)
 ```
@@ -2598,6 +2890,8 @@ void HMS_Rcp_DestroyRequestCookies (Rcp_RequestCookies * cookies)
 
 ##### HMS_Rcp_DestroyResponseCookieAttrEntries()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void HMS_Rcp_DestroyResponseCookieAttrEntries (Rcp_CookieAttributeEntry * entries)
 ```
@@ -2618,6 +2912,8 @@ void HMS_Rcp_DestroyResponseCookieAttrEntries (Rcp_CookieAttributeEntry * entrie
   
 
 ##### HMS_Rcp_Fetch()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t HMS_Rcp_Fetch (Rcp_Session * session, Rcp_Request * request, const Rcp_ResponseCallbackObject * responseCallback )
@@ -2652,6 +2948,8 @@ ohos.permission.INTERNET（如需使用[PathPreference](#rcp_pathpreference-1)�
 
 ##### HMS_Rcp_FetchSync()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Response* HMS_Rcp_FetchSync (Rcp_Session * session, Rcp_Request * request, uint32_t * errCode )
 ```
@@ -2685,6 +2983,8 @@ ohos.permission.INTERNET（如需使用[PathPreference](#rcp_pathpreference-1)�
 
 ##### HMS_Rcp_GetFormValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_FormFieldValue* HMS_Rcp_GetFormValue (Rcp_Form * form, const char * key )
 ```
@@ -2711,6 +3011,8 @@ Rcp_FormFieldValue* 值。指向{@Rcp_FormFieldValue}的指针。
 
 ##### HMS_Rcp_GetHeaderEntries()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_HeaderEntry* HMS_Rcp_GetHeaderEntries (Rcp_Headers * headers)
 ```
@@ -2735,6 +3037,8 @@ Rcp_HeaderEntry* 指向所有获取到的键值对[Rcp_HeaderEntry](https://deve
   
 
 ##### HMS_Rcp_GetHeaderValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_HeaderValue* HMS_Rcp_GetHeaderValue (Rcp_Headers * headers, const char * name )
@@ -2762,6 +3066,8 @@ Rcp_HeaderValue* 指向获得的[Rcp_HeaderValue](https://developer.huawei.com/c
 
 ##### HMS_Rcp_GetMultipartFormValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_MultipartFormFieldValue* HMS_Rcp_GetMultipartFormValue (Rcp_MultipartForm * multipartForm, const char * key )
 ```
@@ -2788,6 +3094,8 @@ Rcp_MultipartFormFieldValue* 多部分表单的值。指向[Rcp_MultipartFormFie
 
 ##### HMS_Rcp_GetRequestCookieEntries()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_RequestCookieEntry* HMS_Rcp_GetRequestCookieEntries (Rcp_RequestCookies * cookies)
 ```
@@ -2812,6 +3120,8 @@ Rcp_RequestCookieEntry* 返回请求Cookie中的所有键值对。指向[Rcp_Req
   
 
 ##### HMS_Rcp_GetRequestCookieValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char* HMS_Rcp_GetRequestCookieValue (Rcp_RequestCookies * cookies, const char * name )
@@ -2839,6 +3149,8 @@ char* 返回请求Cookie的值。
 
 ##### HMS_Rcp_GetResponseCookieAttrEntries()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_CookieAttributeEntry* HMS_Rcp_GetResponseCookieAttrEntries (Rcp_CookieAttributes * cookieAttributes)
 ```
@@ -2863,6 +3175,8 @@ Rcp_CookieAttributeEntry* HMS_Rcp_GetResponseCookieAttrEntries (Rcp_CookieAttrib
   
 
 ##### HMS_Rcp_GetResponseCookieAttrValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const char* HMS_Rcp_GetResponseCookieAttrValue (Rcp_CookieAttributes * cookieAttributes, const char * name )
@@ -2889,6 +3203,8 @@ char* Cookie属性中的值。
   
 
 ##### HMS_Rcp_GetSessionConfiguration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const Rcp_SessionConfiguration* HMS_Rcp_GetSessionConfiguration (Rcp_Session * session)
@@ -2917,6 +3233,8 @@ Rcp_SessionConfiguration* 返回的会话配置。指向[Rcp_SessionConfiguratio
 
 ##### HMS_Rcp_GetSessionId()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 const char* HMS_Rcp_GetSessionId (Rcp_Session * session)
 ```
@@ -2943,6 +3261,8 @@ char* 返回的会话ID。
   
 
 ##### HMS_Rcp_SetFormValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t HMS_Rcp_SetFormValue (Rcp_Form * form, const char * key, const Rcp_FormFieldValue * value )
@@ -2971,6 +3291,8 @@ uint32_t HMS_Rcp_SetFormValue (Rcp_Form * form, const char * key, const Rcp_Form
 
 ##### HMS_Rcp_SetHeaderValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint32_t HMS_Rcp_SetHeaderValue (Rcp_Headers * headers, const char * name, const char * value )
 ```
@@ -2997,6 +3319,8 @@ uint32_t HMS_Rcp_SetHeaderValue (Rcp_Headers * headers, const char * name, const
   
 
 ##### HMS_Rcp_SetMultipartFormValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t HMS_Rcp_SetMultipartFormValue (Rcp_MultipartForm * multipartForm, const char * key, const Rcp_MultipartFormFieldValue * value )
@@ -3025,6 +3349,8 @@ uint32_t HMS_Rcp_SetMultipartFormValue (Rcp_MultipartForm * multipartForm, const
 
 ##### HMS_Rcp_SetRequestCookieValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint32_t HMS_Rcp_SetRequestCookieValue (Rcp_RequestCookies * cookies, const char * name, const char * value )
 ```
@@ -3052,6 +3378,8 @@ uint32_t HMS_Rcp_SetRequestCookieValue (Rcp_RequestCookies * cookies, const char
 
 ##### HMS_Rcp_SetRequestOnBinaryDataRecvCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint32_t HMS_Rcp_SetRequestOnBinaryDataRecvCallback (Rcp_Request * request, Rcp_OnBinaryReceiveCallback onBinaryReceiveCallback);
 ```
@@ -3078,6 +3406,8 @@ uint32_t HMS_Rcp_SetRequestOnBinaryDataRecvCallback (Rcp_Request * request, Rcp_
 
 ##### HMS_Rcp_SetRequestConnectOnly()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint32_t HMS_Rcp_SetRequestConnectOnly (Rcp_Request * request, bool connectOnly);
 ```
@@ -3103,6 +3433,8 @@ uint32_t HMS_Rcp_SetRequestConnectOnly (Rcp_Request * request, bool connectOnly)
   
 
 ##### HMS_Rcp_SetRequestOnStatusCodeReceiveCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t HMS_Rcp_SetRequestOnStatusCodeReceiveCallback (Rcp_Request * request, Rcp_OnStatusCodeReceiveCallback onStatusCodeReceiveCallback);

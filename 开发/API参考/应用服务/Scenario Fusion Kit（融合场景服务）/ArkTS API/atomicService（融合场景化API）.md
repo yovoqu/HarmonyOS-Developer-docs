@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { atomicService } from '@kit.ScenarioFusionKit';
 ```
@@ -25,6 +27,8 @@ import { atomicService } from '@kit.ScenarioFusionKit';
   
 
 ##### SystemSettingInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类提供获取系统设置属性的对象。
  
@@ -47,6 +51,8 @@ import { atomicService } from '@kit.ScenarioFusionKit';
   
 
 ##### SystemInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类提供获取系统信息属性的对象。
  
@@ -83,6 +89,8 @@ import { atomicService } from '@kit.ScenarioFusionKit';
 
 ##### FollowResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该枚举定义了关注结果的类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -104,6 +112,8 @@ import { atomicService } from '@kit.ScenarioFusionKit';
   
 
 ##### FollowComponentParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 获取关注组件的参数。
  
@@ -128,6 +138,8 @@ import { atomicService } from '@kit.ScenarioFusionKit';
 
 ##### FollowComponentCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 关注组件的回调接口。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -149,6 +161,8 @@ import { atomicService } from '@kit.ScenarioFusionKit';
 
 ##### FollowCompleteResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该接口定义了关注组件关注结果的返回体。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -167,6 +181,8 @@ import { atomicService } from '@kit.ScenarioFusionKit';
   
 
 ##### SystemInfoType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SystemInfoType = 'brand' | 'deviceModel' | 'screenWidth' | 'screenHeight' | 'statusBarHeight'
  
@@ -211,6 +227,8 @@ type SystemInfoType = 'brand' | 'deviceModel' | 'screenWidth' | 'screenHeight' |
 
 ##### SystemSettingType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SystemSettingType = 'bluetoothEnabled' | 'locationEnabled' | 'wifiEnabled' | 'deviceOrientation'
  
 系统设置属性取值类型。
@@ -236,6 +254,8 @@ type SystemSettingType = 'bluetoothEnabled' | 'locationEnabled' | 'wifiEnabled' 
   
 
 ##### getSystemInfoSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSystemInfoSync(properties?: Array&lt;SystemInfoType&gt;): SystemInfo
  
@@ -302,6 +322,8 @@ try {
   
 
 ##### getSystemInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSystemInfo(properties?: Array&lt;SystemInfoType&gt;): Promise&lt;SystemInfo&gt;
  
@@ -379,6 +401,8 @@ try {
 
 ##### getSystemSetting
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSystemSetting(properties?: Array&lt;SystemSettingType&gt;): SystemSettingInfo
  
 调用该方法获取系统设置属性，包括蓝牙、位置、Wi-Fi状态和设备方向信息。
@@ -430,6 +454,8 @@ try {
   
 
 ##### showFollowComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showFollowComponent(ctx: UIContext, params: FollowComponentParams, callback: FollowComponentCallback): Promise&lt;void&gt;
  

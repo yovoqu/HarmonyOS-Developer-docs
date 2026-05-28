@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, photoAccessHelper, EmptyAreaClickCallback } from '@kit.MediaLibraryKit';
 ```
@@ -24,11 +26,15 @@ import { AlbumPickerComponent, AlbumPickerOptions, AlbumInfo, photoAccessHelper,
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### AlbumPickerComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AlbumPickerComponent( {albumPickerOptions?: AlbumPickerOptions, onAlbumClick?: (albumInfo: AlbumInfo) => boolean, onEmptyAreaClick?: EmptyAreaClickCallback, albumPickerController?: AlbumPickerController })
 
@@ -52,6 +58,8 @@ AlbumPickerComponent( {albumPickerOptions?: AlbumPickerOptions, onAlbumClick?: (
 
 ##### AlbumPickerOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Album Picker配置选项。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -67,6 +75,8 @@ Album Picker配置选项。
 
 ##### EmptyAreaClickCallback13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type EmptyAreaClickCallback = () => void
 
 点击相册组件空白区域时产生的回调事件。
@@ -78,6 +88,8 @@ type EmptyAreaClickCallback = () => void
 
 
 ##### AlbumInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相册相关信息。
 
@@ -95,6 +107,8 @@ type EmptyAreaClickCallback = () => void
 
 ##### AlbumPickerController20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用可通过AlbumPickerController向组件发送数据。
 
 **装饰器类型**：@Observed
@@ -104,6 +118,8 @@ type EmptyAreaClickCallback = () => void
 
 
 ##### setFontSize20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFontSize(fontSize: number | string): void
 
@@ -123,6 +139,8 @@ setFontSize(fontSize: number | string): void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets

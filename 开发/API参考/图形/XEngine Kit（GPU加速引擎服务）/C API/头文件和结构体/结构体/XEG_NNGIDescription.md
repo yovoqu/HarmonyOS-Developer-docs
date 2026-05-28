@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述更新NNGI用于计算光线追踪全局光照的所需的信息。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,9 +54,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### inferenceCameraProjectionMatrix
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_NNGIDescription::inferenceCameraProjectionMatrix[16]
@@ -64,6 +74,8 @@ float XEG_NNGIDescription::inferenceCameraProjectionMatrix[16]
 
 ##### inferenceCameraViewMatrix
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_NNGIDescription::inferenceCameraViewMatrix[16]
 ```
@@ -75,6 +87,8 @@ float XEG_NNGIDescription::inferenceCameraViewMatrix[16]
   
 
 ##### inferenceInputBaseColorMetallicImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_NNGIDescription::inferenceInputBaseColorMetallicImage
@@ -88,6 +102,8 @@ VkImageView XEG_NNGIDescription::inferenceInputBaseColorMetallicImage
 
 ##### inferenceInputDepthImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_NNGIDescription::inferenceInputDepthImage
 ```
@@ -99,6 +115,8 @@ VkImageView XEG_NNGIDescription::inferenceInputDepthImage
   
 
 ##### inferenceInputNormalImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_NNGIDescription::inferenceInputNormalImage
@@ -112,6 +130,8 @@ VkImageView XEG_NNGIDescription::inferenceInputNormalImage
 
 ##### inferenceOutputGIImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_NNGIDescription::inferenceOutputGIImage
 ```
@@ -123,6 +143,8 @@ VkImageView XEG_NNGIDescription::inferenceOutputGIImage
   
 
 ##### isSceneUnbounded
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 bool XEG_NNGIDescription::isSceneUnbounded = false
@@ -136,6 +158,8 @@ bool XEG_NNGIDescription::isSceneUnbounded = false
 
 ##### pNext
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 const void* XEG_NNGIDescription::pNext
 ```
@@ -147,6 +171,8 @@ const void* XEG_NNGIDescription::pNext
   
 
 ##### sceneAabb
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkAabbPositionsKHR XEG_NNGIDescription::sceneAabb
@@ -160,6 +186,8 @@ VkAabbPositionsKHR XEG_NNGIDescription::sceneAabb
 
 ##### spatialScaleFactor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_NNGIDescription::spatialScaleFactor = 0
 ```
@@ -171,6 +199,8 @@ float XEG_NNGIDescription::spatialScaleFactor = 0
   
 
 ##### sType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 XEG_StructureType XEG_NNGIDescription::sType
@@ -184,6 +214,8 @@ XEG_StructureType XEG_NNGIDescription::sType
 
 ##### trainingCameraProjectionMatrix
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_NNGIDescription::trainingCameraProjectionMatrix[16]
 ```
@@ -195,6 +227,8 @@ float XEG_NNGIDescription::trainingCameraProjectionMatrix[16]
   
 
 ##### trainingCameraViewMatrix
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_NNGIDescription::trainingCameraViewMatrix[16]
@@ -208,6 +242,8 @@ float XEG_NNGIDescription::trainingCameraViewMatrix[16]
 
 ##### trainingInputBaseColorMetallicImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_NNGIDescription::trainingInputBaseColorMetallicImage
 ```
@@ -219,6 +255,8 @@ VkImageView XEG_NNGIDescription::trainingInputBaseColorMetallicImage
   
 
 ##### trainingInputGIImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_NNGIDescription::trainingInputGIImage
@@ -232,6 +270,8 @@ VkImageView XEG_NNGIDescription::trainingInputGIImage
 
 ##### trainingInputNormalImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_NNGIDescription::trainingInputNormalImage
 ```
@@ -243,6 +283,8 @@ VkImageView XEG_NNGIDescription::trainingInputNormalImage
   
 
 ##### trainingInputPositionImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_NNGIDescription::trainingInputPositionImage

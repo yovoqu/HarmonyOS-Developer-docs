@@ -12,6 +12,8 @@ typedef struct OH_MultiDisplayCapability {...} OH_MultiDisplayCapability
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 多屏幕录制能力信息。多屏场景下，用户选择的多屏幕是否支持联合录制，以及联合录制的屏幕宽度和高度。
  
 **起始版本：** 24
@@ -24,9 +26,13 @@ typedef struct OH_MultiDisplayCapability {...} OH_MultiDisplayCapability
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

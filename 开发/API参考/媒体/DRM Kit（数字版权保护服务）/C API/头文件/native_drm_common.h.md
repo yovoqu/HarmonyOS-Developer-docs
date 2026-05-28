@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义DRM数据类型。
  
 **引用文件：** <multimedia/drm_framework/native_drm_common.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -45,6 +51,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -59,6 +67,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -68,6 +78,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -100,9 +112,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### DRM_EventType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum DRM_EventType
@@ -130,6 +146,8 @@ enum DRM_EventType
 
 ##### DRM_ContentProtectionLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum DRM_ContentProtectionLevel
 ```
@@ -155,6 +173,8 @@ enum DRM_ContentProtectionLevel
 
 ##### DRM_MediaKeyType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum DRM_MediaKeyType
 ```
@@ -176,6 +196,8 @@ enum DRM_MediaKeyType
   
 
 ##### DRM_MediaKeyRequestType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum DRM_MediaKeyRequestType
@@ -203,6 +225,8 @@ enum DRM_MediaKeyRequestType
 
 ##### DRM_OfflineMediaKeyStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum DRM_OfflineMediaKeyStatus
 ```
@@ -225,6 +249,8 @@ enum DRM_OfflineMediaKeyStatus
   
 
 ##### DRM_CertificateStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum DRM_CertificateStatus
@@ -251,9 +277,13 @@ enum DRM_CertificateStatus
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### DRM_MediaKeySystemInfoCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*DRM_MediaKeySystemInfoCallback)(DRM_MediaKeySystemInfo *mediaKeySystemInfo)

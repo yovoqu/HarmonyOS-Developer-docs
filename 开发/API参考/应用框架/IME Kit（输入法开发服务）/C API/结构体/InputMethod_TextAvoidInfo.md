@@ -12,6 +12,8 @@ typedef struct InputMethod_TextAvoidInfo InputMethod_TextAvoidInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入框避让信息。输入框用于避让键盘的信息。
  
 **起始版本：** 12

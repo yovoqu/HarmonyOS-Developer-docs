@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含单个子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 GridItem(value?: GridItemOptions)
 
@@ -39,9 +43,13 @@ GridItem(value?: GridItemOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### rowStart
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rowStart(value: number)
 
@@ -62,6 +70,8 @@ rowStart(value: number)
 
 ##### rowEnd
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rowEnd(value: number)
 
 设置当前元素终点行号。
@@ -81,6 +91,8 @@ rowEnd(value: number)
 
 ##### columnStart
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 columnStart(value: number)
 
 设置当前元素起始列号。
@@ -99,6 +111,8 @@ columnStart(value: number)
 
 
 ##### columnEnd
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 columnEnd(value: number)
 
@@ -144,6 +158,8 @@ columnEnd(value: number)
 
 ##### forceRebuild(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 forceRebuild(value: boolean)
 
 设置在触发组件build时是否重新创建此节点。
@@ -164,6 +180,8 @@ forceRebuild(value: boolean)
 
 
 ##### selectable8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectable(value: boolean)
 
@@ -186,6 +204,8 @@ selectable(value: boolean)
 
 ##### selected10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selected(value: boolean)
 
 设置当前GridItem选中状态。该属性支持[$$](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-two-way-sync)双向绑定变量。
@@ -207,6 +227,8 @@ selected(value: boolean)
 
 ##### GridItemOptions11+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 GridItem样式对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -221,6 +243,8 @@ GridItem样式对象。
 
 
 ##### GridItemStyle11+枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 GridItem样式枚举。
 
@@ -242,9 +266,13 @@ GridItem样式枚举。
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### onSelect8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSelect(event: (isSelected: boolean) => void)
 
@@ -264,6 +292,8 @@ GridItem元素被鼠标框选的状态改变时触发回调。
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -390,4 +420,4 @@ struct GridItemExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/W_7TytotTfCTS_ob7kuLjA/zh-cn_image_0000002581435764.png?HW-CC-KV=V1&HW-CC-Date=20260528T013919Z&HW-CC-Expire=86400&HW-CC-Sign=1CA08BE26A2E14541948B76BCEA6AE18203B7BA53F3D32120358909495A96F7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/W_7TytotTfCTS_ob7kuLjA/zh-cn_image_0000002581435764.png?HW-CC-KV=V1&HW-CC-Date=20260528T024215Z&HW-CC-Expire=86400&HW-CC-Sign=F85D42314422E9E3F32ECC57075D28E2BE7C451596944000FD9497EA782E4A11)

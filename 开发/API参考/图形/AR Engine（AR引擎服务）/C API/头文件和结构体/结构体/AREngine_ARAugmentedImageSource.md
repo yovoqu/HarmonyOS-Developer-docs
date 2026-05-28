@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 图像数据。
  
 **起始版本：** 5.1.0(18)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### imageName
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 const char* AREngine_ARAugmentedImageSource::imageName
@@ -53,6 +63,8 @@ const char* AREngine_ARAugmentedImageSource::imageName
 
 ##### imageData
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 const uint8_t* AREngine_ARAugmentedImageSource::imageData
 ```
@@ -64,6 +76,8 @@ const uint8_t* AREngine_ARAugmentedImageSource::imageData
   
 
 ##### pixelWidth
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 int32_t AREngine_ARAugmentedImageSource::pixelWidth
@@ -77,6 +91,8 @@ int32_t AREngine_ARAugmentedImageSource::pixelWidth
 
 ##### pixelHeight
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 int32_t AREngine_ARAugmentedImageSource::pixelHeight
 ```
@@ -89,6 +105,8 @@ int32_t AREngine_ARAugmentedImageSource::pixelHeight
 
 ##### stride
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 int32_t AREngine_ARAugmentedImageSource::stride
 ```
@@ -100,6 +118,8 @@ int32_t AREngine_ARAugmentedImageSource::stride
   
 
 ##### realWidthInMeters
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 float AREngine_ARAugmentedImageSource::realWidthInMeters

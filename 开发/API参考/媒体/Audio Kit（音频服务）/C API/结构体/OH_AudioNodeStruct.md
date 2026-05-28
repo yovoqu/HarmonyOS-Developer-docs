@@ -12,6 +12,8 @@ typedef struct OH_AudioNodeStruct OH_AudioNode
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明音频编创节点，用于描述音频编创节点实例。
  
 **起始版本：** 22

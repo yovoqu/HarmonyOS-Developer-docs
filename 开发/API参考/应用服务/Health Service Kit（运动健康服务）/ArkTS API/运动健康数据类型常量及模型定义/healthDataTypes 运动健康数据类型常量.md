@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { healthStore } from '@kit.HealthServiceKit';
 ```
@@ -23,6 +25,8 @@ import { healthStore } from '@kit.HealthServiceKit';
   
 
 ##### 常量
+
+**支持设备：** Phone | Tablet | Wearable
 
 **系统能力：** SystemCapability.Health.HealthStore
  

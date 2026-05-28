@@ -16,6 +16,8 @@ ControlCenter继承自[ControlCenterQuery](https://developer.huawei.com/consumer
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -23,6 +25,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### enableControlCenter20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableControlCenter(enabled: boolean): void
  

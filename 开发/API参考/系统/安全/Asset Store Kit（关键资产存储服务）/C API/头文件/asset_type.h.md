@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义关键资产存储服务中通用的枚举值、数据结构和错误码。
 
 **引用文件：** <asset/asset_type.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -40,6 +46,8 @@
 
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -59,6 +67,8 @@
 
 ##### 宏定义
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 名称 | 描述 |
 | --- | --- |
 | ASSET_TAG_TYPE_MASK (0xF << 28) | 用于获取关键资产属性类型的掩码。 起始版本： 11 |
@@ -68,9 +78,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### Asset_TagType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Asset_TagType
@@ -92,6 +106,8 @@ enum Asset_TagType
 
 
 ##### Asset_Tag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Asset_Tag
@@ -143,6 +159,8 @@ enum Asset_Tag
 
 ##### Asset_ResultCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Asset_ResultCode
 ```
@@ -182,6 +200,8 @@ enum Asset_ResultCode
 
 ##### Asset_Accessibility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Asset_Accessibility
 ```
@@ -203,6 +223,8 @@ enum Asset_Accessibility
 
 ##### Asset_AuthType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Asset_AuthType
 ```
@@ -222,6 +244,8 @@ enum Asset_AuthType
 
 
 ##### Asset_SyncType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Asset_SyncType
@@ -245,6 +269,8 @@ enum Asset_SyncType
 
 ##### Asset_WrapType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Asset_WrapType
 ```
@@ -264,6 +290,8 @@ enum Asset_WrapType
 
 
 ##### Asset_ConflictResolution
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Asset_ConflictResolution
@@ -285,6 +313,8 @@ enum Asset_ConflictResolution
 
 ##### Asset_ReturnType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum Asset_ReturnType
 ```
@@ -304,6 +334,8 @@ enum Asset_ReturnType
 
 
 ##### Asset_OperationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Asset_OperationType

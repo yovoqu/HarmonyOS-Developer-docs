@@ -12,6 +12,8 @@ typedef struct ScsiPeripheral_InquiryInfo {...} ScsiPeripheral_InquiryInfo
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 SCSI inquiry 数据。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ SCSI inquiry 数据。
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

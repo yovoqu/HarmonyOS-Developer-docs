@@ -12,6 +12,8 @@ typedef struct OH_Drawing_FontVariationAxis OH_Drawing_FontVariationAxis
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于描述字体可变轴。
  
 **起始版本：** 24

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { advertising } from '@kit.AdsKit';
 ```
@@ -21,6 +23,8 @@ import { advertising } from '@kit.AdsKit';
   
 
 ##### Advertisement
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 请求的广告内容。
  

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 ```
@@ -21,6 +23,8 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
 
 ##### EnterpriseRecoveryKeyInfo
+
+**支持设备：** PC/2in1
 
 企业恢复密钥及相关加密参数。
 
@@ -39,6 +43,8 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
 
 ##### getEnterpriseRecoveryKey
+
+**支持设备：** PC/2in1
 
 getEnterpriseRecoveryKey(userId: number): Promise&lt;EnterpriseRecoveryKeyInfo&gt;
 
@@ -109,6 +115,8 @@ async function getEnterpriseRecoveryKey() {
 
 ##### getAuthChallenge
 
+**支持设备：** PC/2in1
+
 getAuthChallenge(): Promise&lt;Uint8Array&gt;
 
 获取挑战值，在发起更新企业公钥证书、删除企业恢复密钥数据流程前，需要先获取挑战值。使用Promise异步回调。
@@ -154,6 +162,8 @@ recoveryKey.getAuthChallenge().then((challenge: Uint8Array) => {
 
 
 ##### updateEnterpriseCertificate
+
+**支持设备：** PC/2in1
 
 updateEnterpriseCertificate(signature: Uint8Array, cert: Uint8Array): Promise&lt;number&gt;
 
@@ -214,6 +224,8 @@ recoveryKey.updateEnterpriseCertificate(signature, cert).then((ret: number)=>{
 
 
 ##### deleteEnterpriseRecoveryKey
+
+**支持设备：** PC/2in1
 
 deleteEnterpriseRecoveryKey(userId: number, signature: Uint8Array): Promise&lt;number&gt;
 
@@ -280,6 +292,8 @@ async function deleteEnterpriseRecoveryKey() {
 
 
 ##### verifyUserIdentityEnterprise
+
+**支持设备：** PC/2in1
 
 verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string): Promise&lt;void&gt;
 
@@ -351,6 +365,8 @@ async function verifyUserIdentityEnterprise(pinCode: string) {
 
 ##### verifyUserByDialog
 
+**支持设备：** PC/2in1
+
 verifyUserByDialog(userId: number): Promise&lt;void&gt;
 
 通过弹框验证企业用户身份。在导出企业恢复密钥以重置锁屏密码之前，通过弹框验证企业用户身份。使用Promise异步回调。
@@ -415,6 +431,8 @@ async function getEnterpriseRecoveryKeyForPinByDialog() {
 
 
 ##### getEnterpriseRecoveryKeyForResettingPin
+
+**支持设备：** PC/2in1
 
 getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promise&lt;EnterpriseRecoveryKeyInfo&gt;
 

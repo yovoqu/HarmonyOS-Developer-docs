@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明用于发现和连接打印机、通过打印机打印文件、查询已添加打印机列表及其内部打印机信息等功能的 API。
 
 **引用文件：** <BasicServicesKit/ohprint.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -48,6 +54,8 @@
 
 ##### 枚举
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | Print_ErrorCode | Print_ErrorCode | 定义错误码。 |
@@ -66,6 +74,8 @@
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -100,9 +110,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 
 
 ##### Print_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum Print_ErrorCode
@@ -133,6 +147,8 @@ enum Print_ErrorCode
 
 ##### Print_PrinterState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 enum Print_PrinterState
 ```
@@ -153,6 +169,8 @@ enum Print_PrinterState
 
 
 ##### Print_DiscoveryEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum Print_DiscoveryEvent
@@ -176,6 +194,8 @@ enum Print_DiscoveryEvent
 
 ##### Print_PrinterEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 enum Print_PrinterEvent
 ```
@@ -198,6 +218,8 @@ enum Print_PrinterEvent
 
 ##### Print_DuplexMode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 enum Print_DuplexMode
 ```
@@ -219,6 +241,8 @@ enum Print_DuplexMode
 
 ##### Print_ColorMode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 enum Print_ColorMode
 ```
@@ -239,6 +263,8 @@ enum Print_ColorMode
 
 
 ##### Print_OrientationMode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum Print_OrientationMode
@@ -263,6 +289,8 @@ enum Print_OrientationMode
 
 ##### Print_Quality
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 enum Print_Quality
 ```
@@ -283,6 +311,8 @@ enum Print_Quality
 
 
 ##### Print_DocumentFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum Print_DocumentFormat
@@ -306,6 +336,8 @@ enum Print_DocumentFormat
 
 
 ##### Print_JobDocAdapterState
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum Print_JobDocAdapterState
@@ -332,6 +364,8 @@ enum Print_JobDocAdapterState
 
 ##### OH_Print_JobState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 enum OH_Print_JobState
 ```
@@ -354,9 +388,13 @@ enum OH_Print_JobState
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 
 
 ##### Print_WriteResultCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void(*Print_WriteResultCallback)(const char *jobId, uint32_t code)
@@ -379,6 +417,8 @@ typedef void(*Print_WriteResultCallback)(const char *jobId, uint32_t code)
 
 
 ##### Print_OnStartLayoutWrite()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void(*Print_OnStartLayoutWrite)(const char *jobId, uint32_t fd, const Print_PrintAttributes *oldAttrs, const Print_PrintAttributes *newAttrs, Print_WriteResultCallback writeCallback)
@@ -405,6 +445,8 @@ typedef void(*Print_OnStartLayoutWrite)(const char *jobId, uint32_t fd, const Pr
 
 ##### Print_OnJobStateChanged()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 typedef void(*Print_OnJobStateChanged)(const char *jobId, uint32_t state)
 ```
@@ -426,6 +468,8 @@ typedef void(*Print_OnJobStateChanged)(const char *jobId, uint32_t state)
 
 
 ##### Print_PrinterDiscoveryCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void (*Print_PrinterDiscoveryCallback)(Print_DiscoveryEvent event, const Print_PrinterInfo *printerInfo)
@@ -449,6 +493,8 @@ typedef void (*Print_PrinterDiscoveryCallback)(Print_DiscoveryEvent event, const
 
 ##### Print_PrinterChangeCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 typedef void (*Print_PrinterChangeCallback)(Print_PrinterEvent event, const Print_PrinterInfo *printerInfo)
 ```
@@ -470,6 +516,8 @@ typedef void (*Print_PrinterChangeCallback)(Print_PrinterEvent event, const Prin
 
 
 ##### OH_Print_Init()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_Init()
@@ -496,6 +544,8 @@ Print_ErrorCode OH_Print_Init()
 
 ##### OH_Print_Release()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 Print_ErrorCode OH_Print_Release()
 ```
@@ -518,6 +568,8 @@ Print_ErrorCode OH_Print_Release()
 
 
 ##### OH_Print_StartPrinterDiscovery()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_StartPrinterDiscovery(Print_PrinterDiscoveryCallback callback)
@@ -551,6 +603,8 @@ Print_ErrorCode OH_Print_StartPrinterDiscovery(Print_PrinterDiscoveryCallback ca
 
 ##### OH_Print_StopPrinterDiscovery()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 Print_ErrorCode OH_Print_StopPrinterDiscovery()
 ```
@@ -575,6 +629,8 @@ Print_ErrorCode OH_Print_StopPrinterDiscovery()
 
 
 ##### OH_Print_ConnectPrinter()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_ConnectPrinter(const char *printerId)
@@ -608,6 +664,8 @@ Print_ErrorCode OH_Print_ConnectPrinter(const char *printerId)
 
 ##### OH_Print_StartPrintJob()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 Print_ErrorCode OH_Print_StartPrintJob(const Print_PrintJob *printJob)
 ```
@@ -639,6 +697,8 @@ Print_ErrorCode OH_Print_StartPrintJob(const Print_PrintJob *printJob)
 
 
 ##### OH_Print_RegisterPrinterChangeListener()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_RegisterPrinterChangeListener(Print_PrinterChangeCallback callback)
@@ -672,6 +732,8 @@ Print_ErrorCode OH_Print_RegisterPrinterChangeListener(Print_PrinterChangeCallba
 
 ##### OH_Print_UnregisterPrinterChangeListener()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 void OH_Print_UnregisterPrinterChangeListener()
 ```
@@ -689,6 +751,8 @@ void OH_Print_UnregisterPrinterChangeListener()
 
 
 ##### OH_Print_QueryPrinterList()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_QueryPrinterList(Print_StringList *printerIdList)
@@ -722,6 +786,8 @@ Print_ErrorCode OH_Print_QueryPrinterList(Print_StringList *printerIdList)
 
 ##### OH_Print_ReleasePrinterList()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 void OH_Print_ReleasePrinterList(Print_StringList *printerIdList)
 ```
@@ -744,6 +810,8 @@ void OH_Print_ReleasePrinterList(Print_StringList *printerIdList)
 
 
 ##### OH_Print_QueryPrinterInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_QueryPrinterInfo(const char *printerId, Print_PrinterInfo **printerInfo)
@@ -778,6 +846,8 @@ Print_ErrorCode OH_Print_QueryPrinterInfo(const char *printerId, Print_PrinterIn
 
 ##### OH_Print_ReleasePrinterInfo()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 void OH_Print_ReleasePrinterInfo(Print_PrinterInfo *printerInfo)
 ```
@@ -801,6 +871,8 @@ void OH_Print_ReleasePrinterInfo(Print_PrinterInfo *printerInfo)
 
 ##### OH_Print_LaunchPrinterManager()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 Print_ErrorCode OH_Print_LaunchPrinterManager()
 ```
@@ -823,6 +895,8 @@ Print_ErrorCode OH_Print_LaunchPrinterManager()
 
 
 ##### OH_Print_QueryPrinterProperties()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_QueryPrinterProperties(const char *printerId, const Print_StringList *propertyKeyList, Print_PropertyList *propertyList)
@@ -858,6 +932,8 @@ Print_ErrorCode OH_Print_QueryPrinterProperties(const char *printerId, const Pri
 
 ##### OH_Print_ReleasePrinterProperties()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 void OH_Print_ReleasePrinterProperties(Print_PropertyList *propertyList)
 ```
@@ -880,6 +956,8 @@ void OH_Print_ReleasePrinterProperties(Print_PropertyList *propertyList)
 
 
 ##### OH_Print_UpdatePrinterProperties()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_UpdatePrinterProperties(const char *printerId, const Print_PropertyList *propertyList)
@@ -914,6 +992,8 @@ Print_ErrorCode OH_Print_UpdatePrinterProperties(const char *printerId, const Pr
 
 ##### OH_Print_RestorePrinterProperties()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 Print_ErrorCode OH_Print_RestorePrinterProperties(const char *printerId, const Print_StringList *propertyKeyList)
 ```
@@ -946,6 +1026,8 @@ Print_ErrorCode OH_Print_RestorePrinterProperties(const char *printerId, const P
 
 
 ##### OH_Print_StartPrintByNative()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_StartPrintByNative(const char *printJobName, Print_PrintDocCallback printDocCallback, void *context)
@@ -981,6 +1063,8 @@ Print_ErrorCode OH_Print_StartPrintByNative(const char *printJobName, Print_Prin
 
 ##### OH_Print_OnJobStateChanged()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 typedef void(*OH_Print_OnJobStateChanged)(const char *jobId, OH_Print_JobState state)
 ```
@@ -1002,6 +1086,8 @@ typedef void(*OH_Print_OnJobStateChanged)(const char *jobId, OH_Print_JobState s
 
 
 ##### OH_Print_StartPrintWithJobStateCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 Print_ErrorCode OH_Print_StartPrintWithJobStateCallback(const Print_PrintJob *printJob, OH_Print_OnJobStateChanged jobStateChangedCb)

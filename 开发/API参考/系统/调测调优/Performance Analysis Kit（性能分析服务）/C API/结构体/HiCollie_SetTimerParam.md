@@ -12,6 +12,8 @@ typedef struct HiCollie_SetTimerParam {...} HiCollie_SetTimerParam
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义OH_HiCollie_SetTimer函数的输入参数。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct HiCollie_SetTimerParam {...} HiCollie_SetTimerParam
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

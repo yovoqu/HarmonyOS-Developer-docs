@@ -12,6 +12,8 @@
 
 ##### SecurityLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据库的安全级别枚举。请使用枚举名称而非枚举值。数据库的安全等级仅支持由低向高设置，不支持由高向低设置。
 
 > [!NOTE]
@@ -32,6 +34,8 @@
 
 ##### EncryptionAlgo14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据库的加密方式枚举。请使用枚举名称而非枚举值。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -46,6 +50,8 @@
 
 
 ##### HmacAlgo14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 数据库的HMAC算法枚举。请使用枚举名称而非枚举值。
 
@@ -62,6 +68,8 @@
 
 ##### KdfAlgo14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据库的PBKDF2算法枚举。请使用枚举名称而非枚举值。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -76,6 +84,8 @@
 
 
 ##### Tokenizer17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述fts（全文搜索）场景下使用的分词器枚举。请使用枚举名称而非枚举值。
 
@@ -202,6 +212,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### AssetStatus10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述资产附件的状态枚举。请使用枚举名称而非枚举值。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -220,6 +232,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### SyncMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指数据库同步模式。请使用枚举名称而非枚举值。
 
 | 名称 | 值 | 说明 |
@@ -235,6 +249,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### Origin11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示数据来源。请使用枚举名称而非枚举值。
 
 **系统能力：** SystemCapability.DistributedDataManager.CloudSync.Client
@@ -249,6 +265,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### Field11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 用于谓词查询条件的特殊字段。请使用枚举名称而非枚举值。
 
@@ -269,6 +287,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### SubscribeType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述订阅类型。请使用枚举名称而非枚举值。
 
 | 名称 | 值 | 说明 |
@@ -282,6 +302,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### RebuildType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述数据库重建类型的枚举。请使用枚举名称而非枚举值。
 
@@ -298,6 +320,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ChangeType10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述数据变更类型的枚举。请使用枚举名称而非枚举值。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -312,6 +336,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### DistributedType10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述表的分布式类型的枚举。请使用枚举名称而非枚举值。
 
 | 名称 | 值 | 说明 |
@@ -323,6 +349,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### ConflictResolution10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 插入和修改接口的冲突解决模式。请使用枚举名称而非枚举值。
 
@@ -342,6 +370,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### Progress10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述端云同步过程的枚举。请使用枚举名称而非枚举值。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -356,6 +386,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### ProgressCode10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示端云同步过程的状态。请使用枚举名称而非枚举值。
 
@@ -377,6 +409,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### TransactionType14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述创建事务对象的枚举。请使用枚举名称而非枚举值。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -391,6 +425,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### ColumnType18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述数据库列存储类型的枚举。请使用枚举名称而非枚举值。
 
@@ -412,6 +448,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### DistributedTableType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 分布式表类型的枚举。请使用枚举名称而非枚举值。此配置项为数据库级配置，如果数据库中有多张分布式表，则所有表必须使用相同的分布式表类型，且不支持切换升级。
 

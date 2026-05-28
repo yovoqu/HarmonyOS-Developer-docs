@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件中定义与surface相关的功能函数，包括surface的创建、销毁和使用等。
  
 **引用文件：** <native_drawing/drawing_surface.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,9 +46,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_SurfaceCreateFromGpuContext()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Surface* OH_Drawing_SurfaceCreateFromGpuContext(OH_Drawing_GpuContext* gpuContext, bool flag, OH_Drawing_Image_Info imageInfo)
@@ -80,6 +90,8 @@ gpuContext为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ##### OH_Drawing_SurfaceCreateOnScreen()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_Surface* OH_Drawing_SurfaceCreateOnScreen(OH_Drawing_GpuContext* gpuContext, OH_Drawing_Image_Info imageInfo, void* window)
 ```
@@ -116,6 +128,8 @@ gpuContext或window为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ##### OH_Drawing_SurfaceGetCanvas()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_Canvas* OH_Drawing_SurfaceGetCanvas(OH_Drawing_Surface* surface)
 ```
@@ -150,6 +164,8 @@ surface为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ##### OH_Drawing_SurfaceFlush()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ErrorCode OH_Drawing_SurfaceFlush(OH_Drawing_Surface* surface)
 ```
@@ -179,6 +195,8 @@ OH_Drawing_ErrorCode OH_Drawing_SurfaceFlush(OH_Drawing_Surface* surface)
   
 
 ##### OH_Drawing_SurfaceDestroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SurfaceDestroy(OH_Drawing_Surface* surface)

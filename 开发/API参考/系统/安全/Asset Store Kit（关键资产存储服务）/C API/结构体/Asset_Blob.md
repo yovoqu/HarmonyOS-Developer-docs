@@ -12,6 +12,8 @@ typedef struct {...} Asset_Blob
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 二进制数组类型，即不定长的字节数组。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct {...} Asset_Blob
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

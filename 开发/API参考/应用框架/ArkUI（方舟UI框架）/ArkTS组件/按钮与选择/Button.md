@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含单个子组件。
  
   
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Button
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Button(options: ButtonOptions)
  
@@ -44,6 +50,8 @@ Button(options: ButtonOptions)
   
 
 ##### Button
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Button(label: ResourceStr, options?: ButtonOptions)
  
@@ -69,6 +77,8 @@ Button(label: ResourceStr, options?: ButtonOptions)
 
 ##### Button
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Button()
  
 创建一个空按钮。
@@ -82,6 +92,8 @@ Button()
   
 
 ##### ButtonOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 按钮的样式。
  
@@ -100,11 +112,15 @@ Button()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type(value: ButtonType)
  
@@ -127,6 +143,8 @@ type(value: ButtonType)
 
 ##### fontSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontSize(value: Length)
  
 设置文本显示字号。
@@ -147,6 +165,8 @@ fontSize(value: Length)
   
 
 ##### fontColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontColor(value: ResourceColor)
  
@@ -169,6 +189,8 @@ fontColor(value: ResourceColor)
 
 ##### fontWeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontWeight(value: number | FontWeight | string)
  
 设置文本的字体粗细。
@@ -190,6 +212,8 @@ fontWeight(value: number | FontWeight | string)
 
 ##### fontStyle8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontStyle(value: FontStyle)
  
 设置文本的字体样式。
@@ -210,6 +234,8 @@ fontStyle(value: FontStyle)
   
 
 ##### stateEffect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stateEffect(value: boolean)
  
@@ -236,6 +262,8 @@ stateEffect(value: boolean)
 
 ##### fontFamily8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontFamily(value: string | Resource)
  
 设置字体列表。
@@ -257,6 +285,8 @@ fontFamily(value: string | Resource)
 
 ##### labelStyle10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 labelStyle(value: LabelStyle)
  
 设置Button组件label文本和字体的样式。
@@ -275,6 +305,8 @@ labelStyle(value: LabelStyle)
   
 
 ##### buttonStyle11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 buttonStyle(value: ButtonStyleMode)
  
@@ -301,6 +333,8 @@ buttonStyle(value: ButtonStyleMode)
 
 ##### controlSize11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 controlSize(value: ControlSize)
  
 设置Button组件的尺寸。
@@ -326,6 +360,8 @@ controlSize(value: ControlSize)
 
 ##### role12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 role(value: ButtonRole)
  
 设置Button组件的角色。根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过[backgroundColor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-background#backgroundcolor)、[fontColor](#fontcolor)和[buttonStyle](#buttonstyle11)接口设置，实际显示效果以最后一次设置为准。
@@ -347,6 +383,8 @@ role(value: ButtonRole)
 
 ##### contentModifier12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 contentModifier(modifier: ContentModifier&lt;ButtonConfiguration&gt;)
  
 定制Button内容区的方法。
@@ -365,6 +403,8 @@ contentModifier(modifier: ContentModifier&lt;ButtonConfiguration&gt;)
   
 
 ##### minFontScale18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 minFontScale(scale: number | Resource)
  
@@ -385,6 +425,8 @@ minFontScale(scale: number | Resource)
 
 ##### maxFontScale18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 maxFontScale(scale: number | Resource)
  
 设置文本最大的字体缩放倍数。
@@ -403,6 +445,8 @@ maxFontScale(scale: number | Resource)
   
 
 ##### ButtonType枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 按钮的类型。
  
@@ -424,6 +468,8 @@ maxFontScale(scale: number | Resource)
 
 ##### LabelStyle10+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Button组件的label文本及其字体样式。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -442,6 +488,8 @@ Button组件的label文本及其字体样式。
   
 
 ##### ButtonStyleMode11+枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 按钮的重要程度。
  
@@ -462,6 +510,8 @@ Button组件的label文本及其字体样式。
 
 ##### ControlSize11+枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 按钮的尺寸。
  
 **卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
@@ -479,6 +529,8 @@ Button组件的label文本及其字体样式。
   
 
 ##### ButtonRole12+枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 按钮的角色。
  
@@ -498,6 +550,8 @@ Button组件的label文本及其字体样式。
 
 ##### ButtonConfiguration12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -514,6 +568,8 @@ Button组件的label文本及其字体样式。
   
 
 ##### ButtonTriggerClickCallback12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void
  
@@ -535,11 +591,15 @@ type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -729,7 +789,7 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/fq3om64sT6CqZYh7uR9SIQ/zh-cn_image_0000002581275906.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=B65E09AC5F579E469ABA09081253DC3CE25D5EEAF30137438A67DEA7D196190C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/fq3om64sT6CqZYh7uR9SIQ/zh-cn_image_0000002581275906.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=71596D1942E6189C7FC878302D97D4F6963F834B1543BE8F528C3016FAF78494)
 
  
   
@@ -763,7 +823,7 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/eKFd1LQnR1WVs4vICd5Wuw/zh-cn_image_0000002611755763.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=783E0905FE473A59DC7ECAC71DA9626EA79524EC49A98DF0BEB84B038A06AF7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/eKFd1LQnR1WVs4vICd5Wuw/zh-cn_image_0000002611755763.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=52D2650A03B3EF1DBBB2A53F8E13EBC5D295F37B602610B94F19AD267E851FCD)
 
  
   
@@ -838,7 +898,7 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/y-sxQheBToawxAzvYwsBdA/zh-cn_image_0000002581435826.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=4DFB6BAF221DA7F64B09E18E2525B08381328A597B11FBA5FF3C0AD01E8538CE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/y-sxQheBToawxAzvYwsBdA/zh-cn_image_0000002581435826.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=72BF1A47ECE9FC45D7236C0233D0BDA165AD158B13C6B586A94C46CCE89ACC1A)
 
  
   
@@ -884,7 +944,7 @@ struct ButtonExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/wuYd5yqbR-CqqytA2vHPzA/zh-cn_image_0000002611835657.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=A1B0F4CB0DC8FA4E820C9DFC0BED13143732B9310AB8E0CF46EE0D5DFFAD7949)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/wuYd5yqbR-CqqytA2vHPzA/zh-cn_image_0000002611835657.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=46525FA2B5D07C834D65A4787A9B5D8F58E7C11856EAEC3FE1F5D8634316EB25)
 
  
   
@@ -914,4 +974,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/OljZnxPcQOKl3OB_JBj6Zw/zh-cn_image_0000002581275908.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=284A41A3672896BF96F82D6B14F197D61951658270B880D2B934AB6D00B3C476)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/OljZnxPcQOKl3OB_JBj6Zw/zh-cn_image_0000002581275908.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=ED04F6EE093B03F88B301FB685679B149D4F82F77028D54B131C4A41C00A0D67)

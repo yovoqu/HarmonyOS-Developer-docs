@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ImageAnimator()
 
@@ -32,11 +36,15 @@ ImageAnimator()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### images
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 images(value: Array&lt;ImageFrameInfo&gt;)
 
@@ -59,6 +67,8 @@ images(value: Array&lt;ImageFrameInfo&gt;)
 
 ##### state
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 state(value: AnimationStatus)
 
 控制播放状态。
@@ -79,6 +89,8 @@ state(value: AnimationStatus)
 
 
 ##### duration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 duration(value: number)
 
@@ -101,6 +113,8 @@ duration(value: number)
 
 ##### reverse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reverse(value: boolean)
 
 设置播放方向。
@@ -121,6 +135,8 @@ reverse(value: boolean)
 
 
 ##### fixedSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fixedSize(value: boolean)
 
@@ -143,6 +159,8 @@ fixedSize(value: boolean)
 
 ##### preDecode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 preDecode(value: number)
 
 设置预解码的图片数量。
@@ -163,6 +181,8 @@ preDecode(value: number)
 
 
 ##### fillMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fillMode(value: FillMode)
 
@@ -185,6 +205,8 @@ fillMode(value: FillMode)
 
 ##### iterations
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 iterations(value: number)
 
 设置播放次数。
@@ -204,6 +226,8 @@ iterations(value: number)
 
 ##### monitorInvisibleArea17+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 monitorInvisibleArea(monitorInvisibleArea: boolean)
 
 设置组件是否通过系统[onVisibleAreaChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange)的可见性判定，控制组件的暂停和播放。
@@ -222,6 +246,8 @@ monitorInvisibleArea(monitorInvisibleArea: boolean)
 
 
 ##### ImageFrameInfo对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图片帧信息集合。
 
@@ -243,11 +269,15 @@ monitorInvisibleArea(monitorInvisibleArea: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onStart
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onStart(event: () => void)
 
@@ -270,6 +300,8 @@ onStart(event: () => void)
 
 ##### onPause
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onPause(event: () => void)
 
 状态回调，动画暂停播放时触发。
@@ -291,6 +323,8 @@ onPause(event: () => void)
 
 ##### onRepeat
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRepeat(event: () => void)
 
 状态回调，动画重复播放时触发。
@@ -309,6 +343,8 @@ onRepeat(event: () => void)
 
 
 ##### onCancel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCancel(event: () => void)
 
@@ -331,6 +367,8 @@ onCancel(event: () => void)
 
 ##### onFinish
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onFinish(event: () => void)
 
 状态回调，动画播放完成时或者停止播放时触发。
@@ -351,6 +389,8 @@ onFinish(event: () => void)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 

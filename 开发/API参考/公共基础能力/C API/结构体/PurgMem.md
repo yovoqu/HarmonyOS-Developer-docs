@@ -12,6 +12,8 @@ typedef struct PurgMem OH_PurgeableMemory
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可清除的内存结构。
  
 **起始版本：** 10

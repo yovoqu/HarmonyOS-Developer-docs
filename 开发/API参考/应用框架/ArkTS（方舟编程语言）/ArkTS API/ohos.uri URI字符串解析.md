@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { uri } from '@kit.ArkTS';
 ```
@@ -22,11 +24,15 @@ import { uri } from '@kit.ArkTS';
 
 ##### URI
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 构造一个URI对象，并提供判断两个URI是否相等、对URI路径部分进行编码规范化等方法。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -146,6 +152,8 @@ console.info("result:", uriObj7.checkIsAbsolute()); // result: true
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(uri: string)
 
 构造函数用于创建URI对象。
@@ -186,6 +194,8 @@ new uri.URI('https://username:password@host:8080');
 
 ##### toString
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toString(): string
 
 将URI转化为编码后的字符串。
@@ -211,6 +221,8 @@ let result1 = result.toString(); // https://username:password@host:8080/director
 
 
 ##### equalsTo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 equalsTo(other: URI): boolean
 
@@ -255,6 +267,8 @@ let result = uriInstance.equalsTo(uriInstance1); // true
 
 ##### checkIsAbsolute
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkIsAbsolute(): boolean
 
 判断URI是否为绝对URI，即是否包含scheme组件。
@@ -282,6 +296,8 @@ console.info(`${uriInstance1.checkIsAbsolute()}`); // false
 
 
 ##### normalize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 normalize(): URI
 
@@ -321,6 +337,8 @@ console.info(uri2.path); // /../../patch/path2/path3
 
 ##### checkRelative12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkRelative(): boolean
 
 判断此URI是否为相对URI，相对URI指的是不包含协议(scheme)部分的URI。
@@ -348,6 +366,8 @@ console.info(`${uriInstance1.checkRelative()}`); // true
 
 
 ##### checkOpaque12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkOpaque(): boolean
 
@@ -377,6 +397,8 @@ console.info(`${uriInstance1.checkOpaque()}`); // true
 
 ##### checkHierarchical12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkHierarchical(): boolean
 
 判断此URI是否为分层的URI，方案特定部分以“/”开头的URI为分层的URI。相对URI也是分层的。
@@ -404,6 +426,8 @@ console.info(`${uriInstance1.checkHierarchical()}`); // false
 
 
 ##### getQueryValue12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getQueryValue(key: string): string
 
@@ -452,6 +476,8 @@ console.info(uriInstance1.getQueryValue('abc')) // null
 
 ##### addQueryValue12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addQueryValue(key: string, value: string): URI
 
 在当前URI对象上添加查询参数后返回新的URI对象，保持原有URI对象不变。
@@ -496,6 +522,8 @@ console.info(newRoute.toString()); // https://www.test.com?param1=hello%20world
 
 ##### addSegment12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addSegment(pathSegment: string): URI
 
 对指定字段进行编码，并将其追加到当前URI对象的path中，创建并返回新的URI对象，保持原有URI对象不变。
@@ -538,6 +566,8 @@ console.info(newRoute.toString()); // http://www.test.com/my%20image.jpg
 
 
 ##### addEncodedSegment12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addEncodedSegment(pathSegment: string): URI
 
@@ -582,6 +612,8 @@ console.info(newRoute.toString()); // http://www.test.com/my%20image.jpg
 
 ##### getQueryNames12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getQueryNames(): string[]
 
 获取URI查询部分中所有不重复的键。查询参数出现在问号“?”之后，由键值对组成，键和值用等号“=”连接，键值对间用与号“&”分隔。
@@ -608,6 +640,8 @@ console.info(paramNames.toString()); // param1,param2
 
 
 ##### getQueryValues12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getQueryValues(key: string): string[]
 
@@ -653,6 +687,8 @@ console.info(JSON.stringify(uriInstance.getQueryValues("abc"))); // []
 
 
 ##### getBooleanQueryValue12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBooleanQueryValue(key: string, defaultValue: boolean): boolean
 
@@ -705,6 +741,8 @@ console.info(`${uriInstance4.getBooleanQueryValue("active", true)}`); // true
 
 ##### clearQuery12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearQuery(): URI
 
 清除URI路径查询部分，并创建一个新的URI对象返回，同时保持原有URI对象不变。
@@ -730,6 +768,8 @@ console.info(uriInstance.clearQuery().toString()); // https://www.test.com
 
 
 ##### getLastSegment12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLastSegment(): string
 
@@ -757,6 +797,8 @@ console.info(uriInstance.getLastSegment()); // image.jpg
 
 ##### getSegment12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSegment(): string[]
 
 获取此URI中已解码的所有路径段。
@@ -782,6 +824,8 @@ console.info(uriInstance.getSegment().toString()); // path,to,image.jpg
 
 
 ##### createFromParts12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createFromParts(scheme: string, ssp: string, fragment: string): URI
 
@@ -826,6 +870,8 @@ console.info(uriInstance.toString()); // mailto:no%20body#top
 
 
 ##### equals(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 equals(other: URI): boolean
 

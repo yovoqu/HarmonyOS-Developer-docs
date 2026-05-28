@@ -12,6 +12,8 @@ struct OH_Filter_ColorMatrix {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义一个用来创建滤镜效果的矩阵。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ struct OH_Filter_ColorMatrix {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

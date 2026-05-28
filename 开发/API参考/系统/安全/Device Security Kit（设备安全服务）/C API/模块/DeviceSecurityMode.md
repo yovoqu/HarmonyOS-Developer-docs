@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 DeviceSecurityMode模块用于管理设备安全模式。
  
 **系统能力：** SystemCapability.Security.SafetyDetect
@@ -17,9 +19,13 @@ DeviceSecurityMode模块用于管理设备安全模式。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,6 +35,8 @@ DeviceSecurityMode模块用于管理设备安全模式。
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,6 +46,8 @@ DeviceSecurityMode模块用于管理设备安全模式。
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -47,6 +57,8 @@ DeviceSecurityMode模块用于管理设备安全模式。
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -57,9 +69,13 @@ DeviceSecurityMode模块用于管理设备安全模式。
 
 ##### 类型定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### DSM_DeviceSecurityMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 typedef enum DSM_DeviceSecurityMode DSM_DeviceSecurityMode
@@ -75,9 +91,13 @@ typedef enum DSM_DeviceSecurityMode DSM_DeviceSecurityMode
 
 ##### 枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### DSM_DeviceSecurityMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 enum DSM_DeviceSecurityMode
@@ -99,9 +119,13 @@ enum DSM_DeviceSecurityMode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### HMS_DSM_GetDeviceSecurityMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 DSM_DeviceSecurityMode HMS_DSM_GetDeviceSecurityMode(void)

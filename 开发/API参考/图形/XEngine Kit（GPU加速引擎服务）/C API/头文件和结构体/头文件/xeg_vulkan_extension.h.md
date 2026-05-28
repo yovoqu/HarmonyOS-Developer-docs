@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 XEngine扩展特性查询接口（Vulkan）。
  
 **引用文件**：<xengine/xeg_vulkan_extension.h>
@@ -23,9 +25,13 @@ XEngine扩展特性查询接口（Vulkan）。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,6 +41,8 @@ XEngine扩展特性查询接口（Vulkan）。
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -44,6 +52,8 @@ XEngine扩展特性查询接口（Vulkan）。
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -54,6 +64,8 @@ XEngine扩展特性查询接口（Vulkan）。
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

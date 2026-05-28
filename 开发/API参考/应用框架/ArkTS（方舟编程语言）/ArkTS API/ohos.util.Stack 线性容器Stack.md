@@ -23,6 +23,8 @@ Stack和[Queue](https://developer.huawei.com/consumer/cn/doc/harmonyos-reference
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Stack } from '@kit.ArkTS';
 ```
@@ -31,9 +33,13 @@ import { Stack } from '@kit.ArkTS';
 
 ##### Stack
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -47,6 +53,8 @@ import { Stack } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -74,6 +82,8 @@ let stack = new Stack<number | string | Object>();
 
 
 ##### push
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 push(item: T): T
 
@@ -125,6 +135,8 @@ console.info("length:", stack.length);  // length: 3
 
 ##### pop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pop(): T
 
 删除栈顶元素并返回，栈为空时返回undefined。
@@ -166,6 +178,8 @@ console.info("result = " + result); // result = 4
 
 ##### peek
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 peek(): T
 
 返回栈顶元素，栈为空时返回undefined。
@@ -205,6 +219,8 @@ console.info("result:", result);  // result: 2
 
 
 ##### locate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 locate(element: T): number
 
@@ -252,6 +268,8 @@ console.info("result:", result);  // result: 2
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value: T, index?: number, stack?: Stack&lt;T&gt;) => void, thisArg?: Object): void
 
@@ -309,6 +327,8 @@ stack.forEach((value : number, index: number) :void => {
 
 ##### isEmpty
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isEmpty(): boolean
 
 判断栈是否为空。
@@ -348,6 +368,8 @@ console.info("result:", result);  // result: false
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
 

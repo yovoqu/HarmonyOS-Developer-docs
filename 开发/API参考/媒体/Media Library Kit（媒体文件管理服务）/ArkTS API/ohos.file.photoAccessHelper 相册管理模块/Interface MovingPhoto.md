@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -21,6 +23,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### getUri12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUri(): string
 
@@ -94,6 +98,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### requestContent12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestContent(imageFileUri: string, videoFileUri: string): Promise&lt;void&gt;
 
@@ -195,6 +201,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### requestContent12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 requestContent(resourceType: ResourceType, fileUri: string): Promise&lt;void&gt;
 
 请求指定资源类型的动态照片内容，并写入参数指定的uri中。使用Promise异步回调。
@@ -289,6 +297,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### requestContent12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestContent(resourceType: ResourceType): Promise&lt;ArrayBuffer&gt;
 

@@ -14,6 +14,8 @@
 
 ##### getRectangleById
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRectangleById(id: string): componentUtils.ComponentInfo
 
 获取组件大小、位置、平移、缩放、旋转及仿射矩阵属性信息。

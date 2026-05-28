@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { XComponentNode } from "@kit.ArkUI";
 ```
@@ -22,9 +24,13 @@ import { XComponentNode } from "@kit.ArkUI";
 
 ##### XComponentNode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### constructor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(uiContext: UIContext, options: RenderOptions, id: string, type: XComponentType, libraryName?: string)
 
@@ -55,6 +61,8 @@ XComponentNode的构造函数。
 
 ##### onCreate(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onCreate(event?: Object): void
 
 XComponentNode加载完成时触发该回调。
@@ -76,6 +84,8 @@ XComponentNode加载完成时触发该回调。
 
 ##### onDestroy(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDestroy(): void
 
 XComponentNode销毁时触发该回调。
@@ -89,6 +99,8 @@ XComponentNode销毁时触发该回调。
 
 
 ##### changeRenderType(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 changeRenderType(type: NodeRenderType): boolean
 
@@ -117,6 +129,8 @@ changeRenderType(type: NodeRenderType): boolean
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { NodeController, FrameNode, XComponentNode, NodeRenderType, UIContext} from '@kit.ArkUI'
@@ -170,4 +184,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/8mw9vT3RQjqeohnZelmp-g/zh-cn_image_0000002581275672.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T013816Z&HW-CC-Expire=86400&HW-CC-Sign=4AD1FE64FDF11475E62DDFB6CC1D7ADE975A8BED6E1DD1A956CE823283138CB7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/8mw9vT3RQjqeohnZelmp-g/zh-cn_image_0000002581275672.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=4F74DEC6CBA9C5FE42C2DC58CE32889001755F1A92BB0E7108AAF86488ED0D2F)

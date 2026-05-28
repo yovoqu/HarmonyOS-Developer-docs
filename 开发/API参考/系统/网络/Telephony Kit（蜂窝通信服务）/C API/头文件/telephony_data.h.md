@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | Wearable
+
 为电话蜂窝数据定义C接口。
  
 **引用文件：** <telephony/cellular_data/telephony_data.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | Wearable
+
   
 
 ##### 函数
+
+**支持设备：** Phone | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | Tablet | Wearable
+
   
 
 ##### OH_Telephony_GetDefaultCellularDataSlotId()
+
+**支持设备：** Phone | Tablet | Wearable
 
 ```text
 int32_t OH_Telephony_GetDefaultCellularDataSlotId(void)

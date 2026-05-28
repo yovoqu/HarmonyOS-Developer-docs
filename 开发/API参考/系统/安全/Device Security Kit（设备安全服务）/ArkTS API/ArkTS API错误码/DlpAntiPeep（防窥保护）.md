@@ -12,6 +12,8 @@
 
 ##### 201 权限校验失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 Permission denied.
@@ -32,6 +34,8 @@ Permission denied.
 
 ##### 801 设备不支持该能力
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
  
 Capability not supported.
@@ -51,6 +55,8 @@ Capability not supported.
   
 
 ##### 1020600001 内部错误
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -73,6 +79,8 @@ Internal error.
   
 
 ##### 1020600002 防窥能力未开启
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -98,6 +106,8 @@ The antipeep function is not enabled.
 
 ##### 1020600003 应用不在前台
 
+**支持设备：** Phone
+
 **错误信息**
  
 The protected application is not displayed on the screen.
@@ -117,6 +127,8 @@ The protected application is not displayed on the screen.
   
 
 ##### 1020600004 未设置人脸识别
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -138,6 +150,8 @@ Facial recognition is not set.
 
 ##### 1020600005 提示信息已发布
 
+**支持设备：** Phone
+
 **错误信息**
  
 The anti-peep information has been published.
@@ -157,6 +171,8 @@ The anti-peep information has been published.
   
 
 ##### 1020600006 未检测到窥视风险
+
+**支持设备：** Phone
 
 **错误信息**
  

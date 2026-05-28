@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { securityManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { securityManager } from '@kit.MDMKit';
 
 
 ##### securityManager.uninstallUserCertificate
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 uninstallUserCertificate(admin: Want, certUri: string): Promise&lt;void&gt;
 
@@ -84,6 +88,8 @@ securityManager.uninstallUserCertificate(wantTemp, aliasStr).then(() => {
 
 
 ##### securityManager.installUserCertificate
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 installUserCertificate(admin: Want, certificate: CertBlob): Promise&lt;string&gt;
 
@@ -158,6 +164,8 @@ context.resourceManager.getRawFileContent("test.cer").then((value) => {
 
 ##### securityManager.installUserCertificate18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 installUserCertificate(admin: Want, certificate: CertBlob, accountId: number): string
 
 支持按系统账户安装用户证书。
@@ -228,6 +236,8 @@ context.resourceManager.getRawFileContent("test.cer").then((value) => {
 
 ##### securityManager.getUserCertificates18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getUserCertificates(admin: Want, accountId: number): Array&lt;string&gt;
 
 获取指定系统账户下的用户证书信息。
@@ -288,6 +298,8 @@ try {
 
 
 ##### securityManager.getSecurityStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getSecurityStatus(admin: Want, item: string): string
 
@@ -350,6 +362,8 @@ try {
 
 ##### securityManager.setPasswordPolicy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setPasswordPolicy(admin: Want, policy: PasswordPolicy): void
 
 设置设备锁屏口令策略。当用户设置锁屏口令时，如果设置的锁屏口令不符合要求，会有安全提示重新设置锁屏口令。
@@ -411,6 +425,8 @@ try {
 
 ##### securityManager.getPasswordPolicy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getPasswordPolicy(admin: Want): PasswordPolicy
 
 获取设备锁屏口令策略。
@@ -471,6 +487,8 @@ try {
 
 ##### securityManager.setAppClipboardPolicy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setAppClipboardPolicy(admin: Want, tokenId: number, policy: ClipboardPolicy): void
 
 设置设备剪贴板策略。
@@ -528,6 +546,8 @@ try {
 
 
 ##### securityManager.getAppClipboardPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAppClipboardPolicy(admin: Want, tokenId?: number): string
 
@@ -591,6 +611,8 @@ try {
 
 ##### securityManager.setAppClipboardPolicy18+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setAppClipboardPolicy(admin: Want, bundleName: string, accountId: number, policy: ClipboardPolicy): void
 
 设置指定用户下指定应用的设备剪贴板策略。当前只支持最多保存100个策略。
@@ -649,6 +671,8 @@ try {
 
 
 ##### securityManager.getAppClipboardPolicy18+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAppClipboardPolicy(admin: Want, bundleName: string, accountId: number): string
 
@@ -712,6 +736,8 @@ try {
 
 
 ##### securityManager.setWatermarkImage14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setWatermarkImage(admin: Want, bundleName: string, source: string | image.PixelMap, accountId: number): void
 
@@ -778,6 +804,8 @@ try {
 
 ##### securityManager.cancelWatermarkImage14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 cancelWatermarkImage(admin: Want, bundleName: string, accountId: number): void
 
 取消指定用户的水印策略。
@@ -834,6 +862,8 @@ try {
 
 
 ##### securityManager.setPermissionManagedState20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permissions: Array&lt;string&gt;, managedState: PermissionManagedState): void
 
@@ -899,6 +929,8 @@ try {
 
 
 ##### securityManager.getPermissionManagedState20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getPermissionManagedState(admin: Want, applicationInstance: ApplicationInstance, permission: string): PermissionManagedState
 
@@ -967,6 +999,8 @@ try {
 
 
 ##### securityManager.setExternalSourceExtensionsPolicy22+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setExternalSourceExtensionsPolicy(admin: Want, policy: common.ManagedPolicy): void
 
@@ -1037,6 +1071,8 @@ try {
 
 ##### securityManager.getExternalSourceExtensionsPolicy22+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy
 
 获取外部来源扩展程序的管控策略。
@@ -1097,6 +1133,8 @@ try {
 
 
 ##### securityManager.installEnterpriseReSignatureCertificate24+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 installEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, fd: number, accountId: number): void
 
@@ -1194,6 +1232,8 @@ try {
 
 ##### securityManager.uninstallEnterpriseReSignatureCertificate24+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 uninstallEnterpriseReSignatureCertificate(admin: Want, certificateAlias: string, accountId: number): void
 
 卸载企业应用重签名证书。
@@ -1255,6 +1295,8 @@ try {
 
 ##### CertBlob
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 证书信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1268,6 +1310,8 @@ try {
 
 
 ##### PasswordPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 设备锁屏口令策略。
 
@@ -1283,6 +1327,8 @@ try {
 
 
 ##### ClipboardPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 设备剪贴板策略。
 
@@ -1300,6 +1346,8 @@ try {
 
 ##### ApplicationInstance20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 应用实例。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -1316,6 +1364,8 @@ try {
 
 
 ##### PermissionManagedState20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 应用权限的管理状态。
 

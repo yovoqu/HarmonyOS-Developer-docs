@@ -14,6 +14,8 @@
 
 ##### constructor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 WebKeyboardController的构造函数。
@@ -23,6 +25,8 @@ WebKeyboardController的构造函数。
   
 
 ##### insertText12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 insertText(text: string): void
  
@@ -41,6 +45,8 @@ Web输入框中插入字符。
 
 ##### deleteForward12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteForward(length: number): void
  
 从后往前删除Web输入框中指定长度的字符。
@@ -57,6 +63,8 @@ deleteForward(length: number): void
   
 
 ##### deleteBackward12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteBackward(length: number): void
  
@@ -75,6 +83,8 @@ deleteBackward(length: number): void
 
 ##### sendFunctionKey12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendFunctionKey(key: number): void
  
 插入功能按键，目前仅支持Enter键类型，取值见[EnterKeyType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod#enterkeytype10)。
@@ -91,6 +101,8 @@ sendFunctionKey(key: number): void
   
 
 ##### close12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 close(): void
  

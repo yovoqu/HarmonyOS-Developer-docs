@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webSocket } from '@kit.NetworkKit';
 ```
@@ -25,6 +27,8 @@ import { webSocket } from '@kit.NetworkKit';
 
 
 ##### webSocket.createWebSocket
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createWebSocket(): WebSocket
 
@@ -51,11 +55,15 @@ let ws: webSocket.WebSocket = webSocket.createWebSocket();
 
 ##### WebSocket
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 在调用WebSocket的方法前，需要先通过[webSocket.createWebSocket](#websocketcreatewebsocket)创建一个WebSocket。
 
 
 
 ##### connect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connect(url: string, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -72,7 +80,7 @@ connect(url: string, callback: AsyncCallback&lt;boolean&gt;): void
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/17cxYTNSTYWGTenMfZVZWQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013538Z&HW-CC-Expire=86400&HW-CC-Sign=CFFC606A8A74552EF699BD1E0E62BCF407C417F60FE53E90815EADFFA5EDF247)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/17cxYTNSTYWGTenMfZVZWQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023838Z&HW-CC-Expire=86400&HW-CC-Sign=68113F2547333418C77FAEB211BD6A1ADE0ACF4C320B526DCD7F9A5715BF2012)
 
 
 URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。
@@ -123,6 +131,8 @@ ws.connect(url, (err: BusinessError, value: boolean) => {
 
 ##### connect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback&lt;boolean&gt;): void
 
 根据URL地址，建立一个WebSocket连接，使用callback异步回调。
@@ -138,7 +148,7 @@ connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback&l
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/dJi0o9GFRxuiD3m0opnZyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013538Z&HW-CC-Expire=86400&HW-CC-Sign=3A5DD18A7911BB23C3993101D083C64591F020F12F61A943C0070F8DDA5A9F44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/dJi0o9GFRxuiD3m0opnZyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023838Z&HW-CC-Expire=86400&HW-CC-Sign=F1D910BC514D52664208D0CAA55AA32D2A80092705A87A5C30EBC5BF4B00BB05)
 
 
 URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。
@@ -199,6 +209,8 @@ ws.connect(url, options, (err: BusinessError, value: Object) => {
 
 ##### connect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 connect(url: string, options?: WebSocketRequestOptions): Promise&lt;boolean&gt;
 
 根据URL地址和header，建立一个WebSocket连接。使用Promise异步回调。
@@ -214,7 +226,7 @@ connect(url: string, options?: WebSocketRequestOptions): Promise&lt;boolean&gt;
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/6gLWXfdGQi2DUw8zlwXE7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013538Z&HW-CC-Expire=86400&HW-CC-Sign=0D8354005D585D83E305D014C869D2E3792D67F0774E47410E7D220D94546C8E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/6gLWXfdGQi2DUw8zlwXE7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023838Z&HW-CC-Expire=86400&HW-CC-Sign=2A5E0B118C61D2961DA55B0F876B8C055159DE1679046BA914105DD768FEA5B6)
 
 
 URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。
@@ -269,6 +281,8 @@ promise.then((value: boolean) => {
 
 
 ##### send
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 send(data: string | ArrayBuffer, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -336,6 +350,8 @@ ws.on('open', (err: BusinessError, value: Object) => {
 
 
 ##### send
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 send(data: string | ArrayBuffer): Promise&lt;boolean&gt;
 
@@ -410,6 +426,8 @@ ws.on('open', (err: BusinessError, value: Object) => {
 
 ##### close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(callback: AsyncCallback&lt;boolean&gt;): void
 
 关闭WebSocket连接，使用callback异步回调。
@@ -456,6 +474,8 @@ ws.close((err: BusinessError) => {
 
 
 ##### close
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 close(options: WebSocketCloseOptions, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -510,6 +530,8 @@ ws.close(options, (err: BusinessError) => {
 
 
 ##### close
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 close(options?: WebSocketCloseOptions): Promise&lt;boolean&gt;
 
@@ -568,6 +590,8 @@ promise.then((value: boolean) => {
 
 ##### on('open')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'open', callback: AsyncCallback&lt;Object&gt;): void
 
 订阅WebSocket的打开事件，使用callback异步回调。该事件用于指示WebSocket是否连接成功。该接口需要在调用[connect](#connect)发起连接请求前调用。
@@ -603,6 +627,8 @@ ws.on('open', (err: BusinessError, value: Object) => {
 
 
 ##### off('open')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'open', callback?: AsyncCallback&lt;Object&gt;): void
 
@@ -647,6 +673,8 @@ ws.off('open', callback1);
 
 ##### on('message')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'message', callback: AsyncCallback<string | ArrayBuffer>): void
 
 订阅WebSocket的接收服务器消息事件，使用callback异步回调。
@@ -683,6 +711,8 @@ ws.on('message', (err: BusinessError<void>, value: string | ArrayBuffer) => {
 
 ##### off('message')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'message', callback?: AsyncCallback<string | ArrayBuffer>): void
 
 取消订阅WebSocket的接收服务器消息事件，使用callback异步回调。
@@ -716,6 +746,8 @@ ws.off('message');
 
 ##### on('close')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'close', callback: AsyncCallback&lt;CloseResult&gt;): void
 
 订阅WebSocket的关闭事件，使用callback异步回调。
@@ -747,6 +779,8 @@ ws.on('close', (err: BusinessError, value: webSocket.CloseResult) => {
 
 
 ##### off('close')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'close', callback?: AsyncCallback&lt;CloseResult&gt;): void
 
@@ -780,6 +814,8 @@ ws.off('close');
 
 
 ##### on('error')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -815,6 +851,8 @@ ws.on('error', (err: BusinessError) => {
 
 ##### off('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', callback?: ErrorCallback): void
 
 取消订阅WebSocket的Error事件，使用callback异步回调。
@@ -848,6 +886,8 @@ ws.off('error');
 
 ##### on('dataEnd')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'dataEnd', callback: Callback&lt;void&gt;): void
 
 订阅WebSocket的数据接收结束事件，使用callback异步回调。
@@ -876,6 +916,8 @@ ws.on('dataEnd', () => {
 
 
 ##### off('dataEnd')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'dataEnd', callback?: Callback&lt;void&gt;): void
 
@@ -908,6 +950,8 @@ ws.off('dataEnd');
 
 ##### on('headerReceive')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'headerReceive', callback: Callback&lt;ResponseHeaders&gt;): void
 
 订阅HTTP Response Header事件，使用callback异步回调。
@@ -936,6 +980,8 @@ ws.on('headerReceive', (data) => {
 
 
 ##### off('headerReceive')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'headerReceive', callback?: Callback&lt;ResponseHeaders&gt;): void
 
@@ -968,6 +1014,8 @@ ws.off('headerReceive');
 
 ##### webSocket.createWebSocketServer19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createWebSocketServer(): WebSocketServer
 
 创建一个WebSocketServer对象，包括启动服务、发送数据、关闭连接、列出客户端信息、停止服务，订阅/取消订阅webSocket连接的连接事件、接收到客户端消息事件、关闭事件和错误事件。
@@ -995,11 +1043,15 @@ let ws: webSocket.WebSocketServer = webSocket.createWebSocketServer();
 
 ##### WebSocketServer19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 在调用WebSocketServer方法前，需要先通过[webSocket.createWebSocketServer](#websocketcreatewebsocketserver19)创建一个WebSocketServer。
 
 
 
 ##### start19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(config: WebSocketServerConfig): Promise&lt;boolean&gt;
 
@@ -1069,6 +1121,8 @@ localServer.start(config).then((success: boolean) => {
 
 
 ##### send19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 send(data: string | ArrayBuffer, connection: WebSocketConnection): Promise&lt;boolean&gt;
 
@@ -1150,6 +1204,8 @@ localServer.on('connect', async (connection: webSocket.WebSocketConnection) => {
 
 ##### listAllConnections19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 listAllConnections(): WebSocketConnection[]
 
 获取与服务端连接的所有客户端信息。
@@ -1221,6 +1277,8 @@ localServer.on('connect', async (connection: webSocket.WebSocketConnection) => {
 
 
 ##### close19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 close(connection: WebSocketConnection, options?: webSocket.WebSocketCloseOptions): Promise&lt;boolean&gt;
 
@@ -1295,6 +1353,8 @@ localServer.on('connect', (connection: webSocket.WebSocketConnection) => {
 
 ##### stop19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;boolean&gt;
 
 停止服务端服务。使用Promise异步回调。
@@ -1356,6 +1416,8 @@ localServer.stop().then((success: boolean) => {
 
 ##### on('connect')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'connect', callback: Callback&lt;WebSocketConnection&gt;): void
 
 订阅WebSocketServer的连接事件（客户端与服务端建链成功），使用callback异步回调。
@@ -1385,6 +1447,8 @@ localServer.on('connect', (connection: webSocket.WebSocketConnection) => {
 
 
 ##### off('connect')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'connect', callback?: Callback&lt;WebSocketConnection&gt;): void
 
@@ -1418,6 +1482,8 @@ localServer.off('connect');
 
 ##### on('messageReceive')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'messageReceive', callback: Callback&lt;WebSocketMessage&gt;): void
 
 订阅WebSocketServer的接收客户端消息的事件，使用callback异步回调。
@@ -1447,6 +1513,8 @@ localServer.on('messageReceive', (message: webSocket.WebSocketMessage) => {
 
 
 ##### off('messageReceive')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'messageReceive', callback?: Callback&lt;WebSocketMessage&gt;): void
 
@@ -1480,6 +1548,8 @@ localServer.off('messageReceive');
 
 ##### on('close')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'close', callback: ClientConnectionCloseCallback): void
 
 订阅WebSocketServer的关闭事件，使用callback异步回调。
@@ -1509,6 +1579,8 @@ localServer.on('close', (clientConnection: webSocket.WebSocketConnection, closeR
 
 
 ##### off('close')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'close', callback?: ClientConnectionCloseCallback): void
 
@@ -1542,6 +1614,8 @@ localServer.off('close');
 
 ##### on('error')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'error', callback: ErrorCallback): void
 
 订阅WebSocketServer的Error事件，使用callback异步回调。
@@ -1571,6 +1645,8 @@ wsServer.on('error', (err: BusinessError) => {
 
 
 ##### off('error')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'error', callback?: ErrorCallback): void
 
@@ -1604,6 +1680,8 @@ localServer.off('error');
 
 ##### WebSocketRequestOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 建立WebSocket连接时，可选参数的类型和说明。
 
 **系统能力**：SystemCapability.Communication.NetStack
@@ -1624,6 +1702,8 @@ localServer.off('error');
 
 ##### ClientCert11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 客户端证书类型。
 
 **系统能力**：SystemCapability.Communication.NetStack
@@ -1638,6 +1718,8 @@ localServer.off('error');
 
 
 ##### ProxyConfiguration12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy
 
@@ -1656,6 +1738,8 @@ type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy
 
 ##### WebSocketCloseOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 关闭WebSocket连接时，可选参数的类型和说明。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1671,6 +1755,8 @@ type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy
 
 
 ##### CloseResult10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 关闭WebSocket连接时，订阅close事件得到的关闭结果。
 
@@ -1688,6 +1774,8 @@ type ProxyConfiguration = 'system' | 'no-proxy' | HttpProxy
 
 ##### ResponseHeaders12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ResponseHeaders = { [k: string]: string | string[] | undefined; }
 
 服务器发送的响应头。
@@ -1702,6 +1790,8 @@ type ResponseHeaders = { [k: string]: string | string[] | undefined; }
 
 
 ##### close错误码说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 发送给服务端的错误码必须为正整数，取值范围为[1000,1015],可以自行定义，如果未指定错误码或传入值不在上述范围内，错误码将会被设置为默认值1000。下面的列表仅供参考。
 
@@ -1720,6 +1810,8 @@ type ResponseHeaders = { [k: string]: string | string[] | undefined; }
 
 ##### HttpProxy12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type HttpProxy = connection.HttpProxy
 
 网络全局代理配置信息。
@@ -1734,6 +1826,8 @@ type HttpProxy = connection.HttpProxy
 
 
 ##### WebSocketServerConfig19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 启动服务端的service时，需要输入的配置信息和说明。
 
@@ -1753,6 +1847,8 @@ type HttpProxy = connection.HttpProxy
 
 ##### ServerCert19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指定服务端证书的信息，包括服务端证书文件路径和服务端证书的私钥文件路径。
 
 **系统能力**：SystemCapability.Communication.NetStack
@@ -1766,6 +1862,8 @@ type HttpProxy = connection.HttpProxy
 
 
 ##### WebSocketMessage19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 从指定客户端接收到的消息，包括客户端的信息和数据。
 
@@ -1781,6 +1879,8 @@ type HttpProxy = connection.HttpProxy
 
 ##### WebSocketConnection19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 客户端信息，包括客户端的ip地址和端口号port。
 
 **系统能力**：SystemCapability.Communication.NetStack
@@ -1794,6 +1894,8 @@ type HttpProxy = connection.HttpProxy
 
 
 ##### ClientConnectionCloseCallback19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ClientConnectionCloseCallback = (clientConnection: WebSocketConnection, closeReason: CloseResult) => void
 

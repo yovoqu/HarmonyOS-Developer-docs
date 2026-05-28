@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 MenuItem(value?: MenuItemOptions | CustomBuilder)
 
@@ -36,6 +40,8 @@ MenuItem(value?: MenuItemOptions | CustomBuilder)
 
 
 ##### MenuItemOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Menu中具体item菜单项信息。
 
@@ -56,11 +62,15 @@ Menu中具体item菜单项信息。
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### selected
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selected(value: boolean)
 
@@ -85,6 +95,8 @@ selected(value: boolean)
 
 ##### selectIcon
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier)
 
 设置当菜单项被选中时，是否显示被选中的图标。
@@ -103,6 +115,8 @@ selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier)
 
 
 ##### contentFont10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contentFont(value: Font)
 
@@ -123,6 +137,8 @@ contentFont(value: Font)
 
 ##### contentFontColor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 contentFontColor(value: ResourceColor)
 
 设置菜单项中内容信息的字体颜色。
@@ -141,6 +157,8 @@ contentFontColor(value: ResourceColor)
 
 
 ##### labelFont10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 labelFont(value: Font)
 
@@ -161,6 +179,8 @@ labelFont(value: Font)
 
 ##### labelFontColor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 labelFontColor(value: ResourceColor)
 
 设置菜单项中标签信息的字体颜色。
@@ -180,9 +200,13 @@ labelFontColor(value: ResourceColor)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: (selected: boolean) => void)
 
@@ -202,5 +226,7 @@ onChange(callback: (selected: boolean) => void)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 详见[Menu组件示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu#示例)。

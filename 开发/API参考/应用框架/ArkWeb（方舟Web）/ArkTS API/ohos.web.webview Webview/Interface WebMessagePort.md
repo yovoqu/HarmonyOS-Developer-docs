@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
@@ -32,6 +36,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### postMessageEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postMessageEvent(message: WebMessage): void
 
@@ -90,6 +96,8 @@ struct WebComponent {
 
 
 ##### onMessageEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onMessageEvent(callback: (result: WebMessage) => void): void
 
@@ -160,6 +168,8 @@ struct WebComponent {
 
 ##### postMessageEventExt10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 postMessageEventExt(message: WebMessageExt): void
 
 发送[WebMessageType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-e#webmessagetype10)类型消息给HTML5侧，必须先调用[onMessageEventExt](#onmessageeventext10)，否则会发送失败。完整示例代码参考[onMessageEventExt](#onmessageeventext10)。
@@ -186,6 +196,8 @@ postMessageEventExt(message: WebMessageExt): void
 
 
 ##### onMessageEventExt10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onMessageEventExt(callback: (result: WebMessageExt) => void): void
 
@@ -503,6 +515,8 @@ function postStringToApp() {
 
 
 ##### close
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 close(): void
 

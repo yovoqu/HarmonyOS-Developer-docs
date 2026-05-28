@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 DynamicLayout(algorithm: LayoutAlgorithm)
 
@@ -43,6 +47,8 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 > [!NOTE]
@@ -53,11 +59,15 @@ DynamicLayout(algorithm: LayoutAlgorithm)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -355,7 +365,7 @@ struct LayoutSwitchExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Uajj2PHPTgG-gjuRMG-p4w/zh-cn_image_0000002581275816.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013930Z&HW-CC-Expire=86400&HW-CC-Sign=7AD2050CDE6134AE07414A3C6FCE36F06AE6CB436C00E8EF096CAB659D154774)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Uajj2PHPTgG-gjuRMG-p4w/zh-cn_image_0000002581275816.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024225Z&HW-CC-Expire=86400&HW-CC-Sign=B340B7255BF3585E298E45D884FEC09A034F1CAC062F9CE524A5A38F2948CC52)
 
 
 
@@ -428,4 +438,4 @@ struct PropertyChangeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/xeMNpLJYTRWGLNu59GtMaQ/zh-cn_image_0000002611755673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013930Z&HW-CC-Expire=86400&HW-CC-Sign=661008E52B2040F5C89E0FB1624D1CB2D5C44305FE68DAD9741B924D9B753353)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/xeMNpLJYTRWGLNu59GtMaQ/zh-cn_image_0000002611755673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024225Z&HW-CC-Expire=86400&HW-CC-Sign=6D4C8C0B07FEB07183F05E7EAFD4114C2207941D31AF0E409E96BDA420DA9B8A)

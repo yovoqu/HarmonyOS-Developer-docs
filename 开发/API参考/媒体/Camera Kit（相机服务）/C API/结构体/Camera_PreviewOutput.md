@@ -12,6 +12,8 @@ typedef struct Camera_PreviewOutput Camera_PreviewOutput
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 预览输出对象。
  
  可以使用[OH_CameraManager_CreatePreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createpreviewoutput)方法创建指针。

@@ -12,6 +12,8 @@ typedef struct {...} OH_Predicates
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示谓词。
  
 **起始版本：** 10
@@ -23,6 +25,8 @@ typedef struct {...} OH_Predicates
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -32,6 +36,8 @@ typedef struct {...} OH_Predicates
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -65,9 +71,13 @@ typedef struct {...} OH_Predicates
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### equalTo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*equalTo)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
@@ -98,6 +108,8 @@ OH_Predicates *(*equalTo)(OH_Predicates *predicates, const char *field, OH_VObje
   
 
 ##### notEqualTo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*notEqualTo)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
@@ -131,6 +143,8 @@ OH_Predicates *(*notEqualTo)(OH_Predicates *predicates, const char *field, OH_VO
 
 ##### beginWrap()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*beginWrap)(OH_Predicates *predicates)
 ```
@@ -160,6 +174,8 @@ OH_Predicates *(*beginWrap)(OH_Predicates *predicates)
   
 
 ##### endWrap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*endWrap)(OH_Predicates *predicates)
@@ -191,6 +207,8 @@ OH_Predicates *(*endWrap)(OH_Predicates *predicates)
 
 ##### orOperate()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*orOperate)(OH_Predicates *predicates)
 ```
@@ -221,6 +239,8 @@ OH_Predicates *(*orOperate)(OH_Predicates *predicates)
 
 ##### andOperate()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*andOperate)(OH_Predicates *predicates)
 ```
@@ -250,6 +270,8 @@ OH_Predicates *(*andOperate)(OH_Predicates *predicates)
   
 
 ##### isNull()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*isNull)(OH_Predicates *predicates, const char *field)
@@ -282,6 +304,8 @@ OH_Predicates *(*isNull)(OH_Predicates *predicates, const char *field)
 
 ##### isNotNull()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*isNotNull)(OH_Predicates *predicates, const char *field)
 ```
@@ -312,6 +336,8 @@ OH_Predicates *(*isNotNull)(OH_Predicates *predicates, const char *field)
   
 
 ##### like()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*like)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
@@ -345,6 +371,8 @@ OH_Predicates *(*like)(OH_Predicates *predicates, const char *field, OH_VObject 
 
 ##### between()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*between)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
 ```
@@ -376,6 +404,8 @@ OH_Predicates *(*between)(OH_Predicates *predicates, const char *field, OH_VObje
   
 
 ##### notBetween()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*notBetween)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
@@ -409,6 +439,8 @@ OH_Predicates *(*notBetween)(OH_Predicates *predicates, const char *field, OH_VO
 
 ##### greaterThan()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*greaterThan)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
 ```
@@ -440,6 +472,8 @@ OH_Predicates *(*greaterThan)(OH_Predicates *predicates, const char *field, OH_V
   
 
 ##### lessThan()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*lessThan)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
@@ -473,6 +507,8 @@ OH_Predicates *(*lessThan)(OH_Predicates *predicates, const char *field, OH_VObj
 
 ##### greaterThanOrEqualTo()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*greaterThanOrEqualTo)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
 ```
@@ -504,6 +540,8 @@ OH_Predicates *(*greaterThanOrEqualTo)(OH_Predicates *predicates, const char *fi
   
 
 ##### lessThanOrEqualTo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*lessThanOrEqualTo)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
@@ -537,6 +575,8 @@ OH_Predicates *(*lessThanOrEqualTo)(OH_Predicates *predicates, const char *field
 
 ##### orderBy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*orderBy)(OH_Predicates *predicates, const char *field, OH_OrderType type)
 ```
@@ -569,6 +609,8 @@ OH_Predicates *(*orderBy)(OH_Predicates *predicates, const char *field, OH_Order
 
 ##### distinct()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*distinct)(OH_Predicates *predicates)
 ```
@@ -598,6 +640,8 @@ OH_Predicates *(*distinct)(OH_Predicates *predicates)
   
 
 ##### limit()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*limit)(OH_Predicates *predicates, unsigned int value)
@@ -630,6 +674,8 @@ OH_Predicates *(*limit)(OH_Predicates *predicates, unsigned int value)
 
 ##### offset()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*offset)(OH_Predicates *predicates, unsigned int rowOffset)
 ```
@@ -660,6 +706,8 @@ OH_Predicates *(*offset)(OH_Predicates *predicates, unsigned int rowOffset)
   
 
 ##### groupBy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*groupBy)(OH_Predicates *predicates, char const *const *fields, int length)
@@ -693,6 +741,8 @@ OH_Predicates *(*groupBy)(OH_Predicates *predicates, char const *const *fields, 
 
 ##### in()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*in)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
 ```
@@ -724,6 +774,8 @@ OH_Predicates *(*in)(OH_Predicates *predicates, const char *field, OH_VObject *v
   
 
 ##### notIn()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Predicates *(*notIn)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject)
@@ -757,6 +809,8 @@ OH_Predicates *(*notIn)(OH_Predicates *predicates, const char *field, OH_VObject
 
 ##### clear()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Predicates *(*clear)(OH_Predicates *predicates)
 ```
@@ -784,6 +838,8 @@ OH_Predicates *(*clear)(OH_Predicates *predicates)
   
 
 ##### destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*destroy)(OH_Predicates *predicates)

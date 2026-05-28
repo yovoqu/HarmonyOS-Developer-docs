@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述当前设备网络信息，游戏应用获取到网络信息后传递此参数。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### networkLatency
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 OpenGTX_NetworkLatency OpenGTX_NetworkInfo::networkLatency
@@ -48,6 +58,8 @@ OpenGTX_NetworkLatency OpenGTX_NetworkInfo::networkLatency
   
 
 ##### networkServerIP
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 char* OpenGTX_NetworkInfo::networkServerIP

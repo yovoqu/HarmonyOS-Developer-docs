@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持创建Native子进程，并在父子进程间建立IPC通道。
 
 通过此模块和[childProcessManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-childprocessmanager)（非SELF_FORK模式）可以启动的子进程总数最大为512个。
@@ -25,9 +27,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -42,6 +48,8 @@
 
 ##### 枚举
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | Ability_NativeChildProcess_ErrCode | Ability_NativeChildProcess_ErrCode | 定义Native子进程模块错误码。 |
@@ -51,6 +59,8 @@
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -75,9 +85,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### Ability_NativeChildProcess_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Ability_NativeChildProcess_ErrCode
@@ -111,6 +125,8 @@ enum Ability_NativeChildProcess_ErrCode
 
 ##### NativeChildProcess_IsolationMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum NativeChildProcess_IsolationMode
 ```
@@ -131,9 +147,13 @@ enum NativeChildProcess_IsolationMode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### OH_Ability_CreateChildProcessConfigs()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Ability_ChildProcessConfigs* OH_Ability_CreateChildProcessConfigs()
@@ -155,6 +175,8 @@ Ability_ChildProcessConfigs* OH_Ability_CreateChildProcessConfigs()
 
 
 ##### OH_Ability_DestroyChildProcessConfigs()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_DestroyChildProcessConfigs(Ability_ChildProcessConfigs* configs)
@@ -184,6 +206,8 @@ Ability_NativeChildProcess_ErrCode OH_Ability_DestroyChildProcessConfigs(Ability
 
 ##### OH_Ability_ChildProcessConfigs_SetIsolationMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_ChildProcessConfigs_SetIsolationMode(Ability_ChildProcessConfigs* configs, NativeChildProcess_IsolationMode isolationMode)
 ```
@@ -212,6 +236,8 @@ Ability_NativeChildProcess_ErrCode OH_Ability_ChildProcessConfigs_SetIsolationMo
 
 
 ##### OH_Ability_ChildProcessConfigs_SetIsolationUid()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_ChildProcessConfigs_SetIsolationUid(Ability_ChildProcessConfigs* configs, bool isolationUid)
@@ -244,6 +270,8 @@ Ability_NativeChildProcess_ErrCode OH_Ability_ChildProcessConfigs_SetIsolationUi
 
 ##### OH_Ability_ChildProcessConfigs_SetProcessName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_ChildProcessConfigs_SetProcessName(Ability_ChildProcessConfigs* configs,const char* processName)
 ```
@@ -273,6 +301,8 @@ Ability_NativeChildProcess_ErrCode OH_Ability_ChildProcessConfigs_SetProcessName
 
 ##### OH_Ability_OnNativeChildProcessStarted()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*OH_Ability_OnNativeChildProcessStarted)(int errCode, OHIPCRemoteProxy *remoteProxy)
 ```
@@ -298,6 +328,8 @@ typedef void (*OH_Ability_OnNativeChildProcessStarted)(int errCode, OHIPCRemoteP
 
 
 ##### OH_Ability_CreateNativeChildProcess()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_Ability_CreateNativeChildProcess(const char* libName,OH_Ability_OnNativeChildProcessStarted onProcessStarted)
@@ -370,6 +402,8 @@ int OH_Ability_CreateNativeChildProcess(const char* libName,OH_Ability_OnNativeC
 
 ##### OH_Ability_CreateNativeChildProcessWithConfigs()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_CreateNativeChildProcessWithConfigs(const char* libName,Ability_ChildProcessConfigs* configs, OH_Ability_OnNativeChildProcessStarted onProcessStarted)
 ```
@@ -438,6 +472,8 @@ Ability_NativeChildProcess_ErrCode OH_Ability_CreateNativeChildProcessWithConfig
 
 ##### OH_Ability_StartNativeChildProcess()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_StartNativeChildProcess(const char* entry, NativeChildProcess_Args args,NativeChildProcess_Options options, int32_t *pid)
 ```
@@ -495,6 +531,8 @@ void Main(NativeChildProcess_Args args);
 
 ##### OH_Ability_StartNativeChildProcessWithConfigs()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_StartNativeChildProcessWithConfigs(const char* entry, NativeChildProcess_Args args, Ability_ChildProcessConfigs* configs, int32_t *pid)
 ```
@@ -548,6 +586,8 @@ void Main(NativeChildProcess_Args args);
 
 ##### OH_Ability_GetCurrentChildProcessArgs()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 NativeChildProcess_Args* OH_Ability_GetCurrentChildProcessArgs()
 ```
@@ -568,6 +608,8 @@ NativeChildProcess_Args* OH_Ability_GetCurrentChildProcessArgs()
 
 
 ##### OH_Ability_OnNativeChildProcessExit()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_Ability_OnNativeChildProcessExit)(int32_t pid, int32_t signal)
@@ -596,6 +638,8 @@ typedef void (*OH_Ability_OnNativeChildProcessExit)(int32_t pid, int32_t signal)
 
 
 ##### OH_Ability_RegisterNativeChildProcessExitCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_RegisterNativeChildProcessExitCallback(OH_Ability_OnNativeChildProcessExit onProcessExit)
@@ -627,6 +671,8 @@ Ability_NativeChildProcess_ErrCode OH_Ability_RegisterNativeChildProcessExitCall
 
 ##### OH_Ability_UnregisterNativeChildProcessExitCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_UnregisterNativeChildProcessExitCallback(OH_Ability_OnNativeChildProcessExit onProcessExit)
 ```
@@ -656,6 +702,8 @@ Ability_NativeChildProcess_ErrCode OH_Ability_UnregisterNativeChildProcessExitCa
 
 
 ##### OH_Ability_KillChildProcess()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Ability_NativeChildProcess_ErrCode OH_Ability_KillChildProcess(int32_t pid)

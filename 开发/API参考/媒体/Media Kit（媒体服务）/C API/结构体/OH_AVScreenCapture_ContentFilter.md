@@ -12,6 +12,8 @@ typedef struct OH_AVScreenCapture_ContentFilter OH_AVScreenCapture_ContentFilter
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 通过OH_AVScreenCapture_ContentFilter过滤音视频内容。
  
 **起始版本：** 12

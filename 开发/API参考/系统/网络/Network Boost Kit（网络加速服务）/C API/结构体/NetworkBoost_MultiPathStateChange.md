@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 多网状态信息，用于注册多网状态变化事件回调后，系统多网状态发生变化的事件通知。
  
 **起始版本：** 6.0.2(22)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### multiPathState
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 NetworkBoost_MultiPathState NetworkBoost_MultiPathStateChange::multiPathState
@@ -52,6 +62,8 @@ NetworkBoost_MultiPathState NetworkBoost_MultiPathStateChange::multiPathState
 
 ##### changeCause
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 NetworkBoost_MultiPathChangeCause NetworkBoost_MultiPathStateChange::changeCause
 ```
@@ -63,6 +75,8 @@ NetworkBoost_MultiPathChangeCause NetworkBoost_MultiPathStateChange::changeCause
   
 
 ##### netHandle
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 NetworkBoost_NetHandle NetworkBoost_MultiPathStateChange::netHandle
@@ -76,6 +90,8 @@ NetworkBoost_NetHandle NetworkBoost_MultiPathStateChange::netHandle
 
 ##### pathState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 NetworkBoost_PathState NetworkBoost_MultiPathStateChange::pathState
 ```
@@ -87,6 +103,8 @@ NetworkBoost_PathState NetworkBoost_MultiPathStateChange::pathState
   
 
 ##### pathType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 NetworkBoost_PathType NetworkBoost_MultiPathStateChange::pathType

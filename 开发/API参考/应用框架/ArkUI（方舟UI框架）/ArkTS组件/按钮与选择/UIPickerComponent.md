@@ -14,6 +14,8 @@ UIPickerComponent容器是用于实现用户选择操作的组件。它支持从
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
  - 支持多个子组件。
  - 支持子组件类型：[Text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text)、[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-image)、[Row](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-row)和[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)。
  - 支持渲染控制类型：[if/else](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-ifelse)和[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)。
@@ -26,6 +28,8 @@ UIPickerComponent容器是用于实现用户选择操作的组件。它支持从
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 UIPickerComponent(options?: UIPickerComponentOptions)
 
@@ -48,6 +52,8 @@ UIPickerComponent(options?: UIPickerComponentOptions)
 
 ##### UIPickerComponentOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 UIPickerComponent容器的参数说明。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -65,11 +71,15 @@ UIPickerComponent容器的参数说明。
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### canLoop
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 canLoop(isLoop: Optional&lt;boolean&gt;)
 
@@ -91,6 +101,8 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 
 
 ##### enableHapticFeedback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
@@ -123,6 +135,8 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 ##### selectionIndicator
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectionIndicator(style: Optional&lt;PickerIndicatorStyle&gt;)
 
 设置选中项指示器的样式。
@@ -144,11 +158,15 @@ selectionIndicator(style: Optional&lt;PickerIndicatorStyle&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
@@ -175,6 +193,8 @@ onChange(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
 ##### onScrollStop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onScrollStop(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
 选择器滑动停止时，触发该事件。选择器滑动停止指某次行为触发的滑动动画完全结束。如果某次滑动动画还未结束时又触发了新的滑动动画，则不属于滑动停止。
@@ -195,6 +215,8 @@ onScrollStop(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
 
 ##### PickerIndicatorStyle对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 选中项指示器样式的参数说明。
 
@@ -219,6 +241,8 @@ onScrollStop(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
 ##### PickerIndicatorType枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置选中项指示器的类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -236,6 +260,8 @@ onScrollStop(callback: Optional&lt;OnUIPickerComponentCallback&gt;)
 
 
 ##### OnUIPickerComponentCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnUIPickerComponentCallback = (selectedIndex: number) => void
 
@@ -257,6 +283,8 @@ type OnUIPickerComponentCallback = (selectedIndex: number) => void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -908,7 +936,7 @@ struct RegionUIPickerComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/-Adp5hxhTT65AtWyVVZMEw/zh-cn_image_0000002611835667.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=25B19C3D40317B48B4CCB72CDAA1D1C3BBA94F3D2E915BCE18E5D5D318FBE6C7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/-Adp5hxhTT65AtWyVVZMEw/zh-cn_image_0000002611835667.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=A5E631EFDFA06566D95ED3C166B638E6DE201F2A876EE0C373B12E01498672B1)
 
 
 
@@ -1009,7 +1037,7 @@ struct UIPickerComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/h6bcxfv0QmKr9yry-usvCA/zh-cn_image_0000002581275918.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=06EE43E25985C681410A5CE7CF40BADD32BABEDAD6D89641DE300C5FCF9A50F1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a/v3/h6bcxfv0QmKr9yry-usvCA/zh-cn_image_0000002581275918.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=3BE0BCEB3D56EFF5E81D13485A3B4EBEC9CA30940BD2D5A3077221118B3E435D)
 
 
 
@@ -1474,4 +1502,4 @@ struct TimeUIPickerComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/ezWlv2SpQPWiZkz77vDCPA/zh-cn_image_0000002611755775.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=6EE3D570785C91D51BCCCC8E87FCFDC40F9C08DAE14D7A7310A10686B3E69E35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/ezWlv2SpQPWiZkz77vDCPA/zh-cn_image_0000002611755775.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=F9370B0F5BDF88FFE7C2F88D7A69539817F250960AE217425E6C0B7A7D4DC2E9)

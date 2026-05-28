@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ArkTSUtils } from '@kit.ArkTS'
 ```
@@ -19,6 +21,8 @@ import { ArkTSUtils } from '@kit.ArkTS'
   
 
 ##### ArkTSUtils.isSendable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSendable(value: Object | null | undefined): boolean
  

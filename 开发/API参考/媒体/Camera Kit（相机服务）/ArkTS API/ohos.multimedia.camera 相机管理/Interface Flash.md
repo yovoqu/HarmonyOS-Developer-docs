@@ -16,6 +16,8 @@ Flash继承自[FlashQuery](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -23,6 +25,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### setFlashMode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFlashMode(flashMode: FlashMode): void
  
@@ -72,6 +76,8 @@ function setFlashMode(photoSession: camera.PhotoSession): void {
 
 ##### getFlashMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFlashMode(): FlashMode
  
 获取当前设备的闪光灯模式。
@@ -118,6 +124,8 @@ function getFlashMode(photoSession: camera.PhotoSession): camera.FlashMode | und
 
 ##### onFlashStateChange24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onFlashStateChange(callback: Callback&lt;FlashState&gt;): void
  
 订阅闪光灯状态变化事件回调。
@@ -148,6 +156,8 @@ function onFlashStateChange(photoSession: camera.PhotoSession): void {
   
 
 ##### offFlashStateChange24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offFlashStateChange(callback?: Callback&lt;FlashState&gt;): void
  

@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### MarkerClusterInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 聚合图层的标记的信息。
  

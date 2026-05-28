@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { liveViewManager } from '@kit.LiveViewKit';
 ```
@@ -21,6 +23,8 @@ import { liveViewManager } from '@kit.LiveViewKit';
 
 
 ##### liveViewManager.isLiveViewEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isLiveViewEnabled(): Promise&lt;boolean&gt;
 
@@ -74,6 +78,8 @@ try {
 
 
 ##### liveViewManager.startLiveView
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startLiveView(liveView: LiveView): Promise&lt;LiveViewResult&gt;
 
@@ -204,6 +210,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### liveViewManager.updateLiveView
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 updateLiveView(liveView: LiveView): Promise&lt;LiveViewResult&gt;
 
 更新实况窗，使用Promise异步回调。
@@ -332,6 +340,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### liveViewManager.stopLiveView
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 stopLiveView(liveView: LiveView): Promise&lt;LiveViewResult&gt;
 
@@ -462,6 +472,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### liveViewManager.getActiveLiveView
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getActiveLiveView(id: number): Promise&lt;LiveView&gt;
 
 获取活动的liveView，使用Promise异步回调。
@@ -526,6 +538,8 @@ try {
 
 ##### liveViewManager.isGeofenceTriggerEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 isGeofenceTriggerEnabled(): Promise&lt;boolean&gt;
 
 查询基于地理位置的实况窗提醒开关，使用Promise异步回调。
@@ -578,6 +592,8 @@ try {
 
 
 ##### liveViewManager.startLiveViewByTrigger
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startLiveViewByTrigger(liveView: LiveView, trigger:Trigger): Promise&lt;LiveViewResult&gt;
 
@@ -721,6 +737,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### liveViewManager.stopLiveViewByTrigger
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 stopLiveViewByTrigger(liveView: LiveView, trigger:Trigger): Promise&lt;LiveViewResult&gt;
 
 增加由条件触发结束实况的消息，使用Promise异步回调。
@@ -863,6 +881,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### Trigger
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 触发创建或结束实况窗的条件对象参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -883,6 +903,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### Geofence
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 地理围栏对象参数。
 
@@ -912,6 +934,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### TriggerType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 触发创建或结束实况窗的条件类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -930,6 +954,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### CoordinateSystemType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 地理围栏中心点坐标系类型，为枚举值。
 
@@ -951,6 +977,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### MonitorEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 触发地理围栏的事件类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -970,6 +998,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### LiveView
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 实况窗对象参数，具体示例请见[构建本地实况窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/liveview-create-locally#创建实况窗)。
 
@@ -995,6 +1025,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### LiveViewTimer
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 实况窗计时器参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1018,6 +1050,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### CountdownPreset
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 实况窗计时器预置参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1037,6 +1071,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### LiveViewData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 实况窗详细信息。
 
@@ -1058,6 +1094,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### PrimaryData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 卡片形态参数。
 
@@ -1088,6 +1126,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### BackgroundType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 航班场景下卡片背景类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1108,6 +1148,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### ExtensionData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 辅助区参数。
 
@@ -1132,6 +1174,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### LayoutData
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义扩展区模板类型及公共参数。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_DEFAULT时，使用此类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1154,6 +1198,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### WeatherInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 应用传入天气信息的基类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1175,6 +1221,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### WeatherType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 天气类型，为枚举值，雨、雪天气支持在实况卡片上展示天气动效背景，其余天气类型（WEATHER_TYPE_UNDEFINED除外）仅支持在实况卡片上展示天气图标和温度，不支持在实况卡片上展示天气动效背景。
 
@@ -1222,6 +1270,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### WeatherLocationType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 天气位置类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1242,6 +1292,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### ServiceButton
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 应用传入连续服务按钮的基类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1261,6 +1313,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### ProgressLayout
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 进度可视化模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_PROGRESS时，使用此类型。
 
@@ -1287,6 +1341,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### PickupLayout
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 强调文本模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_PICKUP时，使用此类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1308,6 +1364,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### FlightLayout
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 左右文本模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_FLIGHT时，使用此类型。
 
@@ -1339,6 +1397,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### ScoreLayout
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 赛事比分模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_SCORE时，使用此类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1366,6 +1426,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### NavigationLayout
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 导航模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_NAVIGATION时，使用此类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1386,6 +1448,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### CapsuleData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义实况胶囊基本属性的基类。
 
@@ -1412,6 +1476,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### TextCapsule
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 文本实况胶囊参数，继承[CapsuleData](#capsuledata)。当[type](#capsuledata)为CapsuleType.CAPSULE_TYPE_TEXT时，使用此类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1431,6 +1497,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### TimerCapsule
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 计时器实况胶囊参数，继承[CapsuleData](#capsuledata)。当[type](#capsuledata)为CapsuleType.CAPSULE_TYPE_TIMER时，使用此类型。
 
@@ -1454,6 +1522,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### ProgressCapsule
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 进度实况胶囊参数，继承[CapsuleData](#capsuledata)。当[type](#capsuledata)为CapsuleType.CAPSULE_TYPE_PROGRESS时，使用此类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1475,6 +1545,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### ExternalData
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 外屏形态模板参数。
 
@@ -1499,6 +1571,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### RichText
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 富文本参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1519,6 +1593,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### LiveViewResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 实况窗结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1538,6 +1614,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### LayoutType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 扩展区类型，为枚举值。
 
@@ -1563,6 +1641,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### ExtensionType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 辅助区类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1586,6 +1666,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### ActionType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 点击辅助区之后的行为类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1605,6 +1687,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### IndicatorType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 指示器类型，为枚举值。
 
@@ -1627,6 +1711,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### LineType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 扩展区进度条类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1647,6 +1733,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### CapsuleType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 实况胶囊类型，为枚举值。
 
@@ -1669,6 +1757,8 @@ async function buildWantAgent(): Promise<Want> {
 
 ##### ExternalType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 外屏背景样式类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1688,6 +1778,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### FlightLayoutStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 左右文本子样式类型，为枚举值。
 
@@ -1712,6 +1804,8 @@ async function buildWantAgent(): Promise<Want> {
 
 
 ##### SpaceType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 左右文本模板扩展区中间的显示类型，为枚举值。
 

@@ -12,6 +12,8 @@ typedef struct HiCollie_DetectionParam {...} HiCollie_DetectionParam
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 检测业务线程卡顿的相关参数。请注意，API 12及以上支持。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct HiCollie_DetectionParam {...} HiCollie_DetectionParam
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持子组件。
  
   
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### NodeContainer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 NodeContainer(controller: NodeController)
  
@@ -41,17 +47,23 @@ NodeContainer(controller: NodeController)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
  
   
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通过NodeController挂载BuilderNode节点。
  
@@ -114,4 +126,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/B9PYRB91Q3OruThSSAPbLA/zh-cn_image_0000002611756165.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T013933Z&HW-CC-Expire=86400&HW-CC-Sign=23D7622A17ED7CDD2C707107B4E20F25666CB7941977D0A4EBF4E4602E7F8FD1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/B9PYRB91Q3OruThSSAPbLA/zh-cn_image_0000002611756165.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024228Z&HW-CC-Expire=86400&HW-CC-Sign=39BBEE920ECD6E061E51C90BA26FFF3619EC4E41C8A5F21C19941DD436386063)

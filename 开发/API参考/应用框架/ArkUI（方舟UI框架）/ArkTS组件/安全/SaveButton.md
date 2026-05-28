@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
 
 
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### SaveButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SaveButton()
 
@@ -37,6 +43,8 @@ SaveButton()
 
 
 ##### SaveButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SaveButton(options: SaveButtonOptions)
 
@@ -59,6 +67,8 @@ SaveButton(options: SaveButtonOptions)
 
 ##### SaveButtonOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于指定保存控件的图标、文本等指定元素。
 
 > [!NOTE]
@@ -80,6 +90,8 @@ SaveButton(options: SaveButtonOptions)
 
 ##### SaveIconStyle枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 保存控件的图标风格。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -95,6 +107,8 @@ SaveButton(options: SaveButtonOptions)
 
 
 ##### SaveDescription枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 保存控件的文本描述。
 
@@ -121,6 +135,8 @@ SaveButton(options: SaveButtonOptions)
 
 ##### SaveButtonOnClickResult枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 保存控件点击后的授权结果。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -135,6 +151,8 @@ SaveButton(options: SaveButtonOptions)
 
 
 ##### SaveButtonCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, error?: BusinessError&lt;void&gt;) => void
 
@@ -157,6 +175,8 @@ type SaveButtonCallback = (event: ClickEvent, result: SaveButtonOnClickResult, e
 
 ##### SaveButtonAttribute
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 SaveButtonAttribute提供自定义图标（setIcon）、自定义文本（setText）、图标尺寸（iconSize）、图标圆角（iconBorderRadius），以及按压态效果（stateEffect）等属性设置的方法。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -164,6 +184,8 @@ SaveButtonAttribute提供自定义图标（setIcon）、自定义文本（setTex
 
 
 ##### setIcon20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setIcon(icon: Resource)
 
@@ -186,6 +208,8 @@ setIcon(icon: Resource)
 
 ##### setText20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setText(text: string | Resource)
 
 设置保存控件的文本。
@@ -207,6 +231,8 @@ setText(text: string | Resource)
 
 ##### iconSize20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 iconSize(size: Dimension | SizeOptions)
 
 设置保存控件的图标尺寸。
@@ -225,6 +251,8 @@ iconSize(size: Dimension | SizeOptions)
 
 
 ##### iconBorderRadius20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 iconBorderRadius(radius: Dimension | BorderRadiuses)
 
@@ -247,6 +275,8 @@ iconBorderRadius(radius: Dimension | BorderRadiuses)
 
 ##### stateEffect20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stateEffect(enabled: boolean)
 
 设置保存控件的按压效果。
@@ -268,6 +298,8 @@ stateEffect(enabled: boolean)
 
 ##### userCancelEvent21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 userCancelEvent(enabled: boolean)
 
 设置接收保存控件的用户取消授权事件。
@@ -287,17 +319,23 @@ userCancelEvent(enabled: boolean)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持通用属性，仅继承[安全控件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-securitycomponent-attributes)。
 
 
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持通用事件，仅支持以下事件：
 
 
 
 ##### onClick
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onClick(event: SaveButtonCallback)
 
@@ -317,6 +355,8 @@ onClick(event: SaveButtonCallback)
 
 
 ##### 示例1
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -398,6 +438,8 @@ struct Index {
 
 
 ##### 示例2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用需要申请权限：ohos.permission.CUSTOMIZE_SAVE_BUTTON
 

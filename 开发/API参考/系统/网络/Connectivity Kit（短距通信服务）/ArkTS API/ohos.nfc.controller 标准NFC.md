@@ -14,6 +14,8 @@
 
 ##### **导入模块**
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { nfcController } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { nfcController } from '@kit.ConnectivityKit';
 
 
 ##### NfcState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 定义不同的NFC状态值。
 
@@ -39,6 +43,8 @@ import { nfcController } from '@kit.ConnectivityKit';
 
 
 ##### nfcController.isNfcAvailable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isNfcAvailable(): boolean
 
@@ -60,6 +66,8 @@ isNfcAvailable(): boolean
 
 
 ##### nfcController.openNfc(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 openNfc(): boolean
 
@@ -84,6 +92,8 @@ openNfc(): boolean
 
 ##### nfcController.enableNfc9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 enableNfc(): void
 
 打开NFC开关，该接口只能被系统应用调用。
@@ -106,6 +116,8 @@ enableNfc(): void
 
 
 ##### nfcController.closeNfc(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 closeNfc(): boolean
 
@@ -130,6 +142,8 @@ closeNfc(): boolean
 
 ##### nfcController.disableNfc9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 disableNfc(): void
 
 关闭NFC开关，该接口只能被系统应用调用。
@@ -153,6 +167,8 @@ disableNfc(): void
 
 ##### nfcController.isNfcOpen
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isNfcOpen(): boolean
 
 查询NFC是否打开。
@@ -171,6 +187,8 @@ isNfcOpen(): boolean
 
 
 ##### nfcController.getNfcState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getNfcState(): [NfcState](#nfcstate)
 
@@ -191,6 +209,8 @@ getNfcState(): [NfcState](#nfcstate)
 
 ##### nfcController.on('nfcStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 on(type: 'nfcStateChange', callback: Callback<[NfcState](#nfcstate)>): void
 
 注册NFC开关状态事件，获取NFC状态的变化通知。使用callback异步回调。
@@ -210,6 +230,8 @@ on(type: 'nfcStateChange', callback: Callback<[NfcState](#nfcstate)>): void
 
 
 ##### nfcController.off('nfcStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 off(type: 'nfcStateChange', callback?: Callback<[NfcState](#nfcstate)>): void
 

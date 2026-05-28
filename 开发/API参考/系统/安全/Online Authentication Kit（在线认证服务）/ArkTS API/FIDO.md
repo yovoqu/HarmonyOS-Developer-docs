@@ -20,6 +20,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 import { UIContext } from '@kit.ArkUI'
@@ -30,6 +32,8 @@ import { fido } from '@kit.OnlineAuthenticationKit';
   
 
 ##### ChannelBinding
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 传输通道的绑定参数，用于验证通道的安全性。
  
@@ -51,6 +55,8 @@ import { fido } from '@kit.OnlineAuthenticationKit';
   
 
 ##### UAFMessage
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 UAF字典对象，包含原始的UAF协议消息和附加数据。
  
@@ -86,6 +92,8 @@ UAF字典对象，包含原始的UAF协议消息和附加数据。
 
 ##### Version
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 UAF协议版本信息。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -103,6 +111,8 @@ UAF协议版本信息。
   
 
 ##### RgbPaletteEntry
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 RGB三元调色板。
  
@@ -122,6 +132,8 @@ RGB三元调色板。
   
 
 ##### DisplayPNGCharacteristicsDescriptor
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 PNG图片特征对象。
  
@@ -146,6 +158,8 @@ PNG图片特征对象。
   
 
 ##### Authenticator
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 认证器对象，描述了一个可用认证器的相关信息。
  
@@ -180,6 +194,8 @@ PNG图片特征对象。
 
 ##### DiscoveryData
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 FIDO UAF客户端软件状态和可用的认证器数据。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -199,6 +215,8 @@ FIDO UAF客户端软件状态和可用的认证器数据。
   
 
 ##### discover
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 discover(context: common.Context): Promise&lt;DiscoveryData&gt;
  
@@ -258,6 +276,8 @@ discover(context: common.Context): Promise&lt;DiscoveryData&gt;
   
 
 ##### checkPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 checkPolicy(context: common.Context, uafRequest: UAFMessage): Promise&lt;void&gt;
  
@@ -325,6 +345,8 @@ checkPolicy(context: common.Context, uafRequest: UAFMessage): Promise&lt;void&gt
   
 
 ##### processUAFOperation
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 processUAFOperation(context: common.Context, uafRequest: UAFMessage, channelBindings?: ChannelBinding): Promise&lt;UAFMessage&gt;
  
@@ -399,6 +421,8 @@ processUAFOperation(context: common.Context, uafRequest: UAFMessage, channelBind
   
 
 ##### notifyUAFResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 notifyUAFResult(context: common.Context, uafResponse: UAFMessage): Promise&lt;void&gt;
  

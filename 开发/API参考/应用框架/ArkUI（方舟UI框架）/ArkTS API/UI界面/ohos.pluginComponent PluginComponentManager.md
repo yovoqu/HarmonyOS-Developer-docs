@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { pluginComponentManager } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { pluginComponentManager } from '@kit.ArkUI';
   
 
 ##### PluginComponentTemplate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Plugin组件模板参数。
  
@@ -38,11 +42,15 @@ Plugin组件模板参数。
 
 ##### pluginComponentManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 插件组件管理器。
  
   
 
 ##### KVObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
  
@@ -60,6 +68,8 @@ type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
   
 
 ##### PushParameters
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 使用PluginManager.Push方法时需要传递的参数。
  
@@ -80,6 +90,8 @@ type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
 
 ##### RequestParameters
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 使用PluginManager.Request方法时需要传递的参数。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -98,6 +110,8 @@ type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
 
 ##### RequestCallbackParameters
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PluginManager.Request方法接收到的回调结果。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -115,6 +129,8 @@ PluginManager.Request方法接收到的回调结果。
 
 ##### RequestEventResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 注册Request监听方法后，接收到请求事件时回应请求的数据类型。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -131,6 +147,8 @@ PluginManager.Request方法接收到的回调结果。
   
 
 ##### OnPushEventCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnPushEventCallback = (source: Want, template: PluginComponentTemplate, data: KVObject, extraData: KVObject) => void
  
@@ -168,6 +186,8 @@ function onPushListener(source: Want, template: PluginComponentTemplate, data: p
   
 
 ##### OnRequestEventCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnRequestEventCallback = (source: Want, name: string, data: KVObject) => RequestEventResult
  
@@ -216,6 +236,8 @@ function onRequestListener(source: Want, name: string, data: pluginComponentMana
 
 ##### pluginComponentManager.push
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 push(param: PushParameters , callback: AsyncCallback&lt;void&gt;): void
  
 组件提供方向组件使用方主动发送组件和数据。
@@ -262,6 +284,8 @@ pluginComponentManager.push(
   
 
 ##### pluginComponentManager.request
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 request(param: RequestParameters, callback: AsyncCallback&lt;RequestCallbackParameters&gt;): void
  
@@ -310,6 +334,8 @@ pluginComponentManager.request(
 
 ##### pluginComponentManager.on
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void
  
 提供方监听"request"类型的事件，给使用方返回通过request接口主动请求的数据；使用方监听"push"类型的事件，接收提供方通过push接口主动推送的数据。
@@ -354,6 +380,8 @@ pluginComponentManager.on("request", onRequestListener);
   
 
 ##### external.json文件说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 external.json文件由开发者创建。external.json中以键值对形式存放组件名称以及对应模板路径。以组件名称name作为关键字，对应模板路径作为值。
  

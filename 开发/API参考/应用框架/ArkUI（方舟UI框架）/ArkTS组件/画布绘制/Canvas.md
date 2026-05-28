@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
  
   
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Canvas23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Canvas(params: CanvasParams)
  
@@ -49,6 +55,8 @@ Canvas(params: CanvasParams)
 
 ##### Canvas
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Canvas(context?: CanvasRenderingContext2D | DrawingRenderingContext)
  
 创建Canvas组件时，最大面积不超过10000px*10000px，超过最大面积则无法正常创建。
@@ -70,6 +78,8 @@ Canvas(context?: CanvasRenderingContext2D | DrawingRenderingContext)
 
 ##### Canvas12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptions: ImageAIOptions)
  
 创建Canvas组件，支持设置CanvasRenderingContext2D对象或DrawingRenderingContext对象，支持设置AI分析选项。
@@ -90,6 +100,8 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
 
 ##### CanvasParams23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义Canvas的具体配置参数。
  
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
@@ -108,11 +120,15 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### enableAnalyzer12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
  
@@ -139,11 +155,15 @@ Canvas(context: CanvasRenderingContext2D | DrawingRenderingContext, imageAIOptio
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持如下事件：
  
   
 
 ##### onReady
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onReady(event: VoidCallback)
  
@@ -167,6 +187,8 @@ Canvas组件初始化完成或者发生大小变化时的事件回调，支持[a
   
 
 ##### onReady23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onReady(event: Callback<DrawingRenderingContext | undefined> | undefined)
  
@@ -192,6 +214,8 @@ Canvas组件初始化完成或者发生大小变化时的事件回调，支持[a
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -258,7 +282,7 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/BPrlHrgWRHWrIbw9k-PVvg/zh-cn_image_0000002611755999.png?HW-CC-KV=V1&HW-CC-Date=20260528T013911Z&HW-CC-Expire=86400&HW-CC-Sign=BDFDC47657D26660BB75A5C6DE956B1B5FF41013228EEBCB7CD1F78EC06189EE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/BPrlHrgWRHWrIbw9k-PVvg/zh-cn_image_0000002611755999.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=8D11F53A1C0D5140210569FB5C36F5DB9D03796C1176584509183F2A7A41A8A5)
 
  
   
@@ -351,7 +375,7 @@ struct attributeDemo {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/k3VJStLMRi67GvUt45akeQ/zh-cn_image_0000002581436060.png?HW-CC-KV=V1&HW-CC-Date=20260528T013911Z&HW-CC-Expire=86400&HW-CC-Sign=BBDB9F3FA5262961C04319261ACFE0E7BC5CAC1787E5CEB495933ACE399906A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/k3VJStLMRi67GvUt45akeQ/zh-cn_image_0000002581436060.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=20505CA7248EF8E48C2C834A3A4603B681D078926C129AF9ADF04CF97D4A914B)
 
  
   
@@ -403,4 +427,4 @@ struct CanvasExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/JeiMo9oxRg295kMJpb0yaA/zh-cn_image_0000002611835891.png?HW-CC-KV=V1&HW-CC-Date=20260528T013911Z&HW-CC-Expire=86400&HW-CC-Sign=E5B922FD387E50337ED6F694F619F56589175839DBFF3D38CE549CB736D63A5E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/JeiMo9oxRg295kMJpb0yaA/zh-cn_image_0000002611835891.png?HW-CC-KV=V1&HW-CC-Date=20260528T024207Z&HW-CC-Expire=86400&HW-CC-Sign=72CEDC6F86722D9BBF2A4E36DAE4D3857DA7FC79EC7F7D99073D1143F244EEA2)

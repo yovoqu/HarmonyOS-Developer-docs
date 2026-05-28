@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Counter()
  
@@ -32,11 +36,15 @@ Counter()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性。
  
   
 
 ##### enableInc10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableInc(value: boolean)
  
@@ -57,6 +65,8 @@ enableInc(value: boolean)
 
 ##### enableDec10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableDec(value: boolean)
  
 设置“减少”按钮的禁用或使能。
@@ -76,11 +86,15 @@ enableDec(value: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
  
   
 
 ##### onInc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onInc(event: VoidCallback)
  
@@ -103,6 +117,8 @@ onInc(event: VoidCallback)
 
 ##### onDec
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDec(event: VoidCallback)
  
 监听数值减少事件。
@@ -123,6 +139,8 @@ onDec(event: VoidCallback)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例展示了Counter组件的基本使用方法。点击+、-按钮可以修改value值。
  
@@ -166,4 +184,4 @@ struct CounterExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/V39WxPuyRtafhvO3kXT7hw/zh-cn_image_0000002581436036.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013928Z&HW-CC-Expire=86400&HW-CC-Sign=34D8EF9A62C766C62EDB0D649485B6FE649B6D6D5AB73A2C3CCD592D95B6FD06)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/V39WxPuyRtafhvO3kXT7hw/zh-cn_image_0000002581436036.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024223Z&HW-CC-Expire=86400&HW-CC-Sign=171CA4BC0A196B5266F369A9989BCCE54A506CEAF82B555AD54BF6EB2B1B8FAB)

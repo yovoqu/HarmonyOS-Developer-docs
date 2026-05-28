@@ -23,6 +23,8 @@ ArrayList和[LinkedList](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ArrayList } from '@kit.ArkTS';
 ```
@@ -31,9 +33,13 @@ import { ArrayList } from '@kit.ArkTS';
 
 ##### ArrayList
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -47,6 +53,8 @@ import { ArrayList } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -74,6 +82,8 @@ let arrayList = new ArrayList<string | number>();
 
 
 ##### add
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 add(element: T): boolean
 
@@ -130,6 +140,8 @@ console.info("length:", arrayList.length);  // length: 5
 
 ##### insert
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 insert(element: T, index: number): void
 
 在长度范围内指定位置index插入元素element。如果index超出范围，则插入失败。
@@ -170,6 +182,8 @@ console.info("length:", arrayList.length);  // length: 3
 
 
 ##### has
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 has(element: T): boolean
 
@@ -214,6 +228,8 @@ console.info("result:", result);  // result: true
 
 
 ##### getIndexOf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getIndexOf(element: T): number
 
@@ -265,6 +281,8 @@ console.info("result = ", result); // result = 0
 
 ##### getLastIndexOf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastIndexOf(element: T): number
 
 返回指定元素最后一次出现的下标，查找失败返回-1。
@@ -314,6 +332,8 @@ console.info("result = ", result); // result = 5
 
 
 ##### removeByIndex
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeByIndex(index: number): T
 
@@ -365,6 +385,8 @@ console.info("result = ", result); // result = 5
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 remove(element: T): boolean
 
 删除查找到的第一个指定元素。
@@ -412,6 +434,8 @@ console.info("result = ", result); // result =  true
 
 ##### removeByRange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeByRange(fromIndex: number, toIndex: number): void
 
 删除指定范围内的元素，区间包含fromIndex，但不包含toIndex，即左闭右开区间[fromIndex, toIndex)。
@@ -453,6 +477,8 @@ arrayList.removeByRange(2, 4);
 
 
 ##### replaceAllElements
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replaceAllElements(callbackFn: (value: T, index?: number, arrlist?: ArrayList&lt;T&gt;) => T, thisArg?: Object): void
 
@@ -506,6 +532,8 @@ arrayList.replaceAllElements((value: number): number => {
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value: T, index?: number, arrlist?: ArrayList&lt;T&gt;) => void, thisArg?: Object): void
 
@@ -563,6 +591,8 @@ arrayList.forEach((value: number, index?: number) => {
 
 ##### sort
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sort(comparator?: ArrayListComparatorFn&lt;T&gt;): void
 
 根据指定比较器所定义的顺序，对ArrayList中的元素进行排序。
@@ -604,6 +634,8 @@ arrayList.sort();
 
 
 ##### subArrayList
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 subArrayList(fromIndex: number, toIndex: number): ArrayList&lt;T&gt;
 
@@ -655,6 +687,8 @@ console.info("result = ", result.length); // result = 2
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清除ArrayList中的所有元素，并把length置为0。
@@ -686,6 +720,8 @@ arrayList.clear();
 
 
 ##### clone
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clone(): ArrayList&lt;T&gt;
 
@@ -727,6 +763,8 @@ console.info("result = ", result.length); // result = 4
 
 ##### getCapacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCapacity(): number
 
 获取当前实例的容量大小。
@@ -766,6 +804,8 @@ console.info("result = ", result); // result = 10
 
 
 ##### convertToArray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 convertToArray(): Array&lt;T&gt;
 
@@ -807,6 +847,8 @@ console.info("result = ", result); // result =  2,4,5,4
 
 ##### isEmpty
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isEmpty(): boolean
 
 判断该ArrayList是否为空。
@@ -846,6 +888,8 @@ console.info("result = ", result); // result =  false
 
 
 ##### [index: number]12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [index: number]: T
 
@@ -895,6 +939,8 @@ console.info("result = ", result); // result =  5
 
 ##### increaseCapacityTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 increaseCapacityTo(newCapacity: number): void
 
 如果传入的新容量大于或等于ArrayList中的元素个数，将容量变更为新容量。
@@ -937,6 +983,8 @@ console.info("result = ", arrayList.length); // result = 4
 
 ##### trimToCurrentLength
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 trimToCurrentLength(): void
 
 释放ArrayList中预留的空间，把容量调整为当前的元素个数。
@@ -969,6 +1017,8 @@ console.info("result = ", arrayList.length); // result = 4
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
 
@@ -1028,6 +1078,8 @@ while(!temp.done) {
 
 
 ##### ArrayListComparatorFn&lt;T&gt;23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ArrayListComparatorFn&lt;T&gt; = (firstValue: T, secondValue: T) => number
 

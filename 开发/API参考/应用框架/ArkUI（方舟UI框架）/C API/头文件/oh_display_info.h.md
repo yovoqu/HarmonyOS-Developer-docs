@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供屏幕的公共枚举、公共定义等。
  
 **引用文件：** <window_manager/oh_display_info.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -41,6 +47,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -50,6 +58,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -65,9 +75,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### NativeDisplayManager_Rotation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum NativeDisplayManager_Rotation
@@ -91,6 +105,8 @@ enum NativeDisplayManager_Rotation
 
 ##### NativeDisplayManager_Orientation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum NativeDisplayManager_Orientation
 ```
@@ -113,6 +129,8 @@ enum NativeDisplayManager_Orientation
   
 
 ##### NativeDisplayManager_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum NativeDisplayManager_ErrorCode
@@ -141,6 +159,8 @@ enum NativeDisplayManager_ErrorCode
 
 ##### NativeDisplayManager_FoldDisplayMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum NativeDisplayManager_FoldDisplayMode
 ```
@@ -163,6 +183,8 @@ enum NativeDisplayManager_FoldDisplayMode
   
 
 ##### NativeDisplayManager_DisplayState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum NativeDisplayManager_DisplayState
@@ -188,6 +210,8 @@ enum NativeDisplayManager_DisplayState
   
 
 ##### NativeDisplayManager_SourceMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum NativeDisplayManager_SourceMode

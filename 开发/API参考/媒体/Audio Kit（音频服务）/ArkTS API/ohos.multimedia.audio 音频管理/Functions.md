@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -19,6 +21,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### audio.getAudioManager
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioManager(): AudioManager
 
@@ -46,6 +50,8 @@ let audioManager = audio.getAudioManager();
 
 
 ##### audio.createAudioRenderer8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback&lt;AudioRenderer&gt;): void
 
@@ -98,6 +104,8 @@ audio.createAudioRenderer(audioRendererOptions,(err, data) => {
 
 
 ##### audio.createAudioRenderer8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAudioRenderer(options: AudioRendererOptions): Promise&lt;AudioRenderer&gt;
 
@@ -156,6 +164,8 @@ audio.createAudioRenderer(audioRendererOptions).then((data) => {
 
 ##### audio.createAudioCapturer8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback&lt;AudioCapturer&gt;): void
 
 获取音频采集器。使用callback异步回调。
@@ -211,6 +221,8 @@ audio.createAudioCapturer(audioCapturerOptions, (err, data) => {
 
 
 ##### audio.createAudioCapturer8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAudioCapturer(options: AudioCapturerOptions): Promise&lt;AudioCapturer&gt;
 
@@ -272,6 +284,8 @@ audio.createAudioCapturer(audioCapturerOptions).then((data) => {
 
 
 ##### audio.createAudioLoopback20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAudioLoopback(mode: AudioLoopbackMode): Promise&lt;AudioLoopback&gt;
 

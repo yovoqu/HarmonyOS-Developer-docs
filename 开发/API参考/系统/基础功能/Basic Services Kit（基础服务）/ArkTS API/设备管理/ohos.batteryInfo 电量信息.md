@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import {batteryInfo} from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import {batteryInfo} from '@kit.BasicServicesKit';
   
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 描述电池信息。
  
@@ -80,6 +84,8 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
 
 ##### BatteryPluggedType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示连接的充电器类型的枚举。
  
 **系统能力**：SystemCapability.PowerManager.BatteryManager.Core
@@ -95,6 +101,8 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
   
 
 ##### BatteryChargeState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示电池充电状态的枚举。
  
@@ -114,6 +122,8 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
 
 ##### BatteryHealthState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示电池健康状态的枚举。
  
 **系统能力**：SystemCapability.PowerManager.BatteryManager.Core
@@ -131,6 +141,8 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
   
 
 ##### BatteryCapacityLevel9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示电池电量等级的枚举。
  
@@ -151,6 +163,8 @@ console.info("The nowCurrentInfo is: " + nowCurrentInfo);
   
 
 ##### CommonEventBatteryChangedKey9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示COMMON_EVENT_BATTERY_CHANGED通用事件附加信息的查询键。
  

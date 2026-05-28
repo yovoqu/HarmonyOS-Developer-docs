@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { urpc } from "@kit.RemoteCommunicationKit";
 ```
@@ -21,6 +23,8 @@ import { urpc } from "@kit.RemoteCommunicationKit";
   
 
 ##### FlowbufType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type FlowbufType =
  
@@ -81,6 +85,8 @@ type FlowbufType =
 
 ##### FlowbufElement&lt;T&gt;
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 FlowbufElement&lt;T&gt;用于定义非数组的URPC入参和返回值类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -108,6 +114,8 @@ let version: urpc.FlowbufElement<number> = {type: 'INT8', value: 0, name: ""};
 
 ##### FlowbufArrayElement&lt;T&gt;
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 FlowbufArrayElement&lt;T&gt;用于定义数组类型的URPC入参和返回值类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -134,6 +142,8 @@ let version: urpc.FlowbufArrayElement<number> = {type: 'ARRAY_INT8', value: [1,2
   
 
 ##### urpcStubCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 urpcStubCreate(config: UrpcInitConfiguration, funcList: string | string[]): Promise&lt;UrpcStub&gt;
  
@@ -205,6 +215,8 @@ urpc.urpcStubCreate(config, funcList).then((urpcStub: urpc.UrpcStub) => {
 
 ##### UrpcCall
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type UrpcCall = (funcName: string, request: object, returnValue: object, config?: CallingOption) => UrpcPromise
  
 用于发起一个URPC请求，并接收来自服务器的响应。
@@ -238,6 +250,8 @@ type UrpcCall = (funcName: string, request: object, returnValue: object, config?
 
 ##### UrpcCancel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type UrpcCancel = (callingId?: number | number[]) => void
  
 用于取消指定或所有正在进行的URPC请求。
@@ -261,6 +275,8 @@ type UrpcCancel = (callingId?: number | number[]) => void
 
 ##### UrpcDestroy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type UrpcDestroy = () => void
  
 用于销毁[UrpcStub](#urpcstub)实例。
@@ -276,6 +292,8 @@ type UrpcDestroy = () => void
   
 
 ##### UrpcStub
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示可用于发出URPC请求的通信会话。它提供了各种远程调用方法（call、cancel、destroy）。
  
@@ -298,6 +316,8 @@ type UrpcDestroy = () => void
   
 
 ##### UrpcInitConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SessionConfiguration接口定义了会话的配置参数，为开发者提供了对HTTP会话各个方面的详细控制。
  
@@ -338,6 +358,8 @@ let config: urpc.UrpcInitConfiguration = {
 
 ##### UrpcMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type UrpcMode = 'client'
  
 当前仅支持填写'client'，表示该URPC节点为client模式，可主动发起请求，等待服务器的响应。
@@ -356,6 +378,8 @@ type UrpcMode = 'client'
   
 
 ##### UrpcConnectConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 UrpcConnectConfiguration配置URPC连接的关键信息，可以配置连接的ip和端口号，以及传输协议等可选参数。
  
@@ -398,6 +422,8 @@ let connect: urpc.UrpcConnectConfiguration = {
 
 ##### IpAndPort
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 IpAndPort用于配置URPC的连接IP和端口号。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -427,6 +453,8 @@ let node: urpc.IpAndPort = {
 
 ##### UrpcPromise
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示URPC请求的返回值
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -444,6 +472,8 @@ let node: urpc.IpAndPort = {
   
 
 ##### UrpcProtocol
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type UrpcProtocol = 'eat'
  
@@ -463,6 +493,8 @@ type UrpcProtocol = 'eat'
   
 
 ##### CallingOption
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于配置URPC请求的优先级。
  

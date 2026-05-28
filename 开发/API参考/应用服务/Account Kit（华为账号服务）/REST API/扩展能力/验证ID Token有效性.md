@@ -4,7 +4,7 @@
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-verify-id-token
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/5PnFNKgnTcSLtfp6pk6sVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013441Z&HW-CC-Expire=86400&HW-CC-Sign=CAC097FBFD18BF6C2BCFAADD1D993B853C9FB4E67A0766348D6C846FDF9D1986)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/5PnFNKgnTcSLtfp6pk6sVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023744Z&HW-CC-Expire=86400&HW-CC-Sign=197A7B725F5294AD1D1FC12769B59EE989AFD7C6A52FC277B3A695BDB54485C1)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。

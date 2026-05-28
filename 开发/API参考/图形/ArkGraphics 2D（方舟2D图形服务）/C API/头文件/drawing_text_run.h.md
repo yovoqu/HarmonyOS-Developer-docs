@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供字体渲染单元的相关接口，比如绘制功能、获取排版边界功能等。
  
 **引用文件：** <native_drawing/drawing_text_run.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -55,9 +61,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_GetRunStringIndices()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Array* OH_Drawing_GetRunStringIndices(OH_Drawing_Run* run, int64_t start, int64_t length)
@@ -91,6 +101,8 @@ OH_Drawing_Array* OH_Drawing_GetRunStringIndices(OH_Drawing_Run* run, int64_t st
 
 ##### OH_Drawing_GetRunStringIndicesByIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint64_t OH_Drawing_GetRunStringIndicesByIndex(OH_Drawing_Array* stringIndices, size_t index)
 ```
@@ -122,6 +134,8 @@ uint64_t OH_Drawing_GetRunStringIndicesByIndex(OH_Drawing_Array* stringIndices, 
 
 ##### OH_Drawing_DestroyRunStringIndices()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyRunStringIndices(OH_Drawing_Array* stringIndices)
 ```
@@ -144,6 +158,8 @@ void OH_Drawing_DestroyRunStringIndices(OH_Drawing_Array* stringIndices)
   
 
 ##### OH_Drawing_GetRunStringRange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_GetRunStringRange(OH_Drawing_Run* run, uint64_t* location, uint64_t* length)
@@ -169,6 +185,8 @@ void OH_Drawing_GetRunStringRange(OH_Drawing_Run* run, uint64_t* location, uint6
   
 
 ##### OH_Drawing_GetRunTypographicBounds()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 float OH_Drawing_GetRunTypographicBounds(OH_Drawing_Run* run, float* ascent, float* descent, float* leading)
@@ -203,6 +221,8 @@ float OH_Drawing_GetRunTypographicBounds(OH_Drawing_Run* run, float* ascent, flo
 
 ##### OH_Drawing_RunPaint()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_RunPaint(OH_Drawing_Canvas* canvas, OH_Drawing_Run* run, double x, double y)
 ```
@@ -228,6 +248,8 @@ void OH_Drawing_RunPaint(OH_Drawing_Canvas* canvas, OH_Drawing_Run* run, double 
   
 
 ##### OH_Drawing_GetRunImageBounds()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Rect* OH_Drawing_GetRunImageBounds(OH_Drawing_Run* run)
@@ -259,6 +281,8 @@ OH_Drawing_Rect* OH_Drawing_GetRunImageBounds(OH_Drawing_Run* run)
 
 ##### OH_Drawing_DestroyRunImageBounds()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyRunImageBounds(OH_Drawing_Rect* rect)
 ```
@@ -281,6 +305,8 @@ void OH_Drawing_DestroyRunImageBounds(OH_Drawing_Rect* rect)
   
 
 ##### OH_Drawing_GetRunGlyphs()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Array* OH_Drawing_GetRunGlyphs(OH_Drawing_Run* run, int64_t start, int64_t length)
@@ -314,6 +340,8 @@ OH_Drawing_Array* OH_Drawing_GetRunGlyphs(OH_Drawing_Run* run, int64_t start, in
 
 ##### OH_Drawing_GetRunGlyphsByIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint16_t OH_Drawing_GetRunGlyphsByIndex(OH_Drawing_Array* glyphs, size_t index)
 ```
@@ -345,6 +373,8 @@ uint16_t OH_Drawing_GetRunGlyphsByIndex(OH_Drawing_Array* glyphs, size_t index)
 
 ##### OH_Drawing_DestroyRunGlyphs()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyRunGlyphs(OH_Drawing_Array* glyphs)
 ```
@@ -367,6 +397,8 @@ void OH_Drawing_DestroyRunGlyphs(OH_Drawing_Array* glyphs)
   
 
 ##### OH_Drawing_GetRunPositions()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Array* OH_Drawing_GetRunPositions(OH_Drawing_Run* run, int64_t start, int64_t length)
@@ -400,6 +432,8 @@ OH_Drawing_Array* OH_Drawing_GetRunPositions(OH_Drawing_Run* run, int64_t start,
 
 ##### OH_Drawing_GetRunPositionsByIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_Point* OH_Drawing_GetRunPositionsByIndex(OH_Drawing_Array* positions, size_t index)
 ```
@@ -431,6 +465,8 @@ OH_Drawing_Point* OH_Drawing_GetRunPositionsByIndex(OH_Drawing_Array* positions,
 
 ##### OH_Drawing_DestroyRunPositions()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyRunPositions(OH_Drawing_Array* positions)
 ```
@@ -453,6 +489,8 @@ void OH_Drawing_DestroyRunPositions(OH_Drawing_Array* positions)
   
 
 ##### OH_Drawing_GetRunGlyphCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t OH_Drawing_GetRunGlyphCount(OH_Drawing_Run* run)
@@ -484,6 +522,8 @@ uint32_t OH_Drawing_GetRunGlyphCount(OH_Drawing_Run* run)
 
 ##### OH_Drawing_GetRunFont()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_Font* OH_Drawing_GetRunFont(OH_Drawing_Run* run)
 ```
@@ -514,6 +554,8 @@ OH_Drawing_Font* OH_Drawing_GetRunFont(OH_Drawing_Run* run)
 
 ##### OH_Drawing_GetRunTextDirection()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_TextDirection OH_Drawing_GetRunTextDirection(OH_Drawing_Run* run)
 ```
@@ -543,6 +585,8 @@ OH_Drawing_TextDirection OH_Drawing_GetRunTextDirection(OH_Drawing_Run* run)
   
 
 ##### OH_Drawing_GetRunGlyphAdvances()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Array* OH_Drawing_GetRunGlyphAdvances(OH_Drawing_Run* run, uint32_t start, uint32_t length)
@@ -576,6 +620,8 @@ OH_Drawing_Array* OH_Drawing_GetRunGlyphAdvances(OH_Drawing_Run* run, uint32_t s
 
 ##### OH_Drawing_GetRunGlyphAdvanceByIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_Point* OH_Drawing_GetRunGlyphAdvanceByIndex(OH_Drawing_Array* advances, size_t index)
 ```
@@ -606,6 +652,8 @@ OH_Drawing_Point* OH_Drawing_GetRunGlyphAdvanceByIndex(OH_Drawing_Array* advance
   
 
 ##### OH_Drawing_DestroyRunGlyphAdvances()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_DestroyRunGlyphAdvances(OH_Drawing_Array* advances)

@@ -14,6 +14,8 @@ AbilityManager模块提供获取Ability相关信息和运行状态信息的能�
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { abilityManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { abilityManager } from '@kit.AbilityKit';
   
 
 ##### AbilityState14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Ability的状态，该类型为枚举，可配合[AbilityRunningInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilityrunninginfo)返回Ability的状态。
  
@@ -39,6 +43,8 @@ Ability的状态，该类型为枚举，可配合[AbilityRunningInfo](https://de
   
 
 ##### abilityManager.getAbilityRunningInfos14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAbilityRunningInfos(): Promise<Array&lt;AbilityRunningInfo&gt;>
  
@@ -92,6 +98,8 @@ try {
   
 
 ##### abilityManager.restartSelfAtomicService20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 restartSelfAtomicService(context: Context): void
  
@@ -148,6 +156,8 @@ export default class EntryAbility extends EmbeddableUIAbility {
 
 ##### AbilityRunningInfo14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AbilityRunningInfo = _AbilityRunningInfo
  
 AbilityRunningInfo二级模块。
@@ -162,6 +172,8 @@ AbilityRunningInfo二级模块。
   
 
 ##### AbilityStateData14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AbilityStateData = _AbilityStateData.default
  

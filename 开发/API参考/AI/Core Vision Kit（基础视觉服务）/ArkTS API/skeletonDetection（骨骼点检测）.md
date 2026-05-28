@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 ```
@@ -19,6 +21,8 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 ##### SkeletonPointType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 骨骼点类型的枚举类。
 
@@ -51,6 +55,8 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 ##### SkeletonPoint
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 详细的骨骼点信息。
 
 **系统能力：** SystemCapability.AI.Vision.SkeletonDetection
@@ -67,6 +73,8 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 ##### Skeleton
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 用于描述一个完整的人体骨骼检测结果。包括总体置信度和人体在图像中的大致位置，还详细列出了各个关键点的位置和类型。
 
@@ -85,6 +93,8 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 ##### SkeletonDetectionResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 用于表示一次骨骼点检测的完整结果。作为骨骼点检测的顶层输出，封装了一次检测的全部结果。继承自visionBase的[Response](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#response)。
 
 **系统能力：** SystemCapability.AI.Vision.SkeletonDetection
@@ -99,6 +109,8 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 ##### SkeletonDetector
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义骨骼点检测的接口和基本结构。继承自[visionBase.Analyzer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#analyzer)类。它有以下功能函数：
 
@@ -123,6 +135,8 @@ import { visionBase, skeletonDetection } from '@kit.CoreVisionKit';
 
 
 ##### create
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 static create(): Promise&lt;SkeletonDetector&gt;
 
@@ -193,6 +207,8 @@ struct Page {
 
 ##### destroy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 destroy(): Promise&lt;void&gt;
 
 销毁骨骼点检测能力。使用Promise异步回调。
@@ -251,6 +267,8 @@ struct Page {
 
 
 ##### process
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 process(request: visionBase.Request): Promise&lt;SkeletonDetectionResponse&gt;
 

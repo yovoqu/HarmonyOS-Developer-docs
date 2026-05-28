@@ -14,6 +14,8 @@
 
 ##### onFrame12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onFrame(frameTimeInNano: number): void
  
 在下一帧进行渲染时，该方法将被执行。
@@ -72,6 +74,8 @@ struct Index {
   
 
 ##### onIdle12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onIdle(timeLeftInNano: number): void
  

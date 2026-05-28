@@ -12,6 +12,8 @@ typedef struct OH_Drawing_FontConfigInfo {...} OH_Drawing_FontConfigInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统字体配置信息结构体。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct OH_Drawing_FontConfigInfo {...} OH_Drawing_FontConfigInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

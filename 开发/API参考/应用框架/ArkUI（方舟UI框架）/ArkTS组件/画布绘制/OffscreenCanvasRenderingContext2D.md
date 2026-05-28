@@ -14,9 +14,13 @@
 
 ##### 构造函数
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(width: number, height: number, settings?: RenderingContextSettings)
 
@@ -40,6 +44,8 @@ constructor(width: number, height: number, settings?: RenderingContextSettings)
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(width: number, height: number, settings?: RenderingContextSettings, unit?: LengthMetricsUnit)
 
@@ -65,6 +71,8 @@ constructor(width: number, height: number, settings?: RenderingContextSettings, 
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > fillStyle、shadowColor与 strokeStyle 中string类型格式为 'rgb(255, 255, 255)'，'rgba(255, 255, 255, 1.0)'，'#FFFFFF'。
 
@@ -72,6 +80,8 @@ constructor(width: number, height: number, settings?: RenderingContextSettings, 
 
 
 ##### fillStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 指定绘制的填充色，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -154,6 +164,8 @@ struct FillStyleExample {
 
 ##### lineWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置绘制线条的宽度，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -204,6 +216,8 @@ struct LineWidthExample {
 
 
 ##### strokeStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置线条的颜色，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -288,6 +302,8 @@ struct StrokeStyleExample {
 
 ##### lineCap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指定线端点的样式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -342,6 +358,8 @@ struct LineCapExample {
 
 
 ##### lineJoin
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 指定线段间相交的交点样式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -399,6 +417,8 @@ struct LineJoinExample {
 
 ##### miterLimit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置斜接面限制值，该值指定了线条相交处内角和外角的距离，仅当设置了lineJoin为miter才生效，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -454,6 +474,8 @@ struct MiterLimit {
 
 
 ##### font
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置文本绘制中的字体样式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -528,6 +550,8 @@ struct FontDemo {
 
 ##### textAlign
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置文本绘制中的文本对齐方式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -597,6 +621,8 @@ struct CanvasExample {
 
 
 ##### textBaseline
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置文本绘制中的水平对齐方式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -668,6 +694,8 @@ struct TextBaseline {
 
 ##### globalAlpha
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置透明度，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -722,6 +750,8 @@ struct GlobalAlpha {
 
 ##### lineDashOffset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置画布的虚线偏移量，精度为float，仅当设置setLineDash时属性才生效，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -774,6 +804,8 @@ struct LineDashOffset {
 
 
 ##### globalCompositeOperation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置合成操作的方式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -973,6 +1005,8 @@ struct GlobalCompositeOperation {
 
 ##### shadowBlur
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置绘制阴影时的模糊级别，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -1026,6 +1060,8 @@ struct ShadowBlur {
 
 ##### shadowColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置绘制阴影时的阴影颜色，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -1078,6 +1114,8 @@ struct ShadowColor {
 
 
 ##### shadowOffsetX
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置绘制阴影时和原有对象的水平偏移值，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -1133,6 +1171,8 @@ struct ShadowOffsetX {
 
 ##### shadowOffsetY
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置绘制阴影时和原有对象的垂直偏移值，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -1186,6 +1226,8 @@ struct ShadowOffsetY {
 
 
 ##### imageSmoothingEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于设置绘制图片时是否进行图像平滑度调整，true为启用，false为不启用，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -1243,6 +1285,8 @@ struct ImageSmoothingEnabled {
 
 
 ##### imageSmoothingQuality
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 imageSmoothingEnabled为true时，用于设置图像平滑度，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -1306,6 +1350,8 @@ justifyContent: FlexAlign.Center }) {
 
 ##### direction
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置绘制文字时使用的文字方向，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -1364,6 +1410,8 @@ justifyContent: FlexAlign.Center }) {
 
 
 ##### filter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于设置图像的滤镜，可以组合任意数量的滤镜，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
@@ -1453,6 +1501,8 @@ justifyContent: FlexAlign.Center }) {
 
 ##### letterSpacing18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于指定绘制文本时字母之间的间距，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -1507,6 +1557,8 @@ justifyContent: FlexAlign.Center }) {
 
 
 ##### antialias24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于设置绘制图形和文本时是否开启抗锯齿。设置此接口会覆盖[RenderingContextSettings](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#renderingcontextsettings)中的抗锯齿效果，未通过该接口设置时，默认值为undefined，与[RenderingContextSettings](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d#renderingcontextsettings)中的抗锯齿效果保持一致。
 
@@ -1581,9 +1633,13 @@ struct AntialiasDemoOff {
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### fillRect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fillRect(x: number, y: number, w: number, h: number): void
 
@@ -1643,6 +1699,8 @@ struct FillRect {
 
 ##### strokeRect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeRect(x: number, y: number, w: number, h: number): void
 
 绘制具有边框的矩形，矩形内部不填充。
@@ -1700,6 +1758,8 @@ struct StrokeRect {
 
 
 ##### clearRect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clearRect(x: number, y: number, w: number, h: number): void
 
@@ -1761,6 +1821,8 @@ struct ClearRect {
 
 ##### fillText
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fillText(text: string, x: number, y: number, maxWidth?: number): void
 
 绘制填充类文本。
@@ -1820,6 +1882,8 @@ struct FillText {
 
 ##### strokeText
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeText(text: string, x: number, y: number, maxWidth?: number): void
 
 绘制描边类文本。
@@ -1878,6 +1942,8 @@ struct StrokeText {
 
 
 ##### measureText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 measureText(text: string): TextMetrics
 
@@ -1943,6 +2009,8 @@ struct MeasureText {
 
 ##### stroke
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stroke(): void
 
 根据当前的路径，进行边框绘制操作。
@@ -1995,6 +2063,8 @@ struct Stroke {
 
 
 ##### stroke
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stroke(path: Path2D): void
 
@@ -2057,6 +2127,8 @@ struct Stroke {
 
 ##### beginPath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 beginPath(): void
 
 创建一个新的绘制路径。
@@ -2109,6 +2181,8 @@ struct BeginPath {
 
 
 ##### moveTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveTo(x: number, y: number): void
 
@@ -2173,6 +2247,8 @@ struct MoveTo {
 
 ##### lineTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lineTo(x: number, y: number): void
 
 从当前点到指定点进行路径连接。
@@ -2232,6 +2308,8 @@ struct LineTo {
 
 ##### closePath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closePath(): void
 
 结束当前路径形成一个封闭路径。
@@ -2284,6 +2362,8 @@ struct ClosePath {
 
 
 ##### createPattern
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null
 
@@ -2355,6 +2435,8 @@ struct CreatePattern {
 
 
 ##### bezierCurveTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
 
@@ -2440,6 +2522,8 @@ struct BezierCurveTo {
 
 ##### quadraticCurveTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
 
 创建二次贝塞尔曲线的路径。
@@ -2521,6 +2605,8 @@ struct QuadraticCurveTo {
 
 ##### arc
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
 
 绘制弧线路径。
@@ -2582,6 +2668,8 @@ struct Arc {
 
 
 ##### arcTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void
 
@@ -2676,6 +2764,8 @@ struct ArcTo {
 
 ##### ellipse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
 
 在规定的矩形区域绘制一个椭圆。
@@ -2742,6 +2832,8 @@ struct CanvasExample {
 
 ##### rect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rect(x: number, y: number, w: number, h: number): void
 
 创建矩形路径。
@@ -2800,6 +2892,8 @@ struct CanvasExample {
 
 
 ##### roundRect20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 roundRect(x: number, y: number, w: number, h: number, radii?: number | Array&lt;number&gt;): void
 
@@ -2902,6 +2996,8 @@ struct CanvasExample {
 
 ##### fill
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fill(fillRule?: CanvasFillRule): void
 
 对当前路径进行填充。
@@ -2956,6 +3052,8 @@ struct Fill {
 
 
 ##### fill
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fill(path: Path2D, fillRule?: CanvasFillRule): void
 
@@ -3023,6 +3121,8 @@ struct Fill {
 
 ##### clip
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clip(fillRule?: CanvasFillRule): void
 
 设置当前路径为剪切路径。
@@ -3081,6 +3181,8 @@ struct Clip {
 
 
 ##### clip
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clip(path: Path2D, fillRule?: CanvasFillRule): void
 
@@ -3148,6 +3250,8 @@ struct Clip {
 
 ##### reset12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset(): void
 
 将OffscreenCanvasRenderingContext2D重置为其默认状态，清除后台缓冲区、绘制状态栈、绘制路径和样式。
@@ -3196,6 +3300,8 @@ struct Reset {
 
 
 ##### saveLayer12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 saveLayer(): void
 
@@ -3254,6 +3360,8 @@ struct saveLayer {
 
 ##### restoreLayer12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restoreLayer(): void
 
 恢复图像变换和裁剪状态至saveLayer前的状态，并将图层绘制在canvas上。restoreLayer示例同saveLayer。
@@ -3265,6 +3373,8 @@ restoreLayer(): void
 
 
 ##### resetTransform
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resetTransform(): void
 
@@ -3318,6 +3428,8 @@ struct ResetTransform {
 
 
 ##### rotate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rotate(angle: number): void
 
@@ -3374,6 +3486,8 @@ struct Rotate {
 
 
 ##### scale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 scale(x: number, y: number): void
 
@@ -3433,6 +3547,8 @@ struct Scale {
 
 
 ##### transform
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 transform(a: number, b: number, c: number, d: number, e: number, f: number): void
 
@@ -3505,6 +3621,8 @@ struct Transform {
 
 ##### setTransform
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void
 
 setTransform方法使用的参数和transform()方法相同，但setTransform()方法会重置现有的变换矩阵并创建新的变换矩阵。
@@ -3572,6 +3690,8 @@ struct SetTransform {
 
 
 ##### setTransform
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTransform(transform?: Matrix2D): void
 
@@ -3644,6 +3764,8 @@ setTransform(transform?: Matrix2D): void
 
 
 ##### getTransform
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTransform(): Matrix2D
 
@@ -3720,6 +3842,8 @@ struct TransFormDemo {
 
 ##### translate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 translate(x: number, y: number): void
 
 移动当前坐标系的原点。
@@ -3777,6 +3901,8 @@ struct Translate {
 
 
 ##### drawImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void
 
@@ -3840,6 +3966,8 @@ struct DrawImage {
 
 
 ##### drawImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void
 
@@ -3905,6 +4033,8 @@ struct DrawImage {
 
 
 ##### drawImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawImage(image: ImageBitmap | PixelMap, sx: number, sy: number, sw: number, sh: number, dx: number, dy: number, dw: number, dh: number): void
 
@@ -3975,6 +4105,8 @@ struct DrawImage {
 
 ##### createImageData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageData(sw: number, sh: number): ImageData
 
 根据当前ImageData对象重新创建一个宽、高相同的ImageData对象，请参考[ImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagedata)，该接口存在内存拷贝行为，高耗时，应避免频繁使用。createImageData示例同putImageData。
@@ -4027,6 +4159,8 @@ createImageData(imageData: ImageData): ImageData
 
 
 ##### getPixelMap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap
 
@@ -4099,6 +4233,8 @@ struct GetPixelMap {
 
 ##### setPixelMap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPixelMap(value?: PixelMap): void
 
 将当前传入[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)对象绘制在画布上。setPixelMap示例同getPixelMap。
@@ -4117,6 +4253,8 @@ setPixelMap(value?: PixelMap): void
 
 
 ##### getImageData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getImageData(sx: number, sy: number, sw: number, sh: number): ImageData
 
@@ -4191,6 +4329,8 @@ struct GetImageData {
 
 ##### putImageData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 putImageData(imageData: ImageData, dx: number | string, dy: number | string): void
 
 使用[ImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-imagedata)数据填充新的矩形区域。
@@ -4255,6 +4395,8 @@ struct PutImageData {
 
 
 ##### putImageData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 putImageData(imageData: ImageData, dx: number | string, dy: number | string, dirtyX: number | string, dirtyY: number | string, dirtyWidth: number | string, dirtyHeight: number | string): void
 
@@ -4443,6 +4585,8 @@ struct OffscreenCanvasGetLineDash {
 
 ##### toDataURL
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toDataURL(type?: string, quality?: any): string
 
 生成一个包含图片展示的URL，该接口存在内存拷贝行为，高耗时，应避免频繁使用。
@@ -4507,6 +4651,8 @@ struct ToDataURL {
 
 ##### transferToImageBitmap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 transferToImageBitmap(): ImageBitmap
 
 在离屏画布最近渲染的图像上创建一个ImageBitmap对象。
@@ -4569,6 +4715,8 @@ struct PutImageData {
 
 ##### restore
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restore(): void
 
 对保存的绘图上下文进行恢复。
@@ -4625,6 +4773,8 @@ struct CanvasExample {
 
 ##### save
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 save(): void
 
 对当前的绘图上下文进行保存。
@@ -4676,6 +4826,8 @@ struct CanvasExample {
 
 
 ##### createLinearGradient
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient
 
@@ -4746,6 +4898,8 @@ struct CreateLinearGradient {
 
 
 ##### createRadialGradient
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient
 
@@ -4818,6 +4972,8 @@ struct CreateRadialGradient {
 
 
 ##### createConicGradient10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createConicGradient(startAngle: number, x: number, y: number): CanvasGradient
 

@@ -12,6 +12,8 @@ typedef struct OHExtDataHandle {...} OHExtDataHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 扩展数据句柄结构体定义。
  
 **起始版本：** 9
@@ -26,9 +28,13 @@ typedef struct OHExtDataHandle {...} OHExtDataHandle
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

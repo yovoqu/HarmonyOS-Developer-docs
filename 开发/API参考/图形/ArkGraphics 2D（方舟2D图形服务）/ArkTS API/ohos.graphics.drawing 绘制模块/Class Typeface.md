@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### getFamilyName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFamilyName(): string
 
@@ -48,6 +52,8 @@ let familyName = typeface.getFamilyName();
 
 
 ##### makeFromCurrent20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 makeFromCurrent(typefaceArguments: TypefaceArguments): Typeface
 
@@ -93,6 +99,8 @@ class TextRenderNode extends RenderNode {
 
 
 ##### makeFromFile12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeFromFile(filePath: string): Typeface
 
@@ -148,6 +156,8 @@ class TextRenderNode extends RenderNode {
 
 ##### makeFromRawFile18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static makeFromRawFile(rawfile: Resource): Typeface
 
 使用指定的字体文件构造字体，其中要求指定的字体文件需保存在应用资源文件夹的rawfile路径下。
@@ -191,6 +201,8 @@ class TextRenderNode extends RenderNode {
 
 
 ##### makeFromFileWithArguments20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeFromFileWithArguments(filePath: string, typefaceArguments: TypefaceArguments): Typeface
 
@@ -239,6 +251,8 @@ class TextRenderNode extends RenderNode {
 
 ##### makeFromRawFileWithArguments20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static makeFromRawFileWithArguments(rawfile: Resource, typefaceArguments: TypefaceArguments): Typeface
 
 使用指定的字体文件和字体属性构造字体，其中要求指定的字体文件需保存在应用资源文件夹的rawfile路径下。
@@ -285,6 +299,8 @@ class TextRenderNode extends RenderNode {
 
 ##### isBold23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isBold(): boolean
 
 检查字体是否加粗。
@@ -311,6 +327,8 @@ let result = typeface.isBold();
 
 
 ##### isItalic23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isItalic(): boolean
 

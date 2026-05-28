@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { navi } from '@kit.MapKit';
 ```
@@ -19,6 +21,8 @@ import { navi } from '@kit.MapKit';
   
 
 ##### getDrivingRoutes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getDrivingRoutes(params: DrivingRouteParams): Promise&lt;RouteResult&gt;
  
@@ -104,6 +108,8 @@ console.info("Succeeded in getting driving routes.");
 
 ##### getDrivingRoutes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getDrivingRoutes(context: common.Context, params: DrivingRouteParams): Promise&lt;RouteResult&gt;
  
 规划两个地点之间的驾车路线，支持传入Context上下文。使用Promise异步回调。
@@ -188,6 +194,8 @@ console.info("Succeeded in getting driving routes.");
 
 ##### getWalkingRoutes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getWalkingRoutes(params: RouteParams): Promise&lt;RouteResult&gt;
  
 规划两个地点之间的步行路线。使用Promise异步回调。
@@ -265,6 +273,8 @@ console.info("Succeeded in getting walking routes.");
   
 
 ##### getWalkingRoutes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getWalkingRoutes(context: common.Context, params: RouteParams): Promise&lt;RouteResult&gt;
  
@@ -350,6 +360,8 @@ console.info("Succeeded in getting walking routes.");
 
 ##### getCyclingRoutes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getCyclingRoutes(params: RouteParams): Promise&lt;RouteResult&gt;
  
 规划两个地点之间的骑行路线。使用Promise异步回调。
@@ -427,6 +439,8 @@ console.info("Succeeded in getting cycling routes.");
   
 
 ##### getCyclingRoutes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getCyclingRoutes(context: common.Context, params: RouteParams): Promise&lt;RouteResult&gt;
  
@@ -507,6 +521,8 @@ console.info("Succeeded in getting cycling routes.");
 
 ##### getTransitRoutes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getTransitRoutes(context: common.Context, params: TransitRouteParams): Promise&lt;TransitRouteResult&gt;
  
 规划两地之间的中转路线，仅支持中国大陆。支持传入Context上下文，使用Promise异步回调。
@@ -577,6 +593,8 @@ console.info("Succeeded in getting transit routes.");
   
 
 ##### getDrivingMatrix
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getDrivingMatrix(params: DrivingMatrixParams): Promise&lt;MatrixResult&gt;
  
@@ -664,6 +682,8 @@ console.info("Succeeded in getting driving matrix.");
   
 
 ##### getDrivingMatrix
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getDrivingMatrix(context: common.Context, params: DrivingMatrixParams): Promise&lt;MatrixResult&gt;
  
@@ -753,6 +773,8 @@ console.info("Succeeded in getting driving matrix.");
 
 ##### getWalkingMatrix
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getWalkingMatrix(params: MatrixParams): Promise&lt;MatrixResult&gt;
  
 规划多个地点之间的步行路线。使用Promise异步回调。
@@ -838,6 +860,8 @@ console.info("Succeeded in getting walking matrix.");
   
 
 ##### getWalkingMatrix
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getWalkingMatrix(context: common.Context, params: MatrixParams): Promise&lt;MatrixResult&gt;
  
@@ -926,6 +950,8 @@ console.info("Succeeded in getting walking matrix.");
 
 ##### getCyclingMatrix
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getCyclingMatrix(params: MatrixParams): Promise&lt;MatrixResult&gt;
  
 规划多个地点之间的骑行路线。使用Promise异步回调。
@@ -1011,6 +1037,8 @@ console.info("Succeeded in getting cycling matrix.");
   
 
 ##### getCyclingMatrix
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getCyclingMatrix(context: common.Context, params: MatrixParams): Promise&lt;MatrixResult&gt;
  
@@ -1099,6 +1127,8 @@ console.info("Succeeded in getting cycling matrix.");
 
 ##### snapToRoads
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 snapToRoads(params: SnapToRoadsParams): Promise&lt;SnapToRoadsResult&gt;
  
 基于指定的坐标点捕获道路，将用户轨迹移动到正确的道路，并返回车辆行驶在实际道路上的一组坐标点。使用Promise异步回调。
@@ -1171,6 +1201,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### snapToRoads
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 snapToRoads(context: common.Context, params: SnapToRoadsParams): Promise&lt;SnapToRoadsResult&gt;
  
@@ -1246,6 +1278,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### RouteCoordinate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 用于路线规划中的位置坐标，例如出发地和目的地。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1272,6 +1306,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### RouteParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 步行、骑行和驾车路径规划参数接口。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1295,6 +1331,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### RouteResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 路径规划的结果。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1313,6 +1351,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### DrivingRouteParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 驾车路径规划参数接口，继承[RouteParams](#routeparams)。
  
@@ -1337,6 +1377,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### Route
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 从起点到目的地的规划路径。
  
@@ -1370,6 +1412,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### RouteStep
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 路段规划信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1399,6 +1443,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### RouteRoad
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 路线分段信息。
  
@@ -1430,6 +1476,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### CoordinateBound
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 路线边界范围。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1449,6 +1497,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### Waypoint
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 途经点信息。
  
@@ -1470,6 +1520,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### TrafficSegment
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 路况信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1490,6 +1542,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### MatrixParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 步行、骑行和驾车批量算路参数接口。
  
@@ -1513,6 +1567,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### TransitRouteParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 中转规划算路参数接口。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1535,6 +1591,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### TransitRouteResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 中转规划结果。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1553,6 +1611,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### TransitRoute
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 中转路线。
  
@@ -1574,6 +1634,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### BusSortInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 路线规划汇总信息。
  
@@ -1602,6 +1664,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### TransitRouteSection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 交通路线和行人路段。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1622,6 +1686,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### PedestrianSection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示路线中行人路段。
  
@@ -1649,6 +1715,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### PedestrianDepartureArrival
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 行人路线起、终点。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1669,6 +1737,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### Passthrough
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 描述路线经过的地点。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1688,6 +1758,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### Place
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示与路线相关的通用地点。
  
@@ -1710,6 +1782,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### BaseSummary
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 路线关键属性的集合。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1730,6 +1804,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### TransitSection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 路线的一段。它包含出发、到达和路线信息。
  
@@ -1764,6 +1840,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### TransitArrival
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 中转到达。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1785,6 +1863,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### TransitDeparture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 中转出发。
  
@@ -1808,6 +1888,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### TransitEntranceExit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 中转站出入口。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1828,6 +1910,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### TransitStop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 路线的中转站。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1847,6 +1931,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### TransitTransport
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 中转路线信息。
  
@@ -1871,6 +1957,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### ExtraTransitSection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 额外中转路线信息。
  
@@ -1897,6 +1985,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### TransitMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 中转类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1916,6 +2006,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### MatrixResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 批量算路的结果。
  
@@ -1938,6 +2030,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### DrivingMatrixParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 驾车批量算路参数接口，继承[MatrixParams](#matrixparams)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1958,6 +2052,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### MatrixRow
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 起点和终点两两进行路径规划后的计算出来的时长和距离。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1976,6 +2072,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### MatrixCell
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 距离矩阵中每个单元格的信息。
  
@@ -1999,6 +2097,8 @@ console.info("Succeeded in snapping to roads.");
 
 ##### SnapToRoadsParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 轨迹绑路的参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2017,6 +2117,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### SnapToRoadsResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 轨迹绑路的结果。
  
@@ -2037,6 +2139,8 @@ console.info("Succeeded in snapping to roads.");
   
 
 ##### SnappedPoint
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 道路吸附点。
  

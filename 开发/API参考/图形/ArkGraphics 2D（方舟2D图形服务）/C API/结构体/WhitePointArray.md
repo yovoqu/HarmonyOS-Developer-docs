@@ -12,6 +12,8 @@ typedef struct WhitePointArray {...} WhitePointArray
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供白点数组结构体，白点是指在当前色域中表示白色的坐标。
  
 **起始版本：** 13
@@ -24,9 +26,13 @@ typedef struct WhitePointArray {...} WhitePointArray
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

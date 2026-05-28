@@ -12,6 +12,8 @@
 
 ##### StoreConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 管理关系数据库配置。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -37,6 +39,8 @@
 
 ##### CryptoParam14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据库加密参数配置。此配置只有在StoreConfig的encrypt选项设置为true或密钥非空时有效。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -54,6 +58,8 @@
 
 
 ##### Asset10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 记录资产附件（文件、图片、视频等类型文件）的相关信息。
 
@@ -74,6 +80,8 @@
 
 ##### ChangeInfo10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 记录端云同步过程详情。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -91,6 +99,8 @@
 
 ##### DistributedConfig10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 记录表的分布式配置信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -106,6 +116,8 @@
 
 
 ##### Statistic10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述数据库表的端云同步过程的统计信息。
 
@@ -123,6 +135,8 @@
 
 ##### TableDetails10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述数据库表执行端云同步任务上传和下载的统计信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -136,6 +150,8 @@
 
 
 ##### ProgressDetails10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述数据库整体执行端云同步任务上传和下载的统计信息。
 
@@ -151,6 +167,8 @@
 
 
 ##### SqlExecutionInfo12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述数据库执行的SQL语句的统计信息。
 
@@ -169,6 +187,8 @@
 
 ##### SqlInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述数据库执行的SQL语句的详细信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -182,6 +202,8 @@
 
 
 ##### ExceptionMessage20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述数据库执行的SQL语句的错误信息。
 
@@ -198,6 +220,8 @@
 
 ##### TransactionOptions14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 事务对象的配置信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -210,6 +234,8 @@
 
 
 ##### pluginLibs的使用约束和示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **使用约束：**
 
@@ -284,6 +310,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ReturningConfig23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指定returning相关接口操作后需要返回的字段名列表和结果集中允许包含的最大记录数。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -299,6 +327,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### Result23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 记录受影响的数据行数量和结果集。
 

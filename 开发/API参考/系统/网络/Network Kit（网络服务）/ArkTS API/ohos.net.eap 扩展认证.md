@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import {eap} from '@kit.NetworkKit';
 ```
@@ -21,6 +23,8 @@ import {eap} from '@kit.NetworkKit';
 
 
 ##### eap.regCustomEapHandler
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 regCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback&lt;EapData&gt;): void
 
@@ -79,6 +83,8 @@ try {
 
 ##### eap.unregCustomEapHandler
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 unregCustomEapHandler(netType:number, eapCode: number, eapType: number, callback: Callback&lt;EapData&gt;): void
 
 用于指定需要取消定制化处理的EAP报文类型和对应的处理callback。使用callback异步回调。
@@ -134,6 +140,8 @@ try {
 
 ##### eap.replyCustomEapData
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 replyCustomEapData(result: CustomResult, data: EapData): void
 
 该接口用于通知系统已完成该步定制化处理。
@@ -187,6 +195,8 @@ try {
 
 
 ##### eap.startEthEap
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 startEthEap(netId: number, profile: EthEapProfile): void
 
@@ -253,6 +263,8 @@ try {
 
 ##### eap.logOffEthEap
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 logOffEthEap(netId: number): void
 
 该接口用于指定一个以太网卡从EAP已认证状态退出。
@@ -299,6 +311,8 @@ try{
 
 ##### EapData
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 EAP信息。
 
 ​**系统能力**​：SystemCapability.Communication.NetManager.Eap
@@ -314,6 +328,8 @@ EAP信息。
 
 ##### CustomResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示EAP认证处理结果的枚举。
 
 ​**系统能力**​：SystemCapability.Communication.NetManager.Eap
@@ -328,6 +344,8 @@ EAP信息。
 
 
 ##### EapMethod
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 表示EAP认证方式的枚举。
 
@@ -350,6 +368,8 @@ EAP信息。
 
 ##### Phase2Method
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示第二阶段认证方式的枚举。
 
 **系统能力：** SystemCapability.Communication.NetManager.Eap
@@ -369,6 +389,8 @@ EAP信息。
 
 
 ##### EthEapProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 可扩展身份验证协议配置信息。
 

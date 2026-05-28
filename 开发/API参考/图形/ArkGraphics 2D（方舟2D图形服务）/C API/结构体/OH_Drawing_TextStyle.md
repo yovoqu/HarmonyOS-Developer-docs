@@ -12,6 +12,8 @@ typedef struct OH_Drawing_TextStyle OH_Drawing_TextStyle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于管理字体颜色、装饰等。
  
 **起始版本：** 8

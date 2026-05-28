@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { paymentService } from '@kit.PaymentKit';
 ```
@@ -23,6 +25,8 @@ import { paymentService } from '@kit.PaymentKit';
 
 
 ##### PayResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 用户在通用收银台选择支付方式并确认支付后的支付信息。
 
@@ -47,6 +51,8 @@ import { paymentService } from '@kit.PaymentKit';
 
 ##### PaymentInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 三方支付拉起通用收银台时传入的支付订单信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -69,6 +75,8 @@ import { paymentService } from '@kit.PaymentKit';
 
 ##### PickerResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 三方支付拉起通用收银台时响应给开发者的订单支付信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -89,6 +97,8 @@ import { paymentService } from '@kit.PaymentKit';
 
 ##### BindCardResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 绑卡结果信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -108,6 +118,8 @@ import { paymentService } from '@kit.PaymentKit';
 
 
 ##### requestPayment
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 requestPayment(context: common.UIAbilityContext, orderStr: string): Promise&lt;void&gt;
 
@@ -190,6 +202,8 @@ struct Index {
 
 ##### requestPayment
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 requestPayment(context: common.UIAbilityContext, orderStr: string, callback: AsyncCallback&lt;void&gt;): void
 
 该方法提供基础支付、支付并签约等功能，调用该方法前请确保网络已连接，调用该方法后会拉起Payment Kit收银台，支付完成后通过AsyncCallback回调结果。
@@ -269,6 +283,8 @@ struct Index {
 
 
 ##### requestContract
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 requestContract(context: common.UIAbilityContext, contractStr: string): Promise&lt;void&gt;
 
@@ -351,6 +367,8 @@ struct Index {
 
 ##### requestContract
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 requestContract(context: common.UIAbilityContext, contractStr: string, callback: AsyncCallback&lt;void&gt;): void
 
 该方法提供签约功能，调用该方法前请确保网络已连接，调用该方法后会拉起Payment Kit签约收银台，签约完成后通过AsyncCallback回调结果。
@@ -430,6 +448,8 @@ struct Index {
 
 
 ##### requestPayment
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 requestPayment(context: common.UIAbilityContext, orderStr: string, payload: string): Promise&lt;PayResult&gt;
 
@@ -514,6 +534,8 @@ struct Index {
 
 
 ##### cashierPicker
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 cashierPicker(context: common.UIAbilityContext, paymentInfo: PaymentInfo): Promise&lt;PickerResult&gt;
 
@@ -600,6 +622,8 @@ struct Index {
 
 
 ##### requestBindCard
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 requestBindCard(context: common.UIAbilityContext | common.UIExtensionContext): Promise&lt;BindCardResult&gt;
 

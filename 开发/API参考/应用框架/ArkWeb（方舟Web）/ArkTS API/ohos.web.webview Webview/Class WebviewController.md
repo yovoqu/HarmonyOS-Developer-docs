@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### constructor11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(webTag?: string)
 
@@ -124,6 +128,8 @@ struct WebComponent {
 
 ##### initializeWebEngine
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static initializeWebEngine(): void
 
 在Web组件初始化之前，通过此接口加载Web引擎的动态库文件，以提高启动性能。自动预连接历史访问过的高频网站。
@@ -155,6 +161,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setHttpDns10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setHttpDns(secureDnsMode:SecureDnsMode, secureDnsConfig:string): void
 
@@ -205,6 +213,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWebDebuggingAccess
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setWebDebuggingAccess(webDebuggingAccess: boolean): void
 
@@ -261,6 +271,8 @@ struct WebComponent {
 
 
 ##### loadUrl
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadUrl(url: string | Resource, headers?: Array&lt;WebHeader&gt;): void
 
@@ -454,6 +466,8 @@ struct WebComponent {
 
 
 ##### loadData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadData(data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string): void
 
@@ -662,6 +676,8 @@ struct WebComponent {
 
 ##### accessForward
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 accessForward(): boolean
 
 当前页面是否可前进，即当前页面是否有前进历史记录。
@@ -719,6 +735,8 @@ struct WebComponent {
 
 ##### forward
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 forward(): void
 
 按照历史栈，前进一个页面。一般结合[accessForward](#accessforward)一起使用。
@@ -765,6 +783,8 @@ struct WebComponent {
 
 
 ##### accessBackward
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 accessBackward(): boolean
 
@@ -827,6 +847,8 @@ struct WebComponent {
 
 ##### backward
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 backward(): void
 
 按照历史栈，后退一个页面。一般结合[accessBackward](#accessbackward)一起使用。
@@ -873,6 +895,8 @@ struct WebComponent {
 
 
 ##### onActive
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onActive(): void
 
@@ -923,6 +947,8 @@ struct WebComponent {
 
 ##### onInactive
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onInactive(): void
 
 调用此接口通知Web组件进入未激活状态。开发者可以在此回调中实现应用失去焦点时应表现的恰当行为。
@@ -972,6 +998,8 @@ struct WebComponent {
 
 ##### refresh
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 refresh(): void
 
 调用此接口通知Web组件刷新网页。
@@ -1018,6 +1046,8 @@ struct WebComponent {
 
 
 ##### refresh24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 refresh(ignoreCache: boolean): void
 
@@ -1072,6 +1102,8 @@ struct WebComponent {
 
 
 ##### accessStep
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 accessStep(step: number): boolean
 
@@ -1137,6 +1169,8 @@ struct WebComponent {
 
 ##### clearHistory
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearHistory(): void
 
 删除所有前进后退记录，不建议在onErrorReceive与onPageBegin中调用clearHistory，会造成异常退出。
@@ -1183,6 +1217,8 @@ struct WebComponent {
 
 
 ##### registerJavaScriptProxy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 registerJavaScriptProxy(jsObject: object, name: string, methodList: Array&lt;string&gt;, asyncMethodList?: Array&lt;string&gt;, permission?: string): void
 
@@ -1364,6 +1400,8 @@ struct Index {
 
 ##### runJavaScript
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 runJavaScript(script: string, callback : AsyncCallback&lt;string&gt;): void
 
 在当前显示页面的上下文中异步执行JavaScript脚本，脚本执行的结果将通过异步回调方式返回。此方法必须在用户界面（UI）线程上使用 ，并且回调也将在用户界面（UI）线程上调用。
@@ -1461,6 +1499,8 @@ struct WebComponent {
 
 ##### runJavaScript
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 runJavaScript(script: string): Promise&lt;string&gt;
 
 在当前显示页面的上下文中异步执行JavaScript脚本，脚本执行的结果将通过Promise方式返回。此方法必须在用户界面（UI）线程上使用 ，并且回调也将在用户界面（UI）线程上调用。
@@ -1557,6 +1597,8 @@ struct WebComponent {
 
 
 ##### runJavaScriptExt10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 runJavaScriptExt(script: string | ArrayBuffer, callback : AsyncCallback&lt;JsMessageExt&gt;): void
 
@@ -1788,6 +1830,8 @@ function test() {
 
 ##### runJavaScriptExt10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 runJavaScriptExt(script: string | ArrayBuffer): Promise&lt;JsMessageExt&gt;
 
 异步执行JavaScript脚本，并通过Promise方式返回脚本执行的结果。runJavaScriptExt需要在loadUrl完成后，比如[onPageEnd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onpageend)中调用。
@@ -2011,6 +2055,8 @@ function test() {
 
 ##### deleteJavaScriptRegister
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteJavaScriptRegister(name: string): void
 
 删除通过[registerJavaScriptProxy](#registerjavascriptproxy)或者[javaScriptProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#javascriptproxy)注册到window上的指定name的应用侧JavaScript对象。删除操作在页面下次（重新）加载后生效。
@@ -2121,6 +2167,8 @@ struct WebComponent {
 
 ##### zoom
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 zoom(factor: number): void
 
 调整当前网页的缩放比例，[zoomAccess](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#zoomaccess)需为true。
@@ -2178,6 +2226,8 @@ struct WebComponent {
 
 
 ##### searchAllAsync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 searchAllAsync(searchString: string): void
 
@@ -2253,6 +2303,8 @@ struct WebComponent {
 
 ##### clearMatches
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearMatches(): void
 
 清除所有通过[searchAllAsync](#searchallasync)匹配到的高亮字符查找结果。
@@ -2301,6 +2353,8 @@ struct WebComponent {
 
 
 ##### searchNext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 searchNext(forward: boolean): void
 
@@ -2359,6 +2413,8 @@ struct WebComponent {
 
 ##### clearSslCache
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearSslCache(): void
 
 清除Web组件记录的SSL证书错误事件对应的用户操作行为。
@@ -2405,6 +2461,8 @@ struct WebComponent {
 
 
 ##### clearClientAuthenticationCache
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clearClientAuthenticationCache(): void
 
@@ -2453,6 +2511,8 @@ struct WebComponent {
 
 ##### createWebMessagePorts
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createWebMessagePorts(isExtentionType?: boolean): Array&lt;WebMessagePort&gt;
 
 创建Web消息端口。
@@ -2490,6 +2550,8 @@ createWebMessagePorts(isExtentionType?: boolean): Array&lt;WebMessagePort&gt;
 
 
 ##### postMessage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postMessage(name: string, ports: Array&lt;WebMessagePort&gt;, uri: string): void
 
@@ -2658,6 +2720,8 @@ function PostMsgToEts(data) {
 
 ##### requestFocus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 requestFocus(): void
 
 使指定组件获取焦点。
@@ -2704,6 +2768,8 @@ struct WebComponent {
 
 
 ##### zoomIn
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 zoomIn(): void
 
@@ -2753,6 +2819,8 @@ struct WebComponent {
 
 ##### zoomOut
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 zoomOut(): void
 
 调用此接口将当前网页进行缩小，比例为20%。
@@ -2800,6 +2868,8 @@ struct WebComponent {
 
 
 ##### getWebId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWebId(): number
 
@@ -2855,6 +2925,8 @@ struct WebComponent {
 
 
 ##### getUserAgent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUserAgent(): string
 
@@ -2946,6 +3018,8 @@ struct WebComponent {
 
 ##### getTitle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTitle(): string
 
 获取当前网页的标题。
@@ -3001,6 +3075,8 @@ struct WebComponent {
 
 ##### getPageHeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPageHeight(): number
 
 获取当前网页的页面高度。具体使用详情请参考[获取网页内容高度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-getpage-height)。
@@ -3055,6 +3131,8 @@ struct WebComponent {
 
 
 ##### storeWebArchive
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 storeWebArchive(baseName: string, autoName: boolean, callback: AsyncCallback&lt;string&gt;): void
 
@@ -3121,6 +3199,8 @@ struct WebComponent {
 
 
 ##### storeWebArchive
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 storeWebArchive(baseName: string, autoName: boolean): Promise&lt;string&gt;
 
@@ -3194,6 +3274,8 @@ struct WebComponent {
 
 ##### getUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUrl(): string
 
 获取当前页面的URL地址。
@@ -3249,6 +3331,8 @@ struct WebComponent {
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): void
 
 停止页面加载。
@@ -3295,6 +3379,8 @@ struct WebComponent {
 
 
 ##### backOrForward
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 backOrForward(step: number): void
 
@@ -3353,6 +3439,8 @@ struct WebComponent {
 
 
 ##### scrollTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 scrollTo(x:number, y:number, duration?:number): void
 
@@ -3442,6 +3530,8 @@ Scroll Test
 
 
 ##### scrollBy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 scrollBy(deltaX:number, deltaY:number,duration?:number): void
 
@@ -3536,6 +3626,8 @@ Scroll Test
 
 ##### scrollByWithResult12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 scrollByWithResult(deltaX: number, deltaY: number): boolean
 
 将页面滚动指定的偏移量，返回值表示此次滚动是否执行成功。
@@ -3628,6 +3720,8 @@ Scroll Test
 
 ##### slideScroll
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 slideScroll(vx:number, vy:number): void
 
 按照指定速度模拟对页面的轻扫滚动动作。
@@ -3708,6 +3802,8 @@ Scroll Test
 
 ##### getOriginalUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOriginalUrl(): string
 
 获取当前页面的原始URL地址。
@@ -3765,6 +3861,8 @@ struct WebComponent {
 
 ##### getFavicon
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFavicon(): image.PixelMap
 
 获取页面的favicon图标。
@@ -3820,6 +3918,8 @@ struct WebComponent {
 
 
 ##### setNetworkAvailable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setNetworkAvailable(enable: boolean): void
 
@@ -3900,6 +4000,8 @@ struct WebComponent {
 
 ##### hasImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasImage(callback: AsyncCallback&lt;boolean&gt;): void
 
 通过Callback方式异步查找当前页面是否存在图像。
@@ -3961,6 +4063,8 @@ struct WebComponent {
 
 ##### hasImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasImage(): Promise&lt;boolean&gt;
 
 通过Promise方式异步查找当前页面是否存在图像。
@@ -4019,6 +4123,8 @@ struct WebComponent {
 
 
 ##### removeCache
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeCache(clearRom: boolean): void
 
@@ -4079,6 +4185,8 @@ struct WebComponent {
 
 ##### removeAllCache18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static removeAllCache(clearRom: boolean): void
 
 清除应用内所有Webview(含隐私模式)产生的资源缓存。
@@ -4136,6 +4244,8 @@ struct WebComponent {
 
 
 ##### pageUp
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pageUp(top: boolean): void
 
@@ -4224,6 +4334,8 @@ struct WebComponent {
 
 
 ##### pageDown
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pageDown(bottom: boolean): void
 
@@ -4315,6 +4427,8 @@ struct WebComponent {
 
 ##### getBackForwardEntries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBackForwardEntries(): BackForwardList
 
 获取当前Webview的历史信息列表。
@@ -4372,6 +4486,8 @@ struct WebComponent {
 
 
 ##### serializeWebState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 serializeWebState(): Uint8Array
 
@@ -4453,6 +4569,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### restoreWebState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 restoreWebState(state: Uint8Array): void
 
@@ -4547,6 +4665,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### customizeSchemes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static customizeSchemes(schemes: Array&lt;WebCustomScheme&gt;): void
 
 对Web内核赋予自定义协议URL的跨域请求与fetch请求的权限。当Web在跨域fetch自定义协议URL时，该fetch请求可被[onInterceptRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oninterceptrequest9)事件接口所拦截，从而开发者可以进一步处理该请求。建议在任何Web组件初始化之前调用该接口。
@@ -4612,6 +4732,8 @@ struct WebComponent {
 
 ##### customizeSchemes21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static customizeSchemes(schemes: Array&lt;WebCustomScheme&gt;, lazyInitWebEngine: boolean): void
 
 对Web内核赋予自定义协议URL的跨域请求与fetch请求的权限。当Web在跨域fetch自定义协议URL时，该fetch请求可被[onInterceptRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oninterceptrequest9)事件接口所拦截，从而开发者可以进一步处理该请求。建议在任何Web组件初始化之前调用该接口。
@@ -4671,6 +4793,8 @@ struct WebComponent {
 
 
 ##### getCertificate10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCertificate(): Promise<Array<cert.X509Cert>>
 
@@ -4836,6 +4960,8 @@ struct Index {
 
 
 ##### getCertificate10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void
 
@@ -5003,6 +5129,8 @@ struct Index {
 
 ##### setAudioMuted10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAudioMuted(mute: boolean): void
 
 设置网页静音。
@@ -5056,6 +5184,8 @@ struct WebComponent {
 
 
 ##### prefetchPage21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 prefetchPage(url: string, additionalHeaders?: Array&lt;WebHeader&gt;, prefetchOptions?: PrefetchOptions): void
 
@@ -5121,6 +5251,8 @@ struct WebComponent {
 
 ##### prefetchPage10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 prefetchPage(url: string, additionalHeaders?: Array&lt;WebHeader&gt;): void
 
 在预测到将要加载的页面之前调用，可提前下载页面所需的资源（包括：主资源和子资源），但不会执行网页JavaScript代码或呈现网页，以加快页面加载速度。
@@ -5183,6 +5315,8 @@ struct WebComponent {
 
 ##### prefetchResource12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static prefetchResource(request: RequestInfo, additionalHeaders?: Array&lt;WebHeader&gt;, cacheKey?: string, cacheValidTime?: number): void
 
 根据指定的请求信息和附加的http请求头去预获取资源请求，存入内存缓存，并指定其缓存key和有效期，以加快加载速度。目前仅支持Content-Type为application/x-www-form-urlencoded的post请求。最多可以预获取6个post请求。如果要预获取第7个，请通过[clearPrefetchedResource](#clearprefetchedresource12)清除不需要的post请求缓存，否则会自动清除最早预获取的post缓存。如果要使用预获取的资源缓存，开发者需要在正式发起的post请求的请求头中增加键值“ArkWebPostCacheKey”，其内容为对应缓存的cacheKey。
@@ -5241,6 +5375,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### clearPrefetchedResource12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static clearPrefetchedResource(cacheKeyList: Array&lt;string&gt;): void
 
 根据指定的缓存key列表清除对应的预获取资源缓存。入参中的缓存key必须是[prefetchResource](#prefetchresource12)指定预获取到的资源缓存key。
@@ -5295,6 +5431,8 @@ struct WebComponent {
 
 ##### prepareForPageLoad10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static prepareForPageLoad(url: string, preconnectable: boolean, numSockets: number): void
 
 预连接URL，在加载URL之前调用此API，对URL只进行DNS解析，socket建链操作，并不获取主资源子资源。
@@ -5342,6 +5480,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setCustomUserAgent10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCustomUserAgent(userAgent: string): void
 
@@ -5410,6 +5550,8 @@ struct WebComponent {
 
 ##### setDownloadDelegate11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDownloadDelegate(delegate: WebDownloadDelegate): void
 
 为当前的Web组件设置一个WebDownloadDelegate，该delegate用来接收页面内触发的下载进度的委托。
@@ -5464,6 +5606,8 @@ struct WebComponent {
 
 
 ##### startDownload11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startDownload(url: string): void
 
@@ -5529,6 +5673,8 @@ struct WebComponent {
 
 ##### getCustomUserAgent10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCustomUserAgent(): string
 
 获取自定义用户代理。
@@ -5587,6 +5733,8 @@ struct WebComponent {
 
 ##### setAppCustomUserAgent20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setAppCustomUserAgent(userAgent: string): void
 
 设置应用级自定义用户代理，会覆盖系统的用户代理，应用内所有Web组件生效。
@@ -5638,6 +5786,8 @@ struct WebComponent {
 
 
 ##### setUserAgentForHosts20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setUserAgentForHosts(userAgent: string, hosts: Array&lt;string&gt;): void
 
@@ -5697,6 +5847,8 @@ struct WebComponent {
 
 
 ##### setConnectionTimeout11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setConnectionTimeout(timeout: number): void
 
@@ -5759,6 +5911,8 @@ struct WebComponent {
 
 ##### warmupServiceWorker12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static warmupServiceWorker(url: string): void
 
 预热ServiceWorker，以提升首屏页面的加载速度（仅限于会使用ServiceWorker的页面）。在加载URL之前调用此API。
@@ -5803,6 +5957,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### enableSafeBrowsing11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableSafeBrowsing(enable: boolean): void
 
@@ -5865,6 +6021,8 @@ struct WebComponent {
 
 ##### isSafeBrowsingEnabled11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSafeBrowsingEnabled(): boolean
 
 获取当前网页是否启用了检查网站安全风险。
@@ -5905,6 +6063,8 @@ struct WebComponent {
 
 
 ##### enableIntelligentTrackingPrevention12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableIntelligentTrackingPrevention(enable: boolean): void
 
@@ -5965,6 +6125,8 @@ struct WebComponent {
 
 ##### isIntelligentTrackingPreventionEnabled12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isIntelligentTrackingPreventionEnabled(): boolean
 
 获取Web组件是否启用了智能防跟踪功能。
@@ -6022,6 +6184,8 @@ struct WebComponent {
 
 
 ##### addIntelligentTrackingPreventionBypassingList12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static addIntelligentTrackingPreventionBypassingList(hostList: Array&lt;string&gt;): void
 
@@ -6081,6 +6245,8 @@ struct WebComponent {
 
 ##### removeIntelligentTrackingPreventionBypassingList12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static removeIntelligentTrackingPreventionBypassingList(hostList: Array&lt;string&gt;): void
 
 删除通过addIntelligentTrackingPreventionBypassingList接口添加的部分域名列表。
@@ -6139,6 +6305,8 @@ struct WebComponent {
 
 ##### clearIntelligentTrackingPreventionBypassingList12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static clearIntelligentTrackingPreventionBypassingList(): void
 
 删除通过addIntelligentTrackingPreventionBypassingList接口添加的所有域名。
@@ -6183,6 +6351,8 @@ struct WebComponent {
 
 ##### getDefaultUserAgent14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getDefaultUserAgent(): string
 
 获取默认用户代理。
@@ -6220,6 +6390,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### enableAdsBlock12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableAdsBlock(enable: boolean): void
 
@@ -6286,6 +6458,8 @@ struct WebComponent {
 
 ##### isAdsBlockEnabled12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isAdsBlockEnabled() : boolean
 
 查询广告过滤功能是否开启。
@@ -6344,6 +6518,8 @@ struct WebComponent {
 
 
 ##### isAdsBlockEnabledForCurPage12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isAdsBlockEnabledForCurPage() : boolean
 
@@ -6406,6 +6582,8 @@ struct WebComponent {
 
 ##### setRenderProcessMode12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setRenderProcessMode(mode: RenderProcessMode): void
 
 设置ArkWeb渲染子进程模式。
@@ -6460,6 +6638,8 @@ struct WebComponent {
 
 ##### getRenderProcessMode12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getRenderProcessMode(): RenderProcessMode
 
 查询ArkWeb的渲染子进程模式。
@@ -6500,6 +6680,8 @@ struct WebComponent {
 
 
 ##### terminateRenderProcess12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 terminateRenderProcess(): boolean
 
@@ -6552,6 +6734,8 @@ struct WebComponent {
 
 
 ##### postUrl11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postUrl(url: string, postData: ArrayBuffer): void
 
@@ -6628,6 +6812,8 @@ struct WebComponent {
 
 ##### createWebPrintDocumentAdapter11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createWebPrintDocumentAdapter(jobName: string): print.PrintDocumentAdapter
 
 创建web相关打印功能。
@@ -6691,6 +6877,8 @@ struct WebComponent {
 
 ##### isIncognitoMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isIncognitoMode(): boolean
 
 查询当前是否是隐私模式的Webview。
@@ -6746,6 +6934,8 @@ struct WebComponent {
 
 ##### getSecurityLevel11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSecurityLevel(): SecurityLevel
 
 获取当前网页的安全级别。
@@ -6795,6 +6985,8 @@ struct WebComponent {
 
 
 ##### setScrollable12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setScrollable(enable: boolean, type?: ScrollType): void
 
@@ -6852,6 +7044,8 @@ struct WebComponent {
 
 ##### getScrollable12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getScrollable(): boolean
 
 获取当前网页是否允许滚动。
@@ -6907,6 +7101,8 @@ struct WebComponent {
 
 ##### setPrintBackground12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPrintBackground(enable: boolean): void
 
 设置是否打印网页背景，该接口与[PrintAttributes](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-print#printattributes11)打印参数配置不一致时，本接口设置优先级高于打印参数。
@@ -6961,6 +7157,8 @@ struct WebComponent {
 
 ##### getPrintBackground12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPrintBackground(): boolean
 
 查询webview是否打印网页背景。
@@ -7014,6 +7212,8 @@ struct WebComponent {
 
 
 ##### getLastJavascriptProxyCallingFrameUrl12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLastJavascriptProxyCallingFrameUrl(): string
 
@@ -7166,6 +7366,8 @@ struct Index {
 
 ##### pauseAllTimers12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static pauseAllTimers(): void
 
 暂停所有WebView的定时器。
@@ -7237,6 +7439,8 @@ struct WebComponent {
 
 
 ##### resumeAllTimers12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static resumeAllTimers(): void
 
@@ -7314,6 +7518,8 @@ struct WebComponent {
 
 ##### stopAllMedia12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopAllMedia(): void
 
 控制网页所有音视频停止。
@@ -7360,6 +7566,8 @@ struct WebComponent {
 
 
 ##### pauseAllMedia12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pauseAllMedia(): void
 
@@ -7408,6 +7616,8 @@ struct WebComponent {
 
 ##### resumeAllMedia12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 resumeAllMedia(): void
 
 控制网页被pauseAllMedia接口暂停的音视频继续播放。
@@ -7455,6 +7665,8 @@ struct WebComponent {
 
 ##### closeAllMediaPresentations12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeAllMediaPresentations(): void
 
 控制网页所有全屏视频关闭。
@@ -7501,6 +7713,8 @@ struct WebComponent {
 
 
 ##### getMediaPlaybackState12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMediaPlaybackState(): MediaPlaybackState
 
@@ -7555,6 +7769,8 @@ struct WebComponent {
 
 
 ##### setWebSchemeHandler12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void
 
@@ -7613,6 +7829,8 @@ struct WebComponent {
 
 ##### clearWebSchemeHandler12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearWebSchemeHandler(): void
 
 清除Web组件设置的所有WebSchemeHandler。
@@ -7659,6 +7877,8 @@ struct WebComponent {
 
 
 ##### setServiceWorkerWebSchemeHandler12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setServiceWorkerWebSchemeHandler(scheme: string, handler: WebSchemeHandler): void
 
@@ -7716,6 +7936,8 @@ struct WebComponent {
 
 ##### clearServiceWorkerWebSchemeHandler12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearServiceWorkerWebSchemeHandler(): void
 
 清除应用中设置的所有用于拦截ServiceWorker的WebSchemeHandler。
@@ -7748,6 +7970,8 @@ struct WebComponent {
 
 
 ##### startCamera12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startCamera(): void
 
@@ -7879,6 +8103,8 @@ struct WebComponent {
 
 ##### stopCamera12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopCamera(): void
 
 停止当前网页摄像头捕获。
@@ -7902,6 +8128,8 @@ stopCamera(): void
 
 ##### closeCamera12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeCamera(): void
 
 关闭当前网页摄像头捕获。
@@ -7924,6 +8152,8 @@ closeCamera(): void
 
 
 ##### precompileJavaScript12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 precompileJavaScript(url: string, script: string | Uint8Array, cacheOptions: CacheOptions): Promise&lt;number&gt;
 
@@ -8180,6 +8410,8 @@ struct Index {
 
 ##### onCreateNativeMediaPlayer12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onCreateNativeMediaPlayer(callback: CreateNativeMediaPlayerCallback): void
 
 注册回调函数，使用[enableNativeMediaPlayer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-attributes#enablenativemediaplayer12)开启应用接管网页媒体播放功能后，当网页中有播放媒体时，触发注册的回调函数。
@@ -8407,6 +8639,8 @@ function shouldHandle(mediaInfo: webview.MediaInfo) {
 
 ##### enableWholeWebPageDrawing12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static enableWholeWebPageDrawing(): void
 
 设置开启网页全量绘制能力。仅在web初始化时设置。
@@ -8444,6 +8678,8 @@ struct WebComponent {
 
 
 ##### webPageSnapshot12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback&lt;SnapshotResult&gt;): void
 
@@ -8503,6 +8739,8 @@ struct WebComponent {
 
 
 ##### injectOfflineResources12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 injectOfflineResources(resourceMaps: Array<[OfflineResourceMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-i#offlineresourcemap12)>): void
 
@@ -8799,6 +9037,8 @@ struct Index {
 
 ##### setHostIP12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setHostIP(hostName: string, address: string, aliveTime: number): void
 
 设置主机域名解析后的IP地址。
@@ -8830,6 +9070,8 @@ static setHostIP(hostName: string, address: string, aliveTime: number): void
 
 
 ##### clearHostIP12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static clearHostIP(hostName: string): void
 
@@ -8894,6 +9136,8 @@ struct WebComponent {
 
 ##### getSurfaceId12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSurfaceId(): string
 
 获取ArkWeb对应Surface的ID，此ID可用于网页截图。
@@ -8952,6 +9196,8 @@ struct Example{
 
 
 ##### setUrlTrustList12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setUrlTrustList(urlTrustList: string): void
 
@@ -9053,6 +9299,8 @@ struct WebComponent {
 
 
 ##### setPathAllowingUniversalAccess12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPathAllowingUniversalAccess(pathList: Array&lt;string&gt;): void
 
@@ -9202,6 +9450,8 @@ body.appendChild(element);
 
 ##### enableBackForwardCache12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static enableBackForwardCache(features: BackForwardCacheSupportedFeatures): void
 
 开启Web组件前进后退缓存功能，通过参数指定是否允许使用特定的页面进入前进后退缓存。
@@ -9243,6 +9493,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setBackForwardCacheOptions12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBackForwardCacheOptions(options: BackForwardCacheOptions): void
 
@@ -9305,6 +9557,8 @@ struct Index {
 
 ##### trimMemoryByPressureLevel14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 trimMemoryByPressureLevel(level: PressureLevel): void
 
 根据指定的内存压力等级，主动清理Web组件占用的缓存。
@@ -9361,6 +9615,8 @@ struct WebComponent {
 
 
 ##### createPdf14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPdf(configuration: PdfConfiguration, callback: AsyncCallback&lt;PdfData&gt;): void
 
@@ -9443,6 +9699,8 @@ struct Index {
 
 
 ##### createPdf14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPdf(configuration: PdfConfiguration): Promise&lt;PdfData&gt;
 
@@ -9530,6 +9788,8 @@ struct Index {
 
 
 ##### getScrollOffset13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getScrollOffset(): ScrollOffset
 
@@ -9628,6 +9888,8 @@ Scroll Test
 
 ##### getPageOffset20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPageOffset(): ScrollOffset
 
 获取网页当前的滚动偏移量（不包含过滚动偏移量）。
@@ -9715,6 +9977,8 @@ struct WebComponent {
 
 ##### getLastHitTest18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastHitTest(): HitTestValue
 
 获取上一次被点击区域的元素信息。
@@ -9771,6 +10035,8 @@ struct WebComponent {
 
 ##### getAttachState20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAttachState(): ControllerAttachState
 
 查询当前WebViewController是否绑定一个Web组件。
@@ -9822,6 +10088,8 @@ struct WebComponent {
 
 ##### on('controllerAttachStateChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'controllerAttachStateChange', callback: Callback&lt;ControllerAttachState&gt;): void
 
 注册WebViewController绑定状态事件，通过Callback方式获取WebViewController绑定状态的变化通知。
@@ -9843,6 +10111,8 @@ on(type: 'controllerAttachStateChange', callback: Callback&lt;ControllerAttachSt
 
 
 ##### off('controllerAttachStateChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'controllerAttachStateChange', callback?: Callback&lt;ControllerAttachState&gt;): void
 
@@ -9917,6 +10187,8 @@ struct WebComponent {
 
 ##### waitForAttached20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 waitForAttached(timeout: number):Promise&lt;ControllerAttachState&gt;
 
 异步等待WebViewController与Web组件绑定完成，绑定完成或超时触发回调，通过Promise方式返回当前[ControllerAttachState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-i#controllerattachstate20)状态。
@@ -9979,6 +10251,8 @@ struct WebComponent {
 
 
 ##### setWebDebuggingAccess20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setWebDebuggingAccess(webDebuggingAccess: boolean, port: number): void
 
@@ -10043,6 +10317,8 @@ struct WebComponent {
 
 ##### getProgress20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getProgress(): number
 
 获取当前网页加载进度。
@@ -10090,6 +10366,8 @@ struct WebComponent {
 
 
 ##### getHitTest(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getHitTest(): WebHitTestType
 
@@ -10150,6 +10428,8 @@ struct WebComponent {
 
 ##### getHitTestValue(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHitTestValue(): HitTestValue
 
 获取当前被点击区域的元素信息。
@@ -10209,6 +10489,8 @@ struct WebComponent {
 
 
 ##### avoidVisibleViewportBottom20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 avoidVisibleViewportBottom(avoidHeight: number): void
 
@@ -10278,6 +10560,8 @@ struct WebComponent {
 
 ##### setErrorPageEnabled20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setErrorPageEnabled(enable: boolean): void
 
 设置是否启用默认错误页。
@@ -10329,6 +10613,8 @@ struct WebComponent {
 
 ##### getErrorPageEnabled20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getErrorPageEnabled(): boolean
 
 查询是否启用了默认错误页功能。
@@ -10378,6 +10664,8 @@ struct WebComponent {
 
 ##### enablePrivateNetworkAccess20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static enablePrivateNetworkAccess(enable: boolean): void
 
 设置私有网络访问检查功能（Private Network Access）的启用状态。
@@ -10418,6 +10706,8 @@ struct WebComponent {
 
 
 ##### isPrivateNetworkAccessEnabled20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static isPrivateNetworkAccessEnabled(): boolean
 
@@ -10467,6 +10757,8 @@ struct WebComponent {
 
 
 ##### getBlanklessInfoWithKey20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBlanklessInfoWithKey(key: string): BlanklessInfo
 
@@ -10544,6 +10836,8 @@ struct WebComponent {
 
 ##### setBlanklessLoadingWithKey20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBlanklessLoadingWithKey(key: string, is_start: boolean): WebBlanklessErrorCode
 
 设置无白屏加载是否启用，本接口必须与[getBlanklessInfoWithKey](#getblanklessinfowithkey20)接口配套使用。
@@ -10618,6 +10912,8 @@ struct WebComponent {
 
 
 ##### setBlanklessLoadingWithParams23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBlanklessLoadingWithParams(key: string, param: BlanklessLoadingParam): WebBlanklessErrorCode
 
@@ -10701,6 +10997,8 @@ struct WebComponent {
 
 ##### clearBlanklessLoadingCache20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static clearBlanklessLoadingCache(keys?: Array&lt;string&gt;): void
 
 清除指定key值页面无白屏优化缓存，本接口只清除缓存。
@@ -10762,6 +11060,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setBlanklessLoadingCacheCapacity20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setBlanklessLoadingCacheCapacity(capacity: number): number
 
 设置无白屏加载方案的持久化缓存容量，返回实际生效值。当接口没有显式调用时，默认缓存容量为30MB。当实际缓存超过容量时，将采用淘汰不常用的过渡帧的方式清理。
@@ -10818,6 +11118,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setWebDestroyMode20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWebDestroyMode(mode: WebDestroyMode): void
 
 设置Web组件的销毁模式。当Web组件销毁时，销毁模式会影响Web内核资源释放的时机，例如JavaScript运行上下文、渲染上下文等。默认值：[WebDestroyMode.NORMAL_MODE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-e#webdestroymode20)（普通模式），由系统决定销毁时机。应用可设置[WebDestroyMode.FAST_MODE](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-e#webdestroymode20)（快速模式），以立即销毁资源，从而提升特定场景的性能。
@@ -10856,6 +11158,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setScrollbarMode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setScrollbarMode(scrollbarMode: ScrollbarMode): void
 
@@ -10925,6 +11229,8 @@ Scroll Test
 
 ##### setActiveWebEngineVersion20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setActiveWebEngineVersion(engineVersion: ArkWebEngineVersion): void
 
 设置ArkWeb内核版本。若系统不支持指定版本，则设置无效。该接口为全局静态API，须在调用initializeWebEngine前执行，若已加载任何Web组件，则该设置无效。
@@ -10971,6 +11277,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getActiveWebEngineVersion20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getActiveWebEngineVersion(): ArkWebEngineVersion
 
 获取当前ArkWeb内核版本。
@@ -10991,6 +11299,8 @@ static getActiveWebEngineVersion(): ArkWebEngineVersion
 
 
 ##### isActiveWebEngineEvergreen23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static isActiveWebEngineEvergreen(): boolean
 
@@ -11029,6 +11339,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setAutoPreconnect21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setAutoPreconnect(enabled: boolean): void
 
 设置Web内核的自动预连接状态。若未设置，默认启用自动预连接。
@@ -11063,6 +11375,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### isAutoPreconnectEnabled21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static isAutoPreconnectEnabled(): boolean
 
@@ -11108,6 +11422,8 @@ struct WebComponent {
 
 ##### getSiteIsolationMode21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getSiteIsolationMode(): SiteIsolationMode
 
 查询当前生效的站点隔离模式。
@@ -11148,6 +11464,8 @@ struct WebComponent {
 
 
 ##### setSiteIsolationMode21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSiteIsolationMode(mode: SiteIsolationMode): void
 
@@ -11209,6 +11527,8 @@ struct WebComponent {
 
 ##### setSocketIdleTimeout21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setSocketIdleTimeout(timeout: number): void
 
 设置ArkWeb中已使用过的空闲socket的超时时间，即已使用过的socket可以处于空闲状态的最大时长。如果设置的值与已存在的空闲socket超时时间不同，则根据新的值对已存在的空闲socket进行清理。
@@ -11242,6 +11562,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSoftKeyboardBehaviorMode22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSoftKeyboardBehaviorMode(mode: WebSoftKeyboardBehaviorMode): void
 
@@ -11291,6 +11613,8 @@ struct WebComponent {
 
 
 ##### resumeMicrophone23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resumeMicrophone(): void
 
@@ -11425,6 +11749,8 @@ struct WebComponent {
 
 ##### pauseMicrophone23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pauseMicrophone(): void
 
 暂停当前网页麦克风捕获。
@@ -11448,6 +11774,8 @@ pauseMicrophone(): void
 
 ##### stopMicrophone23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopMicrophone(): void
 
 停止当前网页麦克风捕获。
@@ -11470,6 +11798,8 @@ stopMicrophone(): void
 
 
 ##### setUserAgentClientHintsEnabled24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setUserAgentClientHintsEnabled(enabled: boolean): void
 
@@ -11577,6 +11907,8 @@ struct WebComponent {
 
 ##### getUserAgentClientHintsEnabled24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getUserAgentClientHintsEnabled(): boolean
 
 查询User-Agent Client Hints功能当前是否开启。
@@ -11597,6 +11929,8 @@ static getUserAgentClientHintsEnabled(): boolean
 
 
 ##### setUserAgentMetadata24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setUserAgentMetadata(userAgent: string, metaData: UserAgentMetadata): void
 
@@ -11623,6 +11957,8 @@ setUserAgentMetadata(userAgent: string, metaData: UserAgentMetadata): void
 
 
 ##### getUserAgentMetadata24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUserAgentMetadata(userAgent: string): UserAgentMetadata
 
@@ -11651,6 +11987,8 @@ getUserAgentMetadata(userAgent: string): UserAgentMetadata
 
 
 ##### setUrlTrustList24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setUrlTrustList(urlTrustList: string, allowOpaqueOrigin: boolean, supportWildcard: boolean): void
 

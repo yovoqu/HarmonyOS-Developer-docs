@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -23,6 +25,8 @@ import { camera } from '@kit.CameraKit';
 
 
 ##### open
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 open(callback: AsyncCallback&lt;void&gt;): void
 
@@ -70,6 +74,8 @@ function openCameraInput(cameraInput: camera.CameraInput): void {
 
 ##### open
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 open(): Promise&lt;void&gt;
 
 打开相机，使用Promise异步回调。
@@ -114,6 +120,8 @@ function openCameraInput(cameraInput: camera.CameraInput): void {
 
 
 ##### open12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 open(isSecureEnabled: boolean): Promise&lt;bigint&gt;
 
@@ -165,6 +173,8 @@ function openCameraInput(cameraInput: camera.CameraInput): void {
 
 
 ##### open18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 open(type: CameraConcurrentType): Promise&lt;void&gt;
 
@@ -218,6 +228,8 @@ function openCameraInput(cameraInput: camera.CameraInput): void {
 
 ##### close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(callback: AsyncCallback&lt;void&gt;): void
 
 关闭相机，通过注册回调函数获取状态。使用callback异步回调。
@@ -262,6 +274,8 @@ function closeCameraInput(cameraInput: camera.CameraInput): void {
 
 ##### close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): Promise&lt;void&gt;
 
 关闭相机，使用Promise异步回调。
@@ -304,6 +318,8 @@ function closeCameraInput(cameraInput: camera.CameraInput): void {
 
 ##### on('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'error', camera: CameraDevice, callback: ErrorCallback): void
 
 监听CameraInput的错误事件，通过注册回调函数获取结果。使用callback异步回调。
@@ -343,6 +359,8 @@ function registerCameraInputError(cameraInput: camera.CameraInput, camera: camer
 
 ##### off('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', camera: CameraDevice, callback?: ErrorCallback): void
 
 注销监听CameraInput的错误事件。
@@ -372,6 +390,8 @@ function unregisterCameraInputError(cameraInput: camera.CameraInput, camera: cam
 
 ##### isPhysicalCameraOrientationVariable22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isPhysicalCameraOrientationVariable(): boolean
 
 查询设备不同折叠状态下，相机物理镜头角度是否可变。
@@ -400,6 +420,8 @@ function isPhysicalCameraOrientationVariable(cameraInput: camera.CameraInput): b
 
 ##### getPhysicalCameraOrientation22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPhysicalCameraOrientation(): number
 
 获取设备当前折叠状态下的物理镜头角度。
@@ -427,6 +449,8 @@ function getPhysicalCameraOrientation(cameraInput: camera.CameraInput): number {
 
 
 ##### usePhysicalCameraOrientation22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 usePhysicalCameraOrientation(isUsed: boolean): void
 
@@ -471,6 +495,8 @@ function usePhysicalCameraOrientation(cameraInput: camera.CameraInput, isUsed: b
 
 
 ##### on('cameraOcclusionDetection')23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'cameraOcclusionDetection', callback: AsyncCallback&lt;CameraOcclusionDetectionResult&gt;): void
 
@@ -518,6 +544,8 @@ function registerCameraOcclusionDetection(cameraInput: camera.CameraInput): void
 
 
 ##### off('cameraOcclusionDetection')23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'cameraOcclusionDetection', callback?: AsyncCallback&lt;CameraOcclusionDetectionResult&gt;): void
 

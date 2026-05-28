@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义OH_LowPowerAudioSink和OH_LowPowerVideoSink的基础依赖。
  
 **引用文件：** <multimedia/player_framework/lowpower_avsink_base.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -47,9 +55,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_AVSamplesBuffer_AppendOneBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_AVErrCode OH_AVSamplesBuffer_AppendOneBuffer(OH_AVSamplesBuffer *samplesBuffer, OH_AVBuffer *avBuffer)
@@ -80,6 +92,8 @@ OH_AVErrCode OH_AVSamplesBuffer_AppendOneBuffer(OH_AVSamplesBuffer *samplesBuffe
 
 ##### OH_AVSamplesBuffer_GetRemainedCapacity()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 int32_t OH_AVSamplesBuffer_GetRemainedCapacity(OH_AVSamplesBuffer *samplesBuffer)
 ```
@@ -107,6 +121,8 @@ int32_t OH_AVSamplesBuffer_GetRemainedCapacity(OH_AVSamplesBuffer *samplesBuffer
   
 
 ##### OH_LowPowerAVSink_GetCapability()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 OH_LowPowerAVSink_Capability *OH_LowPowerAVSink_GetCapability()

@@ -23,6 +23,8 @@ Queue和[Deque](https://developer.huawei.com/consumer/cn/doc/harmonyos-reference
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Queue } from '@kit.ArkTS';
 ```
@@ -31,9 +33,13 @@ import { Queue } from '@kit.ArkTS';
 
 ##### Queue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -47,6 +53,8 @@ import { Queue } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -74,6 +82,8 @@ let queue = new Queue<number | string | Object>();
 
 
 ##### add
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 add(element: T): boolean
 
@@ -127,6 +137,8 @@ console.info("result:", queue.length);  // result: 4
 
 ##### pop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pop(): T
 
 删除头元素并返回该删除元素。
@@ -168,6 +180,8 @@ console.info("result:", result);  // result: 2
 
 ##### getFirst
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFirst(): T
 
 获取队列的头元素。
@@ -207,6 +221,8 @@ console.info("result:", result);  // result: 2
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value: T, index?: number, Queue?: Queue&lt;T&gt;) => void, thisArg?: Object): void
 
@@ -263,6 +279,8 @@ queue.forEach((value: number, index: number): void => {
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
 

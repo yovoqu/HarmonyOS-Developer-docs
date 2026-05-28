@@ -12,7 +12,7 @@ LinkedList和[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 LinkedList和[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arraylist)相比，LinkedList插入数据效率高于ArrayList，而ArrayList查询效率高于LinkedList。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/1MB6r2PwSOKX67C1I4KQTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014018Z&HW-CC-Expire=86400&HW-CC-Sign=4675FB52214A8B3A3736304DD34862E2AFF05C68498BE5ECD543F18FFA8CE55C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/1MB6r2PwSOKX67C1I4KQTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024312Z&HW-CC-Expire=86400&HW-CC-Sign=EB5F3381BD7607424A356C3B70B7BCFAB2327A464C5289F1C9A4688222EE79C6)
 
 
 在LinkedList中使用[index]的方式获取元素可能导致未定义结果，推荐使用get()方法。
@@ -33,6 +33,8 @@ LinkedList和[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { LinkedList } from '@kit.ArkTS';
 ```
@@ -41,9 +43,13 @@ import { LinkedList } from '@kit.ArkTS';
 
 ##### LinkedList
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -57,6 +63,8 @@ import { LinkedList } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -84,6 +92,8 @@ let linkedList = new LinkedList<string | number | boolean | object>();
 
 
 ##### add
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 add(element: T): boolean
 
@@ -138,6 +148,8 @@ console.info("result = ", result4) // result =  true
 
 ##### addFirst
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addFirst(element: T): void
 
 在LinkedList头部插入元素。
@@ -185,6 +197,8 @@ console.info("result:", result);  // result: 1,2,3
 
 ##### insert
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 insert(index: number, element: T): void
 
 在长度范围内任意位置插入指定元素。
@@ -226,6 +240,8 @@ console.info("result:", result);  // result: 0
 
 
 ##### has
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 has(element: T): boolean
 
@@ -270,6 +286,8 @@ console.info("result:", result);  // result: true
 
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(index: number): T
 
@@ -322,6 +340,8 @@ console.info("result:", result);  // result: 5
 
 ##### getLastIndexOf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastIndexOf(element: T): number
 
 查找指定元素最后一次出现时的下标值，查找失败返回-1。
@@ -371,6 +391,8 @@ console.info("result:", result);  // result: 5
 
 
 ##### getIndexOf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getIndexOf(element: T): number
 
@@ -422,6 +444,8 @@ console.info("result:", result);  // result: 0
 
 ##### removeByIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeByIndex(index: number): T
 
 根据元素的下标值查找元素，并将其删除。
@@ -472,6 +496,8 @@ console.info("result:", result);  // result: 5
 
 ##### removeFirst
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeFirst(): T
 
 删除并返回LinkedList的第一个元素。
@@ -514,6 +540,8 @@ console.info("result:", result);  // result: 2
 
 ##### removeLast
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeLast(): T
 
 删除并返回LinkedList的最后一个元素。
@@ -555,6 +583,8 @@ console.info("result:", result);  // result: 4
 
 
 ##### remove
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 remove(element: T): boolean
 
@@ -602,6 +632,8 @@ console.info("result:", result);  // result: true
 
 
 ##### removeFirstFound
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeFirstFound(element: T): boolean
 
@@ -652,6 +684,8 @@ console.info("result:", result);  // result: true
 
 ##### removeLastFound
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeLastFound(element: T): boolean
 
 删除最后一次出现的指定元素。
@@ -701,6 +735,8 @@ console.info("result:", result);  // result: true
 
 ##### clone
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clone(): LinkedList&lt;T&gt;
 
 克隆一个与LinkedList相同的实例并返回。修改克隆后的实例并不会影响原实例。
@@ -740,6 +776,8 @@ console.info("result:", result.has(4));  // result: true
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value: T, index?: number, LinkedList?: LinkedList&lt;T&gt;) => void, thisArg?: Object): void
 
@@ -797,6 +835,8 @@ linkedList.forEach((value: number, index: number) => {
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清除LinkedList中的所有元素，并将length置为0。
@@ -830,6 +870,8 @@ console.info("result:", result);  // result: false
 
 
 ##### set
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set(index: number, element: T): T
 
@@ -881,6 +923,8 @@ console.info("result:", result);  // result: b
 
 ##### convertToArray
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 convertToArray(): Array&lt;T&gt;
 
 将当前LinkedList实例转换成数组并返回。
@@ -920,6 +964,8 @@ console.info("result:", result);  // result: 2,4,5,4
 
 
 ##### getFirst
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFirst(): T
 
@@ -961,6 +1007,8 @@ console.info("result:", result);  // result: 2
 
 ##### getLast
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLast(): T
 
 获取LinkedList实例中的最后一个元素。
@@ -1000,6 +1048,8 @@ console.info("result:", result);  // result: 4
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
 

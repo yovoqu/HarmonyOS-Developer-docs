@@ -14,6 +14,8 @@ Web组件返回授权或拒绝屏幕捕获功能的对象。示例代码参考[o
 
 ##### constructor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 ScreenCaptureHandler的构造函数。
@@ -24,6 +26,8 @@ ScreenCaptureHandler的构造函数。
 
 ##### deny10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deny(): void
  
 拒绝网页所请求的屏幕捕获操作。
@@ -33,6 +37,8 @@ deny(): void
   
 
 ##### getOrigin10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOrigin(): string
  
@@ -50,6 +56,8 @@ getOrigin(): string
   
 
 ##### grant10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 grant(config: ScreenCaptureConfig): void
  

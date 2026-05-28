@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { constant } from '@kit.NearLinkKit';
 ```
@@ -19,6 +21,8 @@ import { constant } from '@kit.NearLinkKit';
   
 
 ##### PairingState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示和远端设备的配对状态，为枚举值。
  
@@ -37,6 +41,8 @@ import { constant } from '@kit.NearLinkKit';
 
 ##### ConnectionState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示和远端设备的连接状态，为枚举值。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -54,6 +60,8 @@ import { constant } from '@kit.NearLinkKit';
   
 
 ##### DeviceClass
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示设备类型，为枚举值。
  
@@ -121,6 +129,8 @@ import { constant } from '@kit.NearLinkKit';
   
 
 ##### AcbState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示和远端设备的逻辑链路连接状态，为枚举值。
  

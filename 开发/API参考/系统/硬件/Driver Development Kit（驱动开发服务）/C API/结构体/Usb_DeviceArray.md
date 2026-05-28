@@ -12,6 +12,8 @@ typedef struct Usb_DeviceArray {...} Usb_DeviceArray
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 设备ID清单，用于存放[OH_Usb_GetDevices](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-ddk-api-h#oh_usb_getdevices)接口获取到的设备ID列表和设备数量。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct Usb_DeviceArray {...} Usb_DeviceArray
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

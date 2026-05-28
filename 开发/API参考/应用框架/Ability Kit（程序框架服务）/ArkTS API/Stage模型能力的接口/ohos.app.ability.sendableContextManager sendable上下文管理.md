@@ -14,6 +14,8 @@ sendableContextManager模块提供Context与[SendableContext](https://developer.
 
 ##### 使用场景
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 本模块主要用于ArkTS并发实例间（包括主线程、TaskPool&Worker工作线程）的数据传递。
 
 例如，从主线程向子线程（如TaskPool或Worker工作线程）传递Sendable数据（符合[Sendable协议](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable协议)的数据）时，需要通过Context与SendableContext之间的相互转换来实现。过程如下：
@@ -32,6 +34,8 @@ sendableContextManager模块提供Context与[SendableContext](https://developer.
 
 ##### 约束限制
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 “Context转换为SendableContext”和“SendableContext转换为Context”两个环节中的Context类型必须保持一致。例如，主线程使用[convertFromContext](#sendablecontextmanagerconvertfromcontext)将[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)转换为SendableContext，子线程收到该SendableContext之后，需要通过[convertToUIAbilityContext](#sendablecontextmanagerconverttouiabilitycontext)将SendableContext转换为[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。
 
 目前支持转换的Context包括[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)、[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)、[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。
@@ -40,6 +44,8 @@ sendableContextManager模块提供Context与[SendableContext](https://developer.
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { sendableContextManager } from '@kit.AbilityKit';
 ```
@@ -47,6 +53,8 @@ import { sendableContextManager } from '@kit.AbilityKit';
 
 
 ##### SendableContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SendableContext = _SendableContext
 
@@ -64,6 +72,8 @@ Sendable上下文，符合[Sendable协议](https://developer.huawei.com/consumer
 
 
 ##### sendableContextManager.convertFromContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 convertFromContext(context: common.Context): SendableContext
 
@@ -136,6 +146,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### sendableContextManager.convertToContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 convertToContext(sendableContext: SendableContext): common.Context
 
@@ -257,6 +269,8 @@ workerPort.onerror = (e: ErrorEvent) => {
 
 
 ##### sendableContextManager.convertToApplicationContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 convertToApplicationContext(sendableContext: SendableContext): common.ApplicationContext
 
@@ -381,6 +395,8 @@ workerPort.onerror = (e: ErrorEvent) => {
 
 ##### sendableContextManager.convertToAbilityStageContext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 convertToAbilityStageContext(sendableContext: SendableContext): common.AbilityStageContext
 
 将SendableContext对象转换为AbilityStageContext。
@@ -502,6 +518,8 @@ workerPort.onerror = (e: ErrorEvent) => {
 
 ##### sendableContextManager.convertToUIAbilityContext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 convertToUIAbilityContext(sendableContext: SendableContext): common.UIAbilityContext
 
 将SendableContext对象转换为UIAbilityContext。
@@ -622,6 +640,8 @@ workerPort.onerror = (e: ErrorEvent) => {
 
 
 ##### sendableContextManager.setEventHubMultithreadingEnabled20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setEventHubMultithreadingEnabled(context: common.Context, enabled: boolean): void
 

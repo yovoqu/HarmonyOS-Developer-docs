@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { PiPWindow } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { PiPWindow } from '@kit.ArkUI';
 
 
 ##### PiPWindow.isPiPEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isPiPEnabled(): boolean
 
@@ -47,6 +51,8 @@ console.info('isPipEnabled:' + enable);
 
 
 ##### PiPWindow.create
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(config: PiPConfiguration): Promise&lt;PiPController&gt;
 
@@ -187,6 +193,8 @@ struct Index {
 
 ##### PiPWindow.create12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise&lt;PiPController&gt;
 
 创建画中画控制器，使用typeNode为画中画添加自定义UI节点。使用Promise异步回调。
@@ -274,6 +282,8 @@ struct Index {
 
 ##### PiPConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 创建画中画控制器时的参数。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -298,6 +308,8 @@ struct Index {
 
 ##### PiPWindowSize15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 画中画窗口大小。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -315,6 +327,8 @@ struct Index {
 
 ##### PiPWindowInfo15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 画中画窗口信息。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -330,6 +344,8 @@ struct Index {
 
 
 ##### PiPTemplateType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 画中画模板类型枚举。
 
@@ -348,6 +364,8 @@ struct Index {
 
 
 ##### PiPState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 画中画生命周期状态枚举。
 
@@ -369,6 +387,8 @@ struct Index {
 
 ##### PiPControlGroup12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup
 
 画中画控制面板的可选控件组列表，应用可以配置是否显示可选控件。使用时必须和[PiPTemplateType](#piptemplatetype)对应，否则[create](#pipwindowcreate)接口抛出401错误码。
@@ -389,6 +409,8 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 ##### VideoPlayControlGroup12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 视频播放控件组枚举。仅当[PiPTemplateType](#piptemplatetype)为VIDEO_PLAY时使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -404,6 +426,8 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 
 ##### VideoCallControlGroup12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 视频通话控件组枚举。仅当[PiPTemplateType](#piptemplatetype) 为VIDEO_CALL时使用。
 
@@ -423,6 +447,8 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 ##### VideoMeetingControlGroup12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 视频会议控件组枚举。仅当[PiPTemplateType](#piptemplatetype) 为VIDEO_MEETING时使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -441,6 +467,8 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 ##### VideoLiveControlGroup12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 视频直播控件组枚举。仅当[PiPTemplateType](#piptemplatetype) 为VIDEO_LIVE时使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -456,6 +484,8 @@ type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeet
 
 
 ##### PiPActionEventType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent
 
@@ -476,6 +506,8 @@ type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingA
 
 
 ##### PiPVideoActionEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward'
 
@@ -498,6 +530,8 @@ type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo
 
 ##### PiPCallActionEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged'
 
 视频通话控制事件类型。
@@ -517,6 +551,8 @@ type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | '
 
 
 ##### PiPMeetingActionEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged'
 
@@ -538,6 +574,8 @@ type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged
 
 ##### PiPLiveActionEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
 直播控制事件类型。
@@ -556,6 +594,8 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
 ##### PiPControlStatus12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 控制面板控件状态枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -573,6 +613,8 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
 
 ##### PiPControlType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 控制面板控件类型枚举。
 
@@ -597,6 +639,8 @@ type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'
 
 ##### ControlPanelActionEventCallback12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: number) => void
 
 描述画中画控制面板控件动作事件回调。
@@ -617,6 +661,8 @@ type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: numb
 
 ##### ControlEventParam12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 画中画控制面板控件动作回调的参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -633,6 +679,8 @@ type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: numb
 
 ##### PiPController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 画中画控制器实例。用于启动、停止画中画以及更新回调注册等。
 
 下列API示例中都需先使用[PiPWindow.create()](#pipwindowcreate)方法获取到PiPController实例，再通过此实例调用对应方法。
@@ -642,6 +690,8 @@ type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: numb
 
 
 ##### startPiP
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startPiP(): Promise&lt;void&gt;
 
@@ -686,6 +736,8 @@ promise.then(() => {
 
 ##### stopPiP
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopPiP(): Promise&lt;void&gt;
 
 停止画中画，使用Promise异步回调。
@@ -727,6 +779,8 @@ promise.then(() => {
 
 ##### setAutoStartEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAutoStartEnabled(enable: boolean): void
 
 设置是否在返回桌面时自动启动画中画，默认不自动拉起。
@@ -754,6 +808,8 @@ this.pipController.setAutoStartEnabled(enable);
 
 
 ##### updateContentSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateContentSize(width: number, height: number): void
 
@@ -792,6 +848,8 @@ this.pipController.updateContentSize(width, height);
 
 ##### updatePiPControlStatus12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void
 
 更新画中画控制面板控件功能状态。
@@ -828,6 +886,8 @@ this.pipController.updatePiPControlStatus(controlType, status);
 
 
 ##### updateContentNode18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateContentNode(contentNode: typeNode.XComponent): Promise&lt;void&gt;
 
@@ -881,6 +941,8 @@ try {
 
 ##### setPiPControlEnabled12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void
 
 更新控制面板控件使能状态。
@@ -917,6 +979,8 @@ this.pipController.setPiPControlEnabled(controlType, enabled);
 
 
 ##### getPiPWindowInfo15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPiPWindowInfo(): Promise&lt;PiPWindowInfo&gt;
 
@@ -963,6 +1027,8 @@ try {
 
 
 ##### getPiPSettingSwitch20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPiPSettingSwitch(): Promise&lt;boolean&gt;
 
@@ -1012,6 +1078,8 @@ try {
 
 ##### isPiPActive23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isPiPActive(): Promise&lt;boolean&gt;
 
 获取画中画的隐藏状态。使用Promise异步回调。
@@ -1056,6 +1124,8 @@ try {
 
 
 ##### on('stateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): void
 
@@ -1108,6 +1178,8 @@ this.pipController.on('stateChange', (state: PiPWindow.PiPState, reason: string)
 
 ##### off('stateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'stateChange'): void
 
 关闭画中画生命周期状态变化的监听。
@@ -1132,6 +1204,8 @@ this.pipController.off('stateChange');
 
 
 ##### on('controlPanelActionEvent')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): void
 
@@ -1184,6 +1258,8 @@ this.pipController.on('controlPanelActionEvent', (event: PiPWindow.PiPActionEven
 
 ##### on('controlEvent')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'controlEvent', callback: Callback&lt;ControlEventParam&gt;): void
 
 开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
@@ -1235,6 +1311,8 @@ this.pipController.on('controlEvent', (control) => {
 
 ##### off('controlPanelActionEvent')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'controlPanelActionEvent'): void
 
 关闭画中画控制面板控件动作事件的监听。推荐使用[off('controlEvent')](#offcontrolevent12)来关闭画中画控制面板控件动作事件的监听。
@@ -1259,6 +1337,8 @@ this.pipController.off('controlPanelActionEvent');
 
 
 ##### off('controlEvent')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'controlEvent', callback?: Callback&lt;ControlEventParam&gt;): void
 
@@ -1288,6 +1368,8 @@ this.pipController.off('controlEvent', callbackFunc);
 
 
 ##### on('pipWindowSizeChange')15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'pipWindowSizeChange', callback: Callback&lt;PiPWindowSize&gt;): void
 
@@ -1331,6 +1413,8 @@ try {
 
 
 ##### off('pipWindowSizeChange')15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'pipWindowSizeChange', callback?: Callback&lt;PiPWindowSize&gt;): void
 
@@ -1385,6 +1469,8 @@ try {
 
 ##### on('activeStatusChange')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'activeStatusChange', callback: Callback&lt;boolean&gt;): void
 
 开启画中画窗口隐藏状态变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
@@ -1413,6 +1499,8 @@ this.pipController.on('activeStatusChange', callback);
 
 
 ##### off('activeStatusChange')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'activeStatusChange', callback?: Callback&lt;boolean&gt;): void
 

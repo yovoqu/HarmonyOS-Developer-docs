@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### activateAudioSession12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 activateAudioSession(strategy: AudioSessionStrategy): Promise&lt;void&gt;
 
@@ -75,6 +79,8 @@ audioSessionManager.activateAudioSession(strategy).then(() => {
 
 ##### deactivateAudioSession12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deactivateAudioSession(): Promise&lt;void&gt;
 
 停用音频会话。使用Promise异步回调。
@@ -113,6 +119,8 @@ audioSessionManager.deactivateAudioSession().then(() => {
 
 ##### isAudioSessionActivated12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isAudioSessionActivated(): boolean
 
 检查音频会话是否已激活。
@@ -135,6 +143,8 @@ let isActivated = audioSessionManager.isAudioSessionActivated();
 
 
 ##### on('audioSessionDeactivated')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'audioSessionDeactivated', callback: Callback&lt;AudioSessionDeactivatedEvent&gt;): void
 
@@ -172,6 +182,8 @@ audioSessionManager.on('audioSessionDeactivated',
 
 
 ##### off('audioSessionDeactivated')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'audioSessionDeactivated', callback?: Callback&lt;AudioSessionDeactivatedEvent&gt;): void
 
@@ -217,6 +229,8 @@ audioSessionManager.off('audioSessionDeactivated', audioSessionDeactivatedCallba
 
 ##### setAudioSessionScene20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAudioSessionScene(scene: AudioSessionScene): void
 
 设置音频会话场景参数。
@@ -250,6 +264,8 @@ audioSessionManager.setAudioSessionScene(audio.AudioSessionScene.AUDIO_SESSION_S
 
 
 ##### on('audioSessionStateChanged')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'audioSessionStateChanged', callback: Callback&lt;AudioSessionStateChangedEvent&gt;): void
 
@@ -287,6 +303,8 @@ audioSessionManager.on('audioSessionStateChanged', (audioSessionStateChangedEven
 
 
 ##### off('audioSessionStateChanged')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'audioSessionStateChanged', callback?: Callback&lt;AudioSessionStateChangedEvent&gt;): void
 
@@ -331,6 +349,8 @@ audioSessionManager.off('audioSessionStateChanged', audioSessionStateChangedCall
 
 
 ##### setDefaultOutputDevice20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDefaultOutputDevice(deviceType: DeviceType): Promise&lt;void&gt;
 
@@ -385,6 +405,8 @@ audioSessionManager.setDefaultOutputDevice(audio.DeviceType.SPEAKER).then(() => 
 
 ##### getDefaultOutputDevice20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDefaultOutputDevice(): DeviceType
 
 获取通过[setDefaultOutputDevice](#setdefaultoutputdevice20)设置的默认发声设备。
@@ -417,6 +439,8 @@ let deviceType = audioSessionManager.getDefaultOutputDevice();
 
 
 ##### on('currentOutputDeviceChanged')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'currentOutputDeviceChanged', callback: Callback&lt;CurrentOutputDeviceChangedEvent&gt;): void
 
@@ -458,6 +482,8 @@ audioSessionManager.on('currentOutputDeviceChanged', currentOutputDeviceChangedC
 
 
 ##### off('currentOutputDeviceChanged')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'currentOutputDeviceChanged', callback?: Callback&lt;CurrentOutputDeviceChangedEvent&gt;): void
 
@@ -502,6 +528,8 @@ audioSessionManager.off('currentOutputDeviceChanged', currentOutputDeviceChanged
 
 
 ##### getAvailableDevices21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAvailableDevices(deviceUsage: DeviceUsage): AudioDeviceDescriptors
 
@@ -551,6 +579,8 @@ try {
 
 ##### on('availableDeviceChange')21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'availableDeviceChange', deviceUsage: DeviceUsage, callback: Callback&lt;DeviceChangeAction&gt;): void
 
 监听音频可选设备连接状态变化事件（当音频可选设备连接状态发生变化时触发）。
@@ -590,6 +620,8 @@ audioSessionManager.on('availableDeviceChange', audio.DeviceUsage.MEDIA_INPUT_DE
 
 
 ##### off('availableDeviceChange')21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'availableDeviceChange', callback?: Callback&lt;DeviceChangeAction&gt;): void
 
@@ -636,6 +668,8 @@ audioSessionManager.off('availableDeviceChange', availableDeviceChangeCallback);
 
 
 ##### selectMediaInputDevice21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectMediaInputDevice(inputAudioDevice: AudioDeviceDescriptor): Promise&lt;void&gt;
 
@@ -697,6 +731,8 @@ try {
 
 ##### getSelectedMediaInputDevice21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSelectedMediaInputDevice(): AudioDeviceDescriptor
 
 获得通过[selectMediaInputDevice](#selectmediainputdevice21)设置的媒体输入设备。如果没有设置，返回一个deviceType属性为INVALID的设备。
@@ -737,6 +773,8 @@ try {
 
 ##### clearSelectedMediaInputDevice21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearSelectedMediaInputDevice(): Promise&lt;void&gt;
 
 清空通过[selectMediaInputDevice](#selectmediainputdevice21)设置的媒体输入设备。使用Promise异步回调。
@@ -774,6 +812,8 @@ audioSessionManager.clearSelectedMediaInputDevice().then(() => {
 
 
 ##### setBluetoothAndNearlinkPreferredRecordCategory21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBluetoothAndNearlinkPreferredRecordCategory(category: BluetoothAndNearlinkPreferredRecordCategory): Promise&lt;void&gt;
 
@@ -826,6 +866,8 @@ audioSessionManager.setBluetoothAndNearlinkPreferredRecordCategory(category).the
 
 ##### getBluetoothAndNearlinkPreferredRecordCategory21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBluetoothAndNearlinkPreferredRecordCategory(): BluetoothAndNearlinkPreferredRecordCategory
 
 获取通过[setBluetoothAndNearlinkPreferredRecordCategory](#setbluetoothandnearlinkpreferredrecordcategory21)设置的在使用蓝牙或星闪进行录音时的设备偏好分类。
@@ -866,6 +908,8 @@ try {
 
 ##### on('currentInputDeviceChanged')21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'currentInputDeviceChanged', callback: Callback&lt;CurrentInputDeviceChangedEvent&gt;): void
 
 监听当前输入设备变化事件（当前输入设备发生变化时触发）。
@@ -905,6 +949,8 @@ audioSessionManager.on('currentInputDeviceChanged', currentInputDeviceChangedCal
 
 
 ##### off('currentInputDeviceChanged')21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'currentInputDeviceChanged', callback?: Callback&lt;CurrentInputDeviceChangedEvent&gt;): void
 
@@ -949,6 +995,8 @@ audioSessionManager.off('currentInputDeviceChanged', currentInputDeviceChangedCa
 
 ##### enableMuteSuggestionWhenMixWithOthers23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableMuteSuggestionWhenMixWithOthers(enable: boolean): void
 
 启用混音播放下接收静音播放建议通知功能。
@@ -991,6 +1039,8 @@ audio.getAudioManager().getSessionManager().enableMuteSuggestionWhenMixWithOther
 
 
 ##### setCapturerMuteHint24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCapturerMuteHint(mute: boolean): Promise&lt;void&gt;
 
@@ -1043,6 +1093,8 @@ audioSessionManager.setCapturerMuteHint(true).then(() => {
 
 ##### isOtherMediaPlaying23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isOtherMediaPlaying(): boolean
 
 检查是否有其他应用正在播放MUSIC、MOVIE、AUDIOBOOK、GAME四种媒体类型的音频，已激活媒体类型的音频会话也将会被检查。
@@ -1067,6 +1119,8 @@ let isExistence = audioSessionManager.isOtherMediaPlaying();
 
 
 ##### setAudioSessionBehavior24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAudioSessionBehavior(behavior: number): void
 

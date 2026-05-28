@@ -12,6 +12,8 @@ typedef struct ImageNative_ ImageNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为图像接口定义native层图像对象。
  
 **起始版本：** 10

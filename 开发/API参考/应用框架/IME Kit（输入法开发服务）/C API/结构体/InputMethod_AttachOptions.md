@@ -12,6 +12,8 @@ typedef struct InputMethod_AttachOptions InputMethod_AttachOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入法绑定选项。绑定输入法时携带的选项。
  
 **起始版本：** 12

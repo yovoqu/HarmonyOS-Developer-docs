@@ -14,6 +14,8 @@ LoginPanel需要配合[loginComponentManager](https://developer.huawei.com/consu
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
 ```
@@ -21,6 +23,8 @@ import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
   
 
 ##### LoginPanel
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该类为用来展示登录面板的UI组件。
  
@@ -44,6 +48,8 @@ import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 build(): void
  

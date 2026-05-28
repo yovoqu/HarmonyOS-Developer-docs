@@ -12,6 +12,8 @@
 
 ##### 7400101 无效入参
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Parameter missing or parameter type incorrect.
@@ -31,6 +33,8 @@ Parameter missing or parameter type incorrect.
 
 
 ##### 7400102 非法操作
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -52,6 +56,8 @@ Operation not allowed.
 
 ##### 7400103 会话未配置
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Session not config.
@@ -72,6 +78,8 @@ Session not config.
 
 ##### 7400104 会话未运行
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Session not running.
@@ -91,6 +99,8 @@ Session not running.
 
 
 ##### 7400105 会话配置被锁定
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -132,6 +142,8 @@ Device setting locked.
 
 ##### 7400107 相机冲突
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Can not use camera cause of conflict.
@@ -151,6 +163,8 @@ Can not use camera cause of conflict.
 
 
 ##### 7400108 安全策略无法使用相机
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -192,6 +206,8 @@ Can not use camera cause of preempted.
 
 ##### 7400110 与当前配置存在冲突
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Unresolved conflicts with current configurations.
@@ -211,6 +227,8 @@ Unresolved conflicts with current configurations.
 
 
 ##### 7400201 相机服务异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

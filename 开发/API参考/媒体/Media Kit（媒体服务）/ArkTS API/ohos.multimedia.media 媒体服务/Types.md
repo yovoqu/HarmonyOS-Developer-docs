@@ -12,6 +12,8 @@
 
 ##### SoundPool10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SoundPool = _SoundPool
 
 音频池，提供了系统声音的加载、播放、音量设置、循环设置、停止播放、资源卸载等功能。
@@ -27,6 +29,8 @@ type SoundPool = _SoundPool
 
 ##### PlayParameters10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PlayParameters = _PlayParameters
 
 表示音频池播放参数设置。
@@ -41,6 +45,8 @@ type PlayParameters = _PlayParameters
 
 
 ##### AVPlayerState9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error'
 
@@ -67,6 +73,8 @@ type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' 
 
 ##### OnTrackChangeHandler12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnTrackChangeHandler = (index: number, isSelected: boolean) => void
 
 track变更事件回调方法。
@@ -86,6 +94,8 @@ track变更事件回调方法。
 
 
 ##### OnAVPlayerStateChangeHandle12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnAVPlayerStateChangeHandle = (state: AVPlayerState, reason: StateChangeReason) => void
 
@@ -107,6 +117,8 @@ type OnAVPlayerStateChangeHandle = (state: AVPlayerState, reason: StateChangeRea
 
 ##### OnBufferingUpdateHandler12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnBufferingUpdateHandler = (infoType: BufferingInfoType, value: number) => void
 
 播放缓存事件回调方法。
@@ -127,6 +139,8 @@ type OnBufferingUpdateHandler = (infoType: BufferingInfoType, value: number) => 
 
 ##### OnVideoSizeChangeHandler12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnVideoSizeChangeHandler = (width: number, height: number) => void
 
 视频播放宽高变化事件回调方法。
@@ -146,6 +160,8 @@ type OnVideoSizeChangeHandler = (width: number, height: number) => void
 
 
 ##### OnSuperResolutionChanged 18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnSuperResolutionChanged = (enabled: boolean) => void
 
@@ -172,6 +188,8 @@ type OnSuperResolutionChanged = (enabled: boolean) => void
 
 ##### OnSeiMessageHandle18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnSeiMessageHandle = (messages: Array&lt;SeiMessage&gt;, playbackPosition?: number) => void
 
 获取SEI信息，使用场景：订阅SEI信息事件，回调返回SEI详细信息。
@@ -192,6 +210,8 @@ type OnSeiMessageHandle = (messages: Array&lt;SeiMessage&gt;, playbackPosition?:
 
 ##### OnPlaybackRateDone20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnPlaybackRateDone = (rate: number) => void
 
 播放速率设置完成事件回调方法。
@@ -210,6 +230,8 @@ type OnPlaybackRateDone = (rate: number) => void
 
 
 ##### OnFrameFetched23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError&lt;void&gt;) => void
 
@@ -230,6 +252,8 @@ type OnFrameFetched = (frameInfo: FrameInfo, err?: BusinessError&lt;void&gt;) =>
 
 
 ##### AVRecorderState9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AVRecorderState = 'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 'released' | 'error'
 
@@ -254,6 +278,8 @@ type AVRecorderState = 'idle' | 'prepared' | 'started' | 'paused' | 'stopped' | 
 
 ##### OnAVRecorderStateChangeHandler12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnAVRecorderStateChangeHandler = (state: AVRecorderState, reason: StateChangeReason) => void
 
 录制状态机切换事件回调方法。
@@ -274,12 +300,14 @@ type OnAVRecorderStateChangeHandler = (state: AVRecorderState, reason: StateChan
 
 ##### SourceOpenCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number
 
 由应用实现此回调函数，应用需处理传入的资源打开请求，并返回所打开资源对应的唯一句柄。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Qlg0JyQ_SEaDMYzyje_cLw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013719Z&HW-CC-Expire=86400&HW-CC-Sign=D5CE85E8D7B03B2159D54B4FC7933EF181F1F4B4A9C65E778FC19B57917EB4A6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Qlg0JyQ_SEaDMYzyje_cLw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024016Z&HW-CC-Expire=86400&HW-CC-Sign=FD85341B0FAA311F8A340778A6E4D8CC69951259982A263C1F9F1516EEFDC75B)
 
 
 客户端在处理完请求后应立刻返回。
@@ -326,12 +354,14 @@ let sourceOpenCallback: media.SourceOpenCallback = (request: media.MediaSourceLo
 
 ##### SourceReadCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLength: number) => void
 
 由应用实现此回调函数，应用需记录读取请求，并在数据充足时通过对应的MediaSourceLoadingRequest对象的[respondData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-mediasourceloadingrequest#responddata18)方法推送数据。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/ctLTIprgRhGRtd0_biPDAw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013719Z&HW-CC-Expire=86400&HW-CC-Sign=A63CF2D0F27C8FCF8A2D4F78BC74D6F982F8ABD87EF0A9B8CBAFCC73AEBAA739)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/ctLTIprgRhGRtd0_biPDAw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024016Z&HW-CC-Expire=86400&HW-CC-Sign=C02D145502241522CA8FB11436BBEEE8EB6C190DBD96272F15B7246A6E9E9175)
 
 
 客户端在处理完请求后应立刻返回。
@@ -364,12 +394,14 @@ let sourceReadCallback: media.SourceReadCallback = (uuid: number, requestedOffse
 
 ##### SourceCloseCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SourceCloseCallback = (uuid: number) => void
 
 由应用实现此回调函数，应用应释放相关资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Ok7VsTd4SSGWqNRr_Xf9dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013719Z&HW-CC-Expire=86400&HW-CC-Sign=43158D7C9C256480993147C805CBCB85C86FAB84EA1FBD73F0DBE0F574314612)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Ok7VsTd4SSGWqNRr_Xf9dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024016Z&HW-CC-Expire=86400&HW-CC-Sign=BFC15C47D27C445B22D91DE4BF145D68C2087504F8B85AC9A4646C700323707F)
 
 
 客户端在处理完请求后应立刻返回。
@@ -405,6 +437,8 @@ let sourceCloseCallback: media.SourceCloseCallback = (uuid: number) => {
 
 ##### PlaybackMetrics23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PlaybackMetrics = Record<PlaybackMetricsKey, Object>
 
 提供播放器指标信息键值对的容器定义。
@@ -419,6 +453,8 @@ type PlaybackMetrics = Record<PlaybackMetricsKey, Object>
 
 
 ##### AudioState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AudioState = 'idle' | 'playing' | 'paused' | 'stopped' | 'error'
 
@@ -442,6 +478,8 @@ type AudioState = 'idle' | 'playing' | 'paused' | 'stopped' | 'error'
 
 
 ##### VideoPlayState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type VideoPlayState = 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error'
 

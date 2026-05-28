@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import fetch from '@system.fetch';
 ```
@@ -19,6 +21,8 @@ import fetch from '@system.fetch';
   
 
 ##### fetch.fetch3+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fetch(options:{ 
  
@@ -71,6 +75,8 @@ fetch(options:{
   
 
 ##### FetchResponse3+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Communication.NetStack
   

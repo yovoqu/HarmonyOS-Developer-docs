@@ -31,6 +31,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { AssetAccelerationExtensionAbility } from '@kit.GraphicsAccelerateKit';
 ```
@@ -38,6 +40,8 @@ import { AssetAccelerationExtensionAbility } from '@kit.GraphicsAccelerateKit';
   
 
 ##### AssetAccelerationExtensionInfo
+
+**支持设备：** Phone | Tablet
 
 资源加速ExtensionAbility信息。
  
@@ -56,6 +60,8 @@ import { AssetAccelerationExtensionAbility } from '@kit.GraphicsAccelerateKit';
   
 
 ##### ContentRequestType
+
+**支持设备：** Phone | Tablet
 
 type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
  
@@ -78,6 +84,8 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
 
 ##### AssetAccelerationExtensionAbility
 
+**支持设备：** Phone | Tablet
+
 资源加速扩展能力类。
  
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
@@ -89,6 +97,8 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
   
 
 ##### 属性
+
+**支持设备：** Phone | Tablet
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
  
@@ -104,6 +114,8 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
   
 
 ##### onDownloadContentRequest
+
+**支持设备：** Phone | Tablet
 
 onDownloadContentRequest(requestType: ContentRequestType, manifestUrl: string, assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo): Promise<assetDownloadManager.AssetDownloadConfig[]>
  
@@ -165,6 +177,8 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
 
 ##### onDownloadWithAppControl
 
+**支持设备：** Phone | Tablet
+
 onDownloadWithAppControl(requestType: ContentRequestType, manifestUrl: string, assetAccelerationExtensionInfo: AssetAccelerationExtensionInfo): Promise&lt;boolean&gt;
  
 安装应用、更新应用、设备闲时，执行该方法，触发extension协同下载，如果有资源包下载任务则返回true，否则返回false。使用Promise异步回调。
@@ -217,6 +231,8 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
 
 ##### onBackgroundDownloadSucceeded
 
+**支持设备：** Phone | Tablet
+
 onBackgroundDownloadSucceeded(downloadTask: assetDownloadManager.AssetDownloadTask, filePath: string): Promise&lt;void&gt;
  
 在系统后台下载任务成功时，执行该方法，通知资源加速ExtensionAbility下载成功。使用Promise异步回调。
@@ -263,6 +279,8 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
 
 ##### onBackgroundDownloadFailed
 
+**支持设备：** Phone | Tablet
+
 onBackgroundDownloadFailed(downloadTask: assetDownloadManager.AssetDownloadTask, fault: assetDownloadManager.DownloadFault): Promise&lt;void&gt;
  
 在系统后台下载任务失败时，执行该方法，通知资源加速ExtensionAbility下载失败。使用Promise异步回调。
@@ -308,6 +326,8 @@ export default class AssetAccelExtAbility extends AssetAccelerationExtensionAbil
   
 
 ##### onExtensionWillTerminate
+
+**支持设备：** Phone | Tablet
 
 onExtensionWillTerminate(error?: BusinessError&lt;void&gt;): Promise&lt;void&gt;
  

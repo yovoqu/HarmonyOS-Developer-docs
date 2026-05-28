@@ -12,6 +12,8 @@ typedef struct HiAppEvent_AppEventGroup {...} HiAppEvent_AppEventGroup
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 一组事件信息，包含事件组的名称，按名称分组的单个事件信息数组，事件数组的长度。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct HiAppEvent_AppEventGroup {...} HiAppEvent_AppEventGroup
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

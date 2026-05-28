@@ -14,6 +14,8 @@ typedef struct CloudDisk_PathInfo CloudDisk_SyncFolderPath
 
 ##### 概述
 
+**支持设备：** PC/2in1 | Tablet
+
 文件路径信息。
  
 **起始版本：** 21
@@ -26,9 +28,13 @@ typedef struct CloudDisk_PathInfo CloudDisk_SyncFolderPath
 
 ##### 汇总
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

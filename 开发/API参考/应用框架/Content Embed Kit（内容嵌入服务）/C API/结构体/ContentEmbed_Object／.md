@@ -12,6 +12,8 @@ typedef struct ContentEmbed_Object* ContentEmbed_ObjectHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明ContentEmbed_Object对象指针类型。
  
 **起始版本：** 24

@@ -12,6 +12,8 @@ typedef struct ContentEmbed_ExtensionContext ContentEmbed_ExtensionContext
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明OE Extension上下文的结构体类型。
  
 **起始版本：** 24

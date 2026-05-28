@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { emitter } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { emitter } from '@kit.BasicServicesKit';
 
 
 ##### emitter.on
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(event: InnerEvent, callback: Callback&lt;EventData&gt;): void
 
@@ -59,6 +63,8 @@ emitter.on(innerEvent, callback);
 
 ##### emitter.on11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 持续订阅指定的事件，并在接收到该事件时，执行对应的回调处理函数。
@@ -90,6 +96,8 @@ emitter.on(`eventId`, callback);
 
 
 ##### emitter.on12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
@@ -137,6 +145,8 @@ emitter.on("eventId", callback);
 
 ##### emitter.once
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 once(event: InnerEvent, callback: Callback&lt;EventData&gt;): void
 
 单次订阅指定的事件，在接收到该事件且执行完对应的回调函数后，自动取消订阅。
@@ -173,6 +183,8 @@ emitter.once(innerEvent, callback);
 
 ##### emitter.once11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 once(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 单次订阅指定的事件，在接收到该事件且执行完对应的回调函数后，自动取消订阅。
@@ -204,6 +216,8 @@ emitter.once("eventId", callback);
 
 
 ##### emitter.once12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 once&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
@@ -251,6 +265,8 @@ emitter.once("eventId", callback);
 
 ##### emitter.off
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(eventId: number): void
 
 取消事件ID为eventId的所有订阅。
@@ -279,6 +295,8 @@ emitter.off(1);
 
 ##### emitter.off11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(eventId: string): void
 
 取消事件ID为eventId的所有订阅。
@@ -306,6 +324,8 @@ emitter.off("eventId1");
 
 
 ##### emitter.off10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(eventId: number, callback: Callback&lt;EventData&gt;): void
 
@@ -342,6 +362,8 @@ emitter.off(1, callback);
 
 ##### emitter.off11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 取消事件ID为eventId且回调处理函数为callback的订阅。仅当已使用[on](#emitteron11)或[once](#emitteronce11)接口订阅callback时，该接口才生效。
@@ -376,6 +398,8 @@ emitter.off("eventId1", callback);
 
 
 ##### emitter.off12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
@@ -426,6 +450,8 @@ emitter.off("eventId1", callback);
 
 ##### emitter.emit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 emit(event: InnerEvent, data?: EventData): void
 
 发送指定事件。
@@ -468,6 +494,8 @@ emitter.emit(innerEvent, eventData);
 
 ##### emitter.emit11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 emit(eventId: string, data?: EventData): void
 
 发送指定事件。
@@ -504,6 +532,8 @@ emitter.emit("eventId", eventData);
 
 
 ##### emitter.emit12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 emit&lt;T&gt;(eventId: string, data?: GenericEventData&lt;T&gt;): void
 
@@ -549,6 +579,8 @@ emitter.emit("eventId", eventData);
 
 ##### emitter.emit11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 emit(eventId: string, options: Options, data?: EventData): void
 
 发送指定优先级事件。
@@ -590,6 +622,8 @@ emitter.emit("eventId", options, eventData);
 
 
 ##### emitter.emit12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 emit&lt;T&gt;(eventId: string, options: Options, data?: GenericEventData&lt;T&gt;): void
 
@@ -640,6 +674,8 @@ emitter.emit("eventId", options, eventData);
 
 ##### emitter.getListenerCount11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getListenerCount(eventId: number | string): number
 
 获取指定事件的订阅数。
@@ -672,6 +708,8 @@ let count: number = emitter.getListenerCount("eventId");
 
 ##### EventPriority
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示事件的优先级。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -690,6 +728,8 @@ let count: number = emitter.getListenerCount("eventId");
 
 ##### InnerEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 订阅或发送的事件，订阅事件时EventPriority不生效。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -706,6 +746,8 @@ let count: number = emitter.getListenerCount("eventId");
 
 ##### EventData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 发送事件时传递的数据。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -720,6 +762,8 @@ let count: number = emitter.getListenerCount("eventId");
 
 
 ##### Options11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 发送事件的优先级。
 
@@ -736,6 +780,8 @@ let count: number = emitter.getListenerCount("eventId");
 
 ##### GenericEventData&lt;T&gt;12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 发送事件时传递的泛型数据。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -751,6 +797,8 @@ let count: number = emitter.getListenerCount("eventId");
 
 ##### Emitter22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该功能支持在同一进程的同一Emitter类实例中，跨不同线程或同一线程内发送和处理事件。它能够实现持续订阅事件、单次订阅事件、取消订阅事件以及将事件发送到事件队列。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -760,6 +808,8 @@ let count: number = emitter.getListenerCount("eventId");
 
 
 ##### constructor22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -778,6 +828,8 @@ let emitter1: emitter.Emitter = new emitter.Emitter();
 
 
 ##### on22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(eventId: string, callback: Callback&lt;EventData&gt;): void
 
@@ -812,6 +864,8 @@ emitter1.on(`eventId`, callback);
 
 
 ##### on22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
@@ -861,6 +915,8 @@ emitter1.on("eventId", callback);
 
 ##### once22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 once(eventId: string, callback: Callback&lt;EventData&gt;): void
 
 单次订阅当前Emitter类实例指定的事件，在接收到该事件且执行完对应的回调函数后，自动取消订阅。使用callback异步回调。
@@ -894,6 +950,8 @@ emitter1.once("eventId", callback);
 
 
 ##### once22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 once&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
@@ -943,6 +1001,8 @@ emitter1.once("eventId", callback);
 
 ##### off22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(eventId: string): void
 
 取消当前Emitter类实例事件ID为eventId的所有订阅。
@@ -971,6 +1031,8 @@ emitter1.off("eventId");
 
 
 ##### off22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(eventId: string, callback: Callback&lt;EventData&gt;): void
 
@@ -1007,6 +1069,8 @@ emitter1.off("eventId", callback);
 
 
 ##### off22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off&lt;T&gt;(eventId: string, callback: Callback<GenericEventData&lt;T&gt;>): void
 
@@ -1058,6 +1122,8 @@ emitter1.off("eventId", callback);
 
 ##### emit22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 emit(eventId: string, data?: EventData): void
 
 发送指定事件到当前Emitter类实例。
@@ -1095,6 +1161,8 @@ emitter1.emit("eventId", eventData);
 
 
 ##### emit22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 emit&lt;T&gt;(eventId: string, data?: GenericEventData&lt;T&gt;): void
 
@@ -1143,6 +1211,8 @@ emitter1.emit("eventId", eventData);
 
 ##### emit22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 emit(eventId: string, options: Options, data?: EventData): void
 
 发送指定事件到当前Emitter类实例。
@@ -1185,6 +1255,8 @@ emitter1.emit("eventId", options, eventData);
 
 
 ##### emit22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 emit&lt;T&gt;(eventId: string, options: Options, data?: GenericEventData&lt;T&gt;): void
 
@@ -1236,6 +1308,8 @@ emitter1.emit("eventId", options, eventData);
 
 
 ##### getListenerCount22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getListenerCount(eventId: string): number
 

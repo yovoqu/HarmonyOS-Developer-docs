@@ -12,7 +12,7 @@
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/_7r_iPorQ3qY9s5VXMw8kg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013553Z&HW-CC-Expire=86400&HW-CC-Sign=03D08E03A4E45CB617AE3FCD6DB9CDD1E08EAFA8061BDDD1B986E6E44C32F13F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/_7r_iPorQ3qY9s5VXMw8kg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023852Z&HW-CC-Expire=86400&HW-CC-Sign=0E3D623EE07276EFFEA323CB6A6E4BDA8C13CDEC2A74E4B2AC3A0F608C2F5C93)
 
 
 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考[syscap开发指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)。
@@ -22,6 +22,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Wearable
+
 ```text
 import { tag } from '@kit.ConnectivityKit';
 ```
@@ -29,6 +31,8 @@ import { tag } from '@kit.ConnectivityKit';
 
 
 ##### NfcATag
+
+**支持设备：** Phone | Wearable
 
 NfcATag 提供 NFC-A(ISO 14443-3A)技术的属性和I/O操作的访问，继承自[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
 
@@ -41,6 +45,8 @@ NfcATag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 ##### NfcATag.getSak
+
+**支持设备：** Phone | Wearable
 
 getSak(): number
 
@@ -71,6 +77,8 @@ console.info("nfcA sak: " + sak);
 
 ##### NfcATag.getAtqa
 
+**支持设备：** Phone | Wearable
+
 getAtqa(): number[]
 
 获取NFC-A标签的Atqa值。
@@ -100,6 +108,8 @@ console.info("nfcA atqa: " + atqa);
 
 ##### NfcBTag
 
+**支持设备：** Phone | Wearable
+
 NfcBTag 提供对NFC-B(ISO 14443-3B)技术的属性和I/O操作的访问，继承自TagSession。
 
 TagSession是所有NFC Tag技术类型的基类，提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
@@ -111,6 +121,8 @@ NfcBTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 ##### NfcBTag.getRespAppData
+
+**支持设备：** Phone | Wearable
 
 getRespAppData(): number[]
 
@@ -141,6 +153,8 @@ console.info("nfcB respAppData: " + respAppData);
 
 ##### NfcBTag.getRespProtocol
 
+**支持设备：** Phone | Wearable
+
 getRespProtocol(): number[]
 
 获取标签的协议信息。
@@ -170,6 +184,8 @@ console.info("nfcB respProtocol: " + respProtocol);
 
 ##### NfcFTag
 
+**支持设备：** Phone | Wearable
+
 NfcFTag 提供对NFC-F(JIS 6319-4)技术的属性和I/O操作的访问，继承自TagSession。
 
 TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
@@ -181,6 +197,8 @@ NfcFTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 ##### NfcFTag.getSystemCode
+
+**支持设备：** Phone | Wearable
 
 getSystemCode(): number[]
 
@@ -211,6 +229,8 @@ console.info("nfcF systemCode: " + systemCode);
 
 ##### NfcFTag.getPmm
 
+**支持设备：** Phone | Wearable
+
 getPmm(): number[]
 
 从标签实例获取PMm（由IC代码和制造商参数组成）。
@@ -240,6 +260,8 @@ console.info("nfcF pmm: " + pmm);
 
 ##### NfcVTag
 
+**支持设备：** Phone | Wearable
+
 NfcVTag 提供对NFC-V(ISO 15693)技术的属性和I/O操作的访问，继承自TagSession。
 
 TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
@@ -251,6 +273,8 @@ NfcVTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 ##### NfcVTag.getResponseFlags
+
+**支持设备：** Phone | Wearable
 
 getResponseFlags(): number
 
@@ -281,6 +305,8 @@ console.info("nfcV responseFlags: " + responseFlags);
 
 ##### NfcVTag.getDsfId
 
+**支持设备：** Phone | Wearable
+
 getDsfId(): number
 
 从标签实例获取数据存储格式标识符（DSFID）。
@@ -310,6 +336,8 @@ console.info("nfcV dsfId: " + dsfId);
 
 ##### IsoDepTag9+
 
+**支持设备：** Phone | Wearable
+
 IsoDepTag 提供对ISO-DEP(ISO 14443-4)技术的属性和I/O操作的访问，继承自TagSession。
 
 TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
@@ -321,6 +349,8 @@ IsoDepTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com
 
 
 ##### IsoDepTag.getHistoricalBytes9+
+
+**支持设备：** Phone | Wearable
 
 getHistoricalBytes(): number[]
 
@@ -351,6 +381,8 @@ console.info("isoDep historicalBytes: " + historicalBytes);
 
 ##### IsoDepTag.getHiLayerResponse9+
 
+**支持设备：** Phone | Wearable
+
 getHiLayerResponse(): number[]
 
 获取标签的更高层响应字节，针对基于NfcB通信技术的IsoDep卡片。
@@ -379,6 +411,8 @@ console.info("isoDep hiLayerResponse: " + hiLayerResponse);
 
 
 ##### IsoDepTag.isExtendedApduSupported9+
+
+**支持设备：** Phone | Wearable
 
 isExtendedApduSupported(): Promise&lt;boolean&gt;
 
@@ -440,6 +474,8 @@ function nfcTechDemo() {
 
 
 ##### IsoDepTag.isExtendedApduSupported9+
+
+**支持设备：** Phone | Wearable
 
 isExtendedApduSupported(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -504,9 +540,13 @@ function nfcTechDemo() {
 
 ##### NdefMessage9+
 
+**支持设备：** Phone | Wearable
+
 
 
 ##### NdefMessage.getNdefRecords9+
+
+**支持设备：** Phone | Wearable
 
 getNdefRecords(): [tag.NdefRecord](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#ndefrecord9)[]
 
@@ -540,6 +580,8 @@ console.info("ndef ndefRecords number: " + ndefRecords.length);
 
 ##### NdefTag9+
 
+**支持设备：** Phone | Wearable
+
 提供对已格式化为NDEF的NFC标签的数据和操作的访问，继承自TagSession。
 
 TagSession是所有NFC Tag技术类型的基类，提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
@@ -551,6 +593,8 @@ NdefTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.com/c
 
 
 ##### NdefTag.getNdefTagType9+
+
+**支持设备：** Phone | Wearable
 
 getNdefTagType(): [tag.NfcForumType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#nfcforumtype9)
 
@@ -581,6 +625,8 @@ console.info("ndef ndefTagType: " + ndefTagType);
 
 ##### NdefTag.getNdefMessage9+
 
+**支持设备：** Phone | Wearable
+
 getNdefMessage(): [NdefMessage](#ndefmessage9)
 
 获取发现NDEF标签时，从标签读取的Message。
@@ -610,6 +656,8 @@ console.info("ndef ndefMessage: " + ndefMessage);
 
 ##### NdefTag.isNdefWritable9+
 
+**支持设备：** Phone | Wearable
+
 isNdefWritable(): boolean
 
 检查NDEF标签是否可写。在调用写数据接口前，需要先判断是否支持写操作。
@@ -638,6 +686,8 @@ console.info("ndef isNdefWritable: " + isWritable);
 
 
 ##### NdefTag.readNdef9+
+
+**支持设备：** Phone | Wearable
 
 readNdef(): Promise<[NdefMessage](#ndefmessage9)>
 
@@ -699,6 +749,8 @@ function nfcTechDemo(){
 
 
 ##### NdefTag.readNdef9+
+
+**支持设备：** Phone | Wearable
 
 readNdef(callback: AsyncCallback<[NdefMessage](#ndefmessage9)>): void
 
@@ -762,6 +814,8 @@ function nfcTechDemo() {
 
 
 ##### NdefTag.writeNdef9+
+
+**支持设备：** Phone | Wearable
 
 writeNdef(msg: [NdefMessage](#ndefmessage9)): Promise&lt;void&gt;
 
@@ -836,6 +890,8 @@ function nfcTechDemo() {
 
 ##### NdefTag.writeNdef9+
 
+**支持设备：** Phone | Wearable
+
 writeNdef(msg: [NdefMessage](#ndefmessage9), callback: AsyncCallback&lt;void&gt;): void
 
 将NDEF Message数据对象写入此标签。使用callback异步回调。
@@ -905,6 +961,8 @@ function nfcTechDemo() {
 
 ##### NdefTag.canSetReadOnly9+
 
+**支持设备：** Phone | Wearable
+
 canSetReadOnly(): boolean
 
 检查NDEF标签是否可以设置为只读。
@@ -945,6 +1003,8 @@ console.info("ndef canSetReadOnly: " + canSetReadOnly);
 
 
 ##### NdefTag.setReadOnly9+
+
+**支持设备：** Phone | Wearable
 
 setReadOnly(): Promise&lt;void&gt;
 
@@ -1007,6 +1067,8 @@ function nfcTechDemo() {
 
 
 ##### NdefTag.setReadOnly9+
+
+**支持设备：** Phone | Wearable
 
 setReadOnly(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1072,6 +1134,8 @@ function nfcTechDemo() {
 
 ##### NdefTag.getNdefTagTypeString9+
 
+**支持设备：** Phone | Wearable
+
 getNdefTagTypeString(type: [tag.NfcForumType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#nfcforumtype9)): string
 
 将NFC论坛类型，转换为NFC论坛中定义的字符串描述。
@@ -1123,6 +1187,8 @@ try {
 
 ##### MifareClassicTag9+
 
+**支持设备：** Phone | Wearable
+
 MifareClassicTag提供对MIFARE Classic属性和I/O操作的访问，继承自[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
 
 TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
@@ -1134,6 +1200,8 @@ MifareClassicTag获取方式请参考[nfc-tag开发指南](https://developer.hua
 
 
 ##### MifareClassicTag.authenticateSector9+
+
+**支持设备：** Phone | Wearable
 
 authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean): Promise&lt;void&gt;
 
@@ -1208,6 +1276,8 @@ function nfcTechDemo() {
 
 ##### MifareClassicTag.authenticateSector9+
 
+**支持设备：** Phone | Wearable
+
 authenticateSector(sectorIndex: number, key: number[], isKeyA: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 使用密钥对扇区进行身份验证，只有身份验证成功的扇区可以进行操作。使用callback异步回调。
@@ -1276,6 +1346,8 @@ function nfcTechDemo() {
 
 
 ##### MifareClassicTag.readSingleBlock9+
+
+**支持设备：** Phone | Wearable
 
 readSingleBlock(blockIndex: number): Promise<number[]>
 
@@ -1347,6 +1419,8 @@ function nfcTechDemo() {
 
 ##### MifareClassicTag.readSingleBlock9+
 
+**支持设备：** Phone | Wearable
+
 readSingleBlock(blockIndex: number, callback: AsyncCallback<number[]>): void
 
 读取标签中一个块存储的内容，一个块大小为16字节。使用callback异步回调。
@@ -1412,6 +1486,8 @@ function nfcTechDemo() {
 
 
 ##### MifareClassicTag.writeSingleBlock9+
+
+**支持设备：** Phone | Wearable
 
 writeSingleBlock(blockIndex: number, data: number[]): Promise&lt;void&gt;
 
@@ -1486,6 +1562,8 @@ function nfcTechDemo() {
 
 ##### MifareClassicTag.writeSingleBlock9+
 
+**支持设备：** Phone | Wearable
+
 writeSingleBlock(blockIndex: number, data: number[], callback: AsyncCallback&lt;void&gt;): void
 
 向标签中一个块存储写入内容，一个块大小为16字节。使用callback异步回调。
@@ -1554,6 +1632,8 @@ function nfcTechDemo() {
 
 
 ##### MifareClassicTag.incrementBlock9+
+
+**支持设备：** Phone | Wearable
 
 incrementBlock(blockIndex: number, value: number): Promise&lt;void&gt;
 
@@ -1627,6 +1707,8 @@ function nfcTechDemo() {
 
 ##### MifareClassicTag.incrementBlock9+
 
+**支持设备：** Phone | Wearable
+
 incrementBlock(blockIndex: number, value: number, callback: AsyncCallback&lt;void&gt;): void
 
 对指定块的内容，增加指定的数值，并将结果存储在内部传输缓冲器中。使用callback异步回调。
@@ -1694,6 +1776,8 @@ function nfcTechDemo() {
 
 
 ##### MifareClassicTag.decrementBlock9+
+
+**支持设备：** Phone | Wearable
 
 decrementBlock(blockIndex: number, value: number): Promise&lt;void&gt;
 
@@ -1767,6 +1851,8 @@ function nfcTechDemo() {
 
 ##### MifareClassicTag.decrementBlock9+
 
+**支持设备：** Phone | Wearable
+
 decrementBlock(blockIndex: number, value: number, callback: AsyncCallback&lt;void&gt;): void
 
 对指定块的内容，减少指定的数值。使用callback异步回调。
@@ -1835,6 +1921,8 @@ function nfcTechDemo() {
 
 
 ##### MifareClassicTag.transferToBlock9+
+
+**支持设备：** Phone | Wearable
 
 transferToBlock(blockIndex: number): Promise&lt;void&gt;
 
@@ -1906,6 +1994,8 @@ function nfcTechDemo() {
 
 ##### MifareClassicTag.transferToBlock9+
 
+**支持设备：** Phone | Wearable
+
 transferToBlock(blockIndex: number, callback: AsyncCallback&lt;void&gt;): void
 
 将临时寄存器的值转移到指定的块。使用callback异步回调。
@@ -1971,6 +2061,8 @@ function nfcTechDemo() {
 
 
 ##### MifareClassicTag.restoreFromBlock9+
+
+**支持设备：** Phone | Wearable
 
 restoreFromBlock(blockIndex: number): Promise&lt;void&gt;
 
@@ -2042,6 +2134,8 @@ function nfcTechDemo() {
 
 ##### MifareClassicTag.restoreFromBlock9+
 
+**支持设备：** Phone | Wearable
+
 restoreFromBlock(blockIndex: number, callback: AsyncCallback&lt;void&gt;): void
 
 将指定块的值复制到临时寄存器。使用callback异步回调。
@@ -2108,6 +2202,8 @@ function nfcTechDemo() {
 
 ##### MifareClassicTag.getSectorCount9+
 
+**支持设备：** Phone | Wearable
+
 getSectorCount(): number
 
 获取MIFARE Classic标签中的扇区数。
@@ -2137,6 +2233,8 @@ console.info("mifareClassic sectorCount: " + sectorCount);
 
 
 ##### MifareClassicTag.getBlockCountInSector9+
+
+**支持设备：** Phone | Wearable
 
 getBlockCountInSector(sectorIndex: number): number
 
@@ -2190,6 +2288,8 @@ try {
 
 ##### MifareClassicTag.getType9+
 
+**支持设备：** Phone | Wearable
+
 getType(): [tag.MifareClassicType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#mifareclassictype9)
 
 获取MIFARE Classic标签的类型。
@@ -2218,6 +2318,8 @@ console.info("mifareClassic getType: " + getType);
 
 
 ##### MifareClassicTag.getTagSize9+
+
+**支持设备：** Phone | Wearable
 
 getTagSize(): number
 
@@ -2249,6 +2351,8 @@ console.info("mifareClassic tagSize: " + tagSize);
 
 ##### MifareClassicTag.isEmulatedTag9+
 
+**支持设备：** Phone | Wearable
+
 isEmulatedTag(): boolean
 
 检查标签是不是被模拟的。
@@ -2278,6 +2382,8 @@ console.info("mifareClassic isEmulatedTag: " + isEmulatedTag);
 
 
 ##### MifareClassicTag.getBlockIndex9+
+
+**支持设备：** Phone | Wearable
 
 getBlockIndex(sectorIndex: number): number
 
@@ -2331,6 +2437,8 @@ try {
 
 ##### MifareClassicTag.getSectorIndex9+
 
+**支持设备：** Phone | Wearable
+
 getSectorIndex(blockIndex: number): number
 
 获取包含指定块号的扇区序号。
@@ -2383,6 +2491,8 @@ try {
 
 ##### MifareUltralightTag9+
 
+**支持设备：** Phone | Wearable
+
 MifareUltralightTag 提供对MIFARE Ultralight属性和I/O操作的访问，继承自TagSession。
 
 TagSession是所有NFC Tag技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
@@ -2394,6 +2504,8 @@ MifareUltralightTag获取方式请参考[nfc-tag开发指南](https://developer.
 
 
 ##### MifareUltralightTag.readMultiplePages9+
+
+**支持设备：** Phone | Wearable
 
 readMultiplePages(pageIndex: number): Promise<number[]>
 
@@ -2465,6 +2577,8 @@ function nfcTechDemo() {
 
 ##### MifareUltralightTag.readMultiplePages9+
 
+**支持设备：** Phone | Wearable
+
 readMultiplePages(pageIndex: number, callback: AsyncCallback<number[]>): void
 
 读取标签的4页数据，共16字节的数据。每个页面数据大小为4字节。使用callback异步回调。
@@ -2530,6 +2644,8 @@ function nfcTechDemo() {
 
 
 ##### MifareUltralightTag.writeSinglePage9+
+
+**支持设备：** Phone | Wearable
 
 writeSinglePage(pageIndex: number, data: number[]): Promise&lt;void&gt;
 
@@ -2603,6 +2719,8 @@ function nfcTechDemo() {
 
 ##### MifareUltralightTag.writeSinglePage9+
 
+**支持设备：** Phone | Wearable
+
 writeSinglePage(pageIndex: number, data: number[], callback: AsyncCallback&lt;void&gt;): void
 
 写入一页数据，数据大小为4字节。使用callback异步回调。
@@ -2671,6 +2789,8 @@ function nfcTechDemo() {
 
 ##### MifareUltralightTag.getType9+
 
+**支持设备：** Phone | Wearable
+
 getType(): [tag.MifareUltralightType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#mifareultralighttype9)
 
 获取MIFARE Ultralight标签的类型。
@@ -2700,6 +2820,8 @@ console.info("mifareUltralight getType: " + getType);
 
 ##### NdefFormatableTag9+
 
+**支持设备：** Phone | Wearable
+
 NdefFormatableTag为NDEF Formattable的标签提供格式化操作，继承自TagSession。
 
 TagSession是所有NFC Tag 技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
@@ -2711,6 +2833,8 @@ NdefFormatableTag获取方式请参考[nfc-tag开发指南](https://developer.hu
 
 
 ##### NdefFormatableTag.format9+
+
+**支持设备：** Phone | Wearable
 
 format(message: [NdefMessage](#ndefmessage9)): Promise&lt;void&gt;
 
@@ -2786,6 +2910,8 @@ function nfcTechDemo() {
 
 ##### NdefFormatableTag.format9+
 
+**支持设备：** Phone | Wearable
+
 format(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback&lt;void&gt;): void
 
 将标签格式化为NDEF标签，然后将NDEF消息写入NDEF标签。使用callback异步回调。
@@ -2854,6 +2980,8 @@ function nfcTechDemo() {
 
 
 ##### NdefFormatableTag.formatReadOnly9+
+
+**支持设备：** Phone | Wearable
 
 formatReadOnly(message: [NdefMessage](#ndefmessage9)): Promise&lt;void&gt;
 
@@ -2929,6 +3057,8 @@ function nfcTechDemo() {
 
 ##### NdefFormatableTag.formatReadOnly9+
 
+**支持设备：** Phone | Wearable
+
 formatReadOnly(message: [NdefMessage](#ndefmessage9), callback: AsyncCallback&lt;void&gt;): void
 
 将标签格式化为NDEF标签，然后将NDEF消息写入NDEF标签，之后将标签设置为只读。使用callback异步回调。
@@ -2999,6 +3129,8 @@ function nfcTechDemo() {
 
 ##### BarcodeTag18+
 
+**支持设备：** Phone | Wearable
+
 BarcodeTag提供读取条形码标签的属性和访问I/O操作的能力，继承自TagSession。
 
 TagSession是所有NFC Tag 技术类型的基类， 提供建立连接和发送数据等共同接口。具体请参见[TagSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-tagsession)。
@@ -3010,6 +3142,8 @@ BarcodeTag获取方式请参考[nfc-tag开发指南](https://developer.huawei.co
 
 
 ##### BarcodeTag.getBarcode18+
+
+**支持设备：** Phone | Wearable
 
 getBarcode(): Promise&lt;ArrayBuffer&gt;
 

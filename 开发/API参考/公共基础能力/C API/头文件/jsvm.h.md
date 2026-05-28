@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 提供JSVM-API接口定义。通过API接口为开发者提供独立、标准、完整的JavaScript引擎能力，包括管理引擎生命周期、编译运行JS代码、实现JS/C++跨语言调用、拍摄快照等。
  
 **引用文件：** <ark_runtime/jsvm.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,6 +46,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -273,9 +281,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### OH_JSVM_Init()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_Init(const JSVM_InitOptions* options)
@@ -304,6 +316,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_Init(const JSVM_InitOptions* options)
   
 
 ##### OH_JSVM_CreateVM()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateVM(const JSVM_CreateVMOptions* options,JSVM_VM* result)
@@ -334,6 +348,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateVM(const JSVM_CreateVMOptions* options,JSV
 
 ##### OH_JSVM_SetMicrotaskPolicy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetMicrotaskPolicy(JSVM_VM vm,JSVM_MicrotaskPolicy policy)
 ```
@@ -363,6 +379,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetMicrotaskPolicy(JSVM_VM vm,JSVM_MicrotaskPoli
 
 ##### OH_JSVM_DestroyVM()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DestroyVM(JSVM_VM vm)
 ```
@@ -390,6 +408,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DestroyVM(JSVM_VM vm)
   
 
 ##### OH_JSVM_CreateProxy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateProxy(JSVM_Env env,JSVM_Value target,JSVM_Value handler,JSVM_Value* result)
@@ -422,6 +442,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateProxy(JSVM_Env env,JSVM_Value target,JSVM_
 
 ##### OH_JSVM_IsProxy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_Status OH_JSVM_IsProxy(JSVM_Env env,JSVM_Value value,bool* isProxy)
 ```
@@ -451,6 +473,8 @@ JSVM_Status OH_JSVM_IsProxy(JSVM_Env env,JSVM_Value value,bool* isProxy)
   
 
 ##### OH_JSVM_ProxyGetTarget()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_Status OH_JSVM_ProxyGetTarget(JSVM_Env env,JSVM_Value value,JSVM_Value* result)
@@ -482,6 +506,8 @@ JSVM_Status OH_JSVM_ProxyGetTarget(JSVM_Env env,JSVM_Value value,JSVM_Value* res
 
 ##### OH_JSVM_OpenVMScope()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_OpenVMScope(JSVM_VM vm,JSVM_VMScope* result)
 ```
@@ -511,6 +537,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_OpenVMScope(JSVM_VM vm,JSVM_VMScope* result)
 
 ##### OH_JSVM_CloseVMScope()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CloseVMScope(JSVM_VM vm,JSVM_VMScope scope)
 ```
@@ -539,6 +567,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CloseVMScope(JSVM_VM vm,JSVM_VMScope scope)
   
 
 ##### OH_JSVM_CreateEnv()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateEnv(JSVM_VM vm,size_t propertyCount,const JSVM_PropertyDescriptor* properties,JSVM_Env* result)
@@ -571,6 +601,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateEnv(JSVM_VM vm,size_t propertyCount,const 
 
 ##### OH_JSVM_CreateEnvFromSnapshot()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateEnvFromSnapshot(JSVM_VM vm,size_t index,JSVM_Env* result)
 ```
@@ -601,6 +633,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateEnvFromSnapshot(JSVM_VM vm,size_t index,JS
 
 ##### OH_JSVM_DestroyEnv()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DestroyEnv(JSVM_Env env)
 ```
@@ -628,6 +662,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DestroyEnv(JSVM_Env env)
   
 
 ##### OH_JSVM_OpenEnvScope()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_OpenEnvScope(JSVM_Env env,JSVM_EnvScope* result)
@@ -658,6 +694,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_OpenEnvScope(JSVM_Env env,JSVM_EnvScope* result)
 
 ##### OH_JSVM_CloseEnvScope()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CloseEnvScope(JSVM_Env env,JSVM_EnvScope scope)
 ```
@@ -687,6 +725,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CloseEnvScope(JSVM_Env env,JSVM_EnvScope scope)
 
 ##### OH_JSVM_GetVM()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetVM(JSVM_Env env,JSVM_VM* result)
 ```
@@ -715,6 +755,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetVM(JSVM_Env env,JSVM_VM* result)
   
 
 ##### OH_JSVM_CompileScript()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CompileScript(JSVM_Env env,JSVM_Value script,const uint8_t* cachedData,size_t cacheDataLength,bool eagerCompile,bool* cacheRejected,JSVM_Script* result)
@@ -749,6 +791,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CompileScript(JSVM_Env env,JSVM_Value script,con
   
 
 ##### OH_JSVM_CompileScriptWithOrigin()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CompileScriptWithOrigin(JSVM_Env env,JSVM_Value script,const uint8_t* cachedData,size_t cacheDataLength,bool eagerCompile,bool* cacheRejected,JSVM_ScriptOrigin* origin,JSVM_Script* result)
@@ -785,6 +829,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CompileScriptWithOrigin(JSVM_Env env,JSVM_Value 
 
 ##### OH_JSVM_CompileScriptWithOptions()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CompileScriptWithOptions(JSVM_Env env,JSVM_Value script,size_t optionCount,JSVM_CompileOptions options[],JSVM_Script* result)
 ```
@@ -817,6 +863,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CompileScriptWithOptions(JSVM_Env env,JSVM_Value
 
 ##### OH_JSVM_CreateCodeCache()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateCodeCache(JSVM_Env env,JSVM_Script script,const uint8_t** data,size_t* length)
 ```
@@ -848,6 +896,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateCodeCache(JSVM_Env env,JSVM_Script script,
 
 ##### OH_JSVM_RunScript()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_RunScript(JSVM_Env env,JSVM_Script script,JSVM_Value* result)
 ```
@@ -877,6 +927,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_RunScript(JSVM_Env env,JSVM_Script script,JSVM_V
   
 
 ##### OH_JSVM_SetInstanceData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetInstanceData(JSVM_Env env,void* data,JSVM_Finalize finalizeCb,void* finalizeHint)
@@ -909,6 +961,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetInstanceData(JSVM_Env env,void* data,JSVM_Fin
 
 ##### OH_JSVM_GetInstanceData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetInstanceData(JSVM_Env env,void** data)
 ```
@@ -937,6 +991,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetInstanceData(JSVM_Env env,void** data)
   
 
 ##### OH_JSVM_GetLastErrorInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetLastErrorInfo(JSVM_Env env,const JSVM_ExtendedErrorInfo** result)
@@ -967,6 +1023,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetLastErrorInfo(JSVM_Env env,const JSVM_Extende
 
 ##### OH_JSVM_Throw()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_Throw(JSVM_Env env,JSVM_Value error)
 ```
@@ -995,6 +1053,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_Throw(JSVM_Env env,JSVM_Value error)
   
 
 ##### OH_JSVM_ThrowError()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ThrowError(JSVM_Env env,const char* code,const char* msg)
@@ -1026,6 +1086,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ThrowError(JSVM_Env env,const char* code,const c
 
 ##### OH_JSVM_ThrowTypeError()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ThrowTypeError(JSVM_Env env,const char* code,const char* msg)
 ```
@@ -1055,6 +1117,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ThrowTypeError(JSVM_Env env,const char* code,con
   
 
 ##### OH_JSVM_ThrowRangeError()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ThrowRangeError(JSVM_Env env,const char* code,const char* msg)
@@ -1086,6 +1150,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ThrowRangeError(JSVM_Env env,const char* code,co
 
 ##### OH_JSVM_ThrowSyntaxError()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ThrowSyntaxError(JSVM_Env env,const char* code,const char* msg)
 ```
@@ -1116,6 +1182,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ThrowSyntaxError(JSVM_Env env,const char* code,c
 
 ##### OH_JSVM_IsError()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsError(JSVM_Env env,JSVM_Value value,bool* result)
 ```
@@ -1145,6 +1213,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsError(JSVM_Env env,JSVM_Value value,bool* resu
   
 
 ##### OH_JSVM_CreateError()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateError(JSVM_Env env,JSVM_Value code,JSVM_Value msg,JSVM_Value* result)
@@ -1177,6 +1247,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateError(JSVM_Env env,JSVM_Value code,JSVM_Va
 
 ##### OH_JSVM_CreateTypeError()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateTypeError(JSVM_Env env,JSVM_Value code,JSVM_Value msg,JSVM_Value* result)
 ```
@@ -1207,6 +1279,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateTypeError(JSVM_Env env,JSVM_Value code,JSV
   
 
 ##### OH_JSVM_CreateRangeError()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateRangeError(JSVM_Env env,JSVM_Value code,JSVM_Value msg,JSVM_Value* result)
@@ -1239,6 +1313,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateRangeError(JSVM_Env env,JSVM_Value code,JS
 
 ##### OH_JSVM_CreateSyntaxError()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateSyntaxError(JSVM_Env env,JSVM_Value code,JSVM_Value msg,JSVM_Value* result)
 ```
@@ -1270,6 +1346,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateSyntaxError(JSVM_Env env,JSVM_Value code,J
 
 ##### OH_JSVM_GetAndClearLastException()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetAndClearLastException(JSVM_Env env,JSVM_Value* result)
 ```
@@ -1298,6 +1376,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetAndClearLastException(JSVM_Env env,JSVM_Value
   
 
 ##### OH_JSVM_IsExceptionPending()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsExceptionPending(JSVM_Env env,bool* result)
@@ -1328,6 +1408,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsExceptionPending(JSVM_Env env,bool* result)
 
 ##### OH_JSVM_OpenHandleScope()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_OpenHandleScope(JSVM_Env env,JSVM_HandleScope* result)
 ```
@@ -1356,6 +1438,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_OpenHandleScope(JSVM_Env env,JSVM_HandleScope* r
   
 
 ##### OH_JSVM_CloseHandleScope()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CloseHandleScope(JSVM_Env env,JSVM_HandleScope scope)
@@ -1386,6 +1470,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CloseHandleScope(JSVM_Env env,JSVM_HandleScope s
 
 ##### OH_JSVM_OpenEscapableHandleScope()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_OpenEscapableHandleScope(JSVM_Env env,JSVM_EscapableHandleScope* result)
 ```
@@ -1415,6 +1501,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_OpenEscapableHandleScope(JSVM_Env env,JSVM_Escap
 
 ##### OH_JSVM_CloseEscapableHandleScope()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CloseEscapableHandleScope(JSVM_Env env,JSVM_EscapableHandleScope scope)
 ```
@@ -1443,6 +1531,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CloseEscapableHandleScope(JSVM_Env env,JSVM_Esca
   
 
 ##### OH_JSVM_EscapeHandle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_EscapeHandle(JSVM_Env env,JSVM_EscapableHandleScope scope,JSVM_Value escapee,JSVM_Value* result)
@@ -1475,6 +1565,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_EscapeHandle(JSVM_Env env,JSVM_EscapableHandleSc
 
 ##### OH_JSVM_CreateReference()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateReference(JSVM_Env env,JSVM_Value value,uint32_t initialRefcount,JSVM_Ref* result)
 ```
@@ -1506,6 +1598,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateReference(JSVM_Env env,JSVM_Value value,ui
 
 ##### OH_JSVM_DeleteReference()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DeleteReference(JSVM_Env env,JSVM_Ref ref)
 ```
@@ -1534,6 +1628,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DeleteReference(JSVM_Env env,JSVM_Ref ref)
   
 
 ##### OH_JSVM_ReferenceRef()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ReferenceRef(JSVM_Env env,JSVM_Ref ref,uint32_t* result)
@@ -1565,6 +1661,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ReferenceRef(JSVM_Env env,JSVM_Ref ref,uint32_t*
 
 ##### OH_JSVM_ReferenceUnref()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ReferenceUnref(JSVM_Env env,JSVM_Ref ref,uint32_t* result)
 ```
@@ -1594,6 +1692,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ReferenceUnref(JSVM_Env env,JSVM_Ref ref,uint32_
   
 
 ##### OH_JSVM_GetReferenceValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetReferenceValue(JSVM_Env env,JSVM_Ref ref,JSVM_Value* result)
@@ -1625,6 +1725,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetReferenceValue(JSVM_Env env,JSVM_Ref ref,JSVM
 
 ##### OH_JSVM_CreateArray()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateArray(JSVM_Env env,JSVM_Value* result)
 ```
@@ -1653,6 +1755,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateArray(JSVM_Env env,JSVM_Value* result)
   
 
 ##### OH_JSVM_CreateArrayWithLength()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateArrayWithLength(JSVM_Env env,size_t length,JSVM_Value* result)
@@ -1683,6 +1787,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateArrayWithLength(JSVM_Env env,size_t length
   
 
 ##### OH_JSVM_CreateArraybuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateArraybuffer(JSVM_Env env,size_t byteLength,void** data,JSVM_Value* result)
@@ -1715,6 +1821,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateArraybuffer(JSVM_Env env,size_t byteLength
 
 ##### OH_JSVM_AllocateArrayBufferBackingStoreData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_Status OH_JSVM_AllocateArrayBufferBackingStoreData(size_t byteLength,JSVM_InitializedFlag initialized,void **data)
 ```
@@ -1745,6 +1853,8 @@ JSVM_Status OH_JSVM_AllocateArrayBufferBackingStoreData(size_t byteLength,JSVM_I
 
 ##### OH_JSVM_FreeArrayBufferBackingStoreData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_Status OH_JSVM_FreeArrayBufferBackingStoreData(void *data)
 ```
@@ -1772,6 +1882,8 @@ JSVM_Status OH_JSVM_FreeArrayBufferBackingStoreData(void *data)
   
 
 ##### OH_JSVM_CreateArrayBufferFromBackingStoreData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_Status OH_JSVM_CreateArrayBufferFromBackingStoreData(JSVM_Env env,void *data,size_t backingStoreSize,size_t offset,size_t arrayBufferSize,JSVM_Value *result)
@@ -1806,6 +1918,8 @@ JSVM_Status OH_JSVM_CreateArrayBufferFromBackingStoreData(JSVM_Env env,void *dat
 
 ##### OH_JSVM_CreateDate()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateDate(JSVM_Env env,double time,JSVM_Value* result)
 ```
@@ -1835,6 +1949,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateDate(JSVM_Env env,double time,JSVM_Value* 
   
 
 ##### OH_JSVM_CreateExternal()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateExternal(JSVM_Env env,void* data,JSVM_Finalize finalizeCb,void* finalizeHint,JSVM_Value* result)
@@ -1868,6 +1984,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateExternal(JSVM_Env env,void* data,JSVM_Fina
 
 ##### OH_JSVM_CreateObject()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateObject(JSVM_Env env,JSVM_Value* result)
 ```
@@ -1896,6 +2014,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateObject(JSVM_Env env,JSVM_Value* result)
   
 
 ##### OH_JSVM_CreateSymbol()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateSymbol(JSVM_Env env,JSVM_Value description,JSVM_Value* result)
@@ -1927,6 +2047,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateSymbol(JSVM_Env env,JSVM_Value description
 
 ##### OH_JSVM_SymbolFor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SymbolFor(JSVM_Env env,const char* utf8description,size_t length,JSVM_Value* result)
 ```
@@ -1957,6 +2079,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SymbolFor(JSVM_Env env,const char* utf8descripti
   
 
 ##### OH_JSVM_CreateTypedarray()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateTypedarray(JSVM_Env env,JSVM_TypedarrayType type,size_t length,JSVM_Value arraybuffer,size_t byteOffset,JSVM_Value* result)
@@ -1991,6 +2115,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateTypedarray(JSVM_Env env,JSVM_TypedarrayTyp
 
 ##### OH_JSVM_CreateDataview()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateDataview(JSVM_Env env,size_t length,JSVM_Value arraybuffer,size_t byteOffset,JSVM_Value* result)
 ```
@@ -2023,6 +2149,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateDataview(JSVM_Env env,size_t length,JSVM_V
 
 ##### OH_JSVM_CreateInt32()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateInt32(JSVM_Env env,int32_t value,JSVM_Value* result)
 ```
@@ -2052,6 +2180,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateInt32(JSVM_Env env,int32_t value,JSVM_Valu
   
 
 ##### OH_JSVM_CreateUint32()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateUint32(JSVM_Env env,uint32_t value,JSVM_Value* result)
@@ -2083,6 +2213,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateUint32(JSVM_Env env,uint32_t value,JSVM_Va
 
 ##### OH_JSVM_CreateInt64()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateInt64(JSVM_Env env,int64_t value,JSVM_Value* result)
 ```
@@ -2112,6 +2244,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateInt64(JSVM_Env env,int64_t value,JSVM_Valu
   
 
 ##### OH_JSVM_CreateDouble()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateDouble(JSVM_Env env,double value,JSVM_Value* result)
@@ -2143,6 +2277,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateDouble(JSVM_Env env,double value,JSVM_Valu
 
 ##### OH_JSVM_CreateBigintInt64()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateBigintInt64(JSVM_Env env,int64_t value,JSVM_Value* result)
 ```
@@ -2173,6 +2309,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateBigintInt64(JSVM_Env env,int64_t value,JSV
 
 ##### OH_JSVM_CreateBigintUint64()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateBigintUint64(JSVM_Env env,uint64_t value,JSVM_Value* result)
 ```
@@ -2202,6 +2340,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateBigintUint64(JSVM_Env env,uint64_t value,J
   
 
 ##### OH_JSVM_CreateBigintWords()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateBigintWords(JSVM_Env env,int signBit,size_t wordCount,const uint64_t* words,JSVM_Value* result)
@@ -2235,6 +2375,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateBigintWords(JSVM_Env env,int signBit,size_
 
 ##### OH_JSVM_CreateStringLatin1()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateStringLatin1(JSVM_Env env,const char* str,size_t length,JSVM_Value* result)
 ```
@@ -2265,6 +2407,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateStringLatin1(JSVM_Env env,const char* str,
   
 
 ##### OH_JSVM_CreateStringUtf16()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateStringUtf16(JSVM_Env env,const char16_t* str,size_t length,JSVM_Value* result)
@@ -2297,6 +2441,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateStringUtf16(JSVM_Env env,const char16_t* s
 
 ##### OH_JSVM_CreateStringUtf8()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateStringUtf8(JSVM_Env env,const char* str,size_t length,JSVM_Value* result)
 ```
@@ -2328,6 +2474,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateStringUtf8(JSVM_Env env,const char* str,si
 
 ##### OH_JSVM_GetArrayLength()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetArrayLength(JSVM_Env env,JSVM_Value value,uint32_t* result)
 ```
@@ -2357,6 +2505,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetArrayLength(JSVM_Env env,JSVM_Value value,uin
   
 
 ##### OH_JSVM_GetArraybufferInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetArraybufferInfo(JSVM_Env env,JSVM_Value arraybuffer,void** data,size_t* byteLength)
@@ -2389,6 +2539,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetArraybufferInfo(JSVM_Env env,JSVM_Value array
 
 ##### OH_JSVM_GetPrototype()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetPrototype(JSVM_Env env,JSVM_Value object,JSVM_Value* result)
 ```
@@ -2418,6 +2570,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetPrototype(JSVM_Env env,JSVM_Value object,JSVM
   
 
 ##### OH_JSVM_GetTypedarrayInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetTypedarrayInfo(JSVM_Env env,JSVM_Value typedarray,JSVM_TypedarrayType* type,size_t* length,void** data,JSVM_Value* arraybuffer,size_t* byteOffset)
@@ -2453,6 +2607,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetTypedarrayInfo(JSVM_Env env,JSVM_Value typeda
 
 ##### OH_JSVM_GetDataviewInfo()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetDataviewInfo(JSVM_Env env,JSVM_Value dataview,size_t* bytelength,void** data,JSVM_Value* arraybuffer,size_t* byteOffset)
 ```
@@ -2486,6 +2642,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetDataviewInfo(JSVM_Env env,JSVM_Value dataview
 
 ##### OH_JSVM_GetDateValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetDateValue(JSVM_Env env,JSVM_Value value,double* result)
 ```
@@ -2515,6 +2673,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetDateValue(JSVM_Env env,JSVM_Value value,doubl
   
 
 ##### OH_JSVM_GetValueBool()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBool(JSVM_Env env,JSVM_Value value,bool* result)
@@ -2546,6 +2706,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBool(JSVM_Env env,JSVM_Value value,bool*
 
 ##### OH_JSVM_GetValueDouble()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueDouble(JSVM_Env env,JSVM_Value value,double* result)
 ```
@@ -2575,6 +2737,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueDouble(JSVM_Env env,JSVM_Value value,dou
   
 
 ##### OH_JSVM_GetValueBigintInt64()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBigintInt64(JSVM_Env env,JSVM_Value value,int64_t* result,bool* lossless)
@@ -2607,6 +2771,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBigintInt64(JSVM_Env env,JSVM_Value valu
 
 ##### OH_JSVM_GetValueBigintUint64()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBigintUint64(JSVM_Env env,JSVM_Value value,uint64_t* result,bool* lossless)
 ```
@@ -2637,6 +2803,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBigintUint64(JSVM_Env env,JSVM_Value val
   
 
 ##### OH_JSVM_GetValueBigintWords()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBigintWords(JSVM_Env env,JSVM_Value value,int* signBit,size_t* wordCount,uint64_t* words)
@@ -2670,6 +2838,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueBigintWords(JSVM_Env env,JSVM_Value valu
 
 ##### OH_JSVM_GetValueExternal()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueExternal(JSVM_Env env,JSVM_Value value,void** result)
 ```
@@ -2699,6 +2869,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueExternal(JSVM_Env env,JSVM_Value value,v
   
 
 ##### OH_JSVM_GetValueInt32()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueInt32(JSVM_Env env,JSVM_Value value,int32_t* result)
@@ -2730,6 +2902,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueInt32(JSVM_Env env,JSVM_Value value,int3
 
 ##### OH_JSVM_GetValueInt64()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueInt64(JSVM_Env env,JSVM_Value value,int64_t* result)
 ```
@@ -2759,6 +2933,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueInt64(JSVM_Env env,JSVM_Value value,int6
   
 
 ##### OH_JSVM_GetValueStringLatin1()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueStringLatin1(JSVM_Env env,JSVM_Value value,char* buf,size_t bufsize,size_t* result)
@@ -2792,6 +2968,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueStringLatin1(JSVM_Env env,JSVM_Value val
 
 ##### OH_JSVM_GetValueStringUtf8()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueStringUtf8(JSVM_Env env,JSVM_Value value,char* buf,size_t bufsize,size_t* result)
 ```
@@ -2823,6 +3001,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueStringUtf8(JSVM_Env env,JSVM_Value value
   
 
 ##### OH_JSVM_GetValueStringUtf16()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueStringUtf16(JSVM_Env env,JSVM_Value value,char16_t* buf,size_t bufsize,size_t* result)
@@ -2856,6 +3036,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueStringUtf16(JSVM_Env env,JSVM_Value valu
 
 ##### OH_JSVM_GetValueUint32()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetValueUint32(JSVM_Env env,JSVM_Value value,uint32_t* result)
 ```
@@ -2885,6 +3067,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetValueUint32(JSVM_Env env,JSVM_Value value,uin
   
 
 ##### OH_JSVM_GetBoolean()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetBoolean(JSVM_Env env,bool value,JSVM_Value* result)
@@ -2916,6 +3100,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetBoolean(JSVM_Env env,bool value,JSVM_Value* r
 
 ##### OH_JSVM_GetGlobal()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetGlobal(JSVM_Env env,JSVM_Value* result)
 ```
@@ -2944,6 +3130,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetGlobal(JSVM_Env env,JSVM_Value* result)
   
 
 ##### OH_JSVM_GetNull()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetNull(JSVM_Env env,JSVM_Value* result)
@@ -2974,6 +3162,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetNull(JSVM_Env env,JSVM_Value* result)
 
 ##### OH_JSVM_GetUndefined()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetUndefined(JSVM_Env env,JSVM_Value* result)
 ```
@@ -3002,6 +3192,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetUndefined(JSVM_Env env,JSVM_Value* result)
   
 
 ##### OH_JSVM_CoerceToBool()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToBool(JSVM_Env env,JSVM_Value value,JSVM_Value* result)
@@ -3033,6 +3225,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToBool(JSVM_Env env,JSVM_Value value,JSVM_
 
 ##### OH_JSVM_CoerceToNumber()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToNumber(JSVM_Env env,JSVM_Value value,JSVM_Value* result)
 ```
@@ -3062,6 +3256,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToNumber(JSVM_Env env,JSVM_Value value,JSV
   
 
 ##### OH_JSVM_CoerceToObject()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToObject(JSVM_Env env,JSVM_Value value,JSVM_Value* result)
@@ -3093,6 +3289,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToObject(JSVM_Env env,JSVM_Value value,JSV
 
 ##### OH_JSVM_CoerceToString()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToString(JSVM_Env env,JSVM_Value value,JSVM_Value* result)
 ```
@@ -3123,6 +3321,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToString(JSVM_Env env,JSVM_Value value,JSV
 
 ##### OH_JSVM_Typeof()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_Typeof(JSVM_Env env,JSVM_Value value,JSVM_ValueType* result)
 ```
@@ -3152,6 +3352,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_Typeof(JSVM_Env env,JSVM_Value value,JSVM_ValueT
   
 
 ##### OH_JSVM_Instanceof()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_Instanceof(JSVM_Env env,JSVM_Value object,JSVM_Value constructor,bool* result)
@@ -3184,6 +3386,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_Instanceof(JSVM_Env env,JSVM_Value object,JSVM_V
 
 ##### OH_JSVM_IsArray()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsArray(JSVM_Env env,JSVM_Value value,bool* result)
 ```
@@ -3213,6 +3417,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsArray(JSVM_Env env,JSVM_Value value,bool* resu
   
 
 ##### OH_JSVM_IsArraybuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsArraybuffer(JSVM_Env env,JSVM_Value value,bool* result)
@@ -3244,6 +3450,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsArraybuffer(JSVM_Env env,JSVM_Value value,bool
 
 ##### OH_JSVM_IsDate()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsDate(JSVM_Env env,JSVM_Value value,bool* isDate)
 ```
@@ -3273,6 +3481,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsDate(JSVM_Env env,JSVM_Value value,bool* isDat
   
 
 ##### OH_JSVM_IsTypedarray()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsTypedarray(JSVM_Env env,JSVM_Value value,bool* result)
@@ -3304,6 +3514,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsTypedarray(JSVM_Env env,JSVM_Value value,bool*
 
 ##### OH_JSVM_IsDataview()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsDataview(JSVM_Env env,JSVM_Value value,bool* result)
 ```
@@ -3333,6 +3545,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsDataview(JSVM_Env env,JSVM_Value value,bool* r
   
 
 ##### OH_JSVM_StrictEquals()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_StrictEquals(JSVM_Env env,JSVM_Value lhs,JSVM_Value rhs,bool* result)
@@ -3365,6 +3579,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_StrictEquals(JSVM_Env env,JSVM_Value lhs,JSVM_Va
 
 ##### OH_JSVM_Equals()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_Equals(JSVM_Env env,JSVM_Value lhs,JSVM_Value rhs,bool* result)
 ```
@@ -3396,6 +3612,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_Equals(JSVM_Env env,JSVM_Value lhs,JSVM_Value rh
 
 ##### OH_JSVM_DetachArraybuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DetachArraybuffer(JSVM_Env env,JSVM_Value arraybuffer)
 ```
@@ -3424,6 +3642,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DetachArraybuffer(JSVM_Env env,JSVM_Value arrayb
   
 
 ##### OH_JSVM_IsDetachedArraybuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsDetachedArraybuffer(JSVM_Env env,JSVM_Value value,bool* result)
@@ -3455,6 +3675,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsDetachedArraybuffer(JSVM_Env env,JSVM_Value va
 
 ##### OH_JSVM_GetPropertyNames()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetPropertyNames(JSVM_Env env,JSVM_Value object,JSVM_Value* result)
 ```
@@ -3484,6 +3706,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetPropertyNames(JSVM_Env env,JSVM_Value object,
   
 
 ##### OH_JSVM_GetAllPropertyNames()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetAllPropertyNames(JSVM_Env env,JSVM_Value object,JSVM_KeyCollectionMode keyMode,JSVM_KeyFilter keyFilter,JSVM_KeyConversion keyConversion,JSVM_Value* result)
@@ -3518,6 +3742,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetAllPropertyNames(JSVM_Env env,JSVM_Value obje
 
 ##### OH_JSVM_SetProperty()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetProperty(JSVM_Env env,JSVM_Value object,JSVM_Value key,JSVM_Value value)
 ```
@@ -3548,6 +3774,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetProperty(JSVM_Env env,JSVM_Value object,JSVM_
   
 
 ##### OH_JSVM_GetProperty()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetProperty(JSVM_Env env,JSVM_Value object,JSVM_Value key,JSVM_Value* result)
@@ -3580,6 +3808,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetProperty(JSVM_Env env,JSVM_Value object,JSVM_
 
 ##### OH_JSVM_HasProperty()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_HasProperty(JSVM_Env env,JSVM_Value object,JSVM_Value key,bool* result)
 ```
@@ -3610,6 +3840,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_HasProperty(JSVM_Env env,JSVM_Value object,JSVM_
   
 
 ##### OH_JSVM_DeleteProperty()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DeleteProperty(JSVM_Env env,JSVM_Value object,JSVM_Value key,bool* result)
@@ -3642,6 +3874,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DeleteProperty(JSVM_Env env,JSVM_Value object,JS
 
 ##### OH_JSVM_HasOwnProperty()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_HasOwnProperty(JSVM_Env env,JSVM_Value object,JSVM_Value key,bool* result)
 ```
@@ -3672,6 +3906,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_HasOwnProperty(JSVM_Env env,JSVM_Value object,JS
   
 
 ##### OH_JSVM_SetNamedProperty()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetNamedProperty(JSVM_Env env,JSVM_Value object,const char* utf8name,JSVM_Value value)
@@ -3704,6 +3940,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetNamedProperty(JSVM_Env env,JSVM_Value object,
 
 ##### OH_JSVM_GetNamedProperty()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetNamedProperty(JSVM_Env env,JSVM_Value object,const char* utf8name,JSVM_Value* result)
 ```
@@ -3734,6 +3972,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetNamedProperty(JSVM_Env env,JSVM_Value object,
   
 
 ##### OH_JSVM_HasNamedProperty()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_HasNamedProperty(JSVM_Env env,JSVM_Value object,const char* utf8name,bool* result)
@@ -3766,6 +4006,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_HasNamedProperty(JSVM_Env env,JSVM_Value object,
 
 ##### OH_JSVM_SetElement()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetElement(JSVM_Env env,JSVM_Value object,uint32_t index,JSVM_Value value)
 ```
@@ -3796,6 +4038,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetElement(JSVM_Env env,JSVM_Value object,uint32
   
 
 ##### OH_JSVM_GetElement()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetElement(JSVM_Env env,JSVM_Value object,uint32_t index,JSVM_Value* result)
@@ -3828,6 +4072,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetElement(JSVM_Env env,JSVM_Value object,uint32
 
 ##### OH_JSVM_HasElement()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_HasElement(JSVM_Env env,JSVM_Value object,uint32_t index,bool* result)
 ```
@@ -3858,6 +4104,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_HasElement(JSVM_Env env,JSVM_Value object,uint32
   
 
 ##### OH_JSVM_DeleteElement()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DeleteElement(JSVM_Env env,JSVM_Value object,uint32_t index,bool* result)
@@ -3890,6 +4138,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DeleteElement(JSVM_Env env,JSVM_Value object,uin
 
 ##### OH_JSVM_DefineProperties()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DefineProperties(JSVM_Env env,JSVM_Value object,size_t propertyCount,const JSVM_PropertyDescriptor* properties)
 ```
@@ -3921,6 +4171,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DefineProperties(JSVM_Env env,JSVM_Value object,
 
 ##### OH_JSVM_ObjectFreeze()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ObjectFreeze(JSVM_Env env,JSVM_Value object)
 ```
@@ -3950,6 +4202,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ObjectFreeze(JSVM_Env env,JSVM_Value object)
 
 ##### OH_JSVM_ObjectSeal()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ObjectSeal(JSVM_Env env,JSVM_Value object)
 ```
@@ -3978,6 +4232,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ObjectSeal(JSVM_Env env,JSVM_Value object)
   
 
 ##### OH_JSVM_CallFunction()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CallFunction(JSVM_Env env,JSVM_Value recv,JSVM_Value func,size_t argc,const JSVM_Value* argv,JSVM_Value* result)
@@ -4012,6 +4268,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CallFunction(JSVM_Env env,JSVM_Value recv,JSVM_V
 
 ##### OH_JSVM_CreateFunction()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateFunction(JSVM_Env env,const char* utf8name,size_t length,JSVM_Callback cb,JSVM_Value* result)
 ```
@@ -4043,6 +4301,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateFunction(JSVM_Env env,const char* utf8name
   
 
 ##### OH_JSVM_GetCbInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetCbInfo(JSVM_Env env,JSVM_CallbackInfo cbinfo,size_t* argc,JSVM_Value* argv,JSVM_Value* thisArg,void** data)
@@ -4077,6 +4337,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetCbInfo(JSVM_Env env,JSVM_CallbackInfo cbinfo,
 
 ##### OH_JSVM_GetNewTarget()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetNewTarget(JSVM_Env env,JSVM_CallbackInfo cbinfo,JSVM_Value* result)
 ```
@@ -4106,6 +4368,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetNewTarget(JSVM_Env env,JSVM_CallbackInfo cbin
   
 
 ##### OH_JSVM_NewInstance()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_NewInstance(JSVM_Env env,JSVM_Value constructor,size_t argc,const JSVM_Value* argv,JSVM_Value* result)
@@ -4138,6 +4402,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_NewInstance(JSVM_Env env,JSVM_Value constructor,
   
 
 ##### OH_JSVM_DefineClass()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DefineClass(JSVM_Env env,const char* utf8name,size_t length,JSVM_Callback constructor,size_t propertyCount,const JSVM_PropertyDescriptor* properties,JSVM_Value* result)
@@ -4173,6 +4439,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DefineClass(JSVM_Env env,const char* utf8name,si
 
 ##### OH_JSVM_Wrap()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_Wrap(JSVM_Env env,JSVM_Value jsObject,void* nativeObject,JSVM_Finalize finalizeCb,void* finalizeHint,JSVM_Ref* result)
 ```
@@ -4206,6 +4474,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_Wrap(JSVM_Env env,JSVM_Value jsObject,void* nati
 
 ##### OH_JSVM_Unwrap()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_Unwrap(JSVM_Env env,JSVM_Value jsObject,void** result)
 ```
@@ -4235,6 +4505,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_Unwrap(JSVM_Env env,JSVM_Value jsObject,void** r
   
 
 ##### OH_JSVM_RemoveWrap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_RemoveWrap(JSVM_Env env,JSVM_Value jsObject,void** result)
@@ -4266,6 +4538,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_RemoveWrap(JSVM_Env env,JSVM_Value jsObject,void
 
 ##### OH_JSVM_TypeTagObject()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_TypeTagObject(JSVM_Env env,JSVM_Value value,const JSVM_TypeTag* typeTag)
 ```
@@ -4295,6 +4569,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_TypeTagObject(JSVM_Env env,JSVM_Value value,cons
   
 
 ##### OH_JSVM_CheckObjectTypeTag()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CheckObjectTypeTag(JSVM_Env env,JSVM_Value value,const JSVM_TypeTag* typeTag,bool* result)
@@ -4326,6 +4602,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CheckObjectTypeTag(JSVM_Env env,JSVM_Value value
   
 
 ##### OH_JSVM_AddFinalizer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_AddFinalizer(JSVM_Env env,JSVM_Value jsObject,void* finalizeData,JSVM_Finalize finalizeCb,void* finalizeHint,JSVM_Ref* result)
@@ -4360,6 +4638,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_AddFinalizer(JSVM_Env env,JSVM_Value jsObject,vo
 
 ##### OH_JSVM_GetVersion()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetVersion(JSVM_Env env,uint32_t* result)
 ```
@@ -4389,6 +4669,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetVersion(JSVM_Env env,uint32_t* result)
 
 ##### OH_JSVM_GetVMInfo()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetVMInfo(JSVM_VMInfo* result)
 ```
@@ -4416,6 +4698,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetVMInfo(JSVM_VMInfo* result)
   
 
 ##### OH_JSVM_AdjustExternalMemory()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_AdjustExternalMemory(JSVM_Env env,int64_t changeInBytes,int64_t* result)
@@ -4447,6 +4731,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_AdjustExternalMemory(JSVM_Env env,int64_t change
 
 ##### OH_JSVM_MemoryPressureNotification()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_MemoryPressureNotification(JSVM_Env env,JSVM_MemoryPressureLevel level)
 ```
@@ -4475,6 +4761,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_MemoryPressureNotification(JSVM_Env env,JSVM_Mem
   
 
 ##### OH_JSVM_CreatePromise()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreatePromise(JSVM_Env env,JSVM_Deferred* deferred,JSVM_Value* promise)
@@ -4506,6 +4794,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreatePromise(JSVM_Env env,JSVM_Deferred* deferr
 
 ##### OH_JSVM_ResolveDeferred()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ResolveDeferred(JSVM_Env env,JSVM_Deferred deferred,JSVM_Value resolution)
 ```
@@ -4535,6 +4825,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ResolveDeferred(JSVM_Env env,JSVM_Deferred defer
   
 
 ##### OH_JSVM_RejectDeferred()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_RejectDeferred(JSVM_Env env,JSVM_Deferred deferred,JSVM_Value rejection)
@@ -4566,6 +4858,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_RejectDeferred(JSVM_Env env,JSVM_Deferred deferr
 
 ##### OH_JSVM_IsPromise()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsPromise(JSVM_Env env,JSVM_Value value,bool* isPromise)
 ```
@@ -4595,6 +4889,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsPromise(JSVM_Env env,JSVM_Value value,bool* is
   
 
 ##### OH_JSVM_PromiseRegisterHandler()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_PromiseRegisterHandler(JSVM_Env env,JSVM_Value promise,JSVM_Value onFulfilled,JSVM_Value onRejected,JSVM_Value* result)
@@ -4628,6 +4924,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_PromiseRegisterHandler(JSVM_Env env,JSVM_Value p
 
 ##### OH_JSVM_JsonParse()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```json
 JSVM_EXTERN JSVM_Status OH_JSVM_JsonParse(JSVM_Env env,JSVM_Value jsonString,JSVM_Value* result)
 ```
@@ -4658,6 +4956,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_JsonParse(JSVM_Env env,JSVM_Value jsonString,JSV
 
 ##### OH_JSVM_JsonStringify()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```json
 JSVM_EXTERN JSVM_Status OH_JSVM_JsonStringify(JSVM_Env env,JSVM_Value jsonObject,JSVM_Value* result)
 ```
@@ -4687,6 +4987,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_JsonStringify(JSVM_Env env,JSVM_Value jsonObject
   
 
 ##### OH_JSVM_CreateSnapshot()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateSnapshot(JSVM_VM vm,size_t contextCount,const JSVM_Env* contexts,const char** blobData,size_t* blobSize)
@@ -4720,6 +5022,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateSnapshot(JSVM_VM vm,size_t contextCount,co
 
 ##### OH_JSVM_GetHeapStatistics()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetHeapStatistics(JSVM_VM vm,JSVM_HeapStatistics* result)
 ```
@@ -4749,6 +5053,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetHeapStatistics(JSVM_VM vm,JSVM_HeapStatistics
 
 ##### OH_JSVM_StartCpuProfiler()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_StartCpuProfiler(JSVM_VM vm,JSVM_CpuProfiler* result)
 ```
@@ -4777,6 +5083,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_StartCpuProfiler(JSVM_VM vm,JSVM_CpuProfiler* re
   
 
 ##### OH_JSVM_StopCpuProfiler()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_StopCpuProfiler(JSVM_VM vm,JSVM_CpuProfiler profiler,JSVM_OutputStream stream,void* streamData)
@@ -4809,6 +5117,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_StopCpuProfiler(JSVM_VM vm,JSVM_CpuProfiler prof
 
 ##### OH_JSVM_TakeHeapSnapshot()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_TakeHeapSnapshot(JSVM_VM vm,JSVM_OutputStream stream,void* streamData)
 ```
@@ -4838,6 +5148,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_TakeHeapSnapshot(JSVM_VM vm,JSVM_OutputStream st
   
 
 ##### OH_JSVM_OpenInspector()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_OpenInspector(JSVM_Env env,const char* host,uint16_t port)
@@ -4869,6 +5181,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_OpenInspector(JSVM_Env env,const char* host,uint
 
 ##### OH_JSVM_CloseInspector()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CloseInspector(JSVM_Env env)
 ```
@@ -4896,6 +5210,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CloseInspector(JSVM_Env env)
   
 
 ##### OH_JSVM_WaitForDebugger()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_WaitForDebugger(JSVM_Env env,bool breakNextLine)
@@ -4925,6 +5241,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_WaitForDebugger(JSVM_Env env,bool breakNextLine)
   
 
 ##### OH_JSVM_DefineClassWithPropertyHandler()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DefineClassWithPropertyHandler(JSVM_Env env,const char* utf8name,size_t length,JSVM_Callback constructor,size_t propertyCount,const JSVM_PropertyDescriptor* properties,JSVM_PropertyHandlerCfg propertyHandlerCfg,JSVM_Callback callAsFunctionCallback,JSVM_Value* result)
@@ -4962,6 +5280,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DefineClassWithPropertyHandler(JSVM_Env env,cons
 
 ##### OH_JSVM_IsLocked()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsLocked(JSVM_Env env, bool* isLocked)
 ```
@@ -4991,6 +5311,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsLocked(JSVM_Env env, bool* isLocked)
 
 ##### OH_JSVM_AcquireLock()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_AcquireLock(JSVM_Env env)
 ```
@@ -5019,6 +5341,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_AcquireLock(JSVM_Env env)
 
 ##### OH_JSVM_ReleaseLock()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ReleaseLock(JSVM_Env env)
 ```
@@ -5046,6 +5370,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ReleaseLock(JSVM_Env env)
   
 
 ##### OH_JSVM_IsUndefined()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsUndefined(JSVM_Env env,JSVM_Value value,bool* isUndefined)
@@ -5077,6 +5403,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsUndefined(JSVM_Env env,JSVM_Value value,bool* 
 
 ##### OH_JSVM_IsNull()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsNull(JSVM_Env env,JSVM_Value value,bool* isNull)
 ```
@@ -5106,6 +5434,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsNull(JSVM_Env env,JSVM_Value value,bool* isNul
   
 
 ##### OH_JSVM_IsNullOrUndefined()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsNullOrUndefined(JSVM_Env env,JSVM_Value value,bool* isNullOrUndefined)
@@ -5137,6 +5467,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsNullOrUndefined(JSVM_Env env,JSVM_Value value,
 
 ##### OH_JSVM_IsBoolean()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsBoolean(JSVM_Env env,JSVM_Value value,bool* isBoolean)
 ```
@@ -5166,6 +5498,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsBoolean(JSVM_Env env,JSVM_Value value,bool* is
   
 
 ##### OH_JSVM_IsNumber()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsNumber(JSVM_Env env,JSVM_Value value,bool* isNumber)
@@ -5197,6 +5531,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsNumber(JSVM_Env env,JSVM_Value value,bool* isN
 
 ##### OH_JSVM_IsString()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsString(JSVM_Env env,JSVM_Value value,bool* isString)
 ```
@@ -5226,6 +5562,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsString(JSVM_Env env,JSVM_Value value,bool* isS
   
 
 ##### OH_JSVM_IsSymbol()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsSymbol(JSVM_Env env,JSVM_Value value,bool* isSymbol)
@@ -5257,6 +5595,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsSymbol(JSVM_Env env,JSVM_Value value,bool* isS
 
 ##### OH_JSVM_IsFunction()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsFunction(JSVM_Env env,JSVM_Value value,bool* isFunction)
 ```
@@ -5286,6 +5626,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsFunction(JSVM_Env env,JSVM_Value value,bool* i
   
 
 ##### OH_JSVM_IsObject()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsObject(JSVM_Env env,JSVM_Value value,bool* isObject)
@@ -5317,6 +5659,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsObject(JSVM_Env env,JSVM_Value value,bool* isO
 
 ##### OH_JSVM_IsBigInt()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsBigInt(JSVM_Env env,JSVM_Value value,bool* isBigInt)
 ```
@@ -5347,6 +5691,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsBigInt(JSVM_Env env,JSVM_Value value,bool* isB
 
 ##### OH_JSVM_CreateMap()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_Status OH_JSVM_CreateMap(JSVM_Env env, JSVM_Value* result)
 ```
@@ -5375,6 +5721,8 @@ JSVM_Status OH_JSVM_CreateMap(JSVM_Env env, JSVM_Value* result)
   
 
 ##### OH_JSVM_IsMap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_Status OH_JSVM_IsMap(JSVM_Env env,JSVM_Value value,bool* isMap)
@@ -5406,6 +5754,8 @@ JSVM_Status OH_JSVM_IsMap(JSVM_Env env,JSVM_Value value,bool* isMap)
 
 ##### OH_JSVM_IsConstructor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_Status OH_JSVM_IsConstructor(JSVM_Env env,JSVM_Value value,bool* isConstructor)
 ```
@@ -5435,6 +5785,8 @@ JSVM_Status OH_JSVM_IsConstructor(JSVM_Env env,JSVM_Value value,bool* isConstruc
   
 
 ##### OH_JSVM_CreateRegExp()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_Status OH_JSVM_CreateRegExp(JSVM_Env env,JSVM_Value value,JSVM_RegExpFlags flags,JSVM_Value* result)
@@ -5467,6 +5819,8 @@ JSVM_Status OH_JSVM_CreateRegExp(JSVM_Env env,JSVM_Value value,JSVM_RegExpFlags 
 
 ##### OH_JSVM_ObjectGetPrototypeOf()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ObjectGetPrototypeOf(JSVM_Env env,JSVM_Value object,JSVM_Value* result)
 ```
@@ -5496,6 +5850,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ObjectGetPrototypeOf(JSVM_Env env,JSVM_Value obj
   
 
 ##### OH_JSVM_ObjectSetPrototypeOf()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ObjectSetPrototypeOf(JSVM_Env env,JSVM_Value object,JSVM_Value prototype)
@@ -5527,6 +5883,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ObjectSetPrototypeOf(JSVM_Env env,JSVM_Value obj
 
 ##### OH_JSVM_CreateSet()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateSet(JSVM_Env env,JSVM_Value* result)
 ```
@@ -5555,6 +5913,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateSet(JSVM_Env env,JSVM_Value* result)
   
 
 ##### OH_JSVM_IsSet()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsSet(JSVM_Env env,JSVM_Value value,bool* isSet)
@@ -5586,6 +5946,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsSet(JSVM_Env env,JSVM_Value value,bool* isSet)
 
 ##### OH_JSVM_CoerceToBigInt()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToBigInt(JSVM_Env env,JSVM_Value value,JSVM_Value* result)
 ```
@@ -5616,6 +5978,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CoerceToBigInt(JSVM_Env env,JSVM_Value value,JSV
 
 ##### OH_JSVM_IsRegExp()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsRegExp(JSVM_Env env,JSVM_Value value,bool* result)
 ```
@@ -5645,6 +6009,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsRegExp(JSVM_Env env,JSVM_Value value,bool* res
   
 
 ##### OH_JSVM_CreateFunctionWithScript()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateFunctionWithScript(JSVM_Env env,const char* funcName,size_t length,size_t argc,const JSVM_Value* argv,JSVM_Value script,JSVM_Value* result)
@@ -5680,6 +6046,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateFunctionWithScript(JSVM_Env env,const char
 
 ##### OH_JSVM_PumpMessageLoop()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_PumpMessageLoop(JSVM_VM vm,bool* result)
 ```
@@ -5709,6 +6077,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_PumpMessageLoop(JSVM_VM vm,bool* result)
 
 ##### OH_JSVM_PerformMicrotaskCheckpoint()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_PerformMicrotaskCheckpoint(JSVM_VM vm)
 ```
@@ -5736,6 +6106,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_PerformMicrotaskCheckpoint(JSVM_VM vm)
   
 
 ##### OH_JSVM_IsCallable()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsCallable(JSVM_Env env, JSVM_Value value, bool* isCallable)
@@ -5767,6 +6139,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsCallable(JSVM_Env env, JSVM_Value value, bool*
 
 ##### OH_JSVM_RetainScript()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_RetainScript(JSVM_Env env, JSVM_Script script)
 ```
@@ -5795,6 +6169,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_RetainScript(JSVM_Env env, JSVM_Script script)
   
 
 ##### OH_JSVM_ReleaseScript()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ReleaseScript(JSVM_Env env, JSVM_Script script)
@@ -5825,6 +6201,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ReleaseScript(JSVM_Env env, JSVM_Script script)
 
 ##### OH_JSVM_OpenInspectorWithName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_OpenInspectorWithName(JSVM_Env env,int pid,const char* name)
 ```
@@ -5854,6 +6232,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_OpenInspectorWithName(JSVM_Env env,int pid,const
   
 
 ##### OH_JSVM_CompileWasmModule()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CompileWasmModule(JSVM_Env env,const uint8_t *wasmBytecode,size_t wasmBytecodeLength,const uint8_t *cacheData,size_t cacheDataLength,bool *cacheRejected,JSVM_Value *wasmModule)
@@ -5889,6 +6269,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CompileWasmModule(JSVM_Env env,const uint8_t *wa
 
 ##### OH_JSVM_CompileWasmFunction()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CompileWasmFunction(JSVM_Env env,JSVM_Value wasmModule,uint32_t functionIndex,JSVM_WasmOptLevel optLevel)
 ```
@@ -5920,6 +6302,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CompileWasmFunction(JSVM_Env env,JSVM_Value wasm
 
 ##### OH_JSVM_IsWasmModuleObject()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsWasmModuleObject(JSVM_Env env,JSVM_Value value,bool* result)
 ```
@@ -5949,6 +6333,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsWasmModuleObject(JSVM_Env env,JSVM_Value value
   
 
 ##### OH_JSVM_CreateWasmCache()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateWasmCache(JSVM_Env env,JSVM_Value wasmModule,const uint8_t** data,size_t* length)
@@ -5981,6 +6367,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateWasmCache(JSVM_Env env,JSVM_Value wasmModu
 
 ##### OH_JSVM_ReleaseCache()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ReleaseCache(JSVM_Env env,const uint8_t* cacheData,JSVM_CacheType cacheType)
 ```
@@ -6010,6 +6398,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_ReleaseCache(JSVM_Env env,const uint8_t* cacheDa
   
 
 ##### OH_JSVM_IsBigIntObject()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsBigIntObject(JSVM_Env env,JSVM_Value value,bool* result)
@@ -6041,6 +6431,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsBigIntObject(JSVM_Env env,JSVM_Value value,boo
 
 ##### OH_JSVM_IsBooleanObject()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsBooleanObject(JSVM_Env env,JSVM_Value value,bool* result)
 ```
@@ -6070,6 +6462,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsBooleanObject(JSVM_Env env,JSVM_Value value,bo
   
 
 ##### OH_JSVM_IsStringObject()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsStringObject(JSVM_Env env,JSVM_Value value,bool* result)
@@ -6101,6 +6495,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsStringObject(JSVM_Env env,JSVM_Value value,boo
 
 ##### OH_JSVM_IsNumberObject()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsNumberObject(JSVM_Env env,JSVM_Value value,bool* result)
 ```
@@ -6130,6 +6526,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsNumberObject(JSVM_Env env,JSVM_Value value,boo
   
 
 ##### OH_JSVM_IsSymbolObject()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_IsSymbolObject(JSVM_Env env,JSVM_Value value,bool* result)
@@ -6161,6 +6559,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_IsSymbolObject(JSVM_Env env,JSVM_Value value,boo
 
 ##### OH_JSVM_GetSymbolAsyncIterator()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolAsyncIterator(JSVM_Env env, JSVM_Value* result)
 ```
@@ -6189,6 +6589,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolAsyncIterator(JSVM_Env env, JSVM_Value*
   
 
 ##### OH_JSVM_GetSymbolHasInstance()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolHasInstance(JSVM_Env env, JSVM_Value* result)
@@ -6219,6 +6621,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolHasInstance(JSVM_Env env, JSVM_Value* r
 
 ##### OH_JSVM_GetSymbolIsConcatSpreadable()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolIsConcatSpreadable(JSVM_Env env, JSVM_Value* result)
 ```
@@ -6247,6 +6651,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolIsConcatSpreadable(JSVM_Env env, JSVM_V
   
 
 ##### OH_JSVM_GetSymbolMatch()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolMatch(JSVM_Env env, JSVM_Value* result)
@@ -6277,6 +6683,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolMatch(JSVM_Env env, JSVM_Value* result)
 
 ##### OH_JSVM_GetSymbolReplace()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolReplace(JSVM_Env env, JSVM_Value* result)
 ```
@@ -6305,6 +6713,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolReplace(JSVM_Env env, JSVM_Value* resul
   
 
 ##### OH_JSVM_GetSymbolSearch()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolSearch(JSVM_Env env, JSVM_Value* result)
@@ -6335,6 +6745,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolSearch(JSVM_Env env, JSVM_Value* result
 
 ##### OH_JSVM_GetSymbolSplit()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolSplit(JSVM_Env env, JSVM_Value* result)
 ```
@@ -6363,6 +6775,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolSplit(JSVM_Env env, JSVM_Value* result)
   
 
 ##### OH_JSVM_GetSymbolToPrimitive()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolToPrimitive(JSVM_Env env, JSVM_Value* result)
@@ -6393,6 +6807,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolToPrimitive(JSVM_Env env, JSVM_Value* r
 
 ##### OH_JSVM_GetSymbolUnscopables()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolUnscopables(JSVM_Env env, JSVM_Value* result)
 ```
@@ -6421,6 +6837,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolUnscopables(JSVM_Env env, JSVM_Value* r
   
 
 ##### OH_JSVM_GetSymbolToStringTag()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolToStringTag(JSVM_Env env, JSVM_Value* result)
@@ -6451,6 +6869,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolToStringTag(JSVM_Env env, JSVM_Value* r
 
 ##### OH_JSVM_GetSymbolIterator()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolIterator(JSVM_Env env, JSVM_Value* result)
 ```
@@ -6479,6 +6899,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetSymbolIterator(JSVM_Env env, JSVM_Value* resu
   
 
 ##### OH_JSVM_TraceStart()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_TraceStart(size_t count,const JSVM_TraceCategory* categories,const char* tag,size_t eventsCount)
@@ -6511,6 +6933,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_TraceStart(size_t count,const JSVM_TraceCategory
 
 ##### OH_JSVM_TraceStop()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_TraceStop(JSVM_OutputStream stream, void* streamData)
 ```
@@ -6539,6 +6963,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_TraceStop(JSVM_OutputStream stream, void* stream
   
 
 ##### OH_JSVM_AddHandlerForGC()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_AddHandlerForGC(JSVM_VM vm,JSVM_CBTriggerTimeForGC triggerTime,JSVM_HandlerForGC handler,JSVM_GCType gcType,void* userData)
@@ -6572,6 +6998,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_AddHandlerForGC(JSVM_VM vm,JSVM_CBTriggerTimeFor
 
 ##### OH_JSVM_RemoveHandlerForGC()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_RemoveHandlerForGC(JSVM_VM vm,JSVM_CBTriggerTimeForGC triggerTime,JSVM_HandlerForGC handler,void* userData)
 ```
@@ -6603,6 +7031,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_RemoveHandlerForGC(JSVM_VM vm,JSVM_CBTriggerTime
 
 ##### OH_JSVM_SetHandlerForOOMError()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetHandlerForOOMError(JSVM_VM vm,JSVM_HandlerForOOMError handler)
 ```
@@ -6631,6 +7061,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetHandlerForOOMError(JSVM_VM vm,JSVM_HandlerFor
   
 
 ##### OH_JSVM_SetDebugOption()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetDebugOption(JSVM_Env env, JSVM_DebugOption debugOption, bool isEnabled)
@@ -6662,6 +7094,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetDebugOption(JSVM_Env env, JSVM_DebugOption de
 
 ##### OH_JSVM_SetHandlerForFatalError()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetHandlerForFatalError(JSVM_VM vm,JSVM_HandlerForFatalError handler)
 ```
@@ -6691,6 +7125,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetHandlerForFatalError(JSVM_VM vm,JSVM_HandlerF
 
 ##### OH_JSVM_SetHandlerForPromiseReject()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetHandlerForPromiseReject(JSVM_VM vm,JSVM_HandlerForPromiseReject handler)
 ```
@@ -6719,6 +7155,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetHandlerForPromiseReject(JSVM_VM vm,JSVM_Handl
   
 
 ##### OH_JSVM_DefineClassWithOptions()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DefineClassWithOptions(JSVM_Env env,const char* utf8name,size_t length,JSVM_Callback constructor,size_t propertyCount,const JSVM_PropertyDescriptor* properties,JSVM_Value parentClass,size_t option_count,JSVM_DefineClassOptions options[],JSVM_Value* result)
@@ -6757,6 +7195,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DefineClassWithOptions(JSVM_Env env,const char* 
 
 ##### OH_JSVM_CreateExternalStringLatin1()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateExternalStringLatin1(JSVM_Env env, char* str, size_t length, JSVM_Finalize finalizeCallback, void* finalizeHint, JSVM_Value* result, bool* copied)
 ```
@@ -6790,6 +7230,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateExternalStringLatin1(JSVM_Env env, char* s
   
 
 ##### OH_JSVM_CreateExternalStringUtf16()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateExternalStringUtf16(JSVM_Env env, char16_t* str, size_t length, JSVM_Finalize finalizeCallback, void* finalizeHint, JSVM_Value* result, bool* copied)
@@ -6825,6 +7267,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateExternalStringUtf16(JSVM_Env env, char16_t
 
 ##### OH_JSVM_CreatePrivate()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreatePrivate(JSVM_Env env,JSVM_Value description,JSVM_Data* result)
 ```
@@ -6854,6 +7298,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreatePrivate(JSVM_Env env,JSVM_Value descriptio
   
 
 ##### OH_JSVM_SetPrivate()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_SetPrivate(JSVM_Env env,JSVM_Value object,JSVM_Data key,JSVM_Value value)
@@ -6886,6 +7332,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_SetPrivate(JSVM_Env env,JSVM_Value object,JSVM_D
 
 ##### OH_JSVM_GetPrivate()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetPrivate(JSVM_Env env,JSVM_Value object,JSVM_Data key,JSVM_Value *result)
 ```
@@ -6917,6 +7365,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetPrivate(JSVM_Env env,JSVM_Value object,JSVM_D
 
 ##### OH_JSVM_DeletePrivate()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_DeletePrivate(JSVM_Env env,JSVM_Value object,JSVM_Data key)
 ```
@@ -6946,6 +7396,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_DeletePrivate(JSVM_Env env,JSVM_Value object,JSV
   
 
 ##### OH_JSVM_CreateDataReference()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_CreateDataReference(JSVM_Env env,JSVM_Data data,uint32_t initialRefcount,JSVM_Ref* result)
@@ -6978,6 +7430,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_CreateDataReference(JSVM_Env env,JSVM_Data data,
 
 ##### OH_JSVM_GetReferenceData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_GetReferenceData(JSVM_Env env,JSVM_Ref ref,JSVM_Data* result)
 ```
@@ -7008,6 +7462,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_GetReferenceData(JSVM_Env env,JSVM_Ref ref,JSVM_
 
 ##### OH_JSVM_BackgroundDeserialize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_BackgroundDeserialize(JSVM_VM vm, JSVM_CodeCache cacheData, JSVM_DeserializeResult* result);
 ```
@@ -7037,6 +7493,8 @@ JSVM_EXTERN JSVM_Status OH_JSVM_BackgroundDeserialize(JSVM_VM vm, JSVM_CodeCache
   
 
 ##### OH_JSVM_ReleaseDeserializeResult()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 JSVM_EXTERN JSVM_Status OH_JSVM_ReleaseDeserializeResult(JSVM_DeserializeResult result);

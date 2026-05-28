@@ -12,6 +12,8 @@ typedef struct {...} OH_PrivacyProtectInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 隐私保护信息结构体。
  
 **起始版本：** 24
@@ -24,9 +26,13 @@ typedef struct {...} OH_PrivacyProtectInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

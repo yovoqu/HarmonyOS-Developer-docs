@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 > [!NOTE]
 > HdsNavDestinationAttribute是用于配置HdsNavDestination组件属性的关键接口。6.0.1(21)及之前版本，导入HdsNavDestination组件后需要开发者手动导入HdsNavDestinationAttribute，否则会编译报错。从6.0.2(22)版本开始，编译工具链识别到导入HdsNavDestination组件后，会自动导入HdsNavDestinationAttribute，无需开发者手动导入。 如果开发者手动导入HdsNavDestinationAttribute，DevEco Studio会显示置灰，6.0.1(21)及之前版本删除会编译报错，从6.0.2(22)版本开始，删除对功能无影响。
 
@@ -36,6 +38,8 @@ import { HdsNavDestination } from '@kit.UIDesignKit';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 - 子组件类型：系统组件和自定义组件，支持渲染控制类型（[if/else](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-ifelse)、[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)和[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)）。
 - 子组件个数：多个。
 
@@ -43,6 +47,8 @@ import { HdsNavDestination } from '@kit.UIDesignKit';
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsNavDestination()
  
@@ -58,6 +64,8 @@ HdsNavDestination()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
  
 不推荐设置位置、大小等布局相关属性，可能会造成页面显示异常。
@@ -65,6 +73,8 @@ HdsNavDestination()
   
 
 ##### titleBar
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 titleBar(options?: HdsNavigationTitleBarOptions)
  
@@ -89,6 +99,8 @@ titleBar(options?: HdsNavigationTitleBarOptions)
 
 ##### hideTitleBar
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 hideTitleBar(hide: boolean, animated?: boolean)
  
 设置是否隐藏标题栏，并且可设置在标题栏显示隐藏的状态变化中是否使用动画。
@@ -111,6 +123,8 @@ hideTitleBar(hide: boolean, animated?: boolean)
 
 ##### hideBackButton
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 hideBackButton(value: boolean)
  
 设置是否隐藏标题栏中的返回键。
@@ -132,6 +146,8 @@ hideBackButton(value: boolean)
 
 ##### mode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 mode(value: NavDestinationMode)
  
 设置HdsNavDestination类型，不支持动态修改。
@@ -152,6 +168,8 @@ mode(value: NavDestinationMode)
   
 
 ##### toolbarConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 toolbarConfiguration(toolbarParam: Array&lt;ToolbarItem&gt; | CustomBuilder, options?: NavigationToolbarOptions)
  
@@ -179,6 +197,8 @@ toolbarConfiguration(toolbarParam: Array&lt;ToolbarItem&gt; | CustomBuilder, opt
 
 ##### hideToolBar
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 hideToolBar(hide: boolean, animated?: boolean)
  
 设置是否隐藏工具栏，并且可设置在工具栏显示隐藏的状态变化中是否使用动画。
@@ -200,6 +220,8 @@ hideToolBar(hide: boolean, animated?: boolean)
   
 
 ##### ignoreLayoutSafeArea
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;LayoutSafeAreaEdge&gt;)
  
@@ -227,6 +249,8 @@ ignoreLayoutSafeArea(types?: Array&lt;LayoutSafeAreaType&gt;, edges?: Array&lt;L
 
 ##### systemBarStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 systemBarStyle(originalStyle: Optional&lt;SystemBarStyle&gt;, scrollEffectStyle: Optional&lt;SystemBarStyle&gt;)
  
 当HdsNavigation中显示当前HdsNavDestination时，设置对应系统状态栏的样式。若未与HdsNavigation配合使用，systemBarStyle属性可能不会生效，建议开发者在使用前确保已正确配置HdsNavigation组件。
@@ -253,6 +277,8 @@ systemBarStyle(originalStyle: Optional&lt;SystemBarStyle&gt;, scrollEffectStyle:
 
 ##### recoverable
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 recoverable(recoverable: Optional&lt;boolean&gt;)
  
 配置HdsNavDestination是否可恢复。如配置为可恢复，当应用进程异常退出并重新冷启动时，可自动创建该HdsNavDestination。该功能需HdsNavDestination对应的HdsNavigation也配置了可恢复属性使用。
@@ -273,6 +299,8 @@ recoverable(recoverable: Optional&lt;boolean&gt;)
   
 
 ##### dynamicHideTitleBar
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 dynamicHideTitleBar(value: DynamicHideParams)
  
@@ -295,6 +323,8 @@ dynamicHideTitleBar(value: DynamicHideParams)
 
 ##### bindToScrollable
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 bindToScrollable(scrollers: Array&lt;Scroller&gt;)
  
 绑定导航组件和可滚动容器组件，动态显隐标题区域，状态栏及底部自定义区域，使能动态显隐更优体验。
@@ -315,6 +345,8 @@ bindToScrollable(scrollers: Array&lt;Scroller&gt;)
   
 
 ##### bindToNestedScrollable
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 bindToNestedScrollable(scrollers: Array&lt;NestedScrollInfo&gt;)
  
@@ -341,6 +373,8 @@ bindToNestedScrollable(scrollers: Array&lt;NestedScrollInfo&gt;)
 
 ##### systemTransition
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 systemTransition(type: NavigationSystemTransitionType)
  
 设置HdsNavDestination系统转场动画，支持分别设置系统标题栏动画和内容动画。
@@ -361,6 +395,8 @@ systemTransition(type: NavigationSystemTransitionType)
   
 
 ##### customTransition
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 customTransition(delegate: NavDestinationTransitionDelegate)
  
@@ -383,6 +419,8 @@ customTransition(delegate: NavDestinationTransitionDelegate)
 
 ##### titleMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 titleMode(value: HdsNavDestinationTitleMode)
  
 设置页面标题栏显示模式。
@@ -404,6 +442,8 @@ titleMode(value: HdsNavDestinationTitleMode)
 
 ##### withTheme
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 withTheme(value: WithThemeOptions)
  
 设置HdsNavDestination的[WithTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-theme)能力。使用本功能时，需确保HdsNavDestination组件与对应的[HdsNavigation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation)组件配置的[WithTheme](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-with-theme)属性保持一致。
@@ -423,9 +463,13 @@ withTheme(value: WithThemeOptions)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### onShown
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onShown(callback: Callback&lt;void&gt;)
  
@@ -446,6 +490,8 @@ onShown(callback: Callback&lt;void&gt;)
 
 ##### onShown
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onShown(callback: Callback&lt;VisibilityChangeReason&gt;)
  
 当显示HdsNavDestination页面时，触发onShown回调。通过[VisibilityChangeReason](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#visibilitychangereason21)说明触发的原因。
@@ -464,6 +510,8 @@ onShown(callback: Callback&lt;VisibilityChangeReason&gt;)
   
 
 ##### onHidden
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onHidden(callback: Callback&lt;void&gt;)
  
@@ -484,6 +532,8 @@ onHidden(callback: Callback&lt;void&gt;)
 
 ##### onHidden
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onHidden(callback: Callback&lt;VisibilityChangeReason&gt;)
  
 当隐藏HdsNavDestination页面时，触发onHidden回调。通过[VisibilityChangeReason](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination#visibilitychangereason21)说明触发的原因。
@@ -502,6 +552,8 @@ onHidden(callback: Callback&lt;VisibilityChangeReason&gt;)
   
 
 ##### onReady
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onReady(callback: Callback&lt;NavDestinationContext&gt;)
  
@@ -522,6 +574,8 @@ onReady(callback: Callback&lt;NavDestinationContext&gt;)
 
 ##### onWillAppear
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onWillAppear(callback: Callback&lt;void&gt;)
  
 当该HdsNavDestination挂载之前触发此回调。在该回调中允许修改页面栈，当前帧生效。
@@ -540,6 +594,8 @@ onWillAppear(callback: Callback&lt;void&gt;)
   
 
 ##### onWillDisappear
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onWillDisappear(callback: Callback&lt;void&gt;)
  
@@ -560,6 +616,8 @@ onWillDisappear(callback: Callback&lt;void&gt;)
 
 ##### onWillShow
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onWillShow(callback: Callback&lt;void&gt;)
  
 当该HdsNavDestination显示之前触发此回调。
@@ -579,6 +637,8 @@ onWillShow(callback: Callback&lt;void&gt;)
 
 ##### onWillHide
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onWillHide(callback: Callback&lt;void&gt;)
  
 当该HdsNavDestination隐藏之前触发此回调。
@@ -597,6 +657,8 @@ onWillHide(callback: Callback&lt;void&gt;)
   
 
 ##### onBackPressed
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onBackPressed(callback: Callback<void, boolean>)
  
@@ -619,6 +681,8 @@ onBackPressed(callback: Callback<void, boolean>)
 
 ##### onActive
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 onActive(callback: Optional<Callback&lt;NavDestinationActiveReason&gt;>)
  
 HdsNavDestination处于激活态（处于栈顶可操作，且上层无特殊组件遮挡）时，触发该回调。
@@ -637,6 +701,8 @@ HdsNavDestination处于激活态（处于栈顶可操作，且上层无特殊组
   
 
 ##### onInactive
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onInactive(callback: Optional<Callback&lt;NavDestinationActiveReason&gt;>)
  
@@ -657,6 +723,8 @@ HdsNavDestination处于非激活态（处于非栈顶不可操作，或处于栈
 
 ##### HdsNavDestinationTitleMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 标题栏显示模式枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -674,6 +742,8 @@ HdsNavDestination处于非激活态（处于非栈顶不可操作，或处于栈
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 通过titleBar属性，自定义设置标题栏随内容区滚动的动态模糊样式。
  
@@ -777,7 +847,7 @@ struct PageOne {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HhY8WSeLRWmkLRRbb1sozA/zh-cn_image_0000002581276750.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013735Z&HW-CC-Expire=86400&HW-CC-Sign=1EC90662B36C8C5A9C8CB1B248F763B19A7FCECBA10B47F04A65430EC673B279)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HhY8WSeLRWmkLRRbb1sozA/zh-cn_image_0000002581276750.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024031Z&HW-CC-Expire=86400&HW-CC-Sign=6960F9FCFD788BDF20B799DF1759A9B87228E05E3E675DEDFC392338350CCEDB)
 
  
 HdsNavDestination更多示例可以参考HdsNavigation[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#示例)。

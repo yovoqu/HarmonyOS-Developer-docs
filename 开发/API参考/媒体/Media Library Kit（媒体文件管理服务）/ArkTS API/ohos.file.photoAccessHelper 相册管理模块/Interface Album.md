@@ -16,6 +16,8 @@ Album extends [AbsAlbum](https://developer.huawei.com/consumer/cn/doc/harmonyos-
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -23,6 +25,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
@@ -35,6 +39,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### commitModify
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 commitModify(callback: AsyncCallback&lt;void&gt;): void
 
@@ -102,6 +108,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### commitModify
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 commitModify(): Promise&lt;void&gt;
 
 更新相册属性修改到数据库中。使用Promise异步回调。
@@ -166,6 +174,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### addAssets(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAssets(assets: Array&lt;PhotoAsset&gt;, callback: AsyncCallback&lt;void&gt;): void
 
@@ -238,6 +248,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### addAssets(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAssets(assets: Array&lt;PhotoAsset&gt;): Promise&lt;void&gt;
 
@@ -316,6 +328,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### removeAssets(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeAssets(assets: Array&lt;PhotoAsset&gt;, callback: AsyncCallback&lt;void&gt;): void
 
 从用户相册移除图片或视频，需预置相册和文件资源。使用callback异步回调。
@@ -387,6 +401,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### removeAssets(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeAssets(assets: Array&lt;PhotoAsset&gt;): Promise&lt;void&gt;
 

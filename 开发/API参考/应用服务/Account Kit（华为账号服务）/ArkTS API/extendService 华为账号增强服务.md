@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { extendService } from '@kit.AccountKit';
 ```
@@ -23,6 +25,8 @@ import { extendService } from '@kit.AccountKit';
 
 
 ##### IdType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该枚举为ID类型枚举对象。
 
@@ -45,6 +49,8 @@ import { extendService } from '@kit.AccountKit';
 
 ##### RiskLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该枚举为风险值枚举对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -64,6 +70,8 @@ import { extendService } from '@kit.AccountKit';
 
 
 ##### VerifyRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类为身份验证请求对象。
 
@@ -103,6 +111,8 @@ const request: extendService.VerifyRequest = {
 
 
 ##### VerifyResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类为身份验证请求结果对象。
 
@@ -163,6 +173,8 @@ function dealAllError(error: BusinessError): void {
 
 ##### ExtendErrorCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该枚举定义了Account Kit扩展模块错误码。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -187,6 +199,8 @@ function dealAllError(error: BusinessError): void {
 
 
 ##### verifyAccount
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 verifyAccount(context: common.Context, request: VerifyRequest, callback: AsyncCallback&lt;VerifyResult&gt;): void
 
@@ -269,6 +283,8 @@ function dealAllError(error: BusinessError): void {
 
 ##### verifyAccount
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 verifyAccount(context: common.Context, request: VerifyRequest): Promise&lt;VerifyResult&gt;
 
 执行Account Kit身份验证请求，使用Promise异步回调。
@@ -350,6 +366,8 @@ function dealAllError(error: BusinessError): void {
 
 ##### startAccountCenter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startAccountCenter(context: common.Context, callback: AsyncCallback&lt;void&gt;): void
 
 当开发者需要实现查看当前登录的华为账号的基本信息时，执行打开账号中心请求，会拉起账号中心页面，使用Callback异步回调。
@@ -415,6 +433,8 @@ function dealAllError(error: BusinessError): void {
 
 
 ##### startAccountCenter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAccountCenter(context: common.Context): Promise&lt;void&gt;
 

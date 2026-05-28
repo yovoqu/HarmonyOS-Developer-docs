@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { inputDevice } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { inputDevice } from '@kit.InputKit';
 
 
 ##### inputDevice.getDeviceList9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDeviceList(callback: AsyncCallback<Array&lt;number&gt;>): void
 
@@ -78,6 +82,8 @@ struct Index {
 
 ##### inputDevice.getDeviceList9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceList(): Promise<Array&lt;number&gt;>
 
 获取所有输入设备的ID列表，使用Promise异步回调。
@@ -122,6 +128,8 @@ struct Index {
 
 
 ##### inputDevice.getDeviceInfo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDeviceInfo(deviceId: number, callback: AsyncCallback&lt;InputDeviceData&gt;): void
 
@@ -180,6 +188,8 @@ struct Index {
 
 
 ##### inputDevice.getDeviceInfo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDeviceInfo(deviceId: number): Promise&lt;InputDeviceData&gt;
 
@@ -243,6 +253,8 @@ struct Index {
 
 ##### inputDevice.getDeviceInfoSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceInfoSync(deviceId: number): InputDeviceData
 
 获取指定输入设备的信息。
@@ -300,6 +312,8 @@ struct Index {
 
 
 ##### inputDevice.on('change')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: "change", listener: Callback&lt;DeviceListener&gt;): void
 
@@ -393,6 +407,8 @@ struct Index {
 
 ##### inputDevice.off('change')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: "change", listener?: Callback&lt;DeviceListener&gt;): void
 
 取消监听输入设备的热插拔事件。在应用退出前调用，取消监听。使用callback异步回调。
@@ -461,6 +477,8 @@ struct Index {
 
 ##### inputDevice.getDeviceIds(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceIds(callback: AsyncCallback<Array&lt;number&gt;>): void
 
 获取所有输入设备的ID列表，使用callback异步回调。
@@ -508,6 +526,8 @@ struct Index {
 
 ##### inputDevice.getDeviceIds(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceIds(): Promise<Array&lt;number&gt;>
 
 获取所有输入设备的ID列表，使用Promise异步回调。
@@ -552,6 +572,8 @@ struct Index {
 
 
 ##### inputDevice.getDevice(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDevice(deviceId: number, callback: AsyncCallback&lt;InputDeviceData&gt;): void
 
@@ -601,6 +623,8 @@ struct Index {
 
 
 ##### inputDevice.getDevice(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDevice(deviceId: number): Promise&lt;InputDeviceData&gt;
 
@@ -654,6 +678,8 @@ struct Index {
 
 
 ##### inputDevice.supportKeys9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 supportKeys(deviceId: number, keys: Array&lt;KeyCode&gt;, callback: AsyncCallback <Array&lt;boolean&gt;>): void
 
@@ -709,6 +735,8 @@ struct Index {
 
 
 ##### inputDevice.supportKeys9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 supportKeys(deviceId: number, keys: Array&lt;KeyCode&gt;): Promise<Array&lt;boolean&gt;>
 
@@ -773,6 +801,8 @@ struct Index {
 
 ##### inputDevice.supportKeysSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 supportKeysSync(deviceId: number, keys: Array&lt;KeyCode&gt;): Array&lt;boolean&gt;
 
 查询指定id的输入设备对指定键值的支持情况。
@@ -832,6 +862,8 @@ struct Index {
 
 ##### inputDevice.getKeyboardType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getKeyboardType(deviceId: number, callback: AsyncCallback&lt;KeyboardType&gt;): void
 
 获取输入设备的键盘类型，如全键盘、小键盘等，使用callback异步回调。输入设备的键盘类型以接口返回结果为准。
@@ -889,6 +921,8 @@ struct Index {
 
 
 ##### inputDevice.getKeyboardType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getKeyboardType(deviceId: number): Promise&lt;KeyboardType&gt;
 
@@ -952,6 +986,8 @@ struct Index {
 
 ##### inputDevice.getKeyboardTypeSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getKeyboardTypeSync(deviceId: number): KeyboardType
 
 获取输入设备的键盘类型。
@@ -1009,6 +1045,8 @@ struct Index {
 
 
 ##### inputDevice.isFunctionKeyEnabled15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFunctionKeyEnabled(functionKey: FunctionKey): Promise&lt;boolean&gt;
 
@@ -1071,6 +1109,8 @@ struct Index {
 
 
 ##### inputDevice.setFunctionKeyEnabled15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise&lt;void&gt;
 
@@ -1139,6 +1179,8 @@ struct Index {
 
 ##### inputDevice.getIntervalSinceLastInput14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getIntervalSinceLastInput(): Promise&lt;number&gt;
 
 获取距离上次系统输入事件的时间间隔（包含设备休眠时间），使用Promise异步回调。
@@ -1180,6 +1222,8 @@ struct Index {
 
 ##### DeviceListener9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述输入设备热插拔的信息。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InputDevice
@@ -1193,6 +1237,8 @@ struct Index {
 
 
 ##### InputDeviceData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述输入设备的信息。
 
@@ -1218,6 +1264,8 @@ struct Index {
 
 ##### AxisType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'pressure' | 'toolminor' | 'toolmajor' | 'null'
 
 输入设备的轴类型。
@@ -1241,6 +1289,8 @@ type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'press
 
 ##### AxisRange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入设备的轴信息。
 
 **系统能力**： SystemCapability.MultimodalInput.Input.InputDevice
@@ -1259,6 +1309,8 @@ type AxisType = 'touchmajor' | 'touchminor' | 'orientation' | 'x' | 'y' | 'press
 
 
 ##### SourceType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball'
 
@@ -1280,6 +1332,8 @@ type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick'
 
 ##### ChangedType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ChangedType = 'add' | 'remove'
 
 监听设备热插拔事件类型。
@@ -1295,6 +1349,8 @@ type ChangedType = 'add' | 'remove'
 
 
 ##### KeyboardType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 键盘输入设备的类型。
 
@@ -1313,6 +1369,8 @@ type ChangedType = 'add' | 'remove'
 
 
 ##### FunctionKey15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 功能键的类型。
 

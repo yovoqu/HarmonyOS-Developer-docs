@@ -23,6 +23,8 @@ Vector和[ArrayList](https://developer.huawei.com/consumer/cn/doc/harmonyos-refe
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Vector } from '@kit.ArkTS';
 ```
@@ -31,9 +33,13 @@ import { Vector } from '@kit.ArkTS';
 
 ##### Vector
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Utils.Lang
   
@@ -45,6 +51,8 @@ import { Vector } from '@kit.ArkTS';
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
  
@@ -61,6 +69,8 @@ let vector : Vector<string | number | Array<number>> = new Vector();
   
 
 ##### add
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 add(element: T): boolean
  
@@ -102,6 +112,8 @@ let result3 = vector.add(c);
 
 ##### insert
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 insert(element: T, index: number): void
  
 在长度范围内任意插入指定元素，并将其后续元素向右移动。
@@ -128,6 +140,8 @@ vector.insert(true, 2);
   
 
 ##### has
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 has(element: T): boolean
  
@@ -161,6 +175,8 @@ let result1 = vector.has("squirrel");
   
 
 ##### getIndexOf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getIndexOf(element: T): number
  
@@ -200,6 +216,8 @@ let result = vector.getIndexOf(2);
 
 ##### getLastIndexOf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastIndexOf(element: T): number
  
 返回指定元素最后一次出现时的下标值，查找失败返回-1。
@@ -238,6 +256,8 @@ let result = vector.getLastIndexOf(2);
 
 ##### removeByIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeByIndex(index: number): T
  
 根据元素的下标值查找元素，返回元素后将其删除，并将其后续元素向左移动。
@@ -274,6 +294,8 @@ let result = vector.removeByIndex(2);
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 remove(element: T): boolean
  
 删除查找到的第一个指定的元素。
@@ -309,6 +331,8 @@ let result = vector.remove(2);
 
 ##### removeByRange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeByRange(fromIndex: number, toIndex: number): void
  
 从一段范围内删除元素，包括起始值但不包括终止值。
@@ -337,6 +361,8 @@ vector.removeByRange(2,4);
   
 
 ##### replaceAllElements
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector&lt;T&gt;) => T, thisArg?: Object): void
  
@@ -379,6 +405,8 @@ vector.replaceAllElements((value : number) : number => {
 
 ##### forEach
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 forEach(callbackFn: (value: T, index?: number, vector?: Vector&lt;T&gt;) => void, thisArg?: Object): void
  
 通过回调函数来遍历Vector实例对象上的元素以及元素对应的下标。
@@ -419,6 +447,8 @@ vector.forEach((value : number, index ?: number) : void => {
 
 ##### sort
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sort(comparator?: (firstValue: T, secondValue: T) => number): void
  
 对Vector中的元素进行一个排序操作。
@@ -456,6 +486,8 @@ vector.sort();
   
 
 ##### subVector
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 subVector(fromIndex: number, toIndex: number): Vector&lt;T&gt;
  
@@ -496,6 +528,8 @@ let result1 = vector.subVector(2,4);
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
  
 清除Vector中的所有元素，并把length置为0。
@@ -516,6 +550,8 @@ vector.clear();
   
 
 ##### clone
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clone(): Vector&lt;T&gt;
  
@@ -545,6 +581,8 @@ let result = vector.clone();
 
 ##### getCapacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCapacity(): number
  
 获取当前实例的容量大小。
@@ -572,6 +610,8 @@ let result = vector.getCapacity();
   
 
 ##### convertToArray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 convertToArray(): Array&lt;T&gt;
  
@@ -601,6 +641,8 @@ let result = vector.convertToArray();
 
 ##### isEmpty
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isEmpty(): boolean
  
 判断该Vector是否为空。
@@ -628,6 +670,8 @@ let result = vector.isEmpty();
   
 
 ##### increaseCapacityTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 increaseCapacityTo(newCapacity: number): void
  
@@ -658,6 +702,8 @@ vector.increaseCapacityTo(12);
 
 ##### trimToCurrentLength
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 trimToCurrentLength(): void
  
 把容量限制为当前的length大小。
@@ -678,6 +724,8 @@ vector.trimToCurrentLength();
   
 
 ##### toString
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toString(): string
  
@@ -707,6 +755,8 @@ let result = vector.toString();
 
 ##### copyToArray
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copyToArray(array: Array&lt;T&gt;): void
  
 将Vector实例中的元素按照下标复制到指定数组。
@@ -723,6 +773,8 @@ copyToArray(array: Array&lt;T&gt;): void
   
 
 ##### getFirstElement
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFirstElement(): T
  
@@ -752,6 +804,8 @@ let result = vector.getFirstElement();
 
 ##### getLastElement
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastElement(): T
  
 获取Vector实例中的最后一个元素。
@@ -779,6 +833,8 @@ let result = vector.getLastElement();
   
 
 ##### getLastIndexFrom
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLastIndexFrom(element: T, index: number): number
  
@@ -816,6 +872,8 @@ let result = vector.getLastIndexFrom(4,3);
 
 ##### getIndexFrom
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getIndexFrom(element: T, index: number): number
  
 从指定索引向前搜索，返回该元素的下标索引。
@@ -852,6 +910,8 @@ let result = vector.getIndexFrom(4, 3);
 
 ##### setLength
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setLength(newSize: number): void
  
 设置Vector实例的元素个数。
@@ -880,6 +940,8 @@ vector.setLength(2);
   
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(index: number): T
  
@@ -916,6 +978,8 @@ let result = vector.get(2);
 
 ##### set
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 set(index: number, element: T): T
  
 将此Vector中指定位置的元素替换为指定元素。
@@ -940,6 +1004,8 @@ set(index: number, element: T): T
   
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
  

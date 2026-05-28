@@ -16,6 +16,8 @@ EmbeddableUIAbilityContext是[EmbeddableUIAbility](https://developer.huawei.com/
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common } from '@kit.AbilityKit';
 ```
@@ -23,6 +25,8 @@ import { common } from '@kit.AbilityKit';
   
 
 ##### EmbeddableUIAbilityContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 开发者可以通过EmbeddableUIAbilityContext获取EmbeddableUIAbility的相关配置信息以及操作EmbeddableUIAbility和ServiceExtensionAbility的方法，如启动EmbeddableUIAbility，停止当前EmbeddableUIAbilityContext所属的EmbeddableUIAbility，启动、停止、连接、断开连接ServiceExtensionAbility等。
  

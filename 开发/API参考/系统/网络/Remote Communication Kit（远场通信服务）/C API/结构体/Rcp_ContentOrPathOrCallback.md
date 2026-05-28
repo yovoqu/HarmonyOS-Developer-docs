@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [Rcp_FormFieldFileValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___form_field_file_value)中使用的简单表单数据字段值。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### callback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_GetDataCallback Rcp_ContentOrPathOrCallback::callback
@@ -49,6 +59,8 @@ Rcp_GetDataCallback Rcp_ContentOrPathOrCallback::callback
 
 ##### content
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Buffer Rcp_ContentOrPathOrCallback::content
 ```
@@ -61,6 +73,8 @@ Rcp_Buffer Rcp_ContentOrPathOrCallback::content
 
 ##### path
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 char Rcp_ContentOrPathOrCallback::path[RCP_MAX_PATH_LEN]
 ```
@@ -72,6 +86,8 @@ char Rcp_ContentOrPathOrCallback::path[RCP_MAX_PATH_LEN]
   
 
 ##### type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_ContentOrPathOrCallbackType Rcp_ContentOrPathOrCallback::type

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { formBindingData } from '@kit.FormKit';
 ```
@@ -21,6 +23,8 @@ import { formBindingData } from '@kit.FormKit';
 
 
 ##### ProxyData10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片代理刷新订阅数据信息。
 
@@ -40,6 +44,8 @@ import { formBindingData } from '@kit.FormKit';
 
 ##### FormBindingData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 FormBindingData相关描述。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -55,6 +61,8 @@ FormBindingData相关描述。
 
 
 ##### formBindingData.createFormBindingData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createFormBindingData(obj?: Object | string): FormBindingData
 

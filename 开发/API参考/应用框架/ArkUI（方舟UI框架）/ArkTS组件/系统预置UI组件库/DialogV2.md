@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { TipsDialogV2, SelectDialogV2, ConfirmDialogV2, AlertDialogV2, LoadingDialogV2, CustomContentDialogV2, PopoverDialogV2 } from '@kit.ArkUI';
 ```
@@ -24,11 +26,15 @@ import { TipsDialogV2, SelectDialogV2, ConfirmDialogV2, AlertDialogV2, LoadingDi
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### TipsDialogV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TipsDialogV2({imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, imageBorderColor: ColorMetrics, imageBorderWidth: LengthMetrics, title?: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, checked?: boolean, onCheckedChange?: AdvancedDialogV2OnCheckedChange, primaryButton?: AdvancedDialogV2Button, secondaryButton?: AdvancedDialogV2Button})
 
@@ -59,6 +65,8 @@ TipsDialogV2({imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, imageBo
 
 ##### AdvancedDialogV2OnCheckedChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
 
 选择框选中状态改变事件。
@@ -77,6 +85,8 @@ type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
 
 
 ##### SelectDialogV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SelectDialogV2({title: ResourceStr, content?: ResourceStr, selectedIndex?: number, confirm?: AdvancedDialogV2Button, radioContent: SheetInfo[]})
 
@@ -100,6 +110,8 @@ SelectDialogV2({title: ResourceStr, content?: ResourceStr, selectedIndex?: numbe
 
 
 ##### ConfirmDialogV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ConfirmDialogV2({title: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, checked?: boolean, onCheckedChange: AdvancedDialogV2OnCheckedChange, primaryButton?: AdvancedDialogV2Button, secondaryButton?: AdvancedDialogV2Button})
 
@@ -126,6 +138,8 @@ ConfirmDialogV2({title: ResourceStr, content?: ResourceStr, checkTips?: Resource
 
 ##### AlertDialogV2
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AlertDialogV2({primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content: ResourceStr, primaryButton?: AdvancedDialogV2Button, secondaryButton?: AdvancedDialogV2Button})
 
 操作确认类弹出框。当触发一个将产生严重后果的不可逆操作时，如删除、重置、取消编辑、停止等，会触发该类弹出框提示。
@@ -149,6 +163,8 @@ AlertDialogV2({primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content
 
 ##### LoadingDialogV2
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 LoadingDialogV2({content?: ResourceStr})
 
 进度加载类弹出框，操作正在执行时的提示信息。
@@ -167,6 +183,8 @@ LoadingDialogV2({content?: ResourceStr})
 
 
 ##### CustomContentDialogV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 CustomContentDialogV2({contentBuilder: () => void, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, contentAreaPadding?: LocalizedPadding, buttons?: AdvancedDialogV2Button[]})
 
@@ -191,6 +209,8 @@ CustomContentDialogV2({contentBuilder: () => void, primaryTitle?: ResourceStr, s
 
 ##### PopoverDialogV2OnVisibleChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PopoverDialogV2OnVisibleChange = (visible: boolean) => void
 
 跟手弹出框显示状态改变事件。
@@ -209,6 +229,8 @@ type PopoverDialogV2OnVisibleChange = (visible: boolean) => void
 
 
 ##### PopoverDialogV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PopoverDialogV2({visible: boolean, $visible: PopoverDialogV2OnVisibleChange, popover: PopoverDialogV2Options, targetBuilder: CustomBuilder})
 
@@ -232,6 +254,8 @@ PopoverDialogV2({visible: boolean, $visible: PopoverDialogV2OnVisibleChange, pop
 
 ##### PopoverDialogV2Options
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 跟手弹出框参数，用于设置弹出框内容、位置属性等。
 
 继承自[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)。
@@ -248,6 +272,8 @@ PopoverDialogV2({visible: boolean, $visible: PopoverDialogV2OnVisibleChange, pop
 
 ##### AdvancedDialogV2ButtonAction
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AdvancedDialogV2ButtonAction = () => void
 
 弹出框操作区按钮的点击事件类型。
@@ -259,6 +285,8 @@ type AdvancedDialogV2ButtonAction = () => void
 
 
 ##### AdvancedDialogV2Button
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 弹出框操作区按钮。
 
@@ -287,6 +315,8 @@ type AdvancedDialogV2ButtonAction = () => void
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(options: AdvancedDialogV2ButtonOptions)
 
 AdvancedDialogV2Button的构造函数。
@@ -305,6 +335,8 @@ AdvancedDialogV2Button的构造函数。
 
 
 ##### AdvancedDialogV2ButtonOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于初始化AdvancedDialogV2Button对象。
 
@@ -326,6 +358,8 @@ AdvancedDialogV2Button的构造函数。
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -713,7 +747,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/c_WeIwWkSsinXi_9rlNhGQ/zh-cn_image_0000002581276324.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=89DB6A99BC4D3C1DF8247BA9C92471F4D5404759ADC009DF91BA23F1E4DA3FA1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/c_WeIwWkSsinXi_9rlNhGQ/zh-cn_image_0000002581276324.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=AFAF565E16EB74433174DCAAFE1634D12FB1408620E83FC58801632D650FA396)
 
 
 
@@ -777,7 +811,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nBjTgBGAQEm1_VEkxKiPJA/zh-cn_image_0000002611756179.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=20875930778C689CF34A85ACDDA80859DD6FB72A71901121888A007AC1121524)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/nBjTgBGAQEm1_VEkxKiPJA/zh-cn_image_0000002611756179.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=B1139B9E829E6E4C3FFF120B126895A03D5B394DAE5946D1763C9C8A03841BF1)
 
 
 
@@ -838,4 +872,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/RIrbfSMtSgOc7ybEk4-LZw/zh-cn_image_0000002581436240.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=4B6C32E3119D861E6B3C47D84973899A6FCDB3579B55431A55C7170C0918F504)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/RIrbfSMtSgOc7ybEk4-LZw/zh-cn_image_0000002581436240.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=E6EEA6142A3E38FB387C6C59CDD479D2D98D74F224B75AFFE19A7C7A4A3F6C60)

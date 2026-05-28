@@ -12,6 +12,8 @@ typedef struct NativeWindow OHNativeWindow
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供封装的NativeWindow实例。
  
 **起始版本：** 19

@@ -14,11 +14,15 @@ FolderStack继承于[Stack](https://developer.huawei.com/consumer/cn/doc/harmony
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含多个子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 FolderStack(options?: FolderStackOptions)
 
@@ -39,6 +43,8 @@ FolderStack(options?: FolderStackOptions)
 
 ##### FolderStackOptions18+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
 
@@ -58,6 +64,8 @@ FolderStack(options?: FolderStackOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 设置offset和margin属性，可能会导致上下半屏遮挡折痕区，不建议开发者使用。
 
@@ -67,6 +75,8 @@ FolderStack(options?: FolderStackOptions)
 
 
 ##### alignContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 alignContent(value: Alignment)
 
@@ -93,6 +103,8 @@ alignContent(value: Alignment)
 
 ##### enableAnimation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableAnimation(value: boolean)
 
 设置是否使用默认动效。
@@ -117,6 +129,8 @@ enableAnimation(value: boolean)
 
 
 ##### autoHalfFold
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 autoHalfFold(value: boolean)
 
@@ -143,11 +157,15 @@ autoHalfFold(value: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onFolderStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onFolderStateChange(callback: OnFoldStatusChangeCallback)
 
@@ -174,6 +192,8 @@ onFolderStateChange(callback: OnFoldStatusChangeCallback)
 
 ##### onHoverStatusChange12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onHoverStatusChange(handler: OnHoverStatusChangeCallback)
 
 当前设备的悬停状态改变时触发回调。
@@ -199,6 +219,8 @@ onHoverStatusChange(handler: OnHoverStatusChangeCallback)
 
 ##### OnHoverStatusChangeCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnHoverStatusChangeCallback = (param: HoverEventParam) => void
 
 当前设备的悬停状态改变时触发的回调。
@@ -219,6 +241,8 @@ type OnHoverStatusChangeCallback = (param: HoverEventParam) => void
 
 
 ##### OnFoldStatusChangeCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
@@ -241,6 +265,8 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
 ##### OnFoldStatusChangeInfo18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 当折叠状态改变的时候回调，仅在横屏状态下生效。
 
 > [!NOTE]
@@ -262,6 +288,8 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
 ##### HoverEventParam12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -279,6 +307,8 @@ type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void
 
 
 ##### WindowStatusType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type WindowStatusType = WindowStatusType
 
@@ -298,6 +328,8 @@ type WindowStatusType = WindowStatusType
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -379,13 +411,13 @@ struct Index {
 **图1** 横屏展开
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/CYzM34ZlQ4OAYtfC64XfmA/zh-cn_image_0000002611756185.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=06F5334EA1D1BE25792AD704C7BFAA0B9218E6BC80F6F1416ED8F3DA85A5B645)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/CYzM34ZlQ4OAYtfC64XfmA/zh-cn_image_0000002611756185.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=2B08B50E7A8834BA2D58A3303D8218B41E0C6E1282065C569CB20CA30E7348E7)
 
 
 **图2** 横屏半折叠
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/uypVXkv8RXeHI9SiTu3biw/zh-cn_image_0000002581436246.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=830FA518947413462B9B88BB1192BFF53F6EA45ADB576FA1CED84480B365CC9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/uypVXkv8RXeHI9SiTu3biw/zh-cn_image_0000002581436246.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=6017A9C711AB9C8D27004CD7996EB4AFAC94419BA935B327016B8A92BD086C00)
 
 
 
@@ -490,7 +522,7 @@ this appRotation:3
 this windowStatusType:1
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/Hy94Lqz6R-yu-YnQu9t7bQ/zh-cn_image_0000002611836077.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=B2F7D27C96C1E96AA1413D669E720F487B808E03F2CD3B799F04745A21A82491)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/Hy94Lqz6R-yu-YnQu9t7bQ/zh-cn_image_0000002611836077.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=507BF7A395A08E5CF545863F0056DD3B07A77E3E7F731839C2830F054CB19087)
 
 
 **图2** 横屏半折叠
@@ -508,4 +540,4 @@ this appRotation:3
 this windowStatusType:1
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/9XuKKu-nT5CE1RBx2pE5Uw/zh-cn_image_0000002581276332.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=9669536F0866576D99BF3CDAA3EA8B6A99EFCC10C217C322EC70229CEBC18170)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/9XuKKu-nT5CE1RBx2pE5Uw/zh-cn_image_0000002581276332.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=0A96D316B2DA835D29BF50BB93051A9E529A5B411C0B51C43980922562542DCD)

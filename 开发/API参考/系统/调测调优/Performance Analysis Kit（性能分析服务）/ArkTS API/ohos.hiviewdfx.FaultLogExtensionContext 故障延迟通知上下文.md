@@ -16,6 +16,8 @@ FaultLogExtensionContext模块提供访问[FaultLogExtensionAbility](https://dev
 
 ##### 使用说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通过FaultLogExtensionAbility子类实例来获取。
 
 ```text
@@ -32,6 +34,8 @@ export default class MyFaultLogExtension extends FaultLogExtensionAbility {
 
 
 ##### FaultLogExtensionContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 FaultLogExtensionContext是[FaultLogExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-faultlogextensionability)的上下文环境。
 

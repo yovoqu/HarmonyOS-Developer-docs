@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### MvtOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 矢量图层的管理对象。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addMvtOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addmvtoverlay)方法时会返回该类型的实例，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。
  
@@ -58,6 +62,8 @@ let mvtOverlay = this.mapController?.addMvtOverlay(params);
   
 
 ##### addLayers
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addLayers(layers: mapCommon.MvtLayer[]): void
  
@@ -109,6 +115,8 @@ mvtOverlay.addLayers(renderLayers);
 
 ##### removeLayers
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeLayers(layerIds: string[]): void
  
 移除指定的图层。
@@ -138,6 +146,8 @@ mvtOverlay.removeLayers(layerIds);
   
 
 ##### changeLayers
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 changeLayers(addedLayers: mapCommon.MvtLayer[], removedLayerIds: string[]): void
  
@@ -191,6 +201,8 @@ mvtOverlay.changeLayers(renderLayers, layerIds);
 
 ##### setBlur
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 setBlur(blurIntensity: number | Record<number, number>): void
  
 更新矢量图层的模糊度。
@@ -219,6 +231,8 @@ mvtOverlay.setBlur(8);
   
 
 ##### getBlur
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getBlur(): number | Record<number, number>
  

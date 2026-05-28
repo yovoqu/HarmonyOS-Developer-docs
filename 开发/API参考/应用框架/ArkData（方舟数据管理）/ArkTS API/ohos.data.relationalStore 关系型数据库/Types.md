@@ -12,6 +12,8 @@
 
 ##### Assets10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Assets = Asset[]
 
 表示[Asset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i#asset10)类型的数组。
@@ -26,6 +28,8 @@ type Assets = Asset[]
 
 
 ##### ValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets | Float32Array | bigint
 
@@ -50,6 +54,8 @@ type ValueType = null | number | string | boolean | Uint8Array | Asset | Assets 
 
 ##### ValuesBucket
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ValuesBucket = Record<string, ValueType>
 
 用于存储键值对的类型。不支持Sendable跨线程传递。
@@ -64,6 +70,8 @@ type ValuesBucket = Record<string, ValueType>
 
 
 ##### PRIKeyType10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PRIKeyType = number | string
 
@@ -81,6 +89,8 @@ type PRIKeyType = number | string
 
 ##### UTCTime10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type UTCTime = Date
 
 用于表示UTC类型时间的数据类型。
@@ -96,6 +106,8 @@ type UTCTime = Date
 
 ##### ModifyTime10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ModifyTime = Map<PRIKeyType, UTCTime>
 
 用于存储数据库表的主键和修改时间的数据类型。
@@ -110,6 +122,8 @@ type ModifyTime = Map<PRIKeyType, UTCTime>
 
 
 ##### RowData23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type RowData = Array&lt;ValueType&gt;
 
@@ -127,6 +141,8 @@ type RowData = Array&lt;ValueType&gt;
 
 
 ##### RowsData23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type RowsData = Array&lt;RowData&gt;
 

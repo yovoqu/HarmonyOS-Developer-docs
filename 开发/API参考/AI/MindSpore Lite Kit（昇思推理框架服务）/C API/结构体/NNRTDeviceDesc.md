@@ -12,6 +12,8 @@ typedef struct NNRTDeviceDesc NNRTDeviceDesc
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 NNRt设备信息描述，包含设备ID，设备名称等信息。
  
 **起始版本：** 10

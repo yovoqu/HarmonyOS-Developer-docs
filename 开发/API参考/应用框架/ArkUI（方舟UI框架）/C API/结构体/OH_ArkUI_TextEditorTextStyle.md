@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_TextEditorTextStyle OH_ArkUI_TextEditorTextStyle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文本编辑器的文本样式。
  
 **起始版本：** 24

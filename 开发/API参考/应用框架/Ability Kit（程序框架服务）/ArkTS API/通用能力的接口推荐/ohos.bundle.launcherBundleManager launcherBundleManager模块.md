@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { launcherBundleManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { launcherBundleManager } from '@kit.AbilityKit';
 
 
 ##### launcherBundleManager.getLauncherAbilityInfoSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLauncherAbilityInfoSync(bundleName: string, userId: number) : Array<[LauncherAbilityInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-launcherabilityinfo)>
 
@@ -77,6 +81,8 @@ try {
 
 ##### LauncherAbilityInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type LauncherAbilityInfo = _LauncherAbilityInfo
 
 LauncherAbilityInfo信息。
@@ -91,6 +97,8 @@ LauncherAbilityInfo信息。
 
 
 ##### ShortcutInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ShortcutInfo = _ShortcutInfo
 
@@ -107,6 +115,8 @@ type ShortcutInfo = _ShortcutInfo
 
 ##### ShortcutWant20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ShortcutWant = _ShortcutWant
 
 快捷方式内定义的目标[wants](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#wants标签)信息集合。
@@ -121,6 +131,8 @@ type ShortcutWant = _ShortcutWant
 
 
 ##### ParameterItem20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ParameterItem = _ParameterItem
 

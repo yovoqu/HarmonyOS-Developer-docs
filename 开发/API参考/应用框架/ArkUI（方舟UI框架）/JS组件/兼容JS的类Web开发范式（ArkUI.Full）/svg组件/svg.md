@@ -14,17 +14,23 @@
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[svg](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg)、[rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-rect)、[circle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-circle)、[ellipse](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-ellipse)、[path](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-path)、[line](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-line)、[polygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-polygon)、[polyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-polyline)、[text](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-text)、[animate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animate)、[animateTransform](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatetransform)。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持svg组件[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-common-attributes)和以下属性，设置的通用属性会传递给子组件。
   
@@ -41,6 +47,8 @@
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -61,4 +69,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/d_BWJnOSTSekzRqZ0T6wCw/zh-cn_image_0000002581436380.png?HW-CC-KV=V1&HW-CC-Date=20260528T013810Z&HW-CC-Expire=86400&HW-CC-Sign=251B90C8F0CC25F64663927C267301E72666F8F05693F7A289A5033D4973FC65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/d_BWJnOSTSekzRqZ0T6wCw/zh-cn_image_0000002581436380.png?HW-CC-KV=V1&HW-CC-Date=20260528T024106Z&HW-CC-Expire=86400&HW-CC-Sign=8280A9CFCB28BE261B3C611DE3107D3EDAEFED77A05F7650464E5BDD22652ED4)

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 声明图片处理函数。提供图片处理能力，包括色彩空间转换，元数据生成及图片缩放。
 
 **引用文件：** <multimedia/video_processing_engine/image_processing.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 | 名称 | 描述 |
 | --- | --- |
@@ -50,9 +56,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### OH_ImageProcessing_InitializeEnvironment()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_InitializeEnvironment(void)
@@ -77,6 +87,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_InitializeEnvironment(void)
 
 ##### OH_ImageProcessing_DeinitializeEnvironment()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_DeinitializeEnvironment(void)
 ```
@@ -99,6 +111,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_DeinitializeEnvironment(void)
 
 
 ##### OH_ImageProcessing_IsColorSpaceConversionSupported()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 bool OH_ImageProcessing_IsColorSpaceConversionSupported(const ImageProcessing_ColorSpaceInfo* sourceImageInfo,const ImageProcessing_ColorSpaceInfo* destinationImageInfo)
@@ -128,6 +142,8 @@ bool OH_ImageProcessing_IsColorSpaceConversionSupported(const ImageProcessing_Co
 
 
 ##### OH_ImageProcessing_IsCompositionSupported()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 bool OH_ImageProcessing_IsCompositionSupported(const ImageProcessing_ColorSpaceInfo* sourceImageInfo,const ImageProcessing_ColorSpaceInfo* sourceGainmapInfo,const ImageProcessing_ColorSpaceInfo* destinationImageInfo)
@@ -159,6 +175,8 @@ bool OH_ImageProcessing_IsCompositionSupported(const ImageProcessing_ColorSpaceI
 
 ##### OH_ImageProcessing_IsDecompositionSupported()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 bool OH_ImageProcessing_IsDecompositionSupported(const ImageProcessing_ColorSpaceInfo* sourceImageInfo,const ImageProcessing_ColorSpaceInfo* destinationImageInfo,const ImageProcessing_ColorSpaceInfo* destinationGainmapInfo)
 ```
@@ -189,6 +207,8 @@ bool OH_ImageProcessing_IsDecompositionSupported(const ImageProcessing_ColorSpac
 
 ##### OH_ImageProcessing_IsMetadataGenerationSupported()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 bool OH_ImageProcessing_IsMetadataGenerationSupported(const ImageProcessing_ColorSpaceInfo* sourceImageInfo)
 ```
@@ -216,6 +236,8 @@ bool OH_ImageProcessing_IsMetadataGenerationSupported(const ImageProcessing_Colo
 
 
 ##### OH_ImageProcessing_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** imageProcessor, int32_t type)
@@ -246,6 +268,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Create(OH_ImageProcessing** imagePr
 
 ##### OH_ImageProcessing_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* imageProcessor)
 ```
@@ -273,6 +297,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Destroy(OH_ImageProcessing* imagePr
 
 
 ##### OH_ImageProcessing_SetParameter()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_SetParameter(OH_ImageProcessing* imageProcessor,const OH_AVFormat* parameter)
@@ -303,6 +329,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_SetParameter(OH_ImageProcessing* im
 
 ##### OH_ImageProcessing_GetParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* imageProcessor,OH_AVFormat* parameter)
 ```
@@ -331,6 +359,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GetParameter(OH_ImageProcessing* im
 
 
 ##### OH_ImageProcessing_ConvertColorSpace()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage)
@@ -361,6 +391,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_ConvertColorSpace(OH_ImageProcessin
 
 
 ##### OH_ImageProcessing_Compose()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage, OH_PixelmapNative* sourceGainmap, OH_PixelmapNative* destinationImage)
@@ -393,6 +425,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Compose(OH_ImageProcessing* imagePr
 
 ##### OH_ImageProcessing_Decompose()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_Decompose(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage, OH_PixelmapNative* destinationGainmap)
 ```
@@ -424,6 +458,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_Decompose(OH_ImageProcessing* image
 
 ##### OH_ImageProcessing_GenerateMetadata()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage)
 ```
@@ -452,6 +488,8 @@ ImageProcessing_ErrorCode OH_ImageProcessing_GenerateMetadata(OH_ImageProcessing
 
 
 ##### OH_ImageProcessing_EnhanceDetail()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageProcessing_ErrorCode OH_ImageProcessing_EnhanceDetail(OH_ImageProcessing* imageProcessor,OH_PixelmapNative* sourceImage, OH_PixelmapNative* destinationImage)

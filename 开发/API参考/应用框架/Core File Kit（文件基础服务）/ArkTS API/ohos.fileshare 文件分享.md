@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { fileShare } from '@kit.CoreFileKit';
 ```
@@ -21,6 +23,8 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 ##### OperationMode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 枚举，授予或使能权限的URI访问模式。
 
@@ -39,6 +43,8 @@ import { fileShare } from '@kit.CoreFileKit';
 
 ##### PolicyErrorCode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 枚举，授予或使能权限策略失败的URI对应的错误码。
 
 **系统能力：** SystemCapability.FileManagement.AppFileService.FolderAuthorization
@@ -54,6 +60,8 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 ##### PolicyErrorResult11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 授予或使能权限失败的URI策略结果。支持persistPermission、revokePermission、activatePermission、deactivatePermission接口抛出错误时使用。
 
@@ -74,6 +82,8 @@ import { fileShare } from '@kit.CoreFileKit';
 
 ##### PolicyInfo11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 需要授予或使能权限URI的策略信息。
 
 **系统能力：** SystemCapability.FileManagement.AppFileService.FolderAuthorization
@@ -87,6 +97,8 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 ##### PathPolicyInfo15+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 需要查询的文件或目录的信息。
 
@@ -102,6 +114,8 @@ import { fileShare } from '@kit.CoreFileKit';
 
 ##### PolicyType15+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 枚举，所查询策略信息对应的授权模式。
 
 **系统能力：** SystemCapability.FileManagement.AppFileService.FolderAuthorization
@@ -115,6 +129,8 @@ import { fileShare } from '@kit.CoreFileKit';
 
 
 ##### fileShare.persistPermission11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 persistPermission(policies: Array&lt;PolicyInfo&gt;): Promise&lt;void&gt;
 
@@ -197,6 +213,8 @@ async function persistPermissionExample() {
 
 ##### fileShare.revokePermission11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 revokePermission(policies: Array&lt;PolicyInfo&gt;): Promise&lt;void&gt;
 
 异步方法对所选择的多个文件或目录uri取消持久化授权，使用Promise异步回调。该接口仅对具有该系统能力的设备开放（此接口不支持远端URI的持久化）。
@@ -277,6 +295,8 @@ async function revokePermissionExample() {
 
 
 ##### fileShare.activatePermission11+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 activatePermission(policies: Array&lt;PolicyInfo&gt;): Promise&lt;void&gt;
 
@@ -359,6 +379,8 @@ async function activatePermissionExample() {
 
 ##### fileShare.deactivatePermission11+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 deactivatePermission(policies: Array&lt;PolicyInfo&gt;): Promise&lt;void&gt;
 
 异步方法取消使能授权过的多个文件或目录，使用Promise异步回调。该接口仅对具有该系统能力的设备开放（此接口不支持远端URI的持久化）。
@@ -436,6 +458,8 @@ async function deactivatePermissionExample() {
 
 
 ##### fileShare.checkPersistentPermission12+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 checkPersistentPermission(policies: Array&lt;PolicyInfo&gt;): Promise<Array&lt;boolean&gt;>
 

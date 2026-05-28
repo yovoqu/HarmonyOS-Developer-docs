@@ -14,6 +14,8 @@ PhotoEditorExtensionContext是PhotoEditorExtensionAbility的上下文，继承�
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { common } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { common } from '@kit.AbilityKit';
 
 
 ##### PhotoEditorExtensionContext.saveEditedContentWithUri
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 saveEditedContentWithUri(uri: string): Promise&lt;AbilityResult&gt;
 
@@ -88,7 +92,7 @@ struct Index {
               let file: fileIo.File | undefined;
               try{
                 file = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE
-| fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC);
+                | fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC);
                 let writeLen = fileIo.writeSync(file.fd, data);
                 hilog.info(0x0000, TAG, 'write data to file succeed and size is:'
                   + writeLen);
@@ -118,6 +122,8 @@ struct Index {
 
 
 ##### PhotoEditorExtensionContext.saveEditedContentWithImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 saveEditedContentWithImage(pixeMap: image.PixelMap, option: image.PackingOption): Promise&lt;AbilityResult&gt;
 

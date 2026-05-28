@@ -14,17 +14,23 @@
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-attributes)外，还支持如下属性：
   
@@ -36,6 +42,8 @@
   
 
 ##### 普通选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 滑动选择器类型设置为text时表示普通选择器。
   
@@ -49,6 +57,8 @@
   
 
 ##### 日期选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 滑动选择器类型设置为date时表示日期选择器。
   
@@ -66,6 +76,8 @@
 
 ##### 时间选择器
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 滑动选择器类型设置为time时表示时间选择器。
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
@@ -79,6 +91,8 @@
   
 
 ##### 日期时间选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 滑动选择器类型设置为datetime时表示日期时间选择器，日期的选择范围为本年的日月。
   
@@ -95,6 +109,8 @@
 
 ##### 多列文本选择器
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 滑动选择器类型设置为multi-text时表示多列文本选择器。
   
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
@@ -108,6 +124,8 @@
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 除支持[通用样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-styles)外，还支持如下样式：
   
@@ -129,11 +147,15 @@
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-events)外，还支持如下事件：
  
   
 
 ##### 普通选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -144,6 +166,8 @@
   
 
 ##### 日期选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -154,6 +178,8 @@
   
 
 ##### 日期时间选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -164,6 +190,8 @@
   
 
 ##### 时间选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -174,6 +202,8 @@
   
 
 ##### 多列文本选择器
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -186,6 +216,8 @@
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-common-methods)外，支持如下方法：
   
 | 名称 | 参数 | 描述 |
@@ -196,6 +228,8 @@
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -353,4 +387,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/3A46uTdzS1q-EvckS8j1sQ/zh-cn_image_0000002581436334.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013805Z&HW-CC-Expire=86400&HW-CC-Sign=90E8E1A3D7B03A532E5C7E4834A792D8CE416BE7B670E1F6C601AAAF584440E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/3A46uTdzS1q-EvckS8j1sQ/zh-cn_image_0000002581436334.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024102Z&HW-CC-Expire=86400&HW-CC-Sign=EBC22E0EB3A319E6B920335C541DC12C53D58F146EBD7BC1A3C9BE8E6F020E8C)

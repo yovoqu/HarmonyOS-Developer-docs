@@ -14,6 +14,8 @@
 
 ##### getHeader12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHeader(): Array&lt;WebHeader&gt;
  
 获取资源请求头信息。
@@ -34,6 +36,8 @@ getHeader(): Array&lt;WebHeader&gt;
   
 
 ##### getRequestUrl12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRequestUrl(): string
  
@@ -56,6 +60,8 @@ getRequestUrl(): string
 
 ##### getRequestMethod12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRequestMethod(): string
  
 获取请求方法。
@@ -76,6 +82,8 @@ getRequestMethod(): string
   
 
 ##### getReferrer12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getReferrer(): string
  
@@ -98,6 +106,8 @@ getReferrer(): string
 
 ##### isMainFrame12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMainFrame(): boolean
  
 判断资源请求是否为主frame。
@@ -118,6 +128,8 @@ isMainFrame(): boolean
   
 
 ##### hasGesture12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasGesture(): boolean
  
@@ -140,6 +152,8 @@ hasGesture(): boolean
 
 ##### getHttpBodyStream12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHttpBodyStream(): WebHttpBodyStream | null
  
 获取资源请求中的WebHttpBodyStream。
@@ -161,6 +175,8 @@ getHttpBodyStream(): WebHttpBodyStream | null
 
 ##### getRequestResourceType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRequestResourceType(): WebResourceType
  
 获取资源请求的资源类型。
@@ -181,6 +197,8 @@ getRequestResourceType(): WebResourceType
   
 
 ##### getFrameUrl12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFrameUrl(): string
  

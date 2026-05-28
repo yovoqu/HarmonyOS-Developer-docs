@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该组件为基础组件，不建议包含子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TimePicker(options?: TimePickerOptions)
 
@@ -38,6 +42,8 @@ TimePicker(options?: TimePickerOptions)
 
 
 ##### TimePickerOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 时间选择器组件的参数说明。
 
@@ -95,6 +101,8 @@ Date对象用于处理日期和时间，使用方式如下。
 
 ##### TimePickerFormat11+枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 时间选择器的数据格式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -111,11 +119,15 @@ Date对象用于处理日期和时间，使用方式如下。
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### useMilitaryTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 useMilitaryTime(value: boolean)
 
@@ -136,6 +148,8 @@ useMilitaryTime(value: boolean)
 
 ##### useMilitaryTime18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 useMilitaryTime(isMilitaryTime: Optional&lt;boolean&gt;)
 
 设置展示时间是否为24小时制，未通过该接口设置时，默认跟随系统设置展示。与[useMilitaryTime](#usemilitarytime)相比，isMilitaryTime参数新增了对undefined类型的支持。
@@ -154,6 +168,8 @@ useMilitaryTime(isMilitaryTime: Optional&lt;boolean&gt;)
 
 
 ##### disappearTextStyle10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disappearTextStyle(value: PickerTextStyle)
 
@@ -178,6 +194,8 @@ disappearTextStyle(value: PickerTextStyle)
 
 ##### disappearTextStyle18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。与[disappearTextStyle10+](#disappeartextstyle10)相比，style参数新增了对undefined类型的支持。
@@ -200,6 +218,8 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 ##### textStyle10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 textStyle(value: PickerTextStyle)
 
@@ -224,6 +244,8 @@ textStyle(value: PickerTextStyle)
 
 ##### textStyle18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。与[textStyle10+](#textstyle10)相比，style参数新增了对undefined类型的支持。
@@ -247,6 +269,8 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 ##### selectedTextStyle10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedTextStyle(value: PickerTextStyle)
 
 设置选中项的文本颜色、字号和字体粗细。
@@ -267,6 +291,8 @@ selectedTextStyle(value: PickerTextStyle)
 
 
 ##### selectedTextStyle18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
@@ -289,6 +315,8 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 ##### loop11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loop(value: boolean)
 
 设置是否启用循环模式。
@@ -307,6 +335,8 @@ loop(value: boolean)
 
 
 ##### loop18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loop(isLoop: Optional&lt;boolean&gt;)
 
@@ -327,6 +357,8 @@ loop(isLoop: Optional&lt;boolean&gt;)
 
 ##### dateTimeOptions12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 dateTimeOptions(value: DateTimeOptions)
 
 设置时分秒是否显示前导0。
@@ -346,6 +378,8 @@ dateTimeOptions(value: DateTimeOptions)
 
 ##### dateTimeOptions18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 dateTimeOptions(timeFormat: Optional&lt;DateTimeOptions&gt;)
 
 设置时分秒是否显示前导0。与[dateTimeOptions12+](#datetimeoptions12)相比，timeFormat参数新增了对undefined类型的支持。
@@ -364,6 +398,8 @@ dateTimeOptions(timeFormat: Optional&lt;DateTimeOptions&gt;)
 
 
 ##### enableHapticFeedback12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableHapticFeedback(enable: boolean)
 
@@ -398,6 +434,8 @@ enableHapticFeedback(enable: boolean)
 
 ##### enableHapticFeedback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 设置是否支持触控反馈。与[enableHapticFeedback12+](#enablehapticfeedback12)相比，enable参数新增了对undefined类型的支持。
@@ -427,6 +465,8 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 ##### enableCascade18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableCascade(enabled: boolean)
 
 设置上午和下午的标识是否根据小时数自动切换，仅在[useMilitaryTime](#usemilitarytime)设置为false时生效。
@@ -445,6 +485,8 @@ enableCascade(enabled: boolean)
 
 
 ##### digitalCrownSensitivity18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
@@ -469,11 +511,15 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: (value: TimePickerResult ) => void)
 
@@ -496,6 +542,8 @@ onChange(callback: (value: TimePickerResult ) => void)
 
 ##### onChange18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onChange(callback: Optional&lt;OnTimePickerChangeCallback&gt;)
 
 滑动TimePicker后，时间选项归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。与[onChange](#onchange)相比，callback参数新增了对undefined类型的支持。
@@ -516,6 +564,8 @@ onChange(callback: Optional&lt;OnTimePickerChangeCallback&gt;)
 
 
 ##### onEnterSelectedArea18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onEnterSelectedArea(callback: Callback&lt;TimePickerResult&gt;)
 
@@ -542,6 +592,8 @@ onEnterSelectedArea(callback: Callback&lt;TimePickerResult&gt;)
 
 ##### DateTimeOptions12+类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type DateTimeOptions = DateTimeOptions
 
 时间、日期格式化时可设置的配置项。
@@ -558,6 +610,8 @@ type DateTimeOptions = DateTimeOptions
 
 
 ##### OnTimePickerChangeCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 
@@ -578,6 +632,8 @@ type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 
 ##### TimePickerResult对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 返回24小时制时间。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -594,6 +650,8 @@ type OnTimePickerChangeCallback = (result: TimePickerResult) => void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -626,7 +684,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GRHw1iOJS-WWmR8za85bkQ/zh-cn_image_0000002581275928.png?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=FB382F268367842CB869218F09D2E6609797BAACD6EEA7E555279D36220FCA41)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GRHw1iOJS-WWmR8za85bkQ/zh-cn_image_0000002581275928.png?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=7FF7694496089FF921CA1322DC9EAD3BD3F3D628837FD4CF1CFB89BA4B849361)
 
 
 
@@ -670,7 +728,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/eAvT6ZAkQTS855NGpj6Tvg/zh-cn_image_0000002611755785.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=300A9933CEAD7C8FFA423E09D112DBC1B33F06AE63B5287142B03F1B67A3F708)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/eAvT6ZAkQTS855NGpj6Tvg/zh-cn_image_0000002611755785.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=AA918DBB639AED07352A420ECDFE11D245EA055709A29F2A5C9772C4A5DDB3C9)
 
 
 
@@ -705,7 +763,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/ey886HcWRimoFxWZ5rhDaA/zh-cn_image_0000002581435848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=110393288FA608A46969478CE962BA6AB6778A07B39F5BF96064AB0F8A436DCF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/ey886HcWRimoFxWZ5rhDaA/zh-cn_image_0000002581435848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=9D3F8AB0BA9E86150C8F08AAF62D4D14BA9221177461BC5561FC3E4E12699727)
 
 
 
@@ -750,7 +808,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/dlhbPji9SvyJzixqVi34hA/zh-cn_image_0000002611835679.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=31620DC077111E51DFC2AB03430B4E1085258ECD3C85435A1FFA5ADE9886100E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/dlhbPji9SvyJzixqVi34hA/zh-cn_image_0000002611835679.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=4A2AE4CFEF31D5F8A16F9F937E57D66925C7BD63F1AE7640BBA05E6C3A4A5A92)
 
 
 
@@ -786,7 +844,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/1z3nKicCR4KhaMgZnM997Q/zh-cn_image_0000002581275930.png?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=A3D02EFE7D9D06FE4726F680676871207ACEB7D37DBA84650A0CD13A82D4AFD2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/1z3nKicCR4KhaMgZnM997Q/zh-cn_image_0000002581275930.png?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=742B3D1F5AA935178FDAD62E754B45665A48BCD0C73C5DA67FF798C68605EC00)
 
 
 
@@ -822,7 +880,7 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/5NCRrKg9SRuwUhENwKDP2g/zh-cn_image_0000002611755787.png?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=33EED1561F5653782BA3D8BC1260DD18DDD11A1DC18B1296C21D4060472CDCEA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/5NCRrKg9SRuwUhENwKDP2g/zh-cn_image_0000002611755787.png?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=636DCB60A00819CAA5561E9DA9B4F36426F88606C4682A7D30175633EEEFD47B)
 
 
 
@@ -859,4 +917,4 @@ struct TimePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/cMVZCqGFTtaukVz1Fx1kBA/zh-cn_image_0000002581435850.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013926Z&HW-CC-Expire=86400&HW-CC-Sign=7B3D09536D3C42FE97CC5815AD64D0818995D88ED686971BAB454FA02EC824E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/cMVZCqGFTtaukVz1Fx1kBA/zh-cn_image_0000002581435850.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024221Z&HW-CC-Expire=86400&HW-CC-Sign=9BF6AB9639EB5ECBA518D773923BE0663C77A2BFCA680A2E6B00E3EA553B8FA7)

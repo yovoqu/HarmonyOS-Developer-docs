@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > ArcAlphabetIndexerAttribute是用于配置ArcAlphabetIndexer组件属性的关键接口。API version 21及之前版本，导入ArcAlphabetIndexer组件后需要开发者手动导入ArcAlphabetIndexerAttribute，否则会编译报错。从API version 22开始，编译工具链识别到导入ArcAlphabetIndexer组件后，会自动导入ArcAlphabetIndexerAttribute，无需开发者手动导入ArcAlphabetIndexerAttribute。 如果开发者手动导入ArcAlphabetIndexerAttribute，DevEco Studio会显示置灰，API version 21及之前版本删除会编译报错，API version 22开始，删除对功能无影响。
 
@@ -34,11 +36,15 @@ import { ArcAlphabetIndexer } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArcAlphabetIndexer(info: ArcAlphabetIndexerInitInfo)
 
@@ -59,11 +65,15 @@ ArcAlphabetIndexer(info: ArcAlphabetIndexerInitInfo)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### color
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 color(color: Optional&lt;ColorMetrics&gt;)
 
@@ -84,6 +94,8 @@ color(color: Optional&lt;ColorMetrics&gt;)
 
 ##### selectedColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedColor(color: Optional&lt;ColorMetrics&gt;)
 
 设置选中项文字颜色。
@@ -102,6 +114,8 @@ selectedColor(color: Optional&lt;ColorMetrics&gt;)
 
 
 ##### popupColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 popupColor(color: Optional&lt;ColorMetrics&gt;)
 
@@ -122,6 +136,8 @@ popupColor(color: Optional&lt;ColorMetrics&gt;)
 
 ##### selectedBackgroundColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedBackgroundColor(color: Optional&lt;ColorMetrics&gt;)
 
 设置选中项背景颜色。
@@ -140,6 +156,8 @@ selectedBackgroundColor(color: Optional&lt;ColorMetrics&gt;)
 
 
 ##### popupBackground
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 popupBackground(color: Optional&lt;ColorMetrics&gt;)
 
@@ -164,6 +182,8 @@ popupBackground(color: Optional&lt;ColorMetrics&gt;)
 
 ##### usePopup
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 usePopup(enabled: Optional&lt;boolean&gt;)
 
 设置是否使用提示弹窗。
@@ -182,6 +202,8 @@ usePopup(enabled: Optional&lt;boolean&gt;)
 
 
 ##### selectedFont
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectedFont(font: Optional&lt;Font&gt;)
 
@@ -202,6 +224,8 @@ selectedFont(font: Optional&lt;Font&gt;)
 
 ##### popupFont
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popupFont(font: Optional&lt;Font&gt;)
 
 设置提示弹窗字体样式。
@@ -220,6 +244,8 @@ popupFont(font: Optional&lt;Font&gt;)
 
 
 ##### font
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 font(font: Optional&lt;Font&gt;)
 
@@ -240,6 +266,8 @@ font(font: Optional&lt;Font&gt;)
 
 ##### itemSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 itemSize(size: Optional&lt;LengthMetrics&gt;)
 
 设置字母索引条字母区域大小。
@@ -258,6 +286,8 @@ itemSize(size: Optional&lt;LengthMetrics&gt;)
 
 
 ##### selected
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selected(index: Optional&lt;number&gt;)
 
@@ -278,6 +308,8 @@ selected(index: Optional&lt;number&gt;)
 
 ##### autoCollapse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 autoCollapse(enable: Optional&lt;boolean&gt;)
 
 设置是否使用自适应折叠模式。
@@ -296,6 +328,8 @@ autoCollapse(enable: Optional&lt;boolean&gt;)
 
 
 ##### popupBackgroundBlurStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 popupBackgroundBlurStyle(style: Optional&lt;BlurStyle&gt;)
 
@@ -320,11 +354,15 @@ popupBackgroundBlurStyle(style: Optional&lt;BlurStyle&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onSelect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSelect(handler: Optional&lt;OnSelectCallback&gt;)
 
@@ -345,6 +383,8 @@ onSelect(handler: Optional&lt;OnSelectCallback&gt;)
 
 ##### ArcAlphabetIndexerInitInfo对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义弧形字母索引条的初始化参数。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -360,6 +400,8 @@ onSelect(handler: Optional&lt;OnSelectCallback&gt;)
 
 
 ##### OnSelectCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnSelectCallback = (index: number) => void
 
@@ -379,6 +421,8 @@ type OnSelectCallback = (index: number) => void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例实现了弧形索引条和弧形列表联动控制和定位。
 
@@ -481,4 +525,4 @@ struct ArcListAndIndexer {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/dAigkfP4T_WMW6rlNcOl7A/zh-cn_image_0000002581436034.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013928Z&HW-CC-Expire=86400&HW-CC-Sign=6FF0CA528D14310080BD4C99C81FAA0EDE1AE1B5F68669A8CCE80BF5243306C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/dAigkfP4T_WMW6rlNcOl7A/zh-cn_image_0000002581436034.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=2C22A35D45852D6A7BA61D0126142FDE0A90CDB5D13ECBB50C5C5299CD8BA62A)

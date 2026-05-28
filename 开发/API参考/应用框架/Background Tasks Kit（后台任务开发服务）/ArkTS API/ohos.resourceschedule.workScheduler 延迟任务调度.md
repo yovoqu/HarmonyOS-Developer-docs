@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { workScheduler } from '@kit.BackgroundTasksKit';
 ```
@@ -21,6 +23,8 @@ import { workScheduler } from '@kit.BackgroundTasksKit';
 
 
 ##### workScheduler.startWork
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startWork(work: WorkInfo): void
 
@@ -81,6 +85,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### workScheduler.stopWork
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopWork(work: WorkInfo, needCancel?: boolean): void
 
 取消延迟任务。
@@ -140,6 +146,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### workScheduler.getWorkStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWorkStatus(workId: number, callback : AsyncCallback&lt;WorkInfo&gt;): void
 
 通过workId获取延迟任务，使用Callback异步回调。
@@ -185,6 +193,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 ##### workScheduler.getWorkStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWorkStatus(workId: number): Promise&lt;WorkInfo&gt;
 
@@ -236,6 +246,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### workScheduler.obtainAllWorks(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 obtainAllWorks(callback: AsyncCallback&lt;void&gt;) : Array&lt;WorkInfo&gt;
 
 获取当前应用所有的延迟任务，使用Callback异步回调。
@@ -275,6 +287,8 @@ obtainAllWorks(callback: AsyncCallback&lt;void&gt;) : Array&lt;WorkInfo&gt;
 
 
 ##### workScheduler.obtainAllWorks10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 obtainAllWorks(callback: AsyncCallback<Array&lt;WorkInfo&gt;>): void
 
@@ -320,6 +334,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### workScheduler.obtainAllWorks
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 obtainAllWorks(): Promise<Array&lt;WorkInfo&gt;>
 
 获取当前应用所有的延迟任务，使用Promise异步回调。
@@ -362,6 +378,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### workScheduler.stopAndClearWorks
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopAndClearWorks(): void
 
 停止和取消当前应用所有的延迟任务。
@@ -397,6 +415,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 ##### workScheduler.isLastWorkTimeOut(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isLastWorkTimeOut(workId: number, callback : AsyncCallback&lt;void&gt;): boolean
 
@@ -437,6 +457,8 @@ isLastWorkTimeOut(workId: number, callback : AsyncCallback&lt;void&gt;): boolean
 
 
 ##### workScheduler.isLastWorkTimeOut10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isLastWorkTimeOut(workId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -483,6 +505,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 ##### workScheduler.isLastWorkTimeOut
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isLastWorkTimeOut(workId: number): Promise&lt;boolean&gt;
 
@@ -536,6 +560,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### WorkInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 延迟任务的具体信息, 用于设置延迟任务的触发条件等。
 
 > [!NOTE]
@@ -569,6 +595,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### NetworkType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 触发延迟任务回调的网络类型。
 
 **系统能力：** SystemCapability.ResourceSchedule.WorkScheduler
@@ -587,6 +615,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### ChargingType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 触发延迟任务回调的充电类型。
 
 **系统能力：** SystemCapability.ResourceSchedule.WorkScheduler
@@ -603,6 +633,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### BatteryStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 触发延迟任务回调的电池状态。
 
 **系统能力：** SystemCapability.ResourceSchedule.WorkScheduler
@@ -617,6 +649,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 ##### StorageRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 触发延迟任务回调的存储状态。
 

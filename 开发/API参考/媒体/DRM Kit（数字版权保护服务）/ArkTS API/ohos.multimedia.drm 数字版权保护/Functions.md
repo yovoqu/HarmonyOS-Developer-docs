@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drm } from '@kit.DrmKit';
 ```
@@ -19,6 +21,8 @@ import { drm } from '@kit.DrmKit';
 
 
 ##### drm.createMediaKeySystem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createMediaKeySystem(name: string): MediaKeySystem
 
@@ -68,6 +72,8 @@ console.info(`createMediaKeySystem success, name: ${name}`);
 
 ##### drm.isMediaKeySystemSupported
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMediaKeySystemSupported(name: string): boolean
 
 判断设备是否支持指定的DRM解决方案。
@@ -113,6 +119,8 @@ console.info("isMediaKeySystemSupported: ", supported);
 
 
 ##### drm.isMediaKeySystemSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isMediaKeySystemSupported(name: string, mimeType: string): boolean
 
@@ -160,6 +168,8 @@ console.info("isMediaKeySystemSupported: ", supported);
 
 
 ##### drm.isMediaKeySystemSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isMediaKeySystemSupported(name: string, mimeType: string, level: ContentProtectionLevel): boolean
 
@@ -209,6 +219,8 @@ console.info("isMediaKeySystemSupported: ", supported);
 
 ##### drm.getMediaKeySystemUuid12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMediaKeySystemUuid(name: string): string;
 
 获取DRM解决方案支持的DRM内容保护系统唯一标识。
@@ -254,6 +266,8 @@ console.info("getMediaKeySystemUuid: ", uuid);
 
 
 ##### drm.getMediaKeySystems12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMediaKeySystems(): MediaKeySystemDescription[]
 

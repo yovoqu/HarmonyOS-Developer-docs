@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 高精几何重建对象的立方体数据。
  
 作为[HMS_AREngine_ARSemanticDense_AcquireCubeData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine#hms_arengine_arsemanticdense_acquirecubedata)接口输入。
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,9 +44,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### id
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 int32_t AREngine_ARSemanticDenseCubeData::id
@@ -54,6 +64,8 @@ int32_t AREngine_ARSemanticDenseCubeData::id
 
 ##### vertexSize
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 int32_t AREngine_ARSemanticDenseCubeData::vertexSize
 ```
@@ -65,6 +77,8 @@ int32_t AREngine_ARSemanticDenseCubeData::vertexSize
   
 
 ##### vertexData
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 float* AREngine_ARSemanticDenseCubeData::vertexData
@@ -78,6 +92,8 @@ float* AREngine_ARSemanticDenseCubeData::vertexData
 
 ##### confidence
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 float AREngine_ARSemanticDenseCubeData::confidence
 ```
@@ -89,6 +105,8 @@ float AREngine_ARSemanticDenseCubeData::confidence
   
 
 ##### label
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 AREngine_ARSemanticPlaneLabel AREngine_ARSemanticDenseCubeData::label

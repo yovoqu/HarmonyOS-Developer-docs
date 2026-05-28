@@ -14,6 +14,8 @@
 
 ##### constructor(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 WebCookie的构造函数。
@@ -28,6 +30,8 @@ WebCookie的构造函数。
 
 ##### setCookie(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCookie()
  
 设置cookie，该方法为同步方法。设置成功返回true，否则返回false。
@@ -41,6 +45,8 @@ setCookie()
   
 
 ##### saveCookie(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 saveCookie()
  

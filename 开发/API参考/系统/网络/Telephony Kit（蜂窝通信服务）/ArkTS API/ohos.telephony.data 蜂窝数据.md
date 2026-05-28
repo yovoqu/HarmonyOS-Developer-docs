@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { data } from '@kit.TelephonyKit';
 ```
@@ -21,6 +23,8 @@ import { data } from '@kit.TelephonyKit';
 
 
 ##### data.getDefaultCellularDataSlotId
+
+**支持设备：** Phone | Tablet | Wearable
 
 getDefaultCellularDataSlotId(callback: AsyncCallback&lt;number&gt;): void
 
@@ -54,6 +58,8 @@ data.getDefaultCellularDataSlotId((err: BusinessError, contextData: number) => {
 
 ##### data.getDefaultCellularDataSlotId
 
+**支持设备：** Phone | Tablet | Wearable
+
 getDefaultCellularDataSlotId(): Promise&lt;number&gt;
 
 获取默认移动数据的SIM卡，使用Promise方式作为异步方法。
@@ -84,6 +90,8 @@ data.getDefaultCellularDataSlotId().then((contextData: number) => {
 
 ##### data.getDefaultCellularDataSlotIdSync9+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getDefaultCellularDataSlotIdSync(): number
 
 获取默认移动数据的SIM卡。
@@ -108,6 +116,8 @@ console.info("Result: "+ data.getDefaultCellularDataSlotIdSync())
 
 
 ##### data.getCellularDataFlowType
+
+**支持设备：** Phone | Tablet | Wearable
 
 getCellularDataFlowType(callback: AsyncCallback&lt;DataFlowType&gt;): void
 
@@ -152,6 +162,8 @@ data.getCellularDataFlowType((err: BusinessError, contextData: data.DataFlowType
 
 ##### data.getCellularDataFlowType
 
+**支持设备：** Phone | Tablet | Wearable
+
 getCellularDataFlowType(): Promise&lt;DataFlowType&gt;
 
 获取蜂窝网络的数据流类型（对应信号栏旁边的上下行箭头），使用Promise方式作为异步方法。
@@ -192,6 +204,8 @@ data.getCellularDataFlowType().then((contextData: data.DataFlowType) => {
 
 
 ##### data.getCellularDataState
+
+**支持设备：** Phone | Tablet | Wearable
 
 getCellularDataState(callback: AsyncCallback&lt;DataConnectState&gt;): void
 
@@ -236,6 +250,8 @@ data.getCellularDataState((err: BusinessError, contextData: data.DataConnectStat
 
 ##### data.getCellularDataState
 
+**支持设备：** Phone | Tablet | Wearable
+
 getCellularDataState(): Promise&lt;DataConnectState&gt;
 
 获取蜂窝数据业务的连接状态，使用Promise方式作为异步方法。
@@ -276,6 +292,8 @@ data.getCellularDataState().then((contextData: data.DataConnectState) => {
 
 
 ##### data.isCellularDataEnabled
+
+**支持设备：** Phone | Tablet | Wearable
 
 isCellularDataEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -325,6 +343,8 @@ data.isCellularDataEnabled((err: BusinessError, contextData: boolean) => {
 
 ##### data.isCellularDataEnabled
 
+**支持设备：** Phone | Tablet | Wearable
+
 isCellularDataEnabled(): Promise&lt;boolean&gt;
 
 检查蜂窝数据业务是否启用，使用Promise方式作为异步方法。
@@ -369,6 +389,8 @@ data.isCellularDataEnabled().then((contextData: boolean) => {
 
 ##### data.isCellularDataEnabledSync12+
 
+**支持设备：** Phone | Tablet | Wearable
+
 isCellularDataEnabledSync(): boolean
 
 检查蜂窝数据业务是否启用，调用此API返回结果。
@@ -412,6 +434,8 @@ try {
 
 
 ##### data.isCellularDataRoamingEnabled
+
+**支持设备：** Phone | Tablet | Wearable
 
 isCellularDataRoamingEnabled(slotId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -461,6 +485,8 @@ data.isCellularDataRoamingEnabled(0, (err: BusinessError, contextData: boolean) 
 
 
 ##### data.isCellularDataRoamingEnabled
+
+**支持设备：** Phone | Tablet | Wearable
 
 isCellularDataRoamingEnabled(slotId: number): Promise&lt;boolean&gt;
 
@@ -515,6 +541,8 @@ data.isCellularDataRoamingEnabled(0).then((contextData: boolean) => {
 
 ##### data.isCellularDataRoamingEnabledSync12+
 
+**支持设备：** Phone | Tablet | Wearable
+
 isCellularDataRoamingEnabledSync(slotId: number): boolean
 
 检查蜂窝数据业务是否启用漫游，调用此API返回结果。
@@ -568,6 +596,8 @@ try {
 
 ##### data.getDefaultCellularDataSimId10+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getDefaultCellularDataSimId(): number
 
 获取默认移动数据的SIM卡ID。
@@ -592,6 +622,8 @@ console.info("Result: "+ data.getDefaultCellularDataSimId());
 
 
 ##### data.queryAllApns16+
+
+**支持设备：** Phone | Tablet | Wearable
 
 queryAllApns(): Promise<Array&lt;ApnInfo&gt;>
 
@@ -633,6 +665,8 @@ data.queryAllApns().then((apnInfos: Array<data.ApnInfo>) => {
 
 
 ##### data.queryApnIds16+
+
+**支持设备：** Phone | Tablet | Wearable
 
 queryApnIds(apnInfo: ApnInfo): Promise<Array&lt;number&gt;>
 
@@ -690,6 +724,8 @@ data.queryApnIds(apnInfo).then((apnIds: Array<number>) => {
 
 ##### data.setPreferredApn16+
 
+**支持设备：** Phone | Tablet | Wearable
+
 setPreferredApn(apnId: number): Promise&lt;boolean&gt;
 
 异步设置apnId对应的APN为首选APN。
@@ -743,6 +779,8 @@ data.setPreferredApn(apnId).then((result: boolean) => {
 
 ##### data.getActiveApnName20+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getActiveApnName(): Promise&lt;string&gt;
 
 异步获取默认移动数据SIM卡对应的处于激活状态的数据业务APN（access point name，接入点名称）name信息，若不处于激活状态，返回为空字符串。
@@ -784,6 +822,8 @@ data.getActiveApnName().then((apn: string) => {
 
 ##### DataFlowType
 
+**支持设备：** Phone | Tablet | Wearable
+
 描述蜂窝数据流类型。
 
 **系统能力**：SystemCapability.Telephony.CellularData
@@ -801,6 +841,8 @@ data.getActiveApnName().then((apn: string) => {
 
 ##### DataConnectState
 
+**支持设备：** Phone | Tablet | Wearable
+
 描述蜂窝数据链路连接状态。
 
 **系统能力**：SystemCapability.Telephony.CellularData
@@ -817,6 +859,8 @@ data.getActiveApnName().then((apn: string) => {
 
 
 ##### ApnInfo16+
+
+**支持设备：** Phone | Tablet | Wearable
 
 APN信息。
 

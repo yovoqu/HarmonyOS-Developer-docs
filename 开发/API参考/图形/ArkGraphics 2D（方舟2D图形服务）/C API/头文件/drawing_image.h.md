@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件中定义了与图片相关的功能函数。
  
 **引用文件：** <native_drawing/drawing_image.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -41,9 +47,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_ImageCreate()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Image* OH_Drawing_ImageCreate(void)
@@ -68,6 +78,8 @@ OH_Drawing_Image* OH_Drawing_ImageCreate(void)
 
 ##### OH_Drawing_ImageDestroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_ImageDestroy(OH_Drawing_Image* image)
 ```
@@ -90,6 +102,8 @@ void OH_Drawing_ImageDestroy(OH_Drawing_Image* image)
   
 
 ##### OH_Drawing_ImageBuildFromBitmap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_ImageBuildFromBitmap(OH_Drawing_Image* image, OH_Drawing_Bitmap* bitmap)
@@ -126,6 +140,8 @@ image、bitmap任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ##### OH_Drawing_ImageGetWidth()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_Drawing_ImageGetWidth(OH_Drawing_Image* image)
 ```
@@ -160,6 +176,8 @@ image为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ##### OH_Drawing_ImageGetHeight()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_Drawing_ImageGetHeight(OH_Drawing_Image* image)
 ```
@@ -193,6 +211,8 @@ image为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
   
 
 ##### OH_Drawing_ImageGetImageInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_ImageGetImageInfo(OH_Drawing_Image* image, OH_Drawing_Image_Info* imageInfo)

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 该模块对外提供全局取色能力。
  
 **系统能力：** SystemCapability.Stylus.ColorPicker
@@ -17,9 +19,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,6 +35,8 @@
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,6 +47,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,6 +58,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -57,6 +69,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -68,9 +82,13 @@
 
 ##### 类型定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### HMS_GCP_OnResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void(* HMS_GCP_OnResult) (void *userData, HMS_GCP_PickedColorInfo colorInfo, const int32_t code)
@@ -95,9 +113,13 @@ typedef void(* HMS_GCP_OnResult) (void *userData, HMS_GCP_PickedColorInfo colorI
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### HMS_GCP_ColorSpace
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum HMS_GCP_ColorSpace
@@ -143,9 +165,13 @@ enum HMS_GCP_ColorSpace
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### HMS_GCP_StartColorPicker()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t HMS_GCP_StartColorPicker (int32_t initialPosX, int32_t initialPosY, HMS_GCP_OnResult onResultCallback, void *userData)
@@ -170,6 +196,8 @@ int32_t HMS_GCP_StartColorPicker (int32_t initialPosX, int32_t initialPosY, HMS_
   
 
 ##### HMS_GCP_StartColorPickerWithColorValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t HMS_GCP_StartColorPickerWithColorValue (int32_t initialPosX, int32_t initialPosY, HMS_GCP_OnResult onResultCallback, void *userData)

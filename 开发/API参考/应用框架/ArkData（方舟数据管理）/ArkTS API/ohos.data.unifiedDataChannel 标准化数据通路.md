@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { unifiedDataChannel } from '@kit.ArkData';
 ```
@@ -21,6 +23,8 @@ import { unifiedDataChannel } from '@kit.ArkData';
 
 
 ##### ShareOptions12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 UDMF支持的设备内使用范围类型枚举。
 
@@ -37,6 +41,8 @@ UDMF支持的设备内使用范围类型枚举。
 
 
 ##### GetDelayData12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type GetDelayData = (type: string) => UnifiedData
 
@@ -89,6 +95,8 @@ let getDelayData: unifiedDataChannel.GetDelayData = ((type: string) => {
 
 ##### ValueType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer | object | null | undefined
 
 用于表示统一数据记录允许的数据字段类型。
@@ -113,6 +121,8 @@ type ValueType = number | string | boolean | image.PixelMap | Want | ArrayBuffer
 
 
 ##### UnifiedDataProperties12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义统一数据对象中所有数据记录的属性，包含时间戳、标签、粘贴范围以及一些附加数据等。
 
@@ -167,6 +177,8 @@ properties.getDelayData = ((type: string) => {
 
 ##### UnifiedData
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示UDMF统一数据对象，提供封装一组数据记录的方法。
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
@@ -183,6 +195,8 @@ properties.getDelayData = ((type: string) => {
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor()
 
@@ -201,6 +215,8 @@ let unifiedData = new unifiedDataChannel.UnifiedData();
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor(record: UnifiedRecord)
 
@@ -242,6 +258,8 @@ let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
 
 ##### addRecord
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 addRecord(record: UnifiedRecord): void
 
@@ -451,6 +469,8 @@ let types = unifiedData.getTypes();
 
 ##### Summary
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 描述统一数据对象的数据摘要，包括数据类型和大小。
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
@@ -490,11 +510,15 @@ function parseSummary(summary : unifiedDataChannel.Summary) {
 
 ##### UnifiedRecord
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 对UDMF支持的数据内容的抽象定义，称为数据记录。一个统一数据对象内包含一条或多条数据记录，例如一条文本记录、一条图片记录、一条HTML记录等。从API version 15开始，支持往数据记录中增加同一内容的不同表现样式，数据使用方根据业务需要获取对应的样式。
 
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor()
 
@@ -513,6 +537,8 @@ let unifiedRecord = new unifiedDataChannel.UnifiedRecord();
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor(type: string, value: ValueType)
 
@@ -656,6 +682,8 @@ let hyperlinkValue = hyperlinkRecord.getValue();
 
 ##### addEntry15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 addEntry(type: string, value: ValueType): void
 
 在当前数据记录中添加一条指定数据类型和内容的数据，通过该方法增加的数据类型和内容为同一内容的不同表现样式.
@@ -711,6 +739,8 @@ unifiedData.addRecord(record);
 
 
 ##### getEntry15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getEntry(type: string): ValueType
 
@@ -794,6 +824,8 @@ for (let i = 0; i < records.length; i++) {
 
 
 ##### getEntries15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getEntries(): Record<string, ValueType>
 
@@ -926,6 +958,8 @@ for (let i = 0; i < records.length; i++) {
 
 ##### Text
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 文本类型数据，是[UnifiedRecord](#unifiedrecord)的子类，也是文本类型数据的基类，用于描述文本类数据，推荐开发者优先使用Text的子类描述数据，如[PlainText](#plaintext)、[Hyperlink](#hyperlink)、[HTML](#html)等具体子类。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -952,6 +986,8 @@ let unifiedData = new unifiedDataChannel.UnifiedData(text);
 
 ##### PlainText
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 [Text](#text)的子类，用于描述纯文本类数据。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -975,6 +1011,8 @@ text.abstract = 'This is abstract';
 
 
 ##### Hyperlink
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 [Text](#text)的子类，用于描述超链接类型数据。
 
@@ -1000,6 +1038,8 @@ link.description = 'This is description';
 
 ##### HTML
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 HTML类型数据，是[Text](#text)的子类，用于描述超文本标记语言数据。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1023,6 +1063,8 @@ html.plainContent = 'This is plainContent';
 
 
 ##### File
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 File类型数据，是[UnifiedRecord](#unifiedrecord)的子类，也是文件类型数据的基类，用于描述文件类型数据，推荐开发者优先使用File的子类描述数据，如[Image](#image)、[Video](#video)、[Folder](#folder)等具体子类。
 
@@ -1063,6 +1105,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### Image
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 图片类型数据，是[File](#file)的子类，用于描述图片文件。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1096,6 +1140,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### Video
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 视频类型数据，是[File](#file)的子类，用于描述视频文件。
 
@@ -1131,6 +1177,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### Audio
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 音频类型数据，是[File](#file)的子类，用于描述音频文件。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1164,6 +1212,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### Folder
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 文件夹类型数据，是[File](#file)的子类，用于描述文件夹。
 
@@ -1199,6 +1249,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### SystemDefinedRecord
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 SystemDefinedRecord是[UnifiedRecord](#unifiedrecord)的子类，也是HarmonyOS系统特有数据类型的基类，用于描述仅在HarmonyOS系统范围内流通的特有数据类型，推荐开发者优先使用SystemDefinedRecord的子类描述数据，如[SystemDefinedForm](#systemdefinedform)、[SystemDefinedAppItem](#systemdefinedappitem)、[SystemDefinedPixelMap](#systemdefinedpixelmap)等具体子类。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1226,6 +1278,8 @@ let unifiedData = new unifiedDataChannel.UnifiedData(sdr);
 
 
 ##### SystemDefinedForm
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 系统定义的桌面卡片类型数据，是[SystemDefinedRecord](#systemdefinedrecord)的子类。
 
@@ -1263,6 +1317,8 @@ let unifiedData = new unifiedDataChannel.UnifiedData(form);
 
 
 ##### SystemDefinedAppItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 系统定义的桌面图标类型数据，是[SystemDefinedRecord](#systemdefinedrecord)的子类。
 
@@ -1302,6 +1358,8 @@ let unifiedData = new unifiedDataChannel.UnifiedData(appItem);
 
 
 ##### SystemDefinedPixelMap
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 与系统侧定义的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)数据类型对应的图片数据类型，是[SystemDefinedRecord](#systemdefinedrecord)的子类，仅保存PixelMap的二进制数据。
 
@@ -1360,6 +1418,8 @@ image.createPixelMap(color, opts, (error, pixelMap) => {
 
 ##### ApplicationDefinedRecord
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ApplicationDefinedRecord是[UnifiedRecord](#unifiedrecord)的子类，也是应用自定义数据类型的基类，用于描述仅在应用生态内部流通的自定义数据类型，应用可基于此类进行自定义数据类型的扩展。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1386,6 +1446,8 @@ let unifiedData = new unifiedDataChannel.UnifiedData(record);
 
 ##### Intention
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 UDMF已经支持的数据通路枚举类型。其主要用途是标识各种UDMF数据通路所面向的不同业务场景。
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
@@ -1403,6 +1465,8 @@ UDMF已经支持的数据通路枚举类型。其主要用途是标识各种UDMF
 
 ##### Visibility20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示数据的可见性等级枚举。
 
 **系统能力：** SystemCapability.DistributedDataManager.UDMF.Core
@@ -1416,6 +1480,8 @@ UDMF已经支持的数据通路枚举类型。其主要用途是标识各种UDMF
 
 
 ##### Options
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 UDMF提供的数据操作接口包含三个可选参数：intention、key和visibility。如果接口不需要这些参数，可以不填，具体要求请参阅该接口的参数说明。
 
@@ -1431,6 +1497,8 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 
 ##### FileConflictOptions15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 表示文件拷贝冲突时的可选策略的枚举。
 
@@ -1448,6 +1516,8 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 ##### ProgressIndicator15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 表示进度条指示选项的枚举，可选择是否采用系统默认进度显示。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -1463,6 +1533,8 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 
 ##### ListenerStatus15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 表示从UDMF获取数据时的状态码的枚举。
 
@@ -1486,6 +1558,8 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 ##### ProgressInfo15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义进度上报的数据。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -1501,6 +1575,8 @@ UDMF提供的数据操作接口包含三个可选参数：intention、key和visi
 
 
 ##### DataProgressListener15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | null) => void
 
@@ -1521,6 +1597,8 @@ type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | nul
 
 
 ##### GetDataParams15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 表示从UDMF获取数据时的参数，包含目标路径、文件冲突选项、进度条类型等。
 
@@ -1543,6 +1621,8 @@ type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | nul
 
 ##### DataLoadInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 用于描述被加载数据的类型与数量。
 
  - 在**数据发送方**中使用，表示实际可提供的数据范围，必须设置该字段。
@@ -1564,6 +1644,8 @@ type DataProgressListener = (progressInfo: ProgressInfo, data: UnifiedData | nul
 
 
 ##### DataLoadHandler20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData | null
 
@@ -1592,6 +1674,8 @@ type DataLoadHandler = (acceptableInfo?: DataLoadInfo) => UnifiedData | null
 
 
 ##### DelayedDataLoadHandler22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<UnifiedData | null>
 
@@ -1623,6 +1707,8 @@ type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<Unified
 
 ##### DataLoadParams20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 用于在延迟加载场景下描述发送方的数据加载策略。
 
 当同时传入loadHandler和delayedDataLoadHandler时，优先使用delayedDataLoadHandler，loadHandler不生效。
@@ -1641,6 +1727,8 @@ type DelayedDataLoadHandler = (acceptableInfo?: DataLoadInfo) => Promise<Unified
 
 
 ##### unifiedDataChannel.insertData
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 insertData(options: Options, data: UnifiedData, callback: AsyncCallback&lt;string&gt;): void
 
@@ -1702,6 +1790,8 @@ try {
 
 
 ##### unifiedDataChannel.insertData
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 insertData(options: Options, data: UnifiedData): Promise&lt;string&gt;
 
@@ -1767,6 +1857,8 @@ try {
 
 
 ##### unifiedDataChannel.updateData
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 updateData(options: Options, data: UnifiedData, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1848,6 +1940,8 @@ try {
 
 
 ##### unifiedDataChannel.updateData
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 updateData(options: Options, data: UnifiedData): Promise&lt;void&gt;
 
@@ -1934,6 +2028,8 @@ try {
 
 ##### unifiedDataChannel.queryData
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 queryData(options: Options, callback: AsyncCallback<Array&lt;UnifiedData&gt;>): void
 
 查询UDMF公共数据通路的数据，使用callback异步回调。
@@ -1995,6 +2091,8 @@ try {
 
 
 ##### unifiedDataChannel.queryData
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 queryData(options: Options): Promise<Array&lt;UnifiedData&gt;>
 
@@ -2062,6 +2160,8 @@ try {
 
 ##### unifiedDataChannel.deleteData
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 deleteData(options: Options, callback: AsyncCallback<Array&lt;UnifiedData&gt;>): void
 
 删除UDMF公共数据通路的数据，返回删除的数据集，使用callback异步回调。
@@ -2123,6 +2223,8 @@ try {
 
 
 ##### unifiedDataChannel.deleteData
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 deleteData(options: Options): Promise<Array&lt;UnifiedData&gt;>
 
@@ -2190,6 +2292,8 @@ try {
 
 ##### unifiedDataChannel.setAppShareOptions14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 setAppShareOptions(intention: Intention, shareOptions: ShareOptions): void
 
 设置应用内拖拽通道数据可使用的范围[ShareOptions](#shareoptions12)，目前仅支持DRAG类型数据通道的管控设置。
@@ -2236,6 +2340,8 @@ try {
 
 ##### unifiedDataChannel.removeAppShareOptions14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 removeAppShareOptions(intention: Intention): void
 
 清除[setAppShareOptions](#unifieddatachannelsetappshareoptions14)设置的管控信息。
@@ -2279,6 +2385,8 @@ try {
 
 
 ##### unifiedDataChannel.convertRecordsToEntries17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 convertRecordsToEntries(data: UnifiedData): void
 

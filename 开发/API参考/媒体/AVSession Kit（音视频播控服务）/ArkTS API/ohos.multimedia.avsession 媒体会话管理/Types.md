@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { avSession } from '@kit.AVSessionKit';
 ```
@@ -19,6 +21,8 @@ import { avSession } from '@kit.AVSessionKit';
   
 
 ##### AVSessionType10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call' | 'photo'
  
@@ -42,6 +46,8 @@ type AVSessionType = 'audio' | 'video' | 'voice_call' | 'video_call' | 'photo'
   
 
 ##### AVCastControlCommandType10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type AVCastControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
  
@@ -74,6 +80,8 @@ type AVCastControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPr
 
 ##### ExtraInfo18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ExtraInfo = {[key: string]: Object;}
  
 媒体提供方设置的自定义媒体数据包对象。
@@ -88,6 +96,8 @@ type ExtraInfo = {[key: string]: Object;}
   
 
 ##### KeyRequestCallback12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type KeyRequestCallback = (assetId: string, requestData: Uint8Array) => void
  
@@ -116,6 +126,8 @@ let keyRequestCallback: avSession.KeyRequestCallback = async(assetId: string, re
   
 
 ##### AVControlCommandType10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevious' | 'fastForward' | 'rewind' |
  
@@ -152,6 +164,8 @@ type AVControlCommandType = 'play' | 'pause' | 'stop' | 'playNext' | 'playPrevio
 
 ##### NoParamCallback22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type NoParamCallback = () => void
  
 定义无参数的回调函数类型。
@@ -161,6 +175,8 @@ type NoParamCallback = () => void
   
 
 ##### TwoParamCallback22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type TwoParamCallback<T, G> = (data1: T, data2: G) => void
  

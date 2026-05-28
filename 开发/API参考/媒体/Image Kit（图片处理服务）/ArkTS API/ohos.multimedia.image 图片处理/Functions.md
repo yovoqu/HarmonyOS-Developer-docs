@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -19,6 +21,8 @@ import { image } from '@kit.ImageKit';
 
 
 ##### image.createPicture13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPicture(mainPixelmap : PixelMap): Picture
 
@@ -74,6 +78,8 @@ async function CreatePicture(context: Context) {
 
 
 ##### image.createPictureFromParcel13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPictureFromParcel(sequence: rpc.MessageSequence): Picture
 
@@ -166,6 +172,8 @@ async function Marshalling_UnMarshalling(context: Context) {
 
 ##### image.createPixelMap8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMap(colors: ArrayBuffer, options: InitializationOptions): Promise&lt;PixelMap&gt;
 
 通过像素数据和图像属性创建PixelMap，传入的像素数据默认按BGRA_8888格式解析。使用Promise异步回调。
@@ -214,6 +222,8 @@ async function CreatePixelMap() {
 
 ##### image.createPixelMap8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMap(colors: ArrayBuffer, options: InitializationOptions, callback: AsyncCallback&lt;PixelMap&gt;): void
 
 通过像素数据和图像属性创建PixelMap，传入的像素数据默认按BGRA_8888格式解析。使用callback异步回调。
@@ -258,6 +268,8 @@ async function CreatePixelMap() {
 
 
 ##### image.createPixelMapUsingAllocator20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapUsingAllocator(colors: ArrayBuffer, param: InitializationOptions, allocatorType?: AllocatorType): Promise&lt;PixelMap&gt;
 
@@ -318,6 +330,8 @@ async function CreatePixelMapUseAllocator() {
 
 
 ##### image.createPixelMapFromParcel11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapFromParcel(sequence: rpc.MessageSequence): PixelMap
 
@@ -423,6 +437,8 @@ async function CreatePixelMapFromParcel() {
 
 ##### image.createPixelMapFromSurface11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMapFromSurface(surfaceId: string, region: Region): Promise&lt;PixelMap&gt;
 
 根据Surface ID和区域信息创建一个PixelMap对象。该区域的大小由[Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#region8).size指定。使用Promise异步回调。
@@ -480,6 +496,8 @@ async function CreatePixelMapFromSurface(surfaceId: string) {
 
 ##### image.createPixelMapFromSurfaceSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMapFromSurfaceSync(surfaceId: string, region: Region): PixelMap
 
 以同步方式，根据Surface ID和区域信息创建一个PixelMap对象。该区域的大小由[Region](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#region8).size指定。
@@ -532,6 +550,8 @@ async function Demo(surfaceId: string) {
 
 ##### image.createPixelMapFromSurface15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMapFromSurface(surfaceId: string): Promise&lt;PixelMap&gt;
 
 从Surface ID创建一个PixelMap对象。使用Promise异步回调。
@@ -583,6 +603,8 @@ async function CreatePixelMapFromSurface(surfaceId: string) {
 
 ##### image.createPixelMapFromSurfaceSync15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMapFromSurfaceSync(surfaceId: string): PixelMap
 
 从Surface ID创建一个PixelMap对象，同步返回PixelMap结果。
@@ -628,6 +650,8 @@ async function CreatePixelMapFromSurfaceSync(surfaceId: string) {
 
 
 ##### image.createPixelMapFromSurfaceWithTransformation23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapFromSurfaceWithTransformation(surfaceId: string, transformEnabled: boolean): Promise&lt;PixelMap&gt;
 
@@ -679,6 +703,8 @@ function DemoCreatePixelMapFromSurfaceWithTransformation(surfaceId: string, tran
 
 
 ##### image.createPixelMapFromSurfaceWithTransformationSync23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapFromSurfaceWithTransformationSync(surfaceId: string, transformEnabled: boolean): PixelMap
 
@@ -735,6 +761,8 @@ function DemoCreatePixelMapFromSurfaceWithTransformationSync(surfaceId: string, 
 
 ##### image.createPixelMapSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMapSync(colors: ArrayBuffer, options: InitializationOptions): PixelMap
 
 通过像素数据和图像属性创建PixelMap，传入的像素数据默认按BGRA_8888格式解析。同步返回结果。
@@ -787,6 +815,8 @@ function CreatePixelMapSync() {
 
 ##### image.createPixelMapSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMapSync(options: InitializationOptions): PixelMap
 
 通过图像属性创建空白PixelMap，同步返回PixelMap结果。
@@ -831,6 +861,8 @@ function CreatePixelMapSync() {
 
 
 ##### image.createPixelMapUsingAllocatorSync20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapUsingAllocatorSync(colors: ArrayBuffer, param: InitializationOptions, allocatorType?: AllocatorType): PixelMap
 
@@ -887,6 +919,8 @@ function CreatePixelMapUsingAllocatorSync() {
 
 ##### image.createPixelMapUsingAllocatorSync20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMapUsingAllocatorSync(param: InitializationOptions, allocatorType?: AllocatorType): PixelMap
 
 通过图像属性创建空白PixelMap，可以指定内存类型。同步返回PixelMap结果。
@@ -933,6 +967,8 @@ function CreatePixelMapUsingAllocatorSync() {
 
 
 ##### image.createPremultipliedPixelMap12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: AsyncCallback&lt;void&gt;): void
 
@@ -995,6 +1031,8 @@ async function CreatePremultipliedPixelMap() {
 
 
 ##### image.createPremultipliedPixelMap12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise&lt;void&gt;
 
@@ -1061,6 +1099,8 @@ async function CreatePremultipliedPixelMap() {
 
 ##### image.createUnpremultipliedPixelMap12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap, callback: AsyncCallback&lt;void&gt;): void
 
 将PixelMap的透明通道预乘模式转变为非预乘模式，转换后的数据存入目标PixelMap。使用callback异步回调。
@@ -1122,6 +1162,8 @@ async function CreateUnpremultipliedPixelMap() {
 
 
 ##### image.createUnpremultipliedPixelMap12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise&lt;void&gt;
 
@@ -1188,6 +1230,8 @@ async function CreateUnpremultipliedPixelMap() {
 
 ##### image.createImageSource
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageSource(uri: string): ImageSource
 
 通过传入的uri创建ImageSource实例。
@@ -1225,6 +1269,8 @@ async function CreateImageSource(context : Context) {
 
 
 ##### image.createImageSource9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createImageSource(uri: string, options: SourceOptions): ImageSource
 
@@ -1268,6 +1314,8 @@ async function CreateImageSource(context : Context) {
 
 ##### image.createImageSource7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageSource(fd: number): ImageSource
 
 通过传入文件描述符来创建ImageSource实例。
@@ -1308,6 +1356,8 @@ async function CreateImageSource(context : Context) {
 
 
 ##### image.createImageSource9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createImageSource(fd: number, options: SourceOptions): ImageSource
 
@@ -1354,6 +1404,8 @@ async function CreateImageSource(context : Context) {
 
 ##### image.createImageSource9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageSource(buf: ArrayBuffer): ImageSource
 
 通过缓冲区创建ImageSource实例。buf数据是未解码的数据，不可以传入类似于RBGA，YUV的像素buffer数据，如果想通过像素buffer数据创建pixelMap，可以调用[image.createPixelMapSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapsync12)这一类接口。
@@ -1392,6 +1444,8 @@ async function CreateImageSource() {
 
 
 ##### image.createImageSource9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createImageSource(buf: ArrayBuffer, options: SourceOptions): ImageSource
 
@@ -1433,6 +1487,8 @@ async function CreateImageSource() {
 
 
 ##### image.createImageSource11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createImageSource(rawfile: resourceManager.RawFileDescriptor, options?: SourceOptions): ImageSource
 
@@ -1480,6 +1536,8 @@ async function CreateImageSource(context : Context) {
 
 
 ##### image.CreateIncrementalSource9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 CreateIncrementalSource(buf: ArrayBuffer): ImageSource
 
@@ -1542,6 +1600,8 @@ async function CreateIncrementalImageSource(context : Context) {
 
 ##### image.CreateIncrementalSource9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 CreateIncrementalSource(buf: ArrayBuffer, options?: SourceOptions): ImageSource
 
 通过缓冲区以增量的方式创建ImageSource实例，IncrementalSource不支持读写Exif信息。
@@ -1598,6 +1658,8 @@ async function CreateIncrementalImageSource(context : Context) {
 
 ##### image.getImageSourceSupportedFormats20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getImageSourceSupportedFormats(): string[]
 
 获取支持解码的图片格式，图片格式以mime type表示。
@@ -1629,6 +1691,8 @@ async function IsSupportedTiffFormat() {
 
 ##### image.createImagePacker
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImagePacker(): ImagePacker
 
 创建ImagePacker实例。
@@ -1658,6 +1722,8 @@ async function CreateImagePacker() {
 
 ##### image.getImagePackerSupportedFormats20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getImagePackerSupportedFormats(): string[]
 
 获取支持编码的图片格式，图片格式以mime type表示。
@@ -1683,6 +1749,8 @@ async function GetImagePackerSupportedFormats() {
 
 
 ##### image.createAuxiliaryPicture13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAuxiliaryPicture(buffer: ArrayBuffer, size: Size, type: AuxiliaryPictureType): AuxiliaryPicture
 
@@ -1744,6 +1812,8 @@ async function CreateAuxiliaryPicture(context: Context) {
 
 ##### image.createAuxiliaryPictureUsingAllocator24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAuxiliaryPictureUsingAllocator(auxiliaryPictureInfo: AuxiliaryPictureInfo, allocatorType?: AllocatorType, pixels?: ArrayBuffer): AuxiliaryPicture
 
 使用指定的内存类型，根据辅助图信息和像素数据创建辅助图对象。
@@ -1802,6 +1872,8 @@ function CreateAuxiliaryPictureUsingAllocator(info: image.AuxiliaryPictureInfo, 
 
 ##### image.createImageReceiver11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageReceiver(size: Size, format: ImageFormat, capacity: number): ImageReceiver
 
 通过图片大小、图片格式、容量创建ImageReceiver实例。ImageReceiver做为图片的接收方、消费者，它的参数属性实际上不会对接收到的图片产生影响。图片属性的配置应在发送方、生产者进行，如相机预览流[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createpreviewoutput)。
@@ -1848,6 +1920,8 @@ let receiver: image.ImageReceiver = image.createImageReceiver(size, image.ImageF
 
 
 ##### image.createImageReceiver23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createImageReceiver(options?: ImageReceiverOptions): ImageReceiver | undefined
 
@@ -1896,6 +1970,8 @@ let receiver: image.ImageReceiver | undefined = image.createImageReceiver(option
 
 ##### image.createImageCreator11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageCreator(size: Size, format: ImageFormat, capacity: number): ImageCreator
 
 通过图片大小、图片格式、容量创建ImageCreator实例。
@@ -1943,6 +2019,8 @@ let creator: image.ImageCreator = image.createImageCreator(size, image.ImageForm
 
 ##### image.createImageReceiver(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageReceiver(width: number, height: number, format: number, capacity: number): ImageReceiver
 
 通过宽、高、图片格式、容量创建ImageReceiver实例。ImageReceiver做为图片的接收方、消费者，它的参数属性实际上不会对接收到的图片产生影响。图片属性的配置应在发送方、生产者进行，如相机预览流[createPreviewOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createpreviewoutput)。
@@ -1982,6 +2060,8 @@ let receiver: image.ImageReceiver = image.createImageReceiver(8192, 8192, image.
 
 ##### image.createImageCreator(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageCreator(width: number, height: number, format: number, capacity: number): ImageCreator
 
 通过宽、高、图片格式、容量创建ImageCreator实例。
@@ -2020,6 +2100,8 @@ let creator: image.ImageCreator = image.createImageCreator(8192, 8192, image.Ima
 
 
 ##### SVG标签说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 从API version 10开始支持SVG标签，使用版本为(SVG) 1.1，SVG标签需设置width，height。SVG文件可添加xml声明，应以“<?xml”开头，当前支持的标签列表有：
 

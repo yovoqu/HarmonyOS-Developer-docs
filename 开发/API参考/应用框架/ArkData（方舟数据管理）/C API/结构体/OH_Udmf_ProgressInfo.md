@@ -12,6 +12,8 @@ typedef struct OH_Udmf_ProgressInfo OH_Udmf_ProgressInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义进度信息的数据结构。
  
 **起始版本：** 15

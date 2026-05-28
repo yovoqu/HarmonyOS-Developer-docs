@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 LowPowerVideoSink子模块为低功耗播放视频组件提供变量、属性和函数。
  
 **起始版本：** 20
@@ -14,6 +16,8 @@ LowPowerVideoSink子模块为低功耗播放视频组件提供变量、属性和
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

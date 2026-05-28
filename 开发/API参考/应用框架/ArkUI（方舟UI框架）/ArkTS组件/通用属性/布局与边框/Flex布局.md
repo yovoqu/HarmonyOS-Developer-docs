@@ -14,6 +14,8 @@
 
 ##### flexBasis
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 flexBasis(value: number | string): T
  
 设置组件的基准尺寸。
@@ -42,6 +44,8 @@ flexBasis(value: number | string): T
 
 ##### flexGrow
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 flexGrow(value: number): T
  
 设置组件在父容器的剩余空间所占比例。
@@ -69,6 +73,8 @@ flexGrow(value: number): T
   
 
 ##### flexShrink
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 flexShrink(value: number): T
  
@@ -102,6 +108,8 @@ flexShrink(value: number): T
 
 ##### alignSelf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 alignSelf(value: ItemAlign): T
  
 子组件在父容器交叉轴的对齐格式。
@@ -129,6 +137,8 @@ alignSelf(value: ItemAlign): T
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通过配置flexBasis/flexGrow/flexShrink/alignSelf属性设置Flex布局。
  
@@ -220,4 +230,4 @@ struct FlexExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/KgETMMZmQO6S8-z1WlIJCg/zh-cn_image_0000002611755561.png?HW-CC-KV=V1&HW-CC-Date=20260528T013914Z&HW-CC-Expire=86400&HW-CC-Sign=FC5E53CAFB54BA16D24643F49885B50BFEEA374F9094D8D98D378D558243E5E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/KgETMMZmQO6S8-z1WlIJCg/zh-cn_image_0000002611755561.png?HW-CC-KV=V1&HW-CC-Date=20260528T024210Z&HW-CC-Expire=86400&HW-CC-Sign=6D2996434BF66BF9BDE008C35ACD2D7C19C5F2C242DB281A70F147B402BD8691)

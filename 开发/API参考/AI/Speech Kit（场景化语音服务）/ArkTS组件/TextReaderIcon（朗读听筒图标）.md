@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { TextReaderIcon } from '@kit.SpeechKit';
 ```
@@ -19,6 +21,8 @@ import { TextReaderIcon } from '@kit.SpeechKit';
   
 
 ##### TextReaderIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 朗读听筒图标，可以作为动态组件加载。设置onClick回调，在用户点击听筒图标时启动朗读控件。
  
@@ -40,6 +44,8 @@ import { TextReaderIcon } from '@kit.SpeechKit';
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 build(): void
  

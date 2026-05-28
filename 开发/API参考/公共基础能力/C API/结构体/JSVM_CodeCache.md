@@ -12,6 +12,8 @@ typedef struct {...} JSVM_CodeCache
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示当id为JSVM_COMPILE_CODE_CACHE时，content的类型。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct {...} JSVM_CodeCache
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |

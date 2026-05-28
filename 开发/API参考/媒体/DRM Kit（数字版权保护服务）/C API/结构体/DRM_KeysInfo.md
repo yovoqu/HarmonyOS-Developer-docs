@@ -12,6 +12,8 @@ typedef struct DRM_KeysInfo {...} DRM_KeysInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 媒体密钥信息。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct DRM_KeysInfo {...} DRM_KeysInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

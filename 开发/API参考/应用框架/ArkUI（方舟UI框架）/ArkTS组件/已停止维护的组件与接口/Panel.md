@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
 
 > [!NOTE]
@@ -23,6 +25,8 @@
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Panel(show: boolean)
 
@@ -43,11 +47,15 @@ Panel(show: boolean)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type(value: PanelType)
 
@@ -70,6 +78,8 @@ type(value: PanelType)
 
 ##### mode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mode(value: PanelMode)
 
 可滑动面板的初始状态。
@@ -90,6 +100,8 @@ mode(value: PanelMode)
 
 
 ##### dragBar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 dragBar(value: boolean)
 
@@ -112,6 +124,8 @@ dragBar(value: boolean)
 
 ##### customHeight10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 customHeight(value: Dimension | PanelHeight)
 
 指定PanelType.CUSTOM状态下的高度。
@@ -132,6 +146,8 @@ customHeight(value: Dimension | PanelHeight)
 
 
 ##### fullHeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fullHeight(value: number | string)
 
@@ -154,6 +170,8 @@ fullHeight(value: number | string)
 
 ##### halfHeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 halfHeight(value: number | string)
 
 指定PanelMode.Half状态下的高度。
@@ -174,6 +192,8 @@ halfHeight(value: number | string)
 
 
 ##### miniHeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 miniHeight(value: number | string)
 
@@ -196,6 +216,8 @@ miniHeight(value: number | string)
 
 ##### show
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 show(value: boolean)
 
 当滑动面板弹出时调用。
@@ -216,6 +238,8 @@ show(value: boolean)
 
 
 ##### backgroundMask9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 backgroundMask(color: ResourceColor)
 
@@ -238,6 +262,8 @@ backgroundMask(color: ResourceColor)
 
 ##### showCloseIcon10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showCloseIcon(value: boolean)
 
 设置是否显示关闭图标。
@@ -259,6 +285,8 @@ showCloseIcon(value: boolean)
 
 ##### PanelType枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -277,6 +305,8 @@ showCloseIcon(value: boolean)
 
 ##### PanelMode枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -294,6 +324,8 @@ showCloseIcon(value: boolean)
 
 ##### PanelHeight10+枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -309,11 +341,15 @@ showCloseIcon(value: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(event: (width: number, height: number, mode: PanelMode) => void)
 
@@ -338,6 +374,8 @@ onChange(event: (width: number, height: number, mode: PanelMode) => void)
 
 ##### onHeightChange9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onHeightChange(callback: (value: number) => void)
 
 当可滑动面板发生高度变化时触发。
@@ -358,6 +396,8 @@ onHeightChange(callback: (value: number) => void)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -398,4 +438,4 @@ struct PanelExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/r3Dk1zm9Tjiu8RD0ixVY8A/zh-cn_image_0000002611836133.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013929Z&HW-CC-Expire=86400&HW-CC-Sign=FBC7BACFDC0023626A33F4D5A02635997A0DB5B10F170A2B9062CAC83CE5907F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/r3Dk1zm9Tjiu8RD0ixVY8A/zh-cn_image_0000002611836133.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024224Z&HW-CC-Expire=86400&HW-CC-Sign=8333399BE763BDA8C6BFE5EED61BA58A87E587B78B4CA993C6BCB07351F33CE7)

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { scan } from '@kit.NearLinkKit';
 ```
@@ -19,6 +21,8 @@ import { scan } from '@kit.NearLinkKit';
   
 
 ##### startScan
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startScan(filters: Array&lt;ScanFilters&gt;, options?: ScanOptions): Promise&lt;void&gt;
  
@@ -84,6 +88,8 @@ try {
 
 ##### stopScan
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopScan(): Promise&lt;void&gt;
  
 停止星闪扫描。使用Promise异步回调。
@@ -131,6 +137,8 @@ try {
   
 
 ##### on( 'deviceFound')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'deviceFound', callback: Callback<Array&lt;ScanResults&gt;>): void
  
@@ -181,6 +189,8 @@ try {
 
 ##### off( 'deviceFound')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'deviceFound', callback?: Callback<Array&lt;ScanResults&gt;>): void
  
 取消订阅星闪扫描结果。
@@ -227,6 +237,8 @@ try {
 
 ##### ScanResults
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示扫描结果。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -247,6 +259,8 @@ try {
 
 ##### ScanFilters
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示扫描过滤条件。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -266,6 +280,8 @@ try {
 
 ##### ScanOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示扫描选项。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -281,6 +297,8 @@ try {
   
 
 ##### ScanMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示扫描模式，为枚举值。
  

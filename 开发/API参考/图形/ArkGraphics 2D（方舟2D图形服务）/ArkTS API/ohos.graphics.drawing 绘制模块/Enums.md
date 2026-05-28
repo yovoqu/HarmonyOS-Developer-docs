@@ -12,6 +12,8 @@
 
 ##### BlendMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 混合模式枚举。混合模式会将两种颜色（源色、目标色）以特定的方式混合生成一种新的颜色，通常用于叠加、滤镜和遮罩等图形操作场景。混合操作会分别作用于红、绿、蓝三个颜色通道，采用相同的混合逻辑，而透明度（Alpha通道）则根据各模式的定义另行处理。
  
 为简洁起见，我们使用以下缩写：
@@ -63,6 +65,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### PathMeasureMatrixFlags12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 路径测量中的矩阵信息维度枚举，常用于控制物体沿路径移动的动画场景。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -78,6 +82,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### SrcRectConstraint12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 源矩形区域约束类型枚举，用于在画布绘制图像时指定是否将采样范围限制在源矩形区域内。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -91,6 +97,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### ShadowFlag12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 控制阴影绘制行为的枚举。
  
@@ -108,6 +116,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### PathOp12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 路径操作类型枚举，可用于合并或裁剪路径等功能。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -124,6 +134,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### PathIteratorVerb18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 迭代器包含的路径操作类型枚举，可用于读取path的操作指令。
  
@@ -144,6 +156,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### TextEncoding
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本的编码类型枚举。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -161,6 +175,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### ClipOp12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 画布裁剪方式的枚举。
  
@@ -180,6 +196,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### FilterMode12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 过滤模式枚举。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -194,6 +212,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### PathDirection12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 添加闭合轮廓方向的枚举。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -207,6 +227,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### PathFillType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义路径的填充类型枚举。
  
@@ -228,6 +250,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### PointMode12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 绘制数组点的方式的枚举。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -242,6 +266,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### FontEdging12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 字型边缘效果类型枚举。
  
@@ -264,6 +290,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### FontHinting12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 字型轮廓效果类型枚举。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -281,6 +309,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### FontMetricsFlags12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 字体度量标志枚举，指示字体度量中的各字段数据是否有效。
  
@@ -301,6 +331,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### RectType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义填充网格的矩形类型的枚举。仅在[Lattice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-lattice)中使用。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -316,6 +348,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### PathDashStyle18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 路径效果的绘制样式枚举。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -330,6 +364,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### TileMode12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 着色器效果平铺模式的枚举。
  
@@ -347,6 +383,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### JoinStyle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义线条转角样式的枚举，即画笔在绘制折线段时，在折线转角处的样式。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -362,6 +400,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### CapStyle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义线帽样式的枚举，即画笔在绘制线段时，在线段头尾端点的样式。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -376,6 +416,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### BlurType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义蒙版滤镜模糊中操作类型的枚举。
  
@@ -393,6 +435,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### ScaleToFit12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 源矩形到目标矩形的缩放方式枚举。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -408,6 +452,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### RegionOp12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 两个区域合并时的操作的枚举。
  
@@ -431,6 +477,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
 
 ##### CornerPos12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 圆角位置枚举。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -446,6 +494,8 @@ r : 如果4个通道（透明度、红、绿、蓝）的计算方式相同，用
   
 
 ##### VertexMode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 顶点绘制的连接方式枚举。
  

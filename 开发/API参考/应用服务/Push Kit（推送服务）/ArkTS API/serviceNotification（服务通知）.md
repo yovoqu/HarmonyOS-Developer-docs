@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { serviceNotification } from '@kit.PushKit';
 ```
@@ -25,6 +27,8 @@ import { serviceNotification } from '@kit.PushKit';
   
 
 ##### serviceNotification.requestSubscribeNotification
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestSubscribeNotification(context: Context, entityIds: Array&lt;string&gt;, callback: AsyncCallback&lt;RequestResult&gt;): void
  
@@ -107,6 +111,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### serviceNotification.requestSubscribeNotification
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestSubscribeNotification(context: Context, entityIds: Array&lt;string&gt;, type?: SubscribeNotificationType): Promise&lt;RequestResult&gt;
  
@@ -204,6 +210,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### RequestResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示单次订阅的授权结果。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -224,6 +232,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### EntityResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示单次订阅中每一个模板订阅的授权结果。
  
@@ -246,6 +256,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### ResultCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示授权订阅结果，为枚举值。
  
@@ -271,6 +283,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### SubscribeNotificationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示订阅类型，为枚举值。
  

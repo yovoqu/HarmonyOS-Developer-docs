@@ -12,6 +12,8 @@ typedef struct ImageProcessing_ColorSpaceInfo {...} ImageProcessing_ColorSpaceIn
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 色彩空间信息，用于色彩空间转换能力查询。
 
 **参考：**
@@ -28,9 +30,13 @@ typedef struct ImageProcessing_ColorSpaceInfo {...} ImageProcessing_ColorSpaceIn
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 | 名称 | 描述 |
 | --- | --- |

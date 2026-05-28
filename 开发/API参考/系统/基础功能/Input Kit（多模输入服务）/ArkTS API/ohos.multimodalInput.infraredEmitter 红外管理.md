@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | TV
+
 ```text
 import { infraredEmitter } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { infraredEmitter } from '@kit.InputKit';
 
 
 ##### infraredEmitter.transmitInfrared
+
+**支持设备：** Phone | TV
 
 transmitInfrared(infraredFrequency: number, pattern: Array&lt;number&gt;): void
 
@@ -74,6 +78,8 @@ struct Index {
 
 
 ##### infraredEmitter.getInfraredFrequencies
+
+**支持设备：** Phone | TV
 
 getInfraredFrequencies(): Array&lt;InfraredFrequency&gt;
 
@@ -129,6 +135,8 @@ struct Index {
 
 ##### InfraredFrequency
 
+**支持设备：** Phone | TV
+
 红外信号的频率范围。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -142,6 +150,8 @@ struct Index {
 
 
 ##### infraredEmitter.hasIrEmitter23+
+
+**支持设备：** Phone | TV
 
 hasIrEmitter(): Promise&lt;boolean&gt;
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { SelectionExtensionAbility } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { SelectionExtensionAbility } from '@kit.BasicServicesKit';
 
 
 ##### SelectionExtensionAbility
+
+**支持设备：** PC/2in1
 
 **系统能力：** SystemCapability.SelectionInput.Selection
 
@@ -34,6 +38,8 @@ import { SelectionExtensionAbility } from '@kit.BasicServicesKit';
 
 
 ##### onConnect
+
+**支持设备：** PC/2in1
 
 onConnect(want: Want): rpc.RemoteObject
 
@@ -86,6 +92,8 @@ class ServiceExtAbility extends SelectionExtensionAbility {
 
 
 ##### onDisconnect
+
+**支持设备：** PC/2in1
 
 onDisconnect(): void
 

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { HdsSideMenu, HdsSideMenuMainItem, HdsSideMenuSubItem, HdsSideMenuBadgeParam} from '@kit.UIDesignKit';
 ```
@@ -19,6 +21,8 @@ import { HdsSideMenu, HdsSideMenuMainItem, HdsSideMenuSubItem, HdsSideMenuBadgeP
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsSideMenu({items?: HdsSideMenuMainItem[], selectedIndex: number, $selectedIndex?: OnSelectedIndexChange, maxItemTextLines?: number})
  
@@ -44,6 +48,8 @@ HdsSideMenu({items?: HdsSideMenuMainItem[], selectedIndex: number, $selectedInde
 
 ##### build
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 build(): void
  
 struct的默认构造函数，无法直接调用此方法。
@@ -58,6 +64,8 @@ struct的默认构造函数，无法直接调用此方法。
 
 ##### HdsSideMenuMainItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 HdsSideMenu一级菜单栏。
  
 **装饰器类型**：@ObservedV2
@@ -71,6 +79,8 @@ HdsSideMenu一级菜单栏。
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor(param: HdsSideMenuMainItemParam)
  
@@ -93,6 +103,8 @@ HdsSideMenuMainItem的构造函数。
 
 ##### getSideMenuSubItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getSideMenuSubItem(): HdsSideMenuSubItem[]
  
 从一级菜单对象获取当前菜单下的二级菜单对象数组。
@@ -113,6 +125,8 @@ getSideMenuSubItem(): HdsSideMenuSubItem[]
   
 
 ##### updateBadge
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuMainItem
  
@@ -142,6 +156,8 @@ updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuMainItem
 
 ##### HdsSideMenuSubItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 HdsSideMenu二级菜单栏。
  
 **装饰器类型**：@ObservedV2
@@ -155,6 +171,8 @@ HdsSideMenu二级菜单栏。
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor(param: HdsSideMenuSubItemParam)
  
@@ -176,6 +194,8 @@ HdsSideMenuSubItem的构造函数。
   
 
 ##### updateBadge
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuSubItem
  
@@ -205,6 +225,8 @@ updateBadge(badge?: HdsSideMenuBadgeParam): HdsSideMenuSubItem
 
 ##### HdsSideMenuBadgeParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 HdsSideMenu上带信息提醒的图标配置信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -222,6 +244,8 @@ HdsSideMenu上带信息提醒的图标配置信息。
   
 
 ##### HdsSideMenuBaseItemParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsSideMenu菜单栏基础类。
  
@@ -241,6 +265,8 @@ HdsSideMenu菜单栏基础类。
   
 
 ##### HdsSideMenuMainItemParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsSideMenu一级菜单栏配置项，继承自[HdsSideMenuBaseItemParam](#hdssidemenubaseitemparam)。
  
@@ -262,6 +288,8 @@ HdsSideMenu一级菜单栏配置项，继承自[HdsSideMenuBaseItemParam](#hdssi
 
 ##### HdsSideMenuSubItemParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 HdsSideMenu二级菜单栏配置项，继承自[HdsSideMenuBaseItemParam](#hdssidemenubaseitemparam)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -279,9 +307,13 @@ HdsSideMenu二级菜单栏配置项，继承自[HdsSideMenuBaseItemParam](#hdssi
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OnSelectedIndexChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type OnSelectedIndexChange = (selectedIndex: number) => void
  
@@ -303,6 +335,8 @@ HdsSideMenu的selectedIndex发生变化时的回调函数。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsSideMenu提供一种菜单栏样式。
  

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义获取和使用NativeDisplaySoloist的相关函数。
  
 **引用文件：** <native_display_soloist/native_display_soloist.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -51,9 +59,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_DisplaySoloist_FrameCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*OH_DisplaySoloist_FrameCallback)(long long timestamp, long long targetTimestamp, void* data)
@@ -77,6 +89,8 @@ OH_DisplaySoloist回调函数类型。
   
 
 ##### OH_DisplaySoloist_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_DisplaySoloist* OH_DisplaySoloist_Create(bool useExclusiveThread)
@@ -106,6 +120,8 @@ OH_DisplaySoloist* OH_DisplaySoloist_Create(bool useExclusiveThread)
 
 ##### OH_DisplaySoloist_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_DisplaySoloist_Destroy(OH_DisplaySoloist* displaySoloist)
 ```
@@ -133,6 +149,8 @@ int32_t OH_DisplaySoloist_Destroy(OH_DisplaySoloist* displaySoloist)
   
 
 ##### OH_DisplaySoloist_Start()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_DisplaySoloist_Start(OH_DisplaySoloist* displaySoloist, OH_DisplaySoloist_FrameCallback callback, void* data)
@@ -164,6 +182,8 @@ int32_t OH_DisplaySoloist_Start(OH_DisplaySoloist* displaySoloist, OH_DisplaySol
 
 ##### OH_DisplaySoloist_Stop()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_DisplaySoloist_Stop(OH_DisplaySoloist* displaySoloist)
 ```
@@ -191,6 +211,8 @@ int32_t OH_DisplaySoloist_Stop(OH_DisplaySoloist* displaySoloist)
   
 
 ##### OH_DisplaySoloist_SetExpectedFrameRateRange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_DisplaySoloist_SetExpectedFrameRateRange(OH_DisplaySoloist* displaySoloist, DisplaySoloist_ExpectedRateRange* range)

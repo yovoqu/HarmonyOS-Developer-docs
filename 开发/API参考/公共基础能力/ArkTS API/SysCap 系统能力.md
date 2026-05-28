@@ -14,6 +14,8 @@
 
 ##### canIUse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 canIUse(syscap: string): boolean
  
 查询系统是否具备某个系统能力。

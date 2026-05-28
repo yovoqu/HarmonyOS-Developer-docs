@@ -14,6 +14,8 @@
 
 ##### getType10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getType(): WebMessageType
 
 获取数据对象的类型。完整示例代码参考[onMessageEventExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport#onmessageeventext10)。
@@ -30,6 +32,8 @@ getType(): WebMessageType
 
 
 ##### getString10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getString(): string
 
@@ -57,6 +61,8 @@ getString(): string
 
 ##### getNumber10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getNumber(): number
 
 获取数据对象的数值类型数据。完整示例代码参考[onMessageEventExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport#onmessageeventext10)。
@@ -82,6 +88,8 @@ getNumber(): number
 
 
 ##### getBoolean10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBoolean(): boolean
 
@@ -109,6 +117,8 @@ getBoolean(): boolean
 
 ##### getArrayBuffer10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getArrayBuffer(): ArrayBuffer
 
 获取数据对象的原始二进制数据。完整示例代码参考[onMessageEventExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport#onmessageeventext10)。
@@ -134,6 +144,8 @@ getArrayBuffer(): ArrayBuffer
 
 
 ##### getArray10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getArray(): Array<string | number | boolean>
 
@@ -161,6 +173,8 @@ getArray(): Array<string | number | boolean>
 
 ##### getError10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getError(): Error
 
 获取数据对象的错误类型数据。完整示例代码参考[onMessageEventExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport#onmessageeventext10)。
@@ -186,6 +200,8 @@ getError(): Error
 
 
 ##### setType10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setType(type: WebMessageType): void
 
@@ -214,6 +230,8 @@ setType(type: WebMessageType): void
 
 ##### setString10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setString(message: string): void
 
 设置数据对象的字符串类型数据。完整示例代码参考[onMessageEventExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport#onmessageeventext10)。
@@ -240,6 +258,8 @@ setString(message: string): void
 
 
 ##### setNumber10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setNumber(message: number): void
 
@@ -268,6 +288,8 @@ setNumber(message: number): void
 
 ##### setBoolean10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBoolean(message: boolean): void
 
 设置数据对象的布尔类型数据。完整示例代码参考[onMessageEventExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport#onmessageeventext10)。
@@ -294,6 +316,8 @@ setBoolean(message: boolean): void
 
 
 ##### setArrayBuffer10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setArrayBuffer(message: ArrayBuffer): void
 
@@ -322,6 +346,8 @@ setArrayBuffer(message: ArrayBuffer): void
 
 ##### setArray10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setArray(message: Array<string | number | boolean>): void
 
 设置数据对象的数组类型数据。完整示例代码参考[onMessageEventExt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport#onmessageeventext10)。
@@ -348,6 +374,8 @@ setArray(message: Array<string | number | boolean>): void
 
 
 ##### setError10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setError(message: Error): void
 

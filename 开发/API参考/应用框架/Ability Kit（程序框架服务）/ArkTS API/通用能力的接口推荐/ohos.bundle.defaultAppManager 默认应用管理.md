@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { defaultAppManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { defaultAppManager } from '@kit.AbilityKit';
 
 
 ##### ApplicationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 默认应用的应用类型。
 
@@ -42,6 +46,8 @@ import { defaultAppManager } from '@kit.AbilityKit';
 
 
 ##### defaultAppManager.isDefaultApplication
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isDefaultApplication(type: string): Promise&lt;boolean&gt;
 
@@ -91,6 +97,8 @@ defaultAppManager.isDefaultApplication(defaultAppManager.ApplicationType.BROWSER
 
 ##### defaultAppManager.isDefaultApplication
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isDefaultApplication(type: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 根据系统已定义的应用类型或者[UniformDataType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-uniformtypedescriptor)类型判断当前应用是否是该类型的默认应用。使用callback异步回调。
@@ -133,6 +141,8 @@ defaultAppManager.isDefaultApplication(defaultAppManager.ApplicationType.BROWSER
 
 
 ##### defaultAppManager.isDefaultApplicationSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isDefaultApplicationSync(type: string): boolean
 

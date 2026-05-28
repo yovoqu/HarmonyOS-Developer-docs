@@ -12,6 +12,8 @@ typedef struct {...} Asset_ResultSet
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 关键资产查询结果集合，用于定义多条关键资产。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct {...} Asset_ResultSet
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

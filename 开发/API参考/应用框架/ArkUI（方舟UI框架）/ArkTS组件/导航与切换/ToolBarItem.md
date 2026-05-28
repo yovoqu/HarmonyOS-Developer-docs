@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅可包含单个子组件。
  
   
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### ToolBarItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ToolBarItem(options?: ToolBarItemOptions)
  
@@ -41,11 +47,15 @@ ToolBarItem(options?: ToolBarItemOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
  
   
 
 ##### ToolBarItemOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于配置ToolBarItem的可选参数，主要通过placement设置工具栏项在标题栏的放置位置。
  
@@ -60,6 +70,8 @@ ToolBarItem(options?: ToolBarItemOptions)
 
 ##### ToolBarItemPlacement枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义工具栏项在标题栏对应分栏的放置位置选项。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -73,5 +85,7 @@ ToolBarItem(options?: ToolBarItemOptions)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 示例代码参考[toolbar](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-toolbar#示例)。

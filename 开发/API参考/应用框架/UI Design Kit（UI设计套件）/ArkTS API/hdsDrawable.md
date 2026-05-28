@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { hdsDrawable } from '@kit.UIDesignKit';
 ```
@@ -19,6 +21,8 @@ import { hdsDrawable } from '@kit.UIDesignKit';
   
 
 ##### hdsDrawable.getHdsLayeredIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getHdsLayeredIcon(bundleName: string, layeredDrawableDescriptor: LayeredDrawableDescriptor, size: number, hasBorder?: boolean): image.PixelMap
  
@@ -102,6 +106,8 @@ try {
 
 ##### hdsDrawable.getHdsLayeredIconAsync
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getHdsLayeredIconAsync(bundleName: string, layeredDrawableDescriptor: LayeredDrawableDescriptor, size: number, hasBorder?: boolean): Promise<image.PixelMap>
  
 获取处理后的分层图标接口，使用Promise异步回调。
@@ -180,6 +186,8 @@ try {
 
 ##### hdsDrawable.getHdsIcon
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getHdsIcon(bundleName: string, pixelMap: image.PixelMap, size: number, mask: image.PixelMap, hasBorder?: boolean): image.PixelMap
  
 获取处理后的单层图标接口，可通过该接口获取PixelMap格式的图标，适用于需插入单个图标的场景。其中hasBorder参数决定是否为输出的图标添加描边（在线主题场景时不支持设置描边），size参数指定输出图标的尺寸。
@@ -254,6 +262,8 @@ try {
   
 
 ##### hdsDrawable.getHdsIconAsync
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getHdsIconAsync(bundleName: string, pixelMap: image.PixelMap, size: number, mask: image.PixelMap, hasBorder?: boolean): Promise<image.PixelMap>
  
@@ -336,6 +346,8 @@ try {
   
 
 ##### hdsDrawable.getHdsLayeredIcons
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getHdsLayeredIcons(icons: Array&lt;LayeredIcon&gt;, options: Options): Promise<Array&lt;ProcessedIcon&gt;>
  
@@ -426,6 +438,8 @@ try {
   
 
 ##### hdsDrawable.getHdsIcons
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getHdsIcons(icons: Array&lt;Icon&gt;, mask: image.PixelMap, options: Options): Promise<Array&lt;ProcessedIcon&gt;>
  
@@ -521,6 +535,8 @@ try {
 
 ##### LayeredIcon
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 分层图标数据对象。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -542,6 +558,8 @@ try {
   
 
 ##### Options
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 图标数据处理接口对应的配置项信息。
  
@@ -566,6 +584,8 @@ try {
 
 ##### ProcessedIcon
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 处理后的图标对象。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -587,6 +607,8 @@ try {
   
 
 ##### Icon
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 单层图标数据对象。
  

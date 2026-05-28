@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义双精度浮点复数信号的数据结构（分离格式：实部和虚部分开存储）。
  
 **系统能力：** SystemCapability.FAST.Core
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,9 +41,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### imag
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 double* FAST_SplitComplexD::imag
@@ -50,6 +60,8 @@ double* FAST_SplitComplexD::imag
   
 
 ##### real
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 double* FAST_SplitComplexD::real

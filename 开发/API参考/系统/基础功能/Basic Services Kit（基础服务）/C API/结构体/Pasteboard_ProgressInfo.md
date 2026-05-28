@@ -12,6 +12,8 @@ typedef struct Pasteboard_ProgressInfo Pasteboard_ProgressInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义进度上报的数据结构。
  
 **起始版本：** 15

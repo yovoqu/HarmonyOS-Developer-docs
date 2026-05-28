@@ -12,6 +12,8 @@ typedef struct OH_AVMuxer OH_AVMuxer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义封装接口native层对象类型。
  
 **起始版本：** 10

@@ -14,9 +14,13 @@
 
 ##### TextPickerDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### show(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static show(options?: TextPickerDialogOptions)
 
@@ -42,6 +46,8 @@ static show(options?: TextPickerDialogOptions)
 
 
 ##### TextPickerDialogOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文本选择器弹窗的参数继承自[TextPickerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker#textpickeroptions对象说明)。
 
@@ -86,6 +92,8 @@ static show(options?: TextPickerDialogOptions)
 
 
 ##### TextPickerDialogOptionsExt20+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 文本选择器弹窗的参数继承自[TextPickerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textpicker#textpickeroptions对象说明)。
 
@@ -133,6 +141,8 @@ static show(options?: TextPickerDialogOptions)
 
 ##### TextPickerResult对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本选择器结果。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -150,6 +160,8 @@ static show(options?: TextPickerDialogOptions)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 推荐通过使用 UIContext 中的 showTextPickerDialog 来明确UI的执行上下文。
@@ -612,7 +624,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/9dF2GXeHRIik6c5-EWcr9w/zh-cn_image_0000002581276288.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=463FE6ADAC9BB6305076060C5564EC403AE349C22B169DB517E666E91F066C38)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/9dF2GXeHRIik6c5-EWcr9w/zh-cn_image_0000002581276288.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=7CC275568ED27E90A77F222E0423318875C4AA7CA20F49DB260F94C0F512DE9A)
 
 
 
@@ -654,7 +666,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/E9j_BAnZS2aVbOhWwzZvPw/zh-cn_image_0000002611756141.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=74E484B42A23D4D03C6ABC100D465FB87490CE2E106FEBA7EFC2D7C060590E92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/E9j_BAnZS2aVbOhWwzZvPw/zh-cn_image_0000002611756141.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=6B15B1548630C7B1C868A70B3EF86FE9E3DE65A82AC87ADFE3FCF0E596A1F99B)
 
 
 
@@ -697,4 +709,4 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Eri2C5P0QRCecb-Xvifpqg/zh-cn_image_0000002581436204.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=2DAB2402DF3FCD971E71636214F74559179F3C1F539A617D231A0490B9A5A3AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/Eri2C5P0QRCecb-Xvifpqg/zh-cn_image_0000002581436204.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=295CE4618E1EF41DE40C6EE6F4345C95BACAD228EBED82EC5B58CF4F4D055F0A)

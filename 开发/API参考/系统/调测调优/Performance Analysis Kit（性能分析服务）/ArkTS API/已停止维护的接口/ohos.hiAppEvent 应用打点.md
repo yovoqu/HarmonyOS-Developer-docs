@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import hiAppEvent from '@ohos.hiAppEvent';
 ```
@@ -21,6 +23,8 @@ import hiAppEvent from '@ohos.hiAppEvent';
   
 
 ##### 使用说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 开发者在使用应用事件打点功能前，需要首先了解应用事件相关的参数规格定义。
  
@@ -56,6 +60,8 @@ import hiAppEvent from '@ohos.hiAppEvent';
   
 
 ##### hiAppEvent.write
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(eventName: string, eventType: EventType, keyValues: object, callback: AsyncCallback&lt;void&gt;): void
  
@@ -97,6 +103,8 @@ hiAppEvent.write("test_event", hiAppEvent.EventType.FAULT, eventParams, (err: Bu
   
 
 ##### hiAppEvent.write
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(eventName: string, eventType: EventType, keyValues: object): Promise&lt;void&gt;
  
@@ -143,6 +151,8 @@ hiAppEvent.write("test_event", hiAppEvent.EventType.FAULT, eventParams).then(() 
 
 ##### hiAppEvent.configure
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 configure(config: ConfigOption): boolean
  
 应用事件打点配置方法，可用于配置打点开关、文件目录存储限额大小等功能。
@@ -183,6 +193,8 @@ hiAppEvent.configure(config2);
 
 ##### ConfigOption
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 此接口提供了应用打点的配置选项。
  
 **系统能力：** SystemCapability.HiviewDFX.HiAppEvent
@@ -196,6 +208,8 @@ hiAppEvent.configure(config2);
   
 
 ##### EventType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 事件类型枚举。
  
@@ -213,6 +227,8 @@ hiAppEvent.configure(config2);
 
 ##### Event
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 此接口提供了所有预定义事件的事件名称常量。
  
 **系统能力：** SystemCapability.HiviewDFX.HiAppEvent
@@ -227,6 +243,8 @@ hiAppEvent.configure(config2);
   
 
 ##### Param
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 此接口提供了所有预定义参数的参数名称常量。
  

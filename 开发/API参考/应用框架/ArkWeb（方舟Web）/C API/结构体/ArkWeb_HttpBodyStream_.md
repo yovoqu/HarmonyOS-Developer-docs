@@ -12,6 +12,8 @@ typedef struct ArkWeb_HttpBodyStream_ ArkWeb_HttpBodyStream
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 请求的上传数据。使用OH_ArkWebHttpBodyStream_接口来读取上传的数据。
  
 **起始版本：** 12

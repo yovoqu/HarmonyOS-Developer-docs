@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Progress(options: ProgressOptions)
  
@@ -41,6 +45,8 @@ Progress(options: ProgressOptions)
 
 ##### ProgressOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 进度条选项。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -58,6 +64,8 @@ Progress(options: ProgressOptions)
   
 
 ##### ProgressType8+枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 进度条类型。
  
@@ -80,6 +88,8 @@ Progress(options: ProgressOptions)
 
 ##### ProgressStyle枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 进度条样式。
  
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -101,6 +111,8 @@ Progress(options: ProgressOptions)
 
 ##### ProgressStyleMap10+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 进度条类型和样式的映射表。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -120,6 +132,8 @@ Progress(options: ProgressOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
 > [!NOTE]
@@ -129,6 +143,8 @@ Progress(options: ProgressOptions)
   
 
 ##### value
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 value(value: number)
  
@@ -150,6 +166,8 @@ value(value: number)
   
 
 ##### color
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 color(value: ResourceColor | LinearGradient)
  
@@ -176,6 +194,8 @@ color(value: ResourceColor | LinearGradient)
 
 ##### style8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 style(value: ProgressStyleOptions | CapsuleStyleOptions | RingStyleOptions | LinearStyleOptions | ScaleRingStyleOptions | EclipseStyleOptions)
  
 设置组件的样式。
@@ -192,6 +212,8 @@ style(value: ProgressStyleOptions | CapsuleStyleOptions | RingStyleOptions | Lin
   
 
 ##### contentModifier12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contentModifier(modifier:ContentModifier&lt;ProgressConfiguration&gt;)
  
@@ -211,6 +233,8 @@ contentModifier(modifier:ContentModifier&lt;ProgressConfiguration&gt;)
   
 
 ##### privacySensitive12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
  
@@ -237,6 +261,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
 ##### ProgressConfiguration12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 进度条配置。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -253,6 +279,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
 ##### CommonProgressStyleOptions10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 进度条通用样式选项。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -268,6 +296,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
 ##### ScanEffectOptions10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 扫光效果选项。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -282,6 +312,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
   
 
 ##### ProgressStyleOptions8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 进度条样式选项。
  
@@ -303,6 +335,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
   
 
 ##### CapsuleStyleOptions10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 胶囊样式选项。
  
@@ -327,6 +361,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
 ##### RingStyleOptions10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 环形无刻度样式选项。
  
 继承自[ScanEffectOptions](#scaneffectoptions10)和[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
@@ -346,6 +382,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
 ##### LinearStyleOptions10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 线性样式选项。
  
 继承自[ScanEffectOptions](#scaneffectoptions10)和[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
@@ -363,6 +401,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
   
 
 ##### ScaleRingStyleOptions10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 环形有刻度样式选项。
  
@@ -383,6 +423,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
 ##### EclipseStyleOptions10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 圆形样式选项。圆形样式的显示类似月圆月缺的进度展示效果，从月牙逐渐变化至满月。
  
 继承自[CommonProgressStyleOptions](#commonprogressstyleoptions10)。
@@ -394,6 +436,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
   
 
 ##### ProgressStatus10+枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 进度条的当前状态。
  
@@ -411,11 +455,15 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 

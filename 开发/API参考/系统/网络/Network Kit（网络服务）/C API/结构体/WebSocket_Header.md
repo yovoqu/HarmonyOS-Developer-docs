@@ -12,6 +12,8 @@ struct WebSocket_Header {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 websocket客户端增加header的链表节点。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ websocket客户端增加header的链表节点。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

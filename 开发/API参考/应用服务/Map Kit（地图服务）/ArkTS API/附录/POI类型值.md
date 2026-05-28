@@ -7,6 +7,8 @@
 
 ##### HwLocationType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 华为地点类型的枚举类。
  
 **模型约束：** 此接口仅可在Stage模型下使用。

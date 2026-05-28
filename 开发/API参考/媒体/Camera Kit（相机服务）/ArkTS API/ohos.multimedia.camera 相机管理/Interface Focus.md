@@ -16,6 +16,8 @@ Focus继承自[FocusQuery](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -23,6 +25,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### setFocusMode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFocusMode(afMode: FocusMode): void
  
@@ -70,6 +74,8 @@ function setFocusMode(photoSession: camera.PhotoSession): void {
 
 ##### getFocusMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFocusMode(): FocusMode
  
 获取当前的对焦模式。
@@ -115,6 +121,8 @@ function getFocusMode(photoSession: camera.PhotoSession): camera.FocusMode | und
   
 
 ##### setFocusPoint11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFocusPoint(point: Point): void
  
@@ -163,6 +171,8 @@ function setFocusPoint(photoSession: camera.PhotoSession): void {
 
 ##### getFocusPoint11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFocusPoint(): Point
  
 查询当前的焦点。
@@ -208,6 +218,8 @@ function getFocusPoint(photoSession: camera.PhotoSession): camera.Point | undefi
   
 
 ##### getFocalLength11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFocalLength(): number
  

@@ -12,6 +12,8 @@ typedef struct ArkUI_ActiveChildrenInfo ArkUI_ActiveChildrenInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义ActiveChildrenInfo类信息。
  
 **起始版本：** 14

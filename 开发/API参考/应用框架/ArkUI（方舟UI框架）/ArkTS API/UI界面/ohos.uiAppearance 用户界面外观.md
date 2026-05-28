@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { uiAppearance } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { uiAppearance } from '@kit.ArkUI';
   
 
 ##### DarkMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 深色模式枚举。
  
@@ -35,6 +39,8 @@ import { uiAppearance } from '@kit.ArkUI';
   
 
 ##### uiAppearance.getDarkMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDarkMode(): DarkMode
  
@@ -77,6 +83,8 @@ try {
 
 ##### uiAppearance.getFontScale
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFontScale(): number
  
 获取系统当前的字体大小缩放比例。
@@ -117,6 +125,8 @@ try {
   
 
 ##### uiAppearance.getFontWeightScale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFontWeightScale(): number
  

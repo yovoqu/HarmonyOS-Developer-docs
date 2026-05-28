@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明MIDI模块的基础数据结构。定义MIDI接口的基础类型、枚举、结构体和回调函数。
  
 **引用文件：** <ohmidi/native_midi_base.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -41,6 +47,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -54,6 +62,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -67,9 +77,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_MIDIStatusCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum OH_MIDIStatusCode
@@ -105,6 +119,8 @@ MIDI状态码枚举。定义MIDI操作的状态码，用于表示操作成功或
 
 ##### OH_MIDIPortDirection
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 enum OH_MIDIPortDirection
 ```
@@ -124,6 +140,8 @@ enum OH_MIDIPortDirection
   
 
 ##### OH_MIDIProtocol
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum OH_MIDIProtocol
@@ -149,6 +167,8 @@ MIDI协议版本枚举，用于指定端口使用的MIDI协议行为。
 
 ##### OH_MIDIDeviceType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 enum OH_MIDIDeviceType
 ```
@@ -168,6 +188,8 @@ MIDI设备类型枚举。定义MIDI设备的连接类型。
   
 
 ##### OH_MIDIDeviceChangeAction
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum OH_MIDIDeviceChangeAction
@@ -189,9 +211,13 @@ enum OH_MIDIDeviceChangeAction
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### OH_MIDICallback_OnDeviceChange()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void (*OH_MIDICallback_OnDeviceChange)(void *userData, OH_MIDIDeviceChangeAction action, OH_MIDIDeviceInformation deviceInfo)
@@ -216,6 +242,8 @@ typedef void (*OH_MIDICallback_OnDeviceChange)(void *userData, OH_MIDIDeviceChan
 
 ##### OH_MIDICallback_OnError()
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 typedef void (*OH_MIDICallback_OnError)(void *userData, OH_MIDIStatusCode code)
 ```
@@ -237,6 +265,8 @@ typedef void (*OH_MIDICallback_OnError)(void *userData, OH_MIDIStatusCode code)
   
 
 ##### OH_MIDIDevice_OnReceived()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void (*OH_MIDIDevice_OnReceived)(void *userData, const OH_MIDIEvent *events, size_t eventCount)
@@ -264,6 +294,8 @@ typedef void (*OH_MIDIDevice_OnReceived)(void *userData, const OH_MIDIEvent *eve
   
 
 ##### OH_MIDIClient_OnDeviceOpened()
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 typedef void (*OH_MIDIClient_OnDeviceOpened)(void *userData, bool opened, OH_MIDIDevice *device, OH_MIDIDeviceInformation info)

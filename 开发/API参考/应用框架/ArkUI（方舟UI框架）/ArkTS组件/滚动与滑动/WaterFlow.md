@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 仅支持[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)子组件和自定义组件。自定义组件在WaterFlow下使用时，建议使用FlowItem作为自定义组件的顶层组件，不建议给自定义组件设置属性和事件方法。
 
 支持通过渲染控制类型（[if/else](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-ifelse)、[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)和[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)）动态生成子组件，更推荐使用LazyForEach或Repeat以优化性能。
@@ -25,6 +27,8 @@
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 WaterFlow(options?: WaterFlowOptions)
 
@@ -45,6 +49,8 @@ WaterFlow(options?: WaterFlowOptions)
 
 ##### WaterFlowOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 瀑布流组件参数对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -62,6 +68,8 @@ WaterFlow(options?: WaterFlowOptions)
 
 ##### WaterFlowSections12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 瀑布流分组信息。
 
 > [!NOTE]
@@ -71,6 +79,8 @@ WaterFlow(options?: WaterFlowOptions)
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -83,6 +93,8 @@ constructor()
 
 
 ##### splice12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 splice(start: number, deleteCount?: number, sections?: Array&lt;SectionOptions&gt;): boolean
 
@@ -112,6 +124,8 @@ splice(start: number, deleteCount?: number, sections?: Array&lt;SectionOptions&g
 
 ##### push12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 push(section: SectionOptions): boolean
 
 将指定分组添加到瀑布流末尾。
@@ -137,6 +151,8 @@ push(section: SectionOptions): boolean
 
 
 ##### update12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 update(sectionIndex: number, section: SectionOptions): boolean
 
@@ -165,6 +181,8 @@ update(sectionIndex: number, section: SectionOptions): boolean
 
 ##### values12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 values(): Array&lt;SectionOptions&gt;
 
 获取瀑布流中所有分组配置信息。
@@ -183,6 +201,8 @@ values(): Array&lt;SectionOptions&gt;
 
 
 ##### length12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 length(): number
 
@@ -203,6 +223,8 @@ length(): number
 
 ##### SectionOptions12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 FlowItem分组配置信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -222,6 +244,8 @@ FlowItem分组配置信息。
 
 
 ##### GetItemMainSizeByIndex12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type GetItemMainSizeByIndex = (index: number) => number
 
@@ -248,6 +272,8 @@ type GetItemMainSizeByIndex = (index: number) => number
 
 
 ##### WaterFlowLayoutMode12+枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 瀑布流组件布局模式枚举。
 
@@ -277,6 +303,8 @@ type GetItemMainSizeByIndex = (index: number) => number
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)和[滚动组件通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#属性)外，还支持以下属性：
 
 > [!TIP]
@@ -286,6 +314,8 @@ type GetItemMainSizeByIndex = (index: number) => number
 
 
 ##### columnsTemplate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 columnsTemplate(value: string)
 
@@ -309,6 +339,8 @@ columnsTemplate(value: string)
 
 
 ##### columnsTemplate22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 columnsTemplate(value: string | ItemFillPolicy)
 
@@ -335,6 +367,8 @@ columnsTemplate(value: string | ItemFillPolicy)
 
 ##### rowsTemplate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rowsTemplate(value: string)
 
 设置当前瀑布流组件布局行的数量，不设置时默认1行。
@@ -358,6 +392,8 @@ rowsTemplate(value: string)
 
 ##### itemConstraintSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 itemConstraintSize(value: ConstraintSizeOptions)
 
 设置约束尺寸，子组件布局时，进行尺寸范围限制。使用方法参考[示例1](#示例1使用基本瀑布流)。
@@ -376,6 +412,8 @@ itemConstraintSize(value: ConstraintSizeOptions)
 
 
 ##### columnsGap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 columnsGap(value: Length)
 
@@ -396,6 +434,8 @@ columnsGap(value: Length)
 
 ##### rowsGap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rowsGap(value: Length)
 
 设置行与行的间距。
@@ -414,6 +454,8 @@ rowsGap(value: Length)
 
 
 ##### layoutDirection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 layoutDirection(value: FlexDirection)
 
@@ -447,6 +489,8 @@ layoutDirection优先级高于rowsTemplate和columnsTemplate。根据layoutDirec
 
 ##### enableScrollInteraction10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableScrollInteraction(value: boolean)
 
 设置是否支持滚动手势。
@@ -470,6 +514,8 @@ enableScrollInteraction(value: boolean)
 
 ##### nestedScroll10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 nestedScroll(value: NestedScrollOptions)
 
 设置前后两个方向的嵌套滚动模式，实现与父组件的滚动联动。使用方法参考[嵌套滚动实现方式二](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#示例3嵌套滚动实现方式二)。
@@ -489,6 +535,8 @@ nestedScroll(value: NestedScrollOptions)
 
 ##### friction10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 friction(value: number | Resource)
 
 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中的链式效果有间接影响。
@@ -507,6 +555,8 @@ friction(value: number | Resource)
 
 
 ##### cachedCount11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cachedCount(value: number)
 
@@ -528,6 +578,8 @@ cachedCount(value: number)
 
 
 ##### cachedCount14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cachedCount(count: number, show: boolean)
 
@@ -553,6 +605,8 @@ cachedCount(count: number, show: boolean)
 
 ##### syncLoad20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 syncLoad(enable: boolean)
 
 设置是否同步加载WaterFlow区域内所有子组件。
@@ -572,11 +626,15 @@ syncLoad(enable: boolean)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)和[滚动组件通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#事件)外，还支持以下事件：
 
 
 
 ##### onReachStart
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onReachStart(event: () => void)
 
@@ -597,6 +655,8 @@ onReachStart(event: () => void)
 
 ##### onReachEnd
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onReachEnd(event: () => void)
 
 瀑布流内容到达末尾位置时触发。
@@ -615,6 +675,8 @@ onReachEnd(event: () => void)
 
 
 ##### onScrollFrameBegin10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onScrollFrameBegin(event: OnScrollFrameBeginCallback)
 
@@ -644,6 +706,8 @@ onScrollFrameBegin(event: OnScrollFrameBeginCallback)
 
 
 ##### onScrollIndex11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onScrollIndex(event: (first: number, last: number) => void)
 
@@ -682,6 +746,8 @@ onScrollIndex(event: (first: number, last: number) => void)
 
 ##### UIWaterFlowEvent19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 frameNode中[getEvent('WaterFlow')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#geteventwaterflow19)方法的返回值，可用于给WaterFlow节点设置滚动事件。
 
 UIWaterFlowEvent继承于[UIScrollableCommonEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#uiscrollablecommonevent19)。
@@ -689,6 +755,8 @@ UIWaterFlowEvent继承于[UIScrollableCommonEvent](https://developer.huawei.com/
 
 
 ##### setOnWillScroll19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOnWillScroll(callback: OnWillScrollCallback | undefined): void
 
@@ -711,6 +779,8 @@ setOnWillScroll(callback: OnWillScrollCallback | undefined): void
 
 ##### setOnDidScroll19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setOnDidScroll(callback: OnScrollCallback | undefined): void
 
 设置[onDidScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scrollable-common#ondidscroll12)事件的回调。
@@ -731,6 +801,8 @@ setOnDidScroll(callback: OnScrollCallback | undefined): void
 
 
 ##### setOnScrollIndex19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void
 
@@ -753,6 +825,8 @@ setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void
 
 ##### OnWaterFlowScrollIndexCallback19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnWaterFlowScrollIndexCallback = (first: number, last: number) => void
 
 WaterFlow组件可见区域item变化事件的回调类型。
@@ -772,6 +846,8 @@ WaterFlow组件可见区域item变化事件的回调类型。
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 

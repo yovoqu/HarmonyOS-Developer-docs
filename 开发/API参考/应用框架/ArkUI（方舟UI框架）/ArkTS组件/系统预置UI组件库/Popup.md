@@ -14,6 +14,8 @@ Popup是用于显示特定样式气泡。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Popup, PopupOptions, PopupTextOptions, PopupButtonOptions, PopupIconOptions } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { Popup, PopupOptions, PopupTextOptions, PopupButtonOptions, PopupIconOpt
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### Popup
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Popup(options: PopupOptions): void
  
@@ -48,6 +54,8 @@ Popup(options: PopupOptions): void
   
 
 ##### PopupOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PopupOptions定义Popup的具体样式参数。
  
@@ -71,6 +79,8 @@ PopupOptions定义Popup的具体样式参数。
 
 ##### PopupTextOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置文本样式。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -90,6 +100,8 @@ PopupOptions定义Popup的具体样式参数。
   
 
 ##### PopupButtonOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PopupButtonOptions定义按钮的相关属性和事件。
  
@@ -111,6 +123,8 @@ PopupButtonOptions定义按钮的相关属性和事件。
 
 ##### PopupIconOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PopupIconOptions定义图标的属性。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -131,6 +145,8 @@ PopupIconOptions定义图标的属性。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -353,4 +369,4 @@ struct PopupPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/frdhDkyPQRyEulYaOMmFbw/zh-cn_image_0000002581276342.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=CBEDBBEC4F525CDD38FF539327853E4389B19B33BBFCCAE68351EB16911BD73C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/frdhDkyPQRyEulYaOMmFbw/zh-cn_image_0000002581276342.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=47153DB0F2DD4F18935EF73DA9EB6E67EE71EDC73227A9DFB3B2BAFED780347A)

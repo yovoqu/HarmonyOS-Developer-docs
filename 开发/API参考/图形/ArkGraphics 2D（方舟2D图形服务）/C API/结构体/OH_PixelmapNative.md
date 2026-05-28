@@ -12,6 +12,8 @@ typedef struct OH_PixelmapNative OH_PixelmapNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明由图像框架定义的像素图对象。
  
 **起始版本：** 12

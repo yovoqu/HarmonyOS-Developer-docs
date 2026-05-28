@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { trustedAppService } from '@kit.DeviceSecurityKit';
 ```
@@ -19,6 +21,8 @@ import { trustedAppService } from '@kit.DeviceSecurityKit';
   
 
 ##### createAttestKey
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 createAttestKey(options: AttestOptions): Promise&lt;void&gt;
  
@@ -96,6 +100,8 @@ await trustedAppService.createAttestKey(options)
 
 ##### AttestOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 [createAttestKey](#createattestkey)接口的请求参数。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
@@ -112,6 +118,8 @@ await trustedAppService.createAttestKey(options)
   
 
 ##### AttestParam
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 [AttestOptions](#attestoptions)配置信息的内容条目。
  
@@ -130,6 +138,8 @@ await trustedAppService.createAttestKey(options)
   
 
 ##### AttestTag
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 配置信息标签类型，使用[AttestTagType](#attesttagtype)扩展定义。
  
@@ -151,6 +161,8 @@ await trustedAppService.createAttestKey(options)
   
 
 ##### AttestTagType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 标签类型定义，用于区分数据类型。
  
@@ -174,6 +186,8 @@ await trustedAppService.createAttestKey(options)
 
 ##### AttestKeyAlg
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 证明密钥算法类型。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
@@ -190,6 +204,8 @@ await trustedAppService.createAttestKey(options)
   
 
 ##### AttestKeySize
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 证明密钥长度。
  
@@ -208,6 +224,8 @@ await trustedAppService.createAttestKey(options)
   
 
 ##### destroyAttestKey
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 destroyAttestKey(): Promise&lt;void&gt;
  
@@ -261,6 +279,8 @@ await trustedAppService.destroyAttestKey().then(
 
 ##### initializeAttestContext
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;AttestReturnResult&gt;
  
 初始化证明会话，在创建证明密钥成功后使用，使用Promise异步回调。
@@ -308,6 +328,8 @@ initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;At
 
 ##### AttestType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 证明会话类型。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
@@ -324,6 +346,8 @@ initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;At
   
 
 ##### AttestReturnResult
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 [initializeAttestContext](#initializeattestcontext)接口的返回值。
  
@@ -381,6 +405,8 @@ await trustedAppService.initializeAttestContext(user_data, options2).then(
 
 ##### AttestExceptionErrCode
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 可信应用服务中创建证明密钥、销毁证明密钥、初始化证明会话、结束证明会话、获取当前安全位置等接口的错误码。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
@@ -414,6 +440,8 @@ await trustedAppService.initializeAttestContext(user_data, options2).then(
   
 
 ##### finalizeAttestContext
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 finalizeAttestContext(options: AttestOptions): Promise&lt;void&gt;
  
@@ -484,6 +512,8 @@ await trustedAppService.finalizeAttestContext(options).then(
 
 ##### getCurrentSecureLocation
 
+**支持设备：** Phone | Tablet
+
 getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&lt;SecureLocation&gt;
  
 获取当前安全位置，使用Promise异步回调。
@@ -530,6 +560,8 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
 
 ##### LocatingPriority
 
+**支持设备：** Phone | Tablet
+
 获取安全地理位置的优先级策略。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
@@ -547,6 +579,8 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
   
 
 ##### SecureLocation
+
+**支持设备：** Phone | Tablet
 
 获取的安全地理位置。
  
@@ -566,6 +600,8 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
   
 
 ##### Location
+
+**支持设备：** Phone | Tablet
 
 获取的安全地理位置信息。
  
@@ -603,6 +639,8 @@ try {
   
 
 ##### procSecImageTransform
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsArray): Promise&lt;SecImageBuffer&gt;
  
@@ -648,6 +686,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 
 ##### SecImageProcParamsArray
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 [procSecImageTransform](#procsecimagetransform)接口的请求参数。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
@@ -662,6 +702,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
   
 
 ##### SecImageProcParams
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 [SecImageProcParamsArray](#secimageprocparamsarray)配置信息的内容条目。
  
@@ -678,6 +720,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
   
 
 ##### SecImageProcTag
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 安全图像压缩、裁剪处理的配置信息标签类型，使用[AttestTagType](#attesttagtype)扩展定义。
  
@@ -699,6 +743,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 
 ##### SecImageProcOperation
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 安全图像的处理命令。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
@@ -716,6 +762,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 
 ##### SecImageProcFormat
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 安全图像的格式。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
@@ -732,6 +780,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
   
 
 ##### CropRegion
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 安全图像裁剪处理的裁剪区域。裁剪区域参数作用如下图所示。
  
@@ -754,6 +804,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
   
 
 ##### SecImageBuffer
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 获得压缩、裁剪处理后签名的安全图像。
  

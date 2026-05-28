@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** lite_wearable
+
 ```text
 import healthStore from '@hms.health.store';
 ```
@@ -23,6 +25,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### Altitude
+
+**支持设备：** lite_wearable
 
 海拔详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite#sequencepoint)。
  
@@ -41,6 +45,8 @@ import healthStore from '@hms.health.store';
 
 ##### ExerciseHeartRate
 
+**支持设备：** lite_wearable
+
 运动心率详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -58,6 +64,8 @@ import healthStore from '@hms.health.store';
 
 ##### Speed
 
+**支持设备：** lite_wearable
+
 速度详情数据字段列表，继承[healthStore.SequencePoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite#sequencepoint)。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -74,6 +82,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### GroupSummary
+
+**支持设备：** lite_wearable
 
 力量训练组数详情数据字段列表。
  
@@ -93,6 +103,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### ActionSummary
+
+**支持设备：** lite_wearable
 
 力量训练动作详情数据字段列表。
  
@@ -116,6 +128,8 @@ import healthStore from '@hms.health.store';
 
 ##### BadmintonDetail
 
+**支持设备：** lite_wearable
+
 羽毛球详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -132,6 +146,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### BadmintonSummary
+
+**支持设备：** lite_wearable
 
 羽毛球统计数据字段列表。
  
@@ -173,6 +189,8 @@ import healthStore from '@hms.health.store';
 
 ##### SoccerDetail
 
+**支持设备：** lite_wearable
+
 足球详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -189,6 +207,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### SoccerSummary
+
+**支持设备：** lite_wearable
 
 足球统计数据字段列表。
  
@@ -221,6 +241,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### StrengthTrainingSummary
+
+**支持设备：** lite_wearable
 
 力量训练统计数据字段列表。
  
@@ -257,6 +279,8 @@ import healthStore from '@hms.health.store';
 
 ##### StrengthTrainingDetail
 
+**支持设备：** lite_wearable
+
 力量训练锻炼记录详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -273,6 +297,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### TennisSummary
+
+**支持设备：** lite_wearable
 
 网球统计数据字段列表。
  
@@ -308,6 +334,8 @@ import healthStore from '@hms.health.store';
 
 ##### TennisDetail
 
+**支持设备：** lite_wearable
+
 网球详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -324,6 +352,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### StairClimbSummary
+
+**支持设备：** lite_wearable
 
 爬楼统计数据字段列表。
  
@@ -359,6 +389,8 @@ import healthStore from '@hms.health.store';
 
 ##### StairClimbDetail
 
+**支持设备：** lite_wearable
+
 爬楼详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -375,6 +407,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### PickleBallSummary
+
+**支持设备：** lite_wearable
 
 匹克球统计数据字段列表。
  
@@ -409,6 +443,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### PickleBallDetail
+
+**支持设备：** lite_wearable
 
 匹克球详情数据字段列表。
  

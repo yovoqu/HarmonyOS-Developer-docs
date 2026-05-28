@@ -28,6 +28,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -35,6 +37,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -53,6 +57,8 @@ let matrix = new drawing.Matrix();
 
 
 ##### constructor20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(matrix: Matrix)
 
@@ -79,6 +85,8 @@ let matrix2 = new drawing.Matrix(matrix);
 
 
 ##### isAffine20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isAffine(): boolean
 
@@ -108,6 +116,8 @@ console.info('isAff :', isAff);
 
 ##### rectStaysRect20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rectStaysRect(): boolean
 
 判断经过该矩阵映射后的矩形的形状是否仍为矩形。
@@ -136,6 +146,8 @@ console.info('isRect :', isRect);
 
 
 ##### setSkew20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSkew(kx: number, ky: number, px: number, py: number): void
 
@@ -167,6 +179,8 @@ matrix.setSkew(2, 0.5, 0.5, 2);
 
 ##### setSinCos20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSinCos(sinValue: number, cosValue: number, px: number, py: number): void
 
 设置矩阵，使其围绕旋转中心(px, py)以指定的正弦值和余弦值旋转。
@@ -196,6 +210,8 @@ matrix.setSinCos(0, 1, 1, 0);
 
 
 ##### setRotation12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRotation(degree: number, px: number, py: number): void
 
@@ -233,6 +249,8 @@ matrix.setRotation(90, 100, 100);
 
 
 ##### setScale12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setScale(sx: number, sy: number, px: number, py: number): void
 
@@ -272,6 +290,8 @@ matrix.setScale(100, 100, 150, 150);
 
 ##### setTranslation12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setTranslation(dx: number, dy: number): void
 
 设置矩阵为单位矩阵平移(dx, dy)后的结果。
@@ -308,6 +328,8 @@ matrix.setTranslation(100, 100);
 
 ##### setMatrix12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMatrix(values: Array&lt;number&gt;): void
 
 设置矩阵对象的各项参数。
@@ -343,6 +365,8 @@ matrix.setMatrix(value);
 
 
 ##### preConcat12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 preConcat(matrix: Matrix): void
 
@@ -382,6 +406,8 @@ matrix1.preConcat(matrix2);
 
 ##### setMatrix20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMatrix(matrix: Array&lt;number&gt; | Matrix): void
 
 用一个矩阵对当前矩阵进行更新。
@@ -409,6 +435,8 @@ matrix1.setMatrix(matrix2);
 
 
 ##### setConcat20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setConcat(matrixA: Matrix, matrixB: Matrix): void
 
@@ -439,6 +467,8 @@ matrix1.setConcat(matrix2, matrix1);
 
 
 ##### postConcat20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postConcat(matrix: Matrix): void
 
@@ -474,6 +504,8 @@ matrix1.postConcat(matrix2);
 
 
 ##### isEqual12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEqual(matrix: Matrix): boolean
 
@@ -524,6 +556,8 @@ if (matrix1.isEqual(matrix2)) {
 
 ##### invert12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 invert(matrix: Matrix): boolean
 
 将矩阵matrix设置为当前矩阵的逆矩阵，并返回是否设置成功的结果。
@@ -573,6 +607,8 @@ if (matrix1.invert(matrix2)) {
 
 ##### isIdentity12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isIdentity(): boolean
 
 判断矩阵是否是单位矩阵。
@@ -602,6 +638,8 @@ if (matrix.isIdentity()) {
 
 
 ##### getValue12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getValue(index: number): number
 
@@ -647,6 +685,8 @@ for (let i = 0; i < 9; i++) {
 
 ##### postRotate12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 postRotate(degree: number, px: number, py: number): void
 
 将矩阵设置为矩阵右乘围绕轴心点旋转一定角度的单位矩阵后得到的矩阵。
@@ -687,6 +727,8 @@ console.info("matrix= "+matrix.getAll().toString());
 
 
 ##### postScale12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postScale(sx: number, sy: number, px: number, py: number): void
 
@@ -731,6 +773,8 @@ console.info("matrix= "+matrix.getAll().toString());
 
 ##### postTranslate12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 postTranslate(dx: number, dy: number): void
 
 将矩阵设置为矩阵右乘平移一定距离后的单位矩阵后得到的矩阵。
@@ -769,6 +813,8 @@ console.info("matrix= "+matrix.getAll().toString());
 
 
 ##### preRotate12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 preRotate(degree: number, px: number, py: number): void
 
@@ -811,6 +857,8 @@ console.info("matrix= "+matrix.getAll().toString());
 
 ##### postSkew20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 postSkew(kx: number, ky: number, px: number, py: number): void
 
 当前矩阵右乘一个倾斜变换矩阵。
@@ -840,6 +888,8 @@ matrix.postSkew(2.0, 1.0, 2.0, 1.0);
 
 ##### preSkew20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 preSkew(kx: number, ky: number, px: number, py: number): void
 
 当前矩阵左乘一个倾斜变换矩阵。
@@ -868,6 +918,8 @@ matrix.preSkew(2.0, 1.0, 2.0, 1.0);
 
 
 ##### mapRadius20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mapRadius(radius: number): number
 
@@ -903,6 +955,8 @@ console.info('radius', radius);
 
 
 ##### preScale12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 preScale(sx: number, sy: number, px: number, py: number): void
 
@@ -947,6 +1001,8 @@ console.info("matrix"+matrix.getAll().toString());
 
 ##### preTranslate12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 preTranslate(dx: number, dy: number): void
 
 将矩阵设置为矩阵左乘平移一定距离后的单位矩阵后得到的矩阵。
@@ -986,6 +1042,8 @@ console.info("matrix"+matrix.getAll().toString());
 
 ##### reset12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset(): void
 
 重置当前矩阵为单位矩阵。
@@ -1006,6 +1064,8 @@ console.info("matrix= "+matrix.getAll().toString());
 
 
 ##### mapPoints12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mapPoints(src: Array<common2D.Point>): Array<common2D.Point>
 
@@ -1055,6 +1115,8 @@ console.info("matrix= dst: "+JSON.stringify(dst));
 
 ##### getAll12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAll(): Array&lt;number&gt;
 
 获取矩阵的所有元素值。
@@ -1081,12 +1143,14 @@ console.info("matrix "+ matrix.getAll());
 
 ##### mapRect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mapRect(dst: common2D.Rect, src: common2D.Rect): boolean
 
 将目标矩形设置为源矩形通过矩阵变换后的图形的外接矩形。如下图所示，蓝色矩形为源矩形，假设黄色矩形为源矩形通过矩阵变换形成的图形，此时黄色矩形的边不与坐标轴平行，无法使用矩形对象表示，因此，将目标矩形设置为黄色矩形的外接矩形，即黑色矩形。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/7HCdFv8-Qtu3N23BG_E1hw/zh-cn_image_0000002611836837.png?HW-CC-KV=V1&HW-CC-Date=20260528T014042Z&HW-CC-Expire=86400&HW-CC-Sign=35CF9DA161C862FB4B73D9AD3EEF03014F20CEF4660F4F0DF190815EE821B31A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/7HCdFv8-Qtu3N23BG_E1hw/zh-cn_image_0000002611836837.png?HW-CC-KV=V1&HW-CC-Date=20260528T024333Z&HW-CC-Expire=86400&HW-CC-Sign=6CF83D4F0809E558F6B2900537C2749F7E9C66F07B8CEFED6711B17C70563C5D)
 
 
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -1131,6 +1195,8 @@ if (matrix.mapRect(dst, src)) {
 
 
 ##### setRectToRect12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRectToRect(src: common2D.Rect, dst: common2D.Rect, scaleToFit: ScaleToFit): boolean
 
@@ -1180,6 +1246,8 @@ if (matrix.setRectToRect(src, dst, scaleToFit)) {
 
 
 ##### setPolyToPoly12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPolyToPoly(src: Array<common2D.Point>, dst: Array<common2D.Point>, count: number): boolean
 

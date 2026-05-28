@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { fileUriService } from '@kit.ScenarioFusionKit';
 ```
@@ -23,6 +25,8 @@ import { fileUriService } from '@kit.ScenarioFusionKit';
   
 
 ##### FileUriResult
+
+**支持设备：** Phone | Tablet
 
 该类提供融合场景文件路径转换的对象。
  
@@ -43,6 +47,8 @@ import { fileUriService } from '@kit.ScenarioFusionKit';
 
 ##### TargetType
 
+**支持设备：** Phone | Tablet
+
 该枚举定义了对象URI的类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -61,6 +67,8 @@ import { fileUriService } from '@kit.ScenarioFusionKit';
   
 
 ##### convertFileUris
+
+**支持设备：** Phone | Tablet
 
 convertFileUris(sourceFileUris: Array&lt;string&gt;): Promise<Array&lt;FileUriResult&gt;>
  

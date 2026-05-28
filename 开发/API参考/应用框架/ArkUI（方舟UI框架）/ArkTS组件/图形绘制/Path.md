@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Path(options?: PathOptions)
  
@@ -40,6 +44,8 @@ Path(options?: PathOptions)
   
 
 ##### PathOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于描述Path组件绘制属性。
  
@@ -64,11 +70,15 @@ Path(options?: PathOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### commands
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 commands(value: [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#resourcestr))
  
@@ -91,6 +101,8 @@ commands(value: [ResourceStr](https://developer.huawei.com/consumer/cn/doc/harmo
 
 ##### fill
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fill(value: ResourceColor)
  
 设置填充区域的颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，异常值按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
@@ -111,6 +123,8 @@ fill(value: ResourceColor)
   
 
 ##### fillOpacity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fillOpacity(value: number | string | Resource)
  
@@ -133,6 +147,8 @@ fillOpacity(value: number | string | Resource)
 
 ##### stroke
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stroke(value: ResourceColor)
  
 设置边框颜色，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法，不设置时，默认边框颜色为不透明的黑色。
@@ -153,6 +169,8 @@ stroke(value: ResourceColor)
   
 
 ##### strokeDashArray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeDashArray(value: Array&lt;any&gt;)
  
@@ -175,6 +193,8 @@ strokeDashArray(value: Array&lt;any&gt;)
 
 ##### strokeDashOffset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeDashOffset(value: number | string)
  
 设置线条绘制起点的偏移量，设置正值向左边偏移，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。异常值按照默认值处理。
@@ -195,6 +215,8 @@ strokeDashOffset(value: number | string)
   
 
 ##### strokeLineCap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeLineCap(value: LineCapStyle)
  
@@ -217,6 +239,8 @@ strokeLineCap(value: LineCapStyle)
 
 ##### strokeLineJoin
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeLineJoin(value: LineJoinStyle)
  
 设置线条拐角绘制样式，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -237,6 +261,8 @@ strokeLineJoin(value: LineJoinStyle)
   
 
 ##### strokeMiterLimit
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeMiterLimit(value: number | string)
  
@@ -261,6 +287,8 @@ strokeMiterLimit(value: number | string)
 
 ##### strokeOpacity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeOpacity(value: number | string | Resource)
  
 设置线条透明度，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。该属性的取值范围是[0.0, 1.0]，若给定值小于0.0，则取值为0.0；若给定值大于1.0，则取值为1.0。
@@ -281,6 +309,8 @@ strokeOpacity(value: number | string | Resource)
   
 
 ##### strokeWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 strokeWidth(value: Length)
  
@@ -303,6 +333,8 @@ strokeWidth(value: Length)
 
 ##### antiAlias
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 antiAlias(value: boolean)
  
 设置是否开启抗锯齿效果，支持[attributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifier)动态设置属性方法。
@@ -323,6 +355,8 @@ antiAlias(value: boolean)
   
 
 ##### SVG路径描述规范
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SVG路径描述规范支持的命令如下：
   
@@ -345,6 +379,8 @@ SVG路径描述规范支持的命令如下：
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -473,7 +509,7 @@ struct PathTypeExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/QXG1xrjZQLOIyCfoZjGImQ/zh-cn_image_0000002581276232.png?HW-CC-KV=V1&HW-CC-Date=20260528T013904Z&HW-CC-Expire=86400&HW-CC-Sign=F4CE8A22016DE42A2A0159341CFAFFAE22BBE18DE8B6D78C5A40D57AF67B3A44)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/QXG1xrjZQLOIyCfoZjGImQ/zh-cn_image_0000002581276232.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=2674E2FDC1F204AC9555BFE67DBBFB0BCF07B0FFC51A85F9B295764FC597FB29)
 
  
   
@@ -518,4 +554,4 @@ struct PathModifierDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/NsmCiD8GRtGuiAgCOQqu1g/zh-cn_image_0000002611756087.png?HW-CC-KV=V1&HW-CC-Date=20260528T013904Z&HW-CC-Expire=86400&HW-CC-Sign=A859F019C96534FFEAA009AE51A13A7D0A20AE896275A18AF33A94A08A6CD2E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/NsmCiD8GRtGuiAgCOQqu1g/zh-cn_image_0000002611756087.png?HW-CC-KV=V1&HW-CC-Date=20260528T024200Z&HW-CC-Expire=86400&HW-CC-Sign=ED9C148C975FA1E04F2CFBC29419721B83DA348395631EACA394B77D5E770D67)

@@ -14,6 +14,8 @@
 
 ##### setMenuOptions16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMenuOptions(options: TextMenuOptions): void
  
 设置菜单选项。
@@ -73,6 +75,8 @@ struct Index {
   
 
 ##### disableSystemServiceMenuItems20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static disableSystemServiceMenuItems(disable: boolean): void
  
@@ -140,6 +144,8 @@ struct Index {
   
 
 ##### disableMenuItems20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static disableMenuItems(items: Array&lt;TextMenuItemId&gt;): void
  

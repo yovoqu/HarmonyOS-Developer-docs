@@ -12,6 +12,8 @@ typedef struct Rdb_DistributedConfig {...} Rdb_DistributedConfig
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 记录表的分布式配置信息。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct Rdb_DistributedConfig {...} Rdb_DistributedConfig
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

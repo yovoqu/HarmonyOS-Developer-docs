@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { InsightIntentContext } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { InsightIntentContext } from '@kit.AbilityKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 23开始，该接口支持在元服务中使用。
 
@@ -72,6 +76,8 @@ export default class InsightIntentExecutorUI extends InsightIntentExecutor {
 
 
 ##### InsightIntentContext.startAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want, callback: AsyncCallback&lt;void&gt;): void
 
@@ -156,6 +162,8 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 
 ##### InsightIntentContext.startAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want): Promise&lt;void&gt;
 
@@ -242,6 +250,8 @@ export default class IntentExecutorImpl extends InsightIntentExecutor {
 
 ##### InsightIntentContext.setReturnModeForUIAbilityForeground23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setReturnModeForUIAbilityForeground(returnMode: insightIntent.ReturnMode): void
 
 设置意图执行结果的返回形式，适用于执行模式为[UI_ABILITY_FOREGROUND](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-insightintent#executemode)的意图。
@@ -314,6 +324,8 @@ export default class InsightIntentExecutorUI extends InsightIntentExecutor {
 
 
 ##### InsightIntentContext.setReturnModeForUIExtensionAbility23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setReturnModeForUIExtensionAbility(returnMode: insightIntent.ReturnMode): void
 

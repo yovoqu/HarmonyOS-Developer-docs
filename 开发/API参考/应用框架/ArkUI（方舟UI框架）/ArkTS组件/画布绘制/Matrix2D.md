@@ -19,9 +19,13 @@ Matrix2D的使用场景包括：
 
 ##### 构造函数
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### constructor10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
  
@@ -36,6 +40,8 @@ constructor()
   
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(unit: LengthMetricsUnit)
  
@@ -57,6 +63,8 @@ constructor(unit: LengthMetricsUnit)
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
  
@@ -121,9 +129,13 @@ struct Parameter {
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### identity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 identity(): Matrix2D
  
@@ -179,6 +191,8 @@ struct Identity {
   
 
 ##### invert
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 invert(): Matrix2D
  
@@ -334,6 +348,8 @@ struct Rotate {
 
 ##### rotate10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rotate(degree: number, rx?: number, ry?: number): Matrix2D
  
 以旋转点为中心，对当前矩阵进行右乘旋转运算。
@@ -404,6 +420,8 @@ struct Rotate {
 
 ##### translate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 translate(tx?: number, ty?: number): Matrix2D
  
 对当前矩阵进行左乘平移运算。
@@ -466,12 +484,14 @@ struct Translate {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/wMDu6_iUR4uh-BEQ7D1srw/zh-cn_image_0000002611835937.png?HW-CC-KV=V1&HW-CC-Date=20260528T013910Z&HW-CC-Expire=86400&HW-CC-Sign=CAC9ECCB450AE0A9632749B89AB55198FEB9C38BBE0F52DB9F4843BE7B18C3C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/wMDu6_iUR4uh-BEQ7D1srw/zh-cn_image_0000002611835937.png?HW-CC-KV=V1&HW-CC-Date=20260528T024206Z&HW-CC-Expire=86400&HW-CC-Sign=C081815335FD2BF4991F9E2966CAB31245D3776634307582416FECEE26BE1B81)
 
  
   
 
 ##### scale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 scale(sx?: number, sy?: number): Matrix2D
  
@@ -535,4 +555,4 @@ struct Scale {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/YHivEQITQcyE3J1qi5_d1A/zh-cn_image_0000002581276192.png?HW-CC-KV=V1&HW-CC-Date=20260528T013910Z&HW-CC-Expire=86400&HW-CC-Sign=DEAE95C367C7C7CF1E5A62EAA2C8BA8FEEDBF10205571F4F9BDBDD2E456A3713)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/YHivEQITQcyE3J1qi5_d1A/zh-cn_image_0000002581276192.png?HW-CC-KV=V1&HW-CC-Date=20260528T024206Z&HW-CC-Expire=86400&HW-CC-Sign=5DCFCF597D445CE9C685677678F1A17E90E39CA918538CA95A01E1E1C7D12EA4)

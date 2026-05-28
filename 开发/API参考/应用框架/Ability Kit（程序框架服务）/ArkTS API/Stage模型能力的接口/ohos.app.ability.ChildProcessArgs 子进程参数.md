@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ChildProcessArgs } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { ChildProcessArgs } from '@kit.AbilityKit';
 
 
 ##### ChildProcessArgs
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
 

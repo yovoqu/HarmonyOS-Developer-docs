@@ -12,6 +12,8 @@
 
 ##### 1010410001 系统内部错误
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 internal recognition engine has been released.
@@ -31,6 +33,8 @@ internal recognition engine has been released.
   
 
 ##### 1010400001 加载失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -52,6 +56,8 @@ load failed.
 
 ##### 1010400002 保存失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 save failed.
@@ -71,6 +77,8 @@ save failed.
   
 
 ##### 1013900001 IPC连接失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -92,6 +100,8 @@ IPC连接失败。
 
 ##### 1013900002 内存不足
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 memory is insufficient.
@@ -111,6 +121,8 @@ memory is insufficient.
   
 
 ##### 1013900003 服务不合法
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  
@@ -132,6 +144,8 @@ service is invalid.
 
 ##### 1013900004 重复调用
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
  
 multi app call.
@@ -151,6 +165,8 @@ multi app call.
   
 
 ##### 1013900005 后台服务调用
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
  

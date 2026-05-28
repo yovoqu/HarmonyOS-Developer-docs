@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### MapArc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 弧线。继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addArc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addarc)方法时会返回该类型的实例。
  
@@ -58,6 +62,8 @@ let mapArc: map.MapArc = this.mapController.addArc(mapArcParams);
 
 ##### getColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getColor(): number
  
 获取弧线的颜色。
@@ -86,6 +92,8 @@ let color: number = mapArc.getColor();
   
 
 ##### getWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getWidth(): number
  
@@ -116,6 +124,8 @@ let width: number = mapArc.getWidth();
 
 ##### setColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setColor(color: number): void
  
 设置弧线的颜色。
@@ -144,6 +154,8 @@ mapArc.setColor(0xffff00ff);
   
 
 ##### setWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setWidth(width: number): void
  

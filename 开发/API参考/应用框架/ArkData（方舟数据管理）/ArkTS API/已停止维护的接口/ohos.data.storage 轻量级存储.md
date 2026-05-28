@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import data_storage from '@ohos.data.storage';
 ```
@@ -21,6 +23,8 @@ import data_storage from '@ohos.data.storage';
   
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.DistributedDataManager.Preferences.Core
   
@@ -33,6 +37,8 @@ import data_storage from '@ohos.data.storage';
   
 
 ##### data_storage.getStorageSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStorageSync(path: string): Storage
  
@@ -75,6 +81,8 @@ context.getFilesDir().then((filePath) => {
 
 ##### data_storage.getStorage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStorage(path: string, callback: AsyncCallback&lt;Storage&gt;): void
  
 读取指定文件，将数据加载到Storage实例，用于数据操作，使用callback方式返回结果，此方法为异步方法。
@@ -114,6 +122,8 @@ context.getFilesDir().then((filePath) => {
   
 
 ##### data_storage.getStorage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStorage(path: string): Promise&lt;Storage&gt;
  
@@ -160,6 +170,8 @@ context.getFilesDir().then((filePath) => {
 
 ##### data_storage.deleteStorageSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteStorageSync(path: string): void
  
 从内存中移除指定文件对应的Storage单实例，并删除指定文件及其备份文件、损坏文件。删除指定文件时，应用不允许再使用该实例进行数据操作，否则会出现数据一致性问题。
@@ -191,6 +203,8 @@ context.getFilesDir().then((filePath) => {
   
 
 ##### data_storage.deleteStorage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteStorage(path: string, callback: AsyncCallback&lt;void&gt;): void
  
@@ -230,6 +244,8 @@ context.getFilesDir().then((filePath) => {
   
 
 ##### data_storage.deleteStorage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteStorage(path: string): Promise&lt;void&gt;
  
@@ -275,6 +291,8 @@ context.getFilesDir().then((filePath) => {
 
 ##### data_storage.removeStorageFromCacheSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeStorageFromCacheSync(path: string): void
  
 从内存中移除指定文件对应的Storage单实例。移除Storage单实例时，应用不允许再使用该实例进行数据操作，否则会出现数据一致性问题。
@@ -306,6 +324,8 @@ context.getFilesDir().then((filePath) => {
   
 
 ##### data_storage.removeStorageFromCache
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeStorageFromCache(path: string, callback: AsyncCallback&lt;void&gt;): void
  
@@ -345,6 +365,8 @@ context.getFilesDir().then((filePath) => {
   
 
 ##### data_storage.removeStorageFromCache
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeStorageFromCache(path: string): Promise&lt;void&gt;
  
@@ -390,6 +412,8 @@ context.getFilesDir().then((filePath) => {
 
 ##### Storage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供获取和修改存储数据的接口。
  
 下列接口都需先使用[data_storage.getStorage](#data_storagegetstorage)或[data_storage.getStorageSync](#data_storagegetstoragesync)获取到Storage实例，再通过此实例调用对应接口。
@@ -397,6 +421,8 @@ context.getFilesDir().then((filePath) => {
   
 
 ##### getSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSync(key: string, defValue: ValueType): ValueType
  
@@ -430,6 +456,8 @@ console.info("The value of startup is " + value);
 
 ##### get
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get(key: string, defValue: ValueType, callback: AsyncCallback&lt;ValueType&gt;): void
  
 获取键对应的值，如果值为null或者非默认值类型，返回默认数据defValue。使用callback方式返回结果，此方法为异步方法。
@@ -460,6 +488,8 @@ storage.get('startup', 'default', function(err, value) {
   
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(key: string, defValue: ValueType): Promise&lt;ValueType&gt;
  
@@ -497,6 +527,8 @@ promiseget.then((value) => {
 
 ##### putSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 putSync(key: string, value: ValueType): void
  
 首先获取指定文件对应的Storage实例，然后借助Storage API将数据写入Storage实例，通过flush或者flushSync将Storage实例持久化。
@@ -520,6 +552,8 @@ storage.putSync('startup', 'auto');
   
 
 ##### put
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 put(key: string, value: ValueType, callback: AsyncCallback&lt;void&gt;): void
  
@@ -551,6 +585,8 @@ storage.put('startup', 'auto', function (err) {
   
 
 ##### put
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 put(key: string, value: ValueType): Promise&lt;void&gt;
  
@@ -588,6 +624,8 @@ promiseput.then(() => {
 
 ##### hasSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasSync(key: string): boolean
  
 检查存储对象是否包含名为给定key的存储。
@@ -620,6 +658,8 @@ if (isExist) {
   
 
 ##### has
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 has(key: string, callback: AsyncCallback&lt;boolean&gt;): boolean
  
@@ -660,6 +700,8 @@ storage.has('startup', function (err, isExist) {
 
 ##### has
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 has(key: string): Promise&lt;boolean&gt;
  
 检查存储对象是否包含名为给定key的存储。使用Promise方式返回结果，此方法为异步方法。
@@ -697,6 +739,8 @@ promisehas.then((isExist) => {
 
 ##### deleteSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteSync(key: string): void
  
 从存储对象中删除名为给定key的存储。
@@ -719,6 +763,8 @@ storage.deleteSync('startup');
   
 
 ##### delete
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 delete(key: string, callback: AsyncCallback&lt;void&gt;): void
  
@@ -749,6 +795,8 @@ storage.delete('startup', function (err) {
   
 
 ##### delete
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 delete(key: string): Promise&lt;void&gt;
  
@@ -785,6 +833,8 @@ promisedel.then(() => {
 
 ##### flushSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 flushSync(): void
  
 将当前storage对象中的修改保存到当前的storage，并同步存储到文件中。
@@ -800,6 +850,8 @@ storage.flushSync();
   
 
 ##### flush
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 flush(callback: AsyncCallback&lt;void&gt;): void
  
@@ -830,6 +882,8 @@ storage.flush(function (err) {
 
 ##### flush
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 flush(): Promise&lt;void&gt;
  
 将当前storage对象中的修改保存到当前的storage，并异步存储到文件中。使用Promise方式返回结果，此方法为异步方法。
@@ -858,6 +912,8 @@ promiseflush.then(() => {
 
 ##### clearSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearSync(): void
  
 清除此存储对象中的所有存储。
@@ -873,6 +929,8 @@ storage.clearSync();
   
 
 ##### clear
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clear(callback: AsyncCallback&lt;void&gt;): void
  
@@ -903,6 +961,8 @@ storage.clear(function (err) {
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): Promise&lt;void&gt;
  
 清除此存储对象中的所有存储。使用Promise方式返回结果，此方法为异步方法。
@@ -930,6 +990,8 @@ promiseclear.then(() => {
   
 
 ##### on('change')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'change', callback: Callback&lt;StorageObserver&gt;): void
  
@@ -960,6 +1022,8 @@ storage.flushSync();  // observer will be called.
 
 ##### off('change')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'change', callback: Callback&lt;StorageObserver&gt;): void
  
 当不再进行订阅数据变更时，使用此接口取消订阅。
@@ -987,6 +1051,8 @@ storage.off('change', observer);
 
 ##### StorageObserver
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.DistributedDataManager.Preferences.Core
   
 | 名称 | 类型 | 必填 | 说明 |
@@ -997,6 +1063,8 @@ storage.off('change', observer);
   
 
 ##### ValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ValueType = number | string | boolean
  

@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### TranslateAnimation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 控制移动的动画类，继承[Animation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-animation)。
  
@@ -28,6 +32,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 constructor(target: mapCommon.LatLng)
  

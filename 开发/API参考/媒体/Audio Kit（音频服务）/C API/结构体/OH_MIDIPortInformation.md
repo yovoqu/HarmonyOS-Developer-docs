@@ -12,6 +12,8 @@ typedef struct {...} OH_MIDIPortInformation
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 端口信息结构体。用于枚举端口，包含可显示的端口名称。
  
 **起始版本：** 24
@@ -24,9 +26,13 @@ typedef struct {...} OH_MIDIPortInformation
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

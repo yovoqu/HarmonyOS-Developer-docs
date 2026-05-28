@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { inspector } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { inspector } from '@kit.ArkUI';
   
 
 ##### inspector.createComponentObserver(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createComponentObserver(id: string): ComponentObserver
  
@@ -58,11 +62,15 @@ let listener:inspector.ComponentObserver = inspector.createComponentObserver('CO
 
 ##### ComponentObserver
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 组件布局和组件绘制送显完成回调的句柄，通过该句柄可调用以下方法。
  
   
 
 ##### on('layout')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'layout', callback: () => void): void
  
@@ -84,6 +92,8 @@ on(type: 'layout', callback: () => void): void
 
 ##### off('layout')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'layout', callback?: () => void): void
  
 通过句柄向对应的查询条件取消注册回调，当组件布局完成时不再触发指定的回调。
@@ -103,6 +113,8 @@ off(type: 'layout', callback?: () => void): void
   
 
 ##### on('draw')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'draw', callback: () => void): void
  
@@ -124,6 +136,8 @@ on(type: 'draw', callback: () => void): void
 
 ##### off('draw')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'draw', callback?: () => void): void
  
 通过句柄向对应的查询条件取消注册回调，当组件绘制送显完成时不再触发指定的回调。
@@ -143,6 +157,8 @@ off(type: 'draw', callback?: () => void): void
   
 
 ##### on('drawChildren')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'drawChildren', callback: Callback&lt;void&gt;): void
  
@@ -164,6 +180,8 @@ on(type: 'drawChildren', callback: Callback&lt;void&gt;): void
 
 ##### off('drawChildren')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'drawChildren', callback?: Callback&lt;void&gt;): void
  
 通过句柄向对应的查询条件取消注册回调，当组件的子组件绘制送显完成时不再触发指定的回调。
@@ -183,6 +201,8 @@ off(type: 'drawChildren', callback?: Callback&lt;void&gt;): void
   
 
 ##### onLayoutChildren23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onLayoutChildren(callback: Callback&lt;void&gt;): void
  
@@ -206,6 +226,8 @@ onLayoutChildren(callback: Callback&lt;void&gt;): void
   
 
 ##### offLayoutChildren23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offLayoutChildren(callback?: Callback&lt;void&gt;): void
  
@@ -299,6 +321,8 @@ struct ImageExample {
 
 ##### onDrawChildren24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDrawChildren(callback: Callback<number[]>): void
  
 通过[ComponentObserver](#componentobserver)注册drawChildren事件回调。使用callback异步回调。
@@ -359,6 +383,8 @@ struct ImageExample {
   
 
 ##### offDrawChildren24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offDrawChildren(callback?: Callback<number[]>): void
  

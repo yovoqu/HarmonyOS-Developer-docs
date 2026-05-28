@@ -12,6 +12,8 @@ typedef struct OH_AVMetadataExtractor_OutputParam OH_AVMetadataExtractor_OutputP
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义由AVMetadataExtractor提取的帧的输出参数。
  
 **起始版本：** 23

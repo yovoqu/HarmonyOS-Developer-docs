@@ -18,6 +18,8 @@ AbilityStage拥有[onCreate()](#oncreate)、[onDestroy()](#ondestroy12)生命周
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AbilityStage } from '@kit.AbilityKit';
 ```
@@ -26,9 +28,13 @@ import { AbilityStage } from '@kit.AbilityKit';
 
 ##### AbilityStage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
 
@@ -42,6 +48,8 @@ import { AbilityStage } from '@kit.AbilityKit';
 
 
 ##### onCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCreate(): void
 
@@ -68,6 +76,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 ##### onAcceptWant
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAcceptWant(want: Want): string
 
@@ -113,6 +123,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 ##### onNewProcessRequest11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onNewProcessRequest(want: Want): string
 
@@ -161,6 +173,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 ##### onConfigurationUpdate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onConfigurationUpdate(newConfig: Configuration): void
 
 当系统全局配置（例如系统语言、深浅色等）发生变更时，会触发该回调。配置项均定义在[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration)类中。同步接口，不支持异步回调。
@@ -195,6 +209,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 ##### onMemoryLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onMemoryLevel(level: AbilityConstant.MemoryLevel): void
 
@@ -233,6 +249,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 ##### onDestroy12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDestroy(): void
 
 在对应Module的最后一个Ability实例退出后会触发该回调。此方法将在正常的调度生命周期中调用，当应用程序异常退出或被终止时，将不会调用此方法。同步接口，不支持异步回调。
@@ -256,6 +274,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 ##### onPrepareTermination15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onPrepareTermination(): AbilityConstant.PrepareTermination
 
@@ -300,6 +320,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 ##### onPrepareTerminationAsync15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onPrepareTerminationAsync(): Promise<AbilityConstant.PrepareTermination>
 
@@ -347,6 +369,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 ##### onAcceptWantAsync20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAcceptWantAsync(want: Want): Promise&lt;string&gt;
 
 当启动模式配置为[specified](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uiability-launch-type#specified启动模式)的UIAbility被拉起时，会触发该回调，并返回一个string作为待启动的UIAbility实例的唯一标识。使用Promise异步回调。
@@ -389,6 +413,8 @@ class MyAbilityStage extends AbilityStage {
 
 
 ##### onNewProcessRequestAsync20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onNewProcessRequestAsync(want: Want): Promise&lt;string&gt;
 
@@ -435,6 +461,8 @@ class MyAbilityStage extends AbilityStage {
 
 ##### onLaunchFromHyperSnap24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onLaunchFromHyperSnap(): void
 
 当进程从[应用快照](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-hypersnapmanager#实现原理)启动时调用。
@@ -459,6 +487,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 ##### onAboutToCreateAbility24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAboutToCreateAbility(): void
 

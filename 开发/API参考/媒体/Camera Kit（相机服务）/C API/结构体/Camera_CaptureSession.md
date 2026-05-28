@@ -12,6 +12,8 @@ typedef struct Camera_CaptureSession Camera_CaptureSession
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 捕获会话对象。
  
  可以使用[OH_CameraManager_CreateCaptureSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createcapturesession)方法创建指针。

@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Span(value: string | Resource)
 
@@ -39,11 +43,15 @@ Span(value: string | Resource)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 属性继承自[BaseSpan](#basespan)。
 
 
 
 ##### decoration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 decoration(value: DecorationStyleInterface)
 
@@ -70,6 +78,8 @@ decoration(value: DecorationStyleInterface)
 
 ##### letterSpacing
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 letterSpacing(value: number | ResourceStr)
 
 设置文本字符间距。取值小于0，字符聚集重叠，取值大于0且随着数值变大，字符间距越来越大，稀疏分布。string类型支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
@@ -90,6 +100,8 @@ letterSpacing(value: number | ResourceStr)
 
 
 ##### textCase
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 textCase(value: TextCase)
 
@@ -112,6 +124,8 @@ textCase(value: TextCase)
 
 ##### fontColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontColor(value: ResourceColor)
 
 设置字体颜色。
@@ -132,6 +146,8 @@ fontColor(value: ResourceColor)
 
 
 ##### fontSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontSize(value: number | string | Resource)
 
@@ -154,6 +170,8 @@ fontSize(value: number | string | Resource)
 
 ##### fontStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontStyle(value: FontStyle)
 
 设置字体样式。
@@ -175,6 +193,8 @@ fontStyle(value: FontStyle)
 
 ##### fontWeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fontWeight(value: number | FontWeight | ResourceStr)
 
 设置文本的字体粗细，设置过大可能会在不同字体下有截断。
@@ -195,6 +215,8 @@ fontWeight(value: number | FontWeight | ResourceStr)
 
 
 ##### fontWeight24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontWeight(weight: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs)
 
@@ -219,6 +241,8 @@ fontWeight(weight: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWe
 
 
 ##### fontFamily
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fontFamily(value: string | Resource)
 
@@ -245,6 +269,8 @@ fontFamily(value: string | Resource)
 
 ##### lineHeight10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lineHeight(value: Length)
 
 设置文本行高。
@@ -264,6 +290,8 @@ lineHeight(value: Length)
 
 ##### font10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 font(value: Font)
 
 设置文本样式。包括字体大小、字体粗细、字体族和字体风格。
@@ -282,6 +310,8 @@ font(value: Font)
 
 
 ##### font24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 font(value: Font, fontConfigs?: FontConfigs)
 
@@ -305,6 +335,8 @@ font(value: Font, fontConfigs?: FontConfigs)
 
 ##### textShadow11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 设置文字阴影效果。该接口支持以数组形式入参，实现多重文字阴影。不支持fill字段, 不支持智能取色模式。
@@ -324,6 +356,8 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通用事件支持[点击事件onClick](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click#onclick)、[悬浮事件onHover](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-hover#onhover)。
 
 > [!NOTE]
@@ -334,6 +368,8 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 ##### BaseSpan
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义BaseSpan基础类，包含Span的通用属性。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -343,6 +379,8 @@ textShadow(value: ShadowOptions | Array&lt;ShadowOptions&gt;)
 
 
 ##### textBackgroundStyle11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 textBackgroundStyle(style: TextBackgroundStyle): T
 
@@ -370,6 +408,8 @@ textBackgroundStyle(style: TextBackgroundStyle): T
 
 ##### baselineOffset12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 baselineOffset(value: LengthMetrics): T
 
 设置Span基线的偏移量。此属性与父组件的baselineOffset是共存的。
@@ -396,6 +436,8 @@ baselineOffset(value: LengthMetrics): T
 
 ##### TextBackgroundStyle11+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -409,6 +451,8 @@ baselineOffset(value: LengthMetrics): T
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 

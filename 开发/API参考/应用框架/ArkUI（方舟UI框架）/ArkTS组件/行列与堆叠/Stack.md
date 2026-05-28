@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Stack(options?: StackOptions)
  
@@ -45,6 +49,8 @@ Stack(options?: StackOptions)
 
 ##### StackOptions18+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置堆叠容器的子组件对齐方式。
  
 > [!NOTE]
@@ -66,11 +72,15 @@ Stack(options?: StackOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### alignContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 alignContent(value: Alignment)
  
@@ -93,11 +103,15 @@ alignContent(value: Alignment)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Stack的alignContent设置为Alignment.Bottom条件下子组件显示效果。
  
@@ -116,4 +130,4 @@ struct StackExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/wYcC1S8xQCOWPtLs8mu0SQ/zh-cn_image_0000002611755663.png?HW-CC-KV=V1&HW-CC-Date=20260528T013902Z&HW-CC-Expire=86400&HW-CC-Sign=9334883F57B7C7A226C304A7B6AB7D7CC850025F98B38AE35040E939A6D8243D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/wYcC1S8xQCOWPtLs8mu0SQ/zh-cn_image_0000002611755663.png?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=4F4C99A2795326EDDF88CDC35D2241ED493AD5964CEB84B105C523188D89D056)

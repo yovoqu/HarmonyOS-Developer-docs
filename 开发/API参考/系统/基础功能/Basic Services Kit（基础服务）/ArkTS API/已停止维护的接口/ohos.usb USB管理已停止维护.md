@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import usb from "@ohos.usb";
 ```
@@ -21,6 +23,8 @@ import usb from "@ohos.usb";
   
 
 ##### usb.getDevices
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getDevices(): Array<Readonly&lt;USBDevice&gt;>
  
@@ -98,6 +102,8 @@ console.info(`devicesList = ${devicesList}`);
 
 ##### usb.connectDevice
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 connectDevice(device: USBDevice): Readonly&lt;USBDevicePipe&gt;
  
 打开USB设备。
@@ -131,6 +137,8 @@ console.info(`devicepipe = ${devicepipe}`);
 
 ##### usb.hasRight
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 hasRight(deviceName: string): boolean
  
 判断是否有权访问该设备。
@@ -162,6 +170,8 @@ console.info(`hasRight = ${bool}`);
   
 
 ##### usb.requestRight
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 requestRight(deviceName: string): Promise&lt;boolean&gt;
  
@@ -195,6 +205,8 @@ usb.requestRight(devicesName).then((ret) => {
   
 
 ##### usb.claimInterface
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 claimInterface(pipe: USBDevicePipe, iface: USBInterface, force ?: boolean): number
  
@@ -231,6 +243,8 @@ console.info(`claimInterface = ${ret}`);
 
 ##### usb.releaseInterface
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number
  
 释放注册过的通信接口。
@@ -264,6 +278,8 @@ console.info(`releaseInterface = ${ret}`);
   
 
 ##### usb.setConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setConfiguration(pipe: USBDevicePipe, config: USBConfig): number
  
@@ -299,6 +315,8 @@ console.info(`setConfiguration = ${ret}`);
 
 ##### usb.setInterface
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 setInterface(pipe: USBDevicePipe, iface: USBInterface): number
  
 设置设备接口。
@@ -333,6 +351,8 @@ console.info(`setInterface = ${ret}`);
 
 ##### usb.getRawDescriptor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getRawDescriptor(pipe: USBDevicePipe): Uint8Array
  
 获取原始的USB描述符。
@@ -365,6 +385,8 @@ let ret = usb.getRawDescriptor(devicepipe);
 
 ##### usb.getFileDescriptor
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getFileDescriptor(pipe: USBDevicePipe): number
  
 获取文件描述符。
@@ -396,6 +418,8 @@ let ret = usb.getFileDescriptor(devicepipe);
   
 
 ##### usb.controlTransfer
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout ?: number): Promise&lt;number&gt;
  
@@ -441,6 +465,8 @@ usb.controlTransfer(devicepipe, param).then((ret) => {
 
 ##### usb.bulkTransfer
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 bulkTransfer(pipe: USBDevicePipe, endpoint: USBEndpoint, buffer: Uint8Array, timeout ?: number): Promise&lt;number&gt;
  
 批量传输。
@@ -481,6 +507,8 @@ usb.bulkTransfer(devicepipe, endpoint, buffer).then((ret) => {
 
 ##### usb.closePipe
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 closePipe(pipe: USBDevicePipe): number
  
 关闭设备消息控制通道。
@@ -514,6 +542,8 @@ console.info(`closePipe = ${ret}`);
 
 ##### USBEndpoint
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 通过USB发送和接收数据的端口。通过[USBInterface](#usbinterface)获取。
  
 **系统能力：** SystemCapability.USB.USBManager
@@ -534,6 +564,8 @@ console.info(`closePipe = ${ret}`);
 
 ##### USBInterface
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 一个[USBConfig](#usbconfig)中可以含有多个USBInterface，每个USBInterface提供一个功能。
  
 **系统能力：** SystemCapability.USB.USBManager
@@ -553,6 +585,8 @@ console.info(`closePipe = ${ret}`);
 
 ##### USBConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 USB配置，一个[USBDevice](#usbdevice)中可以含有多个配置。
  
 **系统能力：** SystemCapability.USB.USBManager
@@ -571,6 +605,8 @@ USB配置，一个[USBDevice](#usbdevice)中可以含有多个配置。
   
 
 ##### USBDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 USB设备信息。
  
@@ -597,6 +633,8 @@ USB设备信息。
 
 ##### USBDevicePipe
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 USB设备消息传输通道，用于确定设备。
  
 **系统能力：** SystemCapability.USB.USBManager
@@ -610,6 +648,8 @@ USB设备消息传输通道，用于确定设备。
   
 
 ##### USBControlParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 控制传输参数。
  
@@ -629,6 +669,8 @@ USB设备消息传输通道，用于确定设备。
 
 ##### USBRequestTargetType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 请求目标类型。
  
 **系统能力：** SystemCapability.USB.USBManager
@@ -645,6 +687,8 @@ USB设备消息传输通道，用于确定设备。
 
 ##### USBControlRequestType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 控制请求类型。
  
 **系统能力：** SystemCapability.USB.USBManager
@@ -659,6 +703,8 @@ USB设备消息传输通道，用于确定设备。
   
 
 ##### USBRequestDirection
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 请求方向。
  

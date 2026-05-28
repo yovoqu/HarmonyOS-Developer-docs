@@ -12,6 +12,8 @@ typedef struct HiAppEvent_Config HiAppEvent_Config
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置系统事件触发条件的配置对象。
  
 **起始版本：** 15

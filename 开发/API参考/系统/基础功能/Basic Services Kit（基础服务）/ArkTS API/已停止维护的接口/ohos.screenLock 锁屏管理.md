@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import screenLock from '@ohos.screenLock';
 ```
@@ -21,6 +23,8 @@ import screenLock from '@ohos.screenLock';
   
 
 ##### screenLock.isScreenLocked(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isScreenLocked(callback: AsyncCallback&lt;boolean&gt;): void
  
@@ -57,6 +61,8 @@ screenLock.isScreenLocked((err: BusinessError, data: Boolean)=>{
 
 ##### screenLock.isScreenLocked(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isScreenLocked(): Promise&lt;boolean&gt;
  
 判断屏幕是否锁屏。使用Promise异步回调。
@@ -89,6 +95,8 @@ screenLock.isScreenLocked().then((data: Boolean) => {
   
 
 ##### screenLock.isSecureMode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSecureMode(callback: AsyncCallback&lt;boolean&gt;): void
  
@@ -125,6 +133,8 @@ screenLock.isSecureMode((err: BusinessError, data: Boolean)=>{
 
 ##### screenLock.isSecureMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSecureMode(): Promise&lt;boolean&gt;
  
 判断当前设备的屏幕锁定是否安全（安全屏幕锁定意味着解锁屏幕需要密码、图案或其他用户身份识别）。使用Promise异步回调。
@@ -157,6 +167,8 @@ screenLock.isSecureMode().then((data: Boolean) => {
   
 
 ##### screenLock.unlockScreen(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unlockScreen(callback: AsyncCallback&lt;void&gt;): void
  
@@ -192,6 +204,8 @@ screenLock.unlockScreen((err: BusinessError) => {
   
 
 ##### screenLock.unlockScreen(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unlockScreen(): Promise&lt;void&gt;
  

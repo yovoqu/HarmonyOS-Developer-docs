@@ -12,6 +12,8 @@ typedef struct OH_AVCodec OH_AVCodec
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为音视频编解码接口定义native层对象。
  
 **起始版本：** 9

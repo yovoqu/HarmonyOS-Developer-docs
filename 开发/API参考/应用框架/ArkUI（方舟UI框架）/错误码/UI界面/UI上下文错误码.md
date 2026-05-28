@@ -52,6 +52,8 @@ The callback function is invalid.
 
 ##### 100101 小于0的非法值
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The parameter value cannot be less than 0.
@@ -71,6 +73,8 @@ The parameter value cannot be less than 0.
 
 
 ##### 100102 参数类型错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -92,6 +96,8 @@ The parameter value cannot be a floating-point number.
 
 ##### 100103 调用线程错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The function cannot be called from a non-main thread.
@@ -111,6 +117,8 @@ The function cannot be called from a non-main thread.
 
 
 ##### 120007 实例不存在
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义单精度多通道、多节二阶IIR滤波器组的数据结构。
  
 **系统能力：** SystemCapability.FAST.Core
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -41,9 +47,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### activeFilters
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint8_t* FAST_Biquadm::activeFilters
@@ -57,6 +67,8 @@ uint8_t* FAST_Biquadm::activeFilters
 
 ##### channelGains
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 float* FAST_Biquadm::channelGains
 ```
@@ -68,6 +80,8 @@ float* FAST_Biquadm::channelGains
   
 
 ##### coefficients
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 FAST_BiquadCoefficients* FAST_Biquadm::coefficients
@@ -81,6 +95,8 @@ FAST_BiquadCoefficients* FAST_Biquadm::coefficients
 
 ##### isInitialized
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 uint8_t FAST_Biquadm::isInitialized
 ```
@@ -92,6 +108,8 @@ uint8_t FAST_Biquadm::isInitialized
   
 
 ##### maxFrames
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 size_t FAST_Biquadm::maxFrames
@@ -105,6 +123,8 @@ size_t FAST_Biquadm::maxFrames
 
 ##### numChannels
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 size_t FAST_Biquadm::numChannels
 ```
@@ -117,6 +137,8 @@ size_t FAST_Biquadm::numChannels
 
 ##### numSections
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 size_t FAST_Biquadm::numSections
 ```
@@ -128,6 +150,8 @@ size_t FAST_Biquadm::numSections
   
 
 ##### states
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 FAST_BiquadState* FAST_Biquadm::states

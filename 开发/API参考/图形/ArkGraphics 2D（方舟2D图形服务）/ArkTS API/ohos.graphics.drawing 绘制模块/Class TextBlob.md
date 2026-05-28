@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### makeFromPosText12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeFromPosText(text: string, len: number, points: common2D.Point[], font: Font): TextBlob
 
@@ -81,6 +85,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### uniqueID12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 uniqueID(): number
 
 获取该TextBlob对象的唯一的非零标识符。
@@ -110,6 +116,8 @@ console.info("uniqueID---------------" +id);
 
 
 ##### makeFromString
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob
 
@@ -166,6 +174,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### makeFromRunBuffer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeFromRunBuffer(pos: Array&lt;TextBlobRunBuffer&gt;, font: Font, bounds?: common2D.Rect): TextBlob
 
@@ -229,6 +239,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### bounds
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bounds(): common2D.Rect
 

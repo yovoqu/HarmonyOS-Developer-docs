@@ -12,6 +12,8 @@ typedef struct OH_AVSource OH_AVSource
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为媒体资源接口定义native层对象。
  
 **起始版本：** 10

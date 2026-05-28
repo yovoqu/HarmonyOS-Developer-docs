@@ -12,6 +12,8 @@ LiveViewLockScreenExtensionContext继承自[ExtensionContext](https://developer.
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { LiveViewLockScreenExtensionContext } from '@kit.LiveViewKit';
 ```
@@ -21,6 +23,8 @@ import { LiveViewLockScreenExtensionContext } from '@kit.LiveViewKit';
   
 
 ##### LiveViewLockScreenExtensionContext
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 [LiveViewLockScreenExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-lock-screen-ability)的上下文环境，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)，未新增内容。
  

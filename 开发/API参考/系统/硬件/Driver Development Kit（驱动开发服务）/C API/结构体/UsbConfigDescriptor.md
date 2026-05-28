@@ -12,6 +12,8 @@ typedef struct UsbConfigDescriptor {...} __attribute__((packed)) UsbConfigDescri
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 标准配置描述符，对应USB协议中Standard Configuration Descriptor。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ typedef struct UsbConfigDescriptor {...} __attribute__((packed)) UsbConfigDescri
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

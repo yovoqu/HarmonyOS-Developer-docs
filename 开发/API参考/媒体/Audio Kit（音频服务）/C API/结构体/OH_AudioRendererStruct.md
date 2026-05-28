@@ -12,6 +12,8 @@ typedef struct OH_AudioRendererStruct OH_AudioRenderer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明输出音频流。输出音频流的实例被用来播放音频数据。
  
 **起始版本：** 10

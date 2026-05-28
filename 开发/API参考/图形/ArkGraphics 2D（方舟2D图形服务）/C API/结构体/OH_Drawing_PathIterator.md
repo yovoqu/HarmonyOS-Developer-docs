@@ -12,6 +12,8 @@ typedef struct OH_Drawing_PathIterator OH_Drawing_PathIterator
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义为路径操作迭代器，可通过遍历迭代器读取path的操作指令。
  
 **起始版本：** 23

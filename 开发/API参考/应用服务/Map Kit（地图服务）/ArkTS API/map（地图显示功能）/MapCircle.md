@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### MapCircle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 更新和查询圆的接口，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addcircle)方法时会返回该类型的实例。
  
@@ -46,6 +50,8 @@ let mapCircle = await this.mapController.addCircle(mapCircleOptions);
 
 ##### getCenter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getCenter(): mapCommon.LatLng
  
 获取圆心经纬度。
@@ -74,6 +80,8 @@ let center: mapCommon.LatLng = mapCircle.getCenter();
   
 
 ##### getFillColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getFillColor(): number
  
@@ -104,6 +112,8 @@ let fillColor: number = mapCircle.getFillColor();
 
 ##### getRadius
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getRadius(): number
  
 获取圆的半径。
@@ -132,6 +142,8 @@ let radius: number = mapCircle.getRadius();
   
 
 ##### getStrokeColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getStrokeColor(): number
  
@@ -162,6 +174,8 @@ let strokeColor: number = mapCircle.getStrokeColor();
 
 ##### getPatterns
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getPatterns(): Array<mapCommon.PatternItem>
  
 获取圆的边框样式。
@@ -190,6 +204,8 @@ let patterns: Array<mapCommon.PatternItem> = mapCircle.getPatterns();
   
 
 ##### getStrokeWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getStrokeWidth(): number
  
@@ -220,6 +236,8 @@ let strokeWidth: number = mapCircle.getStrokeWidth();
 
 ##### isClickable
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isClickable(): boolean
  
 获取圆的可点击性。
@@ -248,6 +266,8 @@ let clickable: boolean = mapCircle.isClickable();
   
 
 ##### setCenter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setCenter(center: mapCommon.LatLng): void
  
@@ -279,6 +299,8 @@ mapCircle.setCenter(center);
 
 ##### setClickable
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setClickable(clickable: boolean): void
  
 设置圆的可点击性。
@@ -308,6 +330,8 @@ mapCircle.setClickable(clickable);
   
 
 ##### setFillColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setFillColor(color: number): void
  
@@ -339,6 +363,8 @@ mapCircle.setFillColor(fillColor);
 
 ##### setRadius
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setRadius(radius: number): void
  
 设置圆的半径。
@@ -369,6 +395,8 @@ mapCircle.setRadius(radius);
 
 ##### setStrokeColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setStrokeColor(color: number): void
  
 设置圆的边框颜色。
@@ -398,6 +426,8 @@ mapCircle.setStrokeColor(strokeColor);
   
 
 ##### setPatterns
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setPatterns(patterns: Array<mapCommon.PatternItem>): void
  
@@ -431,6 +461,8 @@ mapCircle.setPatterns(patterns);
   
 
 ##### setStrokeWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setStrokeWidth(width: number): void
  

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供上下文数据结构[AbilityRuntime_Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-abilityruntime-abilityruntime-context)和相关接口用于获取当前上下文的应用文件路径、数据加密等级和进程名等信息。
  
 **引用文件：** <AbilityKit/ability_runtime/context.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -58,9 +66,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_AbilityRuntime_Context_GetCacheDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetCacheDir(
@@ -113,6 +125,8 @@ void testGetCacheDir(AbilityRuntime_ContextHandle context)
 
 ##### OH_AbilityRuntime_Context_GetTempDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetTempDir(
     AbilityRuntime_ContextHandle context, char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -163,6 +177,8 @@ void testGetTempDir(AbilityRuntime_ContextHandle context)
   
 
 ##### OH_AbilityRuntime_Context_GetFilesDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetFilesDir(
@@ -215,6 +231,8 @@ void testGetFilesDir(AbilityRuntime_ContextHandle context)
 
 ##### OH_AbilityRuntime_Context_GetDatabaseDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetDatabaseDir(
     AbilityRuntime_ContextHandle context, char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -265,6 +283,8 @@ void testGetDatabaseDir(AbilityRuntime_ContextHandle context)
   
 
 ##### OH_AbilityRuntime_Context_GetPreferencesDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetPreferencesDir(
@@ -317,6 +337,8 @@ void testGetPreferencesDir(AbilityRuntime_ContextHandle context)
 
 ##### OH_AbilityRuntime_Context_GetBundleCodeDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetBundleCodeDir(
     AbilityRuntime_ContextHandle context, char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -367,6 +389,8 @@ void testGetBundleCodeDir(AbilityRuntime_ContextHandle context)
   
 
 ##### OH_AbilityRuntime_Context_GetDistributedFilesDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetDistributedFilesDir(
@@ -419,6 +443,8 @@ void testGetDistributedFilesDir(AbilityRuntime_ContextHandle context)
 
 ##### OH_AbilityRuntime_Context_GetResourceDir()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetResourceDir(
     AbilityRuntime_ContextHandle context, char* buffer, const int32_t bufferSize, int32_t* writeLength)
@@ -469,6 +495,8 @@ void testGetResourceDir(AbilityRuntime_ContextHandle context)
   
 
 ##### OH_AbilityRuntime_Context_GetCloudFileDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetCloudFileDir(
@@ -521,6 +549,8 @@ void testGetCloudFileDir(AbilityRuntime_ContextHandle context)
 
 ##### OH_AbilityRuntime_Context_GetAreaMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetAreaMode(
     AbilityRuntime_ContextHandle context, AbilityRuntime_AreaMode* areaMode)
@@ -569,6 +599,8 @@ void testGetAreaMode(AbilityRuntime_ContextHandle context)
 
 ##### OH_AbilityRuntime_Context_SetAreaMode()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_SetAreaMode(
     AbilityRuntime_ContextHandle context, AbilityRuntime_AreaMode areaMode)
@@ -616,6 +648,8 @@ void testSetAreaMode(AbilityRuntime_ContextHandle context)
   
 
 ##### OH_AbilityRuntime_Context_GetLogFileDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetLogFileDir(
@@ -667,6 +701,8 @@ void testGetLogFileDir(AbilityRuntime_ContextHandle context)
   
 
 ##### OH_AbilityRuntime_Context_GetProcessName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AbilityRuntime_ErrorCode OH_AbilityRuntime_Context_GetProcessName(

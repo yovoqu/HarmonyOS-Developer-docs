@@ -12,6 +12,8 @@ typedef struct NetConn_TraceRouteOption {...} NetConn_TraceRouteOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义网络跟踪路由选项。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ typedef struct NetConn_TraceRouteOption {...} NetConn_TraceRouteOption
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

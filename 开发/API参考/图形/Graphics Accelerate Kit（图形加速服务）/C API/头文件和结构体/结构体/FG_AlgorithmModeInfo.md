@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述超帧算法模式信息。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### meMode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_MeMode FG_AlgorithmModeInfo::meMode
@@ -48,6 +58,8 @@ FG_MeMode FG_AlgorithmModeInfo::meMode
   
 
 ##### predictionMode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_PredictionMode FG_AlgorithmModeInfo::predictionMode

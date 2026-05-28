@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { netFirewall } from '@kit.NetworkKit';
 ```
@@ -21,6 +23,8 @@ import { netFirewall } from '@kit.NetworkKit';
 
 
 ##### netFirewall.setNetFirewallPolicy
+
+**支持设备：** PC/2in1
 
 setNetFirewallPolicy(userId: number, policy: NetFirewallPolicy): Promise&lt;void&gt;
 
@@ -85,6 +89,8 @@ netFirewall.setNetFirewallPolicy(100, policy).then(() => {
 
 ##### netFirewall.getNetFirewallPolicy
 
+**支持设备：** PC/2in1
+
 getNetFirewallPolicy(userId: number): Promise&lt;NetFirewallPolicy&gt;
 
 查询系统用户ID的防火墙策略，包含防火墙开关状态，默认出站入站行为（允许/阻止）。使用Promise异步回调。
@@ -137,6 +143,8 @@ netFirewall.getNetFirewallPolicy(100).then((result: netFirewall.NetFirewallPolic
 
 
 ##### netFirewall.addNetFirewallRule
+
+**支持设备：** PC/2in1
 
 addNetFirewallRule(rule: NetFirewallRule): Promise&lt;number&gt;
 
@@ -293,6 +301,8 @@ netFirewall.addNetFirewallRule(dnsRule).then((result: number) => {
 
 ##### netFirewall.removeNetFirewallRule
 
+**支持设备：** PC/2in1
+
 removeNetFirewallRule(userId: number, ruleId: number): Promise&lt;void&gt;
 
 删除系统用户ID的指定防火墙规则。使用Promise异步回调。
@@ -347,6 +357,8 @@ netFirewall.removeNetFirewallRule(100, 1).then(() => {
 
 
 ##### netFirewall.updateNetFirewallRule
+
+**支持设备：** PC/2in1
 
 updateNetFirewallRule(rule: NetFirewallRule): Promise&lt;void&gt;
 
@@ -430,6 +442,8 @@ netFirewall.updateNetFirewallRule(ipRuleUpd).then(() => {
 
 ##### netFirewall.getNetFirewallRules
 
+**支持设备：** PC/2in1
+
 getNetFirewallRules(userId: number, requestParam: RequestParam): Promise&lt;FirewallRulePage&gt;
 
 按用户ID获取防火墙规则，需要指定分页查询参数。目前支持根据防火墙规则名排序。使用Promise异步回调。
@@ -490,6 +504,8 @@ netFirewall.getNetFirewallRules(100, ruleParam).then((result: netFirewall.Firewa
 
 ##### netFirewall.getNetFirewallRule
 
+**支持设备：** PC/2in1
+
 getNetFirewallRule(userId: number, ruleId: number): Promise&lt;NetFirewallRule&gt;
 
 通过userId和ruleId获取指定的防火墙规则。使用Promise异步回调。
@@ -545,6 +561,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 ##### NetFirewallRule
 
+**支持设备：** PC/2in1
+
 防火墙规则信息结构。
 
 **系统能力**：SystemCapability.Communication.NetManager.NetFirewall
@@ -573,6 +591,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 ##### RequestParam
 
+**支持设备：** PC/2in1
+
 查询输入信息结构。
 
 **系统能力**：SystemCapability.Communication.NetManager.NetFirewall
@@ -588,6 +608,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 ##### FirewallRulePage
+
+**支持设备：** PC/2in1
 
 防火墙规则页信息结构。
 
@@ -605,6 +627,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 ##### NetFirewallPolicy
 
+**支持设备：** PC/2in1
+
 防火墙策略，包含防火墙开关状态，默认的出站/入站行为（允许/阻止）。
 
 **系统能力**：SystemCapability.Communication.NetManager.NetFirewall
@@ -620,6 +644,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 ##### NetFirewallRuleDirection
 
+**支持设备：** PC/2in1
+
 枚举类型，防火墙规则方向，包含入站、出站。
 
 **系统能力**：SystemCapability.Communication.NetManager.NetFirewall
@@ -633,6 +659,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 ##### FirewallRuleAction
+
+**支持设备：** PC/2in1
 
 枚举类型，防火墙规则行为，包含允许网络连接、阻止网络连接。
 
@@ -648,6 +676,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 ##### NetFirewallRuleType
 
+**支持设备：** PC/2in1
+
 枚举类型，防火墙规则类型，包含IP、Domain、DNS。
 
 **系统能力**：SystemCapability.Communication.NetManager.NetFirewall
@@ -662,6 +692,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 ##### NetFirewallOrderField
+
+**支持设备：** PC/2in1
 
 枚举类型，防火墙规则排序方法。
 
@@ -681,6 +713,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 ##### NetFirewallOrderType
 
+**支持设备：** PC/2in1
+
 枚举类型，防火墙规则排序顺序，包含升序或降序。
 
 **系统能力**：SystemCapability.Communication.NetManager.NetFirewall
@@ -694,6 +728,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 ##### NetFirewallIpParams
+
+**支持设备：** PC/2in1
 
 防火墙规则的IP参数，IP类型包括IPv4、IPv6，支持单个IP或IP段。
 
@@ -713,6 +749,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 ##### NetFirewallPortParams
 
+**支持设备：** PC/2in1
+
 防火墙规则端口参数。
 
 **系统能力**：SystemCapability.Communication.NetManager.NetFirewall
@@ -727,6 +765,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 ##### NetFirewallDomainParams
 
+**支持设备：** PC/2in1
+
 防火墙规则域名参数，目前不支持中文域名。
 
 **系统能力**：SystemCapability.Communication.NetManager.NetFirewall
@@ -740,6 +780,8 @@ netFirewall.getNetFirewallRule(100, 1).then((rule: netFirewall.NetFirewallRule) 
 
 
 ##### NetFirewallDnsParams
+
+**支持设备：** PC/2in1
 
 防火墙规则DNS信息。
 

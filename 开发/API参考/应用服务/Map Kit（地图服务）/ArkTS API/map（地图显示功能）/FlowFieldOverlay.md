@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### FlowFieldOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 流场图层管理对象。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addFlowFieldOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addflowfieldoverlay)方法时会返回该类型的实例，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。
  
@@ -38,6 +42,8 @@ let fieldOverlay = await mapController.addFlowFieldOverlay(params);
   
 
 ##### setStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setStyle(style: mapCommon.ParticleStyle): void
  
@@ -73,6 +79,8 @@ fieldOverlay.setStyle(style);
   
 
 ##### getStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getStyle(): mapCommon.ParticleStyle
  

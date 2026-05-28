@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### Marker
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 标记，继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addMarker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addmarker)方法时会返回该类型的实例。
  
@@ -40,6 +44,8 @@ let marker: map.Marker = await this.mapController.addMarker(markerOptions);
   
 
 ##### getTitle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getTitle(): string
  
@@ -70,6 +76,8 @@ let title: string = marker.getTitle();
 
 ##### getSnippet
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getSnippet(): string
  
 返回信息窗的子标题。
@@ -98,6 +106,8 @@ let snippet: string = marker.getSnippet();
   
 
 ##### getAlpha
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getAlpha(): number
  
@@ -128,6 +138,8 @@ let alpha: number = marker.getAlpha();
 
 ##### getPosition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getPosition(): mapCommon.LatLng
  
 获取标记的位置。
@@ -156,6 +168,8 @@ let position: mapCommon.LatLng = marker.getPosition();
   
 
 ##### getRotation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getRotation(): number
  
@@ -186,6 +200,8 @@ let rotation: number = marker.getRotation();
 
 ##### isClickable
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isClickable(): boolean
  
 获取标记是否可以点击。
@@ -214,6 +230,8 @@ let isClickable: boolean = marker.isClickable();
   
 
 ##### isDraggable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isDraggable(): boolean
  
@@ -244,6 +262,8 @@ let isDraggable: boolean = marker.isDraggable();
 
 ##### isFlat
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isFlat(): boolean
  
 获取标记是否平贴地图。
@@ -272,6 +292,8 @@ let isFlat: boolean = marker.isFlat();
   
 
 ##### setAlpha
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setAlpha(alpha: number): void
  
@@ -302,6 +324,8 @@ marker.setAlpha(0.5);
 
 ##### setClickable
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setClickable(clickable: boolean): void
  
 设置标记是否可以点击。
@@ -330,6 +354,8 @@ marker.setClickable(true);
   
 
 ##### setDraggable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setDraggable(draggable: boolean): void
  
@@ -360,6 +386,8 @@ marker.setDraggable(true);
 
 ##### setFlat
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setFlat(flat: boolean): void
  
 设置标记是否平贴地图。如果标记平贴地图，则在相机旋转和倾斜时，标记仍将停留在地图上，它将保持与照相机缩放时相同的大小。 如果标记面对相机，它将始终面向相机绘制，并随相机旋转和倾斜。
@@ -388,6 +416,8 @@ marker.setFlat(true);
   
 
 ##### setIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setIcon(icon: string | image.PixelMap | Resource): Promise&lt;void&gt;
  
@@ -426,6 +456,8 @@ await marker.setIcon('icon/test.png');
 
 ##### setMarkerAnchor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setMarkerAnchor(anchorU: number, anchorV: number): void
  
 设置标记的锚点位置。锚点是标记图标接触地图平面的点，图标的左顶点为（0, 0）点，右顶点为（1, 0）点，左底点为（0, 1）点，右底点为（1, 1）点。例如，在标记X（0.5, 0.3）处的锚点坐标如下：
@@ -460,6 +492,8 @@ marker.setMarkerAnchor(1.0, 1.0);
 
 ##### setPosition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setPosition(latLng: mapCommon.LatLng): void
  
 设置标记的位置坐标。
@@ -493,6 +527,8 @@ marker.setPosition(position);
 
 ##### setRotation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setRotation(rotation: number): void
  
 设置标记的旋转角度，即标记围绕标记锚点顺时针旋转的角度，旋转轴垂直于标记。默认旋转角度为0，默认位置为北对齐。
@@ -521,6 +557,8 @@ marker.setRotation(30);
   
 
 ##### setTitle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setTitle(title: string): void
  
@@ -551,6 +589,8 @@ marker.setTitle("title");
 
 ##### setSnippet
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setSnippet(snippet: string): void
  
 设置信息窗口的子标题。
@@ -579,6 +619,8 @@ marker.setSnippet("su");
   
 
 ##### setInfoWindowAnchor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setInfoWindowAnchor(anchorU: number, anchorV: number): void
  
@@ -610,6 +652,8 @@ marker.setInfoWindowAnchor(0.5, 0.5);
 
 ##### setInfoWindowVisible
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setInfoWindowVisible(visible: boolean): void
  
 设置信息窗是否可见。
@@ -639,6 +683,8 @@ marker.setInfoWindowVisible(true);
 
 ##### isInfoWindowVisible
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isInfoWindowVisible(): boolean
  
 返回信息窗是否可见。
@@ -667,6 +713,8 @@ let visible: boolean = marker.isInfoWindowVisible();
   
 
 ##### setAnimation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setAnimation(animation: Animation): void
  
@@ -711,6 +759,8 @@ marker.setAnimation(animation);
 
 ##### startAnimation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 startAnimation(): void
  
 启动标记的动画。
@@ -748,6 +798,8 @@ marker.startAnimation();
 
 ##### clearAnimation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 clearAnimation(): void
  
 清除标记的动画。
@@ -769,6 +821,8 @@ marker.clearAnimation();
   
 
 ##### getAltitude
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getAltitude(): number
  
@@ -799,6 +853,8 @@ let altitude: number = marker.getAltitude();
 
 ##### setAltitude
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setAltitude(altitude: number): void
  
 设置海拔高度。
@@ -827,6 +883,8 @@ marker.setAltitude(500);
   
 
 ##### setAnnotationVisible
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setAnnotationVisible(visible: boolean): void
  
@@ -857,6 +915,8 @@ marker.setAnnotationVisible(true);
 
 ##### isAnnotationVisible
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isAnnotationVisible(): boolean
  
 返回标记文本是否可见。
@@ -885,6 +945,8 @@ let isVisible = marker.isAnnotationVisible();
   
 
 ##### setPriority
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setPriority(priority: number): void
  
@@ -915,6 +977,8 @@ marker.setPriority(50);
 
 ##### getPriority
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getPriority(): number
  
 获取标记冲突优先级。
@@ -943,6 +1007,8 @@ let priority: number = marker.getPriority();
   
 
 ##### setIconBuilder
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setIconBuilder(iconBuilder: CustomBuilder): Promise&lt;void&gt;
  
@@ -1005,6 +1071,8 @@ try {
 
 ##### setOffset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setOffset(x: number, y: number): void
  
 设置标记图标的偏移量。
@@ -1035,6 +1103,8 @@ marker.setOffset(20,20);
 
 ##### getOffsetX
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getOffsetX(): number
  
 获取标记图标在X轴方向的偏移量。
@@ -1063,6 +1133,8 @@ let X: number = marker.getOffsetX();
   
 
 ##### getOffsetY
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getOffsetY(): number
  

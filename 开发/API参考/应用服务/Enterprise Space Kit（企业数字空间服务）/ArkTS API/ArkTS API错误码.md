@@ -12,6 +12,8 @@
 
 ##### 1020300001 系统服务异常
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 System service exception.
@@ -31,6 +33,8 @@ System service exception.
   
 
 ##### 1020300002 请求参数无效
+
+**支持设备：** PC/2in1
 
 **错误信息**
  
@@ -52,6 +56,8 @@ Parameter error.
 
 ##### 1020400001 系统服务异常
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 System service exception.
@@ -72,6 +78,8 @@ System service exception.
 
 ##### 1020400002 请求参数无效
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 Parameter error.
@@ -91,6 +99,8 @@ Parameter error.
   
 
 ##### 1020400003 工作空间无效
+
+**支持设备：** PC/2in1
 
 **错误信息**
  
@@ -115,6 +125,8 @@ Invalid workspace.
 
 ##### 1020400004 企业认证失败
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 Authentication failed.
@@ -136,6 +148,8 @@ Authentication failed.
 
 ##### 1020400005 配置信息未设置
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 Configuration not set.
@@ -155,6 +169,8 @@ Configuration not set.
   
 
 ##### 1020400006 SA进程异常退出，导致连接中断
+
+**支持设备：** PC/2in1
 
 **错误信息**
  
@@ -176,6 +192,8 @@ SA进程异常退出，导致连接中断。
 
 ##### 1020400007 企业空间未开启
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 Enterprise workspace not enabled.
@@ -195,6 +213,8 @@ Enterprise workspace not enabled.
   
 
 ##### 1020400008 账号名或密码无效
+
+**支持设备：** PC/2in1
 
 **错误信息**
  
@@ -216,6 +236,8 @@ Invalid account name or password.
 
 ##### 1020400009 企业账号已锁定
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 The account is locked.
@@ -235,6 +257,8 @@ The account is locked.
   
 
 ##### 1020400010 企业认证服务器不可达
+
+**支持设备：** PC/2in1
 
 **错误信息**
  
@@ -256,6 +280,8 @@ Enterprise authentication server unreachable.
 
 ##### 1020400011 禁止创建账号
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 Account creation is not permitted.
@@ -275,6 +301,8 @@ Account creation is not permitted.
   
 
 ##### 1020400012 全盘加密未开启
+
+**支持设备：** PC/2in1
 
 **错误信息**
  

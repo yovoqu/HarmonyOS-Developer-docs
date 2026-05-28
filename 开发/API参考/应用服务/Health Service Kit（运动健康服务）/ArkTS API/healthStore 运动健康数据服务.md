@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { healthStore } from '@kit.HealthServiceKit';
 ```
@@ -19,6 +21,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 
 ##### AggregateMetrics
+
+**支持设备：** Phone | Tablet | Wearable
 
 type AggregateMetrics = Partial<Record<[AggregateMetricScope](#aggregatemetricscope), number>>
 
@@ -44,6 +48,8 @@ type AggregateMetrics = Partial<Record<[AggregateMetricScope](#aggregatemetricsc
 
 ##### AggregateMetricScope
 
+**支持设备：** Phone | Tablet | Wearable
+
 type AggregateMetricScope = 'max' | 'min' | 'avg' | 'sum' | 'last' | 'count'
 
 聚合策略类型。
@@ -68,6 +74,8 @@ type AggregateMetricScope = 'max' | 'min' | 'avg' | 'sum' | 'last' | 'count'
 
 ##### AggregateRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 AggregateRequest<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> = Record<string, [AggregateMetrics](#aggregatemetrics)>>
 
 聚合查询请求类，继承Omit<[DataReadRequest](#datareadrequest), 'startTime' | 'endTime'>。
@@ -89,6 +97,8 @@ AggregateRequest<T extends Record<string, [AggregateMetrics](#aggregatemetrics)>
 
 ##### AggregateResult
 
+**支持设备：** Phone | Tablet | Wearable
+
 AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> = Record<string, [AggregateMetrics](#aggregatemetrics)>>
 
 聚合查询结果类，继承Omit<[SampleDataBase](#sampledatabase), 'dataSourceId'>。
@@ -108,6 +118,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 ##### AppInfo
 
+**支持设备：** Phone | Tablet | Wearable
+
 应用信息类。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -125,6 +137,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 ##### AuthorizationBase
+
+**支持设备：** Phone | Tablet | Wearable
 
 授权信息基类。
 
@@ -144,6 +158,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 ##### AuthorizationRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 授权请求参数类型，继承[AuthorizationBase](#authorizationbase)。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -161,6 +177,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 ##### AuthorizationResponse
 
+**支持设备：** Phone | Tablet | Wearable
+
 授权响应返回类型，继承[AuthorizationBase](#authorizationbase)。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -177,6 +195,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 ##### DataReadRequest
+
+**支持设备：** Phone | Tablet | Wearable
 
 读取请求参数基类，继承[DataRequest](#datarequest)。
 
@@ -197,6 +217,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 ##### DataRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 请求参数基类。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -216,6 +238,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 ##### DataSource
 
+**支持设备：** Phone | Tablet | Wearable
+
 数据源。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -232,6 +256,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 
 ##### DataSourceBase
+
+**支持设备：** Phone | Tablet | Wearable
 
 type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
@@ -251,6 +277,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 ##### DataSourceOptions
 
+**支持设备：** Phone | Tablet | Wearable
+
 数据源选项类，用于查询和删除。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -269,6 +297,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 ##### DataSourceReadRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 读取数据源请求。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -285,6 +315,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 
 ##### DataType
+
+**支持设备：** Phone | Tablet | Wearable
 
 定义数据类型的类，每个数据类型字段都有唯一的id来标识。
 
@@ -303,6 +335,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 
 ##### DeviceCategory
+
+**支持设备：** Phone | Tablet | Wearable
 
 设备类型枚举对象。
 
@@ -336,6 +370,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 ##### DeviceInfo
 
+**支持设备：** Phone | Tablet | Wearable
+
 设备信息类。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -362,6 +398,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 ##### ExerciseSequence
 
+**支持设备：** Phone | Tablet | Wearable
+
 ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> = Record<string, [ExerciseSummary](#exercisesummary)>,DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
 锻炼记录数据类，继承[SampleDataBase](#sampledatabase)。
@@ -382,6 +420,8 @@ ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> =
 
 ##### ExerciseSequenceDeleteRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 删除锻炼记录请求类，继承Omit<[DataRequest](#datarequest), 'startLocalDate' | 'endLocalDate'>。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -396,6 +436,8 @@ ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> =
 
 
 ##### ExerciseSequenceReadRequest
+
+**支持设备：** Phone | Tablet | Wearable
 
 ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
@@ -415,6 +457,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 ##### ExerciseSummary
 
+**支持设备：** Phone | Tablet | Wearable
+
 锻炼记录统计数据类，继承Record<string, [HealthValueType](#healthvaluetype) | [PaceValueType](#pacevaluetype)>。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -429,6 +473,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 
 ##### GroupOption
+
+**支持设备：** Phone | Tablet | Wearable
 
 聚合分组选项。
 
@@ -448,6 +494,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 ##### GroupUnitType
 
+**支持设备：** Phone | Tablet | Wearable
+
 聚合策略（分组单元）枚举对象。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -464,6 +512,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 
 ##### HealthSequence
+
+**支持设备：** Phone | Tablet | Wearable
 
 HealthSequence<K extends Record<string, [HealthValueType](#healthvaluetype)> = Record<string, [HealthValueType](#healthvaluetype)>,DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
@@ -483,6 +533,8 @@ HealthSequence<K extends Record<string, [HealthValueType](#healthvaluetype)> = R
 
 ##### HealthSequenceDeleteRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 删除健康记录请求类，继承Omit<[DataRequest](#datarequest), 'startLocalDate' | 'endLocalDate'>。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -497,6 +549,8 @@ HealthSequence<K extends Record<string, [HealthValueType](#healthvaluetype)> = R
 
 
 ##### HealthSequenceReadRequest
+
+**支持设备：** Phone | Tablet | Wearable
 
 HealthSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
@@ -515,6 +569,8 @@ HealthSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencepoi
 
 
 ##### HealthValueType
+
+**支持设备：** Phone | Tablet | Wearable
 
 type HealthValueType = number | string | boolean | undefined
 
@@ -538,6 +594,8 @@ type HealthValueType = number | string | boolean | undefined
 
 ##### PaceValueType
 
+**支持设备：** Phone | Tablet | Wearable
+
 type PaceValueType = Record<string, number>
 
 配速数据类型。
@@ -554,6 +612,8 @@ type PaceValueType = Record<string, number>
 
 
 ##### SampleDataBase
+
+**支持设备：** Phone | Tablet | Wearable
 
 健康数据基类。
 
@@ -576,6 +636,8 @@ type PaceValueType = Record<string, number>
 
 ##### SamplePoint
 
+**支持设备：** Phone | Tablet | Wearable
+
 SamplePoint<K extends Record<string, [HealthValueType](#healthvaluetype)> = Record<string, [HealthValueType](#healthvaluetype)>>
 
 数据采样点，继承[SampleDataBase](#sampledatabase)。
@@ -593,6 +655,8 @@ SamplePoint<K extends Record<string, [HealthValueType](#healthvaluetype)> = Reco
 
 ##### SamplePointDeleteRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 type SamplePointDeleteRequest = UnixTimeBasedDataDeleteRequest
 
 删除数据采样点请求类型，继承Omit<[DataRequest](#datarequest), 'startLocalDate' | 'endLocalDate'>。
@@ -609,6 +673,8 @@ type SamplePointDeleteRequest = UnixTimeBasedDataDeleteRequest
 
 
 ##### SamplePointReadRequest
+
+**支持设备：** Phone | Tablet | Wearable
 
 SamplePointReadRequest<FK extends Record<string, [HealthValueType](#healthvaluetype)> = Record<string, [HealthValueType](#healthvaluetype)>>
 
@@ -628,6 +694,8 @@ SamplePointReadRequest<FK extends Record<string, [HealthValueType](#healthvaluet
 
 ##### SequencePoint
 
+**支持设备：** Phone | Tablet | Wearable
+
 运动健康数据详情点，继承Record<string, [HealthValueType](#healthvaluetype)>。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -643,6 +711,8 @@ SamplePointReadRequest<FK extends Record<string, [HealthValueType](#healthvaluet
 
 
 ##### SequenceReadOptions
+
+**支持设备：** Phone | Tablet | Wearable
 
 SequenceReadOptions<DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
@@ -661,6 +731,8 @@ SequenceReadOptions<DK extends Record<string, [SequencePoint](#sequencepoint)[]>
 
 
 ##### SequenceValueType
+
+**支持设备：** Phone | Tablet | Wearable
 
 type SequenceValueType = number | string | boolean | object
 
@@ -682,6 +754,8 @@ type SequenceValueType = number | string | boolean | object
 
 ##### SortOrder
 
+**支持设备：** Phone | Tablet | Wearable
+
 结果排序类型枚举对象。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -699,6 +773,8 @@ type SequenceValueType = number | string | boolean | object
 
 
 ##### SubDataType
+
+**支持设备：** Phone | Tablet | Wearable
 
 type SubDataType = DataType
 
@@ -718,6 +794,8 @@ type SubDataType = DataType
 
 ##### UnixTimeBasedDataDeleteRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 基于Unix时间戳的删除请求基类，继承Omit<[DataRequest](#datarequest), 'startLocalDate' | 'endLocalDate'>。
 
 **系统能力：** SystemCapability.Health.HealthStore
@@ -732,6 +810,8 @@ type SubDataType = DataType
 
 
 ##### healthStore.init
+
+**支持设备：** Phone | Tablet | Wearable
 
 init(context: common.Context): Promise&lt;void&gt;
 
@@ -786,6 +866,8 @@ try {
 
 
 ##### healthStore.insertDataSource
+
+**支持设备：** Phone | Tablet | Wearable
 
 insertDataSource(dataSource: DataSourceBase): Promise&lt;string&gt;
 
@@ -866,6 +948,8 @@ try {
 
 ##### healthStore.readDataSource
 
+**支持设备：** Phone | Tablet | Wearable
+
 readDataSource(request: DataSourceReadRequest): Promise<DataSource[]>
 
 读取数据源，使用Promise异步方式。
@@ -933,6 +1017,8 @@ try {
 
 
 ##### healthStore.updateDataSource
+
+**支持设备：** Phone | Tablet | Wearable
 
 updateDataSource(dataSource: DataSource): Promise&lt;void&gt;
 
@@ -1016,6 +1102,8 @@ try {
 
 ##### healthStore.saveData
 
+**支持设备：** Phone | Tablet | Wearable
+
 saveData(sampleData: SamplePoint[] | SamplePoint): Promise&lt;void&gt;
 
 保存数据采样点，使用Promise异步方式。
@@ -1091,6 +1179,8 @@ try {
 
 
 ##### healthStore.saveData
+
+**支持设备：** Phone | Tablet | Wearable
 
 saveData(exerciseSequence: ExerciseSequence[] | ExerciseSequence): Promise&lt;void&gt;
 
@@ -1214,6 +1304,8 @@ try {
 
 ##### healthStore.saveData
 
+**支持设备：** Phone | Tablet | Wearable
+
 saveData(healthSequence: HealthSequence[] | HealthSequence): Promise&lt;void&gt;
 
 保存健康记录数据，使用Promise异步方式。
@@ -1322,6 +1414,8 @@ try {
 
 ##### healthStore.readData
 
+**支持设备：** Phone | Tablet | Wearable
+
 readData<T extends SamplePoint>(request: SamplePointReadRequest): Promise<T[]>
 
 读取数据采样点，使用Promise异步方式。
@@ -1395,6 +1489,8 @@ try {
 
 
 ##### healthStore.readData
+
+**支持设备：** Phone | Tablet | Wearable
 
 readData<T extends ExerciseSequence>(request: ExerciseSequenceReadRequest): Promise<T[]>
 
@@ -1484,6 +1580,8 @@ try {
 
 ##### healthStore.readData
 
+**支持设备：** Phone | Tablet | Wearable
+
 readData<T extends HealthSequence>(request: HealthSequenceReadRequest): Promise<T[]>
 
 读取健康记录数据，使用Promise异步方式。
@@ -1562,6 +1660,8 @@ try {
 
 ##### healthStore.deleteData
 
+**支持设备：** Phone | Tablet | Wearable
+
 deleteData(request: SamplePointDeleteRequest | SamplePointDeleteRequest[]): Promise&lt;void&gt;
 
 删除数据采样点，使用Promise异步方式。
@@ -1630,6 +1730,8 @@ try {
 
 ##### healthStore.deleteData
 
+**支持设备：** Phone | Tablet | Wearable
+
 deleteData(request: ExerciseSequenceDeleteRequest | ExerciseSequenceDeleteRequest[]): Promise&lt;void&gt;
 
 删除锻炼记录数据，使用Promise异步方式。
@@ -1697,6 +1799,8 @@ try {
 
 ##### healthStore.deleteData
 
+**支持设备：** Phone | Tablet | Wearable
+
 deleteData(request: HealthSequenceDeleteRequest | HealthSequenceDeleteRequest[]): Promise&lt;void&gt;
 
 删除健康记录数据，使用Promise异步方式。
@@ -1763,6 +1867,8 @@ try {
 
 
 ##### healthStore.deleteData
+
+**支持设备：** Phone | Tablet | Wearable
 
 deleteData(samplePoint: SamplePoint | SamplePoint[]): Promise&lt;void&gt;
 
@@ -1834,6 +1940,8 @@ try {
 
 
 ##### healthStore.deleteData
+
+**支持设备：** Phone | Tablet | Wearable
 
 deleteData(exerciseSequence: ExerciseSequence | ExerciseSequence[]): Promise&lt;void&gt;
 
@@ -1909,6 +2017,8 @@ try {
 
 ##### healthStore.deleteData
 
+**支持设备：** Phone | Tablet | Wearable
+
 deleteData(healthSequence: HealthSequence | HealthSequence[]): Promise&lt;void&gt;
 
 删除指定健康记录数据，使用Promise异步方式。
@@ -1979,6 +2089,8 @@ try {
 
 
 ##### healthStore.aggregateData
+
+**支持设备：** Phone | Tablet | Wearable
 
 aggregateData<T extends AggregateResult>(request: AggregateRequest | AggregateRequest[]): Promise<T[]>
 
@@ -2071,6 +2183,8 @@ try {
 
 ##### healthStore.requestAuthorizations
 
+**支持设备：** Phone | Tablet | Wearable
+
 requestAuthorizations(context: common.UIAbilityContext, request: AuthorizationRequest): Promise&lt;AuthorizationResponse&gt;
 
 用户授权，使用Promise异步方式。
@@ -2146,6 +2260,8 @@ try {
 
 ##### healthStore.getAuthorizations
 
+**支持设备：** Phone | Tablet | Wearable
+
 getAuthorizations(request: AuthorizationRequest): Promise&lt;AuthorizationResponse&gt;
 
 查询权限，使用Promise异步方式。
@@ -2217,6 +2333,8 @@ try {
 
 ##### healthStore.cancelAuthorizations
 
+**支持设备：** Phone | Tablet | Wearable
+
 cancelAuthorizations(): Promise&lt;void&gt;
 
 用户取消授权，使用Promise异步方式。
@@ -2266,6 +2384,8 @@ try {
 
 
 ##### healthStore.syncAll
+
+**支持设备：** Phone | Tablet | Wearable
 
 syncAll(): Promise&lt;void&gt;
 
@@ -2322,6 +2442,8 @@ try {
 
 ##### healthStore.on('serviceDie')
 
+**支持设备：** Phone | Tablet | Wearable
+
 on(type: 'serviceDie', callback: Callback&lt;void&gt;): void
 
 订阅Health Service Kit进程销毁通知，使用Callback异步回调。
@@ -2358,6 +2480,8 @@ healthStore.on('serviceDie', () => {
 
 
 ##### healthStore.off('serviceDie')
+
+**支持设备：** Phone | Tablet | Wearable
 
 off(type: 'serviceDie', callback?: Callback&lt;void&gt;): void
 

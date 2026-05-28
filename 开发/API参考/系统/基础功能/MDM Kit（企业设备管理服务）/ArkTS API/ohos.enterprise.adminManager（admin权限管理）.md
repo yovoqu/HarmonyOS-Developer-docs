@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { adminManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { adminManager } from '@kit.MDMKit';
 
 
 ##### adminManager.disableAdmin
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 disableAdmin(admin: Want, userId?: number): Promise&lt;void&gt;
 
@@ -85,6 +89,8 @@ adminManager.disableAdmin(wantTemp, 100).catch((err: BusinessError) => {
 
 ##### adminManager.isByodAdmin20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 isByodAdmin(admin: Want): boolean
 
 根据企业设备管理扩展组件查询当前应用是否被激活为BYOD设备管理应用。
@@ -143,6 +149,8 @@ try {
 
 ##### adminManager.subscribeManagedEventSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 subscribeManagedEventSync(admin: Want, managedEvents: Array&lt;ManagedEvent&gt;): void
 
 订阅系统管理事件。
@@ -198,6 +206,8 @@ try {
 
 ##### adminManager.unsubscribeManagedEventSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 unsubscribeManagedEventSync(admin: Want, managedEvents: Array&lt;ManagedEvent&gt;): void
 
 取消订阅系统管理事件。
@@ -252,6 +262,8 @@ try {
 
 
 ##### adminManager.setDelegatedPolicies14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setDelegatedPolicies(admin: Want, bundleName: string, policies: Array&lt;string&gt;): void
 
@@ -311,6 +323,8 @@ try {
 
 
 ##### adminManager.getDelegatedPolicies14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDelegatedPolicies(admin: Want, bundleName: string): Array&lt;string&gt;
 
@@ -374,6 +388,8 @@ try {
 
 ##### adminManager.getDelegatedBundleNames14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getDelegatedBundleNames(admin: Want, policy: string): Array&lt;string&gt;
 
 查询可以访问某个委托策略的被委托应用，输出被委托应用列表。
@@ -435,6 +451,8 @@ try {
 
 
 ##### adminManager.startAdminProvision15+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startAdminProvision(admin: Want, type: AdminType, context: common.Context, parameters: Record<string, string>): void
 
@@ -499,6 +517,8 @@ try {
 
 ##### adminManager.enableDeviceAdmin23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 enableDeviceAdmin(admin: Want): Promise&lt;void&gt;
 
 [超级设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#sda)通过该接口可以激活其他[普通设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#da)，使用Promise异步回调。该接口仅支持超级设备管理应用调用。
@@ -561,6 +581,8 @@ adminManager.enableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 ##### adminManager.disableDeviceAdmin23+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 disableDeviceAdmin(admin: Want): Promise&lt;void&gt;
 
 [超级设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#sda)通过该接口可以解除激活其他[普通设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#da)，使用Promise异步回调。该接口仅支持超级设备管理应用调用。
@@ -622,6 +644,8 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 ##### ManagedEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 可订阅的系统管理事件。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -644,6 +668,8 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 ##### AdminType15+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 设备管理应用的类型。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -656,6 +682,8 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 
 ##### Policy20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 允许或禁用名单的策略类型。
 
@@ -672,6 +700,8 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 
 ##### 附录
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 
 

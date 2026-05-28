@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AVVolumePanel } from '@kit.AudioKit';
 ```
@@ -24,11 +26,15 @@ import { AVVolumePanel } from '@kit.AudioKit';
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### AVVolumePanel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 AVVolumePanel({volumeLevel?: number, volumeParameter?: AVVolumePanelParameter})
 
@@ -50,6 +56,8 @@ AVVolumePanel({volumeLevel?: number, volumeParameter?: AVVolumePanelParameter})
 
 ##### AVVolumePanelParameter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 音量面板参数设置。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -65,17 +73,23 @@ AVVolumePanel({volumeLevel?: number, volumeParameter?: AVVolumePanelParameter})
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### 使用建议
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 1. 应用在实现自定义音量条的过程中，建议使用音频框架的音量变化监听接口，通过接口回调的音量类型volumeEvent.volumeType，音量等级volumeEvent.volume以及是否显示音量条volumeEvent.updateUi等信息，应用可以判断是否需要处理当前数据和显示自定义的音量条，具体可参考[on('streamVolumeChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiovolumemanager#onstreamvolumechange20)介绍。
 2. 为确保用户能感知音量变化，不允许应用后台调节音量，系统会做出对应的控制措施。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 音量面板功能的示例说明参考如下。需要实际修改volume值或者按压音量按键体验调节音量效果。
 

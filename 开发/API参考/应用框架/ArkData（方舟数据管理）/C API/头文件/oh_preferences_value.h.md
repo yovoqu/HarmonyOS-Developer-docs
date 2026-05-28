@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供访问Preferences值（PreferencesValue）对象的接口、枚举类型与数据结构。
  
 **引用文件：** <database/preferences/oh_preferences_value.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -45,6 +53,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -82,9 +92,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Preference_ValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Preference_ValueType
@@ -117,9 +131,13 @@ enum Preference_ValueType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_PreferencesPair_GetKey()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const char *OH_PreferencesPair_GetKey(const OH_PreferencesPair *pairs, uint32_t index)
@@ -150,6 +168,8 @@ const char *OH_PreferencesPair_GetKey(const OH_PreferencesPair *pairs, uint32_t 
 
 ##### OH_PreferencesPair_GetPreferencesValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 const OH_PreferencesValue *OH_PreferencesPair_GetPreferencesValue(const OH_PreferencesPair *pairs, uint32_t index)
 ```
@@ -179,6 +199,8 @@ const OH_PreferencesValue *OH_PreferencesPair_GetPreferencesValue(const OH_Prefe
 
 ##### OH_PreferencesValue_GetValueType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Preference_ValueType OH_PreferencesValue_GetValueType(const OH_PreferencesValue *object)
 ```
@@ -206,6 +228,8 @@ Preference_ValueType OH_PreferencesValue_GetValueType(const OH_PreferencesValue 
   
 
 ##### OH_PreferencesValue_GetInt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_GetInt(const OH_PreferencesValue *object, int *value)
@@ -236,6 +260,8 @@ int OH_PreferencesValue_GetInt(const OH_PreferencesValue *object, int *value)
 
 ##### OH_PreferencesValue_GetBool()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_GetBool(const OH_PreferencesValue *object, bool *value)
 ```
@@ -264,6 +290,8 @@ int OH_PreferencesValue_GetBool(const OH_PreferencesValue *object, bool *value)
   
 
 ##### OH_PreferencesValue_GetString()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_GetString(const OH_PreferencesValue *object, char **value, uint32_t *valueLen)
@@ -295,6 +323,8 @@ int OH_PreferencesValue_GetString(const OH_PreferencesValue *object, char **valu
 
 ##### OH_PreferencesPair_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_PreferencesPair_Destroy(OH_PreferencesPair *pairs, uint32_t count)
 ```
@@ -317,6 +347,8 @@ void OH_PreferencesPair_Destroy(OH_PreferencesPair *pairs, uint32_t count)
 
 ##### OH_PreferencesValue_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_PreferencesValue* OH_PreferencesValue_Create(void)
 ```
@@ -338,6 +370,8 @@ OH_PreferencesValue* OH_PreferencesValue_Create(void)
 
 ##### OH_PreferencesValue_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_PreferencesValue_Destroy(OH_PreferencesValue *value)
 ```
@@ -358,6 +392,8 @@ void OH_PreferencesValue_Destroy(OH_PreferencesValue *value)
   
 
 ##### OH_PreferencesValue_SetInt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_SetInt(const OH_PreferencesValue *object, int value)
@@ -388,6 +424,8 @@ int OH_PreferencesValue_SetInt(const OH_PreferencesValue *object, int value)
 
 ##### OH_PreferencesValue_SetBool()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_SetBool(const OH_PreferencesValue *object, bool value)
 ```
@@ -416,6 +454,8 @@ int OH_PreferencesValue_SetBool(const OH_PreferencesValue *object, bool value)
   
 
 ##### OH_PreferencesValue_SetString()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_SetString(const OH_PreferencesValue *object, const char *value)
@@ -446,6 +486,8 @@ int OH_PreferencesValue_SetString(const OH_PreferencesValue *object, const char 
 
 ##### OH_PreferencesValue_SetInt64()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_SetInt64(const OH_PreferencesValue *object, int64_t value)
 ```
@@ -474,6 +516,8 @@ int OH_PreferencesValue_SetInt64(const OH_PreferencesValue *object, int64_t valu
   
 
 ##### OH_PreferencesValue_GetInt64()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_GetInt64(const OH_PreferencesValue *object, int64_t *value)
@@ -504,6 +548,8 @@ int OH_PreferencesValue_GetInt64(const OH_PreferencesValue *object, int64_t *val
 
 ##### OH_PreferencesValue_SetDouble()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_SetDouble(const OH_PreferencesValue *object, double value)
 ```
@@ -533,6 +579,8 @@ int OH_PreferencesValue_SetDouble(const OH_PreferencesValue *object, double valu
 
 ##### OH_PreferencesValue_GetDouble()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_GetDouble(const OH_PreferencesValue *object, double *value)
 ```
@@ -561,6 +609,8 @@ int OH_PreferencesValue_GetDouble(const OH_PreferencesValue *object, double *val
   
 
 ##### OH_PreferencesValue_SetIntArray()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_SetIntArray(const OH_PreferencesValue *object, const int *value, uint32_t count)
@@ -592,6 +642,8 @@ int OH_PreferencesValue_SetIntArray(const OH_PreferencesValue *object, const int
 
 ##### OH_PreferencesValue_GetIntArray()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_GetIntArray(const OH_PreferencesValue *object, int **value, uint32_t *count)
 ```
@@ -621,6 +673,8 @@ int OH_PreferencesValue_GetIntArray(const OH_PreferencesValue *object, int **val
   
 
 ##### OH_PreferencesValue_SetBoolArray()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_SetBoolArray(const OH_PreferencesValue *object, const bool *value, uint32_t count)
@@ -652,6 +706,8 @@ int OH_PreferencesValue_SetBoolArray(const OH_PreferencesValue *object, const bo
 
 ##### OH_PreferencesValue_GetBoolArray()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_GetBoolArray(const OH_PreferencesValue *object, bool **value, uint32_t *count)
 ```
@@ -681,6 +737,8 @@ int OH_PreferencesValue_GetBoolArray(const OH_PreferencesValue *object, bool **v
   
 
 ##### OH_PreferencesValue_SetStringArray()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_SetStringArray(const OH_PreferencesValue *object, const char **value, uint32_t count)
@@ -712,6 +770,8 @@ int OH_PreferencesValue_SetStringArray(const OH_PreferencesValue *object, const 
 
 ##### OH_PreferencesValue_GetStringArray()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_GetStringArray(const OH_PreferencesValue *object, char ***value, uint32_t *count)
 ```
@@ -741,6 +801,8 @@ int OH_PreferencesValue_GetStringArray(const OH_PreferencesValue *object, char *
   
 
 ##### OH_PreferencesValue_SetInt64Array()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_SetInt64Array(const OH_PreferencesValue *object, const int64_t *value, uint32_t count)
@@ -772,6 +834,8 @@ int OH_PreferencesValue_SetInt64Array(const OH_PreferencesValue *object, const i
 
 ##### OH_PreferencesValue_GetInt64Array()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_GetInt64Array(const OH_PreferencesValue *object, int64_t **value, uint32_t *count)
 ```
@@ -801,6 +865,8 @@ int OH_PreferencesValue_GetInt64Array(const OH_PreferencesValue *object, int64_t
   
 
 ##### OH_PreferencesValue_SetDoubleArray()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_SetDoubleArray(const OH_PreferencesValue *object, const double *value, uint32_t count)
@@ -832,6 +898,8 @@ int OH_PreferencesValue_SetDoubleArray(const OH_PreferencesValue *object, const 
 
 ##### OH_PreferencesValue_GetDoubleArray()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_GetDoubleArray(const OH_PreferencesValue *object, double **value, uint32_t *count)
 ```
@@ -862,6 +930,8 @@ int OH_PreferencesValue_GetDoubleArray(const OH_PreferencesValue *object, double
 
 ##### OH_PreferencesValue_SetBlob()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_PreferencesValue_SetBlob(const OH_PreferencesValue *object, const uint8_t *value, uint32_t count)
 ```
@@ -891,6 +961,8 @@ int OH_PreferencesValue_SetBlob(const OH_PreferencesValue *object, const uint8_t
   
 
 ##### OH_PreferencesValue_GetBlob()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_PreferencesValue_GetBlob(const OH_PreferencesValue *object, uint8_t **value, uint32_t *count)

@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { CollaborationCameraStateDialog, createCollaborationCameraMenuItems, CollaborationCameraBusinessFilter} from '@kit.ServiceCollaborationKit';
 ```
@@ -23,6 +25,8 @@ import { CollaborationCameraStateDialog, createCollaborationCameraMenuItems, Col
 
 
 ##### createCollaborationCameraMenuItems(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 createCollaborationCameraMenuItems(businessFilter?: Array&lt;CollaborationCameraBusinessFilter&gt;): void
 
@@ -62,6 +66,8 @@ myTestMenu() {
 
 ##### CollaborationCameraBusinessFilter(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 能力类型枚举值。
 
 **废弃说明：** 从5.0.0(12) 开始废弃，建议使用[CollaborationServiceFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice#collaborationservicefilter)替代。
@@ -95,6 +101,8 @@ myTestMenu() {
 
 ##### CollaborationCameraStateDialog(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 弹窗组件，用于提示对端应用状态。
 
 您需要实现[onState](#onstatedeprecated)方法，并且在页面中定义这个组件，在业务开始后，此方法将被协同框架调用。
@@ -114,6 +122,8 @@ myTestMenu() {
 
 
 ##### onState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onState: (stateCode: number, buffer: ArrayBuffer) => void
 
@@ -153,6 +163,8 @@ onState: (stateCode: number, buffer: ArrayBuffer) => void
 
 
 ##### build(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 build(): void
 

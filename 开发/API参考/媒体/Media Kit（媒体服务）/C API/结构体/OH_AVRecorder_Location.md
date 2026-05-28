@@ -12,6 +12,8 @@ typedef struct OH_AVRecorder_Location {...} OH_AVRecorder_Location
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供媒体资源的地理位置信息。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct OH_AVRecorder_Location {...} OH_AVRecorder_Location
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

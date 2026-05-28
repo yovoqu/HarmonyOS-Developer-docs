@@ -12,6 +12,8 @@ typedef struct OH_Drawing_FontArguments OH_Drawing_FontArguments
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于描述字型参数。
  
 **起始版本：** 13

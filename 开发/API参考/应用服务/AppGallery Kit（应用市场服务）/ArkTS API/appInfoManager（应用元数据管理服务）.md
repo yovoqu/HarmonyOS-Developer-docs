@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { appInfoManager } from '@kit.AppGalleryKit';
 ```
@@ -23,6 +25,8 @@ import { appInfoManager } from '@kit.AppGalleryKit';
   
 
 ##### DynamicIconInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 动态图标信息。
  
@@ -40,6 +44,8 @@ import { appInfoManager } from '@kit.AppGalleryKit';
   
 
 ##### appInfoManager.queryDynamicIcons
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryDynamicIcons(): Promise<DynamicIconInfo[]>
  
@@ -123,6 +129,8 @@ struct DynamicIconPage {
 
 ##### appInfoManager.selectDynamicIcon
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectDynamicIcon(iconId: string): Promise&lt;void&gt;
  
 选择动态图标。使用Promise异步回调。
@@ -183,6 +191,8 @@ try {
   
 
 ##### appInfoManager.disableDynamicIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disableDynamicIcon(): Promise&lt;void&gt;
  

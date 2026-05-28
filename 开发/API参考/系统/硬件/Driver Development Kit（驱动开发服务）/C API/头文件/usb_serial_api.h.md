@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 声明用于主机侧通过USB接口访问串口设备的USB Serial DDK接口。
  
 **引用文件：** <usb_serial/usb_serial_api.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 函数
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,9 +54,13 @@
 
 ##### 函数说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### OH_UsbSerial_Init()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_UsbSerial_Init(void)
@@ -75,6 +85,8 @@ int32_t OH_UsbSerial_Init(void)
 
 ##### OH_UsbSerial_Release()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_UsbSerial_Release(void)
 ```
@@ -97,6 +109,8 @@ int32_t OH_UsbSerial_Release(void)
   
 
 ##### OH_UsbSerial_Open()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_UsbSerial_Open(uint64_t deviceId, uint8_t interfaceIndex, UsbSerial_Device **dev)
@@ -130,6 +144,8 @@ int32_t OH_UsbSerial_Open(uint64_t deviceId, uint8_t interfaceIndex, UsbSerial_D
 
 ##### OH_UsbSerial_Close()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_UsbSerial_Close(UsbSerial_Device **dev)
 ```
@@ -159,6 +175,8 @@ int32_t OH_UsbSerial_Close(UsbSerial_Device **dev)
   
 
 ##### OH_UsbSerial_Read()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_UsbSerial_Read(UsbSerial_Device *dev, uint8_t *buff, uint32_t bufferSize, uint32_t *bytesRead)
@@ -193,6 +211,8 @@ int32_t OH_UsbSerial_Read(UsbSerial_Device *dev, uint8_t *buff, uint32_t bufferS
 
 ##### OH_UsbSerial_Write()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_UsbSerial_Write(UsbSerial_Device *dev, uint8_t *buff, uint32_t bufferSize, uint32_t *bytesWritten)
 ```
@@ -226,6 +246,8 @@ int32_t OH_UsbSerial_Write(UsbSerial_Device *dev, uint8_t *buff, uint32_t buffer
 
 ##### OH_UsbSerial_SetBaudRate()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_UsbSerial_SetBaudRate(UsbSerial_Device *dev, uint32_t baudRate)
 ```
@@ -256,6 +278,8 @@ int32_t OH_UsbSerial_SetBaudRate(UsbSerial_Device *dev, uint32_t baudRate)
   
 
 ##### OH_UsbSerial_SetParams()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_UsbSerial_SetParams(UsbSerial_Device *dev, UsbSerial_Params *params)
@@ -288,6 +312,8 @@ int32_t OH_UsbSerial_SetParams(UsbSerial_Device *dev, UsbSerial_Params *params)
 
 ##### OH_UsbSerial_SetTimeout()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_UsbSerial_SetTimeout(UsbSerial_Device *dev, int timeout)
 ```
@@ -318,6 +344,8 @@ int32_t OH_UsbSerial_SetTimeout(UsbSerial_Device *dev, int timeout)
   
 
 ##### OH_UsbSerial_SetFlowControl()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_UsbSerial_SetFlowControl(UsbSerial_Device *dev, UsbSerial_FlowControl flowControl)
@@ -352,6 +380,8 @@ int32_t OH_UsbSerial_SetFlowControl(UsbSerial_Device *dev, UsbSerial_FlowControl
 
 ##### OH_UsbSerial_Flush()
 
+**支持设备：** PC/2in1
+
 ```text
 int32_t OH_UsbSerial_Flush(UsbSerial_Device *dev)
 ```
@@ -381,6 +411,8 @@ int32_t OH_UsbSerial_Flush(UsbSerial_Device *dev)
   
 
 ##### OH_UsbSerial_FlushInput()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_UsbSerial_FlushInput(UsbSerial_Device *dev)
@@ -413,6 +445,8 @@ int32_t OH_UsbSerial_FlushInput(UsbSerial_Device *dev)
   
 
 ##### OH_UsbSerial_FlushOutput()
+
+**支持设备：** PC/2in1
 
 ```text
 int32_t OH_UsbSerial_FlushOutput(UsbSerial_Device *dev)

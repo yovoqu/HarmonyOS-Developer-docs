@@ -12,6 +12,8 @@ typedef struct OH_AudioStreamBuilderStruct OH_AudioStreamBuilder
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明音频流的构造器。构造器实例通常被用来设置音频流属性和创建音频流。
  
 **起始版本：** 10

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ComposeListItem } from "@kit.ArkUI";
 ```
@@ -22,11 +24,15 @@ import { ComposeListItem } from "@kit.ArkUI";
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### ComposeListItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
  
@@ -48,6 +54,8 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
 
 ##### ContentItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 列表左侧显示的图标、图标大小以及中间元素文字内容。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -67,6 +75,8 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
   
 
 ##### IconType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 列表左侧图标类型。
  
@@ -92,6 +102,8 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
 
 ##### OperateItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 列表右侧显示的元素类型。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -116,6 +128,8 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
 
 ##### OperateIcon
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 列表右侧图标元素的类型。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -136,6 +150,8 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
 
 ##### OperateButton
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 列表右侧按钮元素的类型。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -153,6 +169,8 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
   
 
 ##### OperateCheck
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 列表右侧元素为Switch、CheckBox、Radio的类型。
  
@@ -173,11 +191,15 @@ ComposeListItem({contentItem?: ContentItem, operateItem?: OperateItem})
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -389,4 +411,4 @@ struct ComposeListItemExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/RTJCCeohSxCTuxqbzsCAdQ/zh-cn_image_0000002581436236.png?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=232EAE86805C20647CF2BB2AA87854FEE9EB9AC6C3F48A1FB4C361E0D39C833C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/04/v3/RTJCCeohSxCTuxqbzsCAdQ/zh-cn_image_0000002581436236.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=3EEE016EBFD2A59031FD8C2AFA99AFA6B598F9E0845B14CDB6ACF5638AB71502)

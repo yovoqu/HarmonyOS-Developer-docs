@@ -13,6 +13,8 @@
 
 
 ##### 使用说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 1. 应用创建AbilityLifecycleCallback对象，并调用[ApplicationContext.on('abilityLifecycle')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonabilitylifecycle)接口注册UIAbility生命周期变化监听。
 2. 当UIAbility生命周期变化时，应用可以通过已注册的AbilityLifecycleCallback对象接收到UIAbility生命周期的变化通知。
 3. 当应用不需要监听UIAbility生命周期变化时，需要通过[ApplicationContext.off('abilityLifecycle')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextoffabilitylifecycle)接口取消监听。
@@ -20,6 +22,8 @@
 
 
 ##### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { AbilityLifecycleCallback } from '@kit.AbilityKit';
@@ -29,9 +33,13 @@ import { AbilityLifecycleCallback } from '@kit.AbilityKit';
 
 ##### AbilityLifecycleCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### onAbilityCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAbilityCreate(ability: UIAbility): void
 
@@ -55,6 +63,8 @@ onAbilityCreate(ability: UIAbility): void
 
 
 ##### onWindowStageCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -80,6 +90,8 @@ onWindowStageCreate(ability: UIAbility, windowStage: window.WindowStage): void
 
 ##### onWindowStageActive
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void
 
 在UIAbility主窗获焦时触发回调。
@@ -103,6 +115,8 @@ onWindowStageActive(ability: UIAbility, windowStage: window.WindowStage): void
 
 
 ##### onWindowStageInactive
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -128,6 +142,8 @@ onWindowStageInactive(ability: UIAbility, windowStage: window.WindowStage): void
 
 ##### onWindowStageDestroy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void
 
 在UIAbility的[onWindowStageDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagedestroy)触发后回调。
@@ -152,6 +168,8 @@ onWindowStageDestroy(ability: UIAbility, windowStage: window.WindowStage): void
 
 ##### onAbilityDestroy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAbilityDestroy(ability: UIAbility): void
 
 在UIAbility的[onDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#ondestroy)触发后回调。
@@ -174,6 +192,8 @@ onAbilityDestroy(ability: UIAbility): void
 
 
 ##### onAbilityForeground
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAbilityForeground(ability: UIAbility): void
 
@@ -198,6 +218,8 @@ onAbilityForeground(ability: UIAbility): void
 
 ##### onAbilityBackground
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAbilityBackground(ability: UIAbility): void
 
 在UIAbility的[onBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onbackground)触发后回调。
@@ -220,6 +242,8 @@ onAbilityBackground(ability: UIAbility): void
 
 
 ##### onAbilityContinue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAbilityContinue(ability: UIAbility): void
 
@@ -244,6 +268,8 @@ onAbilityContinue(ability: UIAbility): void
 
 ##### onAbilityWillCreate12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAbilityWillCreate?(ability: UIAbility): void
 
 在UIAbility的[onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncreate)触发前回调。
@@ -266,6 +292,8 @@ onAbilityWillCreate?(ability: UIAbility): void
 
 
 ##### onWindowStageWillCreate12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -291,6 +319,8 @@ onWindowStageWillCreate?(ability: UIAbility, windowStage: window.WindowStage): v
 
 ##### onWindowStageWillDestroy12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): void
 
 在UIAbility的[onWindowStageDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagedestroy)触发前回调。
@@ -315,6 +345,8 @@ onWindowStageWillDestroy?(ability: UIAbility, windowStage: window.WindowStage): 
 
 ##### onAbilityWillForeground12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAbilityWillForeground?(ability: UIAbility): void
 
 在UIAbility的[onForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onforeground)触发前回调。
@@ -337,6 +369,8 @@ onAbilityWillForeground?(ability: UIAbility): void
 
 
 ##### onAbilityWillDestroy12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAbilityWillDestroy?(ability: UIAbility): void
 
@@ -361,6 +395,8 @@ onAbilityWillDestroy?(ability: UIAbility): void
 
 ##### onAbilityWillBackground12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAbilityWillBackground?(ability: UIAbility): void
 
 在UIAbility的[onBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onbackground)触发前回调。
@@ -383,6 +419,8 @@ onAbilityWillBackground?(ability: UIAbility): void
 
 
 ##### onWillNewWant12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWillNewWant?(ability: UIAbility): void
 
@@ -407,6 +445,8 @@ onWillNewWant?(ability: UIAbility): void
 
 ##### onNewWant12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onNewWant?(ability: UIAbility): void
 
 在UIAbility的[onNewWant](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onnewwant)触发后回调。
@@ -430,6 +470,8 @@ onNewWant?(ability: UIAbility): void
 
 ##### onAbilityWillContinue12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAbilityWillContinue?(ability: UIAbility): void
 
 在UIAbility的[onContinue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#oncontinue)触发前回调。
@@ -452,6 +494,8 @@ onAbilityWillContinue?(ability: UIAbility): void
 
 
 ##### onWindowStageWillRestore12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): void
 
@@ -477,6 +521,8 @@ onWindowStageWillRestore?(ability: UIAbility, windowStage: window.WindowStage): 
 
 ##### onWindowStageRestore12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void
 
 在UIAbility的[onWindowStageRestore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onwindowstagerestore)触发后回调。
@@ -501,6 +547,8 @@ onWindowStageRestore?(ability: UIAbility, windowStage: window.WindowStage): void
 
 ##### onAbilityWillSaveState12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAbilityWillSaveState?(ability: UIAbility): void
 
 在UIAbility的[onSaveState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#onsavestate)触发前回调。
@@ -523,6 +571,8 @@ onAbilityWillSaveState?(ability: UIAbility): void
 
 
 ##### onAbilitySaveState12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAbilitySaveState?(ability: UIAbility): void
 

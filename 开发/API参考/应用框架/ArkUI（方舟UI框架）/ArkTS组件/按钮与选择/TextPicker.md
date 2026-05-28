@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该组件为基础组件，不建议包含子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TextPicker(options?: TextPickerOptions)
 
@@ -39,6 +43,8 @@ TextPicker(options?: TextPickerOptions)
 
 ##### TextPickerOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本选择器的参数说明。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -54,6 +60,8 @@ TextPicker(options?: TextPickerOptions)
 
 
 ##### TextPickerRangeContent10+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 单列数据选择器的数据选项内容。
 
@@ -71,6 +79,8 @@ TextPicker(options?: TextPickerOptions)
 
 ##### TextCascadePickerRangeContent10+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 多列联动数据选择器的数据选项内容。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -86,6 +96,8 @@ TextPicker(options?: TextPickerOptions)
 
 
 ##### DividerOptions12+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 分割线的信息。
 
@@ -105,11 +117,15 @@ TextPicker(options?: TextPickerOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### defaultPickerItemHeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 defaultPickerItemHeight(value: number | string)
 
@@ -130,6 +146,8 @@ defaultPickerItemHeight(value: number | string)
 
 ##### defaultPickerItemHeight18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 defaultPickerItemHeight(height: Optional<number | string>)
 
 设置选择项的高度。与[defaultPickerItemHeight](#defaultpickeritemheight)相比，height参数新增了对undefined类型的支持。
@@ -148,6 +166,8 @@ defaultPickerItemHeight(height: Optional<number | string>)
 
 
 ##### disappearTextStyle10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disappearTextStyle(value: PickerTextStyle)
 
@@ -172,6 +192,8 @@ disappearTextStyle(value: PickerTextStyle)
 
 ##### disappearTextStyle18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。与[disappearTextStyle10+](#disappeartextstyle10)相比，style参数新增了对undefined类型的支持。
@@ -194,6 +216,8 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 ##### disappearTextStyle20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disappearTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
@@ -218,6 +242,8 @@ disappearTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 ##### textStyle10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 textStyle(value: PickerTextStyle)
 
 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。
@@ -240,6 +266,8 @@ textStyle(value: PickerTextStyle)
 
 
 ##### textStyle18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
@@ -264,6 +292,8 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 ##### textStyle20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 textStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。与[textStyle](#textstyle18)18+相比，style参数新增了对[TextPickerTextStyle](#textpickertextstyle15类型说明)类型的支持。
@@ -287,6 +317,8 @@ textStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 ##### selectedTextStyle10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedTextStyle(value: PickerTextStyle)
 
 设置选中项的文本颜色、字号、字体粗细。
@@ -307,6 +339,8 @@ selectedTextStyle(value: PickerTextStyle)
 
 
 ##### selectedTextStyle18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
@@ -329,6 +363,8 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 ##### selectedTextStyle20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 设置选中项的文本颜色、字号、字体粗细、最大字号、最小字号、超长文本截断方式。与[selectedTextStyle](#selectedtextstyle18)18+相比，style参数新增了对[TextPickerTextStyle](#textpickertextstyle15类型说明)类型的支持。
@@ -350,6 +386,8 @@ selectedTextStyle(style: Optional<PickerTextStyle|TextPickerTextStyle>)
 
 ##### selectedIndex10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedIndex(value: number | number[])
 
 设置选中项在数据选择列表中的索引值，优先级高于[TextPickerOptions](#textpickeroptions对象说明)中的"value"属性。单列数据选择器使用number类型。多列数据选择器使用number[]类型。
@@ -368,6 +406,8 @@ selectedIndex(value: number | number[])
 
 
 ##### selectedIndex18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectedIndex(index: Optional<number | number[]>)
 
@@ -388,6 +428,8 @@ selectedIndex(index: Optional<number | number[]>)
 
 ##### canLoop10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 canLoop(value: boolean)
 
 设置是否可循环滚动。
@@ -407,6 +449,8 @@ canLoop(value: boolean)
 
 ##### canLoop18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 canLoop(isLoop: Optional&lt;boolean&gt;)
 
 设置是否可循环滚动。与[canLoop10+](#canloop10)相比，isLoop参数新增了对undefined类型的支持。
@@ -425,6 +469,8 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 
 
 ##### divider12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 divider(value: DividerOptions | null)
 
@@ -447,6 +493,8 @@ divider(value: DividerOptions | null)
 
 ##### divider18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 divider(textDivider: Optional<DividerOptions | null>)
 
 设置分割线样式，不设置该属性则按“默认值”展示分割线。与[divider12+](#divider12)相比，textDivider参数新增了对undefined类型的支持。
@@ -468,6 +516,8 @@ divider(textDivider: Optional<DividerOptions | null>)
 
 ##### gradientHeight12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 gradientHeight(value: Dimension)
 
 设置渐隐效果的高度。若未设置该属性，则显示默认渐隐效果。
@@ -486,6 +536,8 @@ gradientHeight(value: Dimension)
 
 
 ##### gradientHeight18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 gradientHeight(height: Optional&lt;Dimension&gt;)
 
@@ -506,6 +558,8 @@ gradientHeight(height: Optional&lt;Dimension&gt;)
 
 ##### disableTextStyleAnimation15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disableTextStyleAnimation(disabled: boolean)
 
 设置是否关闭滑动过程中文本样式变化的动效。
@@ -524,6 +578,8 @@ disableTextStyleAnimation(disabled: boolean)
 
 
 ##### defaultTextStyle15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 defaultTextStyle(style: TextPickerTextStyle)
 
@@ -554,6 +610,8 @@ defaultTextStyle(style: TextPickerTextStyle)
 
 ##### enableHapticFeedback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 设置是否开启触控反馈。
@@ -583,6 +641,8 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 ##### digitalCrownSensitivity18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 设置表冠灵敏度。
@@ -606,6 +666,8 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 ##### selectedBackgroundStyle20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedBackgroundStyle(style: Optional&lt;PickerBackgroundStyle&gt;)
 
 设置选中项的背景样式。
@@ -625,11 +687,15 @@ selectedBackgroundStyle(style: Optional&lt;PickerBackgroundStyle&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: (value: string | string[], index: number | number[]) => void)
 
@@ -653,6 +719,8 @@ onChange(callback: (value: string | string[], index: number | number[]) => void)
 
 ##### onChange18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onChange(callback: Optional&lt;OnTextPickerChangeCallback&gt;)
 
 滑动TextPicker文本内容后，选项归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。当显示文本或图片加文本列表时，value值为选中项中的文本值，当显示图片列表时，value值为空。与[onChange](#onchange)相比，callback参数新增了对undefined类型的支持。
@@ -673,6 +741,8 @@ onChange(callback: Optional&lt;OnTextPickerChangeCallback&gt;)
 
 
 ##### onScrollStop14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onScrollStop(callback: TextPickerScrollStopCallback)
 
@@ -699,6 +769,8 @@ onScrollStop(callback: TextPickerScrollStopCallback)
 
 ##### onScrollStop18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onScrollStop(callback: Optional&lt;TextPickerScrollStopCallback&gt;)
 
 文本选择器的选项列滑动停止时触发该事件。与[onScrollStop14+](#onscrollstop14)相比，callback参数新增了对undefined类型的支持。
@@ -724,6 +796,8 @@ onScrollStop(callback: Optional&lt;TextPickerScrollStopCallback&gt;)
 
 ##### onEnterSelectedArea18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback)
 
 滑动TextPicker过程中，选项进入分割线区域内（当前列的滑动距离超过选中项高度的一半）时，触发该回调。
@@ -747,6 +821,8 @@ onEnterSelectedArea(callback: TextPickerEnterSelectedAreaCallback)
 
 ##### onAccept(deprecated) 
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAccept(callback: (value: string, index: number) => void)
 
 点击弹窗中的“确定”按钮时触发该回调。该事件仅在[文本滑动选择器弹窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-textpicker-dialog)中生效。
@@ -767,6 +843,8 @@ onAccept(callback: (value: string, index: number) => void)
 
 ##### onCancel(deprecated) 
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onCancel(callback: () => void)
 
 点击弹窗中的“取消”按钮时触发该回调。该事件仅在[文本滑动选择器弹窗](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-methods-textpicker-dialog)中生效。
@@ -786,6 +864,8 @@ onCancel(callback: () => void)
 
 ##### TextPickerTextStyle15+类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文本样式选项，继承自[PickerTextStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-picker-common#pickertextstyle对象说明)。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -802,6 +882,8 @@ onCancel(callback: () => void)
 
 
 ##### OnTextPickerChangeCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnTextPickerChangeCallback = (selectItem: string | string[], index: number | number[]) => void
 
@@ -823,6 +905,8 @@ type OnTextPickerChangeCallback = (selectItem: string | string[], index: number 
 
 ##### TextPickerScrollStopCallback14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type TextPickerScrollStopCallback = (value: string | string[], index: number | number[]) => void
 
 定义触发onScrollStop事件的回调类型。
@@ -842,6 +926,8 @@ type TextPickerScrollStopCallback = (value: string | string[], index: number | n
 
 
 ##### TextPickerEnterSelectedAreaCallback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: number | number[]) => void
 
@@ -863,6 +949,8 @@ type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: num
 
 ##### PickerBackgroundStyle20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 选择器选中项的背景样式，包括选中项的背景颜色和边框圆角半径。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -878,6 +966,8 @@ type TextPickerEnterSelectedAreaCallback = (value: string | string[], index: num
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -977,7 +1067,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/4cgiGm4BT12XR4JCcW6Zjg/zh-cn_image_0000002611755779.png?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=293C32716CE473AF724C2E500D5CF708962FF34831BA4527EF52EC16BB9E3E13)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/4cgiGm4BT12XR4JCcW6Zjg/zh-cn_image_0000002611755779.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=1C3DFC38A0362168C2708B1B0644FA479402AE90F0A452E2B619BBB7142B395F)
 
 
 
@@ -1019,7 +1109,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/0-TKpboxQxO63M6R7YNhAg/zh-cn_image_0000002581435842.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=5AB2FBD50B2B722CC4A9877A3C29FACDD0983ED3E6B9DC419D69CF71BD00AE83)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/0-TKpboxQxO63M6R7YNhAg/zh-cn_image_0000002581435842.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=2288C8FD7D09B86194EF70CC0FAEC89D4C17F3FE2D3E27712EEA82BBEA0D36EE)
 
 
 
@@ -1055,7 +1145,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/aWbQFarvTLiM1Jw24Nhiug/zh-cn_image_0000002611835673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=8267BA9E73E681D5478FB4652639F43AF02276AC0B7A5DE380C8A1304333E22F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/aWbQFarvTLiM1Jw24Nhiug/zh-cn_image_0000002611835673.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=7C4E344A2C077AB91FD5423CCC8BA8C1FD678FC0F190BA02DCCEFFDCA789B5CB)
 
 
 
@@ -1096,7 +1186,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/oda7csD2RLGMFhi3rRJk5Q/zh-cn_image_0000002581275924.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=1CBFA5C89DF104BEFFBA8905A1BB6BE03E49BA5B2C7DCCC770D765B0328A56DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/oda7csD2RLGMFhi3rRJk5Q/zh-cn_image_0000002581275924.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=F73986553FD1D4D878C0050A74E03A18C214368B77B82CC200FFF4AF81422DD9)
 
 
 
@@ -1132,7 +1222,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/M4oDmbruRHuivkl7XXBNhg/zh-cn_image_0000002611755781.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=C2F35B63CDBF7ECEA8EF2ECE616577FA5A80BAF660A7DEFF8A672962DD783C8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/M4oDmbruRHuivkl7XXBNhg/zh-cn_image_0000002611755781.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=F8F2636D2E183E5119FE02E8BBCAB535C69DFEF48B5A84E395D5ECFE23D1EE2E)
 
 
 
@@ -1165,7 +1255,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/rmaP29RMSYibleeeQX1Z2w/zh-cn_image_0000002581435844.png?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=07C19927452EF6362E6D5F84DE0E20139E3383C0BAD2A3408963F927F4FC74FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/rmaP29RMSYibleeeQX1Z2w/zh-cn_image_0000002581435844.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=1855AF024A6422D4F14AD953B09C35F59FAAB94994B983C75EECD693E749AAFF)
 
 
 
@@ -1209,7 +1299,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/EENMH4jySD61vwYNsB3SUw/zh-cn_image_0000002611835675.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=A98086F7BAFEA8C01B5254A37F1128940C466FE146CF6E762572A9EF1F4E6246)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/EENMH4jySD61vwYNsB3SUw/zh-cn_image_0000002611835675.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=06073B07C0929E321C4190C24CF721BA68A4B59967294E1065EC04CB6378FEBF)
 
 
 
@@ -1241,7 +1331,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/iJK-pwrfT8yN5BRQLujqTg/zh-cn_image_0000002581275926.png?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=53E2619ACB843DA6EB3D3806FD194479244C87B7B7159335AB7AB86C40CA50DB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/iJK-pwrfT8yN5BRQLujqTg/zh-cn_image_0000002581275926.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=52258AFFDF918EBE8E363D2816C9FB91A71C6E4320A43C43A670F5918BEDD552)
 
 
 
@@ -1282,7 +1372,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/tdfShiqlT3KRgNZaEJENXQ/zh-cn_image_0000002611755783.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=AE0BE2DD77722DF1362BE4B00E6316B675AE69D6DA351614EFCA0CE69B0CD297)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/tdfShiqlT3KRgNZaEJENXQ/zh-cn_image_0000002611755783.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=B34F1A1C5CE18035607389F6C1AB5BC146EC7F3C87D6ABB83CE181C6465D6A69)
 
 
 
@@ -1348,7 +1438,7 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/3iAOIuP4QmiMl5isLkOnXg/zh-cn_image_0000002581435846.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=5548F247B32A99FEE1BC50104F08827449372749076E2C2B86B6979357BB588F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/3iAOIuP4QmiMl5isLkOnXg/zh-cn_image_0000002581435846.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=F5EC8B1DF3A4E04A6E84581B5C865D17BB6381A817A9D91D1EF7814F86A31E97)
 
 
 
@@ -1400,4 +1490,4 @@ struct TextPickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/_vujWthvTsS0RPW6t59tRw/zh-cn_image_0000002611835677.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=6F27F0D03184199D9834CAB6077BDDC386E3DB1B33C60F672A64862DEB4CCCB6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/_vujWthvTsS0RPW6t59tRw/zh-cn_image_0000002611835677.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=257981564B6F71950D9D85976B52F268EFEB88153C340B6E6D01A8A4D0FC8B06)

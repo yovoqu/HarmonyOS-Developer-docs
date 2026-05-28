@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 ```text
 import app, { AppResponse } from '@system.app';
 ```
@@ -20,9 +22,13 @@ import app, { AppResponse } from '@system.app';
 
 ##### App
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
+
   
 
 ##### getInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 static getInfo(): AppResponse
  
@@ -160,6 +166,8 @@ export default {
 
 ##### terminate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 static terminate(): void
  
 退出当前Ability。在Stage模型下接口功能不生效。
@@ -253,6 +261,8 @@ export default {
 
 ##### setImageCacheCount7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setImageCacheCount(value: number): void
  
 设置内存中缓存解码后图片的数量上限，提升再次加载同源图片的加载速度。如果不设置则默认为0，不进行缓存。缓存采用内置的LRU策略，新图片加载后，如果超过缓存上限，会删除最久未再次加载的缓存。建议根据应用内存需求，设置合理缓存数量，数字过大可能导致内存使用过高。
@@ -305,6 +315,8 @@ struct Index {
 
 ##### setImageRawDataCacheSize7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setImageRawDataCacheSize(value: number): void
  
 设置内存中缓存解码前图片数据的大小上限，单位为字节，提升再次加载同源图片的加载速度。如果不设置则默认为0，不进行缓存。缓存采用内置的LRU策略，新图片加载后，如果解码前数据超过缓存上限，会删除最久未再次加载的图片数据缓存。建议根据应用内存需求，设置合理缓存上限，过大可能导致应用内存使用过高。
@@ -355,6 +367,8 @@ struct Index {
 
 ##### setImageFileCacheSize7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static setImageFileCacheSize(value: number): void
  
 设置图片文件缓存的大小上限，单位为字节，提升再次加载同源图片的加载速度，特别是对网络图源会有较明显提升。如果不设置则默认为100MB。缓存采用内置的LRU策略，新图片加载后，如果超过文件缓存上限，会按照时间由远到近删除缓存图片文件直到缓存图片大小满足缓存上限。建议根据应用实际需求，设置合理文件缓存上限，数字过大可能导致磁盘空间占用过高。
@@ -392,6 +406,8 @@ export default class OnC {
 
 ##### ScreenOnVisible(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static screenOnVisible(options?: ScreenOnVisibleOptions): void
  
 定义屏幕唤醒时是否保持应用可见。
@@ -408,6 +424,8 @@ static screenOnVisible(options?: ScreenOnVisibleOptions): void
   
 
 ##### requestFullWindow(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static requestFullWindow(options?: RequestFullWindowOptions): void
  
@@ -441,6 +459,8 @@ export default class Req {
 
 ##### AppResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
+
 定义AppResponse信息。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -459,6 +479,8 @@ export default class Req {
 
 ##### ScreenOnVisibleOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义屏幕上可见接口的选项。
  
 **系统能力：** 以下各项对应的系统能力均为SystemCapability.ArkUI.ArkUI.Full
@@ -474,6 +496,8 @@ export default class Req {
   
 
 ##### RequestFullWindowOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义RequestFullWindow接口的选项。
  

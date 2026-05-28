@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明avsession基本信息。
  
 **引用文件：** <multimedia/av_session/native_avsession_base.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -48,9 +54,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### AVSession_Type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVSession_Type
@@ -74,6 +84,8 @@ enum AVSession_Type
   
 
 ##### AVSession_PlaybackState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVSession_PlaybackState
@@ -106,6 +118,8 @@ enum AVSession_PlaybackState
 
 ##### AVSession_LoopMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum AVSession_LoopMode
 ```
@@ -128,6 +142,8 @@ enum AVSession_LoopMode
   
 
 ##### AVSession_ControlCommand
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVSession_ControlCommand
@@ -153,6 +169,8 @@ enum AVSession_ControlCommand
 
 ##### AVMetadata_SkipIntervals
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum AVMetadata_SkipIntervals
 ```
@@ -174,6 +192,8 @@ enum AVMetadata_SkipIntervals
 
 ##### AVMetadata_DisplayTag
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum AVMetadata_DisplayTag
 ```
@@ -192,6 +212,8 @@ enum AVMetadata_DisplayTag
   
 
 ##### AVSession_ConnectionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVSession_ConnectionState
@@ -214,6 +236,8 @@ enum AVSession_ConnectionState
 
 ##### AVSession_AVCastCategory
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum AVSession_AVCastCategory
 ```
@@ -233,6 +257,8 @@ enum AVSession_AVCastCategory
   
 
 ##### AVSession_DeviceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVSession_DeviceType
@@ -256,6 +282,8 @@ enum AVSession_DeviceType
 
 ##### AVSession_ProtocolType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum AVSession_ProtocolType
 ```
@@ -277,6 +305,8 @@ enum AVSession_ProtocolType
   
 
 ##### AVSession_AVCastControlCommandType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVSession_AVCastControlCommandType
@@ -306,6 +336,8 @@ enum AVSession_AVCastControlCommandType
 
 ##### AVSession_PlaybackSpeed
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum AVSession_PlaybackSpeed
 ```
@@ -330,6 +362,8 @@ enum AVSession_PlaybackSpeed
   
 
 ##### AVSession_PlaybackFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVSession_PlaybackFilter

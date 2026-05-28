@@ -12,6 +12,8 @@ typedef struct Http_ClientCert {...} Http_ClientCert
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 发送到服务端的客户端证书配置，服务端将通过客户端证书校验客户端身份。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ typedef struct Http_ClientCert {...} Http_ClientCert
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

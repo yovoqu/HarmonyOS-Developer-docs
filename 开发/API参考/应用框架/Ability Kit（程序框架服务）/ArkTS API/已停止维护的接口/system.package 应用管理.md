@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import Package from '@system.package';
 ```
@@ -19,6 +21,8 @@ import Package from '@system.package';
   
 
 ##### package.hasInstalled(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 3开始支持，从API version 9开始废弃，建议使用 getBundleInfo 替代。
@@ -65,6 +69,8 @@ struct MainPage {
 
 ##### CheckPackageHasInstalledResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 3开始支持，从API version 9开始废弃。
 
@@ -81,6 +87,8 @@ struct MainPage {
   
 
 ##### CheckPackageHasInstalledOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 3开始支持，从API version 9开始废弃。

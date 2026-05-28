@@ -12,6 +12,8 @@ struct OH_PictureNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Picture结构体类型，用于执行picture相关操作。
  
 Picture为多图对象结构体，包含主图、辅助图和元数据。

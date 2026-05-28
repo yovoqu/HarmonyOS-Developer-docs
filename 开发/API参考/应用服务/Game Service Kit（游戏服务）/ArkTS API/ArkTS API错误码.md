@@ -32,6 +32,8 @@ Game Service Kit系统内部错误。
 
 ##### 1010300002 鉴权失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 Auth failed.
@@ -51,6 +53,8 @@ Auth failed.
 
 
 ##### 1010300003 非法请求
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -75,6 +79,8 @@ Invalid request.
 
 
 ##### 1002000001 游戏内部通用错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -121,6 +127,8 @@ let context = this.getUIContext()?.getHostContext() as common.UIAbilityContext;
 
   ##### 1002000002 网络错误
 
+  **支持设备：** Phone | PC/2in1 | Tablet | TV
+
   **错误信息**
 
   Network connection error.
@@ -150,6 +158,8 @@ let context = this.getUIContext()?.getHostContext() as common.UIAbilityContext;
 
 ##### 1002000003 未查到华为账号相关信息
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The HUAWEI ID is not signed in or not authorized.
@@ -169,6 +179,8 @@ The HUAWEI ID is not signed in or not authorized.
 
 
 ##### 1002000004 实名认证返回强制实名但用户取消，或需要强制实名但没有实名
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -190,6 +202,8 @@ User cancels real name authentication or not real name.
 
 ##### 1002000005 只支持服务地和注册地均为中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）的华为账号
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The country or region of the signed-in Huawei ID does not support.
@@ -209,6 +223,8 @@ The country or region of the signed-in Huawei ID does not support.
 
 
 ##### 1002000006 玩家未成年并且当前不在可游戏时间
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -234,6 +250,8 @@ User is underage and has no playable time.
 
 ##### 1002000007 商品所属的应用未在指定国家/地区上架
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The application to which the product belongs is not listed in the specified country.
@@ -253,6 +271,8 @@ The application to which the product belongs is not listed in the specified coun
 
 
 ##### 1002000008 该华为账号在禁止名单中
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -298,6 +318,8 @@ The game account is unavailable for the game.
 
 ##### 1002000010 华为teamPlayerId与当前玩家不匹配
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The playerId is not current player.
@@ -317,6 +339,8 @@ The playerId is not current player.
 
 
 ##### 1002000011 玩家未确认协议、隐私声明
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -338,6 +362,8 @@ Agreement not agreed.
 
 ##### 1002000012 游戏官方账号与华为teamPlayerId已绑定
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The thirdOpenId or teamPlayerId has been bound.
@@ -358,6 +384,8 @@ The thirdOpenId or teamPlayerId has been bound.
 
 ##### 1002000013 游戏官方账号与华为teamPlayerId未绑定
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The thirdOpenId and teamPlayerId are not bound.
@@ -377,6 +405,8 @@ The thirdOpenId and teamPlayerId are not bound.
 
 
 ##### 1002000014 此接口不适用于此游戏
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -400,6 +430,8 @@ This interface is not available for this game.
 
 ##### 1002000015 当前玩家信息无效
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The current player information is invalid. Execute the login process again to obtain the player information.
@@ -419,6 +451,8 @@ The current player information is invalid. Execute the login process again to ob
 
 
 ##### 1002000016 玩家取消联合登录
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -440,6 +474,8 @@ Union login canceled by user.
 
 ##### 1002000017 非法应用
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 Illegal application identity.
@@ -460,6 +496,8 @@ Client ID、APP ID、签名等配置信息错误或缺失。
 
 ##### 1002000018 此API仅支持小游戏
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 This API is only provided for HarmonyOS mini games.
@@ -479,6 +517,8 @@ This API is only provided for HarmonyOS mini games.
 
 
 ##### 1002000019 参数错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -506,6 +546,8 @@ Parameter error.
 
 ##### 1002000020 当前操作被用户取消
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The operation was canceled by the user.
@@ -525,6 +567,8 @@ The operation was canceled by the user.
 
 
 ##### 1002000021 API调用过于频繁
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -546,6 +590,8 @@ API调用过于频繁。
 
 ##### 1002000050 无效的商品信息
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 Invalid product information.
@@ -565,6 +611,8 @@ Invalid product information.
 
 
 ##### 1002000051 由于已经拥有该商品，购买失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -590,6 +638,8 @@ Failed to purchase a product because the user already owns the product.
 
 ##### 1002000052 由于未支付该商品，发货失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The purchase cannot be finished because the user has not paid for it.
@@ -609,6 +659,8 @@ The purchase cannot be finished because the user has not paid for it.
 
 
 ##### 1002000053 此次购买已经完成发货，无需重复发货
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -630,6 +682,8 @@ The purchase has been finished and cannot be finished again.
 
 ##### 1002000054 用户账号所在服务地不在IAP Kit支持结算的国家/地区中
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The country or region of the signed-in HUAWEI ID does not support IAP.
@@ -649,6 +703,8 @@ The country or region of the signed-in HUAWEI ID does not support IAP.
 
 
 ##### 1002000056 用户交易被拒绝
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -670,6 +726,8 @@ The user is not allowed to make purchase.
 
 ##### 1018300001 游戏内部通用错误
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 System internal error.
@@ -689,6 +747,8 @@ Game Service Kit系统内部错误。
 
 
 ##### 1018300002 鉴权失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -710,6 +770,8 @@ Authentication failed.
 
 
 ##### 1018300003 请求不合法
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -751,6 +813,8 @@ No service available.
 
 ##### 1018300005 WLAN和蓝牙必须开启
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 The wireless network and Bluetooth should be enabled at the same time.
@@ -770,6 +834,8 @@ WLAN和蓝牙必须同时开启。
 
 
 ##### 1018300006 发布失败
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -791,6 +857,8 @@ Publishing failed.
 
 ##### 1018300007 发现失败
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 Discovery failed.
@@ -810,6 +878,8 @@ Discovery failed.
 
 
 ##### 1018300008 非法参数
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 

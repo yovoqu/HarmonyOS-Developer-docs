@@ -12,6 +12,8 @@
 
 ##### 2100002 连接服务失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to connect to the service.
@@ -31,6 +33,8 @@ Failed to connect to the service.
 
 
 ##### 2100003 系统内部错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -55,6 +59,8 @@ System internal error.
 
 
 ##### 2204003 重复注册
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -96,6 +102,8 @@ Service instance duplicated.
 
 ##### 2204008 删除服务失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to delete the service instance.
@@ -136,6 +144,8 @@ Failed to send packet.
 
 ##### 2204010 发送消息失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to send the message.
@@ -155,6 +165,8 @@ Failed to send the message.
 
 
 ##### 2204006 解析服务超时
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

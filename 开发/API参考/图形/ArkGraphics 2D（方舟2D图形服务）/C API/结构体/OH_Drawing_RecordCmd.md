@@ -12,6 +12,8 @@ typedef struct OH_Drawing_RecordCmd OH_Drawing_RecordCmd
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义录制指令类, 用于存储录制指令的集合。
  
 **起始版本：** 13

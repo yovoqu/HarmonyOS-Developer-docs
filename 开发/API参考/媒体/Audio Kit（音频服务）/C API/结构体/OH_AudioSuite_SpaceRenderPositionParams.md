@@ -12,6 +12,8 @@ typedef struct {...} OH_AudioSuite_SpaceRenderPositionParams
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义3D空间渲染效果节点固定摆位模式的配置参数。
  
 左手坐标系：伸出左手，用拇指和食指形成一个“L”形。拇指指向右侧，食指向上，其余手指指向前。此时形成了一个3D的左手坐标系。在这个坐标系中，拇指、食指和其他手指分别代表x轴、y轴和z轴的正方向。
@@ -26,9 +28,13 @@ typedef struct {...} OH_AudioSuite_SpaceRenderPositionParams
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

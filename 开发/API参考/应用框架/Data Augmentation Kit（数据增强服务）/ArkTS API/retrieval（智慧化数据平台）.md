@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { retrieval } from '@kit.DataAugmentationKit';
 ```
@@ -25,6 +27,8 @@ import { retrieval } from '@kit.DataAugmentationKit';
   
 
 ##### getRetriever
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getRetriever(config: RetrievalConfig): Promise&lt;Retriever&gt;
  
@@ -114,6 +118,8 @@ struct Page {
 
 ##### RetrievalConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 管理召回的配置
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -128,6 +134,8 @@ struct Page {
   
 
 ##### ChannelConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 管理每个检索回路的配置信息。
  
@@ -146,6 +154,8 @@ struct Page {
 
 ##### ChannelType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 数据库类型枚举。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -161,6 +171,8 @@ struct Page {
   
 
 ##### DbConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type DbConfig = relationalStore.StoreConfig
  
@@ -179,6 +191,8 @@ type DbConfig = relationalStore.StoreConfig
 
 ##### Retriever
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 检索器，用于多路检索召回。
  
 下列接口都需先使用[retrieval.getRetriever](#getretriever)获取到检索器实例，再通过此实例调用对应接口。
@@ -190,6 +204,8 @@ type DbConfig = relationalStore.StoreConfig
   
 
 ##### retrieveRdb
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 retrieveRdb(query: string, condition: RetrievalCondition): Promise&lt;RdbRecords&gt;
  
@@ -480,6 +496,8 @@ async retrieve() {
 
 ##### RetrievalCondition
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 检索条件。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -498,6 +516,8 @@ async retrieve() {
 
 ##### ExplanationConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 检索解释配置
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -512,6 +532,8 @@ async retrieve() {
   
 
 ##### Recallcondition
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type RecallCondition = InvertedIndexRecallCondition | VectorRecallCondition
  
@@ -530,6 +552,8 @@ type RecallCondition = InvertedIndexRecallCondition | VectorRecallCondition
   
 
 ##### InvertedIndexRecallCondition
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 倒排检索的召回条件。
  
@@ -553,6 +577,8 @@ type RecallCondition = InvertedIndexRecallCondition | VectorRecallCondition
 
 ##### ColumnName
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 type ColumnName = string
  
 数据表的列名，类型为字符串。
@@ -569,6 +595,8 @@ type ColumnName = string
   
 
 ##### RecallName
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type RecallName = string
  
@@ -587,6 +615,8 @@ type RecallName = string
 
 ##### FilterInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 过滤器信息。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -604,6 +634,8 @@ type RecallName = string
   
 
 ##### FilterValue
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type FilterValue = number | string | bigint
  
@@ -624,6 +656,8 @@ type FilterValue = number | string | bigint
 
 ##### FilterRange
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 过滤条件中的过滤值范围。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -639,6 +673,8 @@ type FilterValue = number | string | bigint
   
 
 ##### Operator
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 过滤条件中的操作算子。column为数据库表中的字段名，filterValue为该字段的取值。
  
@@ -665,6 +701,8 @@ type FilterValue = number | string | bigint
 
 ##### InvertedIndexStrategy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStrategy
  
 倒排召回策略。
@@ -684,6 +722,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 
 ##### Bm25Strategy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 倒排检索所用的bm25策略。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -699,6 +739,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
   
 
 ##### ExactMatchingStrategy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 倒排检索所用的精确场景匹配策略。
  
@@ -716,6 +758,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 
 ##### ProximityStrategy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 倒排检索所用的近似与乱序匹配策略。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -732,6 +776,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
   
 
 ##### VectorRecallCondition
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 向量检索的召回条件。
  
@@ -754,6 +800,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 
 ##### VectorQuery
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 根据查询词生成的向量。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -770,6 +818,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
   
 
 ##### RerankMethod
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 重排策略的参数。
  
@@ -788,6 +838,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 
 ##### RerankType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 重排算法的类型。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -803,6 +855,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
   
 
 ##### RerankParameter
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
  
@@ -822,6 +876,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 
 ##### InvertedIndexRerankParameter
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 用于倒排索引的重排算法的参数。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -836,6 +892,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
   
 
 ##### VectorRerankParameter
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 用于向量数据的重排算法的参数。
  
@@ -854,6 +912,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 
 ##### RdbRecords
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 检索结果。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -869,6 +929,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
   
 
 ##### ItemInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 检索结果中每条数据的特定内容。
  
@@ -890,6 +952,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 
 ##### RecallScore
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 召回过程的得分。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
@@ -905,6 +969,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
   
 
 ##### SimilarityLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 根据语义向量距离以及文本匹配程度，对检索结果按照相关性的高中低分档，方便对结果进行进一步筛选并且过滤。
  

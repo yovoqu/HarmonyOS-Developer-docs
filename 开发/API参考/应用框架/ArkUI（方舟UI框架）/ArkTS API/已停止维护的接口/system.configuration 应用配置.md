@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 ```text
 import Configuration from '@system.configuration';
 ```
@@ -19,6 +21,8 @@ import Configuration from '@system.configuration';
   
 
 ##### configuration.getLocale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 static getLocale(): LocaleResponse
  
@@ -202,6 +206,8 @@ export default {
   
 
 ##### LocaleResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 表示应用当前Locale的属性。
  

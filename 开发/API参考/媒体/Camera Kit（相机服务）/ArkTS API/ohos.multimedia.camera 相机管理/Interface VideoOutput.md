@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
 
 
 ##### start
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(callback: AsyncCallback&lt;void&gt;): void
 
@@ -67,6 +71,8 @@ function startVideoOutput(videoOutput: camera.VideoOutput): void {
 
 ##### start
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(): Promise&lt;void&gt;
 
 启动录制。使用Promise异步回调。
@@ -110,6 +116,8 @@ function startVideoOutput(videoOutput: camera.VideoOutput): void {
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(callback: AsyncCallback&lt;void&gt;): void
 
 结束录制，通过注册回调函数获取结果。使用callback异步回调。
@@ -138,6 +146,8 @@ function stopVideoOutput(videoOutput: camera.VideoOutput): void {
 
 
 ##### stop
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(): Promise&lt;void&gt;
 
@@ -171,6 +181,8 @@ function stopVideoOutput(videoOutput: camera.VideoOutput): void {
 
 
 ##### on('frameStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'frameStart', callback: AsyncCallback&lt;void&gt;): void
 
@@ -214,6 +226,8 @@ function registerVideoOutputFrameStart(videoOutput: camera.VideoOutput): void {
 
 ##### off('frameStart')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'frameStart', callback?: AsyncCallback&lt;void&gt;): void
 
 注销监听录像开始。
@@ -245,6 +259,8 @@ function unregisterVideoOutputFrameStart(videoOutput: camera.VideoOutput): void 
 
 
 ##### on('frameEnd')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'frameEnd', callback: AsyncCallback&lt;void&gt;): void
 
@@ -284,6 +300,8 @@ function registerVideoOutputFrameEnd(videoOutput: camera.VideoOutput): void {
 
 ##### off('frameEnd')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'frameEnd', callback?: AsyncCallback&lt;void&gt;): void
 
 注销监听录像结束。
@@ -311,6 +329,8 @@ function unregisterVideoOutputFrameEnd(videoOutput: camera.VideoOutput): void {
 
 
 ##### on('error')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -350,6 +370,8 @@ function registerVideoOutputError(videoOutput: camera.VideoOutput): void {
 
 ##### off('error')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', callback?: ErrorCallback): void
 
 注销监听录像输出发生错误。
@@ -378,6 +400,8 @@ function unregisterVideoOutputError(videoOutput: camera.VideoOutput): void {
 
 ##### getSupportedFrameRates12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSupportedFrameRates(): Array&lt;FrameRateRange&gt;
 
 查询支持的帧率范围。
@@ -405,6 +429,8 @@ function getSupportedFrameRates(videoOutput: camera.VideoOutput): Array<camera.F
 
 
 ##### setFrameRate12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFrameRate(minFps: number, maxFps: number): void
 
@@ -450,6 +476,8 @@ function setFrameRateRange(videoOutput: camera.VideoOutput, frameRateRange: Arra
 
 ##### getActiveFrameRate12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getActiveFrameRate(): FrameRateRange
 
 获取已设置的帧率范围。
@@ -479,6 +507,8 @@ function getActiveFrameRate(videoOutput: camera.VideoOutput): camera.FrameRateRa
 
 
 ##### getActiveProfile12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getActiveProfile(): VideoProfile
 
@@ -526,6 +556,8 @@ function testGetActiveProfile(videoOutput: camera.VideoOutput): camera.Profile |
 
 ##### isMirrorSupported15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMirrorSupported(): boolean
 
 查询是否支持镜像录像。
@@ -553,6 +585,8 @@ function testIsMirrorSupported(videoOutput: camera.VideoOutput): boolean {
 
 
 ##### enableMirror15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableMirror(enabled: boolean): void
 
@@ -603,6 +637,8 @@ function enableMirror(videoOutput: camera.VideoOutput, mirrorMode: boolean, aVRe
 
 
 ##### getVideoRotation12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getVideoRotation(deviceDegree?: number): ImageRotation
 

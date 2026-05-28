@@ -12,6 +12,8 @@ struct OH_Huks_KeyMaterialDsa {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义DSA密钥的结构体类型。
  
 **起始版本：** 9
@@ -24,9 +26,13 @@ struct OH_Huks_KeyMaterialDsa {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### isExposureModeSupported11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isExposureModeSupported(aeMode: ExposureMode): boolean
  
@@ -75,6 +79,8 @@ function isExposureModeSupported(photoSession: camera.PhotoSession): boolean {
 
 ##### getExposureBiasRange11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getExposureBiasRange(): Array&lt;number&gt;
  
 查询曝光补偿范围。
@@ -120,6 +126,8 @@ function getExposureBiasRange(photoSession: camera.PhotoSession): Array<number> 
   
 
 ##### isExposureMeteringModeSupported24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isExposureMeteringModeSupported(aeMeteringMode: ExposureMeteringMode): boolean
  

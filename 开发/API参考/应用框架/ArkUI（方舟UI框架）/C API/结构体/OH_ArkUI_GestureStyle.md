@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_GestureStyle OH_ArkUI_GestureStyle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义事件手势样式。 
  
  可以通过[OH_ArkUI_GestureStyle_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_gesturestyle_create)接口创建对应的事件手势样式对象。 

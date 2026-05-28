@@ -13,6 +13,8 @@ ImageBitmap对象由[OffscreenCanvas对象](https://developer.huawei.com/consume
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |

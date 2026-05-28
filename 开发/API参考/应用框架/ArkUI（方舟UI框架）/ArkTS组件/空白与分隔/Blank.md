@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持设置子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Blank(min?: number | string)
  
@@ -48,11 +52,15 @@ Blank(min?: number | string)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### color
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 color(value: ResourceColor)
  
@@ -75,11 +83,15 @@ color(value: ResourceColor)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -151,4 +163,4 @@ struct BlankExample {
 Blank父组件未设置宽度时，子组件间无空白填充，使用min参数设置填充尺寸
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/F16NTLl_R0eF05wRCiwL3w/zh-cn_image_0000002611755997.png?HW-CC-KV=V1&HW-CC-Date=20260528T013935Z&HW-CC-Expire=86400&HW-CC-Sign=A1BA0872966553FF9A45E03AA200F151CBF4FA84E9D28F8EB68811544448FC4A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/F16NTLl_R0eF05wRCiwL3w/zh-cn_image_0000002611755997.png?HW-CC-KV=V1&HW-CC-Date=20260528T024230Z&HW-CC-Expire=86400&HW-CC-Sign=B86427FFFFF447F14E6A792AA3F203E8CAF962200238F6BB5217BBC58EEC3ED4)

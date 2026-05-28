@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义WebSocket客户端模块的接口。
  
 **引用文件：** <network/netstack/net_websocket.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -41,9 +47,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_WebSocketClient_Constructor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 struct WebSocket *OH_WebSocketClient_Constructor(WebSocket_OnOpenCallback onOpen, WebSocket_OnMessageCallback onMessage,WebSocket_OnErrorCallback onError, WebSocket_OnCloseCallback onclose)
@@ -78,6 +88,8 @@ WebSocket客户端的构造函数。
 
 ##### OH_WebSocketClient_AddHeader()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_WebSocketClient_AddHeader(struct WebSocket *client, struct WebSocket_Header header)
 ```
@@ -108,6 +120,8 @@ int OH_WebSocketClient_AddHeader(struct WebSocket *client, struct WebSocket_Head
   
 
 ##### OH_WebSocketClient_Connect()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_WebSocketClient_Connect(struct WebSocket *client, const char *url, struct WebSocket_RequestOptions options)
@@ -143,6 +157,8 @@ int OH_WebSocketClient_Connect(struct WebSocket *client, const char *url, struct
 
 ##### OH_WebSocketClient_Send()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_WebSocketClient_Send(struct WebSocket *client, char *data, size_t length)
 ```
@@ -177,6 +193,8 @@ int OH_WebSocketClient_Send(struct WebSocket *client, char *data, size_t length)
 
 ##### OH_WebSocketClient_Close()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_WebSocketClient_Close(struct WebSocket *client, struct WebSocket_CloseOption options)
 ```
@@ -210,6 +228,8 @@ int OH_WebSocketClient_Close(struct WebSocket *client, struct WebSocket_CloseOpt
 
 ##### OH_WebSocketClient_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_WebSocketClient_Destroy(struct WebSocket *client)
 ```
@@ -221,7 +241,7 @@ int OH_WebSocketClient_Destroy(struct WebSocket *client)
 2. 调用[OH_WebSocketClient_Close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-h#oh_websocketclient_close)关闭WebSocket连接。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/Psa4bVa5Qte8xW8Q5OAOJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013542Z&HW-CC-Expire=86400&HW-CC-Sign=0FAADBCB07D1716073BAD2F3F2748FC54293A6799775536EB427895E023C321A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/Psa4bVa5Qte8xW8Q5OAOJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023841Z&HW-CC-Expire=86400&HW-CC-Sign=787022DF3D2ACEC72C1F84A7795ADB45947507D02D5EF3AC0CA890BC1E852F3E)
  
  
 确保触发[WebSocket_OnCloseCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-type-h#websocket_onclosecallback)回调后再调用该接口，否则系统内存资源被释放后可能出现socket泄露以及连接未关闭的情况。

@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含单个子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ScrollBar(value: ScrollBarOptions)
  
@@ -39,11 +43,15 @@ ScrollBar(value: ScrollBarOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### enableNestedScroll14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableNestedScroll(enabled: Optional&lt;boolean&gt;)
  
@@ -68,6 +76,8 @@ enableNestedScroll(enabled: Optional&lt;boolean&gt;)
 
 ##### scrollBarColor20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
  
 设置滚动条滑块的颜色，仅滚动条不放置子组件时生效。
@@ -86,6 +96,8 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
   
 
 ##### ScrollBarOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 滚动条组件参数。
  
@@ -108,6 +120,8 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
 
 ##### ScrollBarDirection枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 滚动条方向枚举。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -123,6 +137,8 @@ scrollBarColor(color: Optional&lt;ColorMetrics&gt;)
   
 
 ##### 示例1（设置子节点）
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例为ScrollBar组件有子节点时的滚动条样式。
  
@@ -171,12 +187,14 @@ struct ScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/47C0BgjwTECDz8yYEzyT7g/zh-cn_image_0000002611755721.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013920Z&HW-CC-Expire=86400&HW-CC-Sign=8DF2B57A9C44AA4D0C496848891CA8C2FC0C6B3960B594635756B6DD90272573)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/47C0BgjwTECDz8yYEzyT7g/zh-cn_image_0000002611755721.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024216Z&HW-CC-Expire=86400&HW-CC-Sign=BBEAD0A6858F4F0A7A8FD1D60DD608508C3E323CFEF57D9636D462C9D25147F8)
 
  
   
 
 ##### 示例2（不设置子节点）
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例为ScrollBar组件没有子节点时的滚动条样式。从API version 20开始，可通过[scrollBarColor](#scrollbarcolor20)设置滚动条颜色。
  
@@ -222,12 +240,14 @@ struct ScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HQpjYAqhTdeHj8nDlrRf7Q/zh-cn_image_0000002581435784.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013920Z&HW-CC-Expire=86400&HW-CC-Sign=65143D84608DE5DBB5C063AF4EB555788B4BA5404B7C44891D37DD65F2ECF567)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HQpjYAqhTdeHj8nDlrRf7Q/zh-cn_image_0000002581435784.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024216Z&HW-CC-Expire=86400&HW-CC-Sign=118A49846985CCE56BD663F6FD1E491A41E0378C871289EC5D69D5E71794CD5C)
 
  
   
 
 ##### 示例3（支持嵌套滚动）
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 从API version 20开始，该示例通过[enableNestedScroll](#enablenestedscroll14)属性使ScrollBar组件支持嵌套滚动。
  
@@ -298,4 +318,4 @@ struct StickyNestedScroll {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/WlCfh6e7TV-bwvBmEKNkUQ/zh-cn_image_0000002611835613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013920Z&HW-CC-Expire=86400&HW-CC-Sign=358CA12A6AC9CE8B843039A67C3159BEDADB70305B6CFB3A677B6FAAA6852E6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/WlCfh6e7TV-bwvBmEKNkUQ/zh-cn_image_0000002611835613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024216Z&HW-CC-Expire=86400&HW-CC-Sign=AD30822A80FCB5A146E8A4E56F5236A39A3282FE6D075AB7EDABE753B34632CE)

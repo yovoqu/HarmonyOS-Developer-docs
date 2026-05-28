@@ -12,6 +12,8 @@ typedef struct ArkUI_Context ArkUI_Context
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 native UI的上下文实例对象。
  
 **起始版本：** 12

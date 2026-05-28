@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { ReadPageComponent } from '@kit.ReaderKit';
 ```
@@ -19,6 +21,8 @@ import { ReadPageComponent } from '@kit.ReaderKit';
   
 
 ##### ReadPageComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 阅读页组件，支持对书籍排版内容的显示、多种翻页交互和翻页动效，以及翻页阅读过程中阅读器所需要的进度、行为感知能力。
  
@@ -45,6 +49,8 @@ import { ReadPageComponent } from '@kit.ReaderKit';
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 build(): void
  

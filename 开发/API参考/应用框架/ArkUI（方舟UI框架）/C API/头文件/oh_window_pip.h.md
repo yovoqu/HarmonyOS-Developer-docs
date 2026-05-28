@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义画中画功能的相关接口，包含创建、删除画中画控制器，以及启动、停止画中画等。主要用于视频播放、直播、视频通话或视频会议场景下，以小窗（画中画）模式呈现内容。
  
 **引用文件：** <window_manager/oh_window_pip.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -48,6 +56,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -90,9 +100,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### PictureInPicture_PipTemplateType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum PictureInPicture_PipTemplateType
@@ -115,6 +129,8 @@ enum PictureInPicture_PipTemplateType
   
 
 ##### PictureInPicture_PipControlGroup
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum PictureInPicture_PipControlGroup
@@ -146,6 +162,8 @@ enum PictureInPicture_PipControlGroup
 
 ##### PictureInPicture_PipControlType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum PictureInPicture_PipControlType
 ```
@@ -173,6 +191,8 @@ enum PictureInPicture_PipControlType
 
 ##### PictureInPicture_PipControlStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum PictureInPicture_PipControlStatus
 ```
@@ -194,6 +214,8 @@ enum PictureInPicture_PipControlStatus
   
 
 ##### PictureInPicture_PipState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum PictureInPicture_PipState
@@ -219,9 +241,13 @@ enum PictureInPicture_PipState
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### WebPipStartPipCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*WebPipStartPipCallback)(uint32_t controllerId, uint8_t requestId, uint64_t surfaceId)
@@ -246,6 +272,8 @@ typedef void (*WebPipStartPipCallback)(uint32_t controllerId, uint8_t requestId,
 
 ##### WebPipLifecycleCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*WebPipLifecycleCallback)(uint32_t controllerId, PictureInPicture_PipState state, int32_t errcode)
 ```
@@ -268,6 +296,8 @@ typedef void (*WebPipLifecycleCallback)(uint32_t controllerId, PictureInPicture_
   
 
 ##### WebPipControlEventCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef void (*WebPipControlEventCallback)(uint32_t controllerId, PictureInPicture_PipControlType controlType, PictureInPicture_PipControlStatus status)
@@ -292,6 +322,8 @@ typedef void (*WebPipControlEventCallback)(uint32_t controllerId, PictureInPictu
 
 ##### WebPipResizeCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 typedef void (*WebPipResizeCallback)(uint32_t controllerId, uint32_t width, uint32_t height, double scale)
 ```
@@ -315,6 +347,8 @@ typedef void (*WebPipResizeCallback)(uint32_t controllerId, uint32_t width, uint
   
 
 ##### OH_PictureInPicture_CreatePipConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_CreatePipConfig(PictureInPicture_PipConfig* pipConfig)
@@ -344,6 +378,8 @@ int32_t OH_PictureInPicture_CreatePipConfig(PictureInPicture_PipConfig* pipConfi
 
 ##### OH_PictureInPicture_DestroyPipConfig()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_DestroyPipConfig(PictureInPicture_PipConfig* pipConfig)
 ```
@@ -371,6 +407,8 @@ int32_t OH_PictureInPicture_DestroyPipConfig(PictureInPicture_PipConfig* pipConf
   
 
 ##### OH_PictureInPicture_SetPipMainWindowId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_SetPipMainWindowId(PictureInPicture_PipConfig pipConfig, uint32_t mainWindowId)
@@ -401,6 +439,8 @@ int32_t OH_PictureInPicture_SetPipMainWindowId(PictureInPicture_PipConfig pipCon
 
 ##### OH_PictureInPicture_SetPipTemplateType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_SetPipTemplateType(PictureInPicture_PipConfig pipConfig, PictureInPicture_PipTemplateType pipTemplateType)
 ```
@@ -429,6 +469,8 @@ int32_t OH_PictureInPicture_SetPipTemplateType(PictureInPicture_PipConfig pipCon
   
 
 ##### OH_PictureInPicture_SetPipRect()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_SetPipRect(PictureInPicture_PipConfig pipConfig, uint32_t width, uint32_t height)
@@ -460,6 +502,8 @@ int32_t OH_PictureInPicture_SetPipRect(PictureInPicture_PipConfig pipConfig, uin
 
 ##### OH_PictureInPicture_SetPipControlGroup()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_SetPipControlGroup(PictureInPicture_PipConfig pipConfig, PictureInPicture_PipControlGroup* controlGroup, uint8_t controlGroupLength)
 ```
@@ -490,6 +534,8 @@ int32_t OH_PictureInPicture_SetPipControlGroup(PictureInPicture_PipConfig pipCon
 
 ##### OH_PictureInPicture_SetPipNapiEnv()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_SetPipNapiEnv(PictureInPicture_PipConfig pipConfig, void* env)
 ```
@@ -518,6 +564,8 @@ int32_t OH_PictureInPicture_SetPipNapiEnv(PictureInPicture_PipConfig pipConfig, 
   
 
 ##### OH_PictureInPicture_CreatePip()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_CreatePip(PictureInPicture_PipConfig pipConfig, uint32_t* controllerId)
@@ -548,6 +596,8 @@ int32_t OH_PictureInPicture_CreatePip(PictureInPicture_PipConfig pipConfig, uint
 
 ##### OH_PictureInPicture_DeletePip()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_DeletePip(uint32_t controllerId)
 ```
@@ -575,6 +625,8 @@ int32_t OH_PictureInPicture_DeletePip(uint32_t controllerId)
   
 
 ##### OH_PictureInPicture_StartPip()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_StartPip(uint32_t controllerId)
@@ -604,6 +656,8 @@ int32_t OH_PictureInPicture_StartPip(uint32_t controllerId)
 
 ##### OH_PictureInPicture_StopPip()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_StopPip(uint32_t controllerId)
 ```
@@ -631,6 +685,8 @@ int32_t OH_PictureInPicture_StopPip(uint32_t controllerId)
   
 
 ##### OH_PictureInPicture_UpdatePipContentSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_UpdatePipContentSize(uint32_t controllerId, uint32_t width, uint32_t height)
@@ -662,6 +718,8 @@ int32_t OH_PictureInPicture_UpdatePipContentSize(uint32_t controllerId, uint32_t
 
 ##### OH_PictureInPicture_UpdatePipControlStatus()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_UpdatePipControlStatus(uint32_t controllerId, PictureInPicture_PipControlType controlType, PictureInPicture_PipControlStatus status)
 ```
@@ -691,6 +749,8 @@ int32_t OH_PictureInPicture_UpdatePipControlStatus(uint32_t controllerId, Pictur
   
 
 ##### OH_PictureInPicture_SetPipControlEnabled()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_SetPipControlEnabled(uint32_t controllerId, PictureInPicture_PipControlType controlType, bool enabled)
@@ -722,6 +782,8 @@ int32_t OH_PictureInPicture_SetPipControlEnabled(uint32_t controllerId, PictureI
 
 ##### OH_PictureInPicture_RegisterStartPipCallback()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_RegisterStartPipCallback(uint32_t controllerId, WebPipStartPipCallback callback)
 ```
@@ -750,6 +812,8 @@ int32_t OH_PictureInPicture_RegisterStartPipCallback(uint32_t controllerId, WebP
   
 
 ##### OH_PictureInPicture_UnregisterStartPipCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_UnregisterStartPipCallback(uint32_t controllerId, WebPipStartPipCallback callback)
@@ -780,6 +844,8 @@ int32_t OH_PictureInPicture_UnregisterStartPipCallback(uint32_t controllerId, We
 
 ##### OH_PictureInPicture_UnregisterAllStartPipCallbacks()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_UnregisterAllStartPipCallbacks(uint32_t controllerId)
 ```
@@ -807,6 +873,8 @@ int32_t OH_PictureInPicture_UnregisterAllStartPipCallbacks(uint32_t controllerId
   
 
 ##### OH_PictureInPicture_RegisterLifecycleListener()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_RegisterLifecycleListener(uint32_t controllerId, WebPipLifecycleCallback callback)
@@ -837,6 +905,8 @@ int32_t OH_PictureInPicture_RegisterLifecycleListener(uint32_t controllerId, Web
 
 ##### OH_PictureInPicture_UnregisterLifecycleListener()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_UnregisterLifecycleListener(uint32_t controllerId, WebPipLifecycleCallback callback)
 ```
@@ -866,6 +936,8 @@ int32_t OH_PictureInPicture_UnregisterLifecycleListener(uint32_t controllerId, W
 
 ##### OH_PictureInPicture_UnregisterAllLifecycleListeners()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_UnregisterAllLifecycleListeners(uint32_t controllerId)
 ```
@@ -893,6 +965,8 @@ int32_t OH_PictureInPicture_UnregisterAllLifecycleListeners(uint32_t controllerI
   
 
 ##### OH_PictureInPicture_RegisterControlEventListener()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_RegisterControlEventListener(uint32_t controllerId, WebPipControlEventCallback callback)
@@ -923,6 +997,8 @@ int32_t OH_PictureInPicture_RegisterControlEventListener(uint32_t controllerId, 
 
 ##### OH_PictureInPicture_UnregisterControlEventListener()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_UnregisterControlEventListener(uint32_t controllerId, WebPipControlEventCallback callback)
 ```
@@ -952,6 +1028,8 @@ int32_t OH_PictureInPicture_UnregisterControlEventListener(uint32_t controllerId
 
 ##### OH_PictureInPicture_UnregisterAllControlEventListeners()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_UnregisterAllControlEventListeners(uint32_t controllerId)
 ```
@@ -979,6 +1057,8 @@ int32_t OH_PictureInPicture_UnregisterAllControlEventListeners(uint32_t controll
   
 
 ##### OH_PictureInPicture_RegisterResizeListener()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_RegisterResizeListener(uint32_t controllerId, WebPipResizeCallback callback)
@@ -1009,6 +1089,8 @@ int32_t OH_PictureInPicture_RegisterResizeListener(uint32_t controllerId, WebPip
 
 ##### OH_PictureInPicture_UnregisterResizeListener()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_UnregisterResizeListener(uint32_t controllerId, WebPipResizeCallback callback)
 ```
@@ -1038,6 +1120,8 @@ int32_t OH_PictureInPicture_UnregisterResizeListener(uint32_t controllerId, WebP
 
 ##### OH_PictureInPicture_UnregisterAllResizeListeners()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_UnregisterAllResizeListeners(uint32_t controllerId)
 ```
@@ -1065,6 +1149,8 @@ int32_t OH_PictureInPicture_UnregisterAllResizeListeners(uint32_t controllerId)
   
 
 ##### OH_PictureInPicture_SetPipInitialSurfaceRect()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_SetPipInitialSurfaceRect(uint32_t controllerId, int32_t positionX, int32_t positionY,uint32_t width, uint32_t height)
@@ -1098,6 +1184,8 @@ int32_t OH_PictureInPicture_SetPipInitialSurfaceRect(uint32_t controllerId, int3
 
 ##### OH_PictureInPicture_UnsetPipInitialSurfaceRect()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_PictureInPicture_UnsetPipInitialSurfaceRect(uint32_t controllerId)
 ```
@@ -1125,6 +1213,8 @@ int32_t OH_PictureInPicture_UnsetPipInitialSurfaceRect(uint32_t controllerId)
   
 
 ##### OH_PictureInPicture_SetParentWindowId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_PictureInPicture_SetParentWindowId(uint32_t controllerId, uint32_t windowId)

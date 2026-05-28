@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { localChatModel } from '@kit.DataAugmentationKit';
 ```
@@ -19,6 +21,8 @@ import { localChatModel } from '@kit.DataAugmentationKit';
   
 
 ##### Config
+
+**支持设备：** PC/2in1
 
 是否支持流式问答的配置项。
  
@@ -46,6 +50,8 @@ let localConfig: localChatModel.Config = {
   
 
 ##### QuestionInfo
+
+**支持设备：** PC/2in1
 
 与端侧问答模型交互的问题信息。
  
@@ -75,6 +81,8 @@ let questionInfo: localChatModel.QuestionInfo = {
   
 
 ##### Answer
+
+**支持设备：** PC/2in1
 
 与端侧问答模型交互的返回结果。
  
@@ -106,6 +114,8 @@ let answer: localChatModel.Answer = {
   
 
 ##### init
+
+**支持设备：** PC/2in1
 
 init(): Promise&lt;boolean&gt;
  
@@ -142,6 +152,8 @@ async function init() {
   
 
 ##### chat
+
+**支持设备：** PC/2in1
 
 chat(info: QuestionInfo, config: Config, callback: AsyncCallback&lt;Answer&gt;): Promise&lt;void&gt;
  

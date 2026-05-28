@@ -12,6 +12,8 @@
 
 ##### AudioVolumeType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频音量类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Volume
@@ -30,6 +32,8 @@
 
 ##### InterruptMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示焦点模型的枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -46,6 +50,8 @@
 
 ##### DeviceFlag
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频设备类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
@@ -60,6 +66,8 @@
 
 
 ##### DeviceUsage12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频设备类型的枚举（根据用途分类）。
 
@@ -79,6 +87,8 @@
 
 ##### DeviceRole
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示设备角色的枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -94,6 +104,8 @@
 
 
 ##### DeviceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示设备类型的枚举。
 
@@ -126,6 +138,8 @@
 
 ##### BluetoothAndNearlinkPreferredRecordCategory21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示在使用蓝牙或星闪进行录音时，应用程序的设备偏好分类枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
@@ -142,6 +156,8 @@
 
 ##### CommunicationDeviceType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示用于通信的可用设备类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Communication
@@ -154,6 +170,8 @@
 
 
 ##### AudioRingMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示铃声模式的枚举。
 
@@ -171,6 +189,8 @@
 
 
 ##### AudioSampleFormat8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频采样格式的枚举。
 
@@ -190,6 +210,8 @@
 
 ##### AudioErrors9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频错误码的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
@@ -208,6 +230,8 @@
 
 
 ##### AudioChannel8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频声道的枚举。
 
@@ -233,6 +257,8 @@
 
 
 ##### AudioSamplingRate8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频采样率的枚举（具体设备支持的采样率规格会存在差异）。
 
@@ -260,6 +286,8 @@
 
 ##### AudioEncodingType8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频编码类型的枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -275,6 +303,8 @@
 
 
 ##### AudioLatencyType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频时延类型的枚举。
 
@@ -292,6 +322,8 @@
 
 
 ##### AudioChannelLayout11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频文件声道布局类型的枚举。
 
@@ -354,6 +386,8 @@
 
 ##### StreamUsage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示播放音频流类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
@@ -382,6 +416,8 @@
 
 ##### AudioState8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频状态的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
@@ -401,6 +437,8 @@
 
 ##### AudioEffectMode10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音效模式的枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -417,6 +455,8 @@
 
 ##### AudioRendererRate8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频渲染速度的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
@@ -431,6 +471,8 @@
 
 
 ##### InterruptType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示中断类型的枚举。
 
@@ -447,6 +489,8 @@
 
 
 ##### InterruptForceType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频打断类型的枚举。
 
@@ -467,6 +511,8 @@
 
 
 ##### InterruptHint
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示中断提示的枚举。
 
@@ -494,6 +540,8 @@
 
 ##### AudioVolumeMode19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音量模式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Volume
@@ -507,6 +555,8 @@
 
 
 ##### AudioPrivacyType10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 表示对应播放音频流是否支持被其他应用录制的枚举。
 
@@ -523,6 +573,8 @@
 
 ##### ChannelBlendMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示声道混合模式类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
@@ -538,6 +590,8 @@
 
 
 ##### AudioStreamDeviceChangeReason11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示流设备变更原因的枚举。
 
@@ -557,6 +611,8 @@
 
 ##### OutputDeviceChangeRecommendedAction20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示输出设备变更后推荐操作的枚举。
 
 常见场景示例：耳机设备和外放设备之间进行切换。当佩戴耳机时，从外放设备切换到耳机设备，系统会推荐继续播放，提示应用无需停止当前播放。当摘下耳机设备切换到外放设备时，系统会推荐停止播放。
@@ -573,6 +629,8 @@
 
 ##### DeviceChangeType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示设备连接状态变化的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
@@ -587,6 +645,8 @@
 
 ##### DeviceBlockStatus13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频设备是否被堵塞的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
@@ -600,6 +660,8 @@
 
 
 ##### SourceType8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示录制音频流类型的枚举。
 
@@ -620,6 +682,8 @@
 
 ##### AudioScene8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频场景的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Communication
@@ -635,6 +699,8 @@
 
 
 ##### AudioConcurrencyMode12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频并发模式的枚举。
 
@@ -652,6 +718,8 @@
 
 ##### AudioSessionDeactivatedReason12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频会话停用原因的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
@@ -665,6 +733,8 @@
 
 
 ##### AudioSessionScene20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举音频会话场景。
 
@@ -680,6 +750,8 @@
 
 
 ##### AudioSessionStateChangeHint20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举用于音频会话状态变更提示。
 
@@ -709,6 +781,8 @@
 
 ##### AudioDataCallbackResult12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示音频数据回调结果的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
@@ -722,6 +796,8 @@
 
 
 ##### ContentType(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频内容类型的枚举。
 
@@ -745,6 +821,8 @@
 
 ##### ActiveDeviceType(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示活跃设备类型的枚举。
 
 > [!NOTE]
@@ -762,6 +840,8 @@
 
 
 ##### InterruptActionType(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示中断事件返回类型的枚举。
 
@@ -781,6 +861,8 @@
 
 ##### AudioLoopbackMode20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示返听模式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
@@ -793,6 +875,8 @@
 
 
 ##### AudioLoopbackStatus20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示返听状态的枚举。
 
@@ -810,6 +894,8 @@
 
 ##### AudioLoopbackReverbPreset21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示返听混响模式的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
@@ -826,6 +912,8 @@
 
 ##### AudioLoopbackEqualizerPreset21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示返听均衡器类型的枚举。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Capturer
@@ -840,6 +928,8 @@
 
 
 ##### AudioSessionBehaviorFlags24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音频会话行为的枚举。
 

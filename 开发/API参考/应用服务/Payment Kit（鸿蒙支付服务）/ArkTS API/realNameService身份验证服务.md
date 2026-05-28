@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { realNameService } from '@kit.PaymentKit';
 ```
@@ -25,6 +27,8 @@ import { realNameService } from '@kit.PaymentKit';
   
 
 ##### startRealNameVerification
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startRealNameVerification(context: common.UIAbilityContext | common.UIExtensionContext, preVerifyId: string): Promise&lt;string&gt;
  
@@ -111,6 +115,8 @@ struct Index {
 
 ##### startRealNameAuth
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 startRealNameAuth(context: common.UIAbilityContext | common.UIExtensionContext): Promise&lt;string&gt;
  
 该方法提供实名信息授权功能，调用该方法后会拉起实名信息授权组件，授权完成后使用Promise异步返回。调用该方法前请确保网络已连接。
@@ -189,6 +195,8 @@ struct Index {
   
 
 ##### startFaceVerification
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startFaceVerification(context: common.UIAbilityContext | common.UIExtensionContext, preVerifyId: string): Promise&lt;string&gt;
  

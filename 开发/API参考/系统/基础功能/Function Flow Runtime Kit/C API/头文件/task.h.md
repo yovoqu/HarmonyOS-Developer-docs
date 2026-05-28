@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明任务的C接口。
  
 **引用文件：** <ffrt/task.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -60,9 +66,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### ffrt_task_attr_init()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API int ffrt_task_attr_init(ffrt_task_attr_t* attr)
@@ -92,6 +102,8 @@ FFRT_C_API int ffrt_task_attr_init(ffrt_task_attr_t* attr)
 
 ##### ffrt_task_attr_set_name()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API void ffrt_task_attr_set_name(ffrt_task_attr_t* attr, const char* name)
 ```
@@ -113,6 +125,8 @@ FFRT_C_API void ffrt_task_attr_set_name(ffrt_task_attr_t* attr, const char* name
   
 
 ##### ffrt_task_attr_get_name()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API const char* ffrt_task_attr_get_name(const ffrt_task_attr_t* attr)
@@ -142,6 +156,8 @@ FFRT_C_API const char* ffrt_task_attr_get_name(const ffrt_task_attr_t* attr)
 
 ##### ffrt_task_attr_destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API void ffrt_task_attr_destroy(ffrt_task_attr_t* attr)
 ```
@@ -162,6 +178,8 @@ FFRT_C_API void ffrt_task_attr_destroy(ffrt_task_attr_t* attr)
   
 
 ##### ffrt_task_attr_set_qos()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API void ffrt_task_attr_set_qos(ffrt_task_attr_t* attr, ffrt_qos_t qos)
@@ -184,6 +202,8 @@ FFRT_C_API void ffrt_task_attr_set_qos(ffrt_task_attr_t* attr, ffrt_qos_t qos)
   
 
 ##### ffrt_task_attr_get_qos()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API ffrt_qos_t ffrt_task_attr_get_qos(const ffrt_task_attr_t* attr)
@@ -213,6 +233,8 @@ FFRT_C_API ffrt_qos_t ffrt_task_attr_get_qos(const ffrt_task_attr_t* attr)
 
 ##### ffrt_task_attr_set_delay()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API void ffrt_task_attr_set_delay(ffrt_task_attr_t* attr, uint64_t delay_us)
 ```
@@ -236,6 +258,8 @@ FFRT_C_API void ffrt_task_attr_set_delay(ffrt_task_attr_t* attr, uint64_t delay_
   
 
 ##### ffrt_task_attr_get_delay()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API uint64_t ffrt_task_attr_get_delay(const ffrt_task_attr_t* attr)
@@ -265,6 +289,8 @@ FFRT_C_API uint64_t ffrt_task_attr_get_delay(const ffrt_task_attr_t* attr)
 
 ##### ffrt_task_attr_set_queue_priority()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API void ffrt_task_attr_set_queue_priority(ffrt_task_attr_t* attr, ffrt_queue_priority_t priority)
 ```
@@ -286,6 +312,8 @@ FFRT_C_API void ffrt_task_attr_set_queue_priority(ffrt_task_attr_t* attr, ffrt_q
   
 
 ##### ffrt_task_attr_get_queue_priority()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API ffrt_queue_priority_t ffrt_task_attr_get_queue_priority(const ffrt_task_attr_t* attr)
@@ -315,6 +343,8 @@ FFRT_C_API ffrt_queue_priority_t ffrt_task_attr_get_queue_priority(const ffrt_ta
 
 ##### ffrt_task_attr_set_stack_size()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API void ffrt_task_attr_set_stack_size(ffrt_task_attr_t* attr, uint64_t size)
 ```
@@ -336,6 +366,8 @@ FFRT_C_API void ffrt_task_attr_set_stack_size(ffrt_task_attr_t* attr, uint64_t s
   
 
 ##### ffrt_task_attr_get_stack_size()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API uint64_t ffrt_task_attr_get_stack_size(const ffrt_task_attr_t* attr)
@@ -365,6 +397,8 @@ FFRT_C_API uint64_t ffrt_task_attr_get_stack_size(const ffrt_task_attr_t* attr)
 
 ##### ffrt_this_task_update_qos()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API int ffrt_this_task_update_qos(ffrt_qos_t qos)
 ```
@@ -393,6 +427,8 @@ FFRT_C_API int ffrt_this_task_update_qos(ffrt_qos_t qos)
 
 ##### ffrt_this_task_get_qos()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API ffrt_qos_t ffrt_this_task_get_qos(void)
 ```
@@ -414,6 +450,8 @@ FFRT_C_API ffrt_qos_t ffrt_this_task_get_qos(void)
 
 ##### ffrt_this_task_get_id()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API uint64_t ffrt_this_task_get_id(void)
 ```
@@ -434,6 +472,8 @@ FFRT_C_API uint64_t ffrt_this_task_get_id(void)
   
 
 ##### ffrt_alloc_auto_managed_function_storage_base()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API void *ffrt_alloc_auto_managed_function_storage_base(ffrt_function_kind_t kind)
@@ -463,6 +503,8 @@ FFRT_C_API void *ffrt_alloc_auto_managed_function_storage_base(ffrt_function_kin
 
 ##### ffrt_submit_base()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API void ffrt_submit_base(ffrt_function_header_t* f, const ffrt_deps_t* in_deps, const ffrt_deps_t* out_deps, const ffrt_task_attr_t* attr)
 ```
@@ -486,6 +528,8 @@ FFRT_C_API void ffrt_submit_base(ffrt_function_header_t* f, const ffrt_deps_t* i
   
 
 ##### ffrt_submit_h_base()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API ffrt_task_handle_t ffrt_submit_h_base(ffrt_function_header_t* f, const ffrt_deps_t* in_deps, const ffrt_deps_t* out_deps, const ffrt_task_attr_t* attr)
@@ -518,6 +562,8 @@ FFRT_C_API ffrt_task_handle_t ffrt_submit_h_base(ffrt_function_header_t* f, cons
 
 ##### ffrt_submit_f()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API void ffrt_submit_f(ffrt_function_t func, void* arg, const ffrt_deps_t* in_deps, const ffrt_deps_t* out_deps, const ffrt_task_attr_t* attr)
 ```
@@ -546,6 +592,8 @@ FFRT_C_API void ffrt_submit_f(ffrt_function_t func, void* arg, const ffrt_deps_t
   
 
 ##### ffrt_submit_h_f()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API ffrt_task_handle_t ffrt_submit_h_f(ffrt_function_t func, void* arg, const ffrt_deps_t* in_deps, const ffrt_deps_t* out_deps, const ffrt_task_attr_t* attr)
@@ -583,6 +631,8 @@ FFRT_C_API ffrt_task_handle_t ffrt_submit_h_f(ffrt_function_t func, void* arg, c
 
 ##### ffrt_task_handle_inc_ref()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API uint32_t ffrt_task_handle_inc_ref(ffrt_task_handle_t handle)
 ```
@@ -610,6 +660,8 @@ FFRT_C_API uint32_t ffrt_task_handle_inc_ref(ffrt_task_handle_t handle)
   
 
 ##### ffrt_task_handle_dec_ref()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API uint32_t ffrt_task_handle_dec_ref(ffrt_task_handle_t handle)
@@ -639,6 +691,8 @@ FFRT_C_API uint32_t ffrt_task_handle_dec_ref(ffrt_task_handle_t handle)
 
 ##### ffrt_task_handle_destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API void ffrt_task_handle_destroy(ffrt_task_handle_t handle)
 ```
@@ -660,6 +714,8 @@ FFRT_C_API void ffrt_task_handle_destroy(ffrt_task_handle_t handle)
 
 ##### ffrt_wait_deps()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 FFRT_C_API void ffrt_wait_deps(const ffrt_deps_t* deps)
 ```
@@ -680,6 +736,8 @@ FFRT_C_API void ffrt_wait_deps(const ffrt_deps_t* deps)
   
 
 ##### ffrt_wait()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 FFRT_C_API void ffrt_wait(void)

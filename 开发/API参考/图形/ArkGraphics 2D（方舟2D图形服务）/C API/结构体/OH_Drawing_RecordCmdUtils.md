@@ -12,6 +12,8 @@ typedef struct OH_Drawing_RecordCmdUtils OH_Drawing_RecordCmdUtils
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义指令录制工具，用于生成录制指令。
  
 **起始版本：** 13

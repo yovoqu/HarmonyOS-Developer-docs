@@ -12,6 +12,8 @@ typedef struct OH_UdsPlainText OH_UdsPlainText
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 描述纯文本类型数据的统一数据结构。
  
 **起始版本：** 12

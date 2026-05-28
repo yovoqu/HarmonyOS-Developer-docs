@@ -14,6 +14,8 @@ Web组件返回授权或拒绝权限功能的对象。示例代码参考[onGeolo
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 JsGeolocation的构造函数。
@@ -23,6 +25,8 @@ JsGeolocation的构造函数。
   
 
 ##### invoke
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 invoke(origin: string, allow: boolean, retain: boolean): void
  

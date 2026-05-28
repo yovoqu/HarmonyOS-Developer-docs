@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持单个子组件。
 
 > [!NOTE]
@@ -24,9 +26,13 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### Badge
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Badge(value: BadgeParamWithNumber)
 
@@ -48,6 +54,8 @@ Badge(value: BadgeParamWithNumber)
 
 
 ##### Badge
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Badge(value: BadgeParamWithString)
 
@@ -72,6 +80,8 @@ Badge(value: BadgeParamWithString)
 
 ##### BadgeParam对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 包含用于创建Badge组件的基础参数。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -89,6 +99,8 @@ Badge(value: BadgeParamWithString)
 
 
 ##### BadgeParamWithNumber对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 BadgeParamWithNumber继承自[BadgeParam](#badgeparam对象说明)，具有BadgeParam的全部属性。
 
@@ -108,6 +120,8 @@ BadgeParamWithNumber继承自[BadgeParam](#badgeparam对象说明)，具有Badge
 
 ##### BadgeParamWithString对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 BadgeParamWithString继承自[BadgeParam](#badgeparam对象说明)，具有BadgeParam的全部属性。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -124,6 +138,8 @@ BadgeParamWithString继承自[BadgeParam](#badgeparam对象说明)，具有Badge
 
 
 ##### BadgePosition枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提示点显示位置。
 
@@ -143,6 +159,8 @@ BadgeParamWithString继承自[BadgeParam](#badgeparam对象说明)，具有Badge
 
 
 ##### BadgeStyle对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Badge的样式。包括文本颜色、尺寸、字重、圆点颜色和尺寸。
 
@@ -170,17 +188,23 @@ Badge的样式。包括文本颜色、尺寸、字重、圆点颜色和尺寸。
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 

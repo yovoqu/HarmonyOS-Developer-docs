@@ -12,6 +12,8 @@ typedef struct OH_HiDebug_ProfilingResult {...} OH_HiDebug_ProfilingResult
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 封装单次资源采集的结果。
  
 **起始版本：** 24
@@ -24,9 +26,13 @@ typedef struct OH_HiDebug_ProfilingResult {...} OH_HiDebug_ProfilingResult
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

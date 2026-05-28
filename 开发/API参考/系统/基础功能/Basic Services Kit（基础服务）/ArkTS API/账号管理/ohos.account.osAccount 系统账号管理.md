@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { osAccount } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { osAccount } from '@kit.BasicServicesKit';
 
 
 ##### osAccount.getAccountManager
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAccountManager(): AccountManager
 
@@ -45,6 +49,8 @@ let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
 
 ##### OsAccountType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示系统账号类型的枚举。
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -60,11 +66,15 @@ let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
 
 ##### AccountManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统账号管理类。
 
 
 
 ##### checkMultiOsAccountEnabled9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkMultiOsAccountEnabled(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -113,6 +123,8 @@ try {
 
 ##### checkMultiOsAccountEnabled9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkMultiOsAccountEnabled(): Promise&lt;boolean&gt;
 
 判断是否支持多系统账号。使用Promise异步回调。
@@ -156,6 +168,8 @@ try {
 
 
 ##### checkOsAccountActivated(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkOsAccountActivated(localId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -216,6 +230,8 @@ try {
 
 
 ##### checkOsAccountActivated(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkOsAccountActivated(localId: number): Promise&lt;boolean&gt;
 
@@ -281,6 +297,8 @@ try {
 
 ##### isOsAccountConstraintEnabled11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isOsAccountConstraintEnabled(constraint: string): Promise&lt;boolean&gt;
 
 判断当前系统账号是否使能指定约束。使用Promise异步回调。
@@ -335,6 +353,8 @@ try {
 
 
 ##### checkOsAccountConstraintEnabled(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkOsAccountConstraintEnabled(localId: number, constraint: string, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -397,6 +417,8 @@ try {
 
 
 ##### checkOsAccountConstraintEnabled(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkOsAccountConstraintEnabled(localId: number, constraint: string): Promise&lt;boolean&gt;
 
@@ -464,6 +486,8 @@ try {
 
 ##### checkOsAccountTestable9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkOsAccountTestable(callback: AsyncCallback&lt;boolean&gt;): void
 
 检查当前系统账号是否为测试账号。使用callback异步回调。
@@ -511,6 +535,8 @@ try {
 
 ##### checkOsAccountTestable9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkOsAccountTestable(): Promise&lt;boolean&gt;
 
 检查当前系统账号是否为测试账号。使用Promise异步回调。
@@ -555,6 +581,8 @@ try {
 
 ##### isOsAccountUnlocked11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isOsAccountUnlocked(): Promise&lt;boolean&gt;
 
 检查当前系统账号是否已认证解锁。使用Promise异步回调。
@@ -598,6 +626,8 @@ try {
 
 
 ##### checkOsAccountVerified(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkOsAccountVerified(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -649,6 +679,8 @@ try {
 
 ##### checkOsAccountVerified(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkOsAccountVerified(): Promise&lt;boolean&gt;
 
 检查当前系统账号是否已认证解锁。使用Promise异步回调。
@@ -696,6 +728,8 @@ try {
 
 
 ##### checkOsAccountVerified(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkOsAccountVerified(localId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -754,6 +788,8 @@ try {
 
 
 ##### checkOsAccountVerified(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkOsAccountVerified(localId: number): Promise&lt;boolean&gt;
 
@@ -817,6 +853,8 @@ try {
 
 ##### getOsAccountCount9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountCount(callback: AsyncCallback&lt;number&gt;): void
 
 获取已创建的系统账号数量。使用callback异步回调。
@@ -867,6 +905,8 @@ try {
 
 ##### getOsAccountCount9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountCount(): Promise&lt;number&gt;
 
 获取已创建的系统账号数量。使用Promise异步回调。
@@ -913,6 +953,8 @@ try {
 
 
 ##### getOsAccountLocalId9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalId(callback: AsyncCallback&lt;number&gt;): void
 
@@ -961,6 +1003,8 @@ try {
 
 ##### getOsAccountLocalId9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountLocalId(): Promise&lt;number&gt;
 
 获取当前进程所属的系统账号ID。使用Promise异步回调。
@@ -1004,6 +1048,8 @@ try {
 
 
 ##### getOsAccountLocalIdForUid9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdForUid(uid: number, callback: AsyncCallback&lt;number&gt;): void
 
@@ -1055,6 +1101,8 @@ try {
 
 
 ##### getOsAccountLocalIdForUid9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdForUid(uid: number): Promise&lt;number&gt;
 
@@ -1112,6 +1160,8 @@ try {
 
 ##### getOsAccountLocalIdForUidSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountLocalIdForUidSync(uid: number): number
 
 根据uid查询对应的系统账号ID。使用同步方式返回结果。
@@ -1163,6 +1213,8 @@ try {
 
 
 ##### getOsAccountLocalIdForDomain9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback&lt;number&gt;): void
 
@@ -1216,6 +1268,8 @@ try {
 
 
 ##### getOsAccountLocalIdForDomain9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdForDomain(domainInfo: DomainAccountInfo): Promise&lt;number&gt;
 
@@ -1273,6 +1327,8 @@ try {
 
 
 ##### getOsAccountConstraints(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountConstraints(localId: number, callback: AsyncCallback<Array&lt;string&gt;>): void
 
@@ -1333,6 +1389,8 @@ try {
 
 
 ##### getOsAccountConstraints(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountConstraints(localId: number): Promise<Array&lt;string&gt;>
 
@@ -1398,6 +1456,8 @@ try {
 
 ##### getActivatedOsAccountLocalIds9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getActivatedOsAccountLocalIds(callback: AsyncCallback<Array&lt;number&gt;>): void
 
 查询当前处于激活状态的系统账号的ID列表。使用callback异步回调。
@@ -1448,6 +1508,8 @@ try {
 
 ##### getActivatedOsAccountLocalIds9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getActivatedOsAccountLocalIds(): Promise<Array&lt;number&gt;>
 
 查询当前处于激活状态的系统账号的ID列表。使用Promise异步回调。
@@ -1491,6 +1553,8 @@ try {
 
 
 ##### getCurrentOsAccount(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentOsAccount(callback: AsyncCallback&lt;OsAccountInfo&gt;): void
 
@@ -1546,6 +1610,8 @@ try {
 
 ##### getCurrentOsAccount(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentOsAccount(): Promise&lt;OsAccountInfo&gt;
 
 查询当前进程所属的系统账号的信息。使用Promise异步回调。
@@ -1597,6 +1663,8 @@ try {
 
 ##### getOsAccountType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountType(callback: AsyncCallback&lt;OsAccountType&gt;): void
 
 查询当前进程所属的系统账号的账号类型。使用callback异步回调。
@@ -1644,6 +1712,8 @@ try {
 
 ##### getOsAccountType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountType(): Promise&lt;OsAccountType&gt;
 
 查询当前进程所属的系统账号的账号类型。使用Promise异步回调。
@@ -1687,6 +1757,8 @@ try {
 
 
 ##### queryDistributedVirtualDeviceId9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryDistributedVirtualDeviceId(callback: AsyncCallback&lt;string&gt;): void
 
@@ -1738,6 +1810,8 @@ try {
 
 ##### queryDistributedVirtualDeviceId9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryDistributedVirtualDeviceId(): Promise&lt;string&gt;
 
 获取分布式虚拟设备ID。使用Promise异步回调。
@@ -1784,6 +1858,8 @@ try {
 
 
 ##### getOsAccountLocalIdForSerialNumber9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdForSerialNumber(serialNumber: number, callback: AsyncCallback&lt;number&gt;): void
 
@@ -1837,6 +1913,8 @@ try {
 
 
 ##### getOsAccountLocalIdForSerialNumber9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdForSerialNumber(serialNumber: number): Promise&lt;number&gt;
 
@@ -1895,6 +1973,8 @@ try {
 
 ##### getSerialNumberForOsAccountLocalId9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSerialNumberForOsAccountLocalId(localId: number, callback: AsyncCallback&lt;number&gt;): void
 
 通过系统账号ID获取与该系统账号关联的SN码。使用callback异步回调。
@@ -1947,6 +2027,8 @@ try {
 
 
 ##### getSerialNumberForOsAccountLocalId9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSerialNumberForOsAccountLocalId(localId: number): Promise&lt;number&gt;
 
@@ -2005,6 +2087,8 @@ try {
 
 ##### isMultiOsAccountEnable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMultiOsAccountEnable(callback: AsyncCallback&lt;boolean&gt;): void
 
 判断是否支持多系统账号。使用callback异步回调。
@@ -2041,6 +2125,8 @@ accountManager.isMultiOsAccountEnable((err: BusinessError, isEnabled: boolean) =
 
 ##### isMultiOsAccountEnable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMultiOsAccountEnable(): Promise&lt;boolean&gt;
 
 判断是否支持多系统账号。使用Promise异步回调。
@@ -2074,6 +2160,8 @@ accountManager.isMultiOsAccountEnable().then((isEnabled: boolean) => {
 
 
 ##### isOsAccountActived(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isOsAccountActived(localId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -2116,6 +2204,8 @@ accountManager.isOsAccountActived(localId, (err: BusinessError, isActived: boole
 
 
 ##### isOsAccountActived(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isOsAccountActived(localId: number): Promise&lt;boolean&gt;
 
@@ -2163,6 +2253,8 @@ accountManager.isOsAccountActived(localId).then((isActived: boolean) => {
 
 ##### isOsAccountConstraintEnable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isOsAccountConstraintEnable(localId: number, constraint: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 判断指定系统账号是否具有指定约束。使用callback异步回调。
@@ -2206,6 +2298,8 @@ accountManager.isOsAccountConstraintEnable(localId, constraint, (err: BusinessEr
 
 
 ##### isOsAccountConstraintEnable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isOsAccountConstraintEnable(localId: number, constraint: string): Promise&lt;boolean&gt;
 
@@ -2255,6 +2349,8 @@ accountManager.isOsAccountConstraintEnable(localId, constraint).then((isEnabled:
 
 ##### isTestOsAccount(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isTestOsAccount(callback: AsyncCallback&lt;boolean&gt;): void
 
 检查当前系统账号是否为测试账号。使用callback异步回调。
@@ -2291,6 +2387,8 @@ accountManager.isTestOsAccount((err: BusinessError, isTestable: boolean) => {
 
 ##### isTestOsAccount(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isTestOsAccount(): Promise&lt;boolean&gt;
 
 检查当前系统账号是否为测试账号。使用Promise异步回调。
@@ -2324,6 +2422,8 @@ let accountManager: osAccount.AccountManager = osAccount.getAccountManager();
 
 
 ##### isOsAccountVerified(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isOsAccountVerified(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -2362,6 +2462,8 @@ accountManager.isOsAccountVerified((err: BusinessError, isVerified: boolean) => 
 
 
 ##### isOsAccountVerified(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isOsAccountVerified(localId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -2402,6 +2504,8 @@ accountManager.isOsAccountVerified(localId, (err: BusinessError, isVerified: boo
 
 
 ##### isOsAccountVerified(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isOsAccountVerified(localId?: number): Promise&lt;boolean&gt;
 
@@ -2446,6 +2550,8 @@ accountManager.isOsAccountVerified().then((isVerified: boolean) => {
 
 ##### getCreatedOsAccountsCount(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCreatedOsAccountsCount(callback: AsyncCallback&lt;number&gt;): void
 
 获取已创建的系统账号数量。使用callback异步回调。
@@ -2484,6 +2590,8 @@ accountManager.getCreatedOsAccountsCount((err: BusinessError, count: number)=>{
 
 ##### getCreatedOsAccountsCount(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCreatedOsAccountsCount(): Promise&lt;number&gt;
 
 获取已创建的系统账号数量。使用Promise异步回调。
@@ -2519,6 +2627,8 @@ accountManager.getCreatedOsAccountsCount().then((count: number) => {
 
 
 ##### getOsAccountLocalIdFromProcess(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdFromProcess(callback: AsyncCallback&lt;number&gt;): void
 
@@ -2556,6 +2666,8 @@ accountManager.getOsAccountLocalIdFromProcess((err: BusinessError, localId: numb
 
 ##### getOsAccountLocalIdFromProcess(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountLocalIdFromProcess(): Promise&lt;number&gt;
 
 获取当前进程所属的系统账号ID。使用Promise异步回调。
@@ -2589,6 +2701,8 @@ accountManager.getOsAccountLocalIdFromProcess().then((localId: number) => {
 
 
 ##### getOsAccountLocalIdFromUid(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdFromUid(uid: number, callback: AsyncCallback&lt;number&gt;): void
 
@@ -2629,6 +2743,8 @@ accountManager.getOsAccountLocalIdFromUid(uid, (err: BusinessError, localId: num
 
 
 ##### getOsAccountLocalIdFromUid(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdFromUid(uid: number): Promise&lt;number&gt;
 
@@ -2674,6 +2790,8 @@ accountManager.getOsAccountLocalIdFromUid(uid).then((localId: number) => {
 
 ##### getOsAccountLocalIdFromDomain(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo, callback: AsyncCallback&lt;number&gt;): void
 
 根据域账号信息，获取与其关联的系统账号的账号ID。使用callback异步回调。
@@ -2713,6 +2831,8 @@ accountManager.getOsAccountLocalIdFromDomain(domainInfo, (err: BusinessError, lo
 
 
 ##### getOsAccountLocalIdFromDomain(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdFromDomain(domainInfo: DomainAccountInfo): Promise&lt;number&gt;
 
@@ -2758,6 +2878,8 @@ accountManager.getOsAccountLocalIdFromDomain(domainInfo).then((localId: number) 
 
 ##### getOsAccountAllConstraints(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountAllConstraints(localId: number, callback: AsyncCallback<Array&lt;string&gt;>): void
 
 获取指定系统账号的全部约束。使用callback异步回调。
@@ -2799,6 +2921,8 @@ accountManager.getOsAccountAllConstraints(localId, (err: BusinessError, constrai
 
 
 ##### getOsAccountAllConstraints(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountAllConstraints(localId: number): Promise<Array&lt;string&gt;>
 
@@ -2846,6 +2970,8 @@ accountManager.getOsAccountAllConstraints(localId).then((constraints: string[]) 
 
 ##### queryActivatedOsAccountIds(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryActivatedOsAccountIds(callback: AsyncCallback<Array&lt;number&gt;>): void
 
 查询当前处于激活状态的系统账号的ID列表。使用callback异步回调。
@@ -2885,6 +3011,8 @@ accountManager.queryActivatedOsAccountIds((err: BusinessError, idArray: number[]
 
 ##### queryActivatedOsAccountIds(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryActivatedOsAccountIds(): Promise<Array&lt;number&gt;>
 
 > [!NOTE]
@@ -2918,6 +3046,8 @@ accountManager.queryActivatedOsAccountIds().then((idArray: number[]) => {
 
 
 ##### queryCurrentOsAccount(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryCurrentOsAccount(callback: AsyncCallback&lt;OsAccountInfo&gt;): void
 
@@ -2957,6 +3087,8 @@ accountManager.queryCurrentOsAccount((err: BusinessError, curAccountInfo: osAcco
 
 ##### queryCurrentOsAccount(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryCurrentOsAccount(): Promise&lt;OsAccountInfo&gt;
 
 查询当前进程所属的系统账号的信息。使用Promise异步回调。
@@ -2992,6 +3124,8 @@ accountManager.queryCurrentOsAccount().then((accountInfo: osAccount.OsAccountInf
 
 
 ##### getOsAccountTypeFromProcess(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountTypeFromProcess(callback: AsyncCallback&lt;OsAccountType&gt;): void
 
@@ -3029,6 +3163,8 @@ accountManager.getOsAccountTypeFromProcess((err: BusinessError, accountType: osA
 
 ##### getOsAccountTypeFromProcess(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountTypeFromProcess(): Promise&lt;OsAccountType&gt;
 
 查询当前进程所属的系统账号的账号类型。使用Promise异步回调。
@@ -3062,6 +3198,8 @@ accountManager.getOsAccountTypeFromProcess().then((accountType: osAccount.OsAcco
 
 
 ##### getDistributedVirtualDeviceId(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDistributedVirtualDeviceId(callback: AsyncCallback&lt;string&gt;): void
 
@@ -3101,6 +3239,8 @@ accountManager.getDistributedVirtualDeviceId((err: BusinessError, virtualID: str
 
 ##### getDistributedVirtualDeviceId(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDistributedVirtualDeviceId(): Promise&lt;string&gt;
 
 获取分布式虚拟设备ID。使用Promise异步回调。
@@ -3136,6 +3276,8 @@ accountManager.getDistributedVirtualDeviceId().then((virtualID: string) => {
 
 
 ##### getOsAccountLocalIdBySerialNumber(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdBySerialNumber(serialNumber: number, callback: AsyncCallback&lt;number&gt;): void
 
@@ -3176,6 +3318,8 @@ accountManager.getOsAccountLocalIdBySerialNumber(serialNumber, (err: BusinessErr
 
 
 ##### getOsAccountLocalIdBySerialNumber(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountLocalIdBySerialNumber(serialNumber: number): Promise&lt;number&gt;
 
@@ -3221,6 +3365,8 @@ accountManager.getOsAccountLocalIdBySerialNumber(serialNumber).then((localId: nu
 
 ##### getSerialNumberByOsAccountLocalId(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSerialNumberByOsAccountLocalId(localId: number, callback: AsyncCallback&lt;number&gt;): void
 
 通过系统账号ID获取与该系统账号关联的SN码。使用callback异步回调。
@@ -3260,6 +3406,8 @@ accountManager.getSerialNumberByOsAccountLocalId(localId, (err: BusinessError, s
 
 
 ##### getSerialNumberByOsAccountLocalId(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSerialNumberByOsAccountLocalId(localId: number): Promise&lt;number&gt;
 
@@ -3305,6 +3453,8 @@ accountManager.getSerialNumberByOsAccountLocalId(localId).then((serialNumber: nu
 
 ##### getOsAccountName12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOsAccountName(): Promise&lt;string&gt;
 
 查询调用方所属系统账号的名称。使用Promise异步回调。
@@ -3349,6 +3499,8 @@ try {
 
 ##### getForegroundOsAccountLocalId15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getForegroundOsAccountLocalId(): Promise&lt;number&gt;
 
 获取前台系统账号的ID。使用Promise异步回调。
@@ -3392,6 +3544,8 @@ try {
 
 
 ##### getOsAccountDomainInfo15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOsAccountDomainInfo(localId: number): Promise&lt;DomainAccountInfo&gt;
 
@@ -3450,11 +3604,15 @@ accountManager.getOsAccountDomainInfo(localId).then((domainAccountInfo: osAccoun
 
 ##### DomainAccountManager18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 域账号管理类。
 
 
 
 ##### updateAccountInfo18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateAccountInfo(oldAccountInfo: DomainAccountInfo, newAccountInfo: DomainAccountInfo): Promise&lt;void&gt;
 
@@ -3518,6 +3676,8 @@ try {
 
 ##### OsAccountInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示系统账号信息。
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -3545,6 +3705,8 @@ try {
 
 ##### DomainAccountInfo8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示域账号信息。
 
 **系统能力：** SystemCapability.Account.OsAccount
@@ -3559,6 +3721,8 @@ try {
 
 
 ##### DomainServerConfig18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 域服务器配置。
 
@@ -3575,11 +3739,15 @@ try {
 
 ##### DomainServerConfigManager18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 域服务器配置管理类。
 
 
 
 ##### addServerConfig18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static addServerConfig(parameters: Record<string, Object>): Promise&lt;DomainServerConfig&gt;
 
@@ -3639,6 +3807,8 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 ##### removeServerConfig18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static removeServerConfig(configId: string): Promise&lt;void&gt;
 
 删除域服务器配置。使用Promise异步回调。
@@ -3696,6 +3866,8 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 
 ##### updateServerConfig18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static updateServerConfig(configId: string, parameters: Record<string, Object>): Promise&lt;DomainServerConfig&gt;
 
@@ -3762,6 +3934,8 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 ##### getServerConfig18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getServerConfig(configId: string): Promise&lt;DomainServerConfig&gt;
 
 获取域服务器配置。使用Promise异步回调。
@@ -3822,6 +3996,8 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 ##### getAllServerConfigs18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getAllServerConfigs(): Promise<Array&lt;DomainServerConfig&gt;>
 
 获取所有域服务器配置。使用Promise异步回调。
@@ -3873,6 +4049,8 @@ osAccount.DomainServerConfigManager.addServerConfig(configParams).then((
 
 
 ##### getAccountServerConfig18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getAccountServerConfig(domainAccountInfo: DomainAccountInfo): Promise&lt;DomainServerConfig&gt;
 
@@ -3928,6 +4106,8 @@ osAccount.DomainServerConfigManager.getAccountServerConfig(accountInfo).then((
 
 
 ##### 系统账号约束列表
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 约束 | 说明 |
 | --- | --- |

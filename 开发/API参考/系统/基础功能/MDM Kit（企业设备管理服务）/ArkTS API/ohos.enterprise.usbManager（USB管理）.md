@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { usbManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { usbManager } from '@kit.MDMKit';
 
 
 ##### usbManager.addAllowedUsbDevices
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addAllowedUsbDevices(admin: Want, usbDeviceIds: Array&lt;UsbDeviceId&gt;): void
 
@@ -87,6 +91,8 @@ try {
 
 ##### usbManager.removeAllowedUsbDevices
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeAllowedUsbDevices(admin: Want, usbDeviceIds: Array&lt;UsbDeviceId&gt;): void
 
 移除USB设备可用名单。
@@ -146,6 +152,8 @@ try {
 
 ##### usbManager.getAllowedUsbDevices
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getAllowedUsbDevices(admin: Want): Array&lt;UsbDeviceId&gt;
 
 获取USB设备可用名单。
@@ -204,6 +212,8 @@ try {
 
 
 ##### usbManager.setUsbStorageDeviceAccessPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setUsbStorageDeviceAccessPolicy(admin: Want, usbPolicy: UsbPolicy): void
 
@@ -278,6 +288,8 @@ try {
 
 ##### usbManager.getUsbStorageDeviceAccessPolicy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getUsbStorageDeviceAccessPolicy(admin: Want): UsbPolicy
 
 获取USB存储设备访问策略。
@@ -336,6 +348,8 @@ try {
 
 
 ##### usbManager.addDisallowedUsbDevices14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addDisallowedUsbDevices(admin: Want, usbDevices: Array&lt;UsbDeviceType&gt;): void
 
@@ -404,6 +418,8 @@ try {
 
 ##### usbManager.removeDisallowedUsbDevices14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDisallowedUsbDevices(admin: Want, usbDevices: Array&lt;UsbDeviceType&gt;): void
 
 移除禁止使用的USB设备类型。
@@ -465,6 +481,8 @@ try {
 
 ##### usbManager.getDisallowedUsbDevices14+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getDisallowedUsbDevices(admin: Want): Array&lt;UsbDeviceType&gt;
 
 获取禁止使用的USB设备类型。
@@ -524,6 +542,8 @@ try {
 
 ##### UsbDeviceId
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 USB设备ID信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -537,6 +557,8 @@ USB设备ID信息。
 
 
 ##### UsbDeviceType14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 USB设备类型信息。
 
@@ -554,6 +576,8 @@ USB设备类型信息。
 
 ##### UsbPolicy
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 USB读写策略的枚举。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -568,6 +592,8 @@ USB读写策略的枚举。
 
 
 ##### Descriptor14+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 USB描述符的枚举。
 

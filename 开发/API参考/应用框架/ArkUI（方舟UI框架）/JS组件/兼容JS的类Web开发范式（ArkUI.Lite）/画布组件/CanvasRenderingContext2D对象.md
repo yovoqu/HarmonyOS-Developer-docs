@@ -37,6 +37,8 @@ export default {
 
 ##### fillRect()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 填充一个矩形。
  
 **参数：**
@@ -63,6 +65,8 @@ ctx.fillRect(20, 20, 200, 150);
 
 ##### fillStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 指定绘制的填充色。
  
 **参数：**
@@ -86,6 +90,8 @@ ctx.fillRect(20, 20, 150, 100);
   
 
 ##### strokeRect()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 绘制具有边框的矩形，矩形内部不填充。
  
@@ -113,6 +119,8 @@ ctx.strokeRect(30, 30, 200, 150);
 
 ##### fillText()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 绘制填充类文本。
  
 **参数：**
@@ -139,6 +147,8 @@ ctx.fillText("Hello World!", 20, 60);
 
 ##### lineWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 指定绘制线条的宽度值。
  
 **参数：**
@@ -162,6 +172,8 @@ ctx.strokeRect(25, 25, 85, 105);
   
 
 ##### strokeStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 设置描边的颜色。
  
@@ -188,6 +200,8 @@ ctx.strokeRect(25, 25, 155, 105);
 
 ##### stroke()5+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 进行边框绘制操作。
  
 **示例：**
@@ -206,6 +220,8 @@ ctx.stroke();
   
 
 ##### beginPath()5+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 创建一个新的绘制路径。
  
@@ -227,6 +243,8 @@ ctx.stroke();
   
 
 ##### moveTo()5+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 路径从当前点移动到指定点。
  
@@ -255,6 +273,8 @@ ctx.stroke();
 
 ##### lineTo()5+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 从当前点到指定点进行路径连接。
  
 **参数：**
@@ -282,6 +302,8 @@ ctx.stroke();
 
 ##### closePath()5+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 结束当前路径形成一个封闭路径。
  
 **示例：**
@@ -302,6 +324,8 @@ ctx.stroke();
   
 
 ##### font
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 设置文本绘制中的字体样式。
  
@@ -326,6 +350,8 @@ ctx.fillText("Hello World", 20, 60);
   
 
 ##### textAlign
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 设置文本绘制中的文本对齐方式。
  
@@ -363,6 +389,8 @@ ctx.fillText('textAlign=right',140, 140);
 
 ##### arc()5+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 绘制弧线路径。
  
 **参数：**
@@ -392,6 +420,8 @@ ctx.stroke();
   
 
 ##### rect()5+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 创建矩形路径。
  

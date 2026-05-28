@@ -19,6 +19,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { collections } from '@kit.ArkTS';
 ```
@@ -26,6 +28,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -39,6 +43,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### [index: number]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readonly [index: number]: T
 
@@ -81,6 +87,8 @@ console.info("Element at index 1: ", concatArray[1]);
 
 ##### join
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 join(separator?: string): string
 
 将ConcatArray的所有元素连接成一个字符串，元素之间可以用指定的分隔符分隔。
@@ -122,6 +130,8 @@ let joinedString = concatArray.join('-'); // 返回 "a-b-c"
 
 
 ##### slice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 slice(start?: number, end?: number): ConcatArray&lt;T&gt;
 

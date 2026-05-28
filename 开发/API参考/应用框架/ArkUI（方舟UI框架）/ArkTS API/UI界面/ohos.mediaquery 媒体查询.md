@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { mediaquery } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { mediaquery } from '@kit.ArkUI';
 
 
 ##### mediaquery.matchMediaSync(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 matchMediaSync(condition: string): MediaQueryListener
 
@@ -62,6 +66,8 @@ let listener: mediaquery.MediaQueryListener = mediaquery.matchMediaSync('(orient
 
 ##### MediaQueryListener
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 媒体查询的句柄，并包含了申请句柄时的首次查询结果。媒体查询根据设置的条件语句，比如'(width <= 600vp)'，比较系统信息，若首次查询时相关信息未初始化，matches返回false。
 
 继承自[MediaQueryResult](#mediaqueryresult)。
@@ -75,6 +81,8 @@ let listener: mediaquery.MediaQueryListener = mediaquery.matchMediaSync('(orient
 
 
 ##### on('change')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'change', callback: Callback&lt;MediaQueryResult&gt;): void
 
@@ -105,6 +113,8 @@ on(type: 'change', callback: Callback&lt;MediaQueryResult&gt;): void
 
 
 ##### off('change')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'change', callback?: Callback&lt;MediaQueryResult&gt;): void
 
@@ -144,6 +154,8 @@ listener.off('change', onPortrait) // 注销回调
 
 
 ##### MediaQueryResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于执行媒体查询操作。
 
@@ -212,4 +224,4 @@ struct MediaQueryExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/fOUYHbrvR2m7TFrbxXKcsg/zh-cn_image_0000002581435550.png?HW-CC-KV=V1&HW-CC-Date=20260528T013817Z&HW-CC-Expire=86400&HW-CC-Sign=CCF4542B38811C88A7F6861411FA7894A935F5C8290B95FCDC8C81CED988CC4F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/fOUYHbrvR2m7TFrbxXKcsg/zh-cn_image_0000002581435550.png?HW-CC-KV=V1&HW-CC-Date=20260528T024114Z&HW-CC-Expire=86400&HW-CC-Sign=8DC90555B2CD518069E825BBAE851F3BEB498E00766ACCF2C3FB0EA04761D036)

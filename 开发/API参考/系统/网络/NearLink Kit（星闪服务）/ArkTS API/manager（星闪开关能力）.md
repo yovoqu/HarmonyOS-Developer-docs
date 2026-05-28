@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { manager } from '@kit.NearLinkKit';
 ```
@@ -19,6 +21,8 @@ import { manager } from '@kit.NearLinkKit';
   
 
 ##### PairingState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PairingState = constant.PairingState
  
@@ -37,6 +41,8 @@ type PairingState = constant.PairingState
 
 ##### ConnectionState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ConnectionState = constant.ConnectionState
  
 表示和远端设备的连接状态，为枚举值。
@@ -54,6 +60,8 @@ type ConnectionState = constant.ConnectionState
 
 ##### AcbState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AcbState = constant.AcbState
  
 表示和远端设备的逻辑链路连接状态，为枚举值。
@@ -70,6 +78,8 @@ type AcbState = constant.AcbState
   
 
 ##### getState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getState(): NearlinkState
  
@@ -114,6 +124,8 @@ try {
 
 ##### isNearLinkSupported
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isNearLinkSupported(): boolean
  
 查询当前设备是否支持星闪服务。
@@ -150,6 +162,8 @@ try {
   
 
 ##### getLocalName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLocalName(): string
  
@@ -197,6 +211,8 @@ try {
   
 
 ##### getPairedDevices
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPairedDevices(): Array&lt;string&gt;
  
@@ -248,6 +264,8 @@ try {
   
 
 ##### on( 'stateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'stateChange', callback: Callback&lt;NearlinkState&gt;): void
  
@@ -305,6 +323,8 @@ try {
 
 ##### off( 'stateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'stateChange', callback?: Callback&lt;NearlinkState&gt;): void
  
 取消订阅星闪开关状态变化事件。使用callback异步回调。
@@ -348,6 +368,8 @@ try {
   
 
 ##### on( 'pairingStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'pairingStateChange', callback: Callback&lt;PairingStateParam&gt;): void
  
@@ -399,6 +421,8 @@ try {
 
 ##### off( 'pairingStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'pairingStateChange', callback?: Callback&lt;PairingStateParam&gt;): void
  
 取消订阅配对请求事件。
@@ -445,6 +469,8 @@ try {
   
 
 ##### on( 'connectionStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'connectionStateChange', callback: Callback&lt;ConnectionStateParam&gt;): void
  
@@ -497,6 +523,8 @@ try {
 
 ##### off( 'connectionStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionStateParam&gt;): void
  
 取消订阅连接状态变化事件。
@@ -543,6 +571,8 @@ try {
   
 
 ##### on('acbStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'acbStateChange', callback: Callback&lt;AcbStateParam&gt;): void
  
@@ -595,6 +625,8 @@ try {
 
 ##### off( 'acbStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'acbStateChange', callback?: Callback&lt;AcbStateParam&gt;): void
  
 取消订阅逻辑链路连接状态变化事件。
@@ -642,6 +674,8 @@ try {
 
 ##### PairingStateParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 订阅的配对状态变化结果。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -660,6 +694,8 @@ try {
 
 ##### PairingRequestParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示订阅的配对请求事件上报结果。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -676,6 +712,8 @@ try {
   
 
 ##### ConnectionStateParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 订阅的连接状态变化事件上报结果。
  
@@ -695,6 +733,8 @@ try {
 
 ##### NearlinkState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 星闪的开关状态，为枚举值。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -712,6 +752,8 @@ try {
   
 
 ##### PairingReason
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示星闪配对状态变化结果的原因值，为枚举值。
  
@@ -733,6 +775,8 @@ try {
 
 ##### PairingType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 星闪配对类型，为枚举值。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -750,6 +794,8 @@ try {
 
 ##### ConnectionReason
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 星闪连接状态变化结果的原因值。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -765,6 +811,8 @@ try {
   
 
 ##### AcbStateParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 订阅的逻辑链路连接状态变化事件上报结果。
  

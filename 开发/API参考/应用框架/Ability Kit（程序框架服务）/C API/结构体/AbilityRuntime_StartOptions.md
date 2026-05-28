@@ -12,6 +12,8 @@ typedef struct AbilityRuntime_StartOptions AbilityRuntime_StartOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 StartOptions数据结构。
  
 **起始版本：** 17

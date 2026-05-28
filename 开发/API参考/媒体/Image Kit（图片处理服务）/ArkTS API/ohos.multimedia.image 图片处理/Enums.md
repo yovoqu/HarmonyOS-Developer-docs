@@ -12,6 +12,8 @@
 
 ##### PixelMapFormat7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，图片像素格式。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -38,6 +40,8 @@
 
 ##### AlphaType9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，图像的透明度类型。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -57,6 +61,8 @@
 
 
 ##### AuxiliaryPictureType13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，辅助图的图像类型。
 
@@ -79,6 +85,8 @@
 
 ##### MetadataType13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，图片元数据类型。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -97,6 +105,8 @@
 
 ##### ScaleMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，图像的缩放模式。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
@@ -114,6 +124,8 @@
 
 
 ##### PropertyKey7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，Exif（Exchangeable image file format）图像信息。
 
@@ -311,6 +323,8 @@
 
 ##### FragmentMapPropertyKey13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，水印裁剪图图片信息。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -327,6 +341,8 @@
 
 ##### GifPropertyKey20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，GIF图片信息。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -340,6 +356,8 @@
 
 
 ##### HeifsPropertyKey23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，HEIF序列图片信息。
 
@@ -355,6 +373,8 @@
 
 
 ##### WebPPropertyKey24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，WebP图片信息。
 
@@ -374,6 +394,8 @@
 
 
 ##### DngPropertyKey24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，DNG图片信息。
 
@@ -484,6 +506,8 @@
 
 ##### ImageFormat9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，图片格式。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -497,6 +521,8 @@
 
 
 ##### ComponentType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，图像的组件类型。
 
@@ -514,6 +540,8 @@
 
 ##### DecodingDynamicRange12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述解码时期望的图像动态范围。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -529,6 +557,8 @@
 
 ##### PackingDynamicRange12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述编码时期望的图像动态范围。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -542,6 +572,8 @@
 
 
 ##### CropAndScaleStrategy18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，裁剪与缩放的先后策略。
 
@@ -567,6 +599,8 @@
 
 ##### HdrMetadataKey12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，[pixelmap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)使用的HDR相关元数据信息的关键字。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -583,6 +617,8 @@
 
 ##### HdrMetadataType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，[HdrMetadataKey](#hdrmetadatakey12)中HDR_METADATA_TYPE关键字对应的值。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -598,6 +634,8 @@
 
 
 ##### AntiAliasingLevel12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 缩放时的缩放算法。
 
@@ -617,6 +655,8 @@
 
 ##### AllocatorType15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，用于图像解码的内存类型。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -631,6 +671,8 @@
 
 
 ##### Orientation23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，图像方向类型。
 
@@ -654,6 +696,8 @@
 
 ##### FocusMode23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，焦点模式类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -671,6 +715,8 @@
 
 
 ##### XmageColorMode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，XMAGE颜色模式类型。
 

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 提供图片编辑能力。
 
 对应的开发指南及样例可参考[使用ImageEffect编辑图片](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-effect-guidelines)。
@@ -16,6 +18,8 @@
 
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 | 名称 | 描述 |
 | --- | --- |

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { faceComparator } from '@kit.CoreVisionKit';
 ```
@@ -19,6 +21,8 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 
 ##### VisionInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的PixelMap类型的视觉信息。
 
@@ -35,6 +39,8 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 ##### FaceCompareResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 人脸比对的结果。
 
 **系统能力：** SystemCapability.AI.Face.Comparator
@@ -50,6 +56,8 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 
 ##### faceComparator.init
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 init(): Promise&lt;boolean&gt;
 
@@ -109,6 +117,8 @@ struct Page {
 
 ##### faceComparator.release
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 release(): Promise&lt;void&gt;
 
 释放人脸比对分析器服务。使用Promise异步回调。
@@ -166,6 +176,8 @@ struct Page {
 
 
 ##### faceComparator.compareFaces
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 compareFaces(visionInfo1: VisionInfo, visionInfo2: VisionInfo): Promise&lt;FaceCompareResult&gt;
 

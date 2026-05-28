@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common } from '@kit.AbilityKit';
 ```
@@ -22,9 +24,13 @@ import { common } from '@kit.AbilityKit';
 
 ##### AbilityStartCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
   
@@ -36,6 +42,8 @@ import { common } from '@kit.AbilityKit';
   
 
 ##### onError
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onError(code: number, name: string, message: string): void
  
@@ -88,6 +96,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### onResult12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onResult?(parameter: AbilityResult): void
  

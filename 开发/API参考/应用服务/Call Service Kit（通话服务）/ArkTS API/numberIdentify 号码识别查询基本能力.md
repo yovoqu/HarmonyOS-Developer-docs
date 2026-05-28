@@ -12,6 +12,8 @@ numberIdentify模块提供企业来电相关能力查询，包括查询是否有
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { numberIdentify } from '@kit.CallServiceKit';
 ```
@@ -19,6 +21,8 @@ import { numberIdentify } from '@kit.CallServiceKit';
   
 
 ##### isSupportEnterpriseNumberIdentify
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isSupportEnterpriseNumberIdentify(context: Context): Promise&lt;boolean&gt;
  
@@ -72,6 +76,8 @@ hilog.info(0, 'TAG',`isSupport：${isSupport}`);
 
 ##### queryNumberIdentifySwitchState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryNumberIdentifySwitchState(context: Context):SwitchState
  
 查询陌生号码与信息识别总开关状态以及应用号码识别开关状态。
@@ -123,6 +129,8 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
 
 ##### SwitchState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 陌生号码与信息识别总开关状态以及应用号码识别开关状态。
  
 **模型约束：** 该接口仅可在Stage模型下使用。
@@ -142,6 +150,8 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
 
 ##### BusinessServiceData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 企业服务信息。
  
 **模型约束：** 该接口仅可在Stage模型下使用。
@@ -160,6 +170,8 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
 
 ##### BusinessServiceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 企业服务类型枚举。
  
 **模型约束：** 该接口仅可在Stage模型下使用。
@@ -176,6 +188,8 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
   
 
 ##### DeliveryData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 快递服务数据。
  
@@ -198,6 +212,8 @@ hilog.info(0, 'TAG',`switchState is:${JSON.stringify(switchState)}`);
   
 
 ##### DeliveryStatusColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 订单状态颜色的枚举。
  

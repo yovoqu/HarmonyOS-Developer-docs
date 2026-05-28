@@ -16,6 +16,8 @@ EnterpriseAdminExtensionContext是[EnterpriseAdminExtensionAbility](https://deve
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { common } from '@kit.MDMKit';
 ```
@@ -24,11 +26,15 @@ import { common } from '@kit.MDMKit';
 
 ##### EnterpriseAdminExtensionContext
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 [EnterpriseAdminExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability)的上下文，继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)。
 
 
 
 ##### startAbilityByAdmin
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startAbilityByAdmin(admin: Want, want: Want): Promise&lt;void&gt;
 

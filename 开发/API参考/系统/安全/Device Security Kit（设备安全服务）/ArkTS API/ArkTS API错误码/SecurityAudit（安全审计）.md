@@ -12,6 +12,8 @@
 
 ##### 201 权限校验失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 check permission fail.
@@ -31,6 +33,8 @@ check permission fail.
   
 
 ##### 401 参数检查失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
  
@@ -52,6 +56,8 @@ Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 
 
 ##### 1012000001 内部异常
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 Internal error.
@@ -71,6 +77,8 @@ Internal error.
   
 
 ##### 1012000002 客户端总数超限
+
+**支持设备：** PC/2in1
 
 **错误信息**
  
@@ -94,6 +102,8 @@ The number of clients exceeds the global upper limit.
 
 ##### 1012000003 进程内客户端数量超限
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 The number of clients exceeds the current process upper limit.
@@ -116,6 +126,8 @@ The number of clients exceeds the current process upper limit.
 
 ##### 1012000004 过滤条件数量超限
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 The number of filters exceeds the upper limit.
@@ -135,6 +147,8 @@ The number of filters exceeds the upper limit.
   
 
 ##### 1012000005 事件不支持此过滤条件
+
+**支持设备：** PC/2in1
 
 **错误信息**
  
@@ -156,6 +170,8 @@ The event does not support the filter condition.
 
 ##### 1012000006 查询的进程数量超限
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 The number of queried processes exceeds the threshold.
@@ -176,6 +192,8 @@ The number of queried processes exceeds the threshold.
 
 ##### 1012000007 找不到对应的阻断事件
 
+**支持设备：** PC/2in1
+
 **错误信息**
  
 The auth event cannot be found.
@@ -195,6 +213,8 @@ The auth event cannot be found.
   
 
 ##### 1012000008 找不到对应的文件
+
+**支持设备：** PC/2in1
 
 **错误信息**
  

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述超帧集成的信息。包括送显模式，是否需要额外缓存深度和颜色纹理，以及是否需要翻转颜色纹理。仅在[FG_PredictionMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#fg_predictionmode-1)为FG_PREDICTION_MODE_INTERPOLATION时生效。
  
 **起始版本**：5.1.0(18)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,9 +41,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### presentMode
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_PresentMode FG_IntegrationInfo::presentMode
@@ -51,6 +61,8 @@ FG_PresentMode FG_IntegrationInfo::presentMode
 
 ##### textureCachedByGame
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 bool FG_IntegrationInfo::textureCachedByGame
 ```
@@ -63,6 +75,8 @@ bool FG_IntegrationInfo::textureCachedByGame
 
 ##### needFlipInputColor
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 bool FG_IntegrationInfo::needFlipInputColor
 ```
@@ -74,6 +88,8 @@ bool FG_IntegrationInfo::needFlipInputColor
   
 
 ##### needFlipOutputColor
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 bool FG_IntegrationInfo::needFlipOutputColor

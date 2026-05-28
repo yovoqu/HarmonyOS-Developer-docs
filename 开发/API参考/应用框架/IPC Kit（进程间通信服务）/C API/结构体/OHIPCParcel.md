@@ -12,6 +12,8 @@ typedef struct OHIPCParcel OHIPCParcel
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 IPC序列化对象。
  
 **起始版本：** 12

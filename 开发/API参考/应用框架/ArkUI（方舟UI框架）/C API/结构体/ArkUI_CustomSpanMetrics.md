@@ -12,6 +12,8 @@ typedef struct ArkUI_CustomSpanMetrics ArkUI_CustomSpanMetrics
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义段落组件的度量指标。
  
 **起始版本：** 12

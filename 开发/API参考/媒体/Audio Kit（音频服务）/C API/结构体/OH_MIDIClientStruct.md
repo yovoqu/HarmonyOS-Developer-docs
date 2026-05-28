@@ -12,6 +12,8 @@ typedef struct OH_MIDIClientStruct OH_MIDIClient
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明MIDI客户端。
  
 **起始版本：** 24

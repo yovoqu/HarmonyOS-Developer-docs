@@ -12,6 +12,8 @@ typedef struct JSVM_Script__* JSVM_Script
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示一段JavaScript代码。
  
 **起始版本：** 11

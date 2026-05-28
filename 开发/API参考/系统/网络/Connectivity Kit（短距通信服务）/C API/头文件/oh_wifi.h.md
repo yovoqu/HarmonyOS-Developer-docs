@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义查询WIFI开关状态的接口。
  
 **引用文件：** <ConnectivityKit/wifi/oh_wifi.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -50,6 +58,8 @@
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -59,6 +69,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -71,9 +83,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Wifi_ResultCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum Wifi_ResultCode
@@ -98,6 +114,8 @@ enum Wifi_ResultCode
   
 
 ##### OH_WifiConnState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_WifiConnState
@@ -126,6 +144,8 @@ WLAN连接状态。
 
 ##### OH_WifiChannelWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_WifiChannelWidth
 ```
@@ -149,6 +169,8 @@ WLAN信道带宽。
   
 
 ##### OH_WifiStandard
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_WifiStandard
@@ -176,6 +198,8 @@ WIFI标准枚举。
 
 ##### OH_WifiCategory
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_WifiCategory
 ```
@@ -198,6 +222,8 @@ WIFI类别枚举。
   
 
 ##### OH_WifiLinkType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_WifiLinkType
@@ -224,9 +250,13 @@ WIFI7连接类型。
 
 ##### 结构体说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_WifiLinkedInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Struct OH_WifiLinkedInfo
@@ -266,9 +296,13 @@ Struct OH_WifiLinkedInfo
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Wifi_IsWifiEnabled()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Wifi_ResultCode OH_Wifi_IsWifiEnabled(bool *enabled)
@@ -297,6 +331,8 @@ Wifi_ResultCode OH_Wifi_IsWifiEnabled(bool *enabled)
   
 
 ##### OH_Wifi_GetDeviceMacAddress()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Wifi_ResultCode OH_Wifi_GetDeviceMacAddress(char *macAddr, unsigned int *macAddrLen)
@@ -328,6 +364,8 @@ Wifi_ResultCode OH_Wifi_GetDeviceMacAddress(char *macAddr, unsigned int *macAddr
   
 
 ##### OH_Wifi_GetLinkedInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Wifi_ResultCode OH_Wifi_GetLinkedInfo(OH_WifiLinkedInfo *info)

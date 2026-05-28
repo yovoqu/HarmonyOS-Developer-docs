@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { LayoutAlgorithm, CustomLayoutAlgorithm, RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { LayoutAlgorithm, CustomLayoutAlgorithm, RowLayoutAlgorithm, ColumnLayou
   
 
 ##### LayoutAlgorithm
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 动态布局容器[DynamicLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-dynamiclayout)的布局算法基础类型。
  
@@ -40,6 +44,8 @@ import { LayoutAlgorithm, CustomLayoutAlgorithm, RowLayoutAlgorithm, ColumnLayou
 
 ##### CustomLayoutAlgorithm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义布局算法类。
  
 > [!NOTE]
@@ -51,6 +57,8 @@ import { LayoutAlgorithm, CustomLayoutAlgorithm, RowLayoutAlgorithm, ColumnLayou
   
 
 ##### onMeasure
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onMeasure(self: FrameNode, constraint: LayoutConstraint): void
  
@@ -81,6 +89,8 @@ onMeasure(self: FrameNode, constraint: LayoutConstraint): void
   
 
 ##### onLayout
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onLayout(self: FrameNode, position: Position): void
  
@@ -116,6 +126,8 @@ onLayout(self: FrameNode, position: Position): void
 
 ##### RowLayoutAlgorithm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 水平方向线性布局算法类。
  
 > [!NOTE]
@@ -127,6 +139,8 @@ onLayout(self: FrameNode, position: Position): void
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **装饰器类型：** @ObservedV2
  
@@ -149,6 +163,8 @@ onLayout(self: FrameNode, position: Position): void
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(option?: RowLayoutAlgorithmOptions)
  
@@ -179,6 +195,8 @@ constructor(option?: RowLayoutAlgorithmOptions)
 
 ##### RowLayoutAlgorithmOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置水平方向线性布局算法的间距、主轴对齐方式、交叉轴对齐方式及主轴排列方向。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -201,6 +219,8 @@ constructor(option?: RowLayoutAlgorithmOptions)
 
 ##### ColumnLayoutAlgorithm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 垂直方向线性布局算法类。
  
 > [!NOTE]
@@ -212,6 +232,8 @@ constructor(option?: RowLayoutAlgorithmOptions)
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **装饰器类型：** @ObservedV2
  
@@ -234,6 +256,8 @@ constructor(option?: RowLayoutAlgorithmOptions)
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(option?: ColumnLayoutAlgorithmOptions)
  
@@ -264,6 +288,8 @@ constructor(option?: ColumnLayoutAlgorithmOptions)
 
 ##### ColumnLayoutAlgorithmOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置垂直方向线性布局算法的间距、主轴对齐方式、交叉轴对齐方式及主轴排列方向。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -286,6 +312,8 @@ constructor(option?: ColumnLayoutAlgorithmOptions)
 
 ##### StackLayoutAlgorithm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 堆叠布局算法类。
  
 > [!NOTE]
@@ -297,6 +325,8 @@ constructor(option?: ColumnLayoutAlgorithmOptions)
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **装饰器类型：** @ObservedV2
  
@@ -316,6 +346,8 @@ constructor(option?: ColumnLayoutAlgorithmOptions)
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(option?: StackLayoutAlgorithmOptions)
  
@@ -346,6 +378,8 @@ constructor(option?: StackLayoutAlgorithmOptions)
 
 ##### StackLayoutAlgorithmOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置堆叠布局算法的对齐方式。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -365,6 +399,8 @@ constructor(option?: StackLayoutAlgorithmOptions)
 
 ##### GridLayoutAlgorithm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 网格布局算法类。
  
 > [!NOTE]
@@ -376,6 +412,8 @@ constructor(option?: StackLayoutAlgorithmOptions)
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **装饰器类型：** @ObservedV2
  
@@ -395,6 +433,8 @@ constructor(option?: StackLayoutAlgorithmOptions)
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(option?: GridLayoutAlgorithmOptions)
  
@@ -422,6 +462,8 @@ constructor(option?: GridLayoutAlgorithmOptions)
   
 
 ##### GridLayoutAlgorithmOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置网格布局算法的列数模板、列间距、行间距。
  

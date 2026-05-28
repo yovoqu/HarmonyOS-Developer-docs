@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含单个子组件。
 
 > [!NOTE]
@@ -23,6 +25,8 @@
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Gauge(options: GaugeOptions)
 
@@ -45,6 +49,8 @@ Gauge(options: GaugeOptions)
 
 ##### GaugeOptions18+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据量规图表选项。
 
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
@@ -64,11 +70,15 @@ Gauge(options: GaugeOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### value
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 value(value: number)
 
@@ -91,6 +101,8 @@ value(value: number)
 
 ##### startAngle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startAngle(angle: number)
 
 设置起始角度位置。
@@ -112,6 +124,8 @@ startAngle(angle: number)
 
 ##### endAngle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 endAngle(angle: number)
 
 设置终止角度位置。起始角度和终止角度的差值过小时，会绘制出异常图像，请取合理的起始角度和终止角度。建议使用单色环改变Gauge的value参数实现数据值的调节，可通过定时器setTimeout进行数值的延迟加载。
@@ -132,6 +146,8 @@ endAngle(angle: number)
 
 
 ##### colors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]>)
 
@@ -164,6 +180,8 @@ colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGra
 
 ##### strokeWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeWidth(length: Length)
 
 设置环形量规图的环形厚度。
@@ -184,6 +202,8 @@ strokeWidth(length: Length)
 
 
 ##### description11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 description(value: CustomBuilder)
 
@@ -206,6 +226,8 @@ description(value: CustomBuilder)
 
 ##### trackShadow11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 trackShadow(value: GaugeShadowOptions)
 
 设置阴影样式。
@@ -227,6 +249,8 @@ trackShadow(value: GaugeShadowOptions)
 
 ##### indicator11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 indicator(value: GaugeIndicatorOptions)
 
 设置指针样式。
@@ -247,6 +271,8 @@ indicator(value: GaugeIndicatorOptions)
 
 
 ##### privacySensitive12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
@@ -273,6 +299,8 @@ privacySensitive(isPrivacySensitiveMode: Optional&lt;boolean&gt;)
 
 ##### contentModifier12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 contentModifier(modifier: ContentModifier&lt;GaugeConfiguration&gt;)
 
 定制Gauge内容区的方法。
@@ -292,6 +320,8 @@ contentModifier(modifier: ContentModifier&lt;GaugeConfiguration&gt;)
 
 ##### GaugeShadowOptions11+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-information-display-common#multishadowoptions)，具有MultiShadowOptions的全部属性。
 
 **卡片能力：** 从API version 23开始，该接口支持在ArkTS卡片中使用。
@@ -301,6 +331,8 @@ GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/con
 
 
 ##### GaugeIndicatorOptions11+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 数据量规图表指针选项。
 
@@ -320,6 +352,8 @@ GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/con
 
 ##### GaugeConfiguration12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -336,6 +370,8 @@ GaugeShadowOptions继承自[MultiShadowOptions](https://developer.huawei.com/con
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 

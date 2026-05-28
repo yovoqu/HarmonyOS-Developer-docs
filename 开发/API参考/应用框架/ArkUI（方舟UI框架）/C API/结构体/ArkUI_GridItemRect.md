@@ -12,6 +12,8 @@ typedef struct {...} ArkUI_GridItemRect
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义Grid布局选项onGetRectByIndex回调返回值结构体。
  
 **起始版本：** 22
@@ -26,9 +28,13 @@ typedef struct {...} ArkUI_GridItemRect
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

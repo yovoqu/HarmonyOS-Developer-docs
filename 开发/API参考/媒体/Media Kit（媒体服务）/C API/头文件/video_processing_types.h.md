@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 视频处理类型定义。
  
 **引用文件：** <multimedia/video_processing_engine/video_processing_types.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -39,6 +45,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -51,6 +59,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -62,6 +72,8 @@
   
 
 ##### 变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -76,9 +88,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### VideoDetailEnhancer_QualityLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum VideoDetailEnhancer_QualityLevel
@@ -108,6 +124,8 @@ enum VideoDetailEnhancer_QualityLevel
 
 ##### VideoMetadataGeneratorStyleControl
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum VideoMetadataGeneratorStyleControl
 ```
@@ -135,6 +153,8 @@ enum VideoMetadataGeneratorStyleControl
   
 
 ##### VideoProcessing_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum VideoProcessing_ErrorCode
@@ -165,6 +185,8 @@ enum VideoProcessing_ErrorCode
 
 ##### VideoProcessing_State
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum VideoProcessing_State
 ```
@@ -185,9 +207,13 @@ enum VideoProcessing_State
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OH_VideoProcessingCallback_OnError()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (*OH_VideoProcessingCallback_OnError)(OH_VideoProcessing* videoProcessor, VideoProcessing_ErrorCode error, void* userData)
@@ -222,6 +248,8 @@ VIDEO_PROCESSING_ERROR_PROCESS_FAILED，处理过程中出错。
 
 ##### OH_VideoProcessingCallback_OnState()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void (*OH_VideoProcessingCallback_OnState)(OH_VideoProcessing* videoProcessor, VideoProcessing_State state, void* userData)
 ```
@@ -246,6 +274,8 @@ typedef void (*OH_VideoProcessingCallback_OnState)(OH_VideoProcessing* videoProc
   
 
 ##### OH_VideoProcessingCallback_OnNewOutputBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (*OH_VideoProcessingCallback_OnNewOutputBuffer)(OH_VideoProcessing* videoProcessor, uint32_t index, void* userData)

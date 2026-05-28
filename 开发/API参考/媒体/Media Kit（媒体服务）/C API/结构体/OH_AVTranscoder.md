@@ -12,6 +12,8 @@ typedef struct OH_AVTranscoder OH_AVTranscoder
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 初始化AVTranscoder。
  
 **起始版本：** 20

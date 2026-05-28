@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ColorMetrics, LengthMetrics, ProgressButtonV2,  ProgressButtonV2Color } from '@kit.ArkUI';
 ```
@@ -23,6 +25,8 @@ import { ColorMetrics, LengthMetrics, ProgressButtonV2,  ProgressButtonV2Color }
 
 
 ##### ProgressButtonV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ProgressButtonV2({progress: number, content: ResourceStr, progressButtonWidth?: LengthMetrics, onClicked: ClickCallback, isEnabled: boolean, colorOptions?: ProgressButtonColorOptions, progressButtonRadius?: LengthMetrics})
 
@@ -51,11 +55,15 @@ ProgressButtonV2({progress: number, content: ResourceStr, progressButtonWidth?: 
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### ClickCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ClickCallback = () => void
 
@@ -71,6 +79,8 @@ type ClickCallback = () => void
 
 ##### ProgressButtonV2Color
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下载按钮颜色选项。
 
 **装饰器类型：**@ObservedV2
@@ -78,6 +88,8 @@ type ClickCallback = () => void
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -96,6 +108,8 @@ type ClickCallback = () => void
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(options: ProgressButtonV2ColorOptions);
 
@@ -118,6 +132,8 @@ constructor(options: ProgressButtonV2ColorOptions);
 
 ##### ProgressButtonV2ColorOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下载按钮色彩信息选项。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -138,11 +154,15 @@ constructor(options: ProgressButtonV2ColorOptions);
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例实现了一个简单的带加载进度的文本下载按钮。
 
@@ -197,4 +217,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/wf37ktb6RL-uHOT-1sS8eA/zh-cn_image_0000002611756199.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=6DA8B25869D6AA61C581EAC282A1E5B95C8285A237204A0F5427115E40DFA26C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/wf37ktb6RL-uHOT-1sS8eA/zh-cn_image_0000002611756199.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=73130820A952391AA0E65337F77A5A5C44E7BE205BAFDA6508FAAE9226312A9B)

@@ -19,6 +19,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AddFormMenuItem } from '@kit.ArkUI';
 ```
@@ -27,17 +29,23 @@ import { AddFormMenuItem } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
 
 
 
 ##### AddFormMenuItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AddFormMenuItem(
@@ -66,6 +74,8 @@ AddFormMenuItem(
 
 ##### AddFormOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -82,6 +92,8 @@ AddFormMenuItem(
 
 
 ##### FormMenuItemStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -102,11 +114,15 @@ AddFormMenuItem(
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持菜单点击事件。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // index.ets
@@ -235,7 +251,7 @@ struct WidgetCard {
 **高级自定义控件界面**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/_NUDXbPBTOqiqF7zYjwgxw/zh-cn_image_0000002581436254.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=2EF40C87B61E713424CB256EADC0187CDE8538FDDE9B234F5F30F79015059799)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/_NUDXbPBTOqiqF7zYjwgxw/zh-cn_image_0000002581436254.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=3705523A60587D748FD2E9B1BFF45F1E43670AD1BD73F79B611A8837787B00DF)
 
 
 **调用高级自定义控件桌面加桌结果**
@@ -243,4 +259,4 @@ struct WidgetCard {
 左侧是formbindingdata为空加桌结果，右侧是formbindingdata为{ data: 'share' }的加桌结果。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/AvHNqH3tT6WP-_g4oWL5-w/zh-cn_image_0000002611836085.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T013900Z&HW-CC-Expire=86400&HW-CC-Sign=A9A151C48703548FB8F552265FA06DB0D6EA0132847FD1E921210B07E988396B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/AvHNqH3tT6WP-_g4oWL5-w/zh-cn_image_0000002611836085.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T024156Z&HW-CC-Expire=86400&HW-CC-Sign=A1A31358799FAA4795D0701C36E11C5BF0D52D3D2A9974D92A7EDF7CBA8CBF47)

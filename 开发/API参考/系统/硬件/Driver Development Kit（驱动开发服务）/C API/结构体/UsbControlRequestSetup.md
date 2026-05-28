@@ -12,6 +12,8 @@ typedef struct UsbControlRequestSetup {...} __attribute__((aligned(8))) UsbContr
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 控制传输setup包，对应USB协议中的Setup Data。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ typedef struct UsbControlRequestSetup {...} __attribute__((aligned(8))) UsbContr
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

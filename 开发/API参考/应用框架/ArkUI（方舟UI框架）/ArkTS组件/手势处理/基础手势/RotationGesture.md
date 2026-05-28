@@ -14,9 +14,13 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### RotationGesture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RotationGesture(value?: { fingers?: number; angle?: number })
  
@@ -37,6 +41,8 @@ RotationGesture(value?: { fingers?: number; angle?: number })
 
 ##### RotationGesture15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 RotationGesture(options?: RotationGestureHandlerOptions)
  
 设置旋转手势事件。与[RotationGesture](#rotationgesture-1)相比，options参数新增了isFingerCountLimited参数，表示是否检查触摸屏幕的手指数量。
@@ -56,6 +62,8 @@ RotationGesture(options?: RotationGestureHandlerOptions)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!TIP]
 > 在 GestureEvent 的fingerList元素中，手指索引编号与位置相对应，即fingerList[index]的id为index。对于先按下但未参与当前手势触发的手指，fingerList中对应的位置为空。建议优先使用fingerInfos。
 
@@ -63,6 +71,8 @@ RotationGesture(options?: RotationGestureHandlerOptions)
   
 
 ##### onActionStart
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onActionStart(event: (event: GestureEvent) => void)
  
@@ -83,6 +93,8 @@ Rotation手势识别成功后触发的回调。
 
 ##### onActionUpdate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionUpdate(event: (event: GestureEvent) => void)
  
 Rotation手势移动过程中触发的回调。
@@ -101,6 +113,8 @@ Rotation手势移动过程中触发的回调。
   
 
 ##### onActionEnd
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onActionEnd(event: (event: GestureEvent) => void)
  
@@ -121,6 +135,8 @@ Rotation手势识别成功，当抬起最后一根满足手势触发条件的手
 
 ##### onActionCancel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionCancel(event: () => void)
  
 Rotation手势识别成功，接收到触摸取消事件触发的回调。该回调不返回手势事件信息。
@@ -140,6 +156,8 @@ Rotation手势识别成功，接收到触摸取消事件触发的回调。该回
 
 ##### onActionCancel18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionCancel(event: Callback&lt;GestureEvent&gt;)
  
 Rotation手势识别成功，接收到触摸取消事件触发的回调。与[onActionCancel](#onactioncancel)相比，该回调返回手势事件信息。
@@ -158,6 +176,8 @@ Rotation手势识别成功，接收到触摸取消事件触发的回调。与[on
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例通过配置RotationGesture实现了双指旋转手势的识别。
  
@@ -202,4 +222,4 @@ struct RotationGestureExample {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/-LcY2IkeRha222tuTql3sw/zh-cn_image_0000002581435712.png?HW-CC-KV=V1&HW-CC-Date=20260528T013905Z&HW-CC-Expire=86400&HW-CC-Sign=85E42FF8DE43500A30D539D7C569ED24C0047DD2A88D87510DDBEBAD8352A622)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/-LcY2IkeRha222tuTql3sw/zh-cn_image_0000002581435712.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=F543E2D3F86EBDEAD61067B6EAFCD70828B1043C0AA429038EB910B72C1B275B)

@@ -14,6 +14,8 @@ appRecovery模块提供了应用在故障状态下的恢复能力。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { appRecovery } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { appRecovery } from '@kit.AbilityKit';
   
 
 ##### RestartFlag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用重启标志，[enableAppRecovery](#apprecoveryenableapprecovery)接口重启选项参数，该类型为枚举。
  
@@ -39,6 +43,8 @@ import { appRecovery } from '@kit.AbilityKit';
 
 ##### SaveOccasionFlag
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 保存条件标志，[enableAppRecovery](#apprecoveryenableapprecovery)接口状态保存时的选项参数，该类型为枚举。
  
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -55,6 +61,8 @@ import { appRecovery } from '@kit.AbilityKit';
 
 ##### SaveModeFlag
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 状态保存标志，[enableAppRecovery](#apprecoveryenableapprecovery)接口状态保存方式的参数，该类型为枚举。
  
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -70,6 +78,8 @@ import { appRecovery } from '@kit.AbilityKit';
   
 
 ##### appRecovery.enableAppRecovery
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableAppRecovery(restart?: [RestartFlag](#restartflag), saveOccasion?: [SaveOccasionFlag](#saveoccasionflag), saveMode?: [SaveModeFlag](#savemodeflag)) : void
  
@@ -109,6 +119,8 @@ export default class MyAbilityStage extends AbilityStage {
   
 
 ##### appRecovery.restartApp
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 restartApp(): void
  
@@ -154,6 +166,8 @@ try {
 
 ##### appRecovery.saveAppState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 saveAppState(): boolean
  
 保存当前App状态，可以配合[errorManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-errormanager)相关接口使用。
@@ -194,6 +208,8 @@ try {
   
 
 ##### appRecovery.saveAppState10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 saveAppState(context?: UIAbilityContext): boolean
  
@@ -242,6 +258,8 @@ try {
   
 
 ##### appRecovery.setRestartWant10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRestartWant(want: Want): void
  

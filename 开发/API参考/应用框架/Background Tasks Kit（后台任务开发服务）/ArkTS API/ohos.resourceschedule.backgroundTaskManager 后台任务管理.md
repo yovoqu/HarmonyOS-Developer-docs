@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { backgroundTaskManager } from '@kit.BackgroundTasksKit';
 ```
@@ -21,6 +23,8 @@ import { backgroundTaskManager } from '@kit.BackgroundTasksKit';
 
 
 ##### backgroundTaskManager.requestSuspendDelay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestSuspendDelay(reason: string, callback: Callback&lt;void&gt;): DelaySuspendInfo
 
@@ -88,6 +92,8 @@ try {
 
 ##### backgroundTaskManager.getRemainingDelayTime
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRemainingDelayTime(requestId: number, callback: AsyncCallback&lt;number&gt;): void
 
 获取本次短时任务的剩余时间，使用callback异步回调。
@@ -136,6 +142,8 @@ backgroundTaskManager.getRemainingDelayTime(id, (error: BusinessError, res: numb
 
 
 ##### backgroundTaskManager.getRemainingDelayTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRemainingDelayTime(requestId: number): Promise&lt;number&gt;
 
@@ -190,6 +198,8 @@ backgroundTaskManager.getRemainingDelayTime(id).then((res: number) => {
 
 ##### backgroundTaskManager.cancelSuspendDelay
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelSuspendDelay(requestId: number): void
 
 取消短时任务。
@@ -236,6 +246,8 @@ try {
 
 ##### backgroundTaskManager.getTransientTaskInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTransientTaskInfo(): Promise&lt;TransientTaskInfo&gt;
 
 获取所有短时任务信息，如当日剩余总配额等，使用Promise异步回调。
@@ -280,6 +292,8 @@ try {
 
 
 ##### backgroundTaskManager.startBackgroundRunning
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback&lt;void&gt;): void
 
@@ -375,6 +389,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### backgroundTaskManager.startBackgroundRunning
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise&lt;void&gt;
 
@@ -472,6 +488,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### backgroundTaskManager.startBackgroundRunning12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent): Promise&lt;ContinuousTaskNotification&gt;
 
@@ -612,6 +630,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.startBackgroundRunning21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise&lt;ContinuousTaskNotification&gt;
 
 接口返回的长时任务通知ID为数据传输类型的ID，主要用于数据传输的进度更新。
@@ -713,6 +733,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.stopBackgroundRunning
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopBackgroundRunning(context: Context, callback: AsyncCallback&lt;void&gt;): void
 
 取消当前UIAbility（FA模型则为ServiceAbility）下所有长时任务，使用callback异步回调。也可以通过[stopBackgroundRunning](#backgroundtaskmanagerstopbackgroundrunning21)接口取消指定ID的长时任务。
@@ -774,6 +796,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### backgroundTaskManager.stopBackgroundRunning
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stopBackgroundRunning(context: Context): Promise&lt;void&gt;
 
@@ -839,6 +863,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.stopBackgroundRunning21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopBackgroundRunning(context: Context, continuousTaskId: number): Promise&lt;void&gt;
 
 取消指定ID的长时任务，使用Promise异步回调。也可以通过[stopBackgroundRunning](#backgroundtaskmanagerstopbackgroundrunning)取消当前UIAbility下所有长时任务。
@@ -899,6 +925,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### backgroundTaskManager.updateBackgroundRunning12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateBackgroundRunning(context: Context, bgModes: string[]): Promise&lt;ContinuousTaskNotification&gt;
 
@@ -979,6 +1007,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### backgroundTaskManager.updateBackgroundRunning21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise&lt;ContinuousTaskNotification&gt;
 
@@ -1084,6 +1114,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.getAllContinuousTasks20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllContinuousTasks(context: Context): Promise<ContinuousTaskInfo[]>
 
 获取所有长时任务信息，如长时任务ID、长时任务类型等，使用Promise异步回调。
@@ -1144,6 +1176,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### backgroundTaskManager.getAllContinuousTasks20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllContinuousTasks(context: Context, includeSuspended: boolean): Promise<ContinuousTaskInfo[]>
 
@@ -1207,6 +1241,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.on('continuousTaskCancel')15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'continuousTaskCancel', callback: Callback&lt;ContinuousTaskCancelInfo&gt;): void
 
 注册长时任务取消的监听，使用callback异步回调。
@@ -1260,6 +1296,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.off('continuousTaskCancel')15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'continuousTaskCancel', callback?: Callback&lt;ContinuousTaskCancelInfo&gt;): void
 
 解除长时任务取消的监听，使用callback异步回调。
@@ -1312,6 +1350,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### backgroundTaskManager.on('continuousTaskSuspend')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'continuousTaskSuspend', callback: Callback&lt;ContinuousTaskSuspendInfo&gt;): void
 
@@ -1369,6 +1409,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.off('continuousTaskSuspend')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'continuousTaskSuspend', callback?: Callback&lt;ContinuousTaskSuspendInfo&gt;): void
 
 取消长时任务暂停的监听，使用callback异步回调。
@@ -1423,6 +1465,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### backgroundTaskManager.on('continuousTaskActive')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'continuousTaskActive', callback: Callback&lt;ContinuousTaskActiveInfo&gt;): void
 
 注册长时任务激活的监听，使用callback异步回调。应用回前台激活暂停的长时任务。
@@ -1474,6 +1518,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### backgroundTaskManager.off('continuousTaskActive')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'continuousTaskActive', callback?: Callback&lt;ContinuousTaskActiveInfo&gt;): void
 
@@ -1527,6 +1573,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### DelaySuspendInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 短时任务信息。
 
 **系统能力：** SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -1541,6 +1589,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### TransientTaskInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 所有短时任务信息。
 
 **系统能力：** SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
@@ -1554,6 +1604,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### BackgroundMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 长时任务类型。
 
@@ -1575,6 +1627,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ContinuousTaskNotification12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 长时任务通知信息。
 
 **系统能力：** SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1591,6 +1645,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ContinuousTaskCancelInfo15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 长时任务取消信息。
 
 **系统能力：** SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1604,6 +1660,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### ContinuousTaskCancelReason15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 长时任务取消原因。
 
@@ -1628,6 +1686,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### BackgroundSubMode16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 长时任务子类型。
 
 **系统能力：** SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1641,6 +1701,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### BackgroundModeType16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 长时任务类型类别。
 
 **系统能力：** SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1653,6 +1715,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### ContinuousTaskSuspendInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 长时任务暂停信息。
 
@@ -1668,6 +1732,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### ContinuousTaskSuspendReason20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 长时任务暂停原因。
 
@@ -1690,6 +1756,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ContinuousTaskActiveInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 长时任务激活信息。
 
 **系统能力：** SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1702,6 +1770,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### ContinuousTaskInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 长时任务信息。
 
@@ -1729,6 +1799,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ContinuousTaskRequest21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通常作为[startBackgroundRunning()](#backgroundtaskmanagerstartbackgroundrunning21)和[updateBackgroundRunning()](#backgroundtaskmanagerupdatebackgroundrunning21)接口的入参，用于指定申请或更新的长时任务信息。其中：
 1. 通过[startBackgroundRunning()](#backgroundtaskmanagerstartbackgroundrunning21)接口申请长时任务时，如果待申请长时任务与当前应用下已存在长时任务，两者的主类型和子类型均相同，且combinedTaskNotification均取值为true，则会合并通知。否则不会合并通知。
 2. 如果长时任务本身没有通知，则不会合并，长时任务类型是否会通知请参考[BackgroundTaskMode](#backgroundtaskmode21)。
@@ -1741,6 +1813,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
 
@@ -1756,6 +1830,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### isModeSupported21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isModeSupported(): boolean
 
@@ -1808,6 +1884,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### requestAuthFromUser22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requestAuthFromUser(context: Context, callback: Callback&lt;UserAuthResult&gt;): void
 
@@ -1871,6 +1949,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### checkSpecialScenarioAuth22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkSpecialScenarioAuth(context: Context): Promise&lt;UserAuthResult&gt;
 
@@ -1936,6 +2016,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### BackgroundTaskMode21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 长时任务主类型。通常与长时任务子类型[BackgroundTaskSubmode](#backgroundtasksubmode21)配合使用，对照关系请参考长时任务主类型与子类型对照表，两者共同作为API version 21新增的申请[startBackgroundRunning](#backgroundtaskmanagerstartbackgroundrunning21)、更新[updateBackgroundRunning](#backgroundtaskmanagerupdatebackgroundrunning21)长时任务接口入参，用于指定长时任务类型。
 
 仅当主类型为MODE_SPECIAL_SCENARIO_PROCESSING特殊场景类型，或非PC/2in1设备主类型为MODE_TASK_KEEPING计算任务时，调用长时任务相关接口时需同时申请ACL权限[ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions#ohospermissionkeep_background_running_system)，其他场景无需申请该权限。
@@ -1959,6 +2041,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### BackgroundTaskSubmode21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 长时任务子类型。通常与长时任务主类型[BackgroundTaskMode](#backgroundtaskmode21)配合使用，对照关系请参考长时任务主类型与子类型对照表，两者共同作为API version 21新增的申请、更新长时任务接口入参，用于指定长时任务类型。
 
@@ -1998,6 +2082,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### UserAuthResult22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用户授权结果。
 

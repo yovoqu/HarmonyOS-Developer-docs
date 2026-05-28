@@ -12,6 +12,8 @@ typedef struct ArkUI_SnapshotOptions ArkUI_SnapshotOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义截图的可选项。
  
 **起始版本：** 15

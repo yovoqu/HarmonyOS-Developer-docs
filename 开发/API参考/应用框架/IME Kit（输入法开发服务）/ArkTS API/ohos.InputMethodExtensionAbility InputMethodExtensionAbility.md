@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { InputMethodExtensionAbility } from '@kit.IMEKit';
 ```
@@ -22,6 +24,8 @@ import { InputMethodExtensionAbility } from '@kit.IMEKit';
 
 ##### InputMethodExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入法Extension ability类。
  
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
@@ -29,6 +33,8 @@ import { InputMethodExtensionAbility } from '@kit.IMEKit';
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入法Extension ability的上下文信息。
  
@@ -42,6 +48,8 @@ import { InputMethodExtensionAbility } from '@kit.IMEKit';
   
 
 ##### onCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCreate(want: Want): void
  
@@ -72,6 +80,8 @@ class InputMethodExt extends InputMethodExtensionAbility {
   
 
 ##### onDestroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDestroy(): void
  

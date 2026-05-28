@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { collections } from '@kit.ArkTS';
 ```
@@ -23,6 +25,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -40,6 +44,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -67,6 +73,8 @@ let int16Array: collections.Int16Array = new collections.Int16Array();
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(length: number)
 
@@ -103,6 +111,8 @@ let int16Array: collections.Int16Array = new collections.Int16Array(12);
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(elements: Iterable&lt;number&gt;)
 
@@ -141,6 +151,8 @@ let array: collections.Int16Array = new collections.Int16Array(set);
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(array: ArrayLike&lt;number&gt; | ArrayBuffer)
 
@@ -194,6 +206,8 @@ let int16Array2: collections.Int16Array = new collections.Int16Array(int16Array1
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 
 构造函数，以ArrayBuffer创建一个ArkTS Int16Array对象。
@@ -234,6 +248,8 @@ console.info("[" + int16Array1 + "]"); // [2, 3, 4, 5, 6]
 
 
 ##### from
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static from(arrayLike: ArrayLike&lt;number&gt;): Int16Array
 
@@ -276,6 +292,8 @@ let array: collections.Int16Array = collections.Int16Array.from(arrayLike); // a
 
 
 ##### from
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Int16Array
 
@@ -333,6 +351,8 @@ let array: collections.Int16Array = collections.Int16Array.from<string>(
 
 ##### from
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Int16Array
 
 从一个可迭代对象中创建一个ArkTS Int16Array对象。
@@ -386,6 +406,8 @@ let array: collections.Int16Array = collections.Int16Array.from(
 
 ##### of18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static of(...items: number[]): Int16Array
 
 通过可变数量的参数创建一个新的ArkTS Int16Array对象，参数个数可以是0个、1个或者多个。
@@ -428,6 +450,8 @@ console.info(arr.toString()); // 预期输出：1,2,3,4
 
 ##### toString18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toString(): string
 
 ArkTS Int16Array转换为字符串。
@@ -464,6 +488,8 @@ console.info(stringArray); // 预期输出：1,2,3,4,5
 
 
 ##### toLocaleString18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toLocaleString(): string
 
@@ -502,6 +528,8 @@ console.info(stringArray); // 预期输出：1,000,2,000,3,000
 
 
 ##### copyWithin
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 copyWithin(target: number, start: number, end?: number): Int16Array
 
@@ -550,6 +578,8 @@ let copied: collections.Int16Array = array.copyWithin(3, 1, 3);
 
 ##### some
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 some(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean
 
 测试ArkTS Int16Array中的是否存在元素满足指定条件。
@@ -595,6 +625,8 @@ int16Array.some((element: number) => element < 0); // true
 
 ##### every
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 every(predicate: TypedArrayPredicateFn<number, Int16Array>): boolean
 
 测试ArkTS Int16Array中的所有元素是否满足指定条件。
@@ -639,6 +671,8 @@ int16Array.every((element: number) => element > 0);  // false
 
 
 ##### fill
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fill(value: number, start?: number, end?: number): Int16Array
 
@@ -688,6 +722,8 @@ new collections.Int16Array(arrayLike).fill(4, 1, 2); // Int16Array [1, 4, 3]
 
 ##### filter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 filter(predicate: TypedArrayPredicateFn<number, Int16Array>): Int16Array
 
 返回一个新ArkTS Int16Array，其包含满足指定条件的所有元素。
@@ -732,6 +768,8 @@ let filtered: collections.Int16Array = array.filter((element: number) => element
 
 
 ##### find
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 find(predicate: TypedArrayPredicateFn<number, Int16Array>): number | undefined
 
@@ -778,6 +816,8 @@ array.find((element: number) => element > 4); // undefined
 
 ##### findIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 findIndex(predicate: TypedArrayPredicateFn<number, Int16Array>): number
 
 返回ArkTS Int16Array中第一个满足指定条件的元素索引，如果所有元素都不满足，则返回-1。
@@ -822,6 +862,8 @@ let foundIndex: number = array.findIndex((element: number) => element % 2 === 0)
 
 ##### forEach
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 forEach(callbackFn: TypedArrayForEachCallback<number, Int16Array>): void
 
 对ArkTS Int16Array中的每个元素执行提供的回调函数。
@@ -860,6 +902,8 @@ int16Array.forEach((value: number, index: number, array: collections.Int16Array)
 
 
 ##### indexOf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 indexOf(searchElement: number, fromIndex?: number): number
 
@@ -909,6 +953,8 @@ array.indexOf(9, -2); // 2
 
 ##### lastIndexOf18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lastIndexOf(searchElement: number, fromIndex?: number): number
 
 返回ArkTS Int16Array实例中最后一次出现searchElement的索引，如果对象不包含，则为-1。
@@ -956,6 +1002,8 @@ console.info(array.lastIndexOf(9, -2) + ''); // 预期输出：-1
 
 ##### join
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 join(separator?: string): string
 
 将ArkTS Int16Array的所有元素拼接成一个字符串，元素之间使用指定的分隔符分隔。
@@ -1000,6 +1048,8 @@ let joined: string = array.join('-'); // "1-2-3-4-5"
 
 ##### map
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 map(callbackFn: TypedArrayMapCallback<number, Int16Array>): Int16Array
 
 对ArkTS Int16Array中的每个元素应用指定的回调函数，并使用结果创建一个新的ArkTS Int16Array对象。
@@ -1043,6 +1093,8 @@ const mapped: collections.Int16Array = array.map(Math.sqrt); // Int16Array [5, 6
 
 
 ##### reduce
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number
 
@@ -1089,6 +1141,8 @@ let reducedValue: number = array.reduce((accumulator: number, value: number) => 
 
 ##### reduceRight18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>): number
 
 反向遍历ArkTS Int16Array，对ArkTS Int16Array中的每个元素执行归约函数，并返回最终的归约结果。
@@ -1133,6 +1187,8 @@ console.info(reducedValue + ''); // 预期输出： 15
 
 
 ##### reduce
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reduce(callbackFn: TypedArrayReduceCallback<number, number, Int16Array>, initialValue: number): number
 
@@ -1180,6 +1236,8 @@ let reducedValue: number = array.reduce((accumulator: number, value: number) => 
 
 ##### reduceRight18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U
 
 反向遍历ArkTS Int16Array，对ArkTS Int16Array中的每个元素执行归约函数，且接收一个初始值作为归约函数首次调用的参数，并返回最终的归约结果。
@@ -1225,6 +1283,8 @@ console.info(reducedValue + ''); // 预期输出： 16
 
 
 ##### reduce
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reduce&lt;U&gt;(callbackFn: TypedArrayReduceCallback<U, number, Int16Array>, initialValue: U): U
 
@@ -1272,6 +1332,8 @@ let reducedValue: string = array.reduce<string>((accumulator: string, value: num
 
 ##### reverse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reverse(): Int16Array
 
 反转ArkTS Int16Array。
@@ -1307,6 +1369,8 @@ let reversed: collections.Int16Array = array.reverse(); // Int16Array [5, 4, 3, 
 
 
 ##### set
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set(array: ArrayLike&lt;number&gt;, offset?: number): void
 
@@ -1346,6 +1410,8 @@ array.set([1, 2, 3], 3); // Int16Array [0, 0, 0, 1, 2, 3, 0, 0]
 
 
 ##### slice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 slice(start?: number, end?: number): Int16Array
 
@@ -1394,6 +1460,8 @@ array.slice(-2); // Int16Array [4, 5]
 
 ##### sort
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Int16Array
 
 对ArkTS Int16Array进行排序，并返回排序后的ArkTS Int16Array对象。
@@ -1439,6 +1507,8 @@ array.sort((a: number, b: number) => b - a); // Int16Array [5, 4, 3, 2, 1]
 
 
 ##### subarray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 subarray(begin?: number, end?: number): Int16Array
 
@@ -1486,6 +1556,8 @@ subArray.set([10, 20, 30]); // Int16Array [10, 20, 30, 4, 5]
 
 ##### at
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 at(index: number): number | undefined
 
 返回指定下标的元素，如果不存在，则返回undefined。
@@ -1531,6 +1603,8 @@ console.info("element: " + array.at(6));  // element: undefined
 
 
 ##### includes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 includes(searchElement: number, fromIndex?: number): boolean
 
@@ -1579,6 +1653,8 @@ console.info("includes: " + array.includes(3, 3)); // includes: false
 
 ##### entries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 entries(): IterableIterator<[number, number]>
 
 返回一个新的迭代器对象，该对象包含ArkTS Int16Array中每个元素的键值对。
@@ -1617,6 +1693,8 @@ console.info("value: " + iterator.next().value); // value: 2,33
 
 
 ##### keys
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 keys(): IterableIterator&lt;number&gt;
 
@@ -1657,6 +1735,8 @@ for (const key of iterator) {
 
 ##### values
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 values(): IterableIterator&lt;number&gt;
 
 返回一个新的迭代器对象，该对象包含ArkTS Int16Array中每个元素的值。
@@ -1695,6 +1775,8 @@ for (const value of iterator) {
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;number&gt;
 
@@ -1737,6 +1819,8 @@ for (let item of int16Array) {
 
 
 ##### [index: number]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [index: number]: number
 

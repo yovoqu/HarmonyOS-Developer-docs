@@ -14,6 +14,8 @@ UIExtensionContentSession是[UIExtensionAbility](https://developer.huawei.com/co
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { UIExtensionContentSession } from '@kit.AbilityKit';
 ```
@@ -22,11 +24,15 @@ import { UIExtensionContentSession } from '@kit.AbilityKit';
 
 ##### UIExtensionContentSession
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 UIExtensionAbility组件的界面操作类，提供页面加载、设置宿主应用窗口隐私模式等功能。
 
 
 
 ##### loadContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContent(path: string, storage?: LocalStorage): void
 
@@ -81,6 +87,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### loadContentByName18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContentByName(name: string, storage?: LocalStorage): void
 
@@ -167,6 +175,8 @@ struct UIExtensionPage {
 
 ##### terminateSelf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 terminateSelf(callback: AsyncCallback&lt;void&gt;): void
 
 销毁UIExtensionAbility组件自身，同时关闭对应的宿主应用窗口界面。使用callback异步回调。
@@ -227,6 +237,8 @@ struct Index {
 
 ##### terminateSelf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 terminateSelf(): Promise&lt;void&gt;
 
 销毁UIExtensionAbility组件自身，同时关闭对应的宿主应用窗口界面。使用Promise异步回调。
@@ -277,6 +289,8 @@ struct Index {
 
 
 ##### terminateSelfWithResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback&lt;void&gt;): void
 
@@ -348,6 +362,8 @@ struct Index {
 
 
 ##### terminateSelfWithResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 terminateSelfWithResult(parameter: AbilityResult): Promise&lt;void&gt;
 
@@ -426,6 +442,8 @@ struct Index {
 
 ##### setWindowPrivacyMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowPrivacyMode(isPrivacyMode: boolean): Promise&lt;void&gt;
 
 设置宿主应用窗口的隐私模式开启或关闭。设置为隐私模式的窗口，窗口内容将无法被截屏或录屏。使用Promise异步回调。
@@ -493,6 +511,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 ##### setWindowPrivacyMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置宿主应用窗口的隐私模式开启或关闭。设置为隐私模式的窗口，窗口内容将无法被截屏或录屏。使用callback异步回调。
@@ -553,6 +573,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### startAbilityByType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback, callback: AsyncCallback&lt;void&gt;): void
 
@@ -619,6 +641,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### startAbilityByType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbilityByType(type: string, wantParam: Record<string, Object>, abilityStartCallback: AbilityStartCallback): Promise&lt;void&gt;
 
@@ -691,6 +715,8 @@ export default class ShareExtAbility extends ShareExtensionAbility {
 
 
 ##### getUIExtensionWindowProxy12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUIExtensionWindowProxy(): uiExtension.WindowProxy
 

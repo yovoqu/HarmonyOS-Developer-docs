@@ -12,6 +12,8 @@ typedef struct OH_Drawing_FontMgr OH_Drawing_FontMgr
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义字体管理类, 用于字体管理。
  
 **起始版本：** 12

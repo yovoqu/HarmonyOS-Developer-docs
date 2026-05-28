@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 响应计时信息。
  
 它将在[Rcp_Response.timeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___response#timeinfo)中被收集，[Rcp_TracingConfiguration.collectTimeInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___tracing_configuration#collecttimeinfo)决定是否收集它。
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -41,9 +47,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### connectTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double Rcp_TimeInfo::connectTime
@@ -57,6 +67,8 @@ double Rcp_TimeInfo::connectTime
 
 ##### fileTime
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double Rcp_TimeInfo::fileTime
 ```
@@ -68,6 +80,8 @@ double Rcp_TimeInfo::fileTime
   
 
 ##### nameLookUpTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double Rcp_TimeInfo::nameLookUpTime
@@ -81,6 +95,8 @@ double Rcp_TimeInfo::nameLookUpTime
 
 ##### preTransferTime
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double Rcp_TimeInfo::preTransferTime
 ```
@@ -92,6 +108,8 @@ double Rcp_TimeInfo::preTransferTime
   
 
 ##### redirectTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double Rcp_TimeInfo::redirectTime
@@ -105,6 +123,8 @@ double Rcp_TimeInfo::redirectTime
 
 ##### startTransferTime
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double Rcp_TimeInfo::startTransferTime
 ```
@@ -117,6 +137,8 @@ double Rcp_TimeInfo::startTransferTime
 
 ##### tlsHandshakeTime
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double Rcp_TimeInfo::tlsHandshakeTime
 ```
@@ -128,6 +150,8 @@ double Rcp_TimeInfo::tlsHandshakeTime
   
 
 ##### totalTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double Rcp_TimeInfo::totalTime

@@ -16,6 +16,8 @@
 
 ##### 约束限制
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该模块仅支持监听当前进程的前后台状态变化。如果需要监听整个应用的前后台状态变化，可使用[ApplicationStateObserver.onForegroundApplicationChanged](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationstateobserver#applicationstateobserveronforegroundapplicationchanged)。
  
 > [!NOTE]
@@ -26,6 +28,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ApplicationStateChangeCallback } from '@kit.AbilityKit';
 ```
@@ -33,6 +37,8 @@ import { ApplicationStateChangeCallback } from '@kit.AbilityKit';
   
 
 ##### ApplicationStateChangeCallback.onApplicationForeground
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onApplicationForeground(): void
  
@@ -49,6 +55,8 @@ onApplicationForeground(): void
   
 
 ##### ApplicationStateChangeCallback.onApplicationBackground
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onApplicationBackground(): void
  

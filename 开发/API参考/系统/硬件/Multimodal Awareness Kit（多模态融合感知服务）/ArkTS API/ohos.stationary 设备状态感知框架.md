@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { stationary } from '@kit.MultimodalAwarenessKit';
 ```
@@ -21,6 +23,8 @@ import { stationary } from '@kit.MultimodalAwarenessKit';
   
 
 ##### ActivityResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 服务响应抽象接口。
  
@@ -34,6 +38,8 @@ import { stationary } from '@kit.MultimodalAwarenessKit';
   
 
 ##### ActivityType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type ActivityType = 'still' | 'relativeStill'
  
@@ -51,6 +57,8 @@ type ActivityType = 'still' | 'relativeStill'
 
 ##### ActivityEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 设备状态事件。
  
 **系统能力**：SystemCapability.Msdp.DeviceStatus.Stationary
@@ -66,6 +74,8 @@ type ActivityType = 'still' | 'relativeStill'
 
 ##### ActivityState
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 设备状态返回值。
  
 **系统能力**：SystemCapability.Msdp.DeviceStatus.Stationary
@@ -79,6 +89,8 @@ type ActivityType = 'still' | 'relativeStill'
   
 
 ##### stationary.on
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(activity: ActivityType, event: ActivityEvent, reportLatencyNs: number, callback: Callback&lt;ActivityResponse&gt;): void
  
@@ -109,6 +121,8 @@ stationary.on('still', stationary.ActivityEvent.ENTER, reportLatencyNs, (data) =
 
 ##### stationary.once
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 once(activity: ActivityType, callback: Callback&lt;ActivityResponse&gt;): void
  
 设备状态管理，查询设备状态。
@@ -134,6 +148,8 @@ stationary.once('still', (data) => {
   
 
 ##### stationary.off
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(activity: ActivityType, event: ActivityEvent, callback?: Callback&lt;ActivityResponse&gt;): void
  

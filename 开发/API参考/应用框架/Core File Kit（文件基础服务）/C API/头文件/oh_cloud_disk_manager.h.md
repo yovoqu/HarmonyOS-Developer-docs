@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1 | Tablet
+
 云盘管理模块的接口定义。
  
 **引用文件：** <filemanagement/clouddiskmanager/oh_cloud_disk_manager.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### 结构体
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -42,6 +48,8 @@
   
 
 ##### 枚举
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -54,6 +62,8 @@
   
 
 ##### 函数
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -74,9 +84,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### CloudDisk_SyncState
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 enum CloudDisk_SyncState
@@ -102,6 +116,8 @@ enum CloudDisk_SyncState
 
 ##### CloudDisk_OperationType
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 enum CloudDisk_OperationType
 ```
@@ -126,6 +142,8 @@ enum CloudDisk_OperationType
 
 ##### CloudDisk_ErrorReason
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 enum CloudDisk_ErrorReason
 ```
@@ -149,6 +167,8 @@ enum CloudDisk_ErrorReason
 
 ##### CloudDisk_SyncFolderState
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 enum CloudDisk_SyncFolderState
 ```
@@ -169,9 +189,13 @@ enum CloudDisk_SyncFolderState
 
 ##### 函数说明
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### OH_CloudDisk_RegisterSyncFolderChanges()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_RegisterSyncFolderChanges(const CloudDisk_SyncFolderPath syncFolderPath, void (*callback)(const CloudDisk_SyncFolderPath syncFolderPath, const CloudDisk_ChangeData changeDatas[], size_t bufferLength))
@@ -202,6 +226,8 @@ CloudDisk_ErrorCode OH_CloudDisk_RegisterSyncFolderChanges(const CloudDisk_SyncF
 
 ##### OH_CloudDisk_UnregisterSyncFolderChanges()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_UnregisterSyncFolderChanges(const CloudDisk_SyncFolderPath syncFolderPath)
 ```
@@ -229,6 +255,8 @@ CloudDisk_ErrorCode OH_CloudDisk_UnregisterSyncFolderChanges(const CloudDisk_Syn
   
 
 ##### OH_CloudDisk_GetSyncFolderChanges()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_GetSyncFolderChanges(const CloudDisk_SyncFolderPath syncFolderPath, uint64_t startUsn, size_t count, CloudDisk_ChangesResult **changesResult)
@@ -260,6 +288,8 @@ CloudDisk_ErrorCode OH_CloudDisk_GetSyncFolderChanges(const CloudDisk_SyncFolder
   
 
 ##### OH_CloudDisk_SetFileSyncStates()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_SetFileSyncStates(const CloudDisk_SyncFolderPath syncFolderPath, const CloudDisk_FileSyncState fileSyncStates[], size_t bufferLength, CloudDisk_FailedList **failedLists, size_t *failedCount)
@@ -293,6 +323,8 @@ CloudDisk_ErrorCode OH_CloudDisk_SetFileSyncStates(const CloudDisk_SyncFolderPat
 
 ##### OH_CloudDisk_GetFileSyncStates()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_GetFileSyncStates(const CloudDisk_SyncFolderPath syncFolderPath, const CloudDisk_PathInfo paths[], size_t bufferLength, CloudDisk_ResultList **resultLists, size_t *resultCount)
 ```
@@ -325,6 +357,8 @@ CloudDisk_ErrorCode OH_CloudDisk_GetFileSyncStates(const CloudDisk_SyncFolderPat
 
 ##### OH_CloudDisk_RegisterSyncFolder()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_RegisterSyncFolder(const CloudDisk_SyncFolder *syncFolder)
 ```
@@ -352,6 +386,8 @@ CloudDisk_ErrorCode OH_CloudDisk_RegisterSyncFolder(const CloudDisk_SyncFolder *
   
 
 ##### OH_CloudDisk_UnregisterSyncFolder()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_UnregisterSyncFolder(const CloudDisk_SyncFolderPath syncFolderPath)
@@ -381,6 +417,8 @@ CloudDisk_ErrorCode OH_CloudDisk_UnregisterSyncFolder(const CloudDisk_SyncFolder
 
 ##### OH_CloudDisk_ActiveSyncFolder()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_ActiveSyncFolder(const CloudDisk_SyncFolderPath syncFolderPath)
 ```
@@ -408,6 +446,8 @@ CloudDisk_ErrorCode OH_CloudDisk_ActiveSyncFolder(const CloudDisk_SyncFolderPath
   
 
 ##### OH_CloudDisk_DeactiveSyncFolder()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_DeactiveSyncFolder(const CloudDisk_SyncFolderPath syncFolderPath)
@@ -437,6 +477,8 @@ CloudDisk_ErrorCode OH_CloudDisk_DeactiveSyncFolder(const CloudDisk_SyncFolderPa
 
 ##### OH_CloudDisk_GetSyncFolders()
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_GetSyncFolders(CloudDisk_SyncFolder **syncFolders, size_t *count)
 ```
@@ -465,6 +507,8 @@ CloudDisk_ErrorCode OH_CloudDisk_GetSyncFolders(CloudDisk_SyncFolder **syncFolde
   
 
 ##### OH_CloudDisk_UpdateCustomAlias()
+
+**支持设备：** PC/2in1 | Tablet
 
 ```text
 CloudDisk_ErrorCode OH_CloudDisk_UpdateCustomAlias(const CloudDisk_SyncFolderPath syncFolderPath, const char *customAlias, size_t customAliasLength)

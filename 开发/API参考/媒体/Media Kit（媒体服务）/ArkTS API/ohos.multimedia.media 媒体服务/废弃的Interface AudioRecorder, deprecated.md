@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -21,6 +23,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### prepare(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 prepare(config: AudioRecorderConfig): void
 
@@ -72,6 +76,8 @@ audioRecorder.prepare(audioRecorderConfig);
 
 ##### start(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(): void
 
 开始录制，需在'prepare'事件成功触发后，才能调用start方法。
@@ -94,6 +100,8 @@ audioRecorder.start();
 
 
 ##### pause(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pause():void
 
@@ -118,6 +126,8 @@ audioRecorder.pause();
 
 ##### resume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 resume():void
 
 恢复录制，需要在'pause'事件成功触发后，才能调用resume方法。
@@ -141,6 +151,8 @@ audioRecorder.resume();
 
 ##### stop(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): void
 
 停止录音。
@@ -163,6 +175,8 @@ audioRecorder.stop();
 
 
 ##### release(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(): void
 
@@ -188,6 +202,8 @@ audioRecorder = undefined;
 
 ##### reset(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset(): void
 
 重置录音。
@@ -212,6 +228,8 @@ audioRecorder.reset();
 
 
 ##### on('prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset', callback: () => void): void
 
@@ -277,6 +295,8 @@ audioRecorder.prepare(audioRecorderConfig)  // 设置录制参数 ，并触发'p
 
 
 ##### on('error')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 

@@ -12,6 +12,8 @@ struct OH_Huks_KeyAliasSet {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义密钥别名集的结构体类型。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ struct OH_Huks_KeyAliasSet {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 ArkTS示例：
  
 ```text
@@ -29,6 +31,8 @@ import base from '@ohos.base';
   
 
 ##### Callback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 Callback&lt;T&gt; {
  
@@ -52,6 +56,8 @@ Callback&lt;T&gt; {
   
 
 ##### ErrorCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 ErrorCallback<T extends Error = BusinessError> {
  
@@ -78,6 +84,8 @@ ErrorCallback<T extends Error = BusinessError> {
 
 ##### AsyncCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 AsyncCallback<T, E = void> {
  
 (err: BusinessError&lt;E&gt;, data: T): void;
@@ -103,6 +111,8 @@ AsyncCallback<T, E = void> {
   
 
 ##### BusinessError
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 BusinessError<T = void> extends Error { code: number; data?: T; }
  

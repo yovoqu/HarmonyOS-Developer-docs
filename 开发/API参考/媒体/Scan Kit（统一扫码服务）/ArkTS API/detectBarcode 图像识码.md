@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { detectBarcode } from '@kit.ScanKit';
 ```
@@ -21,6 +23,8 @@ import { detectBarcode } from '@kit.ScanKit';
   
 
 ##### InputImage
+
+**支持设备：** Phone | Tablet | Wearable
 
 待识别的图片信息。
  
@@ -63,6 +67,8 @@ photoPicker.select(photoSelectOptions).then((data: photoAccessHelper.PhotoSelect
   
 
 ##### detectBarcode.decode
+
+**支持设备：** Phone | Tablet | Wearable
 
 decode(inputImage: InputImage, options?: scanBarcode.ScanOptions): Promise<Array<scanBarcode.ScanResult>>
  
@@ -137,6 +143,8 @@ photoPicker.select(photoOption).then((data) => {
 
 ##### detectBarcode.decode
 
+**支持设备：** Phone | Tablet | Wearable
+
 decode(inputImage: InputImage, options: scanBarcode.ScanOptions, callback: AsyncCallback<Array<scanBarcode.ScanResult>>): void
  
 通过配置参数调用图片识码返回识码结果。使用callback异步回调。
@@ -206,6 +214,8 @@ photoPicker.select(photoOption).then((data) => {
 
 ##### detectBarcode.decode
 
+**支持设备：** Phone | Tablet | Wearable
+
 decode(inputImage: InputImage, callback: AsyncCallback<Array<scanBarcode.ScanResult>>): void
  
 图片识码返回识码结果。使用callback异步回调。
@@ -272,6 +282,8 @@ photoPicker.select(photoOption).then((data) => {
 
 ##### ByteImage
 
+**支持设备：** Phone | Tablet | Wearable
+
 待识别的图像数据。
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
@@ -304,6 +316,8 @@ let byteImg: detectBarcode.ByteImage = {
 
 ##### ImageFormat
 
+**支持设备：** Phone | Tablet | Wearable
+
 枚举，图像数据类型。
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
@@ -318,6 +332,8 @@ let byteImg: detectBarcode.ByteImage = {
   
 
 ##### DetectResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 识别结果。
  
@@ -334,6 +350,8 @@ let byteImg: detectBarcode.ByteImage = {
   
 
 ##### detectBarcode.decodeImage
+
+**支持设备：** Phone | Tablet | Wearable
 
 decodeImage(image: ByteImage, options?: scanBarcode.ScanOptions): Promise&lt;DetectResult&gt;
  

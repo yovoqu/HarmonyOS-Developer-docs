@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import ability from '@ohos.ability.ability';
 ```
@@ -21,6 +23,8 @@ import ability from '@ohos.ability.ability';
   
 
 ##### 使用说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 使用前根据具体情况引入如下模块
  
@@ -32,6 +36,8 @@ import relationalStore from '@ohos.data.relationalStore';
   
 
 ##### DataAbilityHelper.openFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openFile(uri: string, mode: string, callback: AsyncCallback&lt;number&gt;): void
  
@@ -72,6 +78,8 @@ DAHelper.openFile('dataability:///com.example.DataAbility', mode, (error, data) 
   
 
 ##### DataAbilityHelper.openFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openFile(uri: string, mode: string): Promise&lt;number&gt;
  
@@ -115,6 +123,8 @@ DAHelper.openFile('dataability:///com.example.DataAbility', mode).then((data) =>
 
 ##### DataAbilityHelper.on('dataChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'dataChange', uri: string, callback: AsyncCallback&lt;void&gt;): void
  
 注册观察者以监听uri指定数据的数据变化通知。使用callback异步回调。
@@ -154,6 +164,8 @@ DAHelper.on(
   
 
 ##### DataAbilityHelper.off('dataChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'dataChange', uri: string, callback?: AsyncCallback&lt;void&gt;): void
  
@@ -199,6 +211,8 @@ DAHelper.off(
 
 ##### DataAbilityHelper.getType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getType(uri: string, callback: AsyncCallback&lt;string&gt;): void
  
 获取给定uri指向数据的媒体资源类型。使用callback异步回调。
@@ -236,6 +250,8 @@ DAHelper.getType('dataability:///com.example.DataAbility', (error, data) => {
   
 
 ##### DataAbilityHelper.getType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getType(uri: string): Promise&lt;string&gt;
  
@@ -277,6 +293,8 @@ DAHelper.getType('dataability:///com.example.DataAbility').then((data) => {
 
 ##### DataAbilityHelper.getFileTypes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFileTypes(uri: string, mimeTypeFilter: string, callback: AsyncCallback<Array&lt;string&gt;>): void
  
 获取支持的文件媒体资源类型。使用callback异步回调。
@@ -315,6 +333,8 @@ DAHelper.getFileTypes( 'dataability:///com.example.DataAbility', 'image/*', (err
   
 
 ##### DataAbilityHelper.getFileTypes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFileTypes(uri: string, mimeTypeFilter: string): Promise<Array&lt;string&gt;>
  
@@ -357,6 +377,8 @@ DAHelper.getFileTypes('dataability:///com.example.DataAbility', 'image/*').then(
 
 ##### DataAbilityHelper.normalizeUri
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 normalizeUri(uri: string, callback: AsyncCallback&lt;string&gt;): void
  
 将引用数据功能的给定uri转换为规范化uri。使用callback异步回调。
@@ -394,6 +416,8 @@ DAHelper.normalizeUri('dataability:///com.example.DataAbility', (error, data) =>
   
 
 ##### DataAbilityHelper.normalizeUri
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 normalizeUri(uri: string): Promise&lt;string&gt;
  
@@ -435,6 +459,8 @@ DAHelper.normalizeUri('dataability:///com.example.DataAbility').then((data) => {
 
 ##### DataAbilityHelper.denormalizeUri
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 denormalizeUri(uri: string, callback: AsyncCallback&lt;string&gt;): void
  
 将由normalizeUri（uri）生成的给定规范化uri转换为非规范化uri。使用callback异步回调。
@@ -472,6 +498,8 @@ DAHelper.denormalizeUri('dataability:///com.example.DataAbility', (error, data) 
   
 
 ##### DataAbilityHelper.denormalizeUri
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 denormalizeUri(uri: string): Promise&lt;string&gt;
  
@@ -513,6 +541,8 @@ DAHelper.denormalizeUri('dataability:///com.example.DataAbility').then((data) =>
 
 ##### DataAbilityHelper.notifyChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 notifyChange(uri: string, callback: AsyncCallback&lt;void&gt;): void
  
 通知注册的观察者，uri指定数据的数据变化。使用callback异步回调。
@@ -550,6 +580,8 @@ DAHelper.notifyChange('dataability:///com.example.DataAbility', (error) => {
   
 
 ##### DataAbilityHelper.notifyChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 notifyChange(uri: string): Promise&lt;void&gt;
  
@@ -590,6 +622,8 @@ DAHelper.notifyChange('dataability:///com.example.DataAbility').then(() => {
   
 
 ##### DataAbilityHelper.insert
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 insert(uri: string, valuesBucket: [rdb.ValuesBucket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-rdb#valuesbucket), callback: AsyncCallback&lt;number&gt;): void
  
@@ -636,6 +670,8 @@ DAHelper.insert('dataability:///com.example.DataAbility', valueBucket, (error, d
   
 
 ##### DataAbilityHelper.insert
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 insert(uri: string, valuesBucket: [rdb.ValuesBucket](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-rdb#valuesbucket)): Promise&lt;number&gt;
  
@@ -685,6 +721,8 @@ DAHelper.insert('dataability:///com.example.DataAbility', valueBucket).then((dat
 
 ##### DataAbilityHelper.batchInsert
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>, callback: AsyncCallback&lt;number&gt;): void
  
 将多个数据记录插入数据库。使用callback异步回调。
@@ -727,6 +765,8 @@ DAHelper.batchInsert('dataability:///com.example.DataAbility', cars, (error, dat
   
 
 ##### DataAbilityHelper.batchInsert
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 batchInsert(uri: string, valuesBuckets: Array<rdb.ValuesBucket>): Promise&lt;number&gt;
  
@@ -773,6 +813,8 @@ DAHelper.batchInsert('dataability:///com.example.DataAbility', cars).then((data)
 
 ##### DataAbilityHelper.delete
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 delete(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback&lt;number&gt;): void
  
 从数据库中删除一个或多个数据记录。使用callback异步回调。
@@ -813,6 +855,8 @@ DAHelper.delete('dataability:///com.example.DataAbility', da, (error, data) => {
   
 
 ##### DataAbilityHelper.delete
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 delete(uri: string, predicates?: dataAbility.DataAbilityPredicates): Promise&lt;number&gt;
  
@@ -857,6 +901,8 @@ DAHelper.delete('dataability:///com.example.DataAbility', da).then((data) => {
 
 ##### DataAbilityHelper.delete
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 delete(uri: string, callback: AsyncCallback&lt;number&gt;): void
  
 predicates筛选条件为空，自定义数据库删除数据记录的处理逻辑。使用callback异步回调。
@@ -894,6 +940,8 @@ DAHelper.delete('dataability:///com.example.DataAbility', (error, data) => {
   
 
 ##### DataAbilityHelper.update
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 update(uri: string, valuesBucket: rdb.ValuesBucket, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback&lt;number&gt;): void
  
@@ -943,6 +991,8 @@ DAHelper.update('dataability:///com.example.DataAbility', va, da, (error, data) 
   
 
 ##### DataAbilityHelper.update
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 update(uri: string, valuesBucket: rdb.ValuesBucket, predicates?: dataAbility.DataAbilityPredicates): Promise&lt;number&gt;
  
@@ -995,6 +1045,8 @@ DAHelper.update('dataability:///com.example.DataAbility', va, da).then((data) =>
 
 ##### DataAbilityHelper.update
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 update(uri: string, valuesBucket: rdb.ValuesBucket, callback: AsyncCallback&lt;number&gt;): void
  
 predicates筛选条件为空，自定义更新数据库的处理逻辑。使用callback异步回调。
@@ -1041,6 +1093,8 @@ DAHelper.update('dataability:///com.example.DataAbility', va, (error, data) => {
 
 ##### DataAbilityHelper.query
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 query(uri: string, columns: Array&lt;string&gt;, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback&lt;ResultSet&gt;): void
  
 查询数据库中的数据。使用callback异步回调。
@@ -1084,6 +1138,8 @@ DAHelper.query('dataability:///com.example.DataAbility', cars, da, (error, data)
 
 ##### DataAbilityHelper.query
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 query(uri: string, callback: AsyncCallback&lt;ResultSet&gt;): void
  
 查询数据库中的数据。使用callback异步回调。
@@ -1121,6 +1177,8 @@ DAHelper.query('dataability:///com.example.DataAbility', (error, data) => {
   
 
 ##### DataAbilityHelper.query
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 query(uri: string, columns: Array&lt;string&gt;, callback: AsyncCallback&lt;ResultSet&gt;): void
  
@@ -1162,6 +1220,8 @@ DAHelper.query('dataability:///com.example.DataAbility', cars, (error, data) => 
 
 ##### DataAbilityHelper.query
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 query(uri: string, predicates: dataAbility.DataAbilityPredicates, callback: AsyncCallback&lt;ResultSet&gt;): void
  
 查询数据库中的数据。使用callback异步回调。
@@ -1202,6 +1262,8 @@ DAHelper.query('dataability:///com.example.DataAbility', da, (error, data) => {
   
 
 ##### DataAbilityHelper.query
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 query(uri: string, columns?: Array&lt;string&gt;, predicates?: dataAbility.DataAbilityPredicates): Promise&lt;ResultSet&gt;
  
@@ -1248,6 +1310,8 @@ DAHelper.query('dataability:///com.example.DataAbility', cars, da).then((data) =
 
 ##### DataAbilityHelper.call
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 call(uri: string, method: string, arg: string, extras: PacMap, callback: AsyncCallback&lt;PacMap&gt;): void
  
 调用DataAbility的扩展接口。使用callback异步回调。
@@ -1289,6 +1353,8 @@ dataAbilityHelper.call('dataability:///com.example.jsapidemo.UserDataAbility',
   
 
 ##### DataAbilityHelper.call
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 call(uri: string, method: string, arg: string, extras: PacMap): Promise&lt;PacMap&gt;
  
@@ -1337,6 +1403,8 @@ dataAbilityHelper.call('dataability:///com.example.jsapidemo.UserDataAbility',
 
 ##### DataAbilityHelper.executeBatch
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 executeBatch(uri: string, operations: Array&lt;DataAbilityOperation&gt;, callback: AsyncCallback<Array&lt;DataAbilityResult&gt;>): void
  
 批量操作数据库中的数据。使用callback异步回调。
@@ -1377,6 +1445,8 @@ dataAbilityHelper.executeBatch('dataability:///com.example.jsapidemo.UserDataAbi
   
 
 ##### DataAbilityHelper.executeBatch
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 executeBatch(uri: string, operations: Array&lt;DataAbilityOperation&gt;): Promise<Array&lt;DataAbilityResult&gt;>
  
@@ -1423,6 +1493,8 @@ dataAbilityHelper.executeBatch('dataability:///com.example.jsapidemo.UserDataAbi
   
 
 ##### PacMap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于存储数据的PacMap类型。
  

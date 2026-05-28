@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### BaseOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 覆盖物基础类。[Marker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-marker)、[MapPolyline](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline)、[MapPolygon](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolygon)、[MapCircle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcircle)、[MapArc](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-maparc)、[ImageOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-imageoverlay)、[BasePriorityOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-basepriorityoverlay)等覆盖物继承该基础类。
  
@@ -40,6 +44,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### getId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getId(): string
  
@@ -78,6 +84,8 @@ let id: string = marker.getId();
 
 ##### getZIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getZIndex(): number
  
 获取覆盖物的z指数。
@@ -107,6 +115,8 @@ let zIndex: number = marker.getZIndex();
   
 
 ##### getTag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getTag(): Object
  
@@ -138,6 +148,8 @@ let tag: Object = marker.getTag();
 
 ##### isVisible
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isVisible(): boolean
  
 获取覆盖物的可见性。
@@ -168,6 +180,8 @@ let isVisible: boolean = marker.isVisible();
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 remove(): void
  
 从地图移除覆盖物。
@@ -190,6 +204,8 @@ marker.remove();
   
 
 ##### setZIndex
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setZIndex(zIndex: number): void
  
@@ -221,6 +237,8 @@ marker.setZIndex(3);
 
 ##### setTag
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setTag(tag: Object): void
  
 设置覆盖物的tag属性。tag属性可以是任意对象，如果设置为空，则清除tag。当您不再需要使用tag时，您可以调用setTag(null)或setTag(undefined)清除tag，以防止应用程序发生内存泄漏。
@@ -251,6 +269,8 @@ marker.setTag(tag);
   
 
 ##### setVisible
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setVisible(visible: boolean): void
  

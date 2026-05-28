@@ -311,7 +311,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_DestroySession(HMS_SpatialRecon_Session 
 销毁一个空间重建会话并释放其资源。该函数终止空间重建会话并释放与其关联的所有内存和系统资源。调用此函数后，提供的会话指针将失效，不应再次使用。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/7j6bEk08TUu8eFBGB9UTfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014106Z&HW-CC-Expire=86400&HW-CC-Sign=B4DCD3FA341EE86656AE9EB8D78DCE733020606363F43E9690689AA240779C43)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/7j6bEk08TUu8eFBGB9UTfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024357Z&HW-CC-Expire=86400&HW-CC-Sign=5872602850DAE7BCCFD4E2C1525C03DC39B141E69C0D22F861459B55EA44420D)
  
  
 一旦销毁会话，将无法恢复。所有未保存的重建数据将会丢失。如果需要数据持久化，请在销毁前调用HMS_SpatialRecon_SaveResultToFile()进行保存。

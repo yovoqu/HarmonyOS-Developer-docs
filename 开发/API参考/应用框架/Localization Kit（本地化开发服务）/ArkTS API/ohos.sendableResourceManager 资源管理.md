@@ -16,6 +16,8 @@ Resource对象通过转换为SendableResource对象后，可以被[Sendable类](
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { sendableResourceManager } from '@kit.LocalizationKit';
 ```
@@ -23,6 +25,8 @@ import { sendableResourceManager } from '@kit.LocalizationKit';
 
 
 ##### sendableResourceManager.resourceToSendableResource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resourceToSendableResource(resource: Resource): SendableResource
 
@@ -86,6 +90,8 @@ try {
 
 ##### sendableResourceManager.sendableResourceToResource
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendableResourceToResource(resource: SendableResource): Resource
 
 将SendableResource对象转换为Resource对象。
@@ -148,6 +154,8 @@ try {
 
 ##### Resource
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Resource = _Resource
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -162,6 +170,8 @@ type Resource = _Resource
 
 
 ##### SendableResource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SendableResource = _SendableResource
 

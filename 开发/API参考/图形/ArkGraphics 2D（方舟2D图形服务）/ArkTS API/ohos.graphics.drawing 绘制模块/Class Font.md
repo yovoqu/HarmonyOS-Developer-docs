@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### isSubpixel12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSubpixel(): boolean
 
@@ -51,6 +55,8 @@ console.info("values=" + font.isSubpixel());
 
 ##### isLinearMetrics12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isLinearMetrics(): boolean
 
 获取字型是否可以线性缩放。
@@ -79,6 +85,8 @@ console.info("values=" + font.isLinearMetrics());
 
 
 ##### getSkewX12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSkewX(): number
 
@@ -109,6 +117,8 @@ console.info("values=" + font.getSkewX());
 
 ##### isEmbolden12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isEmbolden(): boolean
 
 获取字型是否设置了粗体效果。
@@ -137,6 +147,8 @@ console.info("values=" + font.isEmbolden());
 
 
 ##### getScaleX12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getScaleX(): number
 
@@ -167,6 +179,8 @@ console.info("values=" + font.getScaleX());
 
 ##### getHinting12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHinting(): FontHinting
 
 获取字型轮廓效果。
@@ -195,6 +209,8 @@ console.info("values=" + font.getHinting());
 
 ##### getEdging12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getEdging(): FontEdging
 
 获取字型边缘效果。
@@ -222,6 +238,8 @@ console.info("values=" + font.getEdging());
 
 
 ##### enableSubpixel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableSubpixel(isSubpixel: boolean): void
 
@@ -260,6 +278,8 @@ font.enableSubpixel(true);
 
 ##### enableEmbolden
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableEmbolden(isEmbolden: boolean): void
 
 使能字型粗体。
@@ -296,6 +316,8 @@ font.enableEmbolden(true);
 
 
 ##### enableLinearMetrics
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableLinearMetrics(isLinearMetrics: boolean): void
 
@@ -334,6 +356,8 @@ font.enableLinearMetrics(true);
 
 ##### setSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSize(textSize: number): void
 
 设置字型大小。
@@ -371,6 +395,8 @@ font.setSize(5);
 
 ##### getSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSize(): number
 
 获取字型大小。
@@ -399,6 +425,8 @@ let fontSize = font.getSize();
 
 
 ##### setTypeface
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTypeface(typeface: Typeface): void
 
@@ -437,6 +465,8 @@ font.setTypeface(new drawing.Typeface());
 
 ##### getTypeface
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTypeface(): Typeface
 
 获取字体。
@@ -465,6 +495,8 @@ let typeface = font.getTypeface();
 
 ##### getMetrics
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMetrics(): FontMetrics
 
 获取与字体关联的FontMetrics属性。
@@ -492,6 +524,8 @@ let metrics = font.getMetrics();
 
 
 ##### measureText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 measureText(text: string, encoding: TextEncoding): number
 
@@ -541,6 +575,8 @@ font.measureText("drawing", drawing.TextEncoding.TEXT_ENCODING_UTF8);
 
 
 ##### measureSingleCharacter12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 measureSingleCharacter(text: string): number
 
@@ -592,6 +628,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### measureSingleCharacterWithFeatures20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 measureSingleCharacterWithFeatures(text: string, features: Array&lt;FontFeature&gt;): number
 
@@ -646,6 +684,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setScaleX12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setScaleX(scaleX: number): void
 
 设置字型对象在x轴上的缩放比例。
@@ -695,6 +735,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### setSkewX12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSkewX(skewX: number): void
 
@@ -746,6 +788,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setEdging12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setEdging(edging: FontEdging): void
 
 设置字型边缘效果。
@@ -783,6 +827,8 @@ font.setEdging(drawing.FontEdging.SUBPIXEL_ANTI_ALIAS);
 
 ##### setHinting12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setHinting(hinting: FontHinting): void
 
 设置字型轮廓效果。
@@ -819,6 +865,8 @@ font.setHinting(drawing.FontHinting.FULL);
 
 
 ##### countText12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 countText(text: string): number
 
@@ -865,6 +913,8 @@ console.info("count text number: " + resultNumber);
 
 ##### setBaselineSnap12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBaselineSnap(isBaselineSnap: boolean): void
 
 当前画布矩阵轴对齐时，设置字型基线是否与像素对齐。
@@ -903,6 +953,8 @@ console.info("drawing font isBaselineSnap: " + font.isBaselineSnap());
 
 ##### isBaselineSnap()12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isBaselineSnap(): boolean
 
 当前画布矩阵轴对齐时，获取字型基线是否与像素对齐的结果。
@@ -932,6 +984,8 @@ console.info("drawing font isBaselineSnap: " + font.isBaselineSnap());
 
 
 ##### setEmbeddedBitmaps12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setEmbeddedBitmaps(isEmbeddedBitmaps: boolean): void
 
@@ -972,6 +1026,8 @@ console.info("draw isEmbeddedBitmaps: " + font.isEmbeddedBitmaps());
 
 ##### isEmbeddedBitmaps()12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isEmbeddedBitmaps(): boolean
 
 获取字型是否转换成位图处理的结果。
@@ -1001,6 +1057,8 @@ console.info("draw isEmbeddedBitmaps: " + font.isEmbeddedBitmaps());
 
 
 ##### setForceAutoHinting12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setForceAutoHinting(isForceAutoHinting: boolean): void
 
@@ -1041,6 +1099,8 @@ console.info("drawing isForceAutoHinting:  " + font.isForceAutoHinting());
 
 ##### isForceAutoHinting12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isForceAutoHinting(): boolean
 
 获取字型轮廓是否自动调整的结果。
@@ -1070,6 +1130,8 @@ console.info("drawing isForceAutoHinting:  " + font.isForceAutoHinting());
 
 
 ##### getWidths12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWidths(glyphs: Array&lt;number&gt;): Array&lt;number&gt;
 
@@ -1120,6 +1182,8 @@ for (let index = 0; index < fontWidths.length; index++) {
 
 ##### textToGlyphs12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 textToGlyphs(text: string, glyphCount?: number): Array&lt;number&gt;
 
 将文本转换为字形索引。
@@ -1167,6 +1231,8 @@ console.info("drawing text toglyphs OnTestFunction num =  " + glyphs.length );
 
 ##### getBounds18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBounds(glyphs: Array&lt;number&gt;): Array<common2D.Rect>
 
 获取字形数组中每个字形的边界矩形。
@@ -1207,6 +1273,8 @@ for (let index = 0; index < fontBounds.length; index++) {
 
 
 ##### getTextPath18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTextPath(text: string, byteLength: number, x: number, y: number): Path
 
@@ -1266,6 +1334,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### createPathForGlyph18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPathForGlyph(index: number): Path
 
 获取指定字形的路径轮廓。
@@ -1313,6 +1383,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setThemeFontFollowed15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setThemeFontFollowed(followed: boolean): void
 
 设置字型中的字体是否跟随主题字体。设置跟随主题字体后，若系统启用主题字体并且字型未被设置字体，字型会使用该主题字体。
@@ -1350,6 +1422,8 @@ console.info("font is theme font followed: " + font.isThemeFontFollowed());
 
 
 ##### isThemeFontFollowed()15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isThemeFontFollowed(): boolean
 

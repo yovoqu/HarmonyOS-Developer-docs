@@ -12,6 +12,8 @@ typedef union {...} ArkUI_NumberValue
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ArkUI在Native侧的数字类型定义。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ ArkUI在Native侧的数字类型定义。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

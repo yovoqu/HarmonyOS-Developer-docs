@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { hdsEffect } from '@kit.UIDesignKit';
 ```
@@ -19,6 +21,8 @@ import { hdsEffect } from '@kit.UIDesignKit';
   
 
 ##### HdsEffectBuilder
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 将创建的视效参数添加到VisualEffect对象上，构建VisualEffect对象。
  
@@ -31,6 +35,8 @@ import { hdsEffect } from '@kit.UIDesignKit';
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor()
  
@@ -45,6 +51,8 @@ HdsEffectBuilder的构造函数。
   
 
 ##### pointLight
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 pointLight(value: PointLightEffect): HdsEffectBuilder
  
@@ -141,6 +149,8 @@ struct Index {
 
 ##### pressShadow
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 pressShadow(type: PressShadowType): HdsEffectBuilder
  
 设置当前组件按压阴影效果，一般用于组件按压后背景色变化。仅在Button组件上生效。
@@ -221,6 +231,8 @@ struct PressShadowExample {
   
 
 ##### shaderEffect
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 shaderEffect(params: ShaderEffectParams): HdsEffectBuilder
  
@@ -308,6 +320,8 @@ struct Index {
 
 ##### buildEffect
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 buildEffect(): VisualEffect
  
 将上文中设置的所有组件视效添加到VisualEffect对象上。
@@ -329,6 +343,8 @@ buildEffect(): VisualEffect
 
 ##### ShaderEffectParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 shaderEffect视效配置。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -349,6 +365,8 @@ shaderEffect视效配置。
 
 ##### EffectType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 视效类型。
  
 **设备行为差异：** 该视效在TV中无效果，在其他设备类型中可正常显示。
@@ -368,6 +386,8 @@ shaderEffect视效配置。
   
 
 ##### AnimationParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 视效动画参数。
  
@@ -392,6 +412,8 @@ shaderEffect视效配置。
 
 ##### OnFinishCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 type OnFinishCallback = () => void
  
 视效结束回调函数。
@@ -405,6 +427,8 @@ type OnFinishCallback = () => void
   
 
 ##### ExpectedFrameRateRange
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 视效帧率配置。
  
@@ -425,6 +449,8 @@ type OnFinishCallback = () => void
 
 ##### FrameRateType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 视效帧率。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -443,6 +469,8 @@ type OnFinishCallback = () => void
   
 
 ##### EffectParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type EffectParams = DualEdgeFlowLightParam | UVFlowLightColorParam
  
@@ -464,6 +492,8 @@ type EffectParams = DualEdgeFlowLightParam | UVFlowLightColorParam
 
 ##### DualEdgeFlowLightParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 双边边缘流光视效参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -482,6 +512,8 @@ type EffectParams = DualEdgeFlowLightParam | UVFlowLightColorParam
 
 ##### UVFlowLightColorParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 UV流光视效参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -499,6 +531,8 @@ UV流光视效参数。
   
 
 ##### EdgeFlowLightParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 边缘流光视效参数。
  
@@ -519,6 +553,8 @@ UV流光视效参数。
 
 ##### ShaderEffectController
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 视效控制器。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -530,6 +566,8 @@ UV流光视效参数。
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 constructor()
  
@@ -545,6 +583,8 @@ ShaderEffectController的构造函数。
 
 ##### play
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 play(): void
  
 开始执行视效。
@@ -558,6 +598,8 @@ play(): void
   
 
 ##### pause
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 pause(): void
  
@@ -573,6 +615,8 @@ pause(): void
 
 ##### resume
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 resume(): void
  
 继续执行视效。
@@ -586,6 +630,8 @@ resume(): void
   
 
 ##### reverse
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 reverse(): void
  
@@ -601,6 +647,8 @@ reverse(): void
 
 ##### stop
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 stop(): void
  
 停止视效。
@@ -614,6 +662,8 @@ stop(): void
   
 
 ##### setEffectParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setEffectParams(params: EffectParams): void
  
@@ -633,6 +683,8 @@ setEffectParams(params: EffectParams): void
   
 
 ##### PointLightEffect
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 点光源效果属性。
  
@@ -657,6 +709,8 @@ setEffectParams(params: EffectParams): void
 
 ##### PointLightSourceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 组件发光效果类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -675,6 +729,8 @@ setEffectParams(params: EffectParams): void
   
 
 ##### PointLightIlluminatedType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 组件受光效果类型。
  
@@ -697,6 +753,8 @@ setEffectParams(params: EffectParams): void
 
 ##### PointLightOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 组件自定义发光参数选项。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -716,6 +774,8 @@ setEffectParams(params: EffectParams): void
   
 
 ##### PressShadowType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 组件按压阴影效果。
  

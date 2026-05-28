@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件统一资源标识符（File Uniform Resource Identifier）。
  
  支持fileuri与路径path的转换，和fileuri的有效性校验。
@@ -22,6 +24,8 @@
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

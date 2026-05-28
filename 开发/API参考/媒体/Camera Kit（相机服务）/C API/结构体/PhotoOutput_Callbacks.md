@@ -12,6 +12,8 @@ typedef struct PhotoOutput_Callbacks {...} PhotoOutput_Callbacks
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拍照输出的回调。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct PhotoOutput_Callbacks {...} PhotoOutput_Callbacks
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

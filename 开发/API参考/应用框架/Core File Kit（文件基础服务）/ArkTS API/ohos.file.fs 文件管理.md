@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { fileIo } from '@kit.CoreFileKit';
 ```
@@ -21,6 +23,8 @@ import { fileIo } from '@kit.CoreFileKit';
 
 
 ##### 使用说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 使用该功能模块对文件/目录进行操作前，需要先获取其应用沙箱路径，获取方式及其接口用法请参考：
 
@@ -43,6 +47,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### fileIo.stat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stat(file: string | number): Promise&lt;Stat&gt;
 
@@ -87,6 +93,8 @@ fileIo.stat(filePath).then((stat: fileIo.Stat) => {
 
 ##### fileIo.stat
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stat(file: string | number, callback: AsyncCallback&lt;Stat&gt;): void
 
 获取文件或目录的详细属性信息。使用callback异步回调。
@@ -125,6 +133,8 @@ fileIo.stat(pathDir, (err: BusinessError, stat: fileIo.Stat) => {
 
 ##### fileIo.statSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 statSync(file: string | number): Stat
 
 以同步方法获取文件或目录详细属性信息。
@@ -161,6 +171,8 @@ console.info(`Succeeded in getting file info, the size of file is ${stat.size}`)
 
 
 ##### fileIo.access
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 access(path: string, mode?: AccessModeType): Promise&lt;boolean&gt;
 
@@ -212,6 +224,8 @@ fileIo.access(filePath).then((res: boolean) => {
 
 ##### fileIo.access12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 access(path: string, mode: AccessModeType, flag: AccessFlagType): Promise&lt;boolean&gt;
 
 检查文件或目录是否在本地，或校验操作权限，使用promise异步回调。
@@ -261,6 +275,8 @@ fileIo.access(filePath, fileIo.AccessModeType.EXIST, fileIo.AccessFlagType.LOCAL
 
 ##### fileIo.access
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 access(path: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查文件或目录是否存在。使用callback异步回调。
@@ -303,6 +319,8 @@ fileIo.access(filePath, (err: BusinessError, res: boolean) => {
 
 
 ##### fileIo.accessSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 accessSync(path: string, mode?: AccessModeType): boolean
 
@@ -356,6 +374,8 @@ try {
 
 ##### fileIo.accessSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): boolean
 
 以同步方法检查文件或目录是否在本地，或校验操作权限。
@@ -407,6 +427,8 @@ try {
 
 ##### fileIo.close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(file: number | File): Promise&lt;void&gt;
 
 关闭文件或目录，使用promise异步回调。
@@ -451,6 +473,8 @@ fileIo.close(file).then(() => {
 
 ##### fileIo.close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(file: number | File, callback: AsyncCallback&lt;void&gt;): void
 
 关闭文件或目录。使用callback异步回调。
@@ -491,6 +515,8 @@ fileIo.close(file, (err: BusinessError) => {
 
 ##### fileIo.closeSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeSync(file: number | File): void
 
 以同步方法关闭文件或目录。
@@ -521,6 +547,8 @@ fileIo.closeSync(file);
 
 
 ##### fileIo.copy11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 copy(srcUri: string, destUri: string, options?: CopyOptions): Promise&lt;void&gt;
 
@@ -585,6 +613,8 @@ try {
 
 ##### fileIo.copy11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copy(srcUri: string, destUri: string, callback: AsyncCallback&lt;void&gt;): void
 
 拷贝文件或者目录。使用callback异步回调。
@@ -636,6 +666,8 @@ try {
 
 
 ##### fileIo.copy11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback&lt;void&gt;): void
 
@@ -696,6 +728,8 @@ try {
 
 ##### fileIo.copyFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copyFile(src: string | number, dest: string | number, mode?: number): Promise&lt;void&gt;
 
 复制文件，使用promise异步回调。
@@ -742,6 +776,8 @@ fileIo.copyFile(srcPath, dstPath, 0).then(() => {
 
 ##### fileIo.copyFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copyFile(src: string | number, dest: string | number, mode: number, callback: AsyncCallback&lt;void&gt;): void
 
 复制文件，可设置覆盖文件的方式。使用callback异步回调。
@@ -784,6 +820,8 @@ fileIo.copyFile(srcPath, dstPath, 0, (err: BusinessError) => {
 
 ##### fileIo.copyFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copyFile(src: string | number, dest: string | number, callback: AsyncCallback&lt;void&gt;): void
 
 复制文件，覆盖方式为完全覆盖目标文件，未覆盖部分将被裁切。使用callback异步回调。
@@ -825,6 +863,8 @@ fileIo.copyFile(srcPath, dstPath, (err: BusinessError) => {
 
 ##### fileIo.copyFileSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copyFileSync(src: string | number, dest: string | number, mode?: number): void
 
 以同步方法复制文件。
@@ -857,6 +897,8 @@ fileIo.copyFileSync(srcPath, dstPath);
 
 
 ##### fileIo.copyDir10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 copyDir(src: string, dest: string, mode?: number): Promise&lt;void&gt;
 
@@ -903,6 +945,8 @@ fileIo.copyDir(srcPath, destPath, 0).then(() => {
 
 ##### fileIo.copyDir10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copyDir(src: string, dest: string, mode: number, callback: AsyncCallback&lt;void&gt;): void
 
 复制源目录至目标路径下，可设置复制模式。使用callback异步回调。
@@ -943,6 +987,8 @@ fileIo.copyDir(srcPath, destPath, 0, (err: BusinessError) => {
 
 
 ##### fileIo.copyDir10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array&lt;ConflictFiles&gt;>): void
 
@@ -990,6 +1036,8 @@ fileIo.copyDir(srcPath, destPath, 0, (err: BusinessError<Array<ConflictFiles>>) 
 
 ##### fileIo.copyDir10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copyDir(src: string, dest: string, callback: AsyncCallback&lt;void&gt;): void
 
 复制源目录至目标路径下。使用callback异步回调。
@@ -1031,6 +1079,8 @@ fileIo.copyDir(srcPath, destPath, (err: BusinessError) => {
 
 
 ##### fileIo.copyDir10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 copyDir(src: string, dest: string, callback: AsyncCallback<void, Array&lt;ConflictFiles&gt;>): void
 
@@ -1079,6 +1129,8 @@ fileIo.copyDir(srcPath, destPath, (err: BusinessError<Array<ConflictFiles>>) => 
 
 ##### fileIo.copyDirSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 copyDirSync(src: string, dest: string, mode?: number): void
 
 以同步方法复制源目录至目标路径下。
@@ -1119,6 +1171,8 @@ try {
 
 ##### fileIo.dup10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 dup(fd: number): File
 
 复制文件描述符，并返回对应的File对象。
@@ -1158,6 +1212,8 @@ fileIo.closeSync(file2);
 
 
 ##### fileIo.connectDfs12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connectDfs(networkId: string, listeners: DfsListeners): Promise&lt;void&gt;
 
@@ -1214,6 +1270,8 @@ if (deviceInfoList && deviceInfoList.length > 0) {
 
 ##### fileIo.disconnectDfs12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnectDfs(networkId: string): Promise&lt;void&gt;
 
 业务调用disconnectDfs接口，传入networkId参数，触发断链。可参考[跨设备文件共享和访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/file-access-across-devices)文档进行开发。
@@ -1263,6 +1321,8 @@ if (deviceInfoList && deviceInfoList.length > 0) {
 
 ##### fileIo.setxattr12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setxattr(path: string, key: string, value: string): Promise&lt;void&gt;
 
 设置文件或目录的扩展属性。使用promise异步回调。
@@ -1309,6 +1369,8 @@ fileIo.setxattr(filePath, attrKey, attrValue).then(() => {
 
 ##### fileIo.setxattrSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setxattrSync(path: string, key: string, value: string): void
 
 设置文件或目录的扩展属性。
@@ -1348,6 +1410,8 @@ try {
 
 
 ##### fileIo.getxattr12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getxattr(path: string, key: string): Promise&lt;string&gt;
 
@@ -1392,6 +1456,8 @@ fileIo.getxattr(filePath, attrKey).then((attrValue: string) => {
 
 
 ##### fileIo.getxattrSync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getxattrSync(path: string, key: string): string
 
@@ -1438,6 +1504,8 @@ try {
 
 ##### fileIo.mkdir
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mkdir(path: string): Promise&lt;void&gt;
 
 创建目录，使用promise异步回调。
@@ -1480,6 +1548,8 @@ fileIo.mkdir(dirPath).then(() => {
 
 
 ##### fileIo.mkdir11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mkdir(path: string, recursion: boolean): Promise&lt;void&gt;
 
@@ -1525,6 +1595,8 @@ fileIo.mkdir(dirPath, true).then(() => {
 
 ##### fileIo.mkdir
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mkdir(path: string, callback: AsyncCallback&lt;void&gt;): void
 
 创建目录。使用callback异步回调。
@@ -1563,6 +1635,8 @@ fileIo.mkdir(dirPath, (err: BusinessError) => {
 
 
 ##### fileIo.mkdir11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mkdir(path: string, recursion: boolean, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1604,6 +1678,8 @@ fileIo.mkdir(dirPath, true, (err: BusinessError) => {
 
 ##### fileIo.mkdirSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mkdirSync(path: string): void
 
 以同步方法创建目录。
@@ -1633,6 +1709,8 @@ fileIo.mkdirSync(dirPath);
 
 
 ##### fileIo.mkdirSync11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mkdirSync(path: string, recursion: boolean): void
 
@@ -1664,6 +1742,8 @@ fileIo.mkdirSync(dirPath, true);
 
 
 ##### fileIo.open
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 open(path: string, mode?: number): Promise&lt;File&gt;
 
@@ -1710,6 +1790,8 @@ fileIo.open(filePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE).then(
 
 ##### fileIo.open
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 open(path: string, mode: number, callback: AsyncCallback&lt;File&gt;): void
 
 打开文件或目录，可设置打开文件的选项。使用callback异步回调。
@@ -1753,6 +1835,8 @@ fileIo.open(filePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE, (err:
 
 ##### fileIo.open
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 open(path: string, callback: AsyncCallback&lt;File&gt;): void
 
 打开文件或目录，支持使用URI打开文件。使用callback异步回调。
@@ -1793,6 +1877,8 @@ fileIo.open(filePath, (err: BusinessError, file: fileIo.File) => {
 
 ##### fileIo.openSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 openSync(path: string, mode?: number): File
 
 以同步方法打开文件或目录。支持使用URI打开文件。
@@ -1832,6 +1918,8 @@ fileIo.closeSync(file);
 
 
 ##### fileIo.read
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 read(fd: number, buffer: ArrayBuffer, options?: ReadOptions): Promise&lt;number&gt;
 
@@ -1884,6 +1972,8 @@ fileIo.read(file.fd, arrayBuffer).then((readLen: number) => {
 
 ##### fileIo.read
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback&lt;number&gt;): void
 
 从文件读取数据。使用callback异步回调。
@@ -1928,6 +2018,8 @@ fileIo.read(file.fd, arrayBuffer, (err: BusinessError, readLen: number) => {
 
 
 ##### fileIo.read
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 read(fd: number, buffer: ArrayBuffer, options: ReadOptions, callback: AsyncCallback&lt;number&gt;): void
 
@@ -1980,6 +2072,8 @@ fileIo.read(file.fd, arrayBuffer, readOption, (err: BusinessError, readLen: numb
 
 ##### fileIo.readSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readSync(fd: number, buffer: ArrayBuffer, options?: ReadOptions): number
 
 以同步方法从文件读取数据。
@@ -2021,6 +2115,8 @@ fileIo.closeSync(file);
 
 
 ##### fileIo.rmdir
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rmdir(path: string): Promise&lt;void&gt;
 
@@ -2069,6 +2165,8 @@ fileIo.rmdir(dirPath).then(() => {
 
 ##### fileIo.rmdir
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rmdir(path: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除目录及其所有子目录和文件。使用callback异步回调。
@@ -2112,6 +2210,8 @@ fileIo.rmdir(dirPath, (err: BusinessError) => {
 
 ##### fileIo.rmdirSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rmdirSync(path: string): void
 
 以同步方法删除目录及其所有子目录和文件。
@@ -2145,6 +2245,8 @@ fileIo.rmdirSync(dirPath);
 
 
 ##### fileIo.unlink
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unlink(path: string): Promise&lt;void&gt;
 
@@ -2189,6 +2291,8 @@ fileIo.unlink(filePath).then(() => {
 
 ##### fileIo.unlink
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unlink(path: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除文件。使用callback异步回调。
@@ -2228,6 +2332,8 @@ fileIo.unlink(filePath, (err: BusinessError) => {
 
 ##### fileIo.unlinkSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unlinkSync(path: string): void
 
 以同步方法删除文件。
@@ -2257,6 +2363,8 @@ fileIo.unlinkSync(filePath);
 
 
 ##### fileIo.write
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(fd: number, buffer: ArrayBuffer | string, options?: WriteOptions): Promise&lt;number&gt;
 
@@ -2307,6 +2415,8 @@ fileIo.write(file.fd, str).then((writeLen: number) => {
 
 ##### fileIo.write
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 write(fd: number, buffer: ArrayBuffer | string, callback: AsyncCallback&lt;number&gt;): void
 
 将数据写入文件。使用callback异步回调。
@@ -2349,6 +2459,8 @@ fileIo.write(file.fd, str, (err: BusinessError, writeLen: number) => {
 
 
 ##### fileIo.write
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(fd: number, buffer: ArrayBuffer | string, options: WriteOptions, callback: AsyncCallback&lt;number&gt;): void
 
@@ -2399,6 +2511,8 @@ fileIo.write(file.fd, str, writeOptions, (err: BusinessError, writeLen: number) 
 
 ##### fileIo.writeSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeSync(fd: number, buffer: ArrayBuffer | string, options?: WriteOptions): number
 
 以同步方法将数据写入文件。
@@ -2441,6 +2555,8 @@ fileIo.closeSync(file);
 
 
 ##### fileIo.truncate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 truncate(file: string | number, len?: number): Promise&lt;void&gt;
 
@@ -2487,6 +2603,8 @@ fileIo.truncate(filePath, len).then(() => {
 
 ##### fileIo.truncate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 truncate(file: string | number, callback: AsyncCallback&lt;void&gt;): void
 
 截断文件。使用callback异步回调。
@@ -2525,6 +2643,8 @@ fileIo.truncate(filePath, (err: BusinessError) => {
 
 
 ##### fileIo.truncate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 truncate(file: string | number, len: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -2567,6 +2687,8 @@ fileIo.truncate(filePath, len, (err: BusinessError) => {
 
 ##### fileIo.truncateSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 truncateSync(file: string | number, len?: number): void
 
 以同步方法截断文件内容。
@@ -2598,6 +2720,8 @@ fileIo.truncateSync(filePath, len);
 
 
 ##### fileIo.readLines11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readLines(filePath: string, options?: Options): Promise&lt;ReaderIterator&gt;
 
@@ -2647,6 +2771,8 @@ fileIo.readLines(filePath, options).then((readerIterator: fileIo.ReaderIterator)
 
 ##### fileIo.readLines11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readLines(filePath: string, callback: AsyncCallback&lt;ReaderIterator&gt;): void
 
 逐行读取文件文本内容，只支持读取utf-8格式文件。使用callback异步回调。
@@ -2685,6 +2811,8 @@ fileIo.readLines(filePath, (err: BusinessError, readerIterator: fileIo.ReaderIte
 
 
 ##### fileIo.readLines11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readLines(filePath: string, options: Options, callback: AsyncCallback&lt;ReaderIterator&gt;): void
 
@@ -2730,6 +2858,8 @@ fileIo.readLines(filePath, options, (err: BusinessError, readerIterator: fileIo.
 
 ##### fileIo.readLinesSync11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readLinesSync(filePath: string, options?: Options): ReaderIterator
 
 以同步方式逐行读取文件的文本内容。
@@ -2774,11 +2904,15 @@ for (let it = readerIterator.next(); !it.done; it = readerIterator.next()) {
 
 ##### ReaderIterator11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件读取迭代器。在调用ReaderIterator的方法前，需要先通过readLines方法（同步或异步）来构建一个ReaderIterator实例。
 
 
 
 ##### next11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 next(): ReaderIteratorResult
 
@@ -2824,6 +2958,8 @@ fileIo.readLines(filePath, options).then((readerIterator: fileIo.ReaderIterator)
 
 ##### ReaderIteratorResult11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件读取迭代器返回结果，支持ReaderIterator接口使用。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -2837,6 +2973,8 @@ fileIo.readLines(filePath, options).then((readerIterator: fileIo.ReaderIterator)
 
 
 ##### fileIo.readText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readText(filePath: string, options?: ReadTextOptions): Promise&lt;string&gt;
 
@@ -2882,6 +3020,8 @@ fileIo.readText(filePath).then((str: string) => {
 
 ##### fileIo.readText
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readText(filePath: string, callback: AsyncCallback&lt;string&gt;): void
 
 基于文本方式读取文件内容。使用callback异步回调。
@@ -2920,6 +3060,8 @@ fileIo.readText(filePath, (err: BusinessError, str: string) => {
 
 
 ##### fileIo.readText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readText(filePath: string, options: ReadTextOptions, callback: AsyncCallback&lt;string&gt;): void
 
@@ -2967,6 +3109,8 @@ fileIo.readText(filePath, readTextOption, (err: BusinessError, str: string) => {
 
 
 ##### fileIo.readTextSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readTextSync(filePath: string, options?: ReadTextOptions): string
 
@@ -3016,6 +3160,8 @@ console.info(`Succeeded in reading text, text is: ${str}`);
 
 ##### fileIo.lstat
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lstat(path: string): Promise&lt;Stat&gt;
 
 获取符号链接文件信息，使用promise异步回调。
@@ -3057,6 +3203,8 @@ fileIo.lstat(filePath).then((stat: fileIo.Stat) => {
 
 ##### fileIo.lstat
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lstat(path: string, callback: AsyncCallback&lt;Stat&gt;): void
 
 获取符号链接文件信息。使用callback异步回调。
@@ -3094,6 +3242,8 @@ fileIo.lstat(filePath, (err: BusinessError, stat: fileIo.Stat) => {
 
 ##### fileIo.lstatSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lstatSync(path: string): Stat
 
 以同步方法获取符号链接文件信息。
@@ -3129,6 +3279,8 @@ console.info(`Succeeded in getting symbolic link info, the size of file is ${fil
 
 
 ##### fileIo.rename
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rename(oldPath: string, newPath: string): Promise&lt;void&gt;
 
@@ -3179,6 +3331,8 @@ fileIo.rename(srcFile, dstFile).then(() => {
 
 ##### fileIo.rename
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rename(oldPath: string, newPath: string, callback: AsyncCallback&lt;void&gt;): void
 
 重命名文件或目录。使用callback异步回调。
@@ -3224,6 +3378,8 @@ fileIo.rename(srcFile, dstFile, (err: BusinessError) => {
 
 ##### fileIo.renameSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 renameSync(oldPath: string, newPath: string): void
 
 以同步方法重命名文件或目录。
@@ -3259,6 +3415,8 @@ fileIo.renameSync(srcFile, dstFile);
 
 
 ##### fileIo.fsync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fsync(fd: number): Promise&lt;void&gt;
 
@@ -3304,6 +3462,8 @@ fileIo.fsync(file.fd).then(() => {
 
 ##### fileIo.fsync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fsync(fd: number, callback: AsyncCallback&lt;void&gt;): void
 
 将文件系统缓存数据写入磁盘。使用callback异步回调。
@@ -3343,6 +3503,8 @@ fileIo.fsync(file.fd, (err: BusinessError) => {
 
 ##### fileIo.fsyncSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fsyncSync(fd: number): void
 
 以同步方法将文件系统缓存数据写入磁盘。
@@ -3372,6 +3534,8 @@ fileIo.closeSync(file);
 
 
 ##### fileIo.fdatasync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fdatasync(fd: number): Promise&lt;void&gt;
 
@@ -3417,6 +3581,8 @@ fileIo.fdatasync(file.fd).then(() => {
 
 ##### fileIo.fdatasync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fdatasync(fd: number, callback: AsyncCallback&lt;void&gt;): void
 
 实现文件内容数据同步。使用callback异步回调。
@@ -3456,6 +3622,8 @@ fileIo.fdatasync(file.fd, (err: BusinessError) => {
 
 ##### fileIo.fdatasyncSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fdatasyncSync(fd: number): void
 
 以同步方法实现文件内容的数据同步。
@@ -3485,6 +3653,8 @@ fileIo.closeSync(file);
 
 
 ##### fileIo.symlink
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 symlink(target: string, srcPath: string): Promise&lt;void&gt;
 
@@ -3533,6 +3703,8 @@ fileIo.symlink(srcFile, dstFile).then(() => {
 
 ##### fileIo.symlink
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 symlink(target: string, srcPath: string, callback: AsyncCallback&lt;void&gt;): void
 
 基于文件路径创建符号链接。使用callback异步回调。
@@ -3576,6 +3748,8 @@ fileIo.symlink(srcFile, dstFile, (err: BusinessError) => {
 
 ##### fileIo.symlinkSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 symlinkSync(target: string, srcPath: string): void
 
 以同步的方法基于文件路径创建符号链接。
@@ -3609,6 +3783,8 @@ fileIo.symlinkSync(srcFile, dstFile);
 
 
 ##### fileIo.listFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 listFile(path: string, options?: ListFileOptions): Promise<string[]>
 
@@ -3668,6 +3844,8 @@ fileIo.listFile(pathDir, listFileOption).then((filenames: Array<string>) => {
 
 ##### fileIo.listFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 listFile(path: string, callback: AsyncCallback<string[]>): void
 
 默认列出当前目录下所有文件名和目录名。使用callback异步回调。
@@ -3708,6 +3886,8 @@ fileIo.listFile(pathDir, (err: BusinessError, filenames: Array<string>) => {
 
 
 ##### fileIo.listFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 listFile(path: string, options: ListFileOptions, callback: AsyncCallback<string[]>): void
 
@@ -3763,6 +3943,8 @@ fileIo.listFile(pathDir, listFileOption, (err: BusinessError, filenames: Array<s
 
 ##### fileIo.listFileSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 listFileSync(path: string, options?: ListFileOptions): string[]
 
 默认以同步方式列出当前目录下所有文件名和目录名。支持过滤。
@@ -3817,6 +3999,8 @@ for (let i = 0; i < filenames.length; i++) {
 
 ##### fileIo.lseek11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lseek(fd: number, offset: number, whence?: WhenceType): number
 
 调整文件偏移指针位置。
@@ -3856,6 +4040,8 @@ fileIo.closeSync(file);
 
 
 ##### fileIo.moveDir10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveDir(src: string, dest: string, mode?: number): Promise&lt;void&gt;
 
@@ -3905,6 +4091,8 @@ fileIo.moveDir(srcPath, destPath, 1).then(() => {
 
 ##### fileIo.moveDir10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveDir(src: string, dest: string, mode: number, callback: AsyncCallback&lt;void&gt;): void
 
 移动源目录至目标路径下，支持设置移动模式。使用callback异步回调。
@@ -3948,6 +4136,8 @@ fileIo.moveDir(srcPath, destPath, 1, (err: BusinessError) => {
 
 
 ##### fileIo.moveDir10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array&lt;ConflictFiles&gt;>): void
 
@@ -3998,6 +4188,8 @@ fileIo.moveDir(srcPath, destPath, 1, (err: BusinessError<Array<ConflictFiles>>) 
 
 ##### fileIo.moveDir10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveDir(src: string, dest: string, callback: AsyncCallback&lt;void&gt;): void
 
 移动源目录至目标路径下。使用callback异步回调。
@@ -4042,6 +4234,8 @@ fileIo.moveDir(srcPath, destPath, (err: BusinessError) => {
 
 
 ##### fileIo.moveDir10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveDir(src: string, dest: string, callback: AsyncCallback<void, Array&lt;ConflictFiles&gt;>): void
 
@@ -4093,6 +4287,8 @@ fileIo.moveDir(srcPath, destPath, (err: BusinessError<Array<ConflictFiles>>) => 
 
 ##### fileIo.moveDirSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveDirSync(src: string, dest: string, mode?: number): void
 
 以同步方法移动源目录至目标路径下。
@@ -4143,6 +4339,8 @@ try {
 
 ##### fileIo.moveFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveFile(src: string, dest: string, mode?: number): Promise&lt;void&gt;
 
 移动文件，使用promise异步回调。
@@ -4191,6 +4389,8 @@ fileIo.moveFile(srcPath, destPath, 0).then(() => {
 
 ##### fileIo.moveFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveFile(src: string, dest: string, mode: number, callback: AsyncCallback&lt;void&gt;): void
 
 移动文件，支持设置移动模式。使用callback异步回调。
@@ -4235,6 +4435,8 @@ fileIo.moveFile(srcPath, destPath, 0, (err: BusinessError) => {
 
 ##### fileIo.moveFile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveFile(src: string, dest: string, callback: AsyncCallback&lt;void&gt;): void
 
 移动文件。如果移动位置存在同名文件，将强制覆盖。使用callback异步回调。
@@ -4278,6 +4480,8 @@ fileIo.moveFile(srcPath, destPath, (err: BusinessError) => {
 
 ##### fileIo.moveFileSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveFileSync(src: string, dest: string, mode?: number): void
 
 以同步方式移动文件。
@@ -4313,6 +4517,8 @@ console.info(`Succeeded in moving file.`);
 
 
 ##### fileIo.mkdtemp
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 mkdtemp(prefix: string): Promise&lt;string&gt;
 
@@ -4354,6 +4560,8 @@ fileIo.mkdtemp(pathDir + "/XXXXXX").then((dir: string) => {
 
 ##### fileIo.mkdtemp
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mkdtemp(prefix: string, callback: AsyncCallback&lt;string&gt;): void
 
 创建临时目录。使用callback异步回调。
@@ -4390,6 +4598,8 @@ fileIo.mkdtemp(pathDir + "/XXXXXX", (err: BusinessError, res: string) => {
 
 ##### fileIo.mkdtempSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 mkdtempSync(prefix: string): string
 
 以同步的方法创建临时目录。
@@ -4424,6 +4634,8 @@ let res = fileIo.mkdtempSync(pathDir + "/XXXXXX");
 
 ##### fileIo.utimes11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 utimes(path: string, mtime: number): void
 
 更改文件上次修改该文件的时间。
@@ -4455,6 +4667,8 @@ fileIo.utimes(filePath, new Date().getTime());
 
 
 ##### fileIo.createRandomAccessFile10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createRandomAccessFile(file: string | File, mode?: number): Promise&lt;RandomAccessFile&gt;
 
@@ -4502,6 +4716,8 @@ fileIo.createRandomAccessFile(file).then((randomAccessFile: fileIo.RandomAccessF
 
 ##### fileIo.createRandomAccessFile10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createRandomAccessFile(file: string | File, callback: AsyncCallback&lt;RandomAccessFile&gt;): void
 
 基于文件路径或文件对象，以只读方式创建RandomAccessFile对象。使用callback异步回调。
@@ -4541,6 +4757,8 @@ fileIo.createRandomAccessFile(file, (err: BusinessError, randomAccessFile: fileI
 
 
 ##### fileIo.createRandomAccessFile10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createRandomAccessFile(file: string | File, mode: number, callback: AsyncCallback&lt;RandomAccessFile&gt;): void
 
@@ -4582,6 +4800,8 @@ fileIo.createRandomAccessFile(file, fileIo.OpenMode.READ_ONLY, (err: BusinessErr
 
 
 ##### fileIo.createRandomAccessFile12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createRandomAccessFile(file: string | File, mode?: number, options?: RandomAccessFileOptions): Promise&lt;RandomAccessFile&gt;
 
@@ -4627,6 +4847,8 @@ fileIo.createRandomAccessFile(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode
 
 ##### fileIo.createRandomAccessFileSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createRandomAccessFileSync(file: string | File, mode?: number): RandomAccessFile
 
 基于文件路径或文件对象创建RandomAccessFile对象。
@@ -4664,6 +4886,8 @@ randomAccessFile.close();
 
 
 ##### fileIo.createRandomAccessFileSync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createRandomAccessFileSync(file: string | File, mode?: number, options?: RandomAccessFileOptions): RandomAccessFile
 
@@ -4703,6 +4927,8 @@ randomAccessFile.close();
 
 
 ##### fileIo.createStream
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createStream(path: string, mode: string): Promise&lt;Stream&gt;
 
@@ -4749,6 +4975,8 @@ fileIo.createStream(filePath, "a+").then((stream: fileIo.Stream) => {
 
 ##### fileIo.createStream
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createStream(path: string, mode: string, callback: AsyncCallback&lt;Stream&gt;): void
 
 基于文件路径创建文件流，需要配合[Stream](#stream)中的close()函数关闭文件流。使用callback异步回调。
@@ -4790,6 +5018,8 @@ fileIo.createStream(filePath, "r+", (err: BusinessError, stream: fileIo.Stream) 
 
 ##### fileIo.createStreamSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createStreamSync(path: string, mode: string): Stream
 
 以同步方法基于文件路径创建文件流。需要配合[Stream](#stream)中的close()函数关闭文件流。
@@ -4829,6 +5059,8 @@ stream.closeSync();
 
 
 ##### fileIo.fdopenStream
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fdopenStream(fd: number, mode: string): Promise&lt;Stream&gt;
 
@@ -4875,7 +5107,7 @@ fileIo.fdopenStream(file.fd, "r+").then((stream: fileIo.Stream) => {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/QggtD9gLQVWP89omHGhngg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013737Z&HW-CC-Expire=86400&HW-CC-Sign=10AAACFDFF062DA8F1D2581FD3D4EB38BF1BCC2C80E6229D4AB24ADDAA187697)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/QggtD9gLQVWP89omHGhngg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024034Z&HW-CC-Expire=86400&HW-CC-Sign=C43F786AA2055FE6A4DDFE3EED2EDF63CB8B32A6B3849746BCD90532EB0224B5)
 
 
 使用文件描述符创建的文件流时，文件描述符的生命周期将由文件流对象管理。调用文件流的close()函数后，初始的文件描述符也会被关闭。
@@ -4885,6 +5117,8 @@ fileIo.fdopenStream(file.fd, "r+").then((stream: fileIo.Stream) => {
 
 
 ##### fileIo.fdopenStream
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fdopenStream(fd: number, mode: string, callback: AsyncCallback&lt;Stream&gt;): void
 
@@ -4927,7 +5161,7 @@ fileIo.fdopenStream(file.fd, "r+", (err: BusinessError, stream: fileIo.Stream) =
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/oJs6doBMTc6NEoOKgO_jFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013737Z&HW-CC-Expire=86400&HW-CC-Sign=7BF7424F73625CF5034AEA0B4F1C9DC11863DB4FDAD00561F26802DA6FA05B01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/oJs6doBMTc6NEoOKgO_jFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024034Z&HW-CC-Expire=86400&HW-CC-Sign=8ED402C2E07A304D1302B5F525E127FE54E4CFA67CC0522C6A4DBF40494F1E1B)
 
 
 使用文件描述符创建的文件流，文件描述符的生命周期也交由文件流对象，在调用文件流的close()函数后，初始的文件描述符也会被关闭。
@@ -4937,6 +5171,8 @@ fileIo.fdopenStream(file.fd, "r+", (err: BusinessError, stream: fileIo.Stream) =
 
 
 ##### fileIo.fdopenStreamSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fdopenStreamSync(fd: number, mode: string): Stream
 
@@ -4975,7 +5211,7 @@ stream.closeSync();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/4hLLzQ9dToW9XJYc5f0y5A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013737Z&HW-CC-Expire=86400&HW-CC-Sign=1C8D162DAC48E813345369E7131B7071E166B494C60557B7673C3A4E4FB4AB66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/4hLLzQ9dToW9XJYc5f0y5A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024034Z&HW-CC-Expire=86400&HW-CC-Sign=52F48481599AE525F7F42ED1E2F7E0F4C77ED915D418A1619AEDCCF637272C9E)
 
 
 使用文件描述符创建的文件流，文件描述符的生命周期也交由文件流对象，在调用文件流的close()函数后，初始的文件描述符也会被关闭。
@@ -4985,6 +5221,8 @@ stream.closeSync();
 
 
 ##### fileIo.createReadStream12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createReadStream(path: string, options?: ReadStreamOptions ): ReadStream
 
@@ -5032,6 +5270,8 @@ rs.on('readable', () => {
 
 ##### fileIo.createWriteStream12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createWriteStream(path: string, options?: WriteStreamOptions): WriteStream
 
 以同步方法打开文件可写流。
@@ -5078,6 +5318,8 @@ rs.on('readable', () => {
 
 ##### AtomicFile15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AtomicFile是一个用于对文件进行原子读写操作的类。
 
 在写操作时，通过写入临时文件，并在写入成功后将其重命名到原始文件位置来确保写入文件的完整性；而在写入失败时删除临时文件，不修改原始文件内容。
@@ -5089,6 +5331,8 @@ AtomicFile是一个用于对文件进行原子读写操作的类。
 
 
 ##### constructor15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(path: string)
 
@@ -5106,6 +5350,8 @@ constructor(path: string)
 
 
 ##### getBaseFile15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBaseFile(): File
 
@@ -5151,6 +5397,8 @@ try {
 
 
 ##### openRead15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openRead(): ReadStream
 
@@ -5204,6 +5452,8 @@ try {
 
 ##### readFully15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readFully(): ArrayBuffer
 
 读取文件全部内容。
@@ -5252,6 +5502,8 @@ try {
 
 ##### startWrite15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 startWrite(): WriteStream
 
 对文件开始新的写入操作。将返回一个WriteStream，用于在其中写入新的文件数据。
@@ -5298,6 +5550,8 @@ try {
 
 ##### finishWrite15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 finishWrite(): void
 
 在完成对startWrite返回流的写入操作时调用，表示文件写入成功。
@@ -5331,6 +5585,8 @@ try {
 
 
 ##### failWrite15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 failWrite(): void
 
@@ -5366,6 +5622,8 @@ try {
 
 
 ##### delete15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 delete(): void
 
@@ -5408,6 +5666,8 @@ try {
 
 
 ##### fileIo.createWatcher10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createWatcher(path: string, events: number, listener: WatchEventListener): Watcher
 
@@ -5463,6 +5723,8 @@ watcher.stop();
 
 ##### WatchEventListener10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 (event: WatchEvent): void
 
 事件监听类。
@@ -5480,11 +5742,15 @@ watcher.stop();
 
 ##### WatchEvent10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 事件类
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
@@ -5498,6 +5764,8 @@ watcher.stop();
 
 
 ##### Progress11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 拷贝进度回调数据
 
@@ -5513,6 +5781,8 @@ watcher.stop();
 
 ##### TaskSignal12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拷贝中断信号。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -5520,6 +5790,8 @@ watcher.stop();
 
 
 ##### cancel12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancel(): void
 
@@ -5576,6 +5848,8 @@ try {
 
 ##### onCancel(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onCancel(): Promise&lt;string&gt;
 
 > [!NOTE]
@@ -5610,6 +5884,8 @@ copySignal.onCancel();
 
 ##### CopyOptions11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拷贝进度回调监听
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -5623,6 +5899,8 @@ copySignal.onCancel();
 
 
 ##### ProgressListener11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 拷贝进度监听。
 
@@ -5652,11 +5930,15 @@ let copyOption: fileIo.CopyOptions = {
 
 ##### Stat
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件具体信息，在调用Stat的方法前，需要先通过[stat()](#fileiostat)方法（同步或异步）构建一个Stat实例。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
@@ -5683,6 +5965,8 @@ let copyOption: fileIo.CopyOptions = {
 
 
 ##### isBlockDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isBlockDevice(): boolean
 
@@ -5712,6 +5996,8 @@ let isBLockDevice = fileIo.statSync(filePath).isBlockDevice();
 
 ##### isCharacterDevice
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isCharacterDevice(): boolean
 
 判断文件是否为字符特殊文件。字符特殊设备支持随机访问，且访问时无缓存。
@@ -5739,6 +6025,8 @@ let isCharacterDevice = fileIo.statSync(filePath).isCharacterDevice();
 
 
 ##### isDirectory
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isDirectory(): boolean
 
@@ -5770,6 +6058,8 @@ let isDirectory = fileIo.statSync(dirPath).isDirectory();
 
 ##### isFIFO
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isFIFO(): boolean
 
 用于判断文件是否是命名管道（有时也称为FIFO）。命名管道通常用于进程间通信。
@@ -5797,6 +6087,8 @@ let isFIFO = fileIo.statSync(filePath).isFIFO();
 
 
 ##### isFile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFile(): boolean
 
@@ -5828,6 +6120,8 @@ let isFile = fileIo.statSync(filePath).isFile();
 
 ##### isSocket
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSocket(): boolean
 
 判断文件是否是套接字。
@@ -5855,6 +6149,8 @@ let isSocket = fileIo.statSync(filePath).isSocket();
 
 
 ##### isSymbolicLink
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSymbolicLink(): boolean
 
@@ -5884,11 +6180,15 @@ let isSymbolicLink = fileIo.statSync(filePath).isSymbolicLink();
 
 ##### Stream
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件流，在调用Stream的方法前，需要先通过[fileIo.createStream](#fileiocreatestream)方法或者[fileIo.fdopenStream](#fileiofdopenstream)（同步或异步）来构建一个Stream实例。
 
 
 
 ##### close
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 close(): Promise&lt;void&gt;
 
@@ -5926,6 +6226,8 @@ stream.close().then(() => {
 
 
 ##### close
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 close(callback: AsyncCallback&lt;void&gt;): void
 
@@ -5966,6 +6268,8 @@ stream.close((err: BusinessError) => {
 
 ##### closeSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeSync(): void
 
 同步关闭文件流。
@@ -5989,6 +6293,8 @@ stream.closeSync();
 
 
 ##### flush
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 flush(): Promise&lt;void&gt;
 
@@ -6027,6 +6333,8 @@ stream.flush().then(() => {
 
 
 ##### flush
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 flush(callback: AsyncCallback&lt;void&gt;): void
 
@@ -6068,6 +6376,8 @@ stream.flush((err: BusinessError) => {
 
 ##### flushSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 flushSync(): void
 
 同步刷新文件流。
@@ -6092,6 +6402,8 @@ stream.close();
 
 
 ##### write
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(buffer: ArrayBuffer | string, options?: WriteOptions): Promise&lt;number&gt;
 
@@ -6145,6 +6457,8 @@ stream.write("hello, world", writeOption).then((number: number) => {
 
 ##### write
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 write(buffer: ArrayBuffer | string, callback: AsyncCallback&lt;number&gt;): void
 
 将数据写入流文件。使用callback异步回调。
@@ -6187,6 +6501,8 @@ stream.write("hello, world", (err: BusinessError, bytesWritten: number) => {
 
 
 ##### write
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(buffer: ArrayBuffer | string, options: WriteOptions, callback: AsyncCallback&lt;number&gt;): void
 
@@ -6238,6 +6554,8 @@ stream.write("hello, world", writeOption, (err: BusinessError, bytesWritten: num
 
 ##### writeSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeSync(buffer: ArrayBuffer | string, options?: WriteOptions): number
 
 以同步方法将数据写入流文件。
@@ -6284,6 +6602,8 @@ stream.close();
 
 
 ##### read
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 read(buffer: ArrayBuffer, options?: ReadOptions): Promise&lt;number&gt;
 
@@ -6339,6 +6659,8 @@ stream.read(arrayBuffer, readOption).then((readLen: number) => {
 
 ##### read
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 read(buffer: ArrayBuffer, callback: AsyncCallback&lt;number&gt;): void
 
 从流文件读取数据。使用callback异步回调。
@@ -6382,6 +6704,8 @@ stream.read(arrayBuffer, (err: BusinessError, readLen: number) => {
 
 
 ##### read
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 read(buffer: ArrayBuffer, options: ReadOptions, callback: AsyncCallback&lt;number&gt;): void
 
@@ -6433,6 +6757,8 @@ stream.read(arrayBuffer, readOption, (err: BusinessError, readLen: number) => {
 
 ##### readSync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readSync(buffer: ArrayBuffer, options?: ReadOptions): number
 
 以同步方法从流文件读取数据。
@@ -6480,11 +6806,15 @@ stream.close();
 
 ##### File
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 由open接口打开的File对象。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
@@ -6498,6 +6828,8 @@ stream.close();
 
 
 ##### getParent11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getParent(): string
 
@@ -6528,6 +6860,8 @@ fileIo.closeSync(file);
 
 
 ##### lock
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 lock(exclusive?: boolean): Promise&lt;void&gt;
 
@@ -6573,6 +6907,8 @@ file.lock(true).then(() => {
 
 ##### lock
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lock(callback: AsyncCallback&lt;void&gt;): void
 
 对文件阻塞式施加共享锁。使用callback异步回调。
@@ -6610,6 +6946,8 @@ file.lock((err: BusinessError) => {
 
 
 ##### lock
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 lock(exclusive: boolean, callback: AsyncCallback&lt;void&gt;): void
 
@@ -6650,6 +6988,8 @@ file.lock(true, (err: BusinessError) => {
 
 ##### tryLock
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 tryLock(exclusive?: boolean): void
 
 文件非阻塞式施加共享锁或独占锁。
@@ -6681,6 +7021,8 @@ fileIo.closeSync(file);
 
 ##### unlock
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unlock(): void
 
 以同步方式解锁文件。
@@ -6706,6 +7048,8 @@ fileIo.closeSync(file);
 
 ##### fileIo.DfsListeners12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 事件监听类。创建DFSListener对象，用于监听分布式文件系统状态。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -6713,6 +7057,8 @@ fileIo.closeSync(file);
 
 
 ##### onStatus12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onStatus(networkId: string, status: number): void;
 
@@ -6732,11 +7078,15 @@ onStatus(networkId: string, status: number): void;
 
 ##### RandomAccessFile10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 随机读写文件流。在调用RandomAccessFile的方法前，需要先通过createRandomAccessFile()方法（同步或异步）来构建一个RandomAccessFile实例。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
@@ -6749,6 +7099,8 @@ onStatus(networkId: string, status: number): void;
 
 
 ##### setFilePointer10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFilePointer(filePointer:number): void
 
@@ -6780,6 +7132,8 @@ randomAccessFile.close();
 
 ##### close10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 以同步方式关闭RandomAccessFile对象。
@@ -6801,6 +7155,8 @@ randomAccessFile.close();
 
 
 ##### write10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(buffer: ArrayBuffer | string, options?: WriteOptions): Promise&lt;number&gt;
 
@@ -6857,6 +7213,8 @@ randomAccessFile.write(arrayBuffer, writeOption).then((bytesWritten: number) => 
 
 ##### write10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 write(buffer: ArrayBuffer | string, callback: AsyncCallback&lt;number&gt;): void
 
 将数据写入文件。使用callback异步回调。
@@ -6901,6 +7259,8 @@ randomAccessFile.write(arrayBuffer, (err: BusinessError, bytesWritten: number) =
 
 
 ##### write10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(buffer: ArrayBuffer | string, options: WriteOptions, callback: AsyncCallback&lt;number&gt;): void
 
@@ -6954,6 +7314,8 @@ randomAccessFile.write(arrayBuffer, writeOption, (err: BusinessError, bytesWritt
 
 ##### writeSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeSync(buffer: ArrayBuffer | string, options?: WriteOptions): number
 
 以同步方法将数据写入文件。
@@ -6998,6 +7360,8 @@ randomAccessFile.close();
 
 
 ##### read10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 read(buffer: ArrayBuffer, options?: ReadOptions): Promise&lt;number&gt;
 
@@ -7053,6 +7417,8 @@ randomAccessFile.read(arrayBuffer, readOption).then((readLength: number) => {
 
 ##### read10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 read(buffer: ArrayBuffer, callback: AsyncCallback&lt;number&gt;): void
 
 从文件读取数据。使用callback异步回调。
@@ -7098,6 +7464,8 @@ randomAccessFile.read(arrayBuffer, (err: BusinessError, readLength: number) => {
 
 
 ##### read10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 read(buffer: ArrayBuffer, options: ReadOptions, callback: AsyncCallback&lt;number&gt;): void
 
@@ -7150,6 +7518,8 @@ randomAccessFile.read(arrayBuffer, readOption, (err: BusinessError, readLength: 
 
 ##### readSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 readSync(buffer: ArrayBuffer, options?: ReadOptions): number
 
 以同步方法从文件读取数据。
@@ -7192,6 +7562,8 @@ fileIo.closeSync(file);
 
 ##### getReadStream12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getReadStream(): ReadStream
 
 获取当前 RandomAccessFile 的一个 ReadStream 实例。
@@ -7222,6 +7594,8 @@ randomAccessFile.close();
 
 
 ##### getWriteStream12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWriteStream(): WriteStream
 
@@ -7254,11 +7628,15 @@ randomAccessFile.close();
 
 ##### Watcher10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件目录变化监听对象。由createWatcher接口获得。
 
 
 
 ##### start10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(): void
 
@@ -7283,6 +7661,8 @@ watcher.stop();
 
 ##### stop10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): void
 
 停止监听并移除Watcher对象。
@@ -7306,6 +7686,8 @@ watcher.stop();
 
 ##### OpenMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 open接口flags参数常量。文件打开标签。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -7328,6 +7710,8 @@ open接口flags参数常量。文件打开标签。
 
 ##### Filter10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件过滤配置项，支持listFile接口使用。
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
@@ -7348,6 +7732,8 @@ open接口flags参数常量。文件打开标签。
 
 ##### ConflictFiles10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 冲突文件信息，支持copyDir及moveDir接口使用。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -7362,6 +7748,8 @@ open接口flags参数常量。文件打开标签。
 
 ##### Options11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可选项类型，支持readLines接口使用。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -7374,6 +7762,8 @@ open接口flags参数常量。文件打开标签。
 
 
 ##### WhenceType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，文件偏移指针相对偏移位置类型，支持lseek接口使用。
 
@@ -7390,6 +7780,8 @@ open接口flags参数常量。文件打开标签。
 
 ##### LocationType11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，文件位置，表示该文件是否在本地或者云端存在。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -7403,6 +7795,8 @@ open接口flags参数常量。文件打开标签。
 
 
 ##### AccessModeType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，表示需要校验的具体权限。若不填，默认校验文件是否存在。
 
@@ -7422,6 +7816,8 @@ open接口flags参数常量。文件打开标签。
 
 ##### AccessFlagType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，表示需要校验的文件位置。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -7434,6 +7830,8 @@ open接口flags参数常量。文件打开标签。
 
 
 ##### ReadOptions11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可选项类型，支持read接口使用。
 
@@ -7451,6 +7849,8 @@ open接口flags参数常量。文件打开标签。
 
 ##### ReadTextOptions11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可选项类型，支持readText接口使用，ReadTextOptions继承至[ReadOptions](#readoptions11)。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -7466,6 +7866,8 @@ open接口flags参数常量。文件打开标签。
 
 ##### WriteOptions11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可选项类型，支持write接口使用，WriteOptions继承至[Options](#options11)。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -7480,6 +7882,8 @@ open接口flags参数常量。文件打开标签。
 
 
 ##### ListFileOptions11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可选项类型，支持listFile接口使用。
 
@@ -7498,6 +7902,8 @@ open接口flags参数常量。文件打开标签。
 
 ##### ReadStream12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件可读流，需要先通过[fileIo.createReadStream](#fileiocreatereadstream12)方法来构建一个ReadStream实例。ReadStream继承自数据流基类[stream.Readable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-stream#readable)。
 
 **规格**：ReadStream读到的数据为解码后的字符串，其编码格式当前仅支持'utf-8'。
@@ -7511,6 +7917,8 @@ open接口flags参数常量。文件打开标签。
 
 
 ##### seek12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 seek(offset: number, whence?: WhenceType): number
 
@@ -7551,6 +7959,8 @@ rs.close();
 
 ##### close12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 关闭可读流。
@@ -7573,11 +7983,15 @@ rs.close();
 
 ##### WriteStream12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件可写流，需要先通过[fileIo.createWriteStream](#fileiocreatewritestream12)方法来构建一个WriteStream实例。WriteStream继承自数据流基类[stream.Writable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-stream#writable)。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
 
@@ -7590,6 +8004,8 @@ rs.close();
 
 
 ##### seek12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 seek(offset: number, whence?: WhenceType): number;
 
@@ -7630,6 +8046,8 @@ ws.close();
 
 ##### close12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 关闭可写流。
@@ -7652,6 +8070,8 @@ ws.close();
 
 ##### RandomAccessFileOptions12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可选项类型，支持 createRandomAccessFile 接口使用。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -7666,6 +8086,8 @@ ws.close();
 
 ##### ReadStreamOptions12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可选项类型，支持 createReadStream 接口使用。
 
 **系统能力**：SystemCapability.FileManagement.File.FileIO
@@ -7679,6 +8101,8 @@ ws.close();
 
 
 ##### WriteStreamOptions12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可选项类型，支持 createWriteStream 接口使用。
 

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述帧渲染信息，游戏应用获取到帧属性后传递此参数。该参数中的相机矩阵通常用于优化渲染层降负载方案的画质效果。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### mainCameraPosition
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 OpenGTX_Vector3 OpenGTX_FrameRenderInfo::mainCameraPosition
@@ -48,6 +58,8 @@ OpenGTX_Vector3 OpenGTX_FrameRenderInfo::mainCameraPosition
   
 
 ##### mainCameraRotate
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 OpenGTX_Vector3 OpenGTX_FrameRenderInfo::mainCameraRotate

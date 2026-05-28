@@ -12,6 +12,8 @@ typedef struct ContentEmbed_Storage ContentEmbed_Storage
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明OE文档Storage结构体类型。类似于文件系统中的目录，Storage对象的父对象必须是另一个Storage对象或根Storage对象。
  
 **起始版本：** 24

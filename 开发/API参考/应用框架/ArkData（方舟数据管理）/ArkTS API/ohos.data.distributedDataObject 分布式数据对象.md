@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { distributedDataObject } from '@kit.ArkData';
 ```
@@ -21,6 +23,8 @@ import { distributedDataObject } from '@kit.ArkData';
 
 
 ##### distributedDataObject.create9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(context: Context, source: object): DataObject
 
@@ -111,6 +115,8 @@ class EntryAbility extends UIAbility {
 
 ##### distributedDataObject.genSessionId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 genSessionId(): string
 
 随机创建一个sessionId。
@@ -134,6 +140,8 @@ let sessionId: string = distributedDataObject.genSessionId();
 
 ##### SaveSuccessResponse9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [save](#save9)接口回调信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -149,6 +157,8 @@ let sessionId: string = distributedDataObject.genSessionId();
 
 ##### RevokeSaveSuccessResponse9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [revokeSave](#revokesave9)接口回调信息。
 
 **系统能力：** SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -161,6 +171,8 @@ let sessionId: string = distributedDataObject.genSessionId();
 
 
 ##### BindInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 数据库的绑定信息。当前版本只支持关系型数据库的绑定。
 
@@ -179,6 +191,8 @@ let sessionId: string = distributedDataObject.genSessionId();
 
 ##### DataObserver20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type DataObserver = (sessionId: string, fields: Array&lt;string&gt;) => void
 
 定义获取分布式对象数据变更的监听回调函数。
@@ -196,6 +210,8 @@ type DataObserver = (sessionId: string, fields: Array&lt;string&gt;) => void
 
 
 ##### StatusObserver20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type StatusObserver = (sessionId: string, networkId: string, status: string) => void
 
@@ -216,6 +232,8 @@ type StatusObserver = (sessionId: string, networkId: string, status: string) => 
 
 ##### ProgressObserver20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ProgressObserver = (sessionId: string, progress: number) => void
 
 定义传输进度的监听回调函数。
@@ -234,11 +252,15 @@ type ProgressObserver = (sessionId: string, progress: number) => void
 
 ##### DataObject
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示一个分布式数据对象。在使用以下接口前，需调用[create()](#distributeddataobjectcreate9)获取DataObject对象。
 
 
 
 ##### setSessionId9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSessionId(sessionId: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -283,6 +305,8 @@ g_object.setSessionId("", ()=>{
 
 
 ##### setSessionId9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSessionId(callback: AsyncCallback&lt;void&gt;): void
 
@@ -329,6 +353,8 @@ g_object.setSessionId(() => {
 
 
 ##### setSessionId9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSessionId(sessionId?: string): Promise&lt;void&gt;
 
@@ -384,6 +410,8 @@ g_object.setSessionId().then (()=>{
 
 ##### on('change')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'change', callback: (sessionId: string, fields: Array&lt;string&gt;) => void): void
 
 监听分布式数据对象的数据变更。
@@ -423,6 +451,8 @@ g_object.on("change", (sessionId: string, fields: Array<string>) => {
 
 
 ##### off('change')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'change', callback?: (sessionId: string, fields: Array&lt;string&gt;) => void): void
 
@@ -467,6 +497,8 @@ g_object.off("change");
 
 ##### on('status')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'status', callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void): void
 
 监听分布式数据对象的上下线。
@@ -501,6 +533,8 @@ g_object.on("status", (sessionId: string, networkId: string, status: 'online' | 
 
 
 ##### off('status')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'status', callback?:(sessionId: string, networkId: string, status: 'online' | 'offline') => void): void
 
@@ -539,6 +573,8 @@ g_object.off("status");
 
 
 ##### save9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 save(deviceId: string, callback: AsyncCallback&lt;SaveSuccessResponse&gt;): void
 
@@ -593,6 +629,8 @@ g_object.save("local", (err: BusinessError, result:distributedDataObject.SaveSuc
 
 
 ##### save9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 save(deviceId: string): Promise&lt;SaveSuccessResponse&gt;
 
@@ -651,6 +689,8 @@ g_object.save("local").then((callbackInfo: distributedDataObject.SaveSuccessResp
 
 
 ##### revokeSave9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 revokeSave(callback: AsyncCallback&lt;RevokeSaveSuccessResponse&gt;): void
 
@@ -711,6 +751,8 @@ g_object.revokeSave((err: BusinessError, result: distributedDataObject.RevokeSav
 
 ##### revokeSave9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 revokeSave(): Promise&lt;RevokeSaveSuccessResponse&gt;
 
 撤回保存的分布式数据对象。使用Promise方式作为异步方法。
@@ -764,6 +806,8 @@ g_object.revokeSave().then((result: distributedDataObject.RevokeSaveSuccessRespo
 
 
 ##### bindAssetStore11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback&lt;void&gt;): void
 
@@ -850,6 +894,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### bindAssetStore11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise&lt;void&gt;
 
@@ -942,6 +988,8 @@ class EntryAbility extends UIAbility {
 
 ##### on('change')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'change', callback: DataObserver): void
 
 监听分布式对象的数据变更。
@@ -977,6 +1025,8 @@ try {
 
 
 ##### off('change')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'change', callback?: DataObserver): void
 
@@ -1031,6 +1081,8 @@ try {
 
 ##### on('status')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'status', callback: StatusObserver): void
 
 监听分布式对象的状态变更。
@@ -1061,6 +1113,8 @@ try {
 
 
 ##### off('status')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'status', callback?: StatusObserver): void
 
@@ -1104,6 +1158,8 @@ try {
 
 ##### on('progressChanged')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'progressChanged', callback: ProgressObserver): void
 
 监听资产传输进度。
@@ -1135,6 +1191,8 @@ try {
 
 
 ##### off('progressChanged')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'progressChanged', callback?: ProgressObserver): void
 
@@ -1180,12 +1238,14 @@ try {
 
 ##### setAsset20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAsset(assetKey: string, uri: string): Promise&lt;void&gt;
 
 设置分布式对象中的单个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/cO0ZI0OyTjWeaFzHJIGbrw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013942Z&HW-CC-Expire=86400&HW-CC-Sign=8F9022E054390484B5831367BEC4CBEEAECAE847C7012B2935433C644781B794)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/cO0ZI0OyTjWeaFzHJIGbrw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024237Z&HW-CC-Expire=86400&HW-CC-Sign=382FDC70E26668D23F8D5341FB0E0AB25E63BF825B236B07D0743C8E2BC73300)
 
 
 在设置资产时必须保证assetKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
@@ -1279,12 +1339,14 @@ class EntryAbility extends UIAbility {
 
 ##### setAssets20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAssets(assetsKey: string, uris: Array&lt;string&gt;): Promise&lt;void&gt;
 
 设置分布式对象中的多个资产的属性信息，该接口必须在[setSessionId](#setsessionid9-2)接口调用前使用。uris数组的数量范围为1-50。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/cXHYskGwRfWCgxEdK78_hQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013942Z&HW-CC-Expire=86400&HW-CC-Sign=5A3259BA89020FAFF95BFC425629D83DEEFF68572EA833FA9BA248DA69A68945)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/cXHYskGwRfWCgxEdK78_hQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024237Z&HW-CC-Expire=86400&HW-CC-Sign=57026FAD14389DA98B7AD4AEB3C12161C9EF0D6CEAF10DCC9392870E44A65404)
 
 
 在设置资产时必须保证assetsKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
@@ -1380,6 +1442,8 @@ class EntryAbility extends UIAbility {
 
 ##### distributedDataObject.createDistributedObject(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createDistributedObject(source: object): DistributedObject
 
 创建一个分布式数据对象。
@@ -1427,11 +1491,15 @@ let g_object: distributedDataObject.DistributedObject = distributedDataObject.cr
 
 ##### DistributedObject(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示一个分布式数据对象。在使用以下接口前，需调用[createDistributedObject()](#distributeddataobjectcreatedistributedobjectdeprecated)获取DistributedObject对象。
 
 
 
 ##### setSessionId(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSessionId(sessionId?: string): boolean
 
@@ -1486,6 +1554,8 @@ g_object.setSessionId("");
 
 ##### on('change')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'change', callback: (sessionId: string, fields: Array&lt;string&gt;) => void): void
 
 监听分布式数据对象的变更。
@@ -1534,6 +1604,8 @@ g_object.on("change", (sessionId: string, fields: Array<string>) => {
 
 
 ##### off('change')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'change', callback?: (sessionId: string, fields: Array&lt;string&gt;) => void): void
 
@@ -1587,6 +1659,8 @@ g_object.off("change");
 
 ##### on('status')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'status', callback: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void): void
 
 监听分布式数据对象的上下线。
@@ -1631,6 +1705,8 @@ g_object.on("status", (sessionId: string, networkId: string, status: 'online' | 
 
 
 ##### off('status')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'status', callback?: (sessionId: string, networkId: string, status: 'online' | 'offline' ) => void): void
 

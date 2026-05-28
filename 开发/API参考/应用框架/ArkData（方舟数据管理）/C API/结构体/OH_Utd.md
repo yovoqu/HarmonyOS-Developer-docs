@@ -12,6 +12,8 @@ typedef struct OH_Utd OH_Utd
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 统一数据类型描述符。
  
 **起始版本：** 12

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { process } from '@kit.ArkTS';
 ```
@@ -21,6 +23,8 @@ import { process } from '@kit.ArkTS';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -36,6 +40,8 @@ import { process } from '@kit.ArkTS';
 
 
 ##### EventListener
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type EventListener = (evt: Object) => void
 
@@ -55,6 +61,8 @@ type EventListener = (evt: Object) => void
 
 
 ##### process.isIsolatedProcess8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isIsolatedProcess(): boolean
 
@@ -81,6 +89,8 @@ let result = process.isIsolatedProcess();
 
 ##### process.is64Bit8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 is64Bit(): boolean
 
 检查运行环境是否为64位。
@@ -105,6 +115,8 @@ let result = process.is64Bit();
 
 
 ##### process.getStartRealtime8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStartRealtime(): number
 
@@ -131,6 +143,8 @@ let realtime = process.getStartRealtime();
 
 ##### process.getPastCpuTime8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPastCpuTime(): number
 
 获取进程启动到当前时间的CPU时间（以毫秒为单位）。
@@ -156,6 +170,8 @@ let result = process.getPastCpuTime();
 
 ##### process.abort
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 abort(): void
 
 该方法会导致进程立即退出并生成一个核心文件，谨慎使用。
@@ -173,6 +189,8 @@ process.abort();
 
 
 ##### process.uptime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 uptime(): number
 
@@ -198,6 +216,8 @@ let time = process.uptime();
 
 
 ##### process.kill(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 kill(signal: number, pid: number): boolean
 
@@ -235,6 +255,8 @@ let result = process.kill(28, pres);
 
 ##### process.exit(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 exit(code: number): void
 
 终止程序。
@@ -263,6 +285,8 @@ process.exit(0);
 
 
 ##### process.getUidForName(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUidForName(v: string): number
 
@@ -297,6 +321,8 @@ let pres = process.getUidForName("tool");
 
 
 ##### process.getThreadPriority(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getThreadPriority(v: number): number
 
@@ -333,6 +359,8 @@ let pres = process.getThreadPriority(tid);
 
 ##### process.isAppUid(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isAppUid(v: number): boolean
 
 判断uid是否属于应用程序。
@@ -366,6 +394,8 @@ let result = process.isAppUid(688);
 
 
 ##### process.getSystemConfig(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSystemConfig(name: number): number
 
@@ -402,6 +432,8 @@ let pres = process.getSystemConfig(_SC_ARG_MAX);
 
 ##### process.getEnvironmentVar(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getEnvironmentVar(name: string): string
 
 获取环境变量名对应的值。
@@ -436,6 +468,8 @@ let pres = process.getEnvironmentVar("PATH");
 
 ##### ProcessManager9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供进程管理相关接口，包括进程UID判断、用户信息查询、线程优先级获取、环境变量获取、进程退出和信号发送等功能。
 
 通过new process.ProcessManager()构造ProcessManager对象。
@@ -443,6 +477,8 @@ let pres = process.getEnvironmentVar("PATH");
 
 
 ##### isAppUid9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isAppUid(v: number): boolean
 
@@ -489,6 +525,8 @@ console.info("result: " + result); // result: true
 
 ##### getUidForName9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUidForName(v: string): number
 
 根据指定的用户名，从系统的用户数据库中获取该用户uid。
@@ -530,6 +568,8 @@ let pres = pro.getUidForName("tool");
 
 
 ##### getThreadPriority9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getThreadPriority(v: number): number
 
@@ -574,6 +614,8 @@ let pres = pro.getThreadPriority(tid);
 
 ##### getSystemConfig9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSystemConfig(name: number): number
 
 获取系统配置信息。
@@ -617,6 +659,8 @@ let pres = pro.getSystemConfig(_SC_ARG_MAX);
 
 ##### getEnvironmentVar9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getEnvironmentVar(name: string): string
 
 获取环境变量对应的值。
@@ -659,6 +703,8 @@ let pres = pro.getEnvironmentVar("PATH");
 
 ##### exit9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 exit(code: number): void
 
 终止程序。
@@ -695,6 +741,8 @@ pro.exit(0);
 
 
 ##### kill9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 kill(signal: number, pid: number): boolean
 

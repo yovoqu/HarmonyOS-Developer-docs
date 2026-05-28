@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { gamePlayer } from '@kit.GameServiceKit';
 ```
@@ -19,6 +21,8 @@ import { gamePlayer } from '@kit.GameServiceKit';
   
 
 ##### GSKLocalPlayer
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 玩家信息类。
  
@@ -40,6 +44,8 @@ import { gamePlayer } from '@kit.GameServiceKit';
 
 ##### GSKPlayerRole
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 玩家角色信息类。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -47,7 +53,7 @@ import { gamePlayer } from '@kit.GameServiceKit';
 **起始版本：** 4.0.0(10)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/ekTuRyOqQ_SFdj7eM6DshQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013412Z&HW-CC-Expire=86400&HW-CC-Sign=E7B6E842D80E6FCB981DB8EFDB4C2BF6832771E91C020008C1794C917A46072B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/ekTuRyOqQ_SFdj7eM6DshQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023716Z&HW-CC-Expire=86400&HW-CC-Sign=C6C4A17F82BA3706F400F9941739ACC6FFE2782C37A8196BFAC5E69179BF0971)
  
  
 gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
@@ -68,6 +74,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 
 ##### ThirdUserInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 账号合规信息类。
  
@@ -91,6 +99,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 ##### UnionLoginParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 联合登录参数。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -107,6 +117,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 
 ##### ThirdAccountInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 游戏官方账号信息。
  
@@ -126,6 +138,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 ##### BoundPlayerInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 绑定信息类。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -142,6 +156,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 ##### BindType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 账号绑定枚举类。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -157,6 +173,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 
 ##### UnionLoginResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 联合登录结果。
  
@@ -177,6 +195,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 ##### PlayerChangedResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 玩家变化结果。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -193,6 +213,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 ##### PlayerChangedEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 玩家变化事件枚举类。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -207,6 +229,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 
 ##### ThirdUserAgeRange
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 游戏官方账号的年龄信息枚举类。
  
@@ -228,6 +252,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 ##### LoginPanelType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 登录面板枚举类。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -243,6 +269,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 
 ##### GameErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 错误码枚举类。
  
@@ -288,6 +316,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 
 ##### gamePlayer.init
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 init(context: common.UIAbilityContext): Promise&lt;void&gt;
  
@@ -340,6 +370,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### gamePlayer.init
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 init(context: common.UIAbilityContext, callback: AsyncCallback&lt;void&gt;): void
  
 游戏启动时，需要对Game Service Kit进行初始化。使用callback异步回调。
@@ -384,6 +416,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### gamePlayer.unionLogin
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 unionLogin(context: common.UIAbilityContext, loginParam: UnionLoginParam): Promise&lt;UnionLoginResult&gt;
  
@@ -483,6 +517,8 @@ struct UnionLogin {
 
 ##### gamePlayer.getLocalPlayer
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getLocalPlayer(context: common.UIAbilityContext): Promise&lt;GSKLocalPlayer&gt;
  
 获取玩家信息。使用Promise异步回调。
@@ -567,6 +603,8 @@ struct GetLocalPlayer {
 
 ##### gamePlayer.getLocalPlayer
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getLocalPlayer(context: common.UIAbilityContext, callback: AsyncCallback&lt;GSKLocalPlayer&gt;): void
  
 获取玩家信息。使用callback异步回调。
@@ -646,6 +684,8 @@ struct GetLocalPlayer {
   
 
 ##### gamePlayer.bindPlayer
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 bindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: string): Promise&lt;void&gt;
  
@@ -734,6 +774,8 @@ struct BindPlayer {
 
 ##### gamePlayer.unbindPlayer
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 unbindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: string): Promise&lt;void&gt;
  
 将玩家华为账号对应的teamPlayerId与游戏官方账号解绑。使用Promise异步回调。
@@ -820,6 +862,8 @@ struct UnbindPlayer {
   
 
 ##### gamePlayer.verifyLocalPlayer
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 verifyLocalPlayer(context: common.UIAbilityContext, thirdUserInfo: ThirdUserInfo): Promise&lt;void&gt;
  
@@ -912,6 +956,8 @@ struct VerifyLocalPlayer {
 
 ##### gamePlayer.savePlayerRole
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 savePlayerRole(context: common.UIAbilityContext, request: GSKPlayerRole): Promise&lt;void&gt;
  
 保存角色信息到游戏服务器。使用Promise异步回调。
@@ -984,6 +1030,8 @@ struct SavePlayerRole {
 
 ##### gamePlayer.savePlayerRole
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 savePlayerRole(context: common.UIAbilityContext, request: GSKPlayerRole, callback: AsyncCallback&lt;void&gt;): void
  
 保存角色信息到游戏服务器。使用callback异步回调。
@@ -1050,6 +1098,8 @@ struct SavePlayerRole {
 
 ##### gamePlayer.on('playerChanged')
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 on(type: 'playerChanged', callback: Callback&lt;PlayerChangedResult&gt;): void
  
 玩家变化事件监听。使用callback异步回调。
@@ -1101,6 +1151,8 @@ try {
   
 
 ##### gamePlayer.off('playerChanged')
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'playerChanged', callback?: Callback&lt;PlayerChangedResult&gt;): void
  
@@ -1169,6 +1221,8 @@ try {
 
 ##### MiniGameLoginParam
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 小游戏登录信息。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -1184,6 +1238,8 @@ try {
   
 
 ##### MiniGamePlayer
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 小游戏玩家信息。
  
@@ -1204,6 +1260,8 @@ try {
   
 
 ##### gamePlayer.on('miniGameAddictionPrevented')
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'miniGameAddictionPrevented', callback: Callback&lt;string&gt;): void
  
@@ -1254,6 +1312,8 @@ try {
   
 
 ##### gamePlayer.off('miniGameAddictionPrevented')
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'miniGameAddictionPrevented', callback?: Callback&lt;string&gt;): void
  
@@ -1319,6 +1379,8 @@ try {
   
 
 ##### gamePlayer.miniGameLogin
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 miniGameLogin(context: common.Context, loginParam: MiniGameLoginParam): Promise&lt;MiniGamePlayer&gt;
  
@@ -1408,6 +1470,8 @@ struct MiniGameLogin {
   
 
 ##### gamePlayer.miniGamePay
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 miniGamePay(context: common.Context, parameter: PurchaseParameter): Promise&lt;CreatePurchaseResult&gt;
  
@@ -1504,6 +1568,8 @@ struct MiniGamePay {
 
 ##### PurchaseParameter
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 购买商品参数，仅供IAP Kit和小游戏使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -1522,6 +1588,8 @@ struct MiniGamePay {
 
 ##### ProductType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 商品类型，仅供IAP Kit和小游戏使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -1539,6 +1607,8 @@ struct MiniGamePay {
 
 ##### PurchaseResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 订购商品结果信息，仅供IAP Kit使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
@@ -1555,6 +1625,8 @@ struct MiniGamePay {
   
 
 ##### CreatePurchaseResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 创建商品结果信息，仅供IAP Kit和小游戏使用。
  

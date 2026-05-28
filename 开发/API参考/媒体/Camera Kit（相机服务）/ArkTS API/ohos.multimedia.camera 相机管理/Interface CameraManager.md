@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
 
 
 ##### getSupportedCameras
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSupportedCameras(): Array&lt;CameraDevice&gt;
 
@@ -57,6 +61,8 @@ function getSupportedCameras(cameraManager: camera.CameraManager): Array<camera.
 
 
 ##### getSupportedSceneModes11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSupportedSceneModes(camera: CameraDevice): Array&lt;SceneMode&gt;
 
@@ -101,6 +107,8 @@ function getSupportedSceneModes(cameraManager: camera.CameraManager, camera: cam
 
 ##### getSupportedOutputCapability11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSupportedOutputCapability(camera: CameraDevice, mode: SceneMode): CameraOutputCapability
 
 查询相机设备在指定模式下支持的输出能力，同步返回结果。
@@ -136,6 +144,8 @@ function getSupportedOutputCapability(camera: camera.CameraDevice, cameraManager
 
 
 ##### getSupportedFullOutputCapability23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSupportedFullOutputCapability(camera: CameraDevice, mode: SceneMode): CameraOutputCapability
 
@@ -181,6 +191,8 @@ function getSupportedFullOutputCapability(camera: camera.CameraDevice, cameraMan
 
 ##### isCameraMuted
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isCameraMuted(): boolean
 
 查询当前相机是否禁用。
@@ -208,6 +220,8 @@ function isCameraMuted(cameraManager: camera.CameraManager): boolean {
 
 
 ##### createCameraInput
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createCameraInput(camera: CameraDevice): CameraInput
 
@@ -267,6 +281,8 @@ function createCameraInput(camera: camera.CameraDevice, cameraManager: camera.Ca
 
 
 ##### createCameraInput
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createCameraInput(position: CameraPosition, type: CameraType): CameraInput
 
@@ -330,6 +346,8 @@ function createCameraInput(camera: camera.CameraDevice, cameraManager: camera.Ca
 
 ##### createPreviewOutput
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput
 
 创建预览输出对象，同步返回结果。
@@ -386,6 +404,8 @@ function createPreviewOutput(cameraOutputCapability: camera.CameraOutputCapabili
 
 ##### createPreviewOutput12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPreviewOutput(surfaceId: string): PreviewOutput
 
 创建无配置信息的预览输出对象，同步返回结果。该接口需配合[preconfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession#preconfig12)一起使用。
@@ -439,6 +459,8 @@ function createPreviewOutput(cameraManager: camera.CameraManager, surfaceId: str
 
 
 ##### createDeferredPreviewOutput24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createDeferredPreviewOutput(profile: Profile): PreviewOutput
 
@@ -495,6 +517,8 @@ function createPreviewOutput(cameraOutputCapability: camera.CameraOutputCapabili
 
 ##### createPhotoOutput11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPhotoOutput(profile?: Profile): PhotoOutput
 
 创建拍照输出对象，同步返回结果。
@@ -549,6 +573,8 @@ function createPhotoOutput(cameraOutputCapability: camera.CameraOutputCapability
 
 
 ##### createVideoOutput
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput
 
@@ -614,6 +640,8 @@ function createVideoOutput(cameraOutputCapability: camera.CameraOutputCapability
 
 ##### createVideoOutput12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createVideoOutput(surfaceId: string): VideoOutput
 
 创建无配置信息的录像输出对象，同步返回结果。该接口需配合[preconfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession#preconfig12)功能一起使用。
@@ -667,6 +695,8 @@ function createVideoOutput(cameraManager: camera.CameraManager, surfaceId: strin
 
 
 ##### createMetadataOutput
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createMetadataOutput(metadataObjectTypes: Array&lt;MetadataObjectType&gt;): MetadataOutput
 
@@ -722,6 +752,8 @@ function createMetadataOutput(cameraManager: camera.CameraManager, cameraOutputC
 
 ##### createSession11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createSession<T extends Session>(mode: SceneMode): T
 
 创建指定SceneMode的Session实例，同步返回结果。
@@ -776,6 +808,8 @@ function createSession(cameraManager: camera.CameraManager, mode: camera.SceneMo
 
 ##### on('cameraStatus')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'cameraStatus', callback: AsyncCallback&lt;CameraStatusInfo&gt;): void
 
 相机设备状态回调，通过注册回调函数获取相机的状态变化。使用callback异步回调。
@@ -819,6 +853,8 @@ function registerCameraStatus(cameraManager: camera.CameraManager): void {
 
 ##### off('cameraStatus')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'cameraStatus', callback?: AsyncCallback&lt;CameraStatusInfo&gt;): void
 
 相机设备状态注销回调，通过注销回调函数取消获取相机的状态变化。
@@ -846,6 +882,8 @@ function unregisterCameraStatus(cameraManager: camera.CameraManager): void {
 
 
 ##### on('foldStatusChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'foldStatusChange', callback: AsyncCallback&lt;FoldStatusInfo&gt;): void
 
@@ -890,6 +928,8 @@ function registerFoldStatusChange(cameraManager: camera.CameraManager): void {
 
 ##### off('foldStatusChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'foldStatusChange', callback?: AsyncCallback&lt;FoldStatusInfo&gt;): void
 
 关闭折叠设备折叠状态变化的监听。
@@ -918,6 +958,8 @@ function unregisterFoldStatusChange(cameraManager: camera.CameraManager): void {
 
 ##### isTorchSupported11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isTorchSupported(): boolean
 
 检测设备是否支持手电筒。
@@ -945,6 +987,8 @@ function isTorchSupported(cameraManager: camera.CameraManager): boolean {
 
 
 ##### isTorchModeSupported11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isTorchModeSupported(mode: TorchMode): boolean
 
@@ -981,6 +1025,8 @@ function isTorchModeSupported(cameraManager: camera.CameraManager, torchMode: ca
 
 ##### getTorchMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTorchMode(): TorchMode
 
 获取当前设备手电筒模式。
@@ -1009,6 +1055,8 @@ function getTorchMode(cameraManager: camera.CameraManager): camera.TorchMode | u
 
 
 ##### setTorchMode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTorchMode(mode: TorchMode): void
 
@@ -1055,6 +1103,8 @@ function setTorchMode(cameraManager: camera.CameraManager, torchMode: camera.Tor
 
 ##### on('torchStatusChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'torchStatusChange', callback: AsyncCallback&lt;TorchStatusInfo&gt;): void
 
 手电筒状态变化回调，通过注册回调函数获取手电筒状态变化。使用callback异步回调。
@@ -1097,6 +1147,8 @@ function registerTorchStatusChange(cameraManager: camera.CameraManager): void {
 
 ##### off('torchStatusChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'torchStatusChange', callback?: AsyncCallback&lt;TorchStatusInfo&gt;): void
 
 手电筒状态变化注销回调，通过注销回调函数取消获取手电筒状态变化。
@@ -1124,6 +1176,8 @@ function unregisterTorchStatusChange(cameraManager: camera.CameraManager): void 
 
 
 ##### getCameraDevice18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCameraDevice(position: CameraPosition, type: CameraType): CameraDevice
 
@@ -1181,6 +1235,8 @@ function getCameraDevice(cameraManager: camera.CameraManager, position: camera.C
 
 ##### getCameraDevices23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCameraDevices(position: CameraPosition, types: Array&lt;CameraType&gt;, connectType: ConnectionType): Array&lt;CameraDevice&gt;
 
 根据相机位置、相机类型数组和连接类型查询符合条件的相机列表。
@@ -1235,6 +1291,8 @@ function getCameraDevices(cameraManager: camera.CameraManager, position: camera.
 
 
 ##### getCameraConcurrentInfos18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCameraConcurrentInfos(cameras: Array&lt;CameraDevice&gt;): Array&lt;CameraConcurrentInfo&gt;
 
@@ -1291,6 +1349,8 @@ function getCameraConcurrentInfos(cameraManager: camera.CameraManager,
 
 ##### getSupportedOutputCapability(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSupportedOutputCapability(camera: CameraDevice): CameraOutputCapability
 
 查询相机设备支持的输出能力，同步返回结果。
@@ -1327,6 +1387,8 @@ function getSupportedOutputCapability(camera: camera.CameraDevice, cameraManager
 
 
 ##### createPhotoOutput(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPhotoOutput(profile: Profile, surfaceId: string): PhotoOutput
 
@@ -1382,6 +1444,8 @@ function createPhotoOutput(cameraOutputCapability: camera.CameraOutputCapability
 
 
 ##### createCaptureSession(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createCaptureSession(): CaptureSession
 

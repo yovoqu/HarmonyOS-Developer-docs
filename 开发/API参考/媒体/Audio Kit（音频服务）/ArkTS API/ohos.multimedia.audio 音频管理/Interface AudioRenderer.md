@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Audio.Renderer
 
@@ -42,6 +46,8 @@ let state: audio.AudioState = audioRenderer.state;
 
 
 ##### getRendererInfo8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRendererInfo(callback: AsyncCallback&lt;AudioRendererInfo&gt;): void
 
@@ -74,6 +80,8 @@ audioRenderer.getRendererInfo((err: BusinessError, audioRendererInfo: audio.Audi
 
 ##### getRendererInfo8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRendererInfo(): Promise&lt;AudioRendererInfo&gt;
 
 获取当前创建的音频渲染器信息。使用Promise异步回调。
@@ -102,6 +110,8 @@ audioRenderer.getRendererInfo().then((audioRendererInfo: audio.AudioRendererInfo
 
 
 ##### getRendererInfoSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRendererInfoSync(): AudioRendererInfo
 
@@ -134,6 +144,8 @@ try {
 
 ##### getStreamInfo8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStreamInfo(callback: AsyncCallback&lt;AudioStreamInfo&gt;): void
 
 获取音频流信息。使用callback异步回调。
@@ -164,6 +176,8 @@ audioRenderer.getStreamInfo((err: BusinessError, streamInfo: audio.AudioStreamIn
 
 
 ##### getStreamInfo8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStreamInfo(): Promise&lt;AudioStreamInfo&gt;
 
@@ -197,6 +211,8 @@ audioRenderer.getStreamInfo().then((streamInfo: audio.AudioStreamInfo) => {
 
 
 ##### getStreamInfoSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStreamInfoSync(): AudioStreamInfo
 
@@ -232,6 +248,8 @@ try {
 
 ##### getAudioStreamId9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioStreamId(callback: AsyncCallback&lt;number&gt;): void
 
 获取音频流id。使用callback异步回调。
@@ -258,6 +276,8 @@ audioRenderer.getAudioStreamId((err: BusinessError, streamId: number) => {
 
 
 ##### getAudioStreamId9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioStreamId(): Promise&lt;number&gt;
 
@@ -287,6 +307,8 @@ audioRenderer.getAudioStreamId().then((streamId: number) => {
 
 
 ##### getAudioStreamIdSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioStreamIdSync(): number
 
@@ -318,6 +340,8 @@ try {
 
 
 ##### setAudioEffectMode10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAudioEffectMode(mode: AudioEffectMode, callback: AsyncCallback&lt;void&gt;): void
 
@@ -360,6 +384,8 @@ audioRenderer.setAudioEffectMode(audio.AudioEffectMode.EFFECT_DEFAULT, (err: Bus
 
 
 ##### setAudioEffectMode10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAudioEffectMode(mode: AudioEffectMode): Promise&lt;void&gt;
 
@@ -407,6 +433,8 @@ audioRenderer.setAudioEffectMode(audio.AudioEffectMode.EFFECT_DEFAULT).then(() =
 
 ##### getAudioEffectMode10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioEffectMode(callback: AsyncCallback&lt;AudioEffectMode&gt;): void
 
 获取当前音效模式。使用callback异步回调。
@@ -438,6 +466,8 @@ audioRenderer.getAudioEffectMode((err: BusinessError, effectMode: audio.AudioEff
 
 ##### getAudioEffectMode10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioEffectMode(): Promise&lt;AudioEffectMode&gt;
 
 获取当前音效模式。使用Promise异步回调。
@@ -466,6 +496,8 @@ audioRenderer.getAudioEffectMode().then((effectMode: audio.AudioEffectMode) => {
 
 
 ##### start8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(callback: AsyncCallback&lt;void&gt;): void
 
@@ -498,6 +530,8 @@ audioRenderer.start((err: BusinessError) => {
 
 ##### start8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(): Promise&lt;void&gt;
 
 启动音频渲染器。使用Promise异步回调。
@@ -526,6 +560,8 @@ audioRenderer.start().then(() => {
 
 
 ##### pause8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pause(callback: AsyncCallback&lt;void&gt;): void
 
@@ -558,6 +594,8 @@ audioRenderer.pause((err: BusinessError) => {
 
 ##### pause8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pause(): Promise&lt;void&gt;
 
 暂停音频渲染。使用Promise异步回调。
@@ -586,6 +624,8 @@ audioRenderer.pause().then(() => {
 
 
 ##### drain8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drain(callback: AsyncCallback&lt;void&gt;): void
 
@@ -618,6 +658,8 @@ audioRenderer.drain((err: BusinessError) => {
 
 ##### drain8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drain(): Promise&lt;void&gt;
 
 检查缓冲区是否已被耗尽。使用Promise异步回调。
@@ -646,6 +688,8 @@ audioRenderer.drain().then(() => {
 
 
 ##### flush11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 flush(): Promise&lt;void&gt;
 
@@ -685,6 +729,8 @@ audioRenderer.flush().then(() => {
 
 ##### stop8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(callback: AsyncCallback&lt;void&gt;): void
 
 停止音频渲染。使用callback异步回调。
@@ -716,6 +762,8 @@ audioRenderer.stop((err: BusinessError) => {
 
 ##### stop8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
 
 停止音频渲染。使用Promise异步回调。
@@ -744,6 +792,8 @@ audioRenderer.stop().then(() => {
 
 
 ##### release8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(callback: AsyncCallback&lt;void&gt;): void
 
@@ -776,6 +826,8 @@ audioRenderer.release((err: BusinessError) => {
 
 ##### release8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放音频渲染器。使用Promise异步回调。
@@ -805,6 +857,8 @@ audioRenderer.release().then(() => {
 
 ##### getAudioTime8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioTime(callback: AsyncCallback&lt;number&gt;): void
 
 获取当前播放位置的时间戳（从1970年1月1日开始），单位为纳秒。使用callback异步回调。
@@ -831,6 +885,8 @@ audioRenderer.getAudioTime((err: BusinessError, timestamp: number) => {
 
 
 ##### getAudioTime8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioTime(): Promise&lt;number&gt;
 
@@ -860,6 +916,8 @@ audioRenderer.getAudioTime().then((timestamp: number) => {
 
 
 ##### getAudioTimeSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioTimeSync(): number
 
@@ -891,6 +949,8 @@ try {
 
 
 ##### getAudioTimestampInfo19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAudioTimestampInfo(): Promise&lt;AudioTimestampInfo&gt;
 
@@ -936,6 +996,8 @@ audioRenderer.getAudioTimestampInfo().then((audioTimestampInfo: audio.AudioTimes
 
 ##### getAudioTimestampInfoSync19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAudioTimestampInfoSync(): AudioTimestampInfo
 
 获取音频流时间戳和当前数据帧位置信息。同步返回结果。
@@ -975,6 +1037,8 @@ try {
 
 
 ##### getLatency23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLatency(type: AudioLatencyType): number
 
@@ -1031,6 +1095,8 @@ try {
 
 ##### getBufferSize8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBufferSize(callback: AsyncCallback&lt;number&gt;): void
 
 获取音频渲染器的最小缓冲区大小。使用callback异步回调。
@@ -1065,6 +1131,8 @@ audioRenderer.getBufferSize((err: BusinessError, data: number) => {
 
 ##### getBufferSize8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBufferSize(): Promise&lt;number&gt;
 
 获取音频渲染器的最小缓冲区大小。使用Promise异步回调。
@@ -1096,6 +1164,8 @@ audioRenderer.getBufferSize().then((data: number) => {
 
 
 ##### getBufferSizeSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBufferSizeSync(): number
 
@@ -1130,6 +1200,8 @@ try {
 
 ##### setSpeed11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSpeed(speed: number): void
 
 设置播放倍速。
@@ -1163,6 +1235,8 @@ audioRenderer.setSpeed(1.5);
 
 ##### getSpeed11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSpeed(): number
 
 获取播放倍速。
@@ -1185,6 +1259,8 @@ let speed = audioRenderer.getSpeed();
 
 
 ##### setInterruptMode9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setInterruptMode(mode: InterruptMode): Promise&lt;void&gt;
 
@@ -1224,6 +1300,8 @@ audioRenderer.setInterruptMode(mode).then(() => {
 
 ##### setInterruptMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setInterruptMode(mode: InterruptMode, callback: AsyncCallback&lt;void&gt;): void
 
 设置应用的焦点模型。使用callback异步回调。
@@ -1256,6 +1334,8 @@ audioRenderer.setInterruptMode(mode, (err: BusinessError) => {
 
 
 ##### setInterruptModeSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setInterruptModeSync(mode: InterruptMode): void
 
@@ -1298,6 +1378,8 @@ try {
 
 ##### setVolume9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVolume(volume: number): Promise&lt;void&gt;
 
 设置音频流的音量。使用Promise异步回调。
@@ -1334,6 +1416,8 @@ audioRenderer.setVolume(0.5).then(() => {
 
 ##### setVolume9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVolume(volume: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置音频流的音量。使用callback异步回调。
@@ -1366,6 +1450,8 @@ audioRenderer.setVolume(0.5, (err: BusinessError) => {
 
 ##### getVolume12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getVolume(): number
 
 获取音频流的音量。同步返回结果。
@@ -1396,6 +1482,8 @@ try {
 
 
 ##### getMinStreamVolume10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMinStreamVolume(callback: AsyncCallback&lt;number&gt;): void
 
@@ -1428,6 +1516,8 @@ audioRenderer.getMinStreamVolume((err: BusinessError, minVolume: number) => {
 
 ##### getMinStreamVolume10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMinStreamVolume(): Promise&lt;number&gt;
 
 获取音频流的最小音量。使用Promise异步回调。
@@ -1456,6 +1546,8 @@ audioRenderer.getMinStreamVolume().then((value: number) => {
 
 
 ##### getMinStreamVolumeSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMinStreamVolumeSync(): number
 
@@ -1488,6 +1580,8 @@ try {
 
 ##### getMaxStreamVolume10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxStreamVolume(callback: AsyncCallback&lt;number&gt;): void
 
 获取音频流的最大音量。使用callback异步回调。
@@ -1519,6 +1613,8 @@ audioRenderer.getMaxStreamVolume((err: BusinessError, maxVolume: number) => {
 
 ##### getMaxStreamVolume10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxStreamVolume(): Promise&lt;number&gt;
 
 获取音频流的最大音量。使用Promise异步回调。
@@ -1547,6 +1643,8 @@ audioRenderer.getMaxStreamVolume().then((value: number) => {
 
 
 ##### getMaxStreamVolumeSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMaxStreamVolumeSync(): number
 
@@ -1579,6 +1677,8 @@ try {
 
 ##### getUnderflowCount10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUnderflowCount(callback: AsyncCallback&lt;number&gt;): void
 
 获取当前播放音频流的欠载音频帧数量。使用callback异步回调。
@@ -1610,6 +1710,8 @@ audioRenderer.getUnderflowCount((err: BusinessError, underflowCount: number) => 
 
 ##### getUnderflowCount10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUnderflowCount(): Promise&lt;number&gt;
 
 获取当前播放音频流的欠载音频帧数量。使用Promise异步回调。
@@ -1638,6 +1740,8 @@ audioRenderer.getUnderflowCount().then((value: number) => {
 
 
 ##### getUnderflowCountSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUnderflowCountSync(): number
 
@@ -1669,6 +1773,8 @@ try {
 
 
 ##### getCurrentOutputDevices10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentOutputDevices(callback: AsyncCallback&lt;AudioDeviceDescriptors&gt;): void
 
@@ -1710,6 +1816,8 @@ audioRenderer.getCurrentOutputDevices((err: BusinessError, deviceInfo: audio.Aud
 
 ##### getCurrentOutputDevices10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentOutputDevices(): Promise&lt;AudioDeviceDescriptors&gt;
 
 获取音频流输出设备信息。使用Promise异步回调。
@@ -1747,6 +1855,8 @@ audioRenderer.getCurrentOutputDevices().then((deviceInfo: audio.AudioDeviceDescr
 
 
 ##### getCurrentOutputDevicesSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentOutputDevicesSync(): AudioDeviceDescriptors
 
@@ -1788,6 +1898,8 @@ try {
 
 ##### setChannelBlendMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setChannelBlendMode(mode: ChannelBlendMode): void
 
 设置单双声道混合模式。同步返回结果。
@@ -1824,6 +1936,8 @@ console.info(`BlendMode: ${mode}`);
 
 
 ##### setVolumeWithRamp11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setVolumeWithRamp(volume: number, duration: number): void
 
@@ -1863,6 +1977,8 @@ console.info(`setVolumeWithRamp: ${volume}`);
 
 ##### setSilentModeAndMixWithOthers12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSilentModeAndMixWithOthers(on: boolean): void
 
 设置静音并发播放模式。
@@ -1888,6 +2004,8 @@ audioRenderer.setSilentModeAndMixWithOthers(true);
 
 ##### getSilentModeAndMixWithOthers12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSilentModeAndMixWithOthers(): boolean
 
 获取静音并发播放模式。
@@ -1910,6 +2028,8 @@ let on = audioRenderer.getSilentModeAndMixWithOthers();
 
 
 ##### setDefaultOutputDevice12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDefaultOutputDevice(deviceType: DeviceType): Promise&lt;void&gt;
 
@@ -1966,6 +2086,8 @@ audioRenderer.setDefaultOutputDevice(audio.DeviceType.SPEAKER).then(() => {
 
 
 ##### on('audioInterrupt')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'audioInterrupt', callback: Callback&lt;InterruptEvent&gt;): void
 
@@ -2055,6 +2177,8 @@ audioRenderer.on('audioInterrupt', (interruptEvent: audio.InterruptEvent) => {
 
 
 ##### off('audioInterrupt')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'audioInterrupt', callback?: Callback&lt;InterruptEvent&gt;): void
 
@@ -2146,6 +2270,8 @@ audioRenderer.off('audioInterrupt', audioInterruptCallback);
 
 ##### on('markReach')8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'markReach', frame: number, callback: Callback&lt;number&gt;): void
 
 监听标记到达事件（当渲染的帧数到达frame参数的值时触发，仅调用一次）。使用callback异步回调。
@@ -2176,6 +2302,8 @@ audioRenderer.on('markReach', 1000, (position: number) => {
 
 
 ##### off('markReach')8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'markReach', callback?: Callback&lt;number&gt;): void
 
@@ -2213,6 +2341,8 @@ audioRenderer.off('markReach', markReachCallback);
 
 ##### on('periodReach')8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'periodReach', frame: number, callback: Callback&lt;number&gt;): void
 
 监听标记到达事件（每当渲染的帧数达到frame参数的值时触发，即按周期上报信息）。使用callback异步回调。
@@ -2243,6 +2373,8 @@ audioRenderer.on('periodReach', 1000, (position: number) => {
 
 
 ##### off('periodReach')8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'periodReach', callback?: Callback&lt;number&gt;): void
 
@@ -2280,6 +2412,8 @@ audioRenderer.off('periodReach', periodReachCallback);
 
 ##### on('stateChange')8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'stateChange', callback: Callback&lt;AudioState&gt;): void
 
 监听状态变化事件（当AudioRenderer的状态发生变化时触发）。使用callback异步回调。
@@ -2310,6 +2444,8 @@ audioRenderer.on('stateChange', (state: audio.AudioState) => {
 
 
 ##### off('stateChange')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'stateChange', callback?: Callback&lt;AudioState&gt;): void
 
@@ -2359,6 +2495,8 @@ audioRenderer.off('stateChange', stateChangeCallback);
 
 ##### on('outputDeviceChange')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'outputDeviceChange', callback: Callback&lt;AudioDeviceDescriptors&gt;): void
 
 监听音频输出设备变化事件（当音频输出设备发生变化时触发）。使用callback异步回调。
@@ -2396,6 +2534,8 @@ audioRenderer.on('outputDeviceChange', (deviceInfo: audio.AudioDeviceDescriptors
 
 
 ##### off('outputDeviceChange')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'outputDeviceChange', callback?: Callback&lt;AudioDeviceDescriptors&gt;): void
 
@@ -2443,6 +2583,8 @@ audioRenderer.off('outputDeviceChange', outputDeviceChangeCallback);
 
 ##### on('outputDeviceChangeWithInfo')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'outputDeviceChangeWithInfo', callback: Callback&lt;AudioStreamDeviceChangeInfo&gt;): void
 
 监听音频流输出设备变化及原因事件（当音频输出设备发生变化时触发）。使用callback异步回调。
@@ -2481,6 +2623,8 @@ audioRenderer.on('outputDeviceChangeWithInfo', (deviceChangeInfo: audio.AudioStr
 
 
 ##### off('outputDeviceChangeWithInfo')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'outputDeviceChangeWithInfo', callback?: Callback&lt;AudioStreamDeviceChangeInfo&gt;): void
 
@@ -2528,6 +2672,8 @@ audioRenderer.off('outputDeviceChangeWithInfo', outputDeviceChangeWithInfoCallba
 
 
 ##### on('writeData')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'writeData', callback: AudioRendererWriteDataCallback): void
 
@@ -2606,6 +2752,8 @@ audioRenderer.start().then(() => {
 
 ##### off('writeData')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'writeData', callback?: AudioRendererWriteDataCallback): void
 
 取消监听音频数据写入回调事件。使用callback异步回调。
@@ -2649,6 +2797,8 @@ audioRenderer.off('writeData', writeDataCallback);
 
 
 ##### write(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(buffer: ArrayBuffer, callback: AsyncCallback&lt;number&gt;): void
 
@@ -2718,6 +2868,8 @@ audioRenderer.getBufferSize().then((data: number)=> {
 
 
 ##### write(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(buffer: ArrayBuffer): Promise&lt;number&gt;
 
@@ -2791,6 +2943,8 @@ audioRenderer.getBufferSize().then((data: number) => {
 
 ##### setRenderRate(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setRenderRate(rate: AudioRendererRate, callback: AsyncCallback&lt;void&gt;): void
 
 设置音频渲染速率。使用callback异步回调。
@@ -2826,6 +2980,8 @@ audioRenderer.setRenderRate(audio.AudioRendererRate.RENDER_RATE_NORMAL, (err: Bu
 
 
 ##### setRenderRate(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRenderRate(rate: AudioRendererRate): Promise&lt;void&gt;
 
@@ -2867,6 +3023,8 @@ audioRenderer.setRenderRate(audio.AudioRendererRate.RENDER_RATE_NORMAL).then(() 
 
 ##### getRenderRate(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRenderRate(callback: AsyncCallback&lt;AudioRendererRate&gt;): void
 
 获取音频渲染速率。使用callback异步回调。
@@ -2897,6 +3055,8 @@ audioRenderer.getRenderRate((err: BusinessError, renderRate: audio.AudioRenderer
 
 
 ##### getRenderRate(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRenderRate(): Promise&lt;AudioRendererRate&gt;
 
@@ -2930,6 +3090,8 @@ audioRenderer.getRenderRate().then((renderRate: audio.AudioRendererRate) => {
 
 
 ##### getRenderRateSync(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRenderRateSync(): AudioRendererRate
 
@@ -2965,6 +3127,8 @@ try {
 
 
 ##### setLoudnessGain20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setLoudnessGain(loudnessGain: number): Promise&lt;void&gt;
 
@@ -3010,6 +3174,8 @@ audioRenderer.setLoudnessGain(1.0);
 
 ##### getLoudnessGain20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLoudnessGain(): number
 
 获取播放响度。
@@ -3032,6 +3198,8 @@ let loudnessGain = audioRenderer.getLoudnessGain();
 
 
 ##### setIndependentAudioSessionStrategy24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: number): void
 

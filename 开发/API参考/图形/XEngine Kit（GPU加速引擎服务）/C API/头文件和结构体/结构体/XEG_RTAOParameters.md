@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 光线追踪环境光遮蔽（AO）算法参数。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,9 +44,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### aoCullDistance
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_RTAOParameters::aoCullDistance
@@ -54,6 +64,8 @@ float XEG_RTAOParameters::aoCullDistance
 
 ##### aoCullMask
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t XEG_RTAOParameters::aoCullMask = 0x5FF
 ```
@@ -65,6 +77,8 @@ uint32_t XEG_RTAOParameters::aoCullMask = 0x5FF
   
 
 ##### aoIntensity
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_RTAOParameters::aoIntensity = 1.0f
@@ -78,6 +92,8 @@ float XEG_RTAOParameters::aoIntensity = 1.0f
 
 ##### aoNormalBias
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_RTAOParameters::aoNormalBias = 1.0f
 ```
@@ -89,6 +105,8 @@ float XEG_RTAOParameters::aoNormalBias = 1.0f
   
 
 ##### rayPerPixel
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 uint32_t XEG_RTAOParameters::rayPerPixel = 1
@@ -102,6 +120,8 @@ uint32_t XEG_RTAOParameters::rayPerPixel = 1
 
 ##### rayTMax
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_RTAOParameters::rayTMax
 ```
@@ -113,6 +133,8 @@ float XEG_RTAOParameters::rayTMax
   
 
 ##### rayTMin
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_RTAOParameters::rayTMin

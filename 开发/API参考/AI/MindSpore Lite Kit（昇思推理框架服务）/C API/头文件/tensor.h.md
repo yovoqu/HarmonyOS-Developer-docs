@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供了张量相关的接口，可用于创建和修改张量信息，该接口是非线程安全的。
  
 **引用文件：** <mindspore/tensor.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -64,9 +72,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_AI_TensorCreate()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API OH_AI_TensorHandle OH_AI_TensorCreate(const char *name, OH_AI_DataType type, const int64_t *shape,size_t shape_num, const void *data, size_t data_len)
@@ -101,6 +113,8 @@ OH_AI_API OH_AI_TensorHandle OH_AI_TensorCreate(const char *name, OH_AI_DataType
 
 ##### OH_AI_TensorDestroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AI_API void OH_AI_TensorDestroy(OH_AI_TensorHandle *tensor)
 ```
@@ -121,6 +135,8 @@ OH_AI_API void OH_AI_TensorDestroy(OH_AI_TensorHandle *tensor)
   
 
 ##### OH_AI_TensorClone()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API OH_AI_TensorHandle OH_AI_TensorClone(OH_AI_TensorHandle tensor)
@@ -150,6 +166,8 @@ OH_AI_API OH_AI_TensorHandle OH_AI_TensorClone(OH_AI_TensorHandle tensor)
 
 ##### OH_AI_TensorSetName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AI_API void OH_AI_TensorSetName(OH_AI_TensorHandle tensor, const char *name)
 ```
@@ -171,6 +189,8 @@ OH_AI_API void OH_AI_TensorSetName(OH_AI_TensorHandle tensor, const char *name)
   
 
 ##### OH_AI_TensorGetName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API const char *OH_AI_TensorGetName(const OH_AI_TensorHandle tensor)
@@ -200,6 +220,8 @@ OH_AI_API const char *OH_AI_TensorGetName(const OH_AI_TensorHandle tensor)
 
 ##### OH_AI_TensorSetDataType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AI_API void OH_AI_TensorSetDataType(OH_AI_TensorHandle tensor, OH_AI_DataType type)
 ```
@@ -221,6 +243,8 @@ OH_AI_API void OH_AI_TensorSetDataType(OH_AI_TensorHandle tensor, OH_AI_DataType
   
 
 ##### OH_AI_TensorGetDataType()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API OH_AI_DataType OH_AI_TensorGetDataType(const OH_AI_TensorHandle tensor)
@@ -250,6 +274,8 @@ OH_AI_API OH_AI_DataType OH_AI_TensorGetDataType(const OH_AI_TensorHandle tensor
 
 ##### OH_AI_TensorSetShape()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AI_API void OH_AI_TensorSetShape(OH_AI_TensorHandle tensor, const int64_t *shape, size_t shape_num)
 ```
@@ -272,6 +298,8 @@ OH_AI_API void OH_AI_TensorSetShape(OH_AI_TensorHandle tensor, const int64_t *sh
   
 
 ##### OH_AI_TensorGetShape()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API const int64_t *OH_AI_TensorGetShape(const OH_AI_TensorHandle tensor, size_t *shape_num)
@@ -302,6 +330,8 @@ OH_AI_API const int64_t *OH_AI_TensorGetShape(const OH_AI_TensorHandle tensor, s
 
 ##### OH_AI_TensorSetFormat()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AI_API void OH_AI_TensorSetFormat(OH_AI_TensorHandle tensor, OH_AI_Format format)
 ```
@@ -323,6 +353,8 @@ OH_AI_API void OH_AI_TensorSetFormat(OH_AI_TensorHandle tensor, OH_AI_Format for
   
 
 ##### OH_AI_TensorGetFormat()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API OH_AI_Format OH_AI_TensorGetFormat(const OH_AI_TensorHandle tensor)
@@ -352,6 +384,8 @@ OH_AI_API OH_AI_Format OH_AI_TensorGetFormat(const OH_AI_TensorHandle tensor)
 
 ##### OH_AI_TensorSetData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AI_API void OH_AI_TensorSetData(OH_AI_TensorHandle tensor, void *data)
 ```
@@ -373,6 +407,8 @@ OH_AI_API void OH_AI_TensorSetData(OH_AI_TensorHandle tensor, void *data)
   
 
 ##### OH_AI_TensorGetData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API const void *OH_AI_TensorGetData(const OH_AI_TensorHandle tensor)
@@ -402,6 +438,8 @@ OH_AI_API const void *OH_AI_TensorGetData(const OH_AI_TensorHandle tensor)
 
 ##### OH_AI_TensorGetMutableData()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AI_API void *OH_AI_TensorGetMutableData(const OH_AI_TensorHandle tensor)
 ```
@@ -429,6 +467,8 @@ OH_AI_API void *OH_AI_TensorGetMutableData(const OH_AI_TensorHandle tensor)
   
 
 ##### OH_AI_TensorGetElementNum()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API int64_t OH_AI_TensorGetElementNum(const OH_AI_TensorHandle tensor)
@@ -458,6 +498,8 @@ OH_AI_API int64_t OH_AI_TensorGetElementNum(const OH_AI_TensorHandle tensor)
 
 ##### OH_AI_TensorGetDataSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AI_API size_t OH_AI_TensorGetDataSize(const OH_AI_TensorHandle tensor)
 ```
@@ -485,6 +527,8 @@ OH_AI_API size_t OH_AI_TensorGetDataSize(const OH_AI_TensorHandle tensor)
   
 
 ##### OH_AI_TensorSetUserData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API OH_AI_Status OH_AI_TensorSetUserData(OH_AI_TensorHandle tensor, void *data, size_t data_size)
@@ -518,6 +562,8 @@ OH_AI_API OH_AI_Status OH_AI_TensorSetUserData(OH_AI_TensorHandle tensor, void *
 
 ##### OH_AI_TensorGetAllocator()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_AI_API OH_AI_AllocatorHandle OH_AI_TensorGetAllocator(OH_AI_TensorHandle tensor)
 ```
@@ -545,6 +591,8 @@ OH_AI_API OH_AI_AllocatorHandle OH_AI_TensorGetAllocator(OH_AI_TensorHandle tens
   
 
 ##### OH_AI_TensorSetAllocator()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_AI_API OH_AI_Status OH_AI_TensorSetAllocator(OH_AI_TensorHandle tensor, OH_AI_AllocatorHandle allocator)

@@ -16,6 +16,8 @@ ExtensionContext模块提供访问特定[ExtensionAbility](https://developer.hua
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common } from '@kit.AbilityKit';
 ```
@@ -23,6 +25,8 @@ import { common } from '@kit.AbilityKit';
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 11开始，该接口支持在元服务中使用。
  
@@ -38,6 +42,8 @@ import { common } from '@kit.AbilityKit';
   
 
 ##### 使用场景
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ExtensionContext主要用于查询所属ExtensionAbility的信息、Module的配置信息以及HAP包的信息，开发者可根据自身业务需求使用对应的信息。
  

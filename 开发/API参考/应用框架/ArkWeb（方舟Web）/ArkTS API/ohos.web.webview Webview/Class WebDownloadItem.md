@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### getGuid11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getGuid(): string
 
@@ -90,6 +94,8 @@ struct WebComponent {
 
 ##### getCurrentSpeed11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentSpeed(): number
 
 获取下载的速度，单位：字节每秒。
@@ -157,6 +163,8 @@ struct WebComponent {
 
 
 ##### getPercentComplete11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPercentComplete(): number
 
@@ -226,6 +234,8 @@ struct WebComponent {
 
 ##### getTotalBytes11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTotalBytes(): number
 
 获取待下载文件的总长度。
@@ -294,6 +304,8 @@ struct WebComponent {
 
 ##### getState11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getState(): WebDownloadState
 
 获取下载的状态。
@@ -361,6 +373,8 @@ struct WebComponent {
 
 
 ##### getLastErrorCode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLastErrorCode(): WebDownloadErrorCode
 
@@ -431,6 +445,8 @@ struct WebComponent {
 
 ##### getMethod11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMethod(): string
 
 获取下载任务的请求方式。
@@ -498,6 +514,8 @@ struct WebComponent {
 
 
 ##### getMimeType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMimeType(): string
 
@@ -567,6 +585,8 @@ struct WebComponent {
 
 ##### getUrl11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUrl(): string
 
 获取下载的请求地址。
@@ -635,6 +655,8 @@ struct WebComponent {
 
 ##### getSuggestedFileName11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSuggestedFileName(): string
 
 获取下载的建议文件名。
@@ -702,6 +724,8 @@ struct WebComponent {
 
 
 ##### getReceivedBytes11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getReceivedBytes(): number
 
@@ -772,6 +796,8 @@ struct WebComponent {
 
 ##### getFullPath11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFullPath(): string
 
 获取下载文件在磁盘上的全路径。
@@ -840,6 +866,8 @@ struct WebComponent {
 
 
 ##### getOriginalUrl24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOriginalUrl(): string
 
@@ -911,6 +939,8 @@ struct WebComponent {
 
 ##### getReferrerUrl24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getReferrerUrl(): string
 
 获取下载文件的referrer地址。
@@ -980,6 +1010,8 @@ struct WebComponent {
 
 
 ##### serialize11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 serialize(): Uint8Array
 
@@ -1051,6 +1083,8 @@ struct WebComponent {
 
 
 ##### deserialize11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static deserialize(serializedData: Uint8Array): WebDownloadItem
 
@@ -1147,6 +1181,8 @@ struct WebComponent {
 
 ##### start11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 start(downloadPath: string): void
 
 开始下载到指定目录，参数为下载文件的磁盘存储路径（包含文件名）。
@@ -1239,6 +1275,8 @@ struct WebComponent {
 
 ##### cancel11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancel(): void
 
 取消一个正在下载的下载任务。
@@ -1320,6 +1358,8 @@ struct WebComponent {
 
 
 ##### pause11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pause(): void
 
@@ -1419,6 +1459,8 @@ struct WebComponent {
 
 
 ##### resume11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resume(): void
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import {thermal} from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import {thermal} from '@kit.BasicServicesKit';
 
 
 ##### thermal.registerThermalLevelCallback9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 registerThermalLevelCallback(callback: Callback&lt;ThermalLevel&gt;): void
 
@@ -61,6 +65,8 @@ try {
 
 ##### thermal.unregisterThermalLevelCallback9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unregisterThermalLevelCallback(callback?: Callback&lt;void&gt;): void
 
 **方法介绍：** 取消订阅热档位变化时的回调提醒。使用callback异步回调。
@@ -100,6 +106,8 @@ try {
 
 ##### thermal.getLevel9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLevel(): ThermalLevel
 
 **方法介绍：** 获取当前热档位信息。
@@ -123,6 +131,8 @@ console.info('thermal level is: ' + level);
 
 
 ##### thermal.subscribeThermalLevel(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 subscribeThermalLevel(callback: AsyncCallback&lt;ThermalLevel&gt;): void
 
@@ -153,6 +163,8 @@ thermal.subscribeThermalLevel((err: Error, level: thermal.ThermalLevel) => {
 
 ##### thermal.unsubscribeThermalLevel(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unsubscribeThermalLevel(callback?: AsyncCallback&lt;void&gt;): void
 
 > [!NOTE]
@@ -182,6 +194,8 @@ thermal.unsubscribeThermalLevel(() => {
 
 ##### thermal.getThermalLevel(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getThermalLevel(): ThermalLevel
 
 > [!NOTE]
@@ -209,6 +223,8 @@ console.info('thermal level is: ' + level);
 
 
 ##### ThermalLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 热档位信息。
 

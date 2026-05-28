@@ -21,6 +21,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { dataSharePredicates } from '@kit.ArkData';
 ```
@@ -29,11 +31,15 @@ import { dataSharePredicates } from '@kit.ArkData';
 
 ##### DataSharePredicates
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供用于不同实现不同查询方法的数据共享谓词。该类型不是多线程安全的，如果应用中存在多线程同时操作该类派生出的实例，注意加锁保护。
 
 
 
 ##### equalTo10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 equalTo(field: string, value: ValueType): DataSharePredicates
 
@@ -71,6 +77,8 @@ predicates.equalTo("NAME", "Rose");
 
 ##### and10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 and(): DataSharePredicates
 
 该接口用于将和条件添加到谓词中。
@@ -100,6 +108,8 @@ predicates.equalTo("NAME", "lisi")
 
 
 ##### orderByAsc10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 orderByAsc(field: string): DataSharePredicates
 
@@ -136,6 +146,8 @@ predicates.orderByAsc("AGE");
 
 ##### orderByDesc10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 orderByDesc(field: string): DataSharePredicates
 
 该接口用于配置谓词以匹配其值按降序排序的列。
@@ -170,6 +182,8 @@ predicates.orderByDesc("AGE");
 
 
 ##### limit10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 limit(total: number, offset: number): DataSharePredicates
 
@@ -207,6 +221,8 @@ predicates.equalTo("NAME", "Rose").limit(10, 3);
 
 ##### in10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 in(field: string, value: Array&lt;ValueType&gt;): DataSharePredicates
 
 该接口用于配置谓词以匹配值在指定范围内的字段。
@@ -243,6 +259,8 @@ predicates.in("AGE", [18, 20]);
 
 ##### notEqualTo23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 notEqualTo(field: string, value: ValueType): DataSharePredicates
 
 该接口用于配置谓词以匹配值不等于指定值的字段。
@@ -277,6 +295,8 @@ predicates.notEqualTo("NAME", "Rose");
 
 ##### beginWrap23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 beginWrap(): DataSharePredicates
 
 该接口用于向谓词添加左括号，相当于sql语句的“(”，必须和右括号一起使用。
@@ -307,6 +327,8 @@ predicates.equalTo("NAME", "lisi")
 
 
 ##### endWrap23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 endWrap(): DataSharePredicates
 
@@ -339,6 +361,8 @@ predicates.equalTo("NAME", "lisi")
 
 ##### or23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 or(): DataSharePredicates
 
 该接口用于将或条件添加到谓词中。
@@ -366,6 +390,8 @@ predicates.equalTo("NAME", "lisi")
 
 
 ##### like23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 like(field: string, value: string): DataSharePredicates
 
@@ -400,6 +426,8 @@ predicates.like("NAME", "%os%");
 
 
 ##### between23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 between(field: string, low: ValueType, high: ValueType): DataSharePredicates
 
@@ -436,6 +464,8 @@ predicates.between("AGE", 10, 50);
 
 ##### notBetween23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 notBetween(field: string, low: ValueType, high: ValueType): DataSharePredicates
 
 该接口用于配置谓词以匹配值超出指定范围的字段。不包含两端边界值，为左开右开区间。
@@ -471,6 +501,8 @@ predicates.notBetween("AGE", 10, 50);
 
 ##### greaterThan23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 greaterThan(field: string, value: ValueType): DataSharePredicates
 
 该接口用于配置谓词以匹配值大于指定值的字段。
@@ -504,6 +536,8 @@ predicates.greaterThan("AGE", 10);
 
 
 ##### lessThan23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 lessThan(field: string, value: ValueType): DataSharePredicates
 
@@ -539,6 +573,8 @@ predicates.lessThan("AGE", 50);
 
 ##### greaterThanOrEqualTo23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 greaterThanOrEqualTo(field: string, value: ValueType): DataSharePredicates
 
 该接口用于配置谓词以匹配值大于或等于指定值的字段。
@@ -573,6 +609,8 @@ predicates.greaterThanOrEqualTo("AGE", 10);
 
 ##### lessThanOrEqualTo23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lessThanOrEqualTo(field: string, value: ValueType): DataSharePredicates
 
 该接口用于配置谓词以匹配值小于或等于指定值的字段。
@@ -606,6 +644,8 @@ predicates.lessThanOrEqualTo("AGE", 50);
 
 
 ##### notIn23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 notIn(field: string, value: Array&lt;ValueType&gt;): DataSharePredicates
 

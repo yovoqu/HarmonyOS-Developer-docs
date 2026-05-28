@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 ```
@@ -19,6 +21,8 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 ##### DownloadFault
+
+**支持设备：** Phone | Tablet
 
 资源包下载失败原因的枚举。
 
@@ -46,6 +50,8 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 ##### State
 
+**支持设备：** Phone | Tablet
+
 资源包下载任务状态的枚举。
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
@@ -67,6 +73,8 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 ##### AssetDownloadConfig
+
+**支持设备：** Phone | Tablet
 
 资源包下载任务的配置信息。
 
@@ -92,6 +100,8 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 ##### AssetDownloadTask
 
+**支持设备：** Phone | Tablet
+
 资源包下载任务的信息。
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
@@ -110,6 +120,8 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 ##### DownloadProgressInfo
+
+**支持设备：** Phone | Tablet
 
 资源包下载任务的进度信息。
 
@@ -130,6 +142,8 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 ##### DownloadCompletedInfo
 
+**支持设备：** Phone | Tablet
+
 资源包下载任务的完成信息。
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
@@ -148,6 +162,8 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 ##### DownloadFailedInfo
 
+**支持设备：** Phone | Tablet
+
 资源包下载任务的失败信息。
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
@@ -165,6 +181,8 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 
 ##### assetDownloadManager.on('progress')
+
+**支持设备：** Phone | Tablet
 
 on(type: 'progress', callback: Callback<DownloadProgressInfo[]>): void
 
@@ -212,6 +230,8 @@ assetDownloadManager.on('progress', onProgressCallback);
 
 ##### assetDownloadManager.off('progress')
 
+**支持设备：** Phone | Tablet
+
 off(type: 'progress', callback?: Callback<DownloadProgressInfo[]>): void
 
 取消订阅资源包下载进度事件。使用callback异步回调。
@@ -257,6 +277,8 @@ assetDownloadManager.off('progress', onProgressCallback);
 
 
 ##### assetDownloadManager.on('pause')
+
+**支持设备：** Phone | Tablet
 
 on(type: 'pause', callback: Callback&lt;AssetDownloadTask&gt;): void
 
@@ -304,6 +326,8 @@ assetDownloadManager.on('pause', onPauseCallback);
 
 ##### assetDownloadManager.off('pause')
 
+**支持设备：** Phone | Tablet
+
 off(type: 'pause', callback?: Callback&lt;AssetDownloadTask&gt;): void
 
 取消订阅资源包下载暂停事件。使用callback异步回调。
@@ -349,6 +373,8 @@ assetDownloadManager.off('pause', onPauseCallback);
 
 
 ##### assetDownloadManager.on('complete')
+
+**支持设备：** Phone | Tablet
 
 on(type: 'complete', callback: Callback&lt;DownloadCompletedInfo&gt;): void
 
@@ -396,6 +422,8 @@ assetDownloadManager.on('complete', onCompleteCallback);
 
 ##### assetDownloadManager.off('complete')
 
+**支持设备：** Phone | Tablet
+
 off(type: 'complete', callback?: Callback&lt;DownloadCompletedInfo&gt;): void
 
 取消订阅资源包下载成功事件。使用callback异步回调。
@@ -441,6 +469,8 @@ assetDownloadManager.off('complete', onCompleteCallback);
 
 
 ##### assetDownloadManager.on('fail')
+
+**支持设备：** Phone | Tablet
 
 on(type: 'fail', callback: Callback&lt;DownloadFailedInfo&gt;): void
 
@@ -488,6 +518,8 @@ assetDownloadManager.on('fail', onFailedCallback);
 
 ##### assetDownloadManager.off('fail')
 
+**支持设备：** Phone | Tablet
+
 off(type: 'fail', callback?: Callback&lt;DownloadFailedInfo&gt;): void
 
 取消订阅资源包下载失败事件。使用callback异步回调。
@@ -533,6 +565,8 @@ assetDownloadManager.off('fail', onFailedCallback);
 
 
 ##### assetDownloadManager.fetchManifestUrl
+
+**支持设备：** Phone | Tablet
 
 fetchManifestUrl(): Promise&lt;string&gt;
 
@@ -583,6 +617,8 @@ async fetchManifestUrl() {
 
 
 ##### assetDownloadManager.addAssetDownloadTask
+
+**支持设备：** Phone | Tablet
 
 addAssetDownloadTask(context: common.BaseContext, downloadConfig: AssetDownloadConfig): Promise&lt;string&gt;
 
@@ -654,6 +690,8 @@ async addAssetDownloadTask() {
 
 
 ##### assetDownloadManager.pauseAssetDownloadTask
+
+**支持设备：** Phone | Tablet
 
 pauseAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
@@ -734,6 +772,8 @@ async pauseAssetDownloadTask() {
 
 
 ##### assetDownloadManager.resumeAssetDownloadTask
+
+**支持设备：** Phone | Tablet
 
 resumeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
@@ -823,6 +863,8 @@ async resumeAssetDownloadTask() {
 
 ##### assetDownloadManager.removeAssetDownloadTask
 
+**支持设备：** Phone | Tablet
+
 removeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 移除资源包下载任务。使用Promise异步回调。
@@ -898,6 +940,8 @@ async removeAssetDownloadTask() {
 
 ##### assetDownloadManager.fetchAllAssetDownloadTasks
 
+**支持设备：** Phone | Tablet
+
 fetchAllAssetDownloadTasks(): Promise<AssetDownloadTask[]>
 
 获取所有资源包下载任务，已下载完成的任务除外。使用Promise异步回调。
@@ -964,6 +1008,8 @@ async fetchAllAssetDownloadTasks() {
 
 
 ##### assetDownloadManager.pauseAllAssetDownloadTasks
+
+**支持设备：** Phone | Tablet
 
 pauseAllAssetDownloadTasks(): Promise&lt;void&gt;
 
@@ -1034,6 +1080,8 @@ async pauseAllAssetDownloadTasks() {
 
 
 ##### assetDownloadManager.resumeAllAssetDownloadTasks
+
+**支持设备：** Phone | Tablet
 
 resumeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
@@ -1113,6 +1161,8 @@ async resumeAllAssetDownloadTasks() {
 
 ##### assetDownloadManager.removeAllAssetDownloadTasks
 
+**支持设备：** Phone | Tablet
+
 removeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 移除所有资源包下载任务。使用Promise异步回调。
@@ -1178,6 +1228,8 @@ async removeAllAssetDownloadTasks() {
 
 
 ##### assetDownloadManager.fetchGroupAssetDownloadTasks
+
+**支持设备：** Phone | Tablet
 
 fetchGroupAssetDownloadTasks(groupId: string): Promise<AssetDownloadTask[]>
 
@@ -1255,6 +1307,8 @@ async fetchGroupAssetDownloadTasks() {
 
 
 ##### assetDownloadManager.pauseGroupAssetDownloadTasks
+
+**支持设备：** Phone | Tablet
 
 pauseGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
@@ -1335,6 +1389,8 @@ async pauseGroupAssetDownloadTasks() {
 
 
 ##### assetDownloadManager.resumeGroupAssetDownloadTasks
+
+**支持设备：** Phone | Tablet
 
 resumeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
@@ -1424,6 +1480,8 @@ async resumeGroupAssetDownloadTasks() {
 
 ##### assetDownloadManager.removeGroupAssetDownloadTasks
 
+**支持设备：** Phone | Tablet
+
 removeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 移除同一组的资源包下载任务。使用Promise异步回调。
@@ -1500,6 +1558,8 @@ async removeGroupAssetDownloadTasks() {
 
 ##### NetSpeedLevel
 
+**支持设备：** Phone | Tablet
+
 网络限速等级的枚举。
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
@@ -1518,6 +1578,8 @@ async removeGroupAssetDownloadTasks() {
 
 
 ##### assetDownloadManager.limitDownloadTaskSpeed
+
+**支持设备：** Phone | Tablet
 
 limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise&lt;void&gt;
 
@@ -1598,6 +1660,8 @@ async limitDownloadTaskSpeed() {
 
 ##### AppDownloadStatus
 
+**支持设备：** Phone | Tablet
+
 应用自身下载器中资源包下载状态的枚举。
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
@@ -1616,6 +1680,8 @@ async limitDownloadTaskSpeed() {
 
 ##### ResourceType
 
+**支持设备：** Phone | Tablet
+
 资源类型，影响下载完成通知的内容样式。
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
@@ -1633,6 +1699,8 @@ async limitDownloadTaskSpeed() {
 
 
 ##### AppDownloadProgress
+
+**支持设备：** Phone | Tablet
 
 应用自身下载器中资源包的下载进度信息。
 
@@ -1656,6 +1724,8 @@ async limitDownloadTaskSpeed() {
 
 
 ##### assetDownloadManager.reportDownloadProgress
+
+**支持设备：** Phone | Tablet
 
 reportDownloadProgress(progressInfo: AppDownloadProgress): void
 

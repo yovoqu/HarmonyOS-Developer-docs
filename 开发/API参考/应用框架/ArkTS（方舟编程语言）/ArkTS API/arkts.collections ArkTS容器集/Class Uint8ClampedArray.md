@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { collections } from '@kit.ArkTS';
 ```
@@ -23,6 +25,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Utils.Lang
 
@@ -40,6 +44,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -67,6 +73,8 @@ let uint8ClampedArray: collections.Uint8ClampedArray = new collections.Uint8Clam
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(length: number)
 
@@ -103,6 +111,8 @@ let uint8ClampedArray: collections.Uint8ClampedArray = new collections.Uint8Clam
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(elements: Iterable&lt;number&gt;)
 
@@ -141,6 +151,8 @@ let array: collections.Uint8ClampedArray = new collections.Uint8ClampedArray(set
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(array: ArrayLike&lt;number&gt; | ArrayBuffer)
 
@@ -194,6 +206,8 @@ let uint8ClampedArray2: collections.Uint8ClampedArray = new collections.Uint8Cla
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(buffer: ArrayBuffer, byteOffset?: number, length?: number)
 
 构造函数，以ArrayBuffer创建一个ArkTS Uint8ClampedArray对象。
@@ -234,6 +248,8 @@ console.info("[" + uint8ClampedArray1 + "]"); // [2, 3, 4, 5, 6]
 
 
 ##### from
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static from(arrayLike: ArrayLike&lt;number&gt;): Uint8ClampedArray
 
@@ -276,6 +292,8 @@ let array: collections.Uint8ClampedArray = collections.Uint8ClampedArray.from(ar
 
 
 ##### from
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static from&lt;T&gt;(arrayLike: ArrayLike&lt;T&gt;, mapFn: TypedArrayFromMapFn<T, number>): Uint8ClampedArray
 
@@ -336,6 +354,8 @@ let array: collections.Uint8ClampedArray = collections.Uint8ClampedArray.from<st
 
 ##### from
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static from(arrayLike: Iterable&lt;number&gt;, mapFn?: TypedArrayFromMapFn<number, number>): Uint8ClampedArray
 
 从一个可迭代对象中创建一个ArkTS Uint8ClampedArray对象。
@@ -389,6 +409,8 @@ let array: collections.Uint8ClampedArray = collections.Uint8ClampedArray.from(
 
 ##### of18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static of(...items: number[]): Uint8ClampedArray
 
 通过可变数量的参数创建一个新的ArkTS Uint8ClampedArray对象，参数个数可以是0个、1个或者多个。
@@ -431,6 +453,8 @@ console.info(arr.toString()); // 预期输出：1,2,3,4
 
 ##### toString18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toString(): string
 
 ArkTS Uint8ClampedArray转换为字符串。
@@ -467,6 +491,8 @@ console.info(stringArray); // 预期输出：1,2,3,4,5
 
 
 ##### toLocaleString18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 toLocaleString(): string
 
@@ -505,6 +531,8 @@ console.info(stringArray); // 预期输出：100,110,120
 
 
 ##### copyWithin
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 copyWithin(target: number, start: number, end?: number): Uint8ClampedArray
 
@@ -553,6 +581,8 @@ let copied: collections.Uint8ClampedArray = array.copyWithin(3, 1, 3);
 
 ##### some
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 some(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean
 
 测试ArkTS Uint8ClampedArray中的是否存在元素满足指定条件。
@@ -598,6 +628,8 @@ uint8ClampedArray.some((element: number) => element < 1); // false
 
 ##### every
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 every(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): boolean
 
 测试ArkTS Uint8ClampedArray中的所有元素是否满足指定条件。
@@ -642,6 +674,8 @@ uint8ClampedArray.every((element: number) => element > 10);  // false
 
 
 ##### fill
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fill(value: number, start?: number, end?: number): Uint8ClampedArray
 
@@ -691,6 +725,8 @@ new collections.Uint8ClampedArray(arrayLike).fill(4, 1, 2); // Uint8ClampedArray
 
 ##### filter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 filter(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): Uint8ClampedArray
 
 返回一个新ArkTS Uint8ClampedArray，其包含满足指定条件的所有元素。
@@ -735,6 +771,8 @@ let filtered: collections.Uint8ClampedArray = array.filter((element: number) => 
 
 
 ##### find
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 find(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): number | undefined
 
@@ -781,6 +819,8 @@ array.find((element: number) => element > 4); // undefined
 
 ##### findIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 findIndex(predicate: TypedArrayPredicateFn<number, Uint8ClampedArray>): number
 
 返回ArkTS Uint8ClampedArray中第一个满足指定条件的元素索引，如果所有元素都不满足，则返回-1。
@@ -825,6 +865,8 @@ let foundIndex: number = array.findIndex((element: number) => element % 2 === 0)
 
 ##### forEach
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 forEach(callbackFn: TypedArrayForEachCallback<number, Uint8ClampedArray>): void
 
 对ArkTS Uint8ClampedArray中的每个元素执行提供的回调函数。
@@ -863,6 +905,8 @@ uint8ClampedArray.forEach((value: number, index: number, array: collections.Uint
 
 
 ##### indexOf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 indexOf(searchElement: number, fromIndex?: number): number
 
@@ -912,6 +956,8 @@ array.indexOf(9, -2); // 2
 
 ##### lastIndexOf18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lastIndexOf(searchElement: number, fromIndex?: number): number
 
 返回ArkTS Uint8ClampedArray实例中最后一次出现searchElement的索引，如果对象不包含，则为-1。
@@ -959,6 +1005,8 @@ console.info(array.lastIndexOf(9, -2) + ''); // 预期输出：-1
 
 ##### join
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 join(separator?: string): string
 
 将ArkTS Uint8ClampedArray的所有元素拼接成一个字符串，元素之间使用指定的分隔符分隔。
@@ -1003,6 +1051,8 @@ let joined: string = array.join('-'); // "1-2-3-4-5"
 
 ##### map
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 map(callbackFn: TypedArrayMapCallback<number, Uint8ClampedArray>): Uint8ClampedArray
 
 对ArkTS Uint8ClampedArray中的每个元素应用指定的回调函数，并使用结果创建一个新的ArkTS Uint8ClampedArray对象。
@@ -1046,6 +1096,8 @@ const mapped: collections.Uint8ClampedArray = array.map(Math.sqrt); // Uint8Clam
 
 
 ##### reduce
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reduce(callbackFn: TypedArrayReduceCallback<number, number, Uint8ClampedArray>): number
 
@@ -1092,6 +1144,8 @@ let reducedValue: number = array.reduce((accumulator: number, value: number) => 
 
 ##### reduceRight18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reduceRight(callbackFn: TypedArrayReduceCallback<number, number, Uint8ClampedArray>): number
 
 反向遍历ArkTS Uint8ClampedArray，对ArkTS Uint8ClampedArray中的每个元素执行归约函数，并返回最终的归约结果。
@@ -1136,6 +1190,8 @@ console.info(reducedValue + ''); // 预期输出： 15
 
 
 ##### reduce
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reduce<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U
 
@@ -1183,6 +1239,8 @@ let reducedValue: number = array.reduce((accumulator: number, value: number) => 
 
 ##### reduceRight18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reduceRight<U = number>(callbackFn: TypedArrayReduceCallback<U, number, Uint8ClampedArray>, initialValue: U): U
 
 反向遍历ArkTS Uint8ClampedArray，对ArkTS Uint8ClampedArray中的每个元素执行归约函数，且接收一个初始值作为归约函数首次调用的参数，并返回最终的归约结果。
@@ -1229,6 +1287,8 @@ console.info(reducedValue + ''); // 预期输出： 16
 
 ##### reverse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reverse(): Uint8ClampedArray
 
 反转ArkTS Uint8ClampedArray。
@@ -1264,6 +1324,8 @@ let reversed: collections.Uint8ClampedArray = array.reverse(); // Uint8ClampedAr
 
 
 ##### set
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set(array: ArrayLike&lt;number&gt;, offset?: number): void
 
@@ -1303,6 +1365,8 @@ array.set([1, 2, 3], 3); // Uint8ClampedArray [0, 0, 0, 1, 2, 3, 0, 0]
 
 
 ##### slice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 slice(start?: number, end?: number): Uint8ClampedArray
 
@@ -1351,6 +1415,8 @@ array.slice(-2); // Uint8ClampedArray [4, 5]
 
 ##### sort
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sort(compareFn?: TypedArrayCompareFn&lt;number&gt;): Uint8ClampedArray
 
 对ArkTS Uint8ClampedArray进行排序，并返回排序后的ArkTS Uint8ClampedArray对象。
@@ -1396,6 +1462,8 @@ array.sort((a: number, b: number) => b - a); // Uint8ClampedArray [5, 4, 3, 2, 1
 
 
 ##### subarray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 subarray(begin?: number, end?: number): Uint8ClampedArray
 
@@ -1443,6 +1511,8 @@ subArray.set([10, 20, 30]); // Uint8ClampedArray [10, 20, 30, 4, 5]
 
 ##### at
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 at(index: number): number | undefined
 
 返回指定下标的元素，如果不存在，则返回undefined。
@@ -1488,6 +1558,8 @@ console.info("element: " + array.at(6));  // element: undefined
 
 
 ##### includes
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 includes(searchElement: number, fromIndex?: number): boolean
 
@@ -1536,6 +1608,8 @@ console.info("includes: " + array.includes(3, 3)); // includes: false
 
 ##### entries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 entries(): IterableIterator<[number, number]>
 
 返回一个新的迭代器对象，该对象包含ArkTS Uint8ClampedArray中每个元素的键值对。
@@ -1574,6 +1648,8 @@ console.info("value: " + iterator.next().value); // value: 2,33
 
 
 ##### keys
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 keys(): IterableIterator&lt;number&gt;
 
@@ -1614,6 +1690,8 @@ for (const key of iterator) {
 
 ##### values
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 values(): IterableIterator&lt;number&gt;
 
 返回一个新的迭代器对象，该对象包含ArkTS Uint8ClampedArray中每个元素的值。
@@ -1652,6 +1730,8 @@ for (const value of iterator) {
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;number&gt;
 
@@ -1694,6 +1774,8 @@ for (let item of uint8ClampedArray) {
 
 
 ##### [index: number]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [index: number]: number
 

@@ -12,6 +12,8 @@ typedef struct OH_Drawing_RectSize {...} OH_Drawing_RectSize
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文本矩形结构体。
  
 **起始版本：** 24
@@ -24,9 +26,13 @@ typedef struct OH_Drawing_RectSize {...} OH_Drawing_RectSize
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

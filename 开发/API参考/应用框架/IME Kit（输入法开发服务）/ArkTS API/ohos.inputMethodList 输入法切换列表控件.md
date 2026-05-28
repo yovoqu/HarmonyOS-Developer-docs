@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { InputMethodListDialog } from '@kit.IMEKit';
 ```
@@ -22,17 +24,23 @@ import { InputMethodListDialog } from '@kit.IMEKit';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
  
   
 
 ##### InputMethodListDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 InputMethodListDialog({controller: CustomDialogController, patternOptions?: PatternOptions})
  
@@ -54,6 +62,8 @@ InputMethodListDialog({controller: CustomDialogController, patternOptions?: Patt
 
 ##### PatternOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -67,6 +77,8 @@ InputMethodListDialog({controller: CustomDialogController, patternOptions?: Patt
 
 ##### Pattern
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.MiscServices.InputMethodFramework
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -79,11 +91,15 @@ InputMethodListDialog({controller: CustomDialogController, patternOptions?: Patt
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { Pattern, PatternOptions } from '@kit.IMEKit';
@@ -138,4 +154,4 @@ struct SettingsItem {
 示例效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/Xv_81034QqKCwbpT_qKXvg/zh-cn_image_0000002611836487.png?HW-CC-KV=V1&HW-CC-Date=20260528T013754Z&HW-CC-Expire=86400&HW-CC-Sign=F2793468E431082DEE20B38CD9A44A4ADDA59E0B81D133E285BA7902CD9047B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/Xv_81034QqKCwbpT_qKXvg/zh-cn_image_0000002611836487.png?HW-CC-KV=V1&HW-CC-Date=20260528T024051Z&HW-CC-Expire=86400&HW-CC-Sign=F1F8B76F4AE644CC0C9BB21D81923BD0CA4BD8861FF46D7CB322848FDA72406C)

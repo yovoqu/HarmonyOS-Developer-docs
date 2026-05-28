@@ -14,6 +14,8 @@
 
 ##### CustomDialogController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义弹窗的控制器。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -35,6 +37,8 @@ dialogController : CustomDialogController | null = new CustomDialogController(Cu
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(value: CustomDialogControllerOptions)
 
@@ -59,6 +63,8 @@ constructor(value: CustomDialogControllerOptions)
 
 ##### open
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 open()
 
 显示自定义弹窗内容，允许多次使用，但如果弹框为SubWindow模式，则该弹框不允许再弹出SubWindow弹框。
@@ -75,6 +81,8 @@ open()
 
 ##### close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close()
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -86,6 +94,8 @@ close()
 
 
 ##### getState20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getState(): PromptActionCommonState
 
@@ -106,6 +116,8 @@ getState(): PromptActionCommonState
 
 ##### PromptActionCommonState20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type PromptActionCommonState = promptAction.CommonState
 
 自定义弹窗的状态。
@@ -122,6 +134,8 @@ type PromptActionCommonState = promptAction.CommonState
 
 
 ##### CustomDialogControllerOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 自定义弹窗的样式。
 
@@ -177,6 +191,8 @@ type PromptActionCommonState = promptAction.CommonState
 
 ##### DismissDialogAction12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Dialog关闭的信息。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -196,6 +212,8 @@ Dialog关闭的信息。
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -1158,7 +1176,7 @@ struct Example3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/NCEh58xuQBaf9msGGnWssg/zh-cn_image_0000002581436182.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013907Z&HW-CC-Expire=86400&HW-CC-Sign=5C1C0C8E03976172AC91E8028667B5E74FD0966C44534097C199D3CE9A116826)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/NCEh58xuQBaf9msGGnWssg/zh-cn_image_0000002581436182.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=306FCC6B80BB6C58E80FD21D5D5DB5BC7729A55AABF5D1212EC8854577330C2B)
 
 
 
@@ -1248,7 +1266,7 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/S4q5CFNzQMeJT22Hp04L0A/zh-cn_image_0000002611836013.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013907Z&HW-CC-Expire=86400&HW-CC-Sign=C2979294B376071C027A15F142722336681C007732A677AD3A8FAAECF049D7DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/S4q5CFNzQMeJT22Hp04L0A/zh-cn_image_0000002611836013.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=03D39BC0EAC964520CA6DED886453831E3E0156F445AF6D99F183A6BC62ADD91)
 
 
 
@@ -1314,7 +1332,7 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/__XU-dvxSC24ULDrhQPsOg/zh-cn_image_0000002581276266.png?HW-CC-KV=V1&HW-CC-Date=20260528T013907Z&HW-CC-Expire=86400&HW-CC-Sign=BFCB526ED12F2A840B98775482610C0BC5917849713BCEABA922121AFB5DE596)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/__XU-dvxSC24ULDrhQPsOg/zh-cn_image_0000002581276266.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=7375D59C49B10F4FA51262CBBCFF838D57371FB2EC6BD3882E68FC7FD478CDB8)
 
 
 
@@ -1381,7 +1399,7 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/MX7_qjcDTUmCj6PWRRSlWQ/zh-cn_image_0000002611756121.png?HW-CC-KV=V1&HW-CC-Date=20260528T013907Z&HW-CC-Expire=86400&HW-CC-Sign=587A6E690F1102BDB799590C63C2B591E6756806FD30D24AC1693927DAEFCAF2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/MX7_qjcDTUmCj6PWRRSlWQ/zh-cn_image_0000002611756121.png?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=77E30717B515D550BE0A54CC0C501FFB7B237A5A49000E9677484B9BEEBE815B)
 
 
 
@@ -1452,4 +1470,4 @@ struct CustomDialogUser {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/5jc9mJB5RX2dpaWW_D1-0g/zh-cn_image_0000002581436184.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013907Z&HW-CC-Expire=86400&HW-CC-Sign=49D0288ACFB1CB34E8587BAB1C26A878E61A017510B5BED0281B8AFA15261FF3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/5jc9mJB5RX2dpaWW_D1-0g/zh-cn_image_0000002581436184.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024203Z&HW-CC-Expire=86400&HW-CC-Sign=7AA109F72BD1C6C89F74BF0E024C3D9BD964D36C31D1B291033E420B2A38A1EA)

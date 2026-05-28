@@ -14,6 +14,8 @@ formInfo模块提供了卡片信息和状态等相关类型和枚举。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { formInfo } from '@kit.FormKit';
 ```
@@ -21,6 +23,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### FormInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片配置信息。
  
@@ -57,6 +61,8 @@ import { formInfo } from '@kit.FormKit';
 
 ##### FormType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持的卡片类型枚举。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -72,6 +78,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### ColorMode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片主题样式统一跟随系统的颜色模式，卡片支持的颜色模式枚举。
  
@@ -94,6 +102,8 @@ import { formInfo } from '@kit.FormKit';
 
 ##### FormStateInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 卡片状态信息。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -109,6 +119,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### FormState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片状态枚举。
  
@@ -126,6 +138,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### FormParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片参数枚举。
  
@@ -158,6 +172,8 @@ import { formInfo } from '@kit.FormKit';
 
 ##### FormDimension
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义卡片尺寸枚举。
  
 **系统能力：** SystemCapability.Ability.Form
@@ -179,6 +195,8 @@ import { formInfo } from '@kit.FormKit';
 
 ##### FormShape12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义卡片形状枚举。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -195,6 +213,8 @@ import { formInfo } from '@kit.FormKit';
 
 ##### FormInfoFilter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 卡片信息过滤器，仅将符合过滤器内要求的卡片信息返回。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -209,6 +229,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### VisibilityType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片当前可见类型枚举。
  
@@ -227,6 +249,8 @@ import { formInfo } from '@kit.FormKit';
 
 ##### LaunchReason10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 卡片创建原因枚举。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -243,6 +267,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### FormUpdateReason24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片更新原因枚举。
  
@@ -262,6 +288,8 @@ import { formInfo } from '@kit.FormKit';
 
 ##### OverflowInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 互动卡片动效信息。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -278,6 +306,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### Rect20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通用矩形区域信息。可用于描述卡片位置、互动卡片动效区域等信息。
  
@@ -296,6 +326,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### FormLocation20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片当前位置枚举。
  
@@ -317,6 +349,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### RunningFormInfo20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 已经添加到桌面的卡片信息。
  

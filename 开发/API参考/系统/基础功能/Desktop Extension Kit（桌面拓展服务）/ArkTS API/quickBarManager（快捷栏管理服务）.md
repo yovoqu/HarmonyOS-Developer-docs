@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { quickBarManager } from '@kit.DeskTopExtensionKit';
 ```
@@ -19,6 +21,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
   
 
 ##### QuickTaskInfo
+
+**支持设备：** PC/2in1
 
 快捷栏菜单任务的详细参数。
  
@@ -40,6 +44,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 
 ##### QuickTask
 
+**支持设备：** PC/2in1
+
 应用的快捷栏菜单任务的信息。
  
 **系统能力：** SystemCapability.PCService.QuickBarManager
@@ -57,6 +63,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 
 ##### ParameterItem
 
+**支持设备：** PC/2in1
+
 快捷栏菜单任务的自定义参数，表示WantParams，由开发者自行决定传入的键值对。
  
 **系统能力：** SystemCapability.PCService.QuickBarManager
@@ -72,6 +80,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
   
 
 ##### CustomCategory
+
+**支持设备：** PC/2in1
 
 应用的快捷栏菜单分组的信息。
  
@@ -89,6 +99,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 
 ##### QuickBarGroup
 
+**支持设备：** PC/2in1
+
 快捷栏分组信息。
  
 **系统能力：** SystemCapability.PCService.QuickBarManager
@@ -104,6 +116,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
   
 
 ##### quickBarManager.addCustomCategory
+
+**支持设备：** PC/2in1
 
 addCustomCategory(context: common.Context, categoryName: string): Promise&lt;CustomCategory&gt;
  
@@ -164,6 +178,8 @@ async function addCustomCategory(context: Context) {
   
 
 ##### quickBarManager.addQuickTask
+
+**支持设备：** PC/2in1
 
 addQuickTask(context: common.Context, categoryId: number, taskInfo: QuickTaskInfo): Promise&lt;QuickTask&gt;
  
@@ -253,6 +269,8 @@ async function addQuickTask(context: Context) {
 
 ##### quickBarManager.getCustomCategories
 
+**支持设备：** PC/2in1
+
 getCustomCategories(context: common.Context): Promise<CustomCategory[]>
  
 获取在快捷栏定义的所有分组。使用promise异步回调。
@@ -309,6 +327,8 @@ async function getCustomCategories(context: Context) {
   
 
 ##### quickBarManager.getTasksFromCategory
+
+**支持设备：** PC/2in1
 
 getTasksFromCategory(context: common.Context, categoryId: number): Promise<QuickTask[]>
  
@@ -372,6 +392,8 @@ async function getTasksFromCategory(context: Context) {
 
 ##### quickBarManager.updateCustomCategory
 
+**支持设备：** PC/2in1
+
 updateCustomCategory(context: common.Context, category: CustomCategory): Promise&lt;void&gt;
  
 更新快捷栏分组。使用promise异步回调。
@@ -434,6 +456,8 @@ async function updateCustomCategory(context: Context) {
   
 
 ##### quickBarManager.updateQuickTask
+
+**支持设备：** PC/2in1
 
 updateQuickTask(context: common.Context, task: QuickTask): Promise&lt;void&gt;
  
@@ -525,6 +549,8 @@ async function updateQuickTask(context: Context) {
 
 ##### quickBarManager.deleteQuickTask
 
+**支持设备：** PC/2in1
+
 deleteQuickTask(context: common.Context, taskId: number): Promise&lt;void&gt;
  
 删除快捷栏任务。使用promise异步回调。
@@ -583,6 +609,8 @@ async function deleteQuickTask(context: Context) {
 
 ##### quickBarManager.deleteCustomCategory
 
+**支持设备：** PC/2in1
+
 deleteCustomCategory(context: common.Context, categoryId: number): Promise&lt;void&gt;
  
 删除快捷栏分组，其下的所有任务也会随着一起删除。使用promise异步回调。
@@ -640,6 +668,8 @@ async function deleteCustomCategory(context: Context) {
   
 
 ##### quickBarManager.addQuickBarGroup
+
+**支持设备：** PC/2in1
 
 addQuickBarGroup(context: common.Context, group: QuickBarGroup): Promise&lt;void&gt;
  
@@ -702,6 +732,8 @@ try {
 
 ##### quickBarManager.deleteQuickBarGroup
 
+**支持设备：** PC/2in1
+
 deleteQuickBarGroup(context: common.Context, groupKey: string): Promise&lt;void&gt;
  
 删除快捷栏分组。使用promise异步回调。
@@ -751,6 +783,8 @@ try {
 
 ##### quickBarManager.getQuickBarGroups
 
+**支持设备：** PC/2in1
+
 getQuickBarGroups(context: common.Context): Promise<QuickBarGroup[]>
  
 获取所有分组信息。使用promise异步回调。
@@ -798,6 +832,8 @@ try {
   
 
 ##### quickBarManager.setWindowToGroup
+
+**支持设备：** PC/2in1
 
 setWindowToGroup(context: common.Context, windowid: string, groupKey?: string): Promise&lt;void&gt;
  

@@ -12,6 +12,8 @@ typedef struct {...} NativeChildProcess_Fd
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 传递给子进程的文件描述符信息。
  
 **起始版本：** 13
@@ -24,9 +26,13 @@ typedef struct {...} NativeChildProcess_Fd
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

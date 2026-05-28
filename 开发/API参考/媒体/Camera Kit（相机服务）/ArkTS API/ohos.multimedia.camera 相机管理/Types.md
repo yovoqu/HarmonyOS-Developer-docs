@@ -12,6 +12,8 @@
 
 ##### ImageType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ImageType = image.Image | image.Picture
  
 图片容器类型，用于获取全质量图和未压缩图(YUV)。

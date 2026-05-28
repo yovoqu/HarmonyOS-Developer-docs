@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 多部分表单域值，在[Rcp_MultipartForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-overview#rcp_multipartform)中使用。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### formFileValue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_FormFieldFileValue Rcp_MultipartFormFieldValue::formFileValue
@@ -50,6 +60,8 @@ Rcp_FormFieldFileValue Rcp_MultipartFormFieldValue::formFileValue
 
 ##### formValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_FormFieldValue Rcp_MultipartFormFieldValue::formValue
 ```
@@ -62,6 +74,8 @@ Rcp_FormFieldValue Rcp_MultipartFormFieldValue::formValue
 
 ##### next
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 struct Rcp_MultipartFormFieldValue* Rcp_MultipartFormFieldValue::next
 ```
@@ -73,6 +87,8 @@ struct Rcp_MultipartFormFieldValue* Rcp_MultipartFormFieldValue::next
   
 
 ##### type
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_MultipartValueType Rcp_MultipartFormFieldValue::type

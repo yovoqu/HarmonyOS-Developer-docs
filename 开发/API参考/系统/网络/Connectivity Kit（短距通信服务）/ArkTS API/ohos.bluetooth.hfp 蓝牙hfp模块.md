@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { hfp } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { hfp } from '@kit.ConnectivityKit';
 
 
 ##### BaseProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BaseProfile = baseProfile.BaseProfile
 
@@ -36,6 +40,8 @@ type BaseProfile = baseProfile.BaseProfile
 
 
 ##### hfp.createHfpAgProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createHfpAgProfile(): HandsFreeAudioGatewayProfile
 
@@ -76,6 +82,8 @@ try {
 
 
 ##### HandsFreeAudioGatewayProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该实例表示蓝牙通话音频中的[HFP AG](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hfp-ag)角色‌。
 

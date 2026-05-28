@@ -12,6 +12,8 @@ struct OH_Pixelmap_InitializationOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 OH_Pixelmap_InitializationOptions是native层封装的初始化参数结构体，用于设置Pixelmap的初始化参数。
  
 创建OH_Pixelmap_InitializationOptions对象使用[OH_PixelmapInitializationOptions_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapinitializationoptions_create)函数。

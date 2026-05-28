@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 不支持。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
@@ -50,6 +54,8 @@
   
 
 ##### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
@@ -61,6 +67,8 @@
   
 
 ##### 样式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 - type为horizontal，支持如下样式：
 
@@ -115,6 +123,8 @@
 
 ##### 示例
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div class="container">
@@ -154,4 +164,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/8SSNxGPjR22XPVSvkQ4W7Q/zh-cn_image_0000002611756493.png?HW-CC-KV=V1&HW-CC-Date=20260528T013802Z&HW-CC-Expire=86400&HW-CC-Sign=5D17797893E44402211AA20049D9C88D96A863A1767AF80CD8C429F767EE4D47)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/8SSNxGPjR22XPVSvkQ4W7Q/zh-cn_image_0000002611756493.png?HW-CC-KV=V1&HW-CC-Date=20260528T024058Z&HW-CC-Expire=86400&HW-CC-Sign=7293F9AE87987B3BF81822C0AFF665DC22F90A02E32CBEBA4EB9C662836BD689)

@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
  
   
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Row
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Row(options?: RowOptions)
  
@@ -49,6 +55,8 @@ Row(options?: RowOptions)
 
 ##### Row18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Row(options?: RowOptions | RowOptionsV2)
  
 创建水平方向线性布局容器，可以设置子组件的间距。
@@ -69,6 +77,8 @@ Row(options?: RowOptions | RowOptionsV2)
   
 
 ##### RowOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置Row组件的子组件间距属性。
  
@@ -91,6 +101,8 @@ Row(options?: RowOptions | RowOptionsV2)
 
 ##### RowOptionsV218+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置Row组件的子组件间距属性。间距类型SpaceType支持number、string或Resource类型。
  
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
@@ -108,11 +120,15 @@ Row(options?: RowOptions | RowOptionsV2)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### alignItems
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 alignItems(value: VerticalAlign)
  
@@ -134,6 +150,8 @@ alignItems(value: VerticalAlign)
   
 
 ##### justifyContent8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 justifyContent(value: FlexAlign)
  
@@ -160,6 +178,8 @@ justifyContent(value: FlexAlign)
 
 ##### reverse12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reverse(isReversed: Optional&lt;boolean&gt;)
  
 设置子组件在水平方向上的排列是否反转。
@@ -185,11 +205,15 @@ reverse(isReversed: Optional&lt;boolean&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -261,7 +285,7 @@ struct RowExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/9zBKc4YyRAKYMKmt8efy1w/zh-cn_image_0000002611835553.png?HW-CC-KV=V1&HW-CC-Date=20260528T013902Z&HW-CC-Expire=86400&HW-CC-Sign=D5DB7ACB810E7DC89131D55D40B88040ABAB1185D1F3B0FD524AF9A0FB1766BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/9zBKc4YyRAKYMKmt8efy1w/zh-cn_image_0000002611835553.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=AA51ED095EE9C888BB7D6C207AE032829176789CD3685DC509200BEB9C18C5BB)
 
  
   
@@ -295,4 +319,4 @@ struct RowReverseSample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/mC-IiuqlQFq-Wd15uX4T4w/zh-cn_image_0000002581275806.png?HW-CC-KV=V1&HW-CC-Date=20260528T013902Z&HW-CC-Expire=86400&HW-CC-Sign=F15B6689DEBE5246D7AE4D4BF73BA458695259C96B4EF844071DE8B89F27B1DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/mC-IiuqlQFq-Wd15uX4T4w/zh-cn_image_0000002581275806.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=75D41FE2694BBD443B12C45E6C6E12B912F86C6B733B77A18CDEC2AACFC99353)

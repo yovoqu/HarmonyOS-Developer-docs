@@ -16,6 +16,8 @@ MakerNoteHuaweiMetadata implements Metadata
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -23,6 +25,8 @@ import { image } from '@kit.ImageKit';
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -67,6 +71,8 @@ import { image } from '@kit.ImageKit';
 
 ##### createInstance
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createInstance(): MakerNoteHuaweiMetadata
  
 返回[MakerNoteHuaweiMetadata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-makernotehuaweimetadata)的空实例。
@@ -96,6 +102,8 @@ async function makerNoteHuaweiCreateInstance(context: Context) {
   
 
 ##### getProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getProperties(key: Array&lt;string&gt;): Promise<Record<string, string | null>>
  
@@ -162,6 +170,8 @@ async function makerNoteHuaweiGetProperties(context: Context) {
   
 
 ##### setProperties
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setProperties(records: Record<string, string | null>): Promise&lt;void&gt;
  
@@ -233,6 +243,8 @@ async function makerNoteHuaweiSetProperties(context: Context) {
 
 ##### getAllProperties
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllProperties(): Promise<Record<string, string | null>>
  
 获取图片中所有元数据的属性和值。使用Promise异步回调。
@@ -281,6 +293,8 @@ async function makerNoteHuaweiGetAllProperties(context: Context) {
   
 
 ##### clone
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clone(): Promise&lt;MakerNoteHuaweiMetadata&gt;
  
@@ -331,6 +345,8 @@ async function makerNoteHuaweiClone(context: Context) {
 
 ##### getBlob
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBlob(): Promise&lt;ArrayBuffer&gt;
  
 以二进制数据的形式获取元数据。使用Promise异步回调。
@@ -374,6 +390,8 @@ async function makerNoteHuaweiGetBlob(context: Context) {
   
 
 ##### setBlob
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBlob(blob: ArrayBuffer): Promise&lt;void&gt;
  

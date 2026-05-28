@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供播控错误码的定义。
  
 **引用文件：** <multimedia/av_session/native_avsession_errors.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -39,9 +45,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### AVSession_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVSession_ErrCode
@@ -114,6 +124,8 @@ enum AVSession_ErrCode
 
 ##### AVSessionCallback_Result
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum AVSessionCallback_Result
 ```
@@ -133,6 +145,8 @@ enum AVSessionCallback_Result
   
 
 ##### AVMetadata_Result
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVMetadata_Result
@@ -154,6 +168,8 @@ enum AVMetadata_Result
   
 
 ##### AVQueueItem_Result
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AVQueueItem_Result

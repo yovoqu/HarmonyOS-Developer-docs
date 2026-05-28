@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { InputMethodExtraConfig } from '@kit.IMEKit';
 ```
@@ -21,6 +23,8 @@ import { InputMethodExtraConfig } from '@kit.IMEKit';
   
 
 ##### CustomValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type CustomValueType = number | string | boolean
  
@@ -38,6 +42,8 @@ type CustomValueType = number | string | boolean
   
 
 ##### InputMethodExtraConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入法扩展信息。
  

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Wearable | lite_wearable
+
 ```text
 import file from '@system.file';
 ```
@@ -19,6 +21,8 @@ import file from '@system.file';
   
 
 ##### file.move
+
+**支持设备：** Wearable | lite_wearable
 
 move(Object): void
  
@@ -73,6 +77,8 @@ export default {
 
 ##### file.copy
 
+**支持设备：** Wearable | lite_wearable
+
 copy(Object): void
  
 将指定文件拷贝并存储到指定位置。
@@ -125,6 +131,8 @@ export default {
   
 
 ##### file.list
+
+**支持设备：** Wearable | lite_wearable
 
 list(Object): void
  
@@ -194,6 +202,8 @@ export default {
 
 ##### file.get
 
+**支持设备：** Wearable | lite_wearable
+
 get(Object): void
  
 获取指定本地文件的信息。
@@ -257,6 +267,8 @@ export default {
 
 ##### file.delete
 
+**支持设备：** Wearable | lite_wearable
+
 delete(Object): void
  
 删除本地文件。
@@ -307,6 +319,8 @@ export default {
   
 
 ##### file.writeText
+
+**支持设备：** Wearable | lite_wearable
 
 writeText(Object): void
  
@@ -362,6 +376,8 @@ export default {
 
 ##### file.writeArrayBuffer
 
+**支持设备：** Wearable | lite_wearable
+
 writeArrayBuffer(Object): void
  
 写Buffer内容到指定文件。仅支持文本文档读写。
@@ -415,6 +431,8 @@ export default {
   
 
 ##### file.readText
+
+**支持设备：** Wearable | lite_wearable
 
 readText(Object): void
  
@@ -478,6 +496,8 @@ export default {
 
 ##### file.readArrayBuffer
 
+**支持设备：** Wearable | lite_wearable
+
 readArrayBuffer(Object): void
  
 从指定文件中读取Buffer内容。仅支持文本文档读写。
@@ -540,6 +560,8 @@ export default {
 
 ##### file.access
 
+**支持设备：** Wearable | lite_wearable
+
 access(Object): void
  
 判断指定文件或目录是否存在。
@@ -591,6 +613,8 @@ export default {
 
 ##### file.mkdir
 
+**支持设备：** Wearable | lite_wearable
+
 mkdir(Object): void
  
 创建指定目录。
@@ -641,6 +665,8 @@ export default {
   
 
 ##### file.rmdir
+
+**支持设备：** Wearable | lite_wearable
 
 rmdir(Object): void
  

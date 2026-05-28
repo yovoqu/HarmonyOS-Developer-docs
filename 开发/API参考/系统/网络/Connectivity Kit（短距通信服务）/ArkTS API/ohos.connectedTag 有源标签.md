@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { connectedTag } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { connectedTag } from '@kit.ConnectivityKit';
 
 
 ##### connectedTag.init(deprecated)
+
+**支持设备：** PC/2in1
 
 init(): boolean
 
@@ -45,6 +49,8 @@ init(): boolean
 
 ##### connectedTag.initialize9+
 
+**支持设备：** PC/2in1
+
 initialize(): void
 
 初始化有源标签芯片。
@@ -67,6 +73,8 @@ initialize(): void
 
 
 ##### connectedTag.uninit(deprecated)
+
+**支持设备：** PC/2in1
 
 uninit(): boolean
 
@@ -91,6 +99,8 @@ uninit(): boolean
 
 ##### connectedTag.uninitialize9+
 
+**支持设备：** PC/2in1
+
 uninitialize(): void
 
 卸载有源标签芯片资源。
@@ -113,6 +123,8 @@ uninitialize(): void
 
 
 ##### connectedTag.readNdefTag(deprecated)
+
+**支持设备：** PC/2in1
 
 readNdefTag(): Promise&lt;string&gt;
 
@@ -149,6 +161,8 @@ connectedTag.readNdefTag().then((data) => {
 
 
 ##### connectedTag.read9+
+
+**支持设备：** PC/2in1
 
 read(): Promise<number[]>
 
@@ -193,6 +207,8 @@ connectedTag.read().then((data) => {
 
 ##### connectedTag.readNdefTag(deprecated)
 
+**支持设备：** PC/2in1
+
 readNdefTag(callback: AsyncCallback&lt;string&gt;): void
 
 读取有源标签内容，使用AsyncCallback方式作为异步方法。
@@ -229,6 +245,8 @@ connectedTag.readNdefTag((err, data)=> {
 
 
 ##### connectedTag.read9+
+
+**支持设备：** PC/2in1
 
 read(callback: AsyncCallback<number[]>): void
 
@@ -274,6 +292,8 @@ connectedTag.read((err, data)=> {
 
 ##### connectedTag.writeNdefTag(deprecated)
 
+**支持设备：** PC/2in1
+
 writeNdefTag(data: string): Promise&lt;void&gt;
 
 写入内容到有源标签，使用promise方式作为异步方法。
@@ -317,6 +337,8 @@ connectedTag.writeNdefTag(rawData).then(() => {
 
 
 ##### connectedTag.write9+
+
+**支持设备：** PC/2in1
 
 write(data: number[]): Promise&lt;void&gt;
 
@@ -370,6 +392,8 @@ connectedTag.write(rawData).then(() => {
 
 ##### connectedTag.writeNdefTag(deprecated)
 
+**支持设备：** PC/2in1
+
 writeNdefTag(data: string, callback: AsyncCallback&lt;void&gt;): void
 
 写入内容到有源标签，使用AsyncCallback方式作为异步方法。
@@ -408,6 +432,8 @@ connectedTag.writeNdefTag(rawData, (err)=> {
 
 
 ##### connectedTag.write9+
+
+**支持设备：** PC/2in1
 
 write(data: number[], callback: AsyncCallback&lt;void&gt;): void
 
@@ -456,6 +482,8 @@ connectedTag.write(rawData, (err)=> {
 
 ##### connectedTag.on('notify')
 
+**支持设备：** PC/2in1
+
 on(type: "notify", callback: Callback&lt;number&gt;): void
 
 注册NFC场强状态事件。
@@ -475,6 +503,8 @@ on(type: "notify", callback: Callback&lt;number&gt;): void
 
 
 ##### connectedTag.off('notify')
+
+**支持设备：** PC/2in1
 
 off(type: "notify", callback?: Callback&lt;number&gt;): void
 
@@ -540,6 +570,8 @@ export { nfcTagTestOn, nfcTagTestOff }
 
 
 ##### NfcRfType
+
+**支持设备：** PC/2in1
 
 表示NFC场强状态的枚举。
 

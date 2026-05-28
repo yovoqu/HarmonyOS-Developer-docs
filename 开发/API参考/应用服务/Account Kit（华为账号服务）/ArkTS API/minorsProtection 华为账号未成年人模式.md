@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { minorsProtection } from '@kit.AccountKit';
 ```
@@ -19,6 +21,8 @@ import { minorsProtection } from '@kit.AccountKit';
   
 
 ##### MinorsProtectionInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该类提供未成年人模式的开启状态，以及年龄段信息。应用可跟随未成年人模式开启状态，进行开启/关闭应用的未成年人模式，使用年龄段信息，展示适龄内容。
  
@@ -40,6 +44,8 @@ import { minorsProtection } from '@kit.AccountKit';
 
 ##### AgeGroup
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该类为年龄段信息对象。开发者可根据当前年龄段信息，展示适龄内容。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -59,6 +65,8 @@ import { minorsProtection } from '@kit.AccountKit';
   
 
 ##### MinorsModeErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 该枚举为未成年人模式模块的错误码。
  
@@ -83,6 +91,8 @@ import { minorsProtection } from '@kit.AccountKit';
   
 
 ##### supportMinorsMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 supportMinorsMode(): boolean
  
@@ -135,6 +145,8 @@ if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')
   
 
 ##### getMinorsProtectionInfoSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getMinorsProtectionInfoSync(): MinorsProtectionInfo
  
@@ -210,6 +222,8 @@ if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')
   
 
 ##### getMinorsProtectionInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getMinorsProtectionInfo(): Promise&lt;MinorsProtectionInfo&gt;
  
@@ -294,6 +308,8 @@ function dealGetMinorsInfoAllError(error: BusinessError<Object>): void {
 
 ##### verifyMinorsProtectionCredential
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 verifyMinorsProtectionCredential(context: common.Context): Promise&lt;boolean&gt;
  
 当用户需要调整应用的未成年人模式相关设置时，调用该方法拉起未成年人模式密码验证页面，验证身份。使用Promise异步回调。
@@ -372,6 +388,8 @@ function dealVerifyAllError(error: BusinessError<Object>): void {
   
 
 ##### leadToTurnOnMinorsMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 leadToTurnOnMinorsMode(context: common.Context): Promise&lt;void&gt;
  
@@ -453,6 +471,8 @@ function dealTurnOnAllError(error: BusinessError<Object>): void {
   
 
 ##### leadToTurnOffMinorsMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 leadToTurnOffMinorsMode(context: common.Context): Promise&lt;void&gt;
  

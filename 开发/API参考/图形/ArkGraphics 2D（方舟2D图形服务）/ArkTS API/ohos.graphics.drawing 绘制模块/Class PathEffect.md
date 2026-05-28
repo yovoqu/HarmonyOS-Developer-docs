@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### createDashPathEffect12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createDashPathEffect(intervals: Array&lt;number&gt;, phase: number): PathEffect
 
@@ -70,6 +74,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### createPathDashEffect18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createPathDashEffect(path: Path, advance: number, phase: number, style: PathDashStyle): PathEffect
 
@@ -145,6 +151,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### createSumPathEffect18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createSumPathEffect(firstPathEffect: PathEffect, secondPathEffect: PathEffect): PathEffect
 
 创建一个叠加的路径效果。与createComposePathEffect不同，此接口会分别对两个参数的效果各自独立进行表现，然后将两个效果简单重叠显示。
@@ -186,6 +194,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### createCornerPathEffect12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createCornerPathEffect(radius: number): PathEffect
 
@@ -234,6 +244,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### createDiscretePathEffect18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: number): PathEffect
 
 创建一种将路径打散，并且在路径上产生不规则分布的效果。
@@ -273,6 +285,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### createComposePathEffect18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createComposePathEffect(outer: PathEffect, inner: PathEffect): PathEffect
 

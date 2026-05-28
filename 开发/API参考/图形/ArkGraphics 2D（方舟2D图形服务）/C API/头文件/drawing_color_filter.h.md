@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明与绘图模块中的颜色滤波器对象相关的函数。
  
 **引用文件：** <native_drawing/drawing_color_filter.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -43,9 +49,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_ColorFilterCreateBlendMode()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateBlendMode(uint32_t color, OH_Drawing_BlendMode blendMode)
@@ -77,6 +87,8 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateBlendMode(uint32_t color, OH
   
 
 ##### OH_Drawing_ColorFilterCreateCompose()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateCompose(OH_Drawing_ColorFilter* outerColorFilter,OH_Drawing_ColorFilter* innerColorFilter)
@@ -113,6 +125,8 @@ outerColorFilter、innerColorFilter任意一个为NULL时返回OH_DRAWING_ERROR_
 
 ##### OH_Drawing_ColorFilterCreateMatrix()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateMatrix(const float matrix[20])
 ```
@@ -147,6 +161,8 @@ matrix为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ##### OH_Drawing_ColorFilterCreateLinearToSrgbGamma()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateLinearToSrgbGamma(void)
 ```
@@ -169,6 +185,8 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateLinearToSrgbGamma(void)
   
 
 ##### OH_Drawing_ColorFilterCreateSrgbGammaToLinear()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateSrgbGammaToLinear(void)
@@ -193,6 +211,8 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateSrgbGammaToLinear(void)
 
 ##### OH_Drawing_ColorFilterCreateLuma()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateLuma(void)
 ```
@@ -215,6 +235,8 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateLuma(void)
   
 
 ##### OH_Drawing_ColorFilterCreateLighting()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateLighting(uint32_t mulColor, uint32_t addColor)
@@ -246,6 +268,8 @@ OH_Drawing_ColorFilter* OH_Drawing_ColorFilterCreateLighting(uint32_t mulColor, 
   
 
 ##### OH_Drawing_ColorFilterDestroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_ColorFilterDestroy(OH_Drawing_ColorFilter* colorFilter)

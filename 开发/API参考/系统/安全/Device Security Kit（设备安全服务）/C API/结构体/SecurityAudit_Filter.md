@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 提供过滤条件。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,9 +41,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### isInclude
+
+**支持设备：** PC/2in1
 
 ```text
 bool SecurityAudit_Filter::isInclude
@@ -51,6 +61,8 @@ TRUE: 符合条件的事件被返回给客户端。 FALSE: 符合条件的事件
 
 ##### type
 
+**支持设备：** PC/2in1
+
 ```text
 SecurityAudit_FilterType SecurityAudit_Filter::type
 ```
@@ -63,6 +75,8 @@ SecurityAudit_FilterType SecurityAudit_Filter::type
 
 ##### value
 
+**支持设备：** PC/2in1
+
 ```text
 const char** SecurityAudit_Filter::value
 ```
@@ -74,6 +88,8 @@ const char** SecurityAudit_Filter::value
   
 
 ##### valueCount
+
+**支持设备：** PC/2in1
 
 ```text
 uint64_t SecurityAudit_Filter::valueCount

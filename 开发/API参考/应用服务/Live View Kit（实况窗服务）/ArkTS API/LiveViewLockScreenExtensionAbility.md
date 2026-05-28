@@ -16,6 +16,8 @@ LiveViewLockScreenExtensionAbility为[锁屏沉浸实况窗](https://developer.h
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { LiveViewLockScreenExtensionAbility } from '@kit.LiveViewKit';
 ```
@@ -25,6 +27,8 @@ import { LiveViewLockScreenExtensionAbility } from '@kit.LiveViewKit';
   
 
 ##### LiveViewLockScreenExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 锁屏沉浸实况窗扩展Ability，继承自[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)。
  

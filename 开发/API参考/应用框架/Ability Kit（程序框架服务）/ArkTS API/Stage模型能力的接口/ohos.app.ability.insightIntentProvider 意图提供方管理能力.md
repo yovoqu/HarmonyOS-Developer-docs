@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { insightIntentProvider } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { insightIntentProvider } from '@kit.AbilityKit';
 
 
 ##### insightIntentProvider.sendExecuteResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendExecuteResult(instanceId: number, result: insightIntent.ExecuteResult): Promise&lt;void&gt;
 
@@ -153,6 +157,8 @@ struct Index {
 
 
 ##### insightIntentProvider.sendIntentResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendIntentResult(instanceId: number, result: insightIntent.IntentResult&lt;T&gt;): Promise&lt;void&gt;
 

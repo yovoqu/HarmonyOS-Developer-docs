@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { bundleManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### BundleInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
 
@@ -49,6 +53,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### ReqPermissionDetail
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用运行时需向系统申请的权限集合的详细信息。
 
 > [!NOTE]
@@ -72,6 +78,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 ##### UsedScene
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述权限使用的场景和时机。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -87,6 +95,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### SignatureInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述应用包的签名信息。
 
@@ -105,6 +115,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### AppCloneIdentity14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述应用包的身份信息。
 

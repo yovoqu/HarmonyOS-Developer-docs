@@ -12,6 +12,8 @@ typedef struct OH_NativeBuffer_StaticMetadata {...} OH_NativeBuffer_StaticMetada
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示HDR静态元数据。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct OH_NativeBuffer_StaticMetadata {...} OH_NativeBuffer_StaticMetada
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

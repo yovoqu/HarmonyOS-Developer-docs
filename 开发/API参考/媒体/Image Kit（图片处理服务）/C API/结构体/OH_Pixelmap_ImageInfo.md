@@ -12,6 +12,8 @@ struct OH_Pixelmap_ImageInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 OH_Pixelmap_ImageInfo是native层封装的图像像素信息结构体，保存图像像素的宽高、行跨距、像素格式、是否是HDR。
  
 创建OH_Pixelmap_ImageInfo对象使用[OH_PixelmapImageInfo_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-pixelmap-native-h#oh_pixelmapimageinfo_create)函数。

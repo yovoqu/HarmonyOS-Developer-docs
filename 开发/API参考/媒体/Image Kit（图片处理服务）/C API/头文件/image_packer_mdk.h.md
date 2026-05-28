@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明用于将图像编码到缓冲区或文件的api。可用于将像素数据编码到目标缓冲区或文件中。
  
 编码过程如下：
@@ -33,9 +35,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -46,6 +52,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -60,9 +68,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_ImagePacker_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ImagePacker_Create(napi_env env, napi_value *res)
@@ -92,6 +104,8 @@ int32_t OH_ImagePacker_Create(napi_env env, napi_value *res)
   
 
 ##### OH_ImagePacker_InitNative()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ImagePacker_Native* OH_ImagePacker_InitNative(napi_env env, napi_value packer)
@@ -125,6 +139,8 @@ ImagePacker_Native* OH_ImagePacker_InitNative(napi_env env, napi_value packer)
   
 
 ##### OH_ImagePacker_PackToData()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ImagePacker_PackToData(ImagePacker_Native* native, napi_value source,ImagePacker_Opts* opts, uint8_t* outData, size_t* size)
@@ -162,6 +178,8 @@ int32_t OH_ImagePacker_PackToData(ImagePacker_Native* native, napi_value source,
 
 ##### OH_ImagePacker_PackToFile()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_ImagePacker_PackToFile(ImagePacker_Native* native, napi_value source,ImagePacker_Opts* opts, int fd)
 ```
@@ -196,6 +214,8 @@ int32_t OH_ImagePacker_PackToFile(ImagePacker_Native* native, napi_value source,
   
 
 ##### OH_ImagePacker_Release()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_ImagePacker_Release(ImagePacker_Native* native)

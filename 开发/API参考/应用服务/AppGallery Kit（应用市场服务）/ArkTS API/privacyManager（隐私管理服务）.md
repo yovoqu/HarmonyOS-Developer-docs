@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { privacyManager } from '@kit.AppGalleryKit';
 ```
@@ -23,6 +25,8 @@ import { privacyManager } from '@kit.AppGalleryKit';
   
 
 ##### AppPrivacyMgmtType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 隐私管理类型的枚举。
  
@@ -43,6 +47,8 @@ import { privacyManager } from '@kit.AppGalleryKit';
   
 
 ##### AppPrivacyResultType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 隐私签署结果类型的枚举。
  
@@ -65,6 +71,8 @@ import { privacyManager } from '@kit.AppGalleryKit';
 
 ##### AppPrivacyLinkType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 隐私链接类型的枚举。
  
 **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
@@ -84,6 +92,8 @@ import { privacyManager } from '@kit.AppGalleryKit';
   
 
 ##### AppPrivacyType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 隐私类型的枚举。
  
@@ -105,6 +115,8 @@ import { privacyManager } from '@kit.AppGalleryKit';
 
 ##### AppPrivacyMgmtInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 隐私管理信息。
  
 **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
@@ -124,6 +136,8 @@ import { privacyManager } from '@kit.AppGalleryKit';
   
 
 ##### AppPrivacyLink
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 隐私链接。
  
@@ -148,6 +162,8 @@ import { privacyManager } from '@kit.AppGalleryKit';
 
 ##### AppPrivacyResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 隐私签署结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -171,6 +187,8 @@ import { privacyManager } from '@kit.AppGalleryKit';
 
 ##### ConsentResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 拉起标准化隐私弹框结果。
  
 **元服务API：** 从版本6.1.0(23)开始，该接口支持在元服务中使用。
@@ -189,6 +207,8 @@ import { privacyManager } from '@kit.AppGalleryKit';
   
 
 ##### privacyManager.getAppPrivacyMgmtInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getAppPrivacyMgmtInfo(): AppPrivacyMgmtInfo
  
@@ -273,6 +293,8 @@ struct GetAppPrivacyMgmtInfo {
   
 
 ##### privacyManager.getAppPrivacyResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getAppPrivacyResult(): AppPrivacyResult[]
  
@@ -359,6 +381,8 @@ struct GetAppPrivacyResult {
 
 ##### privacyManager.disableService
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 disableService(): void
  
 撤销同意记录。
@@ -399,6 +423,8 @@ try {
   
 
 ##### privacyManager.requestAppPrivacyConsent
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 requestAppPrivacyConsent(context:common.UIAbilityContext):Promise&lt;ConsentResult&gt;
  

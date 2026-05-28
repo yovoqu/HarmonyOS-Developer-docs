@@ -12,6 +12,8 @@ typedef struct HiTraceId {...} HiTraceId
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 HiTraceId定义。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ HiTraceId定义。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 如果字节序为小端模式，结构体顺序如下表所示：
   

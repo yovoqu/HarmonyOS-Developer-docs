@@ -12,6 +12,8 @@
 
 ##### 11400104 CpuUsage统计异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The status of the system CPU usage is abnormal.

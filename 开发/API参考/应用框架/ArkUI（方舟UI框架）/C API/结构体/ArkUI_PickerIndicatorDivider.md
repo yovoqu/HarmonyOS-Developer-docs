@@ -12,6 +12,8 @@ typedef struct {...} ArkUI_PickerIndicatorDivider
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 分割线样式指示器的样式参数。
  
 **起始版本：** 23
@@ -26,9 +28,13 @@ typedef struct {...} ArkUI_PickerIndicatorDivider
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

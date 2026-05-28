@@ -14,6 +14,8 @@ Web组件获取控制台信息对象。示例代码参考[onConsole事件](https
 
 ##### constructor(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel)
  
 ConsoleMessage的构造函数。
@@ -38,6 +40,8 @@ ConsoleMessage的构造函数。
 
 ##### constructor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 ConsoleMessage的构造函数。
@@ -47,6 +51,8 @@ ConsoleMessage的构造函数。
   
 
 ##### getLineNumber
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLineNumber(): number
  
@@ -65,6 +71,8 @@ getLineNumber(): number
 
 ##### getMessage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMessage(): string
  
 获取ConsoleMessage的日志信息。
@@ -81,6 +89,8 @@ getMessage(): string
   
 
 ##### getMessageLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMessageLevel(): MessageLevel
  
@@ -99,6 +109,8 @@ getMessageLevel(): MessageLevel
 
 ##### getSourceId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSourceId(): string
  
 获取网页源文件路径和文件名。
@@ -115,6 +127,8 @@ getSourceId(): string
   
 
 ##### getSource23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSource(): ConsoleMessageSource
  

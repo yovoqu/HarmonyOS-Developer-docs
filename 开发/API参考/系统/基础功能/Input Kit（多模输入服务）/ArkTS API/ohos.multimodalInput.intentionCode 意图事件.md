@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { IntentionCode } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { IntentionCode } from '@kit.InputKit';
   
 
 ##### IntentionCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 意图事件枚举值。
  

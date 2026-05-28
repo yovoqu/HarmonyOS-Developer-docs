@@ -12,6 +12,8 @@ typedef struct ArkUI_Animator* ArkUI_AnimatorHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义animator动画对象指针。
  
 **起始版本：** 12

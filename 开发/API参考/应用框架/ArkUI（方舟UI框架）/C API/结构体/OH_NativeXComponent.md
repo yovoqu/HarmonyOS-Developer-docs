@@ -12,6 +12,8 @@ typedef struct OH_NativeXComponent OH_NativeXComponent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供封装的OH_NativeXComponent实例。
  
 **起始版本：** 8

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义代理配置。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,9 +41,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### createTunnel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_ProxyTunnelMode Rcp_WebProxy::createTunnel
@@ -51,6 +61,8 @@ Rcp_ProxyTunnelMode Rcp_WebProxy::createTunnel
 
 ##### exclusions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Exclusions Rcp_WebProxy::exclusions
 ```
@@ -63,6 +75,8 @@ Rcp_Exclusions Rcp_WebProxy::exclusions
 
 ##### securityConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_SecurityConfiguration Rcp_WebProxy::securityConfiguration
 ```
@@ -74,6 +88,8 @@ Rcp_SecurityConfiguration Rcp_WebProxy::securityConfiguration
   
 
 ##### url
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const char* Rcp_WebProxy::url

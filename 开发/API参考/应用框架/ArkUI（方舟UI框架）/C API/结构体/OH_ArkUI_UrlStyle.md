@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_UrlStyle OH_ArkUI_UrlStyle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义超链接样式。 
  
  可以通过[OH_ArkUI_UrlStyle_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_urlstyle_create)接口创建对应的超链接样式对象。 

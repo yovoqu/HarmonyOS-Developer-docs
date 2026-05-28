@@ -16,6 +16,8 @@ AbilityDelegator可以通过[getAbilityDelegator](https://developer.huawei.com/c
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 ```
@@ -24,9 +26,13 @@ import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 ##### AbilityDelegator
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### addAbilityMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback&lt;void&gt;): void
 
@@ -80,6 +86,8 @@ abilityDelegator.addAbilityMonitor(monitor, (error: BusinessError) => {
 
 
 ##### addAbilityMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAbilityMonitor(monitor: AbilityMonitor): Promise&lt;void&gt;
 
@@ -138,6 +146,8 @@ abilityDelegator.addAbilityMonitor(monitor).then(() => {
 
 ##### addAbilityMonitorSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addAbilityMonitorSync(monitor: AbilityMonitor): void
 
 同步添加AbilityMonitor实例。不支持多线程并发调用。
@@ -187,6 +197,8 @@ abilityDelegator.addAbilityMonitorSync(monitor);
 
 
 ##### removeAbilityMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback&lt;void&gt;): void
 
@@ -241,6 +253,8 @@ abilityDelegator.removeAbilityMonitor(monitor, (error: BusinessError) => {
 
 
 ##### removeAbilityMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeAbilityMonitor(monitor: AbilityMonitor): Promise&lt;void&gt;
 
@@ -301,6 +315,8 @@ abilityDelegator.removeAbilityMonitor(monitor).then(() => {
 
 ##### removeAbilityMonitorSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeAbilityMonitorSync(monitor: AbilityMonitor): void
 
 同步删除已经添加的AbilityMonitor实例。不支持多线程并发调用。
@@ -349,6 +365,8 @@ abilityDelegator.removeAbilityMonitorSync(monitor);
 
 
 ##### waitAbilityMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 waitAbilityMonitor(monitor: AbilityMonitor, callback: AsyncCallback&lt;UIAbility&gt;): void
 
@@ -406,6 +424,8 @@ abilityDelegator.waitAbilityMonitor(monitor, (error: BusinessError, data: UIAbil
 
 
 ##### waitAbilityMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 waitAbilityMonitor(monitor: AbilityMonitor, timeout: number, callback: AsyncCallback&lt;UIAbility&gt;): void
 
@@ -466,6 +486,8 @@ abilityDelegator.waitAbilityMonitor(monitor, timeout, (error: BusinessError, dat
 
 ##### waitAbilityMonitor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 waitAbilityMonitor(monitor: AbilityMonitor, timeout?: number): Promise&lt;UIAbility&gt;
 
 设置等待时间，等待与AbilityMonitor实例匹配的Ability到达OnCreate生命周期，并返回Ability实例。使用Promise异步回调。不支持多线程并发调用。
@@ -525,6 +547,8 @@ abilityDelegator.waitAbilityMonitor(monitor).then((data: UIAbility) => {
 
 ##### getAppContext9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAppContext(): Context
 
 获取应用Context。
@@ -555,6 +579,8 @@ let context = abilityDelegator.getAppContext();
 
 
 ##### getAbilityState9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAbilityState(ability: UIAbility): number
 
@@ -610,6 +636,8 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 ##### getCurrentTopAbility9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentTopAbility(callback: AsyncCallback&lt;UIAbility&gt;): void
 
 获取当前应用顶部Ability。使用callback异步回调。不支持Worker线程调用。
@@ -656,6 +684,8 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 ##### getCurrentTopAbility9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentTopAbility(): Promise&lt;UIAbility&gt;
 
 获取当前应用顶部Ability。使用Promise异步回调。不支持Worker线程调用。
@@ -699,6 +729,8 @@ abilityDelegator.getCurrentTopAbility().then((data: UIAbility) => {
 
 
 ##### startAbility9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want, callback: AsyncCallback&lt;void&gt;): void
 
@@ -762,6 +794,8 @@ abilityDelegator.startAbility(want, (err: BusinessError, data: void) => {
 
 
 ##### startAbility9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startAbility(want: Want): Promise&lt;void&gt;
 
@@ -831,6 +865,8 @@ abilityDelegator.startAbility(want).then((data: void) => {
 
 ##### doAbilityForeground9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 doAbilityForeground(ability: UIAbility, callback: AsyncCallback&lt;void&gt;): void
 
 调度指定Ability生命周期状态到Foreground状态。使用callback异步回调。
@@ -880,6 +916,8 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 
 ##### doAbilityForeground9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 doAbilityForeground(ability: UIAbility): Promise&lt;void&gt;
 
@@ -937,6 +975,8 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 ##### doAbilityBackground9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 doAbilityBackground(ability: UIAbility, callback: AsyncCallback&lt;void&gt;): void
 
 调度指定Ability生命周期状态到Background状态。使用callback异步回调。
@@ -986,6 +1026,8 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 
 ##### doAbilityBackground9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 doAbilityBackground(ability: UIAbility): Promise&lt;void&gt;
 
@@ -1043,6 +1085,8 @@ abilityDelegator.getCurrentTopAbility((err: BusinessError, data: UIAbility) => {
 
 ##### printSync9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 printSync(msg: string): void
 
 打印日志信息到单元测试终端控制台。
@@ -1083,6 +1127,8 @@ abilityDelegator.printSync(msg);
 
 ##### print
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 print(msg: string, callback: AsyncCallback&lt;void&gt;): void
 
 打印日志信息到单元测试终端控制台。使用callback异步回调。
@@ -1117,6 +1163,8 @@ abilityDelegator.print(msg, (err: BusinessError) => {
 
 
 ##### print
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 print(msg: string): Promise&lt;void&gt;
 
@@ -1158,6 +1206,8 @@ abilityDelegator.print(msg).then(() => {
 
 ##### executeShellCommand
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 executeShellCommand(cmd: string, callback: AsyncCallback&lt;ShellCmdResult&gt;): void
 
 执行指定的shell命令。使用callback异步回调。
@@ -1194,6 +1244,8 @@ abilityDelegator.executeShellCommand(cmd, (err: BusinessError, data: abilityDele
 
 
 ##### executeShellCommand
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 executeShellCommand(cmd: string, timeoutSecs: number, callback: AsyncCallback&lt;ShellCmdResult&gt;): void
 
@@ -1233,6 +1285,8 @@ abilityDelegator.executeShellCommand(cmd, timeout, (err: BusinessError, data: ab
 
 
 ##### executeShellCommand
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 executeShellCommand(cmd: string, timeoutSecs?: number): Promise&lt;ShellCmdResult&gt;
 
@@ -1277,6 +1331,8 @@ abilityDelegator.executeShellCommand(cmd, timeout).then((data) => {
 
 
 ##### finishTest9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 finishTest(msg: string, code: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1323,6 +1379,8 @@ abilityDelegator.finishTest(msg, 0, (err: BusinessError) => {
 
 
 ##### finishTest9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 finishTest(msg: string, code: number): Promise&lt;void&gt;
 
@@ -1375,6 +1433,8 @@ abilityDelegator.finishTest(msg, 0).then(() => {
 
 ##### addAbilityStageMonitor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback&lt;void&gt;): void
 
 添加一个AbilityStageMonitor对象，用于监视指定AbilityStage的生命周期状态更改。使用callback异步回调。
@@ -1421,6 +1481,8 @@ abilityDelegator.addAbilityStageMonitor({
 
 
 ##### addAbilityStageMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAbilityStageMonitor(monitor: AbilityStageMonitor): Promise&lt;void&gt;
 
@@ -1474,6 +1536,8 @@ abilityDelegator.addAbilityStageMonitor({
 
 ##### addAbilityStageMonitorSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addAbilityStageMonitorSync(monitor: AbilityStageMonitor): void
 
 同步添加一个AbilityStageMonitor对象，用于监视指定AbilityStage的生命周期状态更改。
@@ -1516,6 +1580,8 @@ abilityDelegator.addAbilityStageMonitorSync({
 
 
 ##### removeAbilityStageMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1563,6 +1629,8 @@ abilityDelegator.removeAbilityStageMonitor({
 
 
 ##### removeAbilityStageMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeAbilityStageMonitor(monitor: AbilityStageMonitor): Promise&lt;void&gt;
 
@@ -1616,6 +1684,8 @@ abilityDelegator.removeAbilityStageMonitor({
 
 ##### removeAbilityStageMonitorSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeAbilityStageMonitorSync(monitor: AbilityStageMonitor): void
 
 同步从应用程序内存中删除指定的AbilityStageMonitor对象。
@@ -1658,6 +1728,8 @@ abilityDelegator.removeAbilityStageMonitorSync({
 
 
 ##### waitAbilityStageMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback&lt;AbilityStage&gt;): void
 
@@ -1706,6 +1778,8 @@ abilityDelegator.waitAbilityStageMonitor({
 
 
 ##### waitAbilityStageMonitor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout?: number): Promise&lt;AbilityStage&gt;
 
@@ -1761,6 +1835,8 @@ abilityDelegator.waitAbilityStageMonitor({
 
 ##### waitAbilityStageMonitor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 waitAbilityStageMonitor(monitor: AbilityStageMonitor, timeout: number, callback: AsyncCallback&lt;AbilityStage&gt;): void
 
 在指定的超时最大等待时间内，返回与AbilityStageMonitor中设置条件相匹配的AbilityStage对象。使用callback异步回调。
@@ -1810,6 +1886,8 @@ abilityDelegator.waitAbilityStageMonitor({
 
 
 ##### setMockList11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMockList(mockList: Record<string, string>): void
 

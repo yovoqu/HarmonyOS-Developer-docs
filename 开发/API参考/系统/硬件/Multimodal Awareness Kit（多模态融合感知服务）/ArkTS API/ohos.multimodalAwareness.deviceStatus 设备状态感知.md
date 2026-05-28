@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone
+
 ```text
 import { deviceStatus } from '@kit.MultimodalAwarenessKit';
 ```
@@ -21,6 +23,8 @@ import { deviceStatus } from '@kit.MultimodalAwarenessKit';
 
 
 ##### SteadyStandingStatus
+
+**支持设备：** Phone
 
 设备静止姿态感知状态（支架态）。
 
@@ -37,6 +41,8 @@ import { deviceStatus } from '@kit.MultimodalAwarenessKit';
 
 
 ##### deviceStatus.on('steadyStandingDetect')
+
+**支持设备：** Phone
 
 on(type: 'steadyStandingDetect', callback: Callback&lt;SteadyStandingStatus&gt;): void
 
@@ -78,6 +84,8 @@ try {
 
 
 ##### deviceStatus.off('steadyStandingDetect')
+
+**支持设备：** Phone
 
 off(type: 'steadyStandingDetect', callback?: Callback&lt;SteadyStandingStatus&gt;): void
 

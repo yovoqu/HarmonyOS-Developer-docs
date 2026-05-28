@@ -14,6 +14,8 @@ formInfo模块提供了卡片信息和状态等相关类型和枚举。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { formInfo } from '@kit.FormKit';
 ```
@@ -21,6 +23,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### FormInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片信息。
  
@@ -52,6 +56,8 @@ import { formInfo } from '@kit.FormKit';
 
 ##### FormType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持的卡片类型枚举。
  
 **系统能力：** SystemCapability.Ability.Form
@@ -64,6 +70,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### ColorMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片支持的颜色模式枚举。
  
@@ -80,6 +88,8 @@ import { formInfo } from '@kit.FormKit';
 
 ##### FormStateInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 卡片状态信息。
  
 **系统能力：** SystemCapability.Ability.Form
@@ -93,6 +103,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### FormState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片状态枚举。
  
@@ -108,6 +120,8 @@ import { formInfo } from '@kit.FormKit';
   
 
 ##### FormParam
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片参数枚举。
  

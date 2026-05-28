@@ -12,6 +12,8 @@ typedef struct OH_NNExecutor OH_NNExecutor
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 执行器句柄。
  
 **起始版本：** 9

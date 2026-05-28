@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 网络请求。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,9 +46,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### configuration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_Configuration* Rcp_Request::configuration
@@ -56,6 +66,8 @@ Rcp_Configuration* Rcp_Request::configuration
 
 ##### content
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_RequestContent* Rcp_Request::content
 ```
@@ -67,6 +79,8 @@ Rcp_RequestContent* Rcp_Request::content
   
 
 ##### cookies
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_RequestCookies* Rcp_Request::cookies
@@ -80,6 +94,8 @@ Rcp_RequestCookies* Rcp_Request::cookies
 
 ##### headers
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Headers* Rcp_Request::headers
 ```
@@ -91,6 +107,8 @@ Rcp_Headers* Rcp_Request::headers
   
 
 ##### id
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char Rcp_Request::id[RCP_MAX_REQUEST_ID_LEN]
@@ -104,6 +122,8 @@ char Rcp_Request::id[RCP_MAX_REQUEST_ID_LEN]
 
 ##### method
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 const char* Rcp_Request::method
 ```
@@ -115,6 +135,8 @@ const char* Rcp_Request::method
   
 
 ##### requestPrivate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void* Rcp_Request::requestPrivate
@@ -128,6 +150,8 @@ void* Rcp_Request::requestPrivate
 
 ##### transferRange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_TransferRange* Rcp_Request::transferRange
 ```
@@ -139,6 +163,8 @@ HTTP传输范围。该设置将转换为HTTP Range标头。
   
 
 ##### url
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char* Rcp_Request::url

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | Wearable
+
 定义网络搜索模块的C接口需要的数据结构。
  
 **引用文件：** <telephony/core_service/telephony_radio_type.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | Wearable
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | Tablet | Wearable
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | Tablet | Wearable
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -47,6 +55,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |
@@ -58,9 +68,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | Tablet | Wearable
+
   
 
 ##### Telephony_RadioResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 ```text
 enum Telephony_RadioResult
@@ -86,6 +100,8 @@ enum Telephony_RadioResult
 
 ##### Telephony_RegState
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 enum Telephony_RegState
 ```
@@ -107,6 +123,8 @@ enum Telephony_RegState
   
 
 ##### Telephony_RadioTechnology
+
+**支持设备：** Phone | Tablet | Wearable
 
 ```text
 enum Telephony_RadioTechnology
@@ -138,6 +156,8 @@ enum Telephony_RadioTechnology
   
 
 ##### Telephony_NsaState
+
+**支持设备：** Phone | Tablet | Wearable
 
 ```text
 enum Telephony_NsaState

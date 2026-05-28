@@ -12,6 +12,8 @@ typedef struct ScsiPeripheral_Device ScsiPeripheral_Device
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 不透明的SCSI设备结构体。
  
 **起始版本：** 18

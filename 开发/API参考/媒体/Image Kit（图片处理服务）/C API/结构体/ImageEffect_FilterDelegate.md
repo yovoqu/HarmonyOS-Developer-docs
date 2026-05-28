@@ -12,6 +12,8 @@ typedef struct ImageEffect_FilterDelegate {...} ImageEffect_FilterDelegate
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 自定义滤镜回调函数结构体。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct ImageEffect_FilterDelegate {...} ImageEffect_FilterDelegate
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

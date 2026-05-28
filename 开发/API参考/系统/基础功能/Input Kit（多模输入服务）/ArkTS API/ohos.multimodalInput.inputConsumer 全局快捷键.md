@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { inputConsumer, KeyEvent } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { inputConsumer, KeyEvent } from '@kit.InputKit';
 
 
 ##### HotkeyOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 快捷键选项。
 
@@ -36,6 +40,8 @@ import { inputConsumer, KeyEvent } from '@kit.InputKit';
 
 
 ##### KeyPressedConfig16+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 按键事件消费设置。
 
@@ -53,6 +59,8 @@ import { inputConsumer, KeyEvent } from '@kit.InputKit';
 
 
 ##### inputConsumer.getAllSystemHotkeys
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllSystemHotkeys(): Promise<Array&lt;HotkeyOptions&gt;>
 
@@ -105,6 +113,8 @@ struct Index {
 
 
 ##### inputConsumer.on('hotkeyChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback&lt;HotkeyOptions&gt;): void
 
@@ -171,6 +181,8 @@ struct Index {
 
 
 ##### inputConsumer.off('hotkeyChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback&lt;HotkeyOptions&gt;): void
 
@@ -265,6 +277,8 @@ struct Index {
 
 ##### inputConsumer.on('keyPressed')16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback&lt;KeyEvent&gt;): void
 
 订阅按键按下事件，使用callback异步回调。若当前应用窗口为前台焦点窗口，用户按下指定按键，会触发回调。
@@ -327,6 +341,8 @@ struct Index {
 
 
 ##### inputConsumer.off('keyPressed')16+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'keyPressed', callback?: Callback&lt;KeyEvent&gt;): void
 

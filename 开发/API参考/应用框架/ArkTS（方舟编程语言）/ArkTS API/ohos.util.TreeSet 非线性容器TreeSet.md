@@ -23,6 +23,8 @@ TreeSet和[HashSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-refer
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { TreeSet } from '@kit.ArkTS';
 ```
@@ -31,9 +33,13 @@ import { TreeSet } from '@kit.ArkTS';
 
 ##### TreeSet
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -47,6 +53,8 @@ import { TreeSet } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(comparator?: (firstValue: T, secondValue: T) => boolean)
 
@@ -127,6 +135,8 @@ console.info("treeSet: ", ts1.length);
 
 ##### isEmpty
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isEmpty(): boolean
 
 判断容器是否为空。
@@ -162,6 +172,8 @@ console.info("result:", result);  // result: true
 
 
 ##### has
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 has(value: T): boolean
 
@@ -207,6 +219,8 @@ console.info("result:", result); // result: true
 
 ##### getFirstValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFirstValue(): T
 
 获取容器中排序第一的数据，为空时返回undefined。
@@ -245,6 +259,8 @@ console.info("result:", result); // result: sparrow
 
 ##### getLastValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLastValue(): T
 
 获取容器中排序最后的数据，为空时返回undefined。
@@ -282,6 +298,8 @@ console.info("result:", result); // result: squirrel
 
 
 ##### add
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 add(value: T): boolean
 
@@ -327,6 +345,8 @@ console.info("result:", result); // result: true
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 remove(value: T): boolean
 
 删除指定的元素。
@@ -371,6 +391,8 @@ console.info("result:", result); // result: true
 
 
 ##### getLowerValue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLowerValue(key: T): T
 
@@ -419,6 +441,8 @@ console.info("result:", result); // result: gander
 
 ##### getHigherValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHigherValue(key: T): T
 
 获取容器中比传入元素排序靠后一位的元素，为空时返回undefined。
@@ -466,6 +490,8 @@ console.info("result:", result); // result: squirrel
 
 ##### popFirst
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 popFirst(): T
 
 删除容器中排序最前的数据，为空时返回undefined。
@@ -503,6 +529,8 @@ console.info("result:", result); // result: sparrow
 
 
 ##### popLast
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 popLast(): T
 
@@ -542,6 +570,8 @@ console.info("result:", result); // result: squirrel
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清除容器中的所有元素，并将length置为0。
@@ -573,6 +603,8 @@ console.info("result:", result); // result: true
 
 
 ##### values
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 values(): IterableIterator&lt;T&gt;
 
@@ -615,6 +647,8 @@ for (let value of values) {
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value?: T, key?: T, set?: TreeSet&lt;T&gt;) => void, thisArg?: Object): void
 
@@ -679,6 +713,8 @@ for(let i = 0; i < 10; i++) {
 
 ##### entries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 entries(): IterableIterator<[T, T]>
 
 返回包含此映射中键值对的新迭代器对象。
@@ -733,6 +769,8 @@ for(let i = 0; i < 10; i++) {
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator&lt;T&gt;
 

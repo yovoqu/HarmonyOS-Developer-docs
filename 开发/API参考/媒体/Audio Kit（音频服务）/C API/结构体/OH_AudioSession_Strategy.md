@@ -12,6 +12,8 @@ typedef struct OH_AudioSession_Strategy {...} OH_AudioSession_Strategy
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 音频会话策略。
  
 从API version 24开始，此结构体由native_audio_session_manager.h移动至native_audio_session_base.h文件。
@@ -28,9 +30,13 @@ typedef struct OH_AudioSession_Strategy {...} OH_AudioSession_Strategy
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

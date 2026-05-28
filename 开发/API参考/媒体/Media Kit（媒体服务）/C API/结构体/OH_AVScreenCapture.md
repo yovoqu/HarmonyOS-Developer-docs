@@ -12,6 +12,8 @@ typedef struct OH_AVScreenCapture OH_AVScreenCapture
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 通过OH_AVScreenCapture可以获取视频与音频的原始码流。
  
 **起始版本：** 10

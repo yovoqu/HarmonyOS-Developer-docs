@@ -12,6 +12,8 @@ typedef struct ArkUI_AlignmentRuleOption ArkUI_AlignmentRuleOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指定设置在相对容器中子组件的对齐规则。
  
 **起始版本：** 12

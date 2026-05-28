@@ -23,6 +23,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 ```
@@ -30,6 +32,8 @@ import { distributedDeviceManager } from '@kit.DistributedServiceKit';
 
 
 ##### distributedDeviceManager.createDeviceManager
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createDeviceManager(bundleName: string): DeviceManager
 
@@ -78,6 +82,8 @@ try {
 
 ##### distributedDeviceManager.releaseDeviceManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 releaseDeviceManager(deviceManager: DeviceManager): void
 
 设备管理实例不再使用后，通过该方法释放DeviceManager实例。
@@ -120,6 +126,8 @@ try {
 
 ##### DeviceBasicInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 分布式设备基本信息。
 
 **系统能力**：以下各项对应的系统能力均为SystemCapability.DistributedHardware.DeviceManager
@@ -136,6 +144,8 @@ try {
 
 ##### DeviceStateChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示设备状态。
 
 **系统能力**：以下各项对应的系统能力均为SystemCapability.DistributedHardware.DeviceManager
@@ -151,6 +161,8 @@ try {
 
 ##### DeviceManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设备管理实例，用于获取可信设备和本地设备的相关信息。在调用DeviceManager的方法前，需要先通过createDeviceManager构建一个DeviceManager实例dmInstance。
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
@@ -158,6 +170,8 @@ try {
 
 
 ##### getAvailableDeviceListSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAvailableDeviceListSync(): Array&lt;DeviceBasicInfo&gt;
 
@@ -202,6 +216,8 @@ try {
 
 
 ##### getAvailableDeviceList
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAvailableDeviceList(callback:AsyncCallback<Array&lt;DeviceBasicInfo&gt;>): void
 
@@ -253,6 +269,8 @@ try {
 
 ##### getAvailableDeviceList
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAvailableDeviceList(): Promise<Array&lt;DeviceBasicInfo&gt;>
 
 获取所有可信设备列表。使用Promise异步回调。
@@ -295,6 +313,8 @@ dmInstance.getAvailableDeviceList().then((data: Array<distributedDeviceManager.D
 
 
 ##### getLocalDeviceNetworkId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLocalDeviceNetworkId(): string
 
@@ -341,6 +361,8 @@ try {
 
 ##### getLocalDeviceName
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLocalDeviceName(): string
 
 获取本地设备名称。
@@ -385,6 +407,8 @@ try {
 
 
 ##### getLocalDeviceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLocalDeviceType(): number
 
@@ -431,6 +455,8 @@ try {
 
 ##### getLocalDeviceId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLocalDeviceId(): string
 
 获取本地设备id，实际值为udid-hash与appid和盐值基于sha256方式进行混淆后的值。
@@ -475,6 +501,8 @@ try {
 
 
 ##### getDeviceName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDeviceName(networkId: string): string
 
@@ -531,6 +559,8 @@ try {
 
 ##### getDeviceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceType(networkId: string): number
 
 通过指定设备的网络标识获取该设备类型。
@@ -585,6 +615,8 @@ try {
 
 
 ##### startDiscovering
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startDiscovering(discoverParam: {[key: string]: Object;} , filterOptions?: {[key: string]: Object;} ): void
 
@@ -651,6 +683,8 @@ try {
 
 ##### stopDiscovering
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopDiscovering(): void
 
 停止发现周边设备。
@@ -687,6 +721,8 @@ try {
 
 
 ##### bindTarget
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bindTarget(deviceId: string, bindParam: {[key: string]: Object;} , callback: AsyncCallback<{deviceId: string;}>): void
 
@@ -756,6 +792,8 @@ try {
 
 ##### unbindTarget
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unbindTarget(deviceId: string): void
 
 解除认证设备。
@@ -801,6 +839,8 @@ try {
 
 
 ##### on('deviceStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }>): void
 
@@ -859,6 +899,8 @@ try {
 
 ##### off('deviceStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChange; device: DeviceBasicInfo; }>): void
 
 取消注册设备状态回调。使用callback异步回调。
@@ -916,6 +958,8 @@ try {
 
 ##### on('discoverSuccess')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'discoverSuccess', callback: Callback<{ device: DeviceBasicInfo; }>): void
 
 注册发现设备成功回调监听。使用callback异步回调。
@@ -971,6 +1015,8 @@ try {
 
 
 ##### off('discoverSuccess')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'discoverSuccess', callback?: Callback<{ device: DeviceBasicInfo; }>): void
 
@@ -1028,6 +1074,8 @@ try {
 
 ##### on('deviceNameChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'deviceNameChange', callback: Callback<{ deviceName: string; }>): void
 
 注册设备名称变更回调，以便在设备名称改变时通知应用程序。使用callback异步回调。
@@ -1078,6 +1126,8 @@ try {
 
 
 ##### off('deviceNameChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'deviceNameChange', callback?: Callback<{ deviceName: string; }>): void
 
@@ -1130,6 +1180,8 @@ try {
 
 ##### on('discoverFailure')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'discoverFailure', callback: Callback<{ reason: number; }>): void
 
 注册设备发现失败回调监听。使用callback异步回调。
@@ -1180,6 +1232,8 @@ try {
 
 
 ##### off('discoverFailure')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'discoverFailure', callback?: Callback<{ reason: number; }>): void
 
@@ -1232,6 +1286,8 @@ try {
 
 ##### on('serviceDie')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'serviceDie', callback?: Callback<{}>): void
 
 注册设备管理服务死亡回调，以便在服务死亡时通知应用程序。使用callback异步回调。
@@ -1278,6 +1334,8 @@ try {
 
 
 ##### off('serviceDie')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'serviceDie', callback?: Callback<{}>): void
 

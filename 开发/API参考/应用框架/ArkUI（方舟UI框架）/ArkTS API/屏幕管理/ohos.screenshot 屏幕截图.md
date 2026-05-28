@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { screenshot } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { screenshot } from '@kit.ArkUI';
 
 
 ##### Rect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示截取图像的区域。
 
@@ -40,6 +44,8 @@ import { screenshot } from '@kit.ArkUI';
 
 ##### CaptureOption14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置截取图像的信息。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
@@ -53,6 +59,8 @@ import { screenshot } from '@kit.ArkUI';
 
 
 ##### PickInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 截取图像的信息。
 
@@ -69,6 +77,8 @@ import { screenshot } from '@kit.ArkUI';
 
 
 ##### screenshot.pick
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pick(): Promise&lt;PickInfo&gt;
 
@@ -119,6 +129,8 @@ try {
 
 
 ##### screenshot.capture14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 capture(options?: CaptureOption): Promise<image.PixelMap>
 

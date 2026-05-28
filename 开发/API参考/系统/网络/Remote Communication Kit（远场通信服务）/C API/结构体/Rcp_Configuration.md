@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 请求配置。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### configurationPrivate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void* Rcp_Configuration::configurationPrivate
@@ -53,6 +63,8 @@ void* Rcp_Configuration::configurationPrivate
 
 ##### dnsConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_DnsConfiguration Rcp_Configuration::dnsConfiguration
 ```
@@ -64,6 +76,8 @@ DNS配置。
   
 
 ##### proxyConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_ProxyConfiguration Rcp_Configuration::proxyConfiguration
@@ -77,6 +91,8 @@ Rcp_ProxyConfiguration Rcp_Configuration::proxyConfiguration
 
 ##### securityConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_SecurityConfiguration Rcp_Configuration::securityConfiguration
 ```
@@ -89,6 +105,8 @@ Rcp_SecurityConfiguration Rcp_Configuration::securityConfiguration
 
 ##### tracingConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_TracingConfiguration Rcp_Configuration::tracingConfiguration
 ```
@@ -100,6 +118,8 @@ Rcp_TracingConfiguration Rcp_Configuration::tracingConfiguration
   
 
 ##### transferConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_TransferConfiguration Rcp_Configuration::transferConfiguration

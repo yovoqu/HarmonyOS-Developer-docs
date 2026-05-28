@@ -12,6 +12,8 @@ typedef struct ResourceManager_Configuration {...} ResourceManager_Configuration
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设备状态的枚举。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct ResourceManager_Configuration {...} ResourceManager_Configuration
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

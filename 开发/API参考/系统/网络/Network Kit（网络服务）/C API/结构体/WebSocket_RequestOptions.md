@@ -12,6 +12,8 @@ struct WebSocket_RequestOptions {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 webSocket客户端和服务端建立连接的参数。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ webSocket客户端和服务端建立连接的参数。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

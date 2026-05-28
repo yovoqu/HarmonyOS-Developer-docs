@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import {
   ArcButton,
@@ -28,11 +30,15 @@ import {
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
 
@@ -40,11 +46,15 @@ import {
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通用事件支持[点击事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)和[触摸事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-touch)。
 
 
 
 ##### ArcButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArcButton({ options: ArcButtonOptions })
 
@@ -66,6 +76,8 @@ ArcButton({ options: ArcButtonOptions })
 
 
 ##### ArcButtonOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义ArcButton的默认样式或自定义样式参数。
 
@@ -100,6 +112,8 @@ ArcButton({ options: ArcButtonOptions })
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(options: CommonArcButtonOptions)
 
 弧形按钮的构造函数。
@@ -118,6 +132,8 @@ constructor(options: CommonArcButtonOptions)
 
 
 ##### CommonArcButtonOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArcButton的默认样式或自定义样式参数。
 
@@ -148,6 +164,8 @@ ArcButton的默认样式或自定义样式参数。
 
 ##### ArcButtonProgressConfig23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ArcButton内进度条的参数配置。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
@@ -167,6 +185,8 @@ ArcButton内进度条的参数配置。
 
 ##### ArcButtonPosition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义ArcButton可设置的弧形按钮的类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -182,6 +202,8 @@ ArcButton内进度条的参数配置。
 
 
 ##### ArcButtonStyleMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义ArcButton可设置弧形按钮样式模式。
 
@@ -202,6 +224,8 @@ ArcButton内进度条的参数配置。
 
 ##### ArcButtonStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义ArcButton可设置的弧形按钮状态。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -218,6 +242,8 @@ ArcButton内进度条的参数配置。
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -405,4 +431,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/ZfVnUihgQmWbh-BuqwHOMg/zh-cn_image_0000002611755801.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=A7BB1CA62222A272ED731C8A694F40A379AABF0643F4E9AF719B4C68B22FBEF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/ZfVnUihgQmWbh-BuqwHOMg/zh-cn_image_0000002611755801.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=F9EFB0BE7944D289CB79EE40D63B3ADD27944F9E9C6FD1A826C7171D6B00D28F)

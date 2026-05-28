@@ -24,6 +24,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { socket } from '@kit.ConnectivityKit';
 ```
@@ -31,6 +33,8 @@ import { socket } from '@kit.ConnectivityKit';
 
 
 ##### socket.sppListen
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppListen(name: string, options: SppOptions, callback: AsyncCallback&lt;number&gt;): void
 
@@ -98,6 +102,8 @@ try {
 
 ##### socket.getL2capPsm20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getL2capPsm(serverSocket: number): number
 
 获取服务端L2CAP链路类型套接字的协议/服务多路复用器值（Protocol/Service Multiplexer, [PSM](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#psm)），该值用于标识特定的服务数据传输通道。
@@ -139,6 +145,8 @@ try {
 
 
 ##### socket.sppAccept
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppAccept(serverSocket: number, callback: AsyncCallback&lt;number&gt;): void
 
@@ -199,6 +207,8 @@ try {
 
 
 ##### socket.sppConnect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppConnect(deviceId: string, options: SppOptions, callback: AsyncCallback&lt;number&gt;): void
 
@@ -266,6 +276,8 @@ try {
 
 ##### socket.getDeviceId17+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceId(clientSocket: number): string
 
 客户端和服务端均可使用，获取套接字连接中的对端设备蓝牙地址。
@@ -321,6 +333,8 @@ try {
 
 ##### socket.sppCloseServerSocket
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sppCloseServerSocket(socket: number): void
 
 服务端使用，删除指定的服务端套接字。
@@ -368,6 +382,8 @@ try {
 
 ##### socket.sppCloseClientSocket
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sppCloseClientSocket(socket: number): void
 
 客户端和服务端均可使用，关闭指定的客户端套接字，并断开客户端和服务端之间的连接。
@@ -414,6 +430,8 @@ try {
 
 
 ##### socket.sppWrite
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppWrite(clientSocket: number, data: ArrayBuffer): void
 
@@ -469,6 +487,8 @@ try {
 
 
 ##### socket.on('sppRead')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'sppRead', clientSocket: number, callback: Callback&lt;ArrayBuffer&gt;): void
 
@@ -526,6 +546,8 @@ try {
 
 ##### socket.off('sppRead')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'sppRead', clientSocket: number, callback?: Callback&lt;ArrayBuffer&gt;): void
 
 取消订阅套接字读请求事件。
@@ -567,6 +589,8 @@ try {
 
 
 ##### socket.sppWriteAsync18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppWriteAsync(clientSocket: number, data: ArrayBuffer): Promise&lt;void&gt;
 
@@ -628,6 +652,8 @@ try {
 
 
 ##### socket.sppReadAsync18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sppReadAsync(clientSocket: number): Promise&lt;ArrayBuffer&gt;
 
@@ -697,6 +723,8 @@ async function readAsync(clientNumber: number) {
 
 ##### socket.getMaxReceiveDataSize22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxReceiveDataSize(clientSocket: number): number
 
 客户端和服务端均可使用，获取当前套接字链路类型下最大接收数据的大小。
@@ -739,6 +767,8 @@ try {
 
 
 ##### socket.getMaxTransmitDataSize22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMaxTransmitDataSize(clientSocket: number): number
 
@@ -783,6 +813,8 @@ try {
 
 ##### socket.isConnected22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isConnected(clientSocket: number): boolean
 
 客户端和服务端均可使用，检查当前链路是否已连接。
@@ -821,6 +853,8 @@ try {
 
 ##### SppOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述套接字的配置参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -836,6 +870,8 @@ try {
 
 
 ##### SppType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙套接字链路类型。
 

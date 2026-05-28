@@ -14,11 +14,15 @@
 
 ##### 需要权限
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 访问在线网页时需添加网络权限：ohos.permission.INTERNET，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
 
 
 
 ##### 导入模块
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 import { AtomicServiceWeb } from '@kit.ArkUI';
@@ -28,17 +32,23 @@ import { AtomicServiceWeb } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
 
 
 
 ##### AtomicServiceWeb
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 AtomicServiceWeb({
@@ -91,6 +101,8 @@ AtomicServiceWeb({
 
 ##### AtomicServiceWebController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通过AtomicServiceWebController可以控制AtomicServiceWeb组件各种行为。一个AtomicServiceWebController对象只能控制一个AtomicServiceWeb组件，且必须在AtomicServiceWeb组件和AtomicServiceWebController绑定后，才能调用AtomicServiceWebController上的方法。
 
 **装饰器类型：** @Observed
@@ -102,6 +114,8 @@ AtomicServiceWeb({
 
 
 ##### getUserAgent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUserAgent(): string
 
@@ -131,6 +145,8 @@ getUserAgent(): string
 
 ##### getCustomUserAgent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCustomUserAgent(): string
 
 获取自定义用户代理。
@@ -158,6 +174,8 @@ getCustomUserAgent(): string
 
 
 ##### setCustomUserAgent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCustomUserAgent(userAgent: string): void
 
@@ -194,6 +212,8 @@ setCustomUserAgent(userAgent: string): void
 
 ##### refresh
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 refresh(): void
 
 调用此接口通知AtomicServiceWeb组件刷新网页。
@@ -214,6 +234,8 @@ refresh(): void
 
 
 ##### forward
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forward(): void
 
@@ -236,6 +258,8 @@ forward(): void
 
 ##### backward
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 backward(): void
 
 按照历史栈，后退一个页面。一般结合[accessBackward](#accessbackward)一起使用。
@@ -256,6 +280,8 @@ backward(): void
 
 
 ##### accessForward
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 accessForward(): boolean
 
@@ -285,6 +311,8 @@ accessForward(): boolean
 
 ##### accessBackward
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 accessBackward(): boolean
 
 当前页面是否可后退，即当前页面是否有返回历史记录。
@@ -312,6 +340,8 @@ accessBackward(): boolean
 
 
 ##### accessStep
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 accessStep(step: number): boolean
 
@@ -349,6 +379,8 @@ accessStep(step: number): boolean
 
 ##### loadUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loadUrl(url: string | Resource, headers?: Array&lt;WebHeader&gt;): void
 
 加载指定的URL。
@@ -381,6 +413,8 @@ loadUrl(url: string | Resource, headers?: Array&lt;WebHeader&gt;): void
 
 ##### WebHeader
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Web组件返回的请求/响应头对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -397,6 +431,8 @@ Web组件返回的请求/响应头对象。
 
 ##### OnMessageEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义页面回退或销毁时触发该回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -411,6 +447,8 @@ Web组件返回的请求/响应头对象。
 
 
 ##### OnErrorReceiveEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义网页加载遇到错误时触发该回调。
 
@@ -428,6 +466,8 @@ Web组件返回的请求/响应头对象。
 
 ##### OnHttpErrorReceiveEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义网页收到加载资源加载HTTP错误时触发。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -444,6 +484,8 @@ Web组件返回的请求/响应头对象。
 
 ##### OnPageBeginEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义网页加载开始时触发的函数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -458,6 +500,8 @@ Web组件返回的请求/响应头对象。
 
 
 ##### OnPageEndEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义网页加载结束时触发的函数。
 
@@ -474,6 +518,8 @@ Web组件返回的请求/响应头对象。
 
 ##### OnLoadInterceptEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 当资源加载被拦截时，加载拦截事件。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -489,6 +535,8 @@ Web组件返回的请求/响应头对象。
 
 ##### OnProgressChangeEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义网页加载进度变化时触发该回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -503,6 +551,8 @@ Web组件返回的请求/响应头对象。
 
 
 ##### OnLoadInterceptCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean
 
@@ -530,11 +580,15 @@ type OnLoadInterceptCallback = (event: OnLoadInterceptEvent) => boolean
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 

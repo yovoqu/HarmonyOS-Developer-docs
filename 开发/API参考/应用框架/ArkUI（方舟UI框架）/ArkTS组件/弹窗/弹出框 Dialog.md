@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { TipsDialog, SelectDialog, ConfirmDialog, AlertDialog, LoadingDialog, CustomContentDialog } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { TipsDialog, SelectDialog, ConfirmDialog, AlertDialog, LoadingDialog, Cu
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### TipsDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, title?: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, checkAction?: (isChecked: boolean) => void, onCheckedChange?: Callback&lt;boolean&gt;, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -57,6 +63,8 @@ TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap
 
 ##### SelectDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, selectedIndex?: number, confirm?: ButtonOptions, radioContent: Array&lt;SheetInfo&gt;, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
 选择类弹出框，弹框中以列表或网格的形式提供可选的内容。
@@ -80,6 +88,8 @@ SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: 
 
 
 ##### ConfirmDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -107,6 +117,8 @@ ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?:
 
 ##### AlertDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content: ResourceStr, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
 操作确认类弹出框，触发一个将产生严重后果的不可逆操作时，如删除、重置、取消编辑、停止等。
@@ -131,6 +143,8 @@ AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, sec
 
 ##### LoadingDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
 进度加载类弹出框，用于显示操作执行中的提示信息。
@@ -150,6 +164,8 @@ LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?
 
 
 ##### CustomContentDialog12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 CustomContentDialog({controller: CustomDialogController, contentBuilder: () => void, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, contentAreaPadding?: Padding, buttons?: ButtonOptions[], theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
 
@@ -182,6 +198,8 @@ CustomContentDialog({controller: CustomDialogController, contentBuilder: () => v
 
 ##### PopoverDialog14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callback&lt;void&gt;})
 
 跟手弹出框，基于目标组件位置弹出，上文中的TipsDialog、SelectDialog、ConfirmDialog、AlertDialog、LoadingDialog、CustomContentDialog都可作为弹出框内容。
@@ -202,6 +220,8 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 
 ##### ButtonOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -225,6 +245,8 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 ##### PopoverOptions14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 跟手弹出框参数，用于设置弹出框内容、位置属性等。
 
 继承自[CustomPopupOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-popup#custompopupoptions8类型说明)。
@@ -241,11 +263,15 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -652,7 +678,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/-dHkEEAnTLa0B18TnJ2Cng/zh-cn_image_0000002611756145.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=DB374D911BDAE363197E97D195A87BBC126B200C1C93811779254766CB92EF8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/-dHkEEAnTLa0B18TnJ2Cng/zh-cn_image_0000002611756145.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=38046DE637BE6719944D02FD9AC856CD04DBC11567A57A58B7935FF684A238A9)
 
 
 
@@ -715,7 +741,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/sNDnlva0QpOT86dFMW93PQ/zh-cn_image_0000002581436208.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=8A68614E36E3BBF50999EFB0FBC26F22B6879BCC2763047D8EA4A136F4E10597)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/sNDnlva0QpOT86dFMW93PQ/zh-cn_image_0000002581436208.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=AE2E7FED1136243B3E32BC3FFD4BDF2378470533AF6CD35027F4CEE3A952432B)
 
 
 
@@ -780,7 +806,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/t6z0Q40CT2GEqX0CAMZ9yQ/zh-cn_image_0000002611836039.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=EFFA0CADB34039F644150D83411EC9776B56ADE0CA891FA5D8DC666307C0502E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/t6z0Q40CT2GEqX0CAMZ9yQ/zh-cn_image_0000002611836039.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=E147C481DE94434A1FA26FEF474DCC70E9C7803F088AE78EEF886D6F0A3F06F5)
 
 
 
@@ -836,4 +862,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/wrFh7PX_RNWOQiYDFx7btw/zh-cn_image_0000002581276294.png?HW-CC-KV=V1&HW-CC-Date=20260528T013908Z&HW-CC-Expire=86400&HW-CC-Sign=6D035712540465F5D1F2C794B4CF63E4AE9FD26F80E4DF9AE67ED2D6D9A0176A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/wrFh7PX_RNWOQiYDFx7btw/zh-cn_image_0000002581276294.png?HW-CC-KV=V1&HW-CC-Date=20260528T024204Z&HW-CC-Expire=86400&HW-CC-Sign=D2304A3A27A84B10D502D507AA2BE554F4283858BC3451EDEA8A45C561E21326)

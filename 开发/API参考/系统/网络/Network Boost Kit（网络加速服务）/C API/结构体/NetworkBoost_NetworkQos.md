@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 网络质量回调信息。
  
 **起始版本：** 5.1.0(18)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,9 +45,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### linkDownBandwidth
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint64_t NetworkBoost_NetworkQos::linkDownBandwidth
@@ -55,6 +65,8 @@ uint64_t NetworkBoost_NetworkQos::linkDownBandwidth
 
 ##### linkDownRate
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 uint64_t NetworkBoost_NetworkQos::linkDownRate
 ```
@@ -66,6 +78,8 @@ uint64_t NetworkBoost_NetworkQos::linkDownRate
   
 
 ##### linkUpBandwidth
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint64_t NetworkBoost_NetworkQos::linkUpBandwidth
@@ -79,6 +93,8 @@ uint64_t NetworkBoost_NetworkQos::linkUpBandwidth
 
 ##### linkUpBufferCongestionPercent
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 uint32_t NetworkBoost_NetworkQos::linkUpBufferCongestionPercent
 ```
@@ -90,6 +106,8 @@ uint32_t NetworkBoost_NetworkQos::linkUpBufferCongestionPercent
   
 
 ##### linkUpBufferDelayMs
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint32_t NetworkBoost_NetworkQos::linkUpBufferDelayMs
@@ -103,6 +121,8 @@ uint32_t NetworkBoost_NetworkQos::linkUpBufferDelayMs
 
 ##### linkUpRate
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 uint64_t NetworkBoost_NetworkQos::linkUpRate
 ```
@@ -115,6 +135,8 @@ uint64_t NetworkBoost_NetworkQos::linkUpRate
 
 ##### pathType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 NetworkBoost_PathType NetworkBoost_NetworkQos::pathType
 ```
@@ -126,6 +148,8 @@ NetworkBoost_PathType NetworkBoost_NetworkQos::pathType
   
 
 ##### rttMs
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint32_t NetworkBoost_NetworkQos::rttMs

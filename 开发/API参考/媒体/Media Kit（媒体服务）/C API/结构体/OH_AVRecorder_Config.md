@@ -12,6 +12,8 @@ typedef struct OH_AVRecorder_Config {...} OH_AVRecorder_Config
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供媒体AVRecorder的配置定义。
  
 **起始版本：** 18
@@ -24,9 +26,13 @@ typedef struct OH_AVRecorder_Config {...} OH_AVRecorder_Config
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { systemDateTime } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { systemDateTime } from '@kit.BasicServicesKit';
 
 
 ##### TimeType10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义获取时间的枚举类型。
 
@@ -35,6 +39,8 @@ import { systemDateTime } from '@kit.BasicServicesKit';
 
 
 ##### systemDateTime.getCurrentTime(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentTime(isNano: boolean, callback: AsyncCallback&lt;number&gt;): void
 
@@ -86,6 +92,8 @@ try {
 
 ##### systemDateTime.getCurrentTime(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentTime(callback: AsyncCallback&lt;number&gt;): void
 
 获取自Unix纪元以来经过的时间，使用callback异步回调。
@@ -134,6 +142,8 @@ try {
 
 
 ##### systemDateTime.getCurrentTime(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentTime(isNano?: boolean): Promise&lt;number&gt;
 
@@ -189,6 +199,8 @@ try {
 
 ##### systemDateTime.getRealActiveTime(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRealActiveTime(isNano: boolean, callback: AsyncCallback&lt;number&gt;): void
 
 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
@@ -239,6 +251,8 @@ try {
 
 ##### systemDateTime.getRealActiveTime(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRealActiveTime(callback: AsyncCallback&lt;number&gt;): void
 
 获取自系统启动以来经过的时间，不包括深度睡眠时间，使用callback异步回调。
@@ -287,6 +301,8 @@ try {
 
 
 ##### systemDateTime.getRealActiveTime(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRealActiveTime(isNano?: boolean): Promise&lt;number&gt;
 
@@ -342,6 +358,8 @@ try {
 
 ##### systemDateTime.getRealTime(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRealTime(isNano: boolean, callback: AsyncCallback&lt;number&gt;): void
 
 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
@@ -392,6 +410,8 @@ try {
 
 ##### systemDateTime.getRealTime(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRealTime(callback: AsyncCallback&lt;number&gt;): void
 
 获取自系统启动以来经过的时间，包括深度睡眠时间，使用callback异步回调。
@@ -440,6 +460,8 @@ try {
 
 
 ##### systemDateTime.getRealTime(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRealTime(isNano?: boolean): Promise&lt;number&gt;
 
@@ -495,6 +517,8 @@ try {
 
 ##### systemDateTime.getTime10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTime(isNanoseconds?: boolean): number
 
 使用同步方式获取自Unix纪元以来到当前系统时间所经过的时间。
@@ -531,6 +555,8 @@ try {
 
 
 ##### systemDateTime.getUptime10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUptime(timeType: TimeType, isNanoseconds?: boolean): number
 
@@ -578,6 +604,8 @@ try {
 
 
 ##### systemDateTime.getDate(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDate(callback: AsyncCallback&lt;Date&gt;): void
 
@@ -628,6 +656,8 @@ try {
 
 ##### systemDateTime.getDate(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDate(): Promise&lt;Date&gt;
 
 获取当前系统日期，使用Promise异步回调。
@@ -675,6 +705,8 @@ try {
 
 ##### systemDateTime.getTimezone
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTimezone(callback: AsyncCallback&lt;string&gt;): void
 
 获取系统时区，使用callback异步回调。
@@ -711,6 +743,8 @@ try {
 
 ##### systemDateTime.getTimezone
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTimezone(): Promise&lt;string&gt;
 
 获取系统时区，使用Promise异步回调。
@@ -745,6 +779,8 @@ try {
 
 ##### systemDateTime.getTimezoneSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTimezoneSync(): string
 
 获取系统时区，使用同步方式。
@@ -774,6 +810,8 @@ try {
 
 
 ##### 支持的系统时区
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持的系统时区及各时区与0时区相比的偏移量(单位：h)可见下表。
 
@@ -815,6 +853,8 @@ try {
 
 
 ##### systemDateTime.getAutoTimeStatus21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAutoTimeStatus(): boolean
 

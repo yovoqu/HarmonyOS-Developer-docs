@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { cloudCommon } from '@kit.CloudFoundationKit';
 ```
@@ -19,6 +21,8 @@ import { cloudCommon } from '@kit.CloudFoundationKit';
   
 
 ##### cloudCommon.init
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 init(options?: CloudOptions): void
  
@@ -73,6 +77,8 @@ cloudCommon.init({
 
 ##### CloudOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 初始化选项。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -96,6 +102,8 @@ cloudCommon.init({
 
 ##### CloudRegion
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举， 存储地类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -118,6 +126,8 @@ cloudCommon.init({
 
 ##### AuthProvider
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 认证提供方。开发者可以使用[AGC认证服务SDK](https://developer.huawei.com/consumer/cn/doc/app/agc-help-auth-introduction-0000002271496181)获取AuthProvider，或者使用华为账号服务Access Token接口自定义AuthProvider。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -131,6 +141,8 @@ cloudCommon.init({
   
 
 ##### getAccessToken
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAccessToken(isForceRefresh: boolean): Promise&lt;string&gt;
  
@@ -251,6 +263,8 @@ cloudCommon.init({
 
 ##### FunctionOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 云函数初始化配置参数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -269,6 +283,8 @@ cloudCommon.init({
   
 
 ##### StorageOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 云存储初始化配置参数。
  
@@ -289,6 +305,8 @@ cloudCommon.init({
   
 
 ##### DatabaseOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 云数据库初始化配置参数。
  

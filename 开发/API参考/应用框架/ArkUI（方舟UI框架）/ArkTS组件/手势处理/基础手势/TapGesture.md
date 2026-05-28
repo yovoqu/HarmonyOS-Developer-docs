@@ -14,6 +14,8 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 TapGesture(value?: TapGestureParameters)
  
 创建点击手势对象。继承自[GestureInterface&lt;T&gt;](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesture-common#gestureinterfacet11)。
@@ -35,6 +37,8 @@ TapGesture(value?: TapGestureParameters)
 
 ##### TapGestureParameters12+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 为规范匿名对象的定义，API 12版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
 
@@ -54,6 +58,8 @@ TapGesture(value?: TapGestureParameters)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!TIP]
 > 组件通过手势事件绑定不同GestureType的手势对象，各手势对象在响应手势操作的事件回调中提供手势相关信息。下面通过TapGesture手势对象的 onAction 事件响应点击事件，获取事件相关信息。其余手势对象的事件定义见各个手势对象章节。 若需绑定多种手势，请使用 GestureGroup 。 在 GestureEvent 的fingerList元素中，手指索引编号与位置相对应，即fingerList[index]的id为index。对于先按下但未参与当前手势触发的手指，fingerList中对应的位置为空。建议优先使用fingerInfos。
 
@@ -61,6 +67,8 @@ TapGesture(value?: TapGestureParameters)
   
 
 ##### onAction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAction(event: (event: GestureEvent) => void)
  
@@ -81,6 +89,8 @@ onAction(event: (event: GestureEvent) => void)
 
 ##### EventLocationInfo20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于点击手势获取点击位置坐标。
  
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -100,6 +110,8 @@ onAction(event: (event: GestureEvent) => void)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -138,7 +150,7 @@ struct TapGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/PEAZoaB-SNaQ5P1MsssDqA/zh-cn_image_0000002611835539.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013906Z&HW-CC-Expire=86400&HW-CC-Sign=A86BFBE00B6CC937D48F9E1BA959C89BCE7EAEE150464918D8192F0E2C466111)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/PEAZoaB-SNaQ5P1MsssDqA/zh-cn_image_0000002611835539.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=AD6C7EB9E144A9D78915737B52F962428A808FDE68537CE4283636AE224D066F)
 
  
   
@@ -183,4 +195,4 @@ struct TapGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/7vZ5dKJ6RZS4SMOXsXU32g/zh-cn_image_0000002581275792.png?HW-CC-KV=V1&HW-CC-Date=20260528T013906Z&HW-CC-Expire=86400&HW-CC-Sign=ACB0AC25700EF5861135ADD3C6C8B7B070790CB3DC46C167598CAB44E1F80BE8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/7vZ5dKJ6RZS4SMOXsXU32g/zh-cn_image_0000002581275792.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=7791FE9E464DE153054645A319FA851CE77346CC7BD0B7E1299AA4ADE95C4316)

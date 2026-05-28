@@ -12,6 +12,8 @@ typedef struct HiDebug_MallocDispatch {...} HiDebug_MallocDispatch
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用程序进程可替换/恢复的HiDebug_MallocDispatch表结构类型定义。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ typedef struct HiDebug_MallocDispatch {...} HiDebug_MallocDispatch
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -42,9 +48,13 @@ typedef struct HiDebug_MallocDispatch {...} HiDebug_MallocDispatch
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### malloc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void* (*malloc)(size_t)
@@ -58,6 +68,8 @@ void* (*malloc)(size_t)
 
 ##### calloc()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void* (*calloc)(size_t, size_t)
 ```
@@ -69,6 +81,8 @@ void* (*calloc)(size_t, size_t)
   
 
 ##### realloc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void* (*realloc)(void*, size_t)
@@ -82,6 +96,8 @@ void* (*realloc)(void*, size_t)
 
 ##### free()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*free)(void*)
 ```
@@ -94,6 +110,8 @@ void (*free)(void*)
 
 ##### mmap()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void* (*mmap)(void*, size_t, int, int, int, off_t)
 ```
@@ -105,6 +123,8 @@ void* (*mmap)(void*, size_t, int, int, int, off_t)
   
 
 ##### munmap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int (*munmap)(void*, size_t)

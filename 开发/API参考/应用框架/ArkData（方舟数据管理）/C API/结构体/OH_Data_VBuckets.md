@@ -12,6 +12,8 @@ typedef struct OH_Data_VBuckets OH_Data_VBuckets
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义OH_Data_VBuckets结构类型。
  
 **起始版本：** 18

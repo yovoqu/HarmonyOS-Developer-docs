@@ -12,6 +12,8 @@
 
 ##### AudioRendererChangeInfoArray9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AudioRendererChangeInfoArray = Array<Readonly&lt;AudioRendererChangeInfo&gt;>
  
 数组类型，AudioRendererChangeInfo数组，只读。
@@ -26,6 +28,8 @@ type AudioRendererChangeInfoArray = Array<Readonly&lt;AudioRendererChangeInfo&gt
   
 
 ##### AudioCapturerChangeInfoArray9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AudioCapturerChangeInfoArray = Array<Readonly&lt;AudioCapturerChangeInfo&gt;>
  
@@ -42,6 +46,8 @@ type AudioCapturerChangeInfoArray = Array<Readonly&lt;AudioCapturerChangeInfo&gt
 
 ##### AudioEffectInfoArray10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AudioEffectInfoArray = Array<Readonly&lt;AudioEffectMode&gt;>
  
 待查询ContentType和StreamUsage组合场景下的音效模式数组类型，[AudioEffectMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e#audioeffectmode10)数组，只读。
@@ -56,6 +62,8 @@ type AudioEffectInfoArray = Array<Readonly&lt;AudioEffectMode&gt;>
   
 
 ##### AudioDeviceDescriptors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AudioDeviceDescriptors = Array<Readonly&lt;AudioDeviceDescriptor&gt;>
  
@@ -73,6 +81,8 @@ type AudioDeviceDescriptors = Array<Readonly&lt;AudioDeviceDescriptor&gt;>
   
 
 ##### AudioRendererWriteDataCallback12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type AudioRendererWriteDataCallback = (data: ArrayBuffer) => AudioDataCallbackResult | void
  

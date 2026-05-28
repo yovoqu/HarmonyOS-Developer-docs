@@ -12,6 +12,8 @@ typedef struct {...} Print_Resolution
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示以 dpi 为单位的打印分辨率。
  
 **起始版本：** 12

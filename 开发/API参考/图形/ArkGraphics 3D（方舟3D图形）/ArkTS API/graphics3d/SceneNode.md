@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotLight, DirectionalLight,
   Camera } from '@kit.ArkGraphics3D';
@@ -23,11 +25,15 @@ import { LayerMask, NodeType, Container, Node, Geometry, LightType, Light, SpotL
 
 ##### LayerMask
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于定义节点的图层掩码。
  
   
 
 ##### getEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getEnabled(index: number): boolean
  
@@ -75,6 +81,8 @@ function layerMask(): void {
 
 ##### setEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setEnabled(index: number, enabled: boolean): void
  
 将特定下标的图层掩码使能。
@@ -115,6 +123,8 @@ function layerMask(): void {
 
 ##### NodeType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 节点类型枚举。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -132,11 +142,15 @@ function layerMask(): void {
 
 ##### Container&lt;T&gt;
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义场景对象的容器。容器提供了一种将场景对象分组到层次结构中的方法。
  
   
 
 ##### append
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 append(item: T): void
  
@@ -176,6 +190,8 @@ function append(): void {
   
 
 ##### insertAfter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 insertAfter(item: T, sibling: T | null): void
  
@@ -217,6 +233,8 @@ function insertAfter(): void {
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 remove(item: T): void
  
 移除指定对象。
@@ -255,6 +273,8 @@ function remove(): void {
   
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(index: number): T | null
  
@@ -300,6 +320,8 @@ function get(): void {
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
  
 清空容器内的所有对象。
@@ -331,6 +353,8 @@ function clear(): void {
   
 
 ##### count
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 count(): number
  
@@ -370,11 +394,15 @@ function count(): void {
 
 ##### Node
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 3D场景由树状层次结构的节点组成，其中每个节点都实现了Node接口。继承自[SceneResource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-resources#sceneresource-1)。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
   
@@ -394,6 +422,8 @@ function count(): void {
   
 
 ##### getNodeByPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getNodeByPath(path: string): Node | null
  
@@ -436,6 +466,8 @@ function getNode(): void {
 
 ##### Geometry
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 几何节点类型，用于承载可渲染的网格数据，并支持可选的形变功能，继承自[Node](#node)。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -450,6 +482,8 @@ function getNode(): void {
 
 ##### LightType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 光源类型枚举。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -463,6 +497,8 @@ function getNode(): void {
   
 
 ##### Light
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 光源，继承自[Node](#node)。
  
@@ -481,6 +517,8 @@ function getNode(): void {
 
 ##### SpotLight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 聚光灯类型，继承自[Light](#light)。
  
 聚光灯会朝某个方向发出锥形光，强度随着圆锥角度的衰减由innerAngle和outerAngle两个参数定义。另外与点光源类似，强度也会随着距离光源位置的增加而衰减。
@@ -494,7 +532,7 @@ function getNode(): void {
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/16M3GdY4R8GxwesvGfTfeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T014034Z&HW-CC-Expire=86400&HW-CC-Sign=3FB6F83243F5F706A42964B842EF573AE0EE10027738DB26A66144891FA3BE10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/16M3GdY4R8GxwesvGfTfeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024325Z&HW-CC-Expire=86400&HW-CC-Sign=D4565B0512F56C4D8C874572C7D4FB6139D684849683D3C211B6E21932A5A103)
  
  
 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。
@@ -505,6 +543,8 @@ function getNode(): void {
 
 ##### DirectionalLight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 平行光类型，继承自[Light](#light)。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -513,11 +553,15 @@ function getNode(): void {
 
 ##### Camera
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机类型，Camera继承自[Node](#node)。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
   
@@ -537,6 +581,8 @@ function getNode(): void {
   
 
 ##### raycast20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 raycast(viewPosition: Vec2, params: RaycastParameters): Promise<RaycastResult[]>
  
@@ -677,6 +723,8 @@ function lookAt(node: Node, eye: Vec3, center: Vec3, up: Vec3) {
 
 ##### getViewMatrix23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getViewMatrix(): Mat4x4
  
 获取相机的视图矩阵。
@@ -716,6 +764,8 @@ function GetViewMatrix(): void {
   
 
 ##### getProjectionMatrix23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getProjectionMatrix(): Mat4x4
  

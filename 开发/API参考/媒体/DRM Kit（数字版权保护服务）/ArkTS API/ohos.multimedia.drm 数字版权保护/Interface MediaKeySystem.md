@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drm } from '@kit.DrmKit';
 ```
@@ -21,6 +23,8 @@ import { drm } from '@kit.DrmKit';
 
 
 ##### setConfigurationString
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setConfigurationString(configName: string, value: string): void
 
@@ -61,6 +65,8 @@ mediaKeySystem.setConfigurationString("stringConfigName", "stringConfigValue"); 
 
 
 ##### getConfigurationString
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getConfigurationString(configName: string): string
 
@@ -108,6 +114,8 @@ let configValue: string = mediaKeySystem.getConfigurationString("vendor");
 
 ##### setConfigurationByteArray
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setConfigurationByteArray(configName: string, value: Uint8Array): void
 
 设置数组类型的配置信息。
@@ -150,6 +158,8 @@ mediaKeySystem.setConfigurationByteArray("byteArrayConfigName", configValue);
 
 
 ##### getConfigurationByteArray
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getConfigurationByteArray(configName: string): Uint8Array
 
@@ -197,6 +207,8 @@ let configValue: Uint8Array = mediaKeySystem.getConfigurationByteArray("deviceUn
 
 ##### getStatistics
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStatistics(): StatisticKeyValue[]
 
 获取性能度量记录。其中包括当前会话数、插件版本信息、每个会话最大三次解密耗时、解密次数和解密失败次数。
@@ -235,6 +247,8 @@ let statisticKeyValue: drm.StatisticKeyValue[] = mediaKeySystem.getStatistics();
 
 ##### getMaxContentProtectionLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxContentProtectionLevel(): ContentProtectionLevel
 
 获取当前DRM解决方案支持的最大内容保护级别。
@@ -272,6 +286,8 @@ let maxLevel: drm.ContentProtectionLevel = mediaKeySystem.getMaxContentProtectio
 
 
 ##### generateKeySystemRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 generateKeySystemRequest(): Promise&lt;ProvisionRequest&gt;
 
@@ -316,6 +332,8 @@ mediaKeySystem.generateKeySystemRequest().then((provisionRequest: drm.ProvisionR
 
 
 ##### processKeySystemResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 processKeySystemResponse(response: Uint8Array): Promise&lt;void&gt;
 
@@ -369,6 +387,8 @@ mediaKeySystem.processKeySystemResponse(keySystemResponse).then(() => {
 
 ##### getCertificateStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCertificateStatus():CertificateStatus
 
 获取设备证书状态值。
@@ -406,6 +426,8 @@ let certificateStatus: drm.CertificateStatus = mediaKeySystem.getCertificateStat
 
 
 ##### on('keySystemRequired')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'keySystemRequired', callback: (eventInfo: EventInfo) => void): void
 
@@ -448,6 +470,8 @@ mediaKeySystem.on('keySystemRequired', (eventInfo: drm.EventInfo) => {
 
 ##### off('keySystemRequired')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'keySystemRequired', callback?: (eventInfo: EventInfo) => void): void
 
 注销设备证书请求事件的监听。使用callback异步回调。
@@ -485,6 +509,8 @@ mediaKeySystem.off('keySystemRequired');
 
 
 ##### createMediaKeySession
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createMediaKeySession(level: ContentProtectionLevel): MediaKeySession
 
@@ -533,6 +559,8 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 
 ##### createMediaKeySession
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createMediaKeySession(): MediaKeySession
 
 创建DRM解决方案默认内容保护级别的MediaKeySession实例。
@@ -572,6 +600,8 @@ let mediaKeySession: drm.MediaKeySession = mediaKeySystem.createMediaKeySession(
 
 ##### getOfflineMediaKeyIds
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOfflineMediaKeyIds(): Uint8Array[]
 
 获取离线媒体密钥标识列表。
@@ -609,6 +639,8 @@ let offlineMediaKeyIds: Uint8Array[] = mediaKeySystem.getOfflineMediaKeyIds();
 
 
 ##### getOfflineMediaKeyStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOfflineMediaKeyStatus(mediaKeyId: Uint8Array): OfflineMediaKeyStatus
 
@@ -658,6 +690,8 @@ let configValue: drm.OfflineMediaKeyStatus = mediaKeySystem.getOfflineMediaKeySt
 
 ##### clearOfflineMediaKeys
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearOfflineMediaKeys(mediaKeyId: Uint8Array): void
 
 删除指定媒体密钥标识的离线媒体密钥。
@@ -698,6 +732,8 @@ mediaKeySystem.clearOfflineMediaKeys(mediaKeyId);
 
 
 ##### destroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 destroy(): void
 

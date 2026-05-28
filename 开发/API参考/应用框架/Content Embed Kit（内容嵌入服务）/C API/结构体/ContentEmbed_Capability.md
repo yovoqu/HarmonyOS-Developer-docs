@@ -12,6 +12,8 @@ typedef struct ContentEmbed_Capability ContentEmbed_Capability
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明ContentEmbed_Capability结构体类型。
  
 **起始版本：** 24

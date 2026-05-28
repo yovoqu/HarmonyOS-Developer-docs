@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { stylusInteraction } from '@kit.Penkit';
 ```
@@ -21,6 +23,8 @@ import { stylusInteraction } from '@kit.Penkit';
   
 
 ##### stylusInteraction.on('squeeze')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'squeeze', receiver: Callback&lt;SqueezeEvent&gt;): void
  
@@ -56,6 +60,8 @@ try {
 
 ##### stylusInteraction.off('squeeze')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'squeeze', receiver?: Callback&lt;SqueezeEvent&gt;): void
  
 取消监听手写笔笔身轻捏事件，使用callback异步回调。
@@ -88,6 +94,8 @@ try {
   
 
 ##### stylusInteraction.on('doubleTap')
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'doubleTap', receiver: Callback&lt;DoubleTapEvent&gt;): void
  
@@ -122,6 +130,8 @@ try {
 
 ##### stylusInteraction.off('doubleTap')
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 off(type: 'doubleTap', receiver?: Callback&lt;DoubleTapEvent&gt;): void
  
 取消监听手写笔笔身双击事件，使用callback异步回调。
@@ -155,6 +165,8 @@ try {
 
 ##### SqueezeEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 手写笔笔身轻捏事件信息。
  
 **系统能力：** SystemCapability.Stylus.StylusService
@@ -171,6 +183,8 @@ try {
   
 
 ##### DoubleTapEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 手写笔笔身双击事件信息。
  

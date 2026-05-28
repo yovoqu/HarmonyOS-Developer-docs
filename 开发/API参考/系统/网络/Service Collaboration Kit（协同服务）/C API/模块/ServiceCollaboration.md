@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 提供ServiceCollaboration跨设备互通的相关NDK接口。
  
 **系统能力：** SystemCapability.Collaboration.Service
@@ -17,9 +19,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -29,6 +35,8 @@
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -42,6 +50,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -53,6 +63,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -70,6 +82,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -82,6 +96,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -96,9 +112,13 @@
 
 ##### 宏定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH   65
@@ -114,6 +134,8 @@
 
 ##### COLLABORATIONDEVICEINFO_DEVICENAME_MAXLENGTH
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define COLLABORATIONDEVICEINFO_DEVICENAME_MAXLENGTH   128
 ```
@@ -127,6 +149,8 @@
   
 
 ##### SERVICE_COLLABORATION_URI_MAXLENGTH
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define SERVICE_COLLABORATION_URI_MAXLENGTH   4096
@@ -142,9 +166,13 @@
 
 ##### 类型定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### ServiceCollaboration_CollaborationDeviceInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct ServiceCollaboration_CollaborationDeviceInfo ServiceCollaboration_CollaborationDeviceInfo
@@ -160,6 +188,8 @@ typedef struct ServiceCollaboration_CollaborationDeviceInfo ServiceCollaboration
 
 ##### ServiceCollaboration_CollaborationDeviceInfoSets
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct ServiceCollaboration_CollaborationDeviceInfoSets ServiceCollaboration_CollaborationDeviceInfoSets
 ```
@@ -173,6 +203,8 @@ typedef struct ServiceCollaboration_CollaborationDeviceInfoSets ServiceCollabora
   
 
 ##### ServiceCollaboration_SelectInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct ServiceCollaboration_SelectInfo ServiceCollaboration_SelectInfo
@@ -188,6 +220,8 @@ typedef struct ServiceCollaboration_SelectInfo ServiceCollaboration_SelectInfo
 
 ##### ServiceCollaborationCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct ServiceCollaborationCallback ServiceCollaborationCallback
 ```
@@ -201,6 +235,8 @@ typedef struct ServiceCollaborationCallback ServiceCollaborationCallback
   
 
 ##### ServiceCollaborationFilterType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef enum ServiceCollaborationFilterType ServiceCollaborationFilterType
@@ -216,6 +252,8 @@ typedef enum ServiceCollaborationFilterType ServiceCollaborationFilterType
 
 ##### ServiceCollaborationDataType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef enum ServiceCollaborationDataType ServiceCollaborationDataType
 ```
@@ -229,6 +267,8 @@ typedef enum ServiceCollaborationDataType ServiceCollaborationDataType
   
 
 ##### ServiceCollaborationEventCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef enum ServiceCollaborationEventCode ServiceCollaborationEventCode
@@ -244,6 +284,8 @@ typedef enum ServiceCollaborationEventCode ServiceCollaborationEventCode
 
 ##### ServiceCollaboration_SelectInfoV2
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct ServiceCollaboration_SelectInfoV2 ServiceCollaboration_SelectInfoV2
 ```
@@ -258,9 +300,13 @@ typedef struct ServiceCollaboration_SelectInfoV2 ServiceCollaboration_SelectInfo
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### ServiceCollaborationFilterType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum ServiceCollaborationFilterType
@@ -285,6 +331,8 @@ enum ServiceCollaborationFilterType
 
 ##### CollaborationDeviceFilterType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum CollaborationDeviceFilterType
 ```
@@ -306,6 +354,8 @@ enum CollaborationDeviceFilterType
 
 ##### ServiceCollaborationDataType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum ServiceCollaborationDataType
 ```
@@ -325,6 +375,8 @@ enum ServiceCollaborationDataType
   
 
 ##### ServiceCollaborationEventCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum ServiceCollaborationEventCode
@@ -359,9 +411,13 @@ enum ServiceCollaborationEventCode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### HMS_ServiceCollaboration_GetCollaborationDeviceInfos
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ServiceCollaboration_CollaborationDeviceInfoSets* HMS_ServiceCollaboration_GetCollaborationDeviceInfos(
@@ -389,6 +445,8 @@ ServiceCollaboration_CollaborationDeviceInfoSets* HMS_ServiceCollaboration_GetCo
   
 
 ##### HMS_ServiceCollaboration_GetCollaborationDeviceInfosV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ServiceCollaboration_CollaborationDeviceInfoSets* HMS_ServiceCollaboration_GetCollaborationDeviceInfosV2(
@@ -419,6 +477,8 @@ ServiceCollaboration_CollaborationDeviceInfoSets* HMS_ServiceCollaboration_GetCo
 
 ##### HMS_ServiceCollaboration_StartCollaboration
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t HMS_ServiceCollaboration_StartCollaboration(
     const ServiceCollaboration_SelectInfo* selectService, ServiceCollaborationCallback* callback);
@@ -446,6 +506,8 @@ uint32_t HMS_ServiceCollaboration_StartCollaboration(
 
 ##### HMS_ServiceCollaboration_StopCollaboration
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 int32_t HMS_ServiceCollaboration_StopCollaboration(uint32_t collaborationId);
 ```
@@ -470,6 +532,8 @@ int32_t HMS_ServiceCollaboration_StopCollaboration(uint32_t collaborationId);
   
 
 ##### HMS_ServiceCollaboration_StartCollaborationV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 uint32_t HMS_ServiceCollaboration_StartCollaborationV2(

@@ -24,6 +24,8 @@ K和V类型都需为[Sendable支持的数据类型](https://developer.huawei.com
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { collections } from '@kit.ArkTS';
 ```
@@ -31,6 +33,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API**：从API version 12 开始，该接口支持在元服务中使用。
 
@@ -44,6 +48,8 @@ import { collections } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(entries?: readonly (readonly [K, V])[] | null)
 
@@ -104,6 +110,8 @@ const myMap2: collections.Map<number, Object> = new collections.Map<number, Obje
 
 ##### constructor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor(iterable: Iterable<readonly [K, V]>)
 
 创建ArkTS Map对象的构造函数。
@@ -144,6 +152,8 @@ console.info(newMap.get('2')); // 预期输出： b
 
 
 ##### entries
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 entries(): IterableIterator<[K, V]>
 
@@ -210,6 +220,8 @@ console.info("size:" + myMap.size);
 
 ##### keys
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 keys(): IterableIterator&lt;K&gt;
 
 返回一个Map迭代器对象，该对象包含了此Map中每个元素的键。
@@ -253,6 +265,8 @@ console.info(iterator.next().value);
 
 
 ##### values
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 values(): IterableIterator&lt;V&gt;
 
@@ -298,6 +312,8 @@ console.info(iterator.next().value);
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 删除该Map中的所有元素。
@@ -333,6 +349,8 @@ console.info("size:" + myMap.size);
 
 
 ##### delete
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 delete(key: K): boolean
 
@@ -384,6 +402,8 @@ console.info("result:" + myMap.delete("hello"));
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value: V, key: K, map: Map<K, V>) => void): void
 
@@ -449,6 +469,8 @@ new collections.Map<string, number>([
 
 ##### get
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get(key: K): V | undefined
 
 返回该Map中的指定元素。
@@ -498,6 +520,8 @@ console.info(myMap.get("hel"));
 
 ##### has
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 has(key: K): boolean
 
 判断该Map中是否存在指定元素。
@@ -546,6 +570,8 @@ console.info("result:" + myMap.has("world"));
 
 
 ##### set
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set(key: K, value: V): Map<K, V>
 
@@ -600,6 +626,8 @@ myMap.set("foo", obj);
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator<[K, V]>
 

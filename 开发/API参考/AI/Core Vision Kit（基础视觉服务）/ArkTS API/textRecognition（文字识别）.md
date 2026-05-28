@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { textRecognition } from '@kit.CoreVisionKit';
 ```
@@ -19,6 +21,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 ##### TextRecognitionConfiguration
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 通用文本识别的配置项，用于配置是否支持朝向检测。
 
@@ -35,6 +39,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 ##### VisionInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)类型的视觉信息。
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
@@ -49,6 +55,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 ##### PixelPoint
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 指示像素点的位置。
 
@@ -66,6 +74,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 ##### TextWord
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 描述一个单词的信息，包括内容，以及外框的坐标。
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
@@ -81,6 +91,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 ##### TextLine
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 描述图像中的一行文本。
 
@@ -99,6 +111,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 ##### TextBlock
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 描述图像中的文本块。
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
@@ -115,6 +129,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 ##### TextRecognitionResult
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 文本识别的结果信息，包括文本内容和坐标信息。
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
@@ -130,6 +146,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 
 ##### textRecognition.init
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 init(): Promise&lt;boolean&gt;
 
@@ -190,6 +208,8 @@ struct Page {
 
 ##### textRecognition.release
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 release(): Promise&lt;void&gt;
 
 释放文字识别服务。使用Promise异步回调。
@@ -248,6 +268,8 @@ struct Page {
 
 
 ##### textRecognition.recognizeText
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 recognizeText(visionInfo: VisionInfo, callback: AsyncCallback&lt;TextRecognitionResult&gt;): void
 
@@ -352,6 +374,8 @@ struct Page {
 
 
 ##### textRecognition.recognizeText
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 recognizeText(visionInfo: VisionInfo, configuration ?: TextRecognitionConfiguration): Promise&lt;TextRecognitionResult&gt;
 
@@ -458,6 +482,8 @@ struct Page {
 
 
 ##### textRecognition.recognizeText
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 recognizeText(visionInfo: VisionInfo, configuration: TextRecognitionConfiguration, callback: AsyncCallback&lt;TextRecognitionResult&gt;): void
 
@@ -571,6 +597,8 @@ struct Page {
 
 ##### textRecognition.getSupportedLanguages
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getSupportedLanguages(): Promise<Array&lt;string&gt;>
 
 获取当前文本识别所支持的语言类型列表。使用Promise异步回调。
@@ -624,6 +652,8 @@ struct Page {
 
 
 ##### textRecognition.getSupportedLanguages
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getSupportedLanguages(callback: AsyncCallback<Array&lt;string&gt;>): void
 
@@ -679,6 +709,8 @@ struct Page {
 
 
 ##### 语言类型列表
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 | 语言（英） | 语言（中） |
 | --- | --- |

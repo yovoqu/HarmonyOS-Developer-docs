@@ -14,6 +14,8 @@
 
 ##### ResultSet
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供通过查询数据库生成的数据库结果集的访问方法。
  
   
@@ -37,6 +39,8 @@ promise.then((resultSet) => {
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -55,6 +59,8 @@ promise.then((resultSet) => {
   
 
 ##### getColumnIndex
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getColumnIndex(columnName: string): number
  
@@ -92,6 +98,8 @@ if (success) {
 
 ##### getColumnName
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getColumnName(columnIndex: number): string
  
 根据指定的列索引获取列名。
@@ -123,6 +131,8 @@ const age = resultSet.getColumnName(2);
   
 
 ##### goTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 goTo(offset:number): boolean
  
@@ -161,6 +171,8 @@ promisequerygoto.then((resultSet) => {
 
 ##### goToRow
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 goToRow(position: number): boolean
  
 转到结果集的指定行。
@@ -198,6 +210,8 @@ promisequerygotorow.then((resultSet) => {
 
 ##### goToFirstRow
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 goToFirstRow(): boolean
  
 转到结果集的第一行。
@@ -227,6 +241,8 @@ promisequerygoFirst.then((resultSet) => {
   
 
 ##### goToLastRow
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 goToLastRow(): boolean
  
@@ -258,6 +274,8 @@ promisequerygoLast.then((resultSet) => {
 
 ##### goToNextRow
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 goToNextRow(): boolean
  
 转到结果集的下一行。
@@ -287,6 +305,8 @@ promisequerygoNext.then((resultSet) => {
   
 
 ##### goToPreviousRow
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 goToPreviousRow(): boolean
  
@@ -318,6 +338,8 @@ promisequerygoPrev.then((resultSet) => {
 
 ##### getBlob
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBlob(columnIndex: number): Uint8Array
  
 以字节数组的形式获取当前行中指定列的值。
@@ -347,6 +369,8 @@ const codes = resultSet.getBlob(resultSet.getColumnIndex("CODES"));
   
 
 ##### getString
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getString(columnIndex: number): string
  
@@ -378,6 +402,8 @@ const name = resultSet.getString(resultSet.getColumnIndex("NAME"));
 
 ##### getLong
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLong(columnIndex: number): number
  
 以Long形式获取当前行中指定列的值。
@@ -407,6 +433,8 @@ const age = resultSet.getLong(resultSet.getColumnIndex("AGE"));
   
 
 ##### getDouble
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDouble(columnIndex: number): number
  
@@ -438,6 +466,8 @@ const salary = resultSet.getDouble(resultSet.getColumnIndex("SALARY"));
 
 ##### isColumnNull
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isColumnNull(columnIndex: number): boolean
  
 检查当前行中指定列的值是否为null。
@@ -467,6 +497,8 @@ const isColumnNull = resultSet.isColumnNull(resultSet.getColumnIndex("CODES"));
   
 
 ##### close
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 close(): void
  

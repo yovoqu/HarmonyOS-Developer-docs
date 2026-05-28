@@ -14,6 +14,8 @@ ApplicationContext作为应用上下文，继承自[Context](https://developer.h
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { common } from '@kit.AbilityKit';
 
 
 ##### ApplicationContext.on('abilityLifecycle')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback): number
 
@@ -115,6 +119,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ApplicationContext.off('abilityLifecycle')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback&lt;void&gt;): void
 
 取消监听应用内UIAbility的生命周期。使用callback异步回调。仅支持主线程调用。
@@ -172,6 +178,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ApplicationContext.off('abilityLifecycle')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'abilityLifecycle', callbackId: number): Promise&lt;void&gt;
 
 取消监听应用内UIAbility的生命周期。使用Promise异步回调。仅支持主线程调用。
@@ -228,6 +236,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.on('environment')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'environment', callback: EnvironmentCallback): number
 
@@ -301,6 +311,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ApplicationContext.off('environment')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'environment', callbackId: number, callback: AsyncCallback&lt;void&gt;): void
 
 取消对系统环境变化的监听。使用callback异步回调。仅支持主线程调用。
@@ -357,6 +369,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ApplicationContext.off('environment')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'environment', callbackId: number): Promise&lt;void&gt;
 
 取消对系统环境变化的监听。使用Promise异步回调。仅支持主线程调用。
@@ -412,6 +426,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.on('applicationStateChange')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'applicationStateChange', callback: ApplicationStateChangeCallback): void
 
@@ -473,6 +489,8 @@ export default class MyAbility extends UIAbility {
 
 ##### ApplicationContext.off('applicationStateChange')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'applicationStateChange', callback?: ApplicationStateChangeCallback): void
 
 取消对当前应用进程状态变化的监听。使用callback异步回调。仅支持主线程调用。
@@ -532,6 +550,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.onSystemConfigurationUpdated24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSystemConfigurationUpdated(callback: systemConfiguration.UpdatedCallback): void
 
@@ -606,6 +626,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ApplicationContext.offSystemConfigurationUpdated24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offSystemConfigurationUpdated(callback?: systemConfiguration.UpdatedCallback): void
 
 取消监听系统环境[Configuration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration#configuration)的变化。仅支持主线程调用。
@@ -675,6 +697,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ApplicationContext.getRunningProcessInformation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getRunningProcessInformation(): Promise<Array&lt;ProcessInformation&gt;>
 
 获取运行中的进程信息。使用Promise异步回调。
@@ -722,6 +746,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.getRunningProcessInformation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRunningProcessInformation(callback: AsyncCallback<Array&lt;ProcessInformation&gt;>): void
 
@@ -772,6 +798,8 @@ export default class MyAbility extends UIAbility {
 
 ##### ApplicationContext.killAllProcesses
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 killAllProcesses(): Promise&lt;void&gt;
 
 终止应用的所有进程，进程退出时不会正常执行完整的应用生命周期流程。使用Promise异步回调。仅支持主线程调用。
@@ -817,6 +845,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.killAllProcesses14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 killAllProcesses(clearPageStack: boolean): Promise&lt;void&gt;
 
@@ -873,6 +903,8 @@ export default class MyAbility extends UIAbility {
 
 ##### ApplicationContext.killAllProcesses
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 killAllProcesses(callback: AsyncCallback&lt;void&gt;): void
 
 终止应用的所有进程，进程退出时不会正常执行完整的应用生命周期流程。使用callback异步回调。仅支持主线程调用。
@@ -922,6 +954,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.setColorMode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColorMode(colorMode: ConfigurationConstant.ColorMode): void
 
@@ -978,6 +1012,8 @@ export default class MyAbility extends UIAbility {
 
 ##### ApplicationContext.setLanguage11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setLanguage(language: string): void
 
 设置应用的语言。仅支持主线程调用。
@@ -1032,6 +1068,8 @@ export default class MyAbility extends UIAbility {
 
 ##### ApplicationContext.clearUpApplicationData11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearUpApplicationData(): Promise&lt;void&gt;
 
 清理当前应用的应用文件路径下的所有数据，同时撤销应用向用户申请的权限。使用Promise异步回调。仅支持主线程调用。
@@ -1075,6 +1113,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.clearUpApplicationData11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clearUpApplicationData(callback: AsyncCallback&lt;void&gt;): void
 
@@ -1124,6 +1164,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.restartApp12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 restartApp(want: Want): void
 
@@ -1205,6 +1247,8 @@ struct Index {
 
 ##### ApplicationContext.getCurrentAppCloneIndex12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentAppCloneIndex(): number
 
 获取当前应用的分身索引。
@@ -1250,6 +1294,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.setFont12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFont(font: string): void
 
@@ -1316,6 +1362,8 @@ struct Index {
 
 ##### ApplicationContext.setSupportedProcessCache12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSupportedProcessCache(isSupported : boolean): void
 
 设置当前应用进程是否支持进程资源的缓存，便于应用再次启动时复用缓存的进程资源。仅支持主线程调用。
@@ -1375,6 +1423,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 ##### ApplicationContext.setFontSizeScale13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFontSizeScale(fontSizeScale: number): void
 
 设置应用字体大小缩放比例。仅支持主线程调用。
@@ -1412,6 +1462,8 @@ export default class MyAbility extends UIAbility {
 
 
 ##### ApplicationContext.getCurrentInstanceKey14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentInstanceKey(): string
 
@@ -1464,6 +1516,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 ##### ApplicationContext.getAllRunningInstanceKeys14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllRunningInstanceKeys(): Promise<Array&lt;string&gt;>;
 
 获取应用的所有多实例的唯一实例标识。使用Promise异步回调。仅支持主线程调用。
@@ -1513,6 +1567,8 @@ export default class MyAbilityStage extends AbilityStage {
 
 
 ##### ApplicationContext.getAllWindowStages23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllWindowStages(): Promise<Array<window.WindowStage>>
 

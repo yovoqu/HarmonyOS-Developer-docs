@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { contact } from '@kit.ContactsKit';
 ```
@@ -21,6 +23,8 @@ import { contact } from '@kit.ContactsKit';
 
 
 ##### contact.addContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addContact(context: Context, contact: Contact, callback: AsyncCallback&lt;number&gt;): void
 
@@ -83,6 +87,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.addContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addContact(contact: Contact, callback: AsyncCallback&lt;number&gt;): void
 
 添加联系人。使用callback异步回调。
@@ -130,6 +136,8 @@ contact.addContact(context, {
 
 
 ##### contact.addContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addContact(context: Context, contact: Contact): Promise&lt;number&gt;
 
@@ -197,6 +205,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.addContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addContact(contact: Contact): Promise&lt;number&gt;
 
 添加联系人。使用Promise异步回调。
@@ -246,6 +256,8 @@ promise.then((data) => {
 
 
 ##### contact.deleteContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 deleteContact(context: Context, key: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -303,6 +315,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.deleteContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 deleteContact(key: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除联系人。使用callback异步回调。
@@ -348,6 +362,8 @@ contact.selectContacts().then((data) => {
 
 
 ##### contact.deleteContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 deleteContact(context: Context, key: string): Promise&lt;void&gt;
 
@@ -410,6 +426,8 @@ contact.selectContacts().then((data) => {
 
 ##### contact.deleteContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 deleteContact(key: string): Promise&lt;void&gt;
 
 删除联系人。使用Promise异步回调。
@@ -458,6 +476,8 @@ contact.selectContacts().then((data) => {
 
 
 ##### contact.updateContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 updateContact(context: Context, contact: Contact, callback: AsyncCallback&lt;void&gt;): void
 
@@ -522,6 +542,8 @@ contact.selectContacts().then((data) => {
 
 ##### contact.updateContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 updateContact(contact: Contact, callback: AsyncCallback&lt;void&gt;): void
 
 更新联系人。使用callback异步回调。
@@ -574,6 +596,8 @@ contact.selectContacts().then((data) => {
 
 
 ##### contact.updateContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 updateContact(context: Context, contact: Contact, attrs: ContactAttributes, callback: AsyncCallback&lt;void&gt;): void
 
@@ -641,6 +665,8 @@ contact.selectContacts().then((data) => {
 
 ##### contact.updateContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 updateContact(contact: Contact, attrs: ContactAttributes, callback: AsyncCallback&lt;void&gt;): void
 
 更新联系人（支持传入联系人的属性列表）。使用callback异步回调。
@@ -694,6 +720,8 @@ contact.selectContacts().then((data) => {
 
 
 ##### contact.updateContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 updateContact(context: Context, contact: Contact, attrs?: ContactAttributes): Promise&lt;void&gt;
 
@@ -766,6 +794,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.updateContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 updateContact(contact: Contact, attrs?: ContactAttributes): Promise&lt;void&gt;
 
 更新联系人（支持传入联系人的属性列表）。使用Promise异步回调。
@@ -825,6 +855,8 @@ contact.selectContacts().then((data) => {
 
 ##### contact.isLocalContact10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isLocalContact(context: Context, id: number, callback: AsyncCallback&lt;boolean&gt;): void
 
 判断当前联系人id是否在电话簿中。使用callback异步回调。
@@ -877,6 +909,8 @@ contact.isLocalContact(context, 1, (err: BusinessError, data) => {
 
 ##### contact.isLocalContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isLocalContact(id: number, callback: AsyncCallback&lt;boolean&gt;): void
 
 判断当前联系人id是否在电话簿中。使用callback异步回调。
@@ -914,6 +948,8 @@ contact.isLocalContact(1, (err: BusinessError, data) => {
 
 
 ##### contact.isLocalContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isLocalContact(context: Context, id: number): Promise&lt;boolean&gt;
 
@@ -972,6 +1008,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.isLocalContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isLocalContact(id: number): Promise&lt;boolean&gt;
 
 判断当前联系人id是否在电话簿中。使用Promise异步回调。
@@ -1014,6 +1052,8 @@ promise.then((data) => {
 
 
 ##### contact.isMyCard10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isMyCard(context: Context, id: number, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -1067,6 +1107,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.isMyCard(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isMyCard(id: number, callback: AsyncCallback&lt;boolean&gt;): void
 
 判断是否为“我的名片”。使用callback异步回调。
@@ -1104,6 +1146,8 @@ contact.isMyCard(1, (err: BusinessError, data) => {
 
 
 ##### contact.isMyCard10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 isMyCard(context: Context, id: number): Promise&lt;boolean&gt;
 
@@ -1162,6 +1206,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.isMyCard(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isMyCard(id: number): Promise&lt;boolean&gt;
 
 判断是否为“我的名片”。使用Promise异步回调。
@@ -1204,6 +1250,8 @@ promise.then((data) => {
 
 
 ##### contact.queryMyCard10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryMyCard(context: Context, callback: AsyncCallback&lt;Contact&gt;): void
 
@@ -1256,6 +1304,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.queryMyCard(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryMyCard(callback: AsyncCallback&lt;Contact&gt;): void
 
 查询“我的名片”。使用callback异步回调。
@@ -1292,6 +1342,8 @@ contact.queryMyCard((err: BusinessError, data) => {
 
 
 ##### contact.queryMyCard10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryMyCard(context: Context, attrs: ContactAttributes, callback: AsyncCallback&lt;Contact&gt;): void
 
@@ -1347,6 +1399,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.queryMyCard(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryMyCard(attrs: ContactAttributes, callback: AsyncCallback&lt;Contact&gt;): void
 
 查询“我的名片”（支持传入联系人的属性列表）。使用callback异步回调。
@@ -1386,6 +1440,8 @@ contact.queryMyCard({
 
 
 ##### contact.queryMyCard10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryMyCard(context: Context, attrs?: ContactAttributes): Promise&lt;Contact&gt;
 
@@ -1446,6 +1502,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.queryMyCard(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryMyCard(attrs?: ContactAttributes): Promise&lt;Contact&gt;
 
 查询“我的名片”（支持传入联系人的属性列表）。使用Promise异步回调。
@@ -1491,6 +1549,8 @@ promise.then((data) => {
 
 ##### contact.selectContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 selectContact(callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 调用选择联系人接口，打开选择联系人UI界面。使用callback异步回调。
@@ -1526,6 +1586,8 @@ contact.selectContact((err: BusinessError, data) => {
 
 ##### contact.selectContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 selectContact(): Promise<Array&lt;Contact&gt;>
 
 调用选择联系人接口，打开选择联系人UI界面。使用Promise异步回调。
@@ -1559,6 +1621,8 @@ promise.then((data) => {
 
 
 ##### contact.selectContacts10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 selectContacts(callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -1602,6 +1666,8 @@ contact.selectContacts((err: BusinessError, data) => {
 
 ##### contact.selectContacts10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 selectContacts(): Promise<Array&lt;Contact&gt;>
 
 调用选择联系人接口，打开选择联系人UI界面。使用Promise异步回调。
@@ -1633,6 +1699,8 @@ promise.then((data) => {
 
 
 ##### contact.selectContacts10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 selectContacts(options: ContactSelectionOptions, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -1678,6 +1746,8 @@ contact.selectContacts({
 
 
 ##### contact.selectContacts10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 selectContacts(options: ContactSelectionOptions): Promise<Array&lt;Contact&gt;>
 
@@ -1726,6 +1796,8 @@ promise.then((data) => {
 
 
 ##### contact.queryContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContact(context: Context, key: string, callback: AsyncCallback&lt;Contact&gt;): void
 
@@ -1779,6 +1851,8 @@ contact.queryContact(context, 'xxx', (err: BusinessError, data) => {
 
 ##### contact.queryContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContact(key: string, callback: AsyncCallback&lt;Contact&gt;): void
 
 根据key查询联系人。使用callback异步回调。
@@ -1816,6 +1890,8 @@ contact.queryContact('xxx', (err: BusinessError, data) => {
 
 
 ##### contact.queryContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContact(context: Context, key: string, holder: Holder, callback: AsyncCallback&lt;Contact&gt;): void
 
@@ -1874,6 +1950,8 @@ contact.queryContact(context, 'xxx', {
 
 ##### contact.queryContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContact(key: string, holder: Holder, callback: AsyncCallback&lt;Contact&gt;): void
 
 根据key和holder查询联系人。使用callback异步回调。
@@ -1916,6 +1994,8 @@ contact.queryContact('xxx', {
 
 
 ##### contact.queryContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContact(context: Context, key: string, attrs: ContactAttributes, callback: AsyncCallback&lt;Contact&gt;): void
 
@@ -1972,6 +2052,8 @@ contact.queryContact(context, 'xxx', {
 
 ##### contact.queryContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContact(key: string, attrs: ContactAttributes, callback: AsyncCallback&lt;Contact&gt;): void
 
 根据key和attrs查询联系人。使用callback异步回调。
@@ -2012,6 +2094,8 @@ contact.queryContact('xxx', {
 
 
 ##### contact.queryContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContact(context: Context, key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback&lt;Contact&gt;): void
 
@@ -2073,6 +2157,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 ##### contact.queryContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContact(key: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback&lt;Contact&gt;): void
 
 根据key、holder和attrs查询联系人。使用callback异步回调。
@@ -2118,6 +2204,8 @@ contact.queryContact('xxx', {
 
 
 ##### contact.queryContact10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContact(context: Context, key: string, holder?: Holder, attrs?: ContactAttributes): Promise&lt;Contact&gt;
 
@@ -2184,6 +2272,8 @@ promise.then((data) => {
 
 ##### contact.queryContact(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContact(key: string, holder?: Holder, attrs?: ContactAttributes): Promise&lt;Contact&gt;
 
 根据key、holder和attrs查询联系人。使用Promise异步回调。
@@ -2234,6 +2324,8 @@ promise.then((data) => {
 
 
 ##### contact.queryContacts10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContacts(context: Context, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -2286,6 +2378,8 @@ contact.queryContacts(context, (err: BusinessError, data) => {
 
 ##### contact.queryContacts(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContacts(callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 查询所有联系人。使用callback异步回调。
@@ -2322,6 +2416,8 @@ contact.queryContacts((err: BusinessError, data) => {
 
 
 ##### contact.queryContacts10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContacts(context: Context, holder: Holder, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -2379,6 +2475,8 @@ contact.queryContacts(context, {
 
 ##### contact.queryContacts(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContacts(holder: Holder, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据holder查询所有联系人。使用callback异步回调。
@@ -2420,6 +2518,8 @@ contact.queryContacts({
 
 
 ##### contact.queryContacts10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContacts(context: Context, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -2475,6 +2575,8 @@ contact.queryContacts(context, {
 
 ##### contact.queryContacts(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContacts(attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据attrs查询所有联系人。使用callback异步回调。
@@ -2514,6 +2616,8 @@ contact.queryContacts({
 
 
 ##### contact.queryContacts10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContacts(context: Context, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -2574,6 +2678,8 @@ contact.queryContacts(context, {
 
 ##### contact.queryContacts(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContacts(holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据holder和attrs查询所有联系人。使用callback异步回调。
@@ -2618,6 +2724,8 @@ contact.queryContacts({
 
 
 ##### contact.queryContacts10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContacts(context: Context, holder?: Holder, attrs?: ContactAttributes): Promise<Array&lt;Contact&gt;>
 
@@ -2683,6 +2791,8 @@ promise.then((data) => {
 
 ##### contact.queryContacts(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContacts(holder?: Holder, attrs?: ContactAttributes): Promise<Array&lt;Contact&gt;>
 
 根据holder和attrs查询所有联系人。使用Promise异步回调。
@@ -2732,6 +2842,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 
 ##### contact.queryContactsByPhoneNumber10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -2785,6 +2897,8 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', (err: BusinessError, 
 
 ##### contact.queryContactsByPhoneNumber(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByPhoneNumber(phoneNumber: string, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据电话号码查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -2822,6 +2936,8 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', (err: BusinessError, data) => 
 
 
 ##### contact.queryContactsByPhoneNumber10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -2880,6 +2996,8 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 
 ##### contact.queryContactsByPhoneNumber(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据电话号码和holder查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -2922,6 +3040,8 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 
 
 ##### contact.queryContactsByPhoneNumber10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -2978,6 +3098,8 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 
 ##### contact.queryContactsByPhoneNumber(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByPhoneNumber(phoneNumber: string, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据电话号码和attrs查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -3018,6 +3140,8 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 
 
 ##### contact.queryContactsByPhoneNumber10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -3079,6 +3203,8 @@ contact.queryContactsByPhoneNumber(context, '138xxxxxxxx', {
 
 ##### contact.queryContactsByPhoneNumber(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByPhoneNumber(phoneNumber: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据电话号码、holder和attrs查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -3124,6 +3250,8 @@ contact.queryContactsByPhoneNumber('138xxxxxxxx', {
 
 
 ##### contact.queryContactsByPhoneNumber10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByPhoneNumber(context: Context, phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array&lt;Contact&gt;>
 
@@ -3190,6 +3318,8 @@ promise.then((data) => {
 
 ##### contact.queryContactsByPhoneNumber(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByPhoneNumber(phoneNumber: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array&lt;Contact&gt;>
 
 根据电话号码、holder和attrs查询联系人。使用Promise异步回调。该接口仅返回联系人信息中的id、key、phoneNumbers属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。应用在后台调用此接口获取联系人信息时，必须申请对应的长时任务。
@@ -3240,6 +3370,8 @@ promise.then((data) => {
 
 
 ##### contact.queryContactsByEmail10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByEmail(context: Context, email: string, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -3293,6 +3425,8 @@ contact.queryContactsByEmail(context, 'xxx@email.com', (err: BusinessError, data
 
 ##### contact.queryContactsByEmail(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByEmail(email: string, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据email查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3330,6 +3464,8 @@ contact.queryContactsByEmail('xxx@email.com', (err: BusinessError, data) => {
 
 
 ##### contact.queryContactsByEmail10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByEmail(context: Context, email: string, holder: Holder, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -3388,6 +3524,8 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 
 ##### contact.queryContactsByEmail(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByEmail(email: string, holder: Holder, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据email和holder查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3430,6 +3568,8 @@ contact.queryContactsByEmail('xxx@email.com', {
 
 
 ##### contact.queryContactsByEmail10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByEmail(context: Context, email: string, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -3486,6 +3626,8 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 
 ##### contact.queryContactsByEmail(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByEmail(email: string, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据email和attrs查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3526,6 +3668,8 @@ contact.queryContactsByEmail('xxx@email.com', {
 
 
 ##### contact.queryContactsByEmail10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByEmail(context: Context, email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
@@ -3587,6 +3731,8 @@ contact.queryContactsByEmail(context, 'xxx@email.com', {
 
 ##### contact.queryContactsByEmail(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByEmail(email: string, holder: Holder, attrs: ContactAttributes, callback: AsyncCallback<Array&lt;Contact&gt;>): void
 
 根据email、holder和attrs查询联系人。使用callback异步回调。该接口仅返回联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3632,6 +3778,8 @@ contact.queryContactsByEmail('xxx@email.com', {
 
 
 ##### contact.queryContactsByEmail10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsByEmail(context: Context, email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array&lt;Contact&gt;>
 
@@ -3698,6 +3846,8 @@ promise.then((data) => {
 
 ##### contact.queryContactsByEmail(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryContactsByEmail(email: string, holder?: Holder, attrs?: ContactAttributes): Promise<Array&lt;Contact&gt;>
 
 根据email、holder和attrs查询联系人。使用Promise异步回调。该接口仅返回联系人信息中的id、key、Emails属性。如果要查询联系人的所有信息，建议使用[queryContact](#contactquerycontact10-3)接口，根据该接口返回的属性key查询。
@@ -3749,6 +3899,8 @@ promise.then((data) => {
 
 ##### contact.queryGroups10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryGroups(context: Context, callback: AsyncCallback<Array&lt;Group&gt;>): void
 
 查询联系人的所有群组。使用callback异步回调。
@@ -3798,6 +3950,8 @@ contact.queryGroups(context, (err: BusinessError, data) => {
 
 ##### contact.queryGroups(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryGroups(callback: AsyncCallback<Array&lt;Group&gt;>): void
 
 查询联系人的所有群组。使用callback异步回调。
@@ -3834,6 +3988,8 @@ contact.queryGroups((err: BusinessError, data) => {
 
 
 ##### contact.queryGroups10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryGroups(context: Context, holder: Holder, callback: AsyncCallback<Array&lt;Group&gt;>): void
 
@@ -3891,6 +4047,8 @@ contact.queryGroups(context, {
 
 ##### contact.queryGroups(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryGroups(holder: Holder, callback: AsyncCallback<Array&lt;Group&gt;>): void
 
 根据holder查询联系人的所有群组。使用callback异步回调。
@@ -3932,6 +4090,8 @@ contact.queryGroups({
 
 
 ##### contact.queryGroups10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryGroups(context: Context, holder?: Holder): Promise<Array&lt;Group&gt;>
 
@@ -3994,6 +4154,8 @@ promise.then((data) => {
 
 ##### contact.queryGroups(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryGroups(holder?: Holder): Promise<Array&lt;Group&gt;>
 
 根据holder查询联系人的所有群组。使用Promise异步回调。
@@ -4040,6 +4202,8 @@ promise.then((data) => {
 
 
 ##### contact.queryHolders10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryHolders(context: Context, callback: AsyncCallback<Array&lt;Holder&gt;>): void
 
@@ -4092,6 +4256,8 @@ contact.queryHolders(context, (err: BusinessError, data) => {
 
 ##### contact.queryHolders(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryHolders(callback: AsyncCallback<Array&lt;Holder&gt;>): void
 
 查询所有创建联系人的应用信息。使用callback异步回调。
@@ -4128,6 +4294,8 @@ contact.queryHolders((err: BusinessError, data) => {
 
 
 ##### contact.queryHolders10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryHolders(context: Context): Promise<Array&lt;Holder&gt;>
 
@@ -4185,6 +4353,8 @@ promise.then((data) => {
 
 ##### contact.queryHolders(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryHolders(): Promise<Array&lt;Holder&gt;>
 
 查询所有创建联系人的应用信息。使用Promise异步回调。
@@ -4220,6 +4390,8 @@ promise.then((data) => {
 
 
 ##### contact.queryKey10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryKey(context: Context, id: number, callback: AsyncCallback&lt;string&gt;): void
 
@@ -4273,6 +4445,8 @@ contact.queryKey(context, 1, (err: BusinessError, data) => {
 
 ##### contact.queryKey(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryKey(id: number, callback: AsyncCallback&lt;string&gt;): void
 
 根据联系人的id查询联系人的key。使用callback异步回调。
@@ -4310,6 +4484,8 @@ contact.queryKey(1, (err: BusinessError, data) => {
 
 
 ##### contact.queryKey10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryKey(context: Context, id: number, holder: Holder, callback: AsyncCallback&lt;string&gt;): void
 
@@ -4368,6 +4544,8 @@ contact.queryKey(context, 1, {
 
 ##### contact.queryKey(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryKey(id: number, holder: Holder, callback: AsyncCallback&lt;string&gt;): void
 
 根据联系人的id和holder查询联系人的key。使用callback异步回调。
@@ -4410,6 +4588,8 @@ contact.queryKey(1, {
 
 
 ##### contact.queryKey10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryKey(context: Context, id: number, holder?: Holder): Promise&lt;string&gt;
 
@@ -4473,6 +4653,8 @@ promise.then((data) => {
 
 ##### contact.queryKey(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryKey(id: number, holder?: Holder): Promise&lt;string&gt;
 
 根据联系人的id和holder查询联系人的key。使用Promise异步回调。
@@ -4520,6 +4702,8 @@ promise.then((data) => {
 
 
 ##### contact.queryContactsCount22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryContactsCount(context: Context): Promise&lt;number&gt;
 
@@ -4574,6 +4758,8 @@ promise.then((data) => {
 
 
 ##### contact.addContactViaUI15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 addContactViaUI(context: Context, contact: Contact): Promise&lt;number&gt;
 
@@ -4642,6 +4828,8 @@ promise.then((data) => {
 
 
 ##### contact.saveToExistingContactViaUI15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 saveToExistingContactViaUI(context: Context, contact: Contact): Promise&lt;number&gt;
 
@@ -4713,6 +4901,8 @@ promise.then((data) => {
 
 ##### contact.addContacts23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 addContacts(context: Context, contacts: Array&lt;Contact&gt;): Promise<Array&lt;number&gt;>
 
 批量添加联系人。使用Promise异步回调。
@@ -4778,6 +4968,8 @@ contact.addContacts(context, [contactInfo1, contactInfo2]).then((data) => {
 
 
 ##### contact.hasMatchedCallLog24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number, withinTime: number): Promise&lt;boolean&gt;
 
@@ -4846,6 +5038,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration, withinTime).then((h
 
 ##### contact.hasMatchedCallLog24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 hasMatchedCallLog(context: Context, phoneNumber: string, minDuration: number): Promise&lt;boolean&gt;
 
 检查是否有符合条件的通话记录，默认查询6小时以内的通话记录，仅针对运营商通话。使用Promise异步回调。
@@ -4910,6 +5104,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 ##### ContactSelectionOptions10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 选择联系人条件。
 
 **系统能力**：SystemCapability.Applications.Contacts
@@ -4925,6 +5121,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 ##### ContactSelectionFilter15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 联系人查询过滤器。
 
@@ -4942,6 +5140,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 ##### FilterType15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 枚举，联系人过滤类型。
 
 **元服务API**：从API version 15 开始，该接口支持在元服务中使用。
@@ -4958,6 +5158,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 ##### FilterClause15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 联系人过滤条件。
 
@@ -4977,6 +5179,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 ##### FilterOptions15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人过滤参数。
 
 **元服务API**：从API version 15 开始，该接口支持在元服务中使用。
@@ -4992,6 +5196,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 ##### FilterCondition15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 枚举，过滤条件。
 
@@ -5013,6 +5219,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 ##### DataFilter15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人数据过滤项。
 
 **元服务API**：从API version 15 开始，该接口支持在元服务中使用。
@@ -5028,6 +5236,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 ##### DataField15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 枚举，联系人数据字段。
 
@@ -5046,6 +5256,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 ##### Contact
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人对象类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5055,6 +5267,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5068,6 +5282,8 @@ contact.hasMatchedCallLog(context, phoneNumber, minDuration).then((hasMatch:bool
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5117,6 +5333,8 @@ let myContact: contact.Contact = {
 
 ##### ContactAttributes
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人属性列表，一般作为入参用来标识希望查询的联系人属性。
 
 当传入为null时，默认查询全部属性。
@@ -5147,6 +5365,8 @@ let contactAttributes: contact.ContactAttributes = {
 
 
 ##### Attribute
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 枚举，联系人属性列表。
 
@@ -5184,6 +5404,8 @@ let attributes = [contact.Attribute.ATTR_EMAIL, contact.Attribute.ATTR_NAME, con
 
 ##### Email
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人的邮箱。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5193,6 +5415,8 @@ let attributes = [contact.Attribute.ATTR_EMAIL, contact.Attribute.ATTR_NAME, con
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5210,6 +5434,8 @@ let attributes = [contact.Attribute.ATTR_EMAIL, contact.Attribute.ATTR_NAME, con
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5245,6 +5471,8 @@ email.email = "xxx@email.com";
 
 ##### Holder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 创建联系人的应用信息类。
 
 **系统能力**：SystemCapability.Applications.ContactsData
@@ -5272,6 +5500,8 @@ let holder: contact.Holder = {
 
 ##### Event
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人事件类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5281,6 +5511,8 @@ let holder: contact.Holder = {
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5298,6 +5530,8 @@ let holder: contact.Holder = {
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5331,6 +5565,8 @@ event.eventDate = "2000-01-01";
 
 ##### Group
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人的群组类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5358,6 +5594,8 @@ let group: contact.Group = {
 
 ##### ImAddress
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人的即时消息地址。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5367,6 +5605,8 @@ let group: contact.Group = {
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5388,6 +5628,8 @@ let group: contact.Group = {
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5422,6 +5664,8 @@ imAddress.imAddress = "imAddress";
 
 ##### Name
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人的名字类。
 
 **系统能力**：SystemCapability.Applications.ContactsData
@@ -5455,6 +5699,8 @@ let name: contact.Name = {
 
 ##### NickName
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人的昵称类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5480,6 +5726,8 @@ let nickName: contact.NickName = {
 
 ##### Note
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人的备注类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5504,6 +5752,8 @@ let note: contact.Note = {
 
 
 ##### Organization
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 联系人的组织类。
 
@@ -5532,6 +5782,8 @@ let organization: contact.Organization = {
 
 ##### PhoneNumber
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人电话号码类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5541,6 +5793,8 @@ let organization: contact.Organization = {
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5576,6 +5830,8 @@ let organization: contact.Organization = {
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Applications.ContactsData
@@ -5608,6 +5864,8 @@ phoneNumber.phoneNumber = "138xxxxxxxx";
 
 
 ##### Portrait
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 联系人的头像类。
 
@@ -5649,6 +5907,8 @@ async function SetPortraitPixelMap(photo: image.PixelMap) {
 
 ##### PostalAddress
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人的邮政地址类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5658,6 +5918,8 @@ async function SetPortraitPixelMap(photo: image.PixelMap) {
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5675,6 +5937,8 @@ async function SetPortraitPixelMap(photo: image.PixelMap) {
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5717,6 +5981,8 @@ postalAddress.postalAddress = "postalAddress";
 
 ##### Relation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人的关系类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5726,6 +5992,8 @@ postalAddress.postalAddress = "postalAddress";
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5754,6 +6022,8 @@ postalAddress.postalAddress = "postalAddress";
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5789,6 +6059,8 @@ relation.labelId = contact.Relation.RELATION_ASSISTANT;
 
 ##### SipAddress
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 联系人的会话发起协议(SIP)地址类。
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
@@ -5798,6 +6070,8 @@ relation.labelId = contact.Relation.RELATION_ASSISTANT;
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5815,6 +6089,8 @@ relation.labelId = contact.Relation.RELATION_ASSISTANT;
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **元服务API**：从API version 11 开始，该接口支持在元服务中使用。
 
@@ -5847,6 +6123,8 @@ sipAddress.sipAddress = "sipAddress";
 
 
 ##### Website
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 联系人的网站信息类。
 

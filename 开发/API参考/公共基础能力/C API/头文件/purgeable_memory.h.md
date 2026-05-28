@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供可丢弃内存的内存管理功能。
  
 提供的功能包括创建、开始读取、结束读取、开始写入、结束写入、重建等。
@@ -27,9 +29,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -39,6 +45,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -58,9 +66,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_PurgeableMemory_ModifyFunc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 typedef bool (*OH_PurgeableMemory_ModifyFunc)(void *, size_t, void *)
@@ -92,6 +104,8 @@ typedef bool (*OH_PurgeableMemory_ModifyFunc)(void *, size_t, void *)
 
 ##### OH_PurgeableMemory_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_PurgeableMemory *OH_PurgeableMemory_Create(size_t size, OH_PurgeableMemory_ModifyFunc func, void *funcPara)
 ```
@@ -122,6 +136,8 @@ OH_PurgeableMemory *OH_PurgeableMemory_Create(size_t size, OH_PurgeableMemory_Mo
 
 ##### OH_PurgeableMemory_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool OH_PurgeableMemory_Destroy(OH_PurgeableMemory *purgObj)
 ```
@@ -149,6 +165,8 @@ bool OH_PurgeableMemory_Destroy(OH_PurgeableMemory *purgObj)
   
 
 ##### OH_PurgeableMemory_BeginRead()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_PurgeableMemory_BeginRead(OH_PurgeableMemory *purgObj)
@@ -178,6 +196,8 @@ bool OH_PurgeableMemory_BeginRead(OH_PurgeableMemory *purgObj)
 
 ##### OH_PurgeableMemory_EndRead()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_PurgeableMemory_EndRead(OH_PurgeableMemory *purgObj)
 ```
@@ -198,6 +218,8 @@ void OH_PurgeableMemory_EndRead(OH_PurgeableMemory *purgObj)
   
 
 ##### OH_PurgeableMemory_BeginWrite()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_PurgeableMemory_BeginWrite(OH_PurgeableMemory *purgObj)
@@ -227,6 +249,8 @@ bool OH_PurgeableMemory_BeginWrite(OH_PurgeableMemory *purgObj)
 
 ##### OH_PurgeableMemory_EndWrite()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_PurgeableMemory_EndWrite(OH_PurgeableMemory *purgObj)
 ```
@@ -247,6 +271,8 @@ void OH_PurgeableMemory_EndWrite(OH_PurgeableMemory *purgObj)
   
 
 ##### OH_PurgeableMemory_GetContent()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void *OH_PurgeableMemory_GetContent(OH_PurgeableMemory *purgObj)
@@ -276,6 +302,8 @@ void *OH_PurgeableMemory_GetContent(OH_PurgeableMemory *purgObj)
 
 ##### OH_PurgeableMemory_ContentSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 size_t OH_PurgeableMemory_ContentSize(OH_PurgeableMemory *purgObj)
 ```
@@ -303,6 +331,8 @@ size_t OH_PurgeableMemory_ContentSize(OH_PurgeableMemory *purgObj)
   
 
 ##### OH_PurgeableMemory_AppendModify()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_PurgeableMemory_AppendModify(OH_PurgeableMemory *purgObj, OH_PurgeableMemory_ModifyFunc func, void *funcPara)

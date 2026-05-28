@@ -12,6 +12,8 @@ typedef struct OH_NN_UInt32Array {...} OH_NN_UInt32Array
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 该结构体用于存储32位无符号整型数组。
  
 **起始版本：** 9
@@ -24,9 +26,13 @@ typedef struct OH_NN_UInt32Array {...} OH_NN_UInt32Array
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

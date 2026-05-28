@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { NavPushPathHelper } from '@kit.ArkUI';
 ```
@@ -22,11 +24,15 @@ import { NavPushPathHelper } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)
 
@@ -34,11 +40,15 @@ import { NavPushPathHelper } from '@kit.ArkUI';
 
 ##### NavPushPathHelper
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 对Navigation路由栈[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)的所有路由跳转接口进行了封装，在NavPushPathHelper中持有一个NavPathStack对象，在封装的跳转接口中，去判断子包是否存在，如果不存在则进行动态下载子包，等结果返回后调用NavPathStack的相应的接口将指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈。使用示例参见[示例](#示例)。
 
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(navPathStack: NavPathStack)
 
@@ -58,6 +68,8 @@ NavPushPathHelper的构造函数。
 
 
 ##### pushPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushPath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&lt;void&gt;
 
@@ -95,6 +107,8 @@ pushPath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&lt;
 
 
 ##### pushPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushPath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise&lt;void&gt;
 
@@ -135,6 +149,8 @@ pushPath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Pr
 
 ##### pushPathByName
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushPathByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将name指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，传递的数据为param，使用Promise异步回调。
@@ -172,6 +188,8 @@ pushPathByName(moduleName: string, name: string, param: Object, animated?: boole
 
 
 ##### pushPathByName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback&lt;PopInfo&gt;, animated?: boolean): Promise&lt;void&gt;
 
@@ -211,6 +229,8 @@ pushPathByName(moduleName: string, name: string, param: Object, onPop: Callback&
 
 
 ##### pushDestination
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&lt;void&gt;
 
@@ -252,6 +272,8 @@ pushDestination(moduleName: string, info: NavPathInfo, animated?: boolean): Prom
 
 
 ##### pushDestination
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise&lt;void&gt;
 
@@ -296,6 +318,8 @@ pushDestination(moduleName: string, info: NavPathInfo, options?: NavigationOptio
 
 ##### pushDestinationByName
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushDestinationByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将name指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，传递的数据为param，使用Promise异步回调。
@@ -337,6 +361,8 @@ pushDestinationByName(moduleName: string, name: string, param: Object, animated?
 
 
 ##### pushDestinationByName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Callback&lt;PopInfo&gt;, animated?: boolean): Promise&lt;void&gt;
 
@@ -381,6 +407,8 @@ pushDestinationByName(moduleName: string, name: string, param: Object, onPop: Ca
 
 ##### replacePath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replacePath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将当前页面栈栈顶退出，将info指定的[NavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navdestination)页面信息入栈，使用Promise异步回调。
@@ -417,6 +445,8 @@ replacePath(moduleName: string, info: NavPathInfo, animated?: boolean): Promise&
 
 
 ##### replacePath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replacePath(moduleName: string, info: NavPathInfo, options?: NavigationOptions): Promise&lt;void&gt;
 
@@ -457,6 +487,8 @@ replacePath(moduleName: string, info: NavPathInfo, options?: NavigationOptions):
 
 ##### replacePathByName
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replacePathByName(moduleName: string, name: string, param: Object, animated?: boolean): Promise&lt;void&gt;
 
 先判断分包是否存在，若不存在，则通过moduleName下载分包，再将当前页面栈栈顶退出，将name指定的页面入栈，使用Promise异步回调。
@@ -495,11 +527,15 @@ replacePathByName(moduleName: string, name: string, param: Object, animated?: bo
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 主包：
 
@@ -818,4 +854,4 @@ export struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/AlnOaMcLTOeJfKIHdMEufg/zh-cn_image_0000002581276310.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013909Z&HW-CC-Expire=86400&HW-CC-Sign=AA0F2CA7A9A80DA5781324C34165FE44052055D916FBCC9086951F599C573C65)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/AlnOaMcLTOeJfKIHdMEufg/zh-cn_image_0000002581276310.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024205Z&HW-CC-Expire=86400&HW-CC-Sign=CF3BB3749C9F370252156FF8D982350FB19603676973BBF8C5FD67FA13C9CD35)

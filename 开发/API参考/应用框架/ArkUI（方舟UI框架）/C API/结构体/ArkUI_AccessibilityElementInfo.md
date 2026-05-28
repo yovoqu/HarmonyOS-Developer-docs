@@ -12,6 +12,8 @@ typedef struct ArkUI_AccessibilityElementInfo ArkUI_AccessibilityElementInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无障碍节点信息，用于向无障碍服务、辅助应用（屏幕朗读）传递节点信息。
  
 **起始版本：** 13

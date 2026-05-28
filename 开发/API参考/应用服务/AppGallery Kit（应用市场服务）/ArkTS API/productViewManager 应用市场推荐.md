@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { productViewManager } from '@kit.AppGalleryKit';
 ```
@@ -23,6 +25,8 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 ##### ProductViewCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 在加载应用详情页面时作为入参用于接收加载过程中的状态变化。
 
@@ -42,6 +46,8 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 ##### ServiceViewCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 在加载元服务卡片添加至桌面页时作为入参用于接收加载过程中的状态变化。
 
@@ -63,6 +69,8 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 ##### ServiceViewReceiveData
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 元服务卡片添加至桌面的回调数据。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -81,6 +89,8 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 ##### ReceiveDataResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 元服务卡片添加至桌面结果码类型的枚举。
 
@@ -101,6 +111,8 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 ##### CheckShortcutResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 快捷方式校验结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -120,6 +132,8 @@ import { productViewManager } from '@kit.AppGalleryKit';
 
 
 ##### SKExposure
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 登记归因来源的广告曝光数据。
 
@@ -208,6 +222,8 @@ struct LoadProduct {
 
 ##### PinShortcutInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 桌面快捷方式信息列表。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -229,6 +245,8 @@ struct LoadProduct {
 
 
 ##### productViewManager.loadProduct
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 loadProduct(context: common.UIAbilityContext, want: Want, callback?: ProductViewCallback): void
 
@@ -311,6 +329,8 @@ struct LoadProduct {
 
 
 ##### productViewManager.loadService
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 loadService(context: common.UIAbilityContext, want: Want, callback?: ServiceViewCallback): void
 
@@ -395,6 +415,8 @@ struct LoadService {
 
 
 ##### productViewManager.checkPinShortcutPermitted
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 checkPinShortcutPermitted(context: common.UIAbilityContext, shortcutId: string, want: Want, labelResName: string, iconResName: string): Promise&lt;CheckShortcutResult&gt;
 
@@ -494,6 +516,8 @@ struct CheckPinShortcutPermitted {
 
 
 ##### productViewManager.checkPinShortcutPermitted
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 checkPinShortcutPermitted(context: common.UIAbilityContext, shortcutId: string, want: Want, label: string, foregroundIcon: string, backgroundIcon: string): Promise&lt;CheckShortcutResult&gt;
 
@@ -596,6 +620,8 @@ struct CheckPinShortcutPermitted {
 
 ##### productViewManager.requestNewPinShortcut
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 requestNewPinShortcut(context: common.UIAbilityContext, tid: string): Promise&lt;void&gt;
 
 请求在桌面创建快捷方式。使用Promise异步回调。
@@ -682,6 +708,8 @@ struct RequestNewPinShortcut {
 
 ##### productViewManager.getPinShortcutInfos
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getPinShortcutInfos(): Promise<PinShortcutInfo[]>
 
 查询桌面快捷方式信息。使用Promise异步回调。
@@ -751,6 +779,8 @@ struct GetPinShortcutInfos {
 
 
 ##### productViewManager.removePinShortcut
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 removePinShortcut(context: common.UIAbilityContext, shortcutId: string): Promise&lt;void&gt;
 

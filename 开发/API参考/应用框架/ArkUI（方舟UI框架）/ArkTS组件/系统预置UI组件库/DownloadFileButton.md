@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { DownloadFileButton } from '@kit.ArkUI';
 ```
@@ -22,17 +24,23 @@ import { DownloadFileButton } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
  
   
 
 ##### DownloadFileButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 下载文件按钮组件，默认显示图标和文字。
  
@@ -52,6 +60,8 @@ import { DownloadFileButton } from '@kit.ArkUI';
 
 ##### DownloadContentOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下载文件按钮中显示的内容。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -67,6 +77,8 @@ import { DownloadFileButton } from '@kit.ArkUI';
   
 
 ##### DownloadStyleOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 下载文件按钮中图标和文字的样式。
  
@@ -91,6 +103,8 @@ import { DownloadFileButton } from '@kit.ArkUI';
 
 ##### DownloadIconStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下载文件按钮中图标的风格。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -106,6 +120,8 @@ import { DownloadFileButton } from '@kit.ArkUI';
   
 
 ##### DownloadDescription
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 下载按钮中文字的内容。
  
@@ -129,6 +145,8 @@ import { DownloadFileButton } from '@kit.ArkUI';
 
 ##### DownloadLayoutDirection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下载文件按钮中图标和文字的排列方式。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -145,11 +163,15 @@ import { DownloadFileButton } from '@kit.ArkUI';
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```ArkTS
 // xxx.ets
@@ -217,4 +239,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/AjcfmzzlSgqeNt3T-t4kcA/zh-cn_image_0000002581436238.png?HW-CC-KV=V1&HW-CC-Date=20260528T013901Z&HW-CC-Expire=86400&HW-CC-Sign=BE53F4152CE3D33523B5A980898D8480AFBB309C4A6CAF52AB9069A574DA806A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/AjcfmzzlSgqeNt3T-t4kcA/zh-cn_image_0000002581436238.png?HW-CC-KV=V1&HW-CC-Date=20260528T024157Z&HW-CC-Expire=86400&HW-CC-Sign=88DD713B1EE99A457BCAF767A1B05F94AB903E502D5AE05E77A9E597239BC362)

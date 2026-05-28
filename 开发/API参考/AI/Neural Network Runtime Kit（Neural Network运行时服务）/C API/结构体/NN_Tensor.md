@@ -12,6 +12,8 @@ typedef struct NN_Tensor NN_Tensor
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 Tensor句柄。
  
 **起始版本：** 11

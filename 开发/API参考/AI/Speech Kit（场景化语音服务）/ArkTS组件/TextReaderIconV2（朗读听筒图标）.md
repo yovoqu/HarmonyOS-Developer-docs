@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { TextReaderIconV2 } from '@kit.SpeechKit';
 ```
@@ -21,6 +23,8 @@ import { TextReaderIconV2 } from '@kit.SpeechKit';
   
 
 ##### UpReadState
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type UpReadState = (readState:ReadStateCode)=>void
  
@@ -45,6 +49,8 @@ type UpReadState = (readState:ReadStateCode)=>void
 
 ##### TextReaderIconV2
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 朗读听筒图标，可以作为动态组件加载。设置onClick回调，在用户点击听筒图标时启动朗读控件。
  
 **装饰器类型：** @ComponentV2
@@ -68,6 +74,8 @@ type UpReadState = (readState:ReadStateCode)=>void
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 build(): void
  

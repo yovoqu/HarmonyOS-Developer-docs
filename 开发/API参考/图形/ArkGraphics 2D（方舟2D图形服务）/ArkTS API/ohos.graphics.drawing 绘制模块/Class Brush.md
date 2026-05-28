@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -39,6 +43,8 @@ const brush = new drawing.Brush();
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(brush: Brush)
 
@@ -77,6 +83,8 @@ const newBrush = new drawing.Brush(brush);
 
 ##### setColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setColor(color: common2D.Color) : void
 
 设置画刷的颜色。
@@ -112,6 +120,8 @@ brush.setColor(color);
 
 
 ##### setColor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColor(alpha: number, red: number, green: number, blue: number): void
 
@@ -151,6 +161,8 @@ brush.setColor(255, 255, 0, 0);
 
 ##### setColor18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setColor(color: number) : void
 
 设置画刷的颜色。
@@ -186,6 +198,8 @@ brush.setColor(0xffff0000);
 
 ##### setColor4f20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void
 
 设置画刷的颜色以及标准色域，与[setColor](#setcolor)区别在于可以单独设置色域，适用于需要单独设置色域的场景。
@@ -215,6 +229,8 @@ brush.setColor4f(color4f, colorSpace);
 
 ##### getColor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getColor(): common2D.Color
 
 获取画刷的颜色。
@@ -242,6 +258,8 @@ let colorGet = brush.getColor();
 
 
 ##### getColor4f20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getColor4f(): common2D.Color4f
 
@@ -272,6 +290,8 @@ let color = brush.getColor4f();
 
 ##### getHexColor18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHexColor(): number
 
 获取画刷的颜色。
@@ -300,6 +320,8 @@ console.info('getHexColor: ', hex_color.toString(16));
 
 
 ##### setAntiAlias
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAntiAlias(aa: boolean) : void
 
@@ -336,6 +358,8 @@ brush.setAntiAlias(true);
 
 ##### isAntiAlias12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isAntiAlias(): boolean
 
 获取画刷是否开启抗锯齿属性。
@@ -361,6 +385,8 @@ let isAntiAlias = brush.isAntiAlias();
 
 
 ##### setAlpha
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAlpha(alpha: number) : void
 
@@ -397,6 +423,8 @@ brush.setAlpha(128);
 
 ##### getAlpha12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAlpha(): number
 
 获取画刷的透明度。
@@ -422,6 +450,8 @@ let alpha = brush.getAlpha();
 
 
 ##### setColorFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColorFilter(filter: ColorFilter | null) : void
 
@@ -458,6 +488,8 @@ brush.setColorFilter(colorFilter);
 
 
 ##### setMaskFilter12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMaskFilter(filter: MaskFilter | null): void
 
@@ -501,6 +533,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setShaderEffect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setShaderEffect(shaderEffect: ShaderEffect | null): void
 
 设置画刷着色器效果。
@@ -536,6 +570,8 @@ brush.setShaderEffect(shaderEffect);
 
 
 ##### setShadowLayer12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setShadowLayer(shadowLayer: ShadowLayer | null): void
 
@@ -607,6 +643,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setBlendMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBlendMode(mode: BlendMode) : void
 
 设置画刷的混合模式。未调用此接口设置时，系统默认的混合模式为SRC_OVER。
@@ -641,6 +679,8 @@ brush.setBlendMode(drawing.BlendMode.SRC);
 
 
 ##### setImageFilter12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setImageFilter(filter: ImageFilter | null): void
 
@@ -679,6 +719,8 @@ brush.setImageFilter(null);
 
 ##### getColorFilter12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getColorFilter(): ColorFilter
 
 获取画刷的颜色滤波器。
@@ -706,6 +748,8 @@ let filter = brush.getColorFilter();
 
 
 ##### reset12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reset(): void
 

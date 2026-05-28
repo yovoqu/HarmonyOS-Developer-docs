@@ -12,6 +12,8 @@ typedef struct NN_QuantParam NN_QuantParam
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 量化参数的句柄。
  
 **起始版本：** 11

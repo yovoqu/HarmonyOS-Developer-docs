@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述更新DDGI探针辐照度及渲染输出GI图像所需的信息。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,9 +54,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### enableVolumeNumber
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 uint32_t XEG_DDGIDescription::enableVolumeNumber
@@ -64,6 +74,8 @@ uint32_t XEG_DDGIDescription::enableVolumeNumber
 
 ##### inputBasecolorMetallicImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_DDGIDescription::inputBasecolorMetallicImage
 ```
@@ -75,6 +87,8 @@ VkImageView XEG_DDGIDescription::inputBasecolorMetallicImage
   
 
 ##### inputDepthImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_DDGIDescription::inputDepthImage
@@ -88,6 +102,8 @@ VkImageView XEG_DDGIDescription::inputDepthImage
 
 ##### inputDirectionImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_DDGIDescription::inputDirectionImage
 ```
@@ -99,6 +115,8 @@ VkImageView XEG_DDGIDescription::inputDirectionImage
   
 
 ##### inputNormalImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_DDGIDescription::inputNormalImage
@@ -112,6 +130,8 @@ VkImageView XEG_DDGIDescription::inputNormalImage
 
 ##### inputProbeCount
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t XEG_DDGIDescription::inputProbeCount
 ```
@@ -123,6 +143,8 @@ uint32_t XEG_DDGIDescription::inputProbeCount
   
 
 ##### inputRayHitNormalAndMetallicImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_DDGIDescription::inputRayHitNormalAndMetallicImage
@@ -136,6 +158,8 @@ VkImageView XEG_DDGIDescription::inputRayHitNormalAndMetallicImage
 
 ##### inputRayRadianceDistanceImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_DDGIDescription::inputRayRadianceDistanceImage
 ```
@@ -147,6 +171,8 @@ VkImageView XEG_DDGIDescription::inputRayRadianceDistanceImage
   
 
 ##### inputVolumeIndexAndProbeIndex
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkBuffer XEG_DDGIDescription::inputVolumeIndexAndProbeIndex
@@ -160,6 +186,8 @@ VkBuffer XEG_DDGIDescription::inputVolumeIndexAndProbeIndex
 
 ##### outputGIImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_DDGIDescription::outputGIImage
 ```
@@ -171,6 +199,8 @@ VkImageView XEG_DDGIDescription::outputGIImage
   
 
 ##### outputProbeCount
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkBuffer XEG_DDGIDescription::outputProbeCount
@@ -184,6 +214,8 @@ VkBuffer XEG_DDGIDescription::outputProbeCount
 
 ##### outputVolumeIndexAndProbeIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkBuffer XEG_DDGIDescription::outputVolumeIndexAndProbeIndex
 ```
@@ -195,6 +227,8 @@ VkBuffer XEG_DDGIDescription::outputVolumeIndexAndProbeIndex
   
 
 ##### pNext
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const void* XEG_DDGIDescription::pNext
@@ -208,6 +242,8 @@ const void* XEG_DDGIDescription::pNext
 
 ##### projectionMatrix
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_DDGIDescription::projectionMatrix[16]
 ```
@@ -219,6 +255,8 @@ float XEG_DDGIDescription::projectionMatrix[16]
   
 
 ##### pVolumeEntryParameters
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const struct XEG_DDGIVolumeEntryParameters* XEG_DDGIDescription::pVolumeEntryParameters
@@ -232,6 +270,8 @@ const struct XEG_DDGIVolumeEntryParameters* XEG_DDGIDescription::pVolumeEntryPar
 
 ##### sType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 XEG_StructureType XEG_DDGIDescription::sType
 ```
@@ -243,6 +283,8 @@ XEG_StructureType XEG_DDGIDescription::sType
   
 
 ##### viewMatrix
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_DDGIDescription::viewMatrix[16]

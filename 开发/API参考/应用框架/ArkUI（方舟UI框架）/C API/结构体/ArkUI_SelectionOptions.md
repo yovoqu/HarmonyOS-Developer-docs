@@ -12,6 +12,8 @@ typedef struct ArkUI_SelectionOptions ArkUI_SelectionOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义选择操作的相关选项。
  
 **起始版本：** 23

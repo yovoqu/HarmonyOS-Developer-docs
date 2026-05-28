@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { HandwriteController,HandwriteComponent, PenHspInfo, PenType } from '@kit.Penkit';
 ```
@@ -23,6 +25,8 @@ import { HandwriteController,HandwriteComponent, PenHspInfo, PenType } from '@ki
 
 
 ##### HandwriteComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -52,6 +56,8 @@ import { HandwriteController,HandwriteComponent, PenHspInfo, PenType } from '@ki
 
 ##### build
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 build(): void
 
 struct的默认构造函数，无法直接调用此方法。
@@ -66,6 +72,8 @@ struct的默认构造函数，无法直接调用此方法。
 
 ##### InitCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 type InitCallback = () => void
 
 套件初始化的回调。使用callback异步回调。
@@ -79,6 +87,8 @@ type InitCallback = () => void
 
 
 ##### ScaleCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 type ScaleCallback = (scale: number) => void
 
@@ -101,6 +111,8 @@ type ScaleCallback = (scale: number) => void
 
 ##### DidScrollCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 type DidScrollCallback = (yOffset: number) => void
 
 画布滚动的回调。在画布滚动时触发，用于获取当前画布的偏移量。使用callback异步回调。
@@ -121,6 +133,8 @@ type DidScrollCallback = (yOffset: number) => void
 
 
 ##### PenType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 笔刷number枚举类型。
 
@@ -146,6 +160,8 @@ type DidScrollCallback = (yOffset: number) => void
 
 
 ##### PenHspInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 笔刷类型及笔宽。
 

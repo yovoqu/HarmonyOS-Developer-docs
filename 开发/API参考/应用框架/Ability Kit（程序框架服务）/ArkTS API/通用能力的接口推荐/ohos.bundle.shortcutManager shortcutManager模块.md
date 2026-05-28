@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { shortcutManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { shortcutManager } from '@kit.AbilityKit';
 
 
 ##### shortcutManager.setShortcutVisibleForSelf
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setShortcutVisibleForSelf(id: string, visible: boolean) : Promise&lt;void&gt;
 
@@ -71,6 +75,8 @@ shortcutManager.setShortcutVisibleForSelf("shortcut_id", false)
 
 ##### shortcutManager.getAllShortcutInfoForSelf
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllShortcutInfoForSelf(): Promise<Array&lt;ShortcutInfo&gt;>
 
 查询当前应用[配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#shortcuts标签)中定义的所有快捷方式信息。使用Promise异步回调。
@@ -102,6 +108,8 @@ shortcutManager.getAllShortcutInfoForSelf()
 
 ##### ShortcutInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ShortcutInfo = _ShortcutInfo
 
 应用[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#shortcuts标签)中定义的快捷方式信息。
@@ -117,6 +125,8 @@ type ShortcutInfo = _ShortcutInfo
 
 ##### ShortcutWant
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type ShortcutWant = _ShortcutWant
 
 快捷方式内定义的目标[wants](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#wants标签)信息集合。
@@ -131,6 +141,8 @@ type ShortcutWant = _ShortcutWant
 
 
 ##### ParameterItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ParameterItem = _ParameterItem
 

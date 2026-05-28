@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -21,6 +23,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### isOISModeSupported24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isOISModeSupported(mode: OISMode): boolean
  
@@ -77,6 +81,8 @@ function isOISModeSupported(photoSession: camera.PhotoSession, mode: camera.OISM
 
 ##### getSupportedOISBiasRange24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSupportedOISBiasRange(oisAxis: OISAxes): Array&lt;number&gt;
  
 获取指定OIS轴向支持的偏置范围。
@@ -131,6 +137,8 @@ function getSupportedOISBiasRange(photoSession: camera.PhotoSession, oisAxis: ca
   
 
 ##### getSupportedOISBiasStep24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSupportedOISBiasStep(oisAxis: OISAxes): number
  
@@ -187,6 +195,8 @@ function getSupportedOISBiasStep(photoSession: camera.PhotoSession, oisAxis: cam
 
 ##### getCurrentOISMode24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCurrentOISMode(): OISMode
  
 获取当前OIS模式。
@@ -234,6 +244,8 @@ function getCurrentOISMode(photoSession: camera.PhotoSession): camera.OISMode {
   
 
 ##### getCurrentCustomOISBias24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentCustomOISBias(oisAxis: OISAxes): number
  

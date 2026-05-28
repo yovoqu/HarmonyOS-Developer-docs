@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 声明用于运行屏幕录制过程中接口调用的错误码说明。
  
 **引用文件：** <multimedia/player_framework/native_avscreen_capture_errors.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### OH_AVSCREEN_CAPTURE_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum OH_AVSCREEN_CAPTURE_ErrCode

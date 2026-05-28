@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 监听不同HTTP事件的回调函数。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### onCanceled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_OnVoidCallback Rcp_EventsHandler::onCanceled
@@ -53,6 +63,8 @@ Rcp_OnVoidCallback Rcp_EventsHandler::onCanceled
 
 ##### onDataEnd
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_OnVoidCallback Rcp_EventsHandler::onDataEnd
 ```
@@ -64,6 +76,8 @@ Rcp_OnVoidCallback Rcp_EventsHandler::onDataEnd
   
 
 ##### onDataReceive
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_OnDataReceiveCallback Rcp_EventsHandler::onDataReceive
@@ -77,6 +91,8 @@ Rcp_OnDataReceiveCallback Rcp_EventsHandler::onDataReceive
 
 ##### onDownloadProgress
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_OnProgressCallback Rcp_EventsHandler::onDownloadProgress
 ```
@@ -89,6 +105,8 @@ Rcp_OnProgressCallback Rcp_EventsHandler::onDownloadProgress
 
 ##### onHeaderReceive
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_OnHeaderReceiveCallback Rcp_EventsHandler::onHeaderReceive
 ```
@@ -100,6 +118,8 @@ Rcp_OnHeaderReceiveCallback Rcp_EventsHandler::onHeaderReceive
   
 
 ##### onUploadProgress
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_OnProgressCallback Rcp_EventsHandler::onUploadProgress

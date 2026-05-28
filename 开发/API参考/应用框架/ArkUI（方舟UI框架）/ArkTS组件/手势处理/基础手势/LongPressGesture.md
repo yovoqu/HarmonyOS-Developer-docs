@@ -14,9 +14,13 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### LongPressGesture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 LongPressGesture(value?: { fingers?: number; repeat?: boolean; duration?: number })
  
@@ -43,6 +47,8 @@ LongPressGesture(value?: { fingers?: number; repeat?: boolean; duration?: number
 
 ##### LongPressGesture15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 LongPressGesture(options?: LongPressGestureHandlerOptions)
  
 创建长按手势对象。与[LongPressGesture](#longpressgesture-1)相比，options参数新增了对isFingerCountLimited参数，表示是否检查触摸屏幕的手指数量。
@@ -68,6 +74,8 @@ LongPressGesture(options?: LongPressGestureHandlerOptions)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!TIP]
 > 在 GestureEvent 的fingerList元素中，手指索引编号与位置相对应，即fingerList[index]的id为index。对于先按下但未参与当前手势触发的手指，fingerList中对应的位置为空。建议优先使用fingerInfos。 长按手势触发后， GestureEvent 中fingerList和fingerInfo的信息仅在有手指按下时才会更新，手指抬起时不会更新。
 
@@ -75,6 +83,8 @@ LongPressGesture(options?: LongPressGestureHandlerOptions)
   
 
 ##### onAction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAction(event: (event: GestureEvent) => void)
  
@@ -95,6 +105,8 @@ onAction(event: (event: GestureEvent) => void)
 
 ##### onActionEnd
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionEnd(event: (event: GestureEvent) => void)
  
 设置长按手势结束回调。长按手势识别成功后，最后一根手指抬起时触发回调。
@@ -113,6 +125,8 @@ onActionEnd(event: (event: GestureEvent) => void)
   
 
 ##### onActionCancel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onActionCancel(event: () => void)
  
@@ -133,6 +147,8 @@ onActionCancel(event: () => void)
 
 ##### onActionCancel18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionCancel(event: Callback&lt;GestureEvent&gt;)
  
 设置长按手势取消回调。长按手势识别成功后，接收到触摸取消事件时触发回调。返回手势事件信息。
@@ -151,6 +167,8 @@ onActionCancel(event: Callback&lt;GestureEvent&gt;)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例通过LongPressGesture实现了长按手势的识别。从API version 22开始，支持通过[LongPressGestureHandlerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-gesturehandler#longpressgesturehandleroptions)的allowableMovement属性设置识别手势的最大移动距离。
  
@@ -190,4 +208,4 @@ struct LongPressGestureExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/pKUHDWzsScOTfwaZ8LNp5A/zh-cn_image_0000002611755649.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013905Z&HW-CC-Expire=86400&HW-CC-Sign=F74EAB040D571F3BDAE0B342BCE2E9B2FFA6ACE31EA49586D223295399233697)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/pKUHDWzsScOTfwaZ8LNp5A/zh-cn_image_0000002611755649.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=172C0CE3297DFF9B87F0CE55E9552AA48AE667A72E54A413217785E20C40F809)

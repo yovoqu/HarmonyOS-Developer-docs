@@ -12,6 +12,8 @@ typedef struct ArkUI_DrawContext ArkUI_DrawContext
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义组件绘制上下文类型结构。
  
 **起始版本：** 12

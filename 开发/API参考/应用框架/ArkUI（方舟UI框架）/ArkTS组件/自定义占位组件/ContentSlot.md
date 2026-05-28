@@ -16,6 +16,8 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ContentSlot(content: Content)
  
 当内容添加到占位符组件时调用。
@@ -35,6 +37,8 @@ ContentSlot(content: Content)
 
 ##### Content
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Content = Content
  
 定义ComponentContent和NodeContent的基类。
@@ -51,6 +55,8 @@ type Content = Content
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 下面的示例展示了ContentSlot的基本用法。
  

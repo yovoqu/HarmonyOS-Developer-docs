@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供rawfile目录相关功能，包括遍历和关闭rawfile目录。
  
 **引用文件：** <rawfile/raw_dir.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -47,9 +55,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_ResourceManager_GetRawFileName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const char *OH_ResourceManager_GetRawFileName(RawDir *rawDir, int index)
@@ -84,6 +96,8 @@ const char *OH_ResourceManager_GetRawFileName(RawDir *rawDir, int index)
 
 ##### OH_ResourceManager_GetRawFileCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_ResourceManager_GetRawFileCount(RawDir *rawDir)
 ```
@@ -115,6 +129,8 @@ int OH_ResourceManager_GetRawFileCount(RawDir *rawDir)
   
 
 ##### OH_ResourceManager_CloseRawDir()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_ResourceManager_CloseRawDir(RawDir *rawDir)

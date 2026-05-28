@@ -12,6 +12,8 @@ typedef struct Rdb_ProgressDetails {...} Rdb_ProgressDetails
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述数据库整体执行端云同步任务上传和下载的统计信息。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct Rdb_ProgressDetails {...} Rdb_ProgressDetails
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

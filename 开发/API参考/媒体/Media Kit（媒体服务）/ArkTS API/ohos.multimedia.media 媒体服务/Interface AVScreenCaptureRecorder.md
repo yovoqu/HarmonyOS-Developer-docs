@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -21,6 +23,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### init12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 init(config: AVScreenCaptureRecordConfig): Promise&lt;void&gt;
 
@@ -97,6 +101,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 ##### startRecording12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 startRecording(): Promise&lt;void&gt;
 
 开始录屏，在使用前需要先调用[init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder#init12)接口。使用Promise异步回调。
@@ -154,6 +160,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 ##### stopRecording12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 stopRecording(): Promise&lt;void&gt;
 
 结束录屏。使用Promise异步回调。
@@ -210,6 +218,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 ##### skipPrivacyMode12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 skipPrivacyMode(windowIDs: Array&lt;number&gt;): Promise&lt;void&gt;
 
@@ -278,6 +288,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 ##### setMicEnabled12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 setMicEnabled(enable: boolean): Promise&lt;void&gt;
 
 设置麦克风开关。使用Promise异步回调。
@@ -341,6 +353,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 ##### setPickerMode22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setPickerMode(pickerMode: PickerMode): Promise&lt;void&gt;
 
@@ -406,6 +420,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 ##### excludePickerWindows22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 excludePickerWindows(excludedWindows: Array&lt;number&gt;): Promise&lt;void&gt;
 
@@ -474,6 +490,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 ##### presentPicker22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 presentPicker(): Promise&lt;void&gt;
 
 录屏开始后，调用该接口再次弹出Picker，可动态更新录制源（窗口、屏幕）。使用Promise异步回调。
@@ -536,6 +554,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 ##### release12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 释放录屏。使用Promise异步回调。
@@ -593,6 +613,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 ##### on('stateChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 on(type: 'stateChange', callback: Callback&lt;AVScreenCaptureStateCode&gt;): void
 
 订阅录屏状态切换的事件，当状态发生的时候，会通过订阅的回调通知用户。用户只能订阅一个状态切换的回调方法，重复订阅时，以最后一次订阅的回调接口为准。
@@ -638,6 +660,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 ##### on('error')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -696,6 +720,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 ##### off('stateChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'stateChange', callback?: Callback&lt;AVScreenCaptureStateCode&gt;): void
 
 取消订阅状态切换回调事件。用户可以指定填入状态切换的回调方法来取消订阅。
@@ -739,6 +765,8 @@ if (avScreenCaptureRecorder != undefined) {
 
 
 ##### off('error')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'error', callback?: ErrorCallback): void
 

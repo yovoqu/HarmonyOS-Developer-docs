@@ -14,6 +14,8 @@ wantConstant模块提供want中操作want常数和解释Flags说明的能力。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import wantConstant from '@ohos.ability.wantConstant';
 ```
@@ -21,6 +23,8 @@ import wantConstant from '@ohos.ability.wantConstant';
   
 
 ##### Action
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 want操作的常数。用于表示要执行的通用操作。
  
@@ -60,6 +64,8 @@ want操作的常数。用于表示要执行的通用操作。
 
 ##### Entity
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 want实体的常数。用于表示目标Ability额外的类别信息。
  
 **系统能力**：SystemCapability.Ability.AbilityBase
@@ -76,6 +82,8 @@ want实体的常数。用于表示目标Ability额外的类别信息。
   
 
 ##### Flags
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Flags说明。用于表示处理Want的方式。
  

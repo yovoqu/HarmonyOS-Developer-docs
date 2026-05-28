@@ -12,6 +12,8 @@ typedef struct OH_MediaAssetChangeRequest OH_MediaAssetChangeRequest
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义媒体资产更改请求。
  
 此结构体提供了处理媒体资产更改请求的能力。

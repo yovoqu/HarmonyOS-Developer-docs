@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -23,6 +25,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
@@ -37,6 +41,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### prepare12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 prepare(config: AVTranscoderConfig): Promise&lt;void&gt;
 
@@ -103,6 +109,8 @@ async function test() {
 
 ##### start12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 start(): Promise&lt;void&gt;
 
 开始视频转码。使用Promise异步回调。
@@ -151,6 +159,8 @@ async function test() {
 
 
 ##### pause12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 pause(): Promise&lt;void&gt;
 
@@ -201,6 +211,8 @@ async function test() {
 
 ##### resume12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 resume(): Promise&lt;void&gt;
 
 恢复视频转码。使用Promise异步回调。
@@ -249,6 +261,8 @@ async function test() {
 
 
 ##### cancel12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 cancel(): Promise&lt;void&gt;
 
@@ -299,6 +313,8 @@ async function test() {
 
 ##### release12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 release(): Promise&lt;void&gt;
 
 释放视频转码资源。使用Promise异步回调。
@@ -347,6 +363,8 @@ async function test() {
 
 ##### on('progressUpdate')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 on(type:'progressUpdate', callback: Callback&lt;number&gt;):void
 
 注册转码进度更新事件，并通过注册的回调方法通知开发者。开发者只能注册一个进度更新事件的回调方法，当开发者重复注册时，以最后一次注册的回调接口为准。使用callback异步回调。
@@ -381,6 +399,8 @@ async function test() {
 
 ##### off('progressUpdate')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type:'progressUpdate', callback?: Callback&lt;number&gt;): void
 
 取消注册转码进度更新事件。
@@ -412,6 +432,8 @@ async function test() {
 
 
 ##### on('error')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -466,6 +488,8 @@ async function test() {
 
 ##### off('error')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type:'error', callback?: ErrorCallback): void
 
 取消注册转码错误事件，取消后不再接收到AVTranscoder的错误事件。
@@ -497,6 +521,8 @@ async function test() {
 
 
 ##### on('complete')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'complete', callback: Callback&lt;void&gt;): void
 
@@ -540,6 +566,8 @@ async function test() {
 
 
 ##### off('complete')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type:'complete', callback?: Callback&lt;void&gt;): void
 

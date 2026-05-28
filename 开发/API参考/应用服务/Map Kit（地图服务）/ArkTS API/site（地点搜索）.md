@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { site } from '@kit.MapKit';
 ```
@@ -19,6 +21,8 @@ import { site } from '@kit.MapKit';
 
 
 ##### searchByText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 searchByText(searchByTextParams: SearchByTextParams): Promise&lt;SearchByTextResult&gt;
 
@@ -80,6 +84,8 @@ console.info("Succeeded in searching by text.");
 
 ##### searchByText
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 searchByText(context: common.Context, searchByTextParams: SearchByTextParams): Promise&lt;SearchByTextResult&gt;
 
 通过指定的关键字和可选的地理范围，查询诸如旅游景点、企业和学校之类的地点，支持传入Context上下文。使用Promise异步回调。
@@ -140,6 +146,8 @@ console.info("Succeeded in searching by text.");
 
 
 ##### nearbySearch
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 nearbySearch(nearbySearchParams: NearbySearchParams): Promise&lt;NearbySearchResult&gt;
 
@@ -204,6 +212,8 @@ console.info(`Succeeded in searching nearby. result is ${result}`);
 
 
 ##### nearbySearch
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 nearbySearch(context: common.Context, nearbySearchParams: NearbySearchParams): Promise&lt;NearbySearchResult&gt;
 
@@ -270,6 +280,8 @@ console.info(`Succeeded in searching nearby. result is ${result}`);
 
 ##### queryAutoComplete
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 queryAutoComplete(queryAutoCompleteParams: QueryAutoCompleteParams): Promise&lt;QueryAutoCompleteResult&gt;
 
 根据输入的关键字返回预测的输入关键字和地点查询建议。使用Promise异步回调。
@@ -329,6 +341,8 @@ console.info("Succeeded in querying.");
 
 
 ##### queryAutoComplete
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 queryAutoComplete(context: common.Context, queryAutoCompleteParams: QueryAutoCompleteParams): Promise&lt;QueryAutoCompleteResult&gt;
 
@@ -391,6 +405,8 @@ console.info("Succeeded in querying.");
 
 ##### searchById
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 searchById(searchByIdParams: SearchByIdParams): Promise&lt;SearchByIdResult&gt;
 
 根据地点ID获取地点详情。地点详情包括：地点名称、地址详细信息、经纬度等。使用Promise异步回调。
@@ -446,6 +462,8 @@ console.info("Succeeded in searching by id.");
 
 
 ##### searchById
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 searchById(context: common.Context, searchByIdParams: SearchByIdParams): Promise&lt;SearchByIdResult&gt;
 
@@ -503,6 +521,8 @@ console.info("Succeeded in searching by id.");
 
 
 ##### geocode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 geocode(geocodeParams: GeocodeParams): Promise&lt;GeocodeResult&gt;
 
@@ -562,6 +582,8 @@ console.info("Succeeded in geocoding.");
 
 
 ##### geocode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 geocode(context: common.Context, geocodeParams: GeocodeParams): Promise&lt;GeocodeResult&gt;
 
@@ -623,6 +645,8 @@ console.info("Succeeded in geocoding.");
 
 ##### reverseGeocode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 reverseGeocode(reverseGeocodeParams: ReverseGeocodeParams): Promise&lt;ReverseGeocodeResult&gt;
 
 逆地理编码接口能够根据经纬度返回对应的地址信息，包括位置描述信息、结构化区划信息、周边POI地点等详细信息。使用Promise异步回调。
@@ -681,6 +705,8 @@ console.info("Succeeded in reversing geocode.");
 
 
 ##### reverseGeocode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 reverseGeocode(context: common.Context, reverseGeocodeParams: ReverseGeocodeParams): Promise&lt;ReverseGeocodeResult&gt;
 
@@ -742,6 +768,8 @@ console.info("Succeeded in reversing geocode.");
 
 ##### SortRule
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 结果排序规则。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -761,6 +789,8 @@ console.info("Succeeded in reversing geocode.");
 
 
 ##### SearchByTextParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 SearchByTextParams定义了搜索关键字的参数。
 
@@ -791,6 +821,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 ##### NearbySearchParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 周边搜索的参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -814,6 +846,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 ##### QueryAutoCompleteParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 自动补全的参数。
 
@@ -841,6 +875,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 ##### SearchByIdParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 地点详情的参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -861,6 +897,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 ##### ReverseGeocodeParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 逆地理编码的参数。
 
@@ -885,6 +923,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 ##### GeocodeParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 正地理编码的参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -906,6 +946,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 ##### SearchByTextResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 关键字搜索的结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -925,6 +967,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 ##### NearbySearchResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 周边搜索的结果。
 
@@ -946,6 +990,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 ##### QueryAutoCompleteResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 自动补全的结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -965,6 +1011,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 ##### SearchByIdResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 地点详情的结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -983,6 +1031,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 ##### ReverseGeocodeResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 逆地理编码的结果。
 
@@ -1008,6 +1058,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 ##### GeocodeResult
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 正地理编码的结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1026,6 +1078,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 ##### Site
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 地点详情。
 
@@ -1052,6 +1106,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 ##### AddressComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 地址详细信息。
 
@@ -1086,6 +1142,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 ##### City
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 城市信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1106,6 +1164,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 ##### StreetNumber
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 街道号。
 
@@ -1130,6 +1190,8 @@ SearchByTextParams定义了搜索关键字的参数。
 
 
 ##### Poi
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 POI信息。
 
@@ -1165,6 +1227,8 @@ POI信息。
 
 ##### OpeningHours
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 营业时间。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1184,6 +1248,8 @@ POI信息。
 
 
 ##### Period
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 开放时间段的详细说明。
 
@@ -1205,6 +1271,8 @@ POI信息。
 
 ##### TimeOfWeek
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 时间模型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1224,6 +1292,8 @@ POI信息。
 
 
 ##### ChildNode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 POI的子节点信息。
 
@@ -1248,6 +1318,8 @@ POI的子节点信息。
 
 ##### Comment
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 POI的评论信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1267,6 +1339,8 @@ POI的评论信息。
 
 
 ##### Aoi
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 Aoi面信息。
 
@@ -1290,6 +1364,8 @@ Aoi面信息。
 
 
 ##### ReverseGeocodePoi
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 逆地理结果POI信息。
 
@@ -1316,6 +1392,8 @@ Aoi面信息。
 
 ##### Road
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 道路信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1338,6 +1416,8 @@ Aoi面信息。
 
 
 ##### Intersection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 交叉点信息。
 

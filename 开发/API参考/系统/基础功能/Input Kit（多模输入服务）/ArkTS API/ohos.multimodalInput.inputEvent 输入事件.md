@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { InputEvent } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { InputEvent } from '@kit.InputKit';
   
 
 ##### InputEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 输入事件。
  

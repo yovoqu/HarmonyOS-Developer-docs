@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { radio } from '@kit.TelephonyKit';
 ```
@@ -21,6 +23,8 @@ import { radio } from '@kit.TelephonyKit';
 
 
 ##### radio.getRadioTech
+
+**支持设备：** Phone | Tablet | Wearable
 
 getRadioTech(slotId: number, callback: AsyncCallback<[NetworkRadioTech](#networkradiotech11)>): void
 
@@ -70,6 +74,8 @@ radio.getRadioTech(slotId, (err: BusinessError, data: radio.NetworkRadioTech) =>
 
 
 ##### radio.getRadioTech
+
+**支持设备：** Phone | Tablet | Wearable
 
 getRadioTech(slotId: number): Promise<[NetworkRadioTech](#networkradiotech11)>
 
@@ -124,6 +130,8 @@ radio.getRadioTech(slotId).then((data: radio.NetworkRadioTech) => {
 
 ##### radio.getRadioTechSync18+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getRadioTechSync(slotId: number): [NetworkRadioTech](#networkradiotech11)
 
 获取当前接入的CS域和PS域无线接入技术。CS域为电路交换域，PS为分组交换域。
@@ -172,6 +180,8 @@ console.info(`getRadioTechSync success, NetworkRadioTech->${JSON.stringify(netwo
 
 ##### radio.getNetworkState
 
+**支持设备：** Phone | Tablet | Wearable
+
 getNetworkState(callback: AsyncCallback&lt;NetworkState&gt;): void
 
 获取网络状态。使用callback异步回调。
@@ -218,6 +228,8 @@ radio.getNetworkState((err: BusinessError, data: radio.NetworkState) => {
 
 
 ##### radio.getNetworkState
+
+**支持设备：** Phone | Tablet | Wearable
 
 getNetworkState(slotId: number, callback: AsyncCallback&lt;NetworkState&gt;): void
 
@@ -267,6 +279,8 @@ radio.getNetworkState(slotId, (err: BusinessError, data: radio.NetworkState) => 
 
 
 ##### radio.getNetworkState
+
+**支持设备：** Phone | Tablet | Wearable
 
 getNetworkState(slotId?: number): Promise&lt;NetworkState&gt;
 
@@ -321,6 +335,8 @@ radio.getNetworkState(slotId).then((data: radio.NetworkState) => {
 
 ##### radio.getNetworkSelectionMode
 
+**支持设备：** Phone | Tablet | Wearable
+
 getNetworkSelectionMode(slotId: number, callback: AsyncCallback&lt;NetworkSelectionMode&gt;): void
 
 获取当前选网模式。使用callback异步回调。
@@ -366,6 +382,8 @@ radio.getNetworkSelectionMode(slotId, (err: BusinessError, data: radio.NetworkSe
 
 
 ##### radio.getNetworkSelectionMode
+
+**支持设备：** Phone | Tablet | Wearable
 
 getNetworkSelectionMode(slotId: number): Promise&lt;NetworkSelectionMode&gt;
 
@@ -417,6 +435,8 @@ radio.getNetworkSelectionMode(slotId).then((data: radio.NetworkSelectionMode) =>
 
 ##### radio.getISOCountryCodeForNetwork7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getISOCountryCodeForNetwork(slotId: number, callback: AsyncCallback&lt;string&gt;): void
 
 获取注册网络所在国家的ISO国家码。使用callback异步回调。
@@ -462,6 +482,8 @@ radio.getISOCountryCodeForNetwork(slotId, (err: BusinessError, data: string) => 
 
 
 ##### radio.getISOCountryCodeForNetwork7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 getISOCountryCodeForNetwork(slotId: number): Promise&lt;string&gt;
 
@@ -513,6 +535,8 @@ radio.getISOCountryCodeForNetwork(slotId).then((data: string) => {
 
 ##### radio.getISOCountryCodeForNetworkSync10+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getISOCountryCodeForNetworkSync(slotId: number): string
 
 获取注册网络所在国家的ISO国家码。
@@ -544,6 +568,8 @@ console.info(`the country ISO is:` + countryISO);
 
 
 ##### radio.getPrimarySlotId7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 getPrimarySlotId(callback: AsyncCallback&lt;number&gt;): void
 
@@ -589,6 +615,8 @@ radio.getPrimarySlotId((err: BusinessError, data: number) => {
 
 ##### radio.getPrimarySlotId7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getPrimarySlotId(): Promise&lt;number&gt;
 
 获取主卡所在卡槽的索引号。使用Promise异步回调。
@@ -628,6 +656,8 @@ radio.getPrimarySlotId().then((data: number) => {
 
 
 ##### radio.getSignalInformation7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 getSignalInformation(slotId: number, callback: AsyncCallback<Array&lt;SignalInformation&gt;>): void
 
@@ -674,6 +704,8 @@ radio.getSignalInformation(slotId, (err: BusinessError, data: Array<radio.Signal
 
 
 ##### radio.getSignalInformation7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 getSignalInformation(slotId: number): Promise<Array&lt;SignalInformation&gt;>
 
@@ -725,6 +757,8 @@ radio.getSignalInformation(slotId).then((data: Array<radio.SignalInformation>) =
 
 ##### radio.getSignalInformationSync10+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getSignalInformationSync(slotId: number): Array&lt;SignalInformation&gt;
 
 获取指定SIM卡槽对应的注册网络信号强度信息列表。
@@ -757,6 +791,8 @@ console.info(`signal information size is:` + signalInfo.length);
 
 ##### radio.isNrSupported(deprecated)
 
+**支持设备：** Phone | Tablet | Wearable
+
 isNrSupported(): boolean
 
 判断当前设备是否支持NR(New Radio)。
@@ -784,6 +820,8 @@ console.info("Result: "+ result);
 
 
 ##### radio.isNrSupported(deprecated)
+
+**支持设备：** Phone | Tablet | Wearable
 
 isNrSupported(slotId: number): boolean
 
@@ -821,6 +859,8 @@ console.info("Result: "+ result);
 
 ##### radio.isNRSupported9+
 
+**支持设备：** Phone | Tablet | Wearable
+
 isNRSupported(): boolean
 
 判断当前设备是否支持NR(New Radio)。
@@ -844,6 +884,8 @@ console.info("Result: "+ result);
 
 
 ##### radio.isNRSupported9+
+
+**支持设备：** Phone | Tablet | Wearable
 
 isNRSupported(slotId: number): boolean
 
@@ -876,6 +918,8 @@ console.info("Result: "+ result);
 
 
 ##### radio.isRadioOn7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 isRadioOn(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -923,6 +967,8 @@ radio.isRadioOn((err: BusinessError, data: boolean) => {
 
 
 ##### radio.isRadioOn7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 isRadioOn(slotId: number, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -972,6 +1018,8 @@ radio.isRadioOn(slotId, (err: BusinessError, data: boolean) => {
 
 
 ##### radio.isRadioOn7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 isRadioOn(slotId?: number): Promise&lt;boolean&gt;
 
@@ -1026,6 +1074,8 @@ radio.isRadioOn(slotId).then((data: boolean) => {
 
 ##### radio.getOperatorName7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getOperatorName(slotId: number, callback: AsyncCallback&lt;string&gt;): void
 
 获取运营商名称。使用callback异步回调。
@@ -1071,6 +1121,8 @@ radio.getOperatorName(slotId, (err: BusinessError, data: string) => {
 
 
 ##### radio.getOperatorName7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 getOperatorName(slotId: number): Promise&lt;string&gt;
 
@@ -1122,6 +1174,8 @@ radio.getOperatorName(slotId).then((data: string) => {
 
 ##### radio.getOperatorNameSync10+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getOperatorNameSync(slotId: number): string
 
 获取运营商名称。
@@ -1154,6 +1208,8 @@ console.info(`operator name is:` + operatorName);
 
 ##### NetworkRadioTech11+
 
+**支持设备：** Phone | Tablet | Wearable
+
 网络中packet service (PS) 和 circuit service (CS) 无线接入技术。
 
 **系统能力**：SystemCapability.Telephony.CoreService
@@ -1167,6 +1223,8 @@ console.info(`operator name is:` + operatorName);
 
 
 ##### RadioTechnology
+
+**支持设备：** Phone | Tablet | Wearable
 
 无线接入技术。
 
@@ -1193,6 +1251,8 @@ console.info(`operator name is:` + operatorName);
 
 ##### SignalInformation
 
+**支持设备：** Phone | Tablet | Wearable
+
 网络信号强度信息对象。
 
 **系统能力**：SystemCapability.Telephony.CoreService
@@ -1207,6 +1267,8 @@ console.info(`operator name is:` + operatorName);
 
 
 ##### NetworkType
+
+**支持设备：** Phone | Tablet | Wearable
 
 网络类型。
 
@@ -1226,6 +1288,8 @@ console.info(`operator name is:` + operatorName);
 
 
 ##### NetworkState
+
+**支持设备：** Phone | Tablet | Wearable
 
 网络注册状态。
 
@@ -1248,6 +1312,8 @@ console.info(`operator name is:` + operatorName);
 
 ##### RegState
 
+**支持设备：** Phone | Tablet | Wearable
+
 网络注册状态。
 
 **系统能力**：SystemCapability.Telephony.CoreService
@@ -1263,6 +1329,8 @@ console.info(`operator name is:` + operatorName);
 
 
 ##### NsaState
+
+**支持设备：** Phone | Tablet | Wearable
 
 非独立组网状态。
 
@@ -1282,6 +1350,8 @@ console.info(`operator name is:` + operatorName);
 
 ##### NetworkSelectionMode
 
+**支持设备：** Phone | Tablet | Wearable
+
 选网模式。
 
 **系统能力**：SystemCapability.Telephony.CoreService
@@ -1296,6 +1366,8 @@ console.info(`operator name is:` + operatorName);
 
 
 ##### CellInformation8+
+
+**支持设备：** Phone | Tablet | Wearable
 
 小区信息。
 

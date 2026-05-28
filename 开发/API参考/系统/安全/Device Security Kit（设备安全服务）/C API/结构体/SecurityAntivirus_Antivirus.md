@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 定义防病毒应用信息。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### bundleName
+
+**支持设备：** PC/2in1
 
 ```text
 const char *SecurityAntivirus_Antivirus::bundleName
@@ -48,6 +58,8 @@ const char *SecurityAntivirus_Antivirus::bundleName
   
 
 ##### metadata
+
+**支持设备：** PC/2in1
 
 ```text
 const char *SecurityAntivirus_Antivirus::metadata

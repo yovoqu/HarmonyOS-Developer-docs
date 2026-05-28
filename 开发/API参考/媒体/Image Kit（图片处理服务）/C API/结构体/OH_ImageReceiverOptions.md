@@ -12,6 +12,8 @@ typedef struct OH_ImageReceiverOptions OH_ImageReceiverOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于定义OH_ImageReceiverOptions数据类型名称。
  
 OH_ImageReceiverOptions是native层封装的图片接收器选项设置器结构体，用于创建OH_ImageReceiverNative时传入设置参数。OH_ImageReceiverOptions结构体不可直接操作，而是采用函数调用方式创建、释放结构体以及操作具体字段。

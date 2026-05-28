@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { hiAppEvent } from '@kit.PerformanceAnalysisKit';
 ```
@@ -25,6 +27,8 @@ import { hiAppEvent } from '@kit.PerformanceAnalysisKit';
 
 
 ##### hiAppEvent.addWatcher
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addWatcher(watcher: Watcher): AppEventPackageHolder
 
@@ -184,6 +188,8 @@ hiAppEvent.addWatcher({
 
 ##### hiAppEvent.removeWatcher
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeWatcher(watcher: Watcher): void
 
 移除事件观察者。
@@ -227,6 +233,8 @@ hiAppEvent.removeWatcher(watcher);
 
 
 ##### hiAppEvent.setEventParam12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setEventParam(params: Record<string, ParamType>, domain: string, name?: string): Promise&lt;void&gt;
 
@@ -289,6 +297,8 @@ hiAppEvent.setEventParam(params, "test_domain", "test_event").then(() => {
 
 
 ##### hiAppEvent.setEventConfig15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setEventConfig(name: string, config: Record<string, ParamType>): Promise&lt;void&gt;
 
@@ -355,6 +365,8 @@ hiAppEvent.setEventConfig(hiAppEvent.event.MAIN_THREAD_JANK, params).then(() => 
 
 ##### hiAppEvent.configEventPolicy22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 configEventPolicy(policy: EventPolicy): Promise&lt;void&gt;
 
 系统事件相关的配置策略设置方法，使用Promise方式作为异步回调。
@@ -408,6 +420,8 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 
 ##### Watcher
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供事件观察者的参数选项。用于配置和管理事件的观察者，实现对特定事件的监听和处理。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -431,6 +445,8 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 
 ##### TriggerCondition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供设置[Watcher](#watcher)的onTrigger回调触发条件的参数选项。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -447,6 +463,8 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 
 
 ##### AppEventFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供设置[Watcher](#watcher)的订阅过滤条件的参数选项。用于在事件观察者中设置事件过滤条件，确保只有满足过滤条件的事件才会被监听处理。
 
@@ -469,11 +487,15 @@ hiAppEvent.configEventPolicy(policy).then(() => {
 
 ##### AppEventPackageHolder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 订阅数据持有者类，用于对事件信息进行处理。
 
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(watcherName: string)
 
@@ -510,6 +532,8 @@ let holder1: hiAppEvent.AppEventPackageHolder = new hiAppEvent.AppEventPackageHo
 
 
 ##### setSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSize(size: number): void
 
@@ -549,6 +573,8 @@ holder2.setSize(1000);
 
 ##### setRow12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setRow(size: number): void
 
 设置每次取出的事件包的数据条数，优先级高于setSize，和setSize同时调用时仅setRow生效。
@@ -587,6 +613,8 @@ holder3.setRow(1000);
 
 ##### takeNext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 takeNext(): AppEventPackage
 
 获取订阅事件。
@@ -619,6 +647,8 @@ let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();
 
 ##### AppEventInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供事件信息的参数选项。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -637,6 +667,8 @@ let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();
 
 ##### AppEventPackage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供订阅返回的事件包的参数定义。可用于获取事件包的详细信息，事件包由[takeNext](#takenext)接口获得。
 
 **系统能力：** SystemCapability.HiviewDFX.HiAppEvent
@@ -654,6 +686,8 @@ let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();
 
 ##### AppEventGroup11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供订阅返回的事件组的参数定义。可用于获取事件组的详细信息，事件组常在[Watcher](#watcher)的onReceive回调中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -669,6 +703,8 @@ let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();
 
 
 ##### hiAppEvent.write
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(info: AppEventInfo, callback: AsyncCallback&lt;void&gt;): void
 
@@ -735,6 +771,8 @@ hiAppEvent.write({
 
 
 ##### hiAppEvent.write
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 write(info: AppEventInfo): Promise&lt;void&gt;
 
@@ -806,6 +844,8 @@ hiAppEvent.write({
 
 ##### hiAppEvent.addProcessor11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addProcessor(processor: Processor): number
 
 添加数据处理者配置信息，用于配置处理者接收的事件名等信息。事件发生后处理者可以接收事件。
@@ -859,6 +899,8 @@ try {
 
 ##### hiAppEvent.addProcessorFromConfig20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addProcessorFromConfig(processorName: string, configName?: string): Promise&lt;number&gt;
 
 添加数据处理者配置信息。系统会自动解析预置在目录“/system/etc/hiappevent”的processor.json配置文件，并根据configName字段加载对应的processor信息（例如支持接收的故障事件名称等信息）。
@@ -910,6 +952,8 @@ hiAppEvent.addProcessorFromConfig("test_name").then((processorId) => {
 
 ##### hiAppEvent.removeProcessor11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeProcessor(id: number): void
 
 移除上报事件的数据处理者。
@@ -955,6 +999,8 @@ try {
 
 ##### hiAppEvent.setUserId11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setUserId(name: string, value: string): void
 
 设置用户ID值。用于在配置[Processor](#processor11)数据处理者时进行关联。
@@ -995,6 +1041,8 @@ try {
 
 
 ##### hiAppEvent.getUserId11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUserId(name: string): string
 
@@ -1045,6 +1093,8 @@ try {
 
 ##### hiAppEvent.setUserProperty11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setUserProperty(name: string, value: string): void
 
 设置用户属性值。用于在配置[Processor](#processor11)数据处理者时进行关联。
@@ -1085,6 +1135,8 @@ try {
 
 
 ##### hiAppEvent.getUserProperty11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUserProperty(name: string): string
 
@@ -1135,6 +1187,8 @@ try {
 
 ##### hiAppEvent.clearData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearData(): void
 
 应用事件打点数据清理方法，将当前应用存储在本地的打点数据进行清除。
@@ -1152,6 +1206,8 @@ hiAppEvent.clearData();
 
 
 ##### hiAppEvent.configure
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 configure(config: ConfigOption): void
 
@@ -1198,6 +1254,8 @@ hiAppEvent.configure(config2);
 
 ##### ConfigOption
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供对应用事件打点功能的配置选项。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1213,6 +1271,8 @@ hiAppEvent.configure(config2);
 
 
 ##### EventPolicy22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供系统事件配置策略的定义，用于使用[configEventPolicy](#hiappeventconfigeventpolicy22)设置事件配置策略。
 
@@ -1231,6 +1291,8 @@ hiAppEvent.configure(config2);
 
 
 ##### MainThreadJankPolicy22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供主线程超时事件配置策略的定义。
 
@@ -1252,10 +1314,12 @@ hiAppEvent.configure(config2);
 
 ##### CpuUsageHighPolicy22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供CPU高负载事件配置策略的定义。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/1c_an7ZiTFeEwKaI6HBWyQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013531Z&HW-CC-Expire=86400&HW-CC-Sign=9E5641697F24266B6002D210AE383FBE6E4E84CBD218B0614BEDC052374915BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/1c_an7ZiTFeEwKaI6HBWyQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023831Z&HW-CC-Expire=86400&HW-CC-Sign=02ED728AE09C350E9111E9F18BDEBAD581764AB4EAA969921B8F5320EBE69AC8)
 
 
 该接口被调用后，会将设置值持久化。后续重复调用该接口时，若不设置对应参数，则取上一次系统取用的值。
@@ -1279,6 +1343,8 @@ hiAppEvent.configure(config2);
 
 ##### AppCrashPolicy24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供崩溃事件配置策略的定义。
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
@@ -1293,6 +1359,8 @@ hiAppEvent.configure(config2);
 
 
 ##### AppFreezePolicy24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供应用冻屏事件配置策略的定义。
 
@@ -1309,6 +1377,8 @@ hiAppEvent.configure(config2);
 
 ##### ResourceOverlimitPolicy24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供资源泄漏事件配置策略的定义。
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
@@ -1324,6 +1394,8 @@ hiAppEvent.configure(config2);
 
 ##### AddressSanitizerPolicy24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供地址越界事件配置策略的定义。
 
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
@@ -1338,6 +1410,8 @@ hiAppEvent.configure(config2);
 
 
 ##### Processor11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可以上报事件的数据处理者对象。用于事件的上报和管理，开发者可自定义数据处理配置，满足不同的数据处理需求。
 
@@ -1365,6 +1439,8 @@ hiAppEvent.configure(config2);
 
 ##### AppEventReportConfig11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 数据处理者可以上报事件的描述配置。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1381,6 +1457,8 @@ hiAppEvent.configure(config2);
 
 
 ##### ParamType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ParamType = number | string | boolean | Array&lt;string&gt;
 
@@ -1402,6 +1480,8 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 ##### EventType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 事件类型枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1420,9 +1500,13 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 ##### hiAppEvent.domain11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供领域名称常量。
 
@@ -1439,9 +1523,13 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 ##### hiAppEvent.event
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供事件名称常量。包含系统事件名称常量和应用事件名称常量，其中应用事件名称常量是为开发者在调用[Write](#hiappeventwrite-1)接口进行应用事件打点时预留的可选自定义事件名称。
 
@@ -1471,9 +1559,13 @@ type ParamType = number | string | boolean | Array&lt;string&gt;
 
 ##### hiAppEvent.param
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提供参数名称常量。
 

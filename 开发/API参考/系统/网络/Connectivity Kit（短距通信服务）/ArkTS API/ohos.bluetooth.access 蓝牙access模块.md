@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { access } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { access } from '@kit.ConnectivityKit';
 
 
 ##### access.enableBluetooth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableBluetooth(): void
 
@@ -64,6 +68,8 @@ try {
 
 
 ##### access.enableBluetoothAsync20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableBluetoothAsync(): Promise&lt;void&gt;
 
@@ -121,6 +127,8 @@ try {
 
 ##### access.disableBluetooth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disableBluetooth(): void
 
 关闭蓝牙。
@@ -163,6 +171,8 @@ try {
 
 
 ##### access.disableBluetoothAsync20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disableBluetoothAsync(): Promise&lt;void&gt;
 
@@ -220,6 +230,8 @@ try {
 
 ##### access.getState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getState(): BluetoothState
 
 获取蓝牙开关状态。
@@ -261,6 +273,8 @@ try {
 
 
 ##### access.on('stateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'stateChange', callback: Callback&lt;BluetoothState&gt;): void
 
@@ -308,6 +322,8 @@ try {
 
 ##### access.off('stateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'stateChange', callback?: Callback&lt;BluetoothState&gt;): void
 
 取消订阅本端蓝牙开关状态变化事件。从API18开始不再校验ohos.permission.ACCESS_BLUETOOTH权限。
@@ -354,6 +370,8 @@ try {
 
 
 ##### access.addPersistentDeviceId16+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addPersistentDeviceId(deviceId: string): Promise&lt;void&gt;
 
@@ -416,6 +434,8 @@ try {
 
 ##### access.deletePersistentDeviceId16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deletePersistentDeviceId(deviceId: string): Promise&lt;void&gt;
 
 删除已持久化存储的蓝牙虚拟MAC地址。使用Promise异步回调。
@@ -473,6 +493,8 @@ try {
 
 ##### access.getPersistentDeviceIds16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPersistentDeviceIds(): string[];
 
 获取应用持久化存储过的蓝牙虚拟MAC地址。
@@ -517,6 +539,8 @@ try {
 
 
 ##### access.isValidRandomDeviceId16+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isValidRandomDeviceId(deviceId: string): boolean;
 
@@ -576,6 +600,8 @@ try {
 
 ##### access.convertUuid22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 convertUuid(uuid: string): string
 
 将指定格式的的UUID转换为128bit的UUID。
@@ -621,6 +647,8 @@ try {
 
 
 ##### BluetoothState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙开关状态。
 

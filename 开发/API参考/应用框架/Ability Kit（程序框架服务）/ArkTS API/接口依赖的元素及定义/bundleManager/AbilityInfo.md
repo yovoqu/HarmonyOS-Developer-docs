@@ -14,6 +14,8 @@ Ability信息，可以通过[bundleManager.getBundleInfoForSelf](https://develop
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { bundleManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### AbilityInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.BundleManager.BundleFramework.Core
 
@@ -59,6 +63,8 @@ import { bundleManager } from '@kit.AbilityKit';
 
 
 ##### WindowSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述窗口尺寸。
 

@@ -12,6 +12,8 @@ typedef struct OH_CryptoSymCipher OH_CryptoSymCipher
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义对称加解密结构体。
  
 **起始版本：** 12

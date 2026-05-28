@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** lite_wearable
+
 ```text
 import healthStore from '@hms.health.store';
 ```
@@ -23,6 +25,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### 常量
+
+**支持设备：** lite_wearable
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
  

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { appAccount } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { appAccount } from '@kit.BasicServicesKit';
 
 
 ##### appAccount.createAppAccountManager
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAppAccountManager(): AppAccountManager
 
@@ -45,11 +49,15 @@ let appAccountManager: appAccount.AppAccountManager = appAccount.createAppAccoun
 
 ##### AppAccountManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用账号管理器，可用于管理应用自身的账号信息。
 
 
 
 ##### createAccount9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAccount(name: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -100,6 +108,8 @@ try {
 
 
 ##### createAccount9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback&lt;void&gt;): void
 
@@ -156,6 +166,8 @@ try {
 
 
 ##### createAccount9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAccount(name: string, options?: CreateAccountOptions): Promise&lt;void&gt;
 
@@ -216,6 +228,8 @@ try {
 
 
 ##### createAccountImplicitly9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAccountImplicitly(owner: string, callback: AuthCallback): void
 
@@ -294,6 +308,8 @@ struct Index {
 
 
 ##### createAccountImplicitly9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAccountImplicitly(owner: string, options: CreateAccountImplicitlyOptions, callback: AuthCallback): void
 
@@ -378,6 +394,8 @@ struct Index {
 
 ##### removeAccount9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeAccount(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除应用账号。使用callback异步回调。
@@ -426,6 +444,8 @@ try {
 
 
 ##### removeAccount9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeAccount(name: string): Promise&lt;void&gt;
 
@@ -480,6 +500,8 @@ try {
 
 ##### setAppAccess9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用对特定账号的访问权限。使用callback异步回调。
@@ -531,6 +553,8 @@ try {
 
 
 ##### setAppAccess9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise&lt;void&gt;
 
@@ -588,6 +612,8 @@ try {
 
 ##### checkAppAccess9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkAppAccess(name: string, bundleName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用对特定账号的数据是否可访问。使用callback异步回调。
@@ -638,6 +664,8 @@ try {
 
 
 ##### checkAppAccess9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkAppAccess(name: string, bundleName: string): Promise&lt;boolean&gt;
 
@@ -693,6 +721,8 @@ try {
 
 ##### setDataSyncEnabled9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 开启或禁止指定应用账号的数据同步功能。使用callback异步回调。
@@ -741,6 +771,8 @@ try {
 
 
 ##### setDataSyncEnabled9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDataSyncEnabled(name: string, isEnabled: boolean): Promise&lt;void&gt;
 
@@ -799,6 +831,8 @@ try {
 
 ##### checkDataSyncEnabled9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkDataSyncEnabled(name: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用账号是否开启数据同步功能。使用callback异步回调。
@@ -850,6 +884,8 @@ try {
 
 
 ##### checkDataSyncEnabled9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkDataSyncEnabled(name: string): Promise&lt;boolean&gt;
 
@@ -907,6 +943,8 @@ try {
 
 ##### setCredential9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCredential(name: string, credentialType: string, credential: string,callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的凭据。使用callback异步回调。
@@ -957,6 +995,8 @@ try {
 
 
 ##### setCredential9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCredential(name: string, credentialType: string, credential: string): Promise&lt;void&gt;
 
@@ -1013,6 +1053,8 @@ try {
 
 ##### getCredential9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCredential(name: string, credentialType: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的凭据。使用callback异步回调。
@@ -1063,6 +1105,8 @@ try {
 
 
 ##### getCredential9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCredential(name: string, credentialType: string): Promise&lt;string&gt;
 
@@ -1119,6 +1163,8 @@ try {
 
 ##### setCustomData9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setCustomData(name: string, key: string, value: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的自定义数据。使用callback异步回调。
@@ -1170,6 +1216,8 @@ try {
 
 
 ##### setCustomData9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCustomData(name: string, key: string, value: string): Promise&lt;void&gt;
 
@@ -1227,6 +1275,8 @@ try {
 
 ##### getCustomData9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCustomData(name: string, key: string, callback: AsyncCallback&lt;string&gt;): void
 
 根据指定键名获取特定应用账号的自定义数据。使用callback异步回调。
@@ -1277,6 +1327,8 @@ try {
 
 
 ##### getCustomData9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCustomData(name: string, key: string): Promise&lt;string&gt;
 
@@ -1333,6 +1385,8 @@ try {
 
 ##### getCustomDataSync9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCustomDataSync(name: string, key: string): string
 
 根据指定键名获取特定应用账号的自定义数据。使用同步方式返回结果。
@@ -1385,6 +1439,8 @@ try {
 
 ##### getAllAccounts9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllAccounts(callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
 获取所有可访问的应用账号信息。使用callback异步回调。
@@ -1431,6 +1487,8 @@ try {
 
 ##### getAllAccounts9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllAccounts(): Promise<Array&lt;AppAccountInfo&gt;>
 
 获取所有可访问的应用账号信息。使用Promise异步回调。
@@ -1473,6 +1531,8 @@ try {
 
 
 ##### getAccountsByOwner9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAccountsByOwner(owner: string, callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
@@ -1522,6 +1582,8 @@ try {
 
 
 ##### getAccountsByOwner9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAccountsByOwner(owner: string): Promise<Array&lt;AppAccountInfo&gt;>
 
@@ -1576,6 +1638,8 @@ try {
 
 ##### on('accountChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'accountChange', owners: Array&lt;string&gt;, callback: Callback<Array&lt;AppAccountInfo&gt;>): void
 
 订阅指定应用的账号信息变更事件。
@@ -1622,6 +1686,8 @@ try {
 
 
 ##### off('accountChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'accountChange', callback?: Callback<Array&lt;AppAccountInfo&gt;>): void
 
@@ -1674,6 +1740,8 @@ try {
 
 
 ##### auth9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 auth(name: string, owner: string, authType: string, callback: AuthCallback): void
 
@@ -1755,6 +1823,8 @@ struct Index {
 
 
 ##### auth9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 auth(name: string, owner: string, authType: string, options: Record<string, Object>, callback: AuthCallback): void
 
@@ -1841,6 +1911,8 @@ struct Index {
 
 ##### getAuthToken9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的特定鉴权类型的授权令牌。使用callback异步回调。
@@ -1893,6 +1965,8 @@ try {
 
 
 ##### getAuthToken9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAuthToken(name: string, owner: string, authType: string): Promise&lt;string&gt;
 
@@ -1950,6 +2024,8 @@ try {
 
 ##### setAuthToken9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAuthToken(name: string, authType: string, token: string, callback: AsyncCallback&lt;void&gt;): void
 
 为指定应用账号设置特定鉴权类型的授权令牌。使用callback异步回调。
@@ -2001,6 +2077,8 @@ try {
 
 
 ##### setAuthToken9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAuthToken(name: string, authType: string, token: string): Promise&lt;void&gt;
 
@@ -2058,6 +2136,8 @@ try {
 
 ##### deleteAuthToken9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定应用账号的特定鉴权类型的授权令牌。使用callback异步回调。
@@ -2111,6 +2191,8 @@ try {
 
 
 ##### deleteAuthToken9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteAuthToken(name: string, owner: string, authType: string, token: string): Promise&lt;void&gt;
 
@@ -2169,6 +2251,8 @@ try {
 
 ##### setAuthTokenVisibility9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定账号的特定鉴权类型的授权令牌对指定应用的可见性。使用callback异步回调。
@@ -2223,6 +2307,8 @@ try {
 
 
 ##### setAuthTokenVisibility9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise&lt;void&gt;
 
@@ -2282,6 +2368,8 @@ try {
 
 ##### checkAuthTokenVisibility9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用账号的特定鉴权类型的授权令牌对指定应用的可见性。使用callback异步回调。
@@ -2334,6 +2422,8 @@ try {
 
 
 ##### checkAuthTokenVisibility9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise&lt;boolean&gt;
 
@@ -2392,6 +2482,8 @@ try {
 
 ##### getAllAuthTokens9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array&lt;AuthTokenInfo&gt;>): void
 
 获取指定账号对调用方可见的所有授权令牌。使用callback异步回调。
@@ -2442,6 +2534,8 @@ try {
 
 
 ##### getAllAuthTokens9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllAuthTokens(name: string, owner: string): Promise<Array&lt;AuthTokenInfo&gt;>
 
@@ -2498,6 +2592,8 @@ try {
 
 ##### getAuthList9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAuthList(name: string, authType: string, callback: AsyncCallback<Array&lt;string&gt;>): void
 
 获取指定应用账号的特定鉴权类型的授权列表，即被授权的包名数组（令牌的授权列表通过[setAuthTokenVisibility](#setauthtokenvisibility9)来设置）。使用callback异步回调。
@@ -2548,6 +2644,8 @@ try {
 
 
 ##### getAuthList9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAuthList(name: string, authType: string): Promise<Array&lt;string&gt;>
 
@@ -2603,6 +2701,8 @@ try {
 
 
 ##### getAuthCallback9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAuthCallback(sessionId: string, callback: AsyncCallback&lt;AuthCallback&gt;): void
 
@@ -2668,6 +2768,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### getAuthCallback9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAuthCallback(sessionId: string): Promise&lt;AuthCallback&gt;
 
@@ -2738,6 +2840,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### queryAuthenticatorInfo9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 queryAuthenticatorInfo(owner: string, callback: AsyncCallback&lt;AuthenticatorInfo&gt;): void
 
 获取指定应用的认证器信息。使用callback异步回调。
@@ -2787,6 +2891,8 @@ try {
 
 
 ##### queryAuthenticatorInfo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryAuthenticatorInfo(owner: string): Promise&lt;AuthenticatorInfo&gt;
 
@@ -2841,6 +2947,8 @@ try {
 
 
 ##### checkAccountLabels9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkAccountLabels(name: string, owner: string, labels: Array&lt;string&gt;, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -2897,6 +3005,8 @@ try {
 
 
 ##### checkAccountLabels9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkAccountLabels(name: string, owner: string, labels: Array&lt;string&gt;): Promise&lt;boolean&gt;
 
@@ -2958,6 +3068,8 @@ try {
 
 ##### deleteCredential9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteCredential(name: string, credentialType: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定应用账号的特定类型的凭据信息。使用callback异步回调。
@@ -3008,6 +3120,8 @@ try {
 
 
 ##### deleteCredential9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteCredential(name: string, credentialType: string): Promise&lt;void&gt;
 
@@ -3064,6 +3178,8 @@ try {
 
 ##### selectAccountsByOptions9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
 根据选项选择调用方可访问的账号列表。使用callback异步回调。如果选项中包含标签约束，则该方法依赖目标应用的认证器提供标签检查的能力。
@@ -3118,6 +3234,8 @@ try {
 
 
 ##### selectAccountsByOptions9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array&lt;AppAccountInfo&gt;>
 
@@ -3176,6 +3294,8 @@ try {
 
 ##### verifyCredential9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 verifyCredential(name: string, owner: string, callback: AuthCallback): void
 
 验证指定账号的凭据。使用callback异步回调。
@@ -3231,6 +3351,8 @@ try {
 
 
 ##### verifyCredential9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 verifyCredential(name: string, owner: string, options: VerifyCredentialOptions, callback: AuthCallback): void
 
@@ -3293,6 +3415,8 @@ try {
 
 ##### setAuthenticatorProperties9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAuthenticatorProperties(owner: string, callback: AuthCallback): void
 
 设置指定应用的认证器属性。使用callback异步回调。
@@ -3346,6 +3470,8 @@ try {
 
 
 ##### setAuthenticatorProperties9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAuthenticatorProperties(owner: string, options: SetPropertiesOptions, callback: AuthCallback): void
 
@@ -3405,6 +3531,8 @@ try {
 
 ##### addAccount(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addAccount(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据账号名添加应用账号。使用callback异步回调。
@@ -3436,6 +3564,8 @@ appAccountManager.addAccount('WangWu', (err: BusinessError) => {
 
 
 ##### addAccount(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAccount(name: string, extraInfo: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -3469,6 +3599,8 @@ appAccountManager.addAccount('LiSi', 'token101', (err: BusinessError) => {
 
 
 ##### addAccount(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAccount(name: string, extraInfo?: string): Promise&lt;void&gt;
 
@@ -3510,6 +3642,8 @@ appAccountManager.addAccount('LiSi', 'token101').then(()=> {
 
 
 ##### addAccountImplicitly(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAccountImplicitly(owner: string, authType: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
 
@@ -3576,6 +3710,8 @@ struct Index {
 
 ##### deleteAccount(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteAccount(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除应用账号。使用callback异步回调。
@@ -3607,6 +3743,8 @@ appAccountManager.deleteAccount('ZhaoLiu', (err: BusinessError) => {
 
 
 ##### deleteAccount(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteAccount(name: string): Promise&lt;void&gt;
 
@@ -3648,6 +3786,8 @@ appAccountManager.deleteAccount('ZhaoLiu').then(() => {
 
 ##### disableAppAccess(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disableAppAccess(name: string, bundleName: string, callback: AsyncCallback&lt;void&gt;): void
 
 禁止指定第三方应用账号名称对指定的第三方应用进行访问。使用callback异步回调。
@@ -3680,6 +3820,8 @@ appAccountManager.disableAppAccess('ZhangSan', 'com.example.accountjsdemo', (err
 
 
 ##### disableAppAccess(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disableAppAccess(name: string, bundleName: string): Promise&lt;void&gt;
 
@@ -3722,6 +3864,8 @@ appAccountManager.disableAppAccess('ZhangSan', 'com.example.accountjsdemo').then
 
 ##### enableAppAccess(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableAppAccess(name: string, bundleName: string, callback: AsyncCallback&lt;void&gt;): void
 
 允许指定第三方应用账号名称对指定包名称的第三方应用进行访问。使用callback异步回调。
@@ -3758,6 +3902,8 @@ appAccountManager.enableAppAccess('ZhangSan', 'com.example.accountjsdemo', (err:
 
 
 ##### enableAppAccess(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableAppAccess(name: string, bundleName: string): Promise&lt;void&gt;
 
@@ -3800,6 +3946,8 @@ appAccountManager.enableAppAccess('ZhangSan', 'com.example.accountjsdemo').then(
 
 ##### checkAppAccountSyncEnable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkAppAccountSyncEnable(name: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用账号是否开启数据同步功能。使用callback异步回调。
@@ -3837,6 +3985,8 @@ appAccountManager.checkAppAccountSyncEnable('ZhangSan', (err: BusinessError, res
 
 
 ##### checkAppAccountSyncEnable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkAppAccountSyncEnable(name: string): Promise&lt;boolean&gt;
 
@@ -3880,6 +4030,8 @@ appAccountManager.checkAppAccountSyncEnable('ZhangSan').then((data: boolean) => 
 
 ##### setAccountCredential(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAccountCredential(name: string, credentialType: string, credential: string,callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的凭据。使用callback异步回调。
@@ -3917,6 +4069,8 @@ appAccountManager.setAccountCredential('ZhangSan', 'credentialType001', 'credent
 
 
 ##### setAccountCredential(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAccountCredential(name: string, credentialType: string, credential: string): Promise&lt;void&gt;
 
@@ -3960,6 +4114,8 @@ appAccountManager.setAccountCredential('ZhangSan', 'credentialType001', 'credent
 
 ##### setAccountExtraInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAccountExtraInfo(name: string, extraInfo: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的额外信息。使用callback异步回调。
@@ -3996,6 +4152,8 @@ appAccountManager.setAccountExtraInfo('ZhangSan', 'Tk002', (err: BusinessError) 
 
 
 ##### setAccountExtraInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAccountExtraInfo(name: string, extraInfo: string): Promise&lt;void&gt;
 
@@ -4038,6 +4196,8 @@ appAccountManager.setAccountExtraInfo('ZhangSan', 'Tk002').then(() => {
 
 ##### setAppAccountSyncEnable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAppAccountSyncEnable(name: string, isEnable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 开启或禁止指定应用账号的数据同步功能。使用callback异步回调。
@@ -4076,6 +4236,8 @@ appAccountManager.setAppAccountSyncEnable('ZhangSan', true, (err: BusinessError)
 
 
 ##### setAppAccountSyncEnable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAppAccountSyncEnable(name: string, isEnable: boolean): Promise&lt;void&gt;
 
@@ -4120,6 +4282,8 @@ appAccountManager.setAppAccountSyncEnable('ZhangSan', true).then(() => {
 
 ##### setAssociatedData(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAssociatedData(name: string, key: string, value: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定应用账号的关联数据。使用callback异步回调。
@@ -4157,6 +4321,8 @@ appAccountManager.setAssociatedData('ZhangSan', 'k001', 'v001', (err: BusinessEr
 
 
 ##### setAssociatedData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAssociatedData(name: string, key: string, value: string): Promise&lt;void&gt;
 
@@ -4200,6 +4366,8 @@ appAccountManager.setAssociatedData('ZhangSan', 'k001', 'v001').then(() => {
 
 ##### getAllAccessibleAccounts(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllAccessibleAccounts(callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
 获取所有可访问的应用账号信息。使用callback异步回调。
@@ -4237,6 +4405,8 @@ appAccountManager.getAllAccessibleAccounts((err: BusinessError, data: appAccount
 
 ##### getAllAccessibleAccounts(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllAccessibleAccounts(): Promise<Array&lt;AppAccountInfo&gt;>
 
 获取所有可访问的应用账号信息。使用Promise异步回调。
@@ -4271,6 +4441,8 @@ appAccountManager.getAllAccessibleAccounts().then((data: appAccount.AppAccountIn
 
 
 ##### getAllAccounts(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllAccounts(owner: string, callback: AsyncCallback<Array&lt;AppAccountInfo&gt;>): void
 
@@ -4310,6 +4482,8 @@ appAccountManager.getAllAccounts(selfBundle, (err: BusinessError, data: appAccou
 
 
 ##### getAllAccounts(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllAccounts(owner: string): Promise<Array&lt;AppAccountInfo&gt;>
 
@@ -4354,6 +4528,8 @@ appAccountManager.getAllAccounts(selfBundle).then((data: appAccount.AppAccountIn
 
 ##### getAccountCredential(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAccountCredential(name: string, credentialType: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的凭据。使用callback异步回调。
@@ -4390,6 +4566,8 @@ appAccountManager.getAccountCredential('ZhangSan', 'credentialType001', (err: Bu
 
 
 ##### getAccountCredential(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAccountCredential(name: string, credentialType: string): Promise&lt;string&gt;
 
@@ -4432,6 +4610,8 @@ appAccountManager.getAccountCredential('ZhangSan', 'credentialType001').then((da
 
 ##### getAccountExtraInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAccountExtraInfo(name: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的额外信息（能转换成string类型的其它信息）。使用callback异步回调。
@@ -4467,6 +4647,8 @@ appAccountManager.getAccountExtraInfo('ZhangSan', (err: BusinessError, result: s
 
 
 ##### getAccountExtraInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAccountExtraInfo(name: string): Promise&lt;string&gt;
 
@@ -4508,6 +4690,8 @@ appAccountManager.getAccountExtraInfo('ZhangSan').then((data: string) => {
 
 ##### getAssociatedData(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAssociatedData(name: string, key: string, callback: AsyncCallback&lt;string&gt;): void
 
 根据指定键名获取特定应用账号的关联数据。使用callback异步回调。
@@ -4544,6 +4728,8 @@ appAccountManager.getAssociatedData('ZhangSan', 'k001', (err: BusinessError, res
 
 
 ##### getAssociatedData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAssociatedData(name: string, key: string): Promise&lt;string&gt;
 
@@ -4586,6 +4772,8 @@ appAccountManager.getAssociatedData('ZhangSan', 'k001').then((data: string) => {
 
 ##### on('change')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'change', owners: Array&lt;string&gt;, callback: Callback<Array&lt;AppAccountInfo&gt;>): void
 
 订阅指定应用的账号信息变更事件。
@@ -4625,6 +4813,8 @@ try {
 
 
 ##### off('change')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'change', callback?: Callback<Array&lt;AppAccountInfo&gt;>): void
 
@@ -4667,6 +4857,8 @@ try {
 
 
 ##### authenticate(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 authenticate(name: string, owner: string, authType: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
 
@@ -4734,6 +4926,8 @@ struct Index {
 
 ##### getOAuthToken(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback&lt;string&gt;): void
 
 获取指定应用账号的特定鉴权类型的授权令牌。使用callback异步回调。
@@ -4772,6 +4966,8 @@ appAccountManager.getOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialD
 
 
 ##### getOAuthToken(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOAuthToken(name: string, owner: string, authType: string): Promise&lt;string&gt;
 
@@ -4815,6 +5011,8 @@ appAccountManager.getOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSocialD
 
 ##### setOAuthToken(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setOAuthToken(name: string, authType: string, token: string, callback: AsyncCallback&lt;void&gt;): void
 
 为指定应用账号设置特定鉴权类型的授权令牌。使用callback异步回调。
@@ -4852,6 +5050,8 @@ appAccountManager.setOAuthToken('LiSi', 'getSocialData', 'xxxx', (err: BusinessE
 
 
 ##### setOAuthToken(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOAuthToken(name: string, authType: string, token: string): Promise&lt;void&gt;
 
@@ -4895,6 +5095,8 @@ appAccountManager.setOAuthToken('LiSi', 'getSocialData', 'xxxx').then(() => {
 
 ##### deleteOAuthToken(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteOAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定应用账号的特定鉴权类型的授权令牌。使用callback异步回调。
@@ -4934,6 +5136,8 @@ appAccountManager.deleteOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSoci
 
 
 ##### deleteOAuthToken(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteOAuthToken(name: string, owner: string, authType: string, token: string): Promise&lt;void&gt;
 
@@ -4978,6 +5182,8 @@ appAccountManager.deleteOAuthToken('LiSi', 'com.example.accountjsdemo', 'getSoci
 
 ##### setOAuthTokenVisibility(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置指定账号的特定鉴权类型的授权令牌对指定应用的可见性。使用callback异步回调。
@@ -5017,6 +5223,8 @@ appAccountManager.setOAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.
 
 
 ##### setOAuthTokenVisibility(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise&lt;void&gt;
 
@@ -5061,6 +5269,8 @@ appAccountManager.setOAuthTokenVisibility('LiSi', 'getSocialData', 'com.example.
 
 ##### checkOAuthTokenVisibility(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkOAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
 检查指定应用账号的特定鉴权类型的授权令牌对指定应用的可见性。使用callback异步回调。
@@ -5099,6 +5309,8 @@ appAccountManager.checkOAuthTokenVisibility('LiSi', 'getSocialData', 'com.exampl
 
 
 ##### checkOAuthTokenVisibility(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkOAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise&lt;boolean&gt;
 
@@ -5143,6 +5355,8 @@ appAccountManager.checkOAuthTokenVisibility('LiSi', 'getSocialData', 'com.exampl
 
 ##### getAllOAuthTokens(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllOAuthTokens(name: string, owner: string, callback: AsyncCallback<Array&lt;OAuthTokenInfo&gt;>): void
 
 获取指定账号对调用方可见的所有授权令牌。使用callback异步回调。
@@ -5180,6 +5394,8 @@ appAccountManager.getAllOAuthTokens('LiSi', 'com.example.accountjsdemo',
 
 
 ##### getAllOAuthTokens(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllOAuthTokens(name: string, owner: string): Promise<Array&lt;OAuthTokenInfo&gt;>
 
@@ -5223,6 +5439,8 @@ appAccountManager.getAllOAuthTokens('LiSi', 'com.example.accountjsdemo').then((
 
 ##### getOAuthList(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOAuthList(name: string, authType: string, callback: AsyncCallback<Array&lt;string&gt;>): void
 
 获取指定应用账号的特定鉴权类型的授权列表，即被授权的包名数组（令牌的授权列表通过[setOAuthTokenVisibility](#setoauthtokenvisibilitydeprecated)来设置）。使用callback异步回调。
@@ -5259,6 +5477,8 @@ appAccountManager.getOAuthList('LiSi', 'getSocialData', (err: BusinessError, dat
 
 
 ##### getOAuthList(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getOAuthList(name: string, authType: string): Promise<Array&lt;string&gt;>
 
@@ -5300,6 +5520,8 @@ appAccountManager.getOAuthList('LiSi', 'getSocialData').then((data: string[]) =>
 
 
 ##### getAuthenticatorCallback(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAuthenticatorCallback(sessionId: string, callback: AsyncCallback&lt;AuthenticatorCallback&gt;): void
 
@@ -5348,6 +5570,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### getAuthenticatorCallback(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAuthenticatorCallback(sessionId: string): Promise&lt;AuthenticatorCallback&gt;
 
@@ -5401,6 +5625,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getAuthenticatorInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAuthenticatorInfo(owner: string, callback: AsyncCallback&lt;AuthenticatorInfo&gt;): void
 
 获取指定应用的认证器信息。使用callback异步回调。
@@ -5437,6 +5663,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo',
 
 
 ##### getAuthenticatorInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAuthenticatorInfo(owner: string): Promise&lt;AuthenticatorInfo&gt;
 
@@ -5479,6 +5707,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 ##### AppAccountInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示应用账号信息。
 
 **系统能力：** SystemCapability.Account.AppAccount
@@ -5492,6 +5722,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 ##### AuthTokenInfo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示Auth令牌信息。
 
@@ -5507,6 +5739,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 ##### OAuthTokenInfo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示OAuth令牌信息。
 
@@ -5526,6 +5760,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 ##### AuthenticatorInfo8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示OAuth认证器信息。
 
 **系统能力：** SystemCapability.Account.AppAccount
@@ -5541,6 +5777,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 ##### AuthResult9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示认证结果信息。
 
 **系统能力：** SystemCapability.Account.AppAccount
@@ -5555,6 +5793,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 ##### CreateAccountOptions9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示创建账号的选项。
 
 **系统能力：** SystemCapability.Account.AppAccount
@@ -5567,6 +5807,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 ##### CreateAccountImplicitlyOptions9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示隐式创建账号的选项。
 
@@ -5583,6 +5825,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 ##### SelectAccountsOptions9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示用于选择账号的选项。
 
 **系统能力：** SystemCapability.Account.AppAccount
@@ -5597,6 +5841,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 ##### VerifyCredentialOptions9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示用于验证凭据的选项。
 
@@ -5613,6 +5859,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 ##### SetPropertiesOptions9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示用于设置属性的选项。
 
 **系统能力：** SystemCapability.Account.AppAccount
@@ -5626,6 +5874,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 ##### Constants8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示常量的枚举。
 
@@ -5655,6 +5905,8 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 
 ##### ResultCode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示返回码的枚举。
 
@@ -5691,11 +5943,15 @@ appAccountManager.getAuthenticatorInfo('com.example.accountjsdemo').then((
 
 ##### AuthCallback9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 认证器回调类。
 
 
 
 ##### onResult9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onResult: (code: number, result?: AuthResult) => void
 
@@ -5738,6 +5994,8 @@ appAccountManager.getAuthCallback(sessionId).then((callback: appAccount.AuthCall
 
 
 ##### onRequestRedirected9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRequestRedirected: (request: Want) => void
 
@@ -5788,6 +6046,8 @@ class MyAuthenticator extends appAccount.Authenticator {
 
 ##### onRequestContinued9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRequestContinued?: () => void
 
 通知请求被继续处理。
@@ -5814,6 +6074,8 @@ appAccountManager.getAuthCallback(sessionId).then((callback: appAccount.AuthCall
 
 ##### AuthenticatorCallback(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 OAuth认证器回调接口。
 
 > [!NOTE]
@@ -5823,6 +6085,8 @@ OAuth认证器回调接口。
 
 
 ##### onResult(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onResult: (code: number, result: {[key: string]: any;}) => void
 
@@ -5864,6 +6128,8 @@ appAccountManager.getAuthenticatorCallback(sessionId).then((callback: appAccount
 
 
 ##### onRequestRedirected(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onRequestRedirected: (request: Want) => void
 
@@ -5912,11 +6178,15 @@ class MyAuthenticator extends appAccount.Authenticator {
 
 ##### Authenticator8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 认证器基类。
 
 
 
 ##### createAccountImplicitly9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthCallback): void
 
@@ -5935,6 +6205,8 @@ createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthC
 
 
 ##### addAccountImplicitly(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addAccountImplicitly(authType: string, callerBundleName: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
 
@@ -5960,6 +6232,8 @@ addAccountImplicitly(authType: string, callerBundleName: string, options: {[key:
 
 ##### auth9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 auth(name: string, authType: string, options: Record<string, Object>, callback: AuthCallback): void
 
 对应用账号进行鉴权以获取授权令牌。使用callback异步回调。
@@ -5979,6 +6253,8 @@ auth(name: string, authType: string, options: Record<string, Object>, callback: 
 
 
 ##### authenticate(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 authenticate(name: string, authType: string, callerBundleName: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
 
@@ -6005,6 +6281,8 @@ authenticate(name: string, authType: string, callerBundleName: string, options: 
 
 ##### verifyCredential9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthCallback): void
 
 验证应用账号的凭据。使用callback异步回调。
@@ -6028,6 +6306,8 @@ verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthC
 
 ##### setProperties9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setProperties(options: SetPropertiesOptions, callback: AuthCallback): void
 
 设置认证器属性。使用callback异步回调。
@@ -6049,6 +6329,8 @@ setProperties(options: SetPropertiesOptions, callback: AuthCallback): void
 
 
 ##### checkAccountLabels9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkAccountLabels(name: string, labels: Array&lt;string&gt;, callback: AuthCallback): void
 
@@ -6073,6 +6355,8 @@ checkAccountLabels(name: string, labels: Array&lt;string&gt;, callback: AuthCall
 
 ##### checkAccountRemovable9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 checkAccountRemovable(name: string, callback: AuthCallback): void
 
 判断账号是否可以删除。使用callback异步回调。
@@ -6094,6 +6378,8 @@ checkAccountRemovable(name: string, callback: AuthCallback): void
 
 
 ##### getRemoteObject9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRemoteObject(): rpc.RemoteObject
 

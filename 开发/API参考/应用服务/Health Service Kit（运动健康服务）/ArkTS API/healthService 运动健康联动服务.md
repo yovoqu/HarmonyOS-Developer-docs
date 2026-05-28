@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { healthService } from '@kit.HealthServiceKit';
 ```
@@ -19,6 +21,8 @@ import { healthService } from '@kit.HealthServiceKit';
   
 
 ##### SampleEvent
+
+**支持设备：** Phone | Tablet | Wearable
 
 联动控制事件。
  
@@ -38,6 +42,8 @@ import { healthService } from '@kit.HealthServiceKit';
   
 
 ##### SampleReal
+
+**支持设备：** Phone | Tablet | Wearable
 
 SampleReal<K extends Record<string, [healthStore.HealthValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthvaluetype)> = Record<string, [healthStore.HealthValueType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore#healthvaluetype)>>
  
@@ -59,6 +65,8 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
 
 ##### workout
 
+**支持设备：** Phone | Tablet | Wearable
+
 提供运动健康实时数据。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -70,6 +78,8 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
   
 
 ##### ActivityReport
+
+**支持设备：** Phone | Tablet | Wearable
 
 实时三环数据。
  
@@ -95,6 +105,8 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
 
 ##### ConfigType
 
+**支持设备：** Phone | Tablet | Wearable
+
 type ConfigType = number | string | boolean
  
 联动配置项类型。
@@ -114,6 +126,8 @@ type ConfigType = number | string | boolean
 
 ##### DeviceState
 
+**支持设备：** Phone | Tablet | Wearable
+
 联动设备状态。
  
 **系统能力：** SystemCapability.Health.HealthService
@@ -131,6 +145,8 @@ type ConfigType = number | string | boolean
 
 ##### Goal
 
+**支持设备：** Phone | Tablet | Wearable
+
 联动运动目标。
  
 **系统能力：** SystemCapability.Health.HealthService
@@ -147,6 +163,8 @@ type ConfigType = number | string | boolean
 
 ##### LinkageType
 
+**支持设备：** Phone | Tablet | Wearable
+
 联动类型。
  
 **系统能力：** SystemCapability.Health.HealthService
@@ -162,6 +180,8 @@ type ConfigType = number | string | boolean
   
 
 ##### StartCode
+
+**支持设备：** Phone | Tablet | Wearable
 
 联动开启结果码。
  
@@ -181,6 +201,8 @@ type ConfigType = number | string | boolean
 
 ##### StartResult
 
+**支持设备：** Phone | Tablet | Wearable
+
 联动开启结果。
  
 **系统能力：** SystemCapability.Health.HealthService
@@ -196,6 +218,8 @@ type ConfigType = number | string | boolean
   
 
 ##### SportInfo
+
+**支持设备：** Phone | Tablet | Wearable
 
 运动状态信息。
  
@@ -214,6 +238,8 @@ type ConfigType = number | string | boolean
   
 
 ##### SportState
+
+**支持设备：** Phone | Tablet | Wearable
 
 运动状态类型。
  
@@ -236,6 +262,8 @@ type ConfigType = number | string | boolean
 
 ##### TargetType
 
+**支持设备：** Phone | Tablet | Wearable
+
 联动目标类型。
  
 **系统能力：** SystemCapability.Health.HealthService
@@ -255,6 +283,8 @@ type ConfigType = number | string | boolean
 
 ##### WorkoutConfig
 
+**支持设备：** Phone | Tablet | Wearable
+
 联动配置项。
  
 **系统能力：** SystemCapability.Health.HealthService
@@ -272,6 +302,8 @@ type ConfigType = number | string | boolean
   
 
 ##### workout.config
+
+**支持设备：** Phone | Tablet | Wearable
 
 config(workoutConfig: WorkoutConfig): Promise&lt;void&gt;
  
@@ -335,6 +367,8 @@ try {
 
 ##### workout.start
 
+**支持设备：** Phone | Tablet | Wearable
+
 start(): Promise&lt;StartResult&gt;
  
 开启联动，使用Promise异步方式。
@@ -388,6 +422,8 @@ try {
 
 ##### workout.pause
 
+**支持设备：** Phone | Tablet | Wearable
+
 pause(): Promise&lt;void&gt;
  
 暂停联动，使用Promise异步方式。
@@ -437,6 +473,8 @@ try {
   
 
 ##### workout.resume
+
+**支持设备：** Phone | Tablet | Wearable
 
 resume(): Promise&lt;void&gt;
  
@@ -488,6 +526,8 @@ try {
 
 ##### workout.stop
 
+**支持设备：** Phone | Tablet | Wearable
+
 stop(): Promise&lt;void&gt;
  
 停止联动，使用Promise异步方式。
@@ -537,6 +577,8 @@ try {
   
 
 ##### workout.onData
+
+**支持设备：** Phone | Tablet | Wearable
 
 onData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise&lt;void&gt;
  
@@ -600,6 +642,8 @@ try {
 
 ##### workout.onData
 
+**支持设备：** Phone | Tablet | Wearable
+
 onData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&gt;
  
 注册所有联动运动数据监听，使用Promise异步方式。
@@ -658,6 +702,8 @@ try {
   
 
 ##### workout.offData
+
+**支持设备：** Phone | Tablet | Wearable
 
 offData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise&lt;void&gt;
  
@@ -718,6 +764,8 @@ try {
 
 ##### workout.offData
 
+**支持设备：** Phone | Tablet | Wearable
+
 offData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&gt;
  
 取消所有联动运动数据的监听，使用Promise异步方式。
@@ -776,6 +824,8 @@ try {
   
 
 ##### workout.onEvent("*")
+
+**支持设备：** Phone | Tablet | Wearable
 
 onEvent(event: "*", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;
  
@@ -836,6 +886,8 @@ try {
 
 ##### workout.offEvent("*")
 
+**支持设备：** Phone | Tablet | Wearable
+
 offEvent(event: "*", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;
  
 取消联动设备事件的监听，使用Promise异步方式。
@@ -895,6 +947,8 @@ try {
 
 ##### workout.readActivityReport
 
+**支持设备：** Phone | Tablet | Wearable
+
 readActivityReport(): Promise&lt;ActivityReport&gt;
  
 读取实时三环数据，使用Promise异步方式。
@@ -949,6 +1003,8 @@ try {
   
 
 ##### workout.sendData
+
+**支持设备：** Phone | Tablet | Wearable
 
 sendData(sampleReal: SampleReal[]): Promise&lt;void&gt;
  
@@ -1013,6 +1069,8 @@ try {
 
 ##### workout.sendEvent
 
+**支持设备：** Phone | Tablet | Wearable
+
 sendEvent(event: SampleEvent): Promise&lt;void&gt;
  
 下发控制事件到联动设备，使用Promise异步方式。
@@ -1073,6 +1131,8 @@ try {
   
 
 ##### workout.getCurrentSportInfo
+
+**支持设备：** Phone | Tablet | Wearable
 
 getCurrentSportInfo(): Promise&lt;SportInfo&gt;
  

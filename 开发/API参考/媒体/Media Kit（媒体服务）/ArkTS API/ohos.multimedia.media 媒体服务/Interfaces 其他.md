@@ -12,6 +12,8 @@
 
 ##### AVFileDescriptor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 音视频文件资源描述，一种特殊资源的播放方式，使用场景：应用中的音频资源被连续存储在同一个文件中，需要根据偏移量和长度进行播放。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -29,6 +31,8 @@
 
 ##### AVDataSrcDescriptor10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 音视频文件资源描述，用于DataSource播放方式，使用场景：应用在未获取完整音视频资源时，允许用户创建播放实例并开始播放，达到提前播放的目的。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -44,6 +48,8 @@
 
 
 ##### SubtitleInfo12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 外挂字幕信息，使用场景：订阅外挂字幕事件，回调返回外挂字幕详细信息。
 
@@ -62,6 +68,8 @@
 
 ##### SeiMessage18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 SEI信息内容，描述SEI信息的负载类型和数据。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -77,6 +85,8 @@ SEI信息内容，描述SEI信息的负载类型和数据。
 
 
 ##### MediaDescription8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通过key-value方式获取媒体信息。
 
@@ -125,6 +135,8 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 ##### PlaybackInfo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通过key-value方式获取播放信息。
 
 **系统能力：** SystemCapability.Multimedia.Media.Core
@@ -137,6 +149,8 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 ##### AVRecorderConfig9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示音视频录制的参数设置。
 
@@ -160,6 +174,8 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 ##### AVRecorderProfile9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 音视频录制的配置文件。
 
@@ -202,6 +218,8 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 ##### Location
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 视频录制的地理位置。
 
 **系统能力：** SystemCapability.Multimedia.Media.Core
@@ -215,6 +233,8 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 ##### EncoderInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 编码器和规格参数。
 
@@ -236,6 +256,8 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 ##### Range11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示一个类型的范围。
 
 系统能力：SystemCapability.Multimedia.Media.AVRecorder
@@ -249,6 +271,8 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 ##### AVTranscoderConfig12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 表示视频转码的参数设置。
 
@@ -269,6 +293,8 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 
 ##### AVMetadata11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 音视频元数据，包含各个元数据字段。
 
@@ -328,6 +354,8 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 ##### PixelMapParams12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 获取视频缩略图时，输出缩略图的格式参数。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVImageGenerator
@@ -342,6 +370,8 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 ##### OutputSize20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于获取视频缩略图时，来定义输出图像大小。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVImageGenerator
@@ -355,6 +385,8 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 
 ##### FrameInfo23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 批量获取视频缩略图操作的返回值，包含请求抽帧的时间点、实际抽帧的时间点、从视频中输出缩略图的格式参数和获取单张缩略图操作的结果。
 
@@ -374,6 +406,8 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 ##### MediaStream19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 媒体流数据信息。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -391,6 +425,8 @@ AVMetadata.tracks支持的[MediaDescriptionKey](https://developer.huawei.com/con
 
 
 ##### MediaSourceLoader18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于定义媒体数据加载器，需要应用程序对其进行实现。
 
@@ -449,6 +485,8 @@ async function setupPlayer() {
 
 ##### PlaybackStrategy12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 播放策略。
 
 **系统能力：** SystemCapability.Multimedia.Media.Core
@@ -473,6 +511,8 @@ async function setupPlayer() {
 
 ##### AVScreenCaptureStrategy20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 录屏策略。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVScreenCapture
@@ -487,6 +527,8 @@ async function setupPlayer() {
 
 
 ##### AVScreenCaptureRecordConfig12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 表示录屏参数配置。
 
@@ -511,6 +553,8 @@ async function setupPlayer() {
 
 ##### AVMetricsEvent23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述指标事件的信息。
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
@@ -526,6 +570,8 @@ async function setupPlayer() {
 
 
 ##### AudioRecorderConfig(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 > [!NOTE]
 > 从API version 6开始支持，从API version 9开始废弃，建议使用 AVRecorderConfig 替代。

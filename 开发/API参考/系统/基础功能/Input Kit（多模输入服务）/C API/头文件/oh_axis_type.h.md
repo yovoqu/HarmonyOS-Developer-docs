@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 输入设备的轴事件结构和枚举。
  
 **引用文件：** <multimodalinput/oh_axis_type.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -38,9 +44,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### InputEvent_AxisType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum InputEvent_AxisType
@@ -65,6 +75,8 @@ enum InputEvent_AxisType
 
 ##### InputEvent_AxisEventType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum InputEvent_AxisEventType
 ```
@@ -84,6 +96,8 @@ enum InputEvent_AxisEventType
   
 
 ##### InputEvent_AxisAction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum InputEvent_AxisAction

@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该组件为基础组件，不建议包含子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 DatePicker(options?: DatePickerOptions)
 
@@ -38,6 +42,8 @@ DatePicker(options?: DatePickerOptions)
 
 
 ##### DatePickerOptions对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 日期选择器组件的参数说明。
 
@@ -82,6 +88,8 @@ DatePicker(options?: DatePickerOptions)
 
 ##### DatePickerMode18+枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置日期展示模式。
 
 **元服务API：** 从API version 18开始，该类型支持在元服务中使用。
@@ -99,11 +107,15 @@ DatePicker(options?: DatePickerOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### lunar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 lunar(value: boolean)
 
@@ -128,6 +140,8 @@ lunar(value: boolean)
 
 ##### lunar18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lunar(isLunar: Optional&lt;boolean&gt;)
 
 设置弹窗的日期是否显示为农历。与[lunar](#lunar)相比，isLunar参数新增了对undefined类型的支持。
@@ -150,6 +164,8 @@ lunar(isLunar: Optional&lt;boolean&gt;)
 
 
 ##### disappearTextStyle10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disappearTextStyle(value: PickerTextStyle)
 
@@ -174,6 +190,8 @@ disappearTextStyle(value: PickerTextStyle)
 
 ##### disappearTextStyle18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 设置边缘项（以选中项为基准向上或向下的第二项）的文本样式。与[disappearTextStyle10+](#disappeartextstyle10)相比，style参数新增了对undefined类型的支持。
@@ -196,6 +214,8 @@ disappearTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 ##### textStyle10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 textStyle(value: PickerTextStyle)
 
@@ -220,6 +240,8 @@ textStyle(value: PickerTextStyle)
 
 ##### textStyle18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 设置待选项（以选中项为基准向上或向下的第一项）的文本样式。与[textStyle10+](#textstyle10)相比，style参数新增了对undefined类型的支持。
@@ -243,6 +265,8 @@ textStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 ##### selectedTextStyle10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedTextStyle(value: PickerTextStyle)
 
 设置选中项的文本样式。
@@ -262,6 +286,8 @@ selectedTextStyle(value: PickerTextStyle)
 
 ##### selectedTextStyle18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 设置选中项的文本样式。与[selectedTextStyle10+](#selectedtextstyle10)相比，style参数新增了对undefined类型的支持。
@@ -280,6 +306,8 @@ selectedTextStyle(style: Optional&lt;PickerTextStyle&gt;)
 
 
 ##### enableHapticFeedback18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
@@ -310,6 +338,8 @@ enableHapticFeedback(enable: Optional&lt;boolean&gt;)
 
 ##### digitalCrownSensitivity18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 设置表冠灵敏度。
@@ -333,6 +363,8 @@ digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity&gt;)
 
 ##### canLoop20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 canLoop(isLoop: Optional&lt;boolean&gt;)
 
 设置是否可循环滚动。
@@ -352,11 +384,15 @@ canLoop(isLoop: Optional&lt;boolean&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onChange(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: (value: DatePickerResult) => void)
 
@@ -377,6 +413,8 @@ onChange(callback: (value: DatePickerResult) => void)
 
 ##### onDateChange10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDateChange(callback: Callback&lt;Date&gt;)
 
 滑动DatePicker文本内容后，选项完全归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。
@@ -395,6 +433,8 @@ onDateChange(callback: Callback&lt;Date&gt;)
 
 
 ##### onDateChange18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDateChange(callback: Optional<Callback&lt;Date&gt;>)
 
@@ -419,6 +459,8 @@ onDateChange(callback: Optional<Callback&lt;Date&gt;>)
 
 ##### DatePickerResult对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 日期选择器返回的时间格式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -435,6 +477,8 @@ onDateChange(callback: Optional<Callback&lt;Date&gt;>)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -474,7 +518,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/j7TDLvd0T2aGbZykgobqiQ/zh-cn_image_0000002611755777.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=3B2811B36A3BEC74C1C3D890CAFE8E3AF7A6D2C873D007DCB263F6846C81E764)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/j7TDLvd0T2aGbZykgobqiQ/zh-cn_image_0000002611755777.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=882D9FBF0F580B53D68570CC1C8522EB4D5F2834FD61ACC2F25C1C780F47425D)
 
 
 
@@ -511,7 +555,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/BvbzMLiXSTmNnbe-mXvGug/zh-cn_image_0000002581435840.png?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=1096E67099E91BB8AD1A559DC98687D760577E299F210D05440ED7758EEB7BE6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/BvbzMLiXSTmNnbe-mXvGug/zh-cn_image_0000002581435840.png?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=91183BAB8960779EC74EE1149DD5E29B932BBEF029D8F540A035F4BEB1293E4F)
 
 
 
@@ -568,7 +612,7 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/GC1axiGKRCqw0XbSL7hAZw/zh-cn_image_0000002611835671.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=C9C326509DF4FCD937443E93B8738CBA6B7241FD95886D14D050C76104396D39)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/GC1axiGKRCqw0XbSL7hAZw/zh-cn_image_0000002611835671.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=830DB6B23D4491B12224CC029490E9AAA63DC35C322D2E634C2E0413E6BA9CD8)
 
 
 
@@ -610,4 +654,4 @@ struct DatePickerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/H3Yn3vwFRF2mNnAKJDo4eA/zh-cn_image_0000002581275922.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=4E5B01B1E510E4458EF27D04CFCAB258F15F44DC36D84FF5731427F353F0DA29)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/06/v3/H3Yn3vwFRF2mNnAKJDo4eA/zh-cn_image_0000002581275922.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=2D0AA80817FC18DFE0A23FA1EFD86B88D60DE0C07C5A17BA586A1B54CE7EE12A)

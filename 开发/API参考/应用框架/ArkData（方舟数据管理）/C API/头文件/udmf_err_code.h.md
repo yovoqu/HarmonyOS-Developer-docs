@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 声明统一数据管理框架错误码信息。
  
 **引用文件：** <database/udmf/udmf_err_code.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### Udmf_ErrCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum Udmf_ErrCode
@@ -61,6 +71,8 @@ enum Udmf_ErrCode
   
 
 ##### Udmf_ListenerStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum Udmf_ListenerStatus

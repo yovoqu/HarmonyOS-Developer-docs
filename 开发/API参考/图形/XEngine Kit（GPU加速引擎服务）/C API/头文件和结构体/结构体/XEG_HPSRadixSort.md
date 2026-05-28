@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述HPS基数排序扩展结构信息。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### pNext
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const void* XEG_HPSRadixSort::pNext
@@ -48,6 +58,8 @@ const void* XEG_HPSRadixSort::pNext
   
 
 ##### sType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 XEG_StructureType XEG_HPSRadixSort::sType

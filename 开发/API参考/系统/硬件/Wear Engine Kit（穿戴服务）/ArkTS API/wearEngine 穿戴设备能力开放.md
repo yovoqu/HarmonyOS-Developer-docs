@@ -20,6 +20,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { wearEngine } from '@kit.WearEngine';
 ```
@@ -27,6 +29,8 @@ import { wearEngine } from '@kit.WearEngine';
 
 
 ##### wearEngine.getAuthClient
+
+**支持设备：** Phone | Tablet | Wearable
 
 getAuthClient(context: common.Context): AuthClient
 
@@ -78,6 +82,8 @@ console.info(`Succeeded in getting auth client`);
 
 ##### AuthClient
 
+**支持设备：** Phone | Tablet | Wearable
+
 权限管理客户端类，由[wearEngine.getAuthClient](#wearenginegetauthclient)返回得到。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -89,6 +95,8 @@ console.info(`Succeeded in getting auth client`);
 
 
 ##### requestAuthorization
+
+**支持设备：** Phone | Tablet | Wearable
 
 requestAuthorization(request: AuthorizationRequest): Promise&lt;AuthorizationResponse&gt;
 
@@ -155,6 +163,8 @@ authClient.requestAuthorization(request).then(result => {
 
 ##### getAuthorization
 
+**支持设备：** Phone | Tablet | Wearable
+
 getAuthorization(): Promise&lt;AuthorizationResponse&gt;
 
 获取用户已授权的权限，使用Promise异步回调。
@@ -208,6 +218,8 @@ authClient.getAuthorization().then(result => {
 
 ##### AuthorizationBase
 
+**支持设备：** Phone | Tablet | Wearable
+
 权限控制模块输入输出的基类。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -224,6 +236,8 @@ authClient.getAuthorization().then(result => {
 
 
 ##### Permission
+
+**支持设备：** Phone | Tablet | Wearable
 
 权限枚举类型。
 
@@ -245,6 +259,8 @@ authClient.getAuthorization().then(result => {
 
 ##### AuthorizationRequest
 
+**支持设备：** Phone | Tablet | Wearable
+
 权限请求类，继承自[AuthorizationBase](#authorizationbase)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -257,6 +273,8 @@ authClient.getAuthorization().then(result => {
 
 ##### AuthorizationResponse
 
+**支持设备：** Phone | Tablet | Wearable
+
 权限响应类，继承自[AuthorizationBase](#authorizationbase)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -268,6 +286,8 @@ authClient.getAuthorization().then(result => {
 
 
 ##### wearEngine.getDeviceClient
+
+**支持设备：** Phone | Tablet | Wearable
 
 getDeviceClient(context: common.Context): DeviceClient
 
@@ -316,6 +336,8 @@ console.info(`Succeeded in getting device client.`);
 
 ##### DeviceClient
 
+**支持设备：** Phone | Tablet | Wearable
+
 Device客户端类。由接口[wearEngine.getDeviceClient](#wearenginegetdeviceclient)返回得到。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -327,6 +349,8 @@ Device客户端类。由接口[wearEngine.getDeviceClient](#wearenginegetdevicec
 
 
 ##### getConnectedDevices
+
+**支持设备：** Phone | Tablet | Wearable
 
 getConnectedDevices(): Promise<Device[]>
 
@@ -377,6 +401,8 @@ deviceClient.getConnectedDevices().then((devices) => {
 
 ##### Device
 
+**支持设备：** Phone | Tablet | Wearable
+
 穿戴设备信息类。由接口[getConnectedDevices](#getconnecteddevices)返回。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -403,6 +429,8 @@ deviceClient.getConnectedDevices().then((devices) => {
 
 
 ##### isWearEngineCapabilitySupported
+
+**支持设备：** Phone | Tablet | Wearable
 
 isWearEngineCapabilitySupported(capability: WearEngineCapability): Promise&lt;boolean&gt;
 
@@ -473,6 +501,8 @@ if (devices.length > 0) {
 
 ##### isDeviceCapabilitySupported
 
+**支持设备：** Phone | Tablet | Wearable
+
 isDeviceCapabilitySupported(capability: DeviceCapability): Promise&lt;boolean&gt;
 
 通过[getConnectedDevices](#getconnecteddevices)接口获取到已连接的穿戴设备后，查询设备是否支持指定的[DeviceCapability](#devicecapability)，使用Promise异步回调。
@@ -542,6 +572,8 @@ if (devices.length > 0) {
 
 ##### getSerialNumber
 
+**支持设备：** Phone | Tablet | Wearable
+
 getSerialNumber(): Promise&lt;string&gt;
 
 通过[getConnectedDevices](#getconnecteddevices)接口获取到已连接的穿戴设备后，查询设备的SN，使用Promise异步回调。
@@ -604,6 +636,8 @@ if (devices.length > 0) {
 
 ##### WearEngineCapability
 
+**支持设备：** Phone | Tablet | Wearable
+
 WearEngine能力集枚举类型。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -624,6 +658,8 @@ WearEngine能力集枚举类型。
 
 ##### DeviceCapability
 
+**支持设备：** Phone | Tablet | Wearable
+
 Device能力集枚举类型。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -641,6 +677,8 @@ Device能力集枚举类型。
 
 
 ##### DeviceCategory
+
+**支持设备：** Phone | Tablet | Wearable
 
 设备类型枚举类。
 
@@ -662,6 +700,8 @@ Device能力集枚举类型。
 
 ##### OsCategory
 
+**支持设备：** Phone | Tablet | Wearable
+
 设备的操作系统类型枚举类。
 
 **系统能力：** SystemCapability.Health.WearEngine
@@ -680,6 +720,8 @@ Device能力集枚举类型。
 
 
 ##### wearEngine.getMonitorClient
+
+**支持设备：** Phone | Tablet | Wearable
 
 getMonitorClient(context: common.Context): MonitorClient
 
@@ -731,6 +773,8 @@ console.info(`Succeeded in getting monitor client.`);
 
 ##### MonitorClient
 
+**支持设备：** Phone | Tablet | Wearable
+
 Monitor客户端类。由接口[wearEngine.getMonitorClient](#wearenginegetmonitorclient)返回得到。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -742,6 +786,8 @@ Monitor客户端类。由接口[wearEngine.getMonitorClient](#wearenginegetmonit
 
 
 ##### queryStatus
+
+**支持设备：** Phone | Tablet | Wearable
 
 queryStatus(deviceRandomId: string, item: MonitorItem): Promise&lt;MonitorData&gt;
 
@@ -816,6 +862,8 @@ if (devices.length > 0) {
 
 
 ##### subscribeEvent
+
+**支持设备：** Phone | Tablet | Wearable
 
 subscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&lt;MonitorEventData&gt;): Promise&lt;void&gt;
 
@@ -895,6 +943,8 @@ if (devices.length > 0) {
 
 
 ##### unsubscribeEvent
+
+**支持设备：** Phone | Tablet | Wearable
 
 unsubscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&lt;MonitorEventData&gt;): Promise&lt;void&gt;
 
@@ -978,6 +1028,8 @@ if (devices.length > 0) {
 
 ##### MonitorItem
 
+**支持设备：** Phone | Tablet | Wearable
+
 设备状态的枚举类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -999,6 +1051,8 @@ if (devices.length > 0) {
 
 
 ##### MonitorEvent
+
+**支持设备：** Phone | Tablet | Wearable
 
 设备状态变化事件的枚举类。
 
@@ -1022,6 +1076,8 @@ if (devices.length > 0) {
 
 ##### MonitorData
 
+**支持设备：** Phone | Tablet | Wearable
+
 作为[queryStatus](#querystatus)接口的返回值与[subscribeEvent](#subscribeevent)接口回调函数的入参，返回设备的状态信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1040,6 +1096,8 @@ if (devices.length > 0) {
 
 ##### MonitorEventData
 
+**支持设备：** Phone | Tablet | Wearable
+
 作为[subscribeEvent](#subscribeevent)接口的返回值，当订阅监听的事件触发时，作为入参将设备对应状态变化后的信息传递给回调函数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1057,6 +1115,8 @@ if (devices.length > 0) {
 
 
 ##### wearEngine.getP2pClient
+
+**支持设备：** Phone | Tablet | Wearable
 
 getP2pClient(context: common.Context): P2pClient
 
@@ -1105,6 +1165,8 @@ console.info(`Succeeded in getting p2p client.`);
 
 ##### P2pClient
 
+**支持设备：** Phone | Tablet | Wearable
+
 P2p客户端类。由接口[wearEngine.getP2pClient](#wearenginegetp2pclient)返回得到。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1116,6 +1178,8 @@ P2p客户端类。由接口[wearEngine.getP2pClient](#wearenginegetp2pclient)返
 
 
 ##### isRemoteAppInstalled
+
+**支持设备：** Phone | Tablet | Wearable
 
 isRemoteAppInstalled(deviceRandomId: string, remoteBundleName: string): Promise&lt;boolean&gt;
 
@@ -1194,6 +1258,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 ##### getRemoteAppVersion
+
+**支持设备：** Phone | Tablet | Wearable
 
 getRemoteAppVersion(deviceRandomId: string, remoteBundleName: string): Promise&lt;number&gt;
 
@@ -1275,6 +1341,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 ##### startRemoteApp
+
+**支持设备：** Phone | Tablet | Wearable
 
 startRemoteApp(deviceRandomId: string, remoteBundleName: string, transformLocalBundleName?: boolean): Promise&lt;P2pResult&gt;
 
@@ -1358,6 +1426,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 ##### startRemoteApp
+
+**支持设备：** Phone | Tablet | Wearable
 
 startRemoteApp(deviceRandomId: string, remoteApp: AppInfo, startConfig: StartConfig): Promise&lt;P2pResult&gt;
 
@@ -1443,6 +1513,8 @@ if (devices.length > 0) {
 
 
 ##### sendMessage
+
+**支持设备：** Phone | Tablet | Wearable
 
 sendMessage(deviceRandomId: string, appParam: P2pAppParam, message: P2pMessage): Promise&lt;P2pResult&gt;
 
@@ -1538,6 +1610,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 ##### transferFile
+
+**支持设备：** Phone | Tablet | Wearable
 
 transferFile(deviceRandomId: string, appParam: P2pAppParam, file: P2pFile, callback: AsyncCallback&lt;P2pResult&gt;): void
 
@@ -1638,6 +1712,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 ##### cancelFileTransfer
+
+**支持设备：** Phone | Tablet | Wearable
 
 cancelFileTransfer(deviceRandomId: string, appParam: P2pAppParam, file: P2pFile): Promise&lt;P2pResult&gt;
 
@@ -1742,6 +1818,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 ##### registerMessageReceiver
 
+**支持设备：** Phone | Tablet | Wearable
+
 registerMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pMessage&gt;): Promise&lt;void&gt;
 
 订阅对端设备应用向本端设备发送消息的事件，接收到对端应用发送的消息时使用callback异步回调，订阅成功与否使用Promise异步回调。
@@ -1834,6 +1912,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 ##### registerFileReceiver
 
+**支持设备：** Phone | Tablet | Wearable
+
 registerFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pFile&gt;): Promise&lt;void&gt;
 
 订阅对端设备向本端设备发送文件的事件，接收到对端设备发送的文件时使用callback异步回调，订阅成功与否使用Promise异步回调。
@@ -1925,6 +2005,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 ##### registerFileReceiverWithProgress
+
+**支持设备：** Phone | Tablet | Wearable
 
 registerFileReceiverWithProgress(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pFile&gt;): Promise&lt;void&gt;
 
@@ -2020,6 +2102,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 ##### unregisterMessageReceiver
+
+**支持设备：** Phone | Tablet | Wearable
 
 unregisterMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pMessage&gt;): Promise&lt;void&gt;
 
@@ -2118,6 +2202,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 ##### unregisterFileReceiver
 
+**支持设备：** Phone | Tablet | Wearable
+
 unregisterFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Callback&lt;P2pFile&gt;): Promise&lt;void&gt;
 
 取消订阅对端应用向本端应用发送文件的事件，取消订阅成功与否使用Promise异步回调。
@@ -2215,6 +2301,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 ##### AppInfo
 
+**支持设备：** Phone | Tablet | Wearable
+
 设备侧应用信息类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2232,6 +2320,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 ##### P2pResultCode
+
+**支持设备：** Phone | Tablet | Wearable
 
 存储P2p通信的返回值枚举类。
 
@@ -2255,6 +2345,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 ##### P2pResult
 
+**支持设备：** Phone | Tablet | Wearable
+
 存储P2p通信的结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2273,6 +2365,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 ##### P2pMessage
 
+**支持设备：** Phone | Tablet | Wearable
+
 本端设备应用向对端设备应用发送的消息类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2289,6 +2383,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 
 ##### P2pFile
+
+**支持设备：** Phone | Tablet | Wearable
 
 本端设备应用向对端设备应用发送的文件类。
 
@@ -2308,6 +2404,8 @@ deviceList.forEach(async (device, idx, arr) => {
 
 ##### P2pAppParam
 
+**支持设备：** Phone | Tablet | Wearable
+
 P2p通信过程中可用的设备侧应用参数类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2325,6 +2423,8 @@ P2p通信过程中可用的设备侧应用参数类。
 
 
 ##### StartConfig
+
+**支持设备：** Phone | Tablet | Wearable
 
 待拉起的对端设备应用的配置参数。
 
@@ -2344,6 +2444,8 @@ P2p通信过程中可用的设备侧应用参数类。
 
 ##### EntryType
 
+**支持设备：** Phone | Tablet | Wearable
+
 待拉起的对端设备应用的组件类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2362,6 +2464,8 @@ P2p通信过程中可用的设备侧应用参数类。
 
 
 ##### wearEngine.getNotifyClient
+
+**支持设备：** Phone | Tablet | Wearable
 
 getNotifyClient(context: common.Context): NotifyClient
 
@@ -2413,6 +2517,8 @@ console.info(`Succeeded in getting notify client`);
 
 ##### NotifyClient
 
+**支持设备：** Phone | Tablet | Wearable
+
 Notify客户端类，由[wearEngine.getNotifyClient](#wearenginegetnotifyclient)返回得到。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2424,6 +2530,8 @@ Notify客户端类，由[wearEngine.getNotifyClient](#wearenginegetnotifyclient)
 
 
 ##### notify
+
+**支持设备：** Phone | Tablet | Wearable
 
 notify(deviceRandomId: string, options: NotificationOptions): Promise&lt;void&gt;
 
@@ -2516,6 +2624,8 @@ if (devices.length > 0) {
 
 ##### NotificationOptions
 
+**支持设备：** Phone | Tablet | Wearable
+
 模板化通知的配置参数类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2536,6 +2646,8 @@ if (devices.length > 0) {
 
 
 ##### onAction
+
+**支持设备：** Phone | Tablet | Wearable
 
 onAction(feedback: NotificationFeedback): void
 
@@ -2560,6 +2672,8 @@ onAction(feedback: NotificationFeedback): void
 
 ##### Notification
 
+**支持设备：** Phone | Tablet | Wearable
+
 模板化通知的通知体参数类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2581,6 +2695,8 @@ onAction(feedback: NotificationFeedback): void
 
 ##### NotificationType
 
+**支持设备：** Phone | Tablet | Wearable
+
 模板化通知的模板类型枚举类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2601,6 +2717,8 @@ onAction(feedback: NotificationFeedback): void
 
 ##### NotificationButton
 
+**支持设备：** Phone | Tablet | Wearable
+
 通知按钮信息类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2618,6 +2736,8 @@ onAction(feedback: NotificationFeedback): void
 
 
 ##### ButtonId
+
+**支持设备：** Phone | Tablet | Wearable
 
 模板化通知的按钮Id枚举类。
 
@@ -2638,6 +2758,8 @@ onAction(feedback: NotificationFeedback): void
 
 ##### NotificationFeedback
 
+**支持设备：** Phone | Tablet | Wearable
+
 设备侧操作通知的反馈类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2655,6 +2777,8 @@ onAction(feedback: NotificationFeedback): void
 
 
 ##### NotificationAction
+
+**支持设备：** Phone | Tablet | Wearable
 
 设备侧对通知的操作反馈枚举类。
 
@@ -2677,6 +2801,8 @@ onAction(feedback: NotificationFeedback): void
 
 ##### NotificationErrorCode
 
+**支持设备：** Phone | Tablet | Wearable
+
 通知在设备侧发生错误的反馈枚举类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2693,6 +2819,8 @@ onAction(feedback: NotificationFeedback): void
 
 
 ##### wearEngine.getSensorClient
+
+**支持设备：** Phone | Tablet | Wearable
 
 getSensorClient(context: common.Context): SensorClient
 
@@ -2744,6 +2872,8 @@ console.info(`Succeeded in getting sensor client`);
 
 ##### SensorClient
 
+**支持设备：** Phone | Tablet | Wearable
+
 Sensor客户端类。由接口[wearEngine.getSensorClient](#wearenginegetsensorclient)返回得到。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -2755,6 +2885,8 @@ Sensor客户端类。由接口[wearEngine.getSensorClient](#wearenginegetsensorc
 
 
 ##### getSensorList
+
+**支持设备：** Phone | Tablet | Wearable
 
 getSensorList(deviceRandomId: string): Promise<Sensor[]>
 
@@ -2827,6 +2959,8 @@ if (devices.length > 0) {
 
 
 ##### subscribeSensor
+
+**支持设备：** Phone | Tablet | Wearable
 
 subscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&lt;SensorResult&gt;): Promise&lt;void&gt;
 
@@ -2910,6 +3044,8 @@ if (devices.length > 0) {
 
 
 ##### unsubscribeSensor
+
+**支持设备：** Phone | Tablet | Wearable
 
 unsubscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&lt;SensorResult&gt;): Promise&lt;void&gt;
 
@@ -2999,6 +3135,8 @@ if (devices.length > 0) {
 
 ##### SensorType
 
+**支持设备：** Phone | Tablet | Wearable
+
 传感器类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -3020,6 +3158,8 @@ if (devices.length > 0) {
 
 
 ##### Sensor
+
+**支持设备：** Phone | Tablet | Wearable
 
 传感器信息类。
 
@@ -3043,6 +3183,8 @@ if (devices.length > 0) {
 
 ##### SensorData
 
+**支持设备：** Phone | Tablet | Wearable
+
 传感器上报数据类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -3063,6 +3205,8 @@ if (devices.length > 0) {
 
 
 ##### SensorErrorCode
+
+**支持设备：** Phone | Tablet | Wearable
 
 传感器类型。
 
@@ -3085,6 +3229,8 @@ if (devices.length > 0) {
 
 ##### SensorResult
 
+**支持设备：** Phone | Tablet | Wearable
+
 传感器上报结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -3103,9 +3249,13 @@ if (devices.length > 0) {
 
 ##### on/off订阅事件
 
+**支持设备：** Phone | Tablet | Wearable
+
 
 
 ##### wearEngine.on
+
+**支持设备：** Phone | Tablet | Wearable
 
 on(type: 'serviceDie', callback: Callback&lt;void&gt;): void
 
@@ -3158,6 +3308,8 @@ try {
 
 ##### wearEngine.off
 
+**支持设备：** Phone | Tablet | Wearable
+
 off(type: 'serviceDie', callback?: Callback&lt;void&gt;): void
 
 取消订阅服务端消亡事件。使用callback异步回调。
@@ -3209,6 +3361,8 @@ try {
 
 
 ##### wearEngine.destroy
+
+**支持设备：** Phone | Tablet | Wearable
 
 destroy(): Promise&lt;void&gt;
 

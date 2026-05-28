@@ -12,6 +12,8 @@ typedef struct {...} OH_AudioFormat
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义音频编创的音频流信息，用于描述基本音频格式。
  
 **起始版本：** 22
@@ -24,9 +26,13 @@ typedef struct {...} OH_AudioFormat
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

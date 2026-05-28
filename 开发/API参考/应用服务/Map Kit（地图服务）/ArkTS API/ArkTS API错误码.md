@@ -12,6 +12,8 @@
 
 ##### 1002600001 系统内部错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 System internal error.
@@ -31,6 +33,8 @@ System internal error.
 
 
 ##### 1002600002 应用连接地图服务失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -60,6 +64,8 @@ Failed to connect to the Map Kit server.
 
 
 ##### 1002600003 应用身份校验失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -144,6 +150,8 @@ App authentication failed.
 
 ##### 1002600004 应用没有开通地图服务权限
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The Map permission is not enabled.
@@ -161,13 +169,15 @@ The Map permission is not enabled.
 2. 配置client_id。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/z7g8pYF7R_Wt7cY2jVSAJg/zh-cn_image_0000002581437046.png?HW-CC-KV=V1&HW-CC-Date=20260528T013432Z&HW-CC-Expire=86400&HW-CC-Sign=97C0E0AF64A6690B828665F3FE68BA72CCE50EB62067619D3EC858443EEA04DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/z7g8pYF7R_Wt7cY2jVSAJg/zh-cn_image_0000002581437046.png?HW-CC-KV=V1&HW-CC-Date=20260528T023735Z&HW-CC-Expire=86400&HW-CC-Sign=61A8FBDE503684580C486042D5E55E07A61856E33C261F44DA06CBB3266788D1)
 
 3. 如未解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
 
 ##### 1002600005 网络不可用
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -189,6 +199,8 @@ The network is unavailable.
 
 ##### 1002600006 API调用量超出配额
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The API call times exceed the quota.
@@ -208,6 +220,8 @@ API调用量超出配额。
 
 
 ##### 1002600007 API的QPS超过配额
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -229,6 +243,8 @@ API的QPS超过配额。
 
 ##### 1002600008 接口已经欠费
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The API is in arrears.
@@ -248,6 +264,8 @@ The API is in arrears.
 
 
 ##### 1002600009 API未订购付费套餐
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -269,6 +287,8 @@ API未订购付费套餐。
 
 ##### 1002600010 服务器繁忙，请稍后再试
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The server is busy. Please wait and try again.
@@ -288,6 +308,8 @@ The server is busy. Please wait and try again.
 
 
 ##### 1002600011 服务器异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -311,6 +333,8 @@ Server error.
 
 ##### 1002600012 国家或地区码异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The country code is not supported.
@@ -330,6 +354,8 @@ The country code is not supported.
 
 
 ##### 1002600013 当前路由地未知，稍后重试
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -351,6 +377,8 @@ The current routing location is unknown. Try again later.
 
 ##### 1002600014 地图应用启动失败。
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Failed to start the map app.
@@ -370,6 +398,8 @@ Failed to start the map app.
 
 
 ##### 1002600015 热力图ID已存在
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -391,6 +421,8 @@ The heatmap ID already exists.
 
 ##### 1002600999 未知错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Unknown error.
@@ -411,6 +443,8 @@ Unknown error.
 
 ##### 1002601001 要操作的对象已经不存在
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The object to be operated does not exist.
@@ -430,6 +464,8 @@ The object to be operated does not exist.
 
 
 ##### 1002601002 自定义地图样式文件不存在
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -457,6 +493,8 @@ The custom map style file does not exist.
 
 ##### 1002601004 样式内容格式不正确
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The style content format is incorrect.
@@ -476,6 +514,8 @@ The style content format is incorrect.
 
 
 ##### 1002601005 生成自定义组件图标失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -497,6 +537,8 @@ Failed to generate the icon of the custom component.
 
 ##### 1002602001 起终点无归属国家，或服务错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The start and end points do not have home countries, or a service error occurred.
@@ -516,6 +558,8 @@ The start and end points do not have home countries, or a service error occurred
 
 
 ##### 1002602002 不支持跨区进行路径规划
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -537,6 +581,8 @@ Cross-region route planning is not supported.
 
 ##### 1002602003 起始点或结束点超过100个
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The number of start points or end points exceed 100.
@@ -556,6 +602,8 @@ The number of start points or end points exceed 100.
 
 
 ##### 1002602004 两点直线距离超过限制的距离
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -577,6 +625,8 @@ The linear distance between the start point and end point exceeds the upper limi
 
 ##### 1002602005 起点/终点/途经点不支持导航
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 The start point, end point, or waypoint does not support navigation.
@@ -596,6 +646,8 @@ The start point, end point, or waypoint does not support navigation.
 
 
 ##### 1002602006 请求点位映射到道路同一点上
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -617,6 +669,8 @@ The request point is mapped to the same point on the road.
 
 ##### 1002603001 空结果
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Zero result.
@@ -636,6 +690,8 @@ Zero result.
 
 
 ##### 1022100001 要操作的地图控制器不存在
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -657,6 +713,8 @@ The map controller to be operated does not exist.
 
 ##### 401 入参无效
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Invalid input parameter.
@@ -676,6 +734,8 @@ Invalid input parameter.
 
 
 ##### 801 功能不支持。设备能力受限，调用接口失败。
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 

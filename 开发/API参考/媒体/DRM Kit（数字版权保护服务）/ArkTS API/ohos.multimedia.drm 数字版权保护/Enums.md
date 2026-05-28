@@ -12,6 +12,8 @@
 
 ##### DrmErrorCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，错误码。
  
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -29,6 +31,8 @@
   
 
 ##### PreDefinedConfigName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，预定义的配置属性。
  
@@ -51,6 +55,8 @@
 
 ##### MediaKeyType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，媒体密钥类型。
  
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -66,6 +72,8 @@
   
 
 ##### OfflineMediaKeyStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，离线媒体密钥状态。
  
@@ -83,6 +91,8 @@
   
 
 ##### CertificateStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，设备证书状态。
  
@@ -103,6 +113,8 @@
 
 ##### MediaKeyRequestType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，媒体密钥请求类型。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -122,6 +134,8 @@
   
 
 ##### ContentProtectionLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，内容保护级别。
  

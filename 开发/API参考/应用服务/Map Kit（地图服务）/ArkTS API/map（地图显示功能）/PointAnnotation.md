@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### PointAnnotation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 点注释，继承[BasePriorityOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-basepriorityoverlay)。在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[addPointAnnotation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#addpointannotation)方法时会返回该类型的实例。
  
@@ -46,6 +50,8 @@ let pointAnnotation: map.PointAnnotation = await this.mapController.addPointAnno
 
 ##### getPosition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getPosition(): mapCommon.LatLng
  
 获取点注释的锚点坐标。
@@ -75,6 +81,8 @@ let position: mapCommon.LatLng = pointAnnotation.getPosition();
 
 ##### getTitleText
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getTitleText(): mapCommon.Text
  
 获取点注释第一标题的属性。
@@ -103,6 +111,8 @@ let titleText: mapCommon.Text = pointAnnotation.getTitleText();
   
 
 ##### setTitleText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setTitleText(text: mapCommon.Text): void
  
@@ -140,6 +150,8 @@ pointAnnotation.setTitleText({
   
 
 ##### setTitleAnimation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setTitleAnimation(animation: FontSizeAnimation): void
  
@@ -186,6 +198,8 @@ pointAnnotation.startTitleAnimation();
   
 
 ##### startTitleAnimation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 startTitleAnimation(): void
  

@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_UserDataSpan OH_ArkUI_UserDataSpan
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义用户数据Span样式。 
  
  可以通过[OH_ArkUI_UserDataSpan_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_userdataspan_create)接口创建对应的用户数据Span样式对象。 

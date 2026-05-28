@@ -14,6 +14,8 @@ formError模块提供获取卡片错误码的能力。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { formError } from '@kit.FormKit';
 ```
@@ -22,11 +24,15 @@ import { formError } from '@kit.FormKit';
 
 ##### 权限
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### FormError
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，支持的卡片类型。
  

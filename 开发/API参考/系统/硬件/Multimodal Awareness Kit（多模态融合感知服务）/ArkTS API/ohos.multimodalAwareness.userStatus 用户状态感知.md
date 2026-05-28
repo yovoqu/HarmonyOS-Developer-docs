@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { userStatus } from '@kit.MultimodalAwarenessKit';
 ```
@@ -21,6 +23,8 @@ import { userStatus } from '@kit.MultimodalAwarenessKit';
 
 
 ##### UserAgeGroup(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 表示用户具体的年龄分类群组，例如，儿童或成年人。
 
@@ -36,6 +40,8 @@ import { userStatus } from '@kit.MultimodalAwarenessKit';
 
 ##### UserClassification(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示用户年龄群组分类检测结果。
 
 **系统能力**：SystemCapability.MultimodalAwareness.UserStatus
@@ -49,6 +55,8 @@ import { userStatus } from '@kit.MultimodalAwarenessKit';
 
 
 ##### userStatus.on('userAgeGroupDetected')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 on(type: 'userAgeGroupDetected', callback: Callback&lt;UserClassification&gt;): void
 
@@ -102,6 +110,8 @@ try {
 
 
 ##### userStatus.off('userAgeGroupDetected')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'userAgeGroupDetected', callback?: Callback&lt;UserClassification&gt;): void
 

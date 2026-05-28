@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import commonEvent from '@ohos.commonEvent';
 ```
@@ -22,6 +24,8 @@ import commonEvent from '@ohos.commonEvent';
 
 ##### Support
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 系统公共事件是指由系统服务或系统应用发布的事件，订阅这些系统公共事件需要特定的权限。发布或订阅这些事件需要使用如下链接中的枚举定义。
  
 全部系统公共事件枚举定义请参见[系统公共事件定义](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commonevent-definitions)。
@@ -29,6 +33,8 @@ import commonEvent from '@ohos.commonEvent';
   
 
 ##### commonEvent.publish(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 publish(event: string, callback: AsyncCallback&lt;void&gt;): void
  
@@ -69,6 +75,8 @@ commonEvent.publish("event", publishCB);
   
 
 ##### commonEvent.publish(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 publish(event: string, options: CommonEventPublishData, callback: AsyncCallback&lt;void&gt;): void
  
@@ -119,6 +127,8 @@ commonEvent.publish("event", options, publishCB);
 
 ##### commonEvent.createSubscriber(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallback&lt;CommonEventSubscriber&gt;): void
  
 以回调形式创建订阅者。
@@ -167,6 +177,8 @@ commonEvent.createSubscriber(subscribeInfo, createCB);
   
 
 ##### commonEvent.createSubscriber(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise&lt;CommonEventSubscriber&gt;
  
@@ -217,6 +229,8 @@ commonEvent.createSubscriber(subscribeInfo).then((commonEventSubscriber:CommonEv
   
 
 ##### commonEvent.subscribe(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback&lt;CommonEventData&gt;): void
  
@@ -277,6 +291,8 @@ commonEvent.createSubscriber(subscribeInfo, createCB);
   
 
 ##### commonEvent.unsubscribe(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback&lt;void&gt;): void
  

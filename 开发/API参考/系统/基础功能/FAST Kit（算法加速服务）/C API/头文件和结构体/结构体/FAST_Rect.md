@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义矩形的数据结构（坐标系说明：X轴从左到右递增，Y轴从上到下递增）。
  
 **系统能力：** SystemCapability.FAST.Core
@@ -21,9 +23,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### bottom
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t FAST_Rect::bottom
@@ -53,6 +63,8 @@ int32_t FAST_Rect::bottom
 
 ##### left
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 int32_t FAST_Rect::left
 ```
@@ -65,6 +77,8 @@ int32_t FAST_Rect::left
 
 ##### right
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 int32_t FAST_Rect::right
 ```
@@ -76,6 +90,8 @@ int32_t FAST_Rect::right
   
 
 ##### top
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 int32_t FAST_Rect::top

@@ -12,6 +12,8 @@
 
 ##### CameraPosition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，相机位置。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -29,6 +31,8 @@
   
 
 ##### CameraType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，相机类型。
  
@@ -49,6 +53,8 @@
 
 ##### ConnectionType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，相机连接类型。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -66,6 +72,8 @@
 
 ##### HostDeviceType15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，远端相机设备类型。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -82,6 +90,8 @@
   
 
 ##### CameraStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，相机状态。
  
@@ -101,6 +111,8 @@
 
 ##### FoldStatus12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，折叠机折叠状态。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -118,6 +130,8 @@
 
 ##### SceneMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，相机模式。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -134,6 +148,8 @@
   
 
 ##### CameraErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相机错误码。
  
@@ -162,6 +178,8 @@
 
 ##### TorchMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，手电筒模式。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -178,6 +196,8 @@
   
 
 ##### CameraFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，输出格式。
  
@@ -200,6 +220,8 @@
 
 ##### VideoCodecType13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，视频编码类型。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -216,6 +238,8 @@
 
 ##### CameraConcurrentType18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，镜头并发类型。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -231,6 +255,8 @@
   
 
 ##### ImageRotation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，图片旋转角度。
  
@@ -250,6 +276,8 @@
 
 ##### QualityLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，图片质量。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -267,6 +295,8 @@
 
 ##### MetadataObjectType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，metadata流。
  
 **系统能力：** SystemCapability.Multimedia.Camera.Core
@@ -280,6 +310,8 @@
   
 
 ##### FlashMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，闪光灯模式。
  
@@ -299,6 +331,8 @@
 
 ##### ExposureMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，曝光模式。
  
 **系统能力：** SystemCapability.Multimedia.Camera.Core
@@ -315,6 +349,8 @@
   
 
 ##### FocusMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，焦距模式。
  
@@ -334,6 +370,8 @@
 
 ##### FocusState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，焦距状态。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -350,6 +388,8 @@
   
 
 ##### VideoStabilizationMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，视频防抖模式。
  
@@ -370,6 +410,8 @@
 
 ##### SmoothZoomMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 平滑变焦模式。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -384,6 +426,8 @@
   
 
 ##### PreconfigType12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，提供预配置的类型。
  
@@ -402,6 +446,8 @@
 
 ##### PreconfigRatio12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，提供预配置的分辨率比例。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -419,6 +465,8 @@
 
 ##### QualityPrioritization14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，录像质量优先级。
  
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -434,6 +482,8 @@
   
 
 ##### WhiteBalanceMode20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，白平衡模式。
  
@@ -456,6 +506,8 @@
 
 ##### SystemPressureLevel20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，系统压力等级。
  
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -475,6 +527,8 @@
 
 ##### ControlCenterEffectType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，相机控制器支持的效果类型。
  
 **系统能力：** SystemCapability.Multimedia.Camera.Core
@@ -489,6 +543,8 @@
   
 
 ##### PhotoQualityPrioritization21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，拍照画质优先策略。
  
@@ -505,6 +561,8 @@
   
 
 ##### SensorColorFilterArrangement24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，传感器颜色滤镜排列方式。
  
@@ -526,6 +584,8 @@
 
 ##### FlashState24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，闪光灯状态。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -545,6 +605,8 @@
 
 ##### ExposureMeteringMode24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，曝光测光模式。
  
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
@@ -561,6 +623,8 @@
   
 
 ##### OISMode24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，光学防抖（Optical Image Stabilization）模式。
  
@@ -580,6 +644,8 @@
   
 
 ##### OISAxes24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，光学防抖（OIS）轴向。
  

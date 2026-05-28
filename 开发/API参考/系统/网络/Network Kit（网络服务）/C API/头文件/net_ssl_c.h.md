@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义SSL/TLS证书链校验模块C接口数据结构。
  
 **引用文件：** <network/netstack/net_ssl/net_ssl_c.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -42,9 +48,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_NetStack_CertVerification()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t OH_NetStack_CertVerification(const struct NetStack_CertBlob *cert, const struct NetStack_CertBlob *caCert)
@@ -77,6 +87,8 @@ uint32_t OH_NetStack_CertVerification(const struct NetStack_CertBlob *cert, cons
 
 ##### OH_NetStack_GetPinSetForHostName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_NetStack_GetPinSetForHostName(const char *hostname, NetStack_CertificatePinning *pin)
 ```
@@ -107,6 +119,8 @@ int32_t OH_NetStack_GetPinSetForHostName(const char *hostname, NetStack_Certific
   
 
 ##### OH_NetStack_GetCertificatesForHostName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_NetStack_GetCertificatesForHostName(const char *hostname, NetStack_Certificates *certs)
@@ -139,6 +153,8 @@ int32_t OH_NetStack_GetCertificatesForHostName(const char *hostname, NetStack_Ce
 
 ##### OH_Netstack_DestroyCertificatesContent()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Netstack_DestroyCertificatesContent(NetStack_Certificates *certs)
 ```
@@ -161,6 +177,8 @@ void OH_Netstack_DestroyCertificatesContent(NetStack_Certificates *certs)
   
 
 ##### OH_Netstack_IsCleartextPermitted()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_Netstack_IsCleartextPermitted(bool *isCleartextPermitted)
@@ -192,6 +210,8 @@ int32_t OH_Netstack_IsCleartextPermitted(bool *isCleartextPermitted)
 
 ##### OH_Netstack_IsCleartextPermittedByHostName()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_Netstack_IsCleartextPermittedByHostName(const char *hostname, bool *isCleartextPermitted)
 ```
@@ -222,6 +242,8 @@ int32_t OH_Netstack_IsCleartextPermittedByHostName(const char *hostname, bool *i
   
 
 ##### OH_Netstack_IsCleartextCfgByComponent()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_Netstack_IsCleartextCfgByComponent(const char *component, bool *componentCfg);

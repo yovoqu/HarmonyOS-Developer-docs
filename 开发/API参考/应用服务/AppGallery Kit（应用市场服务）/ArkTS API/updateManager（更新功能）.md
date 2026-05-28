@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { updateManager } from '@kit.AppGalleryKit';
 ```
@@ -23,6 +25,8 @@ import { updateManager } from '@kit.AppGalleryKit';
   
 
 ##### UpdateAvailableCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 检测更新结果码类型的枚举。
  
@@ -44,6 +48,8 @@ import { updateManager } from '@kit.AppGalleryKit';
 
 ##### ShowUpdateResultCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 显示升级弹框结果码类型的枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -61,6 +67,8 @@ import { updateManager } from '@kit.AppGalleryKit';
   
 
 ##### CheckUpdateResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 检查是否有“更新”的接口调用结果。
  
@@ -83,6 +91,8 @@ import { updateManager } from '@kit.AppGalleryKit';
 
 ##### RequestErrorCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 监听元服务更新检查接口结果码类型的枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -104,6 +114,8 @@ import { updateManager } from '@kit.AppGalleryKit';
 
 ##### UpdateSessionState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 监听元服务更新检查接口的回调结果。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -123,6 +135,8 @@ import { updateManager } from '@kit.AppGalleryKit';
   
 
 ##### updateManager.checkAppUpdate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 checkAppUpdate(context: common.UIAbilityContext): Promise&lt;CheckUpdateResult&gt;
  
@@ -210,6 +224,8 @@ struct Index {
 
 ##### updateManager.showUpdateDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showUpdateDialog(context: common.UIAbilityContext): Promise&lt;ShowUpdateResultCode&gt;
  
 显示升级弹框。使用Promise异步回调。
@@ -294,6 +310,8 @@ struct Index {
   
 
 ##### updateManager.on('updateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'updateChange', callback: Callback&lt;UpdateSessionState&gt;, timeout?: number): void
  
@@ -387,6 +405,8 @@ struct Index {
   
 
 ##### updateManager.off('updateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'updateChange', callback?: Callback&lt;UpdateSessionState&gt;): void
  

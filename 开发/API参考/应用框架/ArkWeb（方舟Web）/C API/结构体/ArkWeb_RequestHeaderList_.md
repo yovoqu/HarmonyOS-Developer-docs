@@ -12,6 +12,8 @@ typedef struct ArkWeb_RequestHeaderList_ ArkWeb_RequestHeaderList
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 请求头列表。
  
 **起始版本：** 12

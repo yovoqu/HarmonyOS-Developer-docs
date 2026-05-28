@@ -12,6 +12,8 @@
 
 ##### 1011900001 未开通天气服务
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 Capability is not configured.
@@ -38,6 +40,8 @@ Capability is not configured.
 
 ##### 1011900002 天气数据缺失
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 The requested longitude and latitude grid point lacks data.
@@ -60,6 +64,8 @@ The requested longitude and latitude grid point lacks data.
 
 ##### 1011900003 网络错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 Network error.
@@ -81,6 +87,8 @@ Network error.
   
 
 ##### 1011900004 系统内部错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  

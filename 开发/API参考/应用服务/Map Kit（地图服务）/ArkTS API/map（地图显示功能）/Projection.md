@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### Projection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 用于在屏幕坐标和经纬度之间进行转换，在调用map.[MapComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller)类的[getProjection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller#getprojection)方法时会返回该类型的实例。
  
@@ -34,6 +38,8 @@ let projection: map.Projection = this.mapController?.getProjection();
   
 
 ##### fromScreenLocation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 fromScreenLocation(point: mapCommon.MapPoint): mapCommon.LatLng
  
@@ -75,6 +81,8 @@ let latLng: mapCommon.LatLng = projection.fromScreenLocation(point);
 
 ##### toScreenLocation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 toScreenLocation(position: mapCommon.LatLng): mapCommon.MapPoint
  
 将经纬度坐标转换为屏幕上的对应点坐标。该屏幕坐标是相对于地图左上角而非整个屏幕的像素点坐标。
@@ -114,6 +122,8 @@ let position: mapCommon.MapPoint = projection.toScreenLocation({
 
 ##### getVisibleRegion
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getVisibleRegion(): mapCommon.VisibleRegion
  
 获取可视区域的坐标信息。
@@ -142,6 +152,8 @@ let visibleRegion: mapCommon.VisibleRegion = projection.getVisibleRegion();
   
 
 ##### getMapBounds
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getMapBounds(center: mapCommon.LatLng, zoom: number): mapCommon.LatLngBounds
  

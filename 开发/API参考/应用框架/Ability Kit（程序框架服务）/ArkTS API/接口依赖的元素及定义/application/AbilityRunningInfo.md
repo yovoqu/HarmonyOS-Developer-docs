@@ -14,6 +14,8 @@ AbilityRunningInfo是记录Ability运行信息和状态的数据结构，通过[
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { abilityManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { abilityManager } from '@kit.AbilityKit';
   
 
 ##### AbilityRunningInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
   

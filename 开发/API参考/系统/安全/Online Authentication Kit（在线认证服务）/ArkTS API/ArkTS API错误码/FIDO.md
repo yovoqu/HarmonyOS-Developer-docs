@@ -12,6 +12,8 @@
 
 ##### 1005900003 用户取消操作
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 User cancels.
@@ -31,6 +33,8 @@ User cancels.
 
 
 ##### 1005900005 没有可用认证器
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -60,6 +64,8 @@ No authenticator matching the authenticator policy specified is available.
 
 ##### 1005900006 协议错误
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 A violation of the UAF protocol occurred.
@@ -79,6 +85,8 @@ UAF协议发生错误时，系统会产生此错误码。
 
 
 ##### 1005900007 facet id不匹配
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -113,6 +121,8 @@ facet id不匹配，系统会产生此错误码。
 
 ##### 1005900009 拒绝本次请求
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 The authenticator denies access to the generated request.
@@ -132,6 +142,8 @@ The authenticator denies access to the generated request.
 
 
 ##### 1005900014 用户未录入生物特征信息
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -153,6 +165,8 @@ The user does not record biometric features or the authentication module is abno
 
 ##### 1005900015 系统中断
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 System Interruption.
@@ -173,6 +187,8 @@ System Interruption.
 
 ##### 1005900016 未知错误
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 **错误信息**
 
 Unknown error.
@@ -192,6 +208,8 @@ FIDO服务未知异常。
 
 
 ##### 1005900017 切换到自定义认证方式
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 

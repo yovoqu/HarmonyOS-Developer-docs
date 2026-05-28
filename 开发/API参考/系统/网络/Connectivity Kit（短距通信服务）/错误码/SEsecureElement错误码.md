@@ -12,6 +12,8 @@
 
 ##### 3300101 SE服务状态异常
 
+**支持设备：** Phone | Wearable
+
 **错误信息**
 
 IllegalStateError, an attempt is made to use an SE session that has been closed.
@@ -31,6 +33,8 @@ SE服务状态异常。
 
 
 ##### 3300102 找不到对应SE安全单元异常
+
+**支持设备：** Phone | Wearable
 
 **错误信息**
 
@@ -53,6 +57,8 @@ NoSuchElementError, the AID on the SE is not available or cannot be selected.
 
 ##### 3300103 无法获取访问控制规则异常
 
+**支持设备：** Phone | Wearable
+
 **错误信息**
 
 SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
@@ -71,6 +77,8 @@ SecurityError, the calling application cannot be granted access to this AID or t
 
 
 ##### 3300104 SE芯片IO异常
+
+**支持设备：** Phone | Wearable
 
 **错误信息**
 

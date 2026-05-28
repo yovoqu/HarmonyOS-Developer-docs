@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common2D } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { common2D } from '@kit.ArkGraphics2D';
   
 
 ##### Color
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ARGB格式的颜色描述。
  
@@ -40,6 +44,8 @@ ARGB格式的颜色描述。
 
 ##### Rect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 矩形区域，通过2个坐标点可以描述出一个矩形区域，这2个点分别认为是矩形区域的左上角点与右下角点。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -58,6 +64,8 @@ ARGB格式的颜色描述。
 
 ##### Point12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 坐标点。
  
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
@@ -74,6 +82,8 @@ ARGB格式的颜色描述。
 
 ##### Color4f20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ARGB格式的颜色描述。
  
 **系统能力：** SystemCapability.Graphics.Drawing
@@ -89,6 +99,8 @@ ARGB格式的颜色描述。
   
 
 ##### Point3d12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 三维的坐标点。继承自[Point](#point12)。
  

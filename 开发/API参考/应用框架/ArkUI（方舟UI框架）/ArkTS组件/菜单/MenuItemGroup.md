@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 包含[MenuItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menuitem)子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 MenuItemGroup(value?: MenuItemGroupOptions)
  
@@ -37,6 +41,8 @@ MenuItemGroup(value?: MenuItemGroupOptions)
 
 ##### MenuItemGroupOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 菜单MenuItem分组的标题和尾部信息。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -52,5 +58,7 @@ MenuItemGroup(value?: MenuItemGroupOptions)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 详见[Menu组件示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu#示例)。

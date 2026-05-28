@@ -12,6 +12,8 @@ typedef struct Ability_ChildProcessConfigs Ability_ChildProcessConfigs
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 启动子进程的配置信息，包括子进程的进程名、以及数据沙箱与网络环境的共享模式。
  
 **起始版本：** 20

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 声明视频处理函数。
 
 提供视频处理能力，包括颜色空间转换、元数据生成和视频缩放。
@@ -25,9 +27,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 | 名称 | 描述 |
 | --- | --- |
@@ -56,9 +62,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### OH_VideoProcessing_InitializeEnvironment()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment(void)
@@ -89,6 +99,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_InitializeEnvironment(void)
 
 ##### OH_VideoProcessing_DeinitializeEnvironment()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment(void)
 ```
@@ -115,6 +127,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_DeinitializeEnvironment(void)
 
 
 ##### OH_VideoProcessing_IsColorSpaceConversionSupported()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 bool OH_VideoProcessing_IsColorSpaceConversionSupported(const VideoProcessing_ColorSpaceInfo* sourceVideoInfo,const VideoProcessing_ColorSpaceInfo* destinationVideoInfo)
@@ -145,6 +159,8 @@ bool OH_VideoProcessing_IsColorSpaceConversionSupported(const VideoProcessing_Co
 
 ##### OH_VideoProcessing_IsMetadataGenerationSupported()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 bool OH_VideoProcessing_IsMetadataGenerationSupported(const VideoProcessing_ColorSpaceInfo* sourceVideoInfo)
 ```
@@ -172,6 +188,8 @@ bool OH_VideoProcessing_IsMetadataGenerationSupported(const VideoProcessing_Colo
 
 
 ##### OH_VideoProcessing_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoProcessor, int type)
@@ -202,6 +220,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Create(OH_VideoProcessing** videoPr
 
 ##### OH_VideoProcessing_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoProcessor)
 ```
@@ -231,6 +251,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Destroy(OH_VideoProcessing* videoPr
 
 
 ##### OH_VideoProcessing_RegisterCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing* videoProcessor,const VideoProcessing_Callback* callback, void* userData)
@@ -264,6 +286,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_RegisterCallback(OH_VideoProcessing
 
 ##### OH_VideoProcessing_SetSurface()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* videoProcessor,const OHNativeWindow* window)
 ```
@@ -294,6 +318,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetSurface(OH_VideoProcessing* vide
 
 
 ##### OH_VideoProcessing_GetSurface()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* videoProcessor, OHNativeWindow** window)
@@ -326,6 +352,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetSurface(OH_VideoProcessing* vide
 
 ##### OH_VideoProcessing_SetParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* videoProcessor,const OH_AVFormat* parameter)
 ```
@@ -355,6 +383,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_SetParameter(OH_VideoProcessing* vi
 
 ##### OH_VideoProcessing_GetParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* videoProcessor, OH_AVFormat* parameter)
 ```
@@ -383,6 +413,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_GetParameter(OH_VideoProcessing* vi
 
 
 ##### OH_VideoProcessing_Start()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProcessor)
@@ -414,6 +446,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Start(OH_VideoProcessing* videoProc
 
 ##### OH_VideoProcessing_Stop()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProcessor)
 ```
@@ -443,6 +477,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_Stop(OH_VideoProcessing* videoProce
 
 
 ##### OH_VideoProcessing_RenderOutputBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessing_RenderOutputBuffer(OH_VideoProcessing* videoProcessor, uint32_t index)
@@ -475,6 +511,8 @@ VideoProcessing_ErrorCode OH_VideoProcessing_RenderOutputBuffer(OH_VideoProcessi
 
 ##### OH_VideoProcessingCallback_Create()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_Create(VideoProcessing_Callback** callback)
 ```
@@ -503,6 +541,8 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_Create(VideoProcessing_Call
 
 ##### OH_VideoProcessingCallback_Destroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_Destroy(VideoProcessing_Callback* callback)
 ```
@@ -530,6 +570,8 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_Destroy(VideoProcessing_Cal
 
 
 ##### OH_VideoProcessingCallback_BindOnError()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnError(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnError onError)
@@ -560,6 +602,8 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnError(VideoProcessing
 
 ##### OH_VideoProcessingCallback_BindOnState()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnState(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnState onState)
 ```
@@ -588,6 +632,8 @@ VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnState(VideoProcessing
 
 
 ##### OH_VideoProcessingCallback_BindOnNewOutputBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VideoProcessing_ErrorCode OH_VideoProcessingCallback_BindOnNewOutputBuffer(VideoProcessing_Callback* callback,OH_VideoProcessingCallback_OnNewOutputBuffer onNewOutputBuffer)

@@ -32,6 +32,8 @@ WebSocket连接失败。
 
 ##### 2302001 Websocket URL错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Websocket url error.
@@ -53,6 +55,8 @@ WebSocket URL错误。
 
 
 ##### 2302002 Websocket 证书不存在
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -76,6 +80,8 @@ WebSocket 证书不存在。
 
 ##### 2302003 Websocket 连接已经存在
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Websocket connection already exists.
@@ -95,6 +101,8 @@ WebSocket 连接已经建立。
 
 
 ##### 2302004 WebsocketServer 无法在指定的NIC（网络接口）上进行网络监听
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -116,6 +124,8 @@ WebSocketServer服务器配置文件中的ip地址无效。
 
 ##### 2302005 WebsocketServer 无法在指定的端口上进行网络监听
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Can't listen to the given Port.
@@ -135,6 +145,8 @@ WebSocketServer服务器配置文件中的端口号无效。
 
 
 ##### 2302007 WebsocketServer当前监听的端口已被占用
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -156,6 +168,8 @@ WebsocketServer当前监听的端口已经被占用。
 
 ##### 2302998 不允许访问域名
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 It is not allowed to access this domain.
@@ -175,6 +189,8 @@ It is not allowed to access this domain.
 
 
 ##### 2302999 内部错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { identifier } from '@kit.AdsKit';
 ```
@@ -21,6 +23,8 @@ import { identifier } from '@kit.AdsKit';
   
 
 ##### identifier.getOAID
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getOAID(): Promise&lt;string&gt;
  
@@ -67,6 +71,8 @@ void identifier.getOAID().then((data: string) => {
   
 
 ##### identifier.getOAID
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getOAID(callback: AsyncCallback&lt;string&gt;): void
  

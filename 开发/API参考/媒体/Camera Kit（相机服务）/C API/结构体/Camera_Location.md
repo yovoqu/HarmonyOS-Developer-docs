@@ -12,6 +12,8 @@ typedef struct Camera_Location {...} Camera_Location
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拍照位置。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct Camera_Location {...} Camera_Location
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

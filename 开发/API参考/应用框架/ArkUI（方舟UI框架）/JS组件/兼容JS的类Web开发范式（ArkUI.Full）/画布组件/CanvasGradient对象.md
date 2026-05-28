@@ -14,6 +14,8 @@
 
 ##### addColorStop
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addColorStop(offset: number, color: string): void
  
 设置渐变断点值，包括偏移和颜色。
@@ -52,4 +54,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/aXhYzOI2Sf2oifKJz_3fWQ/zh-cn_image_0000002581276454.png?HW-CC-KV=V1&HW-CC-Date=20260528T013804Z&HW-CC-Expire=86400&HW-CC-Sign=A0C7E53CACF814F60A6CA7DDC395345A666A20EB588D6AF1FA049A3FFA506A9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/aXhYzOI2Sf2oifKJz_3fWQ/zh-cn_image_0000002581276454.png?HW-CC-KV=V1&HW-CC-Date=20260528T024101Z&HW-CC-Expire=86400&HW-CC-Sign=FC6A57DA2B14EC0D7A99F1AEC2B7AD2D2ED79C1AAACF95A291272C5D8B85A705)

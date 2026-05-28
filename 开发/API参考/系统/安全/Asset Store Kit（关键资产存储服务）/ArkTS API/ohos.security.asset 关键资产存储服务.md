@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { asset } from '@kit.AssetStoreKit';
 ```
@@ -21,6 +23,8 @@ import { asset } from '@kit.AssetStoreKit';
 
 
 ##### asset.add
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 add(attributes: AssetMap): Promise&lt;void&gt;
 
@@ -94,6 +98,8 @@ asset.add(attr).then(() => {
 
 ##### asset.addSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addSync(attributes: AssetMap): void
 
 新增一条关键资产，使用同步方式返回结果。
@@ -156,6 +162,8 @@ asset.addSync(attr);
 
 
 ##### asset.remove
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 remove(query: AssetMap): Promise&lt;void&gt;
 
@@ -220,6 +228,8 @@ asset.remove(query).then(() => {
 
 ##### asset.removeSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeSync(query: AssetMap): void
 
 删除符合条件的一条或多条关键资产，使用同步方式。
@@ -273,6 +283,8 @@ asset.removeSync(query);
 
 
 ##### asset.update
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 update(query: AssetMap, attributesToUpdate: AssetMap): Promise&lt;void&gt;
 
@@ -342,6 +354,8 @@ asset.update(query, attrsToUpdate).then(() => {
 
 ##### asset.updateSync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateSync(query: AssetMap, attributesToUpdate: AssetMap): void
 
 更新符合条件的一条关键资产，使用同步方式返回结果。
@@ -400,6 +414,8 @@ asset.updateSync(query, attrsToUpdate);
 
 
 ##### asset.preQuery
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 preQuery(query: AssetMap): Promise&lt;Uint8Array&gt;
 
@@ -467,6 +483,8 @@ asset.preQuery(query).then((challenge: Uint8Array) => {
 
 ##### asset.preQuerySync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 preQuerySync(query: AssetMap): Uint8Array
 
 查询的预处理，用于需要用户认证的关键资产。在用户认证成功后，应当随后调用[asset.querySync](#assetquerysync12)、[asset.postQuerySync](#assetpostquerysync12)。使用同步方式返回结果。
@@ -531,6 +549,8 @@ console.info(`Succeeded in pre-querying with sync, the challenge is: `, challeng
 
 
 ##### asset.query
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 query(query: AssetMap): Promise<Array&lt;AssetMap&gt;>
 
@@ -607,6 +627,8 @@ asset.query(query).then((res: Array<asset.AssetMap>) => {
 
 ##### asset.querySync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 querySync(query: AssetMap): Array&lt;AssetMap&gt;
 
 查询一条或多条符合条件的关键资产。若查询需要用户认证的关键资产，则需要在本函数前调用[asset.preQuerySync](#assetprequerysync12)，在本函数后调用[asset.postQuerySync](#assetpostquerysync12)，开发步骤请参考[开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-query-auth)。使用同步方式返回结果。
@@ -681,6 +703,8 @@ console.info(`Succeeded in querying Asset.`);
 
 ##### asset.postQuery
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 postQuery(handle: AssetMap): Promise&lt;void&gt;
 
 查询的后置处理，用于需要用户认证的关键资产（与[asset.preQuery](#assetprequery)函数成对出现）。使用Promise异步回调。
@@ -735,6 +759,8 @@ asset.postQuery(handle).then(() => {
 
 ##### asset.postQuerySync12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 postQuerySync(handle: AssetMap): void
 
 查询的后置处理，用于需要用户认证的关键资产。需与[asset.preQuerySync](#assetprequerysync12)函数成对出现。使用同步方式返回结果。
@@ -779,6 +805,8 @@ asset.postQuerySync(handle)
 
 
 ##### asset.querySyncResult20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 querySyncResult(query: AssetMap): Promise&lt;SyncResult&gt;
 
@@ -831,6 +859,8 @@ asset.querySyncResult(query).then((res: asset.SyncResult) => {
 
 ##### TagType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，关键资产属性支持的数据类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -847,6 +877,8 @@ asset.querySyncResult(query).then((res: asset.SyncResult) => {
 
 
 ##### Tag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，关键资产支持的属性名称类型，用作[AssetMap](#assetmap)的键。
 
@@ -896,6 +928,8 @@ asset.querySyncResult(query).then((res: asset.SyncResult) => {
 
 ##### Value
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Value = boolean | number | Uint8Array
 
 关键资产属性的内容，用作[AssetMap](#assetmap)的值。
@@ -915,6 +949,8 @@ type Value = boolean | number | Uint8Array
 
 ##### AssetMap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type AssetMap = Map<Tag, Value>
 
 关键资产属性的键-值对集合。
@@ -931,6 +967,8 @@ type AssetMap = Map<Tag, Value>
 
 
 ##### Accessibility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，关键资产基于锁屏状态的访问控制类型。
 
@@ -949,6 +987,8 @@ type AssetMap = Map<Tag, Value>
 
 ##### AuthType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，关键资产支持的用户认证类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -964,6 +1004,8 @@ type AssetMap = Map<Tag, Value>
 
 
 ##### SyncType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，关键资产支持的同步类型。
 
@@ -983,6 +1025,8 @@ type AssetMap = Map<Tag, Value>
 
 ##### ReturnType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，关键资产查询返回的结果类型。
 
 **元服务API：** 从API version 14开始，该接口支持在元服务中使用。
@@ -998,6 +1042,8 @@ type AssetMap = Map<Tag, Value>
 
 
 ##### ConflictResolution
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，新增关键资产时的冲突（如：别名相同）处理策略。
 
@@ -1015,6 +1061,8 @@ type AssetMap = Map<Tag, Value>
 
 ##### OperationType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，附属的操作类型。
 
 **系统能力：** SystemCapability.Security.Asset
@@ -1028,6 +1076,8 @@ type AssetMap = Map<Tag, Value>
 
 
 ##### WrapType18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，关键资产支持的加密导入导出类型。
 
@@ -1043,6 +1093,8 @@ type AssetMap = Map<Tag, Value>
 
 ##### SyncResult20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 关键资产同步的结果。
 
 **系统能力：** SystemCapability.Security.Asset
@@ -1057,6 +1109,8 @@ type AssetMap = Map<Tag, Value>
 
 
 ##### ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示错误码的枚举。
 

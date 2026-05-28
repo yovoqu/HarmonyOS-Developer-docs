@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ProgressButton } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { ProgressButton } from '@kit.ArkUI';
   
 
 ##### ProgressButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ProgressButton({progress: number, content: ResourceStr, progressButtonWidth?: Length, clickCallback: () => void, enable: boolean, colorOptions?: ProgressButtonColorOptions, progressButtonRadius?: LengthMetrics})
  
@@ -45,6 +49,8 @@ ProgressButton({progress: number, content: ResourceStr, progressButtonWidth?: Le
 
 ##### ProgressButtonColorOptions18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下载按钮颜色选项
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -65,11 +71,15 @@ ProgressButton({progress: number, content: ResourceStr, progressButtonWidth?: Le
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -256,4 +266,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/8u-saHAfS-ihRKQTIIka5w/zh-cn_image_0000002611836089.png?HW-CC-KV=V1&HW-CC-Date=20260528T013858Z&HW-CC-Expire=86400&HW-CC-Sign=B5660C212C72880A9B87E7A287833DA8B0B6ABE1EACDAE46919CEC95BC88F1B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/8u-saHAfS-ihRKQTIIka5w/zh-cn_image_0000002611836089.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=CD26B5E4206B07BA1CE5194C36E8212265CEC68F09DDEE0122D64FB8CD0933E4)

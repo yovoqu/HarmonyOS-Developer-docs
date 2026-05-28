@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { sms } from '@kit.TelephonyKit';
 ```
@@ -21,6 +23,8 @@ import { sms } from '@kit.TelephonyKit';
 
 
 ##### sms.createMessage
+
+**支持设备：** Phone | Tablet | Wearable
 
 createMessage(pdu: Array&lt;number&gt;, specification: string, callback: AsyncCallback&lt;ShortMessage&gt;): void
 
@@ -67,6 +71,8 @@ sms.createMessage(pdu, specification, (err: BusinessError, data: sms.ShortMessag
 
 
 ##### sms.createMessage
+
+**支持设备：** Phone | Tablet | Wearable
 
 createMessage(pdu: Array&lt;number&gt;, specification: string): Promise&lt;ShortMessage&gt;
 
@@ -121,6 +127,8 @@ sms.createMessage(pdu, specification).then((data: sms.ShortMessage) => {
 
 
 ##### sms.sendMessage(deprecated)
+
+**支持设备：** Phone | Tablet | Wearable
 
 sendMessage(options: SendMessageOptions): void
 
@@ -183,6 +191,8 @@ sms.sendMessage(options);
 
 ##### sms.sendShortMessage10+
 
+**支持设备：** Phone | Tablet | Wearable
+
 sendShortMessage(options: SendMessageOptions, callback: AsyncCallback&lt;void&gt;): void
 
 发送短信。使用callback异步回调。
@@ -242,6 +252,8 @@ sms.sendShortMessage(options, (err: BusinessError) => {
 
 
 ##### sms.sendShortMessage10+
+
+**支持设备：** Phone | Tablet | Wearable
 
 sendShortMessage(options: SendMessageOptions): Promise&lt;void&gt;
 
@@ -312,6 +324,8 @@ promise.then(() => {
 
 ##### sms.getDefaultSmsSlotId7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 getDefaultSmsSlotId(callback: AsyncCallback&lt;number&gt;): void
 
 获取发送短信的默认SIM卡槽ID。使用callback异步回调。
@@ -339,6 +353,8 @@ sms.getDefaultSmsSlotId((err: BusinessError, data: number) => {
 
 
 ##### sms.getDefaultSmsSlotId7+
+
+**支持设备：** Phone | Tablet | Wearable
 
 getDefaultSmsSlotId(): Promise&lt;number&gt;
 
@@ -370,6 +386,8 @@ sms.getDefaultSmsSlotId().then((data: number) => {
 
 ##### sms.hasSmsCapability7+
 
+**支持设备：** Phone | Tablet | Wearable
+
 hasSmsCapability(): boolean
 
 检查当前设备是否具备短信发送和接收能力，该方法是同步方法。
@@ -393,6 +411,8 @@ console.info(`hasSmsCapability: ${JSON.stringify(result)}`);
 
 
 ##### sms.getDefaultSmsSimId10+
+
+**支持设备：** Phone | Tablet | Wearable
 
 getDefaultSmsSimId(callback: AsyncCallback&lt;number&gt;): void
 
@@ -436,6 +456,8 @@ sms.getDefaultSmsSimId((err: BusinessError, data: number) => {
 
 
 ##### sms.getDefaultSmsSimId10+
+
+**支持设备：** Phone | Tablet | Wearable
 
 getDefaultSmsSimId(): Promise&lt;number&gt;
 
@@ -482,6 +504,8 @@ promise.then((data: number) => {
 
 ##### ShortMessage
 
+**支持设备：** Phone | Tablet | Wearable
+
 短信实例。
 
 **系统能力**：SystemCapability.Telephony.SmsMms
@@ -505,6 +529,8 @@ promise.then((data: number) => {
 
 ##### ShortMessageClass
 
+**支持设备：** Phone | Tablet | Wearable
+
 短信类型。
 
 **系统能力**：SystemCapability.Telephony.SmsMms
@@ -521,6 +547,8 @@ promise.then((data: number) => {
 
 
 ##### SendMessageOptions
+
+**支持设备：** Phone | Tablet | Wearable
 
 发送短信的参数和回调。根据SendMessageOptions中的可选参数content的值判断短信类型。
 
@@ -541,6 +569,8 @@ promise.then((data: number) => {
 
 ##### ISendShortMessageCallback
 
+**支持设备：** Phone | Tablet | Wearable
+
 回调实例。返回短信发送结果、存储已发送短信的URI和是否为长短信的最后一部分。
 
 **系统能力**：SystemCapability.Telephony.SmsMms
@@ -556,6 +586,8 @@ promise.then((data: number) => {
 
 ##### IDeliveryShortMessageCallback
 
+**支持设备：** Phone | Tablet | Wearable
+
 回调实例，返回短信送达报告。
 
 **系统能力**：SystemCapability.Telephony.SmsMms
@@ -568,6 +600,8 @@ promise.then((data: number) => {
 
 
 ##### SendSmsResult
+
+**支持设备：** Phone | Tablet | Wearable
 
 短信发送结果。
 

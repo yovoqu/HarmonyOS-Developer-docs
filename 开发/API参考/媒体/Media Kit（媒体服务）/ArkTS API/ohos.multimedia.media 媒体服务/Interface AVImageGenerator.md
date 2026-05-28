@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -23,6 +25,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Media.AVImageGenerator
 
@@ -34,6 +38,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### fetchFrameByTime12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams, callback: AsyncCallback<image.PixelMap>): void
 
@@ -102,6 +108,8 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
 
 
 ##### fetchFrameByTime12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>
 
@@ -175,6 +183,8 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
 
 ##### fetchScaledFrameByTime20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fetchScaledFrameByTime(timeUs: number, queryMode: AVImageQueryOptions, outputSize?: OutputSize):Promise<image.PixelMap>
 
 支持按比例缩放提取视频缩略图。使用Promise异步回调。
@@ -243,6 +253,8 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
 
 ##### release12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(callback: AsyncCallback&lt;void&gt;): void
 
 释放资源。使用callback异步回调。
@@ -294,6 +306,8 @@ media.createAVImageGenerator((err: BusinessError, generator: media.AVImageGenera
 
 
 ##### release12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(): Promise&lt;void&gt;
 

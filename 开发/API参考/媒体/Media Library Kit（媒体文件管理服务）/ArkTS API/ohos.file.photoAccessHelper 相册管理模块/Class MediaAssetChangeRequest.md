@@ -16,6 +16,8 @@ MediaAssetChangeRequest implements [MediaChangeRequest](https://developer.huawei
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 ```
@@ -23,6 +25,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束**：此接口仅可在Stage模型下使用。
 
@@ -38,6 +42,8 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 
 
 ##### constructor11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(asset: PhotoAsset)
 
@@ -87,6 +93,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 
 ##### createImageAssetRequest11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createImageAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest
 
@@ -147,6 +155,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### createVideoAssetRequest11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createVideoAssetRequest(context: Context, fileUri: string): MediaAssetChangeRequest
 
 创建视频资产变更请求。
@@ -203,6 +213,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### createAssetRequest11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createAssetRequest(context: Context, photoType: PhotoType, extension: string, options?: CreateOptions): MediaAssetChangeRequest
 
@@ -268,6 +280,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### deleteAssets11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static deleteAssets(context: Context, assets: Array&lt;PhotoAsset&gt;): Promise&lt;void&gt;
 
 通过PhotoAsset对象删除媒体文件（删除的文件会进入到回收站）。使用Promise异步回调。
@@ -330,6 +344,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### deleteAssets11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static deleteAssets(context: Context, uriList: Array&lt;string&gt;): Promise&lt;void&gt;
 
@@ -395,12 +411,14 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### getAsset11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAsset(): PhotoAsset
 
 获取当前资产变更请求中的资产。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/bZqcqZ0QTkenubZpVVTjhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013705Z&HW-CC-Expire=86400&HW-CC-Sign=619B5D771D1480A8706982003AB9FFB953D3163AE278B17AF6DDB4F969D76302)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/bZqcqZ0QTkenubZpVVTjhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024002Z&HW-CC-Expire=86400&HW-CC-Sign=E1327D5EBFA1A2A80BAA716BFE5BA5BBB89ADB6F19249FD90CAF027E234BD903)
 
 
 对于创建资产的变更请求，在调用接口[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)的提交生效之前，该接口会返回null。
@@ -451,6 +469,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 
 ##### setTitle11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTitle(title: string): void
 
@@ -518,12 +538,14 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 
 ##### getWriteCacheHandler11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWriteCacheHandler(): Promise&lt;number&gt;
 
 获取临时文件写句柄。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/qnMusO_BRdeFxMSmX3jGaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013705Z&HW-CC-Expire=86400&HW-CC-Sign=9A6C1E65F4F1DEE08F618077960C7752B15D33153B411EE415F08063E6D0B599)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/qnMusO_BRdeFxMSmX3jGaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024002Z&HW-CC-Expire=86400&HW-CC-Sign=E78A6A52DD6377F1D66CCBA4566AD797BA62BA9AB69BE225BFB6A4B9AC2A3252)
 
 
 对于同一个资产变更请求，不支持在成功获取临时文件写句柄后，重复调用该接口。
@@ -581,12 +603,14 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### addResource11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addResource(type: ResourceType, fileUri: string): void
 
 通过文件URI从应用沙箱添加资源，待添加资源的数据来源可参考[@ohos.file.fileuri (文件URI)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/zMXVVQlCTFuBi4H5ll8nmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013705Z&HW-CC-Expire=86400&HW-CC-Sign=73D150E0E79E81A422F97A436E00C39EC654FC39A36DB5F4B8A57475CCD790CB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/zMXVVQlCTFuBi4H5ll8nmg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024002Z&HW-CC-Expire=86400&HW-CC-Sign=3F013BE8D2EA6E5D1A4114BBA0FF58FD6BD5B684213B82755F6E3A05E49EE75D)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。
@@ -643,12 +667,14 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### addResource11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addResource(type: ResourceType, data: ArrayBuffer): void
 
 通过ArrayBuffer数据添加资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/wviHen1wSDGXIvgv0GNf_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013705Z&HW-CC-Expire=86400&HW-CC-Sign=BEFBC14B3EFA58228837191153EAF5CE53BC0EC07AC69CDC14180546F409FB3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/wviHen1wSDGXIvgv0GNf_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024002Z&HW-CC-Expire=86400&HW-CC-Sign=086C3DB3A8D88D63D1A8526511CDAEFF875B5630052F87467EAA05DC89D128F8)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。
@@ -703,6 +729,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, cont
 
 ##### saveCameraPhoto12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 saveCameraPhoto(): void
 
 保存相机拍摄的照片。
@@ -740,6 +768,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, asse
 
 
 ##### saveCameraPhoto13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 saveCameraPhoto(imageFileType: ImageFileType): void
 
@@ -790,6 +820,8 @@ async function example(context: Context, asset: photoAccessHelper.PhotoAsset) {
 
 ##### discardCameraPhoto12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 discardCameraPhoto(): void
 
 删除相机拍摄的照片。
@@ -827,6 +859,8 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper, asse
 
 
 ##### setOrientation15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOrientation(orientation: number): void
 

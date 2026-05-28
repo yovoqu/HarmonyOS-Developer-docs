@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 使用[HMS_ServiceCollaboration_StartCollaboration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-capi-module#hms_servicecollaboration_startcollaboration)触发跨设备互通时，被选择的设备信息。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### deviceNetworkId
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 char ServiceCollaboration_SelectInfo::deviceNetworkId[COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH]
@@ -50,6 +60,8 @@ char ServiceCollaboration_SelectInfo::deviceNetworkId[COLLABORATIONDEVICEINFO_DE
 
 ##### maxSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t ServiceCollaboration_SelectInfo::maxSize
 ```
@@ -61,6 +73,8 @@ uint32_t ServiceCollaboration_SelectInfo::maxSize
   
 
 ##### serviceFilterType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ServiceCollaborationFilterType ServiceCollaboration_SelectInfo::serviceFilterType

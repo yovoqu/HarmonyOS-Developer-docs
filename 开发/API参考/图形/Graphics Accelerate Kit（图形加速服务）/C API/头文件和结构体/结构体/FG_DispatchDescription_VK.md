@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述下发帧生成命令[HMS_FG_Dispatch_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_dispatch_vk)需要的参数信息，每一帧都需要进行更新。该接口仅适配Vulkan图形API平台。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,9 +44,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### frameIdx
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 uint8_t FG_DispatchDescription_VK::frameIdx
@@ -54,6 +64,8 @@ uint8_t FG_DispatchDescription_VK::frameIdx
 
 ##### inputColorInfo
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_ImageInfo_VK FG_DispatchDescription_VK::inputColorInfo
 ```
@@ -65,6 +77,8 @@ FG_ImageInfo_VK FG_DispatchDescription_VK::inputColorInfo
   
 
 ##### inputDepthStencilInfo
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ImageInfo_VK FG_DispatchDescription_VK::inputDepthStencilInfo
@@ -78,6 +92,8 @@ FG_ImageInfo_VK FG_DispatchDescription_VK::inputDepthStencilInfo
 
 ##### invViewProj
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_Mat4x4 FG_DispatchDescription_VK::invViewProj
 ```
@@ -89,6 +105,8 @@ FG_Mat4x4 FG_DispatchDescription_VK::invViewProj
   
 
 ##### outputColorInfo
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 FG_ImageInfo_VK FG_DispatchDescription_VK::outputColorInfo
@@ -102,6 +120,8 @@ FG_ImageInfo_VK FG_DispatchDescription_VK::outputColorInfo
 
 ##### viewProj
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 FG_Mat4x4 FG_DispatchDescription_VK::viewProj
 ```
@@ -113,6 +133,8 @@ FG_Mat4x4 FG_DispatchDescription_VK::viewProj
   
 
 ##### vkCommandBuffer
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 VkCommandBuffer FG_DispatchDescription_VK::vkCommandBuffer

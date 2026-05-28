@@ -12,6 +12,8 @@ typedef struct ArkUI_AccessibilityState ArkUI_AccessibilityState
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义组件无障碍状态。
  
 **起始版本：** 12

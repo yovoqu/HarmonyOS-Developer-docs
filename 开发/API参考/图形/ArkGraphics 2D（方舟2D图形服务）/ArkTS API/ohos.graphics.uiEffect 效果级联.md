@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { uiEffect } from "@kit.ArkGraphics2D";
 ```
@@ -25,6 +27,8 @@ import { uiEffect } from "@kit.ArkGraphics2D";
 
 
 ##### uiEffect.createFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createFilter(): Filter
 
@@ -48,6 +52,8 @@ let filter : uiEffect.Filter = uiEffect.createFilter()
 
 
 ##### uiEffect.createEffect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createEffect(): VisualEffect
 
@@ -74,11 +80,15 @@ let visualEffect : uiEffect.VisualEffect = uiEffect.createEffect()
 
 ##### Filter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Filter效果类，用于将相应的效果添加到指定的组件上。在调用Filter的方法前，需要先通过[createFilter](#uieffectcreatefilter)创建一个Filter实例。
 
 
 
 ##### blur
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 blur(blurRadius: number): Filter
 
@@ -130,12 +140,14 @@ struct UIEffectFilterExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/_T8awJ-lQKCWsNit16TJ_g/zh-cn_image_0000002581437038.png?HW-CC-KV=V1&HW-CC-Date=20260528T014039Z&HW-CC-Expire=86400&HW-CC-Sign=9307D80F25C4B83D879ACCE87148BE812832F18185645DE8F6D50AC2E7354852)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/_T8awJ-lQKCWsNit16TJ_g/zh-cn_image_0000002581437038.png?HW-CC-KV=V1&HW-CC-Date=20260528T024329Z&HW-CC-Expire=86400&HW-CC-Sign=B969D6D4B9AFB02A471E717B91800FF71EFCB0A537F23B083864C58F1F5998C1)
 
 
 
 
 ##### hdrBrightnessRatio24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hdrBrightnessRatio(ratio: number): Filter
 
@@ -185,5 +197,7 @@ filter.hdrBrightnessRatio(2.0)
 
 
 ##### VisualEffect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 VisualEffect效果类，用于将相应的效果添加到指定的组件上。在调用VisualEffect的方法前，需要先通过[createEffect](#uieffectcreateeffect)创建一个VisualEffect实例。

@@ -12,6 +12,8 @@
 
 ##### ProtocolType11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 远端设备支持的协议类型的枚举。
  
 **系统能力：** SystemCapability.Multimedia.AVSession.AVCast
@@ -27,6 +29,8 @@
   
 
 ##### CastDisplayState12+
+
+**支持设备：** Phone | Tablet
 
 投播显示设备状态的枚举。
  
@@ -44,6 +48,8 @@
 
 ##### CallerType22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示调用方来源类型的枚举。
  
 **系统能力：** SystemCapability.Multimedia.AVSession.Core
@@ -59,6 +65,8 @@
   
 
 ##### ConnectionState10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 连接状态枚举。
  
@@ -76,6 +84,8 @@
   
 
 ##### CallState11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示通话状态的枚举。
  
@@ -98,6 +108,8 @@
 
 ##### DisplayTag11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，表示当前媒体资源的金标，即应用媒体音源的特殊类型标识。
  
 **系统能力：** SystemCapability.Multimedia.AVSession.Core
@@ -110,6 +122,8 @@
   
 
 ##### DecoderType19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 枚举，设备所支持的解码格式。
  
@@ -127,6 +141,8 @@
   
 
 ##### ResolutionLevel19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 枚举，设备所支持的分辨率。
  
@@ -147,6 +163,8 @@
 
 ##### AVCastCategory10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 投播的类别枚举。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -163,6 +181,8 @@
 
 ##### DeviceType10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 播放设备的类型枚举。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -178,6 +198,8 @@
   
 
 ##### LoopMode10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示媒体播放循环模式的枚举。
  
@@ -197,6 +219,8 @@
   
 
 ##### PlaybackState10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示媒体播放状态的枚举。
  
@@ -223,6 +247,8 @@
   
 
 ##### AVSessionErrorCode10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 会话发生错误时的错误码。
   
@@ -300,6 +326,8 @@
 
 ##### SkipIntervals11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示session支持的快进快退时间间隔的枚举。
  
 **系统能力：** SystemCapability.Multimedia.AVSession.Core
@@ -314,6 +342,8 @@
   
 
 ##### BackgroundPlayMode24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示session支持的后台播放模式的枚举。
  

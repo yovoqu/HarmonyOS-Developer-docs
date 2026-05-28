@@ -12,6 +12,8 @@ typedef struct ArkUI_NodeCustomEvent ArkUI_NodeCustomEvent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义自定义组件事件的通用结构类型。
  
 **起始版本：** 12

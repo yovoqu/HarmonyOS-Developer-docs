@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -25,6 +27,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(pixelmap: image.PixelMap)
 
@@ -74,6 +78,8 @@ image.createPixelMap(color, opts).then((pixelMap) => {
 
 ##### drawRect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawRect(rect: common2D.Rect): void
 
 绘制一个矩形，默认使用黑色填充。
@@ -118,6 +124,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawRect12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawRect(left: number, top: number, right: number, bottom: number): void
 
@@ -168,6 +176,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawRoundRect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawRoundRect(roundRect: RoundRect): void
 
 画一个圆角矩形。
@@ -209,6 +219,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawNestedRoundRect12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawNestedRoundRect(outer: RoundRect, inner: RoundRect): void
 
@@ -256,6 +268,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawBackground12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawBackground(brush: Brush): void
 
 使用画刷填充画布的可绘制区域。
@@ -298,6 +312,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawShadow12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: number, ambientColor: common2D.Color, spotColor: common2D.Color, flag: ShadowFlag) : void
 
@@ -362,6 +378,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawShadow18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawShadow(path: Path, planeParams: common2D.Point3d, devLightPos: common2D.Point3d, lightRadius: number, ambientColor: common2D.Color | number, spotColor: common2D.Color | number, flag: ShadowFlag) : void
 
 绘制射灯类型阴影，使用路径描述环境光阴影的轮廓。
@@ -413,6 +431,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### getLocalClipBounds12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLocalClipBounds(): common2D.Rect
 
 获取画布裁剪区域的边界。
@@ -452,6 +472,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### getTotalMatrix12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTotalMatrix(): Matrix
 
 获取画布矩阵。
@@ -485,6 +507,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawCircle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawCircle(x: number, y: number, radius: number): void
 
@@ -532,6 +556,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawImage(pixelmap: image.PixelMap, left: number, top: number, samplingOptions?: SamplingOptions): void
 
@@ -600,6 +626,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawImageRect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawImageRect(pixelmap: image.PixelMap, dstRect: common2D.Rect, samplingOptions?: SamplingOptions): void
 
 将图片绘制到画布的指定区域上。
@@ -666,6 +694,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawImageRectWithSrc12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawImageRectWithSrc(pixelmap: image.PixelMap, srcRect: common2D.Rect, dstRect: common2D.Rect, samplingOptions?: SamplingOptions, constraint?: SrcRectConstraint): void
 
@@ -737,6 +767,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawColor(color: common2D.Color, blendMode?: BlendMode): void
 
 使用指定颜色并按照指定的[BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode)对画布当前可绘制区域进行填充。
@@ -784,6 +816,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawColor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawColor(alpha: number, red: number, green: number, blue: number, blendMode?: BlendMode): void
 
 使用指定颜色并按照指定的[BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode)对画布当前可绘制区域进行填充。性能优于[drawColor](#drawcolor)接口，推荐使用本接口。
@@ -828,6 +862,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawColor18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawColor(color: number, blendMode?: BlendMode): void
 
 使用指定颜色并按照指定的[BlendMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#blendmode)对画布当前可绘制区域进行填充。
@@ -868,6 +904,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawVertices23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawVertices(vertexMode: VertexMode, vertexCount: number, positions: Array<common2D.Point>, texs: Array<common2D.Point> | null, colors: Array&lt;number&gt; | null, indexCount: number, indices: Array&lt;number&gt; | null, mode: BlendMode): void
 
@@ -931,6 +969,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawPixelMapMesh12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawPixelMapMesh(pixelmap: image.PixelMap, meshWidth: number, meshHeight: number, vertices: Array&lt;number&gt;, vertOffset: number, colors: Array&lt;number&gt; | null, colorOffset: number): void
 
@@ -1005,6 +1045,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### clear12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(color: common2D.Color): void
 
 使用指定颜色填充画布上的裁剪区域。效果等同于[drawColor](#drawcolor)。
@@ -1046,6 +1088,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### clear18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(color: common2D.Color | number): void
 
 使用指定颜色填充画布上的裁剪区域。
@@ -1077,6 +1121,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### getWidth12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWidth(): number
 
@@ -1110,6 +1156,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### getHeight12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHeight(): number
 
 获取画布的高度。
@@ -1141,6 +1189,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawOval12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawOval(oval: common2D.Rect): void
 
@@ -1188,6 +1238,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawArc12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawArc(arc: common2D.Rect, startAngle: number, sweepAngle: number): void
 
@@ -1238,6 +1290,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawPoint
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawPoint(x: number, y: number): void
 
 绘制一个点。
@@ -1283,6 +1337,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawPoints12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawPoints(points: Array<common2D.Point>, mode?: PointMode): void
 
@@ -1330,6 +1386,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawPath(path: Path): void
 
@@ -1380,6 +1438,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawLine
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawLine(x0: number, y0: number, x1: number, y1: number): void
 
 画一条直线段，从指定的起点到终点。如果直线段的起点和终点是同一个点，无法绘制。
@@ -1428,6 +1488,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawTextBlob
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawTextBlob(blob: TextBlob, x: number, y: number): void
 
 绘制一段文字。若构造blob的字体不支持待绘制字符，则该部分字符无法绘制。
@@ -1444,7 +1506,7 @@ drawTextBlob(blob: TextBlob, x: number, y: number): void
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/jrrXJDcERqKNZVnG0exiVg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T014040Z&HW-CC-Expire=86400&HW-CC-Sign=6C24A8307ABD5F4862C945210B68EABAE12BE771C4F6FD545EAD685AB42B227F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/jrrXJDcERqKNZVnG0exiVg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T024331Z&HW-CC-Expire=86400&HW-CC-Sign=AFEA040CA978AA564A951EF80F163721421F7598E1857C7DCF97F349F45C8EFB)
 
 
 **错误码：**
@@ -1481,6 +1543,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawSingleCharacter12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawSingleCharacter(text: string, font: Font, x: number, y: number): void
 
 绘制单个字符。当前字型中的字体不支持待绘制字符时，退化到使用系统字体绘制字符。
@@ -1498,7 +1562,7 @@ drawSingleCharacter(text: string, font: Font, x: number, y: number): void
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/5BbKcd6oQR2OyWjnXCqucg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T014040Z&HW-CC-Expire=86400&HW-CC-Sign=112404393B5D6920A45200AB2BDB64D9EB7E3331EC9B80B4D0CA88B46279E875)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/5BbKcd6oQR2OyWjnXCqucg/zh-cn_image_0000002611836835.png?HW-CC-KV=V1&HW-CC-Date=20260528T024331Z&HW-CC-Expire=86400&HW-CC-Sign=895DFA20BB22C7CB9AAF79E8E88FD6D596CBC5E973D61C1D9FEB52B7773FB2D4)
 
 
 **错误码：**
@@ -1534,6 +1598,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawSingleCharacterWithFeatures20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawSingleCharacterWithFeatures(text: string, font: Font, x: number, y: number, features: Array&lt;FontFeature&gt;): void
 
@@ -1588,6 +1654,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawRegion12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawRegion(region: Region): void
 
 绘制一个区域。
@@ -1634,6 +1702,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### attachPen
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 attachPen(pen: Pen): void
 
@@ -1684,6 +1754,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### attachBrush
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 attachBrush(brush: Brush): void
 
 绑定画刷到画布上，在画布上进行绘制时，将使用画刷的样式对绘制图形形状的内部进行填充。
@@ -1732,6 +1804,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### detachPen
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 detachPen(): void
 
 将画笔与画布解绑，在画布上进行绘制时，不会再使用画笔去绘制图形形状的轮廓。
@@ -1761,6 +1835,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### detachBrush
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 detachBrush(): void
 
 将画刷与画布解绑，在画布上进行绘制时，不会再使用画刷对绘制图形形状的内部进行填充。
@@ -1788,6 +1864,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### clipPath12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clipPath(path: Path, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
@@ -1836,6 +1914,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### clipRect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clipRect(rect: common2D.Rect, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
 使用矩形对画布的可绘制区域进行裁剪。
@@ -1879,6 +1959,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### save12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 save(): number
 
 保存当前画布状态（画布矩阵和可绘制区域）到栈顶。需要与恢复接口[restore](#restore12)配合使用。
@@ -1911,6 +1993,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### saveLayer12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 saveLayer(rect?: common2D.Rect | null, brush?: Brush | null): number
 
@@ -1979,6 +2063,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### scale12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 scale(sx: number, sy: number): void
 
 在当前画布矩阵（默认是单位矩阵）的基础上再叠加一个缩放矩阵，后续绘制操作和裁剪操作的形状和位置都会自动叠加一个缩放效果。
@@ -2026,6 +2112,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### skew12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 skew(sx: number, sy: number) : void
 
 在当前画布矩阵（默认是单位矩阵）的基础上再叠加一个倾斜矩阵，后续绘制操作和裁剪操作的形状和位置都会自动叠加一个倾斜效果。
@@ -2072,6 +2160,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### rotate12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rotate(degrees: number, sx: number, sy: number) : void
 
@@ -2121,6 +2211,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### translate12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 translate(dx: number, dy: number): void
 
 在当前画布矩阵（默认是单位矩阵）的基础上再叠加一个平移矩阵，后续绘制操作和裁剪操作的形状和位置都会自动叠加一个平移效果。
@@ -2168,6 +2260,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### getSaveCount12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSaveCount(): number
 
 获取栈中保存的画布状态（画布矩阵和裁剪区域）的数量。
@@ -2206,6 +2300,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### restoreToCount12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 restoreToCount(count: number): void
 
@@ -2259,6 +2355,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### restore12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restore(): void
 
 恢复保存在栈顶的画布状态（画布矩阵和裁剪区域）。
@@ -2287,6 +2385,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### concatMatrix12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 concatMatrix(matrix: Matrix): void
 
@@ -2331,6 +2431,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setMatrix12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMatrix(matrix: Matrix): void
 
 设置画布的矩阵，后续绘制操作和裁剪操作的形状和位置都会受到该矩阵的影响。
@@ -2374,6 +2476,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### isClipEmpty12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isClipEmpty(): boolean
 
 判断裁剪后的可绘制区域是否为空。
@@ -2408,6 +2512,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### clipRegion12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clipRegion(region: Region, clipOp?: ClipOp): void
 
@@ -2453,6 +2559,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### clipRoundRect12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clipRoundRect(roundRect: RoundRect, clipOp?: ClipOp, doAntiAlias?: boolean): void
 
@@ -2500,6 +2608,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### resetMatrix12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 resetMatrix(): void
 
 将当前画布的矩阵重置为单位矩阵。
@@ -2524,6 +2634,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### quickRejectPath18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 quickRejectPath(path: Path): boolean
 
@@ -2571,6 +2683,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### quickRejectRect18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 quickRejectRect(rect: common2D.Rect): boolean
 
 判断矩形和画布区域是否不相交。画布区域包含边界。
@@ -2614,6 +2728,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### drawArcWithCenter18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawArcWithCenter(arc: common2D.Rect, startAngle: number, sweepAngle: number, useCenter: boolean): void
 
 在画布上绘制圆弧。该方法允许指定圆弧的起始角度、扫描角度以及圆弧的起点和终点是否连接圆弧的中心点。
@@ -2654,6 +2770,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawImageNine18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawImageNine(pixelmap: image.PixelMap, center: common2D.Rect, dstRect: common2D.Rect, filterMode: FilterMode): void
 
@@ -2740,6 +2858,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### drawImageLattice18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 drawImageLattice(pixelmap: image.PixelMap, lattice: Lattice, dstRect: common2D.Rect, filterMode: FilterMode): void
 

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 光线追踪阴影（Shadow）算法参数。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,9 +44,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### rayPerPixel
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 uint32_t XEG_RTShadowParameters::rayPerPixel = 1
@@ -54,6 +64,8 @@ uint32_t XEG_RTShadowParameters::rayPerPixel = 1
 
 ##### raySourceAngleInDegree
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_RTShadowParameters::raySourceAngleInDegree = 0.0f
 ```
@@ -65,6 +77,8 @@ float XEG_RTShadowParameters::raySourceAngleInDegree = 0.0f
   
 
 ##### rayTMax
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_RTShadowParameters::rayTMax
@@ -78,6 +92,8 @@ float XEG_RTShadowParameters::rayTMax
 
 ##### rayTMin
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_RTShadowParameters::rayTMin
 ```
@@ -89,6 +105,8 @@ float XEG_RTShadowParameters::rayTMin
   
 
 ##### shadowCullDistance
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_RTShadowParameters::shadowCullDistance
@@ -102,6 +120,8 @@ float XEG_RTShadowParameters::shadowCullDistance
 
 ##### shadowCullMask
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t XEG_RTShadowParameters::shadowCullMask = 0x5FF
 ```
@@ -113,6 +133,8 @@ uint32_t XEG_RTShadowParameters::shadowCullMask = 0x5FF
   
 
 ##### sunDirection
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_RTShadowParameters::sunDirection[3]

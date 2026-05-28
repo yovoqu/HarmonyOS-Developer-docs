@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { wallpaper } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { wallpaper } from '@kit.BasicServicesKit';
 
 
 ##### WallpaperType7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义壁纸的枚举类型。
 
@@ -35,6 +39,8 @@ import { wallpaper } from '@kit.BasicServicesKit';
 
 
 ##### RgbaColor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 定义壁纸颜色信息结构。
 
@@ -55,6 +61,8 @@ import { wallpaper } from '@kit.BasicServicesKit';
 
 
 ##### wallpaper.on('colorChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'colorChange', callback: (colors: Array&lt;RgbaColor&gt;, wallpaperType: WallpaperType) => void): void
 
@@ -90,6 +98,8 @@ try {
 
 
 ##### wallpaper.off('colorChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'colorChange', callback?: (colors: Array&lt;RgbaColor&gt;, wallpaperType: WallpaperType) => void): void
 
@@ -140,6 +150,8 @@ try {
 
 ##### wallpaper.getColors(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getColors(wallpaperType: WallpaperType, callback: AsyncCallback<Array&lt;RgbaColor&gt;>): void
 
 获取指定类型壁纸的主要颜色信息。
@@ -175,6 +187,8 @@ wallpaper.getColors(wallpaper.WallpaperType.WALLPAPER_SYSTEM, (error: BusinessEr
 
 
 ##### wallpaper.getColors(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getColors(wallpaperType: WallpaperType): Promise<Array&lt;RgbaColor&gt;>
 
@@ -216,6 +230,8 @@ wallpaper.getColors(wallpaper.WallpaperType.WALLPAPER_SYSTEM).then((data: Array<
 
 ##### wallpaper.getId(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getId(wallpaperType: WallpaperType, callback: AsyncCallback&lt;number&gt;): void
 
 获取指定类型壁纸的ID。
@@ -251,6 +267,8 @@ wallpaper.getId(wallpaper.WallpaperType.WALLPAPER_SYSTEM, (error: BusinessError,
 
 
 ##### wallpaper.getId(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getId(wallpaperType: WallpaperType): Promise&lt;number&gt;
 
@@ -292,6 +310,8 @@ wallpaper.getId(wallpaper.WallpaperType.WALLPAPER_SYSTEM).then((data: Number) =>
 
 ##### wallpaper.getMinHeight(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getMinHeight(callback: AsyncCallback&lt;number&gt;): void
 
 获取壁纸的最小高度值。
@@ -327,6 +347,8 @@ wallpaper.getMinHeight((error: BusinessError, data: Number) => {
 
 ##### wallpaper.getMinHeight(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getMinHeight(): Promise&lt;number&gt;
 
 获取壁纸的最小高度值。
@@ -359,6 +381,8 @@ wallpaper.getMinHeight().then((data: Number) => {
 
 
 ##### wallpaper.getMinWidth(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getMinWidth(callback: AsyncCallback&lt;number&gt;): void
 
@@ -395,6 +419,8 @@ wallpaper.getMinWidth((error: BusinessError, data: Number) => {
 
 ##### wallpaper.getMinWidth(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 getMinWidth(): Promise&lt;number&gt;
 
 获取壁纸的最小宽度值。
@@ -427,6 +453,8 @@ wallpaper.getMinWidth().then((data: Number) => {
 
 
 ##### wallpaper.getFile(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getFile(wallpaperType: WallpaperType, callback: AsyncCallback&lt;number&gt;): void
 
@@ -465,6 +493,8 @@ wallpaper.getFile(wallpaper.WallpaperType.WALLPAPER_SYSTEM, (error: BusinessErro
 
 
 ##### wallpaper.getFile(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getFile(wallpaperType: WallpaperType): Promise&lt;number&gt;
 
@@ -508,6 +538,8 @@ wallpaper.getFile(wallpaper.WallpaperType.WALLPAPER_SYSTEM).then((data: number) 
 
 ##### wallpaper.isChangePermitted(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 isChangePermitted(callback: AsyncCallback&lt;boolean&gt;): void
 
 是否允许应用改变当前用户的壁纸。
@@ -543,6 +575,8 @@ wallpaper.isChangePermitted((error: BusinessError, data: Boolean) => {
 
 ##### wallpaper.isChangePermitted(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 isChangePermitted(): Promise&lt;boolean&gt;
 
 是否允许应用改变当前用户的壁纸。
@@ -575,6 +609,8 @@ wallpaper.isChangePermitted().then((data: Boolean) => {
 
 
 ##### wallpaper.isOperationAllowed(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 isOperationAllowed(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -611,6 +647,8 @@ wallpaper.isOperationAllowed((error: BusinessError, data: Boolean) => {
 
 ##### wallpaper.isOperationAllowed(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 isOperationAllowed(): Promise&lt;boolean&gt;
 
 是否允许用户设置壁纸。
@@ -643,6 +681,8 @@ wallpaper.isOperationAllowed().then((data: Boolean) => {
 
 
 ##### wallpaper.reset(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 reset(wallpaperType: WallpaperType, callback: AsyncCallback&lt;void&gt;): void
 
@@ -681,6 +721,8 @@ wallpaper.reset(wallpaper.WallpaperType.WALLPAPER_SYSTEM, (error: BusinessError)
 
 
 ##### wallpaper.reset(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 reset(wallpaperType: WallpaperType): Promise&lt;void&gt;
 
@@ -723,6 +765,8 @@ wallpaper.reset(wallpaper.WallpaperType.WALLPAPER_SYSTEM).then(() => {
 
 
 ##### wallpaper.setWallpaper(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback&lt;void&gt;): void
 
@@ -785,6 +829,8 @@ imageSource.createPixelMap(opts).then((pixelMap: image.PixelMap) => {
 
 
 ##### wallpaper.setWallpaper(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 setWallpaper(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise&lt;void&gt;
 

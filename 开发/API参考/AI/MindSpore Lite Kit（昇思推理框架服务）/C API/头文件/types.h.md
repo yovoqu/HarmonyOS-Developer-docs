@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供了MindSpore Lite支持的模型文件类型和设备类型。
  
 **引用文件：** <mindspore/types.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -51,9 +59,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_AI_ModelType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AI_ModelType
@@ -74,6 +86,8 @@ enum OH_AI_ModelType
   
 
 ##### OH_AI_DeviceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AI_DeviceType
@@ -98,6 +112,8 @@ enum OH_AI_DeviceType
 
 ##### OH_AI_NNRTDeviceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_AI_NNRTDeviceType
 ```
@@ -119,6 +135,8 @@ NNRt管理的硬件设备类型。
   
 
 ##### OH_AI_PerformanceMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AI_PerformanceMode
@@ -143,6 +161,8 @@ NNRt硬件的工作性能模式。
 
 ##### OH_AI_Priority
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_AI_Priority
 ```
@@ -164,6 +184,8 @@ NNRt推理任务优先级。
   
 
 ##### OH_AI_OptimizationLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AI_OptimizationLevel
@@ -187,6 +209,8 @@ enum OH_AI_OptimizationLevel
   
 
 ##### OH_AI_QuantizationType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_AI_QuantizationType

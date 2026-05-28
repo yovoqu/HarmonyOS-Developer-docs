@@ -12,6 +12,8 @@ typedef struct OH_ArkUI_TextStyle OH_ArkUI_TextStyle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文本字体样式。 
  
  可以通过[OH_ArkUI_TextStyle_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h#oh_arkui_textstyle_create)接口创建对应的文本字体样式对象。 

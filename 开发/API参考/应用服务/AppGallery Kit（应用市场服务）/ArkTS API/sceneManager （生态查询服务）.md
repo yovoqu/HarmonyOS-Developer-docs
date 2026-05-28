@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { sceneManager } from '@kit.AppGalleryKit';
 ```
@@ -23,6 +25,8 @@ import { sceneManager } from '@kit.AppGalleryKit';
   
 
 ##### sceneManager.getSelfSceneCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getSelfSceneCode(): string
  
@@ -58,6 +62,8 @@ try {
   
 
 ##### sceneManager.getAdsVerificationVersion
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getAdsVerificationVersion(): number
  

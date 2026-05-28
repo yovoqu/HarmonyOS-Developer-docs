@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { sharing } from '@kit.NetworkKit';
 ```
@@ -21,6 +23,8 @@ import { sharing } from '@kit.NetworkKit';
   
 
 ##### NetHandle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NetHandle = connection.NetHandle
  

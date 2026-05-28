@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指定要收集的请求处理事件。可以通过响应对象检查收集的事件。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,9 +44,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### incomingData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool Rcp_InfoToCollect::incomingData
@@ -54,6 +64,8 @@ bool Rcp_InfoToCollect::incomingData
 
 ##### incomingHeader
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool Rcp_InfoToCollect::incomingHeader
 ```
@@ -65,6 +77,8 @@ bool Rcp_InfoToCollect::incomingHeader
   
 
 ##### incomingSslData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool Rcp_InfoToCollect::incomingSslData
@@ -78,6 +92,8 @@ bool Rcp_InfoToCollect::incomingSslData
 
 ##### outgoingData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool Rcp_InfoToCollect::outgoingData
 ```
@@ -89,6 +105,8 @@ bool Rcp_InfoToCollect::outgoingData
   
 
 ##### outgoingHeader
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool Rcp_InfoToCollect::outgoingHeader
@@ -102,6 +120,8 @@ bool Rcp_InfoToCollect::outgoingHeader
 
 ##### outgoingSslData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool Rcp_InfoToCollect::outgoingSslData
 ```
@@ -113,6 +133,8 @@ bool Rcp_InfoToCollect::outgoingSslData
   
 
 ##### textual
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool Rcp_InfoToCollect::textual

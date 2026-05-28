@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
 
 > [!NOTE]
@@ -23,6 +25,8 @@
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SideBarContainer( type?: SideBarContainerType )
 
@@ -43,6 +47,8 @@ SideBarContainer( type?: SideBarContainerType )
 
 ##### SideBarContainerType枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 容器内侧边栏样式枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -60,11 +66,15 @@ SideBarContainer( type?: SideBarContainerType )
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### showSideBar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showSideBar(value: boolean)
 
@@ -87,6 +97,8 @@ showSideBar(value: boolean)
 
 ##### controlButton
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 controlButton(value: ButtonStyle)
 
 设置侧边栏控制按钮的属性。
@@ -105,6 +117,8 @@ controlButton(value: ButtonStyle)
 
 
 ##### showControlButton
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showControlButton(value: boolean)
 
@@ -129,6 +143,8 @@ showControlButton(value: boolean)
 
 ##### sideBarWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sideBarWidth(value: number)
 
 设置侧边栏的宽度。设置为小于0的值时按默认值显示。受最小宽度和最大宽度限制，不在限制区域内取最近的点。
@@ -149,6 +165,8 @@ sideBarWidth(value: number)
 
 
 ##### sideBarWidth9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sideBarWidth(value: Length)
 
@@ -171,6 +189,8 @@ sideBarWidth(value: Length)
 
 ##### minSideBarWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 minSideBarWidth(value: number)
 
 设置侧边栏最小宽度。设置为小于0的值时按默认值显示。值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
@@ -191,6 +211,8 @@ minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时
 
 
 ##### minSideBarWidth9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 minSideBarWidth(value: Length)
 
@@ -213,6 +235,8 @@ minSideBarWidth优先于侧边栏子组件minWidth，minSideBarWidth未设置时
 
 ##### maxSideBarWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 maxSideBarWidth(value: number)
 
 设置侧边栏最大宽度。设置为小于0的值时按默认值显示。值不能超过侧边栏容器本身宽度，超过则使用侧边栏容器本身宽度。
@@ -233,6 +257,8 @@ maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时
 
 
 ##### maxSideBarWidth9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 maxSideBarWidth(value: Length)
 
@@ -255,6 +281,8 @@ maxSideBarWidth优先于侧边栏子组件maxWidth，maxSideBarWidth未设置时
 
 ##### autoHide9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 autoHide(value: boolean)
 
 设置当侧边栏拖拽到小于最小宽度后，是否自动隐藏。受minSideBarWidth属性方法影响，minSideBarWidth属性方法未设置值使用默认值。
@@ -276,6 +304,8 @@ autoHide(value: boolean)
 
 ##### sideBarPosition9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sideBarPosition(value: SideBarPosition)
 
 设置侧边栏显示位置。
@@ -295,6 +325,8 @@ sideBarPosition(value: SideBarPosition)
 
 ##### divider10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 divider(value: DividerStyle | null)
 
 设置分割线的样式。
@@ -313,6 +345,8 @@ divider(value: DividerStyle | null)
 
 
 ##### minContentWidth10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 minContentWidth(value: Dimension)
 
@@ -347,6 +381,8 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 ##### ButtonStyle对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置侧边栏控制按钮的样式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -365,6 +401,8 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 
 ##### ButtonIconOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置侧边栏控制按钮的图标。
 
@@ -387,6 +425,8 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 ##### SideBarPosition9+枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 侧边栏显示位置。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -402,6 +442,8 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 
 ##### DividerStyle10+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置分割线的样式。
 
@@ -425,11 +467,15 @@ minContentWidth优先于侧边栏的[maxSideBarWidth](#maxsidebarwidth)与sideBa
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback: (value: boolean) => void)
 
@@ -454,6 +500,8 @@ onChange(callback: (value: boolean) => void)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例主要演示如何使用侧边栏组件及页面布局效果。
 
@@ -514,4 +562,4 @@ struct SideBarContainerExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/qBMq2h1pRCu-GV0e852LUQ/zh-cn_image_0000002581435732.png?HW-CC-KV=V1&HW-CC-Date=20260528T013923Z&HW-CC-Expire=86400&HW-CC-Sign=D1BB63B87C8791DB775D8101C0A2ADD09EB678661A6C69E831472FFDD05BC9FB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/qBMq2h1pRCu-GV0e852LUQ/zh-cn_image_0000002581435732.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=6F99ED56FD5DB3F02838DEA8A7A8C0A0512AF66CA045D43CA5C75FB67D0A48AA)

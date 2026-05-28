@@ -12,6 +12,8 @@ typedef struct ImageEffect_Any {...} ImageEffect_Any
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 参数结构体。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct ImageEffect_Any {...} ImageEffect_Any
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **支持C++语言语法的声明如下：**
   

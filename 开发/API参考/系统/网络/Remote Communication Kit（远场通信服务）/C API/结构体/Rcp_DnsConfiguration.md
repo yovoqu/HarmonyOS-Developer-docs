@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 DNS解析配置。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@ DNS解析配置。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@ DNS解析配置。
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### dnsOverHttps
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_DnsOverHttps Rcp_DnsConfiguration::dnsOverHttps
@@ -48,6 +58,8 @@ DOH配置。
   
 
 ##### dnsRules
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_DnsRule* Rcp_DnsConfiguration::dnsRules

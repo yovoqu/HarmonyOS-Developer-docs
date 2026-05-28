@@ -12,6 +12,8 @@ typedef struct OH_Drawing_TextLine OH_Drawing_TextLine
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于管理文本行。
  
 **起始版本：** 18

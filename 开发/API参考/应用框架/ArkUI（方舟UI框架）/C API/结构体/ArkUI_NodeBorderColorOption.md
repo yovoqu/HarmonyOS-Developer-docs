@@ -12,6 +12,8 @@ typedef struct ArkUI_NodeBorderColor ArkUI_NodeBorderColorOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义边框颜色配置项。
  
 **起始版本：** 20

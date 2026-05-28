@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { SubHeaderV2 } from '@kit.ArkUI';
 ```
@@ -24,11 +26,15 @@ import { SubHeaderV2 } from '@kit.ArkUI';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### SubHeaderV2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SubHeaderV2({ icon?: SubHeaderV2IconType, title?: SubHeaderV2Title, select?: SubHeaderV2Select, operationType?: SubHeaderV2OperationType, operationItems?: SubHeaderV2OperationItem[], titleBuilder?: SubHeaderV2TitleBuilder; })
 
@@ -56,6 +62,8 @@ SubHeaderV2({ icon?: SubHeaderV2IconType, title?: SubHeaderV2Title, select?: Sub
 
 ##### SubHeaderV2IconType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier
 
 图标内容的联合类型。
@@ -76,6 +84,8 @@ type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier
 
 ##### SubHeaderV2Title
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 标题设置项。
 
 **装饰器类型：** @ObservedV2
@@ -83,6 +93,8 @@ type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -101,6 +113,8 @@ type SubHeaderV2IconType = ResourceStr | SymbolGlyphModifier
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(options: SubHeaderV2TitleOptions)
 
@@ -123,6 +137,8 @@ constructor(options: SubHeaderV2TitleOptions)
 
 ##### SubHeaderV2TitleOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于构建SubHeaderV2Title对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -143,6 +159,8 @@ constructor(options: SubHeaderV2TitleOptions)
 
 ##### SubHeaderV2Select
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 select内容以及事件。
 
 **装饰器类型：** @ObservedV2
@@ -150,6 +168,8 @@ select内容以及事件。
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -168,6 +188,8 @@ select内容以及事件。
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(options: SubHeaderV2SelectOptions)
 
@@ -190,6 +212,8 @@ select内容以及事件构造函数。
 
 ##### SubHeaderV2SelectOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于构建SubHeaderV2Select对象。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -209,6 +233,8 @@ select内容以及事件构造函数。
 
 
 ##### SubHeaderV2SelectOnSelect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: string) => void
 
@@ -232,6 +258,8 @@ type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: strin
 
 ##### SubHeaderV2OperationType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 操作区元素样式。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -251,6 +279,8 @@ type SubHeaderV2SelectOnSelect = (selectedIndex: number, selectedContent?: strin
 
 
 ##### SubHeaderV2OperationItemType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier
 
@@ -272,6 +302,8 @@ type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier
 
 ##### SubHeaderV2OperationItem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 操作区的设置项。
 
 **装饰器类型：** @ObservedV2
@@ -279,6 +311,8 @@ type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -298,6 +332,8 @@ type SubHeaderV2OperationItemType = ResourceStr | SymbolGlyphModifier
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(options: SubHeaderV2OperationItemOptions)
 
@@ -320,6 +356,8 @@ constructor(options: SubHeaderV2OperationItemOptions)
 
 ##### SubHeaderV2OperationItemAction
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SubHeaderV2OperationItemAction = () => void
 
 操作区的设置项的回调事件类型。
@@ -333,6 +371,8 @@ type SubHeaderV2OperationItemAction = () => void
 
 
 ##### SubHeaderV2OperationItemOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于构建SubHeaderV2OperationItem对象。
 
@@ -355,6 +395,8 @@ type SubHeaderV2OperationItemAction = () => void
 
 ##### SubHeaderV2TitleBuilder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type SubHeaderV2TitleBuilder= () => void
 
 自定义标题区内容的回调事件类型。
@@ -369,11 +411,15 @@ type SubHeaderV2TitleBuilder= () => void
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -999,4 +1045,4 @@ struct SubHeaderExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/t5JGasBlRS2w_dPi6PN5ow/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T013859Z&HW-CC-Expire=86400&HW-CC-Sign=6938A9B964EA6B4FF40FCDBD1648BD491194D24F5A30EC152932EF278994792A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/t5JGasBlRS2w_dPi6PN5ow/zh-cn_image_0000002611836103.png?HW-CC-KV=V1&HW-CC-Date=20260528T024155Z&HW-CC-Expire=86400&HW-CC-Sign=5C5CE11BECC720C67DC24ABFCB76573008E9F99234FFAB0A0279D36043187B10)

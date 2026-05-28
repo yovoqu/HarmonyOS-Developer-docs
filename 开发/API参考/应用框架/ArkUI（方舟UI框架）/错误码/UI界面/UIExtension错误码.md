@@ -255,6 +255,8 @@ Failed to destroy the UIExtension ability.
 
 ##### 100021 窗口透明检测
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Transparent node is detected in the UIExtension ability.

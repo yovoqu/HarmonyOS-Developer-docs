@@ -20,9 +20,13 @@ animateToImmediately接口用来提供[显式动画](https://developer.huawei.co
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### animateToImmediately
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 animateToImmediately(value: AnimateParam , event: () => void): void
  
@@ -43,6 +47,8 @@ animateToImmediately(value: AnimateParam , event: () => void): void
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例主要演示通过[animateToImmediately](#animatetoimmediately)接口来实现显式动画立即下发。
  
@@ -103,4 +109,4 @@ struct AnimateToImmediatelyExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/Ic2aexr9SXa6nv2_ZMPmLg/zh-cn_image_0000002581436170.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013904Z&HW-CC-Expire=86400&HW-CC-Sign=7CF55E0EAA29FF054338BD6BB7888BBE9FFF1F8CA3AE6691E37F31117D4D7638)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/Ic2aexr9SXa6nv2_ZMPmLg/zh-cn_image_0000002581436170.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=D11C111B717D41F567CF9CF515FD3730F125F881373362695FC0A03FD473F32B)

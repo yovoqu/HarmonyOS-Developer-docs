@@ -14,6 +14,8 @@
 
 ##### Scene
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [Scene](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene)：ArkGraphics 3D基础模块，提供[SceneResourceParameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene#sceneresourceparameters)、[SceneNodeParameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene#scenenodeparameters)等通用数据类型。同时提供glTF模型加载，场景元素、资源创建等基础方法。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -21,6 +23,8 @@
   
 
 ##### SceneNode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [SceneNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes)：3D场景是以树状结构进行组织的，通过操作节点属性以及节点树结构可以改变3D场景。本模块提供3D图形中场景资源节点的类型及操作方法。
  
@@ -30,6 +34,8 @@
 
 ##### SceneType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [SceneType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types)：本模块覆盖3D图形中的数据类型，包括向量、四元数等。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -38,6 +44,8 @@
 
 ##### SceneResources
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [SceneResources](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-resources)：本模块提供3D图形中常用的基本资源类型，包括材质、图片、着色器等。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -45,6 +53,8 @@
   
 
 ##### ScenePostProcessSettings
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [ScenePostProcessSettings](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-post-process-settings)：本模块提供3D图形中的色调映射等图像后处理方法。
  

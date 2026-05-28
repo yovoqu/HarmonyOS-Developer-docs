@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 声明效果器相关接口。
 
 效果器提供了滤镜的添加、删除、查询等功能。开发者可以通过效果器提供的接口将多个滤镜组合串联，从而实现较为复杂的效果调节功能。
@@ -27,9 +29,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -39,6 +45,8 @@
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 | 名称 | 描述 |
 | --- | --- |
@@ -77,9 +85,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 
 
 ##### OH_ImageEffect_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_ImageEffect *OH_ImageEffect_Create(const char *name)
@@ -110,6 +122,8 @@ OH_ImageEffect *OH_ImageEffect_Create(const char *name)
 
 
 ##### OH_ImageEffect_AddFilter()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_EffectFilter *OH_ImageEffect_AddFilter(OH_ImageEffect *imageEffect, const char *filterName)
@@ -142,6 +156,8 @@ OH_EffectFilter *OH_ImageEffect_AddFilter(OH_ImageEffect *imageEffect, const cha
 
 ##### OH_ImageEffect_AddFilterByFilter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_AddFilterByFilter(OH_ImageEffect *imageEffect, OH_EffectFilter *filter)
 ```
@@ -172,6 +188,8 @@ ImageEffect_ErrorCode OH_ImageEffect_AddFilterByFilter(OH_ImageEffect *imageEffe
 
 
 ##### OH_ImageEffect_InsertFilter()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_EffectFilter *OH_ImageEffect_InsertFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName)
@@ -205,6 +223,8 @@ OH_EffectFilter *OH_ImageEffect_InsertFilter(OH_ImageEffect *imageEffect, uint32
 
 ##### OH_ImageEffect_InsertFilterByFilter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_InsertFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index,OH_EffectFilter *filter)
 ```
@@ -237,6 +257,8 @@ ImageEffect_ErrorCode OH_ImageEffect_InsertFilterByFilter(OH_ImageEffect *imageE
 
 ##### OH_ImageEffect_RemoveFilter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 int32_t OH_ImageEffect_RemoveFilter(OH_ImageEffect *imageEffect, const char *filterName)
 ```
@@ -267,6 +289,8 @@ int32_t OH_ImageEffect_RemoveFilter(OH_ImageEffect *imageEffect, const char *fil
 
 
 ##### OH_ImageEffect_RemoveFilterByIndex()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_RemoveFilterByIndex(OH_ImageEffect *imageEffect, uint32_t index)
@@ -299,6 +323,8 @@ ImageEffect_ErrorCode OH_ImageEffect_RemoveFilterByIndex(OH_ImageEffect *imageEf
 
 ##### OH_ImageEffect_ReplaceFilter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 OH_EffectFilter *OH_ImageEffect_ReplaceFilter(OH_ImageEffect *imageEffect, uint32_t index, const char *filterName)
 ```
@@ -329,6 +355,8 @@ OH_EffectFilter *OH_ImageEffect_ReplaceFilter(OH_ImageEffect *imageEffect, uint3
 
 
 ##### OH_ImageEffect_ReplaceFilterByFilter()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_ReplaceFilterByFilter(OH_ImageEffect *imageEffect, uint32_t index, OH_EffectFilter *filter)
@@ -362,6 +390,8 @@ ImageEffect_ErrorCode OH_ImageEffect_ReplaceFilterByFilter(OH_ImageEffect *image
 
 ##### OH_ImageEffect_GetFilterCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 int32_t OH_ImageEffect_GetFilterCount(OH_ImageEffect *imageEffect)
 ```
@@ -391,6 +421,8 @@ int32_t OH_ImageEffect_GetFilterCount(OH_ImageEffect *imageEffect)
 
 
 ##### OH_ImageEffect_GetFilter()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_EffectFilter *OH_ImageEffect_GetFilter(OH_ImageEffect *imageEffect, uint32_t index)
@@ -422,6 +454,8 @@ OH_EffectFilter *OH_ImageEffect_GetFilter(OH_ImageEffect *imageEffect, uint32_t 
 
 
 ##### OH_ImageEffect_Configure()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Configure(OH_ImageEffect *imageEffect, const char *key,const ImageEffect_Any *value)
@@ -455,6 +489,8 @@ ImageEffect_ErrorCode OH_ImageEffect_Configure(OH_ImageEffect *imageEffect, cons
 
 ##### OH_ImageEffect_SetOutputSurface()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputSurface(OH_ImageEffect *imageEffect, OHNativeWindow *nativeWindow)
 ```
@@ -485,6 +521,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputSurface(OH_ImageEffect *imageEffec
 
 
 ##### OH_ImageEffect_GetInputSurface()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_GetInputSurface(OH_ImageEffect *imageEffect, OHNativeWindow **nativeWindow)
@@ -517,6 +555,8 @@ ImageEffect_ErrorCode OH_ImageEffect_GetInputSurface(OH_ImageEffect *imageEffect
 
 ##### OH_ImageEffect_SetInputPixelmap()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap)
 ```
@@ -547,6 +587,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputPixelmap(OH_ImageEffect *imageEffec
 
 
 ##### OH_ImageEffect_SetOutputPixelmap()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputPixelmap(OH_ImageEffect *imageEffect, OH_PixelmapNative *pixelmap)
@@ -579,6 +621,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputPixelmap(OH_ImageEffect *imageEffe
 
 ##### OH_ImageEffect_SetInputNativeBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer)
 ```
@@ -609,6 +653,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputNativeBuffer(OH_ImageEffect *imageE
 
 
 ##### OH_ImageEffect_SetOutputNativeBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputNativeBuffer(OH_ImageEffect *imageEffect, OH_NativeBuffer *nativeBuffer)
@@ -641,6 +687,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputNativeBuffer(OH_ImageEffect *image
 
 ##### OH_ImageEffect_SetInputUri()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputUri(OH_ImageEffect *imageEffect, const char *uri)
 ```
@@ -671,6 +719,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputUri(OH_ImageEffect *imageEffect, co
 
 
 ##### OH_ImageEffect_SetOutputUri()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputUri(OH_ImageEffect *imageEffect, const char *uri)
@@ -703,6 +753,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputUri(OH_ImageEffect *imageEffect, c
 
 ##### OH_ImageEffect_SetInputPicture()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture)
 ```
@@ -734,6 +786,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputPicture(OH_ImageEffect *imageEffect
 
 ##### OH_ImageEffect_SetOutputPicture()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputPicture(OH_ImageEffect *imageEffect, OH_PictureNative *picture)
 ```
@@ -764,6 +818,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputPicture(OH_ImageEffect *imageEffec
 
 
 ##### OH_ImageEffect_SetInputTextureId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetInputTextureId(OH_ImageEffect *imageEffect, int32_t textureId,int32_t colorSpace)
@@ -797,6 +853,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetInputTextureId(OH_ImageEffect *imageEffe
 
 ##### OH_ImageEffect_SetOutputTextureId()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_SetOutputTextureId(OH_ImageEffect *imageEffect, int32_t textureId)
 ```
@@ -828,6 +886,8 @@ ImageEffect_ErrorCode OH_ImageEffect_SetOutputTextureId(OH_ImageEffect *imageEff
 
 ##### OH_ImageEffect_Start()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Start(OH_ImageEffect *imageEffect)
 ```
@@ -857,6 +917,8 @@ ImageEffect_ErrorCode OH_ImageEffect_Start(OH_ImageEffect *imageEffect)
 
 
 ##### OH_ImageEffect_Stop()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Stop(OH_ImageEffect *imageEffect)
@@ -888,6 +950,8 @@ ImageEffect_ErrorCode OH_ImageEffect_Stop(OH_ImageEffect *imageEffect)
 
 ##### OH_ImageEffect_Release()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Release(OH_ImageEffect *imageEffect)
 ```
@@ -917,6 +981,8 @@ ImageEffect_ErrorCode OH_ImageEffect_Release(OH_ImageEffect *imageEffect)
 
 
 ##### OH_ImageEffect_Save()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ImageEffect_ErrorCode OH_ImageEffect_Save(OH_ImageEffect *imageEffect, char **info)
@@ -948,6 +1014,8 @@ ImageEffect_ErrorCode OH_ImageEffect_Save(OH_ImageEffect *imageEffect, char **in
 
 
 ##### OH_ImageEffect_Restore()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 OH_ImageEffect *OH_ImageEffect_Restore(const char *info)

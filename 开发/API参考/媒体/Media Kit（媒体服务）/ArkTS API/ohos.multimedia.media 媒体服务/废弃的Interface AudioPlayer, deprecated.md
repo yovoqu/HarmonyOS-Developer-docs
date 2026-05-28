@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -21,6 +23,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### 属性(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Media.AudioPlayer
 
@@ -38,6 +42,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### play(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 play(): void
 
@@ -62,6 +68,8 @@ audioPlayer.play();
 
 ##### pause(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pause(): void
 
 暂停播放音频资源。
@@ -84,6 +92,8 @@ audioPlayer.pause();
 
 
 ##### stop(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(): void
 
@@ -108,6 +118,8 @@ audioPlayer.stop();
 
 ##### reset(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset(): void
 
 重置播放音频资源。
@@ -130,6 +142,8 @@ audioPlayer.reset();
 
 
 ##### seek(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 seek(timeMs: number): void
 
@@ -165,6 +179,8 @@ audioPlayer.seek(30000);    // seek到30000ms的位置。
 
 ##### setVolume(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVolume(vol: number): void
 
 设置音量。
@@ -195,6 +211,8 @@ audioPlayer.setVolume(1);    // 设置音量到100%。
 
 ##### release(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): void
 
 释放音频资源。
@@ -215,6 +233,8 @@ audioPlayer = undefined;
 
 
 ##### getTrackDescription(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTrackDescription(callback: AsyncCallback<Array&lt;MediaDescription&gt;>): void
 
@@ -251,6 +271,8 @@ audioPlayer.getTrackDescription((error: BusinessError, arrList: Array<media.Medi
 
 ##### getTrackDescription(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTrackDescription(): Promise<Array&lt;MediaDescription&gt;>
 
 获取音频轨道信息。需在'dataLoad'事件成功触发后，才能调用。通过Promise获取返回值。
@@ -284,6 +306,8 @@ audioPlayer.getTrackDescription().then((arrList: Array<media.MediaDescription>) 
 
 ##### on('bufferingUpdate')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'bufferingUpdate', callback: (infoType: BufferingInfoType, value: number) => void): void
 
 开始订阅音频缓存更新事件。仅网络播放支持该订阅事件。
@@ -314,6 +338,8 @@ audioPlayer.on('bufferingUpdate', (infoType: media.BufferingInfoType, value: num
 
 
 ##### on('play' | 'pause' | 'stop' | 'reset' | 'dataLoad' | 'finish' | 'volumeChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'play' | 'pause' | 'stop' | 'reset' | 'dataLoad' | 'finish' | 'volumeChange', callback: () => void): void
 
@@ -396,6 +422,8 @@ fileIo.open(path).then((file) => {
 
 ##### on('timeUpdate')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'timeUpdate', callback: Callback&lt;number&gt;): void
 
 开始订阅音频播放时间更新事件。处于播放状态时，每隔1s上报一次该事件。
@@ -431,6 +459,8 @@ audioPlayer.play();    // 开始播放后，自动触发时间戳更新事件。
 
 ##### on('audioInterrupt')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'audioInterrupt', callback: (info: audio.InterruptEvent) => void): void
 
 监听音频焦点变化事件，参考[audio.InterruptEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#interruptevent9)。
@@ -462,6 +492,8 @@ audioPlayer.on('audioInterrupt', (info: audio.InterruptEvent) => {
 
 
 ##### on('error')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 

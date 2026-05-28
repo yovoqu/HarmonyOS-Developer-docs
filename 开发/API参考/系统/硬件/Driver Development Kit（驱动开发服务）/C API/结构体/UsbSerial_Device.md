@@ -12,6 +12,8 @@ typedef struct UsbSerial_Device UsbSerial_Device
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 USB串口设备数据结构（不透明）。
  
 **起始版本：** 18

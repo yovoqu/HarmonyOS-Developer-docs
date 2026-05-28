@@ -12,6 +12,8 @@ typedef struct HiAppEvent_Watcher HiAppEvent_Watcher
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于接收app事件的监听器。
  
 **起始版本：** 12

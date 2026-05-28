@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSettings } from '@kit.ArkGraphics3D';
 ```
@@ -21,6 +23,8 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
   
 
 ##### ToneMappingType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 色调映射类型枚举。
  
@@ -37,6 +41,8 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
 
 ##### ToneMappingSettings
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 色调映射设置。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -50,6 +56,8 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
   
 
 ##### BloomSettings18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 泛光设置。当[RenderingPipelineType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#renderingpipelinetype21)为FORWARD_LIGHTWEIGHT时，此功能不可用。
  
@@ -67,6 +75,8 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
 
 ##### VignetteSettings22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 边缘暗角设置。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -81,6 +91,8 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
 
 ##### ColorFringeSettings22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 色晕设置。当[RenderingPipelineType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types#renderingpipelinetype21)为FORWARD_LIGHTWEIGHT时，此功能不可用。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -93,6 +105,8 @@ import { ToneMappingType, ToneMappingSettings, BloomSettings, PostProcessSetting
   
 
 ##### PostProcessSettings
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 后处理设置，用于配置相机渲染后的图像处理效果，包括色调映射、泛光、边缘暗角和色晕等，作为[Camera](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes#camera)的postProcess属性来使用。
  

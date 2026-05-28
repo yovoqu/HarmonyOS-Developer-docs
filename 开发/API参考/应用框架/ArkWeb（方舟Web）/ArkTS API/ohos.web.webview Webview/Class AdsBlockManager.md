@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### setAdsBlockRules12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setAdsBlockRules(rulesFile: string, replace: boolean): void
 
@@ -97,6 +101,8 @@ struct WebComponent {
 
 
 ##### addAdsBlockDisallowedList12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static addAdsBlockDisallowedList(domainSuffixes: Array&lt;string&gt;): void
 
@@ -184,6 +190,8 @@ struct WebComponent {
 
 ##### removeAdsBlockDisallowedList12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static removeAdsBlockDisallowedList(domainSuffixes: Array&lt;string&gt;): void
 
 从AdsBlockManager的DisallowedList中删除一组域名。
@@ -270,6 +278,8 @@ struct WebComponent {
 
 ##### clearAdsBlockDisallowedList12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static clearAdsBlockDisallowedList(): void
 
 清空AdsBlockManager的DisallowedList。
@@ -339,6 +349,8 @@ struct WebComponent {
 
 
 ##### addAdsBlockAllowedList12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static addAdsBlockAllowedList(domainSuffixes: Array&lt;string&gt;): void
 
@@ -429,6 +441,8 @@ struct WebComponent {
 
 ##### removeAdsBlockAllowedList12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static removeAdsBlockAllowedList(domainSuffixes: Array&lt;string&gt;): void
 
 从AdsBlockManager的AllowedList中删除一组域名。
@@ -514,6 +528,8 @@ struct WebComponent {
 
 
 ##### clearAdsBlockAllowedList12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static clearAdsBlockAllowedList(): void
 

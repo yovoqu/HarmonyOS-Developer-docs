@@ -12,6 +12,8 @@
 
 ##### WindowType7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口类型枚举。
 
 **系统能力：** SystemCapability.WindowManager.WindowManager.Core
@@ -28,6 +30,8 @@
 
 
 ##### AvoidAreaType7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口内容的避让区域的类型枚举。
 
@@ -49,6 +53,8 @@
 
 
 ##### Orientation9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口显示方向类型枚举。
 
@@ -78,6 +84,8 @@
 
 ##### RectChangeReason12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口矩形（窗口位置及窗口大小）变化的原因。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -99,6 +107,8 @@
 
 ##### ColorSpace8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 色域模式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -114,6 +124,8 @@
 
 
 ##### WindowEventType10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口生命周期。
 
@@ -131,6 +143,8 @@
 
 
 ##### WindowStatusType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口模式枚举。
 
@@ -152,6 +166,8 @@
 
 ##### PixelUnit22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 像素单位枚举。
 
 物理像素单位和虚拟像素单位换算可使用[px2vp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#px2vp12)和[vp2px](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#vp2px12)。
@@ -168,6 +184,8 @@
 
 ##### MaximizePresentation12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口最大化时的布局枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -183,6 +201,8 @@
 
 
 ##### WindowAnimationCurve20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口动画曲线类型。
 
@@ -201,6 +221,8 @@
 
 ##### WindowTransitionType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口转场动画类型枚举。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -216,6 +238,8 @@
 
 ##### AnimationType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口动画类型枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -228,6 +252,8 @@
 
 
 ##### WindowAnchor20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口锚点枚举。
 
@@ -250,6 +276,8 @@
 
 ##### RotationChangeType19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口旋转事件类型。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -266,6 +294,8 @@
 
 ##### RectType19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口矩形区域坐标系类型。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
@@ -281,6 +311,8 @@
 
 
 ##### GlobalWindowMode20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 窗口模式。
 
@@ -300,6 +332,8 @@
 
 ##### OcclusionState22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 窗口可见性状态枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -314,6 +348,8 @@
 
 
 ##### WindowStageEventType9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 WindowStage生命周期状态枚举。
 
@@ -337,6 +373,8 @@ WindowStage生命周期状态枚举。
 
 ##### WindowStageLifecycleEventType20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 WindowStage生命周期的状态类型枚举。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -355,6 +393,8 @@ WindowStage生命周期的状态类型枚举。
 
 ##### ModalityType14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 子窗口模态类型枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -370,6 +410,8 @@ WindowStage生命周期的状态类型枚举。
 
 
 ##### ScreenshotEventType20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 截屏事件类型枚举。
 
@@ -387,6 +429,8 @@ WindowStage生命周期的状态类型枚举。
 
 
 ##### RotationInfoType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 旋转信息类型枚举。
 

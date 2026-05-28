@@ -12,6 +12,8 @@ typedef struct OH_NativeBuffer_Cta861 {...} OH_NativeBuffer_Cta861
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示CTA-861.3静态元数据。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct OH_NativeBuffer_Cta861 {...} OH_NativeBuffer_Cta861
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

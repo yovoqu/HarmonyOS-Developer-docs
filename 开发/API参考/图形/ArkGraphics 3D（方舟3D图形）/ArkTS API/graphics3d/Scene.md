@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { SceneResourceParameters, SceneNodeParameters, RaycastResult, RaycastParameters,RenderResourceFactory,
   SceneResourceFactory, SceneComponent, RenderContext, RenderConfiguration, RenderParameters, Scene } from '@kit.ArkGraphics3D';
@@ -22,6 +24,8 @@ import { SceneResourceParameters, SceneNodeParameters, RaycastResult, RaycastPar
 
 
 ##### SceneResourceParameters
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 场景资源参数对象，包含name和uri，用于提供场景资源的名称以及3D场景所需的资源文件路径。
 
@@ -62,6 +66,8 @@ function createShaderPromise(): Promise<Shader> {
 
 ##### SceneNodeParameters
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 场景节点参数对象，它用于提供场景节点层次中的名称和路径。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -101,6 +107,8 @@ function createNodePromise() : Promise<Node> {
 
 ##### RaycastResult20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 射线检测命中结果对象，包含被射线击中的3D物体详细信息。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -116,6 +124,8 @@ function createNodePromise() : Promise<Node> {
 
 ##### RaycastParameters20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 射线检测参数配置，用于定义射线检测的行为。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -129,11 +139,15 @@ function createNodePromise() : Promise<Node> {
 
 ##### RenderResourceFactory20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于创建可在共享[RenderContext](#rendercontext20)的多个场景（[Scene](#scene-1)）中共享的渲染资源。
 
 
 
 ##### createShader20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createShader(params: SceneResourceParameters): Promise&lt;Shader&gt;
 
@@ -179,6 +193,8 @@ function createShaderResource(): Promise<Shader> {
 
 ##### createImage20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImage(params: SceneResourceParameters): Promise&lt;Image&gt;
 
 根据指定场景资源参数创建一个图像资源，使用Promise异步回调。
@@ -222,6 +238,8 @@ function createImageResource(): Promise<Image> {
 
 
 ##### createMesh20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise&lt;MeshResource&gt;
 
@@ -319,6 +337,8 @@ function createMeshResource(): Promise<MeshResource> {
 
 ##### createSampler20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createSampler(params:SceneResourceParameters): Promise&lt;Sampler&gt;
 
 根据指定场景资源参数创建一个采样器资源，使用Promise异步回调。
@@ -362,6 +382,8 @@ function createSamplerResource(): Promise<Sampler> {
 
 
 ##### createScene20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createScene(uri?: ResourceStr): Promise&lt;Scene&gt;
 
@@ -410,6 +432,8 @@ function createScenePromise(fromFile: boolean = false): Promise<Scene> {
 
 ##### CameraParameters21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机创建参数配置，用于定义相机创建的额外选项。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -424,6 +448,8 @@ function createScenePromise(fromFile: boolean = false): Promise<Scene> {
 
 ##### EffectParameters21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 特效参数配置，用于指定创建特效时所需的特效ID，作为[createEffect](#createeffect21)接口的入参来创建特效对象。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -437,11 +463,15 @@ function createScenePromise(fromFile: boolean = false): Promise<Scene> {
 
 ##### SceneResourceFactory
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于创建3D场景中资源的接口，例如相机、光源等，继承自[RenderResourceFactory](#renderresourcefactory20)。
 
 
 
 ##### createCamera
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createCamera(params: SceneNodeParameters): Promise&lt;Camera&gt;
 
@@ -489,6 +519,8 @@ function createCameraPromise(): Promise<Camera> {
 
 
 ##### createCamera21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createCamera(params: SceneNodeParameters, cameraParams: CameraParameters): Promise&lt;Camera&gt;
 
@@ -540,6 +572,8 @@ function createCameraPromise(): Promise<Camera> {
 
 ##### createLight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createLight(params: SceneNodeParameters, lightType: LightType): Promise&lt;Light&gt;
 
 根据节点参数和灯光类型创建灯光，使用Promise异步回调。
@@ -587,6 +621,8 @@ function createLightPromise() : Promise<Light> {
 
 
 ##### createNode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createNode(params: SceneNodeParameters): Promise&lt;Node&gt;
 
@@ -636,6 +672,8 @@ function createNodePromise(): Promise<Node> {
 
 ##### createMaterial
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createMaterial(params: SceneResourceParameters, materialType: MaterialType): Promise&lt;Material&gt;
 
 根据场景资源参数和材质类型创建材质，使用Promise异步回调。
@@ -684,6 +722,8 @@ function createMaterialPromise() : Promise<Material> {
 
 ##### createEnvironment
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createEnvironment(params: SceneResourceParameters): Promise&lt;Environment&gt;
 
 根据场景资源参数创建环境，使用Promise异步回调。
@@ -731,6 +771,8 @@ function createEnvironmentPromise(): Promise<Environment> {
 
 
 ##### createGeometry18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createGeometry(params: SceneNodeParameters, mesh:MeshResource): Promise&lt;Geometry&gt;
 
@@ -787,6 +829,8 @@ function createGeometryPromise() : Promise<Geometry> {
 
 ##### createEffect21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createEffect(params: EffectParameters): Promise&lt;Effect&gt;
 
 根据特效参数创建特效对象，使用Promise异步回调。
@@ -836,6 +880,8 @@ function createEffect() : Promise<Effect> {
 
 ##### SceneComponent20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示基础场景组件，用于描述场景节点的组件信息，包括组件名称及其对应的属性集合。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -850,11 +896,15 @@ function createEffect() : Promise<Effect> {
 
 ##### RenderContext20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义了所有渲染资源的上下文。在同一渲染上下文中创建的多个场景之间，可以共享渲染资源。
 
 
 
 ##### getRenderResourceFactory20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRenderResourceFactory() : RenderResourceFactory
 
@@ -888,6 +938,8 @@ function getRenderResourceFactory(): void {
 
 
 ##### loadPlugin20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadPlugin(name: string): Promise&lt;boolean&gt;
 
@@ -927,6 +979,8 @@ function loadPlugin(): Promise<boolean> {
 
 
 ##### registerResourcePath20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 registerResourcePath(protocol: string, uri: string): boolean
 
@@ -983,6 +1037,8 @@ function registerResourcePath(): void {
 
 ##### RenderConfiguration23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 渲染配置接口。
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -995,6 +1051,8 @@ function registerResourcePath(): void {
 
 
 ##### RenderParameters15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 渲染参数接口。
 
@@ -1009,11 +1067,15 @@ function registerResourcePath(): void {
 
 ##### Scene
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于设置场景。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUi.Graphics3D
 
@@ -1028,6 +1090,8 @@ function registerResourcePath(): void {
 
 
 ##### load
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static load(uri?: ResourceStr): Promise&lt;Scene&gt;
 
@@ -1101,6 +1165,8 @@ async function loadModelFromAbsolutePath(context: common.UIAbilityContext): Prom
 
 ##### getNodeByPath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getNodeByPath(path: string, type?: NodeType): Node | null
 
 通过路径获取节点。
@@ -1143,6 +1209,8 @@ function getNode(): void {
 
 ##### getResourceFactory
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getResourceFactory(): SceneResourceFactory
 
 获取场景资源工厂对象。
@@ -1177,6 +1245,8 @@ function getFactory(): void {
 
 ##### destroy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 destroy(): void
 
 销毁场景，释放所有的场景资源。
@@ -1203,6 +1273,8 @@ function destroy(): void {
 
 
 ##### importNode18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 importNode(name: string, node: Node, parent: Node | null): Node
 
@@ -1254,6 +1326,8 @@ function ImportNodeTest() {
 
 ##### importScene18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 importScene(name: string, scene: Scene, parent: Node | null): Node
 
 在当前场景中导入其他场景。
@@ -1298,6 +1372,8 @@ function ImportSceneTest() {
 
 ##### renderFrame15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 renderFrame(params?: RenderParameters): boolean
 
 通过该接口可以实现按需渲染，例如控制渲染帧率。
@@ -1339,6 +1415,8 @@ function RenderFrameTest() {
 
 
 ##### createComponent20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createComponent(node: Node, name: string): Promise&lt;SceneComponent&gt;
 
@@ -1389,6 +1467,8 @@ function createComponentTest(): Promise<SceneComponent> {
 
 ##### getComponent20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getComponent(node: Node, name: string): SceneComponent | null
 
 根据指定的组件名称，从给定节点上获取对应的组件实例。
@@ -1438,6 +1518,8 @@ function getComponentTest() {
 
 ##### getDefaultRenderContext20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getDefaultRenderContext(): RenderContext | null
 
 获取当前图形对象所关联的渲染环境信息。
@@ -1470,6 +1552,8 @@ function getDefaultRenderContextTest() {
 
 
 ##### cloneNode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cloneNode(node: Node, parent: Node, name: string): Node | null
 

@@ -14,6 +14,8 @@
 
 ##### executeDrag11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo, callback: AsyncCallback<dragController.DragEventParam>): void
 
 主动发起拖拽能力，传入拖拽发起后跟手效果所拖拽的对象以及携带拖拽信息。通过回调返回拖拽事件结果。
@@ -108,6 +110,8 @@ struct DragControllerPage {
 
 
 ##### executeDrag11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo): Promise<dragController.DragEventParam>
 
@@ -236,6 +240,8 @@ struct DragControllerPage {
 
 
 ##### createDragAction11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction
 
@@ -428,6 +434,8 @@ struct DragControllerPage {
 
 ##### getDragPreview11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDragPreview(): dragController.DragPreview
 
 返回一个代表拖拽背板的对象。
@@ -452,6 +460,8 @@ getDragPreview(): dragController.DragPreview
 
 
 ##### setDragEventStrictReportingEnabled12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDragEventStrictReportingEnabled(enable: boolean): void
 
@@ -497,6 +507,8 @@ import { window, UIContext } from '@kit.ArkUI';
 
 ##### cancelDataLoading15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelDataLoading(key: string): void
 
 当使用[startDataLoading](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#startdataloading15)获取拖拽数据时，可调用该接口取消数据传输。仅可在拖拽释放后调用。
@@ -525,6 +537,8 @@ cancelDataLoading(key: string): void
 
 
 ##### notifyDragStartRequest18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void
 
@@ -614,12 +628,14 @@ struct NormalEts {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/_uQWkYOjQky5qTTjIXCeGQ/zh-cn_image_0000002581435536.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013825Z&HW-CC-Expire=86400&HW-CC-Sign=43775048D43995981B9E82BCB7553134EB5528BDB7FF65A2F7ADA8807BCD9F2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/_uQWkYOjQky5qTTjIXCeGQ/zh-cn_image_0000002581435536.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024120Z&HW-CC-Expire=86400&HW-CC-Sign=45420A97D1D63FBAA514ED82F7E45EB7927C1BA4071C7F518B1EB948BC99E0F7)
 
 
 
 
 ##### enableDropDisallowedBadge20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableDropDisallowedBadge(enabled: boolean): void
 
@@ -692,4 +708,4 @@ struct Index {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/nEC_nrAsStKhWDBnP58kVw/zh-cn_image_0000002611835367.png?HW-CC-KV=V1&HW-CC-Date=20260528T013825Z&HW-CC-Expire=86400&HW-CC-Sign=904F9180F70EB22C55856FDA3C0B88E09E84DE850C1F71DF88DC0C99FED33F7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/nEC_nrAsStKhWDBnP58kVw/zh-cn_image_0000002611835367.png?HW-CC-KV=V1&HW-CC-Date=20260528T024120Z&HW-CC-Expire=86400&HW-CC-Sign=8C0887F2BA5870A65DD604DA74E129213BF83CD4FC9E3C66F70995CC2CE659FC)

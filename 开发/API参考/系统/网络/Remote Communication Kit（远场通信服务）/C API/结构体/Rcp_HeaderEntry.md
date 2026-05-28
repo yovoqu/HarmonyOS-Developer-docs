@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 请求或响应的标头的所有键值对。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### key
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char* Rcp_HeaderEntry::key
@@ -50,6 +60,8 @@ char* Rcp_HeaderEntry::key
 
 ##### next
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 struct Rcp_HeaderEntry* Rcp_HeaderEntry::next
 ```
@@ -61,6 +73,8 @@ struct Rcp_HeaderEntry* Rcp_HeaderEntry::next
   
 
 ##### value
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_HeaderValue* Rcp_HeaderEntry::value

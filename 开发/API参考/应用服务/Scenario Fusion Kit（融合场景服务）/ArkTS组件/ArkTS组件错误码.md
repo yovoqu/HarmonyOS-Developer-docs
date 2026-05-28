@@ -28,6 +28,8 @@
 
 ##### 10004 系统内部异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
  
 Internal error.
@@ -48,6 +50,8 @@ Internal error.
 
 ##### 10006 获取分享数据失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
  
 Failed to get data.
@@ -67,6 +71,8 @@ Failed to get data.
   
 
 ##### 10008 调用方非元服务
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
  

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { floatingBall } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { floatingBall } from '@kit.ArkUI';
 
 
 ##### floatingBall.isFloatingBallEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFloatingBallEnabled(): boolean
 
@@ -45,6 +49,8 @@ console.info('Floating ball enabled is: ' + enable);
 
 
 ##### floatingBall.create
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(config: FloatingBallConfiguration): Promise&lt;FloatingBallController&gt;
 
@@ -107,6 +113,8 @@ try {
 
 ##### FloatingBallConfiguration
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 创建闪控球控制器时需要提供的参数配置。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -120,6 +128,8 @@ try {
 
 ##### FloatingBallController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控球控制器实例，用于启动、更新、停止闪控球以及注册回调等操作。
 
 下列API示例中都需先使用[floatingBall.create()](#floatingballcreate)方法获取到闪控球控制器实例（即floatingBallController），再通过此实例调用对应方法。
@@ -129,6 +139,8 @@ try {
 
 
 ##### startFloatingBall
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 
@@ -193,6 +205,8 @@ try {
 
 ##### updateFloatingBall
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateFloatingBall(params: FloatingBallParams): Promise&lt;void&gt;
 
 更新闪控球，使用Promise异步回调。
@@ -255,6 +269,8 @@ try {
 
 ##### stopFloatingBall
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopFloatingBall(): Promise&lt;void&gt;
 
 停止闪控球，使用Promise异步回调。
@@ -294,6 +310,8 @@ floatingBallController.stopFloatingBall().then(() => {
 
 
 ##### on('stateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'stateChange', callback: Callback&lt;FloatingBallState&gt;): void
 
@@ -338,6 +356,8 @@ try {
 
 ##### off('stateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'stateChange', callback?: Callback&lt;FloatingBallState&gt;): void
 
 取消闪控球生命周期状态变化的监听事件。
@@ -379,6 +399,8 @@ try {
 
 
 ##### on('click')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'click', callback: Callback&lt;void&gt;): void
 
@@ -423,6 +445,8 @@ try {
 
 ##### off('click')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'click', callback?: Callback&lt;void&gt;): void
 
 取消闪控球点击的监听事件。
@@ -464,6 +488,8 @@ try {
 
 
 ##### getFloatingBallWindowInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFloatingBallWindowInfo(): Promise&lt;FloatingBallWindowInfo&gt;
 
@@ -507,6 +533,8 @@ floatingBallController.getFloatingBallWindowInfo().then((data: floatingBall.Floa
 
 
 ##### restoreMainWindow
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 restoreMainWindow(want: Want): Promise&lt;void&gt;
 
@@ -572,6 +600,8 @@ try {
 
 ##### setFloatingBallVisibilityInApp24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFloatingBallVisibilityInApp(isVisible: boolean): Promise&lt;void&gt;
 
 设置闪控球在应用内是否可见。使用Promise异步回调。
@@ -626,6 +656,8 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 ##### FloatingBallParams
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 启动和更新闪控球的配置参数。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -643,6 +675,8 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 ##### FloatingBallState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 闪控球生命周期状态的枚举。
 
 **系统能力：** SystemCapability.Window.SessionManager
@@ -656,6 +690,8 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 
 ##### FloatingBallTemplate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 闪控球模板类型的枚举。
 
@@ -672,6 +708,8 @@ floatingBallController?.setFloatingBallVisibilityInApp(false).then(() => {
 
 
 ##### FloatingBallWindowInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 闪控球窗口信息。
 

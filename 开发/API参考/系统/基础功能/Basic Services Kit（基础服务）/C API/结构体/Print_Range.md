@@ -12,6 +12,8 @@ typedef struct {...} Print_Range
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 表示打印范围结构体。
  
 **起始版本：** 13
@@ -24,9 +26,13 @@ typedef struct {...} Print_Range
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

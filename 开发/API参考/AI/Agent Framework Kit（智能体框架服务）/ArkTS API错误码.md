@@ -12,6 +12,8 @@
 
 ##### 1022400010 参数错误
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
  
 Parameter error.
@@ -31,6 +33,8 @@ Parameter error.
   
 
 ##### 1022400011 隐私协议未授权
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  
@@ -52,6 +56,8 @@ Privacy agreement not accepted.
 
 ##### 1022400012 未登录华为账户
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
  
 HUAWEI ID not signed in.
@@ -72,6 +78,8 @@ HUAWEI ID not signed in.
 
 ##### 1022400013 网络错误
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
  
 Internet error.
@@ -91,6 +99,8 @@ Internet error.
   
 
 ##### 1022400014 内部错误
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  

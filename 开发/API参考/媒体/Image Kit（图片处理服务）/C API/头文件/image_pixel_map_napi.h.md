@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明可以锁定并访问pixelmap数据的方法，声明解锁的方法。
  
 **库：** libpixelmap_ndk.z.so
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -46,6 +54,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -58,9 +68,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 方法返回的错误码
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum anonymous enum
@@ -83,6 +97,8 @@ enum anonymous enum
   
 
 ##### 像素格式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum anonymous enum
@@ -107,6 +123,8 @@ enum anonymous enum
 
 ##### PixelMap缩放类型
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum anonymous enum
 ```
@@ -127,9 +145,13 @@ PixelMap缩放类型的枚举。
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_GetImageInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_GetImageInfo(napi_env env, napi_value value, OhosPixelMapInfo *info)
@@ -162,6 +184,8 @@ int32_t OH_GetImageInfo(napi_env env, napi_value value, OhosPixelMapInfo *info)
   
 
 ##### OH_AccessPixels()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_AccessPixels(napi_env env, napi_value value, void** addrPtr)
@@ -196,6 +220,8 @@ int32_t OH_AccessPixels(napi_env env, napi_value value, void** addrPtr)
   
 
 ##### OH_UnAccessPixels()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_UnAccessPixels(napi_env env, napi_value value)

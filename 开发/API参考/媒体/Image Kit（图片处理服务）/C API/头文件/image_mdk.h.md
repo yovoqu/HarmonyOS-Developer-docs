@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明访问图像矩形、大小、格式和组件数据的函数。
 
 **引用文件：** <multimedia/image_framework/image_mdk.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -38,6 +44,8 @@
 
 ##### 枚举
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 名称 | 描述 |
 | --- | --- |
 | 图像格式 | 图像格式枚举值。 |
@@ -47,6 +55,8 @@
 
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |
@@ -62,9 +72,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 图像格式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum anonymous enum
@@ -85,6 +99,8 @@ enum anonymous enum
 
 
 ##### 图像颜色通道类型
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum anonymous enum
@@ -108,9 +124,13 @@ enum anonymous enum
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### OH_Image_InitImageNative()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 ImageNative* OH_Image_InitImageNative(napi_env env, napi_value source)
@@ -145,6 +165,8 @@ ImageNative* OH_Image_InitImageNative(napi_env env, napi_value source)
 
 ##### OH_Image_ClipRect()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_Image_ClipRect(const ImageNative* native, struct OhosImageRect* rect)
 ```
@@ -173,6 +195,8 @@ int32_t OH_Image_ClipRect(const ImageNative* native, struct OhosImageRect* rect)
 
 
 ##### OH_Image_Size()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_Image_Size(const ImageNative* native, struct OhosImageSize* size)
@@ -207,6 +231,8 @@ ImageNative对象所存储的数据是预览流还是拍照流，取决于应用
 
 ##### OH_Image_Format()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_Image_Format(const ImageNative* native, int32_t* format)
 ```
@@ -235,6 +261,8 @@ int32_t OH_Image_Format(const ImageNative* native, int32_t* format)
 
 
 ##### OH_Image_GetComponent()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_Image_GetComponent(const ImageNative* native, int32_t componentType, struct OhosImageComponent* componentNative)
@@ -265,6 +293,8 @@ int32_t OH_Image_GetComponent(const ImageNative* native, int32_t componentType, 
 
 
 ##### OH_Image_Release()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_Image_Release(ImageNative* native)

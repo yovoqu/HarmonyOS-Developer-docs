@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供AbilityRuntime模块上下文常量的定义。
 
 **引用文件：** <AbilityKit/ability_runtime/context_constant.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -39,9 +45,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### AbilityRuntime_AreaMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AbilityRuntime_AreaMode
@@ -66,6 +76,8 @@ enum AbilityRuntime_AreaMode
 
 ##### AbilityRuntime_StartVisibility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum AbilityRuntime_StartVisibility
 ```
@@ -86,6 +98,8 @@ enum AbilityRuntime_StartVisibility
 
 ##### AbilityRuntime_WindowMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum AbilityRuntime_WindowMode
 ```
@@ -105,6 +119,8 @@ enum AbilityRuntime_WindowMode
 
 
 ##### AbilityRuntime_SupportedWindowMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum AbilityRuntime_SupportedWindowMode

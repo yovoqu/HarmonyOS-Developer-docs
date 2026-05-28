@@ -14,6 +14,8 @@
 
 ##### NotificationRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力**：SystemCapability.Notification.Notification
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -63,6 +65,8 @@
 
 ##### DistributedOptions8+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述跨设备协同选项。预留能力，暂未支持。
 
 **系统能力**：SystemCapability.Notification.Notification
@@ -77,6 +81,8 @@
 
 
 ##### NotificationParameters24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述[NotificationRequest](#notificationrequest-1)中wantAgent的部分信息。
 

@@ -22,6 +22,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AppStorageV2, PersistenceV2, UIUtils } from '@kit.ArkUI';
 ```
@@ -30,11 +32,15 @@ import { AppStorageV2, PersistenceV2, UIUtils } from '@kit.ArkUI';
 
 ##### AppStorageV2
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AppStorageV2具体UI使用说明，详见[AppStorageV2(应用全局的UI状态存储)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-appstoragev2)。
 
 
 
 ##### connect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static connect<T extends object>(
 
@@ -96,6 +102,8 @@ const as3: SampleClass = AppStorageV2.connect(SampleClass) as SampleClass;
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static remove&lt;T&gt;(keyOrType: string | TypeConstructorWithArgs&lt;T&gt;): void
 
 将指定的键值对数据从[AppStorageV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-appstoragev2)里面删除。如果指定的键值不存在于AppStorageV2中，将删除失败。
@@ -132,6 +140,8 @@ AppStorageV2.remove('key_as1');
 
 ##### keys
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static keys(): Array&lt;string&gt;
 
 获取[AppStorageV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-appstoragev2)中的所有key。
@@ -162,11 +172,15 @@ const keys: Array<string> = AppStorageV2.keys();
 
 ##### PersistenceV2
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 继承自[AppStorageV2](#appstoragev2)，PersistenceV2具体UI使用说明，详见[PersistenceV2(持久化存储UI状态)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-persistencev2)。
 
 
 
 ##### globalConnect18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static globalConnect<T extends object>(type: ConnectOptions&lt;T&gt;): T | undefined
 
@@ -241,6 +255,8 @@ const p3: Sample = PersistenceV2.globalConnect({
 
 
 ##### globalConnect23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static globalConnect<T extends CollectionType&lt;S&gt;, S extends object>(
 
@@ -338,6 +354,8 @@ struct Page1 {
 
 ##### save
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static save&lt;T&gt;(keyOrType: string | TypeConstructorWithArgs&lt;T&gt;): void
 
 将指定的键值对数据持久化一次。
@@ -379,6 +397,8 @@ PersistenceV2.save('key_as1');
 
 ##### notifyOnError
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static notifyOnError(callback: PersistenceErrorCallback | undefined): void
 
 在持久化失败时调用。
@@ -407,6 +427,8 @@ PersistenceV2.notifyOnError((key: string, reason: string, msg: string) => {
 
 ##### ConnectOptions&lt;T&gt;18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 globalConnect参数类型。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -424,6 +446,8 @@ globalConnect参数类型。
 
 
 ##### ConnectOptionsCollections<T, S>23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [globalConnect](#globalconnect23)接口参数类型，ConnectOptionsCollections<T, S>继承自[ConnectOptions&lt;T&gt;](#connectoptionst18)。当开发者需要持久化容器类型数据（如Array&lt;S&gt;）时，需要使用ConnectOptionsCollections入参。
 
@@ -526,6 +550,8 @@ struct Comp {
 
 ##### CollectionType23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type CollectionType&lt;S&gt; = Array&lt;S&gt; | Map<string | number, S> |
 
 Set&lt;S&gt; | collections.Array&lt;S&gt; | collections.Map<string | number, S> | collections.Set&lt;S&gt;
@@ -552,6 +578,8 @@ globalConnect的入参泛型，用于定义globalConnect支持的持久化集合
 
 ##### ObservedResult23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 对象是否可被观察的结果。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
@@ -570,6 +598,8 @@ globalConnect的入参泛型，用于定义globalConnect支持的持久化集合
 
 
 ##### DecoratorInfo23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可被观察对象关联的装饰器和组件信息。
 
@@ -592,6 +622,8 @@ globalConnect的入参泛型，用于定义globalConnect支持的持久化集合
 
 ##### ElementInfo23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可被观察对象关联的组件信息，包含系统组件和自定义组件。
 
 **元服务API：** 从API version 23开始，该接口支持在元服务中使用。
@@ -610,11 +642,15 @@ globalConnect的入参泛型，用于定义globalConnect支持的持久化集合
 
 ##### UIUtils
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 UIUtils提供一些方法，用于处理状态管理相关的数据转换。
 
 
 
 ##### getTarget
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getTarget<T extends object>(source: T): T
 
@@ -668,6 +704,8 @@ struct Index {
 
 ##### getLifecycle23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getLifecycle<T extends BaseCustomComponent>(customComponent: T): CustomComponentLifecycle
 
 getLifecycle用于获取[自定义组件的生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-new-lifecycle)实例。
@@ -718,6 +756,8 @@ struct Index {
 
 
 ##### canBeObserved23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static canBeObserved<T extends object>(source: T): ObservedResult
 
@@ -858,6 +898,8 @@ export struct School {
 
 ##### makeObserved
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static makeObserved<T extends object>(source: T): T
 
 将普通不可观察数据变为可观察数据。详见[makeObserved接口：将非观察数据变为可观察数据](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved)。
@@ -913,6 +955,8 @@ struct Index {
 
 
 ##### enableV2Compatibility19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static enableV2Compatibility<T extends object>(source: T): T
 
@@ -980,6 +1024,8 @@ struct CompV2 {
 
 
 ##### makeV1Observed19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeV1Observed<T extends object>(source: T): T
 
@@ -1055,6 +1101,8 @@ struct Child {
 
 ##### makeBinding20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static makeBinding&lt;T&gt;(getter: GetterCallback&lt;T&gt;): Binding&lt;T&gt;
 
 创建只读的单向数据绑定实例，用于构建[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)函数中参数类型为Binding的对应实参。
@@ -1124,6 +1172,8 @@ struct CompV2 {
 
 
 ##### makeBinding20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static makeBinding&lt;T&gt;(getter: GetterCallback&lt;T&gt;, setter: SetterCallback&lt;T&gt;): MutableBinding&lt;T&gt;
 
@@ -1199,6 +1249,8 @@ struct CompV2 {
 
 
 ##### addMonitor20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static addMonitor(target: object, path: string | string[], monitorCallback: MonitorCallback, options?: MonitorOptions): void
 
@@ -1280,6 +1332,8 @@ struct Index {
 
 
 ##### clearMonitor20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static clearMonitor(target: object, path: string | string[], monitorCallback?: MonitorCallback): void
 
@@ -1368,6 +1422,8 @@ struct Index {
 
 ##### applySync22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static applySync&lt;T&gt;(task: TaskCallback): T
 
 同步刷新指定的状态变量，该接口接收一个闭包函数，仅刷新闭包函数内的修改，包括更新[@Computed计算](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-computed)、[@Monitor回调](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)以及重新渲染UI节点，详见[applySync/flushUpdates/flushUIUpdates接口：同步刷新](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-applysync-flushupdates-flushuiupdates)。
@@ -1449,6 +1505,8 @@ struct Index {
 
 ##### flushUpdates22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static flushUpdates(): void
 
 同步刷新在调用该函数之前所有的状态变量修改，包括更新@Computed计算、@Monitor回调以及重新渲染UI节点，详见[applySync/flushUpdates/flushUIUpdates接口：同步刷新](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-applysync-flushupdates-flushuiupdates)。
@@ -1515,6 +1573,8 @@ struct Index {
 
 
 ##### flushUIUpdates22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static flushUIUpdates(): void
 
@@ -1583,6 +1643,8 @@ struct Index {
 
 ##### TaskCallback22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type TaskCallback = () => T
 
 同步执行的回调方法。
@@ -1602,6 +1664,8 @@ type TaskCallback = () => T
 
 ##### MonitorOptions20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [addMonitor](#addmonitor20)的可选参数，用于配置回调类型。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -1616,6 +1680,8 @@ type TaskCallback = () => T
 
 
 ##### MonitorCallback20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type MonitorCallback = (monitorValue: IMonitor) => void
 
@@ -1635,6 +1701,8 @@ type MonitorCallback = (monitorValue: IMonitor) => void
 
 
 ##### StorageDefaultCreator&lt;T&gt;
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type StorageDefaultCreator&lt;T&gt; = () => T
 
@@ -1688,11 +1756,15 @@ struct SampleComp {
 
 ##### TypeConstructorWithArgs&lt;T&gt;
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 含有任意入参的类构造器。
 
 
 
 ##### new
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 new(...args: any): T
 
@@ -1752,6 +1824,8 @@ struct SampleComp {
 
 
 ##### PersistenceErrorCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type PersistenceErrorCallback = (key: string, reason: 'quota' | 'serialization' | 'unknown', message: string) => void
 
@@ -1816,11 +1890,15 @@ struct Index {
 
 ##### TypeConstructor&lt;T&gt;
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 类构造函数。
 
 
 
 ##### new
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 new(): T
 
@@ -1876,6 +1954,8 @@ struct Index {
 
 
 ##### TypeDecorator
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type TypeDecorator = &lt;T&gt;(type: TypeConstructor&lt;T&gt;) => PropertyDecorator
 
@@ -1960,6 +2040,8 @@ class Sample {
 
 ##### GetterCallback20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type GetterCallback&lt;T&gt; = () => T
 
 获取值的回调方法。
@@ -2014,6 +2096,8 @@ struct CompV2 {
 
 
 ##### SetterCallback20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SetterCallback&lt;T&gt; = (newValue: T) => void
 
@@ -2073,11 +2157,15 @@ struct CompV2 {
 
 ##### Binding&lt;T&gt;20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 只读数据绑定的泛型类，可以绑定任意类型的数据。
 
 
 
 ##### value20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get value(): T
 
@@ -2135,11 +2223,15 @@ struct CompV2 {
 
 ##### MutableBinding&lt;T&gt;20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可变数据绑定的泛型类，允许对绑定值进行读写操作，提供完整的get和set访问器。
 
 
 
 ##### value20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set value(newValue: T)
 
@@ -2159,6 +2251,8 @@ set value(newValue: T)
 
 
 ##### value20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get value(): T
 

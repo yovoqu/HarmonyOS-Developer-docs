@@ -12,6 +12,8 @@ typedef struct Location_BasicInfo {...} Location_BasicInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义位置基本信息的结构体。
  
 **起始版本：** 13
@@ -24,9 +26,13 @@ typedef struct Location_BasicInfo {...} Location_BasicInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

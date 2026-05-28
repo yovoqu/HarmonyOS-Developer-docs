@@ -20,6 +20,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
 ```
@@ -28,10 +30,12 @@ import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
 
 ##### FaultLogExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用接入故障延迟通知需要通过FaultLogExtensionAbility实现，开发者可以在[onFaultReportReady](#onfaultreportready)中订阅并处理故障事件。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/SDqqCpDVQYGcFMEuBg7A9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013531Z&HW-CC-Expire=86400&HW-CC-Sign=A23ADA493E795255EAEA9259E618F606812129563EC16C61EEE60757CAC399B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/SDqqCpDVQYGcFMEuBg7A9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T023831Z&HW-CC-Expire=86400&HW-CC-Sign=03DA0C3448827657935F468719CBCB9713EE22B16955134C75639BD4DEEAB168)
 
 
  - FaultLogExtensionAbility被拉起后只有很短的时间完成故障处理，建议处理时间不要超过10秒。超时没有处理完成可以在[onDisconnect](#ondisconnect)中保存状态。
@@ -45,6 +49,8 @@ import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力**：SystemCapability.HiviewDFX.Hiview.FaultLogger
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -55,6 +61,8 @@ import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
 
 
 ##### onConnect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onConnect(): void
 
@@ -76,6 +84,8 @@ export default class MyFaultLogExtension extends FaultLogExtensionAbility {
 
 ##### onDisconnect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onDisconnect(): void
 
 FaultLogExtensionAbility生命周期回调。当系统服务完成断开连接时调用此接口，用于释放资源清理运行状态，该方法可选择性重写。
@@ -95,6 +105,8 @@ export default class MyFaultLogExtension extends FaultLogExtensionAbility {
 
 
 ##### onFaultReportReady
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onFaultReportReady(): void
 
@@ -128,6 +140,8 @@ export default class MyFaultLogExtension extends FaultLogExtensionAbility {
 
 
 ##### 附录
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块不允许调用的API名单如下。
 

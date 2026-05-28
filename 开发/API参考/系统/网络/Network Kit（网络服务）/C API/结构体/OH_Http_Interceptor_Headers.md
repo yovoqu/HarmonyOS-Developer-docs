@@ -15,6 +15,8 @@ typedef struct OH_Http_Interceptor_Headers {
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义拦截器的请求/响应头信息。
  
 **起始版本：** 24
@@ -27,9 +29,13 @@ typedef struct OH_Http_Interceptor_Headers {
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

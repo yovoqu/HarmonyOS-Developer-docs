@@ -12,6 +12,8 @@ typedef struct DDK_Ashmem {...} DDK_Ashmem
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 定义通过接口[OH_DDK_CreateAshmem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ddk-api-h#oh_ddk_createashmem)创建的共享内存，共享内存的缓冲区提供更好的性能。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct DDK_Ashmem {...} DDK_Ashmem
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |

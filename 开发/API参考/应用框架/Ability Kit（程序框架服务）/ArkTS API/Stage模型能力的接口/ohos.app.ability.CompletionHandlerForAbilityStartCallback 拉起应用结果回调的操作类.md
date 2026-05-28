@@ -14,6 +14,8 @@ CompletionHandlerForAbilityStartCallback作为[AbilityStartCallback](https://dev
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { CompletionHandlerForAbilityStartCallback } from '@kit.AbilityKit';
 ```
@@ -22,11 +24,15 @@ import { CompletionHandlerForAbilityStartCallback } from '@kit.AbilityKit';
 
 ##### CompletionHandlerForAbilityStartCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 CompletionHandlerForAbilityStartCallback提供了onRequestSuccess和onRequestFailure两个回调函数属性，分别在拉起指定类型的Ability组件成功和失败时回调。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
   
@@ -39,6 +45,8 @@ CompletionHandlerForAbilityStartCallback提供了onRequestSuccess和onRequestFai
   
 
 ##### OnRequestSuccessFn
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnRequestSuccessFn = (name: string) => void
  
@@ -62,6 +70,8 @@ type OnRequestSuccessFn = (name: string) => void
   
 
 ##### OnRequestFailureFn
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type OnRequestFailureFn = (name: string, failureCode: AbilityStartFailureCode, failureMessage: string) => void
  
@@ -137,6 +147,8 @@ struct Index {
   
 
 ##### AbilityStartFailureCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 拉起指定类型的Ability组件失败的特定错误码。
  

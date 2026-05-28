@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { StartupConfig } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { StartupConfig } from '@kit.AbilityKit';
 
 
 ##### StartupConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于配置任务超时时间和启动框架的监听器。详细使用方法可参考[设置启动参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-startup#设置启动参数)章节。
 

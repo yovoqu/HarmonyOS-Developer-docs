@@ -28,6 +28,8 @@ LightWeightMap和[HashMap](https://developer.huawei.com/consumer/cn/doc/harmonyo
 
 ##### 规格限制
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 当LightWeightMap存入的key为number类型且值大于INT32_MAX或小于INT32_MIN时，针对LightWeightMap的操作，其结果可能与预期不一致。
 
 这是因为，当key为number类型且值大于INT32_MAX或小于INT32_MIN时，存储结构会发生改变。
@@ -46,6 +48,8 @@ console.info("result:", mp.hasKey(key));  // result: true
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { LightWeightMap } from '@kit.ArkTS';
 ```
@@ -54,9 +58,13 @@ import { LightWeightMap } from '@kit.ArkTS';
 
 ##### LightWeightMap
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -70,6 +78,8 @@ import { LightWeightMap } from '@kit.ArkTS';
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -97,6 +107,8 @@ let lightWeightMap = new LightWeightMap<string, number>();
 
 
 ##### isEmpty
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEmpty(): boolean
 
@@ -133,6 +145,8 @@ console.info("result:", result);  // result: true
 
 
 ##### hasAll
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasAll(map: LightWeightMap<K, V>): boolean
 
@@ -182,6 +196,8 @@ console.info("result = ", result); // result = true
 
 ##### hasKey
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasKey(key: K): boolean
 
 判断LightWeightMap中是否包含指定key。
@@ -225,6 +241,8 @@ console.info("result:", result);  // result: true
 
 
 ##### hasValue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hasValue(value: V): boolean
 
@@ -270,6 +288,8 @@ console.info("result:", result);  // result: true
 
 ##### increaseCapacityTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 increaseCapacityTo(minimumCapacity: number): void
 
 将当前LightWeightMap扩容至指定容量。如果传入的容量值大于或等于当前LightWeightMap中的元素个数，将容量变更为新容量，小于则不会变更。
@@ -305,6 +325,8 @@ lightWeightMap.increaseCapacityTo(10);
 
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(key: K): V
 
@@ -351,6 +373,8 @@ console.info("result:", result);  // result: 356
 
 ##### getIndexOfKey
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getIndexOfKey(key: K): number
 
 查找key元素首次出现的下标值，如果未找到返回-1。
@@ -396,6 +420,8 @@ console.info("result:", result);  // result: 0
 
 ##### getIndexOfValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getIndexOfValue(value: V): number
 
 查找value元素首次出现的下标值，如果未找到则返回-1。
@@ -440,6 +466,8 @@ console.info("result:", result);  // result: 1
 
 
 ##### getKeyAt
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getKeyAt(index: number): K
 
@@ -488,6 +516,8 @@ console.info("result:", result);  // result: squirrel
 
 ##### setAll
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAll(map: LightWeightMap<K, V>): void
 
 将一个LightWeightMap中的所有元素组添加到另一个LightWeightMap中。
@@ -528,6 +558,8 @@ console.info("result:", result);  // result: 356
 
 
 ##### set
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 set(key: K, value: V): Object
 
@@ -573,6 +605,8 @@ console.info("result:", result);  // result: squirrel:123
 
 ##### remove
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 remove(key: K): V
 
 删除指定key映射的元素。
@@ -616,6 +650,8 @@ console.info("result:", result);  // result: 356
 
 
 ##### removeAt
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeAt(index: number): boolean
 
@@ -662,6 +698,8 @@ console.info("result:", result);  // result: true
 
 
 ##### setValueAt
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setValueAt(index: number, newValue: V): boolean
 
@@ -711,6 +749,8 @@ console.info("result:", lightWeightMap.get("squirrel"));  // result: 3546
 
 ##### getValueAt
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getValueAt(index: number): V
 
 获取指定下标对应键值对中的值。
@@ -758,6 +798,8 @@ console.info("result:", result);  // result: 123
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清除LightWeightMap中的所有元素，并将length置为0。
@@ -789,6 +831,8 @@ console.info("result:", result);  // result: true
 
 
 ##### keys
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 keys(): IterableIterator&lt;K&gt;
 
@@ -832,6 +876,8 @@ for (let key of keys) {
 
 ##### values
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 values(): IterableIterator&lt;V&gt;
 
 返回包含此映射中所有键值的新迭代器对象。
@@ -873,6 +919,8 @@ for (let value of values) {
 
 
 ##### forEach
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 forEach(callbackFn: (value?: V, key?: K, map?: LightWeightMap<K, V>) => void, thisArg?: Object): void
 
@@ -937,6 +985,8 @@ for(let i = 0; i < 10; i++) {
 
 ##### entries
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 entries(): IterableIterator<[K, V]>
 
 返回包含此映射中所有键值对的新迭代器对象。
@@ -991,6 +1041,8 @@ for(let i = 0; i < 10; i++) {
 
 ##### toString
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toString(): String
 
 将此映射中包含的键值对拼接成字符串并返回。
@@ -1028,6 +1080,8 @@ console.info("result:", result);  // result: sparrow:356,squirrel:123
 
 
 ##### [Symbol.iterator]
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Symbol.iterator](): IterableIterator<[K, V]>
 

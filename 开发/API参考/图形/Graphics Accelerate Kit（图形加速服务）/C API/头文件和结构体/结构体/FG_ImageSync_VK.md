@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述超帧输入输出图像同步状态信息，用于创建超帧图像内存屏障。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### accessMask
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 VkAccessFlagBits FG_ImageSync_VK::accessMask
@@ -50,6 +60,8 @@ VkAccessFlagBits FG_ImageSync_VK::accessMask
 
 ##### layout
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 VkImageLayout FG_ImageSync_VK::layout
 ```
@@ -61,6 +73,8 @@ VkImageLayout FG_ImageSync_VK::layout
   
 
 ##### stages
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 VkPipelineStageFlagBits FG_ImageSync_VK::stages

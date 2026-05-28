@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { appManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { appManager } from '@kit.AbilityKit';
   
 
 ##### ApplicationStateObserver.onForegroundApplicationChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onForegroundApplicationChanged(appStateData: AppStateData): void
  
@@ -39,6 +43,8 @@ onForegroundApplicationChanged(appStateData: AppStateData): void
 
 ##### ApplicationStateObserver.onAbilityStateChanged
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAbilityStateChanged(abilityStateData: AbilityStateData): void
  
 Ability状态发生变化时执行的回调函数。
@@ -55,6 +61,8 @@ Ability状态发生变化时执行的回调函数。
   
 
 ##### ApplicationStateObserver.onProcessCreated
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onProcessCreated(processData: ProcessData): void
  
@@ -73,6 +81,8 @@ onProcessCreated(processData: ProcessData): void
 
 ##### ApplicationStateObserver.onProcessDied
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onProcessDied(processData: ProcessData): void
  
 进程销毁时执行的回调函数。
@@ -89,6 +99,8 @@ onProcessDied(processData: ProcessData): void
   
 
 ##### ApplicationStateObserver.onProcessStateChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onProcessStateChanged(processData: ProcessData): void
  
@@ -107,6 +119,8 @@ onProcessStateChanged(processData: ProcessData): void
 
 ##### ApplicationStateObserver.onAppStarted
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAppStarted(appStateData: AppStateData): void
  
 应用第一个进程创建时执行的回调函数。
@@ -124,6 +138,8 @@ onAppStarted(appStateData: AppStateData): void
 
 ##### ApplicationStateObserver.onAppStopped
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAppStopped(appStateData: AppStateData): void
  
 应用最后一个进程销毁时执行的回调函数。
@@ -140,6 +156,8 @@ onAppStopped(appStateData: AppStateData): void
   
 
 ##### ProcessData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ProcessData = _ProcessData.default
  

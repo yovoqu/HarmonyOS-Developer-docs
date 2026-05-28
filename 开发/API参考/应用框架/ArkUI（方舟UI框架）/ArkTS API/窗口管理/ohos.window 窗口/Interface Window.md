@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { window } from '@kit.ArkUI';
 ```
@@ -23,6 +25,8 @@ import { window } from '@kit.ArkUI';
 
 
 ##### showWindow9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showWindow(callback: AsyncCallback&lt;void&gt;): void
 
@@ -108,6 +112,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### showWindow9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showWindow(): Promise&lt;void&gt;
 
 显示当前窗口，使用Promise异步回调，支持系统窗口、应用子窗口、模态窗和全局悬浮窗，或将已显示的应用主窗口层级提升至顶部。
@@ -190,6 +196,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### showWindow20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showWindow(options: ShowWindowOptions): Promise&lt;void&gt;
 
@@ -287,6 +295,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### destroyWindow9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 destroyWindow(callback: AsyncCallback&lt;void&gt;): void
 
 销毁当前窗口，使用callback异步回调，支持系统窗口及应用子窗口，全局悬浮窗和模态窗。
@@ -330,6 +340,8 @@ windowClass.destroyWindow((err) => {
 
 ##### destroyWindow9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 destroyWindow(): Promise&lt;void&gt;
 
 销毁当前窗口，使用Promise异步回调，支持系统窗口及应用子窗口，全局悬浮窗和模态窗。
@@ -370,6 +382,8 @@ promise.then(() => {
 
 
 ##### moveWindowTo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveWindowTo(x: number, y: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -425,6 +439,8 @@ try {
 
 
 ##### moveWindowTo9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveWindowTo(x: number, y: number): Promise&lt;void&gt;
 
@@ -484,6 +500,8 @@ try {
 
 
 ##### moveWindowToAsync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveWindowToAsync(x: number, y: number): Promise&lt;void&gt;
 
@@ -557,6 +575,8 @@ try {
 
 
 ##### moveWindowToAsync15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveWindowToAsync(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise&lt;void&gt;
 
@@ -636,6 +656,8 @@ try {
 
 ##### moveWindowToGlobal13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveWindowToGlobal(x: number, y: number): Promise&lt;void&gt;
 
 基于屏幕坐标移动窗口位置，使用Promise异步回调。调用生效后返回，回调中可使用[getWindowProperties()](#getwindowproperties9)（见示例）立即获取最终生效结果。
@@ -699,6 +721,8 @@ try {
 
 
 ##### moveWindowToGlobal15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveWindowToGlobal(x: number, y: number, moveConfiguration?: MoveConfiguration): Promise&lt;void&gt;
 
@@ -769,6 +793,8 @@ try {
 
 ##### moveWindowToGlobalDisplay20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 moveWindowToGlobalDisplay(x: number, y: number): Promise&lt;void&gt;
 
 基于[全局坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#全局坐标系)移动窗口位置，使用Promise异步回调。
@@ -830,6 +856,8 @@ try {
 
 ##### clientToGlobalDisplay20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clientToGlobalDisplay(winX: number, winY: number): Position
 
 将相对于当前窗口左上角的坐标转换为相对于主屏幕左上角的全局坐标。
@@ -880,6 +908,8 @@ try {
 
 ##### globalDisplayToClient20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 globalDisplayToClient(globalDisplayX: number, globalDisplayY: number): Position
 
 将相对于主屏幕左上角的全局坐标转换为相对于当前窗口左上角的坐标。
@@ -929,6 +959,8 @@ try {
 
 
 ##### resize9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resize(width: number, height: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -996,6 +1028,8 @@ try {
 
 
 ##### resize9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resize(width: number, height: number): Promise&lt;void&gt;
 
@@ -1067,6 +1101,8 @@ try {
 
 
 ##### resizeAsync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resizeAsync(width: number, height: number): Promise&lt;void&gt;
 
@@ -1143,6 +1179,8 @@ try {
 
 ##### getWindowProperties9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowProperties(): WindowProperties
 
 获取当前窗口的属性。
@@ -1180,6 +1218,8 @@ try {
 
 
 ##### getWindowDensityInfo15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWindowDensityInfo(): WindowDensityInfo
 
@@ -1219,6 +1259,8 @@ try {
 
 
 ##### setWindowContainerColor20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowContainerColor(activeColor: string, inactiveColor: string): void
 
@@ -1296,6 +1338,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getGlobalRect13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getGlobalRect(): Rect
 
 获取窗口在其所在物理屏幕上的真实显示区域，同步接口。
@@ -1338,6 +1382,8 @@ try {
 
 
 ##### getWindowAvoidArea9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWindowAvoidArea(type: AvoidAreaType): AvoidArea
 
@@ -1405,6 +1451,8 @@ try {
 
 ##### getWindowAvoidAreaIgnoringVisibility22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowAvoidAreaIgnoringVisibility(type: AvoidAreaType): AvoidArea
 
 获取当前应用窗口的避让区域，即使避让区域当前处于不可见状态。
@@ -1463,6 +1511,8 @@ try {
 
 
 ##### setSystemAvoidAreaEnabled18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSystemAvoidAreaEnabled(enabled: boolean): Promise&lt;void&gt;
 
@@ -1553,6 +1603,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### isSystemAvoidAreaEnabled18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSystemAvoidAreaEnabled(): boolean
 
 获取全局悬浮窗、模态窗或WindowType为系统类型的窗口是否可以获取窗口内容的避让区[AvoidArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#avoidarea7)。
@@ -1633,6 +1685,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setTitleAndDockHoverShown14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setTitleAndDockHoverShown(isTitleHoverShown?: boolean, isDockHoverShown?: boolean): Promise&lt;void&gt;
 
 设置主窗口进入全屏模式时鼠标Hover到热区上是否显示窗口标题栏和dock栏，使用Promise异步回调。
@@ -1710,6 +1764,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWindowLayoutFullScreen9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowLayoutFullScreen(isLayoutFullScreen: boolean): Promise&lt;void&gt;
 
@@ -1794,6 +1850,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setImmersiveModeEnabledState12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setImmersiveModeEnabledState(enabled: boolean): void
 
 设置当前窗口是否开启沉浸式布局，该调用不会改变窗口模式和窗口大小。仅主窗口和子窗口可调用。
@@ -1842,6 +1900,8 @@ try {
 
 ##### getImmersiveModeEnabledState12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getImmersiveModeEnabledState(): boolean
 
 查询当前窗口是否开启沉浸式布局。
@@ -1885,6 +1945,8 @@ try {
 
 ##### isImmersiveLayout20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isImmersiveLayout(): boolean
 
 查询当前窗口是否处于沉浸式布局状态。
@@ -1921,6 +1983,8 @@ try {
 
 
 ##### setWindowDelayRaiseOnDrag19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowDelayRaiseOnDrag(isEnabled: boolean): void
 
@@ -1966,6 +2030,8 @@ try {
 
 
 ##### setDragKeyFramePolicy20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDragKeyFramePolicy(keyFramePolicy: KeyFramePolicy): Promise&lt;KeyFramePolicy&gt;
 
@@ -2048,6 +2114,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setWindowSystemBarEnable9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowSystemBarEnable(names: Array<'status' | 'navigation'>): Promise&lt;void&gt;
 
 设置主窗口状态栏、底部导航（根据用户设置，可表现为导航条或三键导航栏）的可见模式，状态栏和底部导航通过status控制、navigation参数无效果，使用Promise异步回调。
@@ -2129,6 +2197,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSpecificSystemBarEnabled11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSpecificSystemBarEnabled(name: SpecificSystemBar, enable: boolean, enableAnimation?: boolean): Promise&lt;void&gt;
 
@@ -2214,6 +2284,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setWindowSystemBarProperties9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowSystemBarProperties(systemBarProperties: SystemBarProperties): Promise&lt;void&gt;
 
 设置主窗口状态栏的属性，使用Promise异步回调。
@@ -2297,6 +2369,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getWindowSystemBarProperties12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowSystemBarProperties(): SystemBarProperties
 
 获取主窗口状态栏的属性。
@@ -2357,6 +2431,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setStatusBarColor18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setStatusBarColor(color: ColorMetrics): Promise&lt;void&gt;
 
@@ -2435,6 +2511,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getStatusBarProperty18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStatusBarProperty(): StatusBarProperty
 
 获取主窗口状态栏的属性，如状态栏文字颜色。
@@ -2496,6 +2574,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getWindowStateSnapshot23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowStateSnapshot(): Promise&lt;string&gt;
 
 获取当前窗口的设备形态信息，比如是否处于[电脑模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#电脑模式)，是否支持自由窗口等，使用Promise异步回调，仅限测试使用。
@@ -2544,6 +2624,8 @@ try {
 
 
 ##### setPreferredOrientation9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPreferredOrientation(orientation: Orientation, callback: AsyncCallback&lt;void&gt;): void
 
@@ -2619,6 +2701,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setPreferredOrientation9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPreferredOrientation(orientation: Orientation): Promise&lt;void&gt;
 
@@ -2699,6 +2783,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getPreferredOrientation12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPreferredOrientation(): Orientation
 
 获取窗口的显示方向属性。未指定方向时，返回window.Orientation.UNSPECIFIED。
@@ -2757,6 +2843,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### getUIContext10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUIContext(): UIContext
 
@@ -2825,6 +2913,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setUIContent9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setUIContent(path: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据当前工程中指定的某个页面路径为窗口加载具体页面内容，使用callback异步回调。
@@ -2873,6 +2963,8 @@ try {
 
 
 ##### setUIContent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setUIContent(path: string): Promise&lt;void&gt;
 
@@ -2927,6 +3019,8 @@ try {
 
 ##### loadContent9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loadContent(path: string, storage: LocalStorage, callback: AsyncCallback&lt;void&gt;): void
 
 根据当前工程中指定的页面路径为窗口加载具体页面内容，通过LocalStorage传递状态属性给加载的页面，使用callback异步回调。
@@ -2980,6 +3074,8 @@ windowClass.loadContent('pages/page2', storage, (err: BusinessError) => {
 
 
 ##### loadContent9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContent(path: string, storage: LocalStorage): Promise&lt;void&gt;
 
@@ -3038,6 +3134,8 @@ promise.then(() => {
 
 
 ##### loadContentByName11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContentByName(name: string, storage: LocalStorage, callback: AsyncCallback&lt;void&gt;): void
 
@@ -3136,6 +3234,8 @@ export struct Index {
 
 ##### loadContentByName11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loadContentByName(name: string, callback: AsyncCallback&lt;void&gt;): void
 
 根据指定路由页面名称为当前窗口加载[命名路由](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing#命名路由)页面，使用callback异步回调。
@@ -3213,6 +3313,8 @@ export struct Index {
 
 
 ##### loadContentByName11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContentByName(name: string, storage?: LocalStorage): Promise&lt;void&gt;
 
@@ -3300,6 +3402,8 @@ export struct Index {
 
 ##### isWindowShowing9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isWindowShowing(): boolean
 
 判断当前窗口是否已显示。
@@ -3338,6 +3442,8 @@ try {
 
 
 ##### on('windowSizeChange')7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'windowSizeChange', callback: Callback&lt;Size&gt;): void
 
@@ -3379,6 +3485,8 @@ try {
 
 
 ##### off('windowSizeChange')7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'windowSizeChange', callback?: Callback&lt;Size&gt;): void
 
@@ -3426,6 +3534,8 @@ try {
 
 
 ##### on('avoidAreaChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'avoidAreaChange', callback: Callback&lt;AvoidAreaOptions&gt;): void
 
@@ -3484,6 +3594,8 @@ try {
 
 ##### off('avoidAreaChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'avoidAreaChange', callback?: Callback&lt;AvoidAreaOptions&gt;): void
 
 关闭当前窗口系统避让区变化的监听。
@@ -3534,6 +3646,8 @@ try {
 
 ##### on('keyboardHeightChange')7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'keyboardHeightChange', callback: Callback&lt;number&gt;): void
 
 开启固定态软键盘高度变化的监听。当软键盘从本窗口唤出且与窗口有重叠区域时，通知键盘高度变化。从API version 10开始，有关将软键盘设置为固定态或悬浮态的方法，请参见[changeFlag](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethodengine#changeflag10)。
@@ -3576,6 +3690,8 @@ try {
 
 
 ##### off('keyboardHeightChange')7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'keyboardHeightChange', callback?: Callback&lt;number&gt;): void
 
@@ -3624,6 +3740,8 @@ try {
 
 
 ##### on('keyboardWillShow')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'keyboardWillShow', callback: Callback&lt;KeyboardInfo&gt;): void
 
@@ -3674,6 +3792,8 @@ try {
 
 
 ##### off('keyboardWillShow')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'keyboardWillShow', callback?: Callback&lt;KeyboardInfo&gt;): void
 
@@ -3726,6 +3846,8 @@ try {
 
 ##### on('keyboardWillHide')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'keyboardWillHide', callback: Callback&lt;KeyboardInfo&gt;): void
 
 开启固定态软键盘即将开始隐藏的监听。此监听在固定态软键盘即将开始隐藏或软键盘由固定态切换为悬浮态时触发，仅对当前拉起或隐藏固定态软键盘的应用窗口生效。对于虚拟屏上应用拉起输入法键盘到主屏上，输入法键盘显隐通知只会给主屏上获焦窗口，而不是虚拟屏上应用窗口。
@@ -3775,6 +3897,8 @@ try {
 
 
 ##### off('keyboardWillHide')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'keyboardWillHide', callback?: Callback&lt;KeyboardInfo&gt;): void
 
@@ -3827,6 +3951,8 @@ try {
 
 ##### on('keyboardDidShow')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'keyboardDidShow', callback: Callback&lt;KeyboardInfo&gt;): void
 
 开启固定态软键盘显示动画完成的监听。此监听在固定态软键盘显示动画完成或软键盘由悬浮态切换至固定态时触发，仅对当前拉起或隐藏固定态软键盘的应用窗口生效。对于虚拟屏上应用拉起输入法键盘到主屏上，输入法键盘显隐通知只会给主屏上获焦窗口，而不是虚拟屏上应用窗口。
@@ -3874,6 +4000,8 @@ try {
 
 
 ##### off('keyboardDidShow')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'keyboardDidShow', callback?: Callback&lt;KeyboardInfo&gt;): void
 
@@ -3925,6 +4053,8 @@ try {
 
 ##### on('keyboardDidHide')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'keyboardDidHide', callback: Callback&lt;KeyboardInfo&gt;): void
 
 开启固定态软键盘隐藏动画完成的监听。此监听在固定态软键盘隐藏动画完成或软键盘由固定态切换至悬浮态时触发，仅对当前拉起或隐藏固定态软键盘的应用窗口生效。对于虚拟屏上应用拉起输入法键盘到主屏上，输入法键盘显隐通知只会给主屏上获焦窗口，而不是虚拟屏上应用窗口。
@@ -3972,6 +4102,8 @@ try {
 
 
 ##### off('keyboardDidHide')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'keyboardDidHide', callback?: Callback&lt;KeyboardInfo&gt;): void
 
@@ -4023,6 +4155,8 @@ try {
 
 ##### on('touchOutside')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'touchOutside', callback: Callback&lt;void&gt;): void
 
 开启本窗口区域范围外的点击事件的监听。
@@ -4063,6 +4197,8 @@ try {
 
 
 ##### off('touchOutside')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'touchOutside', callback?: Callback&lt;void&gt;): void
 
@@ -4109,6 +4245,8 @@ try {
 
 ##### on('screenshot')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'screenshot', callback: Callback&lt;void&gt;): void
 
 开启截屏事件的监听。
@@ -4149,6 +4287,8 @@ try {
 
 
 ##### off('screenshot')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'screenshot', callback?: Callback&lt;void&gt;): void
 
@@ -4195,6 +4335,8 @@ try {
 
 ##### on('screenshotAppEvent')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'screenshotAppEvent', callback: Callback&lt;ScreenshotEventType&gt;): void
 
 开启屏幕截屏事件类型的监听。
@@ -4235,6 +4377,8 @@ try {
 
 
 ##### off('screenshotAppEvent')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'screenshotAppEvent', callback?: Callback&lt;ScreenshotEventType&gt;): void
 
@@ -4282,6 +4426,8 @@ try {
 
 ##### on('dialogTargetTouch')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'dialogTargetTouch', callback: Callback&lt;void&gt;): void
 
 开启模态窗口所遮盖窗口的点击或触摸事件的监听，除模态窗口以外其他窗口调用此接口不生效。
@@ -4322,6 +4468,8 @@ try {
 
 
 ##### off('dialogTargetTouch')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'dialogTargetTouch', callback?: Callback&lt;void&gt;): void
 
@@ -4368,6 +4516,8 @@ try {
 
 ##### on('windowEvent')10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'windowEvent', callback: Callback&lt;WindowEventType&gt;): void
 
 开启窗口生命周期变化的监听。
@@ -4408,6 +4558,8 @@ try {
 
 
 ##### off('windowEvent')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'windowEvent', callback?: Callback&lt;WindowEventType&gt;): void
 
@@ -4456,6 +4608,8 @@ try {
 
 ##### on('displayIdChange')14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'displayIdChange', callback: Callback&lt;number&gt;): void
 
 开启本窗口所处屏幕变化事件的监听。比如，当前窗口移动到其他屏幕时，可以从此接口监听到这个行为。
@@ -4498,6 +4652,8 @@ try {
 
 
 ##### off('displayIdChange')14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'displayIdChange', callback?: Callback&lt;number&gt;): void
 
@@ -4547,6 +4703,8 @@ try {
 
 
 ##### on('windowVisibilityChange')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'windowVisibilityChange', callback: Callback&lt;boolean&gt;): void
 
@@ -4598,6 +4756,8 @@ try {
 
 ##### off('windowVisibilityChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'windowVisibilityChange', callback?: Callback&lt;boolean&gt;): void
 
 关闭本窗口可见状态变化事件的监听。
@@ -4648,6 +4808,8 @@ try {
 
 ##### on('occlusionStateChanged')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'occlusionStateChanged', callback: Callback&lt;OcclusionState&gt;): void
 
 开启窗口可见性状态变化事件的监听。本接口返回的可见性与肉眼所见的可见性可能存在区别，如以下场景：
@@ -4696,6 +4858,8 @@ try {
 
 ##### off('occlusionStateChanged')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'occlusionStateChanged', callback?: Callback&lt;OcclusionState&gt;): void
 
 关闭窗口可见性状态变化事件的监听。
@@ -4743,6 +4907,8 @@ try {
 
 ##### on('frameMetricsMeasured')22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'frameMetricsMeasured', callback: Callback&lt;FrameMetrics&gt;): void
 
 开启窗口帧率指标变化事件的监听。该接口需要在[loadContent()](#loadcontent9)或[setUIContent()](#setuicontent9)调用生效后使用。
@@ -4785,6 +4951,8 @@ try {
 
 
 ##### off('frameMetricsMeasured')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'frameMetricsMeasured', callback?: Callback&lt;FrameMetrics&gt;): void
 
@@ -4831,6 +4999,8 @@ try {
 
 
 ##### on('systemDensityChange')15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'systemDensityChange', callback: Callback&lt;number&gt;): void
 
@@ -4880,6 +5050,8 @@ try {
 
 
 ##### off('systemDensityChange')15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'systemDensityChange', callback?: Callback&lt;number&gt;): void
 
@@ -4932,6 +5104,8 @@ try {
 
 ##### on('noInteractionDetected')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'noInteractionDetected', timeout: number, callback: Callback&lt;void&gt;): void
 
 开启本窗口在指定超时时间内无交互事件的监听，交互事件支持物理键盘输入事件和屏幕触控点击事件，不支持软键盘输入事件。
@@ -4976,6 +5150,8 @@ try {
 
 
 ##### off('noInteractionDetected')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'noInteractionDetected', callback?: Callback&lt;void&gt;): void
 
@@ -5025,6 +5201,8 @@ try {
 
 ##### on('windowStatusChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'windowStatusChange', callback: Callback&lt;WindowStatusType&gt;): void
 
 开启窗口模式变化的监听，当窗口windowStatus发生变化时进行通知（此时窗口属性可能还没有更新，如果需要在收到windowStatus变化通知时能够立即获取到变化后的窗口大小、位置，建议使用[on('windowStatusDidChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#onwindowstatusdidchange20)）。
@@ -5073,6 +5251,8 @@ try {
 
 ##### off('windowStatusChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'windowStatusChange', callback?: Callback&lt;WindowStatusType&gt;): void
 
 关闭窗口模式变化的监听。
@@ -5119,6 +5299,8 @@ try {
 
 ##### on('windowStatusDidChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'windowStatusDidChange', callback: Callback&lt;WindowStatusType&gt;): void
 
 开启窗口模式变化的监听，当窗口windowStatus发生变化后进行通知（此时窗口[Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-i#rect7)属性已经完成更新）。
@@ -5158,6 +5340,8 @@ try {
 
 
 ##### off('windowStatusDidChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'windowStatusDidChange', callback?: Callback&lt;WindowStatusType&gt;): void
 
@@ -5202,6 +5386,8 @@ try {
 
 
 ##### setWindowGrayScale12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowGrayScale(grayScale: number): Promise&lt;void&gt;
 
@@ -5268,6 +5454,8 @@ windowClass?.setUIContent('pages/Index', (error: BusinessError) => {
 
 ##### on('windowTitleButtonRectChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'windowTitleButtonRectChange', callback: Callback&lt;TitleButtonRect&gt;): void
 
 开启窗口标题栏上的最小化、最大化、关闭按钮矩形区域变化的监听，对存在标题栏和三键区的窗口形态生效。如果使用Stage模型，该接口需要在[loadContent()](#loadcontent9)或[setUIContent()](#setuicontent9)调用生效后使用。
@@ -5312,6 +5500,8 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 
 ##### off('windowTitleButtonRectChange')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'windowTitleButtonRectChange', callback?: Callback&lt;TitleButtonRect&gt;): void
 
@@ -5364,6 +5554,8 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 ##### on('windowRectChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'windowRectChange', callback: Callback&lt;RectChangeOptions&gt;): void
 
 开启窗口矩形（窗口位置及窗口大小）变化的监听。
@@ -5407,6 +5599,8 @@ try {
 
 
 ##### off('windowRectChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'windowRectChange', callback?: Callback&lt;RectChangeOptions&gt;): void
 
@@ -5457,6 +5651,8 @@ try {
 
 ##### on('rectChangeInGlobalDisplay')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'rectChangeInGlobalDisplay', callback: Callback&lt;RectChangeOptions&gt;): void
 
 开启[全局坐标系](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#全局坐标系)下窗口矩形（窗口位置及窗口大小）变化的监听事件。
@@ -5499,6 +5695,8 @@ try {
 
 
 ##### off('rectChangeInGlobalDisplay')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'rectChangeInGlobalDisplay', callback?: Callback&lt;RectChangeOptions&gt;): void
 
@@ -5545,6 +5743,8 @@ try {
 
 
 ##### on('subWindowClose')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'subWindowClose', callback: Callback&lt;void&gt;): void
 
@@ -5598,6 +5798,8 @@ try {
 
 ##### off('subWindowClose')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'subWindowClose', callback?: Callback&lt;void&gt;): void
 
 关闭子窗口关闭事件的监听。
@@ -5646,6 +5848,8 @@ try {
 
 
 ##### on('windowWillClose')15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'windowWillClose', callback: Callback<void, Promise&lt;boolean&gt;>): void
 
@@ -5715,6 +5919,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### off('windowWillClose')15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'windowWillClose', callback?: Callback<void, Promise&lt;boolean&gt;>): void
 
@@ -5786,6 +5992,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### on('windowHighlightChange')15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'windowHighlightChange', callback: Callback&lt;boolean&gt;): void
 
 开启窗口激活态变化事件的监听。
@@ -5829,6 +6037,8 @@ try {
 
 
 ##### off('windowHighlightChange')15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'windowHighlightChange', callback?: Callback&lt;boolean&gt;): void
 
@@ -5879,6 +6089,8 @@ try {
 
 
 ##### on('rotationChange')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'rotationChange', callback: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void
 
@@ -5995,6 +6207,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### off('rotationChange')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'rotationChange', callback?: RotationChangeCallback<RotationChangeInfo, RotationChangeResult | void>): void
 
 关闭窗口旋转变化的监听。
@@ -6052,6 +6266,8 @@ try {
 
 ##### on('uiExtensionSecureLimitChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(eventType: 'uiExtensionSecureLimitChange', callback: Callback&lt;boolean&gt;): void
 
 开启窗口内uiExtension安全限制变化事件的监听, 建议在窗口创建后立即监听。
@@ -6094,6 +6310,8 @@ try {
 
 
 ##### off('uiExtensionSecureLimitChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(eventType: 'uiExtensionSecureLimitChange', callback?: Callback&lt;boolean&gt;): void
 
@@ -6144,6 +6362,8 @@ try {
 
 ##### isWindowSupportWideGamut9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isWindowSupportWideGamut(callback: AsyncCallback&lt;boolean&gt;): void
 
 判断当前窗口是否支持广色域模式，使用callback异步回调。
@@ -6187,6 +6407,8 @@ windowClass.isWindowSupportWideGamut((err: BusinessError, data) => {
 
 ##### isWindowSupportWideGamut9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isWindowSupportWideGamut(): Promise&lt;boolean&gt;
 
 判断当前窗口是否支持广色域模式，使用Promise异步回调。
@@ -6227,6 +6449,8 @@ promise.then((data) => {
 
 
 ##### setWindowColorSpace9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowColorSpace(colorSpace:ColorSpace, callback: AsyncCallback&lt;void&gt;): void
 
@@ -6276,6 +6500,8 @@ try {
 
 
 ##### setWindowColorSpace9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowColorSpace(colorSpace:ColorSpace): Promise&lt;void&gt;
 
@@ -6330,6 +6556,8 @@ try {
 
 ##### getWindowColorSpace9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowColorSpace(): ColorSpace
 
 获取当前窗口色域模式。
@@ -6370,6 +6598,8 @@ try {
 
 
 ##### setWindowBackgroundColor9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowBackgroundColor(color: string | ColorMetrics): void
 
@@ -6428,6 +6658,8 @@ windowClass.loadContent("pages/page2", storage, (err: BusinessError) => {
 
 
 ##### setWindowShadowEnabled20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowShadowEnabled(enable: boolean): Promise&lt;void&gt;
 
@@ -6512,6 +6744,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWindowBrightness9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowBrightness(brightness: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -6606,6 +6840,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWindowBrightness9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowBrightness(brightness: number): Promise&lt;void&gt;
 
@@ -6705,6 +6941,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setWindowFocusable9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowFocusable(isFocusable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置窗口是否具有获得焦点的能力，使用callback异步回调。
@@ -6757,6 +6995,8 @@ try {
 
 
 ##### setWindowFocusable9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowFocusable(isFocusable: boolean): Promise&lt;void&gt;
 
@@ -6815,6 +7055,8 @@ try {
 
 ##### setWindowKeepScreenOn9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置当前窗口位于前台时当前设备的屏幕是否为常亮状态，异源虚拟屏下不生效。使用callback异步回调。
@@ -6867,6 +7109,8 @@ try {
 
 
 ##### setWindowKeepScreenOn9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowKeepScreenOn(isKeepScreenOn: boolean): Promise&lt;void&gt;
 
@@ -6925,6 +7169,8 @@ try {
 
 ##### setWindowPrivacyMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置窗口是否为隐私模式，使用callback异步回调。
@@ -6982,6 +7228,8 @@ try {
 
 
 ##### setWindowPrivacyMode9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowPrivacyMode(isPrivacyMode: boolean): Promise&lt;void&gt;
 
@@ -7045,6 +7293,8 @@ try {
 
 ##### setWindowTouchable9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowTouchable(isTouchable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置窗口是否为可点击状态，使用callback异步回调。
@@ -7097,6 +7347,8 @@ try {
 
 
 ##### setWindowTouchable9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowTouchable(isTouchable: boolean): Promise&lt;void&gt;
 
@@ -7155,6 +7407,8 @@ try {
 
 ##### snapshot9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 snapshot(callback: AsyncCallback<image.PixelMap>): void
 
 获取窗口截图，使用callback异步回调。若当前窗口设置为隐私模式（可通过[setWindowPrivacyMode](#setwindowprivacymode9)接口设置），截图结果为白屏。
@@ -7200,6 +7454,8 @@ windowClass.snapshot((err: BusinessError, pixelMap: image.PixelMap) => {
 
 ##### snapshot9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 snapshot(): Promise<image.PixelMap>
 
 获取当前窗口截图。若当前窗口设置为隐私模式（可通过[setWindowPrivacyMode](#setwindowprivacymode9)接口设置），截图结果为白屏。
@@ -7242,6 +7498,8 @@ promise.then((pixelMap: image.PixelMap) => {
 
 
 ##### snapshotSync20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 snapshotSync(): image.PixelMap
 
@@ -7288,6 +7546,8 @@ try {
 
 ##### snapshotIgnorePrivacy18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 snapshotIgnorePrivacy(): Promise<image.PixelMap>
 
 获取当前窗口截图。即使当前窗口设置为隐私模式（可通过[setWindowPrivacyMode](#setwindowprivacymode9)接口设置），仍可调用本接口返回当前窗口截图。
@@ -7331,6 +7591,8 @@ promise.then((pixelMap: image.PixelMap) => {
 
 
 ##### setAspectRatio10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAspectRatio(ratio: number): Promise&lt;void&gt;
 
@@ -7405,6 +7667,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setAspectRatio10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setAspectRatio(ratio: number, callback: AsyncCallback&lt;void&gt;): void
 
 设置窗口内容布局（不含边框和标题栏等装饰）的比例，使用callback异步回调。
@@ -7473,6 +7737,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setContentAspectRatio21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setContentAspectRatio(ratio: number, isPersistent?: boolean, needUpdateRect?: boolean): Promise&lt;void&gt;
 
@@ -7544,6 +7810,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### resetAspectRatio10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 resetAspectRatio(): Promise&lt;void&gt;
 
 取消设置窗口内容布局的比例，使用Promise异步回调。
@@ -7605,6 +7873,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### resetAspectRatio10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resetAspectRatio(callback: AsyncCallback&lt;void&gt;): void
 
@@ -7670,6 +7940,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### minimize11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 minimize(callback: AsyncCallback&lt;void&gt;): void
 
 此接口根据调用对象不同，实现不同的功能：
@@ -7721,6 +7993,8 @@ windowClass.minimize((err: BusinessError) => {
 
 ##### minimize11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 minimize(): Promise&lt;void&gt;
 
 此接口根据调用对象不同，实现不同的功能：
@@ -7769,6 +8043,8 @@ promise.then(() => {
 
 
 ##### maximize12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 maximize(presentation?: MaximizePresentation): Promise&lt;void&gt;
 
@@ -7843,6 +8119,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### maximize22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 maximize(presentation?: MaximizePresentation, acrossDisplay?: boolean): Promise&lt;void&gt;
 
 实现最大化功能。主窗口可调用此接口实现最大化功能；子窗口需在创建时设置子窗口参数maximizeSupported为true，再调用此接口可实现最大化功能。在具备折叠功能的2in1设备上，支持控制悬停态（参考[折叠屏悬停态最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-folded-hover)）下主窗口的瀑布流模式行为，即窗口在悬停态下最大化时是否跨上下两个半屏显示。使用Promise异步回调。
@@ -7911,6 +8189,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setResizeByDragEnabled14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setResizeByDragEnabled(enable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 禁止/使能通过拖拽方式缩放主窗口或启用装饰的子窗口的功能。使用callback异步回调。
@@ -7963,6 +8243,8 @@ try {
 
 
 ##### setResizeByDragEnabled14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setResizeByDragEnabled(enable: boolean): Promise&lt;void&gt;
 
@@ -8023,6 +8305,8 @@ try {
 
 
 ##### recover11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 recover(): Promise&lt;void&gt;
 
@@ -8087,6 +8371,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### restore14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restore(): Promise&lt;void&gt;
 
 主窗口为最小化状态且UIAbility生命周期为onForeground时，将主窗口从最小化状态，恢复到前台显示，并恢复到进入最小化状态之前的大小和位置。主窗口为前台状态时，仅抬升主窗口层级。使用Promise异步回调。
@@ -8150,6 +8436,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### restoreMainWindow23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 restoreMainWindow(wantParameters?: Record<string, Object>): Promise&lt;void&gt;
 
@@ -8296,6 +8584,8 @@ struct FloatWindowInfo {
 
 ##### getWindowLimits11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowLimits(): WindowLimits
 
 获取当前应用窗口的尺寸限制，单位为物理像素px。
@@ -8335,6 +8625,8 @@ try {
 
 ##### getWindowLimitsVP22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowLimitsVP(): WindowLimits
 
 获取当前应用窗口的尺寸限制，单位为虚拟像素vp。
@@ -8373,6 +8665,8 @@ try {
 
 
 ##### setWindowLimits11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowLimits(windowLimits: WindowLimits): Promise&lt;WindowLimits&gt;
 
@@ -8442,6 +8736,8 @@ try {
 
 
 ##### setWindowLimits15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowLimits(windowLimits: WindowLimits, isForcible: boolean): Promise&lt;WindowLimits&gt;
 
@@ -8521,6 +8817,8 @@ try {
 
 ##### setWindowMask12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowMask(windowMask: Array<Array&lt;number&gt;>): Promise&lt;void&gt;
 
 设置异形窗口的掩码，使用Promise异步回调。异形窗口为非常规形状的窗口，掩码用于描述异形窗口的形状。此接口仅限子窗和全局悬浮窗可用。
@@ -8591,6 +8889,8 @@ try {
 
 ##### clearWindowMask24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearWindowMask(): Promise&lt;void&gt;
 
 清除异形窗口的掩码使其恢复为矩形窗口，使用Promise异步回调。异形窗口为非常规形状的窗口，掩码用于描述异形窗口的形状。此接口仅限子窗和全局悬浮窗可用。
@@ -8651,6 +8951,8 @@ try {
 
 ##### keepKeyboardOnFocus11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 keepKeyboardOnFocus(keepKeyboardFlag: boolean): void
 
 当前窗口获焦时是否保留由其他窗口创建的软键盘，支持系统窗口、应用子窗口、模态窗和全局悬浮窗。
@@ -8691,6 +8993,8 @@ try {
 
 
 ##### setWindowDecorVisible11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowDecorVisible(isVisible: boolean): void
 
@@ -8747,6 +9051,8 @@ windowClass.loadContent("pages/page2", storage, (err: BusinessError) => {
 
 ##### getWindowDecorVisible18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowDecorVisible(): boolean
 
 查询窗口标题栏是否可见。如果使用Stage模型，该接口需要在[loadContent()](#loadcontent9)或[setUIContent()](#setuicontent9)调用生效后使用。
@@ -8790,6 +9096,8 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 
 ##### setWindowTitle15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowTitle(titleName: string): Promise&lt;void&gt;
 
@@ -8864,6 +9172,8 @@ try {
 
 ##### setWindowTitleMoveEnabled14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowTitleMoveEnabled(enabled: boolean): void
 
 禁止/使能主窗或子窗标题栏默认移动窗口和双击最大化的功能，当禁用标题栏默认移动窗口和双击最大化的功能时，可使用[startMoving()](#startmoving14)在应用热区中发起拖拽移动，使用[maximize()](#maximize12)实现最大化功能。如果使用Stage模型，该接口需要在[loadContent()](#loadcontent9)或[setUIContent()](#setuicontent9)调用生效后使用。
@@ -8919,6 +9229,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSubWindowModal12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSubWindowModal(isModal: boolean): Promise&lt;void&gt;
 
@@ -8998,6 +9310,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSubWindowModal14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSubWindowModal(isModal: boolean, modalityType: ModalityType): Promise&lt;void&gt;
 
@@ -9083,6 +9397,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setWindowDecorHeight11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowDecorHeight(height: number): void
 
 设置窗口的标题栏高度，对存在标题栏和三键区的窗口形态生效。如果使用Stage模型，该接口需要在[loadContent()](#loadcontent9)或[setUIContent()](#setuicontent9)调用生效后使用。
@@ -9132,6 +9448,8 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 
 ##### setDecorButtonStyle14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDecorButtonStyle(dectorStyle: DecorButtonStyle): void
 
@@ -9202,6 +9520,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getDecorButtonStyle14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDecorButtonStyle(): DecorButtonStyle
 
 获取装饰栏按钮样式，仅对主窗和子窗生效。
@@ -9252,6 +9572,8 @@ try {
 
 ##### getWindowDecorHeight11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowDecorHeight(): number
 
 对存在标题栏和三键区的窗口形态生效，用于获取窗口的标题栏高度。如果使用Stage模型，该接口需要在[loadContent()](#loadcontent9)或[setUIContent()](#setuicontent9)调用生效后使用。
@@ -9297,6 +9619,8 @@ windowClass.setUIContent('pages/WindowPage').then(() => {
 
 
 ##### getTitleButtonRect11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTitleButtonRect(): TitleButtonRect
 
@@ -9358,6 +9682,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getWindowStatus12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowStatus(): WindowStatusType
 
 获取当前应用窗口的模式。
@@ -9401,6 +9727,8 @@ try {
 
 ##### isFocused12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isFocused(): boolean
 
 判断当前窗口是否已获焦。为获取准确的获焦状态，需要在[WindowEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windoweventtype10)生命周期处于WINDOW_ACTIVE之后调用。
@@ -9441,6 +9769,8 @@ try {
 
 
 ##### createSubWindowWithOptions12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSubWindowWithOptions(name: string, options: SubWindowOptions): Promise&lt;Window&gt;
 
@@ -9507,6 +9837,8 @@ try {
 
 
 ##### setParentWindow19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setParentWindow(windowId: number): Promise&lt;void&gt;
 
@@ -9577,6 +9909,8 @@ try {
 
 ##### getParentWindow19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getParentWindow(): Window
 
 获取子窗口的父窗口。
@@ -9626,6 +9960,8 @@ try {
 
 
 ##### setWindowTitleButtonVisible14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowTitleButtonVisible(isMaximizeButtonVisible: boolean, isMinimizeButtonVisible: boolean, isCloseButtonVisible?: boolean): void
 
@@ -9696,6 +10032,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWindowTopmost14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowTopmost(isWindowTopmost: boolean): Promise&lt;void&gt;
 
@@ -9799,6 +10137,8 @@ struct Index {
 
 ##### raiseToAppTop14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 raiseToAppTop(): Promise&lt;void&gt;
 
 应用子窗口调用，提升应用子窗口到顶层，只在当前应用同一个父窗口下的相同类型子窗范围内生效，对于自定义了zLevel属性的子窗口，只在当前应用同一个父窗口下相同zLevel值的子窗范围内生效。使用Promise异步回调。
@@ -9859,6 +10199,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setRaiseByClickEnabled14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setRaiseByClickEnabled(enable: boolean): Promise&lt;void&gt;
 
@@ -9937,6 +10279,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### enableLandscapeMultiWindow12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableLandscapeMultiWindow(): Promise&lt;void&gt;
 
 应用部分界面支持横向布局时，在进入该界面时使能，使能后可支持进入横向多窗。不建议竖向布局界面使用。
@@ -9999,6 +10343,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### disableLandscapeMultiWindow12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disableLandscapeMultiWindow(): Promise&lt;void&gt;
 
 应用部分界面支持横向布局时，在退出该界面时去使能，去使能后不支持进入横向多窗。
@@ -10060,6 +10406,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setDialogBackGestureEnabled12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDialogBackGestureEnabled(enabled: boolean): Promise&lt;void&gt;
 
@@ -10165,6 +10513,8 @@ struct Index {
 
 ##### enableDrag20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableDrag(enable: boolean): Promise&lt;void&gt;
 
 使能/禁止拖拽窗口，仅对系统窗口、应用子窗口、全局悬浮窗和模态窗口生效。使用Promise异步回调。
@@ -10218,6 +10568,8 @@ try {
 
 
 ##### startMoving14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startMoving(): Promise&lt;void&gt;
 
@@ -10307,6 +10659,8 @@ struct Index {
 
 
 ##### startMoving15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startMoving(offsetX: number, offsetY: number): Promise&lt;void&gt;
 
@@ -10404,6 +10758,8 @@ struct Index {
 
 ##### stopMoving15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopMoving(): Promise&lt;void&gt;
 
 在窗口拖拽移动过程中，通过此接口来停止窗口移动，使用Promise异步回调。
@@ -10465,6 +10821,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setGestureBackEnabled13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setGestureBackEnabled(enabled: boolean): Promise&lt;void&gt;
 
@@ -10549,6 +10907,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### isGestureBackEnabled13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isGestureBackEnabled(): boolean
 
 获取当前窗口是否启用返回手势功能，仅主窗可以调用成功，其他类型的窗口调用返回1300004错误码。
@@ -10613,6 +10973,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSeparationTouchEnabled23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSeparationTouchEnabled(enabled: boolean): Promise&lt;void&gt;
 
@@ -10680,6 +11042,8 @@ try {
 
 ##### isSeparationTouchEnabled23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSeparationTouchEnabled():boolean
 
 获取当前窗口是否支持事件分离的状态。
@@ -10722,6 +11086,8 @@ try {
 
 
 ##### setReceiveDragEventEnabled23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setReceiveDragEventEnabled(enabled: boolean): Promise&lt;void&gt;
 
@@ -10782,6 +11148,8 @@ try {
 
 ##### isReceiveDragEventEnabled23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isReceiveDragEventEnabled():boolean
 
 获取当前窗口是否能接收[拖拽事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop)的状态。
@@ -10824,6 +11192,8 @@ try {
 
 
 ##### setWindowShadowRadius17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowShadowRadius(radius: number): void
 
@@ -10871,6 +11241,8 @@ try {
 
 
 ##### setWindowCornerRadius17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowCornerRadius(cornerRadius: number): Promise&lt;void&gt;
 
@@ -10938,6 +11310,8 @@ try {
 
 ##### getWindowCornerRadius17+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowCornerRadius(): number
 
 该接口用于获取子窗或全局悬浮窗的圆角半径值，在未调用[setWindowCornerRadius()](#setwindowcornerradius17)接口设置窗口圆角半径值时，调用此接口可获取窗口默认圆角半径值。
@@ -10983,6 +11357,8 @@ try {
 
 
 ##### setExclusivelyHighlighted15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setExclusivelyHighlighted(exclusivelyHighlighted: boolean): Promise&lt;void&gt;
 
@@ -11043,6 +11419,8 @@ try {
 
 ##### isWindowHighlighted18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isWindowHighlighted(): boolean
 
 获取当前窗口是否为激活态。为准确获取激活态，需要在[WindowEventType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-e#windoweventtype10)生命周期处于WINDOW_ACTIVE之后调用。
@@ -11086,6 +11464,8 @@ try {
 
 
 ##### setFollowParentMultiScreenPolicy17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFollowParentMultiScreenPolicy(enabled: boolean): Promise&lt;void&gt;
 
@@ -11154,6 +11534,8 @@ try {
 
 
 ##### setFollowParentWindowLayoutEnabled17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFollowParentWindowLayoutEnabled(enabled: boolean): Promise&lt;void&gt;
 
@@ -11240,6 +11622,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setRelativePositionToParentWindowEnabled20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setRelativePositionToParentWindowEnabled(enabled: boolean, anchor?: WindowAnchor, offsetX?: number, offsetY?: number): Promise&lt;void&gt;
 
 用于设置一级子窗是否支持与主窗保持相对位置不变。使用Promise异步回调。
@@ -11325,6 +11709,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWindowTransitionAnimation20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowTransitionAnimation(transitionType: WindowTransitionType, animation: TransitionAnimation): Promise&lt;void&gt;
 
@@ -11415,6 +11801,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getWindowTransitionAnimation20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowTransitionAnimation(transitionType: WindowTransitionType): TransitionAnimation | undefined
 
 获取特定场景下的窗口转场动画配置。
@@ -11490,6 +11878,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSubWindowZLevel18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSubWindowZLevel(zLevel: number): Promise&lt;void&gt;
 
@@ -11568,6 +11958,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getSubWindowZLevel18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSubWindowZLevel(): number
 
 获取当前子窗口层级级别。不支持主窗、系统窗调用。
@@ -11629,6 +12021,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### isInFreeWindowMode22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isInFreeWindowMode(): boolean
 
 查询当前窗口是否为[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)模式。
@@ -11664,6 +12058,8 @@ console.info(`isInFreeWindowMode: ${isInFreeWindowMode}`);
 
 
 ##### on('freeWindowModeChange')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'freeWindowModeChange', callback: Callback&lt;boolean&gt;): void
 
@@ -11706,6 +12102,8 @@ try {
 
 
 ##### off('freeWindowModeChange')22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'freeWindowModeChange', callback?: Callback&lt;boolean&gt;): void
 
@@ -11754,6 +12152,8 @@ try {
 
 
 ##### convertOrientationAndRotation23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 convertOrientationAndRotation(from: RotationInfoType, to: RotationInfoType, value: number): number
 
@@ -11809,6 +12209,8 @@ try {
 
 
 ##### setWindowSystemBarProperties(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowSystemBarProperties(systemBarProperties: SystemBarProperties, callback: AsyncCallback&lt;void&gt;): void
 
@@ -11892,6 +12294,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setWindowSystemBarEnable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWindowSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback&lt;void&gt;): void
 
 设置主窗口状态栏、底部导航（根据用户设置，可表现为导航条或三键导航栏）的可见模式，状态栏和底部导航通过status控制、navigation参数无效果，使用callback异步回调。
@@ -11969,6 +12373,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setWindowLayoutFullScreen(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setWindowLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback&lt;void&gt;): void
 
@@ -12053,6 +12459,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### show(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 show(callback: AsyncCallback&lt;void&gt;): void
 
 显示当前窗口，使用callback异步回调。
@@ -12089,6 +12497,8 @@ windowClass.show((err: BusinessError) => {
 
 ##### show(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 show(): Promise&lt;void&gt;
 
 显示当前窗口，使用Promise异步回调。
@@ -12122,6 +12532,8 @@ promise.then(() => {
 
 
 ##### destroy(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 destroy(callback: AsyncCallback&lt;void&gt;): void
 
@@ -12159,6 +12571,8 @@ windowClass.destroy((err: BusinessError) => {
 
 ##### destroy(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 destroy(): Promise&lt;void&gt;
 
 销毁当前窗口，使用Promise异步回调。
@@ -12192,6 +12606,8 @@ promise.then(() => {
 
 
 ##### moveTo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveTo(x: number, y: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -12232,6 +12648,8 @@ windowClass.moveTo(300, 300, (err: BusinessError) => {
 
 
 ##### moveTo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveTo(x: number, y: number): Promise&lt;void&gt;
 
@@ -12276,6 +12694,8 @@ promise.then(() => {
 
 
 ##### resetSize(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resetSize(width: number, height: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -12328,6 +12748,8 @@ windowClass.resetSize(500, 1000, (err: BusinessError) => {
 
 
 ##### resetSize(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resetSize(width: number, height: number): Promise&lt;void&gt;
 
@@ -12385,6 +12807,8 @@ promise.then(() => {
 
 ##### getProperties(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getProperties(callback: AsyncCallback&lt;WindowProperties&gt;): void
 
 获取当前窗口的属性，使用callback异步回调，返回WindowProperties。
@@ -12421,6 +12845,8 @@ windowClass.getProperties((err: BusinessError, data) => {
 
 ##### getProperties(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getProperties(): Promise&lt;WindowProperties&gt;
 
 获取当前窗口的属性，使用Promise异步回调，返回WindowProperties。
@@ -12454,6 +12880,8 @@ promise.then((data) => {
 
 
 ##### getAvoidArea(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAvoidArea(type: AvoidAreaType, callback: AsyncCallback&lt;AvoidArea&gt;): void
 
@@ -12505,6 +12933,8 @@ windowClass.getAvoidArea(type, (err: BusinessError, data) => {
 
 
 ##### getAvoidArea(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAvoidArea(type: AvoidAreaType): Promise&lt;AvoidArea&gt;
 
@@ -12560,6 +12990,8 @@ promise.then((data) => {
 
 
 ##### setFullScreen(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFullScreen(isFullScreen: boolean, callback: AsyncCallback&lt;void&gt;): void
 
@@ -12620,6 +13052,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setFullScreen(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFullScreen(isFullScreen: boolean): Promise&lt;void&gt;
 
@@ -12685,6 +13119,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setLayoutFullScreen(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setLayoutFullScreen(isLayoutFullScreen: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置主窗口或子窗口的布局是否为沉浸式布局，使用callback异步回调。
@@ -12744,6 +13180,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setLayoutFullScreen(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setLayoutFullScreen(isLayoutFullScreen: boolean): Promise&lt;void&gt;
 
@@ -12809,6 +13247,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setSystemBarEnable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSystemBarEnable(names: Array<'status' | 'navigation'>, callback: AsyncCallback&lt;void&gt;): void
 
 设置主窗口状态栏、底部导航（根据用户设置，可表现为导航条或三键导航栏）的可见模式，状态栏和底部导航通过status控制、navigation参数无效果，使用callback异步回调。
@@ -12869,6 +13309,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSystemBarEnable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSystemBarEnable(names: Array<'status' | 'navigation'>): Promise&lt;void&gt;
 
@@ -12935,6 +13377,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setSystemBarProperties(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSystemBarProperties(systemBarProperties: SystemBarProperties, callback: AsyncCallback&lt;void&gt;): void
 
 设置主窗口状态栏的属性，使用callback异步回调，该接口在2in1设备上调用不生效，其他设备在分屏模式（即窗口模式为window.WindowStatusType.SPLIT_SCREEN）、自由悬浮窗口模式（即窗口模式为window.WindowStatusType.FLOATING）、自由多窗模式（可点击设备控制中心中的自由多窗按钮开启）下调用不会立刻生效，只有进入全屏主窗口才会生效。
@@ -12998,6 +13442,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### setSystemBarProperties(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSystemBarProperties(systemBarProperties: SystemBarProperties): Promise&lt;void&gt;
 
@@ -13067,6 +13513,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### loadContent(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loadContent(path: string, callback: AsyncCallback&lt;void&gt;): void
 
 为当前窗口加载具体页面内容，使用callback异步回调。
@@ -13107,6 +13555,8 @@ windowClass.loadContent('pages/page2/page3', (err: BusinessError) => {
 
 
 ##### loadContent(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadContent(path: string): Promise&lt;void&gt;
 
@@ -13153,6 +13603,8 @@ promise.then(() => {
 
 ##### isShowing(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isShowing(callback: AsyncCallback&lt;boolean&gt;): void
 
 判断当前窗口是否已显示，使用callback异步回调。
@@ -13189,6 +13641,8 @@ windowClass.isShowing((err: BusinessError, data) => {
 
 ##### isShowing(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isShowing(): Promise&lt;boolean&gt;
 
 判断当前窗口是否已显示，使用Promise异步回调。
@@ -13223,6 +13677,8 @@ promise.then((data) => {
 
 ##### on('systemAvoidAreaChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'systemAvoidAreaChange', callback: Callback&lt;AvoidArea&gt;): void
 
 开启当前窗口系统避让区变化的监听。
@@ -13252,6 +13708,8 @@ windowClass.on('systemAvoidAreaChange', (data) => {
 
 
 ##### off('systemAvoidAreaChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'systemAvoidAreaChange', callback?: Callback&lt;AvoidArea&gt;): void
 
@@ -13286,6 +13744,8 @@ windowClass.off('systemAvoidAreaChange');
 
 
 ##### isSupportWideGamut(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSupportWideGamut(callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -13323,6 +13783,8 @@ windowClass.isSupportWideGamut((err: BusinessError, data) => {
 
 ##### isSupportWideGamut(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSupportWideGamut(): Promise&lt;boolean&gt;
 
 判断当前窗口是否支持广色域模式，使用Promise异步回调。
@@ -13356,6 +13818,8 @@ promise.then((data) => {
 
 
 ##### setColorSpace(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColorSpace(colorSpace:ColorSpace, callback: AsyncCallback&lt;void&gt;): void
 
@@ -13393,6 +13857,8 @@ windowClass.setColorSpace(window.ColorSpace.WIDE_GAMUT, (err: BusinessError) => 
 
 
 ##### setColorSpace(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColorSpace(colorSpace:ColorSpace): Promise&lt;void&gt;
 
@@ -13435,6 +13901,8 @@ promise.then(() => {
 
 ##### getColorSpace(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getColorSpace(callback: AsyncCallback&lt;ColorSpace&gt;): void
 
 获取当前窗口色域模式，使用callback异步回调。
@@ -13471,6 +13939,8 @@ windowClass.getColorSpace((err: BusinessError, data) => {
 
 ##### getColorSpace(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getColorSpace(): Promise&lt;ColorSpace&gt;
 
 获取当前窗口色域模式，使用Promise异步回调。
@@ -13504,6 +13974,8 @@ promise.then((data) => {
 
 
 ##### setBackgroundColor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBackgroundColor(color: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -13542,6 +14014,8 @@ windowClass.setBackgroundColor(color, (err: BusinessError) => {
 
 
 ##### setBackgroundColor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBackgroundColor(color: string): Promise&lt;void&gt;
 
@@ -13585,6 +14059,8 @@ promise.then(() => {
 
 ##### setBrightness(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBrightness(brightness: number, callback: AsyncCallback&lt;void&gt;): void
 
 允许应用窗口设置屏幕亮度值，使用callback异步回调。
@@ -13624,6 +14100,8 @@ windowClass.setBrightness(brightness, (err: BusinessError) => {
 
 
 ##### setBrightness(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setBrightness(brightness: number): Promise&lt;void&gt;
 
@@ -13669,6 +14147,8 @@ promise.then(() => {
 
 ##### setDimBehind(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDimBehind(dimBehindValue: number, callback: AsyncCallback&lt;void&gt;): void
 
 窗口叠加时，设备有子窗口的情况下设置靠后的窗口的暗度值，使用callback异步回调。
@@ -13705,6 +14185,8 @@ windowClass.setDimBehind(0.5, (err: BusinessError) => {
 
 
 ##### setDimBehind(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDimBehind(dimBehindValue: number): Promise&lt;void&gt;
 
@@ -13747,6 +14229,8 @@ promise.then(() => {
 
 ##### setFocusable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFocusable(isFocusable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置使用点击或其他方式使该窗口获焦的场景时，该窗口是否支持窗口焦点从操作前的获焦窗口切换到该窗口，使用callback异步回调。
@@ -13784,6 +14268,8 @@ windowClass.setFocusable(isFocusable, (err: BusinessError) => {
 
 
 ##### setFocusable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setFocusable(isFocusable: boolean): Promise&lt;void&gt;
 
@@ -13827,6 +14313,8 @@ promise.then(() => {
 
 ##### setKeepScreenOn(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setKeepScreenOn(isKeepScreenOn: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置屏幕是否为常亮状态，使用callback异步回调。
@@ -13864,6 +14352,8 @@ windowClass.setKeepScreenOn(isKeepScreenOn, (err: BusinessError) => {
 
 
 ##### setKeepScreenOn(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setKeepScreenOn(isKeepScreenOn: boolean): Promise&lt;void&gt;
 
@@ -13907,6 +14397,8 @@ promise.then(() => {
 
 ##### setOutsideTouchable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setOutsideTouchable(touchable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置是否允许可点击子窗口之外的区域，使用callback异步回调。
@@ -13943,6 +14435,8 @@ windowClass.setOutsideTouchable(true, (err: BusinessError) => {
 
 
 ##### setOutsideTouchable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOutsideTouchable(touchable: boolean): Promise&lt;void&gt;
 
@@ -13985,6 +14479,8 @@ promise.then(() => {
 
 ##### setPrivacyMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPrivacyMode(isPrivacyMode: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置窗口是否为隐私模式，使用callback异步回调。设置为隐私模式的窗口，窗口内容将无法被截屏或录屏。此接口可用于禁止截屏/录屏的场景。
@@ -14022,6 +14518,8 @@ windowClass.setPrivacyMode(isPrivacyMode, (err: BusinessError) => {
 
 
 ##### setPrivacyMode(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPrivacyMode(isPrivacyMode: boolean): Promise&lt;void&gt;
 
@@ -14065,6 +14563,8 @@ promise.then(() => {
 
 ##### setTouchable(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setTouchable(isTouchable: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 设置窗口是否为可触状态，使用callback异步回调。
@@ -14102,6 +14602,8 @@ windowClass.setTouchable(isTouchable, (err: BusinessError) => {
 
 
 ##### setTouchable(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setTouchable(isTouchable: boolean): Promise&lt;void&gt;
 

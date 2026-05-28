@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1 | Tablet
+
 ```text
 import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 ```
@@ -21,6 +23,8 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 ##### HuksExternalCryptoTagType
+
+**支持设备：** PC/2in1 | Tablet
 
 表示外部加密数据类型的枚举。
 
@@ -35,6 +39,8 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 ##### HuksExternalCryptoTag
+
+**支持设备：** PC/2in1 | Tablet
 
 表示调用参数的Tag。
 
@@ -53,6 +59,8 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 ##### HuksExternalCryptoParam
 
+**支持设备：** PC/2in1 | Tablet
+
 表示调用接口使用的param数组的类型。
 
 **系统能力：** SystemCapability.Security.Huks.CryptoExtension
@@ -66,6 +74,8 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 ##### HuksExternalPinAuthState
+
+**支持设备：** PC/2in1 | Tablet
 
 表示Ukey PIN码管理的状态值的枚举。
 
@@ -81,6 +91,8 @@ import { huksExternalCrypto } from '@kit.UniversalKeystoreKit';
 
 
 ##### huksExternalCrypto.registerProvider
+
+**支持设备：** PC/2in1 | Tablet
 
 registerProvider(providerName: string, params: Array&lt;HuksExternalCryptoParam&gt;): Promise&lt;void&gt;
 
@@ -152,6 +164,8 @@ huksExternalCrypto.registerProvider(providerName, extProperties)
 
 ##### huksExternalCrypto.unregisterProvider
 
+**支持设备：** PC/2in1 | Tablet
+
 unregisterProvider(providerName: string, params?: Array&lt;HuksExternalCryptoParam&gt;): Promise&lt;void&gt;
 
 注销指定的外部provider。使用Promise异步回调。
@@ -220,6 +234,8 @@ huksExternalCrypto.unregisterProvider(providerName, extProperties)
 
 ##### huksExternalCrypto.getUkeyPinAuthState
 
+**支持设备：** PC/2in1 | Tablet
+
 getUkeyPinAuthState(resourceId: string, params?: Array&lt;HuksExternalCryptoParam&gt;): Promise&lt;HuksExternalPinAuthState&gt;
 
 获取PIN码认证状态。使用Promise异步回调。
@@ -282,6 +298,8 @@ huksExternalCrypto.getUkeyPinAuthState(testResourceId, extProperties)
 
 
 ##### huksExternalCrypto.getProperty
+
+**支持设备：** PC/2in1 | Tablet
 
 getProperty(resourceId: string, propertyId: string, params?: Array&lt;HuksExternalCryptoParam&gt;): Promise<Array&lt;HuksExternalCryptoParam&gt;>
 

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { MapComponent } from '@kit.MapKit';
 ```
@@ -19,6 +21,8 @@ import { MapComponent } from '@kit.MapKit';
   
 
 ##### MapComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 MapComponent提供map组件，通过回调获取MapComponentController对象。
  
@@ -127,6 +131,8 @@ struct MarkerDemo {
 
 ##### build
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 build(): void
  
 struct的默认构造函数，无法直接调用此方法。
@@ -142,6 +148,8 @@ struct的默认构造函数，无法直接调用此方法。
   
 
 ##### customInfoWindowCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 type customInfoWindowCallback = (markerDelegate: map.MarkerDelegate) => void
  

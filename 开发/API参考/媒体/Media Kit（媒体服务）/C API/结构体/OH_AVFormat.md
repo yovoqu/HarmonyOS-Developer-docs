@@ -12,6 +12,8 @@ typedef struct OH_AVFormat OH_AVFormat
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义OH_AVFormat对象。
  
 **起始版本：** 12

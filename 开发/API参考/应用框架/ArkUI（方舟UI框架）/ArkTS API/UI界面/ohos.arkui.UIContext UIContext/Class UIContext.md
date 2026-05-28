@@ -56,6 +56,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### constructor22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
 
 构造UIContext对象。
@@ -142,6 +144,8 @@ struct Index {
 
 ##### getCallingScopeUIContext22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getCallingScopeUIContext(): UIContext | undefined
 
 获取当前[调用作用域](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#基本概念)的UIContext，调用作用域不明确时返回undefined。
@@ -196,6 +200,8 @@ struct Index {
 
 ##### getLastFocusedUIContext22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getLastFocusedUIContext(): UIContext | undefined
 
 获取最近一次切换到获焦状态的UI实例的UIContext。
@@ -245,6 +251,8 @@ struct Index {
 
 
 ##### getLastForegroundUIContext22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static getLastForegroundUIContext(): UIContext | undefined
 
@@ -296,6 +304,8 @@ struct Index {
 
 ##### getAllUIContexts22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static getAllUIContexts(): UIContext[]
 
 获取所有当前有效的UIContext实例。
@@ -346,6 +356,8 @@ struct Index {
 
 ##### resolveUIContext22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static resolveUIContext(): ResolvedUIContext
 
 使用优先级策略获取带有解析策略的UIContext实例对象。
@@ -390,6 +402,8 @@ struct Index {
 
 
 ##### isAvailable20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isAvailable(): boolean
 
@@ -474,6 +488,8 @@ struct UIContextCompare {
 
 ##### getFont
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFont(): Font
 
 获取Font对象。
@@ -496,6 +512,8 @@ getFont(): Font
 
 
 ##### getComponentUtils
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getComponentUtils(): ComponentUtils
 
@@ -520,6 +538,8 @@ getComponentUtils(): ComponentUtils
 
 ##### getUIInspector
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUIInspector(): UIInspector
 
 获取UIInspector对象。
@@ -542,6 +562,8 @@ getUIInspector(): UIInspector
 
 
 ##### getUIObserver11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUIObserver(): UIObserver
 
@@ -610,6 +632,8 @@ struct Index {
 
 ##### getId22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getId(): number
 
 获取UI实例对象唯一标识，多实例场景下，开发者可使用此唯一标识区分多个UI实例对象，便于管理。
@@ -646,6 +670,8 @@ struct Index{
 
 ##### getMediaQuery
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMediaQuery(): MediaQuery
 
 获取MediaQuery对象。
@@ -668,6 +694,8 @@ getMediaQuery(): MediaQuery
 
 
 ##### getRouter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getRouter(): Router
 
@@ -692,6 +720,8 @@ getRouter(): Router
 
 ##### getPromptAction
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPromptAction(): PromptAction
 
 获取PromptAction对象。
@@ -715,6 +745,8 @@ getPromptAction(): PromptAction
 
 ##### getOverlayManager12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOverlayManager(): OverlayManager
 
 获取OverlayManager对象。
@@ -737,6 +769,8 @@ getOverlayManager(): OverlayManager
 
 
 ##### setOverlayManagerOptions15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setOverlayManagerOptions(options: OverlayManagerOptions): boolean
 
@@ -768,6 +802,8 @@ setOverlayManagerOptions(options: OverlayManagerOptions): boolean
 
 ##### getOverlayManagerOptions15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getOverlayManagerOptions(): OverlayManagerOptions
 
 用于获取当前[OverlayManagerOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#overlaymanageroptions15)参数。
@@ -790,6 +826,8 @@ getOverlayManagerOptions(): OverlayManagerOptions
 
 
 ##### animateToImmediately23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 animateToImmediately(param: AnimateParam, processor: Callback&lt;void&gt;): void
 
@@ -875,6 +913,8 @@ struct AnimateToImmediatelyExample {
 
 
 ##### animateTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 animateTo(value: AnimateParam, event: () => void): void
 
@@ -980,6 +1020,8 @@ struct AnimateToExample {
 
 ##### getSharedLocalStorage12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSharedLocalStorage(): LocalStorage | undefined
 
 获取当前stage共享的LocalStorage实例。
@@ -1044,6 +1086,8 @@ struct SharedLocalStorage {
 
 ##### getHostContext12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHostContext(): Context | undefined
 
 获得当前元能力的Context。
@@ -1092,6 +1136,8 @@ struct Index {
 
 ##### getFrameNodeById12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFrameNodeById(id: string): FrameNode | null
 
 通过组件的id获取组件树的实体节点。
@@ -1125,6 +1171,8 @@ getFrameNodeById(id: string): FrameNode | null
 
 
 ##### getAttachedFrameNodeById12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAttachedFrameNodeById(id: string): FrameNode | null
 
@@ -1185,6 +1233,8 @@ struct MyComponent {
 
 ##### getFrameNodeByUniqueId12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFrameNodeByUniqueId(id: number): FrameNode | null
 
 提供getFrameNodeByUniqueId接口通过组件的uniqueId获取组件树的实体节点。
@@ -1237,6 +1287,8 @@ struct MyComponent {
 
 
 ##### getPageInfoByUniqueId12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPageInfoByUniqueId(id: number): PageInfo
 
@@ -1315,6 +1367,8 @@ struct MyComponent {
 
 ##### getNavigationInfoByUniqueId12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined
 
 提供getNavigationInfoByUniqueId接口通过组件的uniqueId获取该节点对应的Navigation页面信息。
@@ -1346,6 +1400,8 @@ getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined
 
 
 ##### showAlertDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void
 
@@ -1410,6 +1466,8 @@ struct Index {
 
 
 ##### showActionSheet
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showActionSheet(value: ActionSheetOptions): void
 
@@ -1487,6 +1545,8 @@ struct Index {
 
 
 ##### showDatePickerDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showDatePickerDialog(options: DatePickerDialogOptions): void
 
@@ -1570,6 +1630,8 @@ struct DatePickerDialogExample {
 
 ##### showTimePickerDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showTimePickerDialog(options: TimePickerDialogOptions): void
 
 定义时间滑动选择器弹窗并弹出。
@@ -1639,6 +1701,8 @@ struct TimePickerDialogExample {
 
 
 ##### showTextPickerDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showTextPickerDialog(options: TextPickerDialogOptions): void
 
@@ -1724,6 +1788,8 @@ struct TextPickerDialogExample {
 
 ##### showTextPickerDialog20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 showTextPickerDialog(style: TextPickerDialogOptions|TextPickerDialogOptionsExt): void
 
 定义文本滑动选择器弹窗并弹出，相比API version 11，新增了TextPickerDialogOptionsExt参数支持。
@@ -1748,6 +1814,8 @@ showTextPickerDialog(style: TextPickerDialogOptions|TextPickerDialogOptionsExt):
 
 
 ##### createAnimator
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAnimator(options: AnimatorOptions): AnimatorResult
 
@@ -1819,6 +1887,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### createAnimator18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAnimator(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult
 
 创建animator动画结果对象（AnimatorResult）。与[createAnimator](#createanimator)相比，新增对[SimpleAnimatorOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-animator#simpleanimatoroptions18)类型入参的支持。
@@ -1880,6 +1950,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### runScopedTask
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 runScopedTask(callback: () => void): void
 
 在当前UI上下文执行传入的回调函数。
@@ -1923,6 +1995,8 @@ struct Index {
 
 ##### setKeyboardAvoidMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setKeyboardAvoidMode(value: KeyboardAvoidMode): void
 
 配置虚拟键盘弹出时，页面的避让模式。
@@ -1964,6 +2038,8 @@ export default class EntryAbility extends UIAbility{
 
 
 ##### getKeyboardAvoidMode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getKeyboardAvoidMode(): KeyboardAvoidMode
 
@@ -2008,6 +2084,8 @@ export default class EntryAbility extends UIAbility{
 
 ##### getAtomicServiceBar11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAtomicServiceBar(): Nullable&lt;AtomicServiceBar&gt;
 
 获取AtomicServiceBar对象，通过该对象设置元服务menuBar的属性。
@@ -2051,6 +2129,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getDragController11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDragController(): DragController
 
 获取DragController对象，可通过该对象创建并发起拖拽。
@@ -2073,6 +2153,8 @@ getDragController(): DragController
 
 
 ##### keyframeAnimateTo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array&lt;KeyframeState&gt;): void
 
@@ -2154,6 +2236,8 @@ struct KeyframeDemo {
 
 ##### getFocusController12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFocusController(): FocusController
 
 获取[FocusController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-focuscontroller)对象，可通过该对象控制焦点。
@@ -2176,6 +2260,8 @@ getFocusController(): FocusController
 
 
 ##### getFilteredInspectorTree12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFilteredInspectorTree(filters?: Array&lt;string&gt;): string
 
@@ -2278,6 +2364,8 @@ InsTree ----| type: Button, ID: 18
 
 ##### getFilteredInspectorTreeById12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFilteredInspectorTreeById(id: string, depth: number, filters?: Array&lt;string&gt;): string
 
 获取指定的组件及其子组件的属性。此接口耗时较长，仅适用于测试场景。
@@ -2362,6 +2450,8 @@ result3: {"$type":"Text","$ID":6,"type":"build-in","$rect":"[457.00, 123.00],[80
 
 ##### getCursorController12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCursorController(): CursorController
 
 获取[CursorController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-cursorcontroller)对象，可通过该对象控制光标。
@@ -2385,6 +2475,8 @@ getCursorController(): CursorController
 
 ##### getContextMenuController12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getContextMenuController(): ContextMenuController
 
 获取[ContextMenuController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-contextmenucontroller)对象，可通过该对象控制菜单。
@@ -2403,6 +2495,8 @@ getContextMenuController(): ContextMenuController
 
 
 ##### getMeasureUtils12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMeasureUtils(): MeasureUtils
 
@@ -2426,6 +2520,8 @@ getMeasureUtils(): MeasureUtils
 
 
 ##### getComponentSnapshot12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getComponentSnapshot(): ComponentSnapshot
 
@@ -2451,6 +2547,8 @@ getComponentSnapshot(): ComponentSnapshot
 
 
 ##### vp2px12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 vp2px(value : number) : number
 
@@ -2512,6 +2610,8 @@ struct MatrixExample {
 
 ##### px2vp12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 px2vp(value : number) : number
 
 将px单位的数值转换为以vp为单位的数值。
@@ -2571,6 +2671,8 @@ struct MatrixExample {
 
 
 ##### fp2px12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fp2px(value : number) : number
 
@@ -2634,6 +2736,8 @@ struct MatrixExample {
 
 ##### px2fp12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 px2fp(value : number) : number
 
 将px单位的数值转换为以fp为单位的数值。
@@ -2696,6 +2800,8 @@ struct MatrixExample {
 
 ##### lpx2px12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lpx2px(value : number) : number
 
 将lpx单位的数值转换为以px为单位的数值。
@@ -2753,6 +2859,8 @@ struct MatrixExample {
 
 
 ##### px2lpx12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 px2lpx(value : number) : number
 
@@ -2812,6 +2920,8 @@ struct MatrixExample {
 
 ##### getWindowName12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowName(): string | undefined
 
 获取当前实例所在窗口的名称。
@@ -2862,6 +2972,8 @@ struct Index {
 
 
 ##### getWindowId23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWindowId(): number | undefined
 
@@ -2915,6 +3027,8 @@ struct Index {
 
 ##### getWindowWidthBreakpoint13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWindowWidthBreakpoint(): WidthBreakpoint
 
 获取当前实例所在窗口的宽度断点枚举值。具体枚举值根据窗口宽度vp值确定，详见 [WidthBreakpoint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#widthbreakpoint13)。
@@ -2966,6 +3080,8 @@ struct Index {
 
 
 ##### getWindowHeightBreakpoint13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWindowHeightBreakpoint(): HeightBreakpoint
 
@@ -3020,6 +3136,8 @@ struct Index {
 
 ##### postFrameCallback12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 postFrameCallback(frameCallback: FrameCallback): void
 
 注册一个回调，仅在下一帧渲染时调用。
@@ -3070,6 +3188,8 @@ struct Index {
 
 
 ##### postDelayedFrameCallback12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void
 
@@ -3122,6 +3242,8 @@ struct Index {
 
 
 ##### requireDynamicSyncScene12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 requireDynamicSyncScene(id: string): Array&lt;DynamicSyncScene&gt;
 
@@ -3198,6 +3320,8 @@ struct Frame {
 
 
 ##### openBindSheet12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openBindSheet<T extends Object>(bindSheetContent: ComponentContent&lt;T&gt;, sheetOptions?: SheetOptions, targetId?: number): Promise&lt;void&gt;
 
@@ -3334,6 +3458,8 @@ struct UIContextBindSheet {
 
 ##### updateBindSheet12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateBindSheet<T extends Object>(bindSheetContent: ComponentContent&lt;T&gt;, sheetOptions: SheetOptions, partialUpdate?: boolean ): Promise&lt;void&gt;
 
 更新bindSheetContent对应的半模态页面的样式，使用Promise异步回调。
@@ -3466,6 +3592,8 @@ struct UIContextBindSheet {
 
 ##### closeBindSheet12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeBindSheet<T extends Object>(bindSheetContent: ComponentContent&lt;T&gt;): Promise&lt;void&gt;
 
 关闭bindSheetContent对应的半模态页面，使用Promise异步回调。
@@ -3596,6 +3724,8 @@ struct UIContextBindSheet {
 
 ##### isFollowingSystemFontScale13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isFollowingSystemFontScale(): boolean
 
 获取当前UI上下文是否跟随系统字体倍率。
@@ -3633,6 +3763,8 @@ struct Index {
 
 ##### getMaxFontScale13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMaxFontScale(): number
 
 获取当前UI上下文最大字体倍率。
@@ -3669,6 +3801,8 @@ struct Index {
 
 
 ##### bindTabsToScrollable13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bindTabsToScrollable(tabsController: TabsController, scroller: Scroller): void
 
@@ -3788,12 +3922,14 @@ struct TabsExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/uDmqcXq5Ss-sOHbcJn4lag/zh-cn_image_0000002611835373.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013822Z&HW-CC-Expire=86400&HW-CC-Sign=1B7A0C4644C45413C41DC544919B9476313239FFA91A32D1BC43A9EDABFE463C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/uDmqcXq5Ss-sOHbcJn4lag/zh-cn_image_0000002611835373.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=C923A7A6DBDA66383FAAAFF763FA80848F3D77732B4C2722EC6F5D5807DFBA91)
 
 
 
 
 ##### unbindTabsFromScrollable13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 unbindTabsFromScrollable(tabsController: TabsController, scroller: Scroller): void
 
@@ -3818,6 +3954,8 @@ unbindTabsFromScrollable(tabsController: TabsController, scroller: Scroller): vo
 
 
 ##### bindTabsToNestedScrollable13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 bindTabsToNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void
 
@@ -3844,6 +3982,8 @@ bindTabsToNestedScrollable(tabsController: TabsController, parentScroller: Scrol
 
 ##### unbindTabsFromNestedScrollable13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void
 
 解除Tabs组件和嵌套的可滚动容器组件的绑定。
@@ -3868,6 +4008,8 @@ unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: S
 
 
 ##### enableSwipeBack18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableSwipeBack(enabled: Optional&lt;boolean&gt;): void
 
@@ -3909,6 +4051,8 @@ struct Index {
 
 ##### getTextMenuController16+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTextMenuController(): TextMenuController
 
 获取[TextMenuController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-textmenucontroller)对象，可通过该对象控制文本选择菜单。
@@ -3931,6 +4075,8 @@ getTextMenuController(): TextMenuController
 
 
 ##### createUIContextWithoutWindow17+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext): UIContext | undefined
 
@@ -3990,6 +4136,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### destroyUIContextWithoutWindow17+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static destroyUIContextWithoutWindow(): void
 
 销毁[createUIContextWithoutWindow](#createuicontextwithoutwindow17)创建的UI实例。
@@ -4020,6 +4168,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### dispatchKeyEvent15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 dispatchKeyEvent(node: number | string, event: KeyEvent): boolean
 
@@ -4090,6 +4240,8 @@ struct Index {
 
 ##### setPixelRoundMode18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPixelRoundMode(mode: PixelRoundMode): void
 
 配置当前页面的像素取整模式。
@@ -4126,6 +4278,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### getPixelRoundMode18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPixelRoundMode(): PixelRoundMode
 
 获取当前页面的像素取整模式。
@@ -4161,6 +4315,8 @@ export default class EntryAbility extends UIAbility{
 
 
 ##### setResourceManagerCacheMaxCountForHSP21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static setResourceManagerCacheMaxCountForHSP(count: number): void
 
@@ -4221,6 +4377,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### setImageCacheCount23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setImageCacheCount(value: number): void
 
 设置内存中缓存解码后图片的数量上限，以加快同源图片的再次加载速度。默认值为0，表示不缓存。缓存使用LRU策略，新图片加载超过上限时，会移除最久未使用的缓存。建议根据应用内存需求，合理设置缓存数量，避免内存使用过高。
@@ -4270,6 +4428,8 @@ struct Index {
 
 ##### setImageRawDataCacheSize23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setImageRawDataCacheSize(value: number): void
 
 设置内存中缓存解码前图片数据的大小上限，单位为字节，以加快再次加载同源图片的速度。默认值为0，表示不缓存。缓存使用LRU策略，新图片加载后，若解码前数据超过上限，会删除最久未使用的图片数据缓存。建议根据应用内存需求，设置合理的缓存上限，避免内存使用过高。
@@ -4317,6 +4477,8 @@ struct Index {
 
 ##### getMagnifier22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMagnifier(): Magnifier
 
 获取[Magnifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-magnifier)对象，可控制放大镜显示和隐藏。
@@ -4339,6 +4501,8 @@ getMagnifier(): Magnifier
 
 
 ##### setCustomKeyboardContinueFeature23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void
 
@@ -4469,12 +4633,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/oW5CtL7JQtutDx015rgGOw/zh-cn_image_0000002581275624.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013822Z&HW-CC-Expire=86400&HW-CC-Sign=594CAA8A15EB9AD6D8962C8F2008AF597737B3DC4F692E05FB287E5FD4134A1C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/oW5CtL7JQtutDx015rgGOw/zh-cn_image_0000002581275624.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=D61A256BE1068B1AF436CC30A91174784F0819AA58CAF03F419FC4631E5E22F0)
 
 
 
 
 ##### getPageRootNode24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPageRootNode(): FrameNode | null
 
@@ -4628,12 +4794,14 @@ export struct pageThreeTmp {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/sOyNe1tIS1yeizGKrsLlew/zh-cn_image_0000002611755481.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T013822Z&HW-CC-Expire=86400&HW-CC-Sign=1B6F8263C3EFEC98F73AAD52F629CFF86A010C6B3961B19058CC11896A6A73B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/sOyNe1tIS1yeizGKrsLlew/zh-cn_image_0000002611755481.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T024118Z&HW-CC-Expire=86400&HW-CC-Sign=CCB57E4C83B025FEF702687FB407E01D08DF3C727078FE4007891630BABA29E5)
 
 
 
 
 ##### isEasySplit24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isEasySplit(): boolean
 

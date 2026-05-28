@@ -14,6 +14,8 @@
 
 ##### setBrandVersionList
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBrandVersionList(brandVersionList: Array&lt;UserAgentBrandVersion&gt;): void
 
 设置品牌和版本信息。
@@ -36,6 +38,8 @@ setBrandVersionList(brandVersionList: Array&lt;UserAgentBrandVersion&gt;): void
 
 
 ##### getBrandVersionList
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBrandVersionList(): Array&lt;UserAgentBrandVersion&gt;
 
@@ -60,6 +64,8 @@ getBrandVersionList(): Array&lt;UserAgentBrandVersion&gt;
 
 ##### setArchitecture
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setArchitecture(arch: string): void
 
 设置平台的架构类型。
@@ -82,6 +88,8 @@ setArchitecture(arch: string): void
 
 
 ##### getArchitecture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getArchitecture(): string
 
@@ -106,6 +114,8 @@ getArchitecture(): string
 
 ##### setBitness
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBitness(bitness: string): void
 
 设置平台的位数类型。
@@ -128,6 +138,8 @@ setBitness(bitness: string): void
 
 
 ##### getBitness
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBitness(): string
 
@@ -152,6 +164,8 @@ getBitness(): string
 
 ##### setFormFactors
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFormFactors(formFactors: Array&lt;UserAgentFormFactor&gt;): void
 
 设置设备形态信息，如手机、平板等。
@@ -174,6 +188,8 @@ setFormFactors(formFactors: Array&lt;UserAgentFormFactor&gt;): void
 
 
 ##### getFormFactors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFormFactors(): Array&lt;UserAgentFormFactor&gt;
 
@@ -198,6 +214,8 @@ getFormFactors(): Array&lt;UserAgentFormFactor&gt;
 
 ##### setFullVersion
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFullVersion(fullVersion: string): void
 
 设置完整版本号。
@@ -220,6 +238,8 @@ setFullVersion(fullVersion: string): void
 
 
 ##### getFullVersion
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFullVersion(): string
 
@@ -244,6 +264,8 @@ getFullVersion(): string
 
 ##### setMobile
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMobile(isMobile: boolean): void
 
 设置是否为移动设备。
@@ -266,6 +288,8 @@ setMobile(isMobile: boolean): void
 
 
 ##### getMobile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMobile(): boolean
 
@@ -290,6 +314,8 @@ getMobile(): boolean
 
 ##### setModel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setModel(model: string): void
 
 设置设备型号。
@@ -312,6 +338,8 @@ setModel(model: string): void
 
 
 ##### getModel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getModel(): string
 
@@ -336,6 +364,8 @@ getModel(): string
 
 ##### setPlatform
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPlatform(platform: string): void
 
 设置操作系统名称。
@@ -358,6 +388,8 @@ setPlatform(platform: string): void
 
 
 ##### getPlatform
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPlatform(): string
 
@@ -382,6 +414,8 @@ getPlatform(): string
 
 ##### setPlatformVersion
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPlatformVersion(platformVersion: string): void
 
 设置操作系统版本号。
@@ -404,6 +438,8 @@ setPlatformVersion(platformVersion: string): void
 
 
 ##### getPlatformVersion
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPlatformVersion(): string
 
@@ -428,6 +464,8 @@ getPlatformVersion(): string
 
 ##### setWow64
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setWow64(isWow64: boolean): void
 
 设置二进制文件是否在64位Windows上以32位模式运行。
@@ -450,6 +488,8 @@ setWow64(isWow64: boolean): void
 
 
 ##### getWow64
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWow64(): boolean
 

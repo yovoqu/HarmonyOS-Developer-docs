@@ -17,6 +17,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { userAuth, UserAuthIcon } from '@kit.UserAuthenticationKit';
 ```
@@ -25,17 +27,23 @@ import { userAuth, UserAuthIcon } from '@kit.UserAuthenticationKit';
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 无
 
 
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 不支持通用属性。
 
 
 
 ##### UserAuthIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 UserAuthIcon({
@@ -70,11 +78,15 @@ UserAuthIcon({
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 不支持通用事件。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 ```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
@@ -127,4 +139,4 @@ struct Index {
 **指纹认证图例：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/uatYieYaRxuyXPcl1klBkw/zh-cn_image_0000002611756615.png?HW-CC-KV=V1&HW-CC-Date=20260528T013626Z&HW-CC-Expire=86400&HW-CC-Sign=32EF5415876C27825C0473B9AA2E93EAB7325E6FBFC91CC47C145E0904BABC38)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/uatYieYaRxuyXPcl1klBkw/zh-cn_image_0000002611756615.png?HW-CC-KV=V1&HW-CC-Date=20260528T023924Z&HW-CC-Expire=86400&HW-CC-Sign=D81779A83E353ED47591EEFD6FF69461375A69B1ECEB3DE3A989D7F2EEC7CE2F)

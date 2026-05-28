@@ -12,6 +12,8 @@ typedef struct HiAI_SingleOpExecutorConvolutionParam {...} HiAI_SingleOpExecutor
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 [HMS_HiAISingleOpExecutor_CreateConvolution](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit#hms_hiaisingleopexecutor_createconvolution)输入参数。
  
 **起始版本：** 5.0.0(12)
@@ -24,9 +26,13 @@ typedef struct HiAI_SingleOpExecutorConvolutionParam {...} HiAI_SingleOpExecutor
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -42,9 +48,13 @@ typedef struct HiAI_SingleOpExecutorConvolutionParam {...} HiAI_SingleOpExecutor
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### bias
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpTensor* HiAI_SingleOpExecutorConvolutionParam::bias
@@ -58,6 +68,8 @@ HiAI_SingleOpTensor* HiAI_SingleOpExecutorConvolutionParam::bias
 
 ##### filter
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpTensor* HiAI_SingleOpExecutorConvolutionParam::filter
 ```
@@ -69,6 +81,8 @@ HiAI_SingleOpTensor* HiAI_SingleOpExecutorConvolutionParam::filter
   
 
 ##### input
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpTensorDesc* HiAI_SingleOpExecutorConvolutionParam::input
@@ -82,6 +96,8 @@ HiAI_SingleOpTensorDesc* HiAI_SingleOpExecutorConvolutionParam::input
 
 ##### opDesc
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpDescriptor* HiAI_SingleOpExecutorConvolutionParam::opDesc
 ```
@@ -94,6 +110,8 @@ HiAI_SingleOpDescriptor* HiAI_SingleOpExecutorConvolutionParam::opDesc
 
 ##### options
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 HiAI_SingleOpOptions* HiAI_SingleOpExecutorConvolutionParam::options
 ```
@@ -105,6 +123,8 @@ HiAI_SingleOpOptions* HiAI_SingleOpExecutorConvolutionParam::options
   
 
 ##### output
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 HiAI_SingleOpTensorDesc* HiAI_SingleOpExecutorConvolutionParam::output

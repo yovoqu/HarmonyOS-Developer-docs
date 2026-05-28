@@ -12,6 +12,8 @@ typedef struct Camera_VideoOutput Camera_VideoOutput
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 录像输出对象。
  
  可以使用[OH_CameraManager_CreateVideoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createvideooutput)方法创建指针。

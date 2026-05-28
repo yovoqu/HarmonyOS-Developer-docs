@@ -12,6 +12,8 @@ typedef struct OH_UdmfOptions OH_UdmfOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 数据操作选项，定义数据操作的可选参数。
  
 **起始版本：** 20

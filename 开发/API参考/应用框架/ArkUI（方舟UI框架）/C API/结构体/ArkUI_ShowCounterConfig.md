@@ -12,6 +12,8 @@ typedef struct ArkUI_ShowCounterConfig ArkUI_ShowCounterConfig
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义文本输入框的计数器配置。
  
 **起始版本：** 22

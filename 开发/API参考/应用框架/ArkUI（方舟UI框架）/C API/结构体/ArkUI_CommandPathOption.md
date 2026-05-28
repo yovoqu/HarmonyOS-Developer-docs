@@ -12,6 +12,8 @@ typedef struct ArkUI_CommandPath ArkUI_CommandPathOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义自定义路径配置项。
  
 **起始版本：** 20

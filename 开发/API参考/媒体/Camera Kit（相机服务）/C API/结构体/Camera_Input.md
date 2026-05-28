@@ -12,6 +12,8 @@ typedef struct Camera_Input Camera_Input
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 相机输入对象。可以使用[OH_CameraManager_CreateCameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createcamerainput)方法创建指针。
  
 **起始版本：** 11

@@ -12,6 +12,8 @@ typedef struct Input_Hotkey Input_Hotkey
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义快捷键结构体。
  
 **起始版本：** 14

@@ -12,6 +12,8 @@ typedef struct OH_NativeBuffer OH_NativeBuffer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 提供录屏的视频原始码流类。
  
 **起始版本：** 10

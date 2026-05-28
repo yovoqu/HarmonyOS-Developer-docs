@@ -12,6 +12,8 @@ typedef struct {...} WindowManager_MainWindowInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 主窗口信息。
  
 **起始版本：** 21
@@ -24,9 +26,13 @@ typedef struct {...} WindowManager_MainWindowInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

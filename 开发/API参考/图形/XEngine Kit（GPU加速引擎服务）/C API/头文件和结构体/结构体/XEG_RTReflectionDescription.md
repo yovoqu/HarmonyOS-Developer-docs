@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述下发光线求交命令时的输入信息。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,9 +46,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### accelerationStructure
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkAccelerationStructureKHR XEG_RTReflectionDescription::accelerationStructure
@@ -56,6 +66,8 @@ VkAccelerationStructureKHR XEG_RTReflectionDescription::accelerationStructure
 
 ##### inputRayDirectionImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_RTReflectionDescription::inputRayDirectionImage
 ```
@@ -68,6 +80,8 @@ VkImageView XEG_RTReflectionDescription::inputRayDirectionImage
 
 ##### inputRayOriginImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_RTReflectionDescription::inputRayOriginImage
 ```
@@ -79,6 +93,8 @@ VkImageView XEG_RTReflectionDescription::inputRayOriginImage
   
 
 ##### outputReflectionInfoImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_RTReflectionDescription::outputReflectionInfoImage
@@ -102,6 +118,8 @@ uint geomtryIndex = (outputReflectionInfoImage.y) & 0xffff;
 
 ##### pNext
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 const void* XEG_RTReflectionDescription::pNext
 ```
@@ -113,6 +131,8 @@ const void* XEG_RTReflectionDescription::pNext
   
 
 ##### rayMax
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_RTReflectionDescription::rayMax
@@ -126,6 +146,8 @@ float XEG_RTReflectionDescription::rayMax
 
 ##### rayMin
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_RTReflectionDescription::rayMin
 ```
@@ -138,6 +160,8 @@ float XEG_RTReflectionDescription::rayMin
 
 ##### reflectionCullMask
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t XEG_RTReflectionDescription::reflectionCullMask
 ```
@@ -149,6 +173,8 @@ uint32_t XEG_RTReflectionDescription::reflectionCullMask
   
 
 ##### sType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 XEG_StructureType XEG_RTReflectionDescription::sType

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 HiLog模块实现日志打印功能。开发者可以通过使用这些接口实现日志相关功能，输出日志时可以指定日志类型、所属业务领域、日志TAG标识、日志级别等。
  
 **系统能力：** SystemCapability.HiviewDFX.HiLog
@@ -16,6 +18,8 @@ HiLog模块实现日志打印功能。开发者可以通过使用这些接口实
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

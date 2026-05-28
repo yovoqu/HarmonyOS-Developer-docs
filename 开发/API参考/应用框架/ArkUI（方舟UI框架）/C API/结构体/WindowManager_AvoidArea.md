@@ -12,6 +12,8 @@ typedef struct {...} WindowManager_AvoidArea
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义避让区域结构体。
  
 **起始版本：** 15
@@ -24,9 +26,13 @@ typedef struct {...} WindowManager_AvoidArea
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

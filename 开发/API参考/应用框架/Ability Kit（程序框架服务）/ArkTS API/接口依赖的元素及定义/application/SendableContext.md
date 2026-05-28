@@ -14,6 +14,8 @@ SendableContext符合[Sendable协议](https://developer.huawei.com/consumer/cn/d
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { sendableContextManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { sendableContextManager } from '@kit.AbilityKit';
 
 
 ##### SendableContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SendableContext符合[Sendable协议](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable#sendable协议)，可以与Context对象相互转换，用于ArkTS并发实例间（包括主线程、TaskPool&Worker工作线程）的数据传递。
 

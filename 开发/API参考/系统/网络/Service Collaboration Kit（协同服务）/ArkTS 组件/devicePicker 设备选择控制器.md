@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { devicePicker } from '@kit.ServiceCollaborationKit';
 ```
@@ -21,6 +23,8 @@ import { devicePicker } from '@kit.ServiceCollaborationKit';
   
 
 ##### DeviceEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type DeviceEvent = 'deviceSelected' | 'deviceUnselected' | 'selectedDeviceOffline'
  
@@ -40,6 +44,8 @@ type DeviceEvent = 'deviceSelected' | 'deviceUnselected' | 'selectedDeviceOfflin
   
 
 ##### createDevicePickerController
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 createDevicePickerController(): DevicePickerController
  
@@ -86,6 +92,8 @@ struct Index {
 
 ##### DevicePickerController
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 DevicePickerController类提供了与设备选择面板交互的接口。
  
 **系统能力：** SystemCapability.Collaboration.DevicePicker
@@ -95,6 +103,8 @@ DevicePickerController类提供了与设备选择面板交互的接口。
   
 
 ##### on('deviceSelected' | 'deviceUnselected' | 'selectedDeviceOffline')
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(event: DeviceEvent, callback: Callback<distributedDeviceManager.DeviceBasicInfo>): void
  
@@ -181,6 +191,8 @@ struct CustomControls {
 
 ##### off('deviceSelected' | 'deviceUnselected' | 'selectedDeviceOffline')
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(event: DeviceEvent, callback?: Callback<distributedDeviceManager.DeviceBasicInfo>): void
  
 取消注册设备相关的事件回调，目前支持的事件：设备选择、设备取消选择、已选择设备的下线事件。
@@ -241,6 +253,8 @@ struct CustomControls {
   
 
 ##### updateState
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 updateState(networkId: string, state: BusinessState, desc?: ResourceStr): void
  
@@ -328,6 +342,8 @@ struct CustomControls {
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 release(): void
  
 释放设备选择控制器，与[createDevicePickerController](#createdevicepickercontroller)方法对应。
@@ -365,6 +381,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### DevicePickerAttribute
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 设备选择器属性类，在设备选择面板的应用描述部分会显示该属性配置的信息；如果未设置则使用调用者对应的ability配置文件中的标签信息。该属性与流转组件接口[CollaborationDevicePicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationdevicepicker)配合使用。
  
 **系统能力：** SystemCapability.Collaboration.DevicePicker
@@ -382,6 +400,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### BusinessState
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 业务状态枚举类。
  

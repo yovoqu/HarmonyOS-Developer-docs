@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { avSession } from '@kit.AVSessionKit';
 ```
@@ -19,6 +21,8 @@ import { avSession } from '@kit.AVSessionKit';
 
 
 ##### avSession.createAVSession10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAVSession(context: Context, tag: string, type: AVSessionType): Promise&lt;AVSession&gt;
 
@@ -95,6 +99,8 @@ struct Index {
 
 ##### avSession.createAVSession10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback&lt;AVSession&gt;): void
 
 创建会话对象，一个应用程序仅允许存在一个会话，重复创建会失败，结果通过callback异步回调方式返回。
@@ -162,6 +168,8 @@ struct Index {
 
 
 ##### avSession.getAVSession22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAVSession(context: Context): Promise&lt;AVSession&gt;
 
@@ -235,6 +243,8 @@ struct Index {
 
 ##### avSession.getAllSessionDescriptors23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllSessionDescriptors(): Promise<Array<Readonly&lt;AVSessionDescriptor&gt;>>
 
 获取所有设置过媒体信息且注册过控制回调的会话的描述符信息。结果通过Promise异步回调方式返回。
@@ -294,6 +304,8 @@ struct Index {
 
 
 ##### avSession.createController23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createController(sessionId: string): Promise&lt;AVSessionController&gt;
 
@@ -364,6 +376,8 @@ struct Index {
 
 ##### avSession.onSessionCreate23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSessionCreate(callback: Callback&lt;AVSessionDescriptor&gt;): void
 
 监听会话创建事件。使用callback异步回调。
@@ -420,6 +434,8 @@ struct Index {
 
 ##### avSession.onSessionDestroy23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSessionDestroy(callback: Callback&lt;AVSessionDescriptor&gt;): void
 
 监听会话的销毁事件。使用callback异步回调。
@@ -472,6 +488,8 @@ struct Index {
 
 
 ##### avSession.onTopSessionChange23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onTopSessionChange(callback: Callback&lt;AVSessionDescriptor&gt;): void
 
@@ -528,6 +546,8 @@ struct Index {
 
 ##### avSession.offSessionCreate23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offSessionCreate(callback?: Callback&lt;AVSessionDescriptor&gt;): void
 
 注销会话创建事件监听。注销后，不再接收该事件。
@@ -580,6 +600,8 @@ struct Index {
 
 
 ##### avSession.offSessionDestroy23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offSessionDestroy(callback?: Callback&lt;AVSessionDescriptor&gt;): void
 
@@ -634,6 +656,8 @@ struct Index {
 
 ##### avSession.offTopSessionChange23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 offTopSessionChange(callback?: Callback&lt;AVSessionDescriptor&gt;): void
 
 注销最新播放会话变更事件监听。注销后，不再进行该事件的监听。
@@ -686,6 +710,8 @@ struct Index {
 
 
 ##### avSession.isDesktopLyricSupported23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isDesktopLyricSupported(): Promise&lt;boolean&gt;
 

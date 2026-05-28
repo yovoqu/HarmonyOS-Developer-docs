@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
+
 ```text
 import { router } from '@kit.ArkUI';
 ```
@@ -23,6 +25,8 @@ import { router } from '@kit.ArkUI';
 
 
 ##### router.pushUrl(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushUrl(options: RouterOptions): Promise&lt;void&gt;
 
@@ -105,6 +109,8 @@ router.pushUrl({
 
 ##### router.pushUrl(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushUrl(options: RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到应用内的指定页面。
@@ -177,6 +183,8 @@ router.pushUrl({
 
 
 ##### router.pushUrl(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 
@@ -260,6 +268,8 @@ router.pushUrl({
 
 ##### router.pushUrl(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到应用内的指定页面。
@@ -334,6 +344,8 @@ router.pushUrl({
 
 ##### router.replaceUrl(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 replaceUrl(options: RouterOptions): Promise&lt;void&gt;
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。不支持设置页面转场动效，如需设置，推荐使用[Navigation组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture)。
@@ -404,6 +416,8 @@ router.replaceUrl({
 
 ##### router.replaceUrl(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 replaceUrl(options: RouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
@@ -465,6 +479,8 @@ router.replaceUrl({
 
 
 ##### router.replaceUrl(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 replaceUrl(options: RouterOptions, mode: RouterMode): Promise&lt;void&gt;
 
@@ -537,6 +553,8 @@ router.replaceUrl({
 
 ##### router.replaceUrl(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
@@ -599,6 +617,8 @@ router.replaceUrl({
 
 
 ##### router.pushNamedRoute(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 
@@ -683,6 +703,8 @@ router.pushNamedRoute({
 
 ##### router.pushNamedRoute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到指定的命名路由页面。
@@ -755,6 +777,8 @@ router.pushNamedRoute({
 
 
 ##### router.pushNamedRoute(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;void&gt;
 
@@ -838,6 +862,8 @@ router.pushNamedRoute({
 
 ##### router.pushNamedRoute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 跳转到指定的命名路由页面。
@@ -912,6 +938,8 @@ router.pushNamedRoute({
 
 ##### router.replaceNamedRoute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceNamedRoute(options: NamedRouterOptions): Promise&lt;void&gt;
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
@@ -982,6 +1010,8 @@ router.replaceNamedRoute({
 
 ##### router.replaceNamedRoute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback&lt;void&gt;): void
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
@@ -1043,6 +1073,8 @@ router.replaceNamedRoute({
 
 
 ##### router.replaceNamedRoute(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise&lt;void&gt;
 
@@ -1115,6 +1147,8 @@ router.replaceNamedRoute({
 
 ##### router.replaceNamedRoute(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback&lt;void&gt;): void
 
 用指定的命名路由页面替换当前页面，并销毁被替换的页面。
@@ -1178,6 +1212,8 @@ router.replaceNamedRoute({
 
 ##### router.back(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 back(options?: RouterOptions ): void
 
 返回上一页面或指定的页面，会删除当前页面与指定页面之间的所有页面。
@@ -1206,6 +1242,8 @@ this.getUIContext().getRouter().back({ url: 'pages/detail' });
 
 
 ##### router.back(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 back(index: number, params?: Object): void;
 
@@ -1241,6 +1279,8 @@ this.getUIContext().getRouter().back(1, { info: '来自Home页' }); // 携带参
 
 ##### router.clear(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): void
 
 清空页面栈中的所有历史页面，仅保留当前页面作为栈顶页面。
@@ -1262,6 +1302,8 @@ this.getUIContext().getRouter().clear();
 
 
 ##### router.getLength(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLength(): string
 
@@ -1292,6 +1334,8 @@ console.info('pages stack size = ' + size);
 
 
 ##### router.getState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getState(): RouterState
 
@@ -1324,6 +1368,8 @@ console.info('current path = ' + page.path);
 
 
 ##### router.getStateByIndex(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getStateByIndex(index: number): RouterState | undefined
 
@@ -1367,6 +1413,8 @@ if (options != undefined) {
 
 ##### router.getStateByUrl(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getStateByUrl(url: string): Array&lt;RouterState&gt;
 
 通过url获取对应页面的状态信息。
@@ -1409,6 +1457,8 @@ for (let i: number = 0; i < options.length; i++) {
 
 ##### RouterState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 页面状态信息。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full。
@@ -1424,6 +1474,8 @@ for (let i: number = 0; i < options.length; i++) {
 
 
 ##### router.showAlertBeforeBackPage(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showAlertBeforeBackPage(options: EnableAlertOptions): void
 
@@ -1472,6 +1524,8 @@ try {
 
 ##### EnableAlertOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 页面返回询问对话框选项。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1486,6 +1540,8 @@ try {
 
 
 ##### router.hideAlertBeforeBackPage(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hideAlertBeforeBackPage(): void
 
@@ -1508,6 +1564,8 @@ this.getUIContext().getRouter().hideAlertBeforeBackPage();
 
 
 ##### router.getParams(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getParams(): Object
 
@@ -1538,6 +1596,8 @@ this.getUIContext().getRouter().getParams();
 
 ##### RouterOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 路由跳转选项。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Lite。
@@ -1557,6 +1617,8 @@ this.getUIContext().getRouter().getParams();
 
 ##### RouterMode9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 路由跳转模式。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1573,6 +1635,8 @@ this.getUIContext().getRouter().getParams();
 
 ##### NamedRouterOptions10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
+
 命名路由跳转选项。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1585,6 +1649,8 @@ this.getUIContext().getRouter().getParams();
 
 
 ##### 完整示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
 
 
 
@@ -1744,6 +1810,8 @@ struct Second {
 
 ##### router.push(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 push(options: RouterOptions): void
 
 跳转到应用内的指定页面。
@@ -1792,6 +1860,8 @@ router.push({
 
 ##### router.replace(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 replace(options: RouterOptions): void
 
 用应用内的某个页面替换当前页面，并销毁被替换的页面。
@@ -1830,6 +1900,8 @@ router.replace({
 
 ##### router.enableAlertBeforeBackPage(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableAlertBeforeBackPage(options: EnableAlertOptions): void
 
 开启页面返回询问对话框。
@@ -1858,6 +1930,8 @@ router.enableAlertBeforeBackPage({
 
 
 ##### router.disableAlertBeforeBackPage(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disableAlertBeforeBackPage(): void
 

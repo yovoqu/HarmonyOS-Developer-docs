@@ -12,6 +12,8 @@ typedef struct OH_AudioStreamManager OH_AudioStreamManager
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 声明音频流管理器，用于管理音频流相关功能。
  
 **起始版本：** 19

@@ -12,6 +12,8 @@ typedef struct OH_Drawing_PathEffect OH_Drawing_PathEffect
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义一个路径效果，用于影响描边路径。
  
 **起始版本：** 12

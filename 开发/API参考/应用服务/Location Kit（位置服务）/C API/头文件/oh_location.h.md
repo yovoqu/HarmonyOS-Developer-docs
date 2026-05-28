@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义查询位置开关状态、启动定位、停止定位的接口。
  
 **引用文件：** <LocationKit/oh_location.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,9 +44,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Location_IsLocatingEnabled()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Location_ResultCode OH_Location_IsLocatingEnabled(bool* enabled)
@@ -69,6 +79,8 @@ Location_ResultCode OH_Location_IsLocatingEnabled(bool* enabled)
   
 
 ##### OH_Location_StartLocating()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Location_ResultCode OH_Location_StartLocating(const Location_RequestConfig* requestConfig)
@@ -99,6 +111,8 @@ Location_ResultCode OH_Location_StartLocating(const Location_RequestConfig* requ
   
 
 ##### OH_Location_StopLocating()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Location_ResultCode OH_Location_StopLocating(const Location_RequestConfig* requestConfig)

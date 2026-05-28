@@ -14,6 +14,8 @@ continuationManager模块提供了流转/协同入口管理服务能力，包括
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { continuationManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { continuationManager } from '@kit.AbilityKit';
 
 
 ##### continuationManager.register(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 register(callback: AsyncCallback&lt;number&gt;): void
 
@@ -60,6 +64,8 @@ continuationManager.register((err, data) => {
 
 
 ##### continuationManager.register(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 register(options: ContinuationExtraParams, callback: AsyncCallback&lt;number&gt;): void
 
@@ -104,6 +110,8 @@ continuationManager.register(
 
 
 ##### continuationManager.register(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 register(options?: ContinuationExtraParams): Promise&lt;number&gt;
 
@@ -150,6 +158,8 @@ continuationManager.register(
 
 
 ##### continuationManager.registerContinuation(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 registerContinuation(callback: AsyncCallback&lt;number&gt;): void
 
@@ -209,6 +219,8 @@ try {
 
 
 ##### continuationManager.registerContinuation(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 registerContinuation(options: ContinuationExtraParams, callback: AsyncCallback&lt;number&gt;): void
 
@@ -273,6 +285,8 @@ try {
 
 
 ##### continuationManager.registerContinuation(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 registerContinuation(options?: ContinuationExtraParams): Promise&lt;number&gt;
 
@@ -342,6 +356,8 @@ try {
 
 ##### continuationManager.on('deviceConnect')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 on(type: 'deviceConnect', callback: Callback&lt;ContinuationResult&gt;): void
 
 异步方法，监听设备连接状态，使用Callback形式返回连接的设备信息。
@@ -378,6 +394,8 @@ continuationManager.on("deviceConnect", (data) => {
 
 ##### continuationManager.on('deviceDisconnect')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 on(type: 'deviceDisconnect', callback: Callback&lt;string&gt;): void
 
 异步方法，监听设备断开状态，使用Callback形式返回断开的设备信息。
@@ -411,6 +429,8 @@ continuationManager.on("deviceDisconnect", (data) => {
 
 
 ##### continuationManager.off('deviceConnect')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'deviceConnect', callback?: Callback&lt;ContinuationResult&gt;): void
 
@@ -448,6 +468,8 @@ continuationManager.off("deviceConnect", (data) => {
 
 ##### continuationManager.off('deviceDisconnect')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'deviceDisconnect', callback?: Callback&lt;string&gt;): void
 
 异步方法，取消监听设备断开状态，使用Callback形式返回连接的设备信息。
@@ -481,6 +503,8 @@ continuationManager.off("deviceDisconnect", (data) => {
 
 
 ##### continuationManager.on('deviceSelected')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'deviceSelected', token: number, callback: Callback<Array&lt;ContinuationResult&gt;>): void
 
@@ -543,6 +567,8 @@ try {
 
 
 ##### continuationManager.on('deviceUnselected')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'deviceUnselected', token: number, callback: Callback<Array&lt;ContinuationResult&gt;>): void
 
@@ -607,6 +633,8 @@ try {
 
 ##### continuationManager.off('deviceSelected')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 off(type: 'deviceSelected', token: number): void
 
 取消监听设备连接状态。
@@ -660,6 +688,8 @@ try {
 
 
 ##### continuationManager.off('deviceUnselected')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'deviceUnselected', token: number): void
 
@@ -715,6 +745,8 @@ try {
 
 ##### continuationManager.startDeviceManager(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 startDeviceManager(token: number, callback: AsyncCallback&lt;void&gt;): void
 
 拉起设备选择模块，可显示组网内可选择设备列表信息，无过滤条件，使用AsyncCallback方式作为异步方法。
@@ -753,6 +785,8 @@ continuationManager.startDeviceManager(token, (err) => {
 
 
 ##### continuationManager.startDeviceManager(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 startDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback&lt;void&gt;): void
 
@@ -798,6 +832,8 @@ continuationManager.startDeviceManager(
 
 
 ##### continuationManager.startDeviceManager(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 startDeviceManager(token: number, options?: ContinuationExtraParams): Promise&lt;void&gt;
 
@@ -847,6 +883,8 @@ continuationManager.startDeviceManager(
 
 
 ##### continuationManager.startContinuationDeviceManager(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 startContinuationDeviceManager(token: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -906,6 +944,8 @@ try {
 
 
 ##### continuationManager.startContinuationDeviceManager(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 startContinuationDeviceManager(token: number, options: ContinuationExtraParams, callback: AsyncCallback&lt;void&gt;): void
 
@@ -971,6 +1011,8 @@ try {
 
 
 ##### continuationManager.startContinuationDeviceManager(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 startContinuationDeviceManager(token: number, options?: ContinuationExtraParams): Promise&lt;void&gt;
 
@@ -1041,6 +1083,8 @@ try {
 
 ##### continuationManager.updateConnectStatus(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState, callback: AsyncCallback&lt;void&gt;): void
 
 通知设备选择模块，更新当前的连接状态，使用AsyncCallback方式作为异步方法。
@@ -1082,6 +1126,8 @@ continuationManager.updateConnectStatus(token, deviceId, continuationManager.Dev
 
 
 ##### continuationManager.updateConnectStatus(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 updateConnectStatus(token: number, deviceId: string, status: DeviceConnectState): Promise&lt;void&gt;
 
@@ -1131,6 +1177,8 @@ continuationManager.updateConnectStatus(token, deviceId, continuationManager.Dev
 
 
 ##### continuationManager.updateContinuationState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 updateContinuationState(token: number, deviceId: string, status: DeviceConnectState, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1193,6 +1241,8 @@ try {
 
 
 ##### continuationManager.updateContinuationState(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 updateContinuationState(token: number, deviceId: string, status: DeviceConnectState): Promise&lt;void&gt;
 
@@ -1263,6 +1313,8 @@ try {
 
 ##### continuationManager.unregister(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 unregister(token: number, callback: AsyncCallback&lt;void&gt;): void
 
 解注册流转管理服务，传入注册时获取的token进行解注册，使用AsyncCallback方式作为异步方法。
@@ -1301,6 +1353,8 @@ continuationManager.unregister(token, (err) => {
 
 
 ##### continuationManager.unregister(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 unregister(token: number): Promise&lt;void&gt;
 
@@ -1346,6 +1400,8 @@ continuationManager.unregister(token)
 
 
 ##### continuationManager.unregisterContinuation(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 unregisterContinuation(token: number, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1405,6 +1461,8 @@ try {
 
 
 ##### continuationManager.unregisterContinuation(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 unregisterContinuation(token: number): Promise&lt;void&gt;
 
@@ -1470,6 +1528,8 @@ try {
 
 ##### DeviceConnectState(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 设备连接状态。
 
 > [!NOTE]
@@ -1494,6 +1554,8 @@ try {
 
 ##### ContinuationMode(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 设备选择模块连接模式。
 
 > [!NOTE]
@@ -1515,6 +1577,8 @@ try {
 
 
 ##### ContinuationResult(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type ContinuationResult = _ContinuationResult
 
@@ -1538,6 +1602,8 @@ type ContinuationResult = _ContinuationResult
 
 
 ##### ContinuationExtraParams(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 type ContinuationExtraParams = _ContinuationExtraParams
 

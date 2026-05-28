@@ -12,6 +12,8 @@ typedef struct OH_LowPowerAudioSink OH_LowPowerAudioSink
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 LowPowerAudioSink的声明。
  
 **起始版本：** 20

@@ -12,6 +12,8 @@ typedef struct OH_AVDataSourceExt {...} OH_AVDataSourceExt
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用户自定义数据源，回调支持通过userData传递用户自定义数据。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ typedef struct OH_AVDataSourceExt {...} OH_AVDataSourceExt
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

@@ -20,6 +20,8 @@ ImageSource的所有方法均不支持并发调用。
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { image } from '@kit.ImageKit';
 ```
@@ -27,6 +29,8 @@ import { image } from '@kit.ImageKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -38,6 +42,8 @@ import { image } from '@kit.ImageKit';
 
 
 ##### getImageInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getImageInfo(index: number, callback: AsyncCallback&lt;ImageInfo&gt;): void
 
@@ -77,6 +83,8 @@ async function GetImageInfo(imageSourceObj : image.ImageSource) {
 
 ##### getImageInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getImageInfo(callback: AsyncCallback&lt;ImageInfo&gt;): void
 
 获取图片信息。使用callback异步回调。
@@ -113,6 +121,8 @@ async function GetImageInfo(imageSourceObj : image.ImageSource) {
 
 
 ##### getImageInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getImageInfo(index?: number): Promise&lt;ImageInfo&gt;
 
@@ -156,6 +166,8 @@ async function GetImageInfo(imageSourceObj : image.ImageSource) {
 
 
 ##### getImageInfoSync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getImageInfoSync(index?: number): ImageInfo
 
@@ -202,6 +214,8 @@ function GetImageInfoSync(context : Context) {
 
 
 ##### getImageProperty11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getImageProperty(key:PropertyKey, options?: ImagePropertyOptions): Promise&lt;string&gt;
 
@@ -266,6 +280,8 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 
 ##### getImageProperties12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getImageProperties(key: Array&lt;PropertyKey&gt;): Promise<Record<PropertyKey, string|null>>
 
 批量获取图片中的指定属性键的值。使用Promise异步回调。
@@ -319,6 +335,8 @@ async function GetImageProperties(imageSourceObj : image.ImageSource) {
 
 
 ##### getImagePropertySync20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getImagePropertySync(key:PropertyKey): string
 
@@ -375,6 +393,8 @@ function GetImagePropertySync(context : Context) {
 
 
 ##### modifyImageProperty11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 modifyImageProperty(key: PropertyKey, value: string): Promise&lt;void&gt;
 
@@ -437,6 +457,8 @@ async function ModifyImageProperty(imageSourceObj : image.ImageSource) {
 
 
 ##### modifyImageProperties12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 modifyImageProperties(records: Record<PropertyKey, string|null>): Promise&lt;void&gt;
 
@@ -503,6 +525,8 @@ async function ModifyImageProperties(imageSourceObj : image.ImageSource) {
 
 ##### modifyImagePropertiesEnhanced22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 modifyImagePropertiesEnhanced(records: Record<string, string | null>): Promise&lt;void&gt;
 
 批量修改图片属性。使用Promise异步回调。
@@ -565,6 +589,8 @@ async function ModifyImagePropertiesEnhanced(imageSourceObj : image.ImageSource)
 
 
 ##### readImageMetadata23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readImageMetadata(propertyKeys?: string[], index?: number): Promise&lt;ImageMetadata&gt;
 
@@ -629,6 +655,8 @@ async function ReadImageMetadata(imageSourceObj : image.ImageSource) {
 
 ##### writeImageMetadata23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 writeImageMetadata(imageMetadata: ImageMetadata): Promise&lt;void&gt;
 
 批量修改图片属性。使用Promise异步回调。
@@ -688,6 +716,8 @@ async function WriteImageMetadata(imageSourceObj : image.ImageSource) {
 
 
 ##### readImageMetadataByType24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readImageMetadataByType(metadataTypes?: MetadataType[], index?: number): Promise&lt;ImageMetadata&gt;
 
@@ -751,6 +781,8 @@ async function ReadImageMetadataByType(imageSource : image.ImageSource, type: im
 
 ##### createImageRawData24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageRawData(): Promise&lt;ImageRawData&gt;
 
 获取图片原始数据。使用Promise异步回调。目前仅支持获取DNG图片类型的原始数据。
@@ -803,6 +835,8 @@ async function createImageRawData(imageSourceObj: image.ImageSource) {
 
 ##### updateData9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateData(buf: ArrayBuffer, isFinished: boolean, offset: number, length: number): Promise&lt;void&gt;
 
 更新增量数据。使用Promise异步回调。
@@ -845,6 +879,8 @@ async function UpdateDatay(imageSourceObj : image.ImageSource) {
 
 ##### updateData9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateData(buf: ArrayBuffer, isFinished: boolean, offset: number, length: number, callback: AsyncCallback&lt;void&gt;): void
 
 更新增量数据。使用callback异步回调。
@@ -882,6 +918,8 @@ async function UpdateDatay(imageSourceObj : image.ImageSource) {
 
 
 ##### createPicture13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPicture(options?: DecodingOptionsForPicture): Promise&lt;Picture&gt;
 
@@ -937,6 +975,8 @@ async function CreatePicture(imageSourceObj : image.ImageSource) {
 
 
 ##### createPictureAtIndex20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPictureAtIndex(index: number): Promise&lt;Picture&gt;
 
@@ -995,6 +1035,8 @@ async function CreatePictures(imageSourceObj : image.ImageSource) {
 
 ##### createPixelMap7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMap(options?: DecodingOptions): Promise&lt;PixelMap&gt;
 
 通过图片解码参数创建PixelMap对象。使用Promise异步回调。
@@ -1043,6 +1085,8 @@ async function CreatePixelMap(imageSourceObj : image.ImageSource) {
 
 ##### createPixelMap7+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMap(callback: AsyncCallback&lt;PixelMap&gt;): void
 
 通过默认参数创建PixelMap对象。使用callback异步回调。
@@ -1085,6 +1129,8 @@ async function CreatePixelMap(imageSourceObj : image.ImageSource) {
 
 
 ##### createPixelMap7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMap(options: DecodingOptions, callback: AsyncCallback&lt;PixelMap&gt;): void
 
@@ -1140,6 +1186,8 @@ async function CreatePixelMap(imageSourceObj : image.ImageSource) {
 
 
 ##### createPixelMapSync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapSync(options?: DecodingOptions): PixelMap
 
@@ -1201,6 +1249,8 @@ function CreatePixelMapSync(context : Context) {
 
 
 ##### createPixelMapList10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapList(options?: DecodingOptions): Promise<Array&lt;PixelMap&gt;>
 
@@ -1275,6 +1325,8 @@ async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
 
 ##### createPixelMapList10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createPixelMapList(callback: AsyncCallback<Array&lt;PixelMap&gt;>): void
 
 通过默认参数创建PixelMap数组。使用callback异步回调。
@@ -1334,6 +1386,8 @@ async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
 
 
 ##### createPixelMapList10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapList(options: DecodingOptions, callback: AsyncCallback<Array&lt;PixelMap&gt;>): void
 
@@ -1403,6 +1457,8 @@ async function CreatePixelMapList(imageSourceObj : image.ImageSource) {
 
 
 ##### createPixelMapUsingAllocator15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapUsingAllocator(options?: DecodingOptions, allocatorType?: AllocatorType): Promise&lt;PixelMap&gt;
 
@@ -1474,6 +1530,8 @@ async function CreatePixelMapUsingAllocator(context : Context) {
 
 
 ##### createPixelMapUsingAllocatorSync15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPixelMapUsingAllocatorSync(options?: DecodingOptions, allocatorType?: AllocatorType): PixelMap
 
@@ -1550,6 +1608,8 @@ async function CreatePixelMapUsingAllocator(context : Context) {
 
 ##### getDelayTimeList10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDelayTimeList(callback: AsyncCallback<Array&lt;number&gt;>): void
 
 获取图像延迟时间数组。使用callback异步回调。此接口仅用于gif图片和webp图片。
@@ -1599,6 +1659,8 @@ async function GetDelayTimeList(imageSourceObj : image.ImageSource) {
 
 ##### getDelayTimeList10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDelayTimeList(): Promise<Array&lt;number&gt;>
 
 获取图像延迟时间数组。使用Promise异步回调。此接口仅用于gif图片和webp图片。
@@ -1645,6 +1707,8 @@ async function GetDelayTimeList(imageSourceObj : image.ImageSource) {
 
 
 ##### getFrameCount10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFrameCount(callback: AsyncCallback&lt;number&gt;): void
 
@@ -1696,6 +1760,8 @@ async function GetFrameCount(imageSourceObj : image.ImageSource) {
 
 ##### getFrameCount10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getFrameCount(): Promise&lt;number&gt;
 
 获取图像帧数。使用Promise异步回调。
@@ -1744,6 +1810,8 @@ async function GetFrameCount(imageSourceObj : image.ImageSource) {
 
 ##### getDisposalTypeList12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDisposalTypeList(): Promise<Array&lt;number&gt;>
 
 获取图像帧过渡模式数组。使用Promise异步回调。此接口仅用于gif图片。
@@ -1787,6 +1855,8 @@ async function GetDisposalTypeList(imageSourceObj : image.ImageSource) {
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(callback: AsyncCallback&lt;void&gt;): void
 
 释放ImageSource实例。使用callback异步回调。
@@ -1824,6 +1894,8 @@ async function Release(imageSourceObj : image.ImageSource) {
 
 ##### release
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 释放ImageSource实例。使用Promise异步回调。
@@ -1858,6 +1930,8 @@ async function Release(imageSourceObj : image.ImageSource) {
 
 
 ##### getImageProperty(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getImageProperty(key:string, options?: GetImagePropertyOptions): Promise&lt;string&gt;
 
@@ -1905,6 +1979,8 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 
 ##### getImageProperty(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getImageProperty(key:string, callback: AsyncCallback&lt;string&gt;): void
 
 获取图片中给定索引处图像的指定属性键的值。使用callback异步回调。
@@ -1944,6 +2020,8 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 
 
 ##### getImageProperty(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getImageProperty(key:string, options: GetImagePropertyOptions, callback: AsyncCallback&lt;string&gt;): void
 
@@ -1986,6 +2064,8 @@ async function GetImageProperty(imageSourceObj : image.ImageSource) {
 
 
 ##### modifyImageProperty(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 modifyImageProperty(key: string, value: string): Promise&lt;void&gt;
 
@@ -2035,6 +2115,8 @@ async function ModifyImageProperty(imageSourceObj : image.ImageSource) {
 
 
 ##### modifyImageProperty(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 modifyImageProperty(key: string, value: string, callback: AsyncCallback&lt;void&gt;): void
 

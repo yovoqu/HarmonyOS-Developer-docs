@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { weatherService } from '@kit.WeatherServiceKit';
 ```
@@ -19,6 +21,8 @@ import { weatherService } from '@kit.WeatherServiceKit';
   
 
 ##### weatherService.getWeather
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWeather(request: WeatherRequest): Promise&lt;Weather&gt;
  
@@ -96,6 +100,8 @@ async function getWeatherData() {
   
 
 ##### weatherService.getWeatherWithContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWeatherWithContext(context: common.Context, request: WeatherRequest): Promise&lt;Weather&gt;
  
@@ -193,6 +199,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### WeatherRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 天气数据请求类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -213,6 +221,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### Location
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 位置信息。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -232,6 +242,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### Weather
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 天气数据类。
  
@@ -260,6 +272,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### CurrentWeather
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 实况天气数据类。
  
@@ -294,6 +308,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### Forecast&lt;T&gt;
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 预报类天气集合。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -315,6 +331,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### DailyWeather
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 多日天气数据类。
  
@@ -347,6 +365,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### HourlyWeather
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 小时天气数据类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -377,6 +397,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### MinuteWeather
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 分钟级降水数据类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -397,6 +419,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### WeatherAlert
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 天气预警信息类。
  
@@ -430,6 +454,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### WeatherIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 天气指数数据类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -453,6 +479,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### Tide
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 潮汐数据类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -475,6 +503,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### City
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 城市信息类。
  
@@ -501,6 +531,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### WeatherMetadata
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 天气元数据类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -522,6 +554,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### WeatherAttribution
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 天气数据归因类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -541,6 +575,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### Wind
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 风力风向数据类。
  
@@ -566,6 +602,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### WeatherCondition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 天气现象数据类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -587,6 +625,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### UVIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 紫外线指数数据类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -607,6 +647,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### WeatherAqi
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 空气质量数据类。
  
@@ -635,6 +677,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### MoonEvents
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 月出/月落时间，月相等信息类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -658,6 +702,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### MoonPhase
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 月相信息类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -679,6 +725,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### SunEvents
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 日出/日落信息类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -698,6 +746,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### DayPartForecast
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 全天部分时段天气信息类。
  
@@ -727,6 +777,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### DailyIndex
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 每天天气指数数据类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -749,6 +801,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### HourlyTide
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 小时潮汐数据类。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -769,6 +823,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### AdministrativeArea
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 行政区域信息类。
  
@@ -791,6 +847,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### Dataset
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 数据集枚举。
  
@@ -818,6 +876,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### PressureTrend
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 气压趋势枚举。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -839,6 +899,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### ConditionType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 天气现象类型枚举。
  
@@ -931,6 +993,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### CompassDirection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指针方向枚举。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -958,6 +1022,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### ExposureCategory
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 紫外线暴露程度枚举。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -981,6 +1047,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### MoonPhaseType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 月相类别枚举。
  
@@ -1009,6 +1077,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### Precipitation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 降水类型枚举。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1031,6 +1101,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### AlertLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 预警级别枚举。
  
@@ -1056,6 +1128,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### AlertType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 预警类型枚举。
  
@@ -1126,6 +1200,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### AqiCategory
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 空气质量类别枚举。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -1150,6 +1226,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### WeatherIndexType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 天气指数类型枚举。
  
@@ -1180,6 +1258,8 @@ export default class EntryAbility extends UIAbility {
   
 
 ##### TideCategory
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 潮汐类别枚举。
  

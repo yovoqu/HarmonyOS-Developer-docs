@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { pushCommon } from '@kit.PushKit';
 ```
@@ -23,6 +25,8 @@ import { pushCommon } from '@kit.PushKit';
   
 
 ##### AppProfileType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 绑定账号类型，为枚举值。
  
@@ -43,6 +47,8 @@ import { pushCommon } from '@kit.PushKit';
   
 
 ##### PushPayload
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用可以通过[receiveMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice#pushservicereceivemessage)()获取场景化消息数据的参数定义。
  
@@ -117,6 +123,8 @@ import { pushCommon } from '@kit.PushKit';
 
 ##### RemoteNotificationInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 扩展通知数据，继承[PushPayload](#pushpayload)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -137,6 +145,8 @@ import { pushCommon } from '@kit.PushKit';
   
 
 ##### RemoteNotificationContent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 扩展通知替换内容。
  
@@ -162,6 +172,8 @@ import { pushCommon } from '@kit.PushKit';
 
 ##### RemoteWantAgent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 点击事件时可以替换的数据。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -181,6 +193,8 @@ import { pushCommon } from '@kit.PushKit';
   
 
 ##### VoIPInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 应用内通话消息数据，继承[PushPayload](#pushpayload)。
  

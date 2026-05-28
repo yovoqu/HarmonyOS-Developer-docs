@@ -16,17 +16,23 @@ transform动效，支持的组件范围：
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不支持。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持animate属性和以下表格中的属性。
   
@@ -38,6 +44,8 @@ transform动效，支持的组件范围：
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```xml
 <!-- xxx.hml -->
@@ -226,4 +234,4 @@ transform动效，支持的组件范围：
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/MJy4-V2EQc-rK-ZbDovxtA/zh-cn_image_0000002611756335.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013808Z&HW-CC-Expire=86400&HW-CC-Sign=EF068E0260C96C42D318A8BDEA8C55CCBA299F6992E622AD3CBECCD40CCB104E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/MJy4-V2EQc-rK-ZbDovxtA/zh-cn_image_0000002611756335.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024105Z&HW-CC-Expire=86400&HW-CC-Sign=E944617102B0037F1246A6851CE725D7A13465BB9AB7DD2D74E826DB9269B583)

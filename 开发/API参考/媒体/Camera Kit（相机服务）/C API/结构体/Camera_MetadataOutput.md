@@ -12,6 +12,8 @@ typedef struct Camera_MetadataOutput Camera_MetadataOutput
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 元数据输出对象。
  
  可以使用[OH_CameraManager_CreateMetadataOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createmetadataoutput)方法与OH_CameraManager_CreateMetadataOutputWithObjectTypes方法（从API version 23开始支持）创建指针。

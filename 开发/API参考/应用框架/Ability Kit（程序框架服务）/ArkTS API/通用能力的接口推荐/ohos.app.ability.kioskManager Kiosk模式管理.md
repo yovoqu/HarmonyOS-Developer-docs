@@ -16,6 +16,8 @@ Kiosk模式是一种特殊的设备锁定模式，可以确保设备界面只服
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { kioskManager } from '@kit.AbilityKit';
 ```
@@ -23,6 +25,8 @@ import { kioskManager } from '@kit.AbilityKit';
 
 
 ##### kioskManager.enterKioskMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enterKioskMode(context: UIAbilityContext): Promise&lt;void&gt;
 
@@ -95,6 +99,8 @@ struct Index {
 
 ##### kioskManager.exitKioskMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 exitKioskMode(context: UIAbilityContext): Promise&lt;void&gt;
 
 退出Kiosk模式。使用Promise异步回调。
@@ -166,6 +172,8 @@ struct Index {
 
 
 ##### KioskStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type KioskStatus = _KioskStatus
 

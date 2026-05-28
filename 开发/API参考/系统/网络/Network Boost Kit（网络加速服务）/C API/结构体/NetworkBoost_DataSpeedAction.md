@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 发包速率建议。
  
 **起始版本：** 5.1.0(18)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### dataSpeedSimpleAction
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 NetworkBoost_DataSpeedSimpleAction NetworkBoost_DataSpeedAction::dataSpeedSimpleAction
@@ -50,6 +60,8 @@ NetworkBoost_DataSpeedSimpleAction NetworkBoost_DataSpeedAction::dataSpeedSimple
 
 ##### linkDownBandwidth
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 uint64_t NetworkBoost_DataSpeedAction::linkDownBandwidth
 ```
@@ -61,6 +73,8 @@ uint64_t NetworkBoost_DataSpeedAction::linkDownBandwidth
   
 
 ##### linkUpBandwidth
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 uint64_t NetworkBoost_DataSpeedAction::linkUpBandwidth

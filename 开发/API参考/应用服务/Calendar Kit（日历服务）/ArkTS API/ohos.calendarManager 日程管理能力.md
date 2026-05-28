@@ -28,6 +28,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { calendarManager } from '@kit.CalendarKit';
 ```
@@ -35,6 +37,8 @@ import { calendarManager } from '@kit.CalendarKit';
 
 
 ##### calendarManager.getCalendarManager
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCalendarManager(context: Context): CalendarManager
 
@@ -138,6 +142,8 @@ export default class EntryAbility extends UIAbility {
 
 ##### CalendarManager
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下列API示例中需先通过[getCalendarManager()](#calendarmanagergetcalendarmanager)方法获取CalendarManager对象，再通过此对象调用对应方法，进行Calendar的创建、删除、修改、查询等操作。
 
 **系统能力**： SystemCapability.Applications.CalendarData
@@ -145,6 +151,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### createCalendar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback&lt;Calendar&gt;): void
 
@@ -206,6 +214,8 @@ try {
 
 ##### createCalendar
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createCalendar(calendarAccount: CalendarAccount): Promise&lt;Calendar&gt;
 
 根据日历账户信息，创建一个Calendar对象，使用Promise异步回调。
@@ -266,6 +276,8 @@ calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calenda
 
 
 ##### deleteCalendar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteCalendar(calendar: Calendar, callback: AsyncCallback&lt;void&gt;): void
 
@@ -335,6 +347,8 @@ calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calenda
 
 
 ##### deleteCalendar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteCalendar(calendar: Calendar): Promise&lt;void&gt;
 
@@ -408,6 +422,8 @@ calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calenda
 
 ##### getCalendar
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCalendar(callback: AsyncCallback&lt;Calendar&gt;): void
 
 获取默认Calendar对象，默认Calendar是日历存储首次运行时创建的，若创建Event时不关注其Calendar归属，则无须通过[createCalendar()](#createcalendar)创建Calendar，直接使用默认Calendar，使用callback异步回调。
@@ -460,6 +476,8 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 ##### getCalendar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback&lt;Calendar&gt;): void
 
@@ -526,6 +544,8 @@ calendarMgr?.createCalendar(calendarAccount).then((data: calendarManager.Calenda
 
 ##### getCalendar
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCalendar(calendarAccount?: CalendarAccount): Promise&lt;Calendar&gt;
 
 获取默认Calendar对象或者指定Calendar对象，使用Promise异步回调。
@@ -585,6 +605,8 @@ calendarMgr?.getCalendar().then((data: calendarManager.Calendar) => {
 
 ##### getAllCalendars
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllCalendars(callback: AsyncCallback<Calendar[]>): void
 
 获取当前应用所有创建的Calendar对象以及默认Calendar对象，使用callback异步回调。
@@ -638,6 +660,8 @@ calendarMgr?.getAllCalendars((err: BusinessError, data: calendarManager.Calendar
 
 
 ##### getAllCalendars
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllCalendars(): Promise<Calendar[]>
 
@@ -693,6 +717,8 @@ calendarMgr?.getAllCalendars().then((data: calendarManager.Calendar[]) => {
 
 ##### editEvent12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 editEvent(event: Event): Promise&lt;number&gt;
 
 通过跳转到日程创建页面创建单个日程，入参Event不填日程id，不支持设置instanceStartTime、instanceEndTime、identifier、attendee、service、isLunar和timeZone属性。使用Promise异步回调。
@@ -741,6 +767,8 @@ calendarMgr?.editEvent(event).then((eventId: number): void => {
 
 ##### Calendar
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 下列API示例中需先通过[createCalendar()](#createcalendar)、[getCalendar()](#getcalendar)中任一方法获取Calendar对象，再通过此对象调用对应方法，对该Calendar下的日程进行创建、删除、修改、查询等操作。
 
 **系统能力**： SystemCapability.Applications.CalendarData
@@ -748,6 +776,8 @@ calendarMgr?.editEvent(event).then((eventId: number): void => {
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -761,6 +791,8 @@ calendarMgr?.editEvent(event).then((eventId: number): void => {
 
 
 ##### addEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addEvent(event: Event, callback: AsyncCallback&lt;number&gt;): void
 
@@ -827,6 +859,8 @@ calendarMgr?.getCalendar().then((data: calendarManager.Calendar) => {
 
 
 ##### addEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addEvent(event: Event): Promise&lt;number&gt;
 
@@ -900,6 +934,8 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 ##### addEvents
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addEvents(events: Event[], callback: AsyncCallback&lt;void&gt;): void
 
 批量创建日程，入参[Event](#event)不填日程id、instanceStartTime和instanceEndTime，使用callback异步回调。
@@ -972,6 +1008,8 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 ##### addEvents
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addEvents(events: Event[]): Promise&lt;void&gt;
 
@@ -1050,6 +1088,8 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 ##### deleteEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteEvent(id: number, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定id的日程，使用callback异步回调。
@@ -1111,6 +1151,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### deleteEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteEvent(id: number): Promise&lt;void&gt;
 
@@ -1175,6 +1217,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### deleteEvents
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteEvents(ids: number[], callback: AsyncCallback&lt;void&gt;): void
 
@@ -1250,6 +1294,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### deleteEvents
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteEvents(ids: number[]): Promise&lt;void&gt;
 
@@ -1328,6 +1374,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### updateEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 updateEvent(event: Event, callback: AsyncCallback&lt;void&gt;): void
 
 更新日程，入参[Event](#event)需要填写被修改日程的id，使用callback异步回调。
@@ -1389,6 +1437,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### updateEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateEvent(event: Event): Promise&lt;void&gt;
 
@@ -1456,6 +1506,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### getEvents
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getEvents(callback: AsyncCallback<Event[]>): void
 
 查询当前日历下所有日程，使用callback异步回调。
@@ -1515,6 +1567,8 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 ##### getEvents
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCallback<Event[]>):void
 
@@ -1603,6 +1657,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### getEvents
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>
 
 获取Calendar下符合查询条件的Event，使用Promise异步回调。
@@ -1687,6 +1743,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### getConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getConfig(): CalendarConfig
 
 获取日历配置信息。
@@ -1725,6 +1783,8 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 ##### setConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setConfig(config: CalendarConfig, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1784,6 +1844,8 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 ##### setConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setConfig(config: CalendarConfig): Promise&lt;void&gt;
 
@@ -1848,6 +1910,8 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 ##### getAccount
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAccount(): CalendarAccount
 
 获取日历账户信息。
@@ -1886,6 +1950,8 @@ calendarMgr?.getCalendar((err: BusinessError, data:calendarManager.Calendar) => 
 
 
 ##### queryEventInstances18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>
 
@@ -1970,6 +2036,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### CalendarAccount
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 日历账户信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1987,6 +2055,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### CalendarConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 日历配置信息。
 
 **系统能力**：SystemCapability.Applications.CalendarData
@@ -2000,6 +2070,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### Event
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 日程对象，包含日程标题、开始时间、结束时间等信息。
 
@@ -2030,6 +2102,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### CalendarType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 账户类型枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -2049,6 +2123,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### Location
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 日程地点。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -2066,6 +2142,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### EventFilter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 日程过滤器，查询日程时进行筛选过滤，获取符合条件的日程。
 
 通过[filterById()](#filterbyid)、[filterByTime()](#filterbytime)、[filterByTitle()](#filterbytitle)任一方法获取日程过滤器，传入[getEvents()](#getevents)过滤。
@@ -2075,6 +2153,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### filterById
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static filterById(ids: number[]): EventFilter
 
@@ -2154,6 +2234,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### filterByTime
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static filterByTime(start: number, end: number): EventFilter
 
 根据日程时间过滤日程。
@@ -2228,6 +2310,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### filterByTitle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static filterByTitle(title: string): EventFilter
 
 根据日程标题过滤日程，该条件为模糊匹配。
@@ -2291,6 +2375,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### EventType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 日程类型枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -2306,6 +2392,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### RecurrenceRule
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 重复日程重复规则。
 
@@ -2330,6 +2418,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### RecurrenceFrequency
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 日程重复规则类型枚举。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -2348,6 +2438,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### Attendee
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 会议日程参与者。
 
 **系统能力**：SystemCapability.Applications.CalendarData
@@ -2365,6 +2457,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### EventService
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 日程服务。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -2381,6 +2475,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### ServiceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 日程服务类型枚举。
 
@@ -2405,6 +2501,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 ##### AttendeeRole12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 会议日程参与者角色类型枚举。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -2420,6 +2518,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### AttendeeStatus18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 会议日程参与者状态类型枚举。
 
@@ -2439,6 +2539,8 @@ calendarMgr?.getCalendar(async (err: BusinessError, data:calendarManager.Calenda
 
 
 ##### AttendeeType18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 会议日程参与者受邀类型枚举。
 

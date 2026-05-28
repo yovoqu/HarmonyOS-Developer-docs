@@ -12,6 +12,8 @@ typedef struct Rdb_Statistic {...} Rdb_Statistic
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述数据库表的端云同步过程的统计信息。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct Rdb_Statistic {...} Rdb_Statistic
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

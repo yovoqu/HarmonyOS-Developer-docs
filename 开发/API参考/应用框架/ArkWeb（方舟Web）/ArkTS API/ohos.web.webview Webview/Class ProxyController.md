@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### applyProxyOverride15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChangeCallback): void
 
@@ -52,6 +56,8 @@ static applyProxyOverride(proxyConfig: ProxyConfig, callback: OnProxyConfigChang
 
 
 ##### removeProxyOverride15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static removeProxyOverride(callback: OnProxyConfigChangeCallback): void
 

@@ -12,6 +12,8 @@
 
 ##### 1003810001 参数值无效
 
+**支持设备：** Phone | Tablet
+
 **错误信息**
  
 Invalid parameter value.
@@ -32,6 +34,8 @@ Invalid parameter value.
   
 
 ##### 1003810002 所有参数总大小超出限制
+
+**支持设备：** Phone | Tablet
 
 **错误信息**
  

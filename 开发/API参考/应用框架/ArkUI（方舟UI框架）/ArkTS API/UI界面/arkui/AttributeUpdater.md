@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AttributeUpdater } from '@kit.ArkUI';
 ```
@@ -25,6 +27,8 @@ import { AttributeUpdater } from '@kit.ArkUI';
 
 
 ##### Initializer&lt;T&gt;
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Initializer&lt;T&gt; = () => T
 
@@ -45,6 +49,8 @@ type Initializer&lt;T&gt; = () => T
 
 ##### AttributeUpdater<T, C = Initializer&lt;T&gt;>
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为[AttributeModifier](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier#attributemodifiert)的实现类，开发者需要自定义class继承AttributeUpdater。
 
 其中C代表组件的构造函数类型，比如Text组件的TextInterface，Image组件的ImageInterface等，仅在使用updateConstructorParams时才需要传递C类型。
@@ -56,6 +62,8 @@ type Initializer&lt;T&gt; = () => T
 
 
 ##### applyNormalAttribute
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 applyNormalAttribute?(instance: T): void
 
@@ -75,6 +83,8 @@ applyNormalAttribute?(instance: T): void
 
 
 ##### initializeModifier
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 initializeModifier(instance: T): void
 
@@ -152,6 +162,8 @@ struct Index {
 
 ##### attribute
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 get attribute(): T | undefined
 
 获取AttributeUpdater中组件对应的属性类实例，通过该实例实现属性直通更新的功能。
@@ -212,6 +224,8 @@ struct updaterDemo2 {
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -259,12 +273,14 @@ struct attributeDemo3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/0XAs07NuR2SOXcUujYlV5Q/zh-cn_image_0000002611835417.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013819Z&HW-CC-Expire=86400&HW-CC-Sign=E366B3F62F6DCCA5A29A13F7A06AF61E0B8CE2BCA3566C4E426A06E7607987E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/0XAs07NuR2SOXcUujYlV5Q/zh-cn_image_0000002611835417.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024116Z&HW-CC-Expire=86400&HW-CC-Sign=3E0BC6A37ECEE7846C5C7DB542A8FEE384B613A0929530AFE109D04E6FD7B554)
 
 
 
 
 ##### onComponentChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onComponentChanged(component: T): void
 
@@ -331,4 +347,4 @@ struct updaterDemo4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/QpbzmdiLR_K2ksGHqQ94pg/zh-cn_image_0000002581275670.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013819Z&HW-CC-Expire=86400&HW-CC-Sign=A51F56E61C1771A4BB53373F17A3CDAD7AF4E4045CA41A22DF22B314A33516DE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/QpbzmdiLR_K2ksGHqQ94pg/zh-cn_image_0000002581275670.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024116Z&HW-CC-Expire=86400&HW-CC-Sign=4D7F413C0384DA3D22DBF46279F2DCD5838D6A137E7DD6181EA1F97038AA3AB0)

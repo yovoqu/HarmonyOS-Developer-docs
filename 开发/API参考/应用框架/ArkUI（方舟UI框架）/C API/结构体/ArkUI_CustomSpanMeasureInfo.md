@@ -12,6 +12,8 @@ typedef struct ArkUI_CustomSpanMeasureInfo ArkUI_CustomSpanMeasureInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义段落组件的测量信息。
  
 **起始版本：** 12

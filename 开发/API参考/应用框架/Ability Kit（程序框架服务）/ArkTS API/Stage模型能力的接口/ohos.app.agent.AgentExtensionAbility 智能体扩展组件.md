@@ -16,6 +16,8 @@ AgentExtensionAbility继承自[ExtensionAbility](https://developer.huawei.com/co
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { AgentExtensionAbility } from '@kit.AbilityKit';
 ```
@@ -24,10 +26,12 @@ import { AgentExtensionAbility } from '@kit.AbilityKit';
 
 ##### 生命周期
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **图1** AgentExtensionAbility生命周期
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/yf5tXnADTRqhIJWQa6xQAg/zh-cn_image_0000002581275602.png?HW-CC-KV=V1&HW-CC-Date=20260528T014010Z&HW-CC-Expire=86400&HW-CC-Sign=85A5C92FDB8E3F9DDA69E7E3E16FE2DD2B4DE9CC4F894B3B928515DD832EDBEF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/yf5tXnADTRqhIJWQa6xQAg/zh-cn_image_0000002581275602.png?HW-CC-KV=V1&HW-CC-Date=20260528T024304Z&HW-CC-Expire=86400&HW-CC-Sign=8F4E7F1C98090080465B5071B7DF0D56CD7FCBC46D3BFA32ECFFCACEA843BC55)
 
 
  - **onCreate**
@@ -48,9 +52,13 @@ import { AgentExtensionAbility } from '@kit.AbilityKit';
 
 ##### AgentExtensionAbility
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 24开始，该属性支持在元服务中使用。
 
@@ -64,6 +72,8 @@ import { AgentExtensionAbility } from '@kit.AbilityKit';
 
 
 ##### onCreate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onCreate(want: Want): void
 
@@ -100,6 +110,8 @@ export default class AgentExt extends AgentExtensionAbility {
 
 ##### onConnect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onConnect(want: Want, proxy: AgentHostProxy): void
 
 当客户端连接AgentExtensionAbility成功后，系统会触发该回调。
@@ -134,6 +146,8 @@ export default class AgentExt extends AgentExtensionAbility {
 
 
 ##### onDisconnect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDisconnect(want: Want, proxy: AgentHostProxy): void
 
@@ -170,6 +184,8 @@ export default class AgentExt extends AgentExtensionAbility {
 
 ##### onData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onData(proxy: AgentHostProxy, data: string): void
 
 当AgentExtensionAbility接收到客户端发送的数据时，系统会触发该回调。服务端可以在此回调中通过[AgentHostProxy.senddata](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy#senddata)向客户端发送数据。
@@ -205,6 +221,8 @@ export default class AgentExt extends AgentExtensionAbility {
 
 ##### onAuth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onAuth(proxy: AgentHostProxy, handshakeData: string): void
 
 当AgentExtensionAbility接收到客户端发送的安全认证请求时，系统会触发该回调。服务端可以在此回调中处理接收到的安全认证请求，并通过[AgentHostProxy.authorize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy#authorize)向客户端发送安全认证请求。
@@ -239,6 +257,8 @@ export default class AgentExt extends AgentExtensionAbility {
 
 
 ##### onDestroy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onDestroy(): void
 

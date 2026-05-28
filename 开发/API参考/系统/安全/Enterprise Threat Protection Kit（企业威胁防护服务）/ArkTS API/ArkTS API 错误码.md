@@ -12,6 +12,8 @@
 
 ##### 1023801001 系统内部错误
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 System service exception.
@@ -31,6 +33,8 @@ System service exception.
 
 
 ##### 1023802001 目标文件不存在
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -52,6 +56,8 @@ File not found.
 
 ##### 1023802002 该路径不允许访问/处置
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Access and disposal denied for this path.
@@ -71,6 +77,8 @@ Access and disposal denied for this path.
 
 
 ##### 1023802003 文件名冲突
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -92,6 +100,8 @@ A file with the same name already exists in the restored path.
 
 ##### 1023803001 尝试访问其他用户文件
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Access to other users' files is restricted.
@@ -112,6 +122,8 @@ Access to other users' files is restricted.
 
 ##### 1023804001 文件类型无效
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Invalid file type.
@@ -131,6 +143,8 @@ Invalid file type.
 
 
 ##### 1023804002 不支持处置，推荐自行处置
+
+**支持设备：** PC/2in1
 
 **错误信息**
 
@@ -154,6 +168,8 @@ Disposal is not supported. Please handle it manually.
 
 ##### 1023804003 操作无效
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Invalid operation.
@@ -174,6 +190,8 @@ Invalid operation.
 
 ##### 1023805001 隔离区空间不足
 
+**支持设备：** PC/2in1
+
 **错误信息**
 
 Quarantine storage space is full.
@@ -193,6 +211,8 @@ Quarantine storage space is full.
 
 
 ##### 1023806001 数据库损坏
+
+**支持设备：** PC/2in1
 
 **错误信息**
 

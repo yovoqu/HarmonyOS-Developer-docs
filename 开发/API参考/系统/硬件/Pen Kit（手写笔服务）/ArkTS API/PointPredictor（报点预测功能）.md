@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { PointPredictor } from '@kit.Penkit';
 ```
@@ -28,6 +30,8 @@ import { PointPredictor } from '@kit.Penkit';
   
 
 ##### getPredictionPoint
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getPredictionPoint(event: TouchEvent): TouchPoint
  

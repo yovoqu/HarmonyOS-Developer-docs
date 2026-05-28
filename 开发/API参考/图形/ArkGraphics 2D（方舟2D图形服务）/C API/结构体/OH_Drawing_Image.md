@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Image OH_Drawing_Image
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义一个用于描述绘制二维像素数组的图片。
  
 **起始版本：** 12

@@ -12,6 +12,8 @@ typedef struct DRM_OfflineMediakeyIdArray {...} DRM_OfflineMediakeyIdArray
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 离线媒体密钥ID数组。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct DRM_OfflineMediakeyIdArray {...} DRM_OfflineMediakeyIdArray
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

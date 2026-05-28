@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { componentSnapshot } from '@kit.ArkUI';
 ```
@@ -25,6 +27,8 @@ import { componentSnapshot } from '@kit.ArkUI';
 
 
 ##### componentSnapshot.get(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(id: string, callback: AsyncCallback<image.PixelMap>, options?: SnapshotOptions): void
 
@@ -111,6 +115,8 @@ struct SnapshotExample {
 
 
 ##### componentSnapshot.get(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(id: string, options?: SnapshotOptions): Promise<image.PixelMap>
 
@@ -202,6 +208,8 @@ struct SnapshotExample {
 
 
 ##### componentSnapshot.createFromBuilder(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>, delay?: number, checkImageStatus?: boolean, options?: SnapshotOptions): void
 
@@ -304,12 +312,14 @@ struct OffscreenSnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/rzseFgKaTiutl6jjcHNaYg/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013816Z&HW-CC-Expire=86400&HW-CC-Sign=8833EB580421A13940C978DCB1FDD15109F3F426A503F4980BC04E6592F1BBB3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/rzseFgKaTiutl6jjcHNaYg/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=E7CA9600F3A860A3592F895CC354795B3D08BE00070A5AC0D50655E71E82B6D8)
 
 
 
 
 ##### componentSnapshot.createFromBuilder(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createFromBuilder(builder: CustomBuilder, delay?: number, checkImageStatus?: boolean, options?: SnapshotOptions): Promise<image.PixelMap>
 
@@ -416,12 +426,14 @@ struct OffscreenSnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/a47XazCLTQ22NNjtfSZH6Q/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013816Z&HW-CC-Expire=86400&HW-CC-Sign=358B7084795977183769E73E9133149BD45A2885E617EDFBAC97EBED1D4C850D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/a47XazCLTQ22NNjtfSZH6Q/zh-cn_image_0000002611835357.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=0D58B9176774134C3FA048339294B46D4CF8F7A52FE44D83C8FA76B325AA470B)
 
 
 
 
 ##### componentSnapshot.getSync12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSync(id: string, options?: SnapshotOptions): image.PixelMap
 
@@ -509,12 +521,14 @@ struct SnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/UTzoBDUbQj6_ow3l9ico7w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013816Z&HW-CC-Expire=86400&HW-CC-Sign=0A5319AAF69CBDDDC25756693D815F78ECC47A0D843FA54770A743102F718DB2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/UTzoBDUbQj6_ow3l9ico7w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=57F89CDE2EE7DBBE0FA69614B50D496CF740CAA75DEDB147C54B298F4E997ED6)
 
 
 
 
 ##### SnapshotOptions12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -530,6 +544,8 @@ struct SnapshotExample {
 
 
 ##### ColorModeOptions23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义截图时所使用的色彩空间。
 
@@ -591,12 +607,14 @@ struct SnapshotColorModeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/28woh4uuTOSAe3QxMxVOgw/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013816Z&HW-CC-Expire=86400&HW-CC-Sign=FD14C0BBB0F471A0559F38B9FF0D76D888C7BF9C9206AFD608DCBDD5A22477F5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/28woh4uuTOSAe3QxMxVOgw/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=027625D6BBE04EB600ABDBC5520050830198B4F624C4863A97FA98C460562FCF)
 
 
 
 
 ##### DynamicRangeModeOptions23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义截图所使用的动态范围模式。
 
@@ -657,12 +675,14 @@ struct SnapshotDynamicRangeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/NldmgJ1JQq-iI2LdaGe_-w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013816Z&HW-CC-Expire=86400&HW-CC-Sign=14978D1F3BBA111B812329B43CF011BF69615245FE363AC13FF8B62D5FC8747C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/NldmgJ1JQq-iI2LdaGe_-w/zh-cn_image_0000002581435526.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=29D657D329A8E1B77BF69DE46039873540670A06A08EF4B14634DAC1DD310013)
 
 
 
 
 ##### SnapshotRegionType15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion
 
@@ -682,6 +702,8 @@ type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion
 
 ##### SnapshotRegion15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义组件截图的矩形区域。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
@@ -699,6 +721,8 @@ type SnapshotRegionType = SnapshotRegion | LocalizedSnapshotRegion
 
 
 ##### LocalizedSnapshotRegion15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义组件截图的矩形区域，start和end的值在布局方向为LTR时指定为left和right，在布局方向为RTL时指定为right和left。
 
@@ -780,4 +804,4 @@ struct SnapshotExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/S3sMuWhIS6yfSj_6cUbBXw/zh-cn_image_0000002581275608.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013816Z&HW-CC-Expire=86400&HW-CC-Sign=6CFE276171D6B7ACFB318820159FB687B958FF9A8DADF7553EF2B91A8403A5D2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/S3sMuWhIS6yfSj_6cUbBXw/zh-cn_image_0000002581275608.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024113Z&HW-CC-Expire=86400&HW-CC-Sign=908F36C33D34491FEDE0A743D88043E262C7EF7FDF19922D231DDBB84D73CFA3)

@@ -12,6 +12,8 @@ typedef struct OH_Drawing_FontStyleStruct {...} OH_Drawing_FontStyleStruct
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义字体样式信息的结构体。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ typedef struct OH_Drawing_FontStyleStruct {...} OH_Drawing_FontStyleStruct
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

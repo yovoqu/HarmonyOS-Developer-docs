@@ -12,6 +12,8 @@ typedef struct CloudDisk_SyncFolder {...} CloudDisk_SyncFolder
 
 ##### 概述
 
+**支持设备：** PC/2in1 | Tablet
+
 同步根属性信息。
  
 **起始版本：** 21
@@ -24,9 +26,13 @@ typedef struct CloudDisk_SyncFolder {...} CloudDisk_SyncFolder
 
 ##### 汇总
 
+**支持设备：** PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

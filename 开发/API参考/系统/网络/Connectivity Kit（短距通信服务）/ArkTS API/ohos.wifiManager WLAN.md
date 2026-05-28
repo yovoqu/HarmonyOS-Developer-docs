@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { wifiManager } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.isWifiActive
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isWifiActive(): boolean
 
@@ -64,6 +68,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.enableWifi15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 enableWifi(): void
 
 启动WLAN。
@@ -100,6 +106,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.disableWifi20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disableWifi(): void
 
 关闭WLAN。
@@ -135,6 +143,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.scan(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 scan(): void
 
@@ -174,6 +184,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.startScan21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startScan(): void
 
@@ -215,6 +227,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.getScanResults(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getScanResults(): Promise<Array&lt;WifiScanInfo&gt;>
 
 获取扫描结果，使用Promise异步回调。
@@ -251,6 +265,8 @@ getScanResults(): Promise<Array&lt;WifiScanInfo&gt;>
 
 
 ##### wifiManager.getScanResults(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getScanResults(callback: AsyncCallback<Array&lt;WifiScanInfo&gt;>): void
 
@@ -334,6 +350,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.getScanResultsSync(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getScanResultsSync(): Array<[WifiScanInfo](#wifiscaninfo)>
 
 获取扫描结果，使用同步方式返回一个包含多个WifiScanInfo对象的数组，每个对象表示一个WLAN网络的扫描信息。
@@ -395,6 +413,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.getScanInfoList10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getScanInfoList(): Array&lt;WifiScanInfo&gt;
 
@@ -458,6 +478,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### WifiScanInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 WLAN热点信息。
 
 **系统能力：** SystemCapability.Communication.WiFi.STA
@@ -485,6 +507,8 @@ WLAN热点信息。
 
 ##### DeviceAddressType10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 WLAN设备地址（MAC/BSSID）类型。是标识WLAN设备或接入点的唯一地址。
 
 在WLAN相关操作中，如连接指定的WLAN网络、获取设备信息等，需要使用DeviceAddressType类型的参数。
@@ -502,6 +526,8 @@ WLAN设备地址（MAC/BSSID）类型。是标识WLAN设备或接入点的唯一
 
 
 ##### WifiSecurityType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示加密类型的枚举。
 
@@ -525,6 +551,8 @@ WLAN设备地址（MAC/BSSID）类型。是标识WLAN设备或接入点的唯一
 
 ##### WifiBandType10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示WIFI频段类型的枚举。
 
 **系统能力：** SystemCapability.Communication.WiFi.STA
@@ -541,6 +569,8 @@ WLAN设备地址（MAC/BSSID）类型。是标识WLAN设备或接入点的唯一
 
 
 ##### WifiStandard10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示WIFI标准的枚举。
 
@@ -562,6 +592,8 @@ WLAN设备地址（MAC/BSSID）类型。是标识WLAN设备或接入点的唯一
 
 ##### WifiInfoElem
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 WLAN热点信息。
 
 **系统能力：** SystemCapability.Communication.WiFi.STA
@@ -575,6 +607,8 @@ WLAN热点信息。
 
 
 ##### WifiChannelWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示带宽类型的枚举。
 
@@ -593,6 +627,8 @@ WLAN热点信息。
 
 
 ##### WifiDeviceConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 WLAN配置信息。
 
@@ -614,6 +650,8 @@ WLAN配置信息。
 
 
 ##### WifiEapConfig10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 可扩展身份验证协议配置信息。
 
@@ -646,6 +684,8 @@ WLAN配置信息。
 
 ##### WifiWapiConfig12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 WAPI(Wireless LAN Authentication and Privacy Infrastructure) 身份验证协议配置。
 
 当用户通过WAPI身份验证协议连接无线网时，可通过以下方式配置参数或者证书进行连接。
@@ -677,6 +717,8 @@ preSharedKey传参为路由器上设置的密码;
 
 ##### WapiPskType12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 WAPI认证方式的枚举。
 
 **系统能力：** SystemCapability.Communication.WiFi.Core
@@ -690,6 +732,8 @@ WAPI认证方式的枚举。
 
 
 ##### EapMethod10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示EAP认证方式的枚举。
 
@@ -712,6 +756,8 @@ WAPI认证方式的枚举。
 
 ##### Phase2Method10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示第二阶段认证方式的枚举。
 
 **系统能力：** SystemCapability.Communication.WiFi.STA
@@ -732,6 +778,8 @@ WAPI认证方式的枚举。
 
 ##### WifiCategory12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示热点支持的最高WLAN类别。可以用于识别和区分不同WLAN技术标准的热点。
 
 **系统能力：** SystemCapability.Communication.WiFi.STA
@@ -748,6 +796,8 @@ WAPI认证方式的枚举。
 
 
 ##### wifiManager.addCandidateConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addCandidateConfig(config: WifiDeviceConfig): Promise&lt;number&gt;
 
@@ -814,6 +864,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.addCandidateConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addCandidateConfig(config: WifiDeviceConfig, callback: AsyncCallback&lt;number&gt;): void
 
 添加候选网络配置，使用callback异步回调。
@@ -870,6 +922,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.removeCandidateConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeCandidateConfig(networkId: number): Promise&lt;void&gt;
 
@@ -933,6 +987,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.removeCandidateConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeCandidateConfig(networkId: number, callback: AsyncCallback&lt;void&gt;): void
 
 移除指定的候选网络配置，使用callback异步回调。
@@ -987,6 +1043,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.removeDevice15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeDevice(id: number): void
 
 移除网络配置。
@@ -1035,6 +1093,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.getCandidateConfigs
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCandidateConfigs(): Array&lt;WifiDeviceConfig&gt;
 
@@ -1096,6 +1156,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.connectToCandidateConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 connectToCandidateConfig(networkId: number): void
 
 应用使用该接口连接到自己添加的候选网络。
@@ -1142,6 +1204,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.connectToCandidateConfigWithUserAction20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connectToCandidateConfigWithUserAction(networkId: number): Promise&lt;void&gt;
 
@@ -1212,6 +1276,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.addDeviceConfig15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addDeviceConfig(config: WifiDeviceConfig): Promise&lt;number&gt;
 
 添加网络配置。使用Promise异步回调。
@@ -1272,6 +1338,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.addDeviceConfig15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addDeviceConfig(config: WifiDeviceConfig, callback: AsyncCallback&lt;number&gt;): void
 
 添加网络配置。使用callback异步回调。
@@ -1324,6 +1392,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.getDeviceConfigs15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceConfigs(): Array&lt;WifiDeviceConfig&gt;
 
 获取网络配置。
@@ -1366,6 +1436,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.connectToNetwork15+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connectToNetwork(networkId: number): void
 
@@ -1411,6 +1483,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.getSignalLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSignalLevel(rssi: number, band: number): number
 
@@ -1466,6 +1540,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.getLinkedInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLinkedInfo(): Promise&lt;WifiLinkedInfo&gt;
 
 获取WLAN连接信息。使用Promise异步回调。
@@ -1500,6 +1576,8 @@ getLinkedInfo(): Promise&lt;WifiLinkedInfo&gt;
 
 
 ##### wifiManager.getLinkedInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getLinkedInfo(callback: AsyncCallback&lt;WifiLinkedInfo&gt;): void
 
@@ -1549,6 +1627,8 @@ wifiManager.getLinkedInfo().then((data: wifiManager.WifiLinkedInfo) => {
 
 ##### wifiManager.getLinkedInfoSync18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLinkedInfoSync(): WifiLinkedInfo;
 
 获取WLAN连接信息，使用同步方式返回结果。
@@ -1596,6 +1676,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### WifiLinkedInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供WLAN连接的相关信息。
 
 **系统能力：** SystemCapability.Communication.WiFi.STA
@@ -1628,6 +1710,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### WifiLinkType18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，Wi-Fi7连接类型。
 
 **系统能力：** SystemCapability.Communication.WiFi.STA
@@ -1644,6 +1728,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### ConnState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示WLAN连接状态的枚举。
 
@@ -1664,6 +1750,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.isConnected
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isConnected(): boolean
 
@@ -1710,6 +1798,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.disconnect15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnect(): void
 
 断开WLAN连接。
@@ -1747,6 +1837,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.isFeatureSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isFeatureSupported(featureId: number): boolean
 
@@ -1816,6 +1908,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.getDeviceMacAddress15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDeviceMacAddress(): string[]
 
 获取设备的MAC地址。
@@ -1862,6 +1956,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.getIpInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getIpInfo(): IpInfo
 
 获取IPV4信息。
@@ -1905,6 +2001,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### IpInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 IPV4信息。
 
 **系统能力：** SystemCapability.Communication.WiFi.STA
@@ -1923,6 +2021,8 @@ IPV4信息。
 
 
 ##### wifiManager.getIpv6Info10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getIpv6Info(): Ipv6Info
 
@@ -1967,6 +2067,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### Ipv6Info10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Ipv6信息。
 
 **系统能力：** SystemCapability.Communication.WiFi.STA
@@ -1987,6 +2089,8 @@ Ipv6信息。
 
 
 ##### wifiManager.getCountryCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCountryCode(): string
 
@@ -2030,6 +2134,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.isBandTypeSupported10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isBandTypeSupported(bandType: WifiBandType): boolean
 
@@ -2082,6 +2188,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.isMeteredHotspot11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isMeteredHotspot(): boolean
 
 查询设备当前连接的wifi是否是手机热点。
@@ -2126,6 +2234,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.isHotspotActive15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isHotspotActive(): boolean
 
 热点是否已使能。
@@ -2169,6 +2279,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.getP2pLinkedInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getP2pLinkedInfo(): Promise&lt;WifiP2pLinkedInfo&gt;
 
 获取P2P连接信息。使用Promise异步回调。
@@ -2200,6 +2312,8 @@ getP2pLinkedInfo(): Promise&lt;WifiP2pLinkedInfo&gt;
 
 
 ##### wifiManager.getP2pLinkedInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getP2pLinkedInfo(callback: AsyncCallback&lt;WifiP2pLinkedInfo&gt;): void
 
@@ -2252,6 +2366,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### WifiP2pLinkedInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供WLAN连接的相关信息。
 
 **系统能力：** SystemCapability.Communication.WiFi.P2P
@@ -2267,6 +2383,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### P2pConnectState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示P2P连接状态的枚举。
 
 **系统能力：** SystemCapability.Communication.WiFi.P2P
@@ -2280,6 +2398,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.getCurrentGroup
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentGroup(): Promise&lt;WifiP2pGroupInfo&gt;
 
@@ -2312,6 +2432,8 @@ API 10起：ohos.permission.GET_WIFI_INFO
 
 
 ##### wifiManager.getCurrentGroup
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentGroup(callback: AsyncCallback&lt;WifiP2pGroupInfo&gt;): void
 
@@ -2363,6 +2485,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.getP2pPeerDevices
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getP2pPeerDevices(): Promise<WifiP2pDevice[]>
 
 获取P2P对端设备列表信息。使用Promise异步回调。
@@ -2394,6 +2518,8 @@ API 10起：ohos.permission.GET_WIFI_INFO
 
 
 ##### wifiManager.getP2pPeerDevices
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void
 
@@ -2446,6 +2572,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### WifiP2pDevice
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示P2P设备信息。
 
 **系统能力：** SystemCapability.Communication.WiFi.P2P
@@ -2464,6 +2592,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### P2pDeviceStatus
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示设备状态的枚举。
 
 **系统能力：** SystemCapability.Communication.WiFi.P2P
@@ -2480,6 +2610,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.getP2pLocalDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getP2pLocalDevice(): Promise&lt;WifiP2pDevice&gt;
 
@@ -2512,6 +2644,8 @@ API 11起：ohos.permission.GET_WIFI_INFO
 
 
 ##### wifiManager.getP2pLocalDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getP2pLocalDevice(callback: AsyncCallback&lt;WifiP2pDevice&gt;): void
 
@@ -2561,6 +2695,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.createGroup
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createGroup(config: WifiP2PConfig): void
 
@@ -2614,6 +2750,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### WifiP2PConfig
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示P2P配置信息。
 
 **系统能力：** SystemCapability.Communication.WiFi.P2P
@@ -2633,6 +2771,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### GroupOwnerBand
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示群组带宽的枚举。
 
 **系统能力：** SystemCapability.Communication.WiFi.P2P
@@ -2647,6 +2787,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.removeGroup
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeGroup(): void
 
@@ -2683,6 +2825,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.p2pConnect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 p2pConnect(config: WifiP2PConfig): void
 
@@ -2786,6 +2930,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.p2pCancelConnect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 p2pCancelConnect(): void
 
 在P2P连接过程中，取消P2P连接。
@@ -2821,6 +2967,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.startDiscoverDevices
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startDiscoverDevices(): void
 
@@ -2860,6 +3008,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.stopDiscoverDevices
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopDiscoverDevices(): void
 
 停止发现设备。
@@ -2895,6 +3045,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.getMultiLinkedInfo18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMultiLinkedInfo(): Array&lt;WifiLinkedInfo&gt;
 
@@ -2944,6 +3096,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### WifiP2pGroupInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示P2P群组相关信息。
 
 **系统能力：** SystemCapability.Communication.WiFi.P2P
@@ -2964,6 +3118,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 ##### wifiManager.on('wifiStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'wifiStateChange', callback: Callback&lt;number&gt;): void
 
@@ -3008,6 +3164,8 @@ on(type: 'wifiStateChange', callback: Callback&lt;number&gt;): void
 
 
 ##### wifiManager.off('wifiStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'wifiStateChange', callback?: Callback&lt;number&gt;): void
 
@@ -3059,6 +3217,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('wifiConnectionChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'wifiConnectionChange', callback: Callback&lt;number&gt;): void
 
 注册WLAN连接状态改变事件，在业务退出时，要调用off(type: 'wifiConnectionChange', callback?: Callback&lt;number&gt;)接口去掉之前的注册回调。使用callback异步回调。
@@ -3100,6 +3260,8 @@ on(type: 'wifiConnectionChange', callback: Callback&lt;number&gt;): void
 
 
 ##### wifiManager.off('wifiConnectionChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'wifiConnectionChange', callback?: Callback&lt;number&gt;): void
 
@@ -3151,6 +3313,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('wifiScanStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'wifiScanStateChange', callback: Callback&lt;number&gt;): void
 
 注册扫描状态改变事件，在业务退出时，要调用off(type: 'wifiScanStateChange', callback?: Callback&lt;number&gt;)接口去掉之前的注册回调。使用callback异步回调。
@@ -3192,6 +3356,8 @@ on(type: 'wifiScanStateChange', callback: Callback&lt;number&gt;): void
 
 
 ##### wifiManager.off('wifiScanStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'wifiScanStateChange', callback?: Callback&lt;number&gt;): void
 
@@ -3243,6 +3409,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('wifiRssiChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'wifiRssiChange', callback: Callback&lt;number&gt;): void
 
 注册WLAN接收信号强度(RSSI)变化事件，在业务退出时，要调用off(type: 'wifiRssiChange', callback?: Callback&lt;number&gt;)接口去掉之前的注册回调。使用callback异步回调。
@@ -3274,6 +3442,8 @@ on(type: 'wifiRssiChange', callback: Callback&lt;number&gt;): void
 
 
 ##### wifiManager.off('wifiRssiChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'wifiRssiChange', callback?: Callback&lt;number&gt;): void
 
@@ -3323,6 +3493,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('hotspotStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'hotspotStateChange', callback: Callback&lt;number&gt;): void
 
 注册热点状态改变事件，在业务退出时，要调用off(type: 'hotspotStateChange', callback?: Callback&lt;number&gt;)接口去掉之前的注册回调。使用callback异步回调。
@@ -3364,6 +3536,8 @@ on(type: 'hotspotStateChange', callback: Callback&lt;number&gt;): void
 
 
 ##### wifiManager.off('hotspotStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'hotspotStateChange', callback?: Callback&lt;number&gt;): void
 
@@ -3413,6 +3587,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('p2pStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pStateChange', callback: Callback&lt;number&gt;): void
 
 注册P2P开关状态改变事件，在业务退出时，要调用off(type: 'p2pStateChange', callback?: Callback&lt;number&gt;)接口去掉之前的注册回调。使用callback异步回调。
@@ -3455,6 +3631,8 @@ on(type: 'p2pStateChange', callback: Callback&lt;number&gt;): void
 
 
 ##### wifiManager.off('p2pStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pStateChange', callback?: Callback&lt;number&gt;): void
 
@@ -3504,6 +3682,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('p2pConnectionChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pConnectionChange', callback: Callback&lt;WifiP2pLinkedInfo&gt;): void
 
 注册P2P连接状态改变事件，在业务退出时，要调用off(type: 'p2pConnectionChange', callback?: Callback&lt;WifiP2pLinkedInfo&gt;)接口去掉之前的注册回调。使用callback异步回调。
@@ -3535,6 +3715,8 @@ on(type: 'p2pConnectionChange', callback: Callback&lt;WifiP2pLinkedInfo&gt;): vo
 
 
 ##### wifiManager.off('p2pConnectionChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pConnectionChange', callback?: Callback&lt;WifiP2pLinkedInfo&gt;): void
 
@@ -3584,6 +3766,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('p2pDeviceChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pDeviceChange', callback: Callback&lt;WifiP2pDevice&gt;): void
 
 注册P2P设备状态改变事件，在业务退出时，要调用off(type: 'p2pDeviceChange', callback?: Callback&lt;WifiP2pDevice&gt;)接口去掉之前的注册回调。使用callback异步回调。
@@ -3617,6 +3801,8 @@ API 10起：ohos.permission.GET_WIFI_INFO
 
 
 ##### wifiManager.off('p2pDeviceChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pDeviceChange', callback?: Callback&lt;WifiP2pDevice&gt;): void
 
@@ -3664,6 +3850,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('p2pPeerDeviceChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pPeerDeviceChange', callback: Callback<WifiP2pDevice[]>): void
 
 注册P2P对端设备状态改变事件，在业务退出时，要调用off(type: 'p2pPeerDeviceChange', callback?: Callback<WifiP2pDevice[]>)接口去掉之前的注册回调。使用callback异步回调。
@@ -3697,6 +3885,8 @@ API 10起：ohos.permission.GET_WIFI_INFO
 
 
 ##### wifiManager.off('p2pPeerDeviceChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pPeerDeviceChange', callback?: Callback<WifiP2pDevice[]>): void
 
@@ -3744,6 +3934,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('p2pPersistentGroupChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pPersistentGroupChange', callback: Callback&lt;void&gt;): void
 
 注册P2P永久组状态改变事件，在业务退出时，要调用off(type: 'p2pPersistentGroupChange', callback?: Callback&lt;void&gt;)接口去掉之前的注册回调。使用callback异步回调。
@@ -3775,6 +3967,8 @@ on(type: 'p2pPersistentGroupChange', callback: Callback&lt;void&gt;): void
 
 
 ##### wifiManager.off('p2pPersistentGroupChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pPersistentGroupChange', callback?: Callback&lt;void&gt;): void
 
@@ -3824,6 +4018,8 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 ##### wifiManager.on('p2pDiscoveryChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'p2pDiscoveryChange', callback: Callback&lt;number&gt;): void
 
 注册发现设备状态改变事件，在业务退出时，要调用off(type: 'p2pDiscoveryChange', callback?: Callback&lt;number&gt;)接口去掉之前的注册回调。使用callback异步回调。
@@ -3863,6 +4059,8 @@ on(type: 'p2pDiscoveryChange', callback: Callback&lt;number&gt;): void
 
 
 ##### wifiManager.off('p2pDiscoveryChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'p2pDiscoveryChange', callback?: Callback&lt;number&gt;): void
 

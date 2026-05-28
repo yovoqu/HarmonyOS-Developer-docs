@@ -14,6 +14,8 @@
 
 ##### AnimateParam对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 动画效果相关参数。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -39,11 +41,15 @@
 
 ##### ICurve9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 曲线对象。
 
 
 
 ##### interpolate9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 interpolate(fraction: number): number
 
@@ -73,6 +79,8 @@ interpolate(fraction: number): number
 
 ##### FinishCallbackType11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 动画中定义onFinish回调的类型。
 
 **卡片能力：** 从API version 11开始，该接口支持在ArkTS卡片中使用。
@@ -91,6 +99,8 @@ interpolate(fraction: number): number
 
 ##### ExpectedFrameRateRange11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置动画期望的帧率。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -107,6 +117,8 @@ interpolate(fraction: number): number
 
 
 ##### animateTo(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 animateTo(value: AnimateParam, event: () => void): void
 
@@ -133,6 +145,8 @@ animateTo(value: AnimateParam, event: () => void): void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -218,7 +232,7 @@ struct AnimateToExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/HMVDCBDETTmlHD-QXPxmhA/zh-cn_image_0000002611756097.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=F4B42069DF837116770ECA1DDEEA814DA2697CEA305E0F5858503D5005B357C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/HMVDCBDETTmlHD-QXPxmhA/zh-cn_image_0000002611756097.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=1125B6C0E70C73DA68A82C3A43653467D3CE8C8560A6BD8E3696193AA0D1138E)
 
 
 
@@ -275,4 +289,4 @@ struct AttrAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/CmlgAE4IScW7DtF2GChI6A/zh-cn_image_0000002581436160.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=F03FD6747D3DD58F159895FE677155DC46DAB0687F28A38825C59DD755C7D44D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/CmlgAE4IScW7DtF2GChI6A/zh-cn_image_0000002581436160.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=EE09741FA354409C92C46BBF09E0E78515F191AA7DAE968AED9BD43CBCD6FEAB)

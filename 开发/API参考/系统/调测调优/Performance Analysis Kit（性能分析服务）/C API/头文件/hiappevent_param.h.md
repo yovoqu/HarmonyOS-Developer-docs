@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义所有预定义事件的参数名称。除了与特定应用关联的自定义事件之外，开发者还可以使用预定义事件进行打点。
  
 **引用文件：** <hiappevent/hiappevent_param.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -48,9 +54,13 @@
 
 ##### 宏定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### PARAM_USER_ID
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define PARAM_USER_ID "user_id"
@@ -66,6 +76,8 @@
 
 ##### PARAM_DISTRIBUTED_SERVICE_NAME
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define PARAM_DISTRIBUTED_SERVICE_NAME "ds_name"
 ```
@@ -79,6 +91,8 @@
   
 
 ##### PARAM_DISTRIBUTED_SERVICE_INSTANCE_ID
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define PARAM_DISTRIBUTED_SERVICE_INSTANCE_ID "ds_instance_id"
@@ -94,6 +108,8 @@
 
 ##### MAIN_THREAD_JANK_PARAM_LOG_TYPE
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define MAIN_THREAD_JANK_PARAM_LOG_TYPE "log_type"
 ```
@@ -107,6 +123,8 @@
   
 
 ##### MAIN_THREAD_JANK_PARAM_SAMPLE_INTERVAL
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define MAIN_THREAD_JANK_PARAM_SAMPLE_INTERVAL "sample_interval"
@@ -122,6 +140,8 @@
 
 ##### MAIN_THREAD_JANK_PARAM_IGNORE_STARTUP_TIME
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define MAIN_THREAD_JANK_PARAM_IGNORE_STARTUP_TIME "ignore_startup_time"
 ```
@@ -135,6 +155,8 @@
   
 
 ##### MAIN_THREAD_JANK_PARAM_SAMPLE_COUNT
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define MAIN_THREAD_JANK_PARAM_SAMPLE_COUNT "sample_count"
@@ -150,6 +172,8 @@
 
 ##### MAIN_THREAD_JANK_PARAM_REPORT_TIMES_PER_APP
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define MAIN_THREAD_JANK_PARAM_REPORT_TIMES_PER_APP "report_times_per_app"
 ```
@@ -163,6 +187,8 @@
   
 
 ##### MAIN_THREAD_JANK_PARAM_AUTO_STOP_SAMPLING
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define MAIN_THREAD_JANK_PARAM_AUTO_STOP_SAMPLING "auto_stop_sampling"
@@ -178,6 +204,8 @@
 
 ##### OH_APP_CRASH_PARAM_EXTEND_PC_LR_PRINTING
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define OH_APP_CRASH_PARAM_EXTEND_PC_LR_PRINTING "extend_pc_lr_printing"
 ```
@@ -191,6 +219,8 @@
   
 
 ##### OH_APP_CRASH_PARAM_LOG_FILE_CUTOFF_SZ_BYTES
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define OH_APP_CRASH_PARAM_LOG_FILE_CUTOFF_SZ_BYTES "log_file_cutoff_sz_bytes"
@@ -206,6 +236,8 @@
 
 ##### OH_APP_CRASH_PARAM_SIMPLIFY_VMA_PRINTING
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 #define OH_APP_CRASH_PARAM_SIMPLIFY_VMA_PRINTING "simplify_vma_printing"
 ```
@@ -219,6 +251,8 @@
   
 
 ##### OH_APP_CRASH_PARAM_MERGE_CPPCRASH_APP_LOG
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 #define OH_APP_CRASH_PARAM_MERGE_CPPCRASH_APP_LOG "merge_cppcrash_app_log"

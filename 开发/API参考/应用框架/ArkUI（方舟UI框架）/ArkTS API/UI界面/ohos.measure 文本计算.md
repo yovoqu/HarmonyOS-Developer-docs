@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { MeasureText } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { MeasureText } from '@kit.ArkUI';
 
 
 ##### MeasureText.measureText(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static measureText(options: MeasureOptions): number
 
@@ -82,6 +86,8 @@ struct Index {
 
 ##### MeasureText.measureTextSize(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static measureTextSize(options: MeasureOptions): SizeOptions
 
 计算指定文本的宽度和高度。
@@ -142,6 +148,8 @@ struct Index {
 
 
 ##### MeasureOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 被计算文本属性。
 

@@ -12,6 +12,8 @@ typedef struct OH_AudioBuffer {...} OH_AudioBuffer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 定义了音频数据的大小、类型、时间戳等配置信息。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ typedef struct OH_AudioBuffer {...} OH_AudioBuffer
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

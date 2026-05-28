@@ -12,6 +12,8 @@
 
 ##### 1000900001 系统错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 System internal error.
@@ -93,6 +95,8 @@ ExtensionAbility回调执行超时。
 
 ##### 1000900005 不允许重复注册相同的场景化消息
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Messages of the same push type cannot be received repeatedly.
@@ -112,6 +116,8 @@ Messages of the same push type cannot be received repeatedly.
 
 
 ##### 1000900006 连接AAID服务失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -133,6 +139,8 @@ PushService运行异常。
 
 ##### 1000900007 AAID服务内部错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Internal error of the AAID service.
@@ -153,6 +161,8 @@ PushService内部处理超时或异常。
 
 ##### 1000900008 连接Push服务失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to connect to the push service.
@@ -172,6 +182,8 @@ PushService运行异常。
 
 
 ##### 1000900009 推送服务内部错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -194,6 +206,8 @@ PushService内部处理任务时发生异常，将返回该错误码。
 
 
 ##### 1000900010 APP身份验证失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -226,6 +240,8 @@ Illegal application identity.
 
 ##### 1000900011 网络不可用
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The network is unavailable.
@@ -247,6 +263,8 @@ The network is unavailable.
 
 ##### 1000900012 未开通推送服务权益
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Push rights are not activated.
@@ -266,6 +284,8 @@ Push rights are not activated.
 
 
 ##### 1000900013 不允许跨区申请Token
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -287,6 +307,8 @@ Cross-location application is not allowed to obtain the token.
 
 ##### 1000900014 设备不支持申请Token
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The device does not support getting token.
@@ -306,6 +328,8 @@ The device does not support getting token.
 
 
 ##### 1000900015 绑定的应用内账号数量达到上限
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -327,6 +351,8 @@ The number of bound profile-app relationships exceeds the maximum.
 
 ##### 1000900016 华为账号未登录
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The os distributed account is not logged in.
@@ -346,6 +372,8 @@ The os distributed account is not logged in.
 
 
 ##### 1000900017 不支持当前操作
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -367,6 +395,8 @@ The device does not support current operation.
 
 ##### 1000900018 请求频次超限
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Number of calls exceeded.
@@ -386,6 +416,8 @@ Number of calls exceeded.
 
 
 ##### 1000900019 模板ID非法
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -407,6 +439,8 @@ Illegal entity id.
 
 ##### 1000900020 应用的推送服务Token为空
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 App token is empty.
@@ -426,6 +460,8 @@ App token is empty.
 
 
 ##### 1000900021 应用未在AGC上注册
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -447,6 +483,8 @@ App is not available or not registered.
 
 ##### 1000900022 通知开关状态为关闭
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Notification switch off.
@@ -466,6 +504,8 @@ Notification switch off.
 
 
 ##### 1000900023 模板ID数量超过上限
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -487,6 +527,8 @@ Number of entity ids exceed the upper limit.
 
 ##### 1000900024 展示订阅通知授权弹窗失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Failed to display subscription UI.
@@ -506,6 +548,8 @@ Failed to display subscription UI.
 
 
 ##### 1000900025 没有使用该模板ID的权益
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -527,6 +571,8 @@ No rights to access entity id.
 
 ##### 1000900026 模板ID的类型非法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Illegal entity type.
@@ -547,6 +593,8 @@ Illegal entity type.
 
 ##### 1000900030 用户未登录华为账号
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 The user has not logged in with HUAWEI ID.
@@ -566,6 +614,8 @@ The user has not logged in with HUAWEI ID.
 
 
 ##### 1000900031 同类型的回调只能注册一次
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

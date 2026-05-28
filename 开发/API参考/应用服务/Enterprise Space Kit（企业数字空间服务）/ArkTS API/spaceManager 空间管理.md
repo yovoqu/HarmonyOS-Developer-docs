@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { spaceManager } from '@kit.EnterpriseSpaceKit';
 ```
@@ -19,6 +21,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
   
 
 ##### CreateWorkspaceParams
+
+**支持设备：** PC/2in1
 
 创建工作空间参数。
  
@@ -36,6 +40,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
   
 
 ##### WorkspaceDomainInfo
+
+**支持设备：** PC/2in1
 
 工作空间域账号信息。
  
@@ -58,6 +64,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
   
 
 ##### WorkspaceInfo
+
+**支持设备：** PC/2in1
 
 工作空间信息。
  
@@ -87,6 +95,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
 
 ##### ProcessConfigInfo
 
+**支持设备：** PC/2in1
+
 管控的系统服务进程以及其不可访问路径的配置信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -105,6 +115,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
 
 ##### WorkspaceType
 
+**支持设备：** PC/2in1
+
 工作空间类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -121,6 +133,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
   
 
 ##### QueryType
+
+**支持设备：** PC/2in1
 
 查询的工作空间类型。
  
@@ -140,6 +154,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
 
 ##### EventType
 
+**支持设备：** PC/2in1
+
 订阅事件类型。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -156,6 +172,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
   
 
 ##### UserDataEnum
+
+**支持设备：** PC/2in1
 
 用户类型。
  
@@ -175,6 +193,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
 
 ##### EventData
 
+**支持设备：** PC/2in1
+
 与空间事件相关的详细信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -192,6 +212,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
   
 
 ##### LockdownModePolicy
+
+**支持设备：** PC/2in1
 
 锁定模式策略，包括后台应用冻结和公共目录加解密等安全加固功能，提供开关，关闭或者效率模式。
  
@@ -211,6 +233,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
 
 ##### SpaceGuidePolicy
 
+**支持设备：** PC/2in1
+
 个人空间创建引导页展示策略。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -228,6 +252,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
   
 
 ##### AuthResult
+
+**支持设备：** PC/2in1
 
 企业认证返回结果。
  
@@ -247,6 +273,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
 
 ##### StatusBarIcon
 
+**支持设备：** PC/2in1
+
 状态栏图标。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -264,6 +292,8 @@ import { spaceManager } from '@kit.EnterpriseSpaceKit';
   
 
 ##### createWorkspace
+
+**支持设备：** PC/2in1
 
 createWorkspace(localName: string, workspaceType: WorkspaceType, params?: CreateWorkspaceParams): Promise&lt;WorkspaceInfo&gt;
  
@@ -334,6 +364,8 @@ try {
 
 ##### enableWorkspace
 
+**支持设备：** PC/2in1
+
 enableWorkspace(enable: boolean): Promise&lt;void&gt;
  
 使能双空间特性。双空间分别为企业空间和个人空间，企业空间为完全受企业管控的通用办公空间，个人空间为因工作需要对外交流、作业、开源开发等用途的空间。使用Promise异步回调。
@@ -395,6 +427,8 @@ try {
 
 ##### queryWorkspace
 
+**支持设备：** PC/2in1
+
 queryWorkspace(queryFlag: QueryType): Promise<WorkspaceInfo[]>
  
 查询工作空间。使用Promise异步回调。
@@ -449,6 +483,8 @@ try {
   
 
 ##### removeWorkspace
+
+**支持设备：** PC/2in1
 
 removeWorkspace(workspaceId: number): Promise&lt;void&gt;
  
@@ -506,6 +542,8 @@ try {
   
 
 ##### setWorkspaceInfo
+
+**支持设备：** PC/2in1
 
 setWorkspaceInfo(workspaceId: number, domainInfo: WorkspaceDomainInfo): Promise&lt;void&gt;
  
@@ -574,6 +612,8 @@ try {
 
 ##### setWorkspaceProfilePhoto
 
+**支持设备：** PC/2in1
+
 setWorkspaceProfilePhoto(workspaceId: number, photo: string): Promise&lt;void&gt;
  
 根据工作空间ID设置工作空间资料照片。使用Promise异步回调。
@@ -632,6 +672,8 @@ try {
   
 
 ##### subscribeEvent
+
+**支持设备：** PC/2in1
 
 subscribeEvent(eventId: EventType[], callback: AsyncCallback&lt;EventData&gt;): number
  
@@ -698,6 +740,8 @@ try {
 
 ##### unsubscribeEvent
 
+**支持设备：** PC/2in1
+
 unsubscribeEvent(subscribeId: number): void
  
 取消订阅空间事件。
@@ -746,6 +790,8 @@ try {
   
 
 ##### setRestrictedAccessBackgroundUserdata
+
+**支持设备：** PC/2in1
 
 setRestrictedAccessBackgroundUserdata(userData: UserDataEnum, enable: boolean): Promise&lt;void&gt;
  
@@ -805,6 +851,8 @@ try {
 
 ##### getRestrictedAccessBackgroundUserdataStatus
 
+**支持设备：** PC/2in1
+
 getRestrictedAccessBackgroundUserdataStatus(userData: UserDataEnum): Promise&lt;boolean&gt;
  
 获取系统服务进程不可访问的后台用户数据状态。后台用户数据主要包含如下目录['/data/service','/data/app','/storage','/mnt']下特定路径下的用户数据。使用Promise异步回调。
@@ -861,6 +909,8 @@ try {
 
 ##### getRestrictedAccessBackgroundUserdataProcessList
 
+**支持设备：** PC/2in1
+
 getRestrictedAccessBackgroundUserdataProcessList(userData: UserDataEnum): Promise<ProcessConfigInfo[]>
  
 获取不可访问后台用户数据的系统服务进程列表。使用Promise异步回调。
@@ -916,6 +966,8 @@ try {
   
 
 ##### addRestrictedAccessBackgroundUserdataProcessList
+
+**支持设备：** PC/2in1
 
 addRestrictedAccessBackgroundUserdataProcessList(userData: UserDataEnum, processName: string, disallowPaths?: string[]): Promise&lt;void&gt;
  
@@ -977,6 +1029,8 @@ try {
 
 ##### deleteRestrictedAccessBackgroundUserdataProcessList
 
+**支持设备：** PC/2in1
+
 deleteRestrictedAccessBackgroundUserdataProcessList(userData: UserDataEnum, processName: string): Promise&lt;void&gt;
  
 删除系统服务进程不可访问后台用户数据路径列表。使用Promise异步回调。
@@ -1034,6 +1088,8 @@ try {
   
 
 ##### setWorkspacePolicy
+
+**支持设备：** PC/2in1
 
 setWorkspacePolicy(key: string, value: number, workspaceId?: number): Promise&lt;void&gt;
  
@@ -1094,6 +1150,8 @@ try {
 
 ##### getWorkspacePolicy
 
+**支持设备：** PC/2in1
+
 getWorkspacePolicy(key: string, workspaceId?: number): Promise&lt;number&gt;
  
 查询工作空间策略。
@@ -1151,6 +1209,8 @@ try {
   
 
 ##### setLockdownExemptionApps
+
+**支持设备：** PC/2in1
 
 setLockdownExemptionApps(appIds: string[], workspaceId?: number): Promise&lt;void&gt;
  
@@ -1213,6 +1273,8 @@ try {
 
 ##### getLockdownExemptionApps
 
+**支持设备：** PC/2in1
+
 getLockdownExemptionApps(workspaceId?: number): Promise<string[]>
  
 查询深度冻结豁免名单。
@@ -1268,6 +1330,8 @@ try {
   
 
 ##### authenticate
+
+**支持设备：** PC/2in1
 
 authenticate(enterpriseAuthInfo: WorkspaceDomainInfo, credential: Uint8Array): Promise&lt;AuthResult&gt;
  
@@ -1334,6 +1398,8 @@ try {
 
 ##### getAccessToken
 
+**支持设备：** PC/2in1
+
 getAccessToken(businessParams: Record<string, string>): Promise&lt;Uint8Array&gt;
  
 获取企业应用访问令牌。
@@ -1393,6 +1459,8 @@ try {
   
 
 ##### setWorkspaceStatusBarIcon
+
+**支持设备：** PC/2in1
 
 setWorkspaceStatusBarIcon(statusBarIcon: StatusBarIcon, workspaceId?: number): Promise&lt;void&gt;
  
@@ -1474,6 +1542,8 @@ try {
   
 
 ##### setWorkspaceLocalName
+
+**支持设备：** PC/2in1
 
 setWorkspaceLocalName(localName: string, workspaceId?: number): Promise&lt;void&gt;
  

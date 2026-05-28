@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供短时任务申请、查询、取消功能。
  
 **引用文件：** <transient_task/transient_task_api.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,9 +45,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_BackgroundTaskManager_RequestSuspendDelay()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_BackgroundTaskManager_RequestSuspendDelay(const char* reason, TransientTask_Callback callback, TransientTask_DelaySuspendInfo *info)
@@ -75,6 +85,8 @@ int32_t OH_BackgroundTaskManager_RequestSuspendDelay(const char* reason, Transie
 
 ##### OH_BackgroundTaskManager_GetRemainingDelayTime()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_BackgroundTaskManager_GetRemainingDelayTime(int32_t requestId, int32_t *delayTime)
 ```
@@ -106,6 +118,8 @@ int32_t OH_BackgroundTaskManager_GetRemainingDelayTime(int32_t requestId, int32_
 
 ##### OH_BackgroundTaskManager_CancelSuspendDelay()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int32_t OH_BackgroundTaskManager_CancelSuspendDelay(int32_t requestId)
 ```
@@ -135,6 +149,8 @@ int32_t OH_BackgroundTaskManager_CancelSuspendDelay(int32_t requestId)
   
 
 ##### OH_BackgroundTaskManager_GetTransientTaskInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_BackgroundTaskManager_GetTransientTaskInfo(TransientTask_TransientTaskInfo *transientTaskInfo)

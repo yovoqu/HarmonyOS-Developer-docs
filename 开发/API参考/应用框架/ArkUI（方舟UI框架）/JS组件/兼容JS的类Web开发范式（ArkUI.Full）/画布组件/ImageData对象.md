@@ -13,6 +13,8 @@ ImageData对象可以存储[canvas组件](https://developer.huawei.com/consumer/
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
@@ -24,6 +26,8 @@ ImageData对象可以存储[canvas组件](https://developer.huawei.com/consumer/
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->

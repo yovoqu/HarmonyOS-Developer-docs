@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { hdsMaterial } from '@kit.UIDesignKit';
 ```
@@ -19,6 +21,8 @@ import { hdsMaterial } from '@kit.UIDesignKit';
 
 
 ##### getSystemMaterialTypes
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 getSystemMaterialTypes(): Array&lt;MaterialType&gt;
 
@@ -58,6 +62,8 @@ try {
 
 ##### MaterialType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 材质类型枚举。
 
 **卡片能力：** 从6.1.0(23)开始，该接口支持在ArkTS卡片中使用。
@@ -78,6 +84,8 @@ try {
 
 
 ##### MaterialLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 材质等级枚举。各等级效果承载在支持配置材质属性的组件上，其中精美等级材质需要耗费的性能更多，流畅等级材质需要耗费的性能较少。
 

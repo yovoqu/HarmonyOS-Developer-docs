@@ -14,6 +14,8 @@
 
 ##### 创建对象
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 let webController: WebController = new WebController()
 ```
@@ -21,6 +23,8 @@ let webController: WebController = new WebController()
   
 
 ##### constructor(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
  
@@ -35,6 +39,8 @@ WebController的构造函数。
   
 
 ##### getCookieManager(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCookieManager(): WebCookie
  
@@ -78,6 +84,8 @@ struct WebComponent {
 
 ##### requestFocus(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 requestFocus()
  
 使当前Web页面获取焦点。
@@ -112,6 +120,8 @@ struct WebComponent {
   
 
 ##### accessBackward(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 accessBackward(): boolean
  
@@ -156,6 +166,8 @@ struct WebComponent {
 
 ##### accessForward(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 accessForward(): boolean
  
 当前页面是否可前进，即当前页面是否有前进历史记录。
@@ -198,6 +210,8 @@ struct WebComponent {
   
 
 ##### accessStep(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 accessStep(step: number): boolean
  
@@ -250,6 +264,8 @@ struct WebComponent {
 
 ##### backward(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 backward()
  
 按照历史栈，后退一个页面。一般结合accessBackward一起使用。
@@ -285,6 +301,8 @@ struct WebComponent {
 
 ##### forward(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 forward()
  
 按照历史栈，前进一个页面。一般结合accessForward一起使用。
@@ -319,6 +337,8 @@ struct WebComponent {
   
 
 ##### deleteJavaScriptRegister(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deleteJavaScriptRegister(name: string)
  
@@ -363,6 +383,8 @@ struct WebComponent {
 
 ##### getHitTest(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHitTest(): HitTestType
  
 获取当前被点击区域的元素类型。
@@ -405,6 +427,8 @@ struct WebComponent {
   
 
 ##### loadData(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 loadData(options: { data: string, mimeType: string, encoding: string, baseUrl?: string, historyUrl?: string })
  
@@ -460,6 +484,8 @@ struct WebComponent {
 
 ##### loadUrl(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 loadUrl(options: { url: string | Resource, headers?: Array&lt;Header&gt; })
  
 使用指定的HTTP头加载指定的URL。
@@ -507,6 +533,8 @@ struct WebComponent {
 
 ##### onActive(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActive(): void
  
 调用此接口通知Web组件进入前台激活状态。
@@ -542,6 +570,8 @@ struct WebComponent {
 
 ##### onInactive(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onInactive(): void
  
 调用此接口通知Web组件进入未激活状态。
@@ -576,6 +606,8 @@ struct WebComponent {
   
 
 ##### zoom(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 zoom(factor: number): void
  
@@ -620,6 +652,8 @@ struct WebComponent {
 
 ##### refresh(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 refresh()
  
 调用此接口通知Web组件刷新网页。
@@ -654,6 +688,8 @@ struct WebComponent {
   
 
 ##### registerJavaScriptProxy(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 registerJavaScriptProxy(options: { object: object, name: string, methodList: Array&lt;string&gt; })
  
@@ -739,6 +775,8 @@ struct Index {
 
 ##### runJavaScript(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 runJavaScript(options: { script: string, callback?: (result: string) => void })
  
 异步执行JavaScript脚本，并通过回调方式返回脚本执行的结果。runJavaScript需要在loadUrl完成后，比如onPageEnd中调用。
@@ -812,6 +850,8 @@ struct WebComponent {
 
 ##### stop(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop()
  
 停止页面加载。
@@ -846,6 +886,8 @@ struct WebComponent {
   
 
 ##### clearHistory(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clearHistory(): void
  

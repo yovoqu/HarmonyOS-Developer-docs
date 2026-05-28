@@ -12,6 +12,8 @@ struct OH_NativeBuffer
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 NativeBuffer结构体类型，用于执行NativeBuffer相关操作。
  
 **起始版本：** 12

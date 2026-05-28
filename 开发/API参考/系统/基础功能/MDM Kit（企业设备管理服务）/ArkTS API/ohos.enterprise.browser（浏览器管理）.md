@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { browser } from '@kit.MDMKit';
 ```
@@ -23,6 +25,8 @@ import { browser } from '@kit.MDMKit';
 
 
 ##### browser.setPolicySync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setPolicySync(admin: Want, appId: string, policyName: string, policyValue: string): void
 
@@ -87,6 +91,8 @@ try {
 
 ##### browser.getPoliciesSync
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getPoliciesSync(admin: Want, appId: string): string
 
 通过appid获取指定浏览器设置的策略。
@@ -146,6 +152,8 @@ try {
 
 
 ##### browser.setManagedBrowserPolicy15+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setManagedBrowserPolicy(admin: Want, bundleName: string, policyName: string, policyValue: string): void
 
@@ -213,6 +221,8 @@ try {
 
 ##### browser.getManagedBrowserPolicy15+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getManagedBrowserPolicy(admin: Want, bundleName: string): ArrayBuffer
 
 通过应用包名获取指定浏览器的浏览器策略。
@@ -276,6 +286,8 @@ try {
 
 ##### browser.getSelfManagedBrowserPolicyVersion15+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getSelfManagedBrowserPolicyVersion(): string
 
 获取指定浏览器的浏览器策略版本。
@@ -307,6 +319,8 @@ try {
 
 
 ##### browser.getSelfManagedBrowserPolicy15+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getSelfManagedBrowserPolicy(): ArrayBuffer
 

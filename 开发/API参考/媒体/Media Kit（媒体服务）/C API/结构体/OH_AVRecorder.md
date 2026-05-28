@@ -12,6 +12,8 @@ typedef struct OH_AVRecorder OH_AVRecorder
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 初始化AVRecorder。
  
 **起始版本：** 18

@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { authentication } from '@kit.AccountKit';
 ```
@@ -19,6 +21,8 @@ import { authentication } from '@kit.AccountKit';
 
 
 ##### HuaweiIDProvider
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类提供实现认证服务的方法，用于创建登录、授权、取消授权请求对象。
 
@@ -35,6 +39,8 @@ import { authentication } from '@kit.AccountKit';
 
 
 ##### createLoginWithHuaweiIDRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createLoginWithHuaweiIDRequest(): LoginWithHuaweiIDRequest
 
@@ -68,6 +74,8 @@ const loginWithHuaweiIDRequest = huaweiIdProvider.createLoginWithHuaweiIDRequest
 
 ##### createAuthorizationWithHuaweiIDRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createAuthorizationWithHuaweiIDRequest(): AuthorizationWithHuaweiIDRequest
 
 创建一个Account Kit授权请求对象，可通过属性值设置请求参数。作为应用使用华为账号登录场景的请求参数。
@@ -100,6 +108,8 @@ const request = huaweiIdProvider.createAuthorizationWithHuaweiIDRequest();
 
 ##### createCancelAuthorizationRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createCancelAuthorizationRequest(): CancelAuthorizationRequest
 
 创建一个Account Kit取消授权请求对象，可通过属性值设置参数。作为应用取消华为账号授权场景的请求参数。
@@ -131,6 +141,8 @@ const cancelAuthorizationRequest = huaweiIdProvider.createCancelAuthorizationReq
 
 
 ##### getHuaweiIDState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getHuaweiIDState(request: StateRequest): Promise&lt;StateResult&gt;
 
@@ -202,6 +214,8 @@ function dealAllError(error: BusinessError): void {
 
 
 ##### getMobileNumberConsistency
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMobileNumberConsistency(request: ConsistencyRequest): Promise&lt;ConsistencyResult&gt;
 
@@ -288,6 +302,8 @@ function dealAllError(error: BusinessError): void {
 
 ##### LoginWithHuaweiIDRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 应用登录场景定义应用使用Account Kit登录请求获取UnionID、OpenID等数据的请求对象。华为账号登录场景请求对象参数请应用根据自身实际场景进行选择。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -325,6 +341,8 @@ loginRequest.state = util.generateRandomUUID(); // 建议使用generateRandomUUI
 
 ##### IdTokenSignAlgorithm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ID Token签名算法，该类型为枚举，根据IdTokenSignAlgorithm的不同类型，对ID Token进行不同方式的加密。请应用根据实际安全要求、性能、系统环境兼容性进行选择。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -355,6 +373,8 @@ loginRequest.idTokenSignAlgorithm = authentication.IdTokenSignAlgorithm.PS256;
 
 
 ##### LoginWithHuaweiIDResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Account Kit登录请求响应对象，解析响应结果可得到OpenID、UnionID、Authorization Code、ID Token数据。作为华为账号登录成功的返回结果，用于获取或关联华为账号相关信息。
 
@@ -455,6 +475,8 @@ export enum ErrorCode {
 
 
 ##### LoginWithHuaweiIDCredential
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Account Kit登录成功返回的凭据，用于获取用户相关信息和关联华为账号（OpenID/UnionID）。
 
@@ -558,6 +580,8 @@ export enum ErrorCode {
 
 ##### AuthorizationWithHuaweiIDRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该类为应用创建的授权请求对象，使用Account Kit请求授权以申请更多的用户信息，包括scopes、permissions等属性。作为向华为账号申请授权的请求对象，应用根据实际场景按需获取。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -596,6 +620,8 @@ authRequest.idTokenSignAlgorithm = authentication.IdTokenSignAlgorithm.PS256;
 
 
 ##### AuthorizationWithHuaweiIDResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类封装[AuthorizationWithHuaweiIDRequest](#authorizationwithhuaweiidrequest)授权请求对象获取的用户信息结果。作为华为账号授权成功的返回结果，用于获取或关联华为账号用户信息。
 
@@ -694,6 +720,8 @@ export enum ErrorCode {
 
 
 ##### AuthorizationWithHuaweiIDCredential
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Account Kit授权成功返回的凭据，用于获取用户相关信息（头像昵称、匿名手机号等）和关联华为账号（OpenID/UnionID）。
 
@@ -796,6 +824,8 @@ export enum ErrorCode {
 
 ##### CancelAuthorizationRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该类为应用取消Account Kit授权的请求对象，作为华为账号取消授权的请求参数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -826,6 +856,8 @@ cancelRequest.state = util.generateRandomUUID(); // 建议使用generateRandomUU
 
 
 ##### CancelAuthorizationResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类为应用取消华为账号授权的响应结果。
 
@@ -921,6 +953,8 @@ export enum ErrorCode {
 
 ##### AuthenticationErrorCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该枚举为登录、授权、取消授权等接口的错误码。应用可根据如下错误码进行不同的处理。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -949,6 +983,8 @@ export enum ErrorCode {
 
 ##### AuthenticationController
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该类为Account Kit登录授权、取消授权请求Controller。用于执行登录授权请求方法。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -962,6 +998,8 @@ export enum ErrorCode {
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(context?: common.Context)
 
@@ -994,6 +1032,8 @@ const controller = new authentication.AuthenticationController(this.getUIContext
 
 
 ##### executeRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 executeRequest(request: AuthenticationRequest, callback: AsyncCallback<AuthenticationResponse, Record<string, Object>>): void
 
@@ -1114,6 +1154,8 @@ export enum ErrorCode {
 
 
 ##### executeRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 executeRequest(request: AuthenticationRequest): Promise&lt;AuthenticationResponse&gt;
 
@@ -1239,6 +1281,8 @@ export enum ErrorCode {
 
 ##### AuthenticationRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 华为账号登录授权认证请求父类对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1252,6 +1296,8 @@ export enum ErrorCode {
 
 
 ##### AuthenticationResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 华为账号登录授权认证请求响应父类对象。
 
@@ -1267,6 +1313,8 @@ export enum ErrorCode {
 
 ##### AuthenticationProvider
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 华为账号登录授权认证请求provider父类对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1280,6 +1328,8 @@ export enum ErrorCode {
 
 
 ##### IdType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该枚举为ID类型枚举对象，作为华为账号登录状态请求参数传入。
 
@@ -1302,6 +1352,8 @@ export enum ErrorCode {
 
 ##### State
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该枚举为华为账号登录状态枚举对象。用于保存华为账号登录状态结果。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1322,6 +1374,8 @@ export enum ErrorCode {
 
 
 ##### StateRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类为获取华为账号登录状态请求对象，作为[getHuaweiIDState](#gethuaweiidstate)传参。
 
@@ -1354,6 +1408,8 @@ const request: authentication.StateRequest = {
 
 
 ##### StateResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类为获取华为账号登录状态结果对象。
 
@@ -1405,6 +1461,8 @@ function dealAllError(error: BusinessError): void {
 
 ##### ConsistencyState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该枚举为手机号一致性状态枚举对象。应用可根据结果进行相应风控处理。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -1423,6 +1481,8 @@ function dealAllError(error: BusinessError): void {
 
 
 ##### ConsistencyRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类为获取手机号一致性状态请求对象。
 
@@ -1455,6 +1515,8 @@ const request: authentication.ConsistencyRequest = {
 
 
 ##### ConsistencyResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该类为获取手机号一致性状态结果对象。应用可根据结果进行相应风控处理。
 

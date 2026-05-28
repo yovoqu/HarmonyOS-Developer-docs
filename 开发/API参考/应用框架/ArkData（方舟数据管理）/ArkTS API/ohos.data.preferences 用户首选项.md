@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { preferences } from '@kit.ArkData';
 ```
@@ -25,6 +27,8 @@ import { preferences } from '@kit.ArkData';
 
 
 ##### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -39,6 +43,8 @@ import { preferences } from '@kit.ArkData';
 
 
 ##### preferences.getPreferences
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreferences(context: Context, name: string, callback: AsyncCallback&lt;Preferences&gt;): void
 
@@ -114,6 +120,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### preferences.getPreferences
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreferences(context: Context, name: string): Promise&lt;Preferences&gt;
 
@@ -195,6 +203,8 @@ class EntryAbility extends UIAbility {
 
 ##### preferences.getPreferences10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPreferences(context: Context, options: Options, callback: AsyncCallback&lt;Preferences&gt;): void
 
 获取Preferences实例，使用callback异步回调。
@@ -275,6 +285,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### preferences.getPreferences10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPreferences(context: Context, options: Options): Promise&lt;Preferences&gt;
 
@@ -361,6 +373,8 @@ class EntryAbility extends UIAbility {
 
 ##### preferences.getPreferencesSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPreferencesSync(context: Context, options: Options): Preferences
 
 获取Preferences实例，此为同步接口。
@@ -431,6 +445,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### preferences.deletePreferences
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deletePreferences(context: Context, name: string, callback: AsyncCallback&lt;void&gt;): void
 
@@ -507,6 +523,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### preferences.deletePreferences
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deletePreferences(context: Context, name: string): Promise&lt;void&gt;
 
@@ -588,6 +606,8 @@ class EntryAbility extends UIAbility {
 
 ##### preferences.deletePreferences10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deletePreferences(context: Context, options: Options, callback: AsyncCallback&lt;void&gt;): void
 
 从缓存中删除指定的Preferences实例，若Preferences实例有对应的持久化文件，则同时删除其持久化文件。使用callback异步回调。
@@ -668,6 +688,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### preferences.deletePreferences10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 deletePreferences(context: Context, options: Options): Promise&lt;void&gt;
 
@@ -754,6 +776,8 @@ class EntryAbility extends UIAbility {
 
 ##### preferences.removePreferencesFromCache
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removePreferencesFromCache(context: Context, name: string, callback: AsyncCallback&lt;void&gt;): void
 
 从缓存中移除指定的Preferences实例，使用callback异步回调。
@@ -829,6 +853,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### preferences.removePreferencesFromCache
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removePreferencesFromCache(context: Context, name: string): Promise&lt;void&gt;
 
@@ -910,6 +936,8 @@ class EntryAbility extends UIAbility {
 
 ##### preferences.removePreferencesFromCacheSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removePreferencesFromCacheSync(context: Context, name: string): void
 
 从缓存中移除指定的Preferences实例，此为同步接口。
@@ -969,6 +997,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### preferences.removePreferencesFromCache10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removePreferencesFromCache(context: Context, options: Options, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1050,6 +1080,8 @@ class EntryAbility extends UIAbility {
 
 
 ##### preferences.removePreferencesFromCache10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removePreferencesFromCache(context: Context, options: Options): Promise&lt;void&gt;
 
@@ -1136,6 +1168,8 @@ class EntryAbility extends UIAbility {
 
 ##### preferences.removePreferencesFromCacheSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removePreferencesFromCacheSync(context: Context, options: Options):void
 
 从缓存中移除指定的Preferences实例，此为同步接口。
@@ -1201,6 +1235,8 @@ class EntryAbility extends UIAbility {
 
 ##### StorageType18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Preferences的存储模式枚举。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -1220,6 +1256,8 @@ Preferences的存储模式枚举。
 
 
 ##### preferences.isStorageTypeSupported18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isStorageTypeSupported(type: StorageType): boolean
 
@@ -1267,6 +1305,8 @@ console.info("Is gskv supported in current platform: " + isGskvSupported);
 
 ##### Options10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Preferences实例配置选项。
 
 **系统能力：** SystemCapability.DistributedDataManager.Preferences.Core
@@ -1282,6 +1322,8 @@ Preferences实例配置选项。
 
 ##### Preferences
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 首选项实例，提供获取和修改存储数据的接口。
 
 下列接口都需先使用[preferences.getPreferences](#preferencesgetpreferences)获取到Preferences实例，再通过此实例调用对应接口。
@@ -1289,6 +1331,8 @@ Preferences实例配置选项。
 
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(key: string, defValue: ValueType, callback: AsyncCallback&lt;ValueType&gt;): void
 
@@ -1334,6 +1378,8 @@ dataPreferences.get('startup', 'default', (err: BusinessError, val: preferences.
 
 
 ##### get
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 get(key: string, defValue: ValueType): Promise&lt;ValueType&gt;
 
@@ -1385,6 +1431,8 @@ promise.then((data: preferences.ValueType) => {
 
 ##### getSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getSync(key: string, defValue: ValueType): ValueType
 
 从缓存的Preferences实例中获取键对应的值，如果值为null或者非默认值类型，返回默认数据defValue，此为同步接口。
@@ -1427,6 +1475,8 @@ let value: preferences.ValueType = dataPreferences.getSync('startup', 'default')
 
 
 ##### getAll
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAll(callback: AsyncCallback&lt;Object&gt;): void
 
@@ -1480,6 +1530,8 @@ dataPreferences.getAll((err: BusinessError, value: Object) => {
 
 ##### getAll
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAll(): Promise&lt;Object&gt;
 
 获取缓存的Preferences实例中的所有键值数据。
@@ -1530,6 +1582,8 @@ promise.then((value: Object) => {
 
 ##### getAllSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllSync(): Object
 
 获取缓存的Preferences实例中的所有键值数据，此为同步接口。
@@ -1573,6 +1627,8 @@ console.info("getAll object = " + JSON.stringify(value));
 
 
 ##### put
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 put(key: string, value: ValueType, callback: AsyncCallback&lt;void&gt;): void
 
@@ -1622,6 +1678,8 @@ dataPreferences.put('startup', 'auto', (err: BusinessError) => {
 
 
 ##### put
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 put(key: string, value: ValueType): Promise&lt;void&gt;
 
@@ -1677,6 +1735,8 @@ promise.then(() => {
 
 ##### putSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 putSync(key: string, value: ValueType): void
 
 将数据写入缓存的Preferences实例中，可通过[flush](#flush)将Preferences实例持久化，此为同步接口。
@@ -1716,6 +1776,8 @@ dataPreferences.putSync('startup', 'auto');
 
 
 ##### has
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 has(key: string, callback: AsyncCallback&lt;boolean&gt;): void
 
@@ -1764,6 +1826,8 @@ dataPreferences.has('startup', (err: BusinessError, val: boolean) => {
 
 
 ##### has
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 has(key: string): Promise&lt;boolean&gt;
 
@@ -1818,6 +1882,8 @@ promise.then((val: boolean) => {
 
 ##### hasSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 hasSync(key: string): boolean
 
 检查缓存的Preferences实例中是否包含指定Key的存储键值对，此为同步接口。
@@ -1865,6 +1931,8 @@ if (isExist) {
 
 ##### delete
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 delete(key: string, callback: AsyncCallback&lt;void&gt;): void
 
 从缓存的Preferences实例中删除名为给定Key的存储键值对，可通过[flush](#flush)将Preferences实例持久化，使用callback异步回调。
@@ -1908,6 +1976,8 @@ dataPreferences.delete('startup', (err: BusinessError) => {
 
 
 ##### delete
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 delete(key: string): Promise&lt;void&gt;
 
@@ -1958,6 +2028,8 @@ promise.then(() => {
 
 ##### deleteSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteSync(key: string): void
 
 从缓存的Preferences实例中删除名为给定Key的存储键值对，可通过[flush](#flush)将Preferences实例持久化，此为同步接口。
@@ -1992,6 +2064,8 @@ dataPreferences.deleteSync('startup');
 
 
 ##### flush
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 flush(callback: AsyncCallback&lt;void&gt;): void
 
@@ -2040,6 +2114,8 @@ dataPreferences.flush((err: BusinessError) => {
 
 ##### flush
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 flush(): Promise&lt;void&gt;
 
 将缓存的Preferences实例中的数据异步存储到用户首选项的持久化文件中，使用Promise异步回调。
@@ -2085,6 +2161,8 @@ promise.then(() => {
 
 ##### flushSync14+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 flushSync(): void
 
 将缓存的Preferences实例中的数据存储到用户首选项的持久化文件中。
@@ -2115,6 +2193,8 @@ dataPreferences.flushSync();
 
 
 ##### clear
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clear(callback: AsyncCallback&lt;void&gt;): void
 
@@ -2159,6 +2239,8 @@ dataPreferences.clear((err: BusinessError) =>{
 
 ##### clear
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clear(): Promise&lt;void&gt;
 
 清除缓存的Preferences实例中的所有数据，可通过[flush](#flush)将Preferences实例持久化，使用Promise异步回调。
@@ -2200,6 +2282,8 @@ promise.then(() => {
 
 ##### clearSync10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearSync(): void
 
 清除缓存的Preferences实例中的所有数据，可通过[flush](#flush)将Preferences实例持久化，此为同步接口。
@@ -2217,6 +2301,8 @@ dataPreferences.clearSync();
 
 
 ##### on('change')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'change', callback: Callback&lt;string&gt;): void
 
@@ -2270,6 +2356,8 @@ dataPreferences.flush((err: BusinessError) => {
 
 
 ##### on('multiProcessChange')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'multiProcessChange', callback: Callback&lt;string&gt;): void
 
@@ -2326,6 +2414,8 @@ dataPreferences.flush((err: BusinessError) => {
 
 
 ##### on('dataChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'dataChange', keys: Array&lt;string&gt;, callback: Callback<Record<string, ValueType>>): void
 
@@ -2386,6 +2476,8 @@ dataPreferences.flush((err: BusinessError) => {
 
 ##### off('change')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'change', callback?: Callback&lt;string&gt;): void
 
 取消订阅数据变更。
@@ -2435,6 +2527,8 @@ dataPreferences.off('change', observer);
 
 
 ##### off('multiProcessChange')10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'multiProcessChange', callback?: Callback&lt;string&gt;): void
 
@@ -2487,6 +2581,8 @@ dataPreferences.off('multiProcessChange', observer);
 
 
 ##### off('dataChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'dataChange', keys: Array&lt;string&gt;, callback?: Callback<Record<string, ValueType>>): void
 
@@ -2543,6 +2639,8 @@ dataPreferences.off('dataChange', keys, observer);
 
 
 ##### ValueType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ValueType = number | string | boolean | Array&lt;number&gt; | Array&lt;string&gt; | Array&lt;boolean&gt; | Uint8Array | object | bigint
 

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { accountManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { accountManager } from '@kit.MDMKit';
 
 
 ##### accountManager.disallowOsAccountAddition
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 disallowOsAccountAddition(admin: Want, disallow: boolean, accountId?: number): void
 
@@ -79,6 +83,8 @@ try {
 
 
 ##### accountManager.isOsAccountAdditionDisallowed
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean
 
@@ -141,6 +147,8 @@ try {
 
 
 ##### accountManager.addOsAccountAsync
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addOsAccountAsync(admin: Want, name: string, type: osAccount.OsAccountType): Promise<osAccount.OsAccountInfo>
 
@@ -211,6 +219,8 @@ accountManager.addOsAccountAsync(wantTemp, "TestAccountName", osAccount.OsAccoun
 
 
 ##### accountManager.setDomainAccountPolicy19+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo, policy: DomainAccountPolicy): void
 
@@ -305,6 +315,8 @@ async function setDomainAccountPolicy() {
 
 ##### accountManager.getDomainAccountPolicy19+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 getDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo): DomainAccountPolicy
 
 获取域账号策略。
@@ -398,6 +410,8 @@ async function getDomainAccountPolicy() {
 
 
 ##### DomainAccountPolicy19+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 域账号策略。
 

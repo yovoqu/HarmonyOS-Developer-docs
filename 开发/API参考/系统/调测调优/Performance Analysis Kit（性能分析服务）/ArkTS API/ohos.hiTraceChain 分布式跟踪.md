@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
 ```
@@ -21,6 +23,8 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
   
 
 ##### HiTraceFlag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 跟踪标志组合类型枚举。
  
@@ -42,6 +46,8 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
 
 ##### HiTraceTracepointType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 跟踪埋点类型枚举。
  
 **系统能力**：SystemCapability.HiviewDFX.HiTrace
@@ -59,6 +65,8 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
 
 ##### HiTraceCommunicationMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 跟踪通信类型枚举。
  
 **系统能力**：SystemCapability.HiviewDFX.HiTrace
@@ -75,6 +83,8 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
 
 ##### HiTraceId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 此接口为HiTraceId对象接口。
  
 **系统能力**：SystemCapability.HiviewDFX.HiTrace
@@ -90,6 +100,8 @@ import { hiTraceChain } from '@kit.PerformanceAnalysisKit';
   
 
 ##### hiTraceChain.begin
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 begin(name: string, flags?: number): HiTraceId
  
@@ -129,6 +141,8 @@ hiTraceChain.end(traceId);
 
 ##### hiTraceChain.end
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 end(id: HiTraceId): void
  
 结束跟踪，同步接口。
@@ -158,6 +172,8 @@ hiTraceChain.end(traceId);
   
 
 ##### hiTraceChain.getId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getId(): HiTraceId
  
@@ -193,6 +209,8 @@ hiTraceChain.end(traceId);
 
 ##### hiTraceChain.setId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setId(id: HiTraceId): void
  
 设置跟踪标识，同步接口。
@@ -221,6 +239,8 @@ hiTraceChain.setId(traceId);
 
 ##### hiTraceChain.clearId
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 clearId(): void
  
 清除跟踪标识，同步接口。
@@ -243,6 +263,8 @@ hiTraceChain.end(traceId);
   
 
 ##### hiTraceChain.createSpan
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSpan(): HiTraceId
  
@@ -278,6 +300,8 @@ hiTraceChain.end(traceId);
 
 ##### hiTraceChain.tracepoint
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 tracepoint(mode: HiTraceCommunicationMode, type: HiTraceTracepointType, id: HiTraceId, msg?: string): void
  
 [@ohos.hiTraceMeter (性能打点)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hitracemeter)跟踪信息埋点，同步接口。
@@ -312,6 +336,8 @@ hiTraceChain.end(traceId);
   
 
 ##### hiTraceChain.isValid
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isValid(id: HiTraceId): boolean
  
@@ -351,6 +377,8 @@ hiTraceChain.end(traceId);
 
 ##### hiTraceChain.isFlagEnabled
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isFlagEnabled(id: HiTraceId, flag: HiTraceFlag): boolean
  
 判断HiTraceId是否启用了跟踪标志flag，同步接口。
@@ -389,6 +417,8 @@ hiTraceChain.end(traceId);
   
 
 ##### hiTraceChain.enableFlag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 enableFlag(id: HiTraceId, flag: HiTraceFlag): void
  

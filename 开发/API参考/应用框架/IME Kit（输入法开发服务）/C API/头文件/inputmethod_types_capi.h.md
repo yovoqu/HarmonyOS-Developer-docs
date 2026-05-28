@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供了输入法相关的类型定义。
  
 **引用文件：** <inputmethod/inputmethod_types_capi.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -43,9 +49,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### InputMethod_KeyboardStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum InputMethod_KeyboardStatus
@@ -67,6 +77,8 @@ enum InputMethod_KeyboardStatus
   
 
 ##### InputMethod_EnterKeyType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum InputMethod_EnterKeyType
@@ -95,6 +107,8 @@ enum InputMethod_EnterKeyType
 
 ##### InputMethod_Direction
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum InputMethod_Direction
 ```
@@ -118,6 +132,8 @@ enum InputMethod_Direction
 
 ##### InputMethod_ExtendAction
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum InputMethod_ExtendAction
 ```
@@ -139,6 +155,8 @@ enum InputMethod_ExtendAction
   
 
 ##### InputMethod_TextInputType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum InputMethod_TextInputType
@@ -173,6 +191,8 @@ enum InputMethod_TextInputType
 
 ##### InputMethod_CommandValueType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum InputMethod_CommandValueType
 ```
@@ -194,6 +214,8 @@ enum InputMethod_CommandValueType
   
 
 ##### InputMethod_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum InputMethod_ErrorCode
@@ -225,6 +247,8 @@ enum InputMethod_ErrorCode
   
 
 ##### InputMethod_RequestKeyboardReason
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum InputMethod_RequestKeyboardReason

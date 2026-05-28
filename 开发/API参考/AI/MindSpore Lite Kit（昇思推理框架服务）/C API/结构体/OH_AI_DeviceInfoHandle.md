@@ -12,6 +12,8 @@ typedef void *OH_AI_DeviceInfoHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 MindSpore运行设备信息的指针。
  
 **起始版本：** 9

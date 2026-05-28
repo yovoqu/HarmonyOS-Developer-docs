@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 文件中定义了与位图相关的功能函数。
  
 **相关示例：** [Drawing API示例(C/C++)](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/NDKAPIDrawing)
@@ -25,9 +27,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -37,6 +43,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -57,9 +65,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_BitmapCreate()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Bitmap* OH_Drawing_BitmapCreate(void)
@@ -84,6 +96,8 @@ OH_Drawing_Bitmap* OH_Drawing_BitmapCreate(void)
 
 ##### OH_Drawing_BitmapDestroy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_BitmapDestroy(OH_Drawing_Bitmap* bitmap)
 ```
@@ -106,6 +120,8 @@ void OH_Drawing_BitmapDestroy(OH_Drawing_Bitmap* bitmap)
   
 
 ##### OH_Drawing_BitmapCreateFromPixels()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Bitmap* OH_Drawing_BitmapCreateFromPixels(OH_Drawing_Image_Info* imageInfo, void* pixels, uint32_t rowBytes)
@@ -143,6 +159,8 @@ imageInfo、pixels任意一个为NULL或者rowBytes等于0时返回OH_DRAWING_ER
 
 ##### OH_Drawing_BitmapBuild()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_BitmapBuild(OH_Drawing_Bitmap* bitmap,const uint32_t width, const uint32_t height, const OH_Drawing_BitmapFormat* bitmapFormat)
 ```
@@ -172,6 +190,8 @@ bitmap、bitmapFormat任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAME
   
 
 ##### OH_Drawing_BitmapGetWidth()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t OH_Drawing_BitmapGetWidth(OH_Drawing_Bitmap* bitmap)
@@ -207,6 +227,8 @@ bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ##### OH_Drawing_BitmapGetHeight()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint32_t OH_Drawing_BitmapGetHeight(OH_Drawing_Bitmap* bitmap)
 ```
@@ -240,6 +262,8 @@ bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
   
 
 ##### OH_Drawing_BitmapGetColorFormat()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ColorFormat OH_Drawing_BitmapGetColorFormat(OH_Drawing_Bitmap* bitmap)
@@ -275,6 +299,8 @@ bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ##### OH_Drawing_BitmapGetAlphaFormat()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_AlphaFormat OH_Drawing_BitmapGetAlphaFormat(OH_Drawing_Bitmap* bitmap)
 ```
@@ -308,6 +334,8 @@ bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
   
 
 ##### OH_Drawing_BitmapGetPixels()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void* OH_Drawing_BitmapGetPixels(OH_Drawing_Bitmap* bitmap)
@@ -343,6 +371,8 @@ bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 
 ##### OH_Drawing_BitmapGetImageInfo()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_BitmapGetImageInfo(OH_Drawing_Bitmap* bitmap, OH_Drawing_Image_Info* imageInfo)
 ```
@@ -370,6 +400,8 @@ bitmap、imageInfo任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER
   
 
 ##### OH_Drawing_BitmapReadPixels()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_BitmapReadPixels(OH_Drawing_Bitmap* bitmap, const OH_Drawing_Image_Info* dstInfo,void* dstPixels, size_t dstRowBytes, int32_t srcX, int32_t srcY)

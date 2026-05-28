@@ -7,6 +7,8 @@
 
 ##### 应用生命周期4+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
 每个应用可以在app.js自定义应用级生命周期的实现逻辑，包括：
  
 - onCreate：在应用生成时被调用的生命周期函数。
@@ -30,6 +32,8 @@ export default {
   
 
 ##### 应用对象10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
  
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |

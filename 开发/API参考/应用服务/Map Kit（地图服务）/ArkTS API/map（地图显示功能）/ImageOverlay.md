@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { mapCommon } from '@kit.MapKit';
   
 
 ##### ImageOverlay
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 图片覆盖物。继承[BaseOverlay](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-baseoverlay)。
  
@@ -52,6 +56,8 @@ let bearing: number = imageOverlay.getBearing();
 
 ##### getBearing
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getBearing(): number
  
 获取覆盖物的旋转角度。
@@ -80,6 +86,8 @@ let bearing: number = imageOverlay.getBearing();
   
 
 ##### getBounds
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getBounds(): mapCommon.LatLngBounds
  
@@ -110,6 +118,8 @@ let bounds: mapCommon.LatLngBounds = imageOverlay.getBounds();
 
 ##### getHeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getHeight(): number
  
 获取覆盖物的高度。
@@ -138,6 +148,8 @@ let height: number = imageOverlay.getHeight();
   
 
 ##### getWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getWidth(): number
  
@@ -168,6 +180,8 @@ let width: number = imageOverlay.getWidth();
 
 ##### getPosition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 getPosition(): mapCommon.LatLng
  
 获取覆盖物的位置。
@@ -196,6 +210,8 @@ let position: mapCommon.LatLng = imageOverlay.getPosition();
   
 
 ##### getTransparency
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 getTransparency(): number
  
@@ -226,6 +242,8 @@ let transparency: number = imageOverlay.getTransparency();
 
 ##### isClickable
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 isClickable(): boolean
  
 获取是否可点击。
@@ -254,6 +272,8 @@ let click: boolean = imageOverlay.isClickable();
   
 
 ##### setBearing
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setBearing(bearing: number): void
  
@@ -284,6 +304,8 @@ imageOverlay.setBearing(180);
 
 ##### setClickable
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setClickable(clickable: boolean): void
  
 设置是否开启可点击开关。
@@ -312,6 +334,8 @@ imageOverlay.setClickable(false);
   
 
 ##### setDimensions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setDimensions(width: number, height?: number): void
  
@@ -342,6 +366,8 @@ imageOverlay.setDimensions(100000, 100000);
   
 
 ##### setImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setImage(image: ResourceStr | image.PixelMap): Promise&lt;void&gt;
  
@@ -380,6 +406,8 @@ await imageOverlay.setImage("icon.png");
 
 ##### setBounds
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setBounds(bounds: mapCommon.LatLngBounds): void
  
 设置覆盖物的矩形区域。
@@ -413,6 +441,8 @@ imageOverlay.setBounds(bounds);
 
 ##### setPosition
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 setPosition(position: mapCommon.LatLng): void
  
 设置覆盖物的位置。
@@ -442,6 +472,8 @@ imageOverlay.setPosition(position);
   
 
 ##### setTransparency
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 setTransparency(transparency: number): void
  

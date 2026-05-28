@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
@@ -21,6 +23,8 @@ import { webview } from '@kit.ArkWeb';
 
 
 ##### didReceiveResponse12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 didReceiveResponse(response: WebSchemeHandlerResponse): void
 
@@ -53,6 +57,8 @@ didReceiveResponse(response: WebSchemeHandlerResponse): void
 
 ##### didReceiveResponseBody12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 didReceiveResponseBody(data: ArrayBuffer): void
 
 将构造的响应体传递给被拦截的请求。
@@ -84,6 +90,8 @@ didReceiveResponseBody(data: ArrayBuffer): void
 
 ##### didFinish12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 didFinish(): void
 
 通知Web组件被拦截的请求已经完成，并且没有更多的数据可用，调用前需要优先调用[didReceiveResponse](#didreceiveresponse12)将构造的响应头传递给被拦截的请求。
@@ -106,6 +114,8 @@ didFinish(): void
 
 
 ##### didFail12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 didFail(code: WebNetErrorList): void
 
@@ -137,6 +147,8 @@ didFail(code: WebNetErrorList): void
 
 
 ##### didFail20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 didFail(code: WebNetErrorList, completeIfNoResponse: boolean): void
 

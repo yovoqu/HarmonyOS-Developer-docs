@@ -16,11 +16,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含GridCol子组件。
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 GridRow(option?: GridRowOptions)
 
@@ -43,6 +47,8 @@ GridRow(option?: GridRowOptions)
 
 ##### GridRowOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置栅格行布局容器的布局选项。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -63,6 +69,8 @@ GridRow(option?: GridRowOptions)
 
 ##### GutterOption
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 栅格布局间距类型，用于描述栅格子组件不同方向的间距。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -80,6 +88,8 @@ GridRow(option?: GridRowOptions)
 
 
 ##### GridRowColumnOption
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 栅格在不同宽度设备类型下，栅格列数。
 
@@ -121,6 +131,8 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 ##### GridRowSizeOption
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 栅格在不同宽度设备类型下，gutter的大小。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -142,6 +154,8 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 
 ##### BreakPoints
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置栅格容器组件的断点。更多断点的说明参考[栅格容器断点](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-grid-layout#栅格容器断点)。
 
@@ -170,6 +184,8 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 ##### BreakpointsReference枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置栅格容器组件的断点参照物。
 
 **卡片能力：** 从API version 9开始，该接口支持在ArkTS卡片中使用。
@@ -187,6 +203,8 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 
 ##### GridRowDirection枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 栅格元素排列方向。
 
@@ -210,11 +228,15 @@ columns: {md:4, lg:8} // 等于配置 columns: {xs:4, sm:4, md:4, lg:8, xl:8, xx
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### alignItems10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 alignItems(value: ItemAlign)
 
@@ -237,11 +259,15 @@ alignItems(value: ItemAlign)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)外，还支持以下事件：
 
 
 
 ##### onBreakpointChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onBreakpointChange(callback: (breakpoints: string) => void)
 
@@ -267,6 +293,8 @@ onBreakpointChange(callback: (breakpoints: string) => void)
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -307,7 +335,7 @@ struct GridRowExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/LDteEXTTTW6brMZBS1UKqA/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=61FB7FF2E50D1E9755BF959E2BE78B1E59A8C9A2C8235EF2D7A8496C270CE370)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/LDteEXTTTW6brMZBS1UKqA/zh-cn_image_0000002611755669.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=ED38CAF3C694271F574E281DA9E86EB269DBC388C8CFF445666077D1112D20DA)
 
 
 
@@ -379,4 +407,4 @@ struct GridRowExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Lcd6FV9oRRWBLA3_DSqfyw/zh-cn_image_0000002581435730.png?HW-CC-KV=V1&HW-CC-Date=20260528T013924Z&HW-CC-Expire=86400&HW-CC-Sign=D231B29302C0EC7816739966A3D18279C7F8345A7A3F596DA8BBDC894DD99355)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Lcd6FV9oRRWBLA3_DSqfyw/zh-cn_image_0000002581435730.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=9D292239CB4AFB20C923B69DD17F8ECCCD0C4E7B641CF70EF38D22F61F1C879B)

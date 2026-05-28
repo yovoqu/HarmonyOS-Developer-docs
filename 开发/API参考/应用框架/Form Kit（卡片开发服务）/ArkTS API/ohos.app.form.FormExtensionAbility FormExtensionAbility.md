@@ -14,6 +14,8 @@ FormExtensionAbility为卡片扩展模块，提供卡片创建、销毁、刷新
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { FormExtensionAbility } from '@kit.FormKit';
 ```
@@ -21,6 +23,8 @@ import { FormExtensionAbility } from '@kit.FormKit';
   
 
 ##### FormExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 卡片扩展类。包含卡片提供方接收创建卡片、修改可见性等的通知接口。
  
@@ -31,6 +35,8 @@ import { FormExtensionAbility } from '@kit.FormKit';
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -44,6 +50,8 @@ import { FormExtensionAbility } from '@kit.FormKit';
   
 
 ##### FormExtensionAbility.onAddForm
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAddForm(want: Want): formBindingData.FormBindingData
  
@@ -93,6 +101,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
 
 ##### FormExtensionAbility.onCastToNormalForm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onCastToNormalForm(formId: string): void
  
 卡片提供方收到卡片使用方将临时卡片转常态卡片的通知接口。临时卡片、常态卡片是卡片使用方的概念，其中：临时卡片是短期存在的，在特定事件或用户行为后显示，完成后自动消失。常态卡片是持久存在的，在用户未进行清除或更改的情况下，会一直存在，平时开发的功能卡片属于常态卡片。当前卡片使用方不会使用临时卡片。
@@ -126,6 +136,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   
 
 ##### FormExtensionAbility.onUpdateForm
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onUpdateForm(formId: string, wantParams?: Record<string, Object>): void
  
@@ -172,6 +184,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   
 
 ##### FormExtensionAbility.onChangeFormVisibility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChangeFormVisibility(newStatus: Record<string, number>): void
  
@@ -228,6 +242,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
 
 ##### FormExtensionAbility.onFormEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onFormEvent(formId: string, message: string): void
  
 卡片提供方接收处理卡片事件的通知接口。
@@ -262,6 +278,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
 
 ##### FormExtensionAbility.onRemoveForm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onRemoveForm(formId: string): void
  
 卡片提供方接收销毁卡片的通知接口。
@@ -294,6 +312,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   
 
 ##### FormExtensionAbility.onConfigurationUpdate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onConfigurationUpdate(newConfig: Configuration): void
  
@@ -330,6 +350,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   
 
 ##### FormExtensionAbility.onAcquireFormState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onAcquireFormState?(want: Want): formInfo.FormState
  
@@ -373,6 +395,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
 
 ##### FormExtensionAbility.onStop12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onStop?(): void
  
 当卡片提供方的卡片进程退出时，触发该回调。
@@ -398,6 +422,8 @@ export default class MyFormExtensionAbility extends FormExtensionAbility {
   
 
 ##### FormExtensionAbility.onFormLocationChanged20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onFormLocationChanged(formId: string, newFormLocation: formInfo.FormLocation): void
  
@@ -439,6 +465,8 @@ export default class EntryFormAbility extends FormExtensionAbility {
   
 
 ##### FormExtensionAbility.onSizeChanged20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onSizeChanged(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void
  

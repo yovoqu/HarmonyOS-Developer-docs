@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 不包含子组件。
  
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ArcScrollBar(options: ArcScrollBarOptions)
  
@@ -39,6 +43,8 @@ ArcScrollBar的构造函数。
 
 ##### ArcScrollBarOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ArcScrollBar的构造函数参数。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -58,6 +64,8 @@ ArcScrollBar的构造函数参数。
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例通过ArcScrollBar与[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)组件联动，设置了弧形外置滚动条。
  
@@ -100,4 +108,4 @@ struct ArcScrollBarExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/XSyHA23STPWD6bU4ZKfAYg/zh-cn_image_0000002581435790.png?HW-CC-KV=V1&HW-CC-Date=20260528T013918Z&HW-CC-Expire=86400&HW-CC-Sign=A9EC942DE21CADAE504687BBDC25DF52C2A64A4D70901E99572CCE0DF3083E7F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/XSyHA23STPWD6bU4ZKfAYg/zh-cn_image_0000002581435790.png?HW-CC-KV=V1&HW-CC-Date=20260528T024214Z&HW-CC-Expire=86400&HW-CC-Sign=A9AFBA2FD2CD02800F6CD6F0B808B84E0F5C7C8E0C16285F92C27DAF61644D35)

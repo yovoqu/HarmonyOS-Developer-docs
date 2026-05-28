@@ -12,6 +12,8 @@ typedef struct ContentEmbed_ExtensionInstance* ContentEmbed_ExtensionInstanceHan
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明OE Extension实例对象指针类型。
  
 **起始版本：** 24

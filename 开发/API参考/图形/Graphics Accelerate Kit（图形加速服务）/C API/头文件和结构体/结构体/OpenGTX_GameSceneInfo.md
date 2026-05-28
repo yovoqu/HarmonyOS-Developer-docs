@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述游戏场景信息，游戏应用获取到场景后传递此参数。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### description
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 char* OpenGTX_GameSceneInfo::description
@@ -53,6 +63,8 @@ char* OpenGTX_GameSceneInfo::description
 
 ##### maxFPS
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 int32_t OpenGTX_GameSceneInfo::maxFPS
 ```
@@ -64,6 +76,8 @@ int32_t OpenGTX_GameSceneInfo::maxFPS
   
 
 ##### minFPS
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 int32_t OpenGTX_GameSceneInfo::minFPS
@@ -77,6 +91,8 @@ int32_t OpenGTX_GameSceneInfo::minFPS
 
 ##### recommendFPS
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 int32_t OpenGTX_GameSceneInfo::recommendFPS
 ```
@@ -89,6 +105,8 @@ int32_t OpenGTX_GameSceneInfo::recommendFPS
 
 ##### resolutionCurValue
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 OpenGTX_ResolutionValue OpenGTX_GameSceneInfo::resolutionCurValue
 ```
@@ -100,6 +118,8 @@ OpenGTX_ResolutionValue OpenGTX_GameSceneInfo::resolutionCurValue
   
 
 ##### sceneID
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 OpenGTX_SceneID OpenGTX_GameSceneInfo::sceneID

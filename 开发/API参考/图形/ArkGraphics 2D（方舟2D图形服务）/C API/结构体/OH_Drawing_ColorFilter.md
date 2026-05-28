@@ -12,6 +12,8 @@ typedef struct OH_Drawing_ColorFilter OH_Drawing_ColorFilter
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义颜色滤波器，传入一个颜色并返回一个新的颜色。
  
 **起始版本：** 11

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
   
 
 ##### Pinch
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 捏合手势事件。
  
@@ -36,6 +40,8 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
 
 ##### Rotate11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 旋转手势事件。
  
 **系统能力**：SystemCapability.MultimodalInput.Input.Core
@@ -49,6 +55,8 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
   
 
 ##### ThreeFingersSwipe
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 三指滑动手势事件。
  
@@ -65,6 +73,8 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
 
 ##### FourFingersSwipe
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 四指滑动手势事件。
  
 **系统能力**：SystemCapability.MultimodalInput.Input.Core
@@ -80,6 +90,8 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
 
 ##### ThreeFingersTap11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 三指轻点手势事件。
  
 **系统能力**：SystemCapability.MultimodalInput.Input.Core
@@ -92,6 +104,8 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
   
 
 ##### ActionType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 手势事件类型。
  

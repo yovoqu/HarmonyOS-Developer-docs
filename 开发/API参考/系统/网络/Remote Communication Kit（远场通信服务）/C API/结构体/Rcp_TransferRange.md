@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 HTTP传输范围。该设置将转换为HTTP Range标头。具有范围标头的HTTP请求要求服务器仅发送回HTTP响应的一部分。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@ HTTP传输范围。该设置将转换为HTTP Range标头。具有范围标头的
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@ HTTP传输范围。该设置将转换为HTTP Range标头。具有范围标头的
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### from
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int64_t Rcp_TransferRange::from
@@ -52,6 +62,8 @@ int64_t Rcp_TransferRange::from
 
 ##### hasZeroFrom
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool Rcp_TransferRange::hasZeroFrom
 ```
@@ -63,6 +75,8 @@ bool Rcp_TransferRange::hasZeroFrom
   
 
 ##### hasZeroTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool Rcp_TransferRange::hasZeroTo
@@ -76,6 +90,8 @@ bool Rcp_TransferRange::hasZeroTo
 
 ##### next
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 struct Rcp_TransferRange* Rcp_TransferRange::next
 ```
@@ -87,6 +103,8 @@ struct Rcp_TransferRange* Rcp_TransferRange::next
   
 
 ##### to
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int64_t Rcp_TransferRange::to

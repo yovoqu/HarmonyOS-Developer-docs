@@ -12,6 +12,8 @@ typedef struct Http_Response {...} Http_Response
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义HTTP响应的结构体。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ typedef struct Http_Response {...} Http_Response
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,6 +46,8 @@ typedef struct Http_Response {...} Http_Response
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -50,9 +58,13 @@ typedef struct Http_Response {...} Http_Response
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### destroyResponse()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*destroyResponse)(struct Http_Response **response)

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { systemLoad } from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import { systemLoad } from '@kit.BasicServicesKit';
 
 
 ##### systemLoad.on('systemLoadChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'systemLoadChange', callback: Callback&lt;SystemLoadLevel&gt;): void
 
@@ -66,6 +70,8 @@ try {
 
 ##### systemLoad.off('systemLoadChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'systemLoadChange', callback?: Callback&lt;SystemLoadLevel&gt;): void
 
 取消注册系统负载回调，使用callback异步回调。
@@ -110,6 +116,8 @@ try {
 
 ##### systemLoad.getLevel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLevel(): Promise<[SystemLoadLevel](#systemloadlevel)>
 
 获取系统负载融合档位，使用promise异步回调。
@@ -139,6 +147,8 @@ systemLoad.getLevel().then((res: systemLoad.SystemLoadLevel) => {
 
 
 ##### SystemLoadLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 系统负载融合档位。
 

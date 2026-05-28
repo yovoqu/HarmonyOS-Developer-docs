@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 首选项模块（Preferences）提供Key-Value键值型数据（后续简称KV数据）的处理接口，实现对轻量级KV数据的查询、修改和持久化功能。
  
 **系统能力：** SystemCapability.DistributedDataManager.Preferences.Core
@@ -16,6 +18,8 @@
   
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

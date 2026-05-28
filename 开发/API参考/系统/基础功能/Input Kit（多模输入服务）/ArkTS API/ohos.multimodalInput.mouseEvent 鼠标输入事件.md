@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
   
 
 ##### Action
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 鼠标事件类型。
  
@@ -43,6 +47,8 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
 
 ##### Button
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 鼠标按键。
  
 **系统能力：** SystemCapability.MultimodalInput.Input.Core
@@ -63,6 +69,8 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
 
 ##### Axis
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 鼠标轴类型。
  
 **系统能力：** SystemCapability.MultimodalInput.Input.Core
@@ -78,6 +86,8 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
 
 ##### AxisValue
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 鼠标轴类型和轴的值。
  
 **系统能力：** SystemCapability.MultimodalInput.Input.Core
@@ -91,6 +101,8 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
   
 
 ##### ToolType11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 工具类型。
  
@@ -107,6 +119,8 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
   
 
 ##### MouseEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 鼠标事件。
  

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述创建具有NNGI特性的[XEG_RTGI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rtgi)对象的信息，当结构体中的信息变化时，需要创建新的[XEG_RTGI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rtgi)对象。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -37,9 +43,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### inferenceInputSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_NNGICreateInfo::inferenceInputSize
@@ -53,6 +63,8 @@ VkExtent2D XEG_NNGICreateInfo::inferenceInputSize
 
 ##### inferenceOutputSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkExtent2D XEG_NNGICreateInfo::inferenceOutputSize
 ```
@@ -64,6 +76,8 @@ VkExtent2D XEG_NNGICreateInfo::inferenceOutputSize
   
 
 ##### pNext
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const void* XEG_NNGICreateInfo::pNext
@@ -77,6 +91,8 @@ const void* XEG_NNGICreateInfo::pNext
 
 ##### qualityMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 XEG_RTGIQualityMode XEG_NNGICreateInfo::qualityMode
 ```
@@ -89,6 +105,8 @@ XEG_RTGIQualityMode XEG_NNGICreateInfo::qualityMode
 
 ##### sType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 XEG_StructureType XEG_NNGICreateInfo::sType
 ```
@@ -100,6 +118,8 @@ XEG_StructureType XEG_NNGICreateInfo::sType
   
 
 ##### trainingSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_NNGICreateInfo::trainingSize

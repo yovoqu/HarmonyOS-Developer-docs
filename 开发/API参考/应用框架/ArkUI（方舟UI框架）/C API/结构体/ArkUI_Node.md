@@ -12,6 +12,8 @@ struct ArkUI_Node
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义ArkUI native组件实例对象。
  
 **起始版本：** 22

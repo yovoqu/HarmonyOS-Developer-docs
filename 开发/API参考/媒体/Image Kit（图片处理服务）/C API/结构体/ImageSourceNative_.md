@@ -12,6 +12,8 @@ typedef struct ImageSourceNative_ ImageSourceNative
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为图像源方法定义native层图像源对象。
  
 **起始版本：** 10

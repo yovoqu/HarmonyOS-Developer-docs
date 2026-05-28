@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ssap } from '@kit.NearLinkKit';
 ```
@@ -21,6 +23,8 @@ import { ssap } from '@kit.NearLinkKit';
 
 
 ##### ConnectionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type ConnectionState = constant.ConnectionState
 
@@ -38,6 +42,8 @@ type ConnectionState = constant.ConnectionState
 
 
 ##### createClient
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createClient(address: string): Client
 
@@ -96,6 +102,8 @@ try {
 
 ##### createServer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createServer(): Server
 
 创建ssap服务端实例。
@@ -144,6 +152,8 @@ try {
 
 ##### Client
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 提供和远端设备ssap数据交互操作方法，使用前需要使用 ssap.createClient 方法创建一个 Client 实例。 一个应用针对一个远端设备只需要创建一次实例。
 
@@ -155,6 +165,8 @@ try {
 
 
 ##### connect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connect(): Promise&lt;void&gt;
 
@@ -206,6 +218,8 @@ try {
 
 
 ##### disconnect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 disconnect(): Promise&lt;void&gt;
 
@@ -261,6 +275,8 @@ try {
 
 ##### close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 关闭客户端。
@@ -302,6 +318,8 @@ try {
 
 
 ##### getServices
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getServices(): Promise<Array&lt;Service&gt;>
 
@@ -359,6 +377,8 @@ try {
 
 
 ##### readProperty
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 readProperty(property: Property): Promise&lt;Property&gt;
 
@@ -433,6 +453,8 @@ try {
 
 
 ##### writeProperty
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 writeProperty(property: Property, writeType: PropertyWriteType): Promise&lt;void&gt;
 
@@ -510,6 +532,8 @@ try {
 
 ##### setPropertyNotification
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPropertyNotification(property: Property, enable: boolean): Promise&lt;void&gt;
 
 设置Property变化通知。使用Promise异步回调。
@@ -586,6 +610,8 @@ try {
 
 ##### requestMtuSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 requestMtuSize(mtu: number): Promise&lt;void&gt;
 
 发起MTU协商请求。使用Promise异步回调。
@@ -651,6 +677,8 @@ try {
 
 ##### on( 'propertyChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'propertyChange', callback: Callback&lt;Property&gt;): void
 
 订阅Property变化事件。使用callback异步回调。
@@ -702,6 +730,8 @@ try {
 
 
 ##### off( 'propertyChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'propertyChange', callback?: Callback&lt;Property&gt;): void
 
@@ -755,6 +785,8 @@ try {
 
 ##### on( 'connectionStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void
 
 订阅连接状态变化事件。使用callback异步回调。
@@ -806,6 +838,8 @@ try {
 
 
 ##### off( 'connectionStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&gt;): void
 
@@ -859,6 +893,8 @@ try {
 
 ##### on( 'mtuChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'mtuChange', callback: Callback&lt;number&gt;): void
 
 订阅MTU变化事件。使用callback异步回调。
@@ -910,6 +946,8 @@ try {
 
 
 ##### off( 'mtuChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void
 
@@ -963,6 +1001,8 @@ try {
 
 ##### Server
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 提供和远端设备ssap数据交互操作方法，使用前需要使用createServer方法创建一个Server实例。 一个应用针对一个远端设备只需要创建一次实例。
 
@@ -974,6 +1014,8 @@ try {
 
 
 ##### addService
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addService(service: Service): void
 
@@ -1063,6 +1105,8 @@ try {
 
 ##### removeService
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeService(serviceUuid: string): void
 
 服务端删除服务。
@@ -1114,6 +1158,8 @@ try {
 
 ##### close
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 close(): void
 
 关闭服务端。
@@ -1154,6 +1200,8 @@ try {
 
 
 ##### notifyPropertyChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt;
 
@@ -1239,6 +1287,8 @@ try {
 
 ##### sendResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 sendResponse(response: ServerResponse): void
 
 回复客户端读写请求。
@@ -1299,6 +1349,8 @@ try {
 
 ##### on('connectionStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void
 
 订阅连接状态变化事件。使用callback异步回调。
@@ -1349,6 +1401,8 @@ try {
 
 
 ##### off( 'connectionStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&gt;): void
 
@@ -1401,6 +1455,8 @@ try {
 
 ##### on( 'propertyRead')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'propertyRead', callback: Callback&lt;PropertyReadRequest&gt;): void
 
 订阅客户端的读属性请求事件。使用callback异步回调。
@@ -1451,6 +1507,8 @@ try {
 
 
 ##### off( 'propertyRead')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'propertyRead', callback?: Callback&lt;PropertyReadRequest&gt;): void
 
@@ -1503,6 +1561,8 @@ try {
 
 ##### on( 'propertyWrite')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'propertyWrite', callback: Callback&lt;PropertyWriteRequest&gt;): void
 
 订阅客户端的写属性请求事件。使用callback异步回调。
@@ -1553,6 +1613,8 @@ try {
 
 
 ##### off( 'propertyWrite')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'propertyWrite', callback?: Callback&lt;PropertyWriteRequest&gt;): void
 
@@ -1605,6 +1667,8 @@ try {
 
 ##### on( 'mtuChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'mtuChange', callback: Callback&lt;number&gt;): void
 
 订阅MTU（Maximum Transmission Unit）变化事件。使用callback异步回调。
@@ -1655,6 +1719,8 @@ try {
 
 
 ##### off( 'mtuChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void
 
@@ -1707,6 +1773,8 @@ try {
 
 ##### Service
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示星闪服务。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1722,6 +1790,8 @@ try {
 
 
 ##### Property
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示服务的Property。
 
@@ -1742,6 +1812,8 @@ try {
 
 ##### PropertyDescriptor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示Property的描述符。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1761,6 +1833,8 @@ try {
 
 ##### PropertyReadRequest
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示客户端的Property读请求参数。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1778,6 +1852,8 @@ try {
 
 
 ##### PropertyWriteRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示客户端的Property写请求参数。
 
@@ -1799,6 +1875,8 @@ try {
 
 ##### ServerResponse
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示回复客户端请求的响应。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1816,6 +1894,8 @@ try {
 
 ##### ConnectionChangeState
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示连接状态上报参数。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1831,6 +1911,8 @@ try {
 
 
 ##### PropertyDescriptorType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示Property的描述符类型，为枚举值。
 
@@ -1851,6 +1933,8 @@ try {
 
 ##### Operation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示Property支持的操作类型，为枚举值。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1868,6 +1952,8 @@ try {
 
 
 ##### PropertyWriteType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示Property支持的写类型，为枚举值。
 

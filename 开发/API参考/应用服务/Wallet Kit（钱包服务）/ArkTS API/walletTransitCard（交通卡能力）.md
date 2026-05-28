@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone
+
 ```text
 import { walletTransitCard } from '@kit.WalletKit';
 ```
@@ -19,6 +21,8 @@ import { walletTransitCard } from '@kit.WalletKit';
   
 
 ##### TransitCardClient
+
+**支持设备：** Phone
 
 钱包交通卡的功能入口类，与钱包卡券有关的所有方法从此处接入。
  
@@ -31,6 +35,8 @@ import { walletTransitCard } from '@kit.WalletKit';
   
 
 ##### constructor
+
+**支持设备：** Phone
 
 constructor(context: common.UIAbilityContext, callerId: string)
  
@@ -70,6 +76,8 @@ struct Index {
   
 
 ##### getCardMetadataInDevice
+
+**支持设备：** Phone
 
 getCardMetadataInDevice(specifiedDeviceType: DeviceType, callerToken?: string): Promise<CardMetadataInDevice[]>
  
@@ -147,6 +155,8 @@ struct Index {
   
 
 ##### getTransitCardInfo
+
+**支持设备：** Phone
 
 getTransitCardInfo(logicalCardNumber: string, specifiedDeviceId: string, callerToken?: string): Promise&lt;TransitCardInfo&gt;
  
@@ -232,6 +242,8 @@ struct Index {
   
 
 ##### canAddTransitCard
+
+**支持设备：** Phone
 
 canAddTransitCard(issuerId: string, specifiedDeviceId: string): Promise&lt;string&gt;
  
@@ -320,6 +332,8 @@ struct Index {
 
 ##### setupWalletEnvironment
 
+**支持设备：** Phone
+
 setupWalletEnvironment(): Promise&lt;void&gt;
  
 设置Wallet应用程序的environment。当开发者从另一个api得到1010200003错误代码时，你应该调用这个api来设置Wallet应用。
@@ -383,6 +397,8 @@ struct Index {
   
 
 ##### addTransitCard
+
+**支持设备：** Phone
 
 addTransitCard(addCardOpaqueData: string, serverOrderId: string): Promise&lt;CardMetadata&gt;
  
@@ -464,6 +480,8 @@ struct Index {
   
 
 ##### rechargeTransitCard
+
+**支持设备：** Phone
 
 rechargeTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOrderId: string): Promise&lt;number&gt;
  
@@ -551,6 +569,8 @@ struct Index {
 
 ##### updateTransitCard
 
+**支持设备：** Phone
+
 updateTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOrderId: string): Promise&lt;void&gt;
  
 更新交通卡信息，根据支付订单号serverOrderId为指定的logicalCardNumber交通卡进行数据更新。
@@ -637,6 +657,8 @@ struct Index {
 
 ##### deleteTransitCard
 
+**支持设备：** Phone
+
 deleteTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOrderId: string): Promise&lt;void&gt;
  
 删除交通卡，根据支付订单号serverOrderId为指定的logicalCardNumber交通卡进行删卡。
@@ -721,6 +743,8 @@ struct Index {
 
 ##### CardMetadata
 
+**支持设备：** Phone
+
 描述卡的元数据信息。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -742,6 +766,8 @@ struct Index {
 
 ##### CardMetadataInDevice
 
+**支持设备：** Phone
+
 设备的接口和设备支持的卡元数据。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -762,6 +788,8 @@ struct Index {
 
 ##### TransitCardInfo
 
+**支持设备：** Phone
+
 交通卡信息。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -779,6 +807,8 @@ struct Index {
   
 
 ##### DeviceType
+
+**支持设备：** Phone
 
 设备类型的枚举。
  

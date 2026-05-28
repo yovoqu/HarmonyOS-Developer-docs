@@ -12,6 +12,8 @@ typedef struct {...} Telephony_NetworkState
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | Wearable
+
 网络状态信息。
  
 **起始版本：** 13
@@ -24,9 +26,13 @@ typedef struct {...} Telephony_NetworkState
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | Wearable
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | Wearable
  
 | 名称 | 描述 |
 | --- | --- |

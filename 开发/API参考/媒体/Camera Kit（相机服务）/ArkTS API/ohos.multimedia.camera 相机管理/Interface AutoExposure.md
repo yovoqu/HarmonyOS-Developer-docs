@@ -16,6 +16,8 @@ AutoExposure继承自[AutoExposureQuery](https://developer.huawei.com/consumer/c
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { camera } from '@kit.CameraKit';
 ```
@@ -23,6 +25,8 @@ import { camera } from '@kit.CameraKit';
   
 
 ##### getExposureMode11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getExposureMode(): ExposureMode
  
@@ -74,6 +78,8 @@ function getExposureMode(photoSession: camera.PhotoSession): camera.ExposureMode
 
 ##### setExposureMode11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setExposureMode(aeMode: ExposureMode): void
  
 设置曝光模式。进行设置之前，需要先检查设备是否支持指定的曝光模式，可使用方法[isExposureModeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposurequery#isexposuremodesupported11)。
@@ -118,6 +124,8 @@ function setExposureMode(photoSession: camera.PhotoSession): void {
   
 
 ##### getMeteringPoint11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMeteringPoint(): Point
  
@@ -165,6 +173,8 @@ function getMeteringPoint(photoSession: camera.PhotoSession): camera.Point | und
 
 ##### setMeteringPoint11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMeteringPoint(point: Point): void
  
 设置曝光区域中心点，曝光点应在0-1坐标系内，该坐标系左上角为{0，0}，右下角为{1，1}。
@@ -211,6 +221,8 @@ function setMeteringPoint(photoSession: camera.PhotoSession): void {
   
 
 ##### setExposureBias11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setExposureBias(exposureBias: number): void
  
@@ -262,6 +274,8 @@ function setExposureBias(photoSession: camera.PhotoSession, biasRangeArray: Arra
 
 ##### getExposureValue11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getExposureValue(): number
  
 查询当前曝光值。
@@ -309,6 +323,8 @@ function getExposureValue(photoSession: camera.PhotoSession): number {
 
 ##### getExposureMeteringMode24+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getExposureMeteringMode(): ExposureMeteringMode
  
 获取当前曝光测光模式。
@@ -355,6 +371,8 @@ function getExposureMeteringMode(photoSession: camera.PhotoSession): camera.Expo
   
 
 ##### setExposureMeteringMode24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setExposureMeteringMode(aeMeteringMode: ExposureMeteringMode): void
  

@@ -12,6 +12,8 @@ typedef void *OH_AI_TrainCfgHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指向训练配置对象的指针。
  
 **起始版本：** 11

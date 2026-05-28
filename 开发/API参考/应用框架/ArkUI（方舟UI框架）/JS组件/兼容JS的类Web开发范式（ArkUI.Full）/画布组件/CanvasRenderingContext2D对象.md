@@ -57,6 +57,8 @@ export default {
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 名称 | 类型 | 描述 |
 | --- | --- | --- |
 | fillStyle | &lt;color&gt; \| CanvasGradient \| CanvasPattern | 指定绘制的填充色。 - 类型为&lt;color&gt;时，表示设置填充区域的颜色。 - 类型为CanvasGradient时，表示渐变对象，使用 createLinearGradient()方法创建。 - 类型为CanvasPattern时，使用 createPattern()方法创建。 超出取值范围填充为黑色。 |
@@ -81,6 +83,8 @@ export default {
 
 
 ##### fillStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -109,6 +113,8 @@ export default {
 
 ##### lineWidth
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div>
@@ -135,6 +141,8 @@ export default {
 
 
 ##### strokeStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -163,6 +171,8 @@ export default {
 
 
 ##### lineCap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -194,6 +204,8 @@ export default {
 
 
 ##### lineJoin
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -227,6 +239,8 @@ export default {
 
 ##### miterLimit
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div>
@@ -259,6 +273,8 @@ export default {
 
 ##### font
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div>
@@ -285,6 +301,8 @@ export default {
 
 
 ##### textAlign
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -327,6 +345,8 @@ export default {
 
 ##### textBaseline
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div>
@@ -367,6 +387,8 @@ export default {
 
 ##### globalAlpha
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div>
@@ -398,6 +420,8 @@ export default {
 
 ##### lineDashOffset
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div>
@@ -426,6 +450,8 @@ export default {
 
 
 ##### globalCompositeOperation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 类型字段说明。
 
@@ -484,6 +510,8 @@ export default {
 
 ##### shadowBlur
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div>
@@ -513,6 +541,8 @@ export default {
 
 ##### shadowColor
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div>
@@ -541,6 +571,8 @@ export default {
 
 
 ##### shadowOffsetX
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -572,6 +604,8 @@ export default {
 
 ##### shadowOffsetY
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 <!-- xxx.hml -->
 <div>
@@ -601,6 +635,8 @@ export default {
 
 
 ##### imageSmoothingEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 <!-- xxx.hml -->
@@ -634,9 +670,13 @@ export default {
 
 ##### 方法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### fillRect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fillRect(x: number, y: number, width:number, height: number): void
 
@@ -681,6 +721,8 @@ export default {
 
 
 ##### clearRect
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clearRect(x: number, y: number, width:number, height: number): void
 
@@ -728,6 +770,8 @@ export default {
 
 ##### strokeRect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeRect(x: number, y: number, width:number, height: number): void
 
 绘制具有边框的矩形，矩形内部不填充。
@@ -771,6 +815,8 @@ export default {
 
 
 ##### fillText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fillText(text: string, x: number, y: number): void
 
@@ -816,6 +862,8 @@ export default {
 
 ##### strokeText
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 strokeText(text: string, x: number, y: number): void
 
 绘制描边类文本。
@@ -859,6 +907,8 @@ export default {
 
 
 ##### measureText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 measureText(text: string): TextMetrics
 
@@ -911,6 +961,8 @@ export default {
 
 ##### stroke
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stroke(): void
 
 进行边框绘制操作。
@@ -948,6 +1000,8 @@ export default {
 
 
 ##### beginPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 beginPath(): void
 
@@ -987,6 +1041,8 @@ export default {
 
 
 ##### moveTo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 moveTo(x: number, y: number): void
 
@@ -1033,6 +1089,8 @@ export default {
 
 ##### lineTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lineTo(x: number, y: number): void
 
 从当前点到指定点进行路径连接。
@@ -1078,6 +1136,8 @@ export default {
 
 ##### closePath
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closePath(): void
 
 结束当前路径形成一个封闭路径。
@@ -1116,6 +1176,8 @@ export default {
 
 
 ##### createPattern
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPattern(image: Image, repetition: string): Object
 
@@ -1171,6 +1233,8 @@ export default {
 
 ##### bezierCurveTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void
 
 创建三次贝塞尔曲线的路径。
@@ -1220,6 +1284,8 @@ export default {
 
 ##### quadraticCurveTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void
 
 创建二次贝塞尔曲线的路径。
@@ -1266,6 +1332,8 @@ export default {
 
 
 ##### arc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void
 
@@ -1315,6 +1383,8 @@ export default {
 
 ##### arcTo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void
 
 依据圆弧经过的点和圆弧半径创建圆弧路径。
@@ -1361,6 +1431,8 @@ export default {
 
 
 ##### ellipse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, counterclockwise?: number): void
 
@@ -1412,6 +1484,8 @@ export default {
 
 ##### rect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 rect(x: number, y: number, width: number, height: number): void
 
 创建矩形路径。
@@ -1457,6 +1531,8 @@ export default {
 
 ##### fill
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 fill(): void
 
 对封闭路径进行填充。
@@ -1491,6 +1567,8 @@ export default {
 
 
 ##### clip
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 clip(): void
 
@@ -1530,6 +1608,8 @@ export default {
 
 
 ##### rotate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 rotate(rotate: number): void
 
@@ -1572,6 +1652,8 @@ export default {
 
 
 ##### scale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 scale(x: number, y: number): void
 
@@ -1616,6 +1698,8 @@ export default {
 
 
 ##### transform
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 transform(scaleX: number, skewX: number, skewY: number, scaleY: number, translateX: number, translateY: number): void
 
@@ -1674,6 +1758,8 @@ export default {
 
 ##### setTransform
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setTransform(scaleX: number, skewX: number, skewY: number, scaleY: number, translateX: number, translateY: number): void
 
 setTransform方法使用的参数和transform()方法相同，但setTransform()方法会重置现有的变换矩阵并创建新的变换矩阵。
@@ -1724,6 +1810,8 @@ export default {
 
 ##### translate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 translate(x: number, y: number): void
 
 移动当前坐标系的原点。
@@ -1767,6 +1855,8 @@ export default {
 
 
 ##### createPath2D6+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createPath2D(path: Path2D, cmds: string): Path2D
 
@@ -1823,6 +1913,8 @@ export default {
 
 ##### drawImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 drawImage(image: Image | PixelMap, sx: number, sy: number, sWidth: number, sHeight: number, dx: number, dy: number, dWidth: number, dHeight: number):void
 
 进行图像绘制。
@@ -1875,6 +1967,8 @@ export default {
 
 ##### restore
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 restore(): void
 
 对保存的绘图上下文进行恢复。
@@ -1905,6 +1999,8 @@ export default {
 
 ##### save
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 save(): void
 
 对当前的绘图上下文进行保存。
@@ -1934,6 +2030,8 @@ export default {
 
 
 ##### createLinearGradient6+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createLinearGradient(x0: number, y0: number, x1: number, y1: number): Object
 
@@ -1994,6 +2092,8 @@ export default {
 
 
 ##### createRadialGradient6+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): Object
 
@@ -2057,6 +2157,8 @@ export default {
 
 ##### createImageData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageData(width: number, height: number): ImageData
 
 创建新的、空白的、指定大小的ImageData对象，请参考[ImageData对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-imagedata)。
@@ -2102,6 +2204,8 @@ export default {
 
 ##### createImageData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createImageData(imageData: ImageData): ImageData
 
 根据一个现有的ImageData对象，重新创建一个宽、高相同但不会复制图像数据的ImageData对象，请参考[ImageData对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-canvas-imagedata)。
@@ -2146,6 +2250,8 @@ export default {
 
 
 ##### getImageData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getImageData(sx: number, sy: number, sw: number, sh: number): ImageData
 
@@ -2193,6 +2299,8 @@ export default {
 
 
 ##### putImageData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 putImageData(imageData: ImageData, dx: number, dy: number, dirtyX: number, dirtyY: number, dirtyWidth: number, dirtyHeight: number): void
 
@@ -2248,6 +2356,8 @@ export default {
 
 ##### putImageData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 putImageData(imageData: ImageData, dx: number, dy: number): void
 
 使用ImageData数据填充新的矩形区域。
@@ -2298,6 +2408,8 @@ export default {
 
 ##### getPixelMap9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap
 
 获取用当前canvas指定区域内的像素创建的PixelMap对象。
@@ -2345,6 +2457,8 @@ export default {
 
 ##### setLineDash
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setLineDash(segments: Array): void
 
 设置画布的虚线样式。
@@ -2388,6 +2502,8 @@ export default {
 
 ##### getLineDash
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getLineDash(): Array
 
 获得当前画布的虚线样式。
@@ -2424,6 +2540,8 @@ export default {
 
 
 ##### transferFromImageBitmap7+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 transferFromImageBitmap(bitmap: ImageBitmap): void
 

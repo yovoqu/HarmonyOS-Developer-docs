@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
 ```
@@ -25,6 +27,8 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
   
 
 ##### FraudDetectionRequest
+
+**支持设备：** Phone | Tablet
 
 涉诈剧本检测的请求参数。
  
@@ -43,6 +47,8 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
 
 ##### SimulatedClickDetectionRequest
 
+**支持设备：** Phone | Tablet
+
 模拟点击检测的请求参数。
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
@@ -57,6 +63,8 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
   
 
 ##### SimulatedClickDetectionEnhancedRequest
+
+**支持设备：** Phone | Tablet
 
 模拟点击增强检测的请求参数。
  
@@ -75,6 +83,8 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
 
 ##### SigningAlgorithm
 
+**支持设备：** Phone | Tablet
+
 数字签名算法。
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
@@ -89,6 +99,8 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
   
 
 ##### detectFraudRisk
+
+**支持设备：** Phone | Tablet
 
 detectFraudRisk(params: [FraudDetectionRequest](#frauddetectionrequest)): Promise&lt;string&gt;
  
@@ -160,6 +172,8 @@ try {
 
 ##### detectSimulatedClickRisk
 
+**支持设备：** Phone | Tablet
+
 detectSimulatedClickRisk(params: [SimulatedClickDetectionRequest](#simulatedclickdetectionrequest)): Promise&lt;string&gt;
  
 获取自动化点击、设备墙等作弊行为检测结果。使用Promise异步回调。
@@ -226,6 +240,8 @@ try {
   
 
 ##### detectSimulatedClickRiskEnhanced
+
+**支持设备：** Phone | Tablet
 
 detectSimulatedClickRiskEnhanced(params: SimulatedClickDetectionEnhancedRequest): Promise&lt;string&gt;
  

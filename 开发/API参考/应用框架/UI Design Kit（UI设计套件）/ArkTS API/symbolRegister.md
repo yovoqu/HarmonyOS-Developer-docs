@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { symbolRegister } from '@kit.UIDesignKit';
 ```
@@ -19,6 +21,8 @@ import { symbolRegister } from '@kit.UIDesignKit';
   
 
 ##### symbolRegister.registerSymbol
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 registerSymbol(ttfSrc: resourceManager.Resource, jsonSrc: resourceManager.Resource): boolean
  

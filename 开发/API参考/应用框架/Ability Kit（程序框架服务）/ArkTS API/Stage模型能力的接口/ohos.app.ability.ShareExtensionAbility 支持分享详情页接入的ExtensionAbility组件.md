@@ -18,6 +18,8 @@ ShareExtensionAbility继承自[UIExtensionAbility](https://developer.huawei.com/
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { ShareExtensionAbility } from '@kit.AbilityKit';
 ```
@@ -25,6 +27,8 @@ import { ShareExtensionAbility } from '@kit.AbilityKit';
   
 
 ##### ShareExtensionAbility
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ShareExtensionAbility继承自[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)，为开发者提供分享详情页扩展能力。
  

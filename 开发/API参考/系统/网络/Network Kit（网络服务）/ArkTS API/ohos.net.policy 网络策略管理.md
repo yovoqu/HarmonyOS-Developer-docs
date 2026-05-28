@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { policy } from '@kit.NetworkKit';
 ```
@@ -21,6 +23,8 @@ import { policy } from '@kit.NetworkKit';
 
 
 ##### NetBearType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NetBearType = connection.NetBearType
 
@@ -36,6 +40,8 @@ type NetBearType = connection.NetBearType
 
 
 ##### policy.showAppNetPolicySettings22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 showAppNetPolicySettings(context: Context): Promise&lt;void&gt;
 

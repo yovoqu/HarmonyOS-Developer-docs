@@ -14,6 +14,8 @@ wantConstant模块提供了[Want](https://developer.huawei.com/consumer/cn/doc/h
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { wantConstant } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { wantConstant } from '@kit.AbilityKit';
 
 
 ##### Params
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 [Want.parameters](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want#want)字段常用的系统预置关键字。开发者可以通过这些预置关键字设置或获取应用跳转等场景中额外携带的参数信息。例如在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)的启动阶段，如果从onCreate回调的入参want字段中获取到ABILITY_RECOVERY_RESTART的值为true，则表示当前UIAbility发生了故障重启。
 
@@ -58,6 +62,8 @@ import { wantConstant } from '@kit.AbilityKit';
 
 ##### Flags
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [Want.flags](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want#want)字段常用的系统预置关键字。开发者可以通过这些预置关键字设置或获取应用跳转等场景中额外携带的标志位信息。
 
 **系统能力**：SystemCapability.Ability.AbilityBase
@@ -75,6 +81,8 @@ import { wantConstant } from '@kit.AbilityKit';
 
 
 ##### ShowMode12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示[EmbeddableUIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddableuiability)被拉起时的显示模式。
 

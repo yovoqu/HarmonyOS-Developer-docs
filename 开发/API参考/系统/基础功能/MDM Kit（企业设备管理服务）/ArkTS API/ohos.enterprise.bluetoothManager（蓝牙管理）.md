@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { bluetoothManager } from '@kit.MDMKit';
 ```
@@ -21,6 +23,8 @@ import { bluetoothManager } from '@kit.MDMKit';
 
 
 ##### bluetoothManager.getBluetoothInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getBluetoothInfo(admin: Want): BluetoothInfo
 
@@ -81,6 +85,8 @@ try {
 
 
 ##### bluetoothManager.addAllowedBluetoothDevices
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addAllowedBluetoothDevices(admin: Want, deviceIds: Array&lt;string&gt;): void
 
@@ -144,6 +150,8 @@ try {
 
 ##### bluetoothManager.removeAllowedBluetoothDevices
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeAllowedBluetoothDevices(admin: Want, deviceIds: Array&lt;string&gt;): void
 
 移除蓝牙设备可用名单。
@@ -200,6 +208,8 @@ try {
 
 
 ##### bluetoothManager.getAllowedBluetoothDevices
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getAllowedBluetoothDevices(admin: Want): Array&lt;string&gt;
 
@@ -259,6 +269,8 @@ try {
 
 
 ##### bluetoothManager.addDisallowedBluetoothDevices20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addDisallowedBluetoothDevices(admin: Want, deviceIds: Array&lt;string&gt;): void
 
@@ -321,6 +333,8 @@ try {
 
 ##### bluetoothManager.removeDisallowedBluetoothDevices20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDisallowedBluetoothDevices(admin: Want, deviceIds: Array&lt;string&gt;): void
 
 移除蓝牙设备禁用名单。若移除禁用名单中的部分蓝牙设备，则当前设备不允许连接禁用名单内剩余的蓝牙设备。若移除禁用名单中的所有蓝牙设备，则当前设备可以连接任意的蓝牙设备。
@@ -376,6 +390,8 @@ try {
 
 
 ##### bluetoothManager.getDisallowedBluetoothDevices20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedBluetoothDevices(admin: Want): Array&lt;string&gt;
 
@@ -435,6 +451,8 @@ try {
 
 ##### bluetoothManager.turnOnBluetooth20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 turnOnBluetooth(admin: Want): void
 
 开启蓝牙。蓝牙开启后用户可以手动关闭。
@@ -489,6 +507,8 @@ try {
 
 ##### bluetoothManager.turnOffBluetooth20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 turnOffBluetooth(admin: Want): void
 
 关闭蓝牙。蓝牙关闭后用户可以手动打开。
@@ -542,6 +562,8 @@ try {
 
 
 ##### bluetoothManager.addDisallowedBluetoothProtocols20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 addDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array&lt;Protocol&gt;): void
 
@@ -601,6 +623,8 @@ try {
 
 ##### bluetoothManager.removeDisallowedBluetoothProtocols20+
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 removeDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array&lt;Protocol&gt;): void
 
 移除蓝牙协议禁用名单。若移除禁用名单中某个用户的部分蓝牙协议，则该用户不能使用禁用名单内剩余的蓝牙协议向其他设备外发文件。若移除禁用名单中某个用户的所有蓝牙协议，则该用户可以使用任意蓝牙协议向其他设备外发文件。若移除禁用名单中不存在的蓝牙协议，接口可调用成功，但不会移除禁用名单中不存在的蓝牙协议。
@@ -658,6 +682,8 @@ try {
 
 
 ##### bluetoothManager.getDisallowedBluetoothProtocols20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getDisallowedBluetoothProtocols(admin: Want, accountId: number): Array&lt;Protocol&gt;
 
@@ -720,6 +746,8 @@ try {
 
 ##### BluetoothInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 设备的蓝牙信息。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
@@ -736,6 +764,8 @@ try {
 
 
 ##### Protocol20+
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 蓝牙协议类型。
 

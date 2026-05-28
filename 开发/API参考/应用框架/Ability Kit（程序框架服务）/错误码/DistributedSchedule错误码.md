@@ -12,6 +12,8 @@
 
 ##### 16600001 系统服务工作异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The system ability works abnormally.
@@ -35,6 +37,8 @@ The system ability works abnormally.
 
 ##### 16600002 指定的token或callback未注册
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The specified token or callback is not registered.
@@ -54,6 +58,8 @@ The specified token or callback is not registered.
 
 
 ##### 16600003 应用注册token已达到最大次数限制
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 **错误信息**
 
@@ -75,6 +81,8 @@ The number of token registration times has reached the upper limit.
 
 ##### 16600004 指定的callback已注册
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 **错误信息**
 
 The specified callback has been registered.
@@ -94,6 +102,8 @@ The specified callback has been registered.
 
 
 ##### 16300501 系统服务工作异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

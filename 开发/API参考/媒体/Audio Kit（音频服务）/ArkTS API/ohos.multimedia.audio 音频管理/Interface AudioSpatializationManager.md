@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audio } from '@kit.AudioKit';
   
 
 ##### isSpatializationEnabledForCurrentDevice18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 isSpatializationEnabledForCurrentDevice(): boolean
  
@@ -49,6 +53,8 @@ console.info(`AudioSpatializationManager isSpatializationEnabledForCurrentDevice
   
 
 ##### on('spatializationEnabledChangeForCurrentDevice')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 on(type: 'spatializationEnabledChangeForCurrentDevice', callback: Callback&lt;boolean&gt;): void
  
@@ -86,6 +92,8 @@ audioSpatializationManager.on('spatializationEnabledChangeForCurrentDevice', (is
   
 
 ##### off('spatializationEnabledChangeForCurrentDevice')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 off(type: 'spatializationEnabledChangeForCurrentDevice', callback?: Callback&lt;boolean&gt;): void
  

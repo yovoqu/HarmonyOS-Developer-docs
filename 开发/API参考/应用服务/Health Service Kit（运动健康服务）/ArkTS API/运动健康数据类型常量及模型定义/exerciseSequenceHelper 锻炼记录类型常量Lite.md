@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** lite_wearable
+
 ```text
 import healthStore from '@hms.health.store';
 ```
@@ -23,6 +25,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### 常量
+
+**支持设备：** lite_wearable
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
  
@@ -39,6 +43,8 @@ import healthStore from '@hms.health.store';
 
 ##### badminton
 
+**支持设备：** lite_wearable
+
 羽毛球数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -50,6 +56,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### 常量
+
+**支持设备：** lite_wearable
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
  
@@ -65,6 +73,8 @@ import healthStore from '@hms.health.store';
   
 
 ##### SummaryFields
+
+**支持设备：** lite_wearable
 
 type SummaryFields = healthFields.BadmintonSummary
  
@@ -85,6 +95,8 @@ type SummaryFields = healthFields.BadmintonSummary
 
 ##### DetailFields
 
+**支持设备：** lite_wearable
+
 type DetailFields = healthFields.BadmintonDetail
  
 羽毛球详情数据字段列表。
@@ -104,6 +116,8 @@ type DetailFields = healthFields.BadmintonDetail
 
 ##### tennis
 
+**支持设备：** lite_wearable
+
 网球数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -115,6 +129,8 @@ type DetailFields = healthFields.BadmintonDetail
   
 
 ##### 常量
+
+**支持设备：** lite_wearable
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
  
@@ -130,6 +146,8 @@ type DetailFields = healthFields.BadmintonDetail
   
 
 ##### SummaryFields
+
+**支持设备：** lite_wearable
 
 type SummaryFields = healthFields.TennisSummary
  
@@ -150,6 +168,8 @@ type SummaryFields = healthFields.TennisSummary
 
 ##### DetailFields
 
+**支持设备：** lite_wearable
+
 type DetailFields = healthFields.TennisDetail
  
 网球详情数据字段列表。
@@ -169,6 +189,8 @@ type DetailFields = healthFields.TennisDetail
 
 ##### stairClimb
 
+**支持设备：** lite_wearable
+
 爬楼数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -180,6 +202,8 @@ type DetailFields = healthFields.TennisDetail
   
 
 ##### 常量
+
+**支持设备：** lite_wearable
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
  
@@ -195,6 +219,8 @@ type DetailFields = healthFields.TennisDetail
   
 
 ##### SummaryFields
+
+**支持设备：** lite_wearable
 
 type SummaryFields = healthFields.StairClimbSummary
  
@@ -215,6 +241,8 @@ type SummaryFields = healthFields.StairClimbSummary
 
 ##### DetailFields
 
+**支持设备：** lite_wearable
+
 type DetailFields = healthFields.StairClimbDetail
  
 爬楼详情数据字段列表。
@@ -234,6 +262,8 @@ type DetailFields = healthFields.StairClimbDetail
 
 ##### soccer
 
+**支持设备：** lite_wearable
+
 足球数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -245,6 +275,8 @@ type DetailFields = healthFields.StairClimbDetail
   
 
 ##### 常量
+
+**支持设备：** lite_wearable
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
  
@@ -260,6 +292,8 @@ type DetailFields = healthFields.StairClimbDetail
   
 
 ##### SummaryFields
+
+**支持设备：** lite_wearable
 
 type SummaryFields = healthFields.SoccerSummary
  
@@ -280,6 +314,8 @@ type SummaryFields = healthFields.SoccerSummary
 
 ##### DetailFields
 
+**支持设备：** lite_wearable
+
 type DetailFields = healthFields.SoccerDetail
  
 足球详情数据字段列表。
@@ -299,6 +335,8 @@ type DetailFields = healthFields.SoccerDetail
 
 ##### pickleBall
 
+**支持设备：** lite_wearable
+
 匹克球数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -310,6 +348,8 @@ type DetailFields = healthFields.SoccerDetail
   
 
 ##### 常量
+
+**支持设备：** lite_wearable
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
  
@@ -325,6 +365,8 @@ type DetailFields = healthFields.SoccerDetail
   
 
 ##### SummaryFields
+
+**支持设备：** lite_wearable
 
 type SummaryFields = healthFields.PickleBallSummary
  
@@ -345,6 +387,8 @@ type SummaryFields = healthFields.PickleBallSummary
 
 ##### DetailFields
 
+**支持设备：** lite_wearable
+
 type DetailFields = healthFields.PickleBallDetail
  
 匹克球详情数据字段列表。
@@ -364,6 +408,8 @@ type DetailFields = healthFields.PickleBallDetail
 
 ##### strengthTraining
 
+**支持设备：** lite_wearable
+
 力量训练数据类型常量及数据模型。
  
 **系统能力：** SystemCapability.Health.HealthStore.Lite
@@ -375,6 +421,8 @@ type DetailFields = healthFields.PickleBallDetail
   
 
 ##### 常量
+
+**支持设备：** lite_wearable
 
 **系统能力：** SystemCapability.Health.HealthStore.Lite
  
@@ -390,6 +438,8 @@ type DetailFields = healthFields.PickleBallDetail
   
 
 ##### SummaryFields
+
+**支持设备：** lite_wearable
 
 type SummaryFields = healthFields.StrengthTrainingSummary
  
@@ -409,6 +459,8 @@ type SummaryFields = healthFields.StrengthTrainingSummary
   
 
 ##### DetailFields
+
+**支持设备：** lite_wearable
 
 type DetailFields = healthFields.StrengthTrainingDetail
  

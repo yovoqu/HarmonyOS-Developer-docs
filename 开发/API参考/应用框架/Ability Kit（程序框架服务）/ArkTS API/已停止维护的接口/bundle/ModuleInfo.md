@@ -14,6 +14,8 @@
 
 ##### ModuleInfo(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!NOTE]
 > 从API version 7开始支持，从API version 9开始废弃，建议使用 bundleManager-HapModuleInfo 替代。
 

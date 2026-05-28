@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 提供内容嵌入模块的错误码定义和嵌入文档支持能力的类型枚举描述。
  
 **引用文件：** <ContentEmbedKit/content_embed/content_embed_common.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -36,6 +42,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -46,9 +54,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### ContentEmbed_ErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum ContentEmbed_ErrorCode
@@ -87,6 +99,8 @@ enum ContentEmbed_ErrorCode
   
 
 ##### ContentEmbed_CapabilityCode
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum ContentEmbed_CapabilityCode

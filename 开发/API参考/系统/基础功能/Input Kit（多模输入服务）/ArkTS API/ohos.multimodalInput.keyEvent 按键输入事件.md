@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Action, Key, KeyEvent } from '@kit.InputKit';
 ```
@@ -21,6 +23,8 @@ import { Action, Key, KeyEvent } from '@kit.InputKit';
   
 
 ##### Action
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 按键事件类型。
  
@@ -39,6 +43,8 @@ import { Action, Key, KeyEvent } from '@kit.InputKit';
 
 ##### Key
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 按键。
  
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -55,6 +61,8 @@ import { Action, Key, KeyEvent } from '@kit.InputKit';
   
 
 ##### KeyEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 按键事件。
  

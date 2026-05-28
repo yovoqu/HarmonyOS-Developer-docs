@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { common } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { common } from '@kit.ConnectivityKit';
 
 
 ##### BluetoothAddress
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述蓝牙设备地址信息的参数结构，包括地址与地址类型。
 
@@ -37,6 +41,8 @@ import { common } from '@kit.ConnectivityKit';
 
 ##### BluetoothAddressType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，蓝牙子系统定义的地址类型。蓝牙设备的实际MAC地址属于用户的隐私信息，在发现设备的过程中，蓝牙子系统会给每个蓝牙外设分配一个虚拟MAC地址，并保存该虚拟MAC地址和外设实际MAC地址的映射关系。关于地址类型的详细介绍请参见[蓝牙设备地址类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bluetooth-overview#蓝牙设备地址类型)。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -50,6 +56,8 @@ import { common } from '@kit.ConnectivityKit';
 
 
 ##### BluetoothRawAddressType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙协议定义的蓝牙设备地址类型。关于地址类型的详细介绍请参见[蓝牙设备地址类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bluetooth-overview#蓝牙设备地址类型)。
 

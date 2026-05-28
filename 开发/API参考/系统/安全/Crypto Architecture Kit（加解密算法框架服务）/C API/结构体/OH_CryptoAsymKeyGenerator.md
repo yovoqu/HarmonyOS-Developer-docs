@@ -12,6 +12,8 @@ typedef struct OH_CryptoAsymKeyGenerator OH_CryptoAsymKeyGenerator
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义非对称密钥生成器结构体。
  
 **起始版本：** 12

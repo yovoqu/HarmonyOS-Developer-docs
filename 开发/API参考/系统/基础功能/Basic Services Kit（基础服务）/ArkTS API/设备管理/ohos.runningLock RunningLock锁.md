@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import {runningLock} from '@kit.BasicServicesKit';
 ```
@@ -21,6 +23,8 @@ import {runningLock} from '@kit.BasicServicesKit';
 
 
 ##### runningLock.isSupported9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isSupported(type: RunningLockType): boolean
 
@@ -66,6 +70,8 @@ try {
 
 ##### runningLock.create9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 create(name: string, type: RunningLockType, callback: AsyncCallback&lt;RunningLock&gt;): void
 
 **方法介绍：** 创建RunningLock锁。使用callback异步回调。
@@ -108,6 +114,8 @@ runningLock.create('running_lock_test', runningLock.RunningLockType.PROXIMITY_SC
 
 
 ##### runningLock.create9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(name: string, type: RunningLockType): Promise&lt;RunningLock&gt;
 
@@ -158,6 +166,8 @@ runningLock.create('running_lock_test', runningLock.RunningLockType.PROXIMITY_SC
 
 ##### runningLock.isRunningLockTypeSupported(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isRunningLockTypeSupported(type: RunningLockType, callback: AsyncCallback&lt;boolean&gt;): void
 
 > [!NOTE]
@@ -191,6 +201,8 @@ runningLock.isRunningLockTypeSupported(runningLock.RunningLockType.BACKGROUND, (
 
 
 ##### runningLock.isRunningLockTypeSupported(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isRunningLockTypeSupported(type: RunningLockType): Promise&lt;boolean&gt;
 
@@ -232,6 +244,8 @@ runningLock.isRunningLockTypeSupported(runningLock.RunningLockType.BACKGROUND)
 
 ##### runningLock.createRunningLock(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createRunningLock(name: string, type: RunningLockType, callback: AsyncCallback&lt;RunningLock&gt;): void
 
 > [!NOTE]
@@ -268,6 +282,8 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 
 ##### runningLock.createRunningLock(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createRunningLock(name: string, type: RunningLockType): Promise&lt;RunningLock&gt;
 
@@ -312,11 +328,15 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 ##### RunningLock
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 阻止系统睡眠的锁。
 
 
 
 ##### hold9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 hold(timeout: number): void
 
@@ -378,6 +398,8 @@ class RunningLockTest {
 
 ##### unhold9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unhold(): void
 
 **方法介绍：** 释放RunningLock锁。
@@ -430,6 +452,8 @@ class RunningLockTest {
 
 ##### isHolding9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isHolding(): boolean
 
 **方法介绍：** 查询当前RunningLock是持有状态还是释放状态。
@@ -474,6 +498,8 @@ class RunningLockTest {
 
 ##### lock(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 lock(timeout: number): void
 
 > [!NOTE]
@@ -510,6 +536,8 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 ##### unlock(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unlock(): void
 
 > [!NOTE]
@@ -538,6 +566,8 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 
 ##### isUsed(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 isUsed(): boolean
 
@@ -572,6 +602,8 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 
 ##### RunningLockType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 RunningLock锁的类型。
 

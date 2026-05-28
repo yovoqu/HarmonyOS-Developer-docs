@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 网络请求的响应。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -42,9 +48,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### body
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_Buffer Rcp_Response::body
@@ -58,6 +68,8 @@ Rcp_Buffer Rcp_Response::body
 
 ##### cookies
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_ResponseCookies* Rcp_Response::cookies
 ```
@@ -69,6 +81,8 @@ Rcp_ResponseCookies* Rcp_Response::cookies
   
 
 ##### debugInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_DebugInfo* Rcp_Response::debugInfo
@@ -83,6 +97,8 @@ Rcp_DebugInfo* Rcp_Response::debugInfo
   
 
 ##### destroyResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void(* Rcp_Response::destroyResponse) (struct Rcp_Response *response)
@@ -105,6 +121,8 @@ void(* Rcp_Response::destroyResponse) (struct Rcp_Response *response)
 
 ##### effectiveUrl
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 char* Rcp_Response::effectiveUrl
 ```
@@ -119,6 +137,8 @@ char* Rcp_Response::effectiveUrl
 
 ##### headers
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_Headers* Rcp_Response::headers
 ```
@@ -130,6 +150,8 @@ Rcp_Headers* Rcp_Response::headers
   
 
 ##### request
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 const Rcp_Request* Rcp_Response::request
@@ -143,6 +165,8 @@ const Rcp_Request* Rcp_Response::request
 
 ##### responseCallback
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 const Rcp_ResponseCallbackObject* Rcp_Response::responseCallback
 ```
@@ -154,6 +178,8 @@ const Rcp_ResponseCallbackObject* Rcp_Response::responseCallback
   
 
 ##### responsePrivate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void* Rcp_Response::responsePrivate
@@ -167,6 +193,8 @@ void* Rcp_Response::responsePrivate
 
 ##### statusCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Rcp_StatusCode Rcp_Response::statusCode
 ```
@@ -178,6 +206,8 @@ Rcp_StatusCode Rcp_Response::statusCode
   
 
 ##### timeInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_TimeInfo* Rcp_Response::timeInfo

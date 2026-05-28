@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { backgroundProcessManager } from '@kit.BackgroundTasksKit';
 ```
@@ -21,6 +23,8 @@ import { backgroundProcessManager } from '@kit.BackgroundTasksKit';
 
 
 ##### backgroundProcessManager.setProcessPriority
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setProcessPriority(pid: number, priority: ProcessPriority): Promise&lt;void&gt;
 
@@ -71,6 +75,8 @@ try {
 
 ##### backgroundProcessManager.resetProcessPriority
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 resetProcessPriority(pid: number): Promise&lt;void&gt;
 
 为子进程解压制，即子进程策略恢复为主进程调度策略。若主进程调度策略发生变化，如从后台切至前台等， 子进程会跟随主进程一同变化，等效于执行一次resetProcessPriority动作。使用Promise异步回调。
@@ -108,6 +114,8 @@ try {
 
 
 ##### backgroundProcessManager.setPowerSaveMode20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPowerSaveMode(pid: number, powerSaveMode: PowerSaveMode): Promise&lt;void&gt;
 
@@ -172,6 +180,8 @@ try {
 
 ##### backgroundProcessManager.isPowerSaveMode20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isPowerSaveMode(pid: number): Promise&lt;boolean&gt;
 
 查询进程是否处于能效模式，使用Promise异步回调。
@@ -226,6 +236,8 @@ try {
 
 
 ##### backgroundProcessManager.getPowerSaveMode23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPowerSaveMode(pid: number): Promise&lt;PowerSaveMode&gt;
 
@@ -282,6 +294,8 @@ try {
 
 ##### ProcessPriority
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 子进程压制档位。
 
 **系统能力**： SystemCapability.Resourceschedule.BackgroundProcessManager
@@ -295,6 +309,8 @@ try {
 
 
 ##### PowerSaveMode20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 能效模式。
 

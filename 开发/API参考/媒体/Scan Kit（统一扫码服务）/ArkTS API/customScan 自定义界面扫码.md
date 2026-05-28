@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | Wearable
+
 ```text
 import { customScan } from '@kit.ScanKit';
 ```
@@ -21,6 +23,8 @@ import { customScan } from '@kit.ScanKit';
   
 
 ##### ViewControl
+
+**支持设备：** Phone | Tablet | Wearable
 
 相机控制参数。
  
@@ -101,6 +105,8 @@ struct CustomScanPage {
   
 
 ##### ScanFrame
+
+**支持设备：** Phone | Tablet | Wearable
 
 相机预览流（YUV）。
  
@@ -230,6 +236,8 @@ if (frameResult && frameResult.scanCodeRects) {
 
 ##### customScan.init
 
+**支持设备：** Phone | Tablet | Wearable
+
 init(options?: scanBarcode.ScanOptions): void
  
 初始化自定义界面扫码。
@@ -287,6 +295,8 @@ try {
   
 
 ##### customScan.start
+
+**支持设备：** Phone | Tablet | Wearable
 
 start(viewControl: ViewControl): Promise<Array<scanBarcode.ScanResult>>
  
@@ -397,6 +407,8 @@ struct CustomScanPage {
   
 
 ##### customScan.start
+
+**支持设备：** Phone | Tablet | Wearable
 
 start(viewControl: ViewControl, callback: AsyncCallback<Array<scanBarcode.ScanResult>>, frameCallback?: AsyncCallback&lt;ScanFrame&gt;): void
  
@@ -519,6 +531,8 @@ struct CustomScanPage {
 
 ##### customScan.getFlashLightStatus
 
+**支持设备：** Phone | Tablet | Wearable
+
 getFlashLightStatus(): boolean
  
 获取当前相机闪光灯状态。
@@ -581,6 +595,8 @@ try {
 
 ##### customScan.openFlashLight
 
+**支持设备：** Phone | Tablet | Wearable
+
 openFlashLight(): void
  
 开启相机闪光灯。
@@ -635,6 +651,8 @@ try {
   
 
 ##### customScan.closeFlashLight
+
+**支持设备：** Phone | Tablet | Wearable
 
 closeFlashLight(): void
  
@@ -691,6 +709,8 @@ if (flashLightStatus) {
 
 ##### customScan.setZoom
 
+**支持设备：** Phone | Tablet | Wearable
+
 setZoom(zoomValue: number): void
  
 设置变焦比。变焦精度最高为小数点后两位，如果设置超过支持的精度范围，则只保留精度范围内数值。
@@ -741,6 +761,8 @@ try {
 
 ##### customScan.getZoom
 
+**支持设备：** Phone | Tablet | Wearable
+
 getZoom(): number
  
 获取当前的变焦比。
@@ -789,6 +811,8 @@ try {
   
 
 ##### customScan.setFocusPoint
+
+**支持设备：** Phone | Tablet | Wearable
 
 setFocusPoint(point: scanBarcode.Point): void
  
@@ -839,6 +863,8 @@ try {
 
 ##### customScan.resetFocus
 
+**支持设备：** Phone | Tablet | Wearable
+
 resetFocus(): void
  
 设置连续自动对焦模式。
@@ -879,6 +905,8 @@ try {
   
 
 ##### customScan.on('lightingFlash')
+
+**支持设备：** Phone | Tablet | Wearable
 
 on(type: 'lightingFlash', callback: AsyncCallback&lt;boolean&gt;): void
  
@@ -939,6 +967,8 @@ try {
 
 ##### customScan.off('lightingFlash')
 
+**支持设备：** Phone | Tablet | Wearable
+
 off(type: 'lightingFlash', callback?: AsyncCallback&lt;boolean&gt;): void
  
 注销闪光灯状态监听事件。使用callback异步回调。
@@ -997,6 +1027,8 @@ try {
   
 
 ##### customScan.rescan
+
+**支持设备：** Phone | Tablet | Wearable
 
 rescan(): void
  
@@ -1096,6 +1128,8 @@ struct CustomScanPage {
 
 ##### customScan.setAutoZoomEnabled
 
+**支持设备：** Phone | Tablet | Wearable
+
 setAutoZoomEnabled(enabled: boolean): void
  
 设置自动变焦能力的开启和关闭。未调用时默认开启自动变焦。
@@ -1143,6 +1177,8 @@ try {
   
 
 ##### customScan.stop
+
+**支持设备：** Phone | Tablet | Wearable
 
 stop(): Promise&lt;void&gt;
  
@@ -1197,6 +1233,8 @@ try {
   
 
 ##### customScan.stop
+
+**支持设备：** Phone | Tablet | Wearable
 
 stop(callback: AsyncCallback&lt;void&gt;): void
  
@@ -1254,6 +1292,8 @@ try {
 
 ##### customScan.release
 
+**支持设备：** Phone | Tablet | Wearable
+
 release(): Promise&lt;void&gt;
  
 释放扫码相机流。使用Promise异步回调。
@@ -1307,6 +1347,8 @@ try {
   
 
 ##### customScan.release
+
+**支持设备：** Phone | Tablet | Wearable
 
 release(callback: AsyncCallback&lt;void&gt;): void
  

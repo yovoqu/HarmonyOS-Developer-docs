@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 定义审计事件信息。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** PC/2in1
+
   
 
 ##### 成员变量
+
+**支持设备：** PC/2in1
  
 | 名称 | 描述 |
 | --- | --- |
@@ -34,9 +40,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** PC/2in1
+
   
 
 ##### content
+
+**支持设备：** PC/2in1
 
 ```text
 const char* SecurityAudit_Event::content
@@ -50,6 +60,8 @@ const char* SecurityAudit_Event::content
 
 ##### eventId
 
+**支持设备：** PC/2in1
+
 ```text
 int64_t SecurityAudit_Event::eventId
 ```
@@ -61,6 +73,8 @@ int64_t SecurityAudit_Event::eventId
   
 
 ##### metadata
+
+**支持设备：** PC/2in1
 
 ```text
 const char* SecurityAudit_Event::metadata

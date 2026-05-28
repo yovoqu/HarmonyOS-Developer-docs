@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { dragController } from '@kit.ArkUI';
 ```
@@ -21,6 +23,8 @@ import { dragController } from '@kit.ArkUI';
 
 
 ##### dragController.executeDrag(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo,callback:AsyncCallback&lt;DragEventParam&gt;): void
 
@@ -143,6 +147,8 @@ struct DragControllerPage {
 
 
 ##### dragController.executeDrag(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: DragInfo): Promise&lt;DragEventParam&gt;
 
@@ -295,12 +301,14 @@ struct DragControllerPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/7xx30mq7TxeMcBvPY6mM-w/zh-cn_image_0000002611835359.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013818Z&HW-CC-Expire=86400&HW-CC-Sign=22E056A02CD9DB6BCDD0BAFDB9ADCB6B43D3F3F95E0E5C56CA141437C97CDE4B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/7xx30mq7TxeMcBvPY6mM-w/zh-cn_image_0000002611835359.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=FE0A563A6EFE32FB4CB1CCD752853324F319BC456132D86B69320D0FB83BD792)
 
 
 
 
 ##### DragInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 发起拖拽所需要的属性和拖拽时携带的信息。
 
@@ -319,6 +327,8 @@ struct DragControllerPage {
 
 
 ##### dragController.createDragAction(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: DragInfo): DragAction
 
@@ -468,12 +478,14 @@ struct DragControllerPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/Ojmh-cvhRIyZ-Nfm4y562Q/zh-cn_image_0000002581275610.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013818Z&HW-CC-Expire=86400&HW-CC-Sign=E22FAF55FB395D29295F672F59A756F5A445B5122A059CDB3D0104FFF67136A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/Ojmh-cvhRIyZ-Nfm4y562Q/zh-cn_image_0000002581275610.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=66EA10DC1740691695F3BF6A7B33C860984905DC4FFBB1C6B17A8013B7D2952E)
 
 
 
 
 ##### DragAction11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 监听状态改变，启动拖拽服务的对象。
 
@@ -484,6 +496,8 @@ struct DragControllerPage {
 
 
 ##### startDrag11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startDrag(): Promise&lt;void&gt;
 
@@ -751,12 +765,14 @@ struct ImageExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/1kXpC1QuSk-abiJXJliEKg/zh-cn_image_0000002611755467.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013818Z&HW-CC-Expire=86400&HW-CC-Sign=BCA8D30171B90D1F767ED2F8C1B76C64F77A1C00A374501836CA4E590A06DB0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/1kXpC1QuSk-abiJXJliEKg/zh-cn_image_0000002611755467.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=E3B09972BBA622B986DEA222A82F5A43B32BCA07317A6406BF53921B0655CCE9)
 
 
 
 
 ##### on('statusChange')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'statusChange', callback: Callback<[DragAndDropInfo](#draganddropinfo11)>): void
 
@@ -852,6 +868,8 @@ struct DragControllerPage {
 
 ##### off('statusChange')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'statusChange', callback?: Callback<[DragAndDropInfo](#draganddropinfo11)>): void
 
 取消注册监听拖拽状态改变事件。
@@ -943,6 +961,8 @@ struct DragControllerPage {
 
 ##### DragAndDropInfo11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拖拽过程中监听到status改变时上报的数据。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -960,6 +980,8 @@ struct DragControllerPage {
 
 ##### DragStatus11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拖拽开始和结束状态。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -975,6 +997,8 @@ struct DragControllerPage {
 
 
 ##### AnimationOptions11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 拖拽相关的动效参数。
 
@@ -992,6 +1016,8 @@ struct DragControllerPage {
 
 ##### DragEventParam12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拖拽结束返回结果的回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1007,6 +1033,8 @@ struct DragControllerPage {
 
 
 ##### dragController.getDragPreview(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDragPreview(): DragPreview
 
@@ -1035,6 +1063,8 @@ getDragPreview(): DragPreview
 
 ##### DragPreview11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 拖拽背板的对象，在OnDrop和OnDragEnd回调中使用不生效。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1044,6 +1074,8 @@ getDragPreview(): DragPreview
 
 
 ##### setForegroundColor11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setForegroundColor(color: ResourceColor): void
 
@@ -1067,6 +1099,8 @@ setForegroundColor(color: ResourceColor): void
 
 
 ##### animate11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 animate(options: AnimationOptions, handler: () => void): void
 
@@ -1234,12 +1268,14 @@ struct DragControllerPage {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/ISY2TDAlSM-K531D2mcBaw/zh-cn_image_0000002581435530.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013818Z&HW-CC-Expire=86400&HW-CC-Sign=0671CE55227914B81CCAC45150FDFBE2A71E05A56B7975926116CD6B4D517866)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/ISY2TDAlSM-K531D2mcBaw/zh-cn_image_0000002581435530.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024115Z&HW-CC-Expire=86400&HW-CC-Sign=E69F3CC4ECF3464F4CF32E1F15B976EB2E757FBB1709E36819CE1CD7EC8DD2CB)
 
 
 
 
 ##### DragStartRequestStatus18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义应用是否可以发起拖拽的枚举类型。仅在[onDragStart](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragstart)调用时有效。
 
@@ -1256,6 +1292,8 @@ struct DragControllerPage {
 
 
 ##### DragSpringLoadingState20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义拖拽的悬停检测状态的枚举类型。
 
@@ -1275,6 +1313,8 @@ struct DragControllerPage {
 
 ##### DragSpringLoadingConfiguration20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义拖拽的悬停检测配置参数的接口。默认的配置参数通常已能满足需求。可以通过在绑定[onDragSpringLoading](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-drag-drop#ondragspringloading20)时指定配置，或者通过在BEGIN状态期间使用[updateConfiguration](#updateconfiguration20)方法动态修改的方式以自定义该配置参数。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -1293,6 +1333,8 @@ struct DragControllerPage {
 
 ##### SpringLoadingDragInfos20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义触发悬停检测时拖拽事件信息的接口。该接口提供了拖拽数据摘要和拖拽事件额外信息，应用程序可以据此决定是否响应悬停检测回调。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
@@ -1309,11 +1351,15 @@ struct DragControllerPage {
 
 ##### SpringLoadingContext20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义回调上下文信息的类，用于在悬停检测回调中传递给应用程序，使其能访问拖拽状态、动态刷新UI效果以及访问拖拽数据以确定是否处理拖拽操作。
 
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -1331,6 +1377,8 @@ struct DragControllerPage {
 
 ##### abort20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 abort(): void
 
 终止后续的悬停检测。本方法不会触发CANCEL状态通知，应用程序需要在执行本方法时进行状态清理。
@@ -1342,6 +1390,8 @@ abort(): void
 
 
 ##### updateConfiguration20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateConfiguration(config: DragSpringLoadingConfiguration): void
 

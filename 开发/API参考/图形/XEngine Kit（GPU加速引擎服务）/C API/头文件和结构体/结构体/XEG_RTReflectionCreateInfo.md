@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述创建[XEG_RTReflection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rtreflection)对象的信息。当结构体中的信息变化时，需要创建新的[XEG_RTReflection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rtreflection)对象。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,9 +41,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### enableFastTrace
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 bool XEG_RTReflectionCreateInfo::enableFastTrace
@@ -51,6 +61,8 @@ bool XEG_RTReflectionCreateInfo::enableFastTrace
 
 ##### pNext
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 const void* XEG_RTReflectionCreateInfo::pNext
 ```
@@ -63,6 +75,8 @@ const void* XEG_RTReflectionCreateInfo::pNext
 
 ##### renderSize
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkExtent2D XEG_RTReflectionCreateInfo::renderSize
 ```
@@ -74,6 +88,8 @@ VkExtent2D XEG_RTReflectionCreateInfo::renderSize
   
 
 ##### sType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 XEG_StructureType XEG_RTReflectionCreateInfo::sType

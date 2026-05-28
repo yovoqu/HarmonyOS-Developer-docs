@@ -14,6 +14,8 @@
 
 ##### animation
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 animation(value:AnimateParam): T
  
 设置组件的属性动画。
@@ -90,6 +92,8 @@ struct AnimationExample {
 
 ##### 示例
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该示例通过animation实现了组件的属性动画。
  
 ```ArkTS
@@ -148,4 +152,4 @@ struct AttrAnimationExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/yrqDjALdTbmvXsGadFqv9g/zh-cn_image_0000002581276242.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013903Z&HW-CC-Expire=86400&HW-CC-Sign=8C1805F6DCE7806652F9B5316D8CEF805C5DAEE6444DEB2A7F989CC9B89C8B90)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/yrqDjALdTbmvXsGadFqv9g/zh-cn_image_0000002581276242.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024159Z&HW-CC-Expire=86400&HW-CC-Sign=6FC9532D883BF24CDF4A35ABFA5D1C96EBBEF22EF3D83E4B6BC2AC0B41134E9A)

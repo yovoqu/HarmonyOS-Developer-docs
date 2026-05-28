@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { certificateManager } from '@kit.DeviceCertificateKit';
 ```
@@ -21,6 +23,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### CmKeyPurpose
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示密钥使用目的的枚举，用于签名、验签。
 
@@ -35,6 +39,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### CmKeyDigest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示签名、验签使用的摘要算法的枚举。
 
@@ -56,6 +62,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 ##### CmKeyPadding
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示签名、验签使用的填充方式的枚举。
 
 **系统能力：** SystemCapability.Security.CertificateManager
@@ -71,6 +79,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 ##### CMSignatureSpec
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示签名、验签操作使用的参数集合，包括密钥使用目的、填充方式和摘要算法。
 
 **系统能力：** SystemCapability.Security.CertificateManager
@@ -85,6 +95,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### CertInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示证书详细信息。
 
@@ -108,6 +120,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 ##### CertAbstract
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示证书简要信息。
 
 **系统能力：** SystemCapability.Security.CertificateManager
@@ -123,6 +137,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### Credential
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示凭据详细信息。
 
@@ -143,6 +159,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 ##### CredentialAbstract
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示凭据的简要信息。
 
 **系统能力：** SystemCapability.Security.CertificateManager
@@ -157,6 +175,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### CMResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示接口的返回结果。
 
@@ -178,6 +198,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 ##### CMHandle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示签名、验签的初始化操作句柄。
 
 **系统能力：** SystemCapability.Security.CertificateManager
@@ -190,6 +212,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### CMErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示调用证书管理相关API的错误码。
 
@@ -214,6 +238,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 ##### CertType18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示证书类型。
 
 **系统能力：** SystemCapability.Security.CertificateManager
@@ -227,6 +253,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### CertScope18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示证书的位置。
 
@@ -242,6 +270,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 ##### CertAlgorithm20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示证书的算法类型。
 
 **系统能力：** SystemCapability.Security.CertificateManager
@@ -255,6 +285,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### CertStoreProperty18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示获取证书存储位置的参数集合，包括证书的类型及证书的位置。
 
@@ -271,6 +303,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 ##### AuthStorageLevel18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示凭据的存储级别。
 
 **系统能力：** SystemCapability.Security.CertificateManager
@@ -285,6 +319,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### CertificatePurpose22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示凭据用途的枚举。
 
@@ -302,6 +338,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 ##### UkeyInfo22+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供USB凭据属性信息。
 
 **系统能力：** SystemCapability.Security.CertificateManager
@@ -314,6 +352,8 @@ import { certificateManager } from '@kit.DeviceCertificateKit';
 
 
 ##### certificateManager.installPrivateCertificate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, callback: AsyncCallback&lt;CMResult&gt;): void
 
@@ -373,6 +413,8 @@ try {
 
 
 ##### certificateManager.installPrivateCertificate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string): Promise&lt;CMResult&gt;
 
@@ -437,6 +479,8 @@ try {
 
 
 ##### certificateManager.installPrivateCertificate18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string, level: AuthStorageLevel): Promise&lt;CMResult&gt;
 
@@ -505,6 +549,8 @@ try {
 
 ##### certificateManager.getPrivateCertificate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPrivateCertificate(keyUri: string, callback: AsyncCallback&lt;CMResult&gt;): void
 
 表示获取私有凭据的详细信息，使用Callback回调异步返回结果。
@@ -560,6 +606,8 @@ try {
 
 
 ##### certificateManager.getPrivateCertificate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPrivateCertificate(keyUri: string): Promise&lt;CMResult&gt;
 
@@ -622,6 +670,8 @@ try {
 
 ##### certificateManager.uninstallPrivateCertificate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 uninstallPrivateCertificate(keyUri: string, callback: AsyncCallback&lt;void&gt;): void
 
 表示卸载指定的私有凭据，使用Callback回调异步返回结果。
@@ -672,6 +722,8 @@ try {
 
 
 ##### certificateManager.uninstallPrivateCertificate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 uninstallPrivateCertificate(keyUri: string): Promise&lt;void&gt;
 
@@ -728,6 +780,8 @@ try {
 
 
 ##### certificateManager.installUserTrustedCertificateSync18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 installUserTrustedCertificateSync(cert: Uint8Array, certScope: CertScope) : CMResult
 
@@ -792,6 +846,8 @@ try {
 
 ##### certificateManager.uninstallUserTrustedCertificateSync18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 uninstallUserTrustedCertificateSync(certUri: string) : void
 
 表示删除用户CA证书。
@@ -835,6 +891,8 @@ try {
 
 
 ##### certificateManager.init
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 init(authUri: string, spec: CMSignatureSpec, callback: AsyncCallback&lt;CMHandle&gt;): void
 
@@ -893,6 +951,8 @@ try {
 
 
 ##### certificateManager.init
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 init(authUri: string, spec: CMSignatureSpec): Promise&lt;CMHandle&gt;
 
@@ -957,6 +1017,8 @@ try {
 
 ##### certificateManager.update
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 update(handle: Uint8Array, data: Uint8Array, callback: AsyncCallback&lt;void&gt;): void
 
 表示签名、验签的数据更新操作，使用Callback回调异步返回结果。
@@ -1013,6 +1075,8 @@ try {
 
 
 ##### certificateManager.update
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 update(handle: Uint8Array, data: Uint8Array): Promise&lt;void&gt;
 
@@ -1076,6 +1140,8 @@ try {
 
 ##### certificateManager.finish
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 finish(handle: Uint8Array, callback: AsyncCallback&lt;CMResult&gt;): void
 
 表示完成签名的操作，Callback回调异步返回结果。
@@ -1134,6 +1200,8 @@ try {
 
 ##### certificateManager.finish
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 finish(handle: Uint8Array, signature: Uint8Array, callback: AsyncCallback&lt;CMResult&gt;): void
 
 表示完成验签的操作，使用Callback回调异步返回结果。
@@ -1190,6 +1258,8 @@ try {
 
 
 ##### certificateManager.finish
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 finish(handle: Uint8Array, signature?: Uint8Array): Promise&lt;CMResult&gt;
 
@@ -1267,6 +1337,8 @@ try {
 
 ##### certificateManager.abort
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 abort(handle: Uint8Array, callback: AsyncCallback&lt;void&gt;): void
 
 表示中止签名、验签的操作，使用Callback回调异步返回结果。
@@ -1319,6 +1391,8 @@ try {
 
 
 ##### certificateManager.abort
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 abort(handle: Uint8Array): Promise&lt;void&gt;
 
@@ -1377,6 +1451,8 @@ try {
 
 
 ##### certificateManager.getPublicCertificate12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPublicCertificate(keyUri: string): Promise&lt;CMResult&gt;
 
@@ -1440,6 +1516,8 @@ try {
 
 ##### certificateManager.isAuthorizedApp12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isAuthorizedApp(keyUri: string): Promise&lt;boolean&gt;
 
 表示当前应用是否由指定的用户凭据授权。使用Promise异步回调。
@@ -1499,6 +1577,8 @@ try {
 
 ##### certificateManager.getAllUserTrustedCertificates12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAllUserTrustedCertificates(): Promise&lt;CMResult&gt;
 
 表示获取当前用户和设备公共位置的所有用户根CA证书列表。使用Promise异步回调。
@@ -1551,6 +1631,8 @@ try {
 
 
 ##### certificateManager.getAllUserTrustedCertificates18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllUserTrustedCertificates(scope: CertScope): Promise&lt;CMResult&gt;
 
@@ -1615,6 +1697,8 @@ try {
 
 ##### certificateManager.getUserTrustedCertificate12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUserTrustedCertificate(certUri: string): Promise&lt;CMResult&gt;
 
 表示获取用户根CA证书的详细信息。使用Promise异步回调。
@@ -1676,6 +1760,8 @@ try {
 
 ##### certificateManager.getPrivateCertificates13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPrivateCertificates(): Promise&lt;CMResult&gt;
 
 表示获取应用安装的凭据列表。使用Promise异步回调。
@@ -1728,6 +1814,8 @@ try {
 
 
 ##### certificateManager.getCertificateStorePath18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCertificateStorePath(property: CertStoreProperty): string;
 
@@ -1804,6 +1892,8 @@ try {
 
 
 ##### certificateManager.getUkeyCertificate22+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUkeyCertificate(keyUri: string, ukeyInfo: UkeyInfo): Promise&lt;CMResult&gt;
 

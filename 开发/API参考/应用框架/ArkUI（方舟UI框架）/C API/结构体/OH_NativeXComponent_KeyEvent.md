@@ -12,6 +12,8 @@ typedef struct OH_NativeXComponent_KeyEvent OH_NativeXComponent_KeyEvent
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提供封装按键事件信息的OH_NativeXComponent_KeyEvent实例。
  
 **起始版本：** 10

@@ -12,6 +12,8 @@
 
 ##### 5400101 内存分配失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 No memory.
@@ -31,6 +33,8 @@ No memory.
 
 
 ##### 5400102 当前状态不支持此操作
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -52,6 +56,8 @@ Operation not allowed.
 
 ##### 5400103 出现IO错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 I/O error.
@@ -71,6 +77,8 @@ I/O error.
 
 
 ##### 5400104 操作超时
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -92,6 +100,8 @@ Operation timeout.
 
 ##### 5400105 播放服务死亡
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Service died.
@@ -111,6 +121,8 @@ Service died.
 
 
 ##### 5400106 不支持的规格
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -134,6 +146,8 @@ Unsupported format.
 
 ##### 5400107 音频焦点冲突
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Audio interrupted.
@@ -153,6 +167,8 @@ Audio interrupted.
 
 
 ##### 5400108 参数超过取值范围
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -174,6 +190,8 @@ The parameter check failed, parameter value out of range.
 
 ##### 5411001 解析或链接服务端地址错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Can not find host.
@@ -193,6 +211,8 @@ Can not find host.
 
 
 ##### 5411002 网络连接超时
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -214,6 +234,8 @@ Connection timeout.
 
 ##### 5411003 网络异常导致的数据或链路异常
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Network abnormal.
@@ -233,6 +255,8 @@ Network abnormal.
 
 
 ##### 5411004 网络被禁用
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -254,6 +278,8 @@ Network unavailable.
 
 ##### 5411005 无权限，访问被拒绝
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 No permission.
@@ -273,6 +299,8 @@ No permission.
 
 
 ##### 5411006 客户端请求参数错误或超出处理能力
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -294,6 +322,8 @@ Network access denied.
 
 ##### 5411007 无可用资源
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Cannot find available network resources.
@@ -313,6 +343,8 @@ Cannot find available network resources.
 
 
 ##### 5411008 服务端校验客户端证书失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -334,6 +366,8 @@ SSL客户端不可信，服务端校验客户端证书失败。
 
 ##### 5411009 SSL连接失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 SSL connection failed.
@@ -353,6 +387,8 @@ SSL链接失败。
 
 
 ##### 5411010 客户端校验服务端证书失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -374,6 +410,8 @@ SSL服务端不可信，客户端校验服务端证书失败。
 
 ##### 5411011 网络协议的原因导致请求不受支持
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Unsupported request.
@@ -393,6 +431,8 @@ Unsupported request.
 
 
 ##### 5411012 HTTP明文拦截导致请求不受支持
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -414,6 +454,8 @@ Http cleartext traffic is not permitted.
 
 ##### 5410002 不支持SEEK_CONTINUOUS模式的Seek
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
 
 Seek continuous is unsupported.
@@ -432,6 +474,8 @@ Seek continuous is unsupported.
 
 
 ##### 5410003 不支持超分
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -452,6 +496,8 @@ Super resolution not supported.
 
 
 ##### 5410004 未使能超分
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

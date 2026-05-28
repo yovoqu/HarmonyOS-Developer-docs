@@ -14,6 +14,8 @@ WantAgent模块提供了创建WantAgent实例、获取实例的用户ID、获取
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import wantAgent from '@ohos.wantAgent';
 ```
@@ -21,6 +23,8 @@ import wantAgent from '@ohos.wantAgent';
   
 
 ##### wantAgent.getWantAgent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getWantAgent(info: WantAgentInfo, callback: AsyncCallback&lt;WantAgent&gt;): void
  
@@ -85,6 +89,8 @@ wantAgent.getWantAgent({
 
 ##### wantAgent.getWantAgent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWantAgent(info: WantAgentInfo): Promise&lt;WantAgent&gt;
  
 创建WantAgent。创建失败返回的WantAgent为空值。使用Promise异步回调。
@@ -145,6 +151,8 @@ wantAgent.getWantAgent({
   
 
 ##### wantAgent.getBundleName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getBundleName(agent: WantAgent, callback: AsyncCallback&lt;string&gt;): void
  
@@ -220,6 +228,8 @@ wantAgent.getWantAgent({
 
 ##### wantAgent.getBundleName
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getBundleName(agent: WantAgent): Promise&lt;string&gt;
  
 获取WantAgent实例的Bundle名称。使用Promise异步回调。
@@ -289,6 +299,8 @@ wantAgent.getWantAgent({
   
 
 ##### wantAgent.getUid
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUid(agent: WantAgent, callback: AsyncCallback&lt;number&gt;): void
  
@@ -364,6 +376,8 @@ wantAgent.getWantAgent({
 
 ##### wantAgent.getUid
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getUid(agent: WantAgent): Promise&lt;number&gt;
  
 获取WantAgent实例的用户ID。使用Promise异步回调。
@@ -433,6 +447,8 @@ wantAgent.getWantAgent({
   
 
 ##### wantAgent.cancel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancel(agent: WantAgent, callback: AsyncCallback&lt;void&gt;): void
  
@@ -508,6 +524,8 @@ wantAgent.getWantAgent({
 
 ##### wantAgent.cancel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancel(agent: WantAgent): Promise&lt;void&gt;
  
 取消WantAgent实例。使用Promise异步回调。
@@ -578,6 +596,8 @@ wantAgent.getWantAgent({
   
 
 ##### wantAgent.trigger
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: Callback&lt;CompleteData&gt;): void
  
@@ -654,6 +674,8 @@ wantAgent.getWantAgent({
   
 
 ##### wantAgent.equal
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback&lt;boolean&gt;): void
  
@@ -732,6 +754,8 @@ wantAgent.getWantAgent({
 
 ##### wantAgent.equal
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 equal(agent: WantAgent, otherAgent: WantAgent): Promise&lt;boolean&gt;
  
 判断两个WantAgent实例是否相等，以此来判断是否是来自同一应用的相同操作。使用Promise异步回调。
@@ -805,6 +829,8 @@ wantAgent.getWantAgent({
 
 ##### WantAgentFlags
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -827,6 +853,8 @@ wantAgent.getWantAgent({
 
 ##### OperationType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -844,6 +872,8 @@ wantAgent.getWantAgent({
 
 ##### CompleteData
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **元服务API**：从API version 12开始，该接口支持在元服务中使用。
  
 **系统能力**：SystemCapability.Ability.AbilityRuntime.Core
@@ -860,6 +890,8 @@ wantAgent.getWantAgent({
   
 
 ##### WantAgent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type WantAgent = object
  

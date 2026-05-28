@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义HTTP请求模块的接口。
  
 **引用文件：** <network/netstack/net_http.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -44,9 +50,13 @@
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Http_CreateHeaders()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Http_Headers *OH_Http_CreateHeaders(void)
@@ -75,6 +85,8 @@ Http_Headers *OH_Http_CreateHeaders(void)
 
 ##### OH_Http_DestroyHeaders()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Http_DestroyHeaders(Http_Headers **headers)
 ```
@@ -97,6 +109,8 @@ void OH_Http_DestroyHeaders(Http_Headers **headers)
   
 
 ##### OH_Http_SetHeaderValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 uint32_t OH_Http_SetHeaderValue(struct Http_Headers *headers, const char *name, const char *value)
@@ -130,6 +144,8 @@ uint32_t OH_Http_SetHeaderValue(struct Http_Headers *headers, const char *name, 
 
 ##### OH_Http_GetHeaderValue()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Http_HeaderValue *OH_Http_GetHeaderValue(Http_Headers *headers, const char *name)
 ```
@@ -161,6 +177,8 @@ Http_HeaderValue *OH_Http_GetHeaderValue(Http_Headers *headers, const char *name
 
 ##### OH_Http_GetHeaderEntries()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 Http_HeaderEntry *OH_Http_GetHeaderEntries(Http_Headers *headers)
 ```
@@ -191,6 +209,8 @@ Http_HeaderEntry *OH_Http_GetHeaderEntries(Http_Headers *headers)
 
 ##### OH_Http_DestroyHeaderEntries()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Http_DestroyHeaderEntries(Http_HeaderEntry **headerEntry)
 ```
@@ -213,6 +233,8 @@ void OH_Http_DestroyHeaderEntries(Http_HeaderEntry **headerEntry)
   
 
 ##### OH_Http_CreateRequest()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Http_Request *OH_Http_CreateRequest(const char *url)
@@ -243,6 +265,8 @@ Http_Request *OH_Http_CreateRequest(const char *url)
   
 
 ##### OH_Http_Request()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_Http_Request(Http_Request *request, Http_ResponseCallback callback, Http_EventsHandler handler)
@@ -281,6 +305,8 @@ int OH_Http_Request(Http_Request *request, Http_ResponseCallback callback, Http_
   
 
 ##### OH_Http_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Http_Destroy(struct Http_Request **request)

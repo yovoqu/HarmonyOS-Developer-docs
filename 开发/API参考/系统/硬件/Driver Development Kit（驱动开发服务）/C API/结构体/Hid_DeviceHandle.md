@@ -12,6 +12,8 @@ typedef struct Hid_DeviceHandle Hid_DeviceHandle
 
 ##### 概述
 
+**支持设备：** PC/2in1
+
 不透明的USB HID设备结构。
  
 **起始版本：** 18

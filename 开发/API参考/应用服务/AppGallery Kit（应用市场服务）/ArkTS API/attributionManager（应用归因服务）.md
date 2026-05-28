@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { attributionManager } from '@kit.AppGalleryKit';
 ```
@@ -23,6 +25,8 @@ import { attributionManager } from '@kit.AppGalleryKit';
 
 
 ##### AdSourceInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 媒体/分发平台登记的归因来源信息。
 
@@ -49,6 +53,8 @@ import { attributionManager } from '@kit.AppGalleryKit';
 
 ##### AdTriggerInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 开发者登记的转化事件信息。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -69,6 +75,8 @@ import { attributionManager } from '@kit.AppGalleryKit';
 
 ##### SourceType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 归因来源类型的枚举。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -86,6 +94,8 @@ import { attributionManager } from '@kit.AppGalleryKit';
 
 
 ##### attributionManager.registerSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 registerSource(adSourceInfo: AdSourceInfo): Promise&lt;void&gt;
 
@@ -190,6 +200,8 @@ class  Attribution {
 
 
 ##### attributionManager.registerTrigger
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 registerTrigger(adTriggerInfo: AdTriggerInfo): Promise&lt;void&gt;
 

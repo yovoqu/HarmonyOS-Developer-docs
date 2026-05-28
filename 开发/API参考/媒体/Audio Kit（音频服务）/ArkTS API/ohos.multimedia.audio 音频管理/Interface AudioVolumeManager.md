@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { audio } from '@kit.AudioKit';
 ```
@@ -23,6 +25,8 @@ import { audio } from '@kit.AudioKit';
 
 
 ##### getVolumeGroupManager9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getVolumeGroupManager(groupId: number, callback: AsyncCallback&lt;AudioVolumeGroupManager&gt;): void
 
@@ -59,6 +63,8 @@ audioVolumeManager.getVolumeGroupManager(groupId, (err: BusinessError, value: au
 
 
 ##### getVolumeGroupManager9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getVolumeGroupManager(groupId: number): Promise&lt;AudioVolumeGroupManager&gt;
 
@@ -100,6 +106,8 @@ audioVolumeManager.getVolumeGroupManager(groupId).then((value: audio.AudioVolume
 
 
 ##### getVolumeGroupManagerSync10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getVolumeGroupManagerSync(groupId: number): AudioVolumeGroupManager
 
@@ -151,6 +159,8 @@ try {
 
 ##### getAppVolumePercentage19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAppVolumePercentage(): Promise&lt;number&gt;
 
 获取应用的音量（范围为[0, 100]）。使用Promise异步回调。
@@ -179,6 +189,8 @@ audioVolumeManager.getAppVolumePercentage().then((value: number) => {
 
 
 ##### setAppVolumePercentage19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAppVolumePercentage(volume: number): Promise&lt;void&gt;
 
@@ -226,6 +238,8 @@ audioVolumeManager.setAppVolumePercentage(20).then(() => {
 
 ##### on('volumeChange')(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'volumeChange', callback: Callback&lt;VolumeEvent&gt;): void
 
 监听系统音量变化事件（当系统音量发生变化时触发）。使用callback异步回调。
@@ -267,6 +281,8 @@ audioVolumeManager.on('volumeChange', (volumeEvent: audio.VolumeEvent) => {
 
 
 ##### off('volumeChange')(deprecated)
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'volumeChange', callback?: Callback&lt;VolumeEvent&gt;): void
 
@@ -318,6 +334,8 @@ audioVolumeManager.off('volumeChange', volumeChangeCallback);
 
 ##### on('appVolumeChange')19+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'appVolumeChange', callback: Callback&lt;VolumeEvent&gt;): void
 
 监听当前应用的应用级音量变化事件（当应用级音量发生变化时触发）。使用callback异步回调。
@@ -354,6 +372,8 @@ audioVolumeManager.on('appVolumeChange', (volumeEvent: audio.VolumeEvent) => {
 
 
 ##### off('appVolumeChange')19+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'appVolumeChange', callback?: Callback&lt;VolumeEvent&gt;): void
 
@@ -399,6 +419,8 @@ audioVolumeManager.off('appVolumeChange', appVolumeChangeCallback);
 
 
 ##### getVolumeByStream20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getVolumeByStream(streamUsage: StreamUsage): number
 
@@ -451,6 +473,8 @@ try {
 
 ##### getMinVolumeByStream20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMinVolumeByStream(streamUsage: StreamUsage): number
 
 获取指定音频流的最小音量。
@@ -501,6 +525,8 @@ try {
 
 
 ##### getMaxVolumeByStream20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getMaxVolumeByStream(streamUsage: StreamUsage): number
 
@@ -553,6 +579,8 @@ try {
 
 ##### isSystemMutedForStream20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSystemMutedForStream(streamUsage: StreamUsage): boolean
 
 检查指定音频流是否静音。
@@ -601,6 +629,8 @@ try {
 
 
 ##### getVolumeInUnitOfDbByStream20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getVolumeInUnitOfDbByStream(streamUsage: StreamUsage, volumeLevel: number, device: DeviceType): number
 
@@ -654,6 +684,8 @@ try {
 
 ##### on('streamVolumeChange')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'streamVolumeChange', streamUsage: StreamUsage, callback: Callback&lt;StreamVolumeEvent&gt;): void
 
 监听系统音频流音量变化事件（当系统音频流音量发生变化时触发）。使用callback异步回调。
@@ -691,6 +723,8 @@ audioVolumeManager.on('streamVolumeChange', audio.StreamUsage.STREAM_USAGE_MUSIC
 
 
 ##### off('streamVolumeChange')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'streamVolumeChange', callback?: Callback&lt;StreamVolumeEvent&gt;): void
 

@@ -12,6 +12,8 @@ typedef struct {...} WindowManager_Rect
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义窗口矩形结构体，包含窗口位置和宽高信息。
  
 **起始版本：** 15
@@ -24,9 +26,13 @@ typedef struct {...} WindowManager_Rect
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

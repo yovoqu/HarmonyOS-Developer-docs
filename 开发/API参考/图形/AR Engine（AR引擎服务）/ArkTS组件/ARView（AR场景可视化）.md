@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet | TV
+
 ```text
 import { ARView, arViewController } from '@kit.AREngine';
 ```
@@ -25,6 +27,8 @@ import { ARView, arViewController } from '@kit.AREngine';
   
 
 ##### ARView
+
+**支持设备：** Phone | Tablet | TV
 
 该类为AR场景可视化呈现组件。
  
@@ -46,6 +50,8 @@ import { ARView, arViewController } from '@kit.AREngine';
   
 
 ##### build
+
+**支持设备：** Phone | Tablet | TV
 
 build(): void
  

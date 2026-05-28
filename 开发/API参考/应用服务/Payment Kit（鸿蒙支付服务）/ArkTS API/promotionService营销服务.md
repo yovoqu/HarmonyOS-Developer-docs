@@ -18,6 +18,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { promotionService } from "@kit.PaymentKit";
 ```
@@ -25,6 +27,8 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 ##### UserAction
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 用户行为，包括关闭组件、点击领取按钮以及点击去使用按钮。
 
@@ -46,6 +50,8 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 ##### OrderContext
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 订单上下文信息，用于拉起选券组件。
 
@@ -70,6 +76,8 @@ import { promotionService } from "@kit.PaymentKit";
 
 ##### CouponCategory
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 优惠券品类枚举类型。
 
 **模型约束：** 本模块接口仅可在Stage模型下使用。
@@ -89,6 +97,8 @@ import { promotionService } from "@kit.PaymentKit";
 
 ##### CouponType
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 优惠券类型枚举。
 
 **模型约束：** 本模块接口仅可在Stage模型下使用。
@@ -107,6 +117,8 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 ##### CouponDetail
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 券详情信息。
 
@@ -135,6 +147,8 @@ import { promotionService } from "@kit.PaymentKit";
 
 ##### PromotionComponentController
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 该类为营销组件控制器。
 
 **模型约束：** 本模块接口仅可在Stage模型下使用。
@@ -148,6 +162,8 @@ import { promotionService } from "@kit.PaymentKit";
 
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 constructor(context: UIContext)
 
@@ -195,6 +211,8 @@ struct StartPromotionEntryDialogDemo {
 
 
 ##### startPromotionEntryDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startPromotionEntryDialog(mercNo: string, offset?: number): Promise&lt;UserAction&gt;
 
@@ -267,6 +285,8 @@ struct StartPromotionEntryDialogDemo {
 
 
 ##### startUserChooseCouponsPopup
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 startUserChooseCouponsPopup(context: common.Context, orderContext: OrderContext): Promise<CouponDetail[]>
 
@@ -348,6 +368,8 @@ export struct StartUserChooseCouponsPopupDemo {
 
 ##### startPromotionDetailPopup
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 startPromotionDetailPopup(context: common.Context, mercNo: string): Promise&lt;UserAction&gt;
 
 拉起营销详情，使用Promise异步回调。
@@ -418,6 +440,8 @@ export struct StartPromotionDetailPopupDemo {
 
 
 ##### getOrderAvailableCoupons
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 getOrderAvailableCoupons(context: common.Context, orderContext: OrderContext): Promise<CouponDetail[]>
 

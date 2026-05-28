@@ -20,6 +20,8 @@
 
 ##### 语法
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 @AnimatableExtend(UIComponentName) function functionName(value: typeName) {
   .propertyName(value)
@@ -35,6 +37,8 @@
 
 ##### AnimatableArithmetic&lt;T&gt;
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该接口定义非number数据类型的动画运算规则。对非number类型的数据（如数组、结构体、颜色等）做动画，需要实现AnimatableArithmetic&lt;T&gt;接口中加法、减法、乘法和判断相等函数，使得该数据能参与动画的插值运算和识别该数据是否发生改变。即定义它们为实现了AnimatableArithmetic&lt;T&gt;接口的类型。
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -44,6 +48,8 @@
   
 
 ##### plus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 plus(rhs: AnimatableArithmetic&lt;T&gt;): AnimatableArithmetic&lt;T&gt;
  
@@ -71,6 +77,8 @@ plus(rhs: AnimatableArithmetic&lt;T&gt;): AnimatableArithmetic&lt;T&gt;
 
 ##### subtract
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 subtract(rhs: AnimatableArithmetic&lt;T&gt;): AnimatableArithmetic&lt;T&gt;
  
 定义该数据类型的减法运算规则。
@@ -96,6 +104,8 @@ subtract(rhs: AnimatableArithmetic&lt;T&gt;): AnimatableArithmetic&lt;T&gt;
   
 
 ##### multiply
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 multiply(scale: number): AnimatableArithmetic&lt;T&gt;
  
@@ -123,6 +133,8 @@ multiply(scale: number): AnimatableArithmetic&lt;T&gt;
 
 ##### equals
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 equals(rhs: AnimatableArithmetic&lt;T&gt;): boolean
  
 定义该数据类型的相等判断规则。
@@ -148,6 +160,8 @@ equals(rhs: AnimatableArithmetic&lt;T&gt;): boolean
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -313,4 +327,4 @@ struct AnimatablePropertyExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/85-Wvu3_Q4yfTnj29DMhsQ/zh-cn_image_0000002581436230.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013927Z&HW-CC-Expire=86400&HW-CC-Sign=F423BDE7B493F4270635660A244BA1B76E83505B289C68130617D143C6DA79BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/85-Wvu3_Q4yfTnj29DMhsQ/zh-cn_image_0000002581436230.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024222Z&HW-CC-Expire=86400&HW-CC-Sign=CB49BF99EF0965A66F1B24D6FFB8A3C54A270326DE7B65CAD600989DBDA94ADB)

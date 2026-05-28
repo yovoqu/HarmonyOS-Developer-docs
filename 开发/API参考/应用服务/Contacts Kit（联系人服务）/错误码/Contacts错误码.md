@@ -12,6 +12,8 @@
 
 ##### 16700001 系统内部错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 general error.
@@ -31,6 +33,8 @@ general error.
 
 
 ##### 16700002 参数检查失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -53,6 +57,8 @@ Invalid parameter value.
 
 ##### 16700101 查询数据库失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Failed to get value from contacts data.
@@ -73,6 +79,8 @@ Failed to get value from contacts data.
 
 ##### 16700102 增删改数据库失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Failed to set value to contacts data.
@@ -92,6 +100,8 @@ Failed to set value to contacts data.
 
 
 ##### 16700103 用户取消
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 

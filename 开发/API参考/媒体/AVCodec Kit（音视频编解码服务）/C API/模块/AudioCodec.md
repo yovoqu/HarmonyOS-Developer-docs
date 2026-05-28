@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 AudioCodec模块提供用于音频编解码功能的函数。
 
 开发者可根据实际的开发需求，参考对应的开发指南及样例：
@@ -22,6 +24,8 @@ AudioCodec模块提供用于音频编解码功能的函数。
 
 
 ##### 文件汇总
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 | 名称 | 描述 |
 | --- | --- |

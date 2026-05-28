@@ -14,6 +14,8 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
  
 ColumnSplit通过分割线限制子组件的高度。初始化时，分割线位置根据子组件的高度来计算。初始化后，动态修改子组件的高度不生效，分割线位置保持不变，可通过拖动相邻分割线改变子组件高度。
@@ -23,6 +25,8 @@ ColumnSplit通过分割线限制子组件的高度。初始化时，分割线位
   
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ColumnSplit()
  
@@ -36,6 +40,8 @@ ColumnSplit()
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
 > [!NOTE]
@@ -45,6 +51,8 @@ ColumnSplit()
   
 
 ##### resizeable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resizeable(value: boolean)
  
@@ -65,6 +73,8 @@ resizeable(value: boolean)
 
 ##### divider10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 divider(value: ColumnSplitDividerStyle | null)
  
 设置分割线的margin。
@@ -83,6 +93,8 @@ divider(value: ColumnSplitDividerStyle | null)
   
 
 ##### ColumnSplitDividerStyle10+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置子组件与上下分割线的距离。
  
@@ -104,11 +116,15 @@ divider(value: ColumnSplitDividerStyle | null)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -140,7 +156,7 @@ struct ColumnSplitExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/9dHsCkNbT56mBOD2-N751g/zh-cn_image_0000002611835561.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013923Z&HW-CC-Expire=86400&HW-CC-Sign=100C29E63E64C5B6267E12CBBE451985FC9BDCCF5A2DDA2EDD854C7B3D3E3DFD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/9dHsCkNbT56mBOD2-N751g/zh-cn_image_0000002611835561.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=1EE17EEE99C95CD6F574FCF5650297DB11E56E535F7E1438F980A30A187353BF)
 
  
   
@@ -174,4 +190,4 @@ struct ColumnSplitDividerExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/Ajyd6BvhSXSdKeSsxtmMCg/zh-cn_image_0000002581275814.png?HW-CC-KV=V1&HW-CC-Date=20260528T013923Z&HW-CC-Expire=86400&HW-CC-Sign=D5411F66E0689B72063F4B30FFD5AE5D09971DF177FA0D598B18B5FB29E36464)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/Ajyd6BvhSXSdKeSsxtmMCg/zh-cn_image_0000002581275814.png?HW-CC-KV=V1&HW-CC-Date=20260528T024219Z&HW-CC-Expire=86400&HW-CC-Sign=D3361C5459376FDBD06B556A2CE304F13D621EEAB650029788657F645E8FAB41)

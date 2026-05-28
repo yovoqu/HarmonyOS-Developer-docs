@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import notification from '@system.notification';
 ```
@@ -19,6 +21,8 @@ import notification from '@system.notification';
   
 
 ##### ActionResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.Notification.Notification
   
@@ -33,6 +37,8 @@ import notification from '@system.notification';
 
 ##### ShowNotificationOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **系统能力**：SystemCapability.Notification.Notification
   
 | 名称 | 类型 | 必填 | 说明 |
@@ -45,6 +51,8 @@ import notification from '@system.notification';
   
 
 ##### notification.show
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 show(options?: ShowNotificationOptions): void
  

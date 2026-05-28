@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Rating(options?: RatingOptions)
 
@@ -39,9 +43,13 @@ Rating(options?: RatingOptions)
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### stars
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stars(value: number)
 
@@ -64,6 +72,8 @@ stars(value: number)
 
 ##### stars18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stars(starCount: Optional&lt;number&gt;)
 
 设置评分总数。设置为小于等于0的值时，按默认值显示。与[stars](#stars)相比，starCount参数新增了对undefined类型的支持。
@@ -84,6 +94,8 @@ stars(starCount: Optional&lt;number&gt;)
 
 
 ##### stepSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stepSize(value: number)
 
@@ -106,6 +118,8 @@ stepSize(value: number)
 
 ##### stepSize18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stepSize(size: Optional&lt;number&gt;)
 
 设置操作评级的步长。设置为小于0.1的值时，按默认值显示。与[stepSize](#stepsize)相比，size参数新增了对undefined类型的支持。
@@ -126,6 +140,8 @@ stepSize(size: Optional&lt;number&gt;)
 
 
 ##### starStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 starStyle(options: StarStyleOptions)
 
@@ -151,6 +167,8 @@ starStyle(options: StarStyleOptions)
 
 
 ##### starStyle18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 starStyle(options: Optional&lt;StarStyleOptions&gt;)
 
@@ -183,6 +201,8 @@ starStyle(options: Optional&lt;StarStyleOptions&gt;)
 
 ##### contentModifier12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 contentModifier(modifier: ContentModifier&lt;RatingConfiguration&gt;)
 
 定制Rating内容区的方法。
@@ -201,6 +221,8 @@ contentModifier(modifier: ContentModifier&lt;RatingConfiguration&gt;)
 
 
 ##### contentModifier18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 contentModifier(modifier: Optional<ContentModifier&lt;RatingConfiguration&gt;>)
 
@@ -221,9 +243,13 @@ contentModifier(modifier: Optional<ContentModifier&lt;RatingConfiguration&gt;>)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### onChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onChange(callback:(value: number) => void)
 
@@ -246,6 +272,8 @@ onChange(callback:(value: number) => void)
 
 ##### onChange18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onChange(callback:Optional&lt;OnRatingChangeCallback&gt;)
 
 当评分条的评星变化时触发该回调。与[onChange](#onchange)相比，callback参数新增了对undefined类型的支持。
@@ -267,6 +295,8 @@ onChange(callback:Optional&lt;OnRatingChangeCallback&gt;)
 
 ##### OnRatingChangeCallback18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type OnRatingChangeCallback = (rating: number) => void
 
 操作评分条的评星变化时触发该回调。
@@ -286,6 +316,8 @@ type OnRatingChangeCallback = (rating: number) => void
 
 ##### 键盘走焦规格
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 | 按键 | 功能描述 |
 | --- | --- |
 | Tab | 组件间切换焦点。 |
@@ -298,6 +330,8 @@ type OnRatingChangeCallback = (rating: number) => void
 
 
 ##### RatingConfiguration12+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-content-modifier#commonconfigurationt)。
 
@@ -317,6 +351,8 @@ type OnRatingChangeCallback = (rating: number) => void
 
 
 ##### RatingOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 评分组件的信息。
 
@@ -339,6 +375,8 @@ type OnRatingChangeCallback = (rating: number) => void
 
 
 ##### StarStyleOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 评分组件选中、未选中以及部分选中的星级样式。
 
@@ -366,6 +404,8 @@ type OnRatingChangeCallback = (rating: number) => void
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 
 
@@ -426,7 +466,7 @@ struct RatingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/xIrY0sNuQxWevRP59LUbZg/zh-cn_image_0000002581435852.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=C03716F273CBBFA952BC23BB73B2EBC6C19F8FC70D096C8DB13335B8978FBE01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/xIrY0sNuQxWevRP59LUbZg/zh-cn_image_0000002581435852.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=4681A72BB1BAAD022690C0DC6E9A29F1C8DCD5DEC4DBE2140699DF34A1AF39C7)
 
 
 
@@ -635,7 +675,7 @@ struct ratingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/mzRr2Kf2RqWcGZzBpq06hA/zh-cn_image_0000002611835683.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=FE97409089587ABDA87A814FF8EF9E735405C15056BBE79B617A8C22D06CA31C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/mzRr2Kf2RqWcGZzBpq06hA/zh-cn_image_0000002611835683.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=FE5B6CA19EDF298313C9FC1631598433487D3D58F546DC66388C6CD56740F79E)
 
 
 
@@ -676,7 +716,7 @@ struct RatingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/wLXDnTovSgmaygAlEHlKPQ/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=8B8409AE8FFCA0232A960A129A906B53EAA71DC3F3D6642173BDCEBC4EA19B40)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/wLXDnTovSgmaygAlEHlKPQ/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=6157BCC29C95FBDA27D9947A83CC6D665B81CF4DD8518E1B0718A590ED083380)
 
 
 
@@ -720,4 +760,4 @@ struct RatingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/EQxerdU2RzyZ325OcbfrVg/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013925Z&HW-CC-Expire=86400&HW-CC-Sign=D3EFF65B695EB90624116F7C50D8C819FA85D16D1A23C271A4149F0175BAD188)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/EQxerdU2RzyZ325OcbfrVg/zh-cn_image_0000002581275934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024220Z&HW-CC-Expire=86400&HW-CC-Sign=C55C1355E29AAC11709B60B43BC1860D8D0595930EE327577AB07DD8D7BE8B8A)

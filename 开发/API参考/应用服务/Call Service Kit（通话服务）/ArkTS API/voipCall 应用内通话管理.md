@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { voipCall } from '@kit.CallServiceKit';
 ```
@@ -21,6 +23,8 @@ import { voipCall } from '@kit.CallServiceKit';
   
 
 ##### VoipCallType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示通话类型的枚举。
  
@@ -37,6 +41,8 @@ import { voipCall } from '@kit.CallServiceKit';
   
 
 ##### VoipCallState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示通话状态的枚举。
  
@@ -59,6 +65,8 @@ import { voipCall } from '@kit.CallServiceKit';
   
 
 ##### VoipCallUiEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示通话事件的枚举。
  
@@ -84,6 +92,8 @@ import { voipCall } from '@kit.CallServiceKit';
 
 ##### ErrorReason
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示错误码类型的枚举。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
@@ -103,6 +113,8 @@ import { voipCall } from '@kit.CallServiceKit';
 
 ##### VoipCallUiEventInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 通话事件详细信息。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
@@ -120,6 +132,8 @@ import { voipCall } from '@kit.CallServiceKit';
 
 ##### VoipCallFailureCause
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示来电消息建立失败原因的枚举。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
@@ -136,6 +150,8 @@ import { voipCall } from '@kit.CallServiceKit';
   
 
 ##### VoipCallAttribute
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 通话属性选项。
  
@@ -162,6 +178,8 @@ import { voipCall } from '@kit.CallServiceKit';
 
 ##### CallAudioEvent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 表示静音、扬声器事件的枚举。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
@@ -180,6 +198,8 @@ import { voipCall } from '@kit.CallServiceKit';
   
 
 ##### voipCall.on('voipCallUiEvent')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 on(type: 'voipCallUiEvent', callback: Callback&lt;VoipCallUiEventInfo&gt;): void
  
@@ -225,6 +245,8 @@ voipCall.on('voipCallUiEvent', (data: voipCall.VoipCallUiEventInfo) => {
 
 ##### voipCall.off('voipCallUiEvent')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 off(type: 'voipCallUiEvent', callback?: Callback&lt;VoipCallUiEventInfo&gt;): void
  
 取消订阅voipCallUiEvent事件。使用Callback异步回调。
@@ -268,6 +290,8 @@ voipCall.off('voipCallUiEvent', (data: voipCall.VoipCallUiEventInfo) => {
   
 
 ##### voipCall.reportIncomingCall
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 reportIncomingCall(voipCallAttribute: VoipCallAttribute): Promise&lt;ErrorReason&gt;
  
@@ -370,6 +394,8 @@ export default class VoipAbility extends UIAbility {
 
 ##### voipCall.reportOutgoingCall
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 reportOutgoingCall(voipCallAttribute: VoipCallAttribute): Promise&lt;ErrorReason&gt;
  
 应用上报去电。需设置通话详细信息，见[VoipCallAttribute](#voipcallattribute)。使用Promise异步回调。
@@ -470,6 +496,8 @@ export default class VoipExtAbility extends UIAbility {
 
 ##### voipCall.reportCallAudioEventChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 reportCallAudioEventChange(callId: string, callAudioEvent: CallAudioEvent): Promise&lt;void&gt;
  
 应用上报通话中的静音、扬声器事件。使用Promise异步回调。
@@ -542,6 +570,8 @@ export default class VoipExtAbility extends UIAbility {
 
 ##### voipCall.reportCallStateChange
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 reportCallStateChange(callId: string, callState: VoipCallState): Promise&lt;void&gt;
  
 通知应用内通话状态变化，使用Promise异步回调。
@@ -594,6 +624,8 @@ voipCall.reportCallStateChange("callId123", voipCall.VoipCallState.VOIP_CALL_STA
   
 
 ##### voipCall.reportCallStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 reportCallStateChange(callId: string, callState: VoipCallState, callType: VoipCallType): Promise&lt;void&gt;
  
@@ -648,6 +680,8 @@ voipCall.reportCallStateChange("callId123", voipCall.VoipCallState.VOIP_CALL_STA
   
 
 ##### voipCall.reportIncomingCallError
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 reportIncomingCallError(callId: string, voipCallFailureCause: VoipCallFailureCause): Promise&lt;void&gt;
  

@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 网络场景状态变更回调信息。
  
 **起始版本：** 5.1.0(18)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -35,9 +41,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### pathType
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 NetworkBoost_PathType NetworkBoost_NetworkScene::pathType
@@ -51,6 +61,8 @@ NetworkBoost_PathType NetworkBoost_NetworkScene::pathType
 
 ##### recommendedAction
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 NetworkBoost_RecommendedAction NetworkBoost_NetworkScene::recommendedAction
 ```
@@ -63,6 +75,8 @@ NetworkBoost_RecommendedAction NetworkBoost_NetworkScene::recommendedAction
 
 ##### scene
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 NetworkBoost_Scene NetworkBoost_NetworkScene::scene
 ```
@@ -74,6 +88,8 @@ NetworkBoost_Scene NetworkBoost_NetworkScene::scene
   
 
 ##### weakSignalPrediction
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 NetworkBoost_WeakSignalPrediction NetworkBoost_NetworkScene::weakSignalPrediction

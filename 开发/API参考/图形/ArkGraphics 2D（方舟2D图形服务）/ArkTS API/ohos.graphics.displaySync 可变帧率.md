@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { displaySync } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { displaySync } from '@kit.ArkGraphics2D';
 
 
 ##### displaySync.create
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(): DisplaySync
 
@@ -45,6 +49,8 @@ let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 
 ##### IntervalInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 开发者可以从订阅函数中获取帧绘制的时间戳信息，包含当前帧到达的时间timestamp和下一帧预期到达的时间targetTimestamp。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -59,6 +65,8 @@ let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 
 ##### DisplaySync
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 帧率和回调函数设置实例。用于帧率设置和回调函数的注册，以及启动和停止回调函数的调用。
 
 下列API示例中都需先使用[displaySync.create()](#displaysynccreate)方法获取到DisplaySync实例，再通过此实例调用对应方法。
@@ -66,6 +74,8 @@ let backDisplaySync: displaySync.DisplaySync = displaySync.create();
 
 
 ##### setExpectedFrameRateRange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange) : void
 
@@ -106,6 +116,8 @@ backDisplaySync?.setExpectedFrameRateRange(range)
 
 ##### on('frame')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'frame', callback: Callback&lt;IntervalInfo&gt;): void
 
 订阅每一帧的变化。
@@ -134,6 +146,8 @@ backDisplaySync?.on("frame", callback)
 
 
 ##### off('frame')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'frame', callback?: Callback&lt;IntervalInfo&gt;): void
 
@@ -165,6 +179,8 @@ backDisplaySync?.off("frame", callback)
 
 
 ##### start
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 start(): void
 
@@ -228,6 +244,8 @@ struct Index {
 
 
 ##### stop
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(): void
 

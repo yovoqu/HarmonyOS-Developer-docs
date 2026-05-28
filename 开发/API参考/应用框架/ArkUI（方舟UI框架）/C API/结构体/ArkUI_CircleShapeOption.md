@@ -12,6 +12,8 @@ typedef struct ArkUI_CircleShape ArkUI_CircleShapeOption
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义圆形形状配置项。
  
 **起始版本：** 20

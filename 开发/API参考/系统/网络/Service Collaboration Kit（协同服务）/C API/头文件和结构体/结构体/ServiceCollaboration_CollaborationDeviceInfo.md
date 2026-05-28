@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 跨设备互通获取的设备信息对象，包含设备的基本信息和能力类型。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,9 +42,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### deviceName
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 char ServiceCollaboration_CollaborationDeviceInfo::deviceName[COLLABORATIONDEVICEINFO_DEVICENAME_MAXLENGTH]
@@ -52,6 +62,8 @@ char ServiceCollaboration_CollaborationDeviceInfo::deviceName[COLLABORATIONDEVIC
 
 ##### deviceNetworkId
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 char ServiceCollaboration_CollaborationDeviceInfo::deviceNetworkId[COLLABORATIONDEVICEINFO_DEVICENETWORKID_MAXLENGTH]
 ```
@@ -63,6 +75,8 @@ char ServiceCollaboration_CollaborationDeviceInfo::deviceNetworkId[COLLABORATION
   
 
 ##### deviceType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 uint32_t ServiceCollaboration_CollaborationDeviceInfo::deviceType
@@ -76,6 +90,8 @@ uint32_t ServiceCollaboration_CollaborationDeviceInfo::deviceType
 
 ##### filterNum
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t ServiceCollaboration_CollaborationDeviceInfo::filterNum
 ```
@@ -87,6 +103,8 @@ uint32_t ServiceCollaboration_CollaborationDeviceInfo::filterNum
   
 
 ##### serviceFilterTypes
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 ServiceCollaborationFilterType* ServiceCollaboration_CollaborationDeviceInfo::serviceFilterTypes

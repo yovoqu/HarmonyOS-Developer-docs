@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, PrimitiveTopology, CustomGeometry, CubeGeometry, PlaneGeometry, SphereGeometry, CylinderGeometry, Position3, Rotation3, Scale3 } from '@kit.ArkGraphics3D';
 ```
@@ -21,6 +23,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
   
 
 ##### Vec2
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 二维向量，通常用于表示2D空间中的点或方向，由x和y两个分量组成。
  
@@ -36,6 +40,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 
 ##### Vec3
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 三维向量，通常用于表示3D空间中的点、方向或向量变换，由x、y和z三个分量组成。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -50,6 +56,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
   
 
 ##### Vec4
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 四维向量，通常用于表示4D空间中的点、方向或向量变换，由x、y、z和w四个分量组成，增加第四个分量为各种计算和变换增加了规整性和便捷性。
  
@@ -67,6 +75,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 
 ##### Quaternion
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于表示3D空间中旋转的数学结构。与传统的欧拉角相比，四元数在数值稳定性和避免万向节锁方面具有优势。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -83,6 +93,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 
 ##### Aabb
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 轴对齐边界盒，主要用于判断空间中的物体是否重叠。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -96,6 +108,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
   
 
 ##### Color
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于表示RGBA格式的颜色，包含四个分量，依次为红色、绿色、蓝色和透明度。
  
@@ -113,6 +127,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 
 ##### Rect
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于表示平面中的矩形。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -129,6 +145,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 
 ##### RenderingPipelineType21+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 渲染管线类型枚举。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -142,6 +160,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
   
 
 ##### GeometryType18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 几何类型枚举，用于指定不同的几何类型。
  
@@ -160,6 +180,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 
 ##### GeometryDefinition18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 几何类型定义抽象类，用于解释特定几何类型的属性。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -172,6 +194,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
   
 
 ##### PrimitiveTopology18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 图元拓扑枚举，在顶点处理过程中，指定顶点的不同处理方式。
  
@@ -186,6 +210,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
   
 
 ##### CustomGeometry18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 自定义几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  
@@ -205,6 +231,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 
 ##### CubeGeometry18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 立方体几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -217,6 +245,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
   
 
 ##### PlaneGeometry18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 平面几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  
@@ -231,6 +261,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 
 ##### SphereGeometry18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 球体几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  
 **系统能力：** SystemCapability.ArkUi.Graphics3D
@@ -244,6 +276,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
   
 
 ##### CylinderGeometry23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 圆柱体几何类型，继承自[GeometryDefinition](#geometrydefinition18)。
  
@@ -263,12 +297,14 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 以radius=0.5，height=1，segmentCount=20为例，生成圆柱体的网格以及UV布局如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/rsKji9kXTxuJWJgS6r0Acw/zh-cn_image_0000002611836871.png?HW-CC-KV=V1&HW-CC-Date=20260528T014032Z&HW-CC-Expire=86400&HW-CC-Sign=301E10C3E704B72975EB2A7A1A790D81B263BE0547C2622D387C16BCEEE93BDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/rsKji9kXTxuJWJgS6r0Acw/zh-cn_image_0000002611836871.png?HW-CC-KV=V1&HW-CC-Date=20260528T024325Z&HW-CC-Expire=86400&HW-CC-Sign=7095A5EA837E1CD0FE016A6DC89E15E07C40BA82C2FD815449DBDAEDD74C0F67)
 
  
   
 
 ##### Mat4x423+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 相机矩阵，它是一个将三维世界坐标映射到二维图像坐标的数学工具。
  
@@ -286,6 +322,8 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 
 ##### Position3
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Position3 = Vec3
  
 用于表示3维空间中物体的位置，是[Vec3](#vec3)类型。
@@ -301,6 +339,8 @@ type Position3 = Vec3
 
 ##### Rotation3
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 type Rotation3 = Vec3
  
 用于表示3维空间中物体的旋转，是[Vec3](#vec3)类型。
@@ -315,6 +355,8 @@ type Rotation3 = Vec3
   
 
 ##### Scale3
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Scale3 = Vec3
  

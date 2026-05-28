@@ -12,6 +12,8 @@ typedef struct Camera_ControlCenterStatusInfo {...} Camera_ControlCenterStatusIn
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 控制器效果激活状态信息。
  
 **起始版本：** 20
@@ -24,9 +26,13 @@ typedef struct Camera_ControlCenterStatusInfo {...} Camera_ControlCenterStatusIn
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

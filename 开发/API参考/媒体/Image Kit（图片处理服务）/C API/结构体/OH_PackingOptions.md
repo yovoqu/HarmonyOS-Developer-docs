@@ -12,6 +12,8 @@ typedef struct OH_PackingOptions OH_PackingOptions
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 OH_PackingOptions是native层封装的图像编码选项结构体，不可直接操作，而是采用函数调用方式创建、释放结构体以及操作具体字段。
  
 创建PackingOptions结构体的对象使用[OH_PackingOptions_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-packer-native-h#oh_packingoptions_create)函数。

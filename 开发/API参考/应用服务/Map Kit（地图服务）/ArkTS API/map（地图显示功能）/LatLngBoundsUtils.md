@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### LatLngBoundsUtils
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 LatLngBounds工具类。
  
@@ -28,6 +32,8 @@ LatLngBounds工具类。
   
 
 ##### contains
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 static contains(bounds: mapCommon.LatLngBounds, position: mapCommon.LatLng): boolean
  
@@ -87,6 +93,8 @@ let result: boolean = map.LatLngBoundsUtils.contains(bounds, {
   
 
 ##### contains
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 static contains(src: mapCommon.LatLngBounds, target: mapCommon.LatLngBounds): boolean
  
@@ -155,6 +163,8 @@ let result: boolean = map.LatLngBoundsUtils.contains(src, target);
 
 ##### getCenter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 static getCenter(bounds: mapCommon.LatLngBounds): mapCommon.LatLng
  
 获取LatLngBounds的中心经纬度坐标。
@@ -209,6 +219,8 @@ let center: mapCommon.LatLng = map.LatLngBoundsUtils.getCenter(bounds);
   
 
 ##### include
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 static include(position: mapCommon.LatLng, bounds?: mapCommon.LatLngBounds): mapCommon.LatLngBounds
  

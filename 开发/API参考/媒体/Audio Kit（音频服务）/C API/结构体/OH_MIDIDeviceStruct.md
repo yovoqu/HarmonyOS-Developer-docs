@@ -12,6 +12,8 @@ typedef struct OH_MIDIDeviceStruct OH_MIDIDevice
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 声明MIDI设备。
  
 **起始版本：** 24

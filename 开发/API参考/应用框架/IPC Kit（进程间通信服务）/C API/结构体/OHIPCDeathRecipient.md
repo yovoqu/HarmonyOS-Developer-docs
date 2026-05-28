@@ -12,6 +12,8 @@ typedef struct OHIPCDeathRecipient OHIPCDeathRecipient
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 死亡通知对象。
  
 **起始版本：** 12

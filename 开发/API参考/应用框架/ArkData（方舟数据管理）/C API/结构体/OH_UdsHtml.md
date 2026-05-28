@@ -12,6 +12,8 @@ typedef struct OH_UdsHtml OH_UdsHtml
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 描述超文本标记语言类型的统一数据结构。
  
 **起始版本：** 12

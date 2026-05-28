@@ -14,15 +14,21 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 可以包含子组件。
  
   
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### Column
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Column(options?: ColumnOptions)
  
@@ -49,6 +55,8 @@ Column(options?: ColumnOptions)
 
 ##### Column18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Column(options?: ColumnOptions | ColumnOptionsV2)
  
 创建垂直方向线性布局容器，可以设置子组件的间距。
@@ -69,6 +77,8 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
   
 
 ##### ColumnOptions18+对象说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 设置Column组件的子组件间距属性。
  
@@ -91,6 +101,8 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
 
 ##### ColumnOptionsV218+对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 设置Column组件的子组件间距属性。间距类型SpaceType支持number、string或Resource类型。
  
 **卡片能力：** 从API version 18开始，该接口支持在ArkTS卡片中使用。
@@ -107,6 +119,8 @@ Column(options?: ColumnOptions | ColumnOptionsV2)
   
 
 ##### SpaceType18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type SpaceType = string | number | Resource
  
@@ -129,11 +143,15 @@ Column组件构造函数中space支持的数据类型，取值类型为下表类
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
  
   
 
 ##### alignItems
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 alignItems(value: HorizontalAlign)
  
@@ -155,6 +173,8 @@ alignItems(value: HorizontalAlign)
   
 
 ##### justifyContent8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 justifyContent(value: FlexAlign)
  
@@ -181,6 +201,8 @@ justifyContent(value: FlexAlign)
 
 ##### reverse12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reverse(isReversed: Optional&lt;boolean&gt;)
  
 设置子组件在垂直方向上的排列是否反转。
@@ -206,11 +228,15 @@ reverse(isReversed: Optional&lt;boolean&gt;)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
  
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
   
 
@@ -290,7 +316,7 @@ struct ColumnExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/P1D7cKXYQyikkGAiBwNSTw/zh-cn_image_0000002611755661.png?HW-CC-KV=V1&HW-CC-Date=20260528T013902Z&HW-CC-Expire=86400&HW-CC-Sign=4B4A9CEF0595EF194B031995885F097AB2A9F86609ACC3BF6CC98D62F35BD6EB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/P1D7cKXYQyikkGAiBwNSTw/zh-cn_image_0000002611755661.png?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=A8A35740A8C22FB9BD4A172AEEB538056786DD8ECCDE31AF95532D615F0EF682)
 
  
   
@@ -324,4 +350,4 @@ struct ColumnReverseSample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/9Fvzu9rASeqOiYgI-Nex_Q/zh-cn_image_0000002581435722.png?HW-CC-KV=V1&HW-CC-Date=20260528T013902Z&HW-CC-Expire=86400&HW-CC-Sign=EDF03FCFCDF9949C24BBEE275A990AD77F5A1342575B4A63C868BEAB733C01F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/9Fvzu9rASeqOiYgI-Nex_Q/zh-cn_image_0000002581435722.png?HW-CC-KV=V1&HW-CC-Date=20260528T024158Z&HW-CC-Expire=86400&HW-CC-Sign=4CE492E2D9FCDC7ADF171871D1B78E42EA6764B7E329D6CDE428F3E6B3698AEF)

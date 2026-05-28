@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | Tablet | TV
+
 此结构体描述2D图像分辨率，以px为单位。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | Tablet | TV
+
   
 
 ##### height
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 uint32_t FG_Dimension2D::height
@@ -48,6 +58,8 @@ uint32_t FG_Dimension2D::height
   
 
 ##### width
+
+**支持设备：** Phone | Tablet | TV
 
 ```text
 uint32_t FG_Dimension2D::width

@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 import { CollaborationServiceStateDialog, createCollaborationServiceMenuItems, CollaborationServiceFilter} from '@kit.ServiceCollaborationKit';
 ```
@@ -21,6 +23,8 @@ import { CollaborationServiceStateDialog, createCollaborationServiceMenuItems, C
 
 
 ##### createCollaborationServiceMenuItems
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 createCollaborationServiceMenuItems(businessFilter?: Array&lt;CollaborationServiceFilter&gt;): void
 
@@ -58,6 +62,8 @@ myTestMenu() {
 
 ##### createCollaborationServiceMenuItems
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 createCollaborationServiceMenuItems(businessFilter: Array&lt;CollaborationServiceFilter&gt;, canReceiveNumber: number): void
 
 设备列表选择器，需要在[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件内调用。用于显示组网内具有对应能力的设备列表，此接口支持自定义对端图库能力图片选择的数量。
@@ -94,6 +100,8 @@ myTestMenu() {
 
 
 ##### createCollaborationServiceMenuItems
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 createCollaborationServiceMenuItems(businessFilter: Array&lt;CollaborationServiceFilter&gt;, canReceiveMaxCount: number, deviceTypeFilter: Array&lt;CollaborationDeviceFilterType&gt; ): void
 
@@ -135,6 +143,8 @@ myTestMenu() {
 
 ##### CollaborationServiceFilter
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 能力类型枚举值。
 
 **系统能力：** SystemCapability.Collaboration.Service
@@ -166,6 +176,8 @@ myTestMenu() {
 
 ##### CollaborationDeviceFilterType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 设备类型枚举值。
 
 **模型约束：** 此模块的接口仅可在Stage模型下使用。
@@ -196,6 +208,8 @@ myTestMenu() {
 
 ##### CollaborationServiceStateDialog
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 弹窗组件，用于提示对端应用状态。
 
 您需要实现[onState](#onstate)方法，并且在页面中定义这个组件，在业务开始后，此方法将被协同框架调用。
@@ -211,6 +225,8 @@ myTestMenu() {
 
 
 ##### onState
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 
@@ -251,6 +267,8 @@ onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 build(): void
 

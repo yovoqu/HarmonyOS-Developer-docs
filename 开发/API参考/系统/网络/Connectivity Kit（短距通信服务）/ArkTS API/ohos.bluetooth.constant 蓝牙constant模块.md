@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { constant } from '@kit.ConnectivityKit';
 ```
@@ -21,6 +23,8 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 ##### ProfileId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，表示蓝牙[Profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#profile)协议的标识。
 
@@ -37,6 +41,8 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 ##### ProfileConnectionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，本端和对端蓝牙设备间的Profile连接状态。
 
@@ -55,6 +61,8 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 ##### MajorClass
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙设备的主要类型。蓝牙标准协议字段。
 
@@ -78,6 +86,8 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 ##### MajorMinorClass
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，蓝牙设备的子类型，在[MajorClass](#majorclass)基础上进一步细分的类型。蓝牙标准协议字段。
 
@@ -176,6 +186,8 @@ import { constant } from '@kit.ConnectivityKit';
 
 
 ##### ProfileUuids12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，由蓝牙技术联盟（[Bluetooth Special Interest Group](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#bluetooth-sig)）定义，使用通用唯一标识（Universally Unique Identifier，[UUID](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#uuid)）表示不同的蓝牙协议Profile。
 

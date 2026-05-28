@@ -12,6 +12,8 @@ typedef ArkUI_TouchTestInfoItem* ArkUI_TouchTestInfoItemHandle
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义触摸测试信息项句柄。
  
 **起始版本：** 22

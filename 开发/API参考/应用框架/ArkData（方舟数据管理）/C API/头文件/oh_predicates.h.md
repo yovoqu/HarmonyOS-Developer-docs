@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 表示关系型数据库（RDB）的谓词。
  
 **引用文件：** <database/rdb/oh_predicates.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -35,6 +41,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -44,6 +52,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -57,9 +67,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_OrderType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_OrderType
@@ -81,9 +95,13 @@ enum OH_OrderType
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Predicates_NotLike()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_Predicates_NotLike(OH_Predicates *predicates, const char *field, const char *pattern)
@@ -117,6 +135,8 @@ int OH_Predicates_NotLike(OH_Predicates *predicates, const char *field, const ch
 
 ##### OH_Predicates_Glob()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_Predicates_Glob(OH_Predicates *predicates, const char *field, const char *pattern)
 ```
@@ -149,6 +169,8 @@ int OH_Predicates_Glob(OH_Predicates *predicates, const char *field, const char 
 
 ##### OH_Predicates_NotGlob()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_Predicates_NotGlob(OH_Predicates *predicates, const char *field, const char *pattern)
 ```
@@ -180,6 +202,8 @@ int OH_Predicates_NotGlob(OH_Predicates *predicates, const char *field, const ch
   
 
 ##### OH_Predicates_Having()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_Predicates_Having(OH_Predicates *predicates, const char *conditions, const OH_Data_Values *values)

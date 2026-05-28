@@ -14,6 +14,8 @@ MDNS即多播DNS（Multicast DNS），提供局域网内的本地服务添加、
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { mdns } from '@kit.NetworkKit';
 ```
@@ -21,6 +23,8 @@ import { mdns } from '@kit.NetworkKit';
 
 
 ##### mdns.addLocalService
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addLocalService(context: Context, serviceInfo: LocalServiceInfo, callback: AsyncCallback&lt;LocalServiceInfo&gt;): void
 
@@ -88,6 +92,8 @@ mdns.addLocalService(context, localServiceInfo, (error:BusinessError, data:mdns.
 
 
 ##### mdns.addLocalService
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise&lt;LocalServiceInfo&gt;
 
@@ -161,6 +167,8 @@ mdns.addLocalService(context, localServiceInfo).then((data: mdns.LocalServiceInf
 
 ##### mdns.removeLocalService
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeLocalService(context: Context, serviceInfo: LocalServiceInfo, callback: AsyncCallback&lt;LocalServiceInfo&gt;): void
 
 移除一个MDNS服务，使用callback方式作为异步方法。
@@ -227,6 +235,8 @@ mdns.removeLocalService(context, localServiceInfo, (error: BusinessError, data: 
 
 
 ##### mdns.removeLocalService
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise&lt;LocalServiceInfo&gt;
 
@@ -299,6 +309,8 @@ mdns.removeLocalService(context, localServiceInfo).then((data: mdns.LocalService
 
 ##### mdns.createDiscoveryService
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createDiscoveryService(context: Context, serviceType: string): DiscoveryService
 
 返回一个DiscoveryService对象，该对象用于发现指定服务类型（serviceType）的MDNS服务。
@@ -354,6 +366,8 @@ let discoveryService : Object = mdns.createDiscoveryService(context, serviceType
 
 
 ##### mdns.resolveLocalService
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resolveLocalService(context: Context, serviceInfo: LocalServiceInfo, callback: AsyncCallback&lt;LocalServiceInfo&gt;): void
 
@@ -421,6 +435,8 @@ mdns.resolveLocalService(context, localServiceInfo, (error: BusinessError, data:
 
 
 ##### mdns.resolveLocalService
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 resolveLocalService(context: Context, serviceInfo: LocalServiceInfo): Promise&lt;LocalServiceInfo&gt;
 
@@ -494,11 +510,15 @@ mdns.resolveLocalService(context, localServiceInfo).then((data: mdns.LocalServic
 
 ##### DiscoveryService
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 指定服务类型的发现服务对象。
 
 
 
 ##### startSearchingMDNS
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startSearchingMDNS(): void
 
@@ -532,6 +552,8 @@ discoveryService.startSearchingMDNS();
 
 ##### stopSearchingMDNS
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stopSearchingMDNS(): void
 
 停止搜索局域网内的MDNS服务。
@@ -563,6 +585,8 @@ discoveryService.stopSearchingMDNS();
 
 
 ##### on('discoveryStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'discoveryStart', callback: Callback&lt;DiscoveryEventInfo&gt;): void
 
@@ -607,6 +631,8 @@ discoveryService.stopSearchingMDNS();
 
 
 ##### off('discoveryStart')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'discoveryStart', callback?: Callback&lt;DiscoveryEventInfo&gt;): void
 
@@ -656,6 +682,8 @@ discoveryService.off('discoveryStart', (data: mdns.DiscoveryEventInfo) => {
 
 ##### on('discoveryStop')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'discoveryStop', callback: Callback&lt;DiscoveryEventInfo&gt;): void
 
 订阅停止监听MDNS服务的通知。
@@ -699,6 +727,8 @@ discoveryService.stopSearchingMDNS();
 
 
 ##### off('discoveryStop')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'discoveryStop', callback?: Callback<[DiscoveryEventInfo](#discoveryeventinfo11)>): void
 
@@ -748,6 +778,8 @@ discoveryService.off('discoveryStop', (data: mdns.DiscoveryEventInfo) => {
 
 ##### on('serviceFound')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'serviceFound', callback: Callback&lt;LocalServiceInfo&gt;): void
 
 订阅发现MDNS服务的通知。
@@ -794,6 +826,8 @@ discoveryService.stopSearchingMDNS();
 
 
 ##### off('serviceFound')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'serviceFound', callback?: Callback&lt;LocalServiceInfo&gt;): void
 
@@ -846,6 +880,8 @@ discoveryService.off('serviceFound', (data: mdns.LocalServiceInfo) => {
 
 ##### on('serviceLost')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'serviceLost', callback: Callback&lt;LocalServiceInfo&gt;): void
 
 订阅移除MDNS服务的通知。
@@ -889,6 +925,8 @@ discoveryService.stopSearchingMDNS();
 
 
 ##### off('serviceLost')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 off(type: 'serviceLost', callback?: Callback&lt;LocalServiceInfo&gt;): void
 
@@ -938,6 +976,8 @@ discoveryService.off('serviceLost', (data: mdns.LocalServiceInfo) => {
 
 ##### LocalServiceInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 MDNS服务信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -957,6 +997,8 @@ MDNS服务信息。
 
 ##### ServiceAttribute
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 MDNS服务属性信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -972,6 +1014,8 @@ MDNS服务属性信息。
 
 
 ##### DiscoveryEventInfo11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 监听到的MDNS服务事件信息。
 
@@ -989,6 +1033,8 @@ MDNS服务属性信息。
 
 ##### MdnsError
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 MDNS错误信息。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1005,6 +1051,8 @@ MDNS错误信息。
 
 
 ##### NetAddress
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type NetAddress = connection.NetAddress
 

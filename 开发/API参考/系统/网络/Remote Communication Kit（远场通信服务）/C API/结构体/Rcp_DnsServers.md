@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 DNS服务器。[Rcp_DnsConfiguration.dnsRules](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___dns_configuration#dnsrules)中的类型之一。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@ DNS服务器。[Rcp_DnsConfiguration.dnsRules](https://developer.huawei.com/cons
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -33,9 +39,13 @@ DNS服务器。[Rcp_DnsConfiguration.dnsRules](https://developer.huawei.com/cons
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### ipAndPort
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 Rcp_IpAndPort Rcp_DnsServers::ipAndPort
@@ -48,6 +58,8 @@ IP和端口。
   
 
 ##### next
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 struct Rcp_DnsServers* Rcp_DnsServers::next

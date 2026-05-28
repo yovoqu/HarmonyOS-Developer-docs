@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 ```text
 import { AutoAdComponent } from '@kit.AdsKit';
 ```
@@ -21,6 +23,8 @@ import { AutoAdComponent } from '@kit.AdsKit';
   
 
 ##### AutoAdComponent
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 AutoAdComponent({
@@ -118,12 +122,14 @@ struct Index {
 **效果图：**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/Ebt__649QsOfg026N9IOYw/zh-cn_image_0000002581274942.png?HW-CC-KV=V1&HW-CC-Date=20260528T013445Z&HW-CC-Expire=86400&HW-CC-Sign=C1E3F66D39E1EBBC0F5019E73DB5E2C921E38FFF2622BCB4E850C9AA01F27E67)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/Ebt__649QsOfg026N9IOYw/zh-cn_image_0000002581274942.png?HW-CC-KV=V1&HW-CC-Date=20260528T023747Z&HW-CC-Expire=86400&HW-CC-Sign=DE0DFF3AABD79E3603C62F3BEF03AC68F6C1B0A13EA12798248514F020740932)
 
  
   
 
 ##### build
+
+**支持设备：** Phone | PC/2in1 | Tablet
 
 build(): void
  

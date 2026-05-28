@@ -12,6 +12,8 @@ typedef struct OH_AI_ShapeInfo {...} OH_AI_ShapeInfo
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 形状维度大小，预留最大维度是32，当前实际支持的最大维度是8。
  
 **起始版本：** 9
@@ -24,9 +26,13 @@ typedef struct OH_AI_ShapeInfo {...} OH_AI_ShapeInfo
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

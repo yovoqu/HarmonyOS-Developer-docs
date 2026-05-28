@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述创建具有DDGI特性的[XEG_RTGI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rtgi)对象的信息，当结构体中的信息变化时，需要创建新的[XEG_RTGI](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rtgi)对象。
  
 **起始版本：** 6.0.0(20)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -38,9 +44,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### enableCloud
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 bool XEG_DDGICreateInfo::enableCloud
@@ -54,6 +64,8 @@ bool XEG_DDGICreateInfo::enableCloud
 
 ##### numberVolume
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 uint32_t XEG_DDGICreateInfo::numberVolume
 ```
@@ -65,6 +77,8 @@ uint32_t XEG_DDGICreateInfo::numberVolume
   
 
 ##### pNext
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 const void* XEG_DDGICreateInfo::pNext
@@ -78,6 +92,8 @@ const void* XEG_DDGICreateInfo::pNext
 
 ##### qualityMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 XEG_RTGIQualityMode XEG_DDGICreateInfo::qualityMode
 ```
@@ -89,6 +105,8 @@ XEG_RTGIQualityMode XEG_DDGICreateInfo::qualityMode
   
 
 ##### scaledView
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_DDGICreateInfo::scaledView
@@ -102,6 +120,8 @@ VkExtent2D XEG_DDGICreateInfo::scaledView
 
 ##### sType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 XEG_StructureType XEG_DDGICreateInfo::sType
 ```
@@ -113,6 +133,8 @@ XEG_StructureType XEG_DDGICreateInfo::sType
   
 
 ##### viewSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkExtent2D XEG_DDGICreateInfo::viewSize

@@ -12,6 +12,8 @@ typedef struct {...} ffrt_dependence_t
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 依赖数据结构。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ typedef struct {...} ffrt_dependence_t
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

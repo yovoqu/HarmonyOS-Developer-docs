@@ -7,6 +7,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 ```text
 import { map, mapCommon } from '@kit.MapKit';
 ```
@@ -14,6 +16,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### SpatialRelationUtil
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 点面关系计算工具类。
  
@@ -28,6 +32,8 @@ import { map, mapCommon } from '@kit.MapKit';
   
 
 ##### isPointContainedInPolygon
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 static isPointContainedInPolygon(points: Array<mapCommon.LatLng>, point: mapCommon.LatLng): boolean
  

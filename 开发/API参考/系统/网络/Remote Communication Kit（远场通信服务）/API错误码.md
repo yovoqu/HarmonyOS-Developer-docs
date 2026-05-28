@@ -860,6 +860,8 @@ A value or data field grew larger than allowed.
 
 ##### 1007900999 内部错误
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 Internal Error.
@@ -960,6 +962,8 @@ Get system proxy failed.
 
 ##### 1007900994 会话数达到限制
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 Sessions number reached limit.
@@ -1039,6 +1043,8 @@ The response is invalid.
   
 
 ##### 1007900990 内存不足
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -1120,6 +1126,8 @@ Cannot establish cellular link.
 
 ##### 1007900985 文件系统IO错误。
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 File system IO error.
@@ -1139,6 +1147,8 @@ File system IO error.
   
 
 ##### 1007900401 接口参数错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -1180,6 +1190,8 @@ Plaintext transmission is forbidden.
 
 ##### 201 权限被拒绝
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 **错误信息**
  
 Permission denied.
@@ -1199,6 +1211,8 @@ Permission denied.
   
 
 ##### 401 参数错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  
@@ -1399,6 +1413,8 @@ Deserialize failed.
   
 
 ##### 10079100998 远程调用方法错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
  

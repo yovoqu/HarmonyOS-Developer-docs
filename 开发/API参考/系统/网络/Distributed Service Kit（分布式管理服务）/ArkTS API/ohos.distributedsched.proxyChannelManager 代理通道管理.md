@@ -20,6 +20,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { proxyChannelManager } from '@kit.DistributedServiceKit';
 ```
@@ -28,6 +30,8 @@ import { proxyChannelManager } from '@kit.DistributedServiceKit';
 
 ##### 使用说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 调用模块接口前，需要完成如下配置。
 1. 需要申请ohos.permission.ACCESS_BLUETOOTH权限。如何配置和申请权限，具体操作请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)和[向用户申请授权](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/request-user-authorization)。
 2. 对于需要代理拉起的应用进程，需要在module.json5文件中配置action字段: "action.ohos.pull.listener"。
@@ -35,6 +39,8 @@ import { proxyChannelManager } from '@kit.DistributedServiceKit';
 
 
 ##### proxyChannelManager.openProxyChannel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 openProxyChannel(channelInfo: ChannelInfo): Promise&lt;number&gt;
 
@@ -119,6 +125,8 @@ struct Index {
 
 ##### proxyChannelManager.closeProxyChannel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 closeProxyChannel(channelId: number): void
 
 关闭已打开的代理通道。
@@ -181,6 +189,8 @@ struct Index {
 
 
 ##### proxyChannelManager.sendData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendData(channelId:number, data:ArrayBuffer):Promise&lt;void&gt;
 
@@ -259,6 +269,8 @@ struct Index {
 
 ##### proxyChannelManager.on('receiveData')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'receiveData', channelId: number, callback: Callback&lt;DataInfo&gt;): void
 
 订阅数据接收事件，使用异步回调。
@@ -324,6 +336,8 @@ struct Index {
 
 ##### proxyChannelManager.off('receiveData')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'receiveData', channelId: number, callback?: Callback&lt;DataInfo&gt;): void
 
 取消订阅数据接收事件，停止接收数据。
@@ -386,6 +400,8 @@ struct Index {
 
 
 ##### proxyChannelManager.on('channelStateChange')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'channelStateChange', channelId: number, callback: Callback&lt;ChannelStateInfo&gt;): void
 
@@ -452,6 +468,8 @@ struct Index {
 
 ##### proxyChannelManager.off('channelStateChange')
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'channelStateChange', channelId: number, callback?: Callback&lt;ChannelStateInfo&gt;): void
 
 取消订阅通道状态事件。
@@ -515,6 +533,8 @@ struct Index {
 
 ##### DataInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 存放接收的数据信息，包括通道Id和数据。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
@@ -528,6 +548,8 @@ struct Index {
 
 
 ##### ChannelInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 打开代理通道函数的入参，包括对端设备的MAC地址和监听服务的UUID。
 
@@ -544,6 +566,8 @@ struct Index {
 
 ##### ChannelStateInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 当代理通道状态变化时，用于表示代理通道的连接状态。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
@@ -557,6 +581,8 @@ struct Index {
 
 
 ##### ChannelState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 通道状态发生变化时，代理通道上报的通道连接状态。
 
@@ -573,6 +599,8 @@ struct Index {
 
 
 ##### LinkType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 链路类型。
 

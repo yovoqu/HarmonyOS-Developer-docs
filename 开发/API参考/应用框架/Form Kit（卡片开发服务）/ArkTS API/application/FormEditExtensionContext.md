@@ -14,6 +14,8 @@ FormEditExtensionContext是[FormEditExtensionAbility](https://developer.huawei.c
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { FormEditExtensionAbility } from '@kit.FormKit';
 ```
@@ -22,11 +24,15 @@ import { FormEditExtensionAbility } from '@kit.FormKit';
 
 ##### FormEditExtensionContext
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 FormEditExtensionContext提供允许访问特定于FormEditExtensionAbility资源的能力。
 
 
 
 ##### startSecondPage
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startSecondPage(want: Want): Promise<[AbilityResult](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-ability-abilityresult)>
 
@@ -95,6 +101,8 @@ export default class ExampleFormEditAbility extends FormEditExtensionAbility {
 
 
 ##### startUIAbility23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 startUIAbility(want: Want): Promise&lt;void&gt;
 

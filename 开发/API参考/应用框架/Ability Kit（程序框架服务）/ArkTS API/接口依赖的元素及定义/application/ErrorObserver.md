@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { errorManager } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { errorManager } from '@kit.AbilityKit';
   
 
 ##### ErrorObserver.onUnhandledException
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onUnhandledException(errMsg: string): void
  
@@ -59,6 +63,8 @@ try {
   
 
 ##### ErrorObserver.onException10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onException?(errObject: Error): void
  

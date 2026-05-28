@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 提供XEngine图形相关能力接口。
  
 **系统能力：** SystemCapability.Graphic.XEngine
@@ -17,9 +19,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 文件
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -43,6 +49,8 @@
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -73,6 +81,8 @@
   
 
 ##### 宏定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -114,6 +124,8 @@
   
 
 ##### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -178,6 +190,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -190,6 +204,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -232,9 +248,13 @@
 
 ##### 宏定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### XEG_adaptive_vrs
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_adaptive_vrs   1
@@ -249,6 +269,8 @@ XEngine自适应VRS(variable rate shading)扩展特性宏定义。
   
 
 ##### XEG_ADAPTIVE_VRS_ERROR_SENSITIVITY
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_ADAPTIVE_VRS_ERROR_SENSITIVITY   0x4U
@@ -266,6 +288,8 @@ XEngine自适应VRS(variable rate shading)扩展特性宏定义。
 
 ##### XEG_ADAPTIVE_VRS_EXTENSION_NAME
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_ADAPTIVE_VRS_EXTENSION_NAME   "XEG_adaptive_vrs"
 ```
@@ -279,6 +303,8 @@ XEngine自适应VRS(variable rate shading)扩展特性名称。
   
 
 ##### XEG_ADAPTIVE_VRS_FLIP
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_ADAPTIVE_VRS_FLIP   0x5U
@@ -296,6 +322,8 @@ XEngine自适应VRS(variable rate shading)扩展特性名称。
 
 ##### XEG_ADAPTIVE_VRS_INPUT_REGION
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_ADAPTIVE_VRS_INPUT_REGION   0x2U
 ```
@@ -311,6 +339,8 @@ XEngine自适应VRS(variable rate shading)扩展特性名称。
   
 
 ##### XEG_ADAPTIVE_VRS_INPUT_SIZE
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_ADAPTIVE_VRS_INPUT_SIZE   0x1U
@@ -328,6 +358,8 @@ XEngine自适应VRS(variable rate shading)扩展特性名称。
 
 ##### XEG_ADAPTIVE_VRS_TEXEL_SIZE
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_ADAPTIVE_VRS_TEXEL_SIZE   0x3U
 ```
@@ -344,6 +376,8 @@ XEngine自适应VRS(variable rate shading)扩展特性名称。
 
 ##### XEG_ADAPTIVE_VRS_VERSION
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_ADAPTIVE_VRS_VERSION   1
 ```
@@ -357,6 +391,8 @@ XEngine自适应VRS扩展特性版本号。
   
 
 ##### XEG_EXTENSIONS
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_EXTENSIONS   0x01U
@@ -372,6 +408,8 @@ XEngine自适应VRS扩展特性版本号。
 
 ##### XEG_HPS_RADIX_SORT_EXTENSION_NAME
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_HPS_RADIX_SORT_EXTENSION_NAME   "XEG_hps_radix_sort"
 ```
@@ -385,6 +423,8 @@ XEngine 高性能基数排序扩展特性名称。
   
 
 ##### XEG_MAX_EXTENSION_NAME_SIZE
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_MAX_EXTENSION_NAME_SIZE   256
@@ -400,6 +440,8 @@ XEngine扩展特性名称支持的最大长度。
 
 ##### XEG_neural_upscale
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_neural_upscale   1
 ```
@@ -414,6 +456,8 @@ XEngine空域AI超分扩展特性宏定义。
 
 ##### XEG_NEURAL_UPSCALE_EXTENSION_NAME
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_NEURAL_UPSCALE_EXTENSION_NAME   "XEG_neural_upscale"
 ```
@@ -427,6 +471,8 @@ XEngine空域AI超分扩展特性名称。
   
 
 ##### XEG_NEURAL_UPSCALE_INPUT_HANDLE
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_NEURAL_UPSCALE_INPUT_HANDLE   0x4U
@@ -444,6 +490,8 @@ XEngine空域AI超分扩展特性名称。
 
 ##### XEG_NEURAL_UPSCALE_SCISSOR
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_NEURAL_UPSCALE_SCISSOR   0x1U
 ```
@@ -459,6 +507,8 @@ XEngine空域AI超分扩展特性名称。
   
 
 ##### XEG_NEURAL_UPSCALE_SHARPNESS
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_NEURAL_UPSCALE_SHARPNESS   0x2U
@@ -476,6 +526,8 @@ XEngine空域AI超分扩展特性名称。
 
 ##### XEG_NEURAL_UPSCALE_VERSION
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_NEURAL_UPSCALE_VERSION   1
 ```
@@ -489,6 +541,8 @@ XEngine空域AI超分扩展特性版本号。
   
 
 ##### XEG_RT_REFLECTION_EXTENSION_NAME
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_RT_REFLECTION_EXTENSION_NAME   "XEG_rt_reflection"
@@ -504,6 +558,8 @@ XEngine光线追踪反射扩展特性名称。
 
 ##### XEG_RT_SHADOW_AO_EXTENSION_NAME
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_RT_SHADOW_AO_EXTENSION_NAME   "XEG_rt_shadow_ao"
 ```
@@ -517,6 +573,8 @@ XEngine光线追踪阴影和环境光遮蔽扩展特性名称。
   
 
 ##### XEG_RTGI_EXTENSION_NAME
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_RTGI_EXTENSION_NAME   "XEG_rtgi"
@@ -532,6 +590,8 @@ XEngine光线追踪全局光照扩展特性名称。
 
 ##### XEG_spatial_upscale
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_spatial_upscale   1
 ```
@@ -546,6 +606,8 @@ XEngine空域GPU超分扩展特性宏定义。
 
 ##### XEG_SPATIAL_UPSCALE_EXTENSION_NAME
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_SPATIAL_UPSCALE_EXTENSION_NAME   "XEG_spatial_upscale"
 ```
@@ -559,6 +621,8 @@ XEngine空域GPU超分扩展特性名称。
   
 
 ##### XEG_SPATIAL_UPSCALE_SCISSOR
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_SPATIAL_UPSCALE_SCISSOR   0x1U
@@ -576,6 +640,8 @@ XEngine空域GPU超分扩展特性名称。
 
 ##### XEG_SPATIAL_UPSCALE_SHARPNESS
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_SPATIAL_UPSCALE_SHARPNESS   0x2U
 ```
@@ -592,6 +658,8 @@ XEngine空域GPU超分扩展特性名称。
 
 ##### XEG_SPATIAL_UPSCALE_VERSION
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_SPATIAL_UPSCALE_VERSION   1
 ```
@@ -606,6 +674,8 @@ XEngine空域GPU超分扩展特性版本号。
 
 ##### XEG_temporal_upscale
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_temporal_upscale   1
 ```
@@ -619,6 +689,8 @@ XEngine时域AI超分扩展特性宏定义。
   
 
 ##### XEG_TEMPORAL_UPSCALE_DEPTH_REVERSED
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_TEMPORAL_UPSCALE_DEPTH_REVERSED   0x3U
@@ -636,6 +708,8 @@ XEngine时域AI超分扩展特性宏定义。
 
 ##### XEG_TEMPORAL_UPSCALE_EXTENSION_NAME
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_TEMPORAL_UPSCALE_EXTENSION_NAME   "XEG_temporal_upscale"
 ```
@@ -649,6 +723,8 @@ XEngine时域AI超分扩展特性名称。
   
 
 ##### XEG_TEMPORAL_UPSCALE_INPUT_SIZE
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_TEMPORAL_UPSCALE_INPUT_SIZE   0x1U
@@ -666,6 +742,8 @@ XEngine时域AI超分扩展特性名称。
 
 ##### XEG_TEMPORAL_UPSCALE_JITTER_NUM
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_TEMPORAL_UPSCALE_JITTER_NUM   0x2U
 ```
@@ -681,6 +759,8 @@ XEngine时域AI超分扩展特性名称。
   
 
 ##### XEG_TEMPORAL_UPSCALE_RESET_HISTORY
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 #define XEG_TEMPORAL_UPSCALE_RESET_HISTORY   0x4U
@@ -698,6 +778,8 @@ XEngine时域AI超分扩展特性名称。
 
 ##### XEG_TEMPORAL_UPSCALE_STEADY_LEVEL
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_TEMPORAL_UPSCALE_STEADY_LEVEL   0x5U
 ```
@@ -714,6 +796,8 @@ XEngine时域AI超分扩展特性名称。
 
 ##### XEG_TEMPORAL_UPSCALE_VERSION
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 #define XEG_TEMPORAL_UPSCALE_VERSION   1
 ```
@@ -728,9 +812,13 @@ XEngine时域AI超分扩展特性版本号。
 
 ##### 类型定义说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### PFN_HMS_XEG_ADAPTIVEVRSPARAMETER
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(GL_APIENTRYP PFN_HMS_XEG_ADAPTIVEVRSPARAMETER) (GLenum pname, GLvoid *param)
@@ -754,6 +842,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_ADAPTIVEVRSPARAMETER) (GLenum pname, GLvoi
 
 ##### PFN_HMS_XEG_APPLYADAPTIVEVRS
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(GL_APIENTRYP PFN_HMS_XEG_APPLYADAPTIVEVRS) (GLuint shadingRateImage)
 ```
@@ -774,6 +864,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_APPLYADAPTIVEVRS) (GLuint shadingRateImage
   
 
 ##### PFN_HMS_XEG_CmdDispatchAdaptiveVRS
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(VKAPI_PTR *PFN_HMS_XEG_CmdDispatchAdaptiveVRS) (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription *pXegAdaptiveVRSDescription)
@@ -797,6 +889,8 @@ typedef void(VKAPI_PTR *PFN_HMS_XEG_CmdDispatchAdaptiveVRS) (VkCommandBuffer com
   
 
 ##### PFN_HMS_XEG_CmdRadixSortHPS
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CmdRadixSortHPS) (VkCommandBuffer commandBuffer, XEG_HPS hps, const XEG_HPSRadixSortDescription *pDescription)
@@ -825,6 +919,8 @@ typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CmdRadixSortHPS) (VkCommandBuffer comman
 
 ##### PFN_HMS_XEG_CmdRenderRTGI
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CmdRenderRTGI) (VkCommandBuffer commandBuffer, XEG_RTGI rtGI, const void *pDescription)
 ```
@@ -852,6 +948,8 @@ typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CmdRenderRTGI) (VkCommandBuffer commandB
 
 ##### PFN_HMS_XEG_CmdRenderRTReflection
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef VkResult (VKAPI_ATTR *PFN_HMS_XEG_CmdRenderRTReflection)(VkCommandBuffer commandBuffer, XEG_RTReflection rtReflection, const void *pDescription)
 ```
@@ -874,6 +972,8 @@ typedef VkResult (VKAPI_ATTR *PFN_HMS_XEG_CmdRenderRTReflection)(VkCommandBuffer
   
 
 ##### PFN_HMS_XEG_CmdRenderRTVisibleMask
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CmdRenderRTVisibleMask) (VkCommandBuffer commandBuffer, XEG_RTVisibleMask rtVisibleMask, const void *pDescription)
@@ -902,6 +1002,8 @@ VkResult类型的错误码，值为VK_SUCCESS时表示执行成功。
 
 ##### PFN_HMS_XEG_CmdRenderSpatialUpscale
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(VKAPI_PTR *PFN_HMS_XEG_CmdRenderSpatialUpscale) (VkCommandBuffer commandBuffer, XEG_SpatialUpscale xegSpatialUpscale, XEG_SpatialUpscaleDescription *pXegSpatialUpscaleDescription)
 ```
@@ -925,6 +1027,8 @@ typedef void(VKAPI_PTR *PFN_HMS_XEG_CmdRenderSpatialUpscale) (VkCommandBuffer co
 
 ##### PFN_HMS_XEG_CmdRenderTemporalUpscale
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(VKAPI_ATTR *PFN_HMS_XEG_CmdRenderTemporalUpscale) (VkCommandBuffer commandBuffer, XEG_TemporalUpscale temporalUpscale, XEG_TemporalUpscaleDescription *pDescription)
 ```
@@ -947,6 +1051,8 @@ typedef void(VKAPI_ATTR *PFN_HMS_XEG_CmdRenderTemporalUpscale) (VkCommandBuffer 
   
 
 ##### PFN_HMS_XEG_CmdSetSynchronization
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CmdSetSynchronization) (VkCommandBuffer commandBuffer, const void *xegHandle)
@@ -973,6 +1079,8 @@ typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CmdSetSynchronization) (VkCommandBuffer 
   
 
 ##### PFN_HMS_XEG_CreateAdaptiveVRS
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateAdaptiveVRS) (VkDevice device, const XEG_AdaptiveVRSCreateInfo *pXegAdaptiveVRSCreateInfo, XEG_AdaptiveVRS *pXegAdaptiveVRS)
@@ -1001,6 +1109,8 @@ typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateAdaptiveVRS) (VkDevice device, con
 
 ##### PFN_HMS_XEG_CreateHPS
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateHPS) (VkDevice device, const XEG_HPSCreateInfo *pCreateInfo, XEG_HPS *pHps)
 ```
@@ -1027,6 +1137,8 @@ typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateHPS) (VkDevice device, const XEG_H
   
 
 ##### PFN_HMS_XEG_CreateRTGI
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateRTGI) (VkDevice device, const void *pCreateInfo, XEG_RTGI *pRtGI)
@@ -1055,6 +1167,8 @@ typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateRTGI) (VkDevice device, const void
 
 ##### PFN_HMS_XEG_CreateRTReflection
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef VkResult(VKAPI_ATTR *PFN_HMS_XEG_CreateRTReflection) (VkDevice device, const void *pCreateInfo, XEG_RTReflection *pRtReflection)
 ```
@@ -1081,6 +1195,8 @@ typedef VkResult(VKAPI_ATTR *PFN_HMS_XEG_CreateRTReflection) (VkDevice device, c
   
 
 ##### PFN_HMS_XEG_CreateRTVisibleMask
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateRTVisibleMask) (VkDevice device, const void *pCreateInfo, XEG_RTVisibleMask *pRTVisibleMask)
@@ -1109,6 +1225,8 @@ VkResult类型的错误码，值为VK_SUCCESS时表示创建成功。
 
 ##### PFN_HMS_XEG_CreateSpatialUpscale
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateSpatialUpscale) (VkDevice device, const XEG_SpatialUpscaleCreateInfo *pXegSpatialUpscaleCreateInfo, XEG_SpatialUpscale *pXegSpatialUpscale)
 ```
@@ -1135,6 +1253,8 @@ typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateSpatialUpscale) (VkDevice device, 
   
 
 ##### PFN_HMS_XEG_CreateTemporalUpscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef VkResult(VKAPI_ATTR *PFN_HMS_XEG_CreateTemporalUpscale) (VkDevice device, XEG_TemporalUpscaleCreateInfo *pTemporalUpscaleInfo, XEG_TemporalUpscale *pTemporalUpscale)
@@ -1163,6 +1283,8 @@ typedef VkResult(VKAPI_ATTR *PFN_HMS_XEG_CreateTemporalUpscale) (VkDevice device
 
 ##### PFN_HMS_XEG_DestroyAdaptiveVRS
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyAdaptiveVRS) (XEG_AdaptiveVRS xegAdaptiveVRS)
 ```
@@ -1183,6 +1305,8 @@ typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyAdaptiveVRS) (XEG_AdaptiveVRS xegAdap
   
 
 ##### PFN_HMS_XEG_DestroyHPS
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyHPS) (XEG_HPS hps)
@@ -1205,6 +1329,8 @@ typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyHPS) (XEG_HPS hps)
 
 ##### PFN_HMS_XEG_DestroyRTGI
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyRTGI) (XEG_RTGI rtGI)
 ```
@@ -1225,6 +1351,8 @@ typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyRTGI) (XEG_RTGI rtGI)
   
 
 ##### PFN_HMS_XEG_DestroyRTReflection
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void (VKAPI_ATTR *PFN_HMS_XEG_DestroyRTReflection)(XEG_RTReflection rtReflection)
@@ -1247,6 +1375,8 @@ typedef void (VKAPI_ATTR *PFN_HMS_XEG_DestroyRTReflection)(XEG_RTReflection rtRe
 
 ##### PFN_HMS_XEG_DestroyRTVisibleMask
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyRTVisibleMask) (XEG_RTVisibleMask rtVisibleMask)
 ```
@@ -1267,6 +1397,8 @@ typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyRTVisibleMask) (XEG_RTVisibleMask rtV
   
 
 ##### PFN_HMS_XEG_DestroySpatialUpscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroySpatialUpscale) (XEG_SpatialUpscale xegSpatialUpscale)
@@ -1289,6 +1421,8 @@ typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroySpatialUpscale) (XEG_SpatialUpscale x
 
 ##### PFN_HMS_XEG_DestroyTemporalUpscale
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(VKAPI_ATTR *PFN_HMS_XEG_DestroyTemporalUpscale) (XEG_TemporalUpscale temporalUpscale)
 ```
@@ -1309,6 +1443,8 @@ typedef void(VKAPI_ATTR *PFN_HMS_XEG_DestroyTemporalUpscale) (XEG_TemporalUpscal
   
 
 ##### PFN_HMS_XEG_DISPATCHADAPTIVEVRS
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(GL_APIENTRYP PFN_HMS_XEG_DISPATCHADAPTIVEVRS) (GLfloat *reprojectionMatrix, GLuint inputColorImage, GLuint inputDepthImage, GLuint shadingRateImage)
@@ -1338,6 +1474,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_DISPATCHADAPTIVEVRS) (GLfloat *reprojectio
 
 ##### PFN_HMS_XEG_EnumerateDeviceExtensionProperties
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_EnumerateDeviceExtensionProperties) (VkPhysicalDevice physicalDevice, uint32_t *pPropertyCount, XEG_ExtensionProperties *pProperties)
 ```
@@ -1365,6 +1503,8 @@ XEngine Vulkan扩展特性查询接口函数指针定义。
 
 ##### PFN_HMS_XEG_GETSTRING
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef const GLubyte *(GL_APIENTRYP PFN_HMS_XEG_GETSTRING) (GLenum name)
 ```
@@ -1390,6 +1530,8 @@ XEngine OpenGL ES扩展特性查询接口函数指针定义。
 
 ##### PFN_HMS_XEG_NEURALUPSCALEPARAMETER
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(GL_APIENTRYP PFN_HMS_XEG_NEURALUPSCALEPARAMETER) (GLenum pname, GLvoid *param)
 ```
@@ -1412,6 +1554,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_NEURALUPSCALEPARAMETER) (GLenum pname, GLv
 
 ##### PFN_HMS_XEG_RENDERNEURALUPSCALE
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(GL_APIENTRYP PFN_HMS_XEG_RENDERNEURALUPSCALE) (GLuint inputTexture)
 ```
@@ -1433,6 +1577,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_RENDERNEURALUPSCALE) (GLuint inputTexture)
 
 ##### PFN_HMS_XEG_RENDERSPATIALUPSCALE
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(GL_APIENTRYP PFN_HMS_XEG_RENDERSPATIALUPSCALE) (GLuint inputTexture)
 ```
@@ -1453,6 +1599,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_RENDERSPATIALUPSCALE) (GLuint inputTexture
   
 
 ##### PFN_HMS_XEG_RenderTemporalUpscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(GL_APIENTRYP PFN_HMS_XEG_RenderTemporalUpscale) (GLuint inputTexture, GLuint depthTexture, GLuint motionVectorTexture, GLuint dynamicMaskTexture, GLfloat jitterX, GLfloat jitterY)
@@ -1480,6 +1628,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_RenderTemporalUpscale) (GLuint inputTextur
 
 ##### PFN_HMS_XEG_SPATIALUPSCALEPARAMETER
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef void(GL_APIENTRYP PFN_HMS_XEG_SPATIALUPSCALEPARAMETER) (GLenum pname, GLvoid *param)
 ```
@@ -1501,6 +1651,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_SPATIALUPSCALEPARAMETER) (GLenum pname, GL
   
 
 ##### PFN_HMS_XEG_TemporalUpscaleParameter
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef void(GL_APIENTRYP PFN_HMS_XEG_TemporalUpscaleParameter) (GLenum pname, GLvoid *param)
@@ -1524,6 +1676,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_TemporalUpscaleParameter) (GLenum pname, G
 
 ##### XEG_AdaptiveVRS
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VK_DEFINE_HANDLE(XEG_AdaptiveVRS)
 ```
@@ -1537,6 +1691,8 @@ VK_DEFINE_HANDLE(XEG_AdaptiveVRS)
   
 
 ##### XEG_AdaptiveVRSCreateInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct XEG_AdaptiveVRSCreateInfo XEG_AdaptiveVRSCreateInfo
@@ -1552,6 +1708,8 @@ typedef struct XEG_AdaptiveVRSCreateInfo XEG_AdaptiveVRSCreateInfo
 
 ##### XEG_AdaptiveVRSDescription
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct XEG_AdaptiveVRSDescription XEG_AdaptiveVRSDescription
 ```
@@ -1565,6 +1723,8 @@ typedef struct XEG_AdaptiveVRSDescription XEG_AdaptiveVRSDescription
   
 
 ##### XEG_DenoiseQualityMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef enum XEG_DenoiseQualityMode XEG_DenoiseQualityMode
@@ -1580,6 +1740,8 @@ typedef enum XEG_DenoiseQualityMode XEG_DenoiseQualityMode
 
 ##### XEG_ExtensionProperties
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct XEG_ExtensionProperties XEG_ExtensionProperties
 ```
@@ -1593,6 +1755,8 @@ typedef struct XEG_ExtensionProperties XEG_ExtensionProperties
   
 
 ##### XEG_HPS
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VK_DEFINE_HANDLE(XEG_HPS)
@@ -1608,6 +1772,8 @@ VK_DEFINE_HANDLE(XEG_HPS)
 
 ##### XEG_HPSCreateInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct XEG_HPSCreateInfo XEG_HPSCreateInfo
 ```
@@ -1621,6 +1787,8 @@ typedef struct XEG_HPSCreateInfo XEG_HPSCreateInfo
   
 
 ##### XEG_HPSRadixSort
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct XEG_HPSRadixSort XEG_HPSRadixSort
@@ -1636,6 +1804,8 @@ typedef struct XEG_HPSRadixSort XEG_HPSRadixSort
 
 ##### XEG_HPSRadixSortDescription
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct XEG_HPSRadixSortDescription XEG_HPSRadixSortDescription
 ```
@@ -1649,6 +1819,8 @@ typedef struct XEG_HPSRadixSortDescription XEG_HPSRadixSortDescription
   
 
 ##### XEG_RTGI
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VK_DEFINE_HANDLE(XEG_RTGI)
@@ -1664,6 +1836,8 @@ VK_DEFINE_HANDLE(XEG_RTGI)
 
 ##### XEG_RTGIQualityMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef enum XEG_RTGIQualityMode XEG_RTGIQualityMode
 ```
@@ -1677,6 +1851,8 @@ typedef enum XEG_RTGIQualityMode XEG_RTGIQualityMode
   
 
 ##### XEG_RTReflection
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VK_DEFINE_HANDLE(XEG_RTReflection)
@@ -1692,6 +1868,8 @@ VK_DEFINE_HANDLE(XEG_RTReflection)
 
 ##### XEG_RTReflectionCreateInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct XEG_RTReflectionCreateInfo XEG_RTReflectionCreateInfo
 ```
@@ -1705,6 +1883,8 @@ typedef struct XEG_RTReflectionCreateInfo XEG_RTReflectionCreateInfo
   
 
 ##### XEG_RTReflectionDescription
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct XEG_RTReflectionDescription XEG_RTReflectionDescription
@@ -1720,6 +1900,8 @@ typedef struct XEG_RTReflectionDescription XEG_RTReflectionDescription
 
 ##### XEG_RTVisibleMask
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VK_DEFINE_HANDLE(XEG_RTVisibleMask)
 ```
@@ -1733,6 +1915,8 @@ VK_DEFINE_HANDLE(XEG_RTVisibleMask)
   
 
 ##### XEG_SpatialUpscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VK_DEFINE_HANDLE(XEG_SpatialUpscale)
@@ -1748,6 +1932,8 @@ VK_DEFINE_HANDLE(XEG_SpatialUpscale)
 
 ##### XEG_SpatialUpscaleCreateInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct XEG_SpatialUpscaleCreateInfo XEG_SpatialUpscaleCreateInfo
 ```
@@ -1761,6 +1947,8 @@ typedef struct XEG_SpatialUpscaleCreateInfo XEG_SpatialUpscaleCreateInfo
   
 
 ##### XEG_SpatialUpscaleDescription
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct XEG_SpatialUpscaleDescription XEG_SpatialUpscaleDescription
@@ -1776,6 +1964,8 @@ typedef struct XEG_SpatialUpscaleDescription XEG_SpatialUpscaleDescription
 
 ##### XEG_StructureType
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef enum XEG_StructureType XEG_StructureType
 ```
@@ -1789,6 +1979,8 @@ XEngine结构体类型的枚举。
   
 
 ##### XEG_TemporalUpscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VK_DEFINE_HANDLE(XEG_TemporalUpscale)
@@ -1804,6 +1996,8 @@ VK_DEFINE_HANDLE(XEG_TemporalUpscale)
 
 ##### XEG_TemporalUpscaleCreateInfo
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef struct XEG_TemporalUpscaleCreateInfo XEG_TemporalUpscaleCreateInfo
 ```
@@ -1817,6 +2011,8 @@ typedef struct XEG_TemporalUpscaleCreateInfo XEG_TemporalUpscaleCreateInfo
   
 
 ##### XEG_TemporalUpscaleDescription
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 typedef struct XEG_TemporalUpscaleDescription XEG_TemporalUpscaleDescription
@@ -1832,6 +2028,8 @@ typedef struct XEG_TemporalUpscaleDescription XEG_TemporalUpscaleDescription
 
 ##### XEG_TraversalMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 typedef enum XEG_TraversalMode XEG_TraversalMode
 ```
@@ -1846,9 +2044,13 @@ typedef enum XEG_TraversalMode XEG_TraversalMode
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### XEG_DenoiseQualityMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum XEG_DenoiseQualityMode
@@ -1872,6 +2074,8 @@ enum XEG_DenoiseQualityMode
 
 ##### XEG_RTGIQualityMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum XEG_RTGIQualityMode
 ```
@@ -1892,6 +2096,8 @@ enum XEG_RTGIQualityMode
   
 
 ##### XEG_StructureType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 enum XEG_StructureType
@@ -1922,6 +2128,8 @@ XEngine结构体类型的枚举。
 
 ##### XEG_TraversalMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 enum XEG_TraversalMode
 ```
@@ -1942,9 +2150,13 @@ enum XEG_TraversalMode
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### HMS_XEG_AdaptiveVRSParameter()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GL_APICALL void GL_APIENTRY HMS_XEG_AdaptiveVRSParameter (GLenum pname, GLvoid * param)
@@ -1968,6 +2180,8 @@ GL_APICALL void GL_APIENTRY HMS_XEG_AdaptiveVRSParameter (GLenum pname, GLvoid *
 
 ##### HMS_XEG_ApplyAdaptiveVRS()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GL_APICALL void GL_APIENTRY HMS_XEG_ApplyAdaptiveVRS (GLuint shadingRateImage)
 ```
@@ -1988,6 +2202,8 @@ GL_APICALL void GL_APIENTRY HMS_XEG_ApplyAdaptiveVRS (GLuint shadingRateImage)
   
 
 ##### HMS_XEG_CmdDispatchAdaptiveVRS()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdDispatchAdaptiveVRS (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription * pXegAdaptiveVRSDescription)
@@ -2011,6 +2227,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdDispatchAdaptiveVRS (VkCommandBuffer comma
   
 
 ##### HMS_XEG_CmdRadixSortHPS()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRadixSortHPS (VkCommandBuffer commandBuffer, XEG_HPS hps, const XEG_HPSRadixSortDescription * pDescription)
@@ -2039,6 +2257,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRadixSortHPS (VkCommandBuffer commandB
 
 ##### HMS_XEG_CmdRenderRTGI()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRenderRTGI (VkCommandBuffer commandBuffer, XEG_RTGI rtGI, const void * pDescription)
 ```
@@ -2066,6 +2286,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRenderRTGI (VkCommandBuffer commandBuf
 
 ##### HMS_XEG_CmdRenderRTReflection()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRenderRTReflection (VkCommandBuffer commandBuffer, XEG_RTReflection rtReflection, const void * pDescription)
 ```
@@ -2088,6 +2310,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRenderRTReflection (VkCommandBuffer co
   
 
 ##### HMS_XEG_CmdRenderRTVisibleMask()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRenderRTVisibleMask (VkCommandBuffer commandBuffer, XEG_RTVisibleMask rtVisibleMask, const void * pDescription)
@@ -2116,6 +2340,8 @@ VkResult类型的错误码，值为VK_SUCCESS时表示执行成功。
 
 ##### HMS_XEG_CmdRenderSpatialUpscale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdRenderSpatialUpscale (VkCommandBuffer commandBuffer, XEG_SpatialUpscale xegSpatialUpscale, XEG_SpatialUpscaleDescription * pXegSpatialUpscaleDescription)
 ```
@@ -2139,6 +2365,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdRenderSpatialUpscale (VkCommandBuffer comm
 
 ##### HMS_XEG_CmdRenderTemporalUpscale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdRenderTemporalUpscale (VkCommandBuffer commandBuffer, XEG_TemporalUpscale temporalUpscale, XEG_TemporalUpscaleDescription * pDescription)
 ```
@@ -2161,6 +2389,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdRenderTemporalUpscale (VkCommandBuffer com
   
 
 ##### HMS_XEG_CmdSetSynchronization()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdSetSynchronization (VkCommandBuffer commandBuffer, const void * xegHandle )
@@ -2187,6 +2417,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdSetSynchronization (VkCommandBuffer co
   
 
 ##### HMS_XEG_CreateAdaptiveVRS()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateAdaptiveVRS (VkDevice device, XEG_AdaptiveVRSCreateInfo * pXegAdaptiveVRSCreateInfo, XEG_AdaptiveVRS * pXegAdaptiveVRS)
@@ -2215,6 +2447,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateAdaptiveVRS (VkDevice device, XEG_A
 
 ##### HMS_XEG_CreateHPS()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateHPS (VkDevice device, const XEG_HPSCreateInfo * pCreateInfo, XEG_HPS * pHps )
 ```
@@ -2241,6 +2475,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateHPS (VkDevice device, const XEG_HPS
   
 
 ##### HMS_XEG_CreateRTGI()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateRTGI (VkDevice device, const void * pCreateInfo, XEG_RTGI * pRtGI )
@@ -2269,6 +2505,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateRTGI (VkDevice device, const void *
 
 ##### HMS_XEG_CreateRTReflection()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateRTReflection (VkDevice device, const void * pCreateInfo, XEG_RTReflection * pRtReflection )
 ```
@@ -2295,6 +2533,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateRTReflection (VkDevice device, cons
   
 
 ##### HMS_XEG_CreateRTVisibleMask()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateRTVisibleMask (VkDevice device, const void * pCreateInfo, XEG_RTVisibleMask * pRTVisibleMask )
@@ -2323,6 +2563,8 @@ VkResult类型的错误码，值为VK_SUCCESS时表示创建成功。
 
 ##### HMS_XEG_CreateSpatialUpscale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateSpatialUpscale (VkDevice device, const XEG_SpatialUpscaleCreateInfo * pXegSpatialUpscaleCreateInfo, XEG_SpatialUpscale * pXegSpatialUpscale)
 ```
@@ -2349,6 +2591,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateSpatialUpscale (VkDevice device, co
   
 
 ##### HMS_XEG_CreateTemporalUpscale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateTemporalUpscale (VkDevice device, XEG_TemporalUpscaleCreateInfo * pTemporalUpscaleInfo, XEG_TemporalUpscale * pTemporalUpscale)
@@ -2377,6 +2621,8 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateTemporalUpscale (VkDevice device, X
 
 ##### HMS_XEG_DestroyAdaptiveVRS()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyAdaptiveVRS (XEG_AdaptiveVRS xegAdaptiveVRS)
 ```
@@ -2397,6 +2643,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyAdaptiveVRS (XEG_AdaptiveVRS xegAdapti
   
 
 ##### HMS_XEG_DestroyHPS()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyHPS (XEG_HPS hps)
@@ -2419,6 +2667,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyHPS (XEG_HPS hps)
 
 ##### HMS_XEG_DestroyRTGI()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyRTGI (XEG_RTGI rtGI)
 ```
@@ -2439,6 +2689,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyRTGI (XEG_RTGI rtGI)
   
 
 ##### HMS_XEG_DestroyRTReflection()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyRTReflection (XEG_RTReflection rtReflection)
@@ -2461,6 +2713,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyRTReflection (XEG_RTReflection rtRefle
 
 ##### HMS_XEG_DestroyRTVisibleMask()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyRTVisibleMask (XEG_RTVisibleMask rtVisibleMask)
 ```
@@ -2481,6 +2735,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyRTVisibleMask (XEG_RTVisibleMask rtVis
   
 
 ##### HMS_XEG_DestroySpatialUpscale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroySpatialUpscale (XEG_SpatialUpscale xegSpatialUpscale)
@@ -2503,6 +2759,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroySpatialUpscale (XEG_SpatialUpscale xeg
 
 ##### HMS_XEG_DestroyTemporalUpscale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyTemporalUpscale (XEG_TemporalUpscale temporalUpscale)
 ```
@@ -2523,6 +2781,8 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyTemporalUpscale (XEG_TemporalUpscale t
   
 
 ##### HMS_XEG_DispatchAdaptiveVRS()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GL_APICALL void GL_APIENTRY HMS_XEG_DispatchAdaptiveVRS (GLfloat * reprojectionMatrix, GLuint inputColorImage, GLuint inputDepthImage, GLuint shadingRateImage)
@@ -2552,6 +2812,8 @@ GL_APICALL void GL_APIENTRY HMS_XEG_DispatchAdaptiveVRS (GLfloat * reprojectionM
 
 ##### HMS_XEG_EnumerateDeviceExtensionProperties()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_EnumerateDeviceExtensionProperties (VkPhysicalDevice physicalDevice, uint32_t * pPropertyCount, XEG_ExtensionProperties * pProperties)
 ```
@@ -2579,6 +2841,8 @@ XEngine Vulkan扩展特性查询接口。
 
 ##### HMS_XEG_GetString()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 const GLubyte* HMS_XEG_GetString (GLenum name)
 ```
@@ -2604,6 +2868,8 @@ XEngine OpenGL ES扩展特性查询接口。
 
 ##### HMS_XEG_NeuralUpscaleParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GL_APICALL void GL_APIENTRY HMS_XEG_NeuralUpscaleParameter (GLenum pname, GLvoid * param)
 ```
@@ -2626,6 +2892,8 @@ GL_APICALL void GL_APIENTRY HMS_XEG_NeuralUpscaleParameter (GLenum pname, GLvoid
 
 ##### HMS_XEG_RenderNeuralUpscale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GL_APICALL void GL_APIENTRY HMS_XEG_RenderNeuralUpscale (GLuint inputTexture)
 ```
@@ -2647,6 +2915,8 @@ GL_APICALL void GL_APIENTRY HMS_XEG_RenderNeuralUpscale (GLuint inputTexture)
 
 ##### HMS_XEG_RenderSpatialUpscale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GL_APICALL void GL_APIENTRY HMS_XEG_RenderSpatialUpscale (GLuint inputTexture)
 ```
@@ -2667,6 +2937,8 @@ GL_APICALL void GL_APIENTRY HMS_XEG_RenderSpatialUpscale (GLuint inputTexture)
   
 
 ##### HMS_XEG_RenderTemporalUpscale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GL_APICALL void GL_APIENTRY HMS_XEG_RenderTemporalUpscale (GLuint inputTexture, GLuint depthTexture, GLuint motionVectorTexture, GLuint dynamicMaskTexture, GLfloat jitterX, GLfloat jitterY )
@@ -2694,6 +2966,8 @@ GL_APICALL void GL_APIENTRY HMS_XEG_RenderTemporalUpscale (GLuint inputTexture, 
 
 ##### HMS_XEG_SpatialUpscaleParameter()
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 GL_APICALL void GL_APIENTRY HMS_XEG_SpatialUpscaleParameter (GLenum pname, GLvoid * param)
 ```
@@ -2715,6 +2989,8 @@ GL_APICALL void GL_APIENTRY HMS_XEG_SpatialUpscaleParameter (GLenum pname, GLvoi
   
 
 ##### HMS_XEG_TemporalUpscaleParameter()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 GL_APICALL void GL_APIENTRY HMS_XEG_TemporalUpscaleParameter (GLenum pname, const GLvoid * param)

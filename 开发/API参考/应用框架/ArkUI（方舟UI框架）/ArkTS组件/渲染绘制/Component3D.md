@@ -14,11 +14,15 @@
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
 
 
 
 ##### 接口
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 Component3D(sceneOptions?: SceneOptions)
 
@@ -37,6 +41,8 @@ Component3D(sceneOptions?: SceneOptions)
 
 ##### SceneOptions对象说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Component3D组件配置选项。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -53,6 +59,8 @@ Component3D组件配置选项。
 
 ##### ModelType枚举说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 渲染合成模式类型枚举，用于指定3D场景的渲染输出方式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -68,6 +76,8 @@ Component3D组件配置选项。
 
 
 ##### Scene12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type Scene = Scene
 
@@ -86,11 +96,15 @@ type Scene = Scene
 
 ##### 属性
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 除支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)外，还支持以下属性：
 
 
 
 ##### environment
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 environment(uri: ResourceStr)
 
@@ -110,6 +124,8 @@ environment(uri: ResourceStr)
 
 
 ##### customRender
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 customRender(uri: ResourceStr, selfRenderUpdate: boolean)
 
@@ -131,6 +147,8 @@ customRender(uri: ResourceStr, selfRenderUpdate: boolean)
 
 ##### shader
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 shader(uri: ResourceStr)
 
 设置自定义渲染的shader文件资源。自定义渲染的shader文件资源在控件创建后不支持动态修改。
@@ -149,6 +167,8 @@ shader(uri: ResourceStr)
 
 
 ##### shaderImageTexture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 shaderImageTexture(uri: ResourceStr)
 
@@ -169,6 +189,8 @@ shaderImageTexture(uri: ResourceStr)
 
 ##### shaderInputBuffer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 shaderInputBuffer(buffer: Array&lt;number&gt;)
 
 设置自定义渲染用到的动效参数。
@@ -187,6 +209,8 @@ shaderInputBuffer(buffer: Array&lt;number&gt;)
 
 
 ##### renderWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 renderWidth(value: Dimension)
 
@@ -211,6 +235,8 @@ renderWidth(value: Dimension)
 
 ##### renderHeight
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 renderHeight(value: Dimension)
 
 设置3D渲染分辨率的高度。渲染分辨率的宽高可以不同于控件的宽高，若渲染分辨率与控件分辨率宽高不一致时会上采样或下采样到控件宽高。
@@ -234,11 +260,15 @@ renderHeight(value: Dimension)
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
 
 
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
 

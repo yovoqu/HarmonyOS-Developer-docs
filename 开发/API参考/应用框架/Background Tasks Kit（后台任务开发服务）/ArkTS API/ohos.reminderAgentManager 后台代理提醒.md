@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { reminderAgentManager } from '@kit.BackgroundTasksKit';
 ```
@@ -21,6 +23,8 @@ import { reminderAgentManager } from '@kit.BackgroundTasksKit';
 
 
 ##### reminderAgentManager.publishReminder
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback&lt;number&gt;): void
 
@@ -76,6 +80,8 @@ reminderAgentManager.publishReminder(timer, (err: BusinessError, reminderId: num
 
 
 ##### reminderAgentManager.publishReminder
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 publishReminder(reminderReq: ReminderRequest): Promise&lt;number&gt;
 
@@ -136,6 +142,8 @@ reminderAgentManager.publishReminder(timer).then((reminderId: number) => {
 
 ##### reminderAgentManager.cancelReminder
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelReminder(reminderId: number, callback: AsyncCallback&lt;void&gt;): void
 
 取消指定id的代理提醒。使用callback异步回调。
@@ -180,6 +188,8 @@ reminderAgentManager.cancelReminder(reminderId, (err: BusinessError) => {
 
 
 ##### reminderAgentManager.cancelReminder
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 cancelReminder(reminderId: number): Promise&lt;void&gt;
 
@@ -229,6 +239,8 @@ reminderAgentManager.cancelReminder(reminderId).then(() => {
 
 
 ##### reminderAgentManager.getValidReminders
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getValidReminders(callback: AsyncCallback<Array&lt;ReminderRequest&gt;>): void
 
@@ -292,6 +304,8 @@ reminderAgentManager.getValidReminders((err: BusinessError, reminders: Array<rem
 
 ##### reminderAgentManager.getValidReminders
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getValidReminders(): Promise<Array&lt;ReminderRequest&gt;>
 
 获取当前应用设置的所有[有效（未过期）的代理提醒](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-powered-reminder#约束与限制)。使用Promise异步回调。
@@ -352,6 +366,8 @@ reminderAgentManager.getValidReminders().then((reminders: Array<reminderAgentMan
 
 ##### reminderAgentManager.cancelAllReminders
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelAllReminders(callback: AsyncCallback&lt;void&gt;): void
 
 取消当前应用设置的所有代理提醒。使用callback异步回调。
@@ -394,6 +410,8 @@ reminderAgentManager.cancelAllReminders((err: BusinessError) =>{
 
 ##### reminderAgentManager.cancelAllReminders
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelAllReminders(): Promise&lt;void&gt;
 
 取消当前应用设置的所有代理提醒。使用Promise异步回调。
@@ -433,6 +451,8 @@ reminderAgentManager.cancelAllReminders().then(() => {
 
 
 ##### reminderAgentManager.addNotificationSlot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback&lt;void&gt;): void
 
@@ -480,6 +500,8 @@ reminderAgentManager.addNotificationSlot(mySlot, (err: BusinessError) => {
 
 
 ##### reminderAgentManager.addNotificationSlot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addNotificationSlot(slot: NotificationSlot): Promise&lt;void&gt;
 
@@ -531,6 +553,8 @@ reminderAgentManager.addNotificationSlot(mySlot).then(() => {
 
 ##### reminderAgentManager.removeNotificationSlot
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定的通知渠道类型，使用callback异步回调。
@@ -574,6 +598,8 @@ reminderAgentManager.removeNotificationSlot(notificationManager.SlotType.CONTENT
 
 
 ##### reminderAgentManager.removeNotificationSlot
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 removeNotificationSlot(slotType: notification.SlotType): Promise&lt;void&gt;
 
@@ -621,6 +647,8 @@ reminderAgentManager.removeNotificationSlot(notificationManager.SlotType.CONTENT
 
 
 ##### reminderAgentManager.getAllValidReminders12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getAllValidReminders(): Promise<Array&lt;ReminderInfo&gt;>
 
@@ -681,6 +709,8 @@ reminderAgentManager.getAllValidReminders().then((reminders: Array<reminderAgent
 
 ##### reminderAgentManager.addExcludeDate12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addExcludeDate(reminderId: number, date: Date): Promise&lt;void&gt;
 
 为指定id的周期性的日历提醒，添加不提醒日期（如每天提醒的日历，设置周二不提醒）。使用Promise异步回调。
@@ -732,6 +762,8 @@ reminderAgentManager.addExcludeDate(reminderId, date).then(() => {
 
 ##### reminderAgentManager.deleteExcludeDates12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deleteExcludeDates(reminderId: number): Promise&lt;void&gt;
 
 为指定id的周期性的日历提醒，删除设置的所有不提醒日期。使用Promise异步回调。
@@ -779,6 +811,8 @@ reminderAgentManager.deleteExcludeDates(reminderId).then(() => {
 
 
 ##### reminderAgentManager.getExcludeDates12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getExcludeDates(reminderId: number): Promise<Array&lt;Date&gt;>
 
@@ -830,6 +864,8 @@ reminderAgentManager.getExcludeDates(reminderId).then((dates) => {
 
 
 ##### reminderAgentManager.updateReminder20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 updateReminder(reminderId: number, reminderReq: ReminderRequest): Promise&lt;void&gt;
 
@@ -888,6 +924,8 @@ reminderAgentManager.updateReminder(reminderId, timer).then(() => {
 
 ##### reminderAgentManager.cancelReminderOnDisplay23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 cancelReminderOnDisplay(reminderId: number): Promise&lt;void&gt;
 
 取消当前通知中心内显示的通知卡片，不取消代理提醒数据。例如：每天重复的提醒，该提醒正在通知中心内显示，该接口将通知从通知中心内取消，并且会按照设定的周期，在第二天再次提醒。
@@ -935,6 +973,8 @@ reminderAgentManager.cancelReminderOnDisplay(reminderId).then(() => {
 
 
 ##### reminderAgentManager.subscribeReminderState23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 subscribeReminderState(callback: Callback<Array&lt;ReminderState&gt;>): Promise&lt;void&gt;
 
@@ -991,6 +1031,8 @@ reminderAgentManager.subscribeReminderState(reminderStateCallback).then(() => {
 
 ##### reminderAgentManager.unsubscribeReminderState23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unsubscribeReminderState(callback?: Callback<Array&lt;ReminderState&gt;>): Promise&lt;void&gt;
 
 取消订阅代理提醒状态。使用Promise异步回调。
@@ -1043,6 +1085,8 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 ##### ActionButtonType
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 提醒上的按钮的类型。
 
 **系统能力：** SystemCapability.Notification.ReminderAgent
@@ -1056,6 +1100,8 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 ##### ReminderType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 提醒的类型。
 
@@ -1072,6 +1118,8 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 ##### RingChannel20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 自定义提示音的音频播放通道。
 
 **系统能力：** SystemCapability.Notification.ReminderAgent
@@ -1087,6 +1135,8 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 ##### ActionButton
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 弹出的提醒中按钮的类型和标题。
 
 **系统能力：** SystemCapability.Notification.ReminderAgent
@@ -1101,6 +1151,8 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 ##### WantAgent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 跳转目标的ability信息。
 
@@ -1118,6 +1170,8 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 ##### MaxScreenWantAgent
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 通知中心弹出提醒时，全屏显示自动拉起目标的ability信息。该接口为预留接口，暂不支持使用。
 
 **系统能力：** SystemCapability.Notification.ReminderAgent
@@ -1131,6 +1185,8 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 
 ##### ReminderRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 代理提醒对象，用于设置提醒类型、响铃时长等具体信息。
 
@@ -1167,6 +1223,8 @@ reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => 
 
 ##### ReminderRequestCalendar
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ReminderRequestCalendar extends ReminderRequest
 
 日历实例对象，用于设置提醒的时间。
@@ -1186,6 +1244,8 @@ ReminderRequestCalendar extends ReminderRequest
 
 ##### ReminderRequestAlarm
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ReminderRequestAlarm extends ReminderRequest
 
 闹钟实例对象，用于设置提醒的时间。
@@ -1203,6 +1263,8 @@ ReminderRequestAlarm extends ReminderRequest
 
 ##### ReminderRequestTimer
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ReminderRequestTimer extends ReminderRequest
 
 倒计时实例对象，用于设置提醒的时间。
@@ -1217,6 +1279,8 @@ ReminderRequestTimer extends ReminderRequest
 
 
 ##### LocalDateTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于日历类提醒设置时指定时间信息。
 
@@ -1236,6 +1300,8 @@ ReminderRequestTimer extends ReminderRequest
 
 ##### ReminderInfo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 代理提醒信息，包含 ReminderRequest 和 ReminderId。
 
 **系统能力：** SystemCapability.Notification.ReminderAgent
@@ -1249,6 +1315,8 @@ ReminderRequestTimer extends ReminderRequest
 
 
 ##### ReminderState23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 代理提醒状态信息。状态信息会在如下两种情况发送通知：
 1. 用户点击代理提醒的通知按钮时，如果应用进程存在，则会发送用户点击的按钮类型的通知给应用。如果应用未运行，则无法收到通知。

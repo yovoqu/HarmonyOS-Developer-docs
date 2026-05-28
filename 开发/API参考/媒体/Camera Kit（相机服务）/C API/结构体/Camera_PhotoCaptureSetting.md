@@ -12,6 +12,8 @@ typedef struct Camera_PhotoCaptureSetting {...} Camera_PhotoCaptureSetting
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 要设置的拍照捕获选项。
  
 **起始版本：** 11
@@ -24,9 +26,13 @@ typedef struct Camera_PhotoCaptureSetting {...} Camera_PhotoCaptureSetting
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

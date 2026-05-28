@@ -26,9 +26,13 @@
 
 ##### 接口
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### PanGesture
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 PanGesture(value?: { fingers?: number; direction?: PanDirection; distance?: number } | PanGestureOptions)
  
@@ -49,6 +53,8 @@ PanGesture(value?: { fingers?: number; direction?: PanDirection; distance?: numb
 
 ##### PanGesture15+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 PanGesture(options?: PanGestureHandlerOptions)
  
 创建滑动手势对象。与[PanGesture](#pangesture-1)相比，options参数新增了对isFingerCountLimited和distanceMap参数，分别表示是否检查触摸屏幕的手指数量以及指定不同输入源触发滑动手势事件的最小滑动距离。
@@ -67,6 +73,8 @@ PanGesture(options?: PanGestureHandlerOptions)
   
 
 ##### PanDirection枚举说明
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 与SwipeDirection不同，PanDirection没有角度限制。
  
@@ -90,9 +98,13 @@ PanGesture(options?: PanGestureHandlerOptions)
 
 ##### PanGestureOptions
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(value?: { fingers?: number; direction?: PanDirection; distance?: number })
  
@@ -113,6 +125,8 @@ constructor(value?: { fingers?: number; direction?: PanDirection; distance?: num
 
 ##### setDirection
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDirection(value: PanDirection)
  
 设置滑动方向。
@@ -131,6 +145,8 @@ setDirection(value: PanDirection)
   
 
 ##### setDistance
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setDistance(value: number)
  
@@ -151,6 +167,8 @@ setDistance(value: number)
 
 ##### setFingers
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setFingers(value: number)
  
 设置触发滑动的最少手指数。
@@ -169,6 +187,8 @@ setFingers(value: number)
   
 
 ##### getDirection12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getDirection(): PanDirection
  
@@ -189,6 +209,8 @@ getDirection(): PanDirection
 
 ##### getDistance18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getDistance(): number
  
 获取触发滑动手势事件的最小滑动距离。
@@ -208,6 +230,8 @@ getDistance(): number
 
 ##### 事件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 > [!TIP]
 > 在 GestureEvent 的fingerList元素中，手指索引编号与位置相对应，即fingerList[index]的id为index。对于先按下但未参与当前手势触发的手指，fingerList中对应的位置为空。建议优先使用fingerInfos。
 
@@ -215,6 +239,8 @@ getDistance(): number
   
 
 ##### onActionStart
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onActionStart(event: (event: GestureEvent) => void)
  
@@ -235,6 +261,8 @@ onActionStart(event: (event: GestureEvent) => void)
 
 ##### onActionUpdate
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionUpdate(event: (event: GestureEvent) => void)
  
 设置滑动手势更新回调。fingerList为多根手指时，该回调监听每次只会更新一根手指的位置信息。
@@ -253,6 +281,8 @@ onActionUpdate(event: (event: GestureEvent) => void)
   
 
 ##### onActionEnd
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 onActionEnd(event: (event: GestureEvent) => void)
  
@@ -273,6 +303,8 @@ onActionEnd(event: (event: GestureEvent) => void)
 
 ##### onActionCancel
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionCancel(event: () => void)
  
 设置滑动手势取消回调。滑动手势识别成功后，接收到触摸取消事件时触发回调。不返回手势事件信息。
@@ -292,6 +324,8 @@ onActionCancel(event: () => void)
 
 ##### onActionCancel18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onActionCancel(event: Callback&lt;GestureEvent&gt;)
  
 设置滑动手势取消回调。滑动手势识别成功后，接收到触摸取消事件时触发回调。返回手势事件信息。
@@ -310,6 +344,8 @@ onActionCancel(event: Callback&lt;GestureEvent&gt;)
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该示例通过PanGesture实现了单指/双指滑动手势的识别。
  
@@ -372,10 +408,10 @@ struct PanGestureExample {
 向左滑动：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/v1En80C_S-O3fqMrvJXgMg/zh-cn_image_0000002581435710.png?HW-CC-KV=V1&HW-CC-Date=20260528T013906Z&HW-CC-Expire=86400&HW-CC-Sign=01F6D0A962B5BE2ACE1C52A1624CE4A49A109C1D5649A242D14E2445462ED784)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/v1En80C_S-O3fqMrvJXgMg/zh-cn_image_0000002581435710.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=7806676C21AB1D16EFEE2F3889DE99A49ED85254732E49A9D9ED1EF7B6C65669)
 
  
 点击按钮时，修改PanGesture触发条件为双指向左下方滑动：
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/SnFLHr2KSrKtQjQ4idsgpg/zh-cn_image_0000002611835541.png?HW-CC-KV=V1&HW-CC-Date=20260528T013906Z&HW-CC-Expire=86400&HW-CC-Sign=5949F9F6D8461A77E3E254C4C692C9593F666033CD372C31C6291F748B831A7E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/SnFLHr2KSrKtQjQ4idsgpg/zh-cn_image_0000002611835541.png?HW-CC-KV=V1&HW-CC-Date=20260528T024201Z&HW-CC-Expire=86400&HW-CC-Sign=7505A936DA4DAA5238A6C3BF8EF4F5061E8F2E53BF4F2D7BEFA595FCBA81B1EF)

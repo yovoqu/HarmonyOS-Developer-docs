@@ -143,17 +143,32 @@ def html_to_markdown(html, title, update_time, source_url, catalog, images_map):
     md = re.sub(r'</div>', '\n', md)
 
     # 4. Headings (shift +1 since # is doc title)
+    # Also extract device-type from ALL heading levels
+    def _device_line(heading_tag):
+        """Extract device-type from a heading tag and return support line if present."""
+        dt = re.search(r'device-type="([^"]+)"', heading_tag)
+        if dt:
+            devices = dt.group(1).split(',')
+            mapped = " | ".join(DEVICE_MAP.get(d.strip(), d.strip()) for d in devices)
+            return f"**支持设备：** {mapped}"
+        return ""
+
     # Skip h1 if it matches doc title
     md = re.sub(r'<h1[^>]*>\s*' + re.escape(title) + r'\s*</h1>', '', md, flags=re.DOTALL)
-    # Strip [h2]/[h3]/[h4] markers from heading text
-    def clean_heading(m):
-        text = m.group(1)
+
+    def _heading(m, prefix):
+        tag = m.group(0)
+        text = m.group(2)  # .group(1) is attributes, .group(2) is content
         text = re.sub(r'\[h[234]\]\s*', '', text)
-        return f'\n## {text}\n'
-    md = re.sub(r'<h1[^>]*>(.*?)</h1>', clean_heading, md, flags=re.DOTALL)
-    md = re.sub(r'<h2[^>]*>(.*?)</h2>', lambda m: f'\n### {re.sub(r"\[h[234]\]\s*", "", m.group(1))}\n', md, flags=re.DOTALL)
-    md = re.sub(r'<h3[^>]*>(.*?)</h3>', lambda m: f'\n#### {re.sub(r"\[h[234]\]\s*", "", m.group(1))}\n', md, flags=re.DOTALL)
-    md = re.sub(r'<h4[^>]*>(.*?)</h4>', lambda m: f'\n##### {re.sub(r"\[h[234]\]\s*", "", m.group(1))}\n', md, flags=re.DOTALL)
+        device_line = _device_line(tag)
+        if device_line:
+            return f'\n{prefix} {text}\n\n{device_line}\n'
+        return f'\n{prefix} {text}\n'
+
+    md = re.sub(r'<h1([^>]*?)>(.*?)</h1>', lambda m: _heading(m, '##'), md, flags=re.DOTALL)
+    md = re.sub(r'<h2([^>]*?)>(.*?)</h2>', lambda m: _heading(m, '###'), md, flags=re.DOTALL)
+    md = re.sub(r'<h3([^>]*?)>(.*?)</h3>', lambda m: _heading(m, '####'), md, flags=re.DOTALL)
+    md = re.sub(r'<h4([^>]*?)>(.*?)</h4>', lambda m: _heading(m, '#####'), md, flags=re.DOTALL)
 
     # 4.5 Restore cell note placeholders: insert after preceding heading, before table
     for pid, note_md_text in cell_note_placeholders:

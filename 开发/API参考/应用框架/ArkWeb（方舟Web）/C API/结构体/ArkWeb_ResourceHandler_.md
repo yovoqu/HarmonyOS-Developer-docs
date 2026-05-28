@@ -12,6 +12,8 @@ typedef struct ArkWeb_ResourceHandler_ ArkWeb_ResourceHandler
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 用于被拦截的URL请求。可以通过ArkWeb_ResourceHandler发送自定义请求头以及自定义请求体。
  
 **起始版本：** 12

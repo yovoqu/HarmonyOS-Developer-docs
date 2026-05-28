@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### createImageLattice12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createImageLattice(xDivs: Array&lt;number&gt;, yDivs: Array&lt;number&gt;, fXCount: number, fYCount: number, fBounds?: common2D.Rect | null, fRectTypes?: Array&lt;RectType&gt; | null, fColors?: Array<common2D.Color> | null): Lattice
 
@@ -73,12 +77,14 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/0xFonG4rSsS2UaI2tU-g0w/zh-cn_image_0000002581277088.png?HW-CC-KV=V1&HW-CC-Date=20260528T014042Z&HW-CC-Expire=86400&HW-CC-Sign=6C3BBC9CE2CDC8CC1259CF3B600E9F138B07CA0431E582D71DE7AA71E56D040F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/0xFonG4rSsS2UaI2tU-g0w/zh-cn_image_0000002581277088.png?HW-CC-KV=V1&HW-CC-Date=20260528T024332Z&HW-CC-Expire=86400&HW-CC-Sign=84753CC5433CBC2579C9C1957F4AE7E215DB52E34F98D39ED83267B5DF70FF5F)
 
 
 
 
 ##### createImageLattice18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createImageLattice(xDivs: Array&lt;number&gt;, yDivs: Array&lt;number&gt;, fXCount: number, fYCount: number, fBounds?: common2D.Rect | null, fRectTypes?: Array&lt;RectType&gt; | null, fColors?: Array&lt;number&gt; | null): Lattice
 

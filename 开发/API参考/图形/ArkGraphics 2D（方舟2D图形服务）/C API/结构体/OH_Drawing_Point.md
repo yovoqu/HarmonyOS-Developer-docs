@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Point OH_Drawing_Point
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义一个点，用于描述坐标点。
  
 **起始版本：** 11

@@ -12,6 +12,8 @@
 
 ##### 1010200001 没有权限访问钱包应用
 
+**支持设备：** Phone
+
 **错误信息**
  
 No permission to access the Wallet APIs.
@@ -33,6 +35,8 @@ No permission to access the Wallet APIs.
 
 ##### 1010200002 钱包应用没有安装
 
+**支持设备：** Phone
+
 **错误信息**
  
 Wallet app not found.
@@ -52,6 +56,8 @@ Wallet app not found.
   
 
 ##### 1010200003 访问钱包的前置环境没有准备好
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -73,6 +79,8 @@ The environment of the wallet is not ready.
 
 ##### 1010200004 当前设备不支持开通卡券
 
+**支持设备：** Phone
+
 **错误信息**
  
 The device does not support this card.
@@ -92,6 +100,8 @@ The device does not support this card.
   
 
 ##### 1010200005 用户主动取消操作
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -113,6 +123,8 @@ The operation was canceled by the user.
 
 ##### 1010200006 设备远端匹配的手表无法连接
 
+**支持设备：** Phone
+
 **错误信息**
  
 The device's remote paired watch cannot be connected.
@@ -132,6 +144,8 @@ The device's remote paired watch cannot be connected.
   
 
 ##### 1010200007 操作系统版本过低
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -153,6 +167,8 @@ The OS version is too old. Please upgrade the OS version.
 
 ##### 1010200008 钱包应用版本过低
 
+**支持设备：** Phone
+
 **错误信息**
  
 The wallet version is too old. Please upgrade the wallet version.
@@ -172,6 +188,8 @@ The wallet version is too old. Please upgrade the wallet version.
   
 
 ##### 1010200009 无可用的芯片空间
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -193,6 +211,8 @@ The chip space is full, and no more cards can be added.
 
 ##### 1010200010 网络连接失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 Network connection error.
@@ -212,6 +232,8 @@ Network connection error.
   
 
 ##### 1010200011 钱包应用环境初始化失败
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -233,6 +255,8 @@ Failed to initialize the environment.
 
 ##### 1010200012 重复请求
 
+**支持设备：** Phone
+
 **错误信息**
  
 Duplicate request.
@@ -252,6 +276,8 @@ Duplicate request.
   
 
 ##### 1010200013 钱包应用内部异常
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -273,6 +299,8 @@ Operation failed because of an internal error.
 
 ##### 1010200014 钱包应用非机主用户检测
 
+**支持设备：** Phone
+
 **错误信息**
  
 The Wallet APIs can be called by the device owner only.
@@ -292,6 +320,8 @@ The Wallet APIs can be called by the device owner only.
   
 
 ##### 1010200015 儿童账号不支持此卡片
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -313,6 +343,8 @@ This card is not available for a child account.
 
 ##### 1010200016 此卡不适用于当前国家或地区
 
+**支持设备：** Phone
+
 **错误信息**
  
 This card is not available for the current country or region.
@@ -332,6 +364,8 @@ This card is not available for the current country or region.
   
 
 ##### 1010200017 钱包被用户关闭
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -353,6 +387,8 @@ The Wallet app was closed by the user.
 
 ##### 1010210102 校验token失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 Failed to verify the caller token.
@@ -372,6 +408,8 @@ Caller Token校验失败。
   
 
 ##### 1010220002 卡片已存在
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -393,6 +431,8 @@ The card already exists in the specified device.
 
 ##### 1010220003 服务器暂时停服
 
+**支持设备：** Phone
+
 **错误信息**
  
 Pass service is temporarily unavailable.
@@ -412,6 +452,8 @@ Pass service is temporarily unavailable.
   
 
 ##### 1010220004 卡券不存在当前设备
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -433,6 +475,8 @@ The card does not exist in the specified device.
 
 ##### 1010220005 卡片数量已经达到了最大开卡上限
 
+**支持设备：** Phone
+
 **错误信息**
  
 The number of cards has reached the upper limit.
@@ -452,6 +496,8 @@ The number of cards has reached the upper limit.
   
 
 ##### 1010220006 蓝牙权限未被同意
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -473,6 +519,8 @@ Bluetooth permission is not granted.
 
 ##### 1010220401 开卡时签名校验失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 Failed to add the card because the signature verification failed.
@@ -492,6 +540,8 @@ Failed to add the card because the signature verification failed.
   
 
 ##### 1010220402 开卡时数据解析失败
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -513,6 +563,8 @@ Failed to add the card because the data decryption failed.
 
 ##### 1010220403 开卡时实例不存在
 
+**支持设备：** Phone
+
 **错误信息**
  
 Failed to add the card because the instance ID does not exist.
@@ -532,6 +584,8 @@ Failed to add the card because the instance ID does not exist.
   
 
 ##### 1010220404 开卡时实例已存在
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -553,6 +607,8 @@ Failed to add the card because the instance ID has been used.
 
 ##### 1010220501 查询卡券不存在
 
+**支持设备：** Phone
+
 **错误信息**
  
 No card that meets the search criteria is found.
@@ -572,6 +628,8 @@ No card that meets the search criteria is found.
   
 
 ##### 1010220701 卡片无变更信息
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -593,6 +651,8 @@ Failed to update the card because no update is detected.
 
 ##### 1010220801 证书校验错误导致删卡失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 Failed to delete the card because the signature verification failed.
@@ -612,6 +672,8 @@ Failed to delete the card because the signature verification failed.
   
 
 ##### 1010221001 配对码无法获取
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -633,6 +695,8 @@ Connection failed because the pairing code is not obtained.
 
 ##### 1010221101 重复注册监听
 
+**支持设备：** Phone
+
 **错误信息**
  
 Registration failed because of duplicate register name.
@@ -652,6 +716,8 @@ Registration failed because of duplicate register name.
   
 
 ##### 1010221201 监听已经解注册
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -673,6 +739,8 @@ The registration may have been unregistered before.
 
 ##### 1010221301 断连导致车控消息失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 Failed to send the RKE message because of a connection failure.
@@ -692,6 +760,8 @@ Failed to send the RKE message because of a connection failure.
   
 
 ##### 1010221302 认证失败导致车控消息失败
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -713,6 +783,8 @@ Failed to send the RKE message because of an authentication failure.
 
 ##### 1010210101 卡状态不正确
 
+**支持设备：** Phone
+
 **错误信息**
  
 The card status is not correct.
@@ -732,6 +804,8 @@ The card status is not correct.
   
 
 ##### 1010210119 读取卡数据失败
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -753,6 +827,8 @@ Failed to read the card data.
 
 ##### 1010210201 指定的设备不支持添加参数issuerId指定的卡
 
+**支持设备：** Phone
+
 **错误信息**
  
 The device does not support adding the card specified by issuerId.
@@ -772,6 +848,8 @@ The device does not support adding the card specified by issuerId.
   
 
 ##### 1010210202 指定设备中已存在与参数IssuerId指定的卡冲突的卡
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -793,6 +871,8 @@ A card conflicting with the specified card already exists in the device.
 
 ##### 1010210203 IssuerId指定的卡已存在
 
+**支持设备：** Phone
+
 **错误信息**
  
 The specified card already exists.
@@ -812,6 +892,8 @@ IssuerId指定的卡已存在。
   
 
 ##### 1010210204 开卡业务暂时下线
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -833,6 +915,8 @@ The card addition service is temporarily offline.
 
 ##### 1010210301 addCardToken已过期
 
+**支持设备：** Phone
+
 **错误信息**
  
 The card adding conditions are not met. The order can be refunded to end the card addition process.
@@ -852,6 +936,8 @@ token已经过期，重新调用接口申请。
   
 
 ##### 1010210302 确认开卡订单失败
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -873,6 +959,8 @@ Failed to confirm the order. The order can be refunded to end the card addition 
 
 ##### 1010210319 添加卡失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 Failed to add the card.
@@ -892,6 +980,8 @@ Failed to add the card.
   
 
 ##### 1010210401 指定的卡不存在
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -913,6 +1003,8 @@ The specified card does not exist.
 
 ##### 1010210402 cardNumber指定的卡状态不正确
 
+**支持设备：** Phone
+
 **错误信息**
  
 The status of the specified card is incorrect.
@@ -932,6 +1024,8 @@ cardNumber指定的卡状态不正确。
   
 
 ##### 1010210403 确认充值订单失败
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -953,6 +1047,8 @@ Failed to confirm the order. The order can be refunded to end the recharging pro
 
 ##### 1010210419 余额充值失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 Failed to recharge the card.
@@ -972,6 +1068,8 @@ Failed to recharge the card.
   
 
 ##### 1010210501 指定的卡不存在
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -993,6 +1091,8 @@ cardNumber指定的卡不存在。
 
 ##### 1010210502 cardNumber指定的卡状态不正确
 
+**支持设备：** Phone
+
 **错误信息**
  
 The status of the specified card is incorrect.
@@ -1012,6 +1112,8 @@ cardNumber指定的卡状态不正确。
   
 
 ##### 1010210503 确认订单失败
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -1033,6 +1135,8 @@ Failed to confirm the order.
 
 ##### 1010210519 卡更新失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 Failed to update the card data.
@@ -1052,6 +1156,8 @@ Failed to update the card data.
   
 
 ##### 1010210601 确认订单失败
+
+**支持设备：** Phone
 
 **错误信息**
  
@@ -1073,6 +1179,8 @@ Failed to confirm the order.
 
 ##### 1010210619 删除卡失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 The card deleting failed.
@@ -1093,6 +1201,8 @@ The card deleting failed.
 
 ##### 1010210701 校验token失败
 
+**支持设备：** Phone
+
 **错误信息**
  
 Failed to verify the caller token.
@@ -1112,6 +1222,8 @@ Caller Token校验失败。
   
 
 ##### 1010210702 无法获取卡的元数据
+
+**支持设备：** Phone
 
 **错误信息**
  

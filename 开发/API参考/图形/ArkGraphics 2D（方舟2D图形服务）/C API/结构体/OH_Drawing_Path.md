@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Path OH_Drawing_Path
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义为路径，路径用于自定义各种形状。
  
 **起始版本：** 8

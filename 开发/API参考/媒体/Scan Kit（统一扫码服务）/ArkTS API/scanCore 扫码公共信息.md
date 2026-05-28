@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { scanCore } from '@kit.ScanKit';
 ```
@@ -19,6 +21,8 @@ import { scanCore } from '@kit.ScanKit';
   
 
 ##### ScanType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，码类型。
  
@@ -54,6 +58,8 @@ import { scanCore } from '@kit.ScanKit';
 
 ##### ScanErrorCode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，扫码错误码类型。
  
 **系统能力：** SystemCapability.Multimedia.Scan.Core
@@ -69,6 +75,8 @@ import { scanCore } from '@kit.ScanKit';
   
 
 ##### ScanSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，扫码结果来源。
  

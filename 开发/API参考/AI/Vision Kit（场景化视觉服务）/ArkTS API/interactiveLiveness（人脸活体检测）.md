@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | Tablet
+
 ```text
 import { interactiveLiveness } from '@kit.VisionKit';
 ```
@@ -21,6 +23,8 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 
 ##### DetectionMode
+
+**支持设备：** Phone | Tablet
 
 检测模式的枚举值。
 
@@ -39,6 +43,8 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 
 ##### ActionsNumber
+
+**支持设备：** Phone | Tablet
 
 人脸活体检测的动作检测个数的枚举值。
 
@@ -60,6 +66,8 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 ##### RouteRedirectionMode
 
+**支持设备：** Phone | Tablet
+
 人脸活体检测完成的路由跳转模式的枚举值。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -77,6 +85,8 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 
 ##### InteractiveLivenessConfig
+
+**支持设备：** Phone | Tablet
 
 人脸活体检测的配置项。
 
@@ -118,6 +128,8 @@ let routerOptions: interactiveLiveness.InteractiveLivenessConfig = {
 
 
 ##### startLivenessDetection
+
+**支持设备：** Phone | Tablet
 
 startLivenessDetection(config: InteractiveLivenessConfig): Promise&lt;boolean&gt;
 
@@ -181,6 +193,8 @@ interactiveLiveness.startLivenessDetection(routerOptions).then((isSuccess) => {
 
 
 ##### startLivenessDetection
+
+**支持设备：** Phone | Tablet
 
 startLivenessDetection(config: InteractiveLivenessConfig, callback: AsyncCallback<InteractiveLivenessResult | undefined>): Promise&lt;boolean&gt;
 
@@ -254,6 +268,8 @@ void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessErr
 
 ##### LivenessType
 
+**支持设备：** Phone | Tablet
+
 活体检测模式的枚举值。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
@@ -272,6 +288,8 @@ void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessErr
 
 
 ##### InteractiveLivenessResult
+
+**支持设备：** Phone | Tablet
 
 返回人脸活体检测结果的相关参数。
 
@@ -292,6 +310,8 @@ void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessErr
 
 
 ##### getInteractiveLivenessResult
+
+**支持设备：** Phone | Tablet
 
 getInteractiveLivenessResult(): Promise&lt;InteractiveLivenessResult&gt;
 
@@ -338,6 +358,8 @@ interactiveLiveness.getInteractiveLivenessResult().then(data => {
 
 
 ##### 动作说明
+
+**支持设备：** Phone | Tablet
 
 | 动作 | 描述 |
 | --- | --- |

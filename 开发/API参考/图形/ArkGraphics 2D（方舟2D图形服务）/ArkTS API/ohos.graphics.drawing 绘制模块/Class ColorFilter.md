@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### createBlendModeColorFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createBlendModeColorFilter(color: common2D.Color, mode: BlendMode) : ColorFilter
 
@@ -65,6 +69,8 @@ let colorFilter = drawing.ColorFilter.createBlendModeColorFilter(color, drawing.
 
 ##### createBlendModeColorFilter18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 static createBlendModeColorFilter(color: common2D.Color | number, mode: BlendMode) : ColorFilter
 
 使用指定的颜色和混合模式创建颜色滤波器。
@@ -106,6 +112,8 @@ let colorFilter = drawing.ColorFilter.createBlendModeColorFilter(0xffff0000, dra
 
 
 ##### createComposeColorFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createComposeColorFilter(outer: ColorFilter, inner: ColorFilter) : ColorFilter
 
@@ -152,6 +160,8 @@ let colorFilter = drawing.ColorFilter.createComposeColorFilter(colorFilter1, col
 
 ##### createLinearToSRGBGamma
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createLinearToSRGBGamma() : ColorFilter
 
 创建一个从线性颜色空间转换到SRGB颜色空间的颜色滤波器。
@@ -176,6 +186,8 @@ let colorFilter = drawing.ColorFilter.createLinearToSRGBGamma();
 
 
 ##### createSRGBGammaToLinear
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createSRGBGammaToLinear() : ColorFilter
 
@@ -202,6 +214,8 @@ let colorFilter = drawing.ColorFilter.createSRGBGammaToLinear();
 
 ##### createLumaColorFilter
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 createLumaColorFilter() : ColorFilter
 
 创建一个颜色滤波器将其输入的亮度值乘以透明度通道，并将红色、绿色和蓝色通道设置为零。
@@ -226,6 +240,8 @@ let colorFilter = drawing.ColorFilter.createLumaColorFilter();
 
 
 ##### createMatrixColorFilter12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createMatrixColorFilter(matrix: Array&lt;number&gt;): ColorFilter
 
@@ -273,6 +289,8 @@ let colorFilter = drawing.ColorFilter.createMatrixColorFilter(matrix);
 
 
 ##### createLightingColorFilter20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 static createLightingColorFilter(mutColor: common2D.Color | number, addColor: common2D.Color | number): ColorFilter
 

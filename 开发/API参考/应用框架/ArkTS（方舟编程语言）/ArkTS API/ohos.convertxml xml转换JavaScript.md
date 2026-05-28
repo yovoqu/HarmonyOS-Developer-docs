@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```xml
 import { convertxml } from '@kit.ArkTS';
 ```
@@ -22,9 +24,13 @@ import { convertxml } from '@kit.ArkTS';
 
 ##### ConvertXML
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### fastConvertToJSObject14+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 fastConvertToJSObject(xml: string, options?: ConvertOptions) : Object
 
@@ -100,6 +106,8 @@ try {
 
 
 ##### largeConvertToJSObject23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 largeConvertToJSObject(xml: string, options?: ConvertOptions): Object
 
@@ -185,6 +193,8 @@ try {
 
 ##### convertToJSObject(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 convertToJSObject(xml: string, options?: ConvertOptions) : Object
 
 转换XML文本为Object类型对象。
@@ -261,6 +271,8 @@ try {
 
 ##### convert(deprecated)
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 convert(xml: string, options?: ConvertOptions) : Object
 
 转换XML文本为JavaScript对象。
@@ -320,6 +332,8 @@ console.info(result);
 
 
 ##### ConvertOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 转换选项。
 

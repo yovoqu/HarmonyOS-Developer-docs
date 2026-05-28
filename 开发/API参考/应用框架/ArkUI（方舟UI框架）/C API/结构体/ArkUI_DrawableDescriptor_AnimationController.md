@@ -12,6 +12,8 @@ typedef struct ArkUI_DrawableDescriptor_AnimationController ArkUI_DrawableDescri
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义DrawableDescriptor动图控制器对象。
  
 **起始版本：** 22

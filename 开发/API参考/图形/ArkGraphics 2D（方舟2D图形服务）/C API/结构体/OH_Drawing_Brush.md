@@ -12,6 +12,8 @@ typedef struct OH_Drawing_Brush OH_Drawing_Brush
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义为画刷，画刷用于描述填充图形的样式和颜色。
  
 **起始版本：** 8

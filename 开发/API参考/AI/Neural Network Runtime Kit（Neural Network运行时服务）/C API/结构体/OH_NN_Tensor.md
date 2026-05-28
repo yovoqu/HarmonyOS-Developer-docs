@@ -12,6 +12,8 @@ typedef struct OH_NN_Tensor {...} OH_NN_Tensor
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 张量结构体。
  
 通常用于构造模型图中的数据节点和算子参数，在构造张量时需要明确数据类型、维数、维度信息和量化信息。
@@ -30,9 +32,13 @@ typedef struct OH_NN_Tensor {...} OH_NN_Tensor
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |

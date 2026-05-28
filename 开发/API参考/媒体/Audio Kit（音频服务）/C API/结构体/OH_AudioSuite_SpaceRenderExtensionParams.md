@@ -12,6 +12,8 @@ struct OH_AudioSuite_SpaceRenderExtensionParams {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
 定义空间渲染效果节点扩展模式配置参数。
  
 **起始版本：** 23
@@ -24,9 +26,13 @@ struct OH_AudioSuite_SpaceRenderExtensionParams {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

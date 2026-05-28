@@ -20,6 +20,8 @@ Audio/Video播放demo可参考：[音频播放开发指导](https://developer.hu
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { media } from '@kit.MediaKit';
 ```
@@ -27,6 +29,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力：** SystemCapability.Multimedia.Media.AVPlayer
 
@@ -51,6 +55,8 @@ import { media } from '@kit.MediaKit';
 
 
 ##### on('stateChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle): void
 
@@ -115,6 +121,8 @@ async function test(){
 
 ##### off('stateChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'stateChange', callback?: OnAVPlayerStateChangeHandle): void
 
 取消监听播放状态机[AVPlayerState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t#avplayerstate9)切换的事件。
@@ -144,6 +152,8 @@ async function test(){
 
 
 ##### on('error')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'error', callback: ErrorCallback): void
 
@@ -210,6 +220,8 @@ async function test(){
 
 ##### off('error')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'error', callback?: ErrorCallback): void
 
 取消监听播放的错误事件。
@@ -241,6 +253,8 @@ async function test(){
 
 
 ##### setMediaSource12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMediaSource(src:MediaSource, strategy?: PlaybackStrategy): Promise&lt;void&gt;
 
@@ -297,6 +311,8 @@ async function test(){
 
 
 ##### setPlaybackStrategy12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setPlaybackStrategy(strategy: PlaybackStrategy): Promise&lt;void&gt;
 
@@ -355,6 +371,8 @@ player.setPlaybackStrategy(playStrategy);
 
 ##### setPlaybackRange18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPlaybackRange(startTimeMs: number, endTimeMs: number, mode?: SeekMode) : Promise&lt;void&gt;
 
 设置播放区间，并通过指定的[SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8)跳转到区间开始位置。设置之后，只播放音视频文件设定区间内的内容。使用Promise异步回调。可在**initialized**/**prepared**/**paused**/**stopped**/**completed**状态下使用。
@@ -408,6 +426,8 @@ async function  test(){
 
 ##### prepare9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 prepare(callback: AsyncCallback&lt;void&gt;): void
 
 准备播放音频/视频，需在[stateChange](#onstatechange9)事件成功触发至initialized状态后，才能调用。使用callback方式异步获取返回值。
@@ -455,6 +475,8 @@ async function  test(){
 
 ##### prepare9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 prepare(): Promise&lt;void&gt;
 
 准备播放音频/视频，需在[stateChange](#onstatechange9)事件成功触发至initialized状态后，才能调用。使用Promise异步回调。
@@ -501,6 +523,8 @@ async function  test(){
 
 
 ##### setMediaMuted12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMediaMuted(mediaType: MediaType, muted: boolean ): Promise&lt;void&gt;
 
@@ -558,6 +582,8 @@ async function  test(){
 
 ##### play9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 play(callback: AsyncCallback&lt;void&gt;): void
 
 开始播放音视频资源，只能在prepared/paused/completed状态调用。使用callback方式异步获取返回值。
@@ -604,6 +630,8 @@ async function  test(){
 
 ##### play9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 play(): Promise&lt;void&gt;
 
 开始播放音视频资源，只能在prepared/paused/completed状态调用。使用Promise异步回调。
@@ -647,6 +675,8 @@ async function  test(){
 
 
 ##### pause9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 pause(callback: AsyncCallback&lt;void&gt;): void
 
@@ -694,6 +724,8 @@ async function  test(){
 
 ##### pause9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 pause(): Promise&lt;void&gt;
 
 暂停播放音视频资源，只能在playing状态调用。使用Promise异步回调。
@@ -737,6 +769,8 @@ async function  test(){
 
 
 ##### stop9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 stop(callback: AsyncCallback&lt;void&gt;): void
 
@@ -784,6 +818,8 @@ async function  test(){
 
 ##### stop9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 stop(): Promise&lt;void&gt;
 
 停止播放音视频资源，只能在prepared/playing/paused/completed状态调用。使用Promise异步回调。
@@ -827,6 +863,8 @@ async function  test(){
 
 
 ##### reset9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reset(callback: AsyncCallback&lt;void&gt;): void
 
@@ -874,6 +912,8 @@ async function  test(){
 
 ##### reset9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reset(): Promise&lt;void&gt;
 
 重置播放，只能在initialized/prepared/playing/paused/completed/stopped/error状态调用。使用Promise异步回调。
@@ -917,6 +957,8 @@ async function  test(){
 
 
 ##### release9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 release(callback: AsyncCallback&lt;void&gt;): void
 
@@ -964,6 +1006,8 @@ async function  test(){
 
 ##### release9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 release(): Promise&lt;void&gt;
 
 销毁播放资源，除released状态，都可以调用。使用Promise异步回调。
@@ -1007,6 +1051,8 @@ async function  test(){
 
 
 ##### getTrackDescription9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getTrackDescription(callback: AsyncCallback<Array&lt;MediaDescription&gt;>): void
 
@@ -1054,6 +1100,8 @@ async function  test(){
 
 ##### getTrackDescription9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getTrackDescription(): Promise<Array&lt;MediaDescription&gt;>
 
 获取音视频轨道信息，可以在prepared/playing/paused状态调用。使用Promise异步回调。
@@ -1097,6 +1145,8 @@ async function  test(){
 
 
 ##### getSelectedTracks12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getSelectedTracks(): Promise<Array&lt;number&gt;>
 
@@ -1142,6 +1192,8 @@ async function  test(){
 
 ##### getPlaybackInfo12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPlaybackInfo(): Promise&lt;PlaybackInfo&gt;
 
 获取播放过程信息，可以在prepared/playing/paused状态调用。使用Promise异步回调。
@@ -1183,6 +1235,8 @@ media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
 
 
 ##### getPlaybackPosition18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPlaybackPosition(): number
 
@@ -1229,6 +1283,8 @@ async function  test(){
 
 
 ##### getCurrentPresentationTimestamp23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getCurrentPresentationTimestamp() : number
 
@@ -1277,6 +1333,8 @@ async function  test(){
 
 
 ##### selectTrack12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 selectTrack(index: number, mode?: SwitchMode): Promise&lt;void&gt;
 
@@ -1341,6 +1399,8 @@ async function  test(){
 
 ##### deselectTrack12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 deselectTrack(index: number): Promise&lt;void&gt;
 
 使用AVPlayer播放多音轨视频时取消指定音视频轨道播放，使用Promise异步回调。
@@ -1403,6 +1463,8 @@ avPlayer.deselectTrack(parseInt(audioTrackIndex.toString()));
 
 ##### setDecryptionConfig11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDecryptionConfig(mediaKeySession: drm.MediaKeySession, secureVideoPath: boolean): void
 
 设置解密配置。当收到[on('mediaKeySystemInfoUpdate')](#onmediakeysysteminfoupdate11)事件时，需根据事件上报的信息创建相关配置并设置解密配置，否则无法播放。
@@ -1453,6 +1515,8 @@ async function  test(){
 
 ##### getMediaKeySystemInfos11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>
 
 获取当前播放的媒体资源的MediaKeySystemInfo。需要在[on('mediaKeySystemInfoUpdate')](#onmediakeysysteminfoupdate11)事件触发成功后才能调用。
@@ -1489,12 +1553,14 @@ async function  test(){
 
 ##### seek9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 seek(timeMs: number, mode?:SeekMode): void
 
 跳转到指定播放位置，只能在prepared/playing/paused/completed状态调用，可以通过[on('seekDone')](#onseekdone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/t-ILMzFARgCM7koMG_OjZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=3AE5BD8868CB55782C901C72DB65E5B99738A2CA3F7468A4F4891BBDC3C5601E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/t-ILMzFARgCM7koMG_OjZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=CAFC9024B505BE2134AA20F8C83BC263E3FDC43A8E325F7E747D46EBAA0003F6)
 
 
 直播场景不支持seek。
@@ -1541,6 +1607,8 @@ async function  test(){
 
 ##### isSeekContinuousSupported18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isSeekContinuousSupported() : boolean
 
 查询媒体源是否支持以SEEK_CONTINUOUS模式[SeekMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#seekmode8)进行[seek](#seek9)，在prepared/playing/paused/completed状态调用返回实际值，其余状态调用返回false。对于不支持SEEK_CONTINUOUS模式进行seek的设备，返回false。
@@ -1569,6 +1637,8 @@ async function  test(){
 
 
 ##### on('seekDone')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'seekDone', callback: Callback&lt;number&gt;): void
 
@@ -1602,6 +1672,8 @@ async function  test(){
 
 ##### off('seekDone')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'seekDone', callback?: Callback&lt;number&gt;): void
 
 取消监听seek生效的事件。
@@ -1632,12 +1704,14 @@ async function  test(){
 
 ##### setSpeed9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setSpeed(speed: PlaybackSpeed): void
 
 设置倍速模式，只能在prepared/playing/paused/completed状态调用，可以通过[on('speedDone')](#onspeeddone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/z8pGD_z0SH-raT1cTmg9UQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=55273F21A7B6B7EDC001F644196B098D50740C0CA2DD0E0C40DA914D76FEE3C3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/z8pGD_z0SH-raT1cTmg9UQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=55CEA04A006D207C644C868F42B8A973244B8A252E85C6DA1BCC2C805046E2F8)
 
 
 直播场景不支持setSpeed。
@@ -1668,6 +1742,8 @@ async function  test(){
 
 
 ##### on('speedDone')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'speedDone', callback: Callback&lt;number&gt;): void
 
@@ -1701,6 +1777,8 @@ async function  test(){
 
 ##### off('speedDone')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'speedDone', callback?: Callback&lt;number&gt;): void
 
 取消监听setSpeed生效的事件。
@@ -1731,12 +1809,14 @@ async function  test(){
 
 ##### setPlaybackRate20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPlaybackRate(rate: number): void
 
 设置倍速模式。只能在prepared/playing/paused/completed状态调用，取值范围是[0.125, 4.0]，可以通过[playbackRateDone](#onplaybackratedone20)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/4ctWC3tUSLenPHPE1ur9Lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=82C312B8FBD7A0E0103873C88C461EA7AA31BB465497FDB38FCC9E4D9EB7D89C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/4ctWC3tUSLenPHPE1ur9Lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=4FA3E7107E2447D77DF502330A53F98B8B747BDFF9EA2724F7E56A9B66761044)
 
 
 直播场景不支持setPlaybackRate。
@@ -1778,6 +1858,8 @@ async function test(){
 
 ##### getPlaybackRate23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getPlaybackRate(): Promise&lt;number&gt;
 
 获取当前播放器的播放速率。使用Promise异步回调。
@@ -1805,6 +1887,8 @@ async function test(){
 
 
 ##### on('playbackRateDone')20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'playbackRateDone', callback: OnPlaybackRateDone): void
 
@@ -1838,6 +1922,8 @@ async function test(){
 
 ##### off('playbackRateDone')20+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'playbackRateDone', callback?: OnPlaybackRateDone): void
 
 取消监听[setPlaybackRate](#setplaybackrate20)生效的事件。
@@ -1868,6 +1954,8 @@ async function test(){
 
 ##### setBitrate9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBitrate(bitrate: number): void
 
 设置比特率，以播放所指定比特率的流媒体资源，当前仅对**HLS/DASH协议网络流**有效。默认情况下，AVPlayer会根据网络连接速度选择合适的比特率。只能在prepared/playing/paused/completed状态调用，可以通过[bitrateDone](#onbitratedone9)事件确认是否生效。
@@ -1897,6 +1985,8 @@ async function  test(){
 
 
 ##### on('bitrateDone')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'bitrateDone', callback: Callback&lt;number&gt;): void
 
@@ -1930,6 +2020,8 @@ async function  test(){
 
 ##### off('bitrateDone')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'bitrateDone', callback?: Callback&lt;number&gt;): void
 
 取消监听setBitrate生效的事件。
@@ -1959,6 +2051,8 @@ async function  test(){
 
 
 ##### on('availableBitrates')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'availableBitrates', callback: Callback<Array&lt;number&gt;>): void
 
@@ -1992,6 +2086,8 @@ async function  test(){
 
 ##### off('availableBitrates')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'availableBitrates', callback?: Callback<Array&lt;number&gt;>): void
 
 取消监听HLS/DASH协议网络流可用的比特率列表，调用[prepare](#prepare9)后，上报此事件。
@@ -2021,6 +2117,8 @@ async function test(){
 
 
 ##### on('mediaKeySystemInfoUpdate')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'mediaKeySystemInfoUpdate', callback: Callback<Array<drm.MediaKeySystemInfo>>): void
 
@@ -2059,6 +2157,8 @@ async function test(){
 
 ##### off('mediaKeySystemInfoUpdate')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'mediaKeySystemInfoUpdate', callback?: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
 取消监听mediaKeySystemInfoUpdate事件。
@@ -2088,6 +2188,8 @@ async function test(){
 
 
 ##### setLoudnessGain21+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setLoudnessGain(loudnessGain: number): Promise&lt;void&gt;
 
@@ -2134,6 +2236,8 @@ async function test(){
 
 ##### setVolume9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setVolume(volume: number): void
 
 设置媒体播放音量，只能在prepared/playing/paused/completed状态调用，可以通过[on('volumeChange')](#onvolumechange9)事件确认是否生效。
@@ -2162,6 +2266,8 @@ async function test(){
 
 
 ##### on('volumeChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'volumeChange', callback: Callback&lt;number&gt;): void
 
@@ -2195,6 +2301,8 @@ async function test(){
 
 ##### off('volumeChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'volumeChange', callback?: Callback&lt;number&gt;): void
 
 取消监听setVolume生效的事件。
@@ -2224,6 +2332,8 @@ async function test(){
 
 
 ##### on('endOfStream')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'endOfStream', callback: Callback&lt;void&gt;): void
 
@@ -2257,6 +2367,8 @@ async function test(){
 
 ##### off('endOfStream')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'endOfStream', callback?: Callback&lt;void&gt;): void
 
 取消监听资源播放至结尾的事件。
@@ -2287,12 +2399,14 @@ async function test(){
 
 ##### on('timeUpdate')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'timeUpdate', callback: Callback&lt;number&gt;): void
 
 监听资源播放当前时间，单位为毫秒（ms），用于刷新进度条当前位置，默认间隔100ms时间上报，因用户操作（seek）产生的时间变化会立刻上报。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/BqGgnOjfQu2iWbOMSl6-Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=8DB89912DF87B2B675F16960C51DC8883790D5329BC13C4A1E2DFF1572DDBF66)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/BqGgnOjfQu2iWbOMSl6-Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=B2E27D9F8DDD121CAB46A602A072268B37BCB72EEE5AF8C91991CA43F7324D45)
 
 
  - 直播场景不支持timeUpdate上报。
@@ -2367,6 +2481,8 @@ async function test() {
 
 ##### off('timeUpdate')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'timeUpdate', callback?: Callback&lt;number&gt;): void
 
 取消监听资源播放当前时间。
@@ -2397,12 +2513,14 @@ async function test(){
 
 ##### on('durationUpdate')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'durationUpdate', callback: Callback&lt;number&gt;): void
 
 监听资源播放资源的时长，单位为毫秒（ms），用于刷新进度条长度，默认只在prepared上报一次，同时允许一些特殊码流刷新多次时长。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/kOOkfFC0Sxm3WRCemGYpsw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T013720Z&HW-CC-Expire=86400&HW-CC-Sign=116535B19D7094C23E8BC5A251B55EFBC3A3766337D22ABA6C5CC399FFADB82C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/kOOkfFC0Sxm3WRCemGYpsw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T024017Z&HW-CC-Expire=86400&HW-CC-Sign=E83E1E6AF991B62A983F11FAA76C7018C523FA8D28F2E6857D8155A4715B3B95)
 
 
 直播场景不支持durationUpdate上报。
@@ -2437,6 +2555,8 @@ async function test(){
 
 ##### off('durationUpdate')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'durationUpdate', callback?: Callback&lt;number&gt;): void
 
 取消监听资源播放资源的时长。
@@ -2466,6 +2586,8 @@ async function test(){
 
 
 ##### on('bufferingUpdate')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'bufferingUpdate', callback: OnBufferingUpdateHandler): void
 
@@ -2499,6 +2621,8 @@ async function test(){
 
 ##### off('bufferingUpdate')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'bufferingUpdate', callback?: OnBufferingUpdateHandler): void
 
 取消监听音视频缓存更新事件。
@@ -2528,6 +2652,8 @@ async function test(){
 
 
 ##### on('startRenderFrame')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'startRenderFrame', callback: Callback&lt;void&gt;): void
 
@@ -2561,6 +2687,8 @@ async function test(){
 
 ##### off('startRenderFrame')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'startRenderFrame', callback?: Callback&lt;void&gt;): void
 
 取消监听视频播放开始首帧渲染的更新事件。
@@ -2590,6 +2718,8 @@ async function test(){
 
 
 ##### on('videoSizeChange')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'videoSizeChange', callback: OnVideoSizeChangeHandler): void
 
@@ -2623,6 +2753,8 @@ async function test(){
 
 ##### off('videoSizeChange')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'videoSizeChange', callback?: OnVideoSizeChangeHandler): void
 
 取消监听视频播放宽高变化事件。
@@ -2652,6 +2784,8 @@ async function test(){
 
 
 ##### on('audioInterrupt')9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void
 
@@ -2687,6 +2821,8 @@ async function test(){
 
 ##### off('audioInterrupt')9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void
 
 取消监听音频焦点变化事件。
@@ -2716,6 +2852,8 @@ async function test(){
 
 
 ##### on('audioOutputDeviceChangeWithInfo')11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'audioOutputDeviceChangeWithInfo', callback: Callback<audio.AudioStreamDeviceChangeInfo>): void
 
@@ -2762,6 +2900,8 @@ async function test(){
 
 ##### off('audioOutputDeviceChangeWithInfo')11+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'audioOutputDeviceChangeWithInfo', callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void
 
 取消订阅监听音频流输出设备变化及原因，使用callback方式返回结果。
@@ -2800,6 +2940,8 @@ async function test(){
 
 
 ##### addSubtitleFromFd12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addSubtitleFromFd(fd: number, offset?: number, length?: number): Promise&lt;void&gt;
 
@@ -2851,6 +2993,8 @@ avPlayer.addSubtitleFromFd(fileDescriptor.fd, fileDescriptor.offset, fileDescrip
 
 ##### addSubtitleFromUrl12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 addSubtitleFromUrl(url: string): Promise&lt;void&gt;
 
 依据url为视频添加外挂字幕，当前仅支持与视频资源同时设置（在avplayer设置fdSrc视频资源后设置外挂字幕）。使用Promise异步回调。
@@ -2897,6 +3041,8 @@ async function test(){
 
 ##### on('subtitleUpdate')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type: 'subtitleUpdate', callback: Callback&lt;SubtitleInfo&gt;): void
 
 订阅获取外挂字幕的事件，当有外挂字幕时，会通过订阅的回调方法通知用户。用户只能订阅一个外挂字幕事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
@@ -2936,6 +3082,8 @@ async function test(){
 
 ##### off('subtitleUpdate')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'subtitleUpdate', callback?: Callback&lt;SubtitleInfo&gt;): void
 
 取消订阅获取外挂字幕的事件。
@@ -2965,6 +3113,8 @@ async function test(){
 
 
 ##### on('trackChange')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'trackChange', callback: OnTrackChangeHandler): void
 
@@ -2998,6 +3148,8 @@ async function test(){
 
 ##### off('trackChange')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'trackChange', callback?: OnTrackChangeHandler): void
 
 取消订阅获取轨道变更的事件。
@@ -3027,6 +3179,8 @@ async function test(){
 
 
 ##### on('trackInfoUpdate')12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'trackInfoUpdate', callback: Callback<Array&lt;MediaDescription&gt;>): void
 
@@ -3068,6 +3222,8 @@ async function test(){
 
 ##### off('trackInfoUpdate')12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'trackInfoUpdate', callback?: Callback<Array&lt;MediaDescription&gt;>): void
 
 取消订阅获取轨道信息更新的事件。
@@ -3097,6 +3253,8 @@ async function test(){
 
 
 ##### on('amplitudeUpdate')13+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'amplitudeUpdate', callback: Callback<Array&lt;number&gt;>): void
 
@@ -3128,6 +3286,8 @@ async function test(){
 
 ##### off('amplitudeUpdate')13+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'amplitudeUpdate', callback?: Callback<Array&lt;number&gt;>): void
 
 取消订阅获取音频最大电平值事件。
@@ -3155,6 +3315,8 @@ async function test(){
 
 
 ##### on('seiMessageReceived')18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: 'seiMessageReceived', payloadTypes: Array&lt;number&gt;, callback: OnSeiMessageHandle): void
 
@@ -3203,6 +3365,8 @@ async function test(){
 
 ##### off('seiMessageReceived')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type: 'seiMessageReceived', payloadTypes?: Array&lt;number&gt;, callback?: OnSeiMessageHandle): void
 
 取消订阅获取SEI信息事件。
@@ -3233,6 +3397,8 @@ async function test(){
 
 
 ##### setSuperResolution18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setSuperResolution(enabled: boolean) : Promise&lt;void&gt;
 
@@ -3290,6 +3456,8 @@ async function test(){
 
 
 ##### setVideoWindowSize18+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setVideoWindowSize(width: number, height: number) : Promise&lt;void&gt;
 
@@ -3351,6 +3519,8 @@ async function test(){
 
 ##### on('superResolutionChanged')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 on(type:'superResolutionChanged', callback: OnSuperResolutionChanged): void
 
 订阅监听超分算法开启/关闭事件。
@@ -3383,6 +3553,8 @@ async function test(){
 
 ##### off('superResolutionChanged')18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void
 
 取消监听超分算法开启/关闭事件。
@@ -3412,6 +3584,8 @@ async function test(){
 
 
 ##### getPlaybackStatisticMetrics23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getPlaybackStatisticMetrics(): Promise&lt;PlaybackMetrics&gt;
 
@@ -3455,6 +3629,8 @@ media.createAVPlayer(async (err: BusinessError, player: media.AVPlayer) => {
 
 ##### onMetricsEvent23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onMetricsEvent(callback: Callback<Array&lt;AVMetricsEvent&gt;>): void
 
 订阅播放过程中的指标事件。
@@ -3488,6 +3664,8 @@ async function test(){
 
 
 ##### offMetricsEvent23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offMetricsEvent(callback?: Callback<Array&lt;AVMetricsEvent&gt;>): void
 

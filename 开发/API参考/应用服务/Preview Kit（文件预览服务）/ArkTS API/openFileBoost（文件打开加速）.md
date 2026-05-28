@@ -12,6 +12,8 @@
 
 ##### 导入模块
 
+**支持设备：** PC/2in1
+
 ```text
 import { openFileBoost } from '@kit.PreviewKit';
 ```
@@ -19,6 +21,8 @@ import { openFileBoost } from '@kit.PreviewKit';
 
 
 ##### FilePreloadState
+
+**支持设备：** PC/2in1
 
 表示文件预加载状态的枚举。
 
@@ -37,6 +41,8 @@ import { openFileBoost } from '@kit.PreviewKit';
 
 ##### FilePreloadStatusInfo
 
+**支持设备：** PC/2in1
+
 文件预加载回调返回的接口实例，表示文件的预加载状态信息。
 
 **系统能力：** SystemCapability.PCService.OpenFileBoost
@@ -53,6 +59,8 @@ import { openFileBoost } from '@kit.PreviewKit';
 
 
 ##### openFileBoost.on('filePreloadStateChanged')
+
+**支持设备：** PC/2in1
 
 on(type: 'filePreloadStateChanged', callback: Callback&lt;FilePreloadStatusInfo&gt;): void
 
@@ -117,6 +125,8 @@ function register(): void {
 
 
 ##### openFileBoost.off('filePreloadStateChanged')
+
+**支持设备：** PC/2in1
 
 off(type: 'filePreloadStateChanged', callback?: Callback&lt;FilePreloadStatusInfo&gt;): void
 
@@ -183,6 +193,8 @@ function testUnregister(): void {
 
 ##### openFileBoost.addFile
 
+**支持设备：** PC/2in1
+
 addFile(file: string): void
 
 监听一个文件的预加载状态，应用传入文件路径后系统开始监听该文件的预加载状态。后续该文件状态有变化时系统通过'filePreloadStateChanged'事件回调向应用返回文件预加载状态变化。
@@ -244,6 +256,8 @@ function testAddFile(): void {
 
 ##### openFileBoost.removeFile
 
+**支持设备：** PC/2in1
+
 removeFile(file: string): void
 
 取消监听一个文件的预加载状态，取消后文件的预加载状态变化不会通过回调再通知应用。
@@ -290,6 +304,8 @@ try {
 
 
 ##### openFileBoost.queryFilePreloadStatusInfo
+
+**支持设备：** PC/2in1
 
 queryFilePreloadStatusInfo(file: string): FilePreloadStatusInfo
 

@@ -12,6 +12,8 @@
 
 ##### 2200001 非法参数值
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Invalid parameter value.
@@ -32,6 +34,8 @@ Invalid parameter value.
 
 ##### 2200002 连接服务失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
+
 **错误信息**
 
 Failed to connect to the service.
@@ -51,6 +55,8 @@ Failed to connect to the service.
 
 
 ##### 2200003 系统内部错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -76,6 +82,8 @@ System internal error.
 
 ##### 2203001 VPN创建失败
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 VPN creation denied, please check the user type.
@@ -95,6 +103,8 @@ VPN creation denied, please check the user type.
 
 
 ##### 2203002 VPN已存在
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 
@@ -116,6 +126,8 @@ VPN已经被创建。
 
 ##### 2203004 无效描述符
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Invalid socket file descriptor.
@@ -136,6 +148,8 @@ tcp链路建立失败。
 
 ##### 19900001 无效参数
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
 **错误信息**
 
 Invalid parameter value.
@@ -155,6 +169,8 @@ Invalid parameter value.
 
 
 ##### 19900002 系统内部错误
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 **错误信息**
 

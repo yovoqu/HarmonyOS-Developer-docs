@@ -12,6 +12,8 @@ struct OhosImageDecodingOps {...}
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义图像源解码选项。此选项给[OH_ImageSource_CreatePixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-mdk-h#oh_imagesource_createpixelmap)和[OH_ImageSource_CreatePixelMapList](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-source-mdk-h#oh_imagesource_createpixelmaplist)接口使用。
  
 **起始版本：** 10
@@ -24,9 +26,13 @@ struct OhosImageDecodingOps {...}
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |

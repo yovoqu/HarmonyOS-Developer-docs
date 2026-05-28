@@ -16,6 +16,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { hid } from '@kit.ConnectivityKit';
 ```
@@ -23,6 +25,8 @@ import { hid } from '@kit.ConnectivityKit';
 
 
 ##### BaseProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BaseProfile = baseProfile.BaseProfile
 
@@ -38,6 +42,8 @@ type BaseProfile = baseProfile.BaseProfile
 
 
 ##### BluetoothAddress23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 type BluetoothAddress = common.BluetoothAddress
 
@@ -55,6 +61,8 @@ type BluetoothAddress = common.BluetoothAddress
 
 
 ##### hid.createHidHostProfile
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createHidHostProfile(): HidHostProfile
 
@@ -93,6 +101,8 @@ try {
 
 
 ##### hid.createHidDeviceProfile23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createHidDeviceProfile(): HidDeviceProfile
 
@@ -133,6 +143,8 @@ try {
 
 ##### HidDeviceProfile23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 该实例表示蓝牙HID通信中的[HID Device](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hid-device)角色。
 
  - 该类继承于[BaseProfile](#baseprofile)，因此可以使用其父类中的方法。
@@ -144,6 +156,8 @@ try {
 
 
 ##### registerHidDevice23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 registerHidDevice(sdp: HidDeviceSdp, inQos: HidDeviceQos, outQos: HidDeviceQos, callback: Callback&lt;boolean&gt;): void
 
@@ -241,6 +255,8 @@ try {
 
 ##### unregisterHidDevice23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 unregisterHidDevice(): void
 
 解除注册本端作为HID设备的能力，并释放所有相关资源。
@@ -280,6 +296,8 @@ try {
 
 
 ##### connect23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 connect(deviceId: BluetoothAddress): void
 
@@ -338,6 +356,8 @@ try {
 
 ##### disconnect23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 disconnect(): void
 
 断开与当前HID主机的连接，并释放相关的资源。
@@ -378,6 +398,8 @@ try {
 
 
 ##### sendReport23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 sendReport(id: number, reportData: Uint8Array): void
 
@@ -431,6 +453,8 @@ try {
 
 
 ##### replyReport23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 replyReport(type: ReportType, id: number, reportData: Uint8Array): void
 
@@ -487,6 +511,8 @@ try {
 
 ##### reportError23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 reportError(error: ErrorReason): void
 
 向已连接的HID主机报告特定的错误类型。
@@ -537,6 +563,8 @@ try {
 
 ##### onGetReport23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onGetReport(callback: Callback&lt;GetReportData&gt;): void
 
 订阅HID主机向HID设备发送的[GET_REPORT](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hid)传输请求事件，使用callback异步回调。收到回调后可以通过调用接口[replyReport](#replyreport23)进行回复。当收到的数据不符合预期时，可以通过调用接口[reportError](#reporterror23)进行回复。
@@ -581,6 +609,8 @@ try {
 
 
 ##### offGetReport23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offGetReport(callback?: Callback&lt;GetReportData&gt;): void
 
@@ -628,6 +658,8 @@ try {
 
 ##### onSetReport23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSetReport(callback: Callback&lt;SetReportData&gt;): void
 
 订阅HID主机向HID设备发送的[SET_REPORT](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hid)传输请求事件，使用callback异步回调。当收到的数据不符合预期时，可以通过调用接口[reportError](#reporterror23)进行回复。
@@ -672,6 +704,8 @@ try {
 
 
 ##### offSetReport23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offSetReport(callback?: Callback&lt;SetReportData&gt;): void
 
@@ -719,6 +753,8 @@ try {
 
 ##### onInterruptDataReceived23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onInterruptDataReceived(callback: Callback&lt;InterruptData&gt;): void
 
 订阅HID主机通过中断传输通道发送数据的事件的回调，使用callback异步回调。
@@ -763,6 +799,8 @@ try {
 
 
 ##### offInterruptDataReceived23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offInterruptDataReceived(callback?: Callback&lt;InterruptData&gt;): void
 
@@ -810,6 +848,8 @@ try {
 
 ##### onSetProtocol23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onSetProtocol(callback: Callback&lt;ProtocolData&gt;): void
 
 订阅HID主机向HID设备发送的[SET_PROTOCOL](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hid)请求事件，使用callback异步回调。
@@ -854,6 +894,8 @@ try {
 
 
 ##### offSetProtocol23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offSetProtocol(callback?: Callback&lt;ProtocolData&gt;): void
 
@@ -901,6 +943,8 @@ try {
 
 ##### onVirtualCableUnplug23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 onVirtualCableUnplug(callback: Callback&lt;void&gt;): void
 
 订阅主机断开HID虚拟链路事件的回调。使用callback异步回调。
@@ -945,6 +989,8 @@ try {
 
 
 ##### offVirtualCableUnplug23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 offVirtualCableUnplug(callback?: Callback&lt;void&gt;): void
 
@@ -992,6 +1038,8 @@ try {
 
 ##### HidDeviceSdp23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述HID设备在服务发现协议([SDP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#sdp))中的服务注册配置。该结构定义了HID设备的身份标识、能力描述和协议特征，是HID主机发现、识别和连接HID设备的关键参数。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -1010,6 +1058,8 @@ try {
 
 
 ##### HidDeviceQos23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述HID设备服务质量(Qos)参数。该结构定义了HID数据传输通道的流量控制、延迟保证和可靠性策略，用于优化蓝牙传输性能，确保设备的实时响应性。
 
@@ -1031,6 +1081,8 @@ try {
 
 ##### GetReportData23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述HID主机向HID设备发送的[GET_REPORT](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hid)传输请求事件的信息。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -1047,6 +1099,8 @@ try {
 
 
 ##### SetReportData23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述HID主机向HID设备发送的[SET_REPORT](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#hid)传输请求事件的信息。
 
@@ -1065,6 +1119,8 @@ try {
 
 ##### InterruptData23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述从主机收到的中断数据。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -1081,6 +1137,8 @@ try {
 
 ##### ProtocolData23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 描述从HID主机接收的通信协议数据。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -1095,6 +1153,8 @@ try {
 
 
 ##### Subclass23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，HID设备的具体类型。
 
@@ -1120,6 +1180,8 @@ try {
 
 ##### ReportType23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，报告类型。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -1137,6 +1199,8 @@ try {
 
 ##### ServiceType23+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 枚举，描述HID设备与主机之间连接的服务类型。
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -1153,6 +1217,8 @@ try {
 
 
 ##### ErrorReason23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，描述错误原因。
 
@@ -1173,6 +1239,8 @@ try {
 
 
 ##### ProtocolType23+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，HID设备与主机的通信协议类型。
 

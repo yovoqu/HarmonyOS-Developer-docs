@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { fileUri } from '@kit.CoreFileKit';
 ```
@@ -36,9 +38,13 @@ export default class EntryAbility extends UIAbility {
 
 ##### FileUri10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **系统能力**：SystemCapability.FileManagement.AppFileService
 
@@ -51,6 +57,8 @@ export default class EntryAbility extends UIAbility {
 
 
 ##### constructor10+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(uriOrPath: string)
 
@@ -92,6 +100,8 @@ console.info("The name of FileUri is " + fileUriObject.name);
 
 ##### toString10+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 toString(): string
 
 **系统能力**：SystemCapability.FileManagement.AppFileService
@@ -116,6 +126,8 @@ console.info("The uri of FileUri is " + fileUriObject.toString());
 
 
 ##### getFullDirectoryUri11+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFullDirectoryUri(): string
 
@@ -165,6 +177,8 @@ try {
 
 ##### isRemoteUri12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isRemoteUri(): boolean
 
 判断当前URI是否是远端URI。
@@ -206,6 +220,8 @@ function isRemoteUriExample() {
 
 
 ##### fileUri.getUriFromPath
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getUriFromPath(path: string): string
 

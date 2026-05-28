@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { wantAgent as abilityWantAgent } from '@kit.AbilityKit';
 ```
@@ -21,6 +23,8 @@ import { wantAgent as abilityWantAgent } from '@kit.AbilityKit';
   
 
 ##### WantAgentInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 定义触发WantAgent所需要的信息，可以作为[getWantAgent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-wantagent#wantagentgetwantagent)的入参创建指定的WantAgent对象。
  

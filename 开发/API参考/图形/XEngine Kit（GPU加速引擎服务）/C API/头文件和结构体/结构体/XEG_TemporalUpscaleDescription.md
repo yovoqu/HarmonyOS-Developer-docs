@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 此结构体描述下发时域AI超分渲染命令时的输入信息。
  
 **起始版本：** 5.0.0(12)
@@ -19,9 +21,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -40,9 +46,13 @@
 
 ##### 结构体成员变量说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
   
 
 ##### depthImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_TemporalUpscaleDescription::depthImage
@@ -56,6 +66,8 @@ VkImageView XEG_TemporalUpscaleDescription::depthImage
 
 ##### dynamicMaskImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_TemporalUpscaleDescription::dynamicMaskImage
 ```
@@ -67,6 +79,8 @@ VkImageView XEG_TemporalUpscaleDescription::dynamicMaskImage
   
 
 ##### inputImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_TemporalUpscaleDescription::inputImage
@@ -80,6 +94,8 @@ VkImageView XEG_TemporalUpscaleDescription::inputImage
 
 ##### jitterX
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 float XEG_TemporalUpscaleDescription::jitterX
 ```
@@ -91,6 +107,8 @@ float XEG_TemporalUpscaleDescription::jitterX
   
 
 ##### jitterY
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_TemporalUpscaleDescription::jitterY
@@ -104,6 +122,8 @@ float XEG_TemporalUpscaleDescription::jitterY
 
 ##### motionVectorImage
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 VkImageView XEG_TemporalUpscaleDescription::motionVectorImage
 ```
@@ -115,6 +135,8 @@ VkImageView XEG_TemporalUpscaleDescription::motionVectorImage
   
 
 ##### outputImage
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 VkImageView XEG_TemporalUpscaleDescription::outputImage
@@ -128,6 +150,8 @@ VkImageView XEG_TemporalUpscaleDescription::outputImage
 
 ##### resetHistory
 
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
 ```text
 bool XEG_TemporalUpscaleDescription::resetHistory
 ```
@@ -139,6 +163,8 @@ bool XEG_TemporalUpscaleDescription::resetHistory
   
 
 ##### steadyLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 float XEG_TemporalUpscaleDescription::steadyLevel

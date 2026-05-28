@@ -12,6 +12,8 @@
 
 ##### 1000500001 内部错误
 
+**支持设备：** Phone | Tablet | Wearable | PC/2in1 | TV
+
 
 
 ##### 算法异常
@@ -227,6 +229,8 @@ Internal error. The width and height of viewControl do not match the width and h
 
 
 ##### 1000500002 用户取消扫码
+
+**支持设备：** Phone | Tablet | Wearable
 
 **错误信息**
 

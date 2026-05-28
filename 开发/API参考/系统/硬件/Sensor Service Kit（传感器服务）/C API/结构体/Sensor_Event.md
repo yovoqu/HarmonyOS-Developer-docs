@@ -12,6 +12,8 @@ typedef struct Sensor_Event Sensor_Event
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义传感器数据信息。
  
 **起始版本：** 11

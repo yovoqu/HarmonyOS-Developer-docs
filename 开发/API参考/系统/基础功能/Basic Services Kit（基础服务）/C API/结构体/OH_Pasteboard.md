@@ -12,6 +12,8 @@ typedef struct OH_Pasteboard OH_Pasteboard
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义剪贴板对象，用以操作系统剪贴板。
  
 **起始版本：** 13

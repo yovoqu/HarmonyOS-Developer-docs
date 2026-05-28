@@ -7,6 +7,8 @@
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义绘制模块中排版相关的函数。
  
 **引用文件：** <native_drawing/drawing_text_typography.h>
@@ -23,9 +25,13 @@
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 结构体
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -47,6 +53,8 @@
   
 
 ##### 枚举
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -77,6 +85,8 @@
   
 
 ##### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -313,9 +323,13 @@
 
 ##### 枚举类型说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_TextDirection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextDirection
@@ -336,6 +350,8 @@ enum OH_Drawing_TextDirection
   
 
 ##### OH_Drawing_TextAlign
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextAlign
@@ -360,6 +376,8 @@ enum OH_Drawing_TextAlign
   
 
 ##### OH_Drawing_FontWeight
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_FontWeight
@@ -388,6 +406,8 @@ enum OH_Drawing_FontWeight
 
 ##### OH_Drawing_TextBaseline
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_Drawing_TextBaseline
 ```
@@ -407,6 +427,8 @@ enum OH_Drawing_TextBaseline
   
 
 ##### OH_Drawing_TextDecoration
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextDecoration
@@ -430,6 +452,8 @@ enum OH_Drawing_TextDecoration
 
 ##### OH_Drawing_FontStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_Drawing_FontStyle
 ```
@@ -450,6 +474,8 @@ enum OH_Drawing_FontStyle
   
 
 ##### OH_Drawing_PlaceholderVerticalAlignment
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_PlaceholderVerticalAlignment
@@ -476,6 +502,8 @@ enum OH_Drawing_PlaceholderVerticalAlignment
 
 ##### OH_Drawing_TextVerticalAlignment
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_Drawing_TextVerticalAlignment
 ```
@@ -497,6 +525,8 @@ enum OH_Drawing_TextVerticalAlignment
   
 
 ##### OH_Drawing_TextDecorationStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextDecorationStyle
@@ -521,6 +551,8 @@ enum OH_Drawing_TextDecorationStyle
 
 ##### OH_Drawing_EllipsisModal
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_Drawing_EllipsisModal
 ```
@@ -544,6 +576,8 @@ enum OH_Drawing_EllipsisModal
 
 ##### OH_Drawing_BreakStrategy
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_Drawing_BreakStrategy
 ```
@@ -564,6 +598,8 @@ enum OH_Drawing_BreakStrategy
   
 
 ##### OH_Drawing_WordBreakType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_WordBreakType
@@ -586,6 +622,8 @@ enum OH_Drawing_WordBreakType
   
 
 ##### OH_Drawing_RectHeightStyle
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_RectHeightStyle
@@ -611,6 +649,8 @@ enum OH_Drawing_RectHeightStyle
 
 ##### OH_Drawing_RectWidthStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_Drawing_RectWidthStyle
 ```
@@ -630,6 +670,8 @@ enum OH_Drawing_RectWidthStyle
   
 
 ##### OH_Drawing_TextBadgeType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextBadgeType
@@ -651,6 +693,8 @@ enum OH_Drawing_TextBadgeType
   
 
 ##### OH_Drawing_FontConfigInfoErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_FontConfigInfoErrorCode
@@ -674,6 +718,8 @@ enum OH_Drawing_FontConfigInfoErrorCode
   
 
 ##### OH_Drawing_FontWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_FontWidth
@@ -702,6 +748,8 @@ enum OH_Drawing_FontWidth
 
 ##### OH_Drawing_TextHeightBehavior
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_Drawing_TextHeightBehavior
 ```
@@ -723,6 +771,8 @@ enum OH_Drawing_TextHeightBehavior
   
 
 ##### OH_Drawing_TextStyleType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextStyleType
@@ -751,6 +801,8 @@ enum OH_Drawing_TextStyleType
 
 ##### OH_Drawing_LineHeightStyle
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 enum OH_Drawing_LineHeightStyle
 ```
@@ -770,6 +822,8 @@ enum OH_Drawing_LineHeightStyle
   
 
 ##### OH_Drawing_TextStyleAttributeId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TextStyleAttributeId
@@ -793,6 +847,8 @@ enum OH_Drawing_TextStyleAttributeId
   
 
 ##### OH_Drawing_TypographyStyleAttributeId
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 enum OH_Drawing_TypographyStyleAttributeId
@@ -823,9 +879,13 @@ enum OH_Drawing_TypographyStyleAttributeId
 
 ##### 函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### OH_Drawing_CreateTypographyStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TypographyStyle* OH_Drawing_CreateTypographyStyle(void)
@@ -850,6 +910,8 @@ OH_Drawing_TypographyStyle* OH_Drawing_CreateTypographyStyle(void)
 
 ##### OH_Drawing_DestroyTypographyStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyTypographyStyle(OH_Drawing_TypographyStyle* style)
 ```
@@ -872,6 +934,8 @@ void OH_Drawing_DestroyTypographyStyle(OH_Drawing_TypographyStyle* style)
   
 
 ##### OH_Drawing_SetTypographyTextDirection()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTypographyTextDirection(OH_Drawing_TypographyStyle* style, int direction)
@@ -897,6 +961,8 @@ void OH_Drawing_SetTypographyTextDirection(OH_Drawing_TypographyStyle* style, in
 
 ##### OH_Drawing_SetTypographyTextAlign()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextAlign(OH_Drawing_TypographyStyle* style, int align)
 ```
@@ -920,6 +986,8 @@ void OH_Drawing_SetTypographyTextAlign(OH_Drawing_TypographyStyle* style, int al
   
 
 ##### OH_Drawing_TypographyGetEffectiveAlignment()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_Drawing_TypographyGetEffectiveAlignment(OH_Drawing_TypographyStyle* style)
@@ -955,6 +1023,8 @@ int OH_Drawing_TypographyGetEffectiveAlignment(OH_Drawing_TypographyStyle* style
 
 ##### OH_Drawing_SetTypographyTextMaxLines()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextMaxLines(OH_Drawing_TypographyStyle* style, int lineNumber)
 ```
@@ -979,6 +1049,8 @@ void OH_Drawing_SetTypographyTextMaxLines(OH_Drawing_TypographyStyle* style, int
 
 ##### OH_Drawing_CreateTextStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_TextStyle* OH_Drawing_CreateTextStyle(void)
 ```
@@ -1001,6 +1073,8 @@ OH_Drawing_TextStyle* OH_Drawing_CreateTextStyle(void)
   
 
 ##### OH_Drawing_TypographyGetTextStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TextStyle* OH_Drawing_TypographyGetTextStyle(OH_Drawing_TypographyStyle* style)
@@ -1032,6 +1106,8 @@ OH_Drawing_TextStyle* OH_Drawing_TypographyGetTextStyle(OH_Drawing_TypographySty
 
 ##### OH_Drawing_DestroyTextStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyTextStyle(OH_Drawing_TextStyle* style)
 ```
@@ -1054,6 +1130,8 @@ void OH_Drawing_DestroyTextStyle(OH_Drawing_TextStyle* style)
   
 
 ##### OH_Drawing_SetTextStyleColor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextStyleColor(OH_Drawing_TextStyle* style, uint32_t color)
@@ -1079,6 +1157,8 @@ void OH_Drawing_SetTextStyleColor(OH_Drawing_TextStyle* style, uint32_t color)
 
 ##### OH_Drawing_SetTextStyleFontSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleFontSize(OH_Drawing_TextStyle* style, double fontSize)
 ```
@@ -1102,6 +1182,8 @@ void OH_Drawing_SetTextStyleFontSize(OH_Drawing_TextStyle* style, double fontSiz
   
 
 ##### OH_Drawing_SetTextStyleFontWeight()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextStyleFontWeight(OH_Drawing_TextStyle* style, int fontWeight)
@@ -1127,6 +1209,8 @@ void OH_Drawing_SetTextStyleFontWeight(OH_Drawing_TextStyle* style, int fontWeig
 
 ##### OH_Drawing_SetTextStyleBaseLine()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleBaseLine(OH_Drawing_TextStyle* style, int baseline)
 ```
@@ -1150,6 +1234,8 @@ void OH_Drawing_SetTextStyleBaseLine(OH_Drawing_TextStyle* style, int baseline)
   
 
 ##### OH_Drawing_SetTextStyleDecoration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextStyleDecoration(OH_Drawing_TextStyle* style, int decoration)
@@ -1175,6 +1261,8 @@ void OH_Drawing_SetTextStyleDecoration(OH_Drawing_TextStyle* style, int decorati
 
 ##### OH_Drawing_AddTextStyleDecoration()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_AddTextStyleDecoration(OH_Drawing_TextStyle* style, int decoration)
 ```
@@ -1198,6 +1286,8 @@ void OH_Drawing_AddTextStyleDecoration(OH_Drawing_TextStyle* style, int decorati
   
 
 ##### OH_Drawing_RemoveTextStyleDecoration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_RemoveTextStyleDecoration(OH_Drawing_TextStyle* style, int decoration)
@@ -1223,6 +1313,8 @@ void OH_Drawing_RemoveTextStyleDecoration(OH_Drawing_TextStyle* style, int decor
 
 ##### OH_Drawing_SetTextStyleDecorationColor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleDecorationColor(OH_Drawing_TextStyle* style, uint32_t color)
 ```
@@ -1247,6 +1339,8 @@ void OH_Drawing_SetTextStyleDecorationColor(OH_Drawing_TextStyle* style, uint32_
 
 ##### OH_Drawing_SetTextStyleFontHeight()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleFontHeight(OH_Drawing_TextStyle* style, double fontHeight)
 ```
@@ -1270,6 +1364,8 @@ void OH_Drawing_SetTextStyleFontHeight(OH_Drawing_TextStyle* style, double fontH
   
 
 ##### OH_Drawing_SetTextStyleFontFamilies()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextStyleFontFamilies(OH_Drawing_TextStyle* style,int fontFamiliesNumber, const char* fontFamilies[])
@@ -1296,6 +1392,8 @@ void OH_Drawing_SetTextStyleFontFamilies(OH_Drawing_TextStyle* style,int fontFam
 
 ##### OH_Drawing_SetTextStyleFontStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleFontStyle(OH_Drawing_TextStyle* style, int fontStyle)
 ```
@@ -1319,6 +1417,8 @@ void OH_Drawing_SetTextStyleFontStyle(OH_Drawing_TextStyle* style, int fontStyle
   
 
 ##### OH_Drawing_SetTextStyleLocale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextStyleLocale(OH_Drawing_TextStyle* style, const char* locale)
@@ -1344,6 +1444,8 @@ void OH_Drawing_SetTextStyleLocale(OH_Drawing_TextStyle* style, const char* loca
 
 ##### OH_Drawing_SetTextStyleForegroundBrush()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleForegroundBrush(OH_Drawing_TextStyle* style, OH_Drawing_Brush* foregroundBrush)
 ```
@@ -1367,6 +1469,8 @@ void OH_Drawing_SetTextStyleForegroundBrush(OH_Drawing_TextStyle* style, OH_Draw
   
 
 ##### OH_Drawing_TextStyleGetForegroundBrush()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TextStyleGetForegroundBrush(OH_Drawing_TextStyle* style, OH_Drawing_Brush* foregroundBrush)
@@ -1392,6 +1496,8 @@ void OH_Drawing_TextStyleGetForegroundBrush(OH_Drawing_TextStyle* style, OH_Draw
 
 ##### OH_Drawing_SetTextStyleForegroundPen()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleForegroundPen(OH_Drawing_TextStyle* style, OH_Drawing_Pen* foregroundPen)
 ```
@@ -1415,6 +1521,8 @@ void OH_Drawing_SetTextStyleForegroundPen(OH_Drawing_TextStyle* style, OH_Drawin
   
 
 ##### OH_Drawing_TextStyleGetForegroundPen()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TextStyleGetForegroundPen(OH_Drawing_TextStyle* style, OH_Drawing_Pen* foregroundPen)
@@ -1440,6 +1548,8 @@ void OH_Drawing_TextStyleGetForegroundPen(OH_Drawing_TextStyle* style, OH_Drawin
 
 ##### OH_Drawing_SetTextStyleBackgroundBrush()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleBackgroundBrush(OH_Drawing_TextStyle* style, OH_Drawing_Brush* backgroundBrush)
 ```
@@ -1463,6 +1573,8 @@ void OH_Drawing_SetTextStyleBackgroundBrush(OH_Drawing_TextStyle* style, OH_Draw
   
 
 ##### OH_Drawing_TextStyleGetBackgroundBrush()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TextStyleGetBackgroundBrush(OH_Drawing_TextStyle* style, OH_Drawing_Brush* backgroundBrush)
@@ -1488,6 +1600,8 @@ void OH_Drawing_TextStyleGetBackgroundBrush(OH_Drawing_TextStyle* style, OH_Draw
 
 ##### OH_Drawing_SetTextStyleBackgroundPen()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleBackgroundPen(OH_Drawing_TextStyle* style, OH_Drawing_Pen* backgroundPen)
 ```
@@ -1512,6 +1626,8 @@ void OH_Drawing_SetTextStyleBackgroundPen(OH_Drawing_TextStyle* style, OH_Drawin
 
 ##### OH_Drawing_TextStyleGetBackgroundPen()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleGetBackgroundPen(OH_Drawing_TextStyle* style, OH_Drawing_Pen* backgroundPen)
 ```
@@ -1535,6 +1651,8 @@ void OH_Drawing_TextStyleGetBackgroundPen(OH_Drawing_TextStyle* style, OH_Drawin
   
 
 ##### OH_Drawing_CreateTypographyHandler()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TypographyCreate* OH_Drawing_CreateTypographyHandler(OH_Drawing_TypographyStyle* style,OH_Drawing_FontCollection* fontCollection)
@@ -1567,6 +1685,8 @@ OH_Drawing_TypographyCreate* OH_Drawing_CreateTypographyHandler(OH_Drawing_Typog
 
 ##### OH_Drawing_DestroyTypographyHandler()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyTypographyHandler(OH_Drawing_TypographyCreate* handler)
 ```
@@ -1589,6 +1709,8 @@ void OH_Drawing_DestroyTypographyHandler(OH_Drawing_TypographyCreate* handler)
   
 
 ##### OH_Drawing_TypographyHandlerPushTextStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TypographyHandlerPushTextStyle(OH_Drawing_TypographyCreate* handler, OH_Drawing_TextStyle* style)
@@ -1614,6 +1736,8 @@ void OH_Drawing_TypographyHandlerPushTextStyle(OH_Drawing_TypographyCreate* hand
 
 ##### OH_Drawing_TypographyHandlerAddText()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyHandlerAddText(OH_Drawing_TypographyCreate* handler, const char* text)
 ```
@@ -1638,6 +1762,8 @@ void OH_Drawing_TypographyHandlerAddText(OH_Drawing_TypographyCreate* handler, c
 
 ##### OH_Drawing_TypographyHandlerPopTextStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyHandlerPopTextStyle(OH_Drawing_TypographyCreate* handler)
 ```
@@ -1660,6 +1786,8 @@ void OH_Drawing_TypographyHandlerPopTextStyle(OH_Drawing_TypographyCreate* handl
   
 
 ##### OH_Drawing_CreateTypography()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Typography* OH_Drawing_CreateTypography(OH_Drawing_TypographyCreate* handler)
@@ -1691,6 +1819,8 @@ OH_Drawing_Typography* OH_Drawing_CreateTypography(OH_Drawing_TypographyCreate* 
 
 ##### OH_Drawing_DestroyTypography()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyTypography(OH_Drawing_Typography* typography)
 ```
@@ -1713,6 +1843,8 @@ void OH_Drawing_DestroyTypography(OH_Drawing_Typography* typography)
   
 
 ##### OH_Drawing_TypographyLayout()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TypographyLayout(OH_Drawing_Typography* typography, double maxWidth)
@@ -1737,6 +1869,8 @@ void OH_Drawing_TypographyLayout(OH_Drawing_Typography* typography, double maxWi
   
 
 ##### OH_Drawing_TypographyPaint()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TypographyPaint(OH_Drawing_Typography* typography, OH_Drawing_Canvas* canvas,double positionX, double positionY)
@@ -1764,6 +1898,8 @@ void OH_Drawing_TypographyPaint(OH_Drawing_Typography* typography, OH_Drawing_Ca
 
 ##### OH_Drawing_TypographyPaintOnPath()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyPaintOnPath(OH_Drawing_Typography* typography, OH_Drawing_Canvas* canvas,OH_Drawing_Path* path, double hOffset, double vOffset)
 ```
@@ -1790,6 +1926,8 @@ void OH_Drawing_TypographyPaintOnPath(OH_Drawing_Typography* typography, OH_Draw
   
 
 ##### OH_Drawing_TypographyGetMaxWidth()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TypographyGetMaxWidth(OH_Drawing_Typography* typography)
@@ -1821,6 +1959,8 @@ double OH_Drawing_TypographyGetMaxWidth(OH_Drawing_Typography* typography)
 
 ##### OH_Drawing_TypographyGetHeight()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double OH_Drawing_TypographyGetHeight(OH_Drawing_Typography* typography)
 ```
@@ -1850,6 +1990,8 @@ double OH_Drawing_TypographyGetHeight(OH_Drawing_Typography* typography)
   
 
 ##### OH_Drawing_TypographyGetLongestLine()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TypographyGetLongestLine(OH_Drawing_Typography* typography)
@@ -1881,6 +2023,8 @@ double OH_Drawing_TypographyGetLongestLine(OH_Drawing_Typography* typography)
 
 ##### OH_Drawing_TypographyGetLongestLineWithIndent()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double OH_Drawing_TypographyGetLongestLineWithIndent(OH_Drawing_Typography* typography)
 ```
@@ -1910,6 +2054,8 @@ double OH_Drawing_TypographyGetLongestLineWithIndent(OH_Drawing_Typography* typo
   
 
 ##### OH_Drawing_TypographyGetMinIntrinsicWidth()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TypographyGetMinIntrinsicWidth(OH_Drawing_Typography* typography)
@@ -1941,6 +2087,8 @@ double OH_Drawing_TypographyGetMinIntrinsicWidth(OH_Drawing_Typography* typograp
 
 ##### OH_Drawing_TypographyGetMaxIntrinsicWidth()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double OH_Drawing_TypographyGetMaxIntrinsicWidth(OH_Drawing_Typography* typography)
 ```
@@ -1970,6 +2118,8 @@ double OH_Drawing_TypographyGetMaxIntrinsicWidth(OH_Drawing_Typography* typograp
   
 
 ##### OH_Drawing_TypographyGetAlphabeticBaseline()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TypographyGetAlphabeticBaseline(OH_Drawing_Typography* typography)
@@ -2001,6 +2151,8 @@ double OH_Drawing_TypographyGetAlphabeticBaseline(OH_Drawing_Typography* typogra
 
 ##### OH_Drawing_TypographyGetIdeographicBaseline()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double OH_Drawing_TypographyGetIdeographicBaseline(OH_Drawing_Typography* typography)
 ```
@@ -2031,6 +2183,8 @@ double OH_Drawing_TypographyGetIdeographicBaseline(OH_Drawing_Typography* typogr
 
 ##### OH_Drawing_TypographyHandlerAddPlaceholder()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyHandlerAddPlaceholder(OH_Drawing_TypographyCreate* handler,OH_Drawing_PlaceholderSpan* span)
 ```
@@ -2054,6 +2208,8 @@ void OH_Drawing_TypographyHandlerAddPlaceholder(OH_Drawing_TypographyCreate* han
   
 
 ##### OH_Drawing_TypographyDidExceedMaxLines()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TypographyDidExceedMaxLines(OH_Drawing_Typography* typography)
@@ -2084,6 +2240,8 @@ bool OH_Drawing_TypographyDidExceedMaxLines(OH_Drawing_Typography* typography)
   
 
 ##### OH_Drawing_TypographyGetRectsForRange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TextBox* OH_Drawing_TypographyGetRectsForRange(OH_Drawing_Typography* typography,size_t start, size_t end, OH_Drawing_RectHeightStyle heightStyle, OH_Drawing_RectWidthStyle widthStyle)
@@ -2119,6 +2277,8 @@ OH_Drawing_TextBox* OH_Drawing_TypographyGetRectsForRange(OH_Drawing_Typography*
 
 ##### OH_Drawing_TypographyGetRectsForPlaceholders()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_TextBox* OH_Drawing_TypographyGetRectsForPlaceholders(OH_Drawing_Typography* typography)
 ```
@@ -2148,6 +2308,8 @@ OH_Drawing_TextBox* OH_Drawing_TypographyGetRectsForPlaceholders(OH_Drawing_Typo
   
 
 ##### OH_Drawing_GetLeftFromTextBox()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 float OH_Drawing_GetLeftFromTextBox(OH_Drawing_TextBox* textbox, int index)
@@ -2180,6 +2342,8 @@ float OH_Drawing_GetLeftFromTextBox(OH_Drawing_TextBox* textbox, int index)
 
 ##### OH_Drawing_GetRightFromTextBox()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 float OH_Drawing_GetRightFromTextBox(OH_Drawing_TextBox* textbox, int index)
 ```
@@ -2210,6 +2374,8 @@ float OH_Drawing_GetRightFromTextBox(OH_Drawing_TextBox* textbox, int index)
   
 
 ##### OH_Drawing_GetTopFromTextBox()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 float OH_Drawing_GetTopFromTextBox(OH_Drawing_TextBox* textbox, int index)
@@ -2242,6 +2408,8 @@ float OH_Drawing_GetTopFromTextBox(OH_Drawing_TextBox* textbox, int index)
 
 ##### OH_Drawing_GetBottomFromTextBox()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 float OH_Drawing_GetBottomFromTextBox(OH_Drawing_TextBox* textbox, int index)
 ```
@@ -2272,6 +2440,8 @@ float OH_Drawing_GetBottomFromTextBox(OH_Drawing_TextBox* textbox, int index)
   
 
 ##### OH_Drawing_GetTextDirectionFromTextBox()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int OH_Drawing_GetTextDirectionFromTextBox(OH_Drawing_TextBox* textbox, int index)
@@ -2304,6 +2474,8 @@ int OH_Drawing_GetTextDirectionFromTextBox(OH_Drawing_TextBox* textbox, int inde
 
 ##### OH_Drawing_GetSizeOfTextBox()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 size_t OH_Drawing_GetSizeOfTextBox(OH_Drawing_TextBox* textBox)
 ```
@@ -2333,6 +2505,8 @@ size_t OH_Drawing_GetSizeOfTextBox(OH_Drawing_TextBox* textBox)
   
 
 ##### OH_Drawing_TypographyGetGlyphPositionAtCoordinate()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_PositionAndAffinity* OH_Drawing_TypographyGetGlyphPositionAtCoordinate(OH_Drawing_Typography* typography,double dx, double dy)
@@ -2370,6 +2544,8 @@ OH_Drawing_PositionAndAffinity* OH_Drawing_TypographyGetGlyphPositionAtCoordinat
 
 ##### OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_PositionAndAffinity* OH_Drawing_TypographyGetGlyphPositionAtCoordinateWithCluster(OH_Drawing_Typography* typography, double dx, double dy)
 ```
@@ -2402,6 +2578,8 @@ OH_Drawing_PositionAndAffinity* OH_Drawing_TypographyGetGlyphPositionAtCoordinat
 
 ##### OH_Drawing_GetPositionFromPositionAndAffinity()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 size_t OH_Drawing_GetPositionFromPositionAndAffinity(OH_Drawing_PositionAndAffinity* positionAndAffinity)
 ```
@@ -2432,6 +2610,8 @@ size_t OH_Drawing_GetPositionFromPositionAndAffinity(OH_Drawing_PositionAndAffin
 
 ##### OH_Drawing_GetAffinityFromPositionAndAffinity()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_Drawing_GetAffinityFromPositionAndAffinity(OH_Drawing_PositionAndAffinity* positionAndAffinity)
 ```
@@ -2461,6 +2641,8 @@ int OH_Drawing_GetAffinityFromPositionAndAffinity(OH_Drawing_PositionAndAffinity
   
 
 ##### OH_Drawing_TypographyGetWordBoundary()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Range* OH_Drawing_TypographyGetWordBoundary(OH_Drawing_Typography* typography, size_t offset)
@@ -2493,6 +2675,8 @@ OH_Drawing_Range* OH_Drawing_TypographyGetWordBoundary(OH_Drawing_Typography* ty
 
 ##### OH_Drawing_GetStartFromRange()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 size_t OH_Drawing_GetStartFromRange(OH_Drawing_Range* range)
 ```
@@ -2522,6 +2706,8 @@ size_t OH_Drawing_GetStartFromRange(OH_Drawing_Range* range)
   
 
 ##### OH_Drawing_GetEndFromRange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 size_t OH_Drawing_GetEndFromRange(OH_Drawing_Range* range)
@@ -2553,6 +2739,8 @@ size_t OH_Drawing_GetEndFromRange(OH_Drawing_Range* range)
 
 ##### OH_Drawing_TypographyGetLineCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 size_t OH_Drawing_TypographyGetLineCount(OH_Drawing_Typography* typography)
 ```
@@ -2583,6 +2771,8 @@ size_t OH_Drawing_TypographyGetLineCount(OH_Drawing_Typography* typography)
 
 ##### OH_Drawing_SetTextStyleDecorationStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleDecorationStyle(OH_Drawing_TextStyle* style, int decorationStyle)
 ```
@@ -2606,6 +2796,8 @@ void OH_Drawing_SetTextStyleDecorationStyle(OH_Drawing_TextStyle* style, int dec
   
 
 ##### OH_Drawing_SetTextStyleDecorationThicknessScale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextStyleDecorationThicknessScale(OH_Drawing_TextStyle* style, double decorationThicknessScale)
@@ -2631,6 +2823,8 @@ void OH_Drawing_SetTextStyleDecorationThicknessScale(OH_Drawing_TextStyle* style
 
 ##### OH_Drawing_SetTextStyleLetterSpacing()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleLetterSpacing(OH_Drawing_TextStyle* style, double letterSpacing)
 ```
@@ -2654,6 +2848,8 @@ void OH_Drawing_SetTextStyleLetterSpacing(OH_Drawing_TextStyle* style, double le
   
 
 ##### OH_Drawing_SetTextStyleWordSpacing()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextStyleWordSpacing(OH_Drawing_TextStyle* style, double wordSpacing)
@@ -2679,6 +2875,8 @@ void OH_Drawing_SetTextStyleWordSpacing(OH_Drawing_TextStyle* style, double word
 
 ##### OH_Drawing_SetTextStyleHalfLeading()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleHalfLeading(OH_Drawing_TextStyle* style, bool halfLeading)
 ```
@@ -2702,6 +2900,8 @@ void OH_Drawing_SetTextStyleHalfLeading(OH_Drawing_TextStyle* style, bool halfLe
   
 
 ##### OH_Drawing_SetTextStyleEllipsis()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextStyleEllipsis(OH_Drawing_TextStyle* style, const char* ellipsis)
@@ -2731,6 +2931,8 @@ void OH_Drawing_SetTextStyleEllipsis(OH_Drawing_TextStyle* style, const char* el
 
 ##### OH_Drawing_SetTextStyleEllipsisModal()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleEllipsisModal(OH_Drawing_TextStyle* style, int ellipsisModal)
 ```
@@ -2759,6 +2961,8 @@ void OH_Drawing_SetTextStyleEllipsisModal(OH_Drawing_TextStyle* style, int ellip
 
 ##### OH_Drawing_SetTypographyTextBreakStrategy()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextBreakStrategy(OH_Drawing_TypographyStyle* style, int breakStrategy)
 ```
@@ -2783,6 +2987,8 @@ void OH_Drawing_SetTypographyTextBreakStrategy(OH_Drawing_TypographyStyle* style
 
 ##### OH_Drawing_SetTypographyTextWordBreakType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextWordBreakType(OH_Drawing_TypographyStyle* style, int wordBreakType)
 ```
@@ -2806,6 +3012,8 @@ void OH_Drawing_SetTypographyTextWordBreakType(OH_Drawing_TypographyStyle* style
   
 
 ##### OH_Drawing_SetTypographyTextEllipsisModal()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTypographyTextEllipsisModal(OH_Drawing_TypographyStyle* style, int ellipsisModal)
@@ -2837,6 +3045,8 @@ void OH_Drawing_SetTypographyTextEllipsisModal(OH_Drawing_TypographyStyle* style
 
 ##### OH_Drawing_SetTypographyTextEllipsis()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextEllipsis(OH_Drawing_TypographyStyle* style, const char* ellipsis)
 ```
@@ -2860,6 +3070,8 @@ void OH_Drawing_SetTypographyTextEllipsis(OH_Drawing_TypographyStyle* style, con
   
 
 ##### OH_Drawing_TypographyGetLineHeight()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TypographyGetLineHeight(OH_Drawing_Typography* typography, int lineNumber)
@@ -2892,6 +3104,8 @@ double OH_Drawing_TypographyGetLineHeight(OH_Drawing_Typography* typography, int
 
 ##### OH_Drawing_TypographyGetLineWidth()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double OH_Drawing_TypographyGetLineWidth(OH_Drawing_Typography* typography, int lineNumber)
 ```
@@ -2923,6 +3137,8 @@ double OH_Drawing_TypographyGetLineWidth(OH_Drawing_Typography* typography, int 
 
 ##### OH_Drawing_SetTypographyTextSplitRatio()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextSplitRatio(OH_Drawing_TypographyStyle* style, float textSplitRatio)
 ```
@@ -2946,6 +3162,8 @@ void OH_Drawing_SetTypographyTextSplitRatio(OH_Drawing_TypographyStyle* style, f
   
 
 ##### OH_Drawing_TypographyIsLineUnlimited()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TypographyIsLineUnlimited(OH_Drawing_TypographyStyle* style)
@@ -2977,6 +3195,8 @@ bool OH_Drawing_TypographyIsLineUnlimited(OH_Drawing_TypographyStyle* style)
 
 ##### OH_Drawing_TypographyIsEllipsized()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool OH_Drawing_TypographyIsEllipsized(OH_Drawing_TypographyStyle* style)
 ```
@@ -3007,6 +3227,8 @@ bool OH_Drawing_TypographyIsEllipsized(OH_Drawing_TypographyStyle* style)
 
 ##### OH_Drawing_SetTypographyTextLocale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextLocale(OH_Drawing_TypographyStyle* style, const char* locale)
 ```
@@ -3030,6 +3252,8 @@ void OH_Drawing_SetTypographyTextLocale(OH_Drawing_TypographyStyle* style, const
   
 
 ##### OH_Drawing_TextStyleGetFontMetrics()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TextStyleGetFontMetrics(OH_Drawing_Typography* typography,OH_Drawing_TextStyle* style, OH_Drawing_Font_Metrics* fontmetrics)
@@ -3063,6 +3287,8 @@ bool OH_Drawing_TextStyleGetFontMetrics(OH_Drawing_Typography* typography,OH_Dra
 
 ##### OH_Drawing_SetTypographyTextStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextStyle(OH_Drawing_TypographyStyle* handler, OH_Drawing_TextStyle* style)
 ```
@@ -3087,6 +3313,8 @@ void OH_Drawing_SetTypographyTextStyle(OH_Drawing_TypographyStyle* handler, OH_D
 
 ##### OH_Drawing_CreateFontDescriptor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_FontDescriptor* OH_Drawing_CreateFontDescriptor(void)
 ```
@@ -3109,6 +3337,8 @@ OH_Drawing_FontDescriptor* OH_Drawing_CreateFontDescriptor(void)
   
 
 ##### OH_Drawing_DestroyFontDescriptor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_DestroyFontDescriptor(OH_Drawing_FontDescriptor* descriptor)
@@ -3133,6 +3363,8 @@ void OH_Drawing_DestroyFontDescriptor(OH_Drawing_FontDescriptor* descriptor)
 
 ##### OH_Drawing_CreateFontParser()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_FontParser* OH_Drawing_CreateFontParser(void)
 ```
@@ -3156,6 +3388,8 @@ OH_Drawing_FontParser* OH_Drawing_CreateFontParser(void)
 
 ##### OH_Drawing_DestroyFontParser()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyFontParser(OH_Drawing_FontParser* parser)
 ```
@@ -3178,6 +3412,8 @@ void OH_Drawing_DestroyFontParser(OH_Drawing_FontParser* parser)
   
 
 ##### OH_Drawing_FontParserGetSystemFontList()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char** OH_Drawing_FontParserGetSystemFontList(OH_Drawing_FontParser* fontParser, size_t* num)
@@ -3210,6 +3446,8 @@ char** OH_Drawing_FontParserGetSystemFontList(OH_Drawing_FontParser* fontParser,
 
 ##### OH_Drawing_DestroySystemFontList()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroySystemFontList(char** fontList, size_t num)
 ```
@@ -3233,6 +3471,8 @@ void OH_Drawing_DestroySystemFontList(char** fontList, size_t num)
   
 
 ##### OH_Drawing_FontParserGetFontByName()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_FontDescriptor* OH_Drawing_FontParserGetFontByName(OH_Drawing_FontParser* fontParser, const char* name)
@@ -3265,6 +3505,8 @@ OH_Drawing_FontDescriptor* OH_Drawing_FontParserGetFontByName(OH_Drawing_FontPar
 
 ##### OH_Drawing_TypographyGetLineMetrics()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_LineMetrics* OH_Drawing_TypographyGetLineMetrics(OH_Drawing_Typography* typography)
 ```
@@ -3294,6 +3536,8 @@ OH_Drawing_LineMetrics* OH_Drawing_TypographyGetLineMetrics(OH_Drawing_Typograph
   
 
 ##### OH_Drawing_LineMetricsGetSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 size_t OH_Drawing_LineMetricsGetSize(OH_Drawing_LineMetrics* lineMetrics)
@@ -3325,6 +3569,8 @@ size_t OH_Drawing_LineMetricsGetSize(OH_Drawing_LineMetrics* lineMetrics)
 
 ##### OH_Drawing_DestroyLineMetrics()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyLineMetrics(OH_Drawing_LineMetrics* lineMetrics)
 ```
@@ -3347,6 +3593,8 @@ void OH_Drawing_DestroyLineMetrics(OH_Drawing_LineMetrics* lineMetrics)
   
 
 ##### OH_Drawing_TypographyGetLineMetricsAt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TypographyGetLineMetricsAt(OH_Drawing_Typography* typography,int lineNumber, OH_Drawing_LineMetrics* lineMetric)
@@ -3379,6 +3627,8 @@ bool OH_Drawing_TypographyGetLineMetricsAt(OH_Drawing_Typography* typography,int
   
 
 ##### OH_Drawing_TypographyGetLineInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TypographyGetLineInfo(OH_Drawing_Typography* typography, int lineNumber, bool oneLine,bool includeWhitespace, OH_Drawing_LineMetrics* drawingLineMetrics)
@@ -3414,6 +3664,8 @@ bool OH_Drawing_TypographyGetLineInfo(OH_Drawing_Typography* typography, int lin
 
 ##### OH_Drawing_SetTypographyTextFontWeight()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextFontWeight(OH_Drawing_TypographyStyle* style, int weight)
 ```
@@ -3437,6 +3689,8 @@ void OH_Drawing_SetTypographyTextFontWeight(OH_Drawing_TypographyStyle* style, i
   
 
 ##### OH_Drawing_SetTypographyTextFontStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTypographyTextFontStyle(OH_Drawing_TypographyStyle* style, int fontStyle)
@@ -3462,6 +3716,8 @@ void OH_Drawing_SetTypographyTextFontStyle(OH_Drawing_TypographyStyle* style, in
 
 ##### OH_Drawing_SetTypographyTextFontFamily()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextFontFamily(OH_Drawing_TypographyStyle* style, const char* fontFamily)
 ```
@@ -3485,6 +3741,8 @@ void OH_Drawing_SetTypographyTextFontFamily(OH_Drawing_TypographyStyle* style, c
   
 
 ##### OH_Drawing_SetTypographyTextFontSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTypographyTextFontSize(OH_Drawing_TypographyStyle* style, double fontSize)
@@ -3510,6 +3768,8 @@ void OH_Drawing_SetTypographyTextFontSize(OH_Drawing_TypographyStyle* style, dou
 
 ##### OH_Drawing_SetTypographyTextFontHeight()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextFontHeight(OH_Drawing_TypographyStyle* style, double fontHeight)
 ```
@@ -3533,6 +3793,8 @@ void OH_Drawing_SetTypographyTextFontHeight(OH_Drawing_TypographyStyle* style, d
   
 
 ##### OH_Drawing_SetTypographyTextHalfLeading()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTypographyTextHalfLeading(OH_Drawing_TypographyStyle* style, bool halfLeading)
@@ -3558,6 +3820,8 @@ void OH_Drawing_SetTypographyTextHalfLeading(OH_Drawing_TypographyStyle* style, 
 
 ##### OH_Drawing_SetTypographyTextUseLineStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextUseLineStyle(OH_Drawing_TypographyStyle* style, bool useLineStyle)
 ```
@@ -3581,6 +3845,8 @@ void OH_Drawing_SetTypographyTextUseLineStyle(OH_Drawing_TypographyStyle* style,
   
 
 ##### OH_Drawing_SetTypographyTextLineStyleFontWeight()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTypographyTextLineStyleFontWeight(OH_Drawing_TypographyStyle* style, int weight)
@@ -3606,6 +3872,8 @@ void OH_Drawing_SetTypographyTextLineStyleFontWeight(OH_Drawing_TypographyStyle*
 
 ##### OH_Drawing_SetTypographyTextLineStyleFontStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextLineStyleFontStyle(OH_Drawing_TypographyStyle* style, int fontStyle)
 ```
@@ -3629,6 +3897,8 @@ void OH_Drawing_SetTypographyTextLineStyleFontStyle(OH_Drawing_TypographyStyle* 
   
 
 ##### OH_Drawing_SetTypographyTextLineStyleFontFamilies()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTypographyTextLineStyleFontFamilies(OH_Drawing_TypographyStyle* style,int fontFamiliesNumber, const char* fontFamilies[])
@@ -3655,6 +3925,8 @@ void OH_Drawing_SetTypographyTextLineStyleFontFamilies(OH_Drawing_TypographyStyl
 
 ##### OH_Drawing_SetTypographyTextLineStyleFontSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextLineStyleFontSize(OH_Drawing_TypographyStyle* style, double lineStyleFontSize)
 ```
@@ -3678,6 +3950,8 @@ void OH_Drawing_SetTypographyTextLineStyleFontSize(OH_Drawing_TypographyStyle* s
   
 
 ##### OH_Drawing_SetTypographyTextLineStyleFontHeight()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTypographyTextLineStyleFontHeight(OH_Drawing_TypographyStyle* style, double lineStyleFontHeight)
@@ -3703,6 +3977,8 @@ void OH_Drawing_SetTypographyTextLineStyleFontHeight(OH_Drawing_TypographyStyle*
 
 ##### OH_Drawing_SetTypographyTextLineStyleHalfLeading()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextLineStyleHalfLeading(OH_Drawing_TypographyStyle* style, bool lineStyleHalfLeading)
 ```
@@ -3726,6 +4002,8 @@ void OH_Drawing_SetTypographyTextLineStyleHalfLeading(OH_Drawing_TypographyStyle
   
 
 ##### OH_Drawing_SetTypographyTextLineStyleSpacingScale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTypographyTextLineStyleSpacingScale(OH_Drawing_TypographyStyle* style, double spacingScale)
@@ -3751,6 +4029,8 @@ void OH_Drawing_SetTypographyTextLineStyleSpacingScale(OH_Drawing_TypographyStyl
 
 ##### OH_Drawing_SetTypographyTextLineStyleOnly()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextLineStyleOnly(OH_Drawing_TypographyStyle* style, bool lineStyleOnly)
 ```
@@ -3775,6 +4055,8 @@ void OH_Drawing_SetTypographyTextLineStyleOnly(OH_Drawing_TypographyStyle* style
 
 ##### OH_Drawing_CreateTextShadow()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_TextShadow* OH_Drawing_CreateTextShadow(void)
 ```
@@ -3798,6 +4080,8 @@ OH_Drawing_TextShadow* OH_Drawing_CreateTextShadow(void)
 
 ##### OH_Drawing_DestroyTextShadow()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyTextShadow(OH_Drawing_TextShadow* shadow)
 ```
@@ -3820,6 +4104,8 @@ void OH_Drawing_DestroyTextShadow(OH_Drawing_TextShadow* shadow)
   
 
 ##### OH_Drawing_TextStyleGetShadows()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TextShadow* OH_Drawing_TextStyleGetShadows(OH_Drawing_TextStyle* style)
@@ -3851,6 +4137,8 @@ OH_Drawing_TextShadow* OH_Drawing_TextStyleGetShadows(OH_Drawing_TextStyle* styl
 
 ##### OH_Drawing_TextStyleGetShadowCount()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 int OH_Drawing_TextStyleGetShadowCount(OH_Drawing_TextStyle* style)
 ```
@@ -3881,6 +4169,8 @@ int OH_Drawing_TextStyleGetShadowCount(OH_Drawing_TextStyle* style)
 
 ##### OH_Drawing_TextStyleAddShadow()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleAddShadow(OH_Drawing_TextStyle* style, const OH_Drawing_TextShadow* shadow)
 ```
@@ -3905,6 +4195,8 @@ void OH_Drawing_TextStyleAddShadow(OH_Drawing_TextStyle* style, const OH_Drawing
 
 ##### OH_Drawing_TextStyleClearShadows()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleClearShadows(OH_Drawing_TextStyle* style)
 ```
@@ -3927,6 +4219,8 @@ void OH_Drawing_TextStyleClearShadows(OH_Drawing_TextStyle* style)
   
 
 ##### OH_Drawing_TextStyleGetShadowWithIndex()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TextShadow* OH_Drawing_TextStyleGetShadowWithIndex(OH_Drawing_TextStyle* style, int index)
@@ -3959,6 +4253,8 @@ OH_Drawing_TextShadow* OH_Drawing_TextStyleGetShadowWithIndex(OH_Drawing_TextSty
 
 ##### OH_Drawing_TypographySetIndents()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographySetIndents(OH_Drawing_Typography* typography, int indentsNumber, const float indents[])
 ```
@@ -3983,6 +4279,8 @@ void OH_Drawing_TypographySetIndents(OH_Drawing_Typography* typography, int inde
   
 
 ##### OH_Drawing_TypographyGetIndentsWithIndex()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 float OH_Drawing_TypographyGetIndentsWithIndex(OH_Drawing_Typography* typography, int index)
@@ -4014,6 +4312,8 @@ float OH_Drawing_TypographyGetIndentsWithIndex(OH_Drawing_Typography* typography
   
 
 ##### OH_Drawing_TypographyGetLineTextRange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Range* OH_Drawing_TypographyGetLineTextRange(OH_Drawing_Typography* typography,int lineNumber, bool includeSpaces)
@@ -4047,6 +4347,8 @@ OH_Drawing_Range* OH_Drawing_TypographyGetLineTextRange(OH_Drawing_Typography* t
 
 ##### OH_Drawing_DestroyTextShadows()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyTextShadows(OH_Drawing_TextShadow* shadow)
 ```
@@ -4069,6 +4371,8 @@ void OH_Drawing_DestroyTextShadows(OH_Drawing_TextShadow* shadow)
   
 
 ##### OH_Drawing_GetSystemFontConfigInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_FontConfigInfo* OH_Drawing_GetSystemFontConfigInfo(OH_Drawing_FontConfigInfoErrorCode* errorCode)
@@ -4100,6 +4404,8 @@ OH_Drawing_FontConfigInfo* OH_Drawing_GetSystemFontConfigInfo(OH_Drawing_FontCon
 
 ##### OH_Drawing_DestroySystemFontConfigInfo()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroySystemFontConfigInfo(OH_Drawing_FontConfigInfo* drawFontCfgInfo)
 ```
@@ -4122,6 +4428,8 @@ void OH_Drawing_DestroySystemFontConfigInfo(OH_Drawing_FontConfigInfo* drawFontC
   
 
 ##### OH_Drawing_SetTextStyleFontStyleStruct()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextStyleFontStyleStruct(OH_Drawing_TextStyle* drawingTextStyle,OH_Drawing_FontStyleStruct fontStyle)
@@ -4147,6 +4455,8 @@ void OH_Drawing_SetTextStyleFontStyleStruct(OH_Drawing_TextStyle* drawingTextSty
 
 ##### OH_Drawing_SetTextStyleBadgeType()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTextStyleBadgeType(OH_Drawing_TextStyle* style, OH_Drawing_TextBadgeType textBadgeType)
 ```
@@ -4170,6 +4480,8 @@ void OH_Drawing_SetTextStyleBadgeType(OH_Drawing_TextStyle* style, OH_Drawing_Te
   
 
 ##### OH_Drawing_TextStyleGetFontStyleStruct()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_FontStyleStruct OH_Drawing_TextStyleGetFontStyleStruct(OH_Drawing_TextStyle* drawingTextStyle)
@@ -4201,6 +4513,8 @@ OH_Drawing_FontStyleStruct OH_Drawing_TextStyleGetFontStyleStruct(OH_Drawing_Tex
 
 ##### OH_Drawing_SetTypographyStyleFontStyleStruct()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyStyleFontStyleStruct(OH_Drawing_TypographyStyle* drawingStyle,OH_Drawing_FontStyleStruct fontStyle)
 ```
@@ -4224,6 +4538,8 @@ void OH_Drawing_SetTypographyStyleFontStyleStruct(OH_Drawing_TypographyStyle* dr
   
 
 ##### OH_Drawing_TypographyStyleGetFontStyleStruct()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_FontStyleStruct OH_Drawing_TypographyStyleGetFontStyleStruct(OH_Drawing_TypographyStyle* drawingStyle)
@@ -4255,6 +4571,8 @@ OH_Drawing_FontStyleStruct OH_Drawing_TypographyStyleGetFontStyleStruct(OH_Drawi
 
 ##### OH_Drawing_TextStyleSetBackgroundRect()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleSetBackgroundRect(OH_Drawing_TextStyle* style,const OH_Drawing_RectStyle_Info* rectStyleInfo, int styleId)
 ```
@@ -4280,6 +4598,8 @@ void OH_Drawing_TextStyleSetBackgroundRect(OH_Drawing_TextStyle* style,const OH_
 
 ##### OH_Drawing_TypographyHandlerAddSymbol()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyHandlerAddSymbol(OH_Drawing_TypographyCreate* handler, uint32_t symbol)
 ```
@@ -4303,6 +4623,8 @@ void OH_Drawing_TypographyHandlerAddSymbol(OH_Drawing_TypographyCreate* handler,
   
 
 ##### OH_Drawing_TextStyleAddFontFeature()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TextStyleAddFontFeature(OH_Drawing_TextStyle* style, const char* tag, int value)
@@ -4329,6 +4651,8 @@ void OH_Drawing_TextStyleAddFontFeature(OH_Drawing_TextStyle* style, const char*
 
 ##### OH_Drawing_TextStyleAddFontVariation()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleAddFontVariation(OH_Drawing_TextStyle* style, const char* axis, const float value)
 ```
@@ -4353,6 +4677,8 @@ void OH_Drawing_TextStyleAddFontVariation(OH_Drawing_TextStyle* style, const cha
   
 
 ##### OH_Drawing_TextStyleGetFontFeatures()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_FontFeature* OH_Drawing_TextStyleGetFontFeatures(OH_Drawing_TextStyle* style)
@@ -4384,6 +4710,8 @@ OH_Drawing_FontFeature* OH_Drawing_TextStyleGetFontFeatures(OH_Drawing_TextStyle
 
 ##### OH_Drawing_TextStyleDestroyFontFeatures()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleDestroyFontFeatures(OH_Drawing_FontFeature* fontFeature, size_t fontFeatureSize)
 ```
@@ -4407,6 +4735,8 @@ void OH_Drawing_TextStyleDestroyFontFeatures(OH_Drawing_FontFeature* fontFeature
   
 
 ##### OH_Drawing_TextStyleGetFontFeatureSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 size_t OH_Drawing_TextStyleGetFontFeatureSize(OH_Drawing_TextStyle* style)
@@ -4438,6 +4768,8 @@ size_t OH_Drawing_TextStyleGetFontFeatureSize(OH_Drawing_TextStyle* style)
 
 ##### OH_Drawing_TextStyleClearFontFeature()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleClearFontFeature(OH_Drawing_TextStyle* style)
 ```
@@ -4460,6 +4792,8 @@ void OH_Drawing_TextStyleClearFontFeature(OH_Drawing_TextStyle* style)
   
 
 ##### OH_Drawing_TextStyleGetBaselineShift()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TextStyleGetBaselineShift(OH_Drawing_TextStyle* style)
@@ -4491,6 +4825,8 @@ double OH_Drawing_TextStyleGetBaselineShift(OH_Drawing_TextStyle* style)
 
 ##### OH_Drawing_TextStyleSetBaselineShift()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleSetBaselineShift(OH_Drawing_TextStyle* style, double lineShift)
 ```
@@ -4515,6 +4851,8 @@ void OH_Drawing_TextStyleSetBaselineShift(OH_Drawing_TextStyle* style, double li
 
 ##### OH_Drawing_TypographyTextSetHeightBehavior()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyTextSetHeightBehavior(OH_Drawing_TypographyStyle* style,OH_Drawing_TextHeightBehavior heightMode)
 ```
@@ -4538,6 +4876,8 @@ void OH_Drawing_TypographyTextSetHeightBehavior(OH_Drawing_TypographyStyle* styl
   
 
 ##### OH_Drawing_TypographyTextGetHeightBehavior()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TextHeightBehavior OH_Drawing_TypographyTextGetHeightBehavior(OH_Drawing_TypographyStyle* style)
@@ -4568,6 +4908,8 @@ OH_Drawing_TextHeightBehavior OH_Drawing_TypographyTextGetHeightBehavior(OH_Draw
   
 
 ##### OH_Drawing_TypographyGetLineFontMetrics()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Font_Metrics* OH_Drawing_TypographyGetLineFontMetrics(OH_Drawing_Typography* typography,size_t lineNumber, size_t* fontMetricsSize)
@@ -4601,6 +4943,8 @@ OH_Drawing_Font_Metrics* OH_Drawing_TypographyGetLineFontMetrics(OH_Drawing_Typo
 
 ##### OH_Drawing_TypographyDestroyLineFontMetrics()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyDestroyLineFontMetrics(OH_Drawing_Font_Metrics* lineFontMetric)
 ```
@@ -4623,6 +4967,8 @@ void OH_Drawing_TypographyDestroyLineFontMetrics(OH_Drawing_Font_Metrics* lineFo
   
 
 ##### OH_Drawing_TextStyleIsEqual()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TextStyleIsEqual(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle)
@@ -4655,6 +5001,8 @@ bool OH_Drawing_TextStyleIsEqual(const OH_Drawing_TextStyle* style, const OH_Dra
 
 ##### OH_Drawing_TextStyleIsEqualByFont()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool OH_Drawing_TextStyleIsEqualByFont(const OH_Drawing_TextStyle* style, const OH_Drawing_TextStyle* comparedStyle)
 ```
@@ -4685,6 +5033,8 @@ bool OH_Drawing_TextStyleIsEqualByFont(const OH_Drawing_TextStyle* style, const 
   
 
 ##### OH_Drawing_TextStyleIsAttributeMatched()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TextStyleIsAttributeMatched(const OH_Drawing_TextStyle* style,const OH_Drawing_TextStyle* comparedStyle, OH_Drawing_TextStyleType textStyleType)
@@ -4718,6 +5068,8 @@ bool OH_Drawing_TextStyleIsAttributeMatched(const OH_Drawing_TextStyle* style,co
 
 ##### OH_Drawing_TextStyleSetPlaceholder()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleSetPlaceholder(OH_Drawing_TextStyle* style)
 ```
@@ -4740,6 +5092,8 @@ void OH_Drawing_TextStyleSetPlaceholder(OH_Drawing_TextStyle* style)
   
 
 ##### OH_Drawing_TextStyleIsPlaceholder()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TextStyleIsPlaceholder(OH_Drawing_TextStyle* style)
@@ -4771,6 +5125,8 @@ bool OH_Drawing_TextStyleIsPlaceholder(OH_Drawing_TextStyle* style)
 
 ##### OH_Drawing_TypographyStyleGetEffectiveAlignment()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_TextAlign OH_Drawing_TypographyStyleGetEffectiveAlignment(OH_Drawing_TypographyStyle* style)
 ```
@@ -4800,6 +5156,8 @@ OH_Drawing_TextAlign OH_Drawing_TypographyStyleGetEffectiveAlignment(OH_Drawing_
   
 
 ##### OH_Drawing_TypographyStyleIsHintEnabled()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TypographyStyleIsHintEnabled(OH_Drawing_TypographyStyle* style)
@@ -4831,6 +5189,8 @@ bool OH_Drawing_TypographyStyleIsHintEnabled(OH_Drawing_TypographyStyle* style)
 
 ##### OH_Drawing_SetTypographyStyleTextStrutStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyStyleTextStrutStyle(OH_Drawing_TypographyStyle* style, OH_Drawing_StrutStyle* strutstyle)
 ```
@@ -4854,6 +5214,8 @@ void OH_Drawing_SetTypographyStyleTextStrutStyle(OH_Drawing_TypographyStyle* sty
   
 
 ##### OH_Drawing_TypographyStyleGetStrutStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_StrutStyle* OH_Drawing_TypographyStyleGetStrutStyle(OH_Drawing_TypographyStyle* style)
@@ -4885,6 +5247,8 @@ OH_Drawing_StrutStyle* OH_Drawing_TypographyStyleGetStrutStyle(OH_Drawing_Typogr
 
 ##### OH_Drawing_TypographyStyleDestroyStrutStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyStyleDestroyStrutStyle(OH_Drawing_StrutStyle* strutstyle)
 ```
@@ -4907,6 +5271,8 @@ void OH_Drawing_TypographyStyleDestroyStrutStyle(OH_Drawing_StrutStyle* strutsty
   
 
 ##### OH_Drawing_TypographyStyleStrutStyleEquals()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TypographyStyleStrutStyleEquals(OH_Drawing_StrutStyle* from, OH_Drawing_StrutStyle* to)
@@ -4932,6 +5298,8 @@ bool OH_Drawing_TypographyStyleStrutStyleEquals(OH_Drawing_StrutStyle* from, OH_
 
 ##### OH_Drawing_TypographyStyleSetHintsEnabled()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyStyleSetHintsEnabled(OH_Drawing_TypographyStyle* style, bool hintsEnabled)
 ```
@@ -4956,6 +5324,8 @@ void OH_Drawing_TypographyStyleSetHintsEnabled(OH_Drawing_TypographyStyle* style
 
 ##### OH_Drawing_TypographyMarkDirty()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void  OH_Drawing_TypographyMarkDirty(OH_Drawing_Typography* typography)
 ```
@@ -4978,6 +5348,8 @@ void  OH_Drawing_TypographyMarkDirty(OH_Drawing_Typography* typography)
   
 
 ##### OH_Drawing_TypographyGetUnresolvedGlyphsCount()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 int32_t OH_Drawing_TypographyGetUnresolvedGlyphsCount(OH_Drawing_Typography* typography)
@@ -5009,6 +5381,8 @@ int32_t OH_Drawing_TypographyGetUnresolvedGlyphsCount(OH_Drawing_Typography* typ
 
 ##### OH_Drawing_TypographyUpdateFontSize()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyUpdateFontSize(OH_Drawing_Typography* typography, size_t from, size_t to, float fontSize)
 ```
@@ -5035,6 +5409,8 @@ void OH_Drawing_TypographyUpdateFontSize(OH_Drawing_Typography* typography, size
 
 ##### OH_Drawing_TypographyUpdateFontColor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyUpdateFontColor(OH_Drawing_Typography* typography, uint32_t color)
 ```
@@ -5058,6 +5434,8 @@ void OH_Drawing_TypographyUpdateFontColor(OH_Drawing_Typography* typography, uin
   
 
 ##### OH_Drawing_TypographyUpdateDecoration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TypographyUpdateDecoration(OH_Drawing_Typography* typography, OH_Drawing_TextDecoration decoration)
@@ -5083,6 +5461,8 @@ void OH_Drawing_TypographyUpdateDecoration(OH_Drawing_Typography* typography, OH
 
 ##### OH_Drawing_TypographyUpdateDecorationThicknessScale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyUpdateDecorationThicknessScale(OH_Drawing_Typography* typography,double decorationThicknessScale)
 ```
@@ -5107,6 +5487,8 @@ void OH_Drawing_TypographyUpdateDecorationThicknessScale(OH_Drawing_Typography* 
 
 ##### OH_Drawing_TypographyUpdateDecorationStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyUpdateDecorationStyle(OH_Drawing_Typography* typography,OH_Drawing_TextDecorationStyle decorationStyle)
 ```
@@ -5130,6 +5512,8 @@ void OH_Drawing_TypographyUpdateDecorationStyle(OH_Drawing_Typography* typograph
   
 
 ##### OH_Drawing_TypographyTextGetLineStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TypographyTextGetLineStyle(OH_Drawing_TypographyStyle* style)
@@ -5161,6 +5545,8 @@ bool OH_Drawing_TypographyTextGetLineStyle(OH_Drawing_TypographyStyle* style)
 
 ##### OH_Drawing_TypographyTextlineStyleGetFontWeight()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_FontWeight OH_Drawing_TypographyTextlineStyleGetFontWeight(OH_Drawing_TypographyStyle* style)
 ```
@@ -5191,6 +5577,8 @@ OH_Drawing_FontWeight OH_Drawing_TypographyTextlineStyleGetFontWeight(OH_Drawing
 
 ##### OH_Drawing_TypographyTextlineStyleGetFontStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_FontStyle OH_Drawing_TypographyTextlineStyleGetFontStyle(OH_Drawing_TypographyStyle* style)
 ```
@@ -5220,6 +5608,8 @@ OH_Drawing_FontStyle OH_Drawing_TypographyTextlineStyleGetFontStyle(OH_Drawing_T
   
 
 ##### OH_Drawing_TypographyTextlineStyleGetFontFamilies()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char** OH_Drawing_TypographyTextlineStyleGetFontFamilies(OH_Drawing_TypographyStyle* style, size_t* num)
@@ -5252,6 +5642,8 @@ char** OH_Drawing_TypographyTextlineStyleGetFontFamilies(OH_Drawing_TypographySt
 
 ##### OH_Drawing_TypographyTextlineStyleDestroyFontFamilies()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyTextlineStyleDestroyFontFamilies(char** fontFamilies, size_t fontFamiliesNum)
 ```
@@ -5275,6 +5667,8 @@ void OH_Drawing_TypographyTextlineStyleDestroyFontFamilies(char** fontFamilies, 
   
 
 ##### OH_Drawing_TypographyTextlineStyleGetFontSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TypographyTextlineStyleGetFontSize(OH_Drawing_TypographyStyle* style)
@@ -5306,6 +5700,8 @@ double OH_Drawing_TypographyTextlineStyleGetFontSize(OH_Drawing_TypographyStyle*
 
 ##### OH_Drawing_TypographyTextlineStyleGetHeightScale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double OH_Drawing_TypographyTextlineStyleGetHeightScale(OH_Drawing_TypographyStyle* style)
 ```
@@ -5335,6 +5731,8 @@ double OH_Drawing_TypographyTextlineStyleGetHeightScale(OH_Drawing_TypographySty
   
 
 ##### OH_Drawing_TypographyTextlineStyleGetHeightOnly()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TypographyTextlineStyleGetHeightOnly(OH_Drawing_TypographyStyle* style)
@@ -5366,6 +5764,8 @@ bool OH_Drawing_TypographyTextlineStyleGetHeightOnly(OH_Drawing_TypographyStyle*
 
 ##### OH_Drawing_TypographyTextlineStyleGetHalfLeading()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool OH_Drawing_TypographyTextlineStyleGetHalfLeading(OH_Drawing_TypographyStyle* style)
 ```
@@ -5395,6 +5795,8 @@ bool OH_Drawing_TypographyTextlineStyleGetHalfLeading(OH_Drawing_TypographyStyle
   
 
 ##### OH_Drawing_TypographyTextlineStyleGetSpacingScale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TypographyTextlineStyleGetSpacingScale(OH_Drawing_TypographyStyle* style)
@@ -5426,6 +5828,8 @@ double OH_Drawing_TypographyTextlineStyleGetSpacingScale(OH_Drawing_TypographySt
 
 ##### OH_Drawing_TypographyTextlineGetStyleOnly()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 bool OH_Drawing_TypographyTextlineGetStyleOnly(OH_Drawing_TypographyStyle* style)
 ```
@@ -5455,6 +5859,8 @@ bool OH_Drawing_TypographyTextlineGetStyleOnly(OH_Drawing_TypographyStyle* style
   
 
 ##### OH_Drawing_TypographyGetTextAlign()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TextAlign OH_Drawing_TypographyGetTextAlign(OH_Drawing_TypographyStyle* style)
@@ -5486,6 +5892,8 @@ OH_Drawing_TextAlign OH_Drawing_TypographyGetTextAlign(OH_Drawing_TypographyStyl
 
 ##### OH_Drawing_TypographyGetTextDirection()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_TextDirection OH_Drawing_TypographyGetTextDirection(OH_Drawing_TypographyStyle* style)
 ```
@@ -5515,6 +5923,8 @@ OH_Drawing_TextDirection OH_Drawing_TypographyGetTextDirection(OH_Drawing_Typogr
   
 
 ##### OH_Drawing_TypographyGetTextMaxLines()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 size_t OH_Drawing_TypographyGetTextMaxLines(OH_Drawing_TypographyStyle* style)
@@ -5546,6 +5956,8 @@ size_t OH_Drawing_TypographyGetTextMaxLines(OH_Drawing_TypographyStyle* style)
 
 ##### OH_Drawing_TypographyGetTextEllipsis()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 char* OH_Drawing_TypographyGetTextEllipsis(OH_Drawing_TypographyStyle* style)
 ```
@@ -5576,6 +5988,8 @@ char* OH_Drawing_TypographyGetTextEllipsis(OH_Drawing_TypographyStyle* style)
 
 ##### OH_Drawing_TypographyDestroyEllipsis()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyDestroyEllipsis(char* ellipsis)
 ```
@@ -5598,6 +6012,8 @@ void OH_Drawing_TypographyDestroyEllipsis(char* ellipsis)
   
 
 ##### OH_Drawing_TypographyStyleEquals()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TypographyStyleEquals(OH_Drawing_TypographyStyle* from, OH_Drawing_TypographyStyle* to)
@@ -5630,6 +6046,8 @@ bool OH_Drawing_TypographyStyleEquals(OH_Drawing_TypographyStyle* from, OH_Drawi
 
 ##### OH_Drawing_TextStyleGetColor()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 uint32_t OH_Drawing_TextStyleGetColor(OH_Drawing_TextStyle* style)
 ```
@@ -5659,6 +6077,8 @@ uint32_t OH_Drawing_TextStyleGetColor(OH_Drawing_TextStyle* style)
   
 
 ##### OH_Drawing_TextStyleGetDecorationStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TextDecorationStyle OH_Drawing_TextStyleGetDecorationStyle(OH_Drawing_TextStyle* style)
@@ -5690,6 +6110,8 @@ OH_Drawing_TextDecorationStyle OH_Drawing_TextStyleGetDecorationStyle(OH_Drawing
 
 ##### OH_Drawing_TextStyleGetFontWeight()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_FontWeight OH_Drawing_TextStyleGetFontWeight(OH_Drawing_TextStyle* style)
 ```
@@ -5719,6 +6141,8 @@ OH_Drawing_FontWeight OH_Drawing_TextStyleGetFontWeight(OH_Drawing_TextStyle* st
   
 
 ##### OH_Drawing_TextStyleGetFontStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_FontStyle OH_Drawing_TextStyleGetFontStyle(OH_Drawing_TextStyle* style)
@@ -5750,6 +6174,8 @@ OH_Drawing_FontStyle OH_Drawing_TextStyleGetFontStyle(OH_Drawing_TextStyle* styl
 
 ##### OH_Drawing_TextStyleGetBaseline()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_TextBaseline OH_Drawing_TextStyleGetBaseline(OH_Drawing_TextStyle* style)
 ```
@@ -5779,6 +6205,8 @@ OH_Drawing_TextBaseline OH_Drawing_TextStyleGetBaseline(OH_Drawing_TextStyle* st
   
 
 ##### OH_Drawing_TextStyleGetFontFamilies()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 char** OH_Drawing_TextStyleGetFontFamilies(OH_Drawing_TextStyle* style, size_t* num)
@@ -5811,6 +6239,8 @@ char** OH_Drawing_TextStyleGetFontFamilies(OH_Drawing_TextStyle* style, size_t* 
 
 ##### OH_Drawing_TextStyleDestroyFontFamilies()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TextStyleDestroyFontFamilies(char** fontFamilies, size_t num)
 ```
@@ -5834,6 +6264,8 @@ void OH_Drawing_TextStyleDestroyFontFamilies(char** fontFamilies, size_t num)
   
 
 ##### OH_Drawing_TextStyleGetFontSize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TextStyleGetFontSize(OH_Drawing_TextStyle* style)
@@ -5865,6 +6297,8 @@ double OH_Drawing_TextStyleGetFontSize(OH_Drawing_TextStyle* style)
 
 ##### OH_Drawing_TextStyleGetLetterSpacing()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double OH_Drawing_TextStyleGetLetterSpacing(OH_Drawing_TextStyle* style)
 ```
@@ -5894,6 +6328,8 @@ double OH_Drawing_TextStyleGetLetterSpacing(OH_Drawing_TextStyle* style)
   
 
 ##### OH_Drawing_TextStyleGetWordSpacing()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 double OH_Drawing_TextStyleGetWordSpacing(OH_Drawing_TextStyle* style)
@@ -5925,6 +6361,8 @@ double OH_Drawing_TextStyleGetWordSpacing(OH_Drawing_TextStyle* style)
 
 ##### OH_Drawing_TextStyleGetFontHeight()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 double OH_Drawing_TextStyleGetFontHeight(OH_Drawing_TextStyle* style)
 ```
@@ -5954,6 +6392,8 @@ double OH_Drawing_TextStyleGetFontHeight(OH_Drawing_TextStyle* style)
   
 
 ##### OH_Drawing_TextStyleGetHalfLeading()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 bool OH_Drawing_TextStyleGetHalfLeading(OH_Drawing_TextStyle* style)
@@ -5985,6 +6425,8 @@ bool OH_Drawing_TextStyleGetHalfLeading(OH_Drawing_TextStyle* style)
 
 ##### OH_Drawing_TextStyleGetLocale()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 const char* OH_Drawing_TextStyleGetLocale(OH_Drawing_TextStyle* style)
 ```
@@ -6015,6 +6457,8 @@ const char* OH_Drawing_TextStyleGetLocale(OH_Drawing_TextStyle* style)
 
 ##### OH_Drawing_TypographyDestroyTextBox()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_TypographyDestroyTextBox(OH_Drawing_TextBox* textBox)
 ```
@@ -6037,6 +6481,8 @@ void OH_Drawing_TypographyDestroyTextBox(OH_Drawing_TextBox* textBox)
   
 
 ##### OH_Drawing_SetTextShadow()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_SetTextShadow(OH_Drawing_TextShadow* shadow, uint32_t color, OH_Drawing_Point* offset,double blurRadius)
@@ -6063,6 +6509,8 @@ void OH_Drawing_SetTextShadow(OH_Drawing_TextShadow* shadow, uint32_t color, OH_
   
 
 ##### OH_Drawing_CreateTextTab()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TextTab* OH_Drawing_CreateTextTab(OH_Drawing_TextAlign alignment, float location)
@@ -6095,6 +6543,8 @@ OH_Drawing_TextTab* OH_Drawing_CreateTextTab(OH_Drawing_TextAlign alignment, flo
 
 ##### OH_Drawing_DestroyTextTab()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyTextTab(OH_Drawing_TextTab* tab)
 ```
@@ -6117,6 +6567,8 @@ void OH_Drawing_DestroyTextTab(OH_Drawing_TextTab* tab)
   
 
 ##### OH_Drawing_GetTextTabAlignment()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TextAlign OH_Drawing_GetTextTabAlignment(OH_Drawing_TextTab* tab)
@@ -6148,6 +6600,8 @@ OH_Drawing_TextAlign OH_Drawing_GetTextTabAlignment(OH_Drawing_TextTab* tab)
 
 ##### OH_Drawing_GetTextTabLocation()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 float OH_Drawing_GetTextTabLocation(OH_Drawing_TextTab* tab)
 ```
@@ -6178,6 +6632,8 @@ float OH_Drawing_GetTextTabLocation(OH_Drawing_TextTab* tab)
 
 ##### OH_Drawing_SetTypographyTextTab()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextTab(OH_Drawing_TypographyStyle* style, OH_Drawing_TextTab* tab)
 ```
@@ -6201,6 +6657,8 @@ void OH_Drawing_SetTypographyTextTab(OH_Drawing_TypographyStyle* style, OH_Drawi
   
 
 ##### OH_Drawing_GetDrawingArraySize()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 size_t OH_Drawing_GetDrawingArraySize(OH_Drawing_Array* drawingArray)
@@ -6232,6 +6690,8 @@ size_t OH_Drawing_GetDrawingArraySize(OH_Drawing_Array* drawingArray)
 
 ##### OH_Drawing_SetTypographyTextTrailingSpaceOptimized()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextTrailingSpaceOptimized(OH_Drawing_TypographyStyle* style, bool trailingSpaceOptimized)
 ```
@@ -6255,6 +6715,8 @@ void OH_Drawing_SetTypographyTextTrailingSpaceOptimized(OH_Drawing_TypographySty
   
 
 ##### OH_Drawing_TypographyHandlerAddEncodedText()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TypographyHandlerAddEncodedText(OH_Drawing_TypographyCreate* handler, const void* text,size_t byteLength, OH_Drawing_TextEncoding textEncodingType)
@@ -6282,6 +6744,8 @@ void OH_Drawing_TypographyHandlerAddEncodedText(OH_Drawing_TypographyCreate* han
 
 ##### OH_Drawing_SetTypographyTextAutoSpace()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyTextAutoSpace(OH_Drawing_TypographyStyle *style, bool enableAutoSpace)
 ```
@@ -6307,6 +6771,8 @@ void OH_Drawing_SetTypographyTextAutoSpace(OH_Drawing_TypographyStyle *style, bo
   
 
 ##### OH_Drawing_TypographyUpdateDecorationColor()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TypographyUpdateDecorationColor(OH_Drawing_Typography* typography, uint32_t color)
@@ -6334,6 +6800,8 @@ void OH_Drawing_TypographyUpdateDecorationColor(OH_Drawing_Typography* typograph
 
 ##### OH_Drawing_SetTypographyVerticalAlignment()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_SetTypographyVerticalAlignment(OH_Drawing_TypographyStyle* style,OH_Drawing_TextVerticalAlignment align)
 ```
@@ -6357,6 +6825,8 @@ void OH_Drawing_SetTypographyVerticalAlignment(OH_Drawing_TypographyStyle* style
   
 
 ##### OH_Drawing_CopyTypographyStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_TypographyStyle* OH_Drawing_CopyTypographyStyle(OH_Drawing_TypographyStyle* style)
@@ -6388,6 +6858,8 @@ OH_Drawing_TypographyStyle* OH_Drawing_CopyTypographyStyle(OH_Drawing_Typography
 
 ##### OH_Drawing_CopyTextStyle()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_TextStyle* OH_Drawing_CopyTextStyle(OH_Drawing_TextStyle* style)
 ```
@@ -6418,6 +6890,8 @@ OH_Drawing_TextStyle* OH_Drawing_CopyTextStyle(OH_Drawing_TextStyle* style)
 
 ##### OH_Drawing_CopyTextShadow()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_TextShadow* OH_Drawing_CopyTextShadow(OH_Drawing_TextShadow* shadow)
 ```
@@ -6447,6 +6921,8 @@ OH_Drawing_TextShadow* OH_Drawing_CopyTextShadow(OH_Drawing_TextShadow* shadow)
   
 
 ##### OH_Drawing_SetTextStyleAttributeDouble()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeDouble(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id, double value)
@@ -6480,6 +6956,8 @@ OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeDouble(OH_Drawing_TextStyle
 
 ##### OH_Drawing_GetTextStyleAttributeDouble()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ErrorCode OH_Drawing_GetTextStyleAttributeDouble(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id, double* value)
 ```
@@ -6511,6 +6989,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetTextStyleAttributeDouble(OH_Drawing_TextStyle
   
 
 ##### OH_Drawing_SetTextStyleAttributeInt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeInt(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id, int value)
@@ -6544,6 +7024,8 @@ OH_Drawing_ErrorCode OH_Drawing_SetTextStyleAttributeInt(OH_Drawing_TextStyle* s
 
 ##### OH_Drawing_GetTextStyleAttributeInt()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ErrorCode OH_Drawing_GetTextStyleAttributeInt(OH_Drawing_TextStyle* style, OH_Drawing_TextStyleAttributeId id, int* value)
 ```
@@ -6575,6 +7057,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetTextStyleAttributeInt(OH_Drawing_TextStyle* s
   
 
 ##### OH_Drawing_SetTypographyStyleAttributeDouble()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeDouble(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, double value)
@@ -6608,6 +7092,8 @@ OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeDouble(OH_Drawing_Typ
 
 ##### OH_Drawing_GetTypographyStyleAttributeDouble()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeDouble(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, double* value)
 ```
@@ -6639,6 +7125,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeDouble(OH_Drawing_Typ
   
 
 ##### OH_Drawing_SetTypographyStyleAttributeInt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeInt(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, int value)
@@ -6672,6 +7160,8 @@ OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeInt(OH_Drawing_Typogr
 
 ##### OH_Drawing_GetTypographyStyleAttributeInt()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeInt(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, int* value)
 ```
@@ -6703,6 +7193,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeInt(OH_Drawing_Typogr
   
 
 ##### OH_Drawing_SetTypographyStyleAttributeBool()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeBool(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, bool value)
@@ -6736,6 +7228,8 @@ OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeBool(OH_Drawing_Typog
 
 ##### OH_Drawing_GetTypographyStyleAttributeBool()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeBool(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, bool* value)
 ```
@@ -6768,6 +7262,8 @@ OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeBool(OH_Drawing_Typog
 
 ##### OH_Drawing_DestroyPositionAndAffinity()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_DestroyPositionAndAffinity(OH_Drawing_PositionAndAffinity* positionAndAffinity)
 ```
@@ -6788,6 +7284,8 @@ void OH_Drawing_DestroyPositionAndAffinity(OH_Drawing_PositionAndAffinity* posit
   
 
 ##### OH_Drawing_TypographyGetCharacterRangeForGlyphRangeWithBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Range* OH_Drawing_TypographyGetCharacterRangeForGlyphRangeWithBuffer(OH_Drawing_Typography* typography, size_t glyphRangeStart, size_t glyphRangeEnd, OH_Drawing_Range** actualGlyphRange, OH_Drawing_TextEncoding textEncodingType)
@@ -6821,6 +7319,8 @@ OH_Drawing_Range* OH_Drawing_TypographyGetCharacterRangeForGlyphRangeWithBuffer(
 
 ##### OH_Drawing_TypographyGetCharacterPositionAtCoordinateWithBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_PositionAndAffinity* OH_Drawing_TypographyGetCharacterPositionAtCoordinateWithBuffer(OH_Drawing_Typography* typography, double dx, double dy, OH_Drawing_TextEncoding textEncodingType)
 ```
@@ -6851,6 +7351,8 @@ OH_Drawing_PositionAndAffinity* OH_Drawing_TypographyGetCharacterPositionAtCoord
   
 
 ##### OH_Drawing_TypographyGetGlyphRangeForCharacterRangeWithBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_Range* OH_Drawing_TypographyGetGlyphRangeForCharacterRangeWithBuffer(OH_Drawing_Typography* typography, size_t characterRangeStart, size_t characterRangeEnd, OH_Drawing_Range** actualCharacterRange, OH_Drawing_TextEncoding textEncodingType)
@@ -6884,6 +7386,8 @@ OH_Drawing_Range* OH_Drawing_TypographyGetGlyphRangeForCharacterRangeWithBuffer(
 
 ##### OH_Drawing_ReleaseRangeBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void OH_Drawing_ReleaseRangeBuffer(OH_Drawing_Range* range)
 ```
@@ -6904,6 +7408,8 @@ void OH_Drawing_ReleaseRangeBuffer(OH_Drawing_Range* range)
   
 
 ##### OH_Drawing_TypographyLayoutWithConstraintsWithBuffer()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 OH_Drawing_RectSize OH_Drawing_TypographyLayoutWithConstraintsWithBuffer(OH_Drawing_Typography* typography, OH_Drawing_RectSize constraintsRect, OH_Drawing_Array** fitStrRangeArr, size_t* fitStrRangeArrayLen)
@@ -6938,6 +7444,8 @@ OH_Drawing_RectSize OH_Drawing_TypographyLayoutWithConstraintsWithBuffer(OH_Draw
 
 ##### OH_Drawing_GetRangeByArrayIndex()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_Range* OH_Drawing_GetRangeByArrayIndex(OH_Drawing_Array* array, size_t index)
 ```
@@ -6969,6 +7477,8 @@ OH_Drawing_Range* OH_Drawing_GetRangeByArrayIndex(OH_Drawing_Array* array, size_
 
 ##### OH_Drawing_ReleaseArrayBuffer()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 OH_Drawing_ErrorCode OH_Drawing_ReleaseArrayBuffer(OH_Drawing_Array* array)
 ```
@@ -6998,6 +7508,8 @@ OH_Drawing_ErrorCode OH_Drawing_ReleaseArrayBuffer(OH_Drawing_Array* array)
   
 
 ##### OH_Drawing_TextStyleAddFontVariationWithNormalization()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void OH_Drawing_TextStyleAddFontVariationWithNormalization(OH_Drawing_TextStyle* style, const char* axis, const float normalizedValue)

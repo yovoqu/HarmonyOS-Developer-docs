@@ -12,6 +12,8 @@ typedef struct {...} ArkWeb_ComponentAPI
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 Component相关的Native API结构体。
  
 **起始版本：** 12
@@ -24,9 +26,13 @@ Component相关的Native API结构体。
 
 ##### 汇总
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### 成员变量
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -36,6 +42,8 @@ Component相关的Native API结构体。
   
 
 ##### 成员函数
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
  
 | 名称 | 描述 |
 | --- | --- |
@@ -49,9 +57,13 @@ Component相关的Native API结构体。
 
 ##### 成员函数说明
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
   
 
 ##### onControllerAttached()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*onControllerAttached)(const char* webTag, ArkWeb_OnComponentCallback callback, void* userData)
@@ -74,6 +86,8 @@ void (*onControllerAttached)(const char* webTag, ArkWeb_OnComponentCallback call
 
 ##### onPageBegin()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*onPageBegin)(const char* webTag, ArkWeb_OnComponentCallback callback, void* userData)
 ```
@@ -95,6 +109,8 @@ void (*onPageBegin)(const char* webTag, ArkWeb_OnComponentCallback callback, voi
 
 ##### onPageEnd()
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 void (*onPageEnd)(const char* webTag, ArkWeb_OnComponentCallback callback, void* userData)
 ```
@@ -115,6 +131,8 @@ void (*onPageEnd)(const char* webTag, ArkWeb_OnComponentCallback callback, void*
   
 
 ##### onDestroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
 void (*onDestroy)(const char* webTag, ArkWeb_OnComponentCallback callback, void* userData)

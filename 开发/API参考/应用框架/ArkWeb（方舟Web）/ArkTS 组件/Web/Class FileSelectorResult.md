@@ -14,6 +14,8 @@
 
 ##### constructor9+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 constructor()
  
 FileSelectorResult的构造函数。
@@ -23,6 +25,8 @@ FileSelectorResult的构造函数。
   
 
 ##### handleFileList9+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 handleFileList(fileList: Array&lt;string&gt;): void
  

@@ -14,17 +14,23 @@
 
 ##### 权限列表
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 无
  
   
 
 ##### 子组件
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 [tspan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-tspan)。
  
   
 
 ##### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 支持以下表格中的属性。
   
@@ -46,6 +52,8 @@
   
 
 ##### 示例
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 textPath属性示例，textpath文本内容沿着属性path中的路径绘制文本，起点偏移20%的path长度。（绘制的元素&lt;path&gt;曲线仅做参照）
  
@@ -286,7 +294,7 @@ textpath与tspan组合属性动画与效果图
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/sy_g8F4OTlOWhlKLV2iujA/zh-cn_image_0000002581436392.gif?HW-CC-KV=V1&HW-CC-Date=20260528T013810Z&HW-CC-Expire=86400&HW-CC-Sign=6D88DE107FCD3E44024893F662131F076CB438CD1238EBD7A1C5352626D0B1D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/sy_g8F4OTlOWhlKLV2iujA/zh-cn_image_0000002581436392.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024106Z&HW-CC-Expire=86400&HW-CC-Sign=1D20DB6B1FA1A539F1EE522B7487D205AA8F55EE02B3EB75A82684D5AF623B7F)
 
  
 (1) "tspan attribute stroke" 轮廓颜色从红色逐渐转变成绿色。

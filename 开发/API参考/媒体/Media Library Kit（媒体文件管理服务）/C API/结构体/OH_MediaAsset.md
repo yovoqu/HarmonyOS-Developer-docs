@@ -12,6 +12,8 @@ typedef struct OH_MediaAsset OH_MediaAsset
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 定义媒体资产。
  
 此结构体提供了封装文件资源属性的能力。

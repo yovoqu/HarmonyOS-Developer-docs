@@ -12,6 +12,8 @@ typedef struct ArkWeb_Response_ ArkWeb_Response
 
 ##### 概述
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 为被拦截的请求构造一个ArkWeb_Response。
  
 **起始版本：** 12

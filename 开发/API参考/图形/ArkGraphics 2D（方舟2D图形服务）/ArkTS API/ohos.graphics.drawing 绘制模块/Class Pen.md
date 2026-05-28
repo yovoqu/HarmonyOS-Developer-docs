@@ -14,6 +14,8 @@
 
 ##### 导入模块
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 ```text
 import { drawing } from '@kit.ArkGraphics2D';
 ```
@@ -21,6 +23,8 @@ import { drawing } from '@kit.ArkGraphics2D';
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor()
 
@@ -39,6 +43,8 @@ const pen = new drawing.Pen();
 
 
 ##### constructor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 constructor(pen: Pen)
 
@@ -78,6 +84,8 @@ const newPen = new drawing.Pen(pen);
 
 ##### setMiterLimit12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setMiterLimit(miter: number): void
 
 设置折线尖角长度与线宽的最大比值，当画笔绘制一条折线，并且[JoinStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-e#joinstyle12)为MITER_JOIN时，若尖角长度与线宽的比值大于限制值，则该折角使用BEVEL_JOIN绘制。
@@ -113,6 +121,8 @@ pen.setMiterLimit(5);
 
 ##### getMiterLimit12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getMiterLimit(): number
 
 获取折线尖角的限制值。
@@ -138,6 +148,8 @@ let miter = pen.getMiterLimit();
 
 
 ##### setImageFilter12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setImageFilter(filter: ImageFilter | null): void
 
@@ -177,6 +189,8 @@ pen.setImageFilter(null);
 
 ##### getColorFilter12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getColorFilter(): ColorFilter
 
 获取画笔的颜色滤波器。
@@ -204,6 +218,8 @@ let filter = pen.getColorFilter();
 
 
 ##### setColor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColor(color: common2D.Color) : void
 
@@ -240,6 +256,8 @@ pen.setColor(color);
 
 
 ##### setColor12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColor(alpha: number, red: number, green: number, blue: number): void
 
@@ -279,6 +297,8 @@ pen.setColor(255, 255, 0, 0);
 
 ##### setColor18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setColor(color: number) : void
 
 设置画笔的颜色。
@@ -304,6 +324,8 @@ pen.setColor(0xffff0000);
 
 
 ##### setColor4f20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColor4f(color4f: common2D.Color4f, colorSpace: colorSpaceManager.ColorSpaceManager | null): void
 
@@ -334,6 +356,8 @@ pen.setColor4f(color4f, colorSpace);
 
 ##### getColor12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getColor(): common2D.Color
 
 获取画笔的颜色。
@@ -361,6 +385,8 @@ let colorGet = pen.getColor();
 
 
 ##### getColor4f20+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getColor4f(): common2D.Color4f
 
@@ -391,6 +417,8 @@ let color = pen.getColor4f();
 
 ##### getHexColor18+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getHexColor(): number
 
 获取画笔的颜色。
@@ -419,6 +447,8 @@ console.info('getHexColor: ', hex_color.toString(16));
 
 
 ##### setStrokeWidth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setStrokeWidth(width: number) : void
 
@@ -455,6 +485,8 @@ pen.setStrokeWidth(5);
 
 ##### getWidth12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getWidth(): number
 
 获取画笔的线宽属性，线宽描述了画笔绘制图形轮廓的宽度。
@@ -480,6 +512,8 @@ let width = pen.getWidth();
 
 
 ##### setAntiAlias
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAntiAlias(aa: boolean) : void
 
@@ -516,6 +550,8 @@ pen.setAntiAlias(true);
 
 ##### isAntiAlias12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 isAntiAlias(): boolean
 
 获取画笔是否开启抗锯齿属性。
@@ -541,6 +577,8 @@ let isAntiAlias = pen.isAntiAlias();
 
 
 ##### setAlpha
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setAlpha(alpha: number) : void
 
@@ -577,6 +615,8 @@ pen.setAlpha(128);
 
 ##### getAlpha12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getAlpha(): number
 
 获取画笔的透明度。
@@ -602,6 +642,8 @@ let alpha = pen.getAlpha();
 
 
 ##### setColorFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setColorFilter(filter: ColorFilter | null) : void
 
@@ -638,6 +680,8 @@ pen.setColorFilter(colorFilter);
 
 
 ##### setMaskFilter12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setMaskFilter(filter: MaskFilter | null): void
 
@@ -683,6 +727,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setPathEffect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setPathEffect(effect: PathEffect | null): void
 
 设置画笔路径效果。
@@ -727,6 +773,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setShaderEffect12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setShaderEffect(shaderEffect: ShaderEffect | null): void
 
 设置画笔着色器效果。
@@ -762,6 +810,8 @@ pen.setShaderEffect(shaderEffect);
 
 
 ##### setShadowLayer12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setShadowLayer(shadowLayer: ShadowLayer | null): void
 
@@ -818,6 +868,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setBlendMode
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setBlendMode(mode: BlendMode) : void
 
 设置画笔的混合模式。
@@ -852,6 +904,8 @@ pen.setBlendMode(drawing.BlendMode.SRC);
 
 
 ##### setJoinStyle12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setJoinStyle(style: JoinStyle): void
 
@@ -896,6 +950,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### getJoinStyle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getJoinStyle(): JoinStyle
 
 获取画笔绘制转角的样式。
@@ -930,6 +986,8 @@ class DrawingRenderNode extends RenderNode {
 
 
 ##### setCapStyle12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 setCapStyle(style: CapStyle): void
 
@@ -974,6 +1032,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### getCapStyle12+
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 getCapStyle(): CapStyle
 
 获取画笔的线帽样式。
@@ -1009,6 +1069,8 @@ class DrawingRenderNode extends RenderNode {
 
 ##### setDither
 
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
 setDither(dither: boolean) : void
 
 开启画笔的抖动绘制效果。抖动绘制可以使得绘制出的颜色更加真实。
@@ -1043,6 +1105,8 @@ pen.setDither(true);
 
 
 ##### getFillPath12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getFillPath(src: Path, dst: Path): boolean
 
@@ -1090,6 +1154,8 @@ let value = pen.getFillPath(pathSrc, pathDst);
 
 
 ##### reset12+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 reset(): void
 
