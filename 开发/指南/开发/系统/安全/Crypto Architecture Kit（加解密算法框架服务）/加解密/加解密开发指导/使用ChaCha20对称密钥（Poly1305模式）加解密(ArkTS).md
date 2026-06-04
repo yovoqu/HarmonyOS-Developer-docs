@@ -1,6 +1,6 @@
 # 使用ChaCha20对称密钥（Poly1305模式）加解密(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-chacha20-encrypt-decrypt-poly1305
 
@@ -85,13 +85,13 @@ async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: 
 async function decryptMessagePromise(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('ChaCha20|Poly1305');
   await decoder.init(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, poly1305Params);
-  let decryptData = await decoder.update(cipherText);
+  let decryptUpdata = await decoder.update(cipherText);
   // poly1305模式解密doFinal时传入空，验证init时传入的tag数据，如果验证失败会抛出异常。
   let decryptData = await decoder.doFinal(null);
   if (decryptData === null) {
     console.info('poly1305 decrypt result: success, decryptData is null.');
   }
-  return decryptData;
+  return decryptUpdata;
 }
 async function genSymKeyByData(symKeyData: Uint8Array) {
   let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
@@ -169,13 +169,13 @@ function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramewo
 function decryptMessage(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('ChaCha20|Poly1305');
   decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, poly1305Params);
-  let decryptData = decoder.updateSync(cipherText);
+  let decryptUpdata = decoder.updateSync(cipherText);
   // poly1305模式解密doFinal时传入空，验证init时传入的tag数据，如果验证失败会抛出异常。
   let decryptData = decoder.doFinalSync(null);
   if (decryptData === null) {
     console.info('poly1305 decrypt result: success, decryptData is null.');
   }
-  return decryptData;
+  return decryptUpdata;
 }
 function genSymKeyByData(symKeyData: Uint8Array) {
   let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };

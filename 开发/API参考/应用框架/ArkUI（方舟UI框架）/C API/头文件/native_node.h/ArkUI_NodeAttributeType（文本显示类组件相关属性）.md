@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（文本显示类组件相关属性）
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-03 06:59:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-text
 
@@ -1230,7 +1230,7 @@ NODE_TEXT_LINE_HEIGHT_MULTIPLE = 1042
 
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 倍数行高模式的倍数值，默认值：0，表示使用默认行高高度。 |
+| .value[0].f32 | 倍数行高模式的倍数值，默认值：0，表示使用默认行高高度。 |
 
 
 **返回：**

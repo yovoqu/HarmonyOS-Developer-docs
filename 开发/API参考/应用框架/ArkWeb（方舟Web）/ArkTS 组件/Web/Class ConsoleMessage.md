@@ -1,6 +1,6 @@
 # Class (ConsoleMessage)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-consolemessage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -56,7 +56,7 @@ ConsoleMessage的构造函数。
 
 getLineNumber(): number
  
-获取ConsoleMessage的行数。
+获取ConsoleMessage的行号。
  
 **系统能力：** SystemCapability.Web.Webview.Core
  
@@ -64,7 +64,7 @@ getLineNumber(): number
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回ConsoleMessage的行数。 |
+| number | 返回ConsoleMessage的行号。 |
  
  
   

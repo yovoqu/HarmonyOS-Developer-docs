@@ -1,6 +1,6 @@
 # netHandover（连接迁移）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-nethandover
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -30,9 +30,9 @@ on(type: 'handoverChange', callback: Callback&lt;HandoverInfo&gt;): void
  
 **需要权限：** ohos.permission.GET_NETWORK_INFO
  
-**系统能力:** SystemCapability.Communication.NetworkBoost.Core
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
-**起始版本:** 5.0.0(12)
+**起始版本：** 5.0.0(12)
  
 **参数：**
   
@@ -820,7 +820,7 @@ try {
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DEFAULT | 0 | 表示应用需要使用同样的远端IP，进行重建链路。 |
-| QUERY_DNS | 1 | 表示数据链路类型发生变化，比如WiFi <-> CELL，或者是数据链路所在的运营商信息等变化。 |
+| QUERY_DNS | 1 | 表示数据链路类型发生变化，比如WiFi <-> 蜂窝，或者是数据链路所在的运营商信息等变化。 |
 | CHANGE_REMOTE_IP | 2 | 表示应用需要使用不同的远端IP进行重建。 |
 | CHANGE_IP_VERSION | 3 | 表示应用需要修改IP类型进行重建，比如IPV4 <-> IPV6。 |
 | NO_EST | 4 | 表示应用应该在老链路进行立即重试，再次发起网络资源请求和交互，无需重建链路。 |

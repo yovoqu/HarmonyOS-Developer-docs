@@ -1,6 +1,6 @@
 # 使用AVRecorder录制视频(C/C++)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avrecorder-for-video-recording
 
@@ -51,7 +51,7 @@ AVRecorder详细的API说明请参考[AVRecorder API参考](https://developer.hu
 target_link_libraries(entry PUBLIC libavrecorder.so)
 ```
 
-使用[OH_AVFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avformat-h)相关接口时，需引入如下头文件。
+使用[native_avformat.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avformat-h)相关接口时，需引入如下头文件。
 
 ```text
 #include <multimedia/player_framework/native_avformat.h>
@@ -134,7 +134,7 @@ void OnStateChange(OH_AVRecorder *recorder, OH_AVRecorder_State state,
         // 处理状态变更。
     }
     if (state == OH_AVRecorder_State::ERROR) {
-        OH_LOG_INFO(LOG_APP, "==NDKDemo== Recorder OnStateChange ERROR, reason: %{public}s", reasonStr);
+        OH_LOG_ERROR(LOG_APP, "==NDKDemo== Recorder OnStateChange ERROR, reason: %{public}s", reasonStr);
         // 处理状态变更。
     }
 }
@@ -578,7 +578,10 @@ static napi_value StopAVRecorder(napi_env env, napi_callback_info info)
    if (result != AV_ERR_OK) {
       OH_LOG_ERROR(LOG_APP, "==NDKDemo== AVRecorder Stop failed %{public}d", result);
    }
-   close(g_outputFd);
+   if (g_outputFd > 0) {
+      close(g_outputFd);
+   }
+   
    napi_value res;
    napi_create_int32(env, result, &res);
    return res;
@@ -616,7 +619,10 @@ static napi_value ReleaseAVRecorder(napi_env env, napi_callback_info info)
       napi_create_int32(env, AV_ERR_INVALID_VAL, &res);
       return res;
    }
-   
+   if (g_outputFd > 0) {
+      close(g_outputFd);
+      g_outputFd = -1;
+   }
    int result = OH_AVRecorder_Release(g_avRecorder);
    g_avRecorder = nullptr;   // 释放录制资源后，需要显式地将g_avRecorder指针置空。
 

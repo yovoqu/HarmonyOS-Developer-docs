@@ -1,8 +1,8 @@
 # ArkUI_Vector2AnimatablePropertyHandle
 
-更新时间：2026-04-02 08:41:50
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativemodule-arkui-vector2animatablepropertyhandle
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-vector2animatablepropertyhandle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text

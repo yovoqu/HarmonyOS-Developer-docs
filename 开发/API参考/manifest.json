@@ -26087,5 +26087,1195 @@
     "name": "Seccomp开放系统调用列表",
     "file": "标准库/附录/Seccomp开放系统调用列表.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/seccomp-symbol"
+  },
+  {
+    "slug": "capi-avscreencapture-oh-avscreencapture-userselectioninfo",
+    "name": "OH_AVScreenCapture_UserSelectionInfo",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/OH_AVScreenCapture_UserSelectionInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-avscreencapture-userselectioninfo",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-imageprocessing-imageprocessing-colorspaceinfo",
+    "name": "ImageProcessing_ColorSpaceInfo",
+    "file": "媒体/Image Kit（图片处理服务）/C API/结构体/ImageProcessing_ColorSpaceInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-imageprocessing-imageprocessing-colorspaceinfo",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-scsiperipheralddk-scsiperipheral-basicsenseinfo",
+    "name": "ScsiPeripheral_BasicSenseInfo",
+    "file": "系统/硬件/Driver Development Kit（驱动开发服务）/C API/结构体/ScsiPeripheral_BasicSenseInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsiperipheralddk-scsiperipheral-basicsenseinfo",
+    "section": "系统"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-coupbatch-create",
+    "name": "创建券批次",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/券批次/创建券批次.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-coupbatch-create",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-mouseevent-callback",
+    "name": "OH_NativeXComponent_MouseEvent_Callback",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent_MouseEvent_Callback.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-mouseevent-callback",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-textcascadepickerrangecontentarray",
+    "name": "ArkUI_TextCascadePickerRangeContentArray",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_TextCascadePickerRangeContentArray.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textcascadepickerrangecontentarray",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-textselectionmenuoptions",
+    "name": "ArkUI_TextSelectionMenuOptions",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_TextSelectionMenuOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textselectionmenuoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-scsiperipheralddk-scsiperipheral-testunitreadyrequest",
+    "name": "ScsiPeripheral_TestUnitReadyRequest",
+    "file": "系统/硬件/Driver Development Kit（驱动开发服务）/C API/结构体/ScsiPeripheral_TestUnitReadyRequest.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsiperipheralddk-scsiperipheral-testunitreadyrequest",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-parallelinnergestureevent",
+    "name": "ArkUI_ParallelInnerGestureEvent",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ParallelInnerGestureEvent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-parallelinnergestureevent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-basic-components-web-clientauthenticationhandler",
+    "name": "Class (ClientAuthenticationHandler)",
+    "file": "应用框架/ArkWeb（方舟Web）/ArkTS 组件/Web/Class (ClientAuthenticationHandler).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-clientauthenticationhandler",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-nativemodule-oh-pixelmap-hdrstaticmetadata",
+    "name": "OH_Pixelmap_HdrStaticMetadata",
+    "file": "媒体/Image Kit（图片处理服务）/C API/结构体/OH_Pixelmap_HdrStaticMetadata.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-hdrstaticmetadata",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-native-node-h-nodeattributetype-textinputcategory",
+    "name": "ArkUI_NodeAttributeType（文本输入类组件相关属性）",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/头文件/native_node.h/ArkUI_NodeAttributeType（文本输入类组件相关属性）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-textinputcategory",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-touchtestinfoitemhandlearray",
+    "name": "ArkUI_TouchTestInfoItemHandle*",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_TouchTestInfoItemHandle-.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-touchtestinfoitemhandlearray",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-nativemodule-oh-pixelmap-hdrgainmapmetadata",
+    "name": "OH_Pixelmap_HdrGainmapMetadata",
+    "file": "媒体/Image Kit（图片处理服务）/C API/结构体/OH_Pixelmap_HdrGainmapMetadata.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-hdrgainmapmetadata",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-accessibility-arkui-accessibilityelementinfo",
+    "name": "ArkUI_AccessibilityElementInfo",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_AccessibilityElementInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-textselecteddragpreviewstyle",
+    "name": "ArkUI_SelectedDragPreviewStyle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_SelectedDragPreviewStyle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textselecteddragpreviewstyle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-mouseevent",
+    "name": "OH_NativeXComponent_MouseEvent",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent_MouseEvent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-mouseevent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-cryptoasymcipherapi-oh-cryptosm2ciphertextspec",
+    "name": "OH_CryptoSm2CiphertextSpec",
+    "file": "系统/安全/Crypto Architecture Kit（加解密算法框架服务）/C API/结构体/OH_CryptoSm2CiphertextSpec.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptoasymcipherapi-oh-cryptosm2ciphertextspec",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-native-node-h-nodeattributetype-layoutattributes",
+    "name": "ArkUI_NodeAttributeType（布局属性）",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/头文件/native_node.h/ArkUI_NodeAttributeType（布局属性）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-layoutattributes",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-floatanimatablepropertyhandle",
+    "name": "ArkUI_FloatAnimatablePropertyHandle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_FloatAnimatablePropertyHandle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-floatanimatablepropertyhandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-native-bundle-oh-nativebundle-abilityresourceinfo",
+    "name": "OH_NativeBundle_AbilityResourceInfo",
+    "file": "应用框架/Ability Kit（程序框架服务）/C API/结构体/OH_NativeBundle_AbilityResourceInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-bundle-oh-nativebundle-abilityresourceinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-coloranimatablepropertyhandle",
+    "name": "ArkUI_ColorAnimatablePropertyHandle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ColorAnimatablePropertyHandle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-coloranimatablepropertyhandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-touchtestinfoitemhandle",
+    "name": "ArkUI_TouchTestInfoItem*",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_TouchTestInfoItem-.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-touchtestinfoitemhandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-avmetadataextractor-oh-avmetadataextractor-frameinfo",
+    "name": "OH_AVMetadataExtractor_FrameInfo",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/OH_AVMetadataExtractor_FrameInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmetadataextractor-oh-avmetadataextractor-frameinfo",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-accessibility-arkui-accessibilityprovider",
+    "name": "ArkUI_AccessibilityProvider",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_AccessibilityProvider.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityprovider",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-fusionconnectivity-partneragentextensioncontext",
+    "name": "@ohos.FusionConnectivity.PartnerAgentExtensionContext (设备状态通知能力上下文)",
+    "file": "系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.FusionConnectivity.PartnerAgentExtensionContext (设备状态通知能力上下文).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensioncontext",
+    "section": "系统"
+  },
+  {
+    "slug": "map-map-types",
+    "name": "types",
+    "file": "应用服务/Map Kit（地图服务）/ArkTS API/map（地图显示功能）/types.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-types",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-arkui-xcomponentsurfaceconfig",
+    "name": "ArkUI_XComponentSurfaceConfig",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_XComponentSurfaceConfig.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-arkui-xcomponentsurfaceconfig",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-styledstring-descriptor",
+    "name": "ArkUI_StyledString_Descriptor",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_StyledString_Descriptor.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-styledstring-descriptor",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-nativecolorspacemanager-oh-nativecolorspacemanager",
+    "name": "OH_NativeColorSpaceManager",
+    "file": "图形/ArkGraphics 2D（方舟2D图形服务）/C API/结构体/OH_NativeColorSpaceManager.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-oh-nativecolorspacemanager",
+    "section": "图形"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-letterspacingstyle",
+    "name": "OH_ArkUI_LetterSpacingStyle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_LetterSpacingStyle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-letterspacingstyle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-accessibility-arkui-accessibilityeventinfo",
+    "name": "ArkUI_AccessibilityEventInfo",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_AccessibilityEventInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityeventinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-drawing-oh-drawing-fontvariationinstancecoordinate",
+    "name": "OH_Drawing_FontVariationInstanceCoordinate",
+    "file": "图形/ArkGraphics 2D（方舟2D图形服务）/C API/结构体/OH_Drawing_FontVariationInstanceCoordinate.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-fontvariationinstancecoordinate",
+    "section": "图形"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-decorationstyleoptions",
+    "name": "OH_ArkUI_DecorationStyleOptions",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_DecorationStyleOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-decorationstyleoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-avscreencapture-oh-avscreencapture-contentfilter",
+    "name": "OH_AVScreenCapture_ContentFilter",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/OH_AVScreenCapture_ContentFilter.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-avscreencapture-contentfilter",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-native-node-h-nodeattributetype-layoutcomponent",
+    "name": "ArkUI_NodeAttributeType（布局类组件相关属性）",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/头文件/native_node.h/ArkUI_NodeAttributeType（布局类组件相关属性）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-layoutcomponent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-ucoup-query",
+    "name": "查询用户优惠券列表",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/用户券/查询用户优惠券列表.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-ucoup-query",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-texteditorparagraphstyle",
+    "name": "OH_ArkUI_TextEditorParagraphStyle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_TextEditorParagraphStyle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-texteditorparagraphstyle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-nativemodule-image-nativemodule-oh-nativebuffer",
+    "name": "OH_NativeBuffer",
+    "file": "媒体/Image Kit（图片处理服务）/C API/结构体/OH_NativeBuffer.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-image-nativemodule-oh-nativebuffer",
+    "section": "媒体"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-coupbatch-query",
+    "name": "查询券批次详情",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/券批次/查询券批次详情.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-coupbatch-query",
+    "section": "应用服务"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-coupbatch-callbackurl-update",
+    "name": "设置回调通知地址",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/券批次/设置回调通知地址.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-coupbatch-callbackurl-update",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-historicalpoint",
+    "name": "OH_NativeXComponent_HistoricalPoint",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent_HistoricalPoint.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-historicalpoint",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-nativemodule-oh-pixelmap-hdrdynamicmetadata",
+    "name": "OH_Pixelmap_HdrDynamicMetadata",
+    "file": "媒体/Image Kit（图片处理服务）/C API/结构体/OH_Pixelmap_HdrDynamicMetadata.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-hdrdynamicmetadata",
+    "section": "媒体"
+  },
+  {
+    "slug": "js-apis-inner-application-accessibilityextensioncontext",
+    "name": "AccessibilityExtensionContext (辅助功能扩展上下文)",
+    "file": "应用框架/Accessibility Kit（无障碍服务）/ArkTS API/AccessibilityExtensionContext (辅助功能扩展上下文).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-scsiperipheralddk-scsiperipheral-verifyrequest",
+    "name": "ScsiPeripheral_VerifyRequest",
+    "file": "系统/硬件/Driver Development Kit（驱动开发服务）/C API/结构体/ScsiPeripheral_VerifyRequest.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsiperipheralddk-scsiperipheral-verifyrequest",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-arkui-accessibility-arkui-accessibilityactionarguments",
+    "name": "ArkUI_AccessibilityActionArguments",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_AccessibilityActionArguments.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityactionarguments",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-avscreencapture-avscreencapture-oh-nativebuffer",
+    "name": "OH_NativeBuffer",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/OH_NativeBuffer.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-avscreencapture-oh-nativebuffer",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-expectedraterange",
+    "name": "OH_NativeXComponent_ExpectedRateRange",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent_ExpectedRateRange.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-expectedraterange",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-imageanimatorframeinfo",
+    "name": "ArkUI_ImageAnimatorFrameInfo",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ImageAnimatorFrameInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-imageanimatorframeinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-nativemodule-oh-packingoptionsforsequence",
+    "name": "OH_PackingOptionsForSequence",
+    "file": "媒体/Image Kit（图片处理服务）/C API/结构体/OH_PackingOptionsForSequence.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-packingoptionsforsequence",
+    "section": "媒体"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-ucoup-callback-distribute",
+    "name": "发券事件回调通知",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/用户券/发券事件回调通知.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-ucoup-callback-distribute",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-arkui-accessibility-arkui-accessibilityprovidercallbackswithinstance",
+    "name": "ArkUI_AccessibilityProviderCallbacksWithInstance",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_AccessibilityProviderCallbacksWithInstance.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityprovidercallbackswithinstance",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-progresslinearstyleoption",
+    "name": "ArkUI_ProgressLinearStyleOption",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ProgressLinearStyleOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-progresslinearstyleoption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-ohaudiosuite-oh-audiosuite-purevoicechangeoption",
+    "name": "OH_AudioSuite_PureVoiceChangeOption",
+    "file": "媒体/Audio Kit（音频服务）/C API/结构体/OH_AudioSuite_PureVoiceChangeOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-purevoicechangeoption",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-texteditorselectionmenuoptions",
+    "name": "OH_ArkUI_TextEditorSelectionMenuOptions",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_TextEditorSelectionMenuOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-texteditorselectionmenuoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-inner-application-uiserviceextensionconnectcallback",
+    "name": "UIServiceExtensionConnectCallback",
+    "file": "应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/application/UIServiceExtensionConnectCallback.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiserviceextensionconnectcallback",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-nativemodule-oh-pixelmap-initializationoptions",
+    "name": "OH_Pixelmap_InitializationOptions",
+    "file": "媒体/Image Kit（图片处理服务）/C API/结构体/OH_Pixelmap_InitializationOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-initializationoptions",
+    "section": "媒体"
+  },
+  {
+    "slug": "cannkit-llm-engine",
+    "name": "llm_engine.h",
+    "file": "AI/CANN Kit（CANN异构计算框架服务）/C API/头文件和结构体/头文件/llm_engine.h.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit-llm-engine",
+    "section": "AI"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-matrix4rotationoptions",
+    "name": "ArkUI_Matrix4RotationOptions",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_Matrix4RotationOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-matrix4rotationoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-photoaccesshelper-mediaalbumchangerequest",
+    "name": "Class (MediaAlbumChangeRequest)",
+    "file": "媒体/Media Library Kit（媒体文件管理服务）/ArkTS API/@ohos.file.photoAccessHelper (相册管理模块)/Class (MediaAlbumChangeRequest).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaalbumchangerequest",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-gestureeventtargetinfo",
+    "name": "ArkUI_GestureEventTargetInfo",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_GestureEventTargetInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-gestureeventtargetinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-ucoup-deactivate",
+    "name": "使券失效",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/用户券/使券失效.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-ucoup-deactivate",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-native-node-h-nodeattributetype-embeddedcomponent",
+    "name": "ArkUI_NodeAttributeType（EmbeddedComponent组件相关属性）",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/头文件/native_node.h/ArkUI_NodeAttributeType（EmbeddedComponent组件相关属性）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-embeddedcomponent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "enterprisethreatprotection-virusremediation-interface",
+    "name": "virusRemediation（文件访问与处置）",
+    "file": "系统/安全/Enterprise Threat Protection Kit（企业威胁防护服务）/ArkTS API/virusRemediation（文件访问与处置）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisethreatprotection-virusremediation-interface",
+    "section": "系统"
+  },
+  {
+    "slug": "js-apis-inner-application-embeddableuiabilitycontext",
+    "name": "EmbeddableUIAbilityContext",
+    "file": "应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/application/EmbeddableUIAbilityContext.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-embeddableuiabilitycontext",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-inner-notification-notificationactionbutton",
+    "name": "NotificationActionButton",
+    "file": "应用服务/Notification Kit（用户通知服务）/ArkTS API/notification/NotificationActionButton.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationactionbutton",
+    "section": "应用服务"
+  },
+  {
+    "slug": "map-map-functions",
+    "name": "Functions",
+    "file": "应用服务/Map Kit（地图服务）/ArkTS API/map（地图显示功能）/Functions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-functions",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-ohavsession-oh-avsession-avmediadescriptionbuilder",
+    "name": "OH_AVSession_AVMediaDescriptionBuilder",
+    "file": "媒体/AVSession Kit（音视频播控服务）/C API/结构体/OH_AVSession_AVMediaDescriptionBuilder.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohavsession-oh-avsession-avmediadescriptionbuilder",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-nodeborderradiusoption",
+    "name": "ArkUI_NodeBorderRadiusOption",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_NodeBorderRadiusOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nodeborderradiusoption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-contenttransitioneffect",
+    "name": "ArkUI_ContentTransitionEffect",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ContentTransitionEffect.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-contenttransitioneffect",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-windowmanager-windowmanager-windowsnapshotconfig",
+    "name": "WindowManager_WindowSnapshotConfig",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/WindowManager_WindowSnapshotConfig.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager-windowmanager-windowsnapshotconfig",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-pickerindicatordivider",
+    "name": "ArkUI_PickerIndicatorDivider",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_PickerIndicatorDivider.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatordivider",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-photoaccesshelper-mediaassetprogresshandler",
+    "name": "Interface (MediaAssetProgressHandler)",
+    "file": "媒体/Media Library Kit（媒体文件管理服务）/ArkTS API/@ohos.file.photoAccessHelper (相册管理模块)/Interface (MediaAssetProgressHandler).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetprogresshandler",
+    "section": "媒体"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-ucoup-distribute",
+    "name": "发放优惠券",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/用户券/发放优惠券.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-ucoup-distribute",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-arkui-accessibility-arkui-accessibilityprovidercallbacks",
+    "name": "ArkUI_AccessibilityProviderCallbacks",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_AccessibilityProviderCallbacks.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityprovidercallbacks",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-textshowcounterconfig",
+    "name": "ArkUI_ShowCounterConfig",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ShowCounterConfig.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textshowcounterconfig",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-scsiperipheralddk-scsiperipheral-inquiryrequest",
+    "name": "ScsiPeripheral_InquiryRequest",
+    "file": "系统/硬件/Driver Development Kit（驱动开发服务）/C API/结构体/ScsiPeripheral_InquiryRequest.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsiperipheralddk-scsiperipheral-inquiryrequest",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-extramouseeventinfo",
+    "name": "OH_NativeXComponent_ExtraMouseEventInfo",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent_ExtraMouseEventInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-extramouseeventinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-textpickercascaderangecontent",
+    "name": "ARKUI_TextPickerCascadeRangeContent",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ARKUI_TextPickerCascadeRangeContent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textpickercascaderangecontent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-baselineoffsetstyle",
+    "name": "OH_ArkUI_BaselineOffsetStyle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_BaselineOffsetStyle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-baselineoffsetstyle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-videoprocessing-videoprocessing-colorspaceinfo",
+    "name": "VideoProcessing_ColorSpaceInfo",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/VideoProcessing_ColorSpaceInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-videoprocessing-videoprocessing-colorspaceinfo",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-visibleareaeventoptions",
+    "name": "ArkUI_VisibleAreaEventOptions",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_VisibleAreaEventOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-visibleareaeventoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-expectedframeraterange",
+    "name": "ArkUI_ExpectedFrameRateRange",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ExpectedFrameRateRange.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-expectedframeraterange",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-matrix4translationoptions",
+    "name": "ArkUI_Matrix4TranslationOptions",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_Matrix4TranslationOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-matrix4translationoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "guidance-on-ndk-libc-interfaces-affected-by-permissions",
+    "name": "NDK涉及的musl libc接口使用限制的说明",
+    "file": "标准库/附录/NDK涉及的musl libc接口使用限制的说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/guidance-on-ndk-libc-interfaces-affected-by-permissions",
+    "section": "标准库"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-drawabledescriptoranimationcontroller",
+    "name": "ArkUI_DrawableDescriptor_AnimationController",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_DrawableDescriptor_AnimationController.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-drawabledescriptoranimationcontroller",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-inner-notification-notificationextensioncontent",
+    "name": "NotificationExtensionContent",
+    "file": "应用服务/Notification Kit（用户通知服务）/ArkTS API/notification/NotificationExtensionContent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationextensioncontent",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-leadingmarginspandrawinfo",
+    "name": "OH_ArkUI_LeadingMarginSpanDrawInfo",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_LeadingMarginSpanDrawInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-leadingmarginspandrawinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-jsvm-jsvm-propertyhandlerconfigurationstruct8h",
+    "name": "JSVM_PropertyHandlerConfigurationStruct*",
+    "file": "公共基础能力/C API/结构体/JSVM_PropertyHandlerConfigurationStruct-.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-jsvm-propertyhandlerconfigurationstruct8h",
+    "section": "公共基础能力"
+  },
+  {
+    "slug": "capi-native-node-h-nodeattributetype-informationselection",
+    "name": "ArkUI_NodeAttributeType（信息选择类组件相关属性）",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/头文件/native_node.h/ArkUI_NodeAttributeType（信息选择类组件相关属性）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-informationselection",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-gesturerecognizerhandle",
+    "name": "ArkUI_GestureRecognizer*",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_GestureRecognizer-.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-gesturerecognizerhandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-rendercontentmodifierhandle",
+    "name": "ArkUI_RenderContentModifierHandle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_RenderContentModifierHandle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-rendercontentmodifierhandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-lowpoweraudiosink-oh-lowpoweraudiosinkcallback",
+    "name": "OH_LowPowerAudioSinkCallback",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/OH_LowPowerAudioSinkCallback.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpoweraudiosink-oh-lowpoweraudiosinkcallback",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-ohaudiosuite-oh-audiosuite-spacerenderpositionparams",
+    "name": "OH_AudioSuite_SpaceRenderPositionParams",
+    "file": "媒体/Audio Kit（音频服务）/C API/结构体/OH_AudioSuite_SpaceRenderPositionParams.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-spacerenderpositionparams",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-accessibility-arkui-accessiblegriditeminfo",
+    "name": "ArkUI_AccessibleGridItemInfo",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_AccessibleGridItemInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessiblegriditeminfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-native-node-h-nodeattributetype-scrollablecontainer",
+    "name": "ArkUI_NodeAttributeType（滚动容器类组件相关属性）",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/头文件/native_node.h/ArkUI_NodeAttributeType（滚动容器类组件相关属性）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-scrollablecontainer",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-huksexternalcryptotypeapi-oh-huks-externalcryptoparamset",
+    "name": "OH_Huks_ExternalCryptoParamSet",
+    "file": "系统/安全/Universal Keystore Kit（密钥管理服务）/C API/结构体/OH_Huks_ExternalCryptoParamSet.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-huksexternalcryptotypeapi-oh-huks-externalcryptoparamset",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfacecallback",
+    "name": "OH_ArkUI_SurfaceCallback",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_SurfaceCallback.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfacecallback",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-touchevent",
+    "name": "OH_NativeXComponent_TouchEvent",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent_TouchEvent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-touchevent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-nativemodule-oh-decodingoptionsforpicture",
+    "name": "OH_DecodingOptionsForPicture",
+    "file": "媒体/Image Kit（图片处理服务）/C API/结构体/OH_DecodingOptionsForPicture.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-decodingoptionsforpicture",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-nativedisplaymanager-waterfalldisplayarearects",
+    "name": "NativeDisplayManager_WaterfallDisplayAreaRects",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/NativeDisplayManager_WaterfallDisplayAreaRects.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaymanager-waterfalldisplayarearects",
+    "section": "应用框架"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-coupbatch-callbackurl-select",
+    "name": "查询回调通知地址",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/券批次/查询回调通知地址.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-coupbatch-callbackurl-select",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-textdatadetectorconfig",
+    "name": "OH_ArkUI_TextDataDetectorConfig",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_TextDataDetectorConfig.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-textdatadetectorconfig",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-photoaccesshelper-mediaassetchangerequest",
+    "name": "Class (MediaAssetChangeRequest)",
+    "file": "媒体/Media Library Kit（媒体文件管理服务）/ArkTS API/@ohos.file.photoAccessHelper (相册管理模块)/Class (MediaAssetChangeRequest).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetchangerequest",
+    "section": "媒体"
+  },
+  {
+    "slug": "js-apis-inner-notificationextensionsubscriptioninfo",
+    "name": "NotificationExtensionSubscriptionInfo",
+    "file": "应用服务/Notification Kit（用户通知服务）/ArkTS API/notification/NotificationExtensionSubscriptionInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notificationextensionsubscriptioninfo",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent",
+    "name": "OH_NativeXComponent",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-coupbatch-update",
+    "name": "修改券批次信息",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/券批次/修改券批次信息.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-coupbatch-update",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-listitemswipeactionoption",
+    "name": "ArkUI_ListItemSwipeActionOption",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ListItemSwipeActionOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-listitemswipeactionoption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-vector2propertyhandle",
+    "name": "ArkUI_Vector2PropertyHandle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_Vector2PropertyHandle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-vector2propertyhandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-scsiperipheralddk-scsiperipheral-requestsenserequest",
+    "name": "ScsiPeripheral_RequestSenseRequest",
+    "file": "系统/硬件/Driver Development Kit（驱动开发服务）/C API/结构体/ScsiPeripheral_RequestSenseRequest.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsiperipheralddk-scsiperipheral-requestsenserequest",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-listitemswipeactionitem",
+    "name": "ArkUI_ListItemSwipeActionItem",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_ListItemSwipeActionItem.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-listitemswipeactionitem",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-application-enterpriseadminextensioncontext",
+    "name": "EnterpriseAdminExtensionContext",
+    "file": "系统/基础功能/MDM Kit（企业设备管理服务）/ArkTS API/application/EnterpriseAdminExtensionContext.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-enterpriseadminextensioncontext",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-lowpowervideosink-oh-lowpowervideosinkcallback",
+    "name": "OH_LowPowerVideoSinkCallback",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/OH_LowPowerVideoSinkCallback.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpowervideosink-oh-lowpowervideosinkcallback",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-avscreencapture-oh-avscreencapturehighlightconfig",
+    "name": "OH_AVScreenCaptureHighlightConfig",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/OH_AVScreenCaptureHighlightConfig.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-avscreencapturehighlightconfig",
+    "section": "媒体"
+  },
+  {
+    "slug": "ts-universal-attributes-attribute-symbolglyphmodifier",
+    "name": "动态SymbolGlyphModifier属性设置",
+    "file": "应用框架/ArkUI（方舟UI框架）/ArkTS组件/通用属性/动态属性与自定义/动态SymbolGlyphModifier属性设置.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams",
+    "name": "OH_CryptoPrivKeyEncodingParams",
+    "file": "系统/安全/Crypto Architecture Kit（加解密算法框架服务）/C API/结构体/OH_CryptoPrivKeyEncodingParams.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec",
+    "name": "OH_CryptoAsymKeyGeneratorWithSpec",
+    "file": "系统/安全/Crypto Architecture Kit（加解密算法框架服务）/C API/结构体/OH_CryptoAsymKeyGeneratorWithSpec.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-nativewindow",
+    "name": "NativeWindow",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/NativeWindow.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-nativewindow",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-texteditorstyledstringcontroller",
+    "name": "OH_ArkUI_TextEditorStyledStringController",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_TextEditorStyledStringController.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-texteditorstyledstringcontroller",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-ohaudiosuite-oh-audiosuite-spacerenderextensionparams",
+    "name": "OH_AudioSuite_SpaceRenderExtensionParams",
+    "file": "媒体/Audio Kit（音频服务）/C API/结构体/OH_AudioSuite_SpaceRenderExtensionParams.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-spacerenderextensionparams",
+    "section": "媒体"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-ucoup-refund",
+    "name": "申请退券",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/用户券/申请退券.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-ucoup-refund",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-texteditortextstyle",
+    "name": "OH_ArkUI_TextEditorTextStyle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_TextEditorTextStyle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-texteditortextstyle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-ohaudiosuite-oh-audiosuite-spacerenderrotationparams",
+    "name": "OH_AudioSuite_SpaceRenderRotationParams",
+    "file": "媒体/Audio Kit（音频服务）/C API/结构体/OH_AudioSuite_SpaceRenderRotationParams.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-spacerenderrotationparams",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-texteditorplaceholderoptions",
+    "name": "OH_ArkUI_TextEditorPlaceholderOptions",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_TextEditorPlaceholderOptions.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-texteditorplaceholderoptions",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-image-nativemodule-oh-pixelmap-hdrmetadatavalue",
+    "name": "OH_Pixelmap_HdrMetadataValue",
+    "file": "媒体/Image Kit（图片处理服务）/C API/结构体/OH_Pixelmap_HdrMetadataValue.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-nativemodule-oh-pixelmap-hdrmetadatavalue",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-embeddedcomponentoption",
+    "name": "ArkUI_EmbeddedComponentOption",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_EmbeddedComponentOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-embeddedcomponentoption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-touchpoint",
+    "name": "OH_NativeXComponent_TouchPoint",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent_TouchPoint.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-touchpoint",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-touchrecognizerhandlearray",
+    "name": "ArkUI_TouchRecognizerHandle*",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_TouchRecognizerHandle-.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-touchrecognizerhandlearray",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-pickerindicatorbackground",
+    "name": "ArkUI_PickerIndicatorBackground",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_PickerIndicatorBackground.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-pickerindicatorbackground",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-app-ability-completionhandlerforabilitystartcallback",
+    "name": "@ohos.app.ability.CompletionHandlerForAbilityStartCallback (拉起应用结果回调的操作类)",
+    "file": "应用框架/Ability Kit（程序框架服务）/ArkTS API/Stage模型能力的接口/@ohos.app.ability.CompletionHandlerForAbilityStartCallback (拉起应用结果回调的操作类).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-completionhandlerforabilitystartcallback",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-fusionconnectivity-partneragentextensionability",
+    "name": "@ohos.FusionConnectivity.PartnerAgentExtensionAbility (支持设备状态通知的ExtensionAbility组件)",
+    "file": "系统/网络/Connectivity Kit（短距通信服务）/ArkTS API/@ohos.FusionConnectivity.PartnerAgentExtensionAbility (支持设备状态通知的ExtensionAbility组件).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-textcontentbasecontroller",
+    "name": "ArkUI_TextContentBaseController",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_TextContentBaseController.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textcontentbasecontroller",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-inner-application-appserviceextensioncontext",
+    "name": "AppServiceExtensionContext (应用后台服务扩展组件上下文)",
+    "file": "应用框架/Ability Kit（程序框架服务）/ArkTS API/接口依赖的元素及定义/application/AppServiceExtensionContext (应用后台服务扩展组件上下文).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-appserviceextensioncontext",
+    "section": "应用框架"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-coupbatch-upbudge",
+    "name": "修改券批次预算",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/券批次/修改券批次预算.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-coupbatch-upbudge",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-vulkan-vkphysicaldevicepresentationpropertiesohos",
+    "name": "VkPhysicalDevicePresentationPropertiesOHOS",
+    "file": "标准库/Vulkan/Vulkan扩展能力/VkPhysicalDevicePresentationPropertiesOHOS.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-vkphysicaldevicepresentationpropertiesohos",
+    "section": "标准库"
+  },
+  {
+    "slug": "capi-nativedisplaysoloist-displaysoloist-expectedraterange",
+    "name": "DisplaySoloist_ExpectedRateRange",
+    "file": "图形/ArkGraphics 2D（方舟2D图形服务）/C API/结构体/DisplaySoloist_ExpectedRateRange.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativedisplaysoloist-displaysoloist-expectedraterange",
+    "section": "图形"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-animatecompletecallback",
+    "name": "ArkUI_AnimateCompleteCallback",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_AnimateCompleteCallback.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-animatecompletecallback",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder",
+    "name": "OH_ArkUI_SurfaceHolder",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_SurfaceHolder.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder",
+    "section": "应用框架"
+  },
+  {
+    "slug": "map-map-enums",
+    "name": "Enums",
+    "file": "应用服务/Map Kit（地图服务）/ArkTS API/map（地图显示功能）/Enums.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-enums",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-jsvm-jsvm-deserializeresult",
+    "name": "JSVM_DeserializeResult",
+    "file": "公共基础能力/C API/结构体/JSVM_DeserializeResult.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-jsvm-deserializeresult",
+    "section": "公共基础能力"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-touchrecognizerhandle",
+    "name": "ArkUI_TouchRecognizer*",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_TouchRecognizer-.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-touchrecognizerhandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-avscreencapture-oh-avscreencapture-capturestrategy",
+    "name": "OH_AVScreenCapture_CaptureStrategy",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/OH_AVScreenCapture_CaptureStrategy.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avscreencapture-oh-avscreencapture-capturestrategy",
+    "section": "媒体"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-ucoup-use",
+    "name": "核销优惠券",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/用户券/核销优惠券.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-ucoup-use",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-native-node-h-nodeattributetype-informationdisplay",
+    "name": "ArkUI_NodeAttributeType（信息展示类组件相关属性）",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/头文件/native_node.h/ArkUI_NodeAttributeType（信息展示类组件相关属性）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-informationdisplay",
+    "section": "应用框架"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-coupbatch-upload",
+    "name": "上传券预存Code",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/券批次/上传券预存Code.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-coupbatch-upload",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-callback",
+    "name": "OH_NativeXComponent_Callback",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent_Callback.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-callback",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-keyframeanimateoption",
+    "name": "ArkUI_KeyframeAnimateOption",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_KeyframeAnimateOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-keyframeanimateoption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-gesturerecognizerhandlearray",
+    "name": "ArkUI_GestureRecognizerHandle*",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_GestureRecognizerHandle-.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-gesturerecognizerhandlearray",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-webview-backforwardcachesupportedfeatures",
+    "name": "Class (BackForwardCacheSupportedFeatures)",
+    "file": "应用框架/ArkWeb（方舟Web）/ArkTS API/@ohos.web.webview (Webview)/Class (BackForwardCacheSupportedFeatures).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-backforwardcachesupportedfeatures",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-avmetadataextractor-oh-avmetadataextractor-outputparam",
+    "name": "OH_AVMetadataExtractor_OutputParam",
+    "file": "媒体/Media Kit（媒体服务）/C API/结构体/OH_AVMetadataExtractor_OutputParam.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmetadataextractor-oh-avmetadataextractor-outputparam",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-texteditorchangeevent",
+    "name": "OH_ArkUI_TextEditorChangeEvent",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_TextEditorChangeEvent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-texteditorchangeevent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-nodebordercoloroption",
+    "name": "ArkUI_NodeBorderColorOption",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_NodeBorderColorOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nodebordercoloroption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-oh-nativebuffer-oh-nativebuffer-staticmetadata",
+    "name": "OH_NativeBuffer_StaticMetadata",
+    "file": "图形/ArkGraphics 2D（方舟2D图形服务）/C API/结构体/OH_NativeBuffer_StaticMetadata.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer-oh-nativebuffer-staticmetadata",
+    "section": "图形"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-vector2animatablepropertyhandle",
+    "name": "ArkUI_Vector2AnimatablePropertyHandle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_Vector2AnimatablePropertyHandle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-vector2animatablepropertyhandle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-oh-arkui-backgroundcolorstyle",
+    "name": "OH_ArkUI_BackgroundColorStyle",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_ArkUI_BackgroundColorStyle.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-backgroundcolorstyle",
+    "section": "应用框架"
+  },
+  {
+    "slug": "arkts-apis-avmusictemplate-avmusictemplatecontroller",
+    "name": "Class (AVMusicTemplateController)",
+    "file": "媒体/AVSession Kit（音视频播控服务）/ArkTS API/@ohos.multimedia.avMusicTemplate (音频模板)/Class (AVMusicTemplateController).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avmusictemplate-avmusictemplatecontroller",
+    "section": "媒体"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-waterflowsectionoption",
+    "name": "ArkUI_WaterFlowSectionOption",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_WaterFlowSectionOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-waterflowsectionoption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-huksexternalcryptotypeapi-oh-huks-externalcryptoparam",
+    "name": "OH_Huks_ExternalCryptoParam",
+    "file": "系统/安全/Universal Keystore Kit（密钥管理服务）/C API/结构体/OH_Huks_ExternalCryptoParam.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-huksexternalcryptotypeapi-oh-huks-externalcryptoparam",
+    "section": "系统"
+  },
+  {
+    "slug": "payment-api-common-promotion-service-merc-coup-ucoup-query-one",
+    "name": "查询用户单张优惠券详情",
+    "file": "应用服务/Payment Kit（鸿蒙支付服务）/REST API/通用接口/运营工具/商家券/用户券/查询用户单张优惠券详情.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-ucoup-query-one",
+    "section": "应用服务"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-nodeborderwidthoption",
+    "name": "ArkUI_NodeBorderWidthOption",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_NodeBorderWidthOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nodeborderwidthoption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-accessibility-arkui-accessibilityelementinfolist",
+    "name": "ArkUI_AccessibilityElementInfoList",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_AccessibilityElementInfoList.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityelementinfolist",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-scsiperipheralddk-scsiperipheral-readcapacityrequest",
+    "name": "ScsiPeripheral_ReadCapacityRequest",
+    "file": "系统/硬件/Driver Development Kit（驱动开发服务）/C API/结构体/ScsiPeripheral_ReadCapacityRequest.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsiperipheralddk-scsiperipheral-readcapacityrequest",
+    "section": "系统"
+  },
+  {
+    "slug": "capi-native-node-h-nodeattributetype-navigationrelatedcomponents",
+    "name": "ArkUI_NodeAttributeType（导航类组件相关属性）",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/头文件/native_node.h/ArkUI_NodeAttributeType（导航类组件相关属性）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-navigationrelatedcomponents",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-keyevent",
+    "name": "OH_NativeXComponent_KeyEvent",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_NativeXComponent_KeyEvent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-keyevent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "js-apis-app-ability-completionhandlerforatomicservice",
+    "name": "@ohos.app.ability.CompletionHandlerForAtomicService (打开元服务结果的操作类)",
+    "file": "应用框架/Ability Kit（程序框架服务）/ArkTS API/Stage模型能力的接口/@ohos.app.ability.CompletionHandlerForAtomicService (打开元服务结果的操作类).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-completionhandlerforatomicservice",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-textpickerrangecontent",
+    "name": "ARKUI_TextPickerRangeContent",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ARKUI_TextPickerRangeContent.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textpickerrangecontent",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-nodeborderstyleoption",
+    "name": "ArkUI_NodeBorderStyleOption",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_NodeBorderStyleOption.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nodeborderstyleoption",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-textpickerrangecontentarray",
+    "name": "ArkUI_TextPickerRangeContentArray",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_TextPickerRangeContentArray.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textpickerrangecontentarray",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-windowmanager-oh-windowmanager-densityinfo",
+    "name": "OH_WindowManager_DensityInfo",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/OH_WindowManager_DensityInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-windowmanager-oh-windowmanager-densityinfo",
+    "section": "应用框架"
+  },
+  {
+    "slug": "capi-arkui-nativemodule-arkui-customspanmeasureinfo",
+    "name": "ArkUI_CustomSpanMeasureInfo",
+    "file": "应用框架/ArkUI（方舟UI框架）/C API/结构体/ArkUI_CustomSpanMeasureInfo.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-customspanmeasureinfo",
+    "section": "应用框架"
   }
 ]

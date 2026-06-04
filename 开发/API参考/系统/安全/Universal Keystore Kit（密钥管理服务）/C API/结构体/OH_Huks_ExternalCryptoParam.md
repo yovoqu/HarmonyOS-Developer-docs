@@ -1,8 +1,8 @@
 # OH_Huks_ExternalCryptoParam
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/sexternalcryptotypeapi-oh-huks-externalcryptoparam
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-huksexternalcryptotypeapi-oh-huks-externalcryptoparam
 **支持设备：** PC/2in1 | Tablet
 
 ```text

@@ -1,6 +1,6 @@
 # ArkTS编程规范
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-coding-style-guide
 
@@ -498,7 +498,7 @@ myFunc(bar1, foo1, baz); // 函数的多个参数之间的逗号后加个空格�
 **【反例】**
  
 ```ArkTS
-let message1 = 'world';
+let message1 = "world";
 console.info(message1);
 ```
  
@@ -867,7 +867,8 @@ export function getObject1(value: number): I {
 ```
  
 ```ArkTS
-import { getObject1 } from './lib'
+// Index.ets
+import { getObject1 } from './lib';
 // ...
 let obj1: I = getObject1(123);
 ```
@@ -906,14 +907,14 @@ ArkTS提供了两种数组类型的表示方式：T[]和Array&lt;T&gt;。建议�
  
 **【反例】**
  
-```text
+```ArkTS
 let x: Array<number> = [1, 2, 3];
 let y: Array<string> = ['a', 'b', 'c'];
 ```
  
 **【正例】**
  
-```text
+```ArkTS
 // 统一使用T[]语法
 let x: number[] = [1, 2, 3];
 let y: string[] = ['a', 'b', 'c'];

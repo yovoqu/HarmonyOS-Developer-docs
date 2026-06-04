@@ -1,13 +1,13 @@
-# 延迟加载（lazy import）
+# 延迟加载 (lazy import)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-lazy-import
 
 随着应用程序功能的扩展，冷启动时间显著增加，主要是因为启动初期加载了大量未实际执行的模块。这不仅延长了应用的初始化时间，还浪费了资源。需要精简加载流程，剔除非必需的文件执行，优化冷启动性能，确保用户体验流畅。
 
-> [!TIP]
-> 延迟加载特性在API 12版本开始支持。 开发者如需在API 12上使用lazy import语法，需在工程中配置"compatibleSdkVersionStage": "beta3"，否则将无法通过编译。参考 DevEco Studio build-profile.json5配置文件说明 。 针对API version大于12的工程，开发者可直接使用lazy import语法，无需再进行其他配置。
+> [!NOTE]
+> 延迟加载特性在API 12版本开始支持。 开发者如需在API 12上使用lazy import语法，需在工程中配置"compatibleSdkVersionStage": "beta3"，否则将无法通过编译。请参考DevEco Studio build-profile.json5 配置。 针对API version大于12的工程，开发者可直接使用lazy import语法，无需再进行其他配置。
 
 
 
@@ -19,7 +19,7 @@
 
 #### 使用方式
 
-开发者可以利用[DevEco Profiler展示冷启动过程文件加载情况](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-launch)、[可延迟加载文件检测](#可延迟加载文件检测)、Trace工具或日志记录等手段，识别冷启动期间未被实际调用的文件，分析方法可参考[延迟加载lazy-import使用指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkts-high-performance#section12861143418213)。通过对这些数据的分析，开发者可以精准定位启动阶段不必预先加载的文件列表，并在这些文件的调用点增加lazy标识。但需要注意，后续执行的加载是同步加载，可能阻塞任务执行（如单击任务，触发了延迟加载，那么运行时会去执行冷启动未加载的文件，从而增加耗时），因此是否使用lazy需要开发者自行评估。
+开发者可以参考[Launch模板基本操作](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-launch)、[可延迟加载文件检测](#可延迟加载文件检测)、常用Trace使用指导，利用工具或日志记录等手段，识别冷启动期间未被实际调用的文件，分析方法可参考[延迟加载lazy-import使用指导](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-arkts-high-performance#section12861143418213)。通过对这些数据的分析，开发者可以精准定位启动阶段不必预先加载的文件列表，并在这些文件的调用点增加lazy标识。但需要注意，后续执行的加载是同步加载，可能阻塞任务执行（如单击任务，触发了延迟加载，那么运行时会去执行冷启动未加载的文件，从而增加耗时），因此是否使用lazy需要开发者自行评估。
 
 > [!NOTE]
 > 不建议盲目增加lazy，这会增加编译和运行时的识别开销。
@@ -146,7 +146,7 @@ lazy-import 相较于动态加载的优势：
 
  - 延迟加载共享模块或依赖路径内包含共享模块。
 
-  延迟加载对于共享模块依旧生效，使用限制参考[共享模块开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable-module)。
+  延迟加载对于共享模块依旧生效，使用限制参考[共享模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable-module)开发指导。
 
 
 
@@ -296,7 +296,7 @@ ReferenceError: module environment is undefined
 
 
 #### 检测步骤
-1. 打开工具：获取[hdc工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc#环境准备)，连接设备，在终端直接输入下方命令执行。
+1. 打开工具：获取[hdc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)工具，连接设备，在终端直接输入下方命令执行。
 
   
 ```bash
@@ -362,7 +362,7 @@ hdc shell param set persist.ark.properties 0x000105c
 子线程文件名：data/app/el2/100/base/com.example.myapplication/files/com.example.myapplication_18089_redundant_file.txt
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/FNiqxWg3RWeWkRLzLwnzYQ/zh-cn_image_0000002611833427.png?HW-CC-KV=V1&HW-CC-Date=20260528T030519Z&HW-CC-Expire=86400&HW-CC-Sign=95A822EC55D2950E6ACA0367FE79BDD8E28AB14DF6B1F803A421EBE493EAF476)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/E2JQ7d29T8m4qNUWiyj4Bw/zh-cn_image_0000002587267870.png?HW-CC-KV=V1&HW-CC-Date=20260604T012629Z&HW-CC-Expire=86400&HW-CC-Sign=A86C7DEECCD61BE3D9AFBC41F0898A1051C8F6A57D0BA7AA4E1D1C6E96F0BB63)
 
 
 
@@ -428,8 +428,8 @@ used file 1: &entry/src/main/ets/pages/1&, cost time: 0.248ms
   
 ```ArkTS
 // entry/src/main/ets/pages/outer1.ets
-import { a } from './1' // outer文件从1文件中加载了a变量
-console.info('example ', a); // a变量在outer文件执行时就被使用
+import { a } from './1' // outer1文件从1文件中加载了a变量
+console.info('example ', a); // a变量在outer1文件执行时就被使用
 ```
 
 ```ArkTS
@@ -451,8 +451,8 @@ used file 1: &entry/src/main/ets/pages/1&, cost time: 0.248ms
   
 ```ArkTS
 // entry/src/main/ets/pages/outer1.ets
-import { a } from './1' // outer文件从1文件中加载了a变量
-console.info('example ', a); // a变量在outer文件执行时就被使用
+import { a } from './1' // outer1文件从1文件中加载了a变量
+console.info('example ', a); // a变量在outer1文件执行时就被使用
 ```
 
 ```ArkTS
@@ -591,7 +591,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/lHfO4XFhQT-EcGWnCj_yYQ/zh-cn_image_0000002581273680.png?HW-CC-KV=V1&HW-CC-Date=20260528T030519Z&HW-CC-Expire=86400&HW-CC-Sign=D33636A7D1B4F5ED62E8DFD1A46156505C6A239B019AD8CA82AF02FD8A90E69A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/T0uUiyRdSjm9ccYNxN9N9w/zh-cn_image_0000002617707547.png?HW-CC-KV=V1&HW-CC-Date=20260604T012629Z&HW-CC-Expire=86400&HW-CC-Sign=B22F697B8FC543F9E948B1B40AC048161FD17E3047AE91106F66FCEB42F4A289)
 
 
 通过抓取Trace图查看调用栈，可以发现应用在冷启动时加载了A文件。
@@ -615,7 +615,7 @@ hdc file recv data/app/el2/100/base/${bundleName}/files/${bundleName}_redundant_
 4. 对上述示例代码获取到的文件进行分析。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/i9Q8HQT2R7-vZ7LS4pKyIA/zh-cn_image_0000002611753535.png?HW-CC-KV=V1&HW-CC-Date=20260528T030519Z&HW-CC-Expire=86400&HW-CC-Sign=AFCE7D4E4D10D4BE46A87AAC5DC04F2961837C202ECC05CF6035772A2A8204B6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/wNGM7Zm4QSimP2NjtPWyWg/zh-cn_image_0000002587107970.png?HW-CC-KV=V1&HW-CC-Date=20260604T012629Z&HW-CC-Expire=86400&HW-CC-Sign=5DDE5EC539BA5F80A339F5A17D70C180C7A5763E677B751FA94CEE9E552786DF)
 
 
 **修改方式**
@@ -646,7 +646,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/oauIrkJfR_-DNVLgKrrWrQ/zh-cn_image_0000002581433600.png?HW-CC-KV=V1&HW-CC-Date=20260528T030519Z&HW-CC-Expire=86400&HW-CC-Sign=5DC0049738CA3029865310C1F341D495CBD409FBF03046FC0DBA03A2B174880D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/j7GGewlRS0qBplhadUXaNg/zh-cn_image_0000002617667649.png?HW-CC-KV=V1&HW-CC-Date=20260604T012629Z&HW-CC-Expire=86400&HW-CC-Sign=664DD9779CA9EFBCC2AD9F27BAE198F5798DEDC75B6D5A4755806E463AA33FBD)
 
 
 通过抓取Trace图查看调用栈可以发现，使用lazy-import标识后，应用在冷启动时不再加载A文件。

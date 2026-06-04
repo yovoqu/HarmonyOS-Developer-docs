@@ -1,6 +1,6 @@
 # ArkUI_NativeNodeAPI_1
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativenodeapi-1
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -853,7 +853,7 @@ int32_t (*setLayoutPosition)(ArkUI_NodeHandle node, int32_t positionX, int32_t p
  
 **描述：**
  
-在布局回调函数中设置组件的位置。该接口优先级低于ArkUI_NodeAttributeType中的[NODE_POSITION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-native-node-h-nodeattributetype-layoutattributes#node_position)。
+在布局回调函数中设置组件的位置。该接口优先级低于ArkUI_NodeAttributeType中的[NODE_POSITION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-layoutattributes#node_position)。
  
 **起始版本：** 12
  

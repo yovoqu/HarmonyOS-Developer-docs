@@ -1,6 +1,6 @@
 # TaskPool和Worker对比
 
-更新时间：2026-03-17 02:20:01
+更新时间：2026-05-30 09:52:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-comparative_practice_of_taskpool_and_worker
 
@@ -371,8 +371,8 @@ TaskPool与Worker都具有转移控制权、深拷贝两种方式，Worker不支
 随着任务数的增多TaskPool逐渐优于Worker，这是由于TaskPool支持高优先级设置，在系统资源不足时，高优先级的任务更容易获得系统资源，所以TaskPool执行耗时任务相对Worker稍快一些。
  
 从中载模型实验数据可以看出：
- 1. 在并发任务数为1时，执行完任务TaskPool与Worker分别用了119s、121s；随着并发任务数的增多完成任务的耗时逐渐缩短，在任务数为4时，执行完任务TaskPool与Worker分别用了41s、40s，相比于单任务TaskPool有65%的性能收益，Worker有67%的性能收益；
-2. 当任务数大于4时，Worker执行耗时几乎稳定在40s左右，TaskPool在任务数为8时耗时较多，这是因为TaskPool最多可以创建（内核数-1）个线程，对于8核的手机来说最多可以创建7个线程，所以当有8个任务时，其中一个任务要串行执行，因此总耗时较多，任务数大于8时完成任务耗时稳定于39s左右。
+ 1. 在并发任务数为1时，执行完任务TaskPool与Worker用时相近；随着并发任务数的增多完成任务的耗时逐渐缩短，在任务数为4时，执行完任务TaskPool比Worker耗时略长，相比于单任务，Worker带来的性能收益更大；
+2. 当任务数大于4时，Worker执行耗时几乎稳定在3.3s左右，TaskPool在任务数为8时耗时较多，这是因为TaskPool最多可以创建（内核数-1）个线程，对于8核的手机来说最多可以创建7个线程，所以当有8个任务时，其中一个任务要串行执行，因此总耗时较多，任务数大于8时完成任务耗时稳定于2.95s左右。
 3. 中载模型下任务数大于50时，TaskPool与Worker完成任务耗时差异不大。
  
 经过以上中载、重载环境下的对比实验可以发现，并发可以带来约50%~65%收益，但并不是任务数越多越好，需要开发者根据任务及计算情况自己控制；随着任务数的增多在重载环境下TaskPool与Worker耗时差异比在中载环境下大，这是由于TaskPool支持高优先级设置，在系统资源不足时，高优先级的任务更容易获得系统资源，所以TaskPool执行耗时任务相对Worker稍快一些；中载环境下由于系统资源充足，TaskPool的高优先级设置效果没有那么明显，所以TaskPool与Worker完成任务耗时几乎相当。
@@ -389,7 +389,7 @@ TaskPool与Worker都具有转移控制权、深拷贝两种方式，Worker不支
  
 图8 **重载模型下TaskPool与Worker运行时内存占用对比
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/mDkUu80iSmq6Vbj2VCaDZg/zh-cn_image_0000002229336697.png?HW-CC-KV=V1&HW-CC-Date=20260528T024751Z&HW-CC-Expire=86400&HW-CC-Sign=12A581D89F7609464F1EF13F124580290A4FC91A1E57707587AB73945DE15559)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/sZUNUGKiQa-BRAw12PLMww/zh-cn_image_0000002229336697.png?HW-CC-KV=V1&HW-CC-Date=20260604T012927Z&HW-CC-Expire=86400&HW-CC-Sign=84959F7DC716CA82AB4EF1578A6E70AFDA9DA3BDB58CC846BEC7CD34CFCDFBD4)
 
  
 从以上实验数据可以看出：
@@ -420,7 +420,7 @@ TaskPool与Worker都具有转移控制权、深拷贝两种方式，Worker不支
  
 
  
-经过以上实验分析，ArkTS图片编辑任务在重载模型下单任务执行耗时119s，4个任务时耗时41s（比单任务并发有50%~65%的收益），为非执行长耗时任务场景，从场景、编码效率等方面考量选择TaskPool方案比较合适。开发者可以根据自己业务的实际运用场景选择适合自己的并发方案。
+经过以上实验分析，ArkTS图片编辑任务在重载模型下单任务执行耗时较长，4个任务时比单任务并发有50%~65%的收益，为非执行长耗时任务场景，从场景、编码效率等方面考量选择TaskPool方案比较合适。开发者可以根据自己业务的实际运用场景选择适合自己的并发方案。
  
  
 

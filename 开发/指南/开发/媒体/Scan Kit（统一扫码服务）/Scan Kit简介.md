@@ -1,6 +1,6 @@
 # Scan Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-introduction
 
@@ -37,7 +37,7 @@ Scan Kit提供了系统“扫码直达”、开发者应用内扫码等多种能
  - 扫码直达能力仅支持Phone、Tablet。
  - 默认界面扫码能力和自定义界面扫码能力仅支持Phone、Tablet、Wearable（从6.1.0(23)版本开始支持带后置相机的Wearable，可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机）。
  - 图像识码能力仅支持Phone、Tablet、Wearable（从6.1.0(23)版本开始支持Wearable）。
- - 码图生成能力支持Phone、Tablet、Wearable、2in1、TV（从5.1.0(18)版本开始支持Wearable、从5.1.1(19)版本开始支持2in1、TV）。
+ - 码图生成能力支持Phone、Tablet、Wearable、PC/2in1、TV（从5.1.0(18)版本开始支持Wearable、从5.1.1(19)版本开始支持PC/2in1、TV）。
 
 
 

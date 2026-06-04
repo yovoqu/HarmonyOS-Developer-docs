@@ -1,6 +1,6 @@
 # VkSwapchainImageCreateInfoOHOS
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-vkswapchainimagecreateinfoohos
 
@@ -14,6 +14,8 @@ typedef struct VkSwapchainImageCreateInfoOHOS {...} VkSwapchainImageCreateInfoOH
 包含创建Image时必要的参数。
  
 **起始版本：** 10
+ 
+**废弃版本：** 23
  
 **相关模块：** [Vulkan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan)
  

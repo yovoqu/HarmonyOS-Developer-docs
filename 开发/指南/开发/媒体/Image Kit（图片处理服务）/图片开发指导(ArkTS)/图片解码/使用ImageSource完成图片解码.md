@@ -1,6 +1,6 @@
 # 使用ImageSource完成图片解码
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-decoding
 
@@ -20,11 +20,31 @@
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
-import { fileIo as fs } from '@kit.CoreFileKit';
+import { fileIo } from '@kit.CoreFileKit';
 import { resourceManager } from '@kit.LocalizationKit';
 ```
 
-2. 获取图片。
+2. （可选）查询设备解码能力。
+
+  部分图片格式的解码能力依赖于设备硬件，解码前可先查询设备支持的解码格式列表：
+
+  
+```ArkTS
+// 获取当前设备支持的解码格式列表。
+export function getSupportedFormats(): string[] {
+  let formats = image.getImageSourceSupportedFormats();
+  console.info('Supported formats: ' + formats);
+  return formats;
+}
+
+// 检查指定格式是否支持解码。
+export function isFormatSupported(format: string): boolean {
+  let formats = image.getImageSourceSupportedFormats();
+  return formats.includes(format);
+}
+```
+
+3. 获取图片。
 
   
  - 方法一：通过沙箱路径直接获取。该方法仅适用于应用沙箱中的图片。更多细节请参考[获取应用文件路径](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage#获取应用文件路径)。应用沙箱的介绍及如何向应用沙箱推送文件，请参考[文件管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-sandbox-directory)。
@@ -38,7 +58,7 @@ function getFilePath(context: Context, fileName: string): string {
 ```
 
 
-3. 方法二：通过沙箱路径获取图片的文件描述符。具体请参考文档[@ohos.file.fs (文件管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)。该方法需要导入@kit.CoreFileKit模块。
+4. 方法二：通过沙箱路径获取图片的文件描述符。具体请参考文档[@ohos.file.fs (文件管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fs)。该方法需要导入@kit.CoreFileKit模块。
 
   
 ```ArkTS
@@ -56,7 +76,7 @@ function getFileFd(context: Context, fileName: string): number | undefined {
 ```
 
 
-4. 方法三：通过资源管理器获取资源文件的ArrayBuffer。具体请参考[资源管理器API参考文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfilecontent9-1)。该方法需要导入@kit.LocalizationKit模块。
+5. 方法三：通过资源管理器获取资源文件的ArrayBuffer。具体请参考[getRawFileContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfilecontent9-1)。该方法需要导入@kit.LocalizationKit模块。
 
   
 ```ArkTS
@@ -77,7 +97,7 @@ async function getFileBuffer(context: Context, fileName: string): Promise<ArrayB
 ```
 
 
-5. 方法四：通过资源管理器获取资源文件的RawFileDescriptor。具体请参考[资源管理器API参考文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfd9-1)。该方法需要导入@kit.LocalizationKit模块。
+6. 方法四：通过资源管理器获取资源文件的RawFileDescriptor。具体请参考[getRawFd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager#getrawfd9-1)。该方法需要导入@kit.LocalizationKit模块。
 
   
 ```ArkTS
@@ -95,7 +115,7 @@ async function getRawFd(context: Context, fileName: string): Promise<resourceMan
 ```
 
 
-6. 创建ImageSource实例。
+7. 创建ImageSource实例。
 
   
 方法一：通过沙箱路径创建ImageSource。沙箱路径可以通过步骤2的方法一获取。
@@ -107,7 +127,7 @@ const imageSource : image.ImageSource = image.createImageSource(filePath);
 ```
 
 
-7. 方法二：通过文件描述符fd创建ImageSource。文件描述符可以通过步骤2的方法二获取。
+8. 方法二：通过文件描述符fd创建ImageSource。文件描述符可以通过步骤2的方法二获取。
 
   
 ```ArkTS
@@ -116,7 +136,7 @@ const imageSource: image.ImageSource = image.createImageSource(fd);
 ```
 
 
-8. 方法三：通过缓冲区数组创建ImageSource。缓冲区数组可以通过步骤2的方法三获取。
+9. 方法三：通过缓冲区数组创建ImageSource。缓冲区数组可以通过步骤2的方法三获取。
 
   
 ```ArkTS
@@ -124,7 +144,7 @@ const imageSource: image.ImageSource = image.createImageSource(buffer);
 ```
 
 
-9. 方法四：通过资源文件的RawFileDescriptor创建ImageSource。RawFileDescriptor可以通过步骤2的方法四获取。
+10. 方法四：通过资源文件的RawFileDescriptor创建ImageSource。RawFileDescriptor可以通过步骤2的方法四获取。
 
   
 ```ArkTS
@@ -132,7 +152,7 @@ const imageSource: image.ImageSource = image.createImageSource(rawFileDescriptor
 ```
 
 
-10. 设置解码参数DecodingOptions，解码获取pixelMap图片对象。
+11. 设置解码参数DecodingOptions，解码获取pixelMap图片对象。
 
   配置解码选项参数进行解码：
 
@@ -172,16 +192,16 @@ async createPixelMap(imageSource: image.ImageSource | undefined): Promise<image.
 ```
 解码完成，获取到pixelMap对象后，可以进行后续[图片处理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-transformation)。
 
-11. 释放pixelMap和imageSource。
+12. 释放pixelMap和imageSource。
 
   确认pixelMap和imageSource的异步方法已经执行完成，不再使用该变量后，可按需手动调用下面方法释放。
 
   
 ```ArkTS
 async release(pixelMap: image.PixelMap | undefined, imageSource: image.ImageSource | undefined) {
-  pixelMap?.release();
+  await pixelMap?.release();
   pixelMap = undefined;
-  imageSource?.release();
+  await imageSource?.release();
   imageSource = undefined;
 }
 ```
@@ -192,8 +212,18 @@ async release(pixelMap: image.PixelMap | undefined, imageSource: image.ImageSour
 
   
 
-  #### 示例代码
+  #### 进阶主题
 
   
-[实现图片获取与保存功能](https://gitcode.com/HarmonyOS_Samples/ImageGetAndSave)
+**内存优化解码**：使用DMA内存和YUV像素格式降低内存占用、提升解码性能，参见[图片解码内存优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type)。
+ - **区域解码**：解码图片指定区域，适用于大图局部查看和裁剪预览场景，参见[图片区域解码与下采样](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-region-and-downsampling)。
+ - **下采样解码**：解码时直接缩放目标尺寸，避免解码后缩放的性能开销，适用于缩略图生成场景，参见[图片区域解码与下采样](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-region-and-downsampling)。
+ - **多图对象解码**：解码包含主图和辅助图的Picture对象，适用于HDR图片和HEIF专业格式处理，参见[使用ImageSource完成多图对象解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-picture-decoding)。
+
+
+
+
+#### 示例代码
+
+ - [实现图片获取与保存功能](https://gitcode.com/HarmonyOS_Samples/ImageGetAndSave)
  - [水印添加能力](https://gitcode.com/HarmonyOS_Samples/watermark)

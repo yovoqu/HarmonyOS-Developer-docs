@@ -1,6 +1,6 @@
 # avrecorder.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -212,7 +212,7 @@ OH_AVErrCode OH_AVRecorder_UpdateRotation(OH_AVRecorder *recorder, int32_t rotat
 | 参数项 | 描述 |
 | --- | --- |
 | OH_AVRecorder *recorder | 指向OH_AVRecorder实例的指针。 |
-| int32_t rotation | 视频旋转角度，必须是整数 [0, 90, 180, 270] 中的一个。 |
+| int32_t rotation | 视频旋转角度，单位为度（°）。必须是整数0°、90°、180°和270°中的一个。 |
 
 
 **返回：**

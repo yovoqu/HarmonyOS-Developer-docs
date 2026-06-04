@@ -1,6 +1,6 @@
 # TreeView
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-treeview
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -634,4 +634,4 @@ struct TreeViewDemo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/jYbMeeYCS96lnCkvPXliJA/zh-cn_image_0000002581276362.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=1FE7572ADB11FA480C8BB1005AB2859104E8D06CB2A25F66D593F88C8C462F73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/kagD0sCmSF2ks1lPcYZnyw/zh-cn_image_0000002617710327.png?HW-CC-KV=V1&HW-CC-Date=20260604T012554Z&HW-CC-Expire=86400&HW-CC-Sign=58FE42038934FB19DCEF7C3D73CAF108CE10F02EE43AC9B7E54498C5C91BE3EE)

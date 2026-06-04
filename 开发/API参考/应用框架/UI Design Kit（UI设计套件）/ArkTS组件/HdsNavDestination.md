@@ -1,6 +1,6 @@
 # HdsNavDestination
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavdestination
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -840,6 +840,7 @@ struct PageOne {
         },
       }
     })
+    .bindToScrollable([this.scroller])
     .systemBarStyle({ statusBarContentColor: '#0A59F7' }, { statusBarContentColor: '#C7C7CD' })
     .hideBackButton(false)
   }
@@ -847,7 +848,7 @@ struct PageOne {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/HhY8WSeLRWmkLRRbb1sozA/zh-cn_image_0000002581276750.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=F70AE63A24070E5876101016B1AF261E6EDA4B043B8ECAC70532941FAE3D9820)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/QZv3RUe1Q3STblypWGu-nw/zh-cn_image_0000002587111144.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012559Z&HW-CC-Expire=86400&HW-CC-Sign=E412DFAA1994805A9B15B0251864EC5EEE542046CD919C0ECD749900E0F473C8)
 
  
 HdsNavDestination更多示例可以参考HdsNavigation[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#示例)。

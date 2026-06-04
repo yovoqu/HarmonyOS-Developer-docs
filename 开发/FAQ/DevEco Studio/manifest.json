@@ -2434,5 +2434,26 @@
     "name": "如何使用ohpm引入三四方库",
     "file": "命令行工具/如何使用ohpm引入三四方库.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-13"
+  },
+  {
+    "slug": "faqs-development-environment-17-one",
+    "name": "环境中配置使用JDK25，打包失败报错，错误码：00303153 Configuration Error",
+    "file": "环境准备/环境中配置使用JDK25，打包失败报错，错误码：00303153 Configuration Error.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-17-one",
+    "section": "环境准备"
+  },
+  {
+    "slug": "faqs-codegenie-3",
+    "name": "CodeGenie偶现报错：The reasoning_content in the thinking mode must be passed back to the API.",
+    "file": "AI辅助编程/CodeGenie偶现报错：The reasoning_content in the thinking mode must be passed back to the API..md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-codegenie-3",
+    "section": ""
+  },
+  {
+    "slug": "faqs-compiling-and-building-196",
+    "name": "Deveco Studio中Cmake编译选项的优先级说明",
+    "file": "编译构建/Deveco Studio中Cmake编译选项的优先级说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-196",
+    "section": ""
   }
 ]

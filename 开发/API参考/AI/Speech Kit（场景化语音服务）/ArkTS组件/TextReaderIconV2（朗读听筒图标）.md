@@ -1,6 +1,6 @@
 # TextReaderIconV2（朗读听筒图标）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreadericonv2
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -17,7 +17,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
-import { TextReaderIconV2 } from '@kit.SpeechKit';
+import { TextReaderIconV2, UpReadState } from '@kit.SpeechKit';
 ```
  
   

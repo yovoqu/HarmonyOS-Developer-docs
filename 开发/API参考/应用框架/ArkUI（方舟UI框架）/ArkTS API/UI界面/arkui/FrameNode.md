@@ -1,6 +1,6 @@
 # FrameNode
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,8 +48,6 @@ import { FrameNode, LayoutConstraint, ExpandMode, typeNode, NodeAdapter } from "
 该接口用于配置或查询FrameNode的跨语言访问权限。例如，针对ArkTS语言创建的节点，可通过该接口控制是否允许通过非ArkTS语言进行属性访问或修改。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
 
@@ -2330,7 +2328,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/1rV5pwwwTYaXxQiTRQHHCw/zh-cn_image_0000002611755511.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=25A780B2962513F686D0CC0F94A0C0F1C848AB5775BB67505BEDBE4C39AE224E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/GRPmMvK_RS2zgG5XIFxW3Q/zh-cn_image_0000002587110012.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=533E446232FEB74948EAEE6AC22D60E477E1F6282DB6AFDFC058FEE3923F6C48)
 
 
 
@@ -9575,7 +9573,7 @@ struct FrameNodeTypeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/oFmXv0s_QZKJ-aevuvugtA/zh-cn_image_0000002581435574.png?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=7FBCE5ECE200ACFABE631579A37F35F5A7C8147B188FF077503225EC25FFEA8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/XL2r6YYlQgyE0m3H3EHMBg/zh-cn_image_0000002617669693.png?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=9B0070488DB367F21F11555D9EEAE648F2AEB8DEAE4E110045906220803AF35A)
 
 
 
@@ -11573,7 +11571,7 @@ struct CreateAnimationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/OwawV8P7Rqau-sfBWr3p7A/zh-cn_image_0000002611835405.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=F7DFAFE169CA40751568D4288F54C56C8560E725B16FF9991CF90A4455657F6B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/aGkV-HctQsOHmYkdTUZSrg/zh-cn_image_0000002587269918.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=F940151EAC29204DD6F9D2738CBF62C56091D593F2233D7FB9979E306FC68AC0)
 
 
 
@@ -11790,7 +11788,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/5ckZzMMESF6NqSa94KPiqQ/zh-cn_image_0000002581275658.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=3DFD8A9DC03CBD0887FF26E9B03626C33FAAFB98907E4C6C75302D412F4952BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/iSYosZ4pSYSnEl5kT_2QuA/zh-cn_image_0000002617709599.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=46BF24641D7C37B1FB25CC904AEC94031A4F733CCB6A0914CB22E1FBC9B38548)
 
 
 
@@ -11915,7 +11913,7 @@ struct ListNodeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/LzqP6MIhSAWqHJRQgEDy5w/zh-cn_image_0000002611755513.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025451Z&HW-CC-Expire=86400&HW-CC-Sign=068E6FFE789262F266FBE6C79774F1AD7D99D95847567643523B35FD984F6967)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/yt4xuOyaRCmvae_kFQmWQg/zh-cn_image_0000002587110014.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=504C3841639F5F3B0541CA3B52167486372F481F18B88763CA4E335AC4D306F1)
 
 
 

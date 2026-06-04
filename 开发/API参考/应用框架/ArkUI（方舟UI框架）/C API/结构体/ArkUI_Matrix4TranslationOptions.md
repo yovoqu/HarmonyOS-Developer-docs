@@ -1,8 +1,8 @@
 # ArkUI_Matrix4TranslationOptions
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkui-nativemodule-arkui-matrix4translationoptions
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-matrix4translationoptions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text

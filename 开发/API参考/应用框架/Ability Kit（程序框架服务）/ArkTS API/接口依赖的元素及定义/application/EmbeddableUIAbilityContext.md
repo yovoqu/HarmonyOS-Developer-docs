@@ -1,8 +1,8 @@
 # EmbeddableUIAbilityContext
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/-apis-inner-application-embeddableuiabilitycontext
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-embeddableuiabilitycontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 EmbeddableUIAbilityContext是[EmbeddableUIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddableuiability)组件的上下文，继承自[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)。

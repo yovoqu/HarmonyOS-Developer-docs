@@ -1,10 +1,10 @@
 # ASON解析与生成
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ason-parsing-generation
 
-[ASON工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-ason)与JS提供的JSON工具类似，JSON用于进行JS对象的序列化（stringify）、反序列化（parse）。ASON则提供了[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)的序列化、反序列化能力。使用ASON.stringify方法可将对象转换为字符串，使用ASON.parse方法可将字符串转换为Sendable对象，从而实现对象在并发任务间的高性能引用传递。
+[ASON](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-utils-ason)工具与JS提供的JSON工具类似，JSON用于进行JS对象的序列化（stringify）、反序列化（parse）。ASON则提供了[Sendable对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable)的序列化、反序列化能力。使用ASON.stringify方法可将对象转换为字符串，使用ASON.parse方法可将字符串转换为Sendable对象，从而实现对象在并发任务间的高性能引用传递。
 
 ASON.stringify方法还支持将Map和Set对象转换为字符串，可转换的Map和Set类型包括：Map、Set、[collections.Map](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-map)、[collections.Set](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-arkts-collections-set)、[HashMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hashmap#hashmap)、[HashSet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hashset#hashset)。
 
@@ -20,15 +20,38 @@ ASON.stringify方法还支持将Map和Set对象转换为字符串，可转换的
 ```ArkTS
 import { ArkTSUtils, collections } from '@kit.ArkTS';
 
-ArkTSUtils.ASON.parse("{}")
-ArkTSUtils.ASON.stringify(new collections.Array(1, 2, 3))
+@Entry
+@Component
+struct Index {
+  @State message: string = 'Hello World';
 
-let options2: ArkTSUtils.ASON.ParseOptions = {
-    bigIntMode: ArkTSUtils.ASON.BigIntMode.PARSE_AS_BIGINT,
-    parseReturnType: ArkTSUtils.ASON.ParseReturnType.MAP,
+  build() {
+    RelativeContainer() {
+      Text(this.message)
+        .id('HelloWorld')
+        .fontSize(50)
+        .fontWeight(FontWeight.Bold)
+        .alignRules({
+          center: { anchor: '__container__', align: VerticalAlign.Center },
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+        })
+        .onClick(() => {
+          console.info(ArkTSUtils.ASON.parse('{}'));
+          console.info(ArkTSUtils.ASON.stringify(new collections.Array(1, 2, 3)));
+
+          let options2: ArkTSUtils.ASON.ParseOptions = {
+            bigIntMode: ArkTSUtils.ASON.BigIntMode.PARSE_AS_BIGINT,
+            parseReturnType: ArkTSUtils.ASON.ParseReturnType.MAP,
+          }
+          let jsonText = '{"largeNumber":112233445566778899}';
+          let map = ArkTSUtils.ASON.parse(jsonText, undefined, options2);
+          // 执行结果为：{"largeNumber":112233445566778899}
+          console.info(ArkTSUtils.ASON.stringify(map));
+          this.message = 'success';
+        })
+    }
+    .height('100%')
+    .width('100%')
+  }
 }
-let jsonText = '{"largeNumber":112233445566778899}';
-let map = ArkTSUtils.ASON.parse(jsonText, undefined, options2);
-// 执行结果为：{"largeNumber":112233445566778899}
-console.info(ArkTSUtils.ASON.stringify(map));
 ```

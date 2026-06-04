@@ -1,6 +1,6 @@
 # vulkan_ohos.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-ohos-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,6 +14,8 @@
 **引用文件：** <vulkan/vulkan_ohos.h>
  
 **库：** libvulkan.so
+ 
+**系统能力：** SystemCapability.Graphic.Vulkan
  
 **起始版本：** 10
  
@@ -53,6 +55,16 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | VkSwapchainImageUsageFlagBitsOHOS | VkSwapchainImageUsageFlagBitsOHOS | 图像使用标志位。 |
+ 
+ 
+  
+
+#### 变量
+ 
+| 名称 | typedef关键字 | 描述 |
+| --- | --- | --- |
+| VkFlags | VkSwapchainImageUsageFlagsOHOS | 设置掩码的位掩码类型。 起始版本： 10 |
+| VkFlags | VkSurfaceCreateFlagsOHOS | 用于Vulkan Surface创建时使用的VkFlags类型位掩码，预留的标志类型。 起始版本： 10 |
  
  
   

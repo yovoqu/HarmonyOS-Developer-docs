@@ -1,6 +1,6 @@
 # 使用ImageReceiver完成图片接收
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-receiver
 
@@ -103,7 +103,7 @@ function onImageArrival(receiver: image.ImageReceiver) {
 通过[image.Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#component9)解析图片的buffer数据。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/9fI1svlDRo6Ht5jLzcA38A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030346Z&HW-CC-Expire=86400&HW-CC-Sign=5B8EB0FF60F38F84968A9FF9EB93A57F00A973B74DFD28CB0B96C4A03DA668AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/_VD9yM9BS2yWe19bQdUsDg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012923Z&HW-CC-Expire=86400&HW-CC-Sign=FBCA46349D25FD8DD99D002AFED12321B5B5689FAB8B9B24CD72294B70F77A3C)
 
 
 需要确认图像的宽（width）是否与行距（rowStride）一致，如果不一致可参考以下方式一和方式二进行预处理。

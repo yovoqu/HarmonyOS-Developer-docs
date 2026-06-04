@@ -1,6 +1,6 @@
 # @ohos.application.AccessibilityExtensionAbility (辅助功能扩展能力)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-accessibilityextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -75,7 +75,7 @@ AccessibilityExtensionAbility基于ExtensionAbility框架，提供辅助功能�
 
 type AccessibilityElement = _AccessibilityElement
 
-表示无障碍节点元素，请参考[AccessibilityElement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#accessibilityelement)。
+表示无障碍节点元素，请参考[AccessibilityElement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext#accessibilityelement)。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
@@ -100,7 +100,7 @@ let accessibilityElement: AccessibilityElement;
 
 type ElementAttributeValues = _ElementAttributeValues
 
-表示节点元素具备的属性名称及属性值类型信息，请参考[ElementAttributeValues](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#elementattributevalues)。
+表示节点元素具备的属性名称及属性值类型信息，请参考[ElementAttributeValues](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext#elementattributevalues)。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
@@ -125,7 +125,7 @@ let elementAttributeValues: ElementAttributeValues;
 
 type FocusDirection = _FocusDirection
 
-表示查询下一焦点元素的方向，请参考[FocusDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#focusdirection)。
+表示查询下一焦点元素的方向，请参考[FocusDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext#focusdirection)。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
@@ -150,7 +150,7 @@ let focusDirection: FocusDirection;
 
 type ElementAttributeKeys = keyof ElementAttributeValues
 
-表示[ElementAttributeValues](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#elementattributevalues)的属性名称。
+表示[ElementAttributeValues](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext#elementattributevalues)的属性名称。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
@@ -175,7 +175,7 @@ let elementAttributeKeys: ElementAttributeKeys;
 
 type FocusType = _FocusType
 
-表示查询焦点元素的类型，请参考[FocusType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#focustype)。
+表示查询焦点元素的类型，请参考[FocusType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext#focustype)。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
@@ -200,7 +200,7 @@ let focusType: FocusType;
 
 type WindowType = _WindowType
 
-表示窗口的类型，请参考[WindowType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#windowtype)。
+表示窗口的类型，请参考[WindowType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext#windowtype)。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
@@ -225,7 +225,7 @@ let windowType: WindowType;
 
 type Rect = _Rect
 
-表示矩形区域，请参考[Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext#rect)。
+表示矩形区域，请参考[Rect](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext#rect)。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
@@ -250,7 +250,7 @@ let rect: Rect;
 
 type AccessibilityExtensionContext = _AccessibilityExtensionContext.default
 
-表示辅助功能扩展的上下文环境，请参考[AccessibilityExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-inner-application-accessibilityextensioncontext)。
+表示辅助功能扩展的上下文环境，请参考[AccessibilityExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext)。
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
 
@@ -368,7 +368,7 @@ type TouchGuideType = 'touchBegin' | 'touchEnd'
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-onConnect(): void;
+onConnect(): void
 
 用户启用AccessibilityExtensionAbility时，系统服务完成连接后，回调此接口，可以该方法中执行初始化业务逻辑操作。该方法可以选择性重写。
 
@@ -396,7 +396,7 @@ class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-onDisconnect(): void;
+onDisconnect(): void
 
 用户停用AccessibilityExtensionAbility时，系统服务完成断开连接后，回调此接口，可以该方法中执行资源回收退出业务逻辑操作。该方法可以选择性重写。
 
@@ -424,7 +424,7 @@ class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-onAccessibilityEvent(event: AccessibilityEvent): void;
+onAccessibilityEvent(event: AccessibilityEvent): void
 
 在关注的应用及事件类型对应的事件发生时回调此接口，可以在该方法中根据事件信息进行业务逻辑处理。一般情况下需要重写该方法完成业务。
 
@@ -462,7 +462,7 @@ class MyAccessibilityExtensionAbility extends AccessibilityExtensionAbility {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-onKeyEvent(keyEvent: KeyEvent): boolean;
+onKeyEvent(keyEvent: KeyEvent): boolean
 
 在物理按键按下时回调此方法，可以在该方法中根据业务判断是否对事件进行拦截。
 

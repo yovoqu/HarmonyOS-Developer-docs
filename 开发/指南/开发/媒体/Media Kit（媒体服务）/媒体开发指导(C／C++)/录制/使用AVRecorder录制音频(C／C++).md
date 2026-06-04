@@ -1,6 +1,6 @@
 # 使用AVRecorder录制音频(C/C++)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avrecorder-for-audio-recording
 
@@ -47,7 +47,7 @@ AVRecorder详细的API说明请参考[AVRecorder API参考](https://developer.hu
 target_link_libraries(entry PUBLIC libavrecorder.so)
 ```
 
-使用[OH_AVFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avformat-h)相关接口时，需引入如下头文件。
+使用[native_avformat.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avformat-h)相关接口时，需引入如下头文件。
 
 ```text
 #include <multimedia/player_framework/native_avformat.h>
@@ -191,7 +191,7 @@ void SetConfig(OH_AVRecorder_Config &config)
     config.profile.audioCodec = AVRECORDER_AUDIO_AAC;
     config.profile.audioSampleRate = 48000;
  
-    config.profile.fileFormat = AVRECORDER_CFT_MPEG_4A;
+    config.profile.fileFormat = AVRECORDER_CFT_MP3;
     config.fileGenerationMode = AVRECORDER_APP_CREATE;
  }
 
@@ -393,7 +393,7 @@ void SetConfig(OH_AVRecorder_Config &config)
    config.profile.audioCodec = AVRECORDER_AUDIO_AAC;
    config.profile.audioSampleRate = 48000;
 
-   config.profile.fileFormat = AVRECORDER_CFT_MPEG_4;
+   config.profile.fileFormat = AVRECORDER_CFT_MP3;
    config.fileGenerationMode = AVRECORDER_APP_CREATE;
 
    config.metadata.location.latitude = 27.791863;

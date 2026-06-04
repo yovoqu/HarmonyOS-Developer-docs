@@ -1,6 +1,6 @@
 # Function Flow Runtime并发队列(C++)
 
-更新时间：2026-04-08 07:25:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-concurrency-concurrent-queue-cpp
 
@@ -27,7 +27,7 @@ FFRT并发队列提供了设置任务优先级（Priority）和队列并发度�
  
 实现代码如下所示：
  
-```text
+```cpp
 #include <unistd.h>
 #include "hilog/log.h"
 #include "ffrt/ffrt.h" // 来自 OpenHarmony 第三方库 "@ppd/ffrt"
@@ -36,7 +36,7 @@ FFRT并发队列提供了设置任务优先级（Priority）和队列并发度�
 #define LOG_TAG "ConcurrentCppTag"
 ```
  
-```text
+```cpp
 const int SLEEP_TIME = 100 * 1000;
 const int BANK_CONCURRENCY = 2;
 

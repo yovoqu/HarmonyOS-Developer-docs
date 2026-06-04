@@ -1,6 +1,6 @@
 # @ohos.xml (XML解析与生成)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-xml
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1984,6 +1984,8 @@ characters(content: string): void
 当解析器在XML元素内部遇到文本内容时调用的回调函数。该回调函数需要开发者自行实现。
 
 **元服务API**：从API version 24开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Utils.Lang
 

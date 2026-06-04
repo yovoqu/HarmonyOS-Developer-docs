@@ -1,6 +1,6 @@
 # 同步任务开发指导 (TaskPool和Worker)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sync-task-development
 
@@ -65,7 +65,7 @@ struct Index {
           .fontWeight(FontWeight.Bold)
           .onClick(async () => {
             mainFunc();
-// ...
+            // ...
           })
       }
       .width('100%')
@@ -98,7 +98,7 @@ struct Index {
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
           .onClick(async () => {
-// ...
+            // ...
             let w: worker.ThreadWorker = new worker.ThreadWorker('entry/ets/workers/MyWorker2.ts');
             w.onmessage = (e: MessageEvents): void => {
               // 接收Worker子线程的结果

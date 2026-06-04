@@ -1,6 +1,6 @@
 # 通过系统相机拍照和录像(CameraPicker)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-picker
 
@@ -19,7 +19,7 @@ CameraPicker的相机交互界面由系统提供，在用户点击拍摄和确�
 1. 导入相关接口，导入方法如下。
 
   
-```text
+```ArkTS
 import { camera, cameraPicker as picker } from '@kit.CameraKit';
 import { fileIo, fileUri } from '@kit.CoreFileKit';
 ```
@@ -32,7 +32,7 @@ import { fileIo, fileUri } from '@kit.CoreFileKit';
 
 
   
-```text
+```ArkTS
 createPickerProfile(context: Context): picker.PickerProfile {
   let pathDir = context.filesDir;
   let fileName = `${new Date().getTime()}`;
@@ -51,7 +51,7 @@ fileIo接口调用方法请参考：[createRandomAccessFileSync](https://develop
 3. 调用picker拍摄接口获取拍摄的结果。
 
   
-```text
+```ArkTS
 async getPickerResult(context: Context, pickerProfile: picker.PickerProfile): Promise<picker.PickerResult> {
   let result: picker.PickerResult =
     await picker.pick(context, [picker.PickerMediaType.PHOTO, picker.PickerMediaType.VIDEO],
@@ -66,7 +66,7 @@ async getPickerResult(context: Context, pickerProfile: picker.PickerProfile): Pr
 
 #### 完整示例
 
-```text
+```ArkTS
 import { camera, cameraPicker as picker } from '@kit.CameraKit';
 import { fileIo, fileUri } from '@kit.CoreFileKit';
 

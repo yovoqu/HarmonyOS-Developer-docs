@@ -1,6 +1,6 @@
 # @ohos.notificationExtensionSubscription (notificationExtensionSubscription模块)
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationextensionsubscription
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

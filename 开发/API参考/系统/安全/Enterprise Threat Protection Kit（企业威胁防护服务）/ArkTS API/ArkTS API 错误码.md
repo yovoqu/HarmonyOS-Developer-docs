@@ -1,6 +1,6 @@
 # ArkTS API 错误码
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-threat-protection
 **支持设备：** PC/2in1
@@ -68,7 +68,7 @@ Access and disposal denied for this path.
 
 **可能原因**
 
-目标路径超出允许[访问限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-introduction#访问限制)或[处置限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-introduction#处置限制)，如权限级别、应用沙箱等限制。
+目标路径超出允许[文件访问限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-introduction#文件访问限制)或[文件处置限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-introduction#文件处置限制)，如权限级别、应用沙箱等限制。
 
 **处理步骤**
 
@@ -162,7 +162,7 @@ Disposal is not supported. Please handle it manually.
 
 **处理步骤**
 
-请检查路径是否为应用包体路径，并选择合适的处置方式。具体处置方式请参见[访问限制和处置限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-introduction#访问限制)。
+请检查路径是否为应用包体路径，并选择合适的处置方式。具体处置方式请参见[文件访问限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-introduction#文件访问限制)和[文件处置限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-introduction#文件处置限制)。
 
 
 

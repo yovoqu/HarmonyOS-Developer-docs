@@ -1,6 +1,6 @@
 # 伙伴设备与HarmonyOS设备互通的开发指南
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/partneragent-life-application-guide
 
@@ -18,8 +18,8 @@
 
 
 #### 关键流程
-1. 伙伴设备应用需要先实现[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-fusionconnectivity-partneragentextensionability)，里面实现应用被系统唤醒后需要实现的数据传输业务操作。
-2. 伙伴设备触发和伙伴设备的[蓝牙配对](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/br-pair-device-development-guide)操作，再调用 **bindDevice** 接口注册伙伴设备。PartnerAgent服务感知到伙伴设备注册后，才会调用蓝牙服务接口进行[BLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#ble)扫描和监听蓝牙连接状态去发现伙伴设备，进而拉起伙伴设备[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-fusionconnectivity-partneragentextensionability)。若伙伴设备未注册，PartnerAgent服务不会拉起伙伴设备Extension。
+1. 伙伴设备应用需要先实现[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability)，里面实现应用被系统唤醒后需要实现的数据传输业务操作。
+2. 伙伴设备触发和伙伴设备的[蓝牙配对](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/br-pair-device-development-guide)操作，再调用 **bindDevice** 接口注册伙伴设备。PartnerAgent服务感知到伙伴设备注册后，才会调用蓝牙服务接口进行[BLE](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#ble)扫描和监听蓝牙连接状态去发现伙伴设备，进而拉起伙伴设备[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability)。若伙伴设备未注册，PartnerAgent服务不会拉起伙伴设备Extension。
 3. 该注册信息会持久化存储，HarmonyOS设备重启后依旧生效。
 4. 伙伴设备应用不需要使用该设备后，可调用 **unbindDevice** 接口解注册设备。
 
@@ -67,7 +67,7 @@
 
 #### PartnerAgentExtensionAbility实现
 
-应用需要实现[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-fusionconnectivity-partneragentextensionability)，本模块会在HarmonyOS设备BLE扫描到或连上**已注册**的伙伴设备时被拉起，HarmonyOS设备和已注册伙伴设备断开蓝牙连接后，本模块会延迟3分钟销毁伙伴设备Extension进程。它通过提供以下函数运行保持应用可唤醒。
+应用需要实现[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability)，本模块会在HarmonyOS设备BLE扫描到或连上**已注册**的伙伴设备时被拉起，HarmonyOS设备和已注册伙伴设备断开蓝牙连接后，本模块会延迟3分钟销毁伙伴设备Extension进程。它通过提供以下函数运行保持应用可唤醒。
 
  - **onDeviceDiscovered(deviceAddress: PartnerDeviceAddress)**
 
@@ -276,7 +276,7 @@ export default class EntryAbility extends UIAbility {
   调用注册设备等功能接口。Index.ets中输入要注册的设备蓝牙地址，注册输入的蓝牙设备，去注册输入的蓝牙设备、查询设备的绑定状态，获取本机绑定的设备列表等。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/gu4um4wJSn-95ddXbkHByg/zh-cn_image_0000002581434506.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030246Z&HW-CC-Expire=86400&HW-CC-Sign=C9A611818A8A3C83E58416B593D49806A23E1A76BFB4D7B1408B4039F5FB5D9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/4oPEsSO9S0O90JPFMSZmuA/zh-cn_image_0000002617668589.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012919Z&HW-CC-Expire=86400&HW-CC-Sign=11B9E9AA4CF5349F2E9CC7D3F57262D1CE2C8F88DFE753502FD281026FAAC077)
 
 
   

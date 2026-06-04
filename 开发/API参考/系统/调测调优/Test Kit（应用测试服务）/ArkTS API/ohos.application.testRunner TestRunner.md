@@ -1,6 +1,6 @@
 # @ohos.application.testRunner (TestRunner)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-testrunner
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,7 +24,33 @@ import { TestRunner } from '@kit.TestKit';
  
   
 
-#### TestRunner.onPrepare
+#### TestRunner
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+TestRunner是单元测试框架的模板，开发者可通过继承这个类并覆盖它的所有方法，实现自定义的单元测试框架能力。
+ 
+**系统能力**：SystemCapability.Ability.AbilityRuntime.Core
+ 
+**示例：**
+ 
+```text
+import { TestRunner } from '@kit.TestKit';
+
+export default class UserTestRunner implements TestRunner {
+  onPrepare() {
+    console.info('Trigger onPrepare');
+  }
+
+  onRun() {
+    console.info('Trigger onRun');
+  }
+}
+```
+ 
+  
+
+#### onPrepare
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -53,7 +79,7 @@ export default class UserTestRunner implements TestRunner {
  
   
 
-#### TestRunner.onRun
+#### onRun
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 

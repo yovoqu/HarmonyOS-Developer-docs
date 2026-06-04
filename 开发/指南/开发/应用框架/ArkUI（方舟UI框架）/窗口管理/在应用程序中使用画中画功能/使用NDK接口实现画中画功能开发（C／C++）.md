@@ -1,6 +1,6 @@
 # 使用NDK接口实现画中画功能开发（C/C++）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pipwindow-native
 
@@ -437,8 +437,12 @@ import { Logger } from '../util/LogUtil';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-      AppStorage.setOrCreate('UIAbilityContext', this.context);
+    AppStorage.setOrCreate('UIAbilityContext', this.context);
+    try {
       this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
+    } catch (err) {
+      Logger.error('testTag', 'Failed to set color mode: %{public}s', JSON.stringify(err));
+    }
   }
 
   onDestroy(): void {
@@ -508,7 +512,7 @@ import { Logger } from '../util/LogUtil';
 export class AVPlayer {
   public avPlayer?: media.AVPlayer;
   private count: number = 0;
-  private surfaceID: string; // surfaceID用于播放画面显示，具体的值需要通过XComponent接口获取，相关文档链接见上面XComponent创建方法
+  private surfaceID: string; // surfaceID用于播放画面显示，具体的值需要通过Xcomponent接口获取，相关文档链接见上面Xcomponent创建方法
   public jumpNext: boolean = false;
   public type: number = 0; // 用于区分主界面的player还是pip界面的player
   public state_: string = ''
@@ -585,7 +589,7 @@ export class AVPlayer {
         case 'completed': // 播放结束后触发该状态机上报
           Logger.info('AVPlayer state completed called.');
           this.playNext();
-          ; //调用播放结束接口
+          ; // 调用播放结束接口
           break;
         case 'stopped': // stop接口成功调用后触发该状态机上报
           Logger.info('AVPlayer state stopped called.');
@@ -607,20 +611,31 @@ export class AVPlayer {
 
   // 以下demo为使用资源管理接口获取打包在HAP内的媒体资源文件并通过fdSrc属性进行播放示例
   async avPlayerFdSrc() {
-    // 创建avPlayer实例对象
     Logger.info('avPlayerFdSrc');
-    this.avPlayer = await media.createAVPlayer();
+    try {
+      // 创建avPlayer实例对象
+      this.avPlayer = await media.createAVPlayer();
+    } catch (err) {
+      let error = err as BusinessError;
+      Logger.error(`createAVPlayer failed, code: ${error.code}, msg: ${error.message}`);
+      return;
+    }
 
     // 创建状态机变化回调函数
     this.setAVPlayerCallback();
     // 通过UIAbilityContext的resourceManager成员的getRawFd接口获取媒体资源播放地址
     // 返回类型为{fd,offset,length},fd为HAP包fd地址，offset为媒体资源偏移量，length为播放长度
 
-    let context = AppStorage.get('UIAbilityContext') as common.UIAbilityContext;
-    let fileDescriptor = await context.resourceManager.getRawFd('640x360.mp4');
-    Logger.info('getRawFd');
-    // 为fdSrc赋值触发initialized状态机上报
-    this.avPlayer.fdSrc = fileDescriptor;
+    try {
+      let context = AppStorage.get('UIAbilityContext') as common.UIAbilityContext;
+      let fileDescriptor = await context.resourceManager.getRawFd('640x360.mp4');
+      Logger.info('getRawFd');
+      // 为fdSrc赋值触发initialized状态机上报
+      this.avPlayer.fdSrc = fileDescriptor;
+    } catch (err) {
+      let error = err as BusinessError;
+      Logger.error(`getRawFd failed, code=${error.code}, msg=${error.message}`);
+    }
   }
 
   async playNext() {
@@ -628,18 +643,33 @@ export class AVPlayer {
       return;
     }
     this.jumpNext = true;
-    this.avPlayer?.stop();
+    this.avPlayer?.stop()
+    .then(() => {
+      Logger.info(`Succeeded to stop avPlayer`);
+    }).catch((err: BusinessError) => {
+      Logger.error(`Failed to stop avPlayer, Cause:${err.code}, message:${err.message}`);
+    });
   }
 
   play() {
     if (this.state_ === 'paused') {
-      this.avPlayer?.play();
+      this.avPlayer?.play()
+        .then(() => {
+          Logger.info(`Succeeded to play avPlayer`);
+        }).catch((err: BusinessError) => {
+          Logger.error(`Failed to play avPlayer, Cause:${err.code}, message:${err.message}`);
+      });
     }
   }
 
   pause() {
     if (this.state_ === 'playing') {
-      this.avPlayer?.pause();
+      this.avPlayer?.pause()
+        .then(() => {
+          Logger.info(`Succeeded to pause avPlayer`);
+        }).catch((err: BusinessError) => {
+          Logger.error(`Failed to pause avPlayer, Cause:${err.code}, message:${err.message}`);
+      });
     }
   }
 
@@ -648,9 +678,19 @@ export class AVPlayer {
     if (!this.avPlayer) {
       return;
     }
-    this.avPlayer.stop();
+    this.avPlayer.stop()
+      .then(() => {
+        Logger.info(`Succeeded to stop avPlayer`);
+      }).catch((err: BusinessError) => {
+        Logger.error(`Failed to stop avPlayer, Cause:${err.code}, message:${err.message}`);
+    });
     Logger.info('stopping>>>');
-    this.avPlayer.reset();
+    this.avPlayer.reset()
+      .then(() => {
+        Logger.info(`Succeeded to reset avPlayer`);
+      }).catch((err: BusinessError) => {
+        Logger.error(`Failed to reset avPlayer, Cause:${err.code}, message:${err.message}`);
+    });
   }
 }
 ```
@@ -914,4 +954,4 @@ struct NDKImplementIndexPage {
 以上示例代码对应的示意图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/O0vekgbnSemj4J-GNFDAtg/zh-cn_image_0000002611834077.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030422Z&HW-CC-Expire=86400&HW-CC-Sign=91BD9DC51E41A0AFB41496D7B04494ECC945063CB5F76929FF4589E3CDB8FEE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/DR-TxHfJTnicHk7bpT6zbQ/zh-cn_image_0000002587268538.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012632Z&HW-CC-Expire=86400&HW-CC-Sign=D6EBBF9DD307DCF72054428D7B931DFFB2ADBB8387F0231A9E3CDD44D348ACB9)

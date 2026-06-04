@@ -1,6 +1,6 @@
 # WIFI错误码
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wifi
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -20,7 +20,7 @@ Operation failed.
 
 **错误描述**
 
-WIFI服务内部执行STA相关操作时出现未知错误。
+调用syscap为SystemCapability.Communication.WiFi.Core的接口时，Wi-Fi服务内部出现未知错误。
 
 **可能原因**
 1. 和WIFI服务建立通信异常。
@@ -207,6 +207,29 @@ WIFI服务内部执行P2P相关操作时出现未知错误。
 
 **处理步骤**
 1. 重新执行关闭及打开WIFI开关的操作。
+2. 如果步骤1无效，请尝试重启设备。
+
+
+
+#### 2801001 P2P模块异常
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+Wi-Fi P2P disabled.
+
+**错误描述**
+
+Wi-Fi服务内部执行P2P相关操作时出现错误。
+
+**可能原因**
+1. 和Wi-Fi服务建立通信异常。
+2. 打开P2P服务失败。
+3. 其他未知错误。
+
+**处理步骤**
+1. 重新执行关闭及打开Wi-Fi开关的操作。
 2. 如果步骤1无效，请尝试重启设备。
 
 

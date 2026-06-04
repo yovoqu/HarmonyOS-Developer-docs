@@ -1,6 +1,6 @@
 # ArkWeb_ControllerAPI
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-web-arkweb-controllerapi
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,8 +54,8 @@ Controller相关的Native API结构体。在调用接口前建议通过[ARKWEB_M
 | void (*registerAsyncJavaScriptProxy)(const char* webTag, const ArkWeb_ProxyObject* proxyObject) | 注入JavaScript对象到window对象中，并在window对象中调用该对象的异步方法。 |
 | ArkWeb_WebMessagePortPtr* (*createWebMessagePorts)(const char* webTag, size_t* size) | 创建Post Message端口。 |
 | void (*destroyWebMessagePorts)(ArkWeb_WebMessagePortPtr** ports, size_t size) | 销毁端口。 |
-| ArkWeb_ErrorCode (*postWebMessage)(const char* webTag, const char* name, ArkWeb_WebMessagePortPtr* webMessagePorts, size_t size, const char* url) | 将端口发送到HTML主页面. |
-| const char* (*getLastJavascriptProxyCallingFrameUrl)() | 获取调用JavaScriptProxy最后一帧的url。在JavaScriptProxy调用的线程上调用。通过registerJavaScriptProxy或者javaScriptProxy注入JavaScript对象到window对象中。该接口可以获取最后一次调用注入对象frame的url。在被调用函数内部获取url才能获取到正确值，可以在函数里内部获取url后保存下来。 起始版本： 14 |
+| ArkWeb_ErrorCode (*postWebMessage)(const char* webTag, const char* name, ArkWeb_WebMessagePortPtr* webMessagePorts, size_t size, const char* url) | 将端口发送到HTML主页面。 |
+| const char* (*getLastJavascriptProxyCallingFrameUrl)() | 获取调用JavaScriptProxy最后一帧的url。在JavaScriptProxy调用的线程上调用。通过registerJavaScriptProxy或者javaScriptProxy注入JavaScript对象到window对象中。该接口可以获取最后一次调用注入对象frame的url。在被调用函数内部获取url才能获取到正确值，可以在函数内部获取url后保存下来。 起始版本： 14 |
 | void (*registerJavaScriptProxyEx)(const char* webTag, const ArkWeb_ProxyObjectWithResult* proxyObject,const char* permission) | 注入JavaScript对象到window对象中，并在window对象中调用该对象的同步方法。该对象的同步方法可以带返回值。 起始版本： 18 |
 | void (*registerAsyncJavaScriptProxyEx)(const char* webTag, const ArkWeb_ProxyObject* proxyObject,const char* permission) | 注入JavaScript对象到window对象中，并在window对象中调用该对象的异步方法。 起始版本： 18 |
  
@@ -238,7 +238,7 @@ ArkWeb_ErrorCode (*postWebMessage)(const char* webTag, const char* name, ArkWeb_
  
 **描述：**
  
-将端口发送到HTML主页面.
+将端口发送到HTML主页面。
  
 **参数：**
   

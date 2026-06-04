@@ -1,6 +1,6 @@
 # 使用SegmentMap查询维护区间信息
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-segment-map
 
@@ -36,7 +36,11 @@ FAST Kit提供Segment Map用于查询维护区间信息，实现数据序列区�
 
   
 ```text
-target_link_libraries(entry PUBLIC libfast_ads.so)
+find_library(
+    lib_fast_ads
+    NAMES fast_ads
+)
+target_link_libraries(entry PRIVATE ${lib_fast_ads})
 ```
 
 2. 调用HMS_FAST_SegmentMap_CreateConfig生成线段表配置实例（FAST_SegmentMapConfig）。

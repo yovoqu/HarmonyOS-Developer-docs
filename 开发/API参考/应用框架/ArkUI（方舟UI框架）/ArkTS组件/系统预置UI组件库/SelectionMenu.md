@@ -1,6 +1,6 @@
 # SelectionMenu
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-selectionmenu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -477,7 +477,9 @@ struct Index {
           this.start = value.selection[0];
           this.end = value.selection[1];
         })
+        // 绑定鼠标右键操作自定义菜单
         .bindSelectionMenu(RichEditorSpanType.TEXT, this.MyMenu3(), RichEditorResponseType.RIGHT_CLICK)
+        // 绑定鼠标选中操作自定义菜单
         .bindSelectionMenu(RichEditorSpanType.TEXT, this.MyMenu2(), RichEditorResponseType.SELECT)
         .borderWidth(1)
         .borderColor(Color.Red)
@@ -490,11 +492,11 @@ struct Index {
 ```
 
 > [!NOTE]
-> 系统暂未预置加粗、斜体等图标，示例代码使用本地资源图标，开发者使用时需自行替换editorMenuOptions中icon项的资源。
+> 系统暂未预置加粗、斜体等图标，示例代码使用本地资源图标，开发者使用时需自行替换editorMenuOptions中icon项的资源。 示例图为鼠标操作触发的自定义菜单弹出效果。
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/LcjK7BeWTLSzoBaBaPYwdw/zh-cn_image_0000002581436266.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=28A69DEE9C52E83E40292635D88413A60AAF8E9E6E177E9F7D4FC84E08CDD92B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/G_UIyP7zTE2RZnY_A6BVbQ/zh-cn_image_0000002617670413.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=E64320F19C8DD13D3270D96D93D18795C8825F3C73D8FD2E8CF2745C471C81F9)
 
 
 
@@ -829,4 +831,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/PY0hn_j0RfCgb-0_wawQEw/zh-cn_image_0000002611836097.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=EF01A2592EB694F38AA0DAC6EDD0A0029DD8ADF5A08EBFA99B6B3D8489131108)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/aBM_ERY0QnuOAuxVlRMxOg/zh-cn_image_0000002587270638.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=32D6A2C31EC9A568D560CB235BEDF55D7C178144E85A30853860CD83C0E328FA)

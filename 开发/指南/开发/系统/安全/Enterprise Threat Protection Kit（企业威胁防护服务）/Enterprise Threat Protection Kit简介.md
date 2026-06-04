@@ -1,6 +1,6 @@
 # Enterprise Threat Protection Kit简介
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-introduction
 
@@ -42,7 +42,7 @@ Enterprise Threat Protection Kit（企业威胁防护服务）为企业开发者
  
   
 
-#### 访问限制
+#### 文件访问限制
 
 
 ![](assets/Enterprise%20Threat%20Protection%20Kit简介/file-20260514131150607-0.png)
@@ -66,7 +66,7 @@ Enterprise Threat Protection Kit（企业威胁防护服务）为企业开发者
  
   
 
-#### 处置限制
+#### 文件处置限制
  
 | 目录 | 说明 |
 | --- | --- |

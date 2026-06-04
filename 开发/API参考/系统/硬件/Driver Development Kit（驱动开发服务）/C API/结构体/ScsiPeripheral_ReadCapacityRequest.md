@@ -1,8 +1,8 @@
 # ScsiPeripheral_ReadCapacityRequest
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/siperipheralddk-scsiperipheral-readcapacityrequest
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsiperipheralddk-scsiperipheral-readcapacityrequest
 **支持设备：** PC/2in1
 
 ```text

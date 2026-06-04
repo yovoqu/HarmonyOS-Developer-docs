@@ -1,6 +1,6 @@
 # GridObjectSortComponent
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-gridobjectsortcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -207,4 +207,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/PjmSjN65RBONTnJ7pRYFKg/zh-cn_image_0000002611756197.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=4A029F0F1BF54DF6AE362A3332222F7423E047B7061A74738CE7200548B31442)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/_W_ZkoZ7S226XaQFgQBofA/zh-cn_image_0000002587110724.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=FE2403E63D7A14D7400D6E2533F196DD1C015857124D13A964E819870670F77D)

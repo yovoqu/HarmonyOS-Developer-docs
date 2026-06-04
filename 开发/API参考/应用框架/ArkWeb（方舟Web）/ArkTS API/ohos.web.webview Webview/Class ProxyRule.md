@@ -1,6 +1,6 @@
 # Class (ProxyRule)
 
-更新时间：2026-03-09 07:25:19
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-proxyrule
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,7 +41,7 @@ getSchemeFilter(): ProxySchemeFilter
 
 getUrl(): string
  
-获取代理规则中的代理的Url信息。
+获取代理规则中的代理的URL信息。
  
 **系统能力：** SystemCapability.Web.Webview.Core
  
@@ -49,7 +49,7 @@ getUrl(): string
   
 | 类型 | 说明 |
 | --- | --- |
-| string | 代理规则中的代理的Url信息。 |
+| string | 代理规则中的代理的URL信息。 |
  
  
 **示例：**

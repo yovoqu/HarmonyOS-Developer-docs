@@ -1,6 +1,6 @@
 # Menu
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -391,7 +391,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/SClyvfJgQNKUxZSfT1am4Q/zh-cn_image_0000002581276240.png?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=C01AD812A2A047CA34F578C3954DCE24B3310543AD05D00791A863486B79EB19)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/uHInkcGpS0eapY9PMa7BKQ/zh-cn_image_0000002617710205.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=169CF0605B8F935C5D954237CC7C90737F8EF818B2DEA2D9034D476CC17EC9E2)
 
  
   
@@ -459,7 +459,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/zkJ1t6VbSL6fAlPjSFL2aQ/zh-cn_image_0000002611756095.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=7589918F79D501026A6652E5331CE9436CC88EC2C9E436EF4F945F23179E6731)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/jcizIARWS867uUYt7h9gwg/zh-cn_image_0000002587110624.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=7EBB1EC9BFA2A891BA0DF23BC20225B658A1FDBBDBF867BE72768AD235D52A05)
 
  
   
@@ -511,4 +511,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/RGN9oCIHS5CUNtO9OOKO7Q/zh-cn_image_0000002581436158.png?HW-CC-KV=V1&HW-CC-Date=20260528T025602Z&HW-CC-Expire=86400&HW-CC-Sign=67940D4F350FDBF98D0549D1A7AD48D2BF4FACF12B7763BB97CE6B71E8164187)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/SMvbbDDfQimGo9KfLnmTDQ/zh-cn_image_0000002617670303.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=4B11B4B804F6A3035FB91363207617B08BE65CD1FFFBCB3229113C7855A29031)

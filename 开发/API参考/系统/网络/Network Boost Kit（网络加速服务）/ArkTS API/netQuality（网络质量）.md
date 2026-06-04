@@ -1,6 +1,6 @@
 # netQuality（网络质量）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netquality
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -30,9 +30,9 @@ on(type: 'netQosChange', callback: Callback<Array&lt;NetworkQos&gt;>): void
  
 **需要权限：** ohos.permission.GET_NETWORK_INFO
  
-**系统能力:** SystemCapability.Communication.NetworkBoost.Core
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
-**起始版本:** 5.0.0(12)
+**起始版本：** 5.0.0(12)
  
 **参数：**
   
@@ -63,7 +63,7 @@ try {
     if (list.length > 0) {
       list.forEach((qos) => {
         // 回调信息处理
-        console.info(`Succeeded receive netQosChange info`);
+        console.info(`Succeeded receive netQosChange info qos=` + qos`);
       });
     }
   });
@@ -131,9 +131,9 @@ on(type: 'netSceneChange', callback: Callback<Array&lt;NetworkScene&gt;>): void
  
 **需要权限：** ohos.permission.GET_NETWORK_INFO
  
-**系统能力:** SystemCapability.Communication.NetworkBoost.Core
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
-**起始版本:** 5.0.0(12)
+**起始版本：** 5.0.0(12)
  
 **参数：**
   

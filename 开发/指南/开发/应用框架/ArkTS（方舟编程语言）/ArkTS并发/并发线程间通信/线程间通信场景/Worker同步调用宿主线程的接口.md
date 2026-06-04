@@ -1,13 +1,13 @@
 # Worker同步调用宿主线程的接口
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-invoke-mainthread-interface
 
 如果一个接口已在宿主线程中实现，Worker可以通过以下方式调用该接口。
- 
+
 以下示例展示了Worker同步调用宿主线程接口的方法，创建Worker的方法可参考[创建Worker的注意事项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-introduction#创建worker的注意事项)。
- 1. 首先，在宿主线程实现需要调用的接口，并创建Worker对象，在Worker对象上注册需要调用的对象。
+1. 首先，在宿主线程实现需要调用的接口，并创建Worker对象，在Worker对象上注册需要调用的对象。
 
   
 ```ArkTS
@@ -53,7 +53,7 @@ import { MessageEvents, worker } from '@kit.ArkTS';
    }
 ```
 
-2. 然后，在Worker中通过callGlobalCallObjectMethod接口可以调用宿主线程中的getMessage()方法。
+2. 然后，在Worker中通过[callGlobalCallObjectMethod](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker#callglobalcallobjectmethod11)接口可以调用宿主线程中的getMessage()方法。
 
   
 ```ArkTS

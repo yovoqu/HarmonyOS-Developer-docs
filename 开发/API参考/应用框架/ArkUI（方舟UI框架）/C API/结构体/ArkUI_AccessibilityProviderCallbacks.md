@@ -1,8 +1,8 @@
 # ArkUI_AccessibilityProviderCallbacks
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/accessibility-arkui-accessibilityprovidercallbacks
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityprovidercallbacks
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
@@ -14,7 +14,7 @@ typedef struct {...} ArkUI_AccessibilityProviderCallbacks
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-第三方操作[provider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-arkui-accessibility-arkui-accessibilityprovider)回调函数结构定义，需要第三方平台实现的相关函数，通过[OH_ArkUI_AccessibilityProviderRegisterCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-accessibility-h#oh_arkui_accessibilityproviderregistercallback)注册到系统侧。
+第三方操作[provider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityprovider)回调函数结构定义，需要第三方平台实现的相关函数，通过[OH_ArkUI_AccessibilityProviderRegisterCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-accessibility-h#oh_arkui_accessibilityproviderregistercallback)注册到系统侧。
  
 **起始版本：** 13
  

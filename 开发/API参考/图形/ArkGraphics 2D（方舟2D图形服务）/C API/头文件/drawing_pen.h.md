@@ -1,6 +1,6 @@
 # drawing_pen.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-pen-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -967,7 +967,7 @@ OH_Drawing_ErrorCode OH_Drawing_PenSetColor4f(OH_Drawing_Pen* pen, float a, floa
  
 用于设置画笔的颜色属性，颜色属性描述了画笔绘制图形轮廓时使用的颜色。
  
- 颜色采用浮点数表示的ARGB格式，色彩空间由[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)指定。
+ 颜色采用浮点数表示的ARGB格式，色彩空间由[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-oh-nativecolorspacemanager)指定。
  
  如果colorSpaceManager为nullptr，使用SRGB（基于IEC 61966-2.1：1999的标准红绿蓝色彩空间）色彩空间作为默认值。
  

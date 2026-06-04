@@ -1,6 +1,6 @@
 # LLM模型一站式量化
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-large-language-one-stop
 
@@ -128,20 +128,20 @@ Quant_Embed_MinMax     embedding层策略
 ```
 
 
-2. dopt_config.json文件手动修改你希望的量化策略配置后，再次执行该阶段，进行权重量化。
+2. dopt_config.json文件手动修改量化策略配置后，再次执行该阶段，进行权重量化。
 
   
 ```json
 bash run.sh stage1
 ```
 
-- 激活量化
+- 激活量化。
 
   
 ```json
 bash run.sh stage2
 ```
-  输出：trained.pth文件，阶段三会加载该权重，也可以用作标杆和量化仿真。
+  输出：trained.pth文件，可以用作标杆和量化仿真。
 - 提取量化参数。
 
   
@@ -208,7 +208,7 @@ python -u \
              "weight":{
                  "bit": 4,
                  "group_size": 64
-             }
+             },
              "input":{
                  "bit": 16
              }
@@ -234,7 +234,7 @@ trained_quant_weight.pth ### 阶段一的输出，阶段二的输入
 量化完成后，开发者可进行量化仿真推理，通过对比量化模型与原始浮点模型的输出结果，来评估量化模型精度是否满足要求。量化仿真推理工程可参考[qwen2模型量化仿真推理demo](#qwen2模型量化仿真推理demo)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/N-SfRmOhSMeN0vwh9O3jPg/zh-cn_image_0000002611755245.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030037Z&HW-CC-Expire=86400&HW-CC-Sign=4D13C79BA938CB8D4B6197FFBAC287363727489BE498AE7FF9A02965649D3A82)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/tOINxA_YT-SHP_AbJ0gAHw/zh-cn_image_0000002587109736.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012646Z&HW-CC-Expire=86400&HW-CC-Sign=C8A55E731798E89EB931D3F8D9FD1906B084284809A0F692D2A3AB421C5BDCB6)
 
  
   

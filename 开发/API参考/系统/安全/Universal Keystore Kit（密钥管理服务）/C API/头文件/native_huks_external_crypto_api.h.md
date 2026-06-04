@@ -1,6 +1,6 @@
 # native_huks_external_crypto_api.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-api-h
 **支持设备：** PC/2in1 | Tablet

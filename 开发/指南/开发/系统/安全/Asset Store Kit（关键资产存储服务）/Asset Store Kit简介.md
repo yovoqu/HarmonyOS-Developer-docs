@@ -1,6 +1,6 @@
 # Asset Store Kit简介
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-store-kit-overview
 
@@ -17,7 +17,7 @@ Asset Store Kit（关键资产存储服务，简称ASSET）包含了一系列开
 
   
 只允许关键资产被其属主（写入该关键资产的业务）访问。
- - 关键资产属主身份由ASSET从系统服务中获取，即使业务身份被仿冒，仿冒者也无法获取到其他业务的数据。
+ - 关键资产属主身份（应用的[appId](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/common-problem-of-application#什么是appid)）由ASSET从系统服务中获取，即使业务身份被仿冒，仿冒者也无法获取到其他业务的数据。
  - 关键资产加/解密时，其属主身份参与了完整性保护，即使关键资产属主身份被篡改，攻击者也无法获取到其他业务的数据。
 
       - **基于群组的访问控制：**
@@ -57,7 +57,7 @@ Asset Store Kit（关键资产存储服务，简称ASSET）包含了一系列开
   轻量级智能穿戴设备暂不支持使用本Kit。
  - 基于别名的访问
 
-  关键资产以密文的形式存储在ASSET数据库中，以业务身份 + 别名作为唯一索引。故业务需要保证每条关键资产的别名唯一。
+  关键资产以密文的形式存储在ASSET数据库中，以业务身份（应用的[appId](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/common-problem-of-application#什么是appid)） + 别名作为唯一索引。故业务需要保证每条关键资产的别名唯一。
  - 批量查询关键资产
 
   批量查询出的关键资产需要通过IPC通道传输给业务，受IPC缓冲区大小限制，建议对查询超过40条关键资产时，进行分批查询，且每次查询数量不超过40条。
@@ -74,6 +74,8 @@ ASSET不支持沙箱应用、应用分身存储或访问群组数据。
  - [IS_PERSISTENT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-asset#tag)属性设置为True的关键资产，不允许设置为群组共享。
 
       - 关键资产删除时机
+
+  关键资产有且仅有以下删除时机：
 
   
 业务主动调用remove删除关键资产时，删除符合条件的数据。详见删除关键资产[ArkTS](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-remove)、[C/C++](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-remove)开发指导。

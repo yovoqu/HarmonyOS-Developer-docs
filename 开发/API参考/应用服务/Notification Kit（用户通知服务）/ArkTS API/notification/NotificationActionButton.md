@@ -1,8 +1,8 @@
 # NotificationActionButton
 
-更新时间：2026-03-12 02:57:50
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/s-apis-inner-notification-notificationactionbutton
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationactionbutton
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 描述通知中显示的操作按钮。

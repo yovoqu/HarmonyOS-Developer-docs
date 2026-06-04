@@ -1,6 +1,6 @@
 # 使用Node-API接口进行object相关开发
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-object
 
@@ -55,15 +55,14 @@ Node-API接口开发流程参考[使用Node-API实现跨语言交互开发流程
  
 cpp部分代码
  
-```text
-#include "napi/native_api.h"
-
+```cpp
+// napi_get_prototype
 static napi_value GetPrototype(napi_env env, napi_callback_info info)
 {
     // 获取并解析传参
     size_t argc = 1;
     napi_value args[1] = {nullptr};
-    napi_get_cb_info(env, info, &argc, args , nullptr, nullptr);
+    napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
     napi_value result = nullptr;
     // 获取此对象的原型对象，将结果返回到napi_value类型的变量result中
     napi_get_prototype(env, args[0], &result);
@@ -74,17 +73,12 @@ static napi_value GetPrototype(napi_env env, napi_callback_info info)
 接口声明
  
 ```ts
-// index.d.ts
-export const getPrototype: (object: Object) => Object;
+export const getPrototype: (object: Object) => Object; // napi_get_prototype
 ```
  
 ArkTS侧示例代码
  
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
-// 定义一个类
+```ts
 class Person {
   // 属性
   name: string;
@@ -119,9 +113,8 @@ if (applePrototype === Person.prototype) {
  
 cpp部分代码
  
-```text
-#include "napi/native_api.h"
-
+```cpp
+// napi_create_object
 napi_value NewObject(napi_env env, napi_callback_info info)
 {
     napi_value object = nullptr;
@@ -143,21 +136,22 @@ napi_value NewObject(napi_env env, napi_callback_info info)
 接口声明
  
 ```ts
-// index.d.ts
-export const createObject: () => { name: string };
+export const createObject: () => { name: string }; // napi_create_object
 ```
  
 ArkTS侧示例代码
  
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
+```ArkTS
+// napi_create_object
 try {
   const myObject = testNapi.createObject();
   hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_object: %{public}s', myObject.name);
+  // ...
 } catch (error) {
-  hilog.error(0x0000, 'testTag', 'Test Node-API napi_create_object errorCode: %{public}s, errorMessage: %{public}s', error.code, error.message);
+  hilog.error(0x0000, 'testTag',
+    'Test Node-API napi_create_object errorCode: %{public}s, errorMessage: %{public}s', error.code,
+    error.message);
+  // ...
 }
 ```
  
@@ -169,10 +163,8 @@ try {
  
 cpp部分代码
  
-```text
-#include "hilog/log.h"
-#include "napi/native_api.h"
-
+```cpp
+// napi_object_freeze
 static napi_value ObjectFreeze(napi_env env, napi_callback_info info)
 {
     // 接受一个ArkTS侧传入的object
@@ -194,30 +186,31 @@ static napi_value ObjectFreeze(napi_env env, napi_callback_info info)
 接口声明
  
 ```ts
-// index.d.ts
 export interface Obj {
   data: number
   message: string
 }
-export const objectFreeze: (objFreeze: Object) => Obj;
+
+export const objectFreeze: (objFreeze: Object) => Obj; // napi_object_freeze
 ```
  
 ArkTS侧示例代码
  
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
+```ArkTS
+// napi_object_freeze
 try {
   class Obj {
-    data: number = 0
-    message: string = ""
+    public data: number = 0
+    public message: string = ''
   }
-  let obj: Obj = {data: 0, message: "hello world"};
+
+  let obj: Obj = { data: 0, message: 'hello world' };
   let objFreeze = testNapi.objectFreeze(obj);
   hilog.info(0x0000, 'testTag', 'Test Node-API napi_object_freeze: %{public}s', (objFreeze.data = 1));
+  // ...
 } catch (error) {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_object_freeze error: %{public}s', error.message);
+  // ...
 }
 ```
  
@@ -229,10 +222,8 @@ try {
  
 cpp部分代码
  
-```text
-#include "hilog/log.h"
-#include "napi/native_api.h"
-
+```cpp
+// napi_object_seal
 static napi_value ObjectSeal(napi_env env, napi_callback_info info)
 {
     // 接受一个ArkTS侧传入的object
@@ -256,36 +247,37 @@ static napi_value ObjectSeal(napi_env env, napi_callback_info info)
 接口声明
  
 ```ts
-// index.d.ts
-export interface Obj {
+export interface Obj1 {
   data: number
   message: string
   id: number
 }
-export const objectSeal : (objSeal: Object) => Obj;
+
+export const objectSeal: (objSeal: Object) => Obj1; // napi_object_seal
 ```
  
 ArkTS侧示例代码
  
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
+```ArkTS
+// napi_object_seal
 try {
   class Obj {
-    data: number = 0
-    message: string = ""
+    public data: number = 0
+    public message: string = ''
     // 可选属性
-    address?: number
+    public address?: number = 0
   }
-  let obj: Obj = { data: 0, message: "hello world"};
+
+  let obj: Obj = { data: 0, message: 'hello world' };
   let objSeal = testNapi.objectSeal(obj);
   hilog.info(0x0000, 'testTag', 'Test Node-API napi_object_seal: %{public}s', objSeal.message);
   objSeal.data = 1;
   hilog.info(0x0000, 'testTag', 'Test Node-API napi_object_seal: %{public}d', objSeal.data);
   hilog.info(0x0000, 'testTag', 'Test Node-API napi_object_seal: %{public}d', (objSeal.id = 1));
+  // ...
 } catch (error) {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_object_seal error: %{public}s', error.message);
+  // ...
 }
 ```
  
@@ -311,9 +303,8 @@ try {
  
 cpp部分代码
  
-```text
-#include "napi/native_api.h"
-
+```cpp
+// napi_typeof
 static napi_value NapiTypeOf(napi_env env, napi_callback_info info)
 {
     // 接受一个入参
@@ -330,35 +321,34 @@ static napi_value NapiTypeOf(napi_env env, napi_callback_info info)
     }
     // 将结果转成napi_value类型返回。
     napi_value returnValue = nullptr;
-    switch(valueType) {
-    case napi_undefined:
-        napi_create_string_utf8(env, "Input type is napi_undefined", NAPI_AUTO_LENGTH, &returnValue);
-        break;
-    case napi_null:
-        napi_create_string_utf8(env, "Input type is napi_null", NAPI_AUTO_LENGTH, &returnValue);
-        break;
-    case napi_boolean:
-        napi_create_string_utf8(env, "Input type is napi_boolean", NAPI_AUTO_LENGTH, &returnValue);
-        break;
-    case napi_number:
-        napi_create_string_utf8(env, "Input type is napi_number", NAPI_AUTO_LENGTH, &returnValue);
-        break;
-    case napi_string:
-        napi_create_string_utf8(env, "Input type is napi_string", NAPI_AUTO_LENGTH, &returnValue);
-        break;
-    case napi_object:
-        napi_create_string_utf8(env, "Input type is napi_object", NAPI_AUTO_LENGTH, &returnValue);
-        break;
-    case napi_function:
-        napi_create_string_utf8(env, "Input type is napi_function", NAPI_AUTO_LENGTH, &returnValue);
-        break;
-    case napi_bigint:
-        napi_create_string_utf8(env, "Input type is napi_bigint", NAPI_AUTO_LENGTH, &returnValue);
-        break;
-    default:
-        napi_create_string_utf8(env, "unknown", NAPI_AUTO_LENGTH, &returnValue);
+    switch (valueType) {
+        case napi_undefined:
+            napi_create_string_utf8(env, "Input type is napi_undefined", NAPI_AUTO_LENGTH, &returnValue);
+            break;
+        case napi_null:
+            napi_create_string_utf8(env, "Input type is napi_null", NAPI_AUTO_LENGTH, &returnValue);
+            break;
+        case napi_boolean:
+            napi_create_string_utf8(env, "Input type is napi_boolean", NAPI_AUTO_LENGTH, &returnValue);
+            break;
+        case napi_number:
+            napi_create_string_utf8(env, "Input type is napi_number", NAPI_AUTO_LENGTH, &returnValue);
+            break;
+        case napi_string:
+            napi_create_string_utf8(env, "Input type is napi_string", NAPI_AUTO_LENGTH, &returnValue);
+            break;
+        case napi_object:
+            napi_create_string_utf8(env, "Input type is napi_object", NAPI_AUTO_LENGTH, &returnValue);
+            break;
+        case napi_function:
+            napi_create_string_utf8(env, "Input type is napi_function", NAPI_AUTO_LENGTH, &returnValue);
+            break;
+        case napi_bigint:
+            napi_create_string_utf8(env, "Input type is napi_bigint", NAPI_AUTO_LENGTH, &returnValue);
+            break;
+        default:
+            napi_create_string_utf8(env, "unknown", NAPI_AUTO_LENGTH, &returnValue);
     }
-
     return returnValue;
 }
 ```
@@ -366,39 +356,48 @@ static napi_value NapiTypeOf(napi_env env, napi_callback_info info)
 接口声明
  
 ```ts
-// index.d.ts
-export const napiTypeOf : <T>(value: T) => string | undefined;
+export const napiTypeOf: <T>(value: T) => string | undefined; // napi_typeof
 ```
  
 ArkTS侧示例代码
  
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
+```ArkTS
+// napi_typeof
 try {
   let varUndefined: undefined;
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s', testNapi.napiTypeOf(varUndefined));
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s',
+    testNapi.napiTypeOf(varUndefined));
   let varNull: null = null;
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s', testNapi.napiTypeOf(varNull));
-  let varTrue= true;
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s', testNapi.napiTypeOf(varTrue));
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s',
+    testNapi.napiTypeOf(varNull));
+  let varTrue = true;
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s',
+    testNapi.napiTypeOf(varTrue));
   let varNum = 1;
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s', testNapi.napiTypeOf(varNum));
-  let varString = "str";
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s', testNapi.napiTypeOf(varString));
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s',
+    testNapi.napiTypeOf(varNum));
+  let varString = 'str';
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s',
+    testNapi.napiTypeOf(varString));
+
   class Obj {
-    id: number = 0
-    name: string = ""
+    public id: number = 0
+    public name: string = ''
   }
-  let varObject: Obj = {id: 1, name: "LiLei"};
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s', testNapi.napiTypeOf(varObject));
-  const mulNum = (a: number, b: number): number => a * b;
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s', testNapi.napiTypeOf(mulNum));
-  let varBigint = BigInt("1234567890123456789012345678901234567890");
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s', testNapi.napiTypeOf(varBigint));
+
+  let varObject: Obj = { id: 1, name: 'LiLei' };
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s',
+    testNapi.napiTypeOf(varObject));
+  const addNum = (a: number, b: number): number => a * b;
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s',
+    testNapi.napiTypeOf(addNum));
+  let varBigint = BigInt('1234567890123456789012345678901234567890');
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_typeof: %{public}s',
+    testNapi.napiTypeOf(varBigint));
+  // ...
 } catch (error) {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_typeof error: %{public}s', error.message);
+  // ...
 }
 ```
  
@@ -410,9 +409,8 @@ try {
  
 cpp部分代码
  
-```text
-#include "napi/native_api.h"
-
+```cpp
+// napi_instanceof
 static napi_value NapiInstanceOf(napi_env env, napi_callback_info info)
 {
     // 接受两个入参
@@ -437,36 +435,40 @@ static napi_value NapiInstanceOf(napi_env env, napi_callback_info info)
 接口声明
  
 ```ts
-// index.d.ts
-export const napiInstanceOf: (date: Object, construct: Object) => boolean | undefined;
+export const napiInstanceOf: (date: Object, construct: Object) => boolean | undefined; // napi_instanceof
 ```
  
 ArkTS侧示例代码
  
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
+```ArkTS
+// napi_instanceof
 try {
   class Person {
-    name: string;
-    age: number;
+    public name: string;
+    public age: number;
 
     constructor(name: string, age: number) {
       this.name = name;
       this.age = age;
     }
   }
-  const person = new Person("Alice", 30);
+
+  const person = new Person('Alice', 30);
+
   class Obj {
-    data: number = 0
-    message: string = ""
+    public data: number = 0
+    public message: string = ''
   }
-  let obj: Obj = { data: 0, message: "hello world"};
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_instanceof: %{public}s', testNapi.napiInstanceOf(person, Person));
-  hilog.info(0x0000, 'testTag', 'Test Node-API napi_instanceof: %{public}s', testNapi.napiInstanceOf(obj, Person));
+
+  let obj: Obj = { data: 0, message: 'hello world' };
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_instanceof: %{public}s',
+    testNapi.napiInstanceOf(person, Person));
+  hilog.info(0x0000, 'testTag', 'Test Node-API napi_instanceof: %{public}s',
+    testNapi.napiInstanceOf(obj, Person));
+  // ...
 } catch (error) {
   hilog.error(0x0000, 'testTag', 'Test Node-API napi_instanceof error: %{public}s', error.message);
+  // ...
 }
 ```
  
@@ -488,9 +490,7 @@ ArkTS版本中，napi_type_tag_object接口没有使用private symbol，导致ty
  
 cpp部分代码
  
-```text
-#include "napi/native_api.h"
-
+```cpp
 #define NUMBERINT_FOUR 4
 // 定义一个静态常量napi_type_tag数组存储类型标签
 static const napi_type_tag TagsData[NUMBERINT_FOUR] = {
@@ -500,7 +500,7 @@ static const napi_type_tag TagsData[NUMBERINT_FOUR] = {
     {0, 0},
     {0x6a971439f5b2e5d7, 0x531dc28a7e5317c0},
 };
-
+// napi_type_tag_object
 static napi_value SetTypeTagToObject(napi_env env, napi_callback_info info)
 {
     // 获取函数调用信息和参数
@@ -521,7 +521,7 @@ static napi_value SetTypeTagToObject(napi_env env, napi_callback_info info)
     napi_get_boolean(env, true, &result);
     return result;
 }
-
+// napi_check_object_type_tag
 static napi_value CheckObjectTypeTag(napi_env env, napi_callback_info info)
 {
     // 获取函数调用信息和参数
@@ -545,27 +545,28 @@ static napi_value CheckObjectTypeTag(napi_env env, napi_callback_info info)
 接口声明
  
 ```ts
-// index.d.ts
-export const setTypeTagToObject: (obj: Object, index: number) => boolean | undefined;
-export const checkObjectTypeTag: (obj: Object, index: number) => boolean;
+export const setTypeTagToObject: (obj: Object, index: number) => boolean | undefined; // napi_type_tag_object
+
+export const checkObjectTypeTag: (obj: Object, index: number) => boolean; // napi_check_object_type_tag
 ```
  
-ArkTS侧示例代码
- 
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
+```ArkTS
+// napi_type_tag_object and napi_check_object_type_tag
 class Obj {
-  data: number = 0
-  message: string = ""
+  public data: number = 0
+  public message: string = ''
 }
-let objA: Obj = { data: 0, message: "hello world"};
-let objB: Obj = { data: 10, message: "typeTag"};
-hilog.info(0x0000, 'testTag', 'Test Node-API napi_type_tag_object objA -> 0: %{public}s', testNapi.setTypeTagToObject(objA, 0));
-hilog.info(0x0000, 'testTag', 'Test Node-API napi_type_tag_object objB -> 0: %{public}s', testNapi.setTypeTagToObject(objB, 0));
-hilog.info(0x0000, 'testTag', 'Test Node-API napi_check_object_type_tag objA -> 0: %{public}s', testNapi.checkObjectTypeTag(objA, 0));
-hilog.info(0x0000, 'testTag', 'Test Node-API napi_check_object_type_tag objB -> 1: %{public}s', testNapi.checkObjectTypeTag(objB, 1));
+
+let objA: Obj = { data: 0, message: 'hello world' };
+let objB: Obj = { data: 10, message: 'typeTag' };
+hilog.info(0x0000, 'testTag', 'Test Node-API napi_type_tag_object objA -> 0: %{public}s',
+  testNapi.setTypeTagToObject(objA, 0));
+hilog.info(0x0000, 'testTag', 'Test Node-API napi_type_tag_object objB -> 0: %{public}s',
+  testNapi.setTypeTagToObject(objB, 0));
+hilog.info(0x0000, 'testTag', 'Test Node-API napi_check_object_type_tag objA -> 0: %{public}s',
+  testNapi.checkObjectTypeTag(objA, 0));
+hilog.info(0x0000, 'testTag', 'Test Node-API napi_check_object_type_tag objB -> 1: %{public}s',
+  testNapi.checkObjectTypeTag(objB, 1));
 ```
  
   
@@ -576,18 +577,14 @@ hilog.info(0x0000, 'testTag', 'Test Node-API napi_check_object_type_tag objB -> 
  
 cpp部分代码
  
-```text
-#include <cstdlib>
-#include <string>
-#include "hilog/log.h"
-#include "napi/native_api.h"
-
+```cpp
 // 用于释放外部数据的回调函数
-void finalizeCallback(napi_env env, void *data, void *hint) {
+void finalizeCallback(napi_env env, void *data, void *hint)
+{
     // 释放外部数据
     free(data);
 }
-
+// napi_create_external
 static napi_value GetExternalType(napi_env env, napi_callback_info info)
 {
     size_t argc = 1;
@@ -632,19 +629,18 @@ static napi_value CreateExternal(napi_env env, napi_callback_info info)
 接口声明
  
 ```ts
-// index.d.ts
-export const createExternal: () => Object;
-export const getExternalType: (externalData: Object) => boolean;
+export const createExternal: () => Object; // napi_create_external
+
+export const getExternalType: (externalData: Object) => boolean; // napi_create_external
 ```
  
 ArkTS侧示例代码
  
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
+```ArkTS
+// napi_create_external
 const externalData = testNapi.createExternal();
-hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_external:%{public}s', testNapi.getExternalType(externalData));
+hilog.info(0x0000, 'testTag', 'Test Node-API napi_create_external:%{public}s',
+  testNapi.getExternalType(externalData));
 ```
  
   
@@ -655,14 +651,13 @@ napi_create_external可以创建包装自定义的C/C++对象并将其公开给A
  
 cpp部分代码
  
-```text
-#include "napi/native_api.h"
-
-static int external = 5;
+```cpp
+// napi_get_value_external
+static int g_external = 5;
 static napi_value GetValueExternal(napi_env env, napi_callback_info info)
 {
     // 创建外部数据
-    int* data = &external;
+    int *data = &g_external;
     napi_value setExternal = nullptr;
     napi_create_external(env, data, nullptr, nullptr, &setExternal);
     // 获得外部数据的值
@@ -678,16 +673,13 @@ static napi_value GetValueExternal(napi_env env, napi_callback_info info)
 接口声明
  
 ```ts
-// index.d.ts
-export const getValueExternal: () => number;
+export const getValueExternal: () => number; // napi_get_value_external
 ```
  
 ArkTS侧示例代码
  
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
+```ArkTS
+// napi_get_value_external
 hilog.info(0x0000, 'Node-API', 'get_value_external:%{public}d', testNapi.getValueExternal());
 ```
  
@@ -699,10 +691,8 @@ hilog.info(0x0000, 'Node-API', 'get_value_external:%{public}d', testNapi.getValu
  
 cpp部分代码
  
-```text
-#include "napi/native_api.h"
-#include "hilog/log.h"
-
+```cpp
+// napi_create_symbol
 static napi_value CreateSymbol(napi_env env, napi_callback_info info)
 {
     napi_value result = nullptr;
@@ -724,19 +714,14 @@ static napi_value CreateSymbol(napi_env env, napi_callback_info info)
 }
 ```
  
-接口声明
- 
 ```ts
-// index.d.ts
-export const createSymbol : () => symbol;
+export const createSymbol: () => symbol; // napi_create_symbol
 ```
  
 ArkTS侧示例代码
  
-```text
-import { hilog } from '@kit.PerformanceAnalysisKit';
-import testNapi from 'libentry.so';
-
+```ArkTS
+// napi_create_symbol
 let varSymbol = testNapi.createSymbol();
 hilog.info(0x0000, 'Node-API', 'createSymbol:%{public}s', typeof varSymbol);
 ```

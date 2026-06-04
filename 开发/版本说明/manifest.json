@@ -5752,5 +5752,113 @@
     "name": "获取支持与帮助",
     "file": "获取支持与帮助.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/support"
+  },
+  {
+    "slug": "js-apidiff-arkui-6112",
+    "name": "ArkUI",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/ArkUI.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-6112"
+  },
+  {
+    "slug": "js-apidiff-arkts-6112",
+    "name": "ArkTS",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/ArkTS.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkts-6112"
+  },
+  {
+    "slug": "js-apidiff-medialibrarykit-6112",
+    "name": "Media Library Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Media Library Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-medialibrarykit-6112"
+  },
+  {
+    "slug": "js-apidiff-callservicekit-6112",
+    "name": "Call Service Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Call Service Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-callservicekit-6112"
+  },
+  {
+    "slug": "js-apidiff-arkgraphics2d-6112",
+    "name": "ArkGraphics 2D",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/ArkGraphics 2D.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkgraphics2d-6112"
+  },
+  {
+    "slug": "js-apidiff-corefilekit-6112",
+    "name": "Core File Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Core File Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-corefilekit-6112"
+  },
+  {
+    "slug": "js-apidiff-camerakit-6112",
+    "name": "Camera Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Camera Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-camerakit-6112"
+  },
+  {
+    "slug": "js-apidiff-abilitykit-6112",
+    "name": "Ability Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Ability Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-abilitykit-6112"
+  },
+  {
+    "slug": "js-apidiff-wearengine-6112",
+    "name": "Wear Engine",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Wear Engine.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-wearengine-6112"
+  },
+  {
+    "slug": "ide-changelogs-610",
+    "name": "变更说明",
+    "file": "版本说明/HarmonyOS 6.1.0(23)/DevEco Studio/变更说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/ide-changelogs-610"
+  },
+  {
+    "slug": "js-apidiff-enterprisethreatprotectionkit-6112",
+    "name": "Enterprise Threat Protection Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Enterprise Threat Protection Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-enterprisethreatprotectionkit-6112"
+  },
+  {
+    "slug": "js-apidiff-arkweb-6112",
+    "name": "ArkWeb",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/ArkWeb.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkweb-6112"
+  },
+  {
+    "slug": "js-apidiff-distributedservicekit-6112",
+    "name": "Distributed Service Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Distributed Service Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-distributedservicekit-6112"
+  },
+  {
+    "slug": "js-apidiff-audiokit-6112",
+    "name": "Audio Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Audio Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-audiokit-6112"
+  },
+  {
+    "slug": "js-apidiff-performanceanalysiskit-6112",
+    "name": "Performance Analysis Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Performance Analysis Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-performanceanalysiskit-6112"
+  },
+  {
+    "slug": "js-apidiff-backgroundtaskskit-6112",
+    "name": "Background Tasks Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Background Tasks Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-backgroundtaskskit-6112"
+  },
+  {
+    "slug": "js-apidiff-contactskit-6112",
+    "name": "Contacts Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/Contacts Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-contactskit-6112"
+  },
+  {
+    "slug": "js-apidiff-mdmkit-6112",
+    "name": "MDM Kit",
+    "file": "版本说明/HarmonyOS 6.1.1(24)/OS平台能力/API变更清单/6.1.1(24) Release引入的API/MDM Kit.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-mdmkit-6112"
   }
 ]

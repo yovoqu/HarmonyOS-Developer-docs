@@ -1,6 +1,6 @@
 # IFAA
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-ifaa-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -937,7 +937,7 @@ deregister(deregisterData: Uint8Array, callback: AsyncCallback&lt;void&gt;): voi
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | deregisterData | Uint8Array | 是 | IIFAA服务器下发的TLV格式的关闭数据。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。操作成功时，err为undefied，否则为错误对象。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。操作成功时，err为undefined，否则为错误对象。 |
  
  
 **错误码：**

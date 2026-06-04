@@ -1,6 +1,6 @@
 # 使用AppServiceExtensionAbility组件实现后台服务
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-service-extension-ability
 
@@ -69,7 +69,7 @@ AppServiceExtensionAbility组件当前仅支持2in1设备。
 2. 在myappserviceextability目录，右键选择“New > ArkTS File”，新建一个文件并命名为MyAppServiceExtAbility.ets。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1e/v3/CpyQSwjiT1yxVaIMPckVjw/zh-cn_image_0000002611833365.png?HW-CC-KV=V1&HW-CC-Date=20260528T030512Z&HW-CC-Expire=86400&HW-CC-Sign=DC632386CF457B82EAFD3AF7015051389D0A0BC17915E56A6B0CA8CA0AAE79A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/dfneZm8oQLi4850iBEvt3Q/zh-cn_image_0000002587267804.png?HW-CC-KV=V1&HW-CC-Date=20260604T012628Z&HW-CC-Expire=86400&HW-CC-Sign=45008A9AB461790A587822959DC95CCC7CBB6535E3EE15DF2DC361E92964EB95)
 
 
   其目录结构如下所示：
@@ -163,7 +163,7 @@ export default class MyAppServiceExtAbility extends AppServiceExtensionAbility {
 
 #### 启动一个后台服务
 
-应用通过[startAppServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startappserviceextensionability20)方法启动一个后台服务，服务的[onRequest()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability#onrequest)回调就会被调用，并在该回调方法中接收到调用者传递过来的[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)对象。后台服务启动后，其生命周期独立于客户端，即使客户端已经销毁，该后台服务仍可继续运行。因此，后台服务需要在其工作完成时通过调用[AppServiceExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/-apis-inner-application-appserviceextensioncontext)的[terminateSelf()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/-apis-inner-application-appserviceextensioncontext#terminateself)来自行停止，或者由另一个组件调用[stopAppServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#stopappserviceextensionability20)来将其停止。
+应用通过[startAppServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#startappserviceextensionability20)方法启动一个后台服务，服务的[onRequest()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-appserviceextensionability#onrequest)回调就会被调用，并在该回调方法中接收到调用者传递过来的[Want](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-want)对象。后台服务启动后，其生命周期独立于客户端，即使客户端已经销毁，该后台服务仍可继续运行。因此，后台服务需要在其工作完成时通过调用[AppServiceExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-appserviceextensioncontext)的[terminateSelf()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-appserviceextensioncontext#terminateself)来自行停止，或者由另一个组件调用[stopAppServiceExtensionAbility()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext#stopappserviceextensionability20)来将其停止。
 
 > [!NOTE]
 > AppServiceExtensionAbility组件以start方式启动，并且没有连接的时候，AppServiceExtensionAbility组件进程可能被挂起（请参考 Background Tasks Kit简介 ）。

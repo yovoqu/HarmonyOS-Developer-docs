@@ -1,6 +1,6 @@
 # AVScreenCapture录屏自定义场景
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avscreencapture-c-custom-scenarios
 
@@ -103,7 +103,7 @@ OH_AVScreenCapture_SetCaptureStrategy(capture, strategy);
 
 ```text
 std::vector<int> windowIdsSkipPrivacy = {};
-OH_AVScreenCapture_SkipPrivacyMode(capture, &windowIdsSkipPrivacy[0],
+OH_AVScreenCapture_SkipPrivacyMode(capture, windowIdsSkipPrivacy.empty() ? nullptr : &windowIdsSkipPrivacy[0],
     static_cast<int32_t>(windowIdsSkipPrivacy.size()));
 ```
 

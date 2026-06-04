@@ -1,6 +1,6 @@
 # scsi_peripheral_api.h
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-scsi-peripheral-api-h
 **支持设备：** PC/2in1

@@ -1,6 +1,6 @@
 # progress
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-basic-progress
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -122,7 +122,7 @@ type=eclipse5+
 | 名称 | 类型 | 默认值 | 必填 | 描述 |
 | --- | --- | --- | --- | --- |
 | color | &lt;color&gt; | - | 否 | 圆形进度条的颜色。 |
-| background-color | &lt;color&gt; | - | 否 | 弧形进度条的背景色。 |
+| background-color | &lt;color&gt; | - | 否 | 圆形进度条的背景色。 |
  
  
   
@@ -172,4 +172,4 @@ type=eclipse5+
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/EfkX1yULQpSggIWgTqYk5w/zh-cn_image_0000002611756277.png?HW-CC-KV=V1&HW-CC-Date=20260528T025439Z&HW-CC-Expire=86400&HW-CC-Sign=CDD3767383F66E23E2B9EFACD4E4215DC10F7D11611F57A3600CC47A6C19A061)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/T2J_Bla4SLqA00F7_9JYJw/zh-cn_image_0000002587110808.png?HW-CC-KV=V1&HW-CC-Date=20260604T012834Z&HW-CC-Expire=86400&HW-CC-Sign=29EAA2DA7606050D0E2895DA398AD6C5B1DFE7C0A4866CD506CEDAE459668A64)

@@ -1,12 +1,12 @@
 # 手表设备，熄屏2分钟才能收到onHidden回调
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-05-30 09:08:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-433
 
 **问题描述**
  
-手表设备在系统熄屏后未收到onPageShow回调，屏亮时未收到onPageHide回调。
+手表设备在系统熄屏后未收到onPageHide回调，屏亮时未收到onPageShow回调。
  
 **解决措施**
  

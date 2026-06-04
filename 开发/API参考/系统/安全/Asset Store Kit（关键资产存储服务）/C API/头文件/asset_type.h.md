@@ -1,6 +1,6 @@
 # asset_type.h
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-asset-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,10 +36,10 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | Asset_Blob | Asset_Blob | 二进制数组类型，即不定长的字节数组。 |
-| Asset_Value | Asset_Value | 关键资产属性内容。 |
-| Asset_Attr | Asset_Attr | 关键资产属性。 |
-| Asset_Result | Asset_Result | 关键资产查询结果，用于定义一条关键资产。 |
-| Asset_ResultSet | Asset_ResultSet | 关键资产查询结果集合，用于定义多条关键资产。 |
+| Asset_Value | Asset_Value | 关键资产属性的值（内容）。 |
+| Asset_Attr | Asset_Attr | 关键资产属性，属性由标签和值组成，以键值对的形式存在。 |
+| Asset_Result | Asset_Result | 单条关键资产的查询结果。 |
+| Asset_ResultSet | Asset_ResultSet | 多条关键资产的查询结果。 |
 | Asset_SyncResult | Asset_SyncResult | 关键资产同步结果。 |
 
 
@@ -51,9 +51,9 @@
 
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| Asset_TagType | Asset_TagType | 关键资产属性的类型定义。 |
-| Asset_Tag | Asset_Tag | 关键资产属性的名称。 |
-| Asset_ResultCode | Asset_ResultCode | 调用ASSET返回的结果码。 |
+| Asset_TagType | Asset_TagType | 关键资产属性标签的类型。 |
+| Asset_Tag | Asset_Tag | 关键资产属性的标签。 |
+| Asset_ResultCode | Asset_ResultCode | ASSET API使用的结果码。 |
 | Asset_Accessibility | Asset_Accessibility | 基于锁屏状态的访问控制类型。 |
 | Asset_AuthType | Asset_AuthType | 关键资产支持的用户认证类型。 |
 | Asset_SyncType | Asset_SyncType | 关键资产支持的同步类型。 |
@@ -92,7 +92,7 @@ enum Asset_TagType
 
 **描述**
 
-关键资产属性的类型定义。
+关键资产属性标签的类型。
 
 **起始版本：** 11
 
@@ -115,7 +115,7 @@ enum Asset_Tag
 
 **描述**
 
-关键资产属性的名称。
+关键资产属性的标签。
 
 **起始版本：** 11
 
@@ -167,7 +167,7 @@ enum Asset_ResultCode
 
 **描述**
 
-调用ASSET返回的结果码。
+ASSET API使用的结果码。
 
 **起始版本：** 11
 

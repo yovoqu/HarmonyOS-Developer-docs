@@ -1,6 +1,6 @@
 # Function Flow Runtime串行队列(C++)
 
-更新时间：2026-04-08 07:25:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-concurrency-serial-queue-cpp
 
@@ -26,14 +26,14 @@ FFRT串行队列基于协程调度模型实现，提供高效的消息队列功�
  
 用例简化了异常处理和线程安全相关的一些逻辑，实现代码如下所示：
  
-```text
+```cpp
 #include <chrono>
 #include <thread>
 #include "hilog/log.h"
 #include "ffrt/ffrt.h" // 来自 OpenHarmony 第三方库 "@ppd/ffrt"
 ```
  
-```text
+```cpp
 #undef LOG_TAG
 #define LOG_TAG "SerialCppTag"
 

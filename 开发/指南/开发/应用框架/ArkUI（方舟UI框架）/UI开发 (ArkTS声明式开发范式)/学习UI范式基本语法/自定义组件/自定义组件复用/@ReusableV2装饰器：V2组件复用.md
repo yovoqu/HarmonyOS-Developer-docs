@@ -1,6 +1,6 @@
 # @ReusableV2装饰器：V2组件复用
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-reusablev2
 
@@ -729,7 +729,9 @@ struct ReusableV2Component {
 
 #### 在Repeat组件中使用
 
-Repeat组件懒加载场景中，将会优先使用Repeat组件的缓存池，正常滑动场景、更新场景不涉及组件的回收与复用。当Repeat的缓存池需要扩充时将会向自定义组件要求新的子组件，此时如果复用池中有可复用的节点，将会进行复用。
+[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)组件懒加载场景中，将会优先使用Repeat组件的缓存池，正常滑动场景、更新场景不涉及组件的回收与复用。当Repeat的缓存池需要扩充时将会向自定义组件要求新的子组件，此时如果复用池中有可复用的节点，将会进行复用。
+
+通过配置Repeat组件[VirtualScrollOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#virtualscrolloptions)的reusable属性为false，可以关闭Repeat组件自身的复用能力。此时，滑动场景、更新场景均会触发@ReusableV2的回收与复用。
 
 下面的例子中，先点击Change condition会让3个节点进入复用池，而后向下滑动List组件时，可以观察到日志输出ReusableV2Component aboutToReuse，表明Repeat可以使用自定义组件的复用池填充自己的缓存池。
 
@@ -961,7 +963,7 @@ struct ReusableV2Component {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ed/v3/t9jYJWupQVCnRMfBxrV5Fw/zh-cn_image_0000002581433616.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030434Z&HW-CC-Expire=86400&HW-CC-Sign=943B1E3D9FA16F25225FB5D0CEE9F5E7580AD5AFB860BA281439B94BAE71D841)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/xS9Z-nT_TrqPYZnSYM_rlg/zh-cn_image_0000002617667667.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=5F58AC20697BCD782FFE4CF0C2FA028822EA36AEA7CF6A95BDC0BB74FB2BA98D)
 
 
 
@@ -1133,4 +1135,4 @@ struct ChildComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/k4bZCEJdQjiskVVzsKAXeA/zh-cn_image_0000002611833445.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030434Z&HW-CC-Expire=86400&HW-CC-Sign=7ECCBAB65D93BBFF0AF1A6AF3534618A08FE160484697791051A73D329DC6B75)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/8g9nXshfSwStpfKtgZ0_TQ/zh-cn_image_0000002587267888.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=DC7136BF503F967B9096814844550286A94BFDB95F4DFC5A0E3CA8EC86CE2116)

@@ -1,6 +1,6 @@
 # 使用RectPartition求解矩形划分
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-rect-partition
 
@@ -47,7 +47,11 @@
 
   
 ```text
-target_link_libraries(entry PUBLIC libfast_ads.so)
+find_library(
+    lib_fast_solver
+    NAMES fast_solver
+)
+target_link_libraries(entry PRIVATE ${lib_fast_solver})
 ```
 
 2. 调用HMS_FAST_RectPartition_CreateConfig生成矩形划分求解器配置实例（FAST_RectPartitionConfig）。

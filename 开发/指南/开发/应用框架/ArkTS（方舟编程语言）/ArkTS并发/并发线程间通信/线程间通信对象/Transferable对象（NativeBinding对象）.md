@@ -1,6 +1,6 @@
-# Transferable对象（NativeBinding对象）
+# Transferable对象 (NativeBinding对象)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/transferabled-object
 
@@ -29,7 +29,7 @@ Transferable对象，也称为NativeBinding对象，是指绑定C++对象的JS�
 ![](assets/Transferable对象（NativeBinding对象）/file-20260514130434231-1.png)
 
 
-常见的转移模式NativeBinding对象包括[PixelMap对象](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)，它可以读取或写入图像数据，获取图像信息，常用于显示图片。
+常见的转移模式NativeBinding对象包括[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)对象，它可以读取或写入图像数据，获取图像信息，常用于显示图片。
 
 这里提供了一个跨线程传递PixelMap对象的示例。首先从rawfile文件夹中获取图片资源，然后在子线程中创建PixelMap对象并传递给主线程，具体实现如下：
 

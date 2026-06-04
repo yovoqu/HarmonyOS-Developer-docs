@@ -1,23 +1,23 @@
 # 从Swift到ArkTS的迁移指导
 
-更新时间：2026-05-26 07:27:30
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/getting-started-with-arkts-for-swift-programmers
 
 对于熟悉Swift的开发者而言，ArkTS作为新的开发语言，带来了全新的开发体验与机遇。ArkTS在语法和编程范式上不仅继承了现代语言的特性，还针对生态进行了深度优化。理解Swift与ArkTS的差异和共性，能够帮助开发者快速上手应用开发，避开常见的编程误区。
  
 本文档基于Swift语言对ArkTS语言进行对比和介绍。如需更详细的了解，可参考[ArkTS语言介绍](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/introduction-to-arkts)。
- 
+  
 
 #### 探索Swift与ArkTS的差异
 
 本文档将帮助Swift开发者梳理在转向ArkTS开发过程中会遇到的误解和陷阱。ArkTS的语法、类型系统以及应用开发模式与Swift存在差异，在学习过程中需特别注意这些关键区别。建议先掌握ArkTS的基础语法和运行时行为，再重点对比其与Swift的不同之处。
  
- 
+  
 
 #### 基础语法
 
- 
+  
 
 #### 变量声明
 
@@ -32,7 +32,7 @@ const program: string = 'ArkTS';
 let version = 5.0;
 ```
  
- 
+  
 
 #### 基础数据类型
  
@@ -49,7 +49,7 @@ let version = 5.0;
 | String | string | let message: string = 'Hello'; | 定义方式类似，但ArkTS字符串支持模板字面量和更灵活的操作。 |
  
  
- 
+  
 
 #### 复杂数据类型
  
@@ -63,7 +63,7 @@ let version = 5.0;
 | 枚举：enum Color { case red, green, blue } | enum：enum Colors { Red, Green, Blue } | enum Colors { Red = 1, Green, Blue }; let color = Colors.Green; // 值为2（自动递增） | 基本概念一致，但ArkTS枚举不支持Swift中的自定义构造函数和方法，仅支持简单的数值或字符串枚举。 |
  
  
- 
+  
 
 #### 函数与闭包
 
@@ -110,13 +110,13 @@ function foo2(name?: string) {}  /*  name为可选参数。  */
 ```
 
  
- 
+  
 
 #### 基础类库
 
 ArkTS基础类库和容器类库增强了语言的基础功能，包括高精度浮点运算、二进制Buffer、XML生成解析转换和多种容器库等能力，协助开发者简化开发工作，提升开发效率。
  
- 
+  
 
 #### 语言结构
 
@@ -124,7 +124,7 @@ Swift是一种融合面向对象、函数式和协议导向范式的现代语言
  
 ArkTS融合声明式UI、函数式和面向对象范式，通过响应式系统和跨设备适配能力，高效构建多端一致的高性能应用。
  
- 
+  
 
 #### 模块与包管理
 
@@ -142,7 +142,7 @@ import { collections } from '@kit.ArkTS';
  
 由于ArkTS的模块系统更注重模块化开发和代码复用，能够更便捷地管理不同功能模块之间的依赖关系，所以在使用方式上，与Swift的模块管理会有所区别。
  
- 
+  
 
 #### 类与命名空间特性
 
@@ -176,7 +176,7 @@ namespace Models {
  
 相比Swift的模块+内部类组合，ArkTS的命名空间能更直观地实现代码分层。
  
- 
+  
 
 #### 异步编程模型
 
@@ -192,7 +192,7 @@ Swift的同步代码通过try/catch捕获异常，异步异常需特殊处理。
  
 ArkTS中未捕获的Promise错误可能导致静默失败，需显式使用try/catch或.catch。
  
- 
+  
 
 #### this的绑定
 
@@ -232,22 +232,22 @@ class B {
 function callFunction(fn: () => void) {
   fn();
 }
-// ...
+  // ...
   let a: A = new A();
   let b: B = new B();
 
-  // callFunction(a.foo); // 程序crash。this的上下文发生了变化。
-  // b.callFunction(a.foo); // 程序crash。this的上下文发生了变化。
-  b.callFunction(a.foo.bind(b)) // 输出'I am B'。
+  // callFunction(a.foo); // 程序crash。this的上下文发生了变化
+  // b.callFunction(a.foo); // 程序crash。this的上下文发生了变化
+  b.callFunction(a.foo.bind(b)) // 输出'I am B'
 ```
  
- 
+  
 
 #### 类型系统
 
 ArkTS与Swift的类型系统也存在差异。
  
- 
+  
 
 #### 类型推断与可选类型
 
@@ -274,7 +274,7 @@ const person: Person = {
  
 **ArkTS示例：**
  
- 
+  
 
 #### 联合类型
 

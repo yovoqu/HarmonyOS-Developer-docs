@@ -1,6 +1,6 @@
 # ecnyPaymentService (数字人民币服务)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-ecnypaymentservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -144,21 +144,21 @@ struct Index {
   requestEcnyPaymentPromise() {
     // 请使用开发者真实的订单信息（orderInfo）
     const orderInfo: ecnyPaymentService.EcnyOrderInfo = {
-      merchantAppId: "***",
-      merchantNo: "***",
-      acqAgtInstnId: "***",
-      creditorInstitutionId: "***",
-      encryptedKey: "***",
-      encryptedInfo: "***",
-      encryptionSN: "***",
-      extraInfo: "***",
-      lastWalletId: "***"
+      merchantAppId: '***',
+      merchantNo: '***',
+      acqAgtInstnId: '***',
+      creditorInstitutionId: '***',
+      encryptedKey: '***',
+      encryptedInfo: '***',
+      encryptionSN: '***',
+      extraInfo: '***',
+      lastWalletId: '***'
     };
     ecnyPaymentService.requestEcnyPayment(this.context, orderInfo)
       .then((result: ecnyPaymentService.EcnyPayResult) => {
         // 支付成功
         console.info(`succeeded in paying, result.orderNo: ${result.orderNo}, result.extraInfo: ${result.extraInfo}`);
-      })
+      });
   }
 
   build() {

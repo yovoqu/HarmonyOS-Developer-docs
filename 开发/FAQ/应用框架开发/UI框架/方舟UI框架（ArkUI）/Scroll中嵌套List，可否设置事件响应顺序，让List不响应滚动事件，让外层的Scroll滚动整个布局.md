@@ -1,6 +1,6 @@
-# Scroll中嵌套List，可否设置事件响应顺序，让List不响应滚动事件，让外层的Scroll滚动整个布局
+# Scroll嵌套List时如何让List和Scroll一起滚动
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-05-30 09:08:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-295
 

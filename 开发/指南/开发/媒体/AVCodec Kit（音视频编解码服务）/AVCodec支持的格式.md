@@ -1,6 +1,6 @@
 # AVCodec支持的格式
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avcodec-support-formats
 
@@ -172,18 +172,18 @@ DRM解密能力支持的解封装格式：mp4(H.264，H.265，AAC)、mpeg-ts(H.2
 
 | 封装格式 | 视频编解码类型 | 音频编解码类型 | 封面类型 |
 | --- | --- | --- | --- |
-| mp4 | AVC（H.264）、HEVC（H.265） | AAC、MPEG（MP3） | jpeg、png、bmp |
-| m4a | - | AAC | jpeg、png、bmp |
-| mp3 | - | MPEG（MP3） | - |
+| mp4 | AVC（H.264）、HEVC（H.265） | AAC、MPEG（MP3） | jpg、png、bmp |
+| m4a | - | AAC | jpg、png、bmp |
+| mp3 | - | MPEG（MP3） | jpg |
 | amr | - | AMR(amrnb、amrwb) | - |
 | wav | - | G711mu(pcm-mulaw) 、raw(pcm) | - |
 | aac | - | AAC | - |
-| flac | - | Flac | jpeg、png、bmp |
+| flac | - | Flac | jpg、png、bmp |
 | ogg23+ | - | Vorbis、OPUS | - |
 
 
 > [!NOTE]
-> 封装格式为mp4，音频编解码类型为MPEG（MP3）时采样率需大于等于16000Hz。 封装格式为mp4/m4a，音频编解码类型为AAC时声道数范围为1~7。
+> 封装格式为mp4时，音频编解码类型为MPEG（MP3）时采样率需大于等于16000Hz。 封装格式为mp4/m4a时，音频编解码类型为AAC时声道数范围为[1, 7]。
 
 
 文件级数据已定义的key如下所示：
@@ -199,30 +199,30 @@ DRM解密能力支持的解封装格式：mp4(H.264，H.265，AAC)、mpeg-ts(H.2
 
 
 > [!NOTE]
-> 用户自定义的key必须以"com.openharmony."为开头。值类型可以为int32_t、float、string，从API20开始增加支持uint8_t*。
+> 封装格式为mp4时，用户自定义的key必须以"com.openharmony."为开头。值类型可以为int32_t、float、string，从API version 20开始增加支持uint8_t*。
 
 
 配置选项key值说明：
 
 mp4封装格式：
 
-| key | 描述 | aac | mp3 | H.264 | H.265 | jpg | png | bmp |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| OH_MD_KEY_AUD_SAMPLE_RATE | 采样率 | 必须 | 必须 | - | - | - | - | - |
-| OH_MD_KEY_AUD_CHANNEL_COUNT | 声道数 | 必须 | 必须 | - | - | - | - | - |
-| OH_MD_KEY_AUDIO_SAMPLE_FORMAT | 输出音频流格式 | 可选 | 可选 | - | - | - | - | - |
-| OH_MD_KEY_CHANNEL_LAYOUT | 通道布局 | 可选 | 可选 | - | - | - | - | - |
-| OH_MD_KEY_PROFILE | 编码档次 | 可选 | - | - | - | - | - | - |
-| OH_MD_KEY_BITRATE | 码率 | 可选 | 可选 | 可选 | 可选 | - | - | - |
-| OH_MD_KEY_CODEC_CONFIG | 编解码器特定数据 | 可选 | - | 可选 | 可选 | - | - | - |
-| OH_MD_KEY_WIDTH | 宽度 | - | - | 必须 | 必须 | 必须 | 必须 | 必须 |
-| OH_MD_KEY_HEIGHT | 高度 | - | - | 必须 | 必须 | 必须 | 必须 | 必须 |
-| OH_MD_KEY_FRAME_RATE | 视频流帧率 | - | - | 可选 | 可选 | - | - | - |
-| OH_MD_KEY_COLOR_PRIMARIES | 视频色域 | - | - | 可选 | 可选 | - | - | - |
-| OH_MD_KEY_TRANSFER_CHARACTERISTICS | 视频传递函数 | - | - | 可选 | 可选 | - | - | - |
-| OH_MD_KEY_MATRIX_COEFFICIENTS | 视频矩阵系数 | - | - | 可选 | 可选 | - | - | - |
-| OH_MD_KEY_RANGE_FLAG | 值域标志 | - | - | 可选 | 可选 | - | - | - |
-| OH_MD_KEY_VIDEO_IS_HDR_VIVID | 视频轨是否为HDR VIVID | - | - | - | 可选 | - | - | - |
+| key | 描述 | aac | mp3 | H.264 | H.265 | 封面类型（jpg、png、bmp） |
+| --- | --- | --- | --- | --- | --- | --- |
+| OH_MD_KEY_AUD_SAMPLE_RATE | 采样率 | 必须 | 必须 | - | - | - |
+| OH_MD_KEY_AUD_CHANNEL_COUNT | 声道数 | 必须 | 必须 | - | - | - |
+| OH_MD_KEY_AUDIO_SAMPLE_FORMAT | 输出音频流格式 | 可选 | 可选 | - | - | - |
+| OH_MD_KEY_CHANNEL_LAYOUT | 通道布局 | 可选 | 可选 | - | - | - |
+| OH_MD_KEY_PROFILE | 编码档次 | 可选 | - | - | - | - |
+| OH_MD_KEY_BITRATE | 码率 | 可选 | 可选 | 可选 | 可选 | - |
+| OH_MD_KEY_CODEC_CONFIG | 编解码器特定数据 | 可选 | - | 可选 | 可选 | - |
+| OH_MD_KEY_WIDTH | 宽度 | - | - | 必须 | 必须 | 必须 |
+| OH_MD_KEY_HEIGHT | 高度 | - | - | 必须 | 必须 | 必须 |
+| OH_MD_KEY_FRAME_RATE | 视频流帧率 | - | - | 可选 | 可选 | - |
+| OH_MD_KEY_COLOR_PRIMARIES | 视频色域 | - | - | 可选 | 可选 | - |
+| OH_MD_KEY_TRANSFER_CHARACTERISTICS | 视频传递函数 | - | - | 可选 | 可选 | - |
+| OH_MD_KEY_MATRIX_COEFFICIENTS | 视频矩阵系数 | - | - | 可选 | 可选 | - |
+| OH_MD_KEY_RANGE_FLAG | 值域标志 | - | - | 可选 | 可选 | - |
+| OH_MD_KEY_VIDEO_IS_HDR_VIVID | 视频轨是否为HDR VIVID | - | - | - | 可选 | - |
 
 
 mp4封装辅助轨格式：
@@ -252,17 +252,17 @@ mp4封装辅助轨格式：
 
 m4a封装格式：
 
-| key | 描述 | aac | jpg | png | bmp |
-| --- | --- | --- | --- | --- | --- |
-| OH_MD_KEY_AUD_SAMPLE_RATE | 采样率 | 必须 | - | - | - |
-| OH_MD_KEY_AUD_CHANNEL_COUNT | 声道数 | 必须 | - | - | - |
-| OH_MD_KEY_AUDIO_SAMPLE_FORMAT | 输出音频流格式 | 可选 | - | - | - |
-| OH_MD_KEY_CHANNEL_LAYOUT | 通道布局 | 可选 | - | - | - |
-| OH_MD_KEY_PROFILE | 编码档次 | 可选 | - | - | - |
-| OH_MD_KEY_BITRATE | 码率 | 可选 | - | - | - |
-| OH_MD_KEY_CODEC_CONFIG | 编解码器特定数据 | 可选 | - | - | - |
-| OH_MD_KEY_WIDTH | 宽度 | - | 必须 | 必须 | 必须 |
-| OH_MD_KEY_HEIGHT | 高度 | - | 必须 | 必须 | 必须 |
+| key | 描述 | aac | 封面类型（jpg、png、bmp） |
+| --- | --- | --- | --- |
+| OH_MD_KEY_AUD_SAMPLE_RATE | 采样率 | 必须 | - |
+| OH_MD_KEY_AUD_CHANNEL_COUNT | 声道数 | 必须 | - |
+| OH_MD_KEY_AUDIO_SAMPLE_FORMAT | 输出音频流格式 | 可选 | - |
+| OH_MD_KEY_CHANNEL_LAYOUT | 通道布局 | 可选 | - |
+| OH_MD_KEY_PROFILE | 编码档次 | 可选 | - |
+| OH_MD_KEY_BITRATE | 码率 | 可选 | - |
+| OH_MD_KEY_CODEC_CONFIG | 编解码器特定数据 | 可选 | - |
+| OH_MD_KEY_WIDTH | 宽度 | - | 必须 |
+| OH_MD_KEY_HEIGHT | 高度 | - | 必须 |
 
 
 amr封装格式：
@@ -278,7 +278,7 @@ amr封装格式：
 
 mp3封装格式：
 
-| key | 描述 | mp3 | jpg |
+| key | 描述 | mp3 | 封面类型（jpg） |
 | --- | --- | --- | --- |
 | OH_MD_KEY_AUD_SAMPLE_RATE | 采样率 | 必须 | - |
 | OH_MD_KEY_AUD_CHANNEL_COUNT | 声道数 | 必须 | - |
@@ -315,14 +315,16 @@ aac封装格式：
 
 flac封装格式：
 
-| key | 描述 | flac |
-| --- | --- | --- |
-| OH_MD_KEY_AUD_SAMPLE_RATE | 采样率 | 必须 |
-| OH_MD_KEY_AUD_CHANNEL_COUNT | 声道数 | 必须 |
-| OH_MD_KEY_AUDIO_SAMPLE_FORMAT | 输出音频流格式 | 必须 |
-| OH_MD_KEY_CHANNEL_LAYOUT | 通道布局 | 可选 |
-| OH_MD_KEY_BITRATE | 码率 | 可选 |
-| OH_MD_KEY_CODEC_CONFIG | 编解码器特定数据 | 可选 |
+| key | 描述 | flac | 封面类型（jpg、png、bmp） |
+| --- | --- | --- | --- |
+| OH_MD_KEY_AUD_SAMPLE_RATE | 采样率 | 必须 | - |
+| OH_MD_KEY_AUD_CHANNEL_COUNT | 声道数 | 必须 | - |
+| OH_MD_KEY_AUDIO_SAMPLE_FORMAT | 输出音频流格式 | 必须 | - |
+| OH_MD_KEY_CHANNEL_LAYOUT | 通道布局 | 可选 | - |
+| OH_MD_KEY_BITRATE | 码率 | 可选 | - |
+| OH_MD_KEY_CODEC_CONFIG | 编解码器特定数据 | 可选 | - |
+| OH_MD_KEY_WIDTH | 宽度 | - | 必须 |
+| OH_MD_KEY_HEIGHT | 高度 | - | 必须 |
 
 
 ogg封装格式（从API version 23开始支持）：

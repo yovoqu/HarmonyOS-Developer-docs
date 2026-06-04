@@ -1,8 +1,8 @@
 # VkPhysicalDevicePresentationPropertiesOHOS
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/-vulkan-vkphysicaldevicepresentationpropertiesohos
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan-vkphysicaldevicepresentationpropertiesohos
 
 ```text
 typedef struct VkPhysicalDevicePresentationPropertiesOHOS {...} VkPhysicalDevicePresentationPropertiesOHOS
@@ -14,6 +14,8 @@ typedef struct VkPhysicalDevicePresentationPropertiesOHOS {...} VkPhysicalDevice
 包含设备的显示属性的参数。
  
 **起始版本：** 10
+ 
+**废弃版本：** 23
  
 **相关模块：** [Vulkan](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vulkan)
  
@@ -29,5 +31,6 @@ typedef struct VkPhysicalDevicePresentationPropertiesOHOS {...} VkPhysicalDevice
  
 | 名称 | 描述 |
 | --- | --- |
-| VkStructureType sType | 下一级结构体指针，pNext为空或者下一级结构体指针。 |
+| VkStructureType sType | 结构体类型。 |
+| void* pNext | 下一级结构体指针，pNext为空或者下一级结构体指针。 |
 | VkBool32 sharedImage | 共享图像标志。 |

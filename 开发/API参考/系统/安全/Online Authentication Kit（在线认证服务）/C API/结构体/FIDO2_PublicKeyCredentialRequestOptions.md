@@ -1,6 +1,6 @@
 # FIDO2_PublicKeyCredentialRequestOptions
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_request_options
 
@@ -23,7 +23,7 @@
 | 名称 | 描述 |
 | --- | --- |
 | Uint8Buff challenge | 获取挑战值。 |
-| uint32_t timeout | 认证操作最长时间，单位为mm。默认为300000（5分钟）。可选。 |
+| uint32_t timeout | 认证操作最长时间，单位为ms。默认为300000（5分钟），最大为600000（10分钟）。可选。 |
 | char * rpId | 依赖方标识（如域名等）。默认空。可选。 |
 | FIDO2_PublicKeyCredentialDescriptorArray allowCredentials | 认证凭据的附加参数列表。默认空列表。可选。 |
 | FIDO2_UserVerificationRequirement userVerification | 用户认证需求枚举。默认值为FIDO2_PREFERRED。可选。 |
@@ -105,7 +105,7 @@ uint32_t FIDO2_PublicKeyCredentialRequestOptions::timeout
  
 **描述**
  
-认证操作最长时间，单位为mm。可选。
+认证操作最长时间，单位为ms。可选。
  
   
 

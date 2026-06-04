@@ -1,6 +1,6 @@
 # 使用HWASan检测内存错误
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-05-30 09:52:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-hwasan-detection
 
@@ -42,6 +42,33 @@ HWASAN_OPTIONS支持在“app.json5”中配置。
 ```
  
  
+常用参数如下表所示。
+  
+| 参数 | 默认值 | 是否必填 | 说明 |
+| --- | --- | --- | --- |
+| log_exe_name | true | 是 | 不可修改。指定内存错误日志中是否包含执行文件的名称。 |
+| abort_on_error | 0 | 是 | 指定在打印错误报告后调用abort()或_exit()。 false(0)：打印错误后使用exit()结束进程。true(1)：打印错误后使用abort()结束进程，同时会生成cppcrash日志。 |
+| strip_path_prefix | - | 否 | 内存错误日志的文件路径中去除所配置的前缀。 如：/data/storage/el1。 |
+| halt_on_error | 0 | 否 | 检测内存错误后是否继续运行。 0表示继续运行。1表示结束运行。 |
+| malloc_context_size | - | 否 | 内存错误发生时，显示的调用栈层数。 |
+| heap_history_size | 1023 | 否 | 指定各个线程用于保存其堆内存释放记录的RingBuffer容量。 |
+| heap_history_size_main_thread | 102300 | 否 | 指定主线程用于保存其堆内存释放记录的RingBuffer容量。 |
+| print_uaf_stacks_with_same_tag | 1 | 否 | 当检测到UAF查找已释放堆内存时，是否打印所有可能的同Tag堆内存。 false(0)：打印所有地址有关联的内存分配/释放信息。true(1)：仅打印相同Tag的内存分配/释放信息。 |
+| freed_threads_history_size | 100 | 否 | 当线程结束后，仍保存其堆内存释放记录。freed_threads_history_size为保留的释放线程数。 |
+| heap_record_min | 0 | 否 | 仅记录大于等于heap_record_min的堆内存分配，该值为0时不作判断。 |
+| heap_record_max | 0 | 否 | 仅记录小于等于heap_record_max的堆内存分配，该值为0时不作判断。 |
+| heap_quarantine_thread_max_count | 128 | 否 | 配置每个线程隔离区容量，在HWASAN不完全开启时，用以检测未使能HWASAN组件的UAF行为。 |
+| heap_quarantine_min | 0 | 否 | 仅大于等于heap_quarantine_min的堆内存会进入隔离区，该值必须设置，否则该功能不使能。 |
+| heap_quarantine_max | 0 | 否 | 仅小于等于heap_quarantine_max的堆内存会进入隔离区，该值为0时不作判断。 |
+| memory_around_register_size | 128 | 否 | 当HWASAN检测到内存问题时，如果寄存器中的值指向有效内存，则打印该内存地址周围±memory_around_register_size的内容。 |
+| heap_quarantine_thread_max_count | 128 | 否 | MemDebug指定隔离区容量，即free后保存在隔离区中内存块的最大个数，当超过该容量时，最先进入隔离区的内存块会离开隔离区并在检查填充值后返还给分配器。 |
+| heap_quarantine_min | 0 | 否 | MemDebug释放后允许放入隔离区中内存块大小的最小值（包含），小于该值内存块不会进入隔离区。 |
+| heap_quarantine_max | 1025 | 否 | MemDebug释放后允许放入隔离区中内存块大小的最大值（不含），大于等于该值的内存块不会进入隔离区。 |
+| enable_heap_quarantine_debug | false | 否 | MemDebug开启后可以打印内存块在隔离区中的停留时间，以帮助调整隔离区大小。 |
+ 
+ 
+更多可配置参数请参见[hwasan_flags](https://gitcode.com/openharmony/third_party_llvm-project/blob/master/compiler-rt/lib/hwasan/hwasan_flags.inc)。
+ 
 
 #### 配置HWASan
 
@@ -54,7 +81,9 @@ HWASAN_OPTIONS支持在“app.json5”中配置。
 **DevEco Studio****场景**
  
  
-点击**Run > Edit Configurations >****Diagnostics**，勾选**Hardware-Assisted Address Sanitizer**开启检测。
+点击**Run > Edit Configurations >****Diagnostics**，勾选**Hardware-Assisted Address Sanitizer**开启C++源码检测插桩。从DevEco Studio 6.1.0 Beta1版本开始，可以同时勾选**BinXO check**，开启无源码的so文件的HWASan检测插桩。（注意：BinXO只能处理大小在128M以内的so文件）
+ 
+
  
 
 ![](assets/使用HWASan检测内存错误/file-20260515115105953-0.png)
@@ -88,10 +117,19 @@ hvigorw [taskNames...] -p ohos-enable-hwasan=true  <options>
 
 2. 在需要使能HWASan的模块中，通过添加构建参数开启HWASan检测插桩，在对应模块的模块级build-profile.json5中添加命令参数。
 ```text
-"arguments": "-DOHOS_ENABLE_HWASAN=ON"
+<span style="color: rgb(147,147,147);">// DevEco Studio 6.1.0 Beta1以下版本</span>
+"buildOption": {
+  "externalNativeOptions": {
+    "arguments": ["-DOHOS_ENABLE_HWASAN=ON"]
+  }
+}
+<span style="color: rgb(147,147,147);">// DevEco Studio 6.1.0 Beta1及以上版本，同时开启有源码和无源码的C++的HWASan检测插桩</span>
+"buildOption": {
+  "externalNativeOptions": {
+    "arguments": ["-DOHOS_ENABLE_HWASAN=ON", "-DOHOS_ENABLE_BINXO=ON"]
+  }
+}
 ```
- 
-![](assets/使用HWASan检测内存错误/file-20260515115105953-3.png)
 
  
 **流水线场景**
@@ -139,7 +177,7 @@ llvm-readelf -s libthird_party.so | grep '__hwasan_init'
 
 1. 运行或调试当前应用。
 2. 当程序出现内存错误时，弹出HWASan log信息，点击信息中的链接即可跳转至引起内存错误的代码处。
-![](assets/使用HWASan检测内存错误/file-20260515115105953-5.png)
+![](assets/使用HWASan检测内存错误/file-20260515115105953-4.png)
 
  
 
@@ -209,7 +247,7 @@ Cause: stack tag-mismatch
 如果有工程代码，直接开启HWASan检测，debug模式运行后复现该错误，可以触发HWASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
  
 
-![](assets/使用HWASan检测内存错误/file-20260515115105953-6.png)
+![](assets/使用HWASan检测内存错误/file-20260515115105953-5.png)
 
  
 **优化建议**
@@ -267,7 +305,7 @@ Cause: heap-buffer-overflow
 如果有工程代码，直接开启HWASan检测，debug模式运行后复现该错误，可以触发HWASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
  
 
-![](assets/使用HWASan检测内存错误/file-20260515115105953-7.png)
+![](assets/使用HWASan检测内存错误/file-20260515115105953-6.png)
 
  
 **修改方法**
@@ -327,10 +365,10 @@ Cause: use-after-free
  
 **定位思路**
  
-如果有工程代码，直接开启ASan检测，debug模式运行后复现该错误，可以触发ASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
+如果有工程代码，直接开启HWASan检测，debug模式运行后复现该错误，可以触发HWASan，直接点击堆栈中的超链接定位到代码行，能看到错误代码的位置。
  
 
-![](assets/使用HWASan检测内存错误/file-20260525085706144-001.png)
+![](assets/使用HWASan检测内存错误/file-20260515115105953-7.png)
 
  
 **修改方法**

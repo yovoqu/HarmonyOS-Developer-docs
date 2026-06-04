@@ -1,8 +1,8 @@
 # 动态SymbolGlyphModifier属性设置
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/universal-attributes-attribute-symbolglyphmodifier
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 SymbolGlyphModifier用于动态设置SymbolGlyph组件的属性和样式，支持使用if/else语句进行设置。[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)是一个用于展示图标符号的组件。
@@ -97,4 +97,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/Nv_Cbe48RXO05tVahxzm1Q/zh-cn_image_0000002611835537.png?HW-CC-KV=V1&HW-CC-Date=20260528T025546Z&HW-CC-Expire=86400&HW-CC-Sign=A4BB4DA38FC7F0D67E647EE90155EA93AE6A974AE347FBCDB601306C5924D472)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/IibAudzzTFqYJIYq_lZr8w/zh-cn_image_0000002587270052.png?HW-CC-KV=V1&HW-CC-Date=20260604T012955Z&HW-CC-Expire=86400&HW-CC-Sign=3D6E4DFAD606905B917B8A788EF0D4C94A958A2F11811F374A7EFFF4B8CAFC69)

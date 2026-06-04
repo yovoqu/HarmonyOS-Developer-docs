@@ -1,6 +1,6 @@
 # Node-API开发规范
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-guidelines
 
@@ -328,6 +328,8 @@ nm_register_func对应的函数需要加上修饰符static，防止与其他二�
  
 模块实现中.nm_modname字段需要与二进制so文件的名字完全匹配，区分大小写。
  
+一个so文件只能注册一个模块，即通过napi_module_register注册的模块。禁止在同一个so文件中注册多个不同模块，否则框架加载这个so时可能匹配到错误的模块，引发非预期行为。
+ 
 **错误示例**
  
 以下代码为二进制so文件的名为nativerender时的错误示例
@@ -335,6 +337,12 @@ nm_register_func对应的函数需要加上修饰符static，防止与其他二�
 ```text
 EXTERN_C_START
 napi_value Init(napi_env env, napi_value exports)
+{
+    // ...
+    return exports;
+}
+
+static napi_value InitOther(napi_env env, napi_value exports)
 {
     // ...
     return exports;
@@ -353,23 +361,38 @@ static napi_module nativeModule = {
     .reserved = { 0 },
 };
 
+// 同一个so中定义了第二个不同的napi_module
+static napi_module otherModule = {
+    .nm_version = 1,
+    .nm_flags = 0,
+    .nm_filename = nullptr,
+    .nm_register_func = InitOther,
+    .nm_modname = "other",
+    .nm_priv = nullptr,
+    .reserved = { 0 },
+};
+
 // 模块注册的入口函数名为RegisterModule，容易与其他模块重复
 extern "C" __attribute__((constructor)) void RegisterModule()
 {
     napi_module_register(&nativeModule);
+    // 同一个so中注册了两个不同的模块，框架加载时可能匹配到错误的模块，
+    // 无论通过何种方式（如多个构造函数、全局对象构造等）多次调用napi_module_register，
+    // 框架加载so时都可能匹配到错误的模块，导致非预期行为
+    napi_module_register(&otherModule);
 }
 ```
  
 图一
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/67/v3/5LDYgLAIRXGXJ1ER7algig/zh-cn_image_0000002581275558.png?HW-CC-KV=V1&HW-CC-Date=20260528T030201Z&HW-CC-Expire=86400&HW-CC-Sign=6C56B54CBD447F7755594FC3F854BD1D02CDD0DDA106668759A85A6F1E46CEF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/TOeHDCT1S8qGFDudhm6x1Q/zh-cn_image_0000002617709499.png?HW-CC-KV=V1&HW-CC-Date=20260604T012926Z&HW-CC-Expire=86400&HW-CC-Sign=722F53818C323CFF0E4633CCE2CDA9AC29A91ED8EC4F7FB3B513EA9F70CBE14D)
 
  
 图二
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/M8aWpxRESgCxpoS1fgxcpA/zh-cn_image_0000002611755415.png?HW-CC-KV=V1&HW-CC-Date=20260528T030201Z&HW-CC-Expire=86400&HW-CC-Sign=0E0B30BED8D9093558317594604F4CEF66750482181BCE5FE3167F8E97B60626)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/iJgZgzHZRr6CTlAy1lFVhg/zh-cn_image_0000002587109914.png?HW-CC-KV=V1&HW-CC-Date=20260604T012926Z&HW-CC-Expire=86400&HW-CC-Sign=ACB864C72D41200AA8F77475F8F6C01579BDFC52221664F932538D5B7AB455ED)
 
  
 **正确示例**：

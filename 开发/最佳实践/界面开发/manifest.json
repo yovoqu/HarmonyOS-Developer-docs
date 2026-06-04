@@ -250,5 +250,19 @@
     "name": "基于resizable实现图片拉伸效果",
     "file": "主题与样式/基于resizable实现图片拉伸效果.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-implementing-image-resizable"
+  },
+  {
+    "slug": "bpta-multi-mobile-payment",
+    "name": "多设备移动支付界面",
+    "file": "多设备移动支付界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobile-payment",
+    "section": ""
+  },
+  {
+    "slug": "bpta-easygo-parallel",
+    "name": "平行视界",
+    "file": "平行视界.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-easygo-parallel",
+    "section": ""
   }
 ]

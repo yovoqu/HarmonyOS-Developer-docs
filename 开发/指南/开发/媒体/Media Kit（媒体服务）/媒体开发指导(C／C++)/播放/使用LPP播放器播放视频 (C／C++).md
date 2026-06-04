@@ -1,6 +1,6 @@
 # 使用LPP播放器播放视频 (C/C++)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-lpp-for-playback
 
@@ -15,7 +15,7 @@
 **图1** 播放状态变化示意图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/YVIJt9ETT2mUKP84ieMOjQ/zh-cn_image_0000002581434690.png?HW-CC-KV=V1&HW-CC-Date=20260528T030356Z&HW-CC-Expire=86400&HW-CC-Sign=16DB34190CD2437140058C23BD1BB473513466DED9363DB44FD23FFFC2D9999E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/v82YNgesSCaXynRKtapZqg/zh-cn_image_0000002617668779.png?HW-CC-KV=V1&HW-CC-Date=20260604T012924Z&HW-CC-Expire=86400&HW-CC-Sign=31C401B37FC60B31513048DD1E1296D5DF9C8880EA757F306D21D2D14E7C21DB)
 
 
 播放流程包含：创建（created）、初始化（initialized）、就绪（ready）、解码（decoding）和渲染（rendering）五个阶段。
@@ -116,13 +116,13 @@ int32_t ret = GetTrackInfo(sourceFormat, info);
 
   
 ```text
-lppVideoStreamer_ = OH_LowPowerVideoSink_CreateByMime(codecMime.c_str());
-lppAudioStreamer_ = OH_LowPowerAudioSink_CreateByMime(codecMime.c_str());
+lppVideoStreamer_ = OH_LowPowerVideoSink_CreateByMime(videoCodecMime.c_str());
+lppAudioStreamer_ = OH_LowPowerAudioSink_CreateByMime(audioCodecMime.c_str());
 ```
 
 3. 设置回调监听函数。
 
-  调用[OH_LowPowerAudioSinkCallback_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-audio-sink-h#oh_lowpoweraudiosinkcallback_create)或[OH_LowPowerVideoSinkCallback_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-video-sink-h#oh_lowpowervideosinkcallback_create)创建[OH_LowPowerAudioSinkCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-lowpoweraudiosink-oh-lowpoweraudiosinkcallback)或[OH_LowPowerVideoSinkCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-lowpowervideosink-oh-lowpowervideosinkcallback)的回调函数的整合，通过setListener函数向该结构体添加对应的回调函数，完成registerCallback的一次性注册。
+  调用[OH_LowPowerAudioSinkCallback_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-audio-sink-h#oh_lowpoweraudiosinkcallback_create)或[OH_LowPowerVideoSinkCallback_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-video-sink-h#oh_lowpowervideosinkcallback_create)创建[OH_LowPowerAudioSinkCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpoweraudiosink-oh-lowpoweraudiosinkcallback)或[OH_LowPowerVideoSinkCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpowervideosink-oh-lowpowervideosinkcallback)的回调函数的整合，通过setListener函数向该结构体添加对应的回调函数，完成registerCallback的一次性注册。
 
   
 ```text
@@ -155,7 +155,9 @@ int ret = OH_LowPowerVideoSink_Configure(lppVideoStreamer_, format);
 
   
 ```text
+OH_LowPowerVideoSink_SetSyncAudioSink(lppVideoStreamer_, lppAudioStreamer_);
 OH_LowPowerVideoSink_Prepare(lppVideoStreamer_);
+OH_LowPowerAudioSink_Prepare(lppAudioStreamer_);
 ```
 
 6. 开始播放。

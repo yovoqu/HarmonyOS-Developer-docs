@@ -1,6 +1,6 @@
 # @ohos.settings (设置数据项名称)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-settings
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1511,4 +1511,85 @@ try {
 } catch (err) {
   console.error(`Failed to open the NFC settings page. code: ${err?.code}, message: ${err?.message}`);
 }
+```
+
+
+
+#### settings.openDoubleClickSettingsPage24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+openDoubleClickSettingsPage(context: Context): void
+
+打开按键设置-双击下按键页面。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Applications.Settings.Core
+
+**设备行为差异**：该接口仅在Wearable设备中可正常调用，在其他设备调用不生效。
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | Context | 是 | 应用上下文（仅支持UIAbilityContext和ExtensionContext）。 Stage模型的应用Context定义见Context。 |
+
+
+**错误码**：
+
+以下错误码详细介绍请参考[设置数据项错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-settings)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 16900010 | 1. The parameter is incorrect. 2. The parameter is not transferred or the transferred parameter is invalid. |
+| 16900020 | 1. The setting page cannot be opened through redirection. 2. Internal error |
+
+
+**示例**：
+
+```text
+import { settings } from '@kit.BasicServicesKit';
+import { common } from '@kit.AbilityKit';
+
+// 请在组件内获取context，确保this.getUIContext().getHostContext()返回结果为UIAbilityContext。
+const context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+try {
+  settings.openDoubleClickSettingsPage(context);
+} catch (err) {
+  console.error(`Failed to open the DoubleClick settings page. code: ${err?.code}, message: ${err?.message}`);
+}
+```
+
+
+
+#### settings.isDoubleClickAppForSelf24+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isDoubleClickAppForSelf(): Promise&lt;boolean&gt;
+
+判断双击下按键的默认启动应用是否为本应用。
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Applications.Settings.Core
+
+**设备行为差异**：该接口仅在Wearable设备中可正常调用，在其他设备调用不生效。
+
+**返回值**：
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;boolean&gt; | Promise对象。返回true表示是当前应用，返回false表示非当前应用。 |
+
+
+**示例**：
+
+```text
+import { settings } from '@kit.BasicServicesKit';
+
+settings.isDoubleClickAppForSelf().then((result: boolean) => {
+  console.info(`isDoubleClickAppForSelf result: ${result}`);
+})
 ```

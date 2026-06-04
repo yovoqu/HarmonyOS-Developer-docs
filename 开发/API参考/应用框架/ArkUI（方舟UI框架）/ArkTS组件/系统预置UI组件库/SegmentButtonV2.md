@@ -1,6 +1,6 @@
 # SegmentButtonV2
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbuttonv2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -930,7 +930,7 @@ export struct VCard {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/QJo5dENtT_a1-G7qabQf-w/zh-cn_image_0000002581276348.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=D191CD2A3252FD00AE056A342218ABFE7E1EED9B090A9BF2354CE1A87C0259C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/NvdLxboDQz6RlRA8ZCLPVA/zh-cn_image_0000002617710313.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=49E9F919136BEBDBCE6B55524664662EEAC77C62B215E982018B7E57083123BF)
 
  
   
@@ -1029,7 +1029,7 @@ export struct VCard {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/hflpXYlvSkCUV5sA4Cy0hw/zh-cn_image_0000002611756205.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=0ED7B01B687E0B96E2F8555B74704680DCEFAFC1083182C6AC99379D9CBE088D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/rZhH9UmMRvi9zuh58Eyhyw/zh-cn_image_0000002587110732.png?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=146BA1B26769A79CB4C8D4BCEC0223634CD328CFD454CF0CD729CD5BC225381A)
 
  
   
@@ -1128,4 +1128,4 @@ export struct VCard {
 ```
  
  
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/apeUz4WDReGT58VMyCc5iw/zh-cn_image_0000002581436264.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=6886AA01708A91C5F48BA215B34230DCD22314416715BD61033959D74B84B3FD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/6hPBCyW1SNC_DSdnpaVzkA/zh-cn_image_0000002617670411.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=921BC64FAD41794FE523096F0D5A1160127D72D5D77EDD91371F302D0671718C)

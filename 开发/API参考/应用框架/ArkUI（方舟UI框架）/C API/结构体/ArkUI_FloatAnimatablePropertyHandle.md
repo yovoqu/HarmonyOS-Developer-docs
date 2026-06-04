@@ -1,8 +1,8 @@
 # ArkUI_FloatAnimatablePropertyHandle
 
-更新时间：2026-04-02 08:41:50
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-nativemodule-arkui-floatanimatablepropertyhandle
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-floatanimatablepropertyhandle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text

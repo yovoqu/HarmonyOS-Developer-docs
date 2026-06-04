@@ -1,6 +1,6 @@
 # 自定义渲染 (XComponent)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-xcomponent-guidelines
 
@@ -58,7 +58,7 @@ XComponent持有一个Surface，开发者能通过调用[NativeWindow](https://d
 
 在[XComponent渲染上屏原理](#xcomponent渲染上屏原理)中提到，XComponent能够显示应用自绘制的内容依赖的是其持有的Surface，因此了解如何获取XComponent持有的Surface的生命周期也十分重要。
 
-XComponent推荐使用两种方式获取XComponent持有Surface的生命周期，分别为在ArkTS侧使用[XComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponentcontroller)管理Surface生命周期，以及在Native侧使用[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)管理Surface生命周期。
+XComponent推荐使用两种方式获取XComponent持有Surface的生命周期，分别为在ArkTS侧使用[XComponentController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent#xcomponentcontroller)管理Surface生命周期，以及在Native侧使用[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)管理Surface生命周期。
 
 对于需要在ArkTS侧使用已封装接口进行功能开发（如相机预览、视频播放等）或对跨语言性能损耗不敏感的跨语言开发，建议直接在ArkTS侧使用XComponentController管理Surface生命周期。其生命周期的触发时机如下：
 
@@ -91,7 +91,7 @@ XComponent推荐使用两种方式获取XComponent持有Surface的生命周期�
 
 
 
-对于复杂的交互逻辑需跨语言开发，追求极致渲染性能或业务需求自主控制Surface的创建和销毁的，建议在Native侧使用[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)管理Surface生命周期。其生命周期触发时机如下：
+对于复杂的交互逻辑需跨语言开发，追求极致渲染性能或业务需求自主控制Surface的创建和销毁的，建议在Native侧使用[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)管理Surface生命周期。其生命周期触发时机如下：
 
  - OnSurfaceCreated回调
 
@@ -498,7 +498,7 @@ ArkUI_NodeHandle CreateNodeHandleUsingSurfaceHolder(const std::string &tag)
 
 #### OH_NativeXComponent向OH_ArkUI_SurfaceHolder的迁移
 
-从API version 8开始，开发者可以通过基于[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例相关的接口进行XComponent组件Surface的生命周期监听、获取NativeWindow实例以及监听基础事件，实现渲染绘制和响应交互功能。但使用OH_NativeXComponent相关的接口存在以下问题：
+从API version 8开始，开发者可以通过基于[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例相关的接口进行XComponent组件Surface的生命周期监听、获取NativeWindow实例以及监听基础事件，实现渲染绘制和响应交互功能。但使用OH_NativeXComponent相关的接口存在以下问题：
 
  - OH_NativeXComponent实例生命周期与XComponent组件强相关，开发者如果在XComponent组件销毁后仍然操作该对象将可能出现稳定性问题，造成应用的崩溃。
  - OH_NativeXComponent提供的交互事件接口不够丰富，只提供基础的触摸、鼠标、键盘交互接口，开发者若想识别长按、拖拽等高级手势需要自己写识别逻辑。
@@ -720,7 +720,7 @@ OH_NativeXComponent_RegisterBlurEventCallback(nativeXComponent, OnBlurEventCB); 
 
  - OH_ArkUI_SurfaceHolder
 
-  以下只以注册touch事件为例，鼠标、按键以及更多的手势请参考[监听组件事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-listen-to-component-events)。
+  以下只以注册触摸事件为例，鼠标、按键等更多事件请参考[绑定基础输入事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-bind-input-events)。
 
   
 ```text
@@ -748,7 +748,7 @@ if (!nodeAPI->registerNodeEvent(handle, NODE_TOUCH_EVENT, 0, nullptr)) { // 用C
  - 基于OH_ArkUI_SurfaceHolder实例注册相应的生命周期回调，获取NativeWindow实例。
  - 利用NativeWindow和EGL接口开发自定义绘制内容，并申请提交Buffer到图形队列。
  - XComponent组件相关的无障碍、可变帧率等能力根据ArkUI_NodeHandle通过相关接口来实现。
- - XComponent组件上的基础事件（如点击、触摸）和手势事件（如滑动、缩放）可通过ArkUI_NodeHandle对象使用ArkUI NDK接口来监听，具体可参考[监听组件事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-listen-to-component-events)。
+ - XComponent组件上的基础事件（如点击、触摸）和手势事件（如滑动、缩放）可通过ArkUI_NodeHandle对象使用ArkUI NDK接口来监听，具体可参考[添加事件监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-add-component-events)。
 
 
 **接口说明**
@@ -1718,7 +1718,7 @@ target_link_libraries(nativerender PUBLIC ${EGL-lib} ${GLES-lib} ${hilog-lib} ${
 上述用例具体实现可参考[NativeXComponent](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/ArkUISample/NativeXComponentSample)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/lHMK5-6xS2C9ET4jo92gyQ/zh-cn_image_0000002611753891.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T030452Z&HW-CC-Expire=86400&HW-CC-Sign=4ED3BF2CB13E3163212321F90D6609A5D8AA29393A954CD5CBCCD6CD6E5C6DC4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/Wdj-6d9nSCOofFQevWK6kg/zh-cn_image_0000002587108332.jpeg?HW-CC-KV=V1&HW-CC-Date=20260604T012631Z&HW-CC-Expire=86400&HW-CC-Sign=0655C56D714AA45E005943B3DF6CEDD5BB99DEAACB4B72CCA9C985CE1A4C3404)
 
 
 

@@ -1,6 +1,6 @@
 # realNameService(身份验证服务)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-realnameservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -103,7 +103,7 @@ struct Index {
         .margin(20)
         .onClick(() => {
           this.requestStartRealNameVerificationPromise();
-        })
+        });
     }
     .width('100%')
     .height('100%')
@@ -184,7 +184,7 @@ struct Index {
         .margin(20)
         .onClick(() => {
           this.requestStartRealNameAuthPromise();
-        })
+        });
     }
     .width('100%')
     .height('100%')
@@ -262,7 +262,7 @@ struct Index {
       .then((verifyResultId:string) => {
         // 人脸验证成功
         console.info(`succeeded in face verifying, verifyResultId: ${verifyResultId}`);
-      })
+      });
   }
 
   build() {

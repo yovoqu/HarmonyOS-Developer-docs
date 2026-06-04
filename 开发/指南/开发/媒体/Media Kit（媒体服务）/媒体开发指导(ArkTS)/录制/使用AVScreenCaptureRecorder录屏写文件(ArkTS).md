@@ -1,6 +1,6 @@
 # 使用AVScreenCaptureRecorder录屏写文件(ArkTS)
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avscreencapture-arkts
 
@@ -211,7 +211,12 @@ export class AVScreenCaptureDemo {
     if (!this.captureFile) {
       return;
     }
-    fileIo.closeSync(this.captureFile);
+    try {
+      fileIo.closeSync(this.captureFile.fd);
+    } catch (error) {
+      let err = error as BusinessError;
+      console.error(`Failed to close fd, error code: ${err.code}, message: ${err.message}`);
+    }
   }
 
   private setConfig(): void {

@@ -1,6 +1,6 @@
 # Chip
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chip
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -520,7 +520,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/yBqc86ZiRt6EHD91Kpbk1A/zh-cn_image_0000002611756171.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=F7B48C1487D9EF04AA3C5B86A55FD70C086529DB8E09DC9FA292929750E3EF72)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/5fVZvqx2S5aoe3AsZs25Qg/zh-cn_image_0000002587110700.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=CE0562F1ECAB5F02B239E06698E7AB517ACCF18569E19BFDBBB2E6A0E525FA10)
 
 
 
@@ -582,7 +582,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/h7ItEXb-RpO5IUytbYKt_w/zh-cn_image_0000002581436232.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=AB3A778598BEF1D84AE9490A3E67C54CEE674AE2D4DACE5D98B1C4EADB95FA2E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/_Jreo1C1Sju402CRyfFeAg/zh-cn_image_0000002617670379.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=521920752E3834991C33EE8EAABFC7E3E4039171CF1DD46FEF169F5EB1007334)
 
 
 
@@ -641,7 +641,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/4BS9bl5-SJuQ1OuTattZ8w/zh-cn_image_0000002611836063.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=3DA2E7C224FDF07F3FABF947F18883F96F4B6736FD75D7ED71159DA5CCC1CD52)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/OZEYbnhwTxquaIMffDkhrA/zh-cn_image_0000002587270604.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=39BDFB6307468BCE3727ACCFE97CD8EC86B536DED51D31C06EF3EFA29DF6F9C9)
 
 
 
@@ -697,7 +697,7 @@ struct ChipPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/y3o5SyeUT3KVVndwWhUoog/zh-cn_image_0000002581276318.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=D3E84ED7390E36D45AA01922E47E76EFB0484360A324DBEDBFE1396CF6DD590A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/bLRQy-WkT4uDQYpeLxpLOw/zh-cn_image_0000002617710281.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=93F962DF23078F8EBEE9308E6015D834965067AAAC4B69734C705527845B212D)
 
 
 

@@ -1,8 +1,8 @@
 # NotificationExtensionSubscriptionInfo
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/s-apis-inner-notificationextensionsubscriptioninfo
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notificationextensionsubscriptioninfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 用于描述通知扩展订阅的信息。

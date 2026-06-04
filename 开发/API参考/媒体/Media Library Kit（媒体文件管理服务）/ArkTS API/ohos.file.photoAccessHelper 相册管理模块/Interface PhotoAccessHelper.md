@@ -1,6 +1,6 @@
 # Interface (PhotoAccessHelper)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -890,7 +890,7 @@ applyChanges(mediaChangeRequest: MediaChangeRequest): Promise&lt;void&gt;
 
 **示例：**
 
-该接口依赖于[MediaChangeRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-i#mediachangerequest11)对象，详细代码示例请参见[MediaAssetChangeRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/kts-apis-photoaccesshelper-mediaassetchangerequest)和[MediaAlbumChangeRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/kts-apis-photoaccesshelper-mediaalbumchangerequest)中的接口示例。
+该接口依赖于[MediaChangeRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-i#mediachangerequest11)对象，详细代码示例请参见[MediaAssetChangeRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetchangerequest)和[MediaAlbumChangeRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaalbumchangerequest)中的接口示例。
 
 
 
@@ -2463,7 +2463,7 @@ setAssetCompatibleCapability(capability: AssetCompatibleCapability): Promise&lt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 23800151 | The scenario parameter verification fails, Invalid tokenId. |
+| 23800151 | The capability is invalid. |
 | 23800301 | Internal system error. It is recommended to retry and check the logs. Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out. |
 
 

@@ -1,6 +1,6 @@
 # EditableTitleBar
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-editabletitlebar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -475,7 +475,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/K3mDzW7FSWCoGiN_0YnY9w/zh-cn_image_0000002611836073.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=AA9464901C5ABD672747B41685274FFA2188562636F5DC65E80AECA3FBC1BB69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/CYWSDRjrQ2ezIbOyqmZmwQ/zh-cn_image_0000002587270614.png?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=9A965C7847E467317E87DC176400FAAB0241F8FE2B7006BD02EA8D9795ACF847)
 
  
   
@@ -548,4 +548,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/q-WpuxmhTXCczT5iWWZ-Xw/zh-cn_image_0000002581276328.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=B2C98244F9508F499C3A202450A0DCB00C1BB59DB77D2C639244EB14CC729A3D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/HS9a_ZtmSB-Ti3MS8olYZA/zh-cn_image_0000002617710291.png?HW-CC-KV=V1&HW-CC-Date=20260604T012833Z&HW-CC-Expire=86400&HW-CC-Sign=8649266E26729FE2FFE3319475904F57D9D37F3C8077BEF4EB754E315C8C6ACE)

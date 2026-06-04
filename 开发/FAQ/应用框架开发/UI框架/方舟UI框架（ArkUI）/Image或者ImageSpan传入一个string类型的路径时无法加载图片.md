@@ -1,11 +1,16 @@
 # Image或者ImageSpan传入一个string类型的路径时无法加载图片
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-05-30 09:08:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-153
 
-目前规格上只支持常量，需要把string提取出来用\$r( )包裹。例如：
+**解决措施**
  
-```ArkTS
-localImageName = $r( 'app.media.icon' )
-```
+string类型的路径图片无法加载的可能情况以及对应的解决方案如下：
+ 1. 使用的网络图片的路径确保网络图片路径可用，并且申请了ohos.permission.INTERNET权限，具体申请方式请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)。
+2. 使用沙箱路径或媒体库路径支持file://路径前缀的字符串，应用沙箱URI：file://&lt;bundleName&gt;/&lt;sandboxPath&gt;。应用沙箱路径URI构造可参考[constructor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#constructor10)。沙箱路径需要使用[fileUri.getUriFromPath(path)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri#fileurigeturifrompath)方法将路径转换为应用沙箱URI，然后传入显示。同时需要保证目录包路径下的文件有可读权限。
+3. 使用base64字符串需要注意路径格式，路径格式为data:image/[png|jpeg|bmp|webp|heif];base64,[base64 data]，其中[base64 data]为Base64字符串数据。
+ 
+**参考链接：**
+ 
+[加载图片资源](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display#加载图片资源)

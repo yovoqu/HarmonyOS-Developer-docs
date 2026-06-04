@@ -1,6 +1,6 @@
 # SwipeRefresher
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-swiperefresher
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -34,7 +34,7 @@ import { SwipeRefresher } from '@kit.ArkUI';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-SwipeRefresher ({content?: ResourceStr, isLoading: boolean})
+SwipeRefresher({content?: ResourceStr, isLoading: boolean})
  
 主要用于实现下拉刷新功能。当用户下拉页面时，会触发内容加载操作，即从数据源获取新内容并动态展示在界面中。
  
@@ -94,4 +94,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/Xgt1K8G2Qnm9EMLR3-3kFg/zh-cn_image_0000002611756215.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=ABEC62B293BBCC198FCA158FF47C9829AB111FE551E7A0A0EA8B9B161D146D55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/10jaskk0SPCxDco8vhFkcg/zh-cn_image_0000002587110742.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012554Z&HW-CC-Expire=86400&HW-CC-Sign=4A4A88915BEE7C770264685398D886870FD1F685941F546191C5147462CBEBF0)

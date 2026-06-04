@@ -1,6 +1,6 @@
 # 弹出框 (Dialog)
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-dialog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -212,7 +212,7 @@ PopoverDialog({visible: boolean, popover: PopoverOptions, targetBuilder: Callbac
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| visible | boolean | 是 | @Link | 跟手弹出框显示状态。value为true时，表示显示弹出框，value为false时，表示隐藏弹出框。 默认值为false，隐藏弹出框。 |
+| visible | boolean | 是 | @Link | 跟手弹出框显示状态。visible为true时，表示显示弹出框，visible为false时，表示隐藏弹出框。 默认值为false，隐藏弹出框。 |
 | popover | PopoverOptions | 是 | @Prop @Require | 配置跟手弹出框的参数。 |
 | targetBuilder | Callback&lt;void&gt; | 是 | @Require @BuilderParam | 跟手弹出框基于的目标组件。 |
 
@@ -678,7 +678,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/-dHkEEAnTLa0B18TnJ2Cng/zh-cn_image_0000002611756145.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=07BE95E4921EECD5632BB50450E08420FB3C0AF1956F2137F4BD97B7CCF93135)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/V6MatXoKTBeAvfdxOVHBeg/zh-cn_image_0000002587110676.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=85E9988ADEAB93E7290D2F34465A144DBE4CC9A953321CF67496002DA1A99C8A)
 
 
 
@@ -741,7 +741,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/sNDnlva0QpOT86dFMW93PQ/zh-cn_image_0000002581436208.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=045E5AB75381E6138F0EECABBDC0BDABB776F8EB15854D989A1E76C0FD3131D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/s85F4Km1Ste4IHKQbLAKSg/zh-cn_image_0000002617670355.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=EF88473E4FBA6CB68464D0E7C93EE9B51B0761AB43B361B29627486C7FB0087D)
 
 
 
@@ -806,7 +806,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/t6z0Q40CT2GEqX0CAMZ9yQ/zh-cn_image_0000002611836039.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=EF374123D26DC73F22B7ADA98D0663B3F2EEA6EA3692416EFDF3B98E20FC33B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/qTQjj1zxSvOzJPJrrDG04Q/zh-cn_image_0000002587270580.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=962D3759D0322D88DB3242729770D08624739CB290CB19207E5D2C3AF623B6BA)
 
 
 
@@ -862,4 +862,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/wrFh7PX_RNWOQiYDFx7btw/zh-cn_image_0000002581276294.png?HW-CC-KV=V1&HW-CC-Date=20260528T025537Z&HW-CC-Expire=86400&HW-CC-Sign=DD5897B801003FCE1111813CD67A8F152F1D62F6CBCFF30D7CD8663D08BD1D1E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/Vq87kjYZTYKQzly1pZM_QA/zh-cn_image_0000002617710257.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=3C48C7CA51823F193E58007A6EDF00F5B1921137A66BE8D1C322F793600EDFEF)

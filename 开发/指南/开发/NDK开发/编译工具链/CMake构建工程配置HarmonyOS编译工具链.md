@@ -1,6 +1,6 @@
 # CMake构建工程配置HarmonyOS编译工具链
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-cmake-build-project
 
@@ -27,7 +27,7 @@ CMake构建过程可分为以下三个主要步骤：
 1. 首先需要Linux编译环境。
 
   开发者可以选择熟悉的发行版来进行环境搭建，这里以Ubuntu为例，Ubuntu目前主要支持Ubuntu18.04和Ubuntu20.04。
-2. HarmonyOS SDK镜像下载：通过[下载中心](https://developer.huawei.com/consumer/cn/download/)，下载Command Line Tools获取，或通过[CI平台](https://ci.openharmony.cn/workbench/cicd/dailybuild/dailylist)进行下载。
+2. HarmonyOS SDK镜像下载：通过[下载中心](https://developer.huawei.com/consumer/cn/download/)，下载Command Line Tools获取。
 3. 进入SDK文件所在目录，使用tar -zxvf解压SDK文件。
 
   随着版本更新，SDK版本可能会有变动，开发者可自行下载最新版本，此处以4.0.10.5版本为例。
@@ -156,7 +156,7 @@ clang: warning: argument unused during compilation: '--gcc-toolchain=/mnt/e/ohos
 
   
 ```json
-owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/cJSON/build$ file libcjson.so.1.7.18                     # 查看文件属性命令
+owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/build$ file libcjson.so.1.7.18                     # 查看文件属性命令
 libcjson.so.1.7.18: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, BuildID[sha1]=a79e4b52a332702b4853f2d6cac2fcd7dff95023, with debug_info, not stripped
 ```
 
@@ -166,21 +166,21 @@ libcjson.so.1.7.18: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV),
 
   
 ```json
-owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/cJSON/build$ make install                                # 执行安装命令
+owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/build$ make install                                # 执行安装命令
 [  4%] Built target cjson
 [  8%] Built target cJSON_test
 ...
 # 省略部分make install信息
 ...
--- Installing: /mnt/e/cmake/cJSON-1.7.18/cJSON/lib/cmake/cJSON/cJSONConfig.cmake
--- Installing: /mnt/e/cmake/cJSON-1.7.18/cJSON/lib/cmake/cJSON/cJSONConfigVersion.cmake
-owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/cJSON/build$
+-- Installing: /mnt/e/cmake/cJSON-1.7.18/lib/cmake/cJSON/cJSONConfig.cmake
+-- Installing: /mnt/e/cmake/cJSON-1.7.18/lib/cmake/cJSON/cJSONConfigVersion.cmake
+owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/build$
 ```
   
 ```json
-owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/build$ ls /mnt/e/cmake/cJSON-1.7.18/cJSON                # 查看安装文件
+owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/build$ ls /mnt/e/cmake/cJSON-1.7.18                # 查看安装文件
 include  lib
-owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/build$ ls /mnt/e/cmake/cJSON-1.7.18/cJSON/lib
+owner@ubuntu:/mnt/e/cmake/cJSON-1.7.18/build$ ls /mnt/e/cmake/cJSON-1.7.18/lib
 cmake  libcjson.so  libcjson.so.1  libcjson.so.1.7.18  pkgconfig
 ```
 

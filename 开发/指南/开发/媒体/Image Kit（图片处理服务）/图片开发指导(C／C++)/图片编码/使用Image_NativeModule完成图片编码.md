@@ -1,6 +1,6 @@
 # 使用Image_NativeModule完成图片编码
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-packer-c
 
@@ -132,6 +132,24 @@ Image_MimeType GetMimeTypeIfEncodable(const char *format)
     return {const_cast<char *>(format), strlen(format)};
 }
 
+static Image_ErrorCode ReleaseImageSourcePackingResources(OH_ImagePackerNative *testPacker,
+    OH_PackingOptions *option)
+{
+    Image_ErrorCode errCode = OH_ImagePackerNative_Release(testPacker);
+    if (errCode != IMAGE_SUCCESS) {
+        OH_LOG_ERROR(LOG_APP, "packToFileFromImageSourceTest OH_ImagePackerNative_Release failed,"
+                     "errCode: %{public}d.", errCode);
+        OH_PackingOptions_Release(option);
+        return errCode;
+    }
+    errCode = OH_PackingOptions_Release(option);
+    if (errCode != IMAGE_SUCCESS) {
+        OH_LOG_ERROR(LOG_APP, "packToFileFromImageSourceTest OH_PackingOptions_Release failed,"
+                     "errCode: %{public}d.", errCode);
+    }
+    return errCode;
+}
+
 Image_ErrorCode packToFileFromImageSourceTest(int fd, OH_ImageSourceNative* imageSource)
 {
     // 创建ImagePacker实例。
@@ -142,21 +160,25 @@ Image_ErrorCode packToFileFromImageSourceTest(int fd, OH_ImageSourceNative* imag
                               "errCode: %{public}d.", errCode);
         return errCode;
     }
-    
     // 获取编码能力范围。
     errCode = GetEncodeSupportedFormats();
     if (errCode != IMAGE_SUCCESS) {
         OH_ImagePackerNative_Release(testPacker);
         return errCode;
     }
-    
     // 指定编码参数，将ImageSource直接编码进文件。
     OH_PackingOptions *option = nullptr;
-    OH_PackingOptions_Create(&option);
+    errCode = OH_PackingOptions_Create(&option);
+    if (errCode != IMAGE_SUCCESS || option == nullptr) {
+        OH_ImagePackerNative_Release(testPacker);
+        return errCode == IMAGE_SUCCESS ? IMAGE_BAD_PARAMETER : errCode;
+    }
     Image_MimeType image_MimeType = GetMimeTypeIfEncodable(MIME_TYPE_JPEG);
     if (image_MimeType.data == nullptr || image_MimeType.size == 0) {
         OH_LOG_ERROR(LOG_APP, "packToFileFromImageSourceTest GetMimeTypeIfEncodable failed,"
                      "format can't support encode.");
+        OH_PackingOptions_Release(option);
+        OH_ImagePackerNative_Release(testPacker);
         return IMAGE_BAD_PARAMETER;
     }
     OH_PackingOptions_SetMimeType(option, &image_MimeType);
@@ -169,27 +191,11 @@ Image_ErrorCode packToFileFromImageSourceTest(int fd, OH_ImageSourceNative* imag
     if (errCode != IMAGE_SUCCESS) {
         OH_LOG_ERROR(LOG_APP, "packToFileFromImageSourceTest OH_ImagePackerNative_PackToFileFromImageSource failed,"
                               "errCode: %{public}d.", errCode);
+        OH_PackingOptions_Release(option);
+        OH_ImagePackerNative_Release(testPacker);
         return errCode;
     }
-
-    // 释放ImagePacker实例。
-    errCode = OH_ImagePackerNative_Release(testPacker);
-    testPacker = nullptr;
-    if (errCode != IMAGE_SUCCESS) {
-        OH_LOG_ERROR(LOG_APP, "packToFileFromImageSourceTest OH_ImagePackerNative_Release failed,"
-                     "errCode: %{public}d.", errCode);
-        return errCode;
-    }
-    
-    // 释放PackingOptions实例。
-    errCode = OH_PackingOptions_Release(option);
-    option = nullptr;
-    if (errCode != IMAGE_SUCCESS) {
-        OH_LOG_ERROR(LOG_APP, "packToFileFromImageSourceTest OH_PackingOptions_Release failed,"
-                     "errCode: %{public}d.", errCode);
-        return errCode;
-    }
-    return IMAGE_SUCCESS;
+    return ReleaseImageSourcePackingResources(testPacker, option);
 }
 
 Image_ErrorCode packToFileFromPixelmapTest(int fd, OH_PixelmapNative *pixelmap)
@@ -205,10 +211,19 @@ Image_ErrorCode packToFileFromPixelmapTest(int fd, OH_PixelmapNative *pixelmap)
 
     // 指定编码参数，将PixelMap直接编码进文件。
     OH_PackingOptions *option = nullptr;
-    OH_PackingOptions_Create(&option);
+    errCode = OH_PackingOptions_Create(&option);
+    if (errCode != IMAGE_SUCCESS || option == nullptr) {
+        OH_ImagePackerNative_Release(testPacker);
+        return errCode == IMAGE_SUCCESS ? IMAGE_BAD_PARAMETER : errCode;
+    }
     char type[] = "image/jpeg";
     Image_MimeType image_MimeType = {type, strlen(type)};
-    OH_PackingOptions_SetMimeType(option, &image_MimeType);
+    errCode = OH_PackingOptions_SetMimeType(option, &image_MimeType);
+    if (errCode != IMAGE_SUCCESS) {
+        OH_PackingOptions_Release(option);
+        OH_ImagePackerNative_Release(testPacker);
+        return errCode;
+    }
     // 设置编码质量，quality默认为0，建议quality的值不低于80
     uint32_t quality = 90;
     OH_PackingOptions_SetQuality(option, quality);
@@ -216,6 +231,8 @@ Image_ErrorCode packToFileFromPixelmapTest(int fd, OH_PixelmapNative *pixelmap)
     if (errCode != IMAGE_SUCCESS) {
         OH_LOG_ERROR(LOG_APP, "packToFileFromPixelmapTest OH_ImagePackerNative_PackToFileFromPixelmap failed,"
                               "errCode: %{public}d.", errCode);
+        OH_PackingOptions_Release(option);
+        OH_ImagePackerNative_Release(testPacker);
         return errCode;
     }
 
@@ -225,6 +242,7 @@ Image_ErrorCode packToFileFromPixelmapTest(int fd, OH_PixelmapNative *pixelmap)
     if (errCode != IMAGE_SUCCESS) {
         OH_LOG_ERROR(LOG_APP, "packToFileFromPixelmapTest ReleasePacker OH_ImagePackerNative_Release failed,"
                               "errCode: %{public}d.", errCode);
+        OH_PackingOptions_Release(option);
         return errCode;
     }
     

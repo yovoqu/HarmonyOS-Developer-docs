@@ -1,6 +1,6 @@
 # XComponentNode
 
-更新时间：2026-03-27 08:08:20
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-xcomponentnode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供XComponent节点XComponentNode，表示组件树中的[XComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent)组件，用于[EGL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/egl)/[OpenGL ES](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/opengles)和媒体数据写入，并支持动态修改节点渲染类型。
 
 > [!NOTE]
-> 从API version 12开始废弃，建议使用 类型为XComponent的typeNode 的方式实现。 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 当前不支持在预览器中使用XComponentNode。
+> 从API version 12开始废弃，建议使用类型为 XComponent 的typeNode的方式实现。 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 当前不支持在预览器中使用XComponentNode。
 
 
 
@@ -184,4 +184,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/8mw9vT3RQjqeohnZelmp-g/zh-cn_image_0000002581275672.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025447Z&HW-CC-Expire=86400&HW-CC-Sign=F7926936FA735D483FABF3613F63664D06E99FA3659152F8C850F77B0E5B4CE3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/F-nEvGhtRYWfKd4apGERqw/zh-cn_image_0000002617709613.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012552Z&HW-CC-Expire=86400&HW-CC-Sign=B73B529E462033B9BA4EE7AE0F450BC8E57327E487602ACEB6B6B83A4AFDD214)

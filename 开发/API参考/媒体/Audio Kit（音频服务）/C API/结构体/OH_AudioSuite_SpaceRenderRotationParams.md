@@ -1,8 +1,8 @@
 # OH_AudioSuite_SpaceRenderRotationParams
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/audiosuite-oh-audiosuite-spacerenderrotationparams
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite-oh-audiosuite-spacerenderrotationparams
 **支持设备：** Phone | PC/2in1 | Tablet
 
 ```text

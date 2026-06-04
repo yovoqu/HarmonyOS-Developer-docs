@@ -1,6 +1,6 @@
 # arkweb_scheme_handler.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkweb-scheme-handler-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -305,7 +305,7 @@ typedef void (*ArkWeb_HttpBodyStreamReadCallback)(const ArkWeb_HttpBodyStream* h
 | --- | --- |
 | const ArkWeb_HttpBodyStream* httpBodyStream | ArkWeb_HttpBodyStream。 |
 | uint8_t* buffer | 接收数据的buffer。 |
-| int bytesRead | OH_ArkWebHttpBodyStream_Read后的回调函数。如果bytesRead大于0，则表示buffer已填充了bytesRead大小的数据。调用者可以从buffer中读取数据，如果OH_ArkWebHttpBodyStream_IsEOF为false，则调用者可以继续读取剩余的数据。 |
+| int bytesRead | OH_ArkWebHttpBodyStream_Read后的回调函数。如果bytesRead大于0，则表示buffer已填充了bytesRead大小的数据。开发者可以从buffer中读取数据，如果OH_ArkWebHttpBodyStream_IsEOF为false，则开发者可以继续读取剩余的数据。 |
  
  
   

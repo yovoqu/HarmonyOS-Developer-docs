@@ -1,6 +1,6 @@
 # @ohos.util (util工具函数)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-util
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -6552,6 +6552,8 @@ const device = new DeviceManageViewModel("test");
 
 
 **示例：**
+
+
 
 ```text
 let pro : util.LruBuffer<number,number>= new util.LruBuffer();

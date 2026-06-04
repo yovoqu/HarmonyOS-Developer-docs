@@ -1,6 +1,6 @@
 # 使用typeNode实现画中画功能开发（ArkTS）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pipwindow-typenode
 
@@ -74,10 +74,13 @@ export class AVPlayer {
     this.setAVPlayerCallback();
     let uiContext = AppStorage.get('UIContext') as UIContext;
     let context = uiContext.getHostContext() as common.UIAbilityContext;
-    let fileDescriptor = await context.resourceManager.getRawFd('xxx.mp4');
-
-    if (this.avPlayer) {
-      this.avPlayer.fdSrc = fileDescriptor;
+    try {
+      let fileDescriptor = await context.resourceManager.getRawFd('xxx.mp4');
+      if (this.avPlayer) {
+        this.avPlayer.fdSrc = fileDescriptor;
+      }
+    } catch (err) {
+      console.error(`AVPlayer error: ${JSON.stringify(err)}`)
     }
   }
 }
@@ -334,9 +337,9 @@ export class PipManager {
     switch (control.controlType) {
       case PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE:
         if (control.status === PiPWindow.PiPControlStatus.PAUSE) {
-          //停止视频
+          // 停止视频
         } else if (control.status === PiPWindow.PiPControlStatus.PLAY) {
-          //播放视频
+          // 播放视频
         }
         break;
       case PiPWindow.PiPControlType.VIDEO_NEXT:
@@ -454,8 +457,8 @@ export class PipManager {
     if (this.pipController === null || this.pipController === undefined) {
       return;
     }
-    let promise: Promise<void> = this.pipController.stopPiP();
-    promise.then(() => {
+    this.pipController.stopPiP()
+    .then(() => {
       Logger.info(TAG, `Succeeded in stopping pip.`);
     }).catch((err: BusinessError) => {
       Logger.error(TAG, `Failed to stop pip. Cause:${err.code}, message:${err.message}`);
@@ -612,7 +615,7 @@ const TAG = 'Page1';
 
 @Entry
 @Component
-export struct Page1 {
+struct Page1 {
   build() {
     Column() {
       Text('This is Page1')
@@ -725,9 +728,9 @@ export class PipManager {
     switch (control.controlType) {
       case PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE:
         if (control.status === PiPWindow.PiPControlStatus.PAUSE) {
-          //停止视频
+          // 停止视频
         } else if (control.status === PiPWindow.PiPControlStatus.PLAY) {
-          //播放视频
+          // 播放视频
         }
         break;
       case PiPWindow.PiPControlType.VIDEO_NEXT:
@@ -851,8 +854,8 @@ export class PipManager {
   // 步骤4：关闭画中画
   stopPip() {
     if (this.pipController) {
-      let promise: Promise<void> = this.pipController.stopPiP();
-      promise.then(() => {
+      this.pipController.stopPiP()
+      .then(() => {
         Logger.info(TAG, `Succeeded in stopping pip.`);
       }).catch((err: BusinessError) => {
         Logger.error(TAG, `Failed to stop pip. Cause:${err.code}, message:${err.message}`);
@@ -1100,7 +1103,6 @@ import { Logger } from '../util/LogUtil';
 
 const TAG = 'Page1';
 
-@Entry
 @Component
 export struct Page1 {
   build() {
@@ -1300,9 +1302,9 @@ export class PipManager {
     switch (control.controlType) {
       case PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE:
         if (control.status === PiPWindow.PiPControlStatus.PAUSE) {
-          //停止视频
+          // 停止视频
         } else if (control.status === PiPWindow.PiPControlStatus.PLAY) {
-          //播放视频
+          // 播放视频
         }
         break;
       case PiPWindow.PiPControlType.VIDEO_NEXT:
@@ -1429,8 +1431,8 @@ export class PipManager {
     if (this.pipController === null || this.pipController === undefined) {
       return;
     }
-    let promise: Promise<void> = this.pipController.stopPiP();
-    promise.then(() => {
+    this.pipController.stopPiP()
+    .then(() => {
       Logger.info(TAG, `Succeeded in stopping pip.`);
     }).catch((err: BusinessError) => {
       Logger.error(TAG, `Failed to stop pip. Cause:${err.code}, message:${err.message}`);
@@ -1727,9 +1729,9 @@ export class PipManager {
     switch (control.controlType) {
       case PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE:
         if (control.status === PiPWindow.PiPControlStatus.PAUSE) {
-          //停止视频
+          // 停止视频
         } else if (control.status === PiPWindow.PiPControlStatus.PLAY) {
-          //播放视频
+          // 播放视频
         }
         break;
       case PiPWindow.PiPControlType.VIDEO_NEXT:
@@ -1854,8 +1856,8 @@ export class PipManager {
     if (this.pipController === null || this.pipController === undefined) {
       return;
     }
-    let promise: Promise<void> = this.pipController.stopPiP();
-    promise.then(() => {
+    this.pipController.stopPiP()
+    .then(() => {
       Logger.info(TAG, `Succeeded in stopping pip.`);
     }).catch((err: BusinessError) => {
       Logger.error(TAG, `Failed to stop pip. Cause:${err.code}, message:${err.message}`);
@@ -1881,4 +1883,4 @@ export class PipManager {
 以上示例代码对应的示意图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/0kj7GExZQlmZukbEWr-aew/zh-cn_image_0000002581274328.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030422Z&HW-CC-Expire=86400&HW-CC-Sign=A647E8CF56BCA7D32A9007AD22D8ED79E2D49BC930F00A94408B91F198168C36)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/PBIPtQFwRqqkxt7TD_m9VQ/zh-cn_image_0000002617708217.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012916Z&HW-CC-Expire=86400&HW-CC-Sign=407D9F5EBD6FA5021C7F9AFE530C11F71B1B24D9F8B9415922FE57EDEF518B26)

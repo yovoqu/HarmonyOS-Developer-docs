@@ -1,6 +1,6 @@
 # 基于AVPlayer播放DRM节目(ArkTS)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/drm-avplayer-arkts-integration
 
@@ -103,8 +103,6 @@ playerHandle.on('stateChange', async (state: string, reason: media.StateChangeRe
    if (state == 'released') {
       mediaKeySession.destroy();
       mediaKeySystem.destroy();
-   } else if (state == 'releasing') {
-      await playerHandle.release();
    }
 })
 ```

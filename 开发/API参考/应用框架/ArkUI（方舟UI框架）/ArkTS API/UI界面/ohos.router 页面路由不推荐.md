@@ -1,6 +1,6 @@
 # @ohos.router (页面路由)(不推荐)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
@@ -1676,7 +1676,7 @@ export default {
 // 在detail页面中
 export default {
   onInit() {
-    console.info('showData1:' + this.getUIContext().getRouter().getParams()['data1']);
+    console.info('showData1:' + router.getParams()['data1']);
   }
 }
 ```

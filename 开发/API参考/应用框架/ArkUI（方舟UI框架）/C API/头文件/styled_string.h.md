@@ -1,6 +1,6 @@
 # styled_string.h
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -696,7 +696,7 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithString
 
 **描述**
 
-创建纯文本内容类型的[ArkUI_StyledString_Descriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-arkui-nativemodule-arkui-styledstring-descriptor)对象。
+创建纯文本内容类型的[ArkUI_StyledString_Descriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-styledstring-descriptor)对象。
 
 > [!NOTE]
 > 当该对象不再使用时，调用 OH_ArkUI_StyledString_Descriptor_Destroy 销毁它。
@@ -732,7 +732,7 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithImageA
 
 **描述**
 
-创建图片内容类型的[ArkUI_StyledString_Descriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-arkui-nativemodule-arkui-styledstring-descriptor)对象。
+创建图片内容类型的[ArkUI_StyledString_Descriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-styledstring-descriptor)对象。
 
 > [!NOTE]
 > 当该对象不再使用时，调用 OH_ArkUI_StyledString_Descriptor_Destroy 销毁它。
@@ -766,7 +766,7 @@ ArkUI_StyledString_Descriptor* OH_ArkUI_StyledString_Descriptor_CreateWithCustom
 
 **描述**
 
-创建自定义绘制Span内容类型的[ArkUI_StyledString_Descriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-arkui-nativemodule-arkui-styledstring-descriptor)对象。
+创建自定义绘制Span内容类型的[ArkUI_StyledString_Descriptor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-styledstring-descriptor)对象。
 
 > [!NOTE]
 > 当该对象不再使用时，调用 OH_ArkUI_StyledString_Descriptor_Destroy 销毁它。
@@ -2967,7 +2967,7 @@ OH_ArkUI_LeadingMarginSpanDrawInfo* OH_ArkUI_LeadingMarginSpanDrawInfo_Create()
 
 **描述**
 
-创建[OH_ArkUI_LeadingMarginSpanDrawInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-nativemodule-oh-arkui-leadingmarginspandrawinfo)对象。
+创建[OH_ArkUI_LeadingMarginSpanDrawInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-leadingmarginspandrawinfo)对象。
 
 > [!NOTE]
 > 当该对象不再使用时，调用 OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy 销毁它。
@@ -2994,7 +2994,7 @@ void OH_ArkUI_LeadingMarginSpanDrawInfo_Destroy(OH_ArkUI_LeadingMarginSpanDrawIn
 
 **描述**
 
-释放[OH_ArkUI_LeadingMarginSpanDrawInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-nativemodule-oh-arkui-leadingmarginspandrawinfo)对象占用的内存。
+释放[OH_ArkUI_LeadingMarginSpanDrawInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-leadingmarginspandrawinfo)对象占用的内存。
 
 **起始版本：** 24
 
@@ -4925,7 +4925,7 @@ OH_ArkUI_BaselineOffsetStyle* OH_ArkUI_BaselineOffsetStyle_Create()
 
 **描述**
 
-创建[OH_ArkUI_BaselineOffsetStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-arkui-nativemodule-oh-arkui-baselineoffsetstyle)对象。
+创建[OH_ArkUI_BaselineOffsetStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-baselineoffsetstyle)对象。
 
 > [!NOTE]
 > 当该对象不再使用时，调用 OH_ArkUI_BaselineOffsetStyle_Destroy 销毁它。
@@ -4952,7 +4952,7 @@ void OH_ArkUI_BaselineOffsetStyle_Destroy(OH_ArkUI_BaselineOffsetStyle* baseline
 
 **描述**
 
-释放[OH_ArkUI_BaselineOffsetStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-arkui-nativemodule-oh-arkui-baselineoffsetstyle)对象占用的内存。
+释放[OH_ArkUI_BaselineOffsetStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-baselineoffsetstyle)对象占用的内存。
 
 **起始版本：** 24
 
@@ -5037,7 +5037,7 @@ OH_ArkUI_LetterSpacingStyle* OH_ArkUI_LetterSpacingStyle_Create()
 
 **描述**
 
-创建[OH_ArkUI_LetterSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-arkui-nativemodule-oh-arkui-letterspacingstyle)对象。
+创建[OH_ArkUI_LetterSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-letterspacingstyle)对象。
 
 > [!NOTE]
 > 当该对象不再使用时，调用 OH_ArkUI_LetterSpacingStyle_Destroy 销毁它。
@@ -5064,7 +5064,7 @@ void OH_ArkUI_LetterSpacingStyle_Destroy(OH_ArkUI_LetterSpacingStyle* letterSpac
 
 **描述**
 
-释放[OH_ArkUI_LetterSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-arkui-nativemodule-oh-arkui-letterspacingstyle)对象占用的内存。
+释放[OH_ArkUI_LetterSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-letterspacingstyle)对象占用的内存。
 
 **起始版本：** 24
 
@@ -5261,7 +5261,7 @@ OH_ArkUI_BackgroundColorStyle* OH_ArkUI_BackgroundColorStyle_Create()
 
 **描述**
 
-创建[OH_ArkUI_BackgroundColorStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-arkui-nativemodule-oh-arkui-backgroundcolorstyle)对象。
+创建[OH_ArkUI_BackgroundColorStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-backgroundcolorstyle)对象。
 
 > [!NOTE]
 > 当该对象不再使用时，调用 OH_ArkUI_BackgroundColorStyle_Destroy 销毁它。
@@ -5288,7 +5288,7 @@ void OH_ArkUI_BackgroundColorStyle_Destroy(OH_ArkUI_BackgroundColorStyle* style)
 
 **描述**
 
-释放[OH_ArkUI_BackgroundColorStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-arkui-nativemodule-oh-arkui-backgroundcolorstyle)对象占用的内存。
+释放[OH_ArkUI_BackgroundColorStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-backgroundcolorstyle)对象占用的内存。
 
 **起始版本：** 24
 

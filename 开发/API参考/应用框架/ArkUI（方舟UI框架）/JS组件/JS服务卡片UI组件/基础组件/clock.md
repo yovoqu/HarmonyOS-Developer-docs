@@ -1,6 +1,6 @@
 # clock
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-clock
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,7 +40,7 @@
 | face | &lt;string&gt; | - | 是 | 日间时段的表盘资源路径。 表盘资源须为包含时钟刻度的正方形图片，表盘区域（圆形）为该图片的内切圆或内切圆的同心圆。如果表盘区域为表盘资源内切圆的同心圆的话，请相应调整digitRadiusRatio和digitSizeRatio参数。 |
 | hourHand | &lt;string&gt; | - | 是 | 日间时段的时针资源路径。 - 时针图片的高度须与表盘资源高度相同。 - 时针图片的宽高比建议在0.062。 - 时针图片上指针的旋转中心须处于时针图片的中心（对角线交点）。 - 夜间时段的时针资源请调整hourHandNight参数。 |
 | minuteHand | &lt;string&gt; | - | 是 | 日间时段的分针资源路径。 - 分针图片的高度须与表盘资源高度相同。 - 分针图片的宽高比建议在0.062。 - 分针图片上指针的旋转中心须处于分针图片的中心（对角线交点）。 - 夜间时段的分针资源请调整minuteHandNight参数。 |
-| secondHand | &lt;string&gt; | - | 是 | 日间时段的秒针资源路径。 - 秒针图片的高度须与表盘资源高度相同。 - 秒针图片的宽高比建议在0.062。 - 秒针图片上指针的旋转中心须处于秒针图片的中心（对角线交点）。 - 夜间时段的秒针资源请调整secondHandNightSrc参数。 |
+| secondHand | &lt;string&gt; | - | 是 | 日间时段的秒针资源路径。 - 秒针图片的高度须与表盘资源高度相同。 - 秒针图片的宽高比建议在0.062。 - 秒针图片上指针的旋转中心须处于秒针图片的中心（对角线交点）。 - 夜间时段的秒针资源请调整secondHandNight参数。 |
 | digitColor | &lt;color&gt; | #FF000000 | 否 | 日间时段（6:00-18:00）的表盘文本颜色。 |
 | digitColorNight | &lt;color&gt; | 与digitColor保持一致 | 否 | 夜间时段（18:00-次日6:00）的表盘文本颜色。 - 该属性未设置时，取digitColor的值作为digitColorNight的值（digitColor被设置时，取digitColor被设置的值）。 - 请注意缺省状态下使用digitColor的值作为digitColorNight的值时，夜间时段表盘文本颜色与夜间时段表盘背景（faceNight）的颜色配合问题。 |
 | faceNight | &lt;string&gt; | - | 否 | 夜间时段的表盘资源路径。 未设置时使用face的资源路径作为夜间时段的表盘资源路径。 |
@@ -145,4 +145,4 @@
 **2*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/NQMenFsoQEiVXe2pfQtEHQ/zh-cn_image_0000002581436570.png?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=1272ACD44DB850CBB6D213A55A0EF663A6F73E449EFF7676BBB1CC5CCDE3F311)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/fjA4aKnBR1uqNZZZC7KDJw/zh-cn_image_0000002617670723.png?HW-CC-KV=V1&HW-CC-Date=20260604T012835Z&HW-CC-Expire=86400&HW-CC-Sign=B284A2984ED6A225A917AD94C729E6B53F03D3987796616AA3377FC899C4F733)

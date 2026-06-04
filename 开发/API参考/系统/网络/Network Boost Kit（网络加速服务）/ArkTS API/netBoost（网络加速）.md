@@ -1,6 +1,6 @@
 # netBoost（网络加速）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netboost
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -30,9 +30,9 @@ setSceneDesc(sceneDesc : SceneDesc): void
  
 **需要权限：** ohos.permission.INTERNET
  
-**系统能力:** SystemCapability.Communication.NetworkBoost.Core
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
-**起始版本:** 6.0.0(20)
+**起始版本：** 6.0.0(20)
  
 **参数：**
   
@@ -82,9 +82,9 @@ setLowPowerMode(isEnable : boolean): void
  
 **需要权限：** ohos.permission.INTERNET
  
-**系统能力:** SystemCapability.Communication.NetworkBoost.Core
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
-**起始版本:** 6.1.1(24)
+**起始版本：** 6.1.1(24)
  
 **参数：**
   

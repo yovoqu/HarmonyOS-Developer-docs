@@ -1,6 +1,6 @@
 # http_interceptor_type.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-http-interceptor-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -78,10 +78,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef enum OH_Interceptor_Stage {
-    OH_STAGE_REQUEST,
-    OH_STAGE_RESPONSE
-} OH_Interceptor_Stage;
+enum OH_Interceptor_Stage
 ```
  
 **描述**
@@ -105,9 +102,7 @@ typedef enum OH_Interceptor_Stage {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef enum OH_Interceptor_Type {
-    OH_TYPE_READ_ONLY
-} OH_Interceptor_Type;
+enum OH_Interceptor_Type
 ```
  
 **描述**
@@ -130,10 +125,7 @@ typedef enum OH_Interceptor_Type {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-typedef enum OH_Interceptor_Result {
-    OH_CONTINUE,
-    OH_ABORT
-} OH_Interceptor_Result;
+enum OH_Interceptor_Result
 ```
  
 **描述**
@@ -166,7 +158,7 @@ typedef enum OH_Interceptor_Result {
 typedef OH_Interceptor_Result (*OH_Http_InterceptorHandler)(
     OH_Http_Interceptor_Request *request,
     OH_Http_Interceptor_Response *response,
-    int32_t *isModified);
+    int32_t *isModified)
 ```
  
 **描述**
@@ -181,11 +173,11 @@ typedef OH_Interceptor_Result (*OH_Http_InterceptorHandler)(
 | --- | --- |
 | OH_Http_Interceptor_Request *request | HTTP请求数据包指针（仅在请求阶段有效）。 |
 | OH_Http_Interceptor_Response *response | HTTP响应数据包指针（仅在响应阶段有效）。 |
-| int32_t *isModified | 输出参数，标识拦截器是否修改了数据包，对OH_TYPE_READ_ONLY类型拦截器不生效。 |
+| int32_t *isModified | 标识拦截器是否修改了数据包。对OH_TYPE_READ_ONLY类型拦截器无效，可配置为nullptr。 - 0表示未对数据执行修改操作。 - 非0表示已对数据执行修改操作。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Interceptor_Result | 拦截器处理结果：- OH_CONTINUE：继续处理 - OH_ABORT：拦截处理。 |
+| OH_Interceptor_Result | 拦截器处理结果。 - OH_CONTINUE：继续处理 - OH_ABORT：拦截处理 |

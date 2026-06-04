@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -27,7 +27,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 媒体变更请求，资产变更请求和相册变更请求的父类型。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/RPk60WouQbe923dJ7Z-Amg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025338Z&HW-CC-Expire=86400&HW-CC-Sign=A6B8D0DEFF2818BC11678BED3250DC9068D69585617015489EC8985A6124D653)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ER2gBlj6Rma3xHG43-HzkQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012608Z&HW-CC-Expire=86400&HW-CC-Sign=D836FB2DB2CFA63F7D8A6D4AC25E799EB8D11AE9E5BA5C4179388A150264F2B0)
 
 
 媒体变更请求必须在调用[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)后才会生效。

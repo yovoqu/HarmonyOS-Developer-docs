@@ -1,6 +1,6 @@
 # wearEngine (穿戴设备能力开放)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api
 **支持设备：** Phone | Tablet | Wearable
@@ -152,6 +152,7 @@ let request: wearEngine.AuthorizationRequest = {
   permissions: [wearEngine.Permission.USER_STATUS]
 }
 
+// 向手机用户申请需要授权的权限，返回申请的权限中用户已授权的权限，使用Promise异步回调。
 authClient.requestAuthorization(request).then(result => {
   console.info(`Succeeded in requesting authorize, authorized permissions is ${result.permissions}`);
 }).catch((error: BusinessError) => {
@@ -207,6 +208,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let authClient: wearEngine.AuthClient = wearEngine.getAuthClient(this.getUIContext().getHostContext());
 
+// 获取用户已授权的权限，使用Promise异步回调。
 authClient.getAuthorization().then(result => {
   console.info(`Succeeded in getting authorized permissions, authorized permissions is ${result.permissions}`);
 }).catch((error: BusinessError) => {
@@ -486,7 +488,7 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
 if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备且第一位即为目标设备)
+  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
   let device: wearEngine.Device = devices[0];
 
   device.isWearEngineCapabilitySupported(wearEngine.WearEngineCapability.P2P_COMMUNICATION).then((isSupportP2P) => {
@@ -554,17 +556,20 @@ import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+try {
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
+    let device: wearEngine.Device = devices[0];
 
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备且第一位即为目标设备)
-  let device: wearEngine.Device = devices[0];
-
-  device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.CBT_I).then((isSupportCBTI) => {
-    console.info(`Succeeded in checking CBTI capability, result is ${isSupportCBTI}`);
-  }).catch((error: BusinessError) => {
-    console.error(`Failed to check CBTI capability. Code is ${error.code}, message is ${error.message}`);
-  })
+    device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.CBT_I).then((isSupportCBTI) => {
+      console.info(`Succeeded in checking CBTI capability, result is ${isSupportCBTI}`);
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to check CBTI capability. Code is ${error.code}, message is ${error.message}`);
+    })
+  }
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -618,17 +623,21 @@ import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+try {
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备且第一位即为目标设备)
-  let device: wearEngine.Device = devices[0];
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
+    let device: wearEngine.Device = devices[0];
 
-  device.getSerialNumber().then((sn) => {
-    console.info(`Succeeded in getting device SN, result is ${sn}`);
-  }).catch((error: BusinessError) => {
-    console.error(`Failed to get device SN. Code is ${error.code}, message is ${error.message}`);
-  })
+    device.getSerialNumber().then((sn) => {
+      console.info(`Succeeded in getting device SN, result is ${sn}`);
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to get device SN. Code is ${error.code}, message is ${error.message}`);
+    })
+  }
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -845,17 +854,21 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let monitorClient: wearEngine.MonitorClient = wearEngine.getMonitorClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+try {
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备且第一位即为目标设备)
-  let device: wearEngine.Device = devices[0];
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
+    let device: wearEngine.Device = devices[0];
 
-  monitorClient.queryStatus(device.randomId, wearEngine.MonitorItem.WEAR_STATUS).then((result) => {
-    console.info(`Succeeded in querying wear status, result is ${result.code}.`);
-  }).catch((error: BusinessError) => {
-    console.error(`Failed to query wear status. Code is ${error.code}, message is ${error.message}.`);
-  })
+    monitorClient.queryStatus(device.randomId, wearEngine.MonitorItem.WEAR_STATUS).then((result) => {
+      console.info(`Succeeded in querying wear status, result is ${result.code}.`);
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to query wear status. Code is ${error.code}, message is ${error.message}.`);
+    })
+  }
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -923,20 +936,27 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let monitorClient: wearEngine.MonitorClient = wearEngine.getMonitorClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备且第一位即为目标设备)
-  let device: wearEngine.Device = devices[0];
+try {
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-  let callback = (monitorEventData: wearEngine.MonitorEventData) => {
-    console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`)
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
+    let device: wearEngine.Device = devices[0];
+
+    let callback = (monitorEventData: wearEngine.MonitorEventData) => {
+      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`)
+    }
+    monitorClient.subscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
+      .then(() => {
+        console.info(`Succeeded in subscribing wear status.`);
+      })
+      .catch((error: BusinessError) => {
+        console.error(`Failed to subscribe wear status. Code is ${error.code}, message is ${error.message}.`);
+      })
   }
-  monitorClient.subscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback).then(() => {
-    console.info(`Succeeded in subscribing wear status.`);
-  }).catch((error: BusinessError) => {
-    console.error(`Failed to subscribe wear status. Code is ${error.code}, message is ${error.message}.`);
-  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -1006,7 +1026,7 @@ let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 let monitorClient: wearEngine.MonitorClient = wearEngine.getMonitorClient(this.getUIContext().getHostContext());
 
 if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备且第一位即为目标设备)
+  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
   let device: wearEngine.Device = devices[0];
 
   // 解注册时回调函数需要保证和注册时为同一个对象
@@ -1234,19 +1254,29 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+let deviceList: wearEngine.Device[] = [];
 
-deviceList.forEach(async (device, idx, arr) => {
+try {
+  deviceList = await deviceClient.getConnectedDevices();
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
+
+deviceList.forEach(async (device, idx) => {
   // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 将设备侧应用包名定义为remoteBundleName
-    let remoteBundleName: string = '';
+  try {
+    if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+      // 将设备侧应用包名定义为remoteBundleName
+      let remoteBundleName: string = '';
 
-    p2pClient.isRemoteAppInstalled(device.randomId, remoteBundleName).then((isInstall) => {
-      console.info(`Succeeded in checking remote app install, result is ${isInstall}.`);
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to check remote app install. Code is ${error.code}, message is ${error.message}.`);
-    })
+      p2pClient.isRemoteAppInstalled(device.randomId, remoteBundleName).then((isInstall) => {
+        console.info(`Succeeded in checking remote app install, result is ${isInstall}.`);
+      }).catch((error: BusinessError) => {
+        console.error(`Failed to check remote app install. Code is ${error.code}, message is ${error.message}.`);
+      })
+    }
+  } catch (error) {
+    console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
   }
   if (idx === deviceList.length - 1) {
     // 若不存在目标设备则抛出错误
@@ -1403,7 +1433,7 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
 let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx, arr) => {
+deviceList.forEach(async (device, idx) => {
   // 挑选支持应用安装的设备
   if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
     // 将设备侧应用包名定义为remoteBundleName
@@ -1488,7 +1518,7 @@ let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext(
 let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
 if (devices.length > 0) {
-    // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备，第一位即为目标设备且具备相关能力)
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备，第一位即为目标设备且具备相关能力）
     let device: wearEngine.Device = devices[0];
     // 设置设备侧应用的应用信息：包名与指纹
     let remoteApp: wearEngine.AppInfo = {
@@ -1532,7 +1562,7 @@ sendMessage(deviceRandomId: string, appParam: P2pAppParam, message: P2pMessage):
 | --- | --- | --- | --- |
 | deviceRandomId | string | 是 | Device的随机标识符，用于指定本次订阅的设备。 |
 | appParam | P2pAppParam | 是 | 指定的设备侧应用参数。 |
-| message | P2pMessage | 是 | 需要传输的消息内容，取值范围：[1，4096)，单位字节。 |
+| message | P2pMessage | 是 | 需要传输的消息内容，取值范围：[1，4096)，单位Byte。 |
 
 
 **返回值：**
@@ -1571,38 +1601,48 @@ import { util } from '@kit.ArkTS';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+let deviceList: wearEngine.Device[] = [];
+try {
+  deviceList = await deviceClient.getConnectedDevices();
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 
-deviceList.forEach(async (device, idx, arr) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 设置设备侧应用的应用信息：包名与指纹
-    let appInfo: wearEngine.AppInfo = {
-      bundleName: '',
-      fingerprint: ''
-    }
-    // 将设备侧应用参数类定义为appParam
-    let appParam: wearEngine.P2pAppParam = {
-      remoteApp: appInfo
-      // transformLocalAppInfo默认为false，不转换包名指纹
-    }
+deviceList.forEach(async (device, idx) => {
+  try {
+    // 挑选支持应用安装的设备
+    if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+      // 设置设备侧应用的应用信息：包名与指纹
+      // 包名与指纹，可在华为开发者联盟可以获取
+      let appInfo: wearEngine.AppInfo = {
+        bundleName: '',
+        fingerprint: ''
+      }
+      // 将设备侧应用参数类定义为appParam
+      let appParam: wearEngine.P2pAppParam = {
+        remoteApp: appInfo
+        // transformLocalAppInfo默认为false，不转换包名指纹
+      }
 
-    // 设置需要发送的消息内容
-    let messageContent: string = 'this is message';
-    let textEncoder: util.TextEncoder = new util.TextEncoder;
-    let message: wearEngine.P2pMessage = {
-      content: textEncoder.encodeInto(messageContent)
-    }
+      // 设置需要发送的消息内容
+      let messageContent: string = 'this is message';
+      let textEncoder: util.TextEncoder = new util.TextEncoder;
+      let message: wearEngine.P2pMessage = {
+        content: textEncoder.encodeInto(messageContent)
+      }
 
-    p2pClient.sendMessage(device.randomId, appParam, message).then((p2pResult) => {
-      console.info(`Succeeded in sending message, result is ${p2pResult.code}.`);
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to send message. Code is ${error.code}, message is ${error.message}.`);
-    })
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
+      p2pClient.sendMessage(device.randomId, appParam, message).then((p2pResult) => {
+        console.info(`Succeeded in sending message, result is ${p2pResult.code}.`);
+      }).catch((error: BusinessError) => {
+        console.error(`Failed to send message. Code is ${error.code}, message is ${error.message}.`);
+      })
+    }
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  } catch (error) {
+    console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
   }
 })
 ```
@@ -1665,10 +1705,11 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
 let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx, arr) => {
+deviceList.forEach(async (device, idx) => {
   // 挑选支持应用安装的设备
   if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
     // 设置设备侧应用的应用信息：包名与指纹
+    // 包名与指纹，可在华为开发者联盟可以获取
     let appInfo: wearEngine.AppInfo = {
       bundleName: '',
       fingerprint: ''
@@ -1776,10 +1817,11 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
 let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx, arr) => {
+deviceList.forEach(async (device, idx) => {
   // 挑选支持应用安装的设备
   if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
     // 设置设备侧应用的应用信息：包名与指纹
+    // 包名与指纹，可在华为开发者联盟可以获取
     let appInfo: wearEngine.AppInfo = {
       bundleName: '',
       fingerprint: ''
@@ -1877,10 +1919,11 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
 let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx, arr) => {
+deviceList.forEach(async (device, idx) => {
   // 挑选支持应用安装的设备
   if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
     // 设置设备侧应用的应用信息：包名与指纹
+    // 包名与指纹，可在华为开发者联盟可以获取
     let appInfo: wearEngine.AppInfo = {
       bundleName: '',
       fingerprint: ''
@@ -1971,10 +2014,11 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
 let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx, arr) => {
+deviceList.forEach(async (device, idx) => {
   // 挑选支持应用安装的设备
   if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
     // 设置设备侧应用的应用信息：包名与指纹
+    // 包名与指纹，可在华为开发者联盟可以获取
     let appInfo: wearEngine.AppInfo = {
       bundleName: '',
       fingerprint: ''
@@ -2064,10 +2108,11 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
 let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx, arr) => {
+deviceList.forEach(async (device, idx) => {
   // 挑选支持应用安装的设备
   if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
     // 设置设备侧应用的应用信息：包名与指纹
+    // 包名与指纹，可在华为开发者联盟可以获取
     let appInfo: wearEngine.AppInfo = {
       bundleName: '',
       fingerprint: ''
@@ -2161,10 +2206,11 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
 let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx, arr) => {
+deviceList.forEach(async (device, idx) => {
   // 挑选支持应用安装的设备
   if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
     // 设置设备侧应用的应用信息：包名与指纹
+    // 包名与指纹，可在华为开发者联盟可以获取
     let appInfo: wearEngine.AppInfo = {
       bundleName: '',
       fingerprint: ''
@@ -2260,10 +2306,11 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
 let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx, arr) => {
+deviceList.forEach(async (device, idx) => {
   // 挑选支持应用安装的设备
   if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
     // 设置设备侧应用的应用信息：包名与指纹
+    // 包名与指纹，可在华为开发者联盟可以获取
     let appInfo: wearEngine.AppInfo = {
       bundleName: '',
       fingerprint: ''
@@ -2591,7 +2638,7 @@ let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getU
 let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
 if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备且第一位即为目标设备)
+  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
   let device: wearEngine.Device = devices[0];
 
   let button1: wearEngine.NotificationButton = {
@@ -2686,8 +2733,8 @@ onAction(feedback: NotificationFeedback): void
 | --- | --- | --- | --- | --- |
 | type | NotificationType | 否 | 否 | 通知的模板类型。 |
 | bundleName | string | 否 | 否 | 发送通知应用的包名。 |
-| title | string | 否 | 否 | 通知的标题，取值范围：[1，28)，单位字节。 |
-| text | string | 否 | 否 | 通知的内容，取值范围：[1，400)，单位字节。 |
+| title | string | 否 | 否 | 通知的标题，取值范围：[1，28)，单位Byte。 |
+| text | string | 否 | 否 | 通知的内容，取值范围：[1，400)，单位Byte。 |
 | buttons | NotificationButton[] | 否 | 是 | 通知按钮信息类，若未填写，默认为空。 |
 
 
@@ -2730,7 +2777,7 @@ onAction(feedback: NotificationFeedback): void
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | buttonId | ButtonId | 否 | 否 | 按钮Id枚举类。 |
-| content | string | 否 | 否 | 按钮上的文字内容，取值范围：[1，12)，单位字节。 |
+| content | string | 否 | 否 | 按钮上的文字内容，取值范围：[1，12)，单位Byte。 |
 
 
 
@@ -2942,17 +2989,21 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let sensorClient: wearEngine.SensorClient = wearEngine.getSensorClient(this.getUIContext().getHostContext());
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+try {
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备且第一位即为目标设备)
-  let device: wearEngine.Device = devices[0];
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
+    let device: wearEngine.Device = devices[0];
 
-  sensorClient.getSensorList(device.randomId).then((sensorList) => {
-    console.info(`Succeeded in getting sensor list, result is ${sensorList}`);
-  }).catch((error: BusinessError) => {
-    console.error(`Failed to get sensor list. Code is ${error.code}, message is ${error.message}`);
-  })
+    sensorClient.getSensorList(device.randomId).then((sensorList) => {
+      console.info(`Succeeded in getting sensor list, result is ${sensorList}`);
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to get sensor list. Code is ${error.code}, message is ${error.message}`);
+    })
+  }
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -3019,25 +3070,34 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let sensorClient: wearEngine.SensorClient = wearEngine.getSensorClient(this.getUIContext().getHostContext());
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+let devices: wearEngine.Device[] = [];
+try {
+  devices = await deviceClient.getConnectedDevices();
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 
 if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备，第一位即为目标设备且具备相关能力)
+  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备，第一位即为目标设备且具备相关能力）
   let device: wearEngine.Device = devices[0];
-  let sensorList: wearEngine.Sensor[] = await sensorClient.getSensorList(device.randomId);
-  sensorList.forEach((sensor, idx, arr) => {
-    if (sensor.type === wearEngine.SensorType.ACCELEROMETER) {
-      let callback = (sensorResult: wearEngine.SensorResult) => {
-        console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
-      }
+  try {
+    let sensorList: wearEngine.Sensor[] = await sensorClient.getSensorList(device.randomId);
+    sensorList.forEach((sensor) => {
+      if (sensor.type === wearEngine.SensorType.ACCELEROMETER) {
+        let callback = (sensorResult: wearEngine.SensorResult) => {
+          console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
+        }
       // 订阅加速度传感器数据上报
-      sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
-        console.info(`Succeeded in subscribing sensor data.`);
-      }).catch((error: BusinessError) => {
-        console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-      })
-    }
-  })
+        sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
+          console.info(`Succeeded in subscribing sensor data.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+        })
+      }
+    })
+  } catch (error) {
+    console.error(`Failed to get sensor list. Code is ${error.code}, message is ${error.message}`);
+  }
 }
 ```
 
@@ -3103,31 +3163,40 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let sensorClient: wearEngine.SensorClient = wearEngine.getSensorClient(this.getUIContext().getHostContext());
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+let devices: wearEngine.Device[] = [];
+try {
+  devices = await deviceClient.getConnectedDevices();
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 
 if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device(假设数组中存在已连接设备，第一位即为目标设备且具备相关能力)
+  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备，第一位即为目标设备且具备相关能力）
   let device: wearEngine.Device = devices[0];
-  let sensorList: wearEngine.Sensor[] = await sensorClient.getSensorList(device.randomId);
-  sensorList.forEach((sensor, idx, arr) => {
-    if (sensor.type === wearEngine.SensorType.ACCELEROMETER) {
-      let callback = (sensorResult: wearEngine.SensorResult) => {
-        console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
+  try {
+    let sensorList: wearEngine.Sensor[] = await sensorClient.getSensorList(device.randomId);
+    sensorList.forEach((sensor) => {
+      if (sensor.type === wearEngine.SensorType.ACCELEROMETER) {
+        let callback = (sensorResult: wearEngine.SensorResult) => {
+          console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
+        }
+        // 订阅加速度传感器数据上报
+        sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
+          console.info(`Succeeded in subscribing sensor data.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+        })
+        // 取消加速度传感器数据上报，注意传入的回调函数需与订阅时为同一对象
+        sensorClient.unsubscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
+          console.info(`Succeeded in unsubscribing sensor data.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to unsubscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+        })
       }
-      // 订阅加速度传感器数据上报
-      sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
-        console.info(`Succeeded in subscribing sensor data.`);
-      }).catch((error: BusinessError) => {
-        console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-      })
-      // 取消加速度传感器数据上报, 注意传入的回调函数需与订阅时为同一对象
-      sensorClient.unsubscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
-        console.info(`Succeeded in unsubscribing sensor data.`);
-      }).catch((error: BusinessError) => {
-        console.error(`Failed to unsubscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-      })
-    }
-  })
+    })
+  } catch (error) {
+    console.error(`Failed to get sensor list. Code is ${error.code}, message is ${error.message}`);
+  }
 }
 ```
 
@@ -3174,7 +3243,7 @@ if (devices.length > 0) {
 | name | string | 否 | 否 | 传感器名称。 |
 | id | number | 否 | 否 | 传感器ID。 |
 | type | SensorType | 否 | 否 | 传感器类型。 |
-| accuracy | number | 否 | 是 | 传感器采样周期，单位毫秒。 |
+| accuracy | number | 否 | 是 | 传感器采样周期，单位ms。 |
 | resolution | number | 否 | 是 | 传感器分辨率，当前仅作为Sensor对象的返回值信息。 |
 | isUtcTimestampSupported | boolean | 否 | 否 | 传感器是否支持UTC（ Coordinated Universal Time）时间戳。true：支持，false：不支持。 |
 
@@ -3198,8 +3267,8 @@ if (devices.length > 0) {
 | sensorType | SensorType | 否 | 否 | 传感器类型。 |
 | data | number[] | 否 | 否 | 数据内容，格式及含义请参考穿戴设备传感器数据格式及样例。 |
 | channel | number | 否 | 是 | 传感器通道ID，为大于0的整数。 |
-| timestamp | number | 否 | 是 | 计时时间戳。 |
-| utcTimestamp | number | 否 | 是 | UTC时间戳。 |
+| timestamp | number | 否 | 是 | 计时时间戳，单位ms。 |
+| utcTimestamp | number | 否 | 是 | UTC时间戳，单位ms。 |
 
 
 
@@ -3208,7 +3277,7 @@ if (devices.length > 0) {
 
 **支持设备：** Phone | Tablet | Wearable
 
-传感器类型。
+传感器上报结果错误码。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -3271,7 +3340,7 @@ on(type: 'serviceDie', callback: Callback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 监听的事件类型，仅支持serviceDie(服务端消亡事件)。 |
+| type | string | 是 | 监听的事件类型，仅支持serviceDie，表示服务端消亡事件。 |
 | callback | Callback&lt;void&gt; | 是 | 回调函数，无返回结果。 |
 
 
@@ -3324,7 +3393,7 @@ off(type: 'serviceDie', callback?: Callback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | string | 是 | 监听的事件类型，仅支持serviceDie(服务端消亡事件)。 |
+| type | string | 是 | 监听的事件类型，仅支持serviceDie，表示服务端消亡事件。 |
 | callback | Callback&lt;void&gt; | 否 | 回调函数，无返回结果。 需要同订阅监听时的回调函数为同一个对象。 当该参数为空时，会取消掉之前所有的订阅。 |
 
 

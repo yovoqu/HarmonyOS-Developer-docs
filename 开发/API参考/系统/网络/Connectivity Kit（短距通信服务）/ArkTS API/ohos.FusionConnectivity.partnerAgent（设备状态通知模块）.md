@@ -1,6 +1,6 @@
 # @ohos.FusionConnectivity.partnerAgent（设备状态通知模块）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragent
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -8,9 +8,9 @@
 本模块基于蓝牙通信技术，为应用提供设备发现与设备下线的通知功能，主要功能特性包括：
 
  - 动态监听并发现应用预先注册的蓝牙设备。
- - 采用进程拉起机制，当目标设备出现时自动拉起应用的[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-fusionconnectivity-partneragentextensionability)进程。
- - 采用进程销毁机制，当所有设备下线时自动销毁应用的[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-fusionconnectivity-partneragentextensionability)进程。
- - 通过[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-fusionconnectivity-partneragentextensionability)的接口通知应用发现已注册设备。
+ - 采用进程拉起机制，当目标设备出现时自动拉起应用的[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability)进程。
+ - 采用进程销毁机制，当所有设备下线时自动销毁应用的[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability)进程。
+ - 通过[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability)的接口通知应用发现已注册设备。
 
 
 > [!NOTE]
@@ -67,8 +67,8 @@ bindDevice(deviceAddress: PartnerDeviceAddress, deviceCapability: DeviceCapabili
 
  - 建议先使用[isPartnerAgentSupported](#partneragentispartneragentsupported)判断本机是否支持外设互通功能。仅支持情况下才能使用融合短距外设互通模块功能。
  - 可以通过接口[isDeviceBound](#partneragentisdevicebound)判断设备是否已注册。若已注册，无需重复调用。
- - 应用需要先实现[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-fusionconnectivity-partneragentextensionability)。
- - 应用注册该设备后，如果外设互通子系统检测到该设备，会激活应用的[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-fusionconnectivity-partneragentextensionability)进程。应用可以在新进程中执行业务操作。每当已注册设备被发现或者已断连时，该进程将被激活并保持运行3分钟（时间随着新的通知刷新）。
+ - 应用需要先实现[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability)。
+ - 应用注册该设备后，如果外设互通子系统检测到该设备，会激活应用的[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability)进程。应用可以在新进程中执行业务操作。每当已注册设备被发现或者已断连时，该进程将被激活并保持运行3分钟（时间随着新的通知刷新）。
  - 在应用注册前，需先与该设备完成[蓝牙配对](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-connection#connectionpairdevice)。如果该设备已注册，且用户在此期间取消了与该设备的配对，该设备的发现和下线通知功能将自动关闭，但注册信息会保留30天。若在这30天内重新与该设备进行蓝牙配对，外设互通子系统可以恢复设备的发现和下线通知功能。否则，注册信息会被清除。
  - 可以通过接口[getBoundDevices](#partneragentgetbounddevices)获取所有已注册过的设备。
  - 应用在使用该接口前，建议提示用户并获取应用注册该设备的授权。
@@ -153,7 +153,7 @@ unbindDevice(deviceAddress: PartnerDeviceAddress): Promise&lt;void&gt;
 
 应用解注册设备，使用Promise异步回调。
 
- - 调用本接口进行解注册后，应用的[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/is-fusionconnectivity-partneragentextensionability)进程将不再接收此设备的发现和下线状态通知。
+ - 调用本接口进行解注册后，应用的[PartnerAgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-fusionconnectivity-partneragentextensionability)进程将不再接收此设备的发现和下线状态通知。
  - 应用解注册的设备需是已通过[bindDevice](#partneragentbinddevice)接口注册过的设备，建议与bindDevice接口成对使用。
  - 建议使用前通过接口[isDeviceBound](#partneragentisdevicebound)判断设备是否已注册。若已注册，可调用该接口。
 

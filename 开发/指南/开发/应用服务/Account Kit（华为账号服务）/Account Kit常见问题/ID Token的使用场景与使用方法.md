@@ -1,6 +1,6 @@
 # ID Token的使用场景与使用方法
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-faq-12
 
@@ -298,6 +298,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 decodeBase64(data: string): string {
   return buffer.from(data, 'base64').toString('utf8');
 }
+
 // 解析ID Token并验证
 decodeIdToken(idToken: string): void {
   const parts = idToken.split('.');
@@ -315,6 +316,7 @@ decodeIdToken(idToken: string): void {
   // 从负载中解析出nonce等数据
   const payLoad: Record<string, string> = idTokenObj['payload'] as Record<string, string>;
   const nonce: string = payLoad['nonce'];
+  // nonce可用于与请求体属性中的nonce作一致性比对，防止重放攻击
   // 应用Client ID，使用前请替换
   const CLIENT_ID: string = '<应用Client ID>';
   const ID_TOKEN_ISSUE: string = 'https://accounts.huawei.com';
@@ -342,6 +344,7 @@ private stringToUint8Array(str: string): Uint8Array {
   const tmpUint8Array: Uint8Array = new Uint8Array(arr);
   return tmpUint8Array;
 }
+
 // 验签方法
 private checkSignature(idToken: string, kid: string, alg: string) {
   if (!idToken) {
@@ -362,7 +365,7 @@ private checkSignature(idToken: string, kid: string, alg: string) {
     }
     let nStr = '';
     let eStr = '';
-    const keys: object[] = JSON.parse(data.result as string)["keys"];
+    const keys: object[] = JSON.parse(data.result as string)['keys'];
     for (let item of keys) {
       if (kid === item['kid']) {
         nStr = item['n'];
@@ -370,40 +373,45 @@ private checkSignature(idToken: string, kid: string, alg: string) {
         break;
       }
     }
-    const nBigInt = '0x' + buffer.from(nStr, "base64url").toString('hex');
-    const eBigInt = '0x' + buffer.from(eStr, "base64url").toString('hex');
+    const nBigInt = '0x' + buffer.from(nStr, 'base64url').toString('hex');
+    const eBigInt = '0x' + buffer.from(eStr, 'base64url').toString('hex');
     const dsaCommonSpec: cryptoFramework.RSACommonParamsSpec = {
-      algName: "RSA",
+      algName: 'RSA',
       specType: cryptoFramework.AsyKeySpecType.COMMON_PARAMS_SPEC,
       n: BigInt(nBigInt),
     }
     const rsaKeyPairSpec: cryptoFramework.RSAPubKeySpec = {
-      algName: "RSA",
+      algName: 'RSA',
       specType: cryptoFramework.AsyKeySpecType.PUBLIC_KEY_SPEC,
       params: dsaCommonSpec,
       pk: BigInt(eBigInt),
     }
-    const asyKeyGeneratorBySpec = cryptoFramework.createAsyKeyGeneratorBySpec(rsaKeyPairSpec);
-    asyKeyGeneratorBySpec.generatePubKey(async (error, publicKey) => {
-      if (error) {
-        return;
-      }
-      if (publicKey === null) {
-        return;
-      }
-      const idTokenSign = parts[2];
-      const idTokenSignArr: cryptoFramework.DataBlob = { data: new Uint8Array(buffer.from(idTokenSign, "base64url").buffer) };
-      const idToken = parts[0] + '.' + parts[1];
-      const idTokenArr: cryptoFramework.DataBlob = { data: this.stringToUint8Array(idToken) };
-      const verifier = alg === 'PS256' ? cryptoFramework.createVerify("RSA2048|PSS|SHA256|MGF1_SHA256")
-        : cryptoFramework.createVerify("RSA2048|PKCS1|SHA256");
-      verifier.init(publicKey, (initErr, result) => {
-        verifier.verify(idTokenArr, idTokenSignArr, (verifyErr, data) => {
-          // 打印验签结果，结果为true则验签通过
-          hilog.info(0x0000, 'testTag', 'verify result is: %{public}s', data);
+    try {
+      const asyKeyGeneratorBySpec = cryptoFramework.createAsyKeyGeneratorBySpec(rsaKeyPairSpec);
+      asyKeyGeneratorBySpec.generatePubKey((error, publicKey) => {
+        if (error) {
+          return;
+        }
+        if (publicKey === null) {
+          return;
+        }
+        const idTokenSign = parts[2];
+        const idTokenSignArr: cryptoFramework.DataBlob =
+          { data: new Uint8Array(buffer.from(idTokenSign, 'base64url').buffer) };
+        const idToken = parts[0] + '.' + parts[1];
+        const idTokenArr: cryptoFramework.DataBlob = { data: this.stringToUint8Array(idToken) };
+        const verifier = alg === 'PS256' ? cryptoFramework.createVerify('RSA2048|PSS|SHA256|MGF1_SHA256') :
+          cryptoFramework.createVerify('RSA2048|PKCS1|SHA256');
+        verifier.init(publicKey, () => {
+          verifier.verify(idTokenArr, idTokenSignArr, (data) => {
+            // 打印验签结果，结果为true则验签通过
+            hilog.info(0x0000, 'testTag', 'verify result is: %{public}s', data);
+          });
         });
-      });
-    })
+      })
+    } catch (err) {
+      hilog.error(0x0000, 'testTag', `Failed to verify. Code: ${err.code}, message: ${err.message}`);
+    }
     httpRequest.destroy();
   });
 }

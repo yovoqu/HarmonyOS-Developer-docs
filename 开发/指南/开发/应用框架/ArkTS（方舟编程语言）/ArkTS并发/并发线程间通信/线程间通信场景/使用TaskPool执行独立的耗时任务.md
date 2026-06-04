@@ -1,6 +1,6 @@
 # 使用TaskPool执行独立的耗时任务
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/independent-time-consuming-task
 

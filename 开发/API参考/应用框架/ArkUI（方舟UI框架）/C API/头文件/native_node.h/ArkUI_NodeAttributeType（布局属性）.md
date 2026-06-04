@@ -1,13 +1,13 @@
 # ArkUI_NodeAttributeType（布局属性）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/i-native-node-h-nodeattributetype-layoutattributes
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-layoutattributes
 
 ```text
 enum ArkUI_NodeAttributeType
 ```
- 
+  
 
 #### 概述
 
@@ -19,7 +19,7 @@ enum ArkUI_NodeAttributeType
  
 **所在头文件：** [native_node.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h)
  
- 
+  
 
 #### NODE_WIDTH
 
@@ -47,7 +47,7 @@ NODE_WIDTH = 0
 | .value[0].f32 | 宽度数值，单位为vp。 |
  
  
- 
+  
 
 #### NODE_HEIGHT
 
@@ -75,7 +75,7 @@ NODE_HEIGHT = 1
 | .value[0].f32 | 高度数值，单位为vp。 |
  
  
- 
+  
 
 #### NODE_PADDING
 
@@ -91,7 +91,7 @@ NODE_PADDING = 4
  
 **参数：**
  
-1：上下左右四个位置的内间距值相等。
+只传入一个参数，表示上下左右四个位置的内间距值相等。
   
 | 参数项 | 描述 |
 | --- | --- |
@@ -118,7 +118,7 @@ NODE_PADDING = 4
 | .value[3].f32 | 左内间距数值，单位为vp。 |
  
  
- 
+  
 
 #### NODE_MARGIN
 
@@ -134,7 +134,9 @@ NODE_MARGIN = 7
  
 **参数：**
  
-1：上下左右四个位置的外间距值相等。
+支持传入一个或四个参数：
+ 
+只传入一个参数，表示上下左右四个位置的外间距值相等。
   
 | 参数项 | 描述 |
 | --- | --- |
@@ -161,7 +163,7 @@ NODE_MARGIN = 7
 | .value[3].f32 | 左外间距数值，单位为vp。 |
  
  
- 
+  
 
 #### NODE_ALIGNMENT
 
@@ -189,7 +191,7 @@ NODE_ALIGNMENT = 15
 | .value[0].i32 | 对齐方式，参数类型ArkUI_Alignment。 |
  
  
- 
+  
 
 #### NODE_BORDER_WIDTH
 
@@ -205,14 +207,16 @@ NODE_BORDER_WIDTH = 17
  
 **参数：**
  
-1.统一设置四条边的边框宽度。
+支持传入一个或四个参数：
+ 
+只传入一个参数，表示统一设置四条边的边框宽度。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 统一设置四条边的边框宽度。 |
+| .value[0].f32 | 统一设置四条边的边框宽度。 |
  
  
-2.分别设置四条边的边框宽度。
+传入四个参数，表示分别设置四条边的边框宽度。
   
 | 参数项 | 描述 |
 | --- | --- |
@@ -232,7 +236,7 @@ NODE_BORDER_WIDTH = 17
 | .value[3].f32 | 设置左边框的边框宽度。 |
  
  
- 
+  
 
 #### NODE_BORDER_RADIUS
 
@@ -248,14 +252,16 @@ NODE_BORDER_RADIUS = 18
  
 **参数：**
  
-1.统一设置四条边的边框圆角。
+支持传入一个或四个参数：
+ 
+只传入一个参数，表示统一设置四条边的边框圆角。
   
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].f32 | 统一设置四条边的边框圆角。 |
  
  
-2.统一设置四条边的边框圆角。
+传入四个参数，表示分别设置四条边的边框圆角。
   
 | 参数项 | 描述 |
 | --- | --- |
@@ -275,7 +281,7 @@ NODE_BORDER_RADIUS = 18
 | .value[3].f32 | 设置右下角圆角半径。 |
  
  
- 
+  
 
 #### NODE_BORDER_COLOR
 
@@ -291,14 +297,16 @@ NODE_BORDER_COLOR = 19
  
 **参数：**
  
-1.统一设置四条边的边框颜色。
+支持传入一个或四个参数：
+ 
+只传入一个参数，表示统一设置四条边的边框颜色。
   
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].u32 | 统一设置四条边的边框颜色，使用0xargb表示，如0xFFFF11FF。 |
  
  
-2.分别设置四条边的边框颜色。
+传入四个参数，表示分别设置四条边的边框颜色。
   
 | 参数项 | 描述 |
 | --- | --- |
@@ -318,7 +326,7 @@ NODE_BORDER_COLOR = 19
 | .value[3].u32 | 设置左侧边框颜色，使用0xargb表示，如0xFFFF11FF。 |
  
  
- 
+  
 
 #### NODE_BORDER_STYLE
 
@@ -334,14 +342,16 @@ NODE_BORDER_STYLE = 20
  
 **参数：**
  
-1.统一设置四条边的边框线条样式。
+支持传入一个或四个参数：
+ 
+只传入一个参数，表示统一设置四条边的边框线条样式。
   
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 统一设置四条边的边框线条样式，参数类型ArkUI_BorderStyle，默认值为ARKUI_BORDER_STYLE_SOLID。 |
  
  
-2.分别设置四条边的边框线条样式。
+传入四个参数，表示分别设置四条边的边框线条样式。
   
 | 参数项 | 描述 |
 | --- | --- |
@@ -361,7 +371,7 @@ NODE_BORDER_STYLE = 20
 | .value[3].i32 | 左侧边框线条样式对应的数值。 |
  
  
- 
+  
 
 #### NODE_POSITION
 
@@ -391,7 +401,7 @@ NODE_POSITION = 27
 | .value[1].f32 | y轴坐标。 |
  
  
- 
+  
 
 #### NODE_DIRECTION
 
@@ -419,7 +429,7 @@ NODE_DIRECTION = 47
 | .value[0].i32 | 主轴方向，参数类型ArkUI_Direction。 |
  
  
- 
+  
 
 #### NODE_CONSTRAINT_SIZE
 
@@ -453,7 +463,7 @@ NODE_CONSTRAINT_SIZE = 48
 | .value[3].f32 | 最大高度，单位为vp。 |
  
  
- 
+  
 
 #### NODE_OFFSET
 
@@ -483,7 +493,7 @@ NODE_OFFSET = 54
 | .value[1].f32 | y轴偏移量，单位为vp。 |
  
  
- 
+  
 
 #### NODE_MARK_ANCHOR
 
@@ -513,7 +523,7 @@ NODE_MARK_ANCHOR = 55
 | .value[1].f32 | 锚点y轴坐标，单位为vp。 |
  
  
- 
+  
 
 #### NODE_ALIGN_RULES
 
@@ -541,7 +551,7 @@ NODE_ALIGN_RULES = 57
 | .object | 相对容器中子组件的对齐规则，参数类型为ArkUI_AlignmentRuleOption。 |
  
  
- 
+  
 
 #### NODE_ALIGN_SELF
 
@@ -569,7 +579,7 @@ NODE_ALIGN_SELF = 58
 | .value[0].i32 | 子组件在父容器交叉轴上的对齐方式，参数类型ArkUI_ItemAlignment。 |
  
  
- 
+  
 
 #### NODE_FLEX_GROW
 
@@ -597,7 +607,7 @@ NODE_FLEX_GROW = 59
 | .value[0].f32 | 组件在父容器剩余空间中所占比例。 |
  
  
- 
+  
 
 #### NODE_FLEX_SHRINK
 
@@ -625,7 +635,7 @@ NODE_FLEX_SHRINK = 60
 | .value[0].f32 | 父容器压缩尺寸分配给当前组件的比例。 |
  
  
- 
+  
 
 #### NODE_FLEX_BASIS
 
@@ -653,7 +663,7 @@ NODE_FLEX_BASIS = 61
 | .value[0].f32 | 组件在父容器主轴上的基准尺寸。 |
  
  
- 
+  
 
 #### NODE_ASPECT_RATIO
 
@@ -681,7 +691,7 @@ NODE_ASPECT_RATIO = 67
 | .value[0].f32 | 组件宽高比，格式为宽度/高度。 |
  
  
- 
+  
 
 #### NODE_LAYOUT_WEIGHT
 
@@ -709,7 +719,7 @@ Row/Column/Flex布局下的子组件布局权重参数，支持属性设置、�
 | .value[0].u32 | 组件在主轴上的布局权重。 |
  
  
- 
+  
 
 #### NODE_DISPLAY_PRIORITY
 
@@ -739,7 +749,7 @@ Row/Column/Flex（单行）布局下的子组件在布局容器中显示的优�
 | .value[0].u32 | 组件在布局容器中的显示优先级。 |
  
  
- 
+  
 
 #### NODE_OUTLINE_WIDTH
 
@@ -773,7 +783,7 @@ NODE_OUTLINE_WIDTH = 70
 | .value[3].f32 | 下侧外描边宽度，单位为vp。 |
  
  
- 
+  
 
 #### NODE_WIDTH_PERCENT
 
@@ -801,7 +811,7 @@ NODE_WIDTH_PERCENT = 71
 | .value[0].f32 | 宽度数值，单位为百分比。 |
  
  
- 
+  
 
 #### NODE_HEIGHT_PERCENT
 
@@ -829,7 +839,7 @@ NODE_HEIGHT_PERCENT = 72
 | .value[0].f32 | 高度数值，单位为百分比。 |
  
  
- 
+  
 
 #### NODE_PADDING_PERCENT
 
@@ -844,11 +854,21 @@ NODE_PADDING_PERCENT = 73
 **起始版本：** 12
  
 **参数：**
+ 
+支持传入一个或四个参数：
+ 
+只传入一个参数，表示统一设置四条边的内间距数值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 上下左右四个位置的内间距值相等时的内间距数值，单位为百分比。 |
-| 2. .value[0].f32 | 上内间距数值，单位为百分比。 |
+| .value[0].f32 | 上下左右四个位置的内间距值相等时的内间距数值，单位为百分比。 |
+ 
+ 
+传入四个参数，表示分别设置四条边的内间距数值。
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 上内间距数值，单位为百分比。 |
 | .value[1].f32 | 右内间距数值，单位为百分比。 |
 | .value[2].f32 | 下内间距数值，单位为百分比。 |
 | .value[3].f32 | 左内间距数值，单位为百分比。 |
@@ -864,7 +884,7 @@ NODE_PADDING_PERCENT = 73
 | .value[3].f32 | 左内间距数值，单位为百分比。 |
  
  
- 
+  
 
 #### NODE_MARGIN_PERCENT
 
@@ -879,11 +899,21 @@ NODE_MARGIN_PERCENT = 74
 **起始版本：** 12
  
 **参数：**
+ 
+支持传入一个或四个参数：
+ 
+只传入一个参数，表示统一设置四条边的外间距数值。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 上下左右四个位置的外间距值相等时的外间距数值，单位为百分比。 |
-| 2. .value[0].f32 | 上外间距数值，单位为百分比。 |
+| .value[0].f32 | 上下左右四个位置的外间距值相等时的外间距数值，单位为百分比。 |
+ 
+ 
+传入四个参数，表示分别设置四条边的外间距数值。
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 上外间距数值，单位为百分比。 |
 | .value[1].f32 | 右外间距数值，单位为百分比。 |
 | .value[2].f32 | 下外间距数值，单位为百分比。 |
 | .value[3].f32 | 左外间距数值，单位为百分比。 |
@@ -899,7 +929,7 @@ NODE_MARGIN_PERCENT = 74
 | .value[3].f32 | 左外间距数值，单位为百分比。 |
  
  
- 
+  
 
 #### NODE_RELATIVE_LAYOUT_CHAIN_MODE
 
@@ -929,7 +959,7 @@ NODE_RELATIVE_LAYOUT_CHAIN_MODE = 76
 | .value[1].i32 | 链的样式。枚举ArkUI_RelativeLayoutChainStyle。 |
  
  
- 
+  
 
 #### NODE_SIZE
 
@@ -959,7 +989,7 @@ NODE_SIZE = 79
 | .value[1].f32 | 高度数值，单位为vp。 |
  
  
- 
+  
 
 #### NODE_LAYOUT_RECT
 
@@ -993,7 +1023,7 @@ NODE_LAYOUT_RECT = 83
 | .value[3].i32 | 组件高度，单位为px。 |
  
  
- 
+  
 
 #### NODE_BORDER_WIDTH_PERCENT
 
@@ -1008,11 +1038,21 @@ NODE_BORDER_WIDTH_PERCENT = 85
 **起始版本：** 12
  
 **参数：**
+ 
+支持传入一个或四个参数：
+ 
+只传入一个参数，表示统一设置四条边的边框宽度，单位为百分比。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 统一设置四条边的边框宽度，单位为百分比。 |
-| 2. .value[0].f32 | 设置上边框的边框宽度，单位为百分比。 |
+| .value[0].f32 | 统一设置四条边的边框宽度，单位为百分比。 |
+ 
+ 
+传入四个参数，表示分别设置四条边的边框宽度，单位为百分比。
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 设置上边框的边框宽度，单位为百分比。 |
 | .value[1].f32 | 设置右边框的边框宽度，单位为百分比。 |
 | .value[2].f32 | 设置下边框的边框宽度，单位为百分比。 |
 | .value[3].f32 | 设置左边框的边框宽度，单位为百分比。 |
@@ -1028,7 +1068,7 @@ NODE_BORDER_WIDTH_PERCENT = 85
 | .value[3].f32 | 设置左边框的边框宽度，单位为百分比。 |
  
  
- 
+  
 
 #### NODE_BORDER_RADIUS_PERCENT
 
@@ -1043,11 +1083,21 @@ NODE_BORDER_RADIUS_PERCENT = 86
 **起始版本：** 12
  
 **参数：**
+ 
+支持传入一个或四个参数：
+ 
+只传入一个参数，表示统一设置四条边的边框圆角半径，单位为百分比。
   
 | 参数项 | 描述 |
 | --- | --- |
-| 1. .value[0].f32 | 统一设置四条边的边框圆角半径，单位为百分比。 |
-| 2. .value[0].f32 | 设置左上角圆角半径，单位为百分比。 |
+| .value[0].f32 | 统一设置四条边的边框圆角半径，单位为百分比。 |
+ 
+ 
+传入四个参数，表示分别设置四条边的边框圆角半径，单位为百分比。
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].f32 | 设置左上角圆角半径，单位为百分比。 |
 | .value[1].f32 | 设置右上角圆角半径，单位为百分比。 |
 | .value[2].f32 | 设置左下角圆角半径，单位为百分比。 |
 | .value[3].f32 | 设置右下角圆角半径，单位为百分比。 |
@@ -1063,7 +1113,7 @@ NODE_BORDER_RADIUS_PERCENT = 86
 | .value[3].f32 | 设置右下角圆角半径，单位为百分比。 |
  
  
- 
+  
 
 #### NODE_WIDTH_LAYOUTPOLICY
 
@@ -1091,7 +1141,7 @@ NODE_WIDTH_LAYOUTPOLICY = 105
 | .value[0].i32 | 布局策略，参数类型ArkUI_LayoutPolicy。 |
  
  
- 
+  
 
 #### NODE_HEIGHT_LAYOUTPOLICY
 
@@ -1119,7 +1169,7 @@ NODE_HEIGHT_LAYOUTPOLICY = 106
 | .value[0].i32 | 布局策略，参数类型ArkUI_LayoutPolicy。 |
  
  
- 
+  
 
 #### NODE_POSITION_EDGES
 
@@ -1147,7 +1197,7 @@ NODE_POSITION_EDGES = 107
 | .object | 组件相对容器内容区边界的位置，参数类型为ArkUI_PositionEdges。 |
  
  
- 
+  
 
 #### NODE_CHAIN_WEIGHT
 
@@ -1177,7 +1227,7 @@ NODE_CHAIN_WEIGHT = 118
 | .value[1].f32 | 组件在竖直方向的布局权重。 |
  
  
- 
+  
 
 #### NODE_IGNORE_LAYOUT_SAFE_AREA
 
@@ -1207,7 +1257,7 @@ NODE_IGNORE_LAYOUT_SAFE_AREA = 119
 | .value[1].u32 | 扩展安全区域的方向。 |
  
  
- 
+  
 
 #### NODE_DASH_WIDTH
 
@@ -1241,7 +1291,7 @@ NODE_DASH_WIDTH = 120
 | .value[3].f32 | 左边框虚线的长度，单位vp。 |
  
  
- 
+  
 
 #### NODE_DASH_GAP
 
@@ -1275,7 +1325,7 @@ NODE_DASH_GAP = 121
 | .value[3].f32 | 左边框虚线的间隙，单位vp。 |
  
  
- 
+  
 
 #### NODE_LAYOUT_GRAVITY
 
@@ -1303,7 +1353,7 @@ NODE_LAYOUT_GRAVITY = 122
 | .value[0].i32 | Stack容器中子组件的对齐规则。参数类型为ArkUI_LocalizedAlignment。 |
  
  
- 
+  
 
 #### NODE_BORDER_RADIUS_TYPE
 

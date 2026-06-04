@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-04-20 06:33:01
+更新时间：2026-06-01 08:32:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-610
 
@@ -157,7 +157,7 @@ AVCodec新增支持AV1/VP9/VP8/RV30/RV40/WVC1/DVVIDEO/RAWVIDEO/MPEG1格式的视
 #### Call Service Kit
 
 - 新增支持查询应用是否有企业来电显示权限以及获取陌生号码与信息识别开关状态、应用号码识别开关状态。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/callservicekit-numberldentify)）
-- 新增支持跳转陌生号码和信息识别设置页面能力。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/callservice-enterprise-contact-display#应用跳转陌生号码和信息识别页面)）
+- 新增支持跳转陌生号码和信息识别设置页面能力。（[指南](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/callservice-enterprise-app-redirection)）
 
  
  

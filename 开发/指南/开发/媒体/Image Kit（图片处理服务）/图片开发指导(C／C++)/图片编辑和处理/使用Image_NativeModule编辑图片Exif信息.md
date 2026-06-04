@@ -1,6 +1,6 @@
 # 使用Image_NativeModule编辑图片Exif信息
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-tool-c
 
@@ -120,12 +120,16 @@ napi_value GetImageProperty(napi_env env, napi_callback_info info)
     Image_String getKey;
     getKey.data = key;
     getKey.size = keySize;
-    Image_String getValue;
+    Image_String getValue = {nullptr, 0};
     OH_LOG_INFO(LOG_APP, "OH_ImageSourceNative_GetImageProperty key: %{public}s.", getKey.data);
     Image_ErrorCode errCode = OH_ImageSourceNative_GetImagePropertyWithNull(g_thisImageSource->source,
                                                                             &getKey, &getValue);
     if (errCode != IMAGE_SUCCESS) {
         OH_LOG_ERROR(LOG_APP, "OH_ImageSourceNative_GetImageProperty failed, errCode: %{public}d.", errCode);
+        if (getValue.data != nullptr) {
+            free(getValue.data);
+            getValue.data = nullptr;
+        }
         return GetJsResult(env, errCode);
     }
     napi_value resultNapi = nullptr;

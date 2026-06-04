@@ -1,6 +1,6 @@
 # Function Flow Runtime图依赖并发(C++)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ffrt-concurrency-graph-cpp
 
@@ -86,12 +86,12 @@ task5(OUT A);
 用户上传视频到流媒体平台，处理步骤包含：视频解析A、视频转码B、视频缩略图生成C、视频水印添加D和视频发布E，其中步骤B和步骤C可以并行执行。任务流程如下图所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0d/v3/qqIwxuuuT2WZHZKB7jDayA/zh-cn_image_0000002611754483.png?HW-CC-KV=V1&HW-CC-Date=20260528T030221Z&HW-CC-Expire=86400&HW-CC-Sign=AEE3CD5D6492CDDA20BDDCA810B8B6C6772FB1E598E21F8169A13EF94271B031)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/39/v3/F08c02uATSangaC17V8ZPQ/zh-cn_image_0000002587108950.png?HW-CC-KV=V1&HW-CC-Date=20260604T012920Z&HW-CC-Expire=86400&HW-CC-Sign=5E9F033A4B3F6348955FDEF5CF966B3316BA491E3BD1181D687C80158741F9BF)
 
  
 借助FFRT提供了图依赖并发范式，可以描述任务依赖关系，同时并行化上述视频处理流程，代码如下所示：
  
-```text
+```cpp
 #include <iostream>
 #include "hilog/log.h"
 #include "ffrt/ffrt.h" // 来自 OpenHarmony 第三方库 "@ppd/ffrt"
@@ -100,7 +100,7 @@ task5(OUT A);
 #define LOG_TAG "ParallelCppTag"
 ```
  
-```text
+```cpp
 const int FIB_NUM = 5;
 
 int DependenceCppExec()
@@ -134,7 +134,7 @@ int DependenceCppExec()
 
 斐波那契数列中每个数字是前两个数字之和，计算斐波那契数的过程可以很好地通过数据对象来表达任务依赖关系。使用FFRT并发编程框架计算斐波那契数的代码如下所示：
  
-```text
+```cpp
 #include <iostream>
 #include "hilog/log.h"
 #include "ffrt/ffrt.h" // 来自 OpenHarmony 第三方库 "@ppd/ffrt"
@@ -143,7 +143,7 @@ int DependenceCppExec()
 #define LOG_TAG "ParallelCppTag"
 ```
  
-```text
+```cpp
 void Fib(int x, int& y)
 {
     if (x <= 1) {
@@ -184,7 +184,7 @@ Fibonacci(5) is 5
 各个任务在FFRT内部形成了一棵调用树：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/LvacSuTTTbCkd7T45x-4Sw/zh-cn_image_0000002581434548.png?HW-CC-KV=V1&HW-CC-Date=20260528T030221Z&HW-CC-Expire=86400&HW-CC-Sign=A75EC7DEA978377FB7A19DC68BEF85C4AB5067BEC32EC5BE00CAA9417BD3ADA3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/xT_nwBgISc-qBHs9RDialQ/zh-cn_image_0000002617668631.png?HW-CC-KV=V1&HW-CC-Date=20260604T012920Z&HW-CC-Expire=86400&HW-CC-Sign=B1619E6D04C9794C67CF490BD93017A5196DD7D8891E34D998C1AB17A6C3A88B)
 
  
   

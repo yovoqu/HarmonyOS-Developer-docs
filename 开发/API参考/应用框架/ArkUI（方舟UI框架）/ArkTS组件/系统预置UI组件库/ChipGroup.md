@@ -1,6 +1,6 @@
 # ChipGroup
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chipgroup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -68,7 +68,7 @@ ChipGroup({
  
  
 > [!TIP]
-> 针对selectedIndexes和multiple接口，当multiple等于false时，如果没有传入selectedIndexes，默认是第一个Chip被选中，如果传入的selectedIndexes有一个以上的元素时，默认第一个索引的Chip被选中。 使用suffix接口时，需引入IconGroupSuffix接口，若不传入，suffix将为空。 图标填充色（fillColor和activedFillColor）的设置应与字体颜色（fontColor）保持一致。如果需要设置不同的颜色，可以在传入[ChipGroupSpaceOptions](#chipgroupspaceoptions)时使用prefixSymbol。
+> 针对selectedIndexes和multiple接口，当multiple等于false时，如果没有传入selectedIndexes，默认是第一个Chip被选中，如果传入的selectedIndexes有一个以上的元素时，默认第一个索引的Chip被选中。 使用suffix接口时，需引入IconGroupSuffix接口，若不传入，suffix将为空。 图标填充色（fillColor和activatedFillColor）的设置应与字体颜色（fontColor）保持一致。如果需要设置不同的颜色，可以在传入 ChipGroupItemOptions 时使用prefixSymbol。
 
  
   
@@ -383,7 +383,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/xQmaRoReRaWAwom2VaurSw/zh-cn_image_0000002611756173.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=50B2C08C15011F4F151B7AC4A2C7B0B3421C7E31AE0132F324B88BD8201ECB08)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/73/v3/R22T4eRBQcGciXGmYUi2YA/zh-cn_image_0000002587110702.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=F91FE3732A495C68922F7AAD329D8026DF1A2940484B2FEF797EC6C72D86DBC9)
 
  
   
@@ -484,7 +484,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/AyVZMkAsS1W7PRo-9JSo3w/zh-cn_image_0000002581436234.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=6F0F16529F41FC210E9BC3C018C5B056757EE52938C595BF60AFD3D83CE49EB9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/wpHA2TkUQlaAw9NYX4OIXQ/zh-cn_image_0000002617670381.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=5F1EFFF14A433E133339474E5C74588EACE9D53EA96DF496A8154F3A1059C507)
 
  
   
@@ -589,7 +589,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/HNLT14uQSQyXmw3-S1Cf-g/zh-cn_image_0000002611836065.png?HW-CC-KV=V1&HW-CC-Date=20260528T025528Z&HW-CC-Expire=86400&HW-CC-Sign=9E92C6972C2A00C4D4C710E418E90CBE484ADA00D8F3AFA9DA23F20B5B216E02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/1PDKR6uwRiyN-Z7qtzi5jg/zh-cn_image_0000002587270606.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=EAE21E202328B2C31C4165CB42313F0495F078CEFC09B51BA75159304779C9A0)
 
  
   

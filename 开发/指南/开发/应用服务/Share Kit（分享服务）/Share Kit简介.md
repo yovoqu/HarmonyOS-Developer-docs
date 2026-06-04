@@ -1,6 +1,6 @@
 # Share Kit简介
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-introduction
 
@@ -91,7 +91,7 @@ Share Kit（分享服务）提供的[SampleCode示例工程](https://gitcode.com
 
 | 系统分享 | 支持 | 支持 | 支持 | 部分支持（仅支持分享到周边设备，不支持系统操作及分享给其他应用） |
 
-| 碰一碰分享 | 支持 | 不支持 | 支持 | 不支持 |
+| 碰一碰分享 | 支持 | 支持 | 支持 | 不支持 |
 
 | 隔空传送 | 支持 | 支持 | 支持 | 不支持 |
  - 使用限制

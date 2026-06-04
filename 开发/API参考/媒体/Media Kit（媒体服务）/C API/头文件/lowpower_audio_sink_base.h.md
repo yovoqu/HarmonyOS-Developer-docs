@@ -1,6 +1,6 @@
 # lowpower_audio_sink_base.h
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpower-audio-sink-base-h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -200,7 +200,7 @@ typedef void (*OH_LowPowerAudioSink_OnEos)(OH_LowPowerAudioSink* sink, void* use
  
 **描述**
  
-LowPowerAudioSink播放完成时调用该方法，包含在[OH_LowPowerAudioSinkCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/api-lowpoweraudiosink-oh-lowpoweraudiosinkcallback)中。
+LowPowerAudioSink播放完成时调用该方法，包含在[OH_LowPowerAudioSinkCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-lowpoweraudiosink-oh-lowpoweraudiosinkcallback)中。
  
 **起始版本：** 20
  

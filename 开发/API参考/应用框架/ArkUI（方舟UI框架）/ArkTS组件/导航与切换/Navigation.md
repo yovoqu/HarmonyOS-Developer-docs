@@ -1,6 +1,6 @@
 # Navigation
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -5229,7 +5229,7 @@ export class CustomTransition {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/zOlacKBzRpSyp4fmJx_aIA/zh-cn_image_0000002581275880.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=AC89338140294F9258C1583FEA438CBE079AB364369DA61667A1C3E954D69346)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/qyEhcVOtSmSblFrYGXNhlw/zh-cn_image_0000002617709833.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=CDF92713C830066B9D93E97F53D8D3382752A5C0819B6433CC8DC2DCCF93E576)
 
 
 
@@ -5369,7 +5369,7 @@ struct NavigationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/gj26wIjCQcyxrVLfS_EU-g/zh-cn_image_0000002611755737.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=1AB04AD9977CFC50FDCCC97BE34CFE86081AA5D3BA2E0FA6F13A8C7075E7862F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/uftI8awiRSuCA1qLqCaXxQ/zh-cn_image_0000002587110250.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=AE370BD3EC373019146A817EB582ABC44950BC1A0B0D1001B461BF07448946E5)
 
 
 
@@ -5444,7 +5444,7 @@ struct NavigationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/laMpbRX-SkOLKbqFvPLdnw/zh-cn_image_0000002581435800.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=77906B40D0853A8885159DFD0C2CBAB4A28440EFBEC847C462BBBA5F147AA28D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/zqFgNhcFSPubSL2WlFIuMw/zh-cn_image_0000002617669933.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=F05356D38706C77E8522F1D18A1C5F1C72C09403299A57971283DCDD29DA4441)
 
 
 
@@ -5535,7 +5535,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0c/v3/Af4fuHp8Qiqusna00ziFTA/zh-cn_image_0000002611835629.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=7576EC6D308DA77B4264944B2F6FBF5C912AC9CC37A2A8C7B13BF7F8B9D8FA50)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/kR5WLwn5STy1QsKP93leaA/zh-cn_image_0000002587270154.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=4A7D580E9330D95BE904F8F7AD2F10A049326289BCE1428A3A9B33F5CA6E1C49)
 
 
 
@@ -5809,7 +5809,7 @@ export struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/d1SAb51ITR6vT_egnIOAUg/zh-cn_image_0000002581275882.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=C5C549AC1C91F4397BABCCA1D71C6882A5B6884DE3DA7AE301CCA8811C3981A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/5ccVgLXiRL6eF0W8PGZUOg/zh-cn_image_0000002617709835.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=7A6EF0FE61DE387B598E3A268FAD70850027F9B36833D80D8472E99292F3BB35)
 
 
 
@@ -5976,4 +5976,4 @@ export struct NavigationMenu {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/Hkvaz0V5TVeuwUCvBHN-xQ/zh-cn_image_0000002611755739.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025603Z&HW-CC-Expire=86400&HW-CC-Sign=4ACA769E0953237C309B857D34F190AFCF921375259576B58C7A2C93CBEF8172)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/7zEsFe1CS6WTuxDuRhwgxw/zh-cn_image_0000002587110252.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=4E3DC957F1C4E4E17B3AFB0BEB2158E9C1CFD5A4EA41CFED130DC8F0E2BD831F)

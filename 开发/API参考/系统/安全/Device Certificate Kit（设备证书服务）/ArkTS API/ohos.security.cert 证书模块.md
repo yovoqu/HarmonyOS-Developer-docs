@@ -1,11 +1,11 @@
 # @ohos.security.cert (证书模块)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-证书算法库框架提供证书相关接口。其中，依赖加解密算法库框架的基础算法能力的部分，详细接口说明可参考[cryptoFramework API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework)。
+证书算法库框架提供证书相关接口。其中，依赖加解密算法库框架的基础算法能力的部分，详细接口说明可参考[@ohos.security.cryptoFramework (加解密算法库框架)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework)。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -381,8 +381,8 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 | issuer | Array&lt;Uint8Array&gt; | 否 | 是 | 指定颁发者作为过滤条件, 至少要匹配到其中一个issuer。 |
 | x509Cert | X509Cert | 否 | 是 | 指定具体的证书对象作为过滤条件, 判断该证书是否在CRL列表中。 |
 | updateDateTime12+ | string | 否 | 是 | 指定证书更新时间。 |
-| maxCRL12+ | bigint | 否 | 是 | 指定CRL个数最大值。 |
-| minCRL12+ | bigint | 否 | 是 | 指定CRL个数最小值。 |
+| maxCRL12+ | bigint | 否 | 是 | 指定CRL编号（CRL number）的最大值。 |
+| minCRL12+ | bigint | 否 | 是 | 指定CRL编号（CRL number）的最小值。 |
 
 
 

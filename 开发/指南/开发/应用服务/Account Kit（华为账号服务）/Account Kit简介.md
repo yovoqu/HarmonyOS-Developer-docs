@@ -1,6 +1,6 @@
 # Account Kit简介
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-introduction
 
@@ -89,3 +89,4 @@ Account Kit提供的[SampleCode示例工程](https://gitcode.com/HarmonyOS_Sampl
 
  - 通用差异：请参见“[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section1227613205203)”。
  - 模拟器仅支持应用统一认证服务[authentication](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication)的登录和授权能力、[华为账号Button登录组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-huawei-id-button)。
+ - 不支持Wearable设备模拟器。

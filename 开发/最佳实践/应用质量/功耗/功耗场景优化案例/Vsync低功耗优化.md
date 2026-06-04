@@ -1,6 +1,6 @@
 # Vsync低功耗优化
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-05-30 09:52:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-vsync-power-optimization
 
@@ -72,7 +72,7 @@ displaySync方法支持让开发者以[指定帧率来运行UI业务](https://de
 - displaySync对象的运行状态与组件的可见性绑定，可使用onVisibleAreaChange回调监听组件的可见性，当组件不可见时，调用displaySync.stop，重新可见后，调用displaySync.start。
 
  
-如下两段代码，分别在组件的aboutToDisappear()和onVisibleAreaApproximateChange()函数中对displaySync对象进行了优化处理。其中aboutToDisappear()函数是基于[自定义组件生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle)的兜底，确保该组件在被销毁时，displaySync对象不出现泄漏。而onVisibleAreaChange()函数则是针对组件[可见性的判断](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange)来控制displaySync的播放状态，防止组件进入不可见区域时，displaySync对象依然活跃。
+如下两段代码，分别在组件的aboutToDisappear()和onVisibleAreaChange()函数中对displaySync对象进行了优化处理。其中aboutToDisappear()函数是基于[自定义组件生命周期](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle)的兜底，确保该组件在被销毁时，displaySync对象不出现泄漏。而onVisibleAreaChange()函数则是针对组件[可见性的判断](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-component-visible-area-change-event#onvisibleareachange)来控制displaySync的播放状态，防止组件进入不可见区域时，displaySync对象依然活跃。
  
 ```ArkTS
 // 组件卸载时，停止DisplaySync并置空，防止空跑与内存泄露

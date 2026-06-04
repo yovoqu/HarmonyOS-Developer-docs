@@ -1,6 +1,6 @@
 # paymentService (鸿蒙支付服务)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-paymentservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -179,7 +179,7 @@ struct Index {
       .then(() => {
         // 支付成功
         console.info('succeeded in paying');
-      })
+      });
   }
 
   build() {
@@ -261,7 +261,7 @@ struct Index {
       }
       // 支付成功
       console.info('succeeded in paying');
-    })
+    });
   }
 
   build() {
@@ -344,7 +344,7 @@ struct Index {
       .then(() => {
         // 签约成功
         console.info('succeeded in signing');
-      })
+      });
   }
 
   build() {
@@ -426,7 +426,7 @@ struct Index {
       }
       // 签约成功
       console.info('succeeded in signing');
-    })
+    });
   }
 
   build() {
@@ -505,14 +505,14 @@ struct Index {
   context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
   requestPaymentPromise() {
     // 请使用开发者真实的订单信息（orderStr）支付订单。
-    // const orderStr = '{"app_id":"***","merc_no":"***","prepay_id":"xxx","timestamp":"1680259863114","noncestr":"1487b8a60ed9f9ecc0ba759fbec23f4f","sign":"****","auth_id":"***"}';
+    // 订单信息示例参考'{"app_id":"***","merc_no":"***","prepay_id":"xxx","timestamp":"1680259863114","noncestr":"1487b8a60ed9f9ecc0ba759fbec23f4f","sign":"****","auth_id":"***"}'
     // 请使用开发者真实的订单信息（orderStr）跳转到第三方支付。
     const orderStr = '{"nextAction":"L","linkUrl":"';
-    paymentService.requestPayment(this.context, orderStr, "AP")
+    paymentService.requestPayment(this.context, orderStr, 'AP')
       .then((payResult: paymentService.PayResult) => {
         // 支付成功
         console.info('succeeded in paying, pay result: ', payResult);
-      })
+      });
   }
 
   build() {
@@ -591,16 +591,16 @@ struct Index {
   requestCashierPicker() {
     // 请使用开发者真实的支付信息（paymentInfo）
     const paymentInfo: paymentService.PaymentInfo = {
-      tradeSummary: "***交易",
+      tradeSummary: '***交易',
       amount: 100,
-      currency: "CNY",
+      currency: 'CNY',
       extraInfo: '{"***":"***"}'
     }
     paymentService.cashierPicker(this.context, paymentInfo)
       .then((pickerResult: paymentService.PickerResult) => {
         // 支付成功
         console.info('succeeded in paying, picker result: ', pickerResult);
-      })
+      });
   }
 
   build() {
@@ -677,7 +677,7 @@ struct Index {
       .then((bindCardResult: paymentService.BindCardResult) => {
         // 绑卡成功
         console.info(`succeeded in binding card. result: ${bindCardResult}`);
-      })
+      });
   }
 
   build() {

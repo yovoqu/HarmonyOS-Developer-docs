@@ -1,6 +1,6 @@
 # quickBarManager（快捷栏管理服务）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/desktop-quickbar-extension-manager
 **支持设备：** PC/2in1
@@ -712,14 +712,20 @@ import { image } from '@kit.ImageKit';
 import { resourceManager } from '@kit.LocalizationKit';
 
 // 获取资源管理器
-const resourceMgr: resourceManager.ResourceManager = getContext().resourceManager;
+const context: Context | undefined = this.getUIContext().getHostContext();
+if (!context) {
+  console.error('context is null');
+  return;
+}
+const resourceMgr: resourceManager.ResourceManager = context!.resourceManager;
+
 // 从rawfile目录中获取图片
 const whiteFileData = resourceMgr.getRawFileContentSync('icon.png');
 const whiteImageSource = image.createImageSource(whiteFileData.buffer);
 const imagePixelMap = await whiteImageSource.createPixelMap();
 try {
   // 增加分组
-  await quickBarManager.addQuickBarGroup(getContext(), {
+  await quickBarManager.addQuickBarGroup(context, {
     groupKey: 'group_one', // 分组名
     groupIcon: imagePixelMap // 分组图标
   });
@@ -771,9 +777,15 @@ deleteQuickBarGroup(context: common.Context, groupKey: string): Promise&lt;void&
 ```text
 import { quickBarManager } from '@kit.DeskTopExtensionKit';
 
+const context: Context | undefined = this.getUIContext().getHostContext();
+if (!context) {
+  console.error('context is null');
+  return;
+}
+
 try {
   // 删除分组名为group_one的分组
-  await quickBarManager.deleteQuickBarGroup(getContext(), 'group_one');
+  await quickBarManager.deleteQuickBarGroup(context, 'group_one');
 } catch (error) {
   console.error(`error code: ${error.code}, error message: ${error.message}`);
 }
@@ -821,9 +833,15 @@ getQuickBarGroups(context: common.Context): Promise<QuickBarGroup[]>
 ```text
 import { quickBarManager } from '@kit.DeskTopExtensionKit';
 
+const context: Context | undefined = this.getUIContext().getHostContext();
+if (!context) {
+  console.error('context is null');
+  return;
+}
+
 try {
   // 获取所有分组
-  const groups = await quickBarManager.getQuickBarGroups(getContext());
+  const groups = await quickBarManager.getQuickBarGroups(context);
 } catch (error) {
   console.error(`error code: ${error.code}, error message: ${error.message}`);
 }
@@ -874,9 +892,15 @@ setWindowToGroup(context: common.Context, windowid: string, groupKey?: string): 
 ```text
 import { quickBarManager } from '@kit.DeskTopExtensionKit';
 
+const context: Context | undefined = this.getUIContext().getHostContext();
+if (!context) {
+  console.error('context is null');
+  return;
+}
+
 try {
   // 将id为80的窗口，增加到分组名为 group_one 的分组
-  await quickBarManager.setWindowToGroup(getContext(), '80', 'group_one');
+  await quickBarManager.setWindowToGroup(context, '80', 'group_one');
 } catch (error) {
   console.error(`setWindowToGroup failed. error code: ${error.code}, error message: ${error.message}`);
 }

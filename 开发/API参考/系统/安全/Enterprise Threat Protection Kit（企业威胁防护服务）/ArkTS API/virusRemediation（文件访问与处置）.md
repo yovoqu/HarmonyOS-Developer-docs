@@ -1,8 +1,8 @@
 # virusRemediation（文件访问与处置）
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/erprisethreatprotection-virusremediation-interface
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisethreatprotection-virusremediation-interface
 **支持设备：** PC/2in1
 
 文件访问与处置功能旨在保障数据安全，为安全防护类应用提供威胁文件的扫描与处置能力。其主要功能包括文件打开、应用目录扫描，以及文件隔离、已隔离文件恢复、已隔离文件删除和隔离查询等处置操作。本服务需由安全防护类应用申请相应权限后使用。

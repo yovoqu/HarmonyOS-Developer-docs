@@ -1,8 +1,8 @@
 # ArkUI_NodeAttributeType（文本输入类组件相关属性）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/-native-node-h-nodeattributetype-textinputcategory
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-textinputcategory
 
 ```text
 enum ArkUI_NodeAttributeType

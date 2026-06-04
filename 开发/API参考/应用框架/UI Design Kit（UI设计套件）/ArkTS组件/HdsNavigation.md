@@ -1,6 +1,6 @@
 # HdsNavigation
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -143,7 +143,7 @@ toolbarConfiguration(value: Array&lt;ToolbarItem&gt; | CustomBuilder, options?: 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Array&lt;ToolbarItem&gt; \| CustomBuilder | 是 | 工具栏内容。 使用Array&lt;ToolbarItem&gt;写法设置的工具栏有如下特性： - 如果为Stack模式，不推荐使用该写法。推荐使用CustomBuilder配合ToolBar组件写法，避免布局显示问题。 - 工具栏所有选项均分底部工具栏，在每个均分内容区布局文本和图标。 - 文本超长时，若工具栏选项个数小于5个，优先拓展选项的宽度，最大宽度与屏幕等宽，其次逐级缩小，缩小之后换行，最后截断。 - 最多支持显示5个图标，多余的图标会被放入自动生成的更多图标。 使用CustomBuilder写法为用户自定义工具栏选项，除均分底部工具栏外不具备以上功能。 |
+| value | Array&lt;ToolbarItem&gt; \| CustomBuilder | 是 | 工具栏内容。 使用Array&lt;ToolbarItem&gt;写法设置的工具栏有如下特性： - 如果为Stack模式，不推荐使用该写法。推荐使用CustomBuilder配合ToolBar组件写法，避免布局显示问题。 - 工具栏所有选项均分底部工具栏，在每个均分内容区布局文本和图标。 - 最多支持显示5个图标，多余的图标会被放入自动生成的更多图标。 使用CustomBuilder写法为用户自定义工具栏选项，除均分底部工具栏外不具备以上功能。 |
 | options | NavigationToolbarOptions | 否 | 工具栏选项。 |
 
 
@@ -1745,7 +1745,7 @@ struct Index {
 
 #### 设置菜单消息提醒
 
-通过设置标题栏上菜单配置中的Badge属性，使用信息提醒能力，在菜单项右上角附加消息提醒。
+通过设置标题栏上菜单配置中的badge属性，使用信息提醒能力，在菜单项右上角附加消息提醒。
 
 ```text
 // 从6.0.2(22)版本开始，无需手动导入HdsNavigationAttribute。具体请参考HdsNavigation的导入模块说明。
@@ -1969,14 +1969,14 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/E2lOt85LSJqtFHjdDS4N2w/zh-cn_image_0000002611756603.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=9312A97821D7E880B65ABBA930E0C4CECC0181512FF57DBEF8BF448466D754DA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/cFwtgH8wRdWPrfDOwdeNZQ/zh-cn_image_0000002587111136.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=806C98720AFAACB5C72F96D2521B9DC7A61CA74EB457FEC0BAA29272E379B47E)
 
 
 
 
 #### 设置标题栏图标样式
 
-通过设置HdsNavigationIconOptions属性中的type属性，可以设置图标为文字型或者图片型图标。
+通过设置[HdsNavigationIconOptions](#hdsnavigationiconoptions)属性中的type属性，可以设置图标为文字型或者图片型图标。
 
 ```text
 // 从6.0.2(22)版本开始，无需手动导入HdsNavigationAttribute。具体请参考HdsNavigation的导入模块说明。
@@ -2050,7 +2050,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/qOC0shCoSr-PbIShvvM84Q/zh-cn_image_0000002581436662.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=2E71FE2C3AE20663BDD8D3BC3C7F2A599D730A7C1840D9042B9BEFEDFED262E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/BkBWZwQoQEO4zrGzH1Jvsg/zh-cn_image_0000002617670817.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=ABB3A3F2041A3630E0DEBB9582F790897384ADFE8FCCDE613E632792ADEDEB3A)
 
 
 
@@ -2103,7 +2103,7 @@ struct SheetTransitionExample {
           title: {
             mainTitle: 'MainTitle',
             subTitle: 'SubTitle',
-            subTitleBuilder: this.SubTitleBuilder.bind(this), // 自定义副标题区域
+            subTitleBuilder: (): void => this.SubTitleBuilder(), // 自定义副标题区域
           },
           menu: {
             value: [{
@@ -2147,14 +2147,14 @@ struct SheetTransitionExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/pPL29qb6SI6cIJ4GVk3GLQ/zh-cn_image_0000002611836495.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=85A617920BCB3800B09FCFDFBCAA27B533A4E7E975356ABD847A2D10597B2044)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/6PLNzjfQT7adEYcMPoxZkw/zh-cn_image_0000002587271040.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=D604F189612718BF5AD4239431C71B352E219342BE7129A10D5F850D7470D97E)
 
 
 
 
 #### 图标上绑定自定义menu
 
-通过设置菜单项HdsNavigationIconOptions中的componentId属性，结合promptAction.openMenu方法，绑定TargetInfo中的Id属性为设置的componentId，可以在对应的图标上弹出用户自定义菜单。
+通过设置菜单项[HdsNavigationIconOptions](#hdsnavigationiconoptions)中的componentId属性，结合[promptAction.openMenu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-promptaction#openmenu18)方法，绑定[TargetInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-i#targetinfo18)中的Id属性为设置的componentId，可以在对应的图标上弹出用户自定义菜单。
 
 ```text
 // 从6.0.2(22)版本开始，无需手动导入HdsNavigationAttribute。具体请参考HdsNavigation的导入模块说明。
@@ -2239,7 +2239,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/kcVME9q3QZeRjNCWKT7hWw/zh-cn_image_0000002581276748.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=D28EB1A9C9785D1D450AD927A35D492C000D50E599E35795D6AD124E610788E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/hjqY7pGEQDyQ4fcTmhNBBQ/zh-cn_image_0000002617710719.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=CB9698D5DD832D49CD6D2142017615C68DA7DA779537FB7475A12C0849B30CED)
 
 
 
@@ -2296,7 +2296,7 @@ struct MultiWindowEntryInAPPTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dc/v3/zPP8OfDgTN6YTCatPlUN7g/zh-cn_image_0000002611756605.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=F48B3D611D61B24FA600C4C6FF1F3953BCD54913D792E323EA015753D55EA8C2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/jz14aOyrRV2xLN2e9MFoLg/zh-cn_image_0000002587111140.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=E748127645B58D24D732BF7F94B46B6CF12A8BB33428F05296E7F650A72B4B58)
 
 
 
@@ -2367,7 +2367,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/hl0Vw47bTQC94k9nQsBssg/zh-cn_image_0000002581436664.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=F39024631DD42CCAD16E206FD18474277F45D4377742C03A1651FD7C2723E83F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/cc8Bfd4eQvyDdS4I97eJFg/zh-cn_image_0000002617670819.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=44CD374282561D3A86027A069FB8C8442EA39A8F33407CB0C57B95E8B12B7F23)
 
 
 
@@ -2375,6 +2375,8 @@ struct Index {
 #### 设置标题栏沉浸式样式
 
 该示例主要展示HdsNavigation配置沉浸式模糊和材质的各类型效果。
+
+**示例：**
 
 ```text
 // 从6.0.2(22)版本开始，无需手动导入HdsNavigationAttribute。具体请参考HdsNavigation的导入模块说明。
@@ -2415,10 +2417,6 @@ struct Index {
             .width('100%')
           Text(`当前材质Level为: ${this.materialLevel}`).fontSize(20).fontWeight(FontWeight.Bold)
           Text(`当前材质Type为: ${this.materialType}`).fontSize(20).fontWeight(FontWeight.Bold)
-          Button('切换材质Type为IMMERSIVE').onClick(() => {
-            // 沉浸式材质效果，该示例场景ADAPTIVE为沉浸式材质
-            this.materialType = hdsMaterial.MaterialType.IMMERSIVE;
-          }).margin({ top: 2 })
           Button('切换材质Type为None').onClick(() => {
             // 无材质效果
             this.materialType = hdsMaterial.MaterialType.NONE;
@@ -2464,5 +2462,154 @@ struct Index {
 }
 ```
 
+**效果展示：**
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/mW0TlHGIQCWocuuVokp3ZA/zh-cn_image_0000002611836497.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=0372EA52FD9A5D2C241618040DF3FC7FE3CF35F798E62B18DD9F3A1A68D1DFCA)
+执行上述代码展示的效果如下。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/a25zYfK6TV-8yyGRncqmmg/zh-cn_image_0000002587271044.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=85D41F0C0ED480F101DDD75EFA4BF365F4BE6E2070BC02B1CD4969BD37408BA2)
+
+
+
+
+#### 通过onReady获取栈
+
+该示例主要演示如下两点功能：
+1. [NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)无需声明为状态变量，也可以实现路由栈操作功能。
+2. [HdsNavDestination](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavdestination)通过[onReady](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavdestination#onready)事件能够拿到对应的NavPathInfo和所属的[NavPathStack](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation#navpathstack10)。
+
+**示例：**
+
+```json
+// 从6.0.2(22)版本开始，无需手动导入HdsNavigationAttribute与HdsNavDestinationAttribute。具体请参考HdsNavigation与HdsNavDestination的导入模块说明。
+import {
+  HdsNavDestination,
+  HdsNavigation,
+  HdsNavigationAttribute,
+  HdsNavDestinationAttribute,
+  HdsNavigationTitleMode
+} from "@kit.UIDesignKit";
+
+class PageParam {
+  constructor(num_: number) {
+    this.num = num_;
+  }
+
+  num: number = 0;
+}
+
+@Builder
+export function PageOneBuilder(name: string, param: Object) {
+  PageOne();
+}
+
+@Component
+struct PageOne {
+  private stack: NavPathStack | null = null;
+  private name: string = "";
+  private paramNum: number = 0;
+
+  build() {
+    HdsNavDestination() {
+      Column() {
+        Text("NavPathInfo: name: " + this.name + ", paramNum: " + this.paramNum)
+        Button('pushPath', { stateEffect: true, type: ButtonType.Capsule })
+          .width('80%')
+          .height(40)
+          .margin(20)
+          .onClick(() => {
+            if (this.stack) {
+              let p = new PageParam(this.paramNum + 1);
+              this.stack.pushPath({ name: "pageOne", param: p });
+            }
+          })
+        Button('pop', { stateEffect: true, type: ButtonType.Capsule })
+          .width('80%')
+          .height(40)
+          .margin(20)
+          .onClick(() => {
+            this.stack?.pop();
+          })
+      }
+      .width('100%')
+      .height('100%')
+    }
+    .titleBar({
+      enableComponentSafeArea: true,
+      content: {
+        title: {
+          mainTitle: 'PageOne',
+        },
+      }
+    })
+    .onReady((ctx: NavDestinationContext) => {
+      // 在NavDestination中能够拿到传来的NavPathInfo和当前所处的NavPathStack
+      try {
+        this.name = ctx?.pathInfo?.name;
+        this.paramNum = (ctx?.pathInfo?.param as PageParam)?.num;
+        this.stack = ctx.pathStack;
+      } catch (e) {
+        console.error(`testTag onReady catch exception: ${JSON.stringify(e)}`);
+      }
+    })
+  }
+}
+
+@Entry
+@Component
+struct NavigationExample2 {
+  private stack: NavPathStack = new NavPathStack();
+
+  build() {
+    HdsNavigation(this.stack) {
+      Stack({ alignContent: Alignment.Center }) {
+        Button('pushPath', { stateEffect: true, type: ButtonType.Capsule })
+          .width('80%')
+          .height(40)
+          .margin(20)
+          .onClick(() => {
+            let p = new PageParam(1);
+            this.stack.pushPath({ name: "pageOne", param: p });
+          })
+      }
+      .width('100%')
+      .height('100%')
+    }
+    .width('100%')
+    .height('100%')
+    .titleBar({
+      content: {
+        title: {
+          mainTitle: '主标题',
+        },
+      }
+    })
+    .titleMode(HdsNavigationTitleMode.MINI)
+    .hideBackButton(true)
+  }
+}
+```
+
+在src/main目录下的module.json5配置文件中的module字段里配置"routerMap": "$profile:router_map"，并在src/main/resources/base/profile目录下新增router_map.json。router_map.json示例如下。
+
+```ArkTS
+{
+  "routerMap": [
+    {
+      "name": "pageOne",
+      "pageSourceFile": "src/main/ets/pages/Index.ets",
+      "buildFunction": "PageOneBuilder",
+      "data": {
+        "description": "this is pageOne"
+      }
+    }
+  ]
+}
+```
+
+**效果展示：**
+
+执行上述代码，效果展示如下。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ycN7WwJdTIa2d1nB6x8axQ/zh-cn_image_0000002617710721.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=9FB7BD5142F9F4EBD66BDBDCCDDC7768350F6C4C579B085BEE0B29A70404E179)

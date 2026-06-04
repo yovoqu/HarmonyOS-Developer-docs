@@ -1,6 +1,6 @@
 # 使用AVRecorder录制音频(ArkTS)
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avrecorder-for-recording
 
@@ -96,7 +96,7 @@ this.avRecorder?.on('error', (error) => {
 
   
 > [!WARNING]
-> 配置参数需要注意： 配置参数之前需要确保完成对应权限的申请，请参考 申请权限 。 prepare接口的入参avConfig中仅设置音频相关的配置参数，如示例代码所示。 如果只需要录制音频，请不要设置视频相关配置参数；如果需要录制视频，可以参考 视频录制开发指导 进行开发。直接设置视频相关参数会导致后续步骤报错。 需要使用支持的 录制规格 ，具体录制参数需严格契合既定的 录制参数配置 。 录制输出的url地址（即示例里avConfig中的url），形式为fd://xx (fd number)。需要基础文件操作接口（ Core File Kit的ohos.file.fs ）实现应用文件访问能力，获取方式参考 应用文件访问与管理 。 示例中配置的audioCodec音频编码格式、aacProfile音频编码扩展格式、fileFormat封装格式请参考 AVRecorderProfile 。
+> 配置参数需要注意： 配置参数之前需要确保完成对应权限的申请，请参考 申请权限 。 prepare接口的入参avConfig中仅设置音频相关的配置参数，如示例代码所示。 如果只需要录制音频，请不要设置视频相关配置参数；如果需要录制视频，可以参考 视频录制开发指导 进行开发。直接设置视频相关参数会导致后续步骤报错。 需要使用支持的 录制规格 ，具体录制参数配置可参考 AVRecorderProfile 。 录制输出的url地址（即示例里avConfig中的url），形式为fd://xx (fd number)。需要基础文件操作接口（ Core File Kit的ohos.file.fs ）实现应用文件访问能力，获取方式参考 应用文件访问与管理 。 示例中配置的audioCodec音频编码格式、aacProfile音频编码扩展格式、fileFormat封装格式请参考 AVRecorderProfile 。
 
 
   
@@ -320,7 +320,7 @@ async function audioRecording(context: common.Context): Promise<void> {
   // 关闭录制文件fd。
   try {
     if (audioFile) {
-      await fileIo.close(audioFile.fd);
+      fileIo.closeSync(audioFile.fd);
     }
   } catch (error) {
     let err = error as BusinessError;

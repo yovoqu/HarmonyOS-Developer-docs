@@ -1,6 +1,6 @@
 # 使用ImagePacker完成图片编码
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-encoding
 
@@ -26,7 +26,7 @@
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
-import { fileIo as fs } from '@kit.CoreFileKit';
+import { fileIo } from '@kit.CoreFileKit';
 import { resourceManager } from '@kit.LocalizationKit';
 ```
 
@@ -110,11 +110,16 @@ async function packToFileFromPixelMap(context : Context, pixelMap : image.PixelM
   const imagePackerApi = image.createImagePacker();
   let packOpts : image.PackingOption = { format: 'image/jpeg', quality: 95 };
   const path : string = context.cacheDir + '/pixel_map.jpg';
+  let file: fileIo.File | undefined = undefined;
   try {
-    let file = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
+    file = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
     await imagePackerApi.packToFile(pixelMap, file.fd, packOpts);
   } catch (error) {
     console.error('Failed to pack the pixelMap to file. And the error is: ' + error);
+  } finally {
+    if (file) {
+      fileIo.closeSync(file.fd);
+    }
   }
 }
 ```
@@ -128,11 +133,16 @@ async function packToFileFromImageSource(context : Context, imageSource : image.
   const imagePackerApi = image.createImagePacker();
   let packOpts : image.PackingOption = { format: 'image/jpeg', quality: 95 };
   const filePath : string = context.cacheDir + '/image_source.jpg';
+  let file: fileIo.File | undefined = undefined;
   try {
-    let file = fileIo.openSync(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
+    file = fileIo.openSync(filePath, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
     await imagePackerApi.packToFile(imageSource, file.fd, packOpts);
   } catch (error) {
     console.error('Failed to pack the imageSource to file. And the error is: ' + error);
+  } finally {
+    if (file) {
+      fileIo.closeSync(file.fd);
+    }
   }
 }
 ```

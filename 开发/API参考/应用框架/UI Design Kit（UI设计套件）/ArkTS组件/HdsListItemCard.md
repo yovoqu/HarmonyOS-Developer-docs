@@ -1,6 +1,6 @@
 # HdsListItemCard
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdslistitemcard
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2086,7 +2086,7 @@ import {
   SuffixSwitch,
   SuffixBadgeAndArrow
 } from '@kit.UIDesignKit';
-import { promptAction, ImageModifier, TextModifier } from '@kit.ArkUI';
+import { ImageModifier, TextModifier } from '@kit.ArkUI';
 
 @Entry
 @Component
@@ -2102,7 +2102,7 @@ struct HdsListItemCardExample {
               iconSize: IconSize.SYSTEM_ICON,
               iconValue: {
                 image: $r('app.media.startIcon')
-              },
+              }
             }),
             textItem: {
               primaryText: {
@@ -2113,7 +2113,7 @@ struct HdsListItemCardExample {
               },
               description: {
                 text: 'Description Text'
-              },
+              }
             },
             suffixItem: new SuffixIcon({
               iconValue: {
@@ -2125,7 +2125,7 @@ struct HdsListItemCardExample {
             }),
             onClick: () => {
               console.info('onclick hdslistitem');
-            },
+            }
           })
         }
 
@@ -2144,7 +2144,7 @@ struct HdsListItemCardExample {
               },
               description: {
                 text: 'Description Text'
-              },
+              }
             },
             suffixItem: new SuffixSwitch({
               isCheck: false,
@@ -2155,7 +2155,7 @@ struct HdsListItemCardExample {
                 } else {
                   console.info('switch is false');
                 }
-              },
+              }
             })
           })
         }
@@ -2166,18 +2166,18 @@ struct HdsListItemCardExample {
               iconSize: IconSize.SYSTEM_ICON,
               iconValue: {
                 symbol: $r('sys.symbol.ohos_trash')
-              },
+              }
             }),
             textItem: {
               primaryText: {
                 text: 'Primary Text',
-                modifier: new TextModifier().fontColor(Color.Pink),
+                modifier: new TextModifier().fontColor(Color.Pink)
               }
             },
             suffixItem: new SuffixBadgeAndArrow({
               badgeValue: 9,
               badgeColor: Color.Orange,
-              textColor: Color.Blue,
+              textColor: Color.Blue
             }, {
               color: Color.Orange
             })
@@ -2193,4 +2193,4 @@ struct HdsListItemCardExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Qq_O4p7FSACOy70chTgIGw/zh-cn_image_0000002581276756.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=6CF4364216C554100CBE3D9CA24F71D2BAE7548E37D730F4C7271EE87390F39C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/pd3iicTXSR2qkUB-zgXcIQ/zh-cn_image_0000002587111150.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012559Z&HW-CC-Expire=86400&HW-CC-Sign=68CA1B86EC631CA0BFFD0243F014F0BAF089D9D4C5F2F0C1B7E0B78A9F719188)

@@ -1,6 +1,6 @@
 # http_interceptor.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-http-interceptor-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -78,6 +78,8 @@ int32_t OH_Http_AddReadOnlyInterceptor(struct OH_Http_Interceptor *interceptor)
  
 **系统能力：** SystemCapability.Communication.NetStack
  
+**需要权限：** ohos.permission.INTERNET
+ 
 **起始版本：** 24
  
 **参数：**
@@ -109,6 +111,8 @@ int32_t OH_Http_RemoveInterceptor(struct OH_Http_Interceptor *interceptor)
 删除指定的HTTP全局拦截器。
  
 **系统能力：** SystemCapability.Communication.NetStack
+ 
+**需要权限：** ohos.permission.INTERNET
  
 **起始版本：** 24
  
@@ -147,6 +151,8 @@ int32_t OH_Http_RemoveAllInterceptors(int32_t groupId)
  
 **系统能力：** SystemCapability.Communication.NetStack
  
+**需要权限：** ohos.permission.INTERNET
+ 
 **起始版本：** 24
  
 **参数：**
@@ -182,6 +188,8 @@ int32_t OH_Http_StartAllInterceptors(int32_t groupId)
  
 **系统能力：** SystemCapability.Communication.NetStack
  
+**需要权限：** ohos.permission.INTERNET
+ 
 **起始版本：** 24
  
 **参数：**
@@ -216,6 +224,8 @@ int32_t OH_Http_StopAllInterceptors(int32_t groupId)
 
  
 **系统能力：** SystemCapability.Communication.NetStack
+ 
+**需要权限：** ohos.permission.INTERNET
  
 **起始版本：** 24
  

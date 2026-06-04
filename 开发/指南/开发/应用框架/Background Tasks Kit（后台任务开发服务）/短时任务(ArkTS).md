@@ -1,6 +1,6 @@
 # 短时任务(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/transient-task
 
@@ -60,7 +60,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
   
 ```ArkTS
-let id: number;         // 申请短时任务ID
+let id: number = -1;         // 申请短时任务ID
 let delayTime: number;  // 本次申请短时任务的剩余时间
 
 // 申请短时任务
@@ -68,7 +68,7 @@ function requestSuspendDelay() {
   let myReason = 'test requestSuspendDelay';   // 申请原因
   try {
     let delayInfo = backgroundTaskManager.requestSuspendDelay(myReason, () => {
-    // 回调函数。应用申请的短时任务即将超时，通过此函数回调应用，执行一些清理和标注工作，并取消短时任务
+      // 回调函数。应用申请的短时任务即将超时，通过此函数回调应用，执行一些清理和标注工作，并取消短时任务
       console.info('suspend delay task will timeout');
       try {
         backgroundTaskManager.cancelSuspendDelay(id);
@@ -78,7 +78,7 @@ function requestSuspendDelay() {
     })
     id = delayInfo.requestId;
     delayTime = delayInfo.actualDelayTime;
-    console.info(`Operation requestSuspendDelay failed. id is ${id} delayTime is ${delayTime}`);
+    console.info(`Operation requestSuspendDelay success. id is ${id} delayTime is ${delayTime}`);
   } catch (error) {
     console.error(`Operation requestSuspendDelay failed. code is ${(error as BusinessError).code} message is ${(error as BusinessError).message}`);
   }

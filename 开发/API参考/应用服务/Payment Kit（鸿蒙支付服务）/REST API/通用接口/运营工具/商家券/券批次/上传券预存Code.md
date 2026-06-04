@@ -1,8 +1,8 @@
 # 上传券预存Code
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ommon-promotion-service-merc-coup-coupbatch-upload
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-api-common-promotion-service-merc-coup-coupbatch-upload
 
 #### 功能介绍
 

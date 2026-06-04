@@ -1,6 +1,6 @@
 # native_interface_xcomponent.h
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -832,7 +832,7 @@ int32_t OH_NativeXComponent_RegisterCallback(OH_NativeXComponent* component, OH_
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册回调。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册回调。
  
 **起始版本：** 8
  
@@ -863,7 +863,7 @@ int32_t OH_NativeXComponent_RegisterMouseEventCallback(OH_NativeXComponent* comp
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册鼠标事件回调。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册鼠标事件回调。
  
 **起始版本：** 9
  
@@ -894,7 +894,7 @@ int32_t OH_NativeXComponent_GetExtraMouseEventInfo(OH_NativeXComponent* componen
  
 **描述：**
  
-从此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例中获取扩展的鼠标事件信息。
+从此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例中获取扩展的鼠标事件信息。
  
 **起始版本：** 20
  
@@ -925,7 +925,7 @@ int32_t OH_NativeXComponent_GetMouseEventModifierKeyStates(OH_NativeXComponent_E
  
 **描述：**
  
-从[OH_NativeXComponent_ExtraMouseEventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xcomponent-oh-nativexcomponent-extramouseeventinfo)实例中获取功能键按压状态信息。
+从[OH_NativeXComponent_ExtraMouseEventInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-extramouseeventinfo)实例中获取功能键按压状态信息。
  
 **起始版本：** 20
  
@@ -956,7 +956,7 @@ int32_t OH_NativeXComponent_RegisterFocusEventCallback(OH_NativeXComponent* comp
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册获焦事件回调。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册获焦事件回调。
  
 **起始版本：** 10
  
@@ -987,7 +987,7 @@ int32_t OH_NativeXComponent_RegisterKeyEventCallback(OH_NativeXComponent* compon
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册按键事件回调。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册按键事件回调。
  
 **起始版本：** 10
  
@@ -1018,7 +1018,7 @@ int32_t OH_NativeXComponent_RegisterBlurEventCallback(OH_NativeXComponent* compo
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册失焦事件回调。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册失焦事件回调。
  
 **起始版本：** 10
  
@@ -1390,7 +1390,7 @@ int32_t OH_NativeXComponent_RegisterOnFrameCallback(OH_NativeXComponent* compone
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册显示更新回调，并使能每帧回调此函数。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册显示更新回调，并使能每帧回调此函数。
  
 **起始版本：** 11
  
@@ -1421,7 +1421,7 @@ int32_t OH_NativeXComponent_UnregisterOnFrameCallback(OH_NativeXComponent* compo
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例取消注册回调函数，并关闭每帧回调此函数。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例取消注册回调函数，并关闭每帧回调此函数。
  
 **起始版本：** 11
  
@@ -1521,7 +1521,7 @@ int32_t OH_NativeXComponent_RegisterUIInputEventCallback(OH_NativeXComponent *co
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册UI输入事件回调，并使能收到UI输入事件时回调此函数。当前仅支持轴事件。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册UI输入事件回调，并使能收到UI输入事件时回调此函数。当前仅支持轴事件。
  
 **起始版本：** 12
  
@@ -1553,7 +1553,7 @@ int32_t OH_NativeXComponent_RegisterOnTouchInterceptCallback(OH_NativeXComponent
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册自定义事件拦截回调，并使能在做触摸测试时回调此函数。通过该回调获取到的事件对象不支持UIInput相关信息操作接口，建议切换为通过注册native node上的[NODE_ON_TOUCH_INTERCEPT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeeventtype)通用事件来支持。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册自定义事件拦截回调，并使能在做触摸测试时回调此函数。通过该回调获取到的事件对象不支持UIInput相关信息操作接口，建议切换为通过注册native node上的[NODE_ON_TOUCH_INTERCEPT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h#arkui_nodeeventtype)通用事件来支持。
  
 **起始版本：** 12
  
@@ -1584,7 +1584,7 @@ int32_t OH_NativeXComponent_SetNeedSoftKeyboard(OH_NativeXComponent* component, 
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例设置是否需要软键盘。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例设置是否需要软键盘。
  
 **起始版本：** 12
  
@@ -1615,7 +1615,7 @@ int32_t OH_NativeXComponent_RegisterSurfaceShowCallback(OH_NativeXComponent* com
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册Surface显示回调，该回调在应用窗口已经从后台回到前台时触发。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册Surface显示回调，该回调在应用窗口已经从后台回到前台时触发。
  
 **起始版本：** 12
  
@@ -1646,7 +1646,7 @@ int32_t OH_NativeXComponent_RegisterSurfaceHideCallback(OH_NativeXComponent* com
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册Surface隐藏回调，该回调在应用窗口已经从前台进入后台时触发。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册Surface隐藏回调，该回调在应用窗口已经从前台进入后台时触发。
  
 **起始版本：** 12
  
@@ -1709,7 +1709,7 @@ OH_NativeXComponent* OH_NativeXComponent_GetNativeXComponent(ArkUI_NodeHandle no
  
 **描述：**
  
-基于Native接口创建的组件实例获取[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)类型的指针。
+基于Native接口创建的组件实例获取[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)类型的指针。
  
 **起始版本：** 12
  
@@ -1770,7 +1770,7 @@ int32_t OH_NativeXComponent_RegisterKeyEventCallbackWithResult(OH_NativeXCompone
  
 **描述：**
  
-为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vexcomponent-native-xcomponent-oh-nativexcomponent)实例注册带有返回值的按键事件回调。通过此接口注册的按键事件回调都必须返回一个结果，即true或false。当返回值为true时，该事件将不会继续分发；当返回值为false时，该事件将按照事件处理流程继续分发。
+为此[OH_NativeXComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent)实例注册带有返回值的按键事件回调。通过此接口注册的按键事件回调都必须返回一个结果，即true或false。当返回值为true时，该事件将不会继续分发；当返回值为false时，该事件将按照事件处理流程继续分发。
  
 **起始版本：** 14
  
@@ -1863,7 +1863,7 @@ OH_ArkUI_SurfaceHolder* OH_ArkUI_SurfaceHolder_Create(ArkUI_NodeHandle node)
  
 **描述：**
  
-创建XComponent组件的[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)对象。
+创建XComponent组件的[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)对象。
  
 **起始版本：** 19
  
@@ -1893,7 +1893,7 @@ void OH_ArkUI_SurfaceHolder_Dispose(OH_ArkUI_SurfaceHolder* surfaceHolder)
  
 **描述：**
  
-销毁[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)对象。
+销毁[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)对象。
  
 **起始版本：** 19
  
@@ -1916,7 +1916,7 @@ int32_t OH_ArkUI_SurfaceHolder_SetUserData(OH_ArkUI_SurfaceHolder* surfaceHolder
  
 **描述：**
  
-向[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)实例存储自定义数据。
+向[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)实例存储自定义数据。
  
 **起始版本：** 19
  
@@ -1947,7 +1947,7 @@ void* OH_ArkUI_SurfaceHolder_GetUserData(OH_ArkUI_SurfaceHolder* surfaceHolder)
  
 **描述：**
  
-获取[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)实例存储的自定义数据。
+获取[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)实例存储的自定义数据。
  
 **起始版本：** 19
  
@@ -1977,7 +1977,7 @@ OH_ArkUI_SurfaceCallback* OH_ArkUI_SurfaceCallback_Create()
  
 **描述：**
  
-创建[OH_ArkUI_SurfaceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/mponent-native-xcomponent-oh-arkui-surfacecallback)对象。
+创建[OH_ArkUI_SurfaceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfacecallback)对象。
  
 **起始版本：** 19
  
@@ -2000,7 +2000,7 @@ void OH_ArkUI_SurfaceCallback_Dispose(OH_ArkUI_SurfaceCallback* callback)
  
 **描述：**
  
-销毁[OH_ArkUI_SurfaceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/mponent-native-xcomponent-oh-arkui-surfacecallback)对象。
+销毁[OH_ArkUI_SurfaceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfacecallback)对象。
  
 **起始版本：** 19
  
@@ -2095,7 +2095,7 @@ int32_t OH_ArkUI_SurfaceHolder_AddSurfaceCallback(OH_ArkUI_SurfaceHolder* surfac
  
 **描述：**
  
-添加Surface生命周期回调到[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)实例。
+添加Surface生命周期回调到[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)实例。
  
 **起始版本：** 19
  
@@ -2126,7 +2126,7 @@ int32_t OH_ArkUI_SurfaceHolder_RemoveSurfaceCallback(OH_ArkUI_SurfaceHolder* sur
  
 **描述：**
  
-删除[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)实例的先前添加的Surface生命周期回调。
+删除[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)实例的先前添加的Surface生命周期回调。
  
 **起始版本：** 19
  
@@ -2157,7 +2157,7 @@ OHNativeWindow* OH_ArkUI_XComponent_GetNativeWindow(OH_ArkUI_SurfaceHolder* surf
  
 **描述：**
  
-获取[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)实例关联的NativeWindow。
+获取[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)实例关联的NativeWindow。
  
 **起始版本：** 19
  
@@ -2432,7 +2432,7 @@ ArkUI_AccessibilityProvider* OH_ArkUI_AccessibilityProvider_Create(ArkUI_NodeHan
  
 **描述：**
  
-基于此XComponent实例创建[ArkUI_AccessibilityProvider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-arkui-accessibility-arkui-accessibilityprovider)实例。
+基于此XComponent实例创建[ArkUI_AccessibilityProvider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityprovider)实例。
  
 **起始版本：** 20
  
@@ -2462,7 +2462,7 @@ void OH_ArkUI_AccessibilityProvider_Dispose(ArkUI_AccessibilityProvider* provide
  
 **描述：**
  
-销毁由Native接口[OH_ArkUI_AccessibilityProvider_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h#oh_arkui_accessibilityprovider_create)创建的[ArkUI_AccessibilityProvider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pi-arkui-accessibility-arkui-accessibilityprovider)实例。
+销毁由Native接口[OH_ArkUI_AccessibilityProvider_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-xcomponent-h#oh_arkui_accessibilityprovider_create)创建的[ArkUI_AccessibilityProvider](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessibilityprovider)实例。
  
 **起始版本：** 20
  
@@ -2485,7 +2485,7 @@ void OH_ArkUI_SurfaceCallback_SetSurfaceShowEvent(OH_ArkUI_SurfaceCallback* call
  
 **描述：**
  
-为此[OH_ArkUI_SurfaceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/mponent-native-xcomponent-oh-arkui-surfacecallback)实例设置Surface显示回调，该回调在应用窗口已经从后台回到前台时触发。
+为此[OH_ArkUI_SurfaceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfacecallback)实例设置Surface显示回调，该回调在应用窗口已经从后台回到前台时触发。
  
 **起始版本：** 20
  
@@ -2509,7 +2509,7 @@ void OH_ArkUI_SurfaceCallback_SetSurfaceHideEvent(OH_ArkUI_SurfaceCallback* call
  
 **描述：**
  
-为此[OH_ArkUI_SurfaceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/mponent-native-xcomponent-oh-arkui-surfacecallback)实例设置Surface隐藏回调，该回调在应用窗口已经从前台进入后台时触发。
+为此[OH_ArkUI_SurfaceCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfacecallback)实例设置Surface隐藏回调，该回调在应用窗口已经从前台进入后台时触发。
  
 **起始版本：** 20
  
@@ -2533,7 +2533,7 @@ ArkUI_XComponentSurfaceConfig* OH_ArkUI_XComponentSurfaceConfig_Create()
  
 **描述：**
  
-创建XComponent组件的[ArkUI_XComponentSurfaceConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nt-native-xcomponent-arkui-xcomponentsurfaceconfig)对象。
+创建XComponent组件的[ArkUI_XComponentSurfaceConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-arkui-xcomponentsurfaceconfig)对象。
  
 **起始版本：** 22
  
@@ -2556,7 +2556,7 @@ void OH_ArkUI_XComponentSurfaceConfig_Dispose(ArkUI_XComponentSurfaceConfig* con
  
 **描述：**
  
-销毁[ArkUI_XComponentSurfaceConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nt-native-xcomponent-arkui-xcomponentsurfaceconfig)对象。
+销毁[ArkUI_XComponentSurfaceConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-arkui-xcomponentsurfaceconfig)对象。
  
 **起始版本：** 22
  
@@ -2603,7 +2603,7 @@ int32_t OH_ArkUI_SurfaceHolder_SetSurfaceConfig(OH_ArkUI_SurfaceHolder* surfaceH
  
 **描述：**
  
-为[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/component-native-xcomponent-oh-arkui-surfaceholder)实例设置Surface选项。
+为[OH_ArkUI_SurfaceHolder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-arkui-surfaceholder)实例设置Surface选项。
  
 **起始版本：** 22
  

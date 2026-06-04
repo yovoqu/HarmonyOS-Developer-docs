@@ -1,6 +1,6 @@
 # drawing_brush.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-brush-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -555,7 +555,7 @@ OH_Drawing_ErrorCode OH_Drawing_BrushSetColor4f(OH_Drawing_Brush* brush, float a
  
 设置画刷的颜色。颜色将被画刷用来填充形状。
  
- 颜色采用浮点数表示的ARGB格式，色彩空间由[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nativecolorspacemanager-oh-nativecolorspacemanager)指定。
+ 颜色采用浮点数表示的ARGB格式，色彩空间由[OH_NativeColorSpaceManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativecolorspacemanager-oh-nativecolorspacemanager)指定。
  
  如果colorSpaceManager为nullptr，使用SRGB（基于IEC 61966-2.1：1999的标准红绿蓝色彩空间）色彩空间作为默认值。
  

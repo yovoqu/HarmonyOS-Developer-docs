@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -940,4 +940,4 @@
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DEFAULT_BEHAVIOR24+ | 0x00000000 | 默认行为，用于清空音频会话行为设置。 |
-| MUTE_WHEN_INTERRUPTED24+ | 0x00000002 | 当音频流被打断时，使用静音替代。 通过接口setAudioSessionBehavior设置该行为的同时，也需要调用接口setAudioSessionScene使其生效。 当播放被静音时，应用将收到InterruptHint.INTERRUPT_HINT_MUTE通知，并且在恢复时会收到InterruptHint.INTERRUPT_HINT_UNMUTE通知。 |
+| MUTE_WHEN_INTERRUPTED24+ | 0x00000002 | 当系统需要停止或暂停音频流时，执行强制静音替代。 调用setAudioSessionBehavior接口配置该行为时，必须同步调用setAudioSessionScene接口，否则配置将无法生效。 在音频会话场景下，当音频流静音或恢复时，应用将分别收到AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_MUTE与AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE的通知。 在AudioRenderer和AudioCapturer场景下，当音频流静音或恢复时，应用将分别收到InterruptHint.INTERRUPT_HINT_MUTE与InterruptHint.INTERRUPT_HINT_UNMUTE的通知。 |

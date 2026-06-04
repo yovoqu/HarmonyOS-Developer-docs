@@ -1,11 +1,11 @@
 # Class (HttpAuthHandler)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-httpauthhandler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Web组件返回的http auth认证请求确认或取消和使用缓存密码认证功能对象。示例代码参考[onHttpAuthRequest事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onhttpauthrequest9)。
+Web组件返回的http auth认证请求确认或取消和使用缓存密码认证功能对象。示例代码参考[onHttpAuthRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onhttpauthrequest9)事件。
  
 > [!NOTE]
 > 该组件首批接口从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 9开始支持。 示例效果请以真机运行为准。
@@ -69,7 +69,7 @@ confirm(userName: string, password: string): boolean
 
 isHttpAuthInfoSaved(): boolean
  
-通知Web组件用户使用服务器缓存的账号密码认证。
+确定当前主机存储的凭据是否适合使用，如果凭据在当前请求中曾被服务器拒绝过，则不适用。
  
 **系统能力：** SystemCapability.Web.Webview.Core
  
@@ -77,4 +77,4 @@ isHttpAuthInfoSaved(): boolean
   
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 存在密码认证成功返回true，其他返回false。 |
+| boolean | 存储的凭据适用返回true，其他返回false。 |

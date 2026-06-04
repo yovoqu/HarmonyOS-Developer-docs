@@ -1,6 +1,6 @@
 # @ohos.account.appAccount (应用账号管理)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-appaccount
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3645,7 +3645,7 @@ appAccountManager.addAccount('LiSi', 'token101').then(()=> {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-addAccountImplicitly(owner: string, authType: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
+addAccountImplicitly(owner: string, authType: string, options: { [key: string]: any }, callback: AuthenticatorCallback): void
 
 根据指定的账号所有者隐式地添加应用账号。使用callback异步回调。
 
@@ -4860,7 +4860,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-authenticate(name: string, owner: string, authType: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
+authenticate(name: string, owner: string, authType: string, options: { [key: string]: any }, callback: AuthenticatorCallback): void
 
 对应用账号进行鉴权以获取授权令牌。使用callback异步回调。
 
@@ -6088,7 +6088,7 @@ OAuth认证器回调接口。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-onResult: (code: number, result: {[key: string]: any;}) => void
+onResult: (code: number, result: { [key: string]: any }) => void
 
 通知请求结果。
 
@@ -6208,7 +6208,7 @@ createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthC
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-addAccountImplicitly(authType: string, callerBundleName: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
+addAccountImplicitly(authType: string, callerBundleName: string, options: { [key: string]: any }, callback: AuthenticatorCallback): void
 
 根据指定的鉴权类型和可选项，隐式地添加应用账号。使用callback异步回调。
 
@@ -6256,7 +6256,7 @@ auth(name: string, authType: string, options: Record<string, Object>, callback: 
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-authenticate(name: string, authType: string, callerBundleName: string, options: {[key: string]: any;}, callback: AuthenticatorCallback): void
+authenticate(name: string, authType: string, callerBundleName: string, options: { [key: string]: any }, callback: AuthenticatorCallback): void
 
 对应用账号进行鉴权，获取OAuth令牌。使用callback异步回调。
 

@@ -1,6 +1,6 @@
 # drag_and_drop.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drag-and-drop-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -569,7 +569,7 @@ int32_t OH_ArkUI_DragEvent_GetDataTypes(ArkUI_DragEvent *event, char *eventTypeA
 | --- | --- |
 | ArkUI_DragEvent *event | ArkUI_DragEvent事件指针。 |
 | char *eventTypeArray[] | 返回拖拽数据的类型列表，需要先自行创建字符串数组。 |
-| int32_t length | 数组总长度，不应少于使用OH_ArkUI_DragEvent_GetDataTypesCount获取到的数量。 |
+| int32_t length | 数组总长度，不应少于使用OH_ArkUI_DragEvent_GetDataTypeCount获取到的数量。 |
 | int32_t maxStrLen | 拖拽数据类型的最大字符串长度。 |
  
  

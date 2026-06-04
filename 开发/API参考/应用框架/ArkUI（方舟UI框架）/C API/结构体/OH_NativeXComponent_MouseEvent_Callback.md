@@ -1,8 +1,8 @@
 # OH_NativeXComponent_MouseEvent_Callback
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xcomponent-oh-nativexcomponent-mouseevent-callback
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativexcomponent-native-xcomponent-oh-nativexcomponent-mouseevent-callback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text

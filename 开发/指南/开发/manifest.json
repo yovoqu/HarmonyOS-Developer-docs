@@ -28678,5 +28678,355 @@
     "file": "NDK开发/硬件兼容性/使用Neon指令扩展.md",
     "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/neon-guide",
     "title": "使用Neon指令扩展"
+  },
+  {
+    "slug": "ui-design-visual-effect-background-streamer-with-mask",
+    "name": "自带背景的双边流光",
+    "file": "应用框架/UI Design Kit（UI设计套件）/视效/自带背景的双边流光.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-visual-effect-background-streamer-with-mask",
+    "section": "应用框架"
+  },
+  {
+    "slug": "callservice-enterprise-sersvice-display",
+    "name": "企业服务信息来去电页面显示",
+    "file": "应用服务/Call Service Kit（通话服务）/企业服务信息来去电页面显示.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/callservice-enterprise-sersvice-display",
+    "section": "应用服务"
+  },
+  {
+    "slug": "cannkit-llm-usage-environmental-preparation",
+    "name": "环境准备",
+    "file": "AI/CANN Kit（CANN异构计算框架服务）/环境准备（LLM大模型能力开放）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-usage-environmental-preparation",
+    "section": "AI"
+  },
+  {
+    "slug": "image-raw-data",
+    "name": "使用ImageSource获取RAW数据",
+    "file": "媒体/Image Kit（图片处理服务）/图片开发指导(ArkTS)/图片解码/使用ImageSource获取RAW数据.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-raw-data",
+    "section": "媒体"
+  },
+  {
+    "slug": "arkts-ui-widget-event-formeditextensionability-overview",
+    "name": "ArkTS卡片编辑概述",
+    "file": "应用框架/Form Kit（卡片开发服务）/ArkTS卡片开发（推荐）/ArkTS卡片提供方开发指导/ArkTS卡片编辑/ArkTS卡片编辑概述.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-formeditextensionability-overview",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ndk-swiper",
+    "name": "使用滑块视图容器 (Swiper)",
+    "file": "应用框架/ArkUI（方舟UI框架）/UI开发 (基于NDK构建UI)/使用滑块视图容器 (Swiper).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-swiper",
+    "section": "应用框架"
+  },
+  {
+    "slug": "enterprisethreatprotection-virusremediation-question",
+    "name": "Enterprise Threat Protection Kit常见问题",
+    "file": "系统/安全/Enterprise Threat Protection Kit（企业威胁防护服务）/Enterprise Threat Protection Kit常见问题.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-virusremediation-question",
+    "section": "系统"
+  },
+  {
+    "slug": "ndk-navigation-query",
+    "name": "使用导航类组件",
+    "file": "应用框架/ArkUI（方舟UI框架）/UI开发 (基于NDK构建UI)/使用导航类组件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-navigation-query",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ime-kit-glossary",
+    "name": "输入法开发服务术语",
+    "file": "应用框架/IME Kit（输入法开发服务）/输入法开发服务术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ime-kit-glossary",
+    "section": "应用框架"
+  },
+  {
+    "slug": "cannkit-llm-three-stage-quantification",
+    "name": "三段式量化步骤",
+    "file": "AI/CANN Kit（CANN异构计算框架服务）/三段式量化步骤.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-three-stage-quantification",
+    "section": "AI"
+  },
+  {
+    "slug": "image-region-and-downsampling",
+    "name": "图片区域解码与下采样(ArkTS)",
+    "file": "媒体/Image Kit（图片处理服务）/图片开发指导(ArkTS)/图片解码/图片区域解码与下采样(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-region-and-downsampling",
+    "section": "媒体"
+  },
+  {
+    "slug": "enterprisethreatprotection-virusremediation-restore",
+    "name": "文件隔离恢复",
+    "file": "系统/安全/Enterprise Threat Protection Kit（企业威胁防护服务）/文件访问与处置/文件隔离恢复.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-virusremediation-restore",
+    "section": "系统"
+  },
+  {
+    "slug": "social-sharing-redirection",
+    "name": "社交分享跳转",
+    "file": "应用框架/Ability Kit（程序框架服务）/Stage模型开发指导/应用间跳转/社交分享跳转.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/social-sharing-redirection",
+    "section": "应用框架"
+  },
+  {
+    "slug": "using-avscreencapture-for-file-with-window",
+    "name": "使用AVScreenCapture实现窗口级录屏(C/C++)",
+    "file": "媒体/Media Kit（媒体服务）/媒体开发指导(C／C++)/录制/使用AVScreenCapture实现窗口级录屏(C-C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avscreencapture-for-file-with-window",
+    "section": "媒体"
+  },
+  {
+    "slug": "enterprisethreatprotection-virusremediation-isolate",
+    "name": "文件隔离",
+    "file": "系统/安全/Enterprise Threat Protection Kit（企业威胁防护服务）/文件访问与处置/文件隔离.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/enterprisethreatprotection-virusremediation-isolate",
+    "section": "系统"
+  },
+  {
+    "slug": "use-jsvm-heapstatistics-debugger-cpuprofiler-heapsnapshot",
+    "name": "使用JSVM-API接口进行JavaScript代码调试调优",
+    "file": "NDK开发/代码开发/使用JSVM-API实现JS与C／C++语言交互/JSVM-API使用指导/使用JSVM-API接口进行JavaScript代码调试调优.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-heapstatistics-debugger-cpuprofiler-heapsnapshot",
+    "section": "NDK开发"
+  },
+  {
+    "slug": "callservice-enterprise-app-redirection",
+    "name": "应用跳转陌生号码和信息识别页面",
+    "file": "应用服务/Call Service Kit（通话服务）/应用跳转陌生号码和信息识别页面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/callservice-enterprise-app-redirection",
+    "section": "应用服务"
+  },
+  {
+    "slug": "ndk-use-text-component",
+    "name": "使用Text组件",
+    "file": "应用框架/ArkUI（方舟UI框架）/UI开发 (基于NDK构建UI)/使用文本/使用Text组件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-use-text-component",
+    "section": "应用框架"
+  },
+  {
+    "slug": "health-litewearable-sport-linkage-manage",
+    "name": "运动联动管理",
+    "file": "应用服务/Health Service Kit（运动健康服务）/开发接入/Wearable应用开发/运动联动管理.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-litewearable-sport-linkage-manage",
+    "section": "应用服务"
+  },
+  {
+    "slug": "navigating-between-web-and-apps",
+    "name": "Web和应用的跳转与拉起",
+    "file": "应用框架/Ability Kit（程序框架服务）/Stage模型开发指导/应用间跳转/Web和应用的跳转与拉起.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/navigating-between-web-and-apps",
+    "section": "应用框架"
+  },
+  {
+    "slug": "health-litewearable-add-permissions",
+    "name": "管理用户授权",
+    "file": "应用服务/Health Service Kit（运动健康服务）/开发接入/Wearable应用开发/管理用户授权.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/health-litewearable-add-permissions",
+    "section": "应用服务"
+  },
+  {
+    "slug": "ide-clang-tidy",
+    "name": "Clang-Tidy代码检查",
+    "file": "Clang-Tidy代码检查.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-clang-tidy",
+    "section": ""
+  },
+  {
+    "slug": "arkweb-glossary",
+    "name": "ArkWeb术语",
+    "file": "应用框架/ArkWeb（方舟Web）/ArkWeb术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkweb-glossary",
+    "section": "应用框架"
+  },
+  {
+    "slug": "bluetooth-faq-2900099-errorcode",
+    "name": "蓝牙接口调用报错2900099",
+    "file": "系统/网络/Connectivity Kit（短距通信服务）/蓝牙/蓝牙接口调用报错2900099.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bluetooth-faq-2900099-errorcode",
+    "section": "系统"
+  },
+  {
+    "slug": "huks-extension-registration-and-unregistration-arkts",
+    "name": "注册/注销Provider(ArkTS)",
+    "file": "系统/安全/Universal Keystore Kit（密钥管理服务）/外部密钥管理扩展/Provider管理/注册-注销Provider(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-extension-registration-and-unregistration-arkts",
+    "section": "系统"
+  },
+  {
+    "slug": "inter-application-redirection",
+    "name": "应用间跳转实践概览",
+    "file": "应用框架/Ability Kit（程序框架服务）/Stage模型开发指导/应用间跳转/应用间跳转实践概览.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/inter-application-redirection",
+    "section": "应用框架"
+  },
+  {
+    "slug": "crypto-convert-compressed-or-uncompressed-ecc-pubkey",
+    "name": "使用ECC压缩/非压缩公钥格式转换(ArkTS)",
+    "file": "系统/安全/Crypto Architecture Kit（加解密算法框架服务）/密钥生成和转换/密钥生成和转换开发指导/使用ECC压缩-非压缩公钥格式转换(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-compressed-or-uncompressed-ecc-pubkey",
+    "section": "系统"
+  },
+  {
+    "slug": "ndk-layout-container",
+    "name": "使用布局组件",
+    "file": "应用框架/ArkUI（方舟UI框架）/UI开发 (基于NDK构建UI)/使用布局组件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-layout-container",
+    "section": "应用框架"
+  },
+  {
+    "slug": "crypto-convert-compressed-or-uncompressed-ecc-pubkey-ndk",
+    "name": "使用ECC压缩/非压缩公钥格式转换(C/C++)",
+    "file": "系统/安全/Crypto Architecture Kit（加解密算法框架服务）/密钥生成和转换/密钥生成和转换开发指导/使用ECC压缩-非压缩公钥格式转换(C-C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-compressed-or-uncompressed-ecc-pubkey-ndk",
+    "section": "系统"
+  },
+  {
+    "slug": "cannkit-llm-summary",
+    "name": "简介",
+    "file": "AI/CANN Kit（CANN异构计算框架服务）/简介（LLM大模型能力开放）.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-summary",
+    "section": "AI"
+  },
+  {
+    "slug": "cannkit-llm-onnx-model",
+    "name": "原始模型导出为友好结构ONNX模型",
+    "file": "AI/CANN Kit（CANN异构计算框架服务）/原始模型导出为友好结构ONNX模型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-onnx-model",
+    "section": "AI"
+  },
+  {
+    "slug": "image-region-and-downsampling-c",
+    "name": "图片区域解码与下采样(C/C++)",
+    "file": "媒体/Image Kit（图片处理服务）/图片开发指导(C／C++)/图片解码/图片区域解码与下采样(C-C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-region-and-downsampling-c",
+    "section": "媒体"
+  },
+  {
+    "slug": "app-restart",
+    "name": "应用重启",
+    "file": "应用框架/Ability Kit（程序框架服务）/Stage模型开发指导/Stage模型应用组件/应用重启.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-restart",
+    "section": "应用框架"
+  },
+  {
+    "slug": "using-ndk-avplayer-for-streaming",
+    "name": "使用AVPlayer播放流媒体(C/C++)",
+    "file": "媒体/Media Kit（媒体服务）/媒体开发指导(C／C++)/播放/使用AVPlayer播放流媒体(C-C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ndk-avplayer-for-streaming",
+    "section": "媒体"
+  },
+  {
+    "slug": "ndk-build-form-components",
+    "name": "构建表单组件",
+    "file": "应用框架/ArkUI（方舟UI框架）/UI开发 (基于NDK构建UI)/构建表单组件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-build-form-components",
+    "section": "应用框架"
+  },
+  {
+    "slug": "ndk-add-component-events",
+    "name": "添加事件监听",
+    "file": "应用框架/ArkUI（方舟UI框架）/UI开发 (基于NDK构建UI)/添加事件监听.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-add-component-events",
+    "section": "应用框架"
+  },
+  {
+    "slug": "kernel-enhance-overview",
+    "name": "Kernel Enhance Kit 简介",
+    "file": "系统/基础功能/Kernel Enhance Kit 简介.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/kernel-enhance-overview",
+    "section": "系统"
+  },
+  {
+    "slug": "cannkit-llm-quantization-effect-evaluation",
+    "name": "量化效果评估",
+    "file": "AI/CANN Kit（CANN异构计算框架服务）/量化效果评估.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-quantization-effect-evaluation",
+    "section": "AI"
+  },
+  {
+    "slug": "crypto-convert-compressed-or-uncompressed-ecc-point",
+    "name": "使用ECC压缩/非压缩点格式转换(ArkTS)",
+    "file": "系统/安全/Crypto Architecture Kit（加解密算法框架服务）/密钥生成和转换/密钥生成和转换开发指导/使用ECC压缩-非压缩点格式转换(ArkTS).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-compressed-or-uncompressed-ecc-point",
+    "section": "系统"
+  },
+  {
+    "slug": "perf-detection",
+    "name": "性能检测",
+    "file": "系统/调测调优/Performance Analysis Kit（性能分析服务）/性能检测.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/perf-detection",
+    "section": "系统"
+  },
+  {
+    "slug": "ndk-common-attribute-layout",
+    "name": "设置通用布局属性",
+    "file": "应用框架/ArkUI（方舟UI框架）/UI开发 (基于NDK构建UI)/设置通用布局属性.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-common-attribute-layout",
+    "section": "应用框架"
+  },
+  {
+    "slug": "special-text-recognition-redirection",
+    "name": "特殊文本识别跳转",
+    "file": "应用框架/Ability Kit（程序框架服务）/Stage模型开发指导/应用间跳转/特殊文本识别跳转.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/special-text-recognition-redirection",
+    "section": "应用框架"
+  },
+  {
+    "slug": "video-dimension-guide",
+    "name": "视频编解码宽高、跨距与裁剪信息说明",
+    "file": "媒体/AVCodec Kit（音视频编解码服务）/视频编解码宽高、跨距与裁剪信息说明.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-dimension-guide",
+    "section": "媒体"
+  },
+  {
+    "slug": "crypto-convert-compressed-or-uncompressed-ecc-point-ndk",
+    "name": "使用ECC压缩/非压缩点格式转换(C/C++)",
+    "file": "系统/安全/Crypto Architecture Kit（加解密算法框架服务）/密钥生成和转换/密钥生成和转换开发指导/使用ECC压缩-非压缩点格式转换(C-C++).md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-compressed-or-uncompressed-ecc-point-ndk",
+    "section": "系统"
+  },
+  {
+    "slug": "remote-communication-glossary",
+    "name": "Remote Communication Kit术语",
+    "file": "系统/网络/Remote Communication Kit（远场通信服务）/Remote Communication Kit术语.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-glossary",
+    "section": "系统"
+  },
+  {
+    "slug": "ad-redirection",
+    "name": "广告跳转",
+    "file": "应用框架/Ability Kit（程序框架服务）/Stage模型开发指导/应用间跳转/广告跳转.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ad-redirection",
+    "section": "应用框架"
+  },
+  {
+    "slug": "notification-subscriber-extension-ability-development-steps",
+    "name": "通知订阅扩展能力开发步骤",
+    "file": "应用服务/Notification Kit（用户通知服务）/通知订阅扩展能力/通知订阅扩展能力开发步骤.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-subscriber-extension-ability-development-steps",
+    "section": "应用服务"
+  },
+  {
+    "slug": "cannkit-llm-onnx2cann",
+    "name": "ONNX模型转换CANN模型",
+    "file": "AI/CANN Kit（CANN异构计算框架服务）/ONNX模型转换CANN模型.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-onnx2cann",
+    "section": "AI"
+  },
+  {
+    "slug": "ndk-bind-input-events",
+    "name": "绑定基础输入事件",
+    "file": "应用框架/ArkUI（方舟UI框架）/UI开发 (基于NDK构建UI)/绑定基础输入事件.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-bind-input-events",
+    "section": "应用框架"
+  },
+  {
+    "slug": "bpta-multi-mobile-payment",
+    "name": "多设备移动支付界面",
+    "file": "一次开发，多端部署/多设备移动支付界面.md",
+    "url": "https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-multi-mobile-payment",
+    "section": "一次开发，多端部署"
   }
 ]

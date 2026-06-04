@@ -1,6 +1,6 @@
 # 使用Image_NativeModule完成图片解码
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-source-c
 
@@ -153,7 +153,7 @@ napi_value CreateImageSource(napi_env env, napi_callback_info info)
 8. 在创建ImageSource实例后，进行指定属性值的获取和修改、通过解码参数创建PixelMap对象、获取图像帧数等操作。
 
   
-创建PixelMap对象。
+ - 创建PixelMap对象。
 
   
 ```cpp
@@ -192,6 +192,7 @@ napi_value CreatePixelMap(napi_env env, napi_callback_info info)
 }
 ```
 
+
 9. 创建定义图片信息的结构体对象，并获取图片信息。
 
   
@@ -218,6 +219,7 @@ napi_value GetImageInfo(napi_env env, napi_callback_info info)
     return GetJsResult(env, width); // 返回获取到info信息的width。
 }
 ```
+
 
 10. 读取、编辑Exif信息。
 
@@ -290,6 +292,7 @@ napi_value ModifyImageProperty(napi_env env, napi_callback_info info)
 }
 ```
 
+
 11. 获取图像帧数。
 
   
@@ -306,6 +309,7 @@ napi_value GetFrameCount(napi_env env, napi_callback_info info)
     return GetJsResult(env, g_thisImageSource->frameCnt); // 返回获取到的图像帧数。
 }
 ```
+
 
 12. 通过图片解码参数创建Pixelmap列表。
 
@@ -327,6 +331,7 @@ napi_value CreatePixelmapList(napi_env env, napi_callback_info info)
 }
 ```
 
+
 13. 获取图像延迟时间列表。
 
   
@@ -343,6 +348,7 @@ napi_value GetDelayTimeList(napi_env env, napi_callback_info info)
 }
 ```
 
+
 14. 释放ImageSource。
 
   
@@ -357,3 +363,14 @@ napi_value ReleaseImageSource(napi_env env, napi_callback_info info)
     return ReturnErrorCode(env, errCode, "OH_ImageSourceNative_Release");
 }
 ```
+
+
+  
+
+  #### 进阶主题
+
+  
+**内存优化解码**：使用DMA内存和YUV像素格式降低内存占用、提升解码性能，参见[图片解码内存优化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-allocator-type-c)。
+ - **区域解码**：解码图片指定区域，适用于大图局部查看和裁剪预览场景，参见[图片区域解码与下采样](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-region-and-downsampling-c)。
+ - **下采样解码**：解码时直接缩放目标尺寸，避免解码后缩放的性能开销，适用于缩略图生成场景，参见[图片区域解码与下采样](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-region-and-downsampling-c)。
+ - **多图对象解码**：解码包含主图和辅助图的Picture对象，适用于HDR图片和HEIF专业格式处理，参见[使用Image_NativeModule完成多图对象解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-source-picture-c)。

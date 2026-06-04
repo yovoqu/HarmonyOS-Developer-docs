@@ -1,6 +1,6 @@
 # thirdPaymentService(三方支付服务)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-third-payment-service
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -111,13 +111,13 @@ struct Index {
         thirdAppid
       );
     } catch (error) {
-      console.error("支付客户端初始化失败:", error);
+      console.error('支付客户端初始化失败:', error);
       // 可在此处提示用户或跳转错误页面
     }
   }
   payButtonClicked() {
     if (!this.thirdPayClient) {
-      console.error("支付客户端未初始化");
+      console.error('支付客户端未初始化');
       return;
     }
     // 调用支付接口，传递订单信息
@@ -126,13 +126,13 @@ struct Index {
 
   build() {
     Column() {
-      Button("立即支付")
+      Button('立即支付')
         .onClick(() => {
           this.payButtonClicked();
         })
     }
-    .width("100%")
-    .height("100%")
+    .width('100%')
+    .height('100%')
     .justifyContent(FlexAlign.Center)
   }
 }
@@ -196,7 +196,7 @@ export let thirdPayClient: thirdPaymentService.ThirdPayClient | undefined = unde
 struct Index {
   context: common.UIAbilityContext = this.getUIContext().getHostContext() as common.UIAbilityContext;
   thirdPaymentServicePayPromise() {
-    thirdPayClient = new thirdPaymentService.ThirdPayClient(this.context, thirdPaymentService.PayMethod.WECHAT_PAY, "appid_123456");
+    thirdPayClient = new thirdPaymentService.ThirdPayClient(this.context, thirdPaymentService.PayMethod.WECHAT_PAY, 'appid_123456');
     // 不同支付方式参数构建参考示例如下：
     // PayMethod.WECHAT_PAY：'{"appId":"***","partnerId":"***","prepayId":"***","packageValue":"***","nonceStr":"***","timeStamp":"***","sign":"***","extData":"***","token":"***"}'
     // PayMethod.ALI_PAY：'{"orderInfo":"***", "token":"***"}'
@@ -205,7 +205,7 @@ struct Index {
     thirdPayClient.pay(payInfo).then(() => {
       // 支付成功
       console.info('succeeded in paying.');
-    })
+    });
   }
 
   build() {

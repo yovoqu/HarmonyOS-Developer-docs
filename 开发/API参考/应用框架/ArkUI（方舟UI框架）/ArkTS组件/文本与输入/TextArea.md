@@ -1,6 +1,6 @@
 # TextArea
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-textarea
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1260,7 +1260,7 @@ strokeWidth(width: Optional&lt;LengthMetrics&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| width | Optional&lt;LengthMetrics&gt; | 是 | 文本描边的宽度。当LengthMetrics的单位为px时， 若设置值小于0，显示实心字；若大于0，显示空心字。 默认值为0，不做描边处理。 |
+| width | Optional&lt;LengthMetrics&gt; | 是 | 文本描边的宽度。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。 若设置值小于0，显示实心字；若大于0，显示空心字。 默认值为0，不做描边处理。 |
 
 
 

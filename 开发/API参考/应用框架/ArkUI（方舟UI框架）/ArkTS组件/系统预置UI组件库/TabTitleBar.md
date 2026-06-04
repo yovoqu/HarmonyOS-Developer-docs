@@ -1,6 +1,6 @@
 # TabTitleBar
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-tabtitlebar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -316,7 +316,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/9UF1lnsPRIit1mVU6VwHyA/zh-cn_image_0000002611836105.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=6C95FB6823B68ABEEBB454F9D1F0D20D13B22C3755246EDFB6BAFEBAF514EE64)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/8NweGHkxRI2hAfLjmblWYw/zh-cn_image_0000002587270646.png?HW-CC-KV=V1&HW-CC-Date=20260604T012834Z&HW-CC-Expire=86400&HW-CC-Sign=CB94519934BEB016D3F5270FFB26AFD7B314D5031D91B8CAE13AD61A11D6876A)
 
  
   
@@ -435,4 +435,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/GTf1R0q5QAGekKcW3ICRdA/zh-cn_image_0000002581276360.png?HW-CC-KV=V1&HW-CC-Date=20260528T025529Z&HW-CC-Expire=86400&HW-CC-Sign=D33BC68EE60B8D8F1C7147C51B33A9009D26A51240A70E83FB57BB4AAD0424C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/jHKwaKUiQyeN1G-ajUm4qg/zh-cn_image_0000002617710325.png?HW-CC-KV=V1&HW-CC-Date=20260604T012834Z&HW-CC-Expire=86400&HW-CC-Sign=67F1A4DBB73A49BDA6347D0C0C758BA6ED0B2A1453726AA9C483700B453A71B4)

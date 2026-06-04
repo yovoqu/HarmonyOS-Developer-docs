@@ -1,6 +1,6 @@
 # Scroll
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -975,6 +975,10 @@ scrollTo(options: ScrollOptions)
 
 滑动到指定位置。
 
+> [!TIP]
+> scrollTo动画速度大于200vp/s时，滚动组件区域内的组件不响应点击事件。 各组件行为存在差异： ArcList 和 List 组件会对所有经过的item进行加载和布局。 Grid组件和 SLIDING_WINDOW 模式的 WaterFlow 组件在跳转距离较大（大于2倍组件主轴高度）时，会直接估算出要显示的item。 ALWAYS_TOP_DOWN 模式的WaterFlow组件向后跳转（即dx或dy为正值时）会加载和布局所有经过的item，向前跳转（即dx或dy为负值时）会直接跳转到对应位置。
+
+
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
@@ -984,10 +988,6 @@ scrollTo(options: ScrollOptions)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | options | ScrollOptions | 是 | 滑动到指定位置的参数。 |
-
-
-> [!NOTE]
-> ScrollTo动画速度大于200vp/s时，滚动组件区域内的组件不响应点击事件。
 
 
 
@@ -1176,8 +1176,8 @@ scrollBy(dx: Length, dy: Length)
 
 滑动指定距离。
 
-> [!NOTE]
-> 支持ArcList、Scroll、List、Grid、WaterFlow组件。
+> [!TIP]
+> 支持ArcList、Scroll、List、Grid、WaterFlow组件。 各组件行为存在差异： ArcList 和 List 组件会对所有经过的item进行加载和布局。 Grid组件和 SLIDING_WINDOW 模式的WaterFlow组件在跳转距离较大（大于2倍组件主轴高度）时，会直接估算出要显示的item。 ALWAYS_TOP_DOWN 模式的WaterFlow组件向后跳转（即dx或dy为正值时）会加载和布局所有经过的item，向前跳转（即dx或dy为负值时）会直接跳转到对应位置。
 
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -1741,7 +1741,7 @@ struct NestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/ILCsFmK6RImwVf7MQDVX4A/zh-cn_image_0000002581275846.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=631B853E1C3B71ADE2B135B7123417D35980BEACE0BB19E9C9FC8466B23557A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/8F6rgejHTMiaG9Qlvigo9g/zh-cn_image_0000002617709799.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=8247D097D047517B6DA7C49ADC8EC4B1FD5DDAC6548D90DD94B680AA8F339368)
 
 
 
@@ -1813,7 +1813,7 @@ struct StickyNestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/Km9D0Y1LSlSxHUP_hp_M6w/zh-cn_image_0000002611755703.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=4868969A5EBD0C3C30ABF54D7BEAD1C36CA7A40373C9D0BD73DCCB594EB08528)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/K2I8rEw2RM60gKIFJ4LkgQ/zh-cn_image_0000002587110216.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=F8DC5B64F8615E32EAC39FA3C4771AB8FCA5C68A5FA8FD9B127922D0D9A8CCD2)
 
 
 
@@ -1912,7 +1912,7 @@ struct NestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/xj5QQGSuQUum5VzmjYPMDw/zh-cn_image_0000002581435766.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=B44CF2E60F6EE689330F9B5A024CA81DA714B7E6E7696696A70F48A2B76B257B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/Zgacv-ajStmBaBRXojy-WQ/zh-cn_image_0000002617669899.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=149A8D34469E31CDE61F8DE8DFC1EEA53FE237E9852C71C7B25507D7DAB8DD7B)
 
 
 
@@ -1952,7 +1952,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/Ft1jG66yRgiCTbiBSBQkFA/zh-cn_image_0000002611835595.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=ABF7B483EA98941292DD48334C76B5CAEB6CD97CAE9B5AE17A4A69D1EDC7F475)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/v-MROjnlQki1kI5IBMss1g/zh-cn_image_0000002587270120.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=E70545F461EC1DD89806263A217690FC8C8A289033AF9DF294708724C651972D)
 
 
 
@@ -2034,7 +2034,7 @@ struct ListExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/kSq5alTnRDuIwDfFlggroA/zh-cn_image_0000002581275848.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=D4A5285808505455F005FF95D2F4280AC06CF278791E4D121FB630CA0E370EA6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/XEQa9hKMQ9KeTYdfJV9Dog/zh-cn_image_0000002617709801.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=3A32EE63C11451A24A721CDDB8EC64B33BEBAA431955ABBAF58A641571FE1608)
 
 
 
@@ -2078,7 +2078,7 @@ struct ScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/OSuxEs6IR-irJiNPV3Ht_Q/zh-cn_image_0000002611755705.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=62B7833C8B1A75EE7C39222BB7C4525D86D3CDDFEC5A409FD3F37B97C2275134)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/cPWc5CrFSG2zrHy7lySrWg/zh-cn_image_0000002587110218.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=79A0CF98C1C159032769245CD54511D5D41605696B36820E9E81591D169FE0DC)
 
 
 
@@ -2118,7 +2118,7 @@ struct ScrollExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/hTsttc9vQdmoGKTmqG1TYQ/zh-cn_image_0000002581435768.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=50EE3C4B41A86EF7021592DBEFDD124DBBA316487A8D5D4F8FADDE8242C292D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/Tn4OimR-TvajcRkVDFGu-A/zh-cn_image_0000002617669901.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=327014CF9BD7DA200279D7423F2F87FA0F5C6CDFF6E02CC743AFCC5C86BD1FC8)
 
 
 
@@ -2156,7 +2156,7 @@ struct EnablePagingExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/vuIL1RcnQf6VJThRRDu8wA/zh-cn_image_0000002611835597.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=136CE4AB5977E1D3F5AF0C9F3FBE794CB43B94942237D12296A0F001A38A5D18)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/6d5BSWTjSSqiG2BDdhOyOA/zh-cn_image_0000002587270122.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=98BFE6D5B8E5A32017712F6464E018CEA391EFBCFB826FB0BD3A9EDB147895C8)
 
 
 
@@ -2223,7 +2223,7 @@ struct StickyNestedScroll {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/A8psgFD4QrSRRYRl6tUy9A/zh-cn_image_0000002581275850.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=B98A6A9B891B641B6F5C1A8A4F677977849819C7BCAD32E57B3B0806D31D57A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/b9SVB0KoSqemA2X0vDAQiA/zh-cn_image_0000002617709803.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=F50D85BCD484E24D094672DAC5B27530061D5CFE9715636FD9AE2EBF92472B38)
 
 
 
@@ -2263,7 +2263,7 @@ struct ScrollZoomExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/vhv3vTQJSVCyP5iSATE0ug/zh-cn_image_0000002611755707.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=4B625AA7211EE762D64DC624FA60C7C834F3CD2E6BC1E2E6473018168353FFA3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/7R1XN5IvT9STflKkDtQU0Q/zh-cn_image_0000002587110220.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=5461D884D1DA6C8B0C22DA2DFDCA2A99E9BDFBA23B9F0F7F91FF641D607916D3)
 
 
 
@@ -2342,7 +2342,7 @@ struct ScrollExample1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/pKsjfZUYRv6S_bJtvCCPvg/zh-cn_image_0000002581435770.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=CEA8038E5F3836C5E7844E9693FAE1314D3FEC45603998587B44BB932CAA22C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/Ke0sIOv_TrGUsORt7aFZyQ/zh-cn_image_0000002617669903.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012829Z&HW-CC-Expire=86400&HW-CC-Sign=389810ED7E4BAF0A9F451D8B12C6618D3FD8D8DC1CBCBA457106A75AFC266100)
 
 
 

@@ -1,6 +1,6 @@
 # Class (MeasureUtils)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-measureutils
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 提供文本宽度、高度等相关计算。
 
 > [!NOTE]
-> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 以下API需先使用UIContext中的 getMeasureUtils() 方法获取MeasureUtils实例，再通过此实例调用对应方法。 如需更多测算文本参数，建议使用图形对应测算接口 Paragraph 接口。 调用文本计算接口时，不推荐同时用 ApplicationContext.setFontSizeScale 设置应用字体大小缩放比例。为了确保时序正确性，建议开发者自行监听字体缩放变化，以保证测算结果的准确性。 在测算裁剪后的文本时，由于某些Unicode字符（如emoji）的码位长度大于1，直接按字符串长度裁剪会导致不准确的结果。建议基于Unicode码点进行迭代处理，避免错误截断字符，确保测算结果准确，请参考 measureTextSize 的示例2。
+> 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本Class首批接口从API version 12开始支持。 以下API需先使用UIContext中的 getMeasureUtils() 方法获取MeasureUtils实例，再通过此实例调用对应方法。 如需更多测算文本参数，比如 includeFontPadding 和 fallbackLineSpacing ，建议使用图形对应测算接口 Paragraph 接口。 调用文本计算接口时，不推荐同时用 ApplicationContext.setFontSizeScale 设置应用字体大小缩放比例。为了确保时序正确性，建议开发者自行监听字体缩放变化，以保证测算结果的准确性。 在测算裁剪后的文本时，由于某些Unicode字符（如emoji）的码位长度大于1，直接按字符串长度裁剪会导致不准确的结果。建议基于Unicode码点进行迭代处理，避免错误截断字符，确保测算结果准确，请参考 measureTextSize 的示例2。
 
 
 

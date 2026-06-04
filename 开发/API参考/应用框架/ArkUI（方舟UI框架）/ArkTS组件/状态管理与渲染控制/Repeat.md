@@ -1,6 +1,6 @@
 # Repeat
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -328,7 +328,7 @@ Repeat数据源参数联合类型。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | totalCount | number | 否 | 是 | 期望加载的数据项总数，可以不等于数据源长度（实际传入Repeat的数组的长度）。 取值范围：自然数。 totalCount缺省或超出取值范围时，totalCount取值为数据源长度，列表正常滚动。 totalCount = 0时，不加载数据。 0 < totalCount <= 数据源长度时，界面中只渲染区间[0, totalCount - 1]范围内的数据。 totalCount > 数据源长度时，Repeat将渲染区间[0, totalCount - 1]范围内的数据，容器组件滚动条样式根据totalCount值变化。在容器组件滚动过程中，应用需要保证在列表即将滑动到数据源末尾时请求后续数据。开发者需要对数据请求的错误场景（如网络延迟）进行保护操作，直到数据源全部加载完成，否则列表滑动过程中会出现滚动效果异常。建议配合使用onLazyLoading实现数据懒加载。 除totalCount属性外，开发者也可以通过onTotalCount方法设置自定义方法，计算期望加载的数据项总数。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| reusable18+ | boolean | 否 | 是 | 是否开启复用功能。 true：开启复用。 false：关闭复用。 默认值：true 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| reusable18+ | boolean | 否 | 是 | 是否开启复用功能。当Repeat的子组件为@ReusableV2装饰的自定义组件时，Repeat自身的复用能力优先于@ReusableV2的复用能力，若开发者希望使用@ReusableV2的复用能力，建议关闭Repeat自身的复用能力。 true：开启复用。 false：关闭复用。 默认值：true 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
 
 
 **示例**
@@ -353,7 +353,7 @@ onTotalCount?(): number
 
 可选方法，计算期望加载的数据项总数。需要开发者给定计算方法，其返回值可以不等于数据源长度（实际传入Repeat的数组的长度）。
 
-[totalCount](#virtualscrolloptions)和onTotalCount()的返回值都表示期望加载的数据项总数。开发者可直接设置totalCount属性，给出期望加载的数据项总数，也可以通过onTotalCount()设定自定义方法，计算期望加载的数据项总数。totalCount与onTotalCount()最多设置一个。如果均未设置，则采用默认值：数据源长度；如果同时设置，则忽略totalCount。
+[totalCount](#属性-1)和onTotalCount()的返回值都表示期望加载的数据项总数。开发者可直接设置totalCount属性，给出期望加载的数据项总数，也可以通过onTotalCount()设定自定义方法，计算期望加载的数据项总数。totalCount与onTotalCount()最多设置一个。如果均未设置，则采用默认值：数据源长度；如果同时设置，则忽略totalCount。
 
 onTotalCount()不同返回值的数据加载处理规则与totalCount一致，具体如下：
 

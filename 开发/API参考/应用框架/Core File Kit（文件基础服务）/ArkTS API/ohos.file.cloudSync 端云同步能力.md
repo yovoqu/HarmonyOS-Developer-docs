@@ -1,6 +1,6 @@
 # @ohos.file.cloudSync (端云同步能力)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-cloudsync
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -184,6 +184,8 @@ let fileSync = new cloudSync.FileSync()
 on(event: 'progress', callback: Callback&lt;SyncProgress&gt;): void
 
 云盘同步对象添加同步过程事件监听。
+
+当应用首次注册callback时，SyncProgress中的SyncState初始返回值为4，代表COMPLETED；后续重新注册时，该值将反映实际同步结果，例如若上次上行失败，返回值为1，代表UPLOAD_FAILED。
 
 **系统能力**：SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
 

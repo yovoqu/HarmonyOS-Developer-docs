@@ -1,11 +1,11 @@
 # 构建第一个HarmonyOS应用（ArkTS）
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-with-ets-stage
 
 > [!NOTE]
-> 为确保运行效果，本文以使用 DevEco Studio 6.1.0 Release版本 为例。
+> 为确保运行效果，本文以使用 DevEco Studio 6.1.1 Release版本 为例。
 
   
 
@@ -18,7 +18,7 @@
   
 ![](assets/构建第一个HarmonyOS应用（ArkTS）/file-20260514124510135-1.png)
 
-3. 进入配置工程界面，**Compatible SDK**表示兼容的最低API Version，此处以选择**6.1.0(23)** 为例，其他参数保持默认设置即可。
+3. 进入配置工程界面，**Compatible SDK**表示兼容的最低API Version，此处以选择**6.1.1(24)** 为例，其他参数保持默认设置即可。
 
   
 ![](assets/构建第一个HarmonyOS应用（ArkTS）/file-20260514124510135-2.png)
@@ -335,11 +335,11 @@ struct Second {
 ![](assets/构建第一个HarmonyOS应用（ArkTS）/file-20260514124510135-9.png)
 
 3. 在编辑窗口右上角的工具栏，单击
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/tGQ7lVl7RyKeRGxUKORb3A/zh-cn_image_0000002581273596.png?HW-CC-KV=V1&HW-CC-Date=20260528T025921Z&HW-CC-Expire=86400&HW-CC-Sign=72F0DC583599868C653A8E2DCB95936948A3DA9483947C41FBE514C54BF08906)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/0Cq2qS6JT-KmYMNGFEt17A/zh-cn_image_0000002617707457.png?HW-CC-KV=V1&HW-CC-Date=20260604T012909Z&HW-CC-Expire=86400&HW-CC-Sign=FCA09BBE60A1F3B4D56ED987F459F5994D1956A8D82399373D6D2EF5635EA2B7)
 按钮运行。效果如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/87PommMIQr2u5RDM2iR-Bg/zh-cn_image_0000002611753451.png?HW-CC-KV=V1&HW-CC-Date=20260528T025921Z&HW-CC-Expire=86400&HW-CC-Sign=C5B0504C9D16499544D03ADF65499F4E1101A3B91641301AE454D155870FC75A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/_4Wt-tLxTWmdiXFiOYflYg/zh-cn_image_0000002587107876.png?HW-CC-KV=V1&HW-CC-Date=20260604T012909Z&HW-CC-Expire=86400&HW-CC-Sign=A3E6821856EAFFA862A129F6BBDE10B189178F8FE0D695585EC017AB99FC78AE)
 
  
 恭喜您已经基于ArkTS语言构建完成第一个HarmonyOS应用，快来探索更多的HarmonyOS功能吧。

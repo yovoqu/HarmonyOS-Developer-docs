@@ -1,6 +1,6 @@
 # InterstitialDialogAction
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-interstitialdialogaction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -205,6 +205,9 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let dialogUIContext: UIContext | null = null;
 
 export function getDialogUIContext(): UIContext | null {
+  if (dialogUIContext === null) {
+    hilog.info(0x0000, 'testTag', '%{public}s', 'dialogUIContext is null');
+  }
   return dialogUIContext;
 }
 
@@ -241,7 +244,7 @@ export default class EntryAbility extends UIAbility {
       dialogUIContext = windowClass.getUIContext();
     })
 
-    //获取窗口
+    // 获取窗口
     windowStage.getMainWindow((err, data) => {
       if (err.code) {
         console.error('Failed to obtain the main window. Cause: ' + JSON.stringify(err));
@@ -249,7 +252,7 @@ export default class EntryAbility extends UIAbility {
       }
       windowClass = data;
       console.info('Succeeded in obtaining the main window. Data: ' + JSON.stringify(data));
-      //设置窗口全屏
+      // 设置窗口全屏
       windowClass.setWindowLayoutFullScreen(false)
     })
   }
@@ -332,8 +335,8 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let dialogUIContext: UIContext | null = null;
 
 export function getDialogUIContext(): UIContext | null {
-  if (getDialogUIContext === null) {
-    hilog.info(0x0000, 'testTag', '%{public}s', 'getDialogUIContext is null');
+  if (dialogUIContext === null) {
+    hilog.info(0x0000, 'testTag', '%{public}s', 'dialogUIContext is null');
   }
   return dialogUIContext;
 }
@@ -371,7 +374,7 @@ export default class EntryAbility extends UIAbility {
       dialogUIContext = windowClass.getUIContext();
     })
 
-    //获取窗口
+    // 获取窗口
     windowStage.getMainWindow((err, data) => {
       if (err.code) {
         console.error('Failed to obtain the main window. Cause: ' + JSON.stringify(err));
@@ -379,7 +382,7 @@ export default class EntryAbility extends UIAbility {
       }
       windowClass = data;
       console.info('Succeeded in obtaining the main window. Data: ' + JSON.stringify(data));
-      //设置窗口全屏
+      // 设置窗口全屏
       windowClass.setWindowLayoutFullScreen(false)
     })
   }
@@ -443,4 +446,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/pNpHkFKnTpq7P7wQQykbDA/zh-cn_image_0000002611836055.png?HW-CC-KV=V1&HW-CC-Date=20260528T025538Z&HW-CC-Expire=86400&HW-CC-Sign=ABCFEA7FF392B68B55A0B7242210BF29599B13CDDAA56648D5550E40F4EC837C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/azkDVDQ9ScyWNMSQ96bD5Q/zh-cn_image_0000002587270596.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=F7C97C373F555759DEB18F8259ABAD049935853552D3F3C3172BDC6F083C3CD4)

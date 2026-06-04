@@ -1,6 +1,6 @@
 # FullScreenLaunchComponent
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-fullscreenlaunchcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,11 +50,13 @@ import { FullScreenLaunchComponent } from '@kit.ArkUI';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-FullScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback&lt;TerminationInfo&gt; })
+FullScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback&lt;TerminationInfo&gt;, onReceive?: Callback<Record<string, Object>> })
 
 **装饰器类型：**[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)
 
 **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+
+**参数：**
 
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -269,4 +271,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/1Wn1MargQPagqYD4Tkfjuw/zh-cn_image_0000002581276340.png?HW-CC-KV=V1&HW-CC-Date=20260528T025527Z&HW-CC-Expire=86400&HW-CC-Sign=DCB7A1F1ABD243FE221D466D03A5607ADE717043CF2237FBA45ACB4758F50081)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/FYIpokiPTFusyRNG5LSb5A/zh-cn_image_0000002617710303.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=4623E3B9EC2B556BD4EA728641A8E803ECC99095DD73BCC0F62FB49916FEE65E)

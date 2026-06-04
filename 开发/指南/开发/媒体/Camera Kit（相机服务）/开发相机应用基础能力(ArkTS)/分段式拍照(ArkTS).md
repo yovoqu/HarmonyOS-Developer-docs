@@ -1,6 +1,6 @@
 # 分段式拍照(ArkTS)
 
-更新时间：2026-03-23 08:10:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-deferred-capture
 
@@ -67,7 +67,7 @@ function getPhotoOutput(cameraManager: camera.CameraManager,
 3. 设置拍照photoAssetAvailable的回调。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/3-AbZZV5R9Oft4Nslp9oqA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030329Z&HW-CC-Expire=86400&HW-CC-Sign=AE516E7AE7B8FC561C322A074553FAB2215F8BB143F392525D96409DAF96684A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/Ccq7ILcJSrCQEn0zXROvKQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012639Z&HW-CC-Expire=86400&HW-CC-Sign=0FD980B3E37FE38EEAF7DE743C6FD1653B4A309383DBA8CF364187694587043D)
  
 
   如果已经注册了photoAssetAvailable回调，并且在Session开始之后又注册了photoAvailable回调，photoAssetAvailable和photoAvailable同时注册，会导致流被重启，仅photoAssetAvailable生效。
@@ -132,7 +132,7 @@ async function mediaLibRequestBuffer(photoAsset: photoAccessHelper.PhotoAsset, c
   console.info('requestImageData successfully');
 }
 ```
-落盘图片参考媒体库接口：[saveCameraPhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/kts-apis-photoaccesshelper-mediaassetchangerequest#savecameraphoto12)
+落盘图片参考媒体库接口：[saveCameraPhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetchangerequest#savecameraphoto12)
 
   请求图片参考媒体库接口：[requestImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetmanager#requestimagedata11) 和 [onDataPrepared](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetdatahandler#ondataprepared11)
 4. 拍照时的会话配置及触发拍照的方式，与普通拍照相同，请参考[拍照](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting)的步骤4-5。

@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（图类组件相关属性）
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-image
 

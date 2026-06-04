@@ -1,6 +1,6 @@
 # Tabs组件子组件包含if节点，if条件变更后, tabBar页签联动异常，有没有解决方案
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-05-30 09:08:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-478
 
@@ -10,6 +10,10 @@
  
 当前有遇到一个问题，当this.isShowMessageTab从false变到true后（即TabContent从4个变成5个后）。 点击最后一个tabBar后，再点击前面的tabBar就无法响应Tabs下的onChange，用左右滑动可以切换Tabs且触发onChange。
  
+**解决方案**
+ 
+定义一个selectedIndex变量，在onChange函数中将当前Tabs的index赋值给selectedIndex。此时selectedIndex的值等于当前被选中Tab的索引值。在tabBuilder中，对选中的Tab进行样式的修改即可。
+ 
 完整示例代码如下：
  
 ```ArkTS
@@ -18,15 +22,16 @@
 struct Index {
   private currentIndex: number = 0;
   private controller: TabsController = new TabsController();
-  @State change: boolean = true;
+  @State selectedIndex: number = 0;
+  @State change: boolean = false;
 
   @Builder
   tabBuilder(index: number, name: string) {
     RelativeContainer() {
       Text(name)
-        .fontColor(this.currentIndex === index ? '#007DFF' : '#182431')
+        .fontColor(this.selectedIndex === index ? '#007DFF' : '#182431')
         .fontSize(16)
-        .fontWeight(this.currentIndex === index ? 500 : 400)
+        .fontWeight(this.selectedIndex === index ? 500 : 400)
         .height('auto')
         .padding({
           left: 8,
@@ -47,7 +52,7 @@ struct Index {
       Divider()
         .strokeWidth(2)
         .color('#007DFF')
-        .opacity(this.currentIndex === index ? 1 : 0)
+        .opacity(this.selectedIndex === index ? 1 : 0)
         .width(100)
         .alignRules({ bottom: { anchor: '__container__', align: VerticalAlign.Bottom } })
     }
@@ -110,7 +115,7 @@ struct Index {
       .barMode(BarMode.Scrollable)
       .barBackgroundColor('#fff3f3f3')
       .onChange((index) => {
-        this.currentIndex = index;
+        this.selectedIndex = index;
       })
       .animationDuration(400)
       .scrollable(true)

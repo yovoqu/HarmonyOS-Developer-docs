@@ -1,6 +1,6 @@
 # Interface (AVRecorder)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -315,7 +315,7 @@ updateRotation(rotation: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| rotation | number | 是 | 旋转角度，取值仅支持0、90、180、270度。 |
+| rotation | number | 是 | 旋转角度，单位为度（°）。取值仅支持0°、90°、180°和270°。 |
 
 
 **返回值：**

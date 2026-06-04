@@ -1,6 +1,6 @@
 # Badge
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-badge
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -210,7 +210,7 @@ Badge的样式。包括文本颜色、尺寸、字重、圆点颜色和尺寸。
 
 #### 示例1（设置标记组件内容）
 
-该示例通过[BadgeParamWithNumber](#badgeparamwithnumber对象说明)的入参value、[BadgeParamWithString](#badgeparamwithstring对象说明)的入参count，实现了传入空值、字符、数字时标记组件展现不同的效果。
+该示例通过[BadgeParamWithNumber](#badgeparamwithnumber对象说明)的入参count、[BadgeParamWithString](#badgeparamwithstring对象说明)的入参value，实现了传入空值、字符、数字时标记组件展现不同的效果。
 
 ```ArkTS
 // xxx.ets

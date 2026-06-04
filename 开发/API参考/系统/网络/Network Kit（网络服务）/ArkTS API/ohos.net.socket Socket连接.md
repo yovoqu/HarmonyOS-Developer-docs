@@ -1,6 +1,6 @@
 # @ohos.net.socket (Socket连接)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -6073,8 +6073,8 @@ Socket套接字的基础属性。
 | --- | --- | --- | --- | --- |
 | receiveBufferSize | number | 否 | 是 | 接收缓冲区大小（单位：Byte），取值范围0~262144，不设置或设置的值超过取值范围则会默认为8192。 |
 | sendBufferSize | number | 否 | 是 | 发送缓冲区大小（单位：Byte），取值范围0~262144，不设置或设置的值超过取值范围则会默认为8192。 |
-| reuseAddress | boolean | 否 | 是 | 是否重用地址。true：重用地址；false：不重用地址。 |
-| socketTimeout | number | 否 | 是 | 套接字超时时间，单位毫秒（ms）。 |
+| reuseAddress | boolean | 否 | 是 | 是否重用地址。true：重用地址；false：不重用地址。默认值为false。 |
+| socketTimeout | number | 否 | 是 | 套接字超时时间，单位毫秒（ms）。默认值为0，表示不设置超时时间。 |
 
 
 
@@ -9411,7 +9411,7 @@ listen(options: TLSConnectOptions, callback: AsyncCallback&lt;void&gt;): void
 绑定IP地址和端口，在TLSSocketServer上bind成功之后，监听客户端的连接，创建和初始化TLS会话，实现建立连接过程，加载证书秘钥并验证，使用callback异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/baNW7Lj5ToC-WRVGpukTvA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025211Z&HW-CC-Expire=86400&HW-CC-Sign=5EC1366F885F3F9235D251E8F9C6BAD7B5642E2747CA96E93FEF705B4072018A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/3TlZQwSfShqLvKcfnknY5w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012600Z&HW-CC-Expire=86400&HW-CC-Sign=1C2324A01925A6C55434BDF2617F5B7A93609B2B327C9393A96FFFEEAE1B6FC9)
 
 
 IP地址设置为0.0.0.0时，可以监听本机所有地址。

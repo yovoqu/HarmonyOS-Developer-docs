@@ -1,6 +1,6 @@
 # libc标准库
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl
 
@@ -66,7 +66,7 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
 musl支持的字符集编码格式，以及受支持的别名。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/RBOV5PMcTc667zoz7g0g9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025028Z&HW-CC-Expire=86400&HW-CC-Sign=5866B435F13B1D289936A42DA7BC1DADEB03D051DD97BF13B71160E0416B7C01)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/oOeSRvxjTsOzwXuBbe2aPA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012613Z&HW-CC-Expire=86400&HW-CC-Sign=FB79D93C326DBBD5560714F369F3A710BBDBE104E25181E16353185421B83D11)
  
  
 在进行字符集编码格式转换时，请使用正确的源字符集编码格式，且目标字符集编码格式必须支持这些受转换的字符，否则转换失败。
@@ -135,6 +135,6 @@ musl支持的字符集编码格式，以及受支持的别名。
 
 [native api中没有导出的符号列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl-peculiar-symbol)
  
-[NDK musl-libc接口受权限影响的说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nce-on-ndk-libc-interfaces-affected-by-permissions)
+[NDK musl-libc接口受权限影响的说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/guidance-on-ndk-libc-interfaces-affected-by-permissions)
  
 [NDK musl-libc补充api文档](https://gitcode.com/openharmony/third_party_musl/tree/master/docs)

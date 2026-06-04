@@ -1,6 +1,6 @@
 # @ohos.selectionInput.selectionManager (划词管理)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-selectioninput-selectionmanager
 **支持设备：** PC/2in1
@@ -49,7 +49,7 @@ on(type: 'selectionCompleted', callback: Callback&lt;SelectionInfo&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 设置监听类型，固定取值为'selectionCompleted'。 |
-| callback | Callback&lt;SelectionInfo&gt; | 是 | 回调函数，返回当前划词信息。 |
+| callback | Callback&lt;SelectionInfo&gt; | 是 | 回调函数，返回当前划词信息。该回调仅在用户通过鼠标或触控板选中文本（鼠标左键双击/三击/按下滑动）后按下Ctrl键时触发。 |
 
 
 **错误码：**
@@ -173,7 +173,7 @@ createPanel(ctx: Context, info: PanelInfo): Promise&lt;Panel&gt;
 
 创建划词面板。使用Promise异步回调。
 
-单个划词应用仅允许创建一个[主面板类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-selectioninput-selectionpanel#paneltype)和一个[菜单面板类型](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-selectioninput-selectionpanel#paneltype)的窗口。
+单个划词应用仅允许创建一个[MENU_PANEL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-selectioninput-selectionpanel#paneltype)和一个[MAIN_PANEL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-selectioninput-selectionpanel#paneltype)。
 
 **系统能力：** SystemCapability.SelectionInput.Selection
 

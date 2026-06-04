@@ -1,6 +1,6 @@
 # native_interface_bundle.h
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-bundle-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

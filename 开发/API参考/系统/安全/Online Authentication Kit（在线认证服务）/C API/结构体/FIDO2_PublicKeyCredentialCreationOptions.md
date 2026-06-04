@@ -1,6 +1,6 @@
 # FIDO2_PublicKeyCredentialCreationOptions
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_creation_options
 
@@ -26,7 +26,7 @@
 | FIDO2_PublicKeyCredentialUserEntity user | 创建新凭据时用户的属性。 |
 | Uint8Buff challenge | 挑战值。 |
 | FIDO2_CredentialCreationOptionArray pubKeyCredParams | 认证凭据的附加参数数组。 |
-| uint32_t timeout | 注册操作最长时间，单位为mm。默认为300000（5分钟）。可选。 |
+| uint32_t timeout | 注册操作最长时间，单位为ms。默认为300000（5分钟），最大为600000（10分钟）。可选。 |
 | FIDO2_PublicKeyCredentialDescriptorArray excludeCredentials | FIDO服务器已注册的凭据列表。默认值为[]。可选。 |
 | FIDO2_AuthenticatorSelectionCriteria authenticatorSelection | 身份认证器相关配置项。 |
 | FIDO2_PublicKeyCredentialHintArray hints | 认证方式指示。默认值为[]。可选。 |
@@ -157,7 +157,7 @@ uint32_t FIDO2_PublicKeyCredentialCreationOptions::timeout
  
 **描述**
  
-注册操作最长时间，单位为mm。可选。
+注册操作最长时间，单位为ms。可选。
  
   
 

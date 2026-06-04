@@ -1,6 +1,6 @@
 # native_type.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -11417,7 +11417,7 @@ ArkUI_TextPickerRangeContentArray* OH_ArkUI_TextPickerRangeContentArray_Create(i
 
 **描述：**
 
-创建[TextPickerRangeContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/kui-nativemodule-arkui-textpickerrangecontentarray)数组的对象。
+创建[TextPickerRangeContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textpickerrangecontentarray)数组的对象。
 
 **起始版本：** 19
 
@@ -11520,7 +11520,7 @@ ArkUI_TextCascadePickerRangeContentArray* OH_ArkUI_TextCascadePickerRangeContent
 
 **描述：**
 
-创建[TextCascadePickerRangeContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ivemodule-arkui-textcascadepickerrangecontentarray)数组对象。
+创建[TextCascadePickerRangeContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-textcascadepickerrangecontentarray)数组对象。
 
 **起始版本：** 19
 

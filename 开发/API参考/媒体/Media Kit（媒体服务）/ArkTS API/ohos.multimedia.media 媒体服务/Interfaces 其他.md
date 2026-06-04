@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -165,7 +165,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 | profile | AVRecorderProfile | 否 | 否 | 录制的profile，必要参数。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
 | url | string | 否 | 否 | 录制输出URL：fd://xx (fd number) ，必要参数。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
 | fileGenerationMode12+ | FileGenerationMode | 否 | 是 | 创建媒体文件的模式，配合on('photoAssetAvailable')监听使用。 |
-| rotation(deprecated) | number | 否 | 是 | 录制的视频旋转角度，mp4格式支持0、90、180和270，默认值为0。 从API version 6开始支持，从API version 12开始废弃。建议使用AVMetadata.videoOrientation替代。 如果同时设置两个值，将会采用AVMetadata.videoOrientation。 |
+| rotation(deprecated) | number | 否 | 是 | 录制的视频旋转角度，单位为度（°）。mp4格式支持0°、90°、180°和270°，默认值为0°。 从API version 6开始支持，从API version 12开始废弃。建议使用AVMetadata.videoOrientation替代。 如果同时设置两个值，将会采用AVMetadata.videoOrientation。 |
 | location(deprecated) | Location | 否 | 是 | 录制的地理位置，默认不记录地理位置信息。 从API version 6开始支持，从API version 12开始废弃。建议使用 AVMetadata.location。 如果同时设置两个值，将会采用AVMetadata.location。 |
 | metadata12+ | AVMetadata | 否 | 是 | 设置元数据信息。详细内容请参考 AVMetadata。 |
 | maxDuration18+ | number | 否 | 是 | 设置录制的最大时长，单位为秒，有效值取值范围[1, 2^31-1]，无效输入会重置为最大值。录制到达设定时长后，录制会自动停止，并通过stateChange回调录制状态，AVRecorderState = 'stopped'，StateChangeReason = BACKGROUND。 |

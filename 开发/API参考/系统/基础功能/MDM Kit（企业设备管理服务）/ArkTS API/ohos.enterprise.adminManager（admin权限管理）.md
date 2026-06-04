@@ -1,6 +1,6 @@
 # @ohos.enterprise.adminManager（admin权限管理）
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -660,8 +660,8 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 | MANAGED_EVENT_ACCOUNT_ADDED18+ | 5 | 账号新增事件。 |
 | MANAGED_EVENT_ACCOUNT_SWITCHED18+ | 6 | 账号切换事件。 |
 | MANAGED_EVENT_ACCOUNT_REMOVED18+ | 7 | 账号删除事件。 |
-| MANAGED_EVENT_STARTUP_GUIDE_COMPLETED24+ | 8 | 开机向导完成事件。模型约束：此接口仅可在Stage模型下使用。 |
-| MANAGED_EVENT_BOOT_COMPLETED24+ | 9 | 设备启动完成事件。模型约束：此接口仅可在Stage模型下使用。 |
+| MANAGED_EVENT_STARTUP_GUIDE_COMPLETED24+ | 8 | 开机向导完成事件。 模型约束：此接口仅可在Stage模型下使用。 |
+| MANAGED_EVENT_BOOT_COMPLETED24+ | 9 | 设备启动完成事件。 模型约束：此接口仅可在Stage模型下使用。 |
 
 
 

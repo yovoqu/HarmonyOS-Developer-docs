@@ -1,6 +1,6 @@
 # 双路预览(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-dual-channel-preview
 
@@ -48,7 +48,7 @@
 1. 导入依赖，本篇文档需要用到图片和相机框架等相关依赖包。
 
   
-```text
+```ArkTS
 import { image } from '@kit.ImageKit';
 import { camera } from '@kit.CameraKit';
 import { display } from '@kit.ArkUI';
@@ -58,7 +58,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 2. 获取第一路预览流SurfaceId：创建ImageReceiver对象，通过ImageReceiver对象可获取其SurfaceId。
 
   
-```text
+```ArkTS
 async init(size: Size, format = image.ImageFormat.JPEG, capacity = 8) {
   const receiver = image.createImageReceiver(size, format, capacity);
   const surfaceId = await receiver.getReceivingSurfaceId();
@@ -122,7 +122,7 @@ onImageArrival(receiver: image.ImageReceiver): void {
 通过 [image.Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#component9) 解析图片buffer数据参考：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/_B57iYHmT8OdPBgwWlyTkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030330Z&HW-CC-Expire=86400&HW-CC-Sign=6714E5C3F3F3E060BB03ABADB5BEB428B1631E7A6A26D3C8940CC70B746093A4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/YRUVQ_G1SCec4fW9wmj77A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012639Z&HW-CC-Expire=86400&HW-CC-Sign=00C90841AD1488B383AF9BF2C21F2C08358D2A9E453ABA5C51B4F53F47EDE4E7)
  
 
   需要确认图像的宽width是否与行距rowStride一致，如果不一致可参考以下方式处理：
@@ -215,7 +215,7 @@ async createOutput(config: CreateOutputConfig) {
 
 #### 完整示例
 
-```text
+```ArkTS
 import { image } from '@kit.ImageKit';
 import { camera } from '@kit.CameraKit';
 import { display } from '@kit.ArkUI';

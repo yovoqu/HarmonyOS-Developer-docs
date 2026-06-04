@@ -1,6 +1,6 @@
 # 应用接入AVSession场景介绍
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene
 
@@ -198,6 +198,10 @@ struct Index {
   }
 }
 ```
+
+
+
+#### 历史歌单
 
 针对音乐/听书类应用，播控中心提供一系列快捷播放能力，包括一键启动冷启动续播、以及历史歌单功能，其中歌单功能中支持显示的音频媒体内容有：音乐歌单、有声书专辑、播客专辑等。视频媒体内容、直播类媒体内容暂不支持歌单。应用在端侧注册并适配后台启动模式的[播放意图](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-habit-rec-access-programme)，即可实现接入上述功能。接入后的体验自检，可以参考[快捷播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/quick-playback)。
 

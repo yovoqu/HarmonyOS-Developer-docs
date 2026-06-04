@@ -1,6 +1,6 @@
 # 定制hvigor插件
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-06-02 02:04:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-hvigor-plugin
 

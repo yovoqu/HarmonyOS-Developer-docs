@@ -1,6 +1,6 @@
 # YUV拍照(ArkTS)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-yuv-shooting
 
@@ -94,7 +94,7 @@ function getPhotoOutput(cameraManager: camera.CameraManager, photoProfile: camer
 
 10. 将处理完的pixelMap回传，做图片显示或通过安全控件写文件保存图片。
 
-11. 调用[capture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#capture-2)拍照后，需要及时调用[saveCameraPhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/kts-apis-photoaccesshelper-mediaassetchangerequest#savecameraphoto12)保存图片或[discardCameraPhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/kts-apis-photoaccesshelper-mediaassetchangerequest#discardcameraphoto12)取消保存图片，否则会影响后续图片的拍摄。
+11. 调用[capture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#capture-2)拍照后，需要及时调用[saveCameraPhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetchangerequest#savecameraphoto12)保存图片或[discardCameraPhoto](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetchangerequest#discardcameraphoto12)取消保存图片，否则会影响后续图片的拍摄。
 
 12. 使用完后解注册分段式拍照回调函数。
 

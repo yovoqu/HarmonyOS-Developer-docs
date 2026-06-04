@@ -1,6 +1,6 @@
 # 使用ImagePacker完成多图对象编码
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-picture-encoding
 
@@ -18,7 +18,7 @@
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
-import { fileIo as fs } from '@kit.CoreFileKit';
+import { fileIo } from '@kit.CoreFileKit';
 import { resourceManager } from '@kit.LocalizationKit';
 ```
 
@@ -34,7 +34,6 @@ import { resourceManager } from '@kit.LocalizationKit';
 let packOpts: image.PackingOption = {
   format: 'image/jpeg',
   quality: 95,
-  desiredDynamicRange: image.PackingDynamicRange.AUTO,
   needsPackProperties: true
 };
 ```
@@ -59,6 +58,8 @@ async function packing(picture: image.Picture, packOpts: image.PackingOption) {
     console.info('Succeeded in packing the image.');
   } catch (error) {
     console.error('Failed to pack the picture to data. And the error is: ' + error);
+  } finally {
+    await imagePackerApi.release();
   }
 }
 ```
@@ -68,13 +69,22 @@ async function packing(picture: image.Picture, packOpts: image.PackingOption) {
   
 ```ArkTS
 async function packToFile(picture: image.Picture, packOpts: image.PackingOption, context: Context) {
+  let imagePackerApi: image.ImagePacker | undefined = undefined;
+  let file: fileIo.File | undefined = undefined;
   try {
     const path : string = context.cacheDir + '/picture.jpg';
-    let file = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
-    const imagePackerApi = image.createImagePacker();
+    file = fileIo.openSync(path, fileIo.OpenMode.CREATE | fileIo.OpenMode.READ_WRITE);
+    imagePackerApi = image.createImagePacker();
     await imagePackerApi.packToFile(picture, file.fd, packOpts);
   } catch (error) {
     console.error('Failed to pack the picture to file. And the error is: ' + error);
+  } finally {
+    if (file) {
+      fileIo.closeSync(file.fd);
+    }
+    if (imagePackerApi) {
+      await imagePackerApi.release();
+    }
   }
 }
 ```

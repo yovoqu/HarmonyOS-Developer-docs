@@ -1,6 +1,6 @@
 # AtomicServiceNavigation
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicservicenavigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -39,7 +39,7 @@ import { AtomicServiceNavigation } from '@kit.ArkUI';
 ```text
 AtomicServiceNavigation({
     navPathStack?: NavPathStack,
-    navigationContent: Callback<void>,
+    navigationContent?: Callback<void>,
     title?: ResourceStr,
     titleOptions?: TitleOptions,
     gradientBackground?: GradientBackground,
@@ -688,4 +688,4 @@ export struct PageTwo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/wWkkUmURSRWzLWCX1iN6ZQ/zh-cn_image_0000002581436216.png?HW-CC-KV=V1&HW-CC-Date=20260528T025539Z&HW-CC-Expire=86400&HW-CC-Sign=978F622C4DF985C32F24314517B87306BD205E0BAA125EE6E78FA8670DDD3531)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/WOsHuj5yQCWggBG17pPDeA/zh-cn_image_0000002617670363.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=DA47D1125E6A74ED2118B4E35880DF58431328DFBCD692538C62733B13C40780)

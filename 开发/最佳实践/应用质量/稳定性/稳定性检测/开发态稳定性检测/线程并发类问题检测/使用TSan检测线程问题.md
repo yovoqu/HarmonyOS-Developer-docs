@@ -1,6 +1,6 @@
 # 使用TSan检测线程问题
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-05-30 09:52:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-tsan-detection
 
@@ -411,11 +411,11 @@ static napi_value Add(napi_env env, napi_callback_info info){
  
 **修改方法**
  
-不要在信号处理函数中修改error变量
+不要在信号处理函数中修改errno变量
  
 **推荐建议**
  
-将MyHandler中的error赋值语句去掉
+将MyHandler中的errno赋值语句去掉
  
 
 #### signal unsafe call inside of a signal

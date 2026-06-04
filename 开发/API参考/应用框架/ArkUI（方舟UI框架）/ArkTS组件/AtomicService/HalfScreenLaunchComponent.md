@@ -1,6 +1,6 @@
 # HalfScreenLaunchComponent
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-halfscreenlaunchcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,7 +42,7 @@ import { HalfScreenLaunchComponent } from '@kit.ArkUI';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-HalfScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback&lt;TerminationInfo&gt; })
+HalfScreenLaunchComponent({ content: Callback&lt;void&gt;, appId: string, options?: AtomicServiceOptions, onError?: ErrorCallback, onTerminated?: Callback&lt;TerminationInfo&gt;, onReceive?: Callback<Record<string, Object>> })
 
 **装饰器类型：**@Component
 

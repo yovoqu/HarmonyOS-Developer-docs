@@ -1,6 +1,6 @@
 # 使用XComponent实现画中画功能开发（ArkTS）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pipwindow-xcomponent
 
@@ -147,7 +147,6 @@ class TextNodeController extends NodeController {
   }
 }
 
-@Entry
 @Component
 export struct Page1 {
   @Consume('pageInfos') pageInfos: NavPathStack;
@@ -272,7 +271,7 @@ export struct Page1 {
       return;
     }
     // 步骤1：通过setAutoStartEnabled接口设置是否需要在应用返回桌面时自动启动画中画，注册stateChange和controlPanelActionEvent回调
-    this.pipController.setAutoStartEnabled(false /*or true if necessary*/); // 默认为false
+    this.pipController.setAutoStartEnabled(false /* or true if necessary */); // 默认为false
     this.pipController.on('stateChange', (state: PiPWindow.PiPState, reason: string) => {
       this.onStateChange(state, reason);
     });
@@ -340,8 +339,8 @@ export struct Page1 {
   // 步骤4：当不再需要显示画中画时，通过stopPiP接口关闭画中画
   stopPip() {
     if (this.pipController) {
-      let promise: Promise<void> = this.pipController.stopPiP();
-      promise.then(() => {
+      this.pipController.stopPiP()
+      .then(() => {
         Logger.info(`Succeeded in stopping pip.`);
         this.pipController?.off('stateChange'); // 如果已注册stateChange回调，停止画中画时取消注册该回调
         this.pipController?.off('controlPanelActionEvent'); // 如果已注册controlPanelActionEvent回调，停止画中画时取消注册该回调

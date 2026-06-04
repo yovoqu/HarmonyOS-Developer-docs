@@ -1,6 +1,6 @@
 # 基于AVPlayer播放长视频实践
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-05-30 09:52:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video
 
@@ -30,8 +30,6 @@
  
 
 #### 亮度控制
-
- 
 
  
 
@@ -73,6 +71,16 @@ Column() {
       .selectedColor(Color.White)
       .trackColor(Color.Black)
       .trackThickness(40)
+      .onChange(async (value: number) => {
+        this.screenBrightness = value;
+        let windowStage: window.WindowStage = AppStorage.get(KeyConstants.KEY_WINDOW_STAGE) as window.WindowStage;
+        try {
+          let mainWin: window.Window = windowStage.getMainWindowSync();
+          await mainWin.setWindowBrightness(value);
+        } catch (exception) {
+          Logger.error(TAG, `getMainWindowSync failed: code: ${exception.code}, message: ${exception.message}`);
+        }
+      })
 
     Image($r('app.media.sun_max_fill'))
       .visibility(this.visible ? Visibility.Visible : Visibility.Hidden)
@@ -97,6 +105,8 @@ Column() {
 2. 在视频播放界面绑定PanGesture滑动手势事件，设置触发条件为仅在屏幕右侧区域且垂直方向滑动Pan手势时，调用setWindowBrightness()方法，实现亮度的调节。
 
   补充说明：此处setScreenBrightness()为setWindowBrightness()的封装。
+
+  
 ```ArkTS
 .gesture(
   // Sliding in the vertical direction
@@ -104,23 +114,7 @@ Column() {
     .onActionStart(() => {
     })
     .onActionUpdate((event: GestureEvent) => {
-      // The area on the right side of the screen
-      if (event.fingerList[0].globalX > (this.screenWidth / 2)) {
-        if (this.isInputtingBulletComment) {
-          return; // When inputting bullet comment, disable screen brightness change
-        }
-        this.visible = true;
-        let curBrightness = this.screenBrightness -
-          this.getUIContext().vp2px(event.offsetY) / this.getUIContext().vp2px(this.screenHeight);
-        curBrightness = this.getValidValue(curBrightness, 0.0, 1.0);
-        this.screenBrightness = curBrightness;
-        this.setScreenBrightness(this.screenBrightness);
-      } else {
-        this.visible = false;
-        let curVolume = this.volume - this.getUIContext().vp2px(event.offsetY) / this.screenHeight;
-        curVolume = this.getValidValue(curVolume, 0.0, 15.0);
-        this.volume = curVolume;
-      }
+      this.processGesture(event);
     })
     .onActionEnd(() => {
       setTimeout(() => {
@@ -129,12 +123,34 @@ Column() {
     })
 )
 ```
+ 
+```ArkTS
+private processGesture(event: GestureEvent) {
+  if (event.fingerList.length === 0) {
+    return;
+  }
+  // The area on the right side of the screen
+  if (event.fingerList[0].globalX > (this.getUIContext().px2vp(this.screenWidth / 2))) {
+    if (this.isInputtingBulletComment) {
+      return; // When inputting bullet comment, disable screen brightness change
+    }
+    this.visible = true;
+    let curBrightness = this.screenBrightness - this.getUIContext().vp2px(event.offsetY) / this.screenHeight;
+    curBrightness = this.getValidValue(curBrightness, 0.0, 1.0);
+    this.screenBrightness = curBrightness;
+    this.setScreenBrightness(this.screenBrightness);
+  } else {
+    this.visible = false;
+    let curVolume = this.volume - this.getUIContext().vp2px(event.offsetY) / this.screenHeight;
+    curVolume = this.getValidValue(curVolume, 0.0, 15.0);
+    this.volume = curVolume;
+  }
+}
+```
 
  
 
 #### 焦点管理
-
- 
 
  
 
@@ -148,8 +164,6 @@ Column() {
 
  
 
- 
-
 #### 实现原理
 
  
@@ -157,8 +171,6 @@ Column() {
  
 - 当闹钟或电话等外部打断事件发生时，打断类型为强制打断（INTERRUPT_FORCE），视频会自动中断播放。
 - 当闹钟或电话的提示音结束后，系统将发送打断类型为共享打断类型(INTERRUPT_SHARE)、中断提示为音频可继续播放(INTERRUPT_HINT_RESUME)的事件，应用在监听到该事件时调用AVPlayer的play()函数恢复播放。
-
- 
 
  
 
@@ -208,7 +220,7 @@ private setInterruptCallback() {
           break;
       }
     }
-  })
+  });
 }
 ```
 
@@ -301,8 +313,6 @@ private pausePlay() {
 
  
 
- 
-
 #### 场景描述
 
  
@@ -374,8 +384,6 @@ private startAnimation() {
 
  
 
- 
-
 #### 场景描述
 
  
@@ -402,7 +410,7 @@ private async screenshot() {
   try {
     this.pixmap = await this.getUIContext().getComponentSnapshot().get(`videoXComponent_${this.curSource.index}`);
   } catch (exception) {
-    hilog.error(0x0000, TAG, `screenshot failed: code: ${exception.code}, message: ${exception.message}`);
+    Logger.error(TAG, `screenshot failed: code: ${exception.code}, message: ${exception.message}`);
   }
 }
 ```
@@ -414,10 +422,14 @@ private async screenshot() {
 private async clickPreviousFrame() {
   this.avPlayerController?.videoSeek(this.screenshotTime - 1000 / ScreenShotConstants.FRAME_RATE);
   this.pausePlay();
-  setTimeout(() => {
+  if (this.previousFrameTimerId) {
+    clearTimeout(this.previousFrameTimerId);
+  }
+  this.previousFrameTimerId = setTimeout(() => {
     this.screenshot()
   }, 500)
-  this.screenshotTime -= 1000 / ScreenShotConstants.FRAME_RATE
+  this.screenshotTime -= 1000 / ScreenShotConstants.FRAME_RATE;
+  this.screenshotTime = Math.max(0, Math.min(this.screenshotTime, this.avPlayerController.durationTime));
 }
 ```
 
@@ -427,18 +439,20 @@ private async clickPreviousFrame() {
 private async clickNextFrame() {
   this.avPlayerController?.videoSeek(this.screenshotTime + 1000 / ScreenShotConstants.FRAME_RATE);
   this.pausePlay();
-  setTimeout(() => {
+  if (this.nextFrameTimerId) {
+    clearTimeout(this.nextFrameTimerId);
+  }
+  this.nextFrameTimerId = setTimeout(() => {
     this.screenshot()
   }, 500)
-  this.screenshotTime += 1000 / ScreenShotConstants.FRAME_RATE
+  this.screenshotTime += 1000 / ScreenShotConstants.FRAME_RATE;
+  this.screenshotTime = Math.max(0, Math.min(this.screenshotTime, this.avPlayerController.durationTime));
 }
 ```
 
  
 
 #### 画中画播放
-
- 
 
  
 
@@ -484,14 +498,15 @@ async createPipController() {
         `pipController init failed, Code:${exception.code}, message:${exception.message}`);
     }
   }
-  this.pipController?.on('stateChange', (State: PiPWindow.PiPState, reason: string) => {
-    this.onStateChange(State, reason);
-  })
+  this.pipController?.on('stateChange', (state: PiPWindow.PiPState, reason: string) => {
+    this.onStateChange(state, reason);
+  });
 
   this.pipController?.on('controlPanelActionEvent', (event: PiPWindow.PiPActionEventType, status?: number) => {
     this.onActionEvent(event, status);
-  })
-  this.pipController?.setAutoStartEnabled(true); // Key point:  Set the animation to start when the application returns to the desktop
+  });
+  // Key point:  Set the animation to start when the application returns to the desktop
+  this.pipController?.setAutoStartEnabled(true);
 }
 ```
 
@@ -536,7 +551,7 @@ onActionEvent(event: PiPWindow.PiPActionEventType, status?: number) {
     case 'playbackStateChanged':
       if (status === 0) {
         this.avPlayerController?.videoPause();
-      } else {
+      } else if (status === 1) {
         this.avPlayerController?.videoPlay();
       }
       break;
@@ -592,7 +607,7 @@ destroyPipController() {
   
 ```ArkTS
 public initAvSession() {
-  this.context = AppStorage.get('context');
+  this.context = AppStorage.get(KeyConstants.KEY_CONTEXT);
   if (!this.context) {
     Logger.error(TAG, 'session create failed : context is undefined');
     return;
@@ -650,7 +665,7 @@ private setLaunchAbility() {
         abilityName: this.context.abilityInfo.name
       }
     ],
-    operationType: wantAgent.OperationType.START_ABILITIES,
+    actionType: wantAgent.OperationType.START_ABILITIES,
     requestCode: 0,
     wantAgentFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]
   };
@@ -680,7 +695,7 @@ public async setAvSessionListener() {
     this.avSessionController.getAvSession()?.on('pause', () => this.sessionPauseCallback());
     this.avSessionController.getAvSession()?.on('seek', (seekTime: number) => this.sessionSeekCallback(seekTime));
     this.avSessionController.getAvSession()?.on('setLoopMode', (mode: avSession.LoopMode) => {
-      Logger.info(`on setLoopMode: ${mode}`)
+      Logger.info(`on setLoopMode: ${mode}`);
     });
     this.avSessionController.getAvSession()?.on('playPrevious', () => {
       this.sessionPlayPreviousCallback();
@@ -771,7 +786,7 @@ public setAvSessionPlayState(playbackState: avSession.AVPlaybackState) {
     "reason": "$string:reason_background",
     "usedScene": {
       "abilities": [
-        "EntryAbility"
+        "AvplayerlongvideoAbility"
       ],
       "when": "always"
     }
@@ -802,7 +817,7 @@ public static startContinuousTask(context?: common.UIAbilityContext): void {
         abilityName: context.abilityInfo.name
       }
     ],
-    operationType: wantAgent.OperationType.START_ABILITY,
+    actionType: wantAgent.OperationType.START_ABILITY,
     requestCode: 0,
     wantAgentFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]
   };
@@ -841,7 +856,7 @@ public static stopContinuousTask(context?: common.UIAbilityContext): void {
   
 ```ArkTS
 public initAvSession() {
-  this.context = AppStorage.get('context');
+  this.context = AppStorage.get(KeyConstants.KEY_CONTEXT);
   if (!this.context) {
     Logger.error(TAG, 'session create failed : context is undefined');
     return;
@@ -890,8 +905,6 @@ async unregisterSessionListener() {
 #### 场景描述
 
  
-
- 
 在播放列表或者窗口中显示视频的首帧。
  
 
@@ -918,20 +931,25 @@ async unregisterSessionListener() {
   
 ```ArkTS
 public static async getThumbnailFromVideo(src: string, timeUs: number) {
-  let pixelMap: image.PixelMap | undefined = undefined;
+  let pixelMap: image.PixelMap | undefined;
   let queryOption = media.AVImageQueryOptions.AV_IMAGE_QUERY_NEXT_SYNC;
   let param: media.PixelMapParams = {
     width: 540,
     height: 304
   };
+  let generator: media.AVImageGenerator | null = null;
   try {
-    let generator: media.AVImageGenerator = await media.createAVImageGenerator();
     let fileDescriptor = await uiContext?.getHostContext()?.resourceManager?.getRawFd(src);
+    if (!fileDescriptor) {
+      Logger.error(TAG, 'Failed to get file descriptor');
+      return null;
+    }
+    generator = await media.createAVImageGenerator();
     generator.fdSrc = fileDescriptor;
     pixelMap = await generator.fetchFrameByTime(timeUs, queryOption, param);
+    await generator.release();
   } catch (exception) {
-    hilog.error(0x0000, 'ImageUtil',
-      `getThumbnailFromVideo failed, code is ${exception.code}, message is ${exception.message}`)
+    Logger.error(TAG, `getThumbnailFromVideo failed, code is ${exception.code}, message is ${exception.message}`);
   }
   return pixelMap;
 }
@@ -946,6 +964,17 @@ public static async getThumbnailFromVideo(src: string, timeUs: number) {
 ```ArkTS
 case 'initialized': // This status is reported after the playback source is set on the AVPlayer.
   Logger.info(TAG, 'setAVPlayerCallback AVPlayerState initialized called.');
+  await this.onInitialized();
+  break;
+```
+
+
+  
+```ArkTS
+private async onInitialized() {
+  if (!this.avPlayer) {
+    return;
+  }
   // Set the display screen. This parameter is not required when the resource to be played is audio-only.
   this.avPlayer.surfaceId = this.surfaceID;
 
@@ -961,7 +990,7 @@ case 'initialized': // This status is reported after the playback source is set 
   this.avPlayer.prepare().catch((err: BusinessError) => {
     Logger.error(TAG, `prepare failed. Code:${err.code}, message:${err.message}`);
   });
-  break;
+}
 ```
 
  
@@ -971,8 +1000,6 @@ case 'initialized': // This status is reported after the playback source is set 
  
 
 #### 场景描述
-
- 
 
  
 用户播放视频时可以根据实际需求进行横竖屏切换。
@@ -1013,14 +1040,13 @@ case 'initialized': // This status is reported after the playback source is set 
 ```ArkTS
 setMainWindowOrientation(orientation: window.Orientation, callback?: Function): void {
   if (this.mainWindowClass === undefined) {
-    hilog.error(0x0000, TAG, 'MainWindowClass is undefined');
+    Logger.error(TAG, 'MainWindowClass is undefined');
     return;
   }
   this.mainWindowClass.setPreferredOrientation(orientation).then(() => {
     callback?.();
   }).catch((err: BusinessError) => {
-    hilog.error(0x0000, TAG,
-      `Failed to set the ${orientation} of main window. Code:${err.code}, message:${err.message}`);
+    Logger.error(TAG, `Failed to set the ${orientation} of main window. Code:${err.code}, message:${err.message}`);
   });
 }
 ```
@@ -1048,16 +1074,14 @@ this.windowUtil.setMainWindowOrientation(window.Orientation.USER_ROTATION_PORTRA
 #### 场景描述
 
  
-
- 
 用户在横竖屏切换后，视频保持原有进度继续播放。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/h-kwMtJtRUeM-6CjlrzMeA/zh-cn_image_0000002452690582.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024747Z&HW-CC-Expire=86400&HW-CC-Sign=FF3E91BBEA66CA894247D563C332F4A82259C36CA0EBDA75B1B0D0B565FF0BF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/4YIbb8zUQyCbz6s73lBMzQ/zh-cn_image_0000002614207563.png?HW-CC-KV=V1&HW-CC-Date=20260604T012652Z&HW-CC-Expire=86400&HW-CC-Sign=BAB2937F814CB996FCB658AC786215DEE3DDA36F0ECC6563546CE4C6EE98940A)
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/33/v3/dxJKoIaASR-wJ-lRuTgMtA/zh-cn_image_0000002485889989.gif?HW-CC-KV=V1&HW-CC-Date=20260528T024747Z&HW-CC-Expire=86400&HW-CC-Sign=409560599520E5C4D72CDCCCC05EB48E234DCC409D3C9BA85C89FCD30008A361)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/l2HX5-aDQ3awHm_Aiv7HaA/zh-cn_image_0000002583847764.png?HW-CC-KV=V1&HW-CC-Date=20260604T012652Z&HW-CC-Expire=86400&HW-CC-Sign=A62F028C399788A3BF6B76233BE6F523667005FAABAC47884BFA81D1479BEAA9)
 
  
 

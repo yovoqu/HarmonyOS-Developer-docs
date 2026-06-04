@@ -1,6 +1,6 @@
 # promotionService(营销服务)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -21,7 +21,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
-import { promotionService } from "@kit.PaymentKit";
+import { promotionService } from '@kit.PaymentKit';
 ```
 
 
@@ -255,7 +255,7 @@ startPromotionEntryDialog(mercNo: string, offset?: number): Promise&lt;UserActio
 **示例**：
 
 ```json
-import { promotionService } from "@kit.PaymentKit";
+import { promotionService } from '@kit.PaymentKit';
 
 @Component
 struct StartPromotionEntryDialogDemo {
@@ -330,7 +330,7 @@ startUserChooseCouponsPopup(context: common.Context, orderContext: OrderContext)
 **示例**：
 
 ```json
-import { promotionService } from "@kit.PaymentKit";
+import { promotionService } from '@kit.PaymentKit';
 
 @Entry
 @Component
@@ -357,7 +357,7 @@ export struct StartUserChooseCouponsPopupDemo {
                     console.info(`req ${JSON.stringify(req)}`);
                     promotionService.startUserChooseCouponsPopup(this.getUIContext().getHostContext()!, req).then(res => {
                         console.info(`startUserChooseCouponsPopup res ${JSON.stringify(res)}.`);
-                    })
+                    });
                 })
         }
     }
@@ -411,7 +411,7 @@ startPromotionDetailPopup(context: common.Context, mercNo: string): Promise&lt;U
 **示例**：
 
 ```json
-import { promotionService } from "@kit.PaymentKit";
+import { promotionService } from '@kit.PaymentKit';
 
 @Entry
 @Component
@@ -429,8 +429,7 @@ export struct StartPromotionDetailPopupDemo {
                             console.info(`receive resulr is ${JSON.stringify(val)}`);
                         }).catch((e: BusinessError) => {
                             console.info(`sendMessageRequest failed, message: ${JSON.stringify(e)}`)
-                        }
-                    )
+                        });
                 })
         }
     }
@@ -491,7 +490,7 @@ getOrderAvailableCoupons(context: common.Context, orderContext: OrderContext): P
 **示例**：
 
 ```json
-import { promotionService } from "@kit.PaymentKit";
+import { promotionService } from '@kit.PaymentKit';
  
 @Component
 export struct GetOrderAvailableCouponsDemo {
@@ -519,7 +518,7 @@ export struct GetOrderAvailableCouponsDemo {
             console.error(`getOrderAvailableCoupons res ${JSON.stringify(res)}.`);
           }).catch((e: BusinessError) => {
             console.error(`getOrderAvailableCoupons error ${JSON.stringify(e)}`);
-          })
+          });
         })
     }
   }

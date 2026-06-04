@@ -1,6 +1,6 @@
 # ui_input_event.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ui-input-event-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

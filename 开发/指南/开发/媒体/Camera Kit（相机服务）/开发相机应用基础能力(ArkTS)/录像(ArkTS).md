@@ -1,6 +1,6 @@
 # 录像(ArkTS)
 
-更新时间：2026-03-23 08:10:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording
 
@@ -130,7 +130,7 @@ async function getVideoOutput(cameraManager: camera.CameraManager, videoSurfaceI
 
   
 > [!NOTE]
-> 在设置预览流帧率时，需要先通过 getActiveFrameRate 查询当前录像流的帧率。 当录像流已设置过范围帧率时，预览流帧率必须设置与其相同的范围帧率。 当录像流已设置过固定帧率时，预览流帧率要设置成录像帧率的约数，且必须也为固定帧率。
+> 在设置预览流帧率时，需要先通过 getActiveFrameRate 查询当前录像流的帧率。 当录像流已设置过范围帧率时，预览流帧率必须设置与其相同的范围帧率。 当录像流已设置过固定帧率时，预览流帧率要设置成录像帧率的约数，且必须也为固定帧率。 部分设备前置镜头录像分辨率若选择3280*2160，录像模式下可能会出现视频倒置的情况，建议在 commitConfig 后设置视频防抖 setVideoStabilizationMode ，避免该问题发生。
 
 
   先通过videoOutput的[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput#start-1)方法启动录像输出流，再通过avRecorder的[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#start9)方法开始录像。

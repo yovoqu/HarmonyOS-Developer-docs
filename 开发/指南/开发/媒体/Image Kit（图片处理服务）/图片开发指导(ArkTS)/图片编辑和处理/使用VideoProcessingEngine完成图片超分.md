@@ -1,6 +1,6 @@
 # 使用VideoProcessingEngine完成图片超分
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-processing-arkts
 
@@ -137,4 +137,4 @@ videoProcessingEngine.deinitializeEnvironment();
   #### 示例代码
 
   
-[图片超分示例代码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ImageKit/UsingImageProcessingToProcessImages/entry/src/main/ets/view/ImageScalingComponentTs.ets)
+[图片超分示例代码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ImageKit/UsingImageProcessingToProcessImages)

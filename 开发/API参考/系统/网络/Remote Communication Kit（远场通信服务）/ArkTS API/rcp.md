@@ -1,6 +1,6 @@
 # rcp（数据请求）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2933,8 +2933,6 @@ type X509Cert = cert.X509Cert
  
 提供 x509 证书类型，链接到@[ohos.security.cert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)中的X509Cert。
  
-取值范围请见下表。
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Collaboration.RemoteCommunication
@@ -3249,8 +3247,7 @@ writeSync(buffer: ArrayBuffer): void | number
   
 | 类型 | 说明 |
 | --- | --- |
-| void | 无返回值。 |
-| number | 返回写入的字节数。 |
+| void \| number | 无返回值；或者返回写入的字节数。 |
  
  
   
@@ -3338,7 +3335,7 @@ readSync(buffer: ArrayBuffer): number
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回写入的字节数。 |
+| number | 返回读取的字节数。 |
  
  
   
@@ -3409,8 +3406,7 @@ type TargetFileCallback = (request: [Request](#request), suggestedPath: [Path](#
   
 | 类型 | 说明 |
 | --- | --- |
-| TargetFile | 回调函数，返回TargetFile对象。 |
-| Promise&lt;TargetFile&gt; | Promise对象，返回TargetFile对象，表示下载数据的存放位置。 |
+| TargetFile \| Promise&lt;TargetFile&gt; | 回调函数，返回TargetFile对象；或者Promise对象，返回TargetFile对象，表示下载数据的存放位置。 |
  
  
   
@@ -3440,8 +3436,7 @@ type IncomingDataCallback = (incomingData: ArrayBuffer) => void | Promise&lt;voi
   
 | 类型 | 说明 |
 | --- | --- |
-| void | 回调函数，无返回值。 |
-| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+| void \| Promise&lt;void&gt; | 回调函数，无返回值； 或者Promise对象，无返回结果。 |
  
  
   
@@ -3550,7 +3545,7 @@ type DownloadToFile = { kind: 'file'; file: TargetFileCallback; } | { kind: 'fil
 | --- | --- |
 | { kind: 'file'; file: TargetFileCallback; } | 表示以回调的方式返回下载结果。键kind为'file'，键file为TargetFileCallback。 |
 | { kind: 'file'; file: Path; keepLocal?: boolean; } | 表示下载到路径。键kind为'file'，键file为目标路径，键keepLocal为是否保留本地同名文件，true表示保留，false表示不保留，默认值为false。 |
-| { kind: 'file'; file: LocalFile\| WriteFile; } | 表示下载到文件。键kind为'file'，键file为LocalFile或WriteFile对象。 |
+| { kind: 'file'; file: LocalFile \| WriteFile; } | 表示下载到文件。键kind为'file'，键file为LocalFile或WriteFile对象。 |
 | { kind: 'folder'; path: Path; keepLocal?: boolean; } | 表示下载到文件夹。键kind为'folder'，键path为目标路径，键keepLocal为是否保留本地同名文件，true表示保留，false表示不保留，默认值为false。 |
  
  
@@ -5291,8 +5286,7 @@ type ValidationCallback = (context: ValidationContext) => boolean | Promise&lt;b
   
 | 取值范围 | 说明 |
 | --- | --- |
-| boolean | 回调函数。返回true表示校验成功；返回false表示校验失败。 |
-| Promise&lt;boolean&gt; | Promise对象。返回true表示校验成功；返回false表示校验失败。 |
+| boolean \| Promise&lt;boolean&gt; | 回调函数，返回true表示校验成功，返回false表示校验失败；或者Promise对象，返回true表示校验成功，返回false表示校验失败。 |
  
  
   
@@ -5618,8 +5612,7 @@ type ResponseValidationCallback = (response: Response) => boolean | Promise&lt;b
   
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 回调函数。返回true表示校验成功；返回false表示校验失败。 |
-| Promise&lt;boolean&gt; | Promise对象。返回true表示校验成功；返回false表示校验失败。 |
+| boolean \| Promise&lt;boolean&gt; | 回调函数，返回true表示校验成功，返回false表示校验失败；或者Promise对象，返回true表示校验成功，返回false表示校验失败。 |
  
  
   
@@ -5668,8 +5661,7 @@ type GetDataCallback = (maxSize: number) => ArrayBuffer | Promise&lt;ArrayBuffer
   
 | 类型 | 说明 |
 | --- | --- |
-| ArrayBuffer | 回调函数，返回用于发送的数据。 |
-| Promise&lt;ArrayBuffer&gt; | Promise对象，返回用于发送的数据。 说明： 5.0.0(12)新增返回值Promise&lt;ArrayBuffer&gt;。 |
+| ArrayBuffer \| Promise&lt;ArrayBuffer&gt; | 回调函数，返回用于发送的数据；或者Promise对象，返回用于发送的数据。 说明： 5.0.0(12)新增返回值Promise&lt;ArrayBuffer&gt;。 |
  
  
   
@@ -6077,9 +6069,7 @@ type OnDataReceive = (incomingData: ArrayBuffer, request?: Request) => number | 
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 回调函数，返回number类型数据，表示处理的字节数。 |
-| void | 回调函数，无返回值。 说明： 5.0.0(12)版本上新增返回值void。 |
-| Promise&lt;void&gt; | Promise对象，无返回结果。 说明： 5.0.0(12)版本上新增返回值Promise&lt;void&gt;。 |
+| number \| void \| Promise&lt;void&gt; | 回调函数，返回number类型数据，表示处理的字节数；或者回调函数，无返回值；或者Promise对象，无返回结果。 说明： 5.0.0(12)版本上新增返回值void \| Promise&lt;void&gt;。 |
  
  
   

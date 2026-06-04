@@ -1,6 +1,6 @@
 # 适配相机旋转角度(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation
 
@@ -38,7 +38,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
   
 ```text
-function createPhotoSession(cameraManager: camera.CameraManager): camera.Session | undefined {
+createPhotoSession(cameraManager: camera.CameraManager): camera.Session | undefined {
   let session: camera.Session | undefined = undefined;
   try {
     session = cameraManager.createSession(camera.SceneMode.NORMAL_PHOTO) as camera.PhotoSession;
@@ -49,7 +49,7 @@ function createPhotoSession(cameraManager: camera.CameraManager): camera.Session
   return session;
 }
 
-function createVideoSession(cameraManager: camera.CameraManager): camera.Session | undefined {
+createVideoSession(cameraManager: camera.CameraManager): camera.Session | undefined {
   let session: camera.Session | undefined = undefined;
   try {
     session = cameraManager.createSession(camera.SceneMode.NORMAL_VIDEO) as camera.VideoSession;
@@ -114,12 +114,13 @@ previewRotation：预览旋转角度，取上一步[getPreviewRotation](https://
 // previewOutput是创建的预览输出
 try {
   let initDisplayRotation = display.getDefaultDisplaySync().rotation;
-  let initPreviewRotation = previewOutput.getPreviewRotation(initDisplayRotation * camera.ImageRotation.ROTATION_90);
-  previewOutput.setPreviewRotation(initPreviewRotation, false);
+  let initPreviewRotation = this.output?.getPreviewRotation(initDisplayRotation * camera.ImageRotation.ROTATION_90);
+  let isDisplayLocked: boolean = false; // 建议与setXComponentSurfaceRotation入参的lock属性保持一致
+  this.output?.setPreviewRotation(initPreviewRotation, isDisplayLocked);
 } catch (error) {
   // 失败返回错误码error.code并处理
   let err = error as BusinessError;
-  console.error(`PreviewRotation call failed. error code: ${err.code}`);
+  console.error(`initPreviewRotation call failed. error code: ${err.code}`);
 }
 ```
 
@@ -135,8 +136,9 @@ display.on('change', () => {
   try {
     let displayRotation = display.getDefaultDisplaySync().rotation;
     let imageRotation = displayRotation * camera.ImageRotation.ROTATION_90;
-    let previewRotation = previewOutput.getPreviewRotation(imageRotation);
-    previewOutput.setPreviewRotation(previewRotation, false);
+    let previewRotation = previewOutput?.getPreviewRotation(imageRotation);
+    let isDisplayLocked: boolean = false; // 建议与setXComponentSurfaceRotation入参的lock属性保持一致
+    previewOutput.setPreviewRotation(previewRotation, isDisplayLocked);
   } catch (error) {
     // 失败返回错误码error.code并处理
     let err = error as BusinessError;
@@ -158,8 +160,8 @@ display.on('change', () => {
   deviceDegree：设备旋转角度。拍照的旋转角度与重力方向（即设备旋转角度）相关，获取方式请见[计算设备旋转角度](#计算设备旋转角度)。
 
   
-```text
-function getPhotoRotation(photoOutput: camera.PhotoOutput, deviceDegree: number): camera.ImageRotation {
+```ArkTS
+getPhotoRotation(photoOutput: camera.PhotoOutput, deviceDegree: number): camera.ImageRotation {
   let photoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
     photoRotation = photoOutput.getPhotoRotation(deviceDegree);
@@ -188,11 +190,11 @@ function getPhotoRotation(photoOutput: camera.PhotoOutput, deviceDegree: number)
   deviceDegree：设备旋转角度。录像的旋转角度与重力方向（即设备旋转角度）相关，获取方式请见[计算设备旋转角度](#计算设备旋转角度)。
 
   
-```text
-function getVideoRotation(videoOutput: camera.VideoOutput, deviceDegree: number): camera.ImageRotation {
+```ArkTS
+getVideoRotation(videoOutput: camera.VideoOutput, deviceDegree: number): camera.ImageRotation {
   let videoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
-    videoRotation = videoOutput.getVideoRotation(deviceDegree);
+    videoRotation = videoOutput!.getVideoRotation(deviceDegree);
     console.info(`Video rotation is: ${videoRotation}`);
   } catch (error) {
     // 失败返回错误码error.code并处理
@@ -209,11 +211,7 @@ function getVideoRotation(videoOutput: camera.VideoOutput, deviceDegree: number)
 **录像流旋转接口适配示例代码：**
  
 ```text
-import { camera } from '@kit.CameraKit';
-import { media } from '@kit.MediaKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-async function getVideoRotationAndUpdate(videoOutput: camera.VideoOutput, deviceDegree: number, avRecorder: media.AVRecorder) {
+async getVideoRotationAndUpdate(videoOutput: camera.VideoOutput, deviceDegree: number, avRecorder: media.AVRecorder) {
   let videoRotation: camera.ImageRotation = camera.ImageRotation.ROTATION_0;
   try {
     videoRotation = videoOutput.getVideoRotation(deviceDegree);
@@ -238,13 +236,7 @@ async function getVideoRotationAndUpdate(videoOutput: camera.VideoOutput, device
 如果无法获得重力传感器数据，需要申请重力传感器权限ohos.permission.ACCELEROMETER。权限申请请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)，如何获取传感器数据请参考[传感器开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-guidelines)。
  
 ```text
-import { Decimal } from '@kit.ArkTS';
-import { sensor } from '@kit.SensorServiceKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
-let isSupported: boolean = false;
-let getDeviceDegree: number = -1;
-function getRealData(data: sensor.GravityResponse): number {
+getRealData(data: sensor.GravityResponse): number {
   let getDeviceDegree: number = 0;
   let x = data.x;
   let y = data.y;
@@ -265,8 +257,9 @@ function getRealData(data: sensor.GravityResponse): number {
   return getDeviceDegree;
 }
 
-async function getGravity() : Promise<number> {
+async getGravity() : Promise<number> {
   let data: sensor.Sensor[];
+  let isSupported: boolean = false;
   try {
     data = await sensor.getSensorList();
   } catch (error) {
@@ -285,14 +278,14 @@ async function getGravity() : Promise<number> {
     if (isSupported === true) {
       const promise: Promise<number> = new Promise((resolve) => {
         sensor.once(sensor.SensorId.GRAVITY, (data: sensor.GravityResponse) => {
-          resolve(getRealData(data));
+          resolve(this.getRealData(data));
         });
       })
       return promise;
     } else {
       const promise: Promise<number> = new Promise((resolve) => {
         sensor.once(sensor.SensorId.ACCELEROMETER, (data: sensor.AccelerometerResponse) => {
-          resolve(getRealData(data as sensor.GravityResponse));
+          resolve(this.getRealData(data as sensor.GravityResponse));
         });
       })
       return promise;
@@ -305,7 +298,7 @@ async function getGravity() : Promise<number> {
 }
 
 // 获取当前设备旋转角度
-async function getCurrentDeviceDegree() : Promise<number> {
+async getCurrentDeviceDegree() : Promise<number> {
   getDeviceDegree = await getGravity(); // 调用使用await
   return getDeviceDegree;
 }

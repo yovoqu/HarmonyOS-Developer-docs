@@ -1,6 +1,6 @@
 # native_gesture.h
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-gesture-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

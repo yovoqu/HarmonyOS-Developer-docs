@@ -1,6 +1,6 @@
 # Audio Kit简介
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-05-28 03:37:50
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-kit-intro
 
@@ -117,3 +117,17 @@ audio模块下的接口支持PCM编码，包括AudioRenderer、AudioCapturer、T
   由于系统限制，S24LE、S32LE、F32LE仅部分设备支持，请根据实际情况使用。
 
   小尾数指的是小端模式，即数据的高字节保存在内存的高地址中，而数据的低字节保存在内存的低地址中。这种存储模式将地址的高低和数据的位权有效结合起来，高地址部分权值高，低地址部分权值低。
+
+
+
+
+#### 模拟器支持情况
+
+本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下。
+
+ - 通用差异：请参见[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section18112195514315)。
+ - 不支持低时延音频播放。
+ - 不支持低时延音频录制。
+ - 不支持低功耗音频播放。
+ - 不支持音效，音效跟随模拟器运行操作系统的硬件通路。
+ - 只存在默认输出（Speaker）和默认输入（Mic）设备，会映射到模拟器运行操作系统的音频设备，没有其他外设的概念。

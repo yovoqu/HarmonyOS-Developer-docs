@@ -1,6 +1,6 @@
 # Text
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-text
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -665,7 +665,7 @@ fontFeature(value: string)
 例如，使用等宽数字的输入格式为："ss01" on。
 
 > [!NOTE]
-> 不支持Text内同时存在文本内容和Span或ImageSpan子组件。如果同时存在，只显示Span或ImageSpan内的内容。 字体排版引擎会对开发者传入的宽度 width 进行向下取整，保证是整型像素后进行排版。如果向上取整，可能会出现文字右侧被截断。 当多个Text组件在 Row 容器内布局且没有设置具体的布局分配信息时，Text会以Row的最大尺寸进行布局。如果需要子组件主轴累加的尺寸不超过Row容器主轴的尺寸，可以设置 layoutWeight 或者是以 Flex 布局来约束子组件的主轴尺寸。 系统默认字体支持的liga连字：Th fb ff fb ffb ffh ffi ffk ffl fh fi fk fl rf rt rv rx ry。常导致Span、属性字符串的效果不符合预期，关闭liga连字特性可以规避。 文字特性效果与使用的字体文件密切相关。例如，8标点挤压功能在当前系统默认字体中仅对左侧标点符号生效，而右侧标点符号及感叹号、顿号、问号均不生效。
+> 不支持Text内同时存在文本内容和Span或ImageSpan子组件。如果同时存在，只显示Span或ImageSpan内的内容。 字体排版引擎会对开发者传入的宽度 width 进行向下取整，保证是整型像素后进行排版。如果向上取整，可能会出现文字右侧被截断。 当多个Text组件在 Row 容器内布局且没有设置具体的布局分配信息时，Text会以Row的最大尺寸进行布局。如果需要子组件主轴累加的尺寸不超过Row容器主轴的尺寸，可以设置 layoutWeight 或者是以 Flex 布局来约束子组件的主轴尺寸。 系统默认字体支持的liga连字：Th fb ff fb ffb ffh ffi ffk ffl fh fi fk fl rf rt rv rx ry。常导致Span、属性字符串的效果不符合预期，关闭liga连字特性可以规避。 文字特性效果与使用的字体文件密切相关。例如，8标点挤压功能需要字体文件中字符支持"ss08"特性，否则无法压缩，在当前系统默认字体中右侧标点符号及感叹号、顿号、问号均不生效。
 
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。

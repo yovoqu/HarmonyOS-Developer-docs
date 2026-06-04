@@ -1,6 +1,6 @@
 # XComponent
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-xcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -141,7 +141,7 @@ XComponent(value: {id: string, type: string, libraryname?: string, controller?: 
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义XComponent的具体配置参数。通过这种构造参数创建的XComponent，可以将其对应的[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)对象传递至Native侧，使用NDK接口进行Surface生命周期的相关设置和[监听组件事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-listen-to-component-events)。
+定义XComponent的具体配置参数。通过这种构造参数创建的XComponent，可以将其对应的[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)对象传递至Native侧，使用NDK接口进行Surface生命周期的相关设置和[添加事件监听](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-add-component-events)。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -625,7 +625,7 @@ onSurfaceDestroyed(surfaceId: string): void
 
 startImageAnalyzer(config: ImageAnalyzerConfig): Promise&lt;void&gt;
 
-配置AI分析并启动AI分析功能，使用前需先[启用图像AI分析能力](#enableanalyzer12)。使用Promise异步回调。
+配置AI分析并启动AI分析功能，使用前需先启用图像AI分析能力[enableAnalyzer](#enableanalyzer12)。使用Promise异步回调。
 
 该方法调用时，将截取调用时刻的画面帧进行分析，使用时需注意启动分析的时机，避免出现画面和分析内容不一致的情况。
 
@@ -750,7 +750,7 @@ lockCanvas(): DrawingCanvas | null
 
 
 > [!NOTE]
-> 如果当前XComponent状态无法获取画布对象则将返回null。原因通常为： XComponent持有的Surface未创建完成（可通过设置 onLoad / onSurfaceCreated 回调来确定，此回调触发时，Surface已创建完成）。 之前已经调用过lockCanvas来获取过画布对象，且该画布对象未调用 unlockCanvasAndPost 去释放。 只支持TEXTURE和SURFACE模式。 使用此接口后，同时在NDK侧获取NativeWindow并调用相关接口进行绘制，可能出现缓冲区竞争和上下文冲突而发生绘制画面错误等异常，因此不允许使用。 此接口需要和 unlockCanvasAndPost 接口配对使用，具体参考 示例3使用画布对象在XComponent上绘制内容 。
+> 如果当前XComponent状态无法获取画布对象则将返回null。原因通常为： XComponent持有的Surface未创建完成（可通过设置 onLoad / onSurfaceCreated 回调来确定，此回调触发时，Surface已创建完成）。 之前已经调用过lockCanvas来获取过画布对象，且该画布对象未调用 unlockCanvasAndPost 去释放。 只支持TEXTURE和SURFACE模式。 使用此接口后，同时在NDK侧获取NativeWindow并调用相关接口进行绘制，可能出现缓冲区竞争和上下文冲突而发生绘制画面错误等异常，因此不允许使用。 此接口需要和 unlockCanvasAndPost 接口配对使用，具体参考示例3 使用画布对象在XComponent上绘制内容 。
 
 
 
@@ -775,7 +775,7 @@ unlockCanvasAndPost(canvas: DrawingCanvas): void
 
 
 > [!NOTE]
-> 画布对象调用unlockCanvasAndPost释放后，不可再使用该画布对象。 只支持TEXTURE和SURFACE模式。 使用此接口后，同时在NDK侧获取NativeWindow并调用相关接口进行绘制，可能出现缓冲区竞争和上下文冲突而发生绘制画面错误等异常，因此不允许使用。 此接口需要和 lockCanvas 接口配对使用，具体参考 示例3使用画布对象在XComponent上绘制内容 。
+> 画布对象调用unlockCanvasAndPost释放后，不可再使用该画布对象。 只支持TEXTURE和SURFACE模式。 使用此接口后，同时在NDK侧获取NativeWindow并调用相关接口进行绘制，可能出现缓冲区竞争和上下文冲突而发生绘制画面错误等异常，因此不允许使用。 此接口需要和 lockCanvas 接口配对使用，具体参考示例3 使用画布对象在XComponent上绘制内容 。
 
 
 
@@ -1001,7 +1001,7 @@ struct XComponentExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/i1c_qVXJTuO3n2JzGV58bA/zh-cn_image_0000002581436154.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=3173706CC22F377ADDEACDF203EDC9C2A3CBFC0FBDC6525BEFE51DF5D7B1E8C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/uQLFlMk9QvqQXs1i4jWZgw/zh-cn_image_0000002617670299.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=82760976C4C47489BB2370ACF2DB7737770E9716A744AEC05063DC4999597A8A)
 
 
 
@@ -1119,7 +1119,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/388RYMfmQG6nhF-0jLak5A/zh-cn_image_0000002611835985.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=F740C2FAB40F80DBBCFD801AFA9D9848F20239D126E84BC588F91CC5858F9A8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/VPp8h8WcR1W8tWr5YEFyzQ/zh-cn_image_0000002587270524.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=7166A5CF85390B6D28519F15DF805D0B02D25693EFAA2F49AC54B2B867A22EC2)
 
 
 
@@ -1172,7 +1172,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/TxmMjih-Qs--Pm3X_Sx-Dw/zh-cn_image_0000002581276238.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=A7E39A941B66352BDE8D3763A1F59D356C2A3597ABB12A99933A902CFDBA9FEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0e/v3/9vnjYOsRRf6NrDMqdQuMXQ/zh-cn_image_0000002617710203.jpeg?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=F6DA412E489F22266B0B5887CFA1CF82801B2A3DAF0E00641213590C0F76990B)
 
 
 
@@ -1278,4 +1278,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/0T4xnwgwTimqsaVTXlZKEA/zh-cn_image_0000002611756093.jpeg?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=43845F4CDC2B64349BCAB5AA368FE39AF2C54C69C297101BDF96C59E41F8799E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/1IcjNzyCRgaKY3x5oTawBw/zh-cn_image_0000002587110622.jpeg?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=2C55C660BC1F01454E2BAD1B2BD1935DF2C98519486085538584C18F6AC33388)

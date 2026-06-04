@@ -1,6 +1,6 @@
 # @ohos.app.ability.Configuration (环境变量)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-configuration
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -30,7 +30,7 @@ import { Configuration } from '@kit.AbilityKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| language | string | 否 | 是 | 表示应用当前语言，例如“zh"(中文)，“en”（英文）。 支持开发者设置应用语言。 取值范围参考获取系统支持的语言列表。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
+| language | string | 否 | 是 | 表示应用当前语言，例如“zh”(中文)，“en”（英文）。 支持开发者设置应用语言。 取值范围可以通过getSystemLanguages()获取。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | colorMode | ConfigurationConstant.ColorMode | 否 | 是 | 表示应用深浅色模式，默认为浅色。 支持开发者设置应用或组件深浅色。 取值范围： - COLOR_MODE_NOT_SET：未设置 - COLOR_MODE_LIGHT：浅色模式 - COLOR_MODE_DARK：深色模式 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | direction | ConfigurationConstant.Direction | 否 | 是 | 表示应用屏幕方向。 取值范围： - DIRECTION_NOT_SET：未设置 - DIRECTION_HORIZONTAL：水平方向 - DIRECTION_VERTICAL：垂直方向 该环境变量支持在UIAbility组件和UIExtensionAbility组件中订阅，不支持在ApplicationContext和AbilityStage组件容器中订阅。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
 | screenDensity | ConfigurationConstant.ScreenDensity | 否 | 是 | 表示屏幕显示密度。 取值范围： - SCREEN_DENSITY_NOT_SET：未设置 - SCREEN_DENSITY_SDPI：120 - SCREEN_DENSITY_MDPI：160 - SCREEN_DENSITY_LDPI：240 - SCREEN_DENSITY_XLDPI：320 - SCREEN_DENSITY_XXLDPI：480 - SCREEN_DENSITY_XXXLDPI：640 字体显示大小与屏幕像素密度呈正相关关系。通过监听屏幕像素密度变化，可以感知字体显示大小的调整。通常情况下，对于相同的物理尺寸，屏幕像素密度越高，字体显示效果越大。 该环境变量支持在UIAbility组件和UIExtensionAbility组件中订阅，不支持在ApplicationContext和AbilityStage组件容器中订阅。 元服务API：从API version 11开始，该接口支持在元服务中使用。 |
@@ -44,16 +44,20 @@ import { Configuration } from '@kit.AbilityKit';
 | locale20+ | Intl.Locale | 否 | 是 | 表示区域设置。 应用会根据当前的区域设置自动调整其行为，以符合用户的本地化需求。该属性可以通过设置系统语言、设置系统地区和设置应用偏好语言等方式设置。 元服务API：从API version 20开始，该接口支持在元服务中使用。 |
 
 
+> [!NOTE]
+> Configuration对象中每个属性的“只读”列值为“否”，表示开发者可以在代码中对这些属性进行赋值操作，但这仅是修改Configuration对象实例的属性值，并不会改变应用的运行环境或系统设置。若需设置应用的语言、深浅色模式、字体大小等环境变量，应使用对应的API接口（如 setLanguage 、 setColorMode 、 setFontSizeScale 等）。
+
+
 **示例：**
 
 ```json
-import { UIAbility, AbilityConstant, EnvironmentCallback, Want } from '@kit.AbilityKit';
+import { UIAbility, AbilityConstant, EnvironmentCallback, Want, Configuration } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
     let envCallback: EnvironmentCallback = {
-      onConfigurationUpdated(config) {
+      onConfigurationUpdated(config: Configuration): void {
         console.info(`envCallback onConfigurationUpdated success: ${JSON.stringify(config)}`);
         let language = config.language;
         let colorMode = config.colorMode;

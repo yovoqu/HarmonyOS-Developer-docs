@@ -1,6 +1,6 @@
 # 如何处理HEIF图片
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-03 01:38:22
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/heif-adapter-faq
 
@@ -84,8 +84,10 @@ export async function reEncoding(context : Context, fd : number | undefined) {
     }).catch((error : BusinessError) => {
       promptAction.showToast({ message: 'Failed to pack the image. And the error is: ' + error});
       console.error('Failed to pack the image. And the error is: ' + error);
-    }).finally(()=>{
+    }).finally(async () => {
       fileIo.closeSync(file.fd);
+      await imageSource.release();
+      await imagePackerApi.release();
     })
   } catch (error) {
     console.error('Failed to pack the image. And the error is: ' + error);
