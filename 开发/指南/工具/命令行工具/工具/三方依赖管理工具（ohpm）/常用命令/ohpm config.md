@@ -1,6 +1,6 @@
 # ohpm config
 
-更新时间：2026-04-22 06:52:30
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-config
 
@@ -28,7 +28,7 @@ ohpm config encrypt [options]
 ohpm 从命令行和 .ohpmrc 文件中获取其配置设置。有关更多 .ohpmrc 文件信息和可用配置选项，请参阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc) 章节。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/NMikGM3SSeqDplL17lB5kw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030634Z&HW-CC-Expire=86400&HW-CC-Sign=A37686574D0D21CFA82FC260F9BEFAC5EA5A92DBAFF067BB4D5DD1C4A6A6562C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/PfCJ3vzTS76dyHOHuz0QiA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=0A3E91F38D6486A107499C93FEE03D10E0DAA48A8D95E01B906BFF9EE1457311)
  
 
 ohpm config 仅支持配置项字段（默认项字段请查阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc#zh-cn_topic_0000001792216397_默认配置项) 章节），且仅支持修改**用户级目录**下的 .ohpmrc 文件。

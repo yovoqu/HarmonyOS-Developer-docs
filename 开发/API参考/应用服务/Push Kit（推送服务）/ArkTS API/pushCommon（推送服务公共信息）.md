@@ -1,6 +1,6 @@
 # pushCommon（推送服务公共信息）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushcommon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -163,8 +163,8 @@ import { pushCommon } from '@kit.PushKit';
 | title | string | 否 | 是 | 扩展通知标题。 说明： title从5.0.0(12)起变更为非必填字段。 |
 | text | string | 否 | 是 | 扩展通知内容。 说明： text从5.0.0(12)起变更为非必填字段。 |
 | overlayIcon | image.PixelMap | 否 | 是 | 扩展通知的叠加图标。 说明： 图片长*宽建议小于128*128像素，若超过49152像素，则图片不展示。 |
-| badgeNumber | number | 否 | 是 | 扩展通知展示时增加的角标数量，取值范围(0, 100)。 |
-| setBadgeNumber | number | 否 | 是 | 扩展通知展示时显示的角标数量 ，取值范围[0, 100)。与badgeNumber同时返回时，优先于badgeNumber。 说明： 起始版本：5.0.0(12)。 |
+| badgeNumber | number | 否 | 是 | 增加的角标数量，取值范围(0, 100)，在应用的桌面图标上呈现。 |
+| setBadgeNumber | number | 否 | 是 | 设置的角标数量 ，取值范围[0, 100)，在应用的桌面图标上呈现。与badgeNumber同时返回时，优先于badgeNumber。 说明： 起始版本：5.0.0(12)。 |
 | wantAgent | RemoteWantAgent | 否 | 是 | 点击事件时可以替换的数据。 |
  
  

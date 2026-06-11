@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -385,11 +385,11 @@ The device does not support current operation.
 
 **可能原因**
 
-元服务基于账号订阅时，该设备非Phone、Tablet，或者订阅时元服务不在前台。
+元服务基于账号订阅时，该设备非Phone、Tablet、PC/2in1，或者订阅时元服务不在前台。
 
 **处理步骤**
 
-元服务基于账号订阅时，检查订阅时应用是否处于前台。检查设备订阅设备是否为Phone或Tablet。
+元服务基于账号订阅时，检查订阅时应用是否处于前台。检查设备订阅设备是否为Phone或Tablet或PC/2in1。
 
 
 

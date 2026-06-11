@@ -1,12 +1,12 @@
 # 使用AgentExtensionAbility组件实现智能体服务
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-extension-ability
 
 #### 概述
 
-从API version 24开始，支持开发者使用[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)类型的组件提供智能体服务。系统应用可以连接其他应用实现的[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)组件，并使用相应的智能体服务。
+在跨应用协作场景下，开发者经常需要从系统应用调用其他应用提供的智能体服务，但缺少标准化的通信机制，导致集成成本高、安全认证复杂。从API version 24开始，支持开发者使用[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)类型的组件提供智能体服务。系统应用可以连接其他应用实现的[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)组件，并使用相应的智能体服务。通过使用该组件，可降低跨应用对接成本，保障通信安全，同时支持双向数据通道实时交互。
 
 > [!NOTE]
 > 本文描述中称被连接的 AgentExtensionAbility 为服务端，称连接 AgentExtensionAbility 的组件为客户端。
@@ -30,7 +30,7 @@
 3. 在AgentExtAbility.ets文件中，补充[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)的导入模块，自定义类AgentExtAbility继承[AgentExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability)并实现生命周期回调。
 
   
-```text
+```ArkTS
 import { common, AgentExtensionAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -118,7 +118,7 @@ export default class AgentExtAbility extends AgentExtensionAbility {
 
 应用可以在服务端AgentExtensionAbility组件的[onData()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability#ondata)方法中接收客户端传递的数据和[AgentHostProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy)对象，并且可以通过调用[AgentHostProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy)对象的[sendData()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy#senddata)方法将数据发送给客户端。
 
-```text
+```ArkTS
 import { common, AgentExtensionAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -146,7 +146,7 @@ export default class AgentExtAbility extends AgentExtensionAbility {
 
 应用可以在服务端AgentExtensionAbility组件的[onAuth()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-agent-agentextensionability#onauth)方法中接收客户端的安全认证请求以及[AgentHostProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy)对象，并且可以通过[AgentHostProxy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy)的[authorize()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-agenthostproxy#authorize)方法向客户端发送安全认证请求。
 
-```text
+```ArkTS
 import { common, AgentExtensionAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 

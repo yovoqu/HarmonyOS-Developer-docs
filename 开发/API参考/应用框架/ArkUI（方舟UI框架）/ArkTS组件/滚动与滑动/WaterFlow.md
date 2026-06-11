@@ -1,6 +1,6 @@
 # WaterFlow
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -73,7 +73,7 @@ WaterFlow(options?: WaterFlowOptions)
 瀑布流分组信息。
 
 > [!NOTE]
-> 使用splice、push、update修改分组信息后需要保证所有分组子节点总数与瀑布流实际子节点总数一致，否则会出现瀑布流因为不能正常布局而无法滑动的问题。
+> 使用splice、push、update修改分组信息后需要保证所有分组子组件总数与瀑布流实际子组件总数一致，否则会出现瀑布流因为不能正常布局而无法滑动的问题。
 
 
 
@@ -259,7 +259,7 @@ type GetItemMainSizeByIndex = (index: number) => number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | FlowItem在WaterFlow中的索引。 取值范围：[0, 子节点总数-1] |
+| index | number | 是 | FlowItem在WaterFlow中的索引。 取值范围：[0, 子组件总数-1] |
 
 
 **返回值：**
@@ -727,8 +727,8 @@ onScrollIndex(event: (first: number, last: number) => void)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| first | number | 是 | 当前显示的瀑布流起始位置的索引值。 取值范围：[0, 子节点总数-1] |
-| last | number | 是 | 当前显示的瀑布流终止位置的索引值。 取值范围：[0, 子节点总数-1] |
+| first | number | 是 | 当前显示的瀑布流起始位置的索引值。 取值范围：[0, 子组件总数-1] |
+| last | number | 是 | 当前显示的瀑布流终止位置的索引值。 取值范围：[0, 子组件总数-1] |
 
 
 通过last参数可以判断是否“继续加载数据”，参考[示例3（使用分组）](#示例3使用分组)中“即将触底时提前增加数据”的处理逻辑。

@@ -1,6 +1,6 @@
 # ELMTWISE_INFER_SHAPEANDTYPE
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-elmtwise-infer-shapeandtype
 
@@ -31,7 +31,7 @@ ELMTWISE_INFER_SHAPEANDTYPE(in_name, out_name)
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
 | in_name | 输入 | 算子输入。 |
-| out_name | 输入 | 算子输出。 |
+| out_name | 输出 | 算子输出。 |
  
  
   

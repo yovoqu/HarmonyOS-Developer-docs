@@ -1,6 +1,6 @@
 # ohpm convert
 
-更新时间：2026-04-22 06:52:30
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-convert
 
@@ -124,7 +124,7 @@ ohpm INFO: Converted packages are saved to the "C:\Users\xxxxx\Desktop\convert_1
 执行npm install uuid后，转换本地node_modules目录中的包，执行以下命令：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/MX5HG6yxQ5OUEQoZitnSBQ/zh-cn_image_0000002602186787.png?HW-CC-KV=V1&HW-CC-Date=20260528T030632Z&HW-CC-Expire=86400&HW-CC-Sign=7C1E91F60C471437F3F29E4B1958624425DD3D42DD738F06C0EA967C3E869B2D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/sEDyihiRQdCMwguaBLEUmw/zh-cn_image_0000002602186787.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=B571F8742D5F44FA57ADD8D2C53E69EA457D45F07887A29E689F74EA42337218)
 
  
 ```text
@@ -142,4 +142,4 @@ ohpm INFO: Converted packages are saved to the "C:\Users\xxxxx\Desktop\convert_1
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/degm9FctSzqcDOxqzqxzSw/zh-cn_image_0000002571387616.png?HW-CC-KV=V1&HW-CC-Date=20260528T030632Z&HW-CC-Expire=86400&HW-CC-Sign=B3357291CB7FFD1D2187B8BE0AD6033469AE731049DBF94B27801DD742704BA6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/Sd5bnyV6TdO0wwuyldlm3A/zh-cn_image_0000002571387616.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=5BD88759CC4970C8E3F52956D7F1B98FB0F88478C4B2C86D05BD547F178B788E)

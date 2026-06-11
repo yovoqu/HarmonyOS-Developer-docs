@@ -1,6 +1,6 @@
 # 使用ECDH进行密钥协商(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-agreement-using-ecdh
 

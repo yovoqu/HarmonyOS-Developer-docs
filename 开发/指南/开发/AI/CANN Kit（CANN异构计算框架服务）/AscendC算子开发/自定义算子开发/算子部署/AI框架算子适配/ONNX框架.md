@@ -1,6 +1,6 @@
 # ONNX框架
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-onnx-framework
 
@@ -107,7 +107,7 @@ onnx.save(model, "./add_custom.onnx")
 
   
 ```bash
-./omg --model ./add_custom.onnx --framework 5 --output out/custom_graph --target=omc
+./omg --model ./add_custom.onnx --framework 5 --output out/custom_graph --target=omc --platform kirin9020
 ```
   关键参数的解释如下。
 

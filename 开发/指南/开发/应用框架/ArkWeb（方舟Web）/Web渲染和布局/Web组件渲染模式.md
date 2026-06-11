@@ -1,6 +1,6 @@
 # Web组件渲染模式
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-render-mode
 
@@ -11,7 +11,7 @@ Web组件提供了两种可配置的渲染模式，能够根据不同的容器�
 
 异步渲染模式下（renderMode: [RenderMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e#rendermode12).ASYNC_RENDER），Web组件作为图形surface节点，独立送显。建议在仅由Web组件构成的应用页面中使用此模式，以提高性能并降低功耗。
 
- - Web组件的宽高不能超过7,680px（物理像素），超过会导致白屏。
+ - Web组件的高度不能超过7,680px（物理像素），超过会导致白屏。
  - 不支持动态切换模式。
 
 
@@ -31,6 +31,7 @@ Web组件提供了两种可配置的渲染模式，能够根据不同的容器�
 
  - 不支持DSS（显示子系统）合成。
  - 不支持动态切换模式。
+ - Web组件的高度最大规格不超过500,000 px（物理像素）。
 
 
 开发者预期Web组件作为富文本显示的载体，成为应用页面的一部分，与其他ArkUI组件共同滑动交互。如图二所示，H5页面与Web组件高度一致，Web内部不生成滚动条，作为一个超长组件展示，通过[Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)组件实现应用内部的滚动，确保用户能够平滑浏览Web内容及其他ArkUI组件的内容。需要Web作为业务内容的一部分渲染超长组件，不允许Web内部生成滚动条，与其余ArkUI组件协同完成页面布局，建议采用同步渲染模式，支持超长页面的渲染。

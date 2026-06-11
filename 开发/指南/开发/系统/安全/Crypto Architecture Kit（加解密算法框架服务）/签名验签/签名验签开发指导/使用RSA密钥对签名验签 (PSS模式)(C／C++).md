@@ -1,6 +1,6 @@
 # 使用RSA密钥对签名验签 (PSS模式)(C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-sign-sig-verify-pss-ndk
 
@@ -90,12 +90,11 @@ static OH_Crypto_ErrCode doTestRsaPssSignSeg() {
 
 
 
-#### 开发步骤
+#### 验签开发步骤
 1. 调用[OH_CryptoVerify_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_create)，指定字符串参数'RSA2048|PSS|SHA256|MGF1_SHA256'，创建非对称密钥类型为RSA2048、填充模式为PSS、摘要算法为SHA256、掩码算法为MGF1_SHA256的Verify实例，用于完成验签操作。
-2. 调用[OH_CryptoVerify_SetParam](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_setparam)，设置签名参数。需要与签名时设置的保持一致。
-3. 调用[OH_CryptoVerify_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_init)，使用公钥（OH_CryptoPubKey）初始化Verify实例。
-4. 调用[OH_CryptoVerify_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_update)，传入待验证的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update，如果数据量较小，可以直接调用OH_CryptoVerify_Final接口一次性传入。
-5. 调用[OH_CryptoVerify_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_final)，对数据进行验签。
+2. 调用[OH_CryptoVerify_Init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_init)，使用公钥（OH_CryptoPubKey）初始化Verify实例。
+3. 调用[OH_CryptoVerify_Update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_update)，传入待验证的数据。当前单次update长度没有限制，开发者可以根据数据量判断如何调用update，如果数据量较小，可以直接调用OH_CryptoVerify_Final接口一次性传入。
+4. 调用[OH_CryptoVerify_Final](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h#oh_cryptoverify_final)，对数据进行验签。
 
 ```cpp
 #include "signing_signature_verification.h"
@@ -186,7 +185,7 @@ bool DoTestRsaPssSignatureSeg()
         return false;
     }
     bool res = OH_CryptoVerify_Final(verify, &msgBlob, &signBlob);
-    if (ret != true) {
+    if (res != true) {
         OH_CryptoVerify_Destroy(verify);
         OH_CryptoAsymKeyGenerator_Destroy(keyCtx);
         return false;

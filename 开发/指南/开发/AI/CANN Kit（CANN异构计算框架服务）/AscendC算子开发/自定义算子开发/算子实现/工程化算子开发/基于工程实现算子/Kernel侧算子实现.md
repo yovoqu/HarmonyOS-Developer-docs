@@ -1,6 +1,6 @@
 # Kernel侧算子实现
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-operator-implementation-on-the
 
@@ -100,7 +100,7 @@ extern "C" __global__ __aicore__ void xxx_custom(GM_ADDR x, GM_ADDR y, GM_ADDR z
  }
 ```
 
-- 如下示例中，算子中有一个输出依赖计算得出，输出tensor的数据类型为uint64_t，计算完成后，得到输出的shape为（32, 64），出参shape_out用于存放该shape信息，值为（0x0000000010000000 | 2, 32, 64）。代码示例如下。
+- 如下示例中，算子中有一个输出依赖计算得出，输出tensor的数据类型为uint64_t，计算完成后，得到输出的shape为（1, 64, 128, 128），出参shape_out用于存放该shape信息，值为（0x0000000010000000 | 2, 32, 64）。代码示例如下。
 
   
 ```text

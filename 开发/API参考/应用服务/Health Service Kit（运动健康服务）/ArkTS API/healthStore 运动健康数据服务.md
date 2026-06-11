@@ -1,6 +1,6 @@
 # healthStore (运动健康数据服务)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore
 **支持设备：** Phone | Tablet | Wearable
@@ -2356,7 +2356,7 @@ cancelAuthorizations(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)，其他错误码请参见[华为账号服务ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-server-error-code)。
+以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)，其他错误码请参见[华为账号服务ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

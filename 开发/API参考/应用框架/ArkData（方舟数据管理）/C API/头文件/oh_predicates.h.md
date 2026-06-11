@@ -1,6 +1,6 @@
 # oh_predicates.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-predicates-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -121,7 +121,7 @@ int OH_Predicates_NotLike(OH_Predicates *predicates, const char *field, const ch
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
 | const char *field | 表示数据库表中的列名。 |
-| const char *pattern | 表示谓词不匹配的模式。 |
+| const char *pattern | 表示要比较的指定值。 |
  
  
 **返回：**
@@ -155,7 +155,7 @@ int OH_Predicates_Glob(OH_Predicates *predicates, const char *field, const char 
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
 | const char *field | 表示数据库表中的列名。 |
-| const char *pattern | 表示谓词匹配的样式。 |
+| const char *pattern | 表示与谓词匹配的值。 |
  
  
 **返回：**
@@ -189,7 +189,7 @@ int OH_Predicates_NotGlob(OH_Predicates *predicates, const char *field, const ch
 | --- | --- |
 | OH_Predicates *predicates | 表示指向OH_Predicates实例的指针。 |
 | const char *field | 表示数据库表中的列名。 |
-| const char *pattern | 表示谓词不匹配的样式。 |
+| const char *pattern | 表示要比较的指定值。 |
  
  
 **返回：**

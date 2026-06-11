@@ -1,75 +1,170 @@
 # 环境准备
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-environment-preparation
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-usage-environmental-preparation
 
-进行环境准备前，你需要了解如下基本概念，以便更好的理解后续操作。
+将大模型部署到资源受限的PC设备时，通常需要对模型进行量化，CANN LLM模型量化提供了对应的量化工具链。
  
-- 开发环境：指编译开发代码的环境。
-- 运行环境：指运行算子、推理程序等的Linux环境。运行环境必须连接上带有Kirin AI处理器的设备，如手机、平板等。
-- 开发环境与运行环境合设场景：开发环境和运行环境在同一台机器上，开发者使用连接上Kirin AI处理器的机器作为运行环境，同时在该环境上进行代码开发与编译。
-- 开发环境与运行环境分设场景：开发环境和运行环境不在同一台机器上，开发者使用连接上Kirin AI处理器的机器作为运行环境；使用其他独立机器进行代码开发与编译，作为开发环境。
-
-  
-> [!NOTE]
-> 开发运行环境需要满足以下要求： ubuntu版本大于等于22.04，ubuntu架构为x86_64， python版本在3.7与3.10之间（包含），gcc/g++版本大于等于7.0。 设备连接与调试参考 hdc 。
-
+- LLM大模型量化工具：提供16-4 grouplinear量化能力，涵盖embedding、decoder以及lm head层。
+- 输入：用户的原始模型Pytorch模型和参与量化的数据集。
+- 输出：量化后的模型以及量化配置文件。
+- 支持平台：Kirin X90（支持以下所有模型）。
 
  
-进行自定义算子开发前，需要完成驱动及DDK的安装。
- 1. [下载tools_ascendc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-preparations#tools下载)，并在Linux环境上解压。
+从模型社区网站下载所需的源模型文件：
+ 
+[Qwen2.5-1.5B下载链接](https://link.gitcode.com/?target=https://huggingface.co/Qwen/Qwen2.5-1.5B&from=https://gitcode.com/HarmonyOS_Samples/cannkit_samplecode_lm_engine_cpp/blob/master/CANN_LLM/CANN_LLM_Engine_Guide/CANN%2520LLM%2520%25E5%25A4%25A7%25E8%25AF%25AD%25E8%25A8%2580%25E6%25A8%25A1%25E5%259E%258B%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588.md&lang=zh&theme=white)
+ 
+[DeepSeek-R1-Distill-Qwen-1.5B下载链接](https://link.gitcode.com/?target=https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B&from=https://gitcode.com/HarmonyOS_Samples/cannkit_samplecode_lm_engine_cpp/blob/master/CANN_LLM/CANN_LLM_Engine_Guide/CANN%2520LLM%2520%25E5%25A4%25A7%25E8%25AF%25AD%25E8%25A8%2580%25E6%25A8%25A1%25E5%259E%258B%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588.md&lang=zh&theme=white)
+ 
+[Glm-1.5B下载链接](https://link.gitcode.com/?target=https://huggingface.co/zai-org/glm-edge-1.5b-chat&from=https://gitcode.com/HarmonyOS_Samples/cannkit_samplecode_lm_engine_cpp/blob/master/CANN_LLM/CANN_LLM_Engine_Guide/CANN%2520LLM%2520%25E5%25A4%25A7%25E8%25AF%25AD%25E8%25A8%2580%25E6%25A8%25A1%25E5%259E%258B%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588.md&lang=zh&theme=white)
+ 
+[Qwen2.5-7B-Instruct下载链接](https://link.gitcode.com/?target=https://huggingface.co/Qwen/Qwen2.5-7B-Instruct&from=https://gitcode.com/HarmonyOS_Samples/cannkit_samplecode_lm_engine_cpp/blob/master/CANN_LLM/CANN_LLM_Engine_Guide/CANN%2520LLM%2520%25E5%25A4%25A7%25E8%25AF%25AD%25E8%25A8%2580%25E6%25A8%25A1%25E5%259E%258B%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588.md&lang=zh&theme=white)
+ 
+[Qwen3-8B下载链接](https://link.gitcode.com/?target=https://huggingface.co/Qwen/Qwen3-8B&from=https://gitcode.com/HarmonyOS_Samples/cannkit_samplecode_lm_engine_cpp/blob/master/CANN_LLM/CANN_LLM_Engine_Guide/CANN%2520LLM%2520%25E5%25A4%25A7%25E8%25AF%25AD%25E8%25A8%2580%25E6%25A8%25A1%25E5%259E%258B%25E8%25A7%25A3%25E5%2586%25B3%25E6%2596%25B9%25E6%25A1%2588.md&lang=zh&theme=white)
+  
+
+#### 软件依赖
+1. 环境配置：下载[量化工程](https://gitee.com/harmonyos_samples/cannkit_samplecode_lm_engine_cpp/tree/master/CANN_LLM/CANN_LLM_Engine_Model)，参考cannkit_samplecode_lm_engine_cpp/requirements.txt进行环境配置。
+2. DDK_tools工具包：
 
   
-> [!NOTE]
-> 在Windows平台解压会导致软链接失效。
+- 下载 DDK_tools[工具包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-preparations)与[平台插件包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-preparations)。
 
-2. 下载需要的[平台插件包](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-preparations#tools下载)，在linux开发环境上解压，并将需要的平台插件拷贝到${install_path}/ddk/tools/platform下。其中${install_path}为tools包的解压目录。拷贝后的目录结构如下。
+3. 注意：确保插件包与CANN Kit版本匹配（匹配关系请参见[开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-preparations)）。
+
+  
+
+  #### 目录结构配置
+
+  下载OMG工具和对应平台的插件包，将插件包解压后放到OMG工具的platform文件夹下（根据平台下载对应插件包，插件包以实际为准）。确保目录结构如下：
 
   
 ```text
 tools
-├── platform
-│   ├── kirin9020
-│   ├── kirinx90
+  ├── platform
+  │  ├── kirinx90
+  ├── tools_ascendc // 自定义算子工具，配合自定义算子工程使用
+  ├── tools_dopt // 量化工具链所在文件夹，以下流程中量化部分使用
+  ├── tools_omg // omg工具所在文件夹，以下流程omg转换流程使用
 ```
 
-3. 进入目录ddk/tools/tools_ascendc，修改安装脚本权限，执行安装脚本进行安装，命令如下。
 
   
-```bash
-cd ddk/tools/tools_ascendc
-chmod +x install.sh
-source ./install.sh
-```
 
-4. 在使用tools工具前，需要先设置环境变量，执行**source ${install_path}/ddk/tools/tools_ascendc/set_ascendc_env.sh**。
+  #### 数据集准备
 
-  例如安装目录为/usr/local/：
+  量化工具需要校准数据。请按照以下JSON格式在json文件配置数据集（例如dataset.json）。
+
+  数据文本格式示例：
 
   
-```bash
-source  /usr/local/ddk/tools/tools_ascendc/set_ascendc_env.sh
+```json
+[
+    {
+        "text": "who you are?"
+    }
+ ]
 ```
+ 
+注意：开发者使用自己场景数据时需要将数据文本格式规范到上述格式，按照以上json格式和提问的方式进行数据集制作。
 
-5. python软件依赖，执行步骤3的安装脚本install.sh时会自动安装。若执行ascendebug时提示无对应模块，可执行下表中的命令手动安装。
+ 
+  
 
-  **表1** 第三方软件
+#### 修改配置
 
-| 第三方软件 | 用途 | 如何安装 |
+在量化工程根目录CANN_LLM_Engine_Model/下，创建config.yaml和run.sh两个文件。
+ 
+  
 
-| --- | --- | --- |
+#### config.yaml
 
-| toml | 加载和转储TOML文件的功能。 | pip3 install toml |
+注意：拷贝使用时需要删除相关注释，避免出现报错。
+ 
+```json
+kd:
+  enable: False // 蒸馏量化使能，false时使用PTQ优化策略
+  loss: mse // 蒸馏loss函数
+  micro_batch_size: 2 // 每个卡的batch数
+  gradient_accumulation_steps: 4 // 梯度累计步数
+  weight_decay: 0.0 // 权重衰减系数
+  warmup_steps: 10 // 预热步数
+  num_epochs: 3 // 训练迭代次数
+  learning_rate: !!float 1e-4 // 学习率
+  eval_step: 1 // 验证步数
+  logging_step: 50 // log打印步数
+  lr_scheduler_type: cosine // 学习率调整策略
+  trainable_keys: // 配置可训练参数，可选[quant_alpha,norm]
+    - quant_alpha
+    - norm
+  no_split_module_classes: // 多卡切分时，选择切分粒度
+    - Qwen3DecoderLayer
+    - Qwen2DecoderLayer
+    - GlmDecoderLayer
+    - LlamaDecoderLayer
+    - HunYuanDecoderLayer
 
-| jinja2 | CPU调测模板使用。 | pip3 install jinja2 |
+dataset:
+  train_files: // 此处填写dataset.json or "wikitext2"训练集路径
+  train_samples: 1024 // 训练集样本数 缺省默认全量数据集
+  ptq_samples: 1024 // PTQ优化样本数 缺省默认全量数据集
 
-| numpy | 精度比对时使用。 | pip3 install numpy |
+extra_training_config: // 训练dtype
+  fp16: True
 
-| torch | 输入、输出数据格式转换使用。 | pip3 install torch |
+cutoff_len: 128 // 样本序列长度
+num_samples: 256 // 激活量化校准样本数
+quant_param_2: False // kirinx90默认false，kirin9020平台默认为true
+embedding_separate: True // True表示单独保存为bin文件，False表示导出embedding的量化参数到量化文件
+lm_head_size: // 指定lmhead长度
+```
+ 
+  
 
-| sympy | 用于进行符号计算 | pip3 install sympy |
+#### **run.sh**
 
-| paramiko | 与远程linux环境连接 | pip3 install paramiko |
+请根据实际环境修改脚本中的4个关键点。
+ 
+```json
+# !/bin/bash
+# script description: run_develop script
+# Copyright Huawei Technologies Co,Ltd.2010-2025.All rights reserved
 
-| protobuf | 模型解析 | pip3 install protobuf |
+#修改点1 填写DDK_tools工具包中tools_dopt/dopt_pytorch_py3的真实路径
+qlibs='path/to/dopt_pytorch_py3'
+export WANDB_DISABLED=true
+export HF_DATASETS_OFFLINE=0
+export PYTHONPATH=${qlibs}:$PYTHONPATH
+
+#修改点2 设置为cuda或npu模式 二选一
+#cuda模式，如果有多个设备，CUDA_VISIBLE_DEVICES可写0,1,2,3....
+export DEVICE=cuda
+export CUDA_VISIBLE_DEVICES=0
+# npu模式
+# export DEVICE=npu
+# export ASCEND_RT_VISIBLE_DEVICES=0
+
+#修改点3 选择创建工程的路径，以testcase创建同名文件夹，存放生成的量化文件
+ROOT=.
+testcase='output_dir'
+RUN_FILE=${qlibs}/dopt/dopt_lm/opt_main.py
+output_dir=${ROOT}/${testcase}/train_output
+mkdir -p ${output_dir}
+cp ${ROOT}/config.yaml $output_dir
+
+# 修改点4 huggingface源模型所在路径
+model_path='path/to/model'
+dopt_config=./${testcase}/dopt_config.json
+quant_stage=$1
+block_size=128 # PTQ量化重建误差的block大小。
+
+python -u \
+    ${RUN_FILE} --model-path $model_path \
+    --dopt-config $dopt_config \
+    --optimize-config ${ROOT}/config.yaml \
+    --quant-stage $quant_stage \
+    --block-size $block_size \
+    --output-dir ${output_dir} 2>&1 | tee ${output_dir}/logs.log
+```

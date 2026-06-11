@@ -1,6 +1,6 @@
 # 基于Aspect插件库实现切面编程
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-06-10 07:05:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-aspect-implements-aop
 
@@ -409,10 +409,10 @@ insertType: InsertType.EVENT_CALLBACK：指定切面插入类型为事件回调�
   本文主要介绍了开发者如何使用Aspect插件库，通过编写和注册切面类，实现不同场景下的字节码插桩。其核心在于根据不同场景的需要编写切面类、切面方法，并配置相应的装饰器入参。如需进一步了解如何使用Aspect插件库，可以参考以下文档：
 
   
-[装饰器使用指南](https://gitcode.com/OpenHarmony-ApplicationTPC/aspect/blob/master/docs/AnnotationGuide.md)
-- [常见问题](https://gitcode.com/OpenHarmony-ApplicationTPC/aspect/blob/master/docs/FAQ.md)
-- [获取切入点上下文信息](https://gitcode.com/OpenHarmony-ApplicationTPC/aspect/blob/master/docs/JoinPointGuide.md)
-- [从源码构建插件](https://gitcode.com/OpenHarmony-ApplicationTPC/aspect/blob/master/docs/BuildFromSource_win.md)
+[装饰器使用指南](https://gitcode.com/CPF-ApplicationTPC/aspect/blob/master/docs/AnnotationGuide.md)
+- [常见问题](https://gitcode.com/CPF-ApplicationTPC/aspect/blob/master/docs/FAQ.md)
+- [获取切入点上下文信息](https://gitcode.com/CPF-ApplicationTPC/aspect/blob/master/docs/JoinPointGuide.md)
+- [从源码构建插件](https://gitcode.com/CPF-ApplicationTPC/aspect/blob/master/docs/BuildFromSource_win.md)
 
  
  

@@ -1,6 +1,6 @@
 # @ohos.notificationManager (NotificationManager模块)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -353,7 +353,7 @@ cancelAll(callback: AsyncCallback&lt;void&gt;): void
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
 
-// cancel回调
+// cancelAll回调
 let cancelAllCallback = (err: BusinessError): void => {
   if (err) {
     console.error(`Failed to cancel all notification. Code is ${err.code}, message is ${err.message}`);
@@ -1501,7 +1501,7 @@ notificationManager.cancelGroup(groupName).then(() => {
 
 isSupportTemplate(templateName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
-在使用[通知模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate)发布通知前，可以通过该接口查询是否支持对应的通知模板。使用callback异步回调。
+在使用[NotificationTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate)发布通知前，可以通过该接口查询是否支持对应的通知模板。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -1549,7 +1549,7 @@ notificationManager.isSupportTemplate(templateName, isSupportTemplateCallback);
 
 isSupportTemplate(templateName: string): Promise&lt;boolean&gt;
 
-在使用[通知模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate)发布通知前，可以通过该接口查询是否支持对应的通知模板。使用Promise异步回调。
+在使用[NotificationTemplate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate)发布通知前，可以通过该接口查询是否支持对应的通知模板。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 

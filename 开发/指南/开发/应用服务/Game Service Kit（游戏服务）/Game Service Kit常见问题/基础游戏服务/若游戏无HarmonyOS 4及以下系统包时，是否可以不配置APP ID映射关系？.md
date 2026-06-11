@@ -1,6 +1,6 @@
-# 若游戏无HarmonyOS 4及以下系统包时，是否可以不配置APP ID映射关系？
+# 若游戏无HarmonyOS 4及以下系统包时，是否可以不配置APP ID映射关系
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/gameservice-faq-1
 

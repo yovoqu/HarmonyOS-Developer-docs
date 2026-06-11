@@ -1,6 +1,6 @@
 # 技能（Skills）配置
 
-更新时间：2026-05-06 03:08:00
+更新时间：2026-06-09 08:54:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-skills
 
@@ -8,7 +8,7 @@
 
 在日常工作中，我们经常需要处理重复性任务，如调整文档结构、撰写周报告等，每次都需要输入格式要求、偏好、操作流程，这种模式不仅耗时，也容易遗漏关键细节。Skills是一份标准化的教程，会指导CodeGenie面对任务时如何思考、遵循什么步骤、输出什么格式、注意事项是什么。开发者只需要定义一次，CodeGenie便能在后续的每次对话中自动识别并应用，实现“一次定义，长期稳定复用”效果。
  
-Skills实际是一个包含SKILL.md文件的文件夹，在SKILL.md文件中以自然语言描述技能的名称、触发条件和执行步骤，让开发者能快速定义自动化工作流。SKILL.md文件写作时，严格遵循业界YAML Frontmatter（元数据） + Markdown Body（正文） 的统一规范，以及要确保内容结构清晰、触发词准确、没有错误处理，提升Skill可维护和可复用性，使Agent能够稳定执行。
+Skills实际是一个包含SKILL.md文件（区分大小写）的文件夹，在SKILL.md文件中以自然语言描述技能的名称、触发条件和执行步骤，让开发者能快速定义自动化工作流。SKILL.md文件写作时，严格遵循业界YAML Frontmatter（元数据） + Markdown Body（正文） 的统一规范，以及要确保内容结构清晰、触发词准确、没有错误处理，提升Skill可维护和可复用性，使Agent能够稳定执行。
  
 从DevEco Studio 6.1.0 Release（6.1.0.830）版本开始，CodeGenie支持导入Global Skills（全局技能）和Project Skills（项目技能）两种。其中，Global Skills支持当前用户在本地所有项目中使用，不可跨设备同步；Project Skills适用于当前项目。开发者根据业务需要导入对应的Skills。
  
@@ -57,4 +57,4 @@ Skills实际是一个包含SKILL.md文件的文件夹，在SKILL.md文件中以�
 4. 返回CodeGenie对话框调用Skills，在对话框输入时需要带有技能的name（如openharmony-build）。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/EsryME1ERaGyDd73el_Vxg/zh-cn_image_0000002571387370.png?HW-CC-KV=V1&HW-CC-Date=20260528T030636Z&HW-CC-Expire=86400&HW-CC-Sign=750B7F06032D64AC026599A54EC56A35FA04CCDEE579FC25FFC53A254767FB0D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/VK46iFGOTgqnmG4jntSZFw/zh-cn_image_0000002571387370.png?HW-CC-KV=V1&HW-CC-Date=20260611T074912Z&HW-CC-Expire=86400&HW-CC-Sign=7E357D2762717DE1F4A90CBBF5333249C93AC0217E4EECF8285B023B2E2E48AB)

@@ -1,6 +1,6 @@
 # Interface (ManualFocus)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-manualfocus
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -79,7 +79,7 @@ function getFocusDistance(photoSession: camera.PhotoSession): number {
 
 setFocusDistance(distance: number): void
  
-设置对焦距离。取值范围为[0.0, 1.0]，其中0.0表示镜头可以对焦的最短距离，1.0表示最远距离。默认值为1.0。
+设置对焦距离。取值范围为[0.0, 1.0]，其中0.0表示镜头可以对焦的最短距离，1.0表示最远距离。默认值为1.0。输入参数超出值域时，统一按边界值处理。
  
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
  

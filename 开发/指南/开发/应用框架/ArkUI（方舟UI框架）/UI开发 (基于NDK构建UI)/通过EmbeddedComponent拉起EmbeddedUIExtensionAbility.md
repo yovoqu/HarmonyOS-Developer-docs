@@ -1,6 +1,6 @@
 # 通过EmbeddedComponent拉起EmbeddedUIExtensionAbility
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-embedded-component
 
@@ -12,7 +12,7 @@ ArkUI在Native侧提供的能力是ArkTS的子集，某些能力不会在Native�
 > 使用 OH_ArkUI_EmbeddedComponentOption_Create 获取 ArkUI_EmbeddedComponentOption 后，可以使用 OH_ArkUI_EmbeddedComponentOption_SetOnError 设置onError回调，使用 OH_ArkUI_EmbeddedComponentOption_SetOnTerminated 设置onTerminated回调。可以使用 OH_ArkUI_NodeUtils_MoveTo 迁移节点。 使用 OH_ArkUI_EmbeddedComponentOption_SetOnTerminated 设置onTerminated回调时，返回的want参数，只支持提供方返回的want参数的key，value解析，不支持嵌套解析。 在EmbeddedComponent销毁时，调用 OH_ArkUI_EmbeddedComponentOption_Dispose 释放内存。 EmbeddedComponent组件需要使用 setAttribute 设置宽高才能显示。
 
 
-本示例展示EmbeddedComponent组件NDK的基础使用方式，ability相关使用请参考[EmbeddedComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component)。示例应用的bundleName为"com.example.embeddeddemo"，同一应用下被拉起的EmbeddedUIExtensionAbility为"ExampleEmbeddedAbility"。本示例仅支持在具有多进程权限的设备上运行，例如PC/2in1。
+本示例展示EmbeddedComponent组件NDK的基础使用方式，ability相关使用请参考[EmbeddedComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component)。示例应用的bundleName为"com.example.uiextensionandaccessibility"，同一应用下被拉起的EmbeddedUIExtensionAbility为"ExampleEmbeddedAbility"。本示例仅支持在具有多进程权限的设备上运行，例如PC/2in1。
 
 ```cpp
 #include <arkui/native_node.h>

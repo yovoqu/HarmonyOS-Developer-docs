@@ -1,6 +1,6 @@
 # Print_PrinterInfo
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-print-print-printerinfo
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -46,4 +46,4 @@ typedef struct {...} Print_PrinterInfo
 | char *location | 打印机位置。 |
 | char *makeAndModel | 打印机品牌和型号信息。 |
 | char *printerUri | 打印机 URI。 |
-| char *detailInfo | JSON 格式的详细信息。 |
+| char *detailInfo | JSON 格式的详细信息。 支持的键包括： - printerAlias：string类型，表示打印机别名，起始版本： 24。 - vendorId：int类型，表示USB打印机的VID，起始版本： 12。 - productId：int类型，表示USB打印机的PID，起始版本： 12。 - protocol：string数组，表示探测到的打印机支持的协议列表，起始版本： 24。 - ipp：string类型，表示探测到的IPP协议对应的打印机URI，起始版本： 24。 - ipps：string类型，表示探测到的IPPS协议对应的打印机URI，起始版本： 24。 - lpd：string类型，表示探测到的LPD协议对应的打印机URI，起始版本： 24。 - socket：string类型，表示探测到的Socket协议对应的打印机URI，起始版本： 24。 |

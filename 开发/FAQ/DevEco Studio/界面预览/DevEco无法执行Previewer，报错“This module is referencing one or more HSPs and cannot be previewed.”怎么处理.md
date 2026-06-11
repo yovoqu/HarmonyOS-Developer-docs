@@ -1,6 +1,6 @@
 # DevEco无法执行Previewer，报错“This module is referencing one or more HSPs and cannot be previewed.”怎么处理
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-previewer-operating-7
 
@@ -12,8 +12,8 @@
  
 **解决措施**
  
-可以使用Previewer中的设备管理器，选择本地模拟器或通过USB连接真机来运行。
+可以在设备管理器中选择本地模拟器， 或者通过USB连接真机来运行。
  
 **参考链接**
  
-[查看ArkTS/JS预览效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-previewer-arkts-js)
+[使用模拟器运行应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-emulator)

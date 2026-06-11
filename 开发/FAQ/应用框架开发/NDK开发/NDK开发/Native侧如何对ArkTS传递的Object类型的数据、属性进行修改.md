@@ -1,6 +1,6 @@
 # Native侧如何对ArkTS传递的Object类型的数据、属性进行修改
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-62
 

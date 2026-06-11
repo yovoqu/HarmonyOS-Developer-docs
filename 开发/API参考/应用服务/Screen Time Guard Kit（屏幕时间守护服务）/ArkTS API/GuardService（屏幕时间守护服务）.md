@@ -1,6 +1,6 @@
 # GuardService（屏幕时间守护服务）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-guardservice
 **支持设备：** Phone | Tablet
@@ -108,12 +108,12 @@ import { guardService } from '@kit.ScreenTimeGuardKit';
 struct TestPage {
   build() {
     Column() {
-      Button("TestRequestUserAuth")
+      Button('TestRequestUserAuth')
         .onClick(() => {
             guardService.requestUserAuth(this.getUIContext().getHostContext() as common.UIAbilityContext)
                .then(() => {
                   console.info('requestUserAuth invoke success');
-               })
+               });
         })
     }
   }
@@ -179,15 +179,15 @@ import { guardService } from '@kit.ScreenTimeGuardKit';
 struct TestPage {
   build() {
     Column() {
-      Button("TestRequestUserAuthWithAppConfig")
+      Button('TestRequestUserAuthWithAppConfig')
          .onClick(() => {
             const appConfig:guardService.AppConfig = {
                isSupportAppUninstall: true
-            }
+            };
             guardService.requestUserAuth(this.getUIContext().getHostContext() as common.UIAbilityContext, appConfig)
                .then(() => {
                   console.info('requestUserAuth invoke success');
-               })
+               });
          })
     }
   }
@@ -260,7 +260,7 @@ function testRevokeUserAuth() {
    guardService.revokeUserAuth()
       .then(() => {
          console.info('revokeUserAuth invoke success.');
-      })
+      });
 }
 ```
  
@@ -312,7 +312,7 @@ function testGetUserAuthStatus() {
       .then((status) => {
          const statusToMsg = ['AUTH_INIT', 'AUTH_GRANTED', 'AUTH_DENIED'];
          console.info('getUserAuthStatus invoke success. ' + statusToMsg[status + 1]);
-      })
+      });
 }
 ```
  
@@ -413,23 +413,23 @@ import { guardService } from '@kit.ScreenTimeGuardKit';
 function testAddGuardStrategy() {
    const time: guardService.TimeStrategy = {
       type: guardService.TimeStrategyType.START_END_TIME_TYPE,
-      startTime: "08:00",
-      endTime: "19:00",
-      repeat: [1,2,3]
-   }
+      startTime: '08:00',
+      endTime: '19:00',
+      repeat: [1 ,2, 3]
+   };
    const info: guardService.AppInfo = {
       appTokens: [] // 可以通过调用startAppPicker接口获取相应的应用token
-   }
+   };
    const strategy: guardService.GuardStrategy = {
-      name: "TestStrategy",
+      name: 'TestStrategy',
       timeStrategy: time,
       appInfo: info,
       appRestrictionType: guardService.RestrictionType.BLOCKLIST_TYPE
-   }
+   };
    guardService.addGuardStrategy(strategy)
       .then(() => {
          console.info('addGuardStrategy invoke success.');
-      })
+      });
 }
 ```
  
@@ -576,24 +576,24 @@ import { guardService } from '@kit.ScreenTimeGuardKit';
 function testUpdateGuardService() {
    const time: guardService.TimeStrategy = {
       type: guardService.TimeStrategyType.START_END_TIME_TYPE,
-      startTime: "08:00",
-      endTime: "19:00",
-      repeat: [1,2,3,4,5]
-   }
+      startTime: '08:00',
+      endTime: '19:00',
+      repeat: [1, 2, 3, 4, 5]
+   };
    const info: guardService.AppInfo = {
       appTokens: [] // 可以通过调用startAppPicker接口获取相应的应用token
-   }
+   };
    const strategy: guardService.GuardStrategy = {
-      name: "TestStrategyChanged",
+      name: 'TestStrategyChanged',
       timeStrategy: time,
       appInfo: info,
       appRestrictionType: guardService.RestrictionType.BLOCKLIST_TYPE
-   }
+   };
   // "TestStrategy"策略需提前通过addGuardStrategy接口添加
-   guardService.updateGuardStrategy("TestStrategy", strategy)
+   guardService.updateGuardStrategy('TestStrategy', strategy)
       .then(() => {
          console.info('updateGuardStrategy invoke success.');
-      })
+      });
 }
 ```
  
@@ -645,7 +645,7 @@ function testQueryGuardService() {
    guardService.queryGuardStrategies()
       .then((guardStrategy: guardService.GuardStrategy[]) => {
          console.info('queryGuardStrategies invoke success, GuardStrategies: ' + guardStrategy);
-      })
+      });
 }
 ```
  
@@ -703,10 +703,10 @@ removeGuardStrategy(strategyName: string): Promise&lt;void&gt;
 import { guardService } from '@kit.ScreenTimeGuardKit';
 
 function testRemoveGuardService() {
-   guardService.removeGuardStrategy("TestStrategy")
+   guardService.removeGuardStrategy('TestStrategy')
       .then(() => {
          console.info('removeGuardStrategy invoke success');
-      })
+      });
 }
 ```
  
@@ -765,10 +765,10 @@ startGuardStrategy(strategyName: string): Promise&lt;void&gt;
 import { guardService } from '@kit.ScreenTimeGuardKit';
 
 function testGuardService() {
-   guardService.startGuardStrategy("TestStrategy")
+   guardService.startGuardStrategy('TestStrategy')
       .then(() => {
          console.info('startGuardStrategy invoke success');
-      })
+      });
 }
 ```
  
@@ -827,10 +827,10 @@ stopGuardStrategy(strategyName: string): Promise&lt;void&gt;
 import { guardService } from '@kit.ScreenTimeGuardKit';
 
 function testStopGuardService() {
-   guardService.stopGuardStrategy("TestStrategy")
+   guardService.stopGuardStrategy('TestStrategy')
       .then(() => {
          console.info('stopGuardStrategy invoke success');
-      })
+      });
 }
 ```
  

@@ -1,6 +1,6 @@
 # 一键登录获取华为账号绑定号码和UnionID/OpenID
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-user-info-quicklogin-by-code
 
@@ -109,7 +109,7 @@ Content-Type: application/json
 | openId | 是 | String | 用户OpenID。具体格式要求请参考OpenID和UnionID的格式说明。 |
 | unionId | 是 | String | 用户UnionID。具体格式要求请参考OpenID和UnionID的格式说明。 |
 | phoneNumber | 是 | String | 华为账号绑定号码（含国家码），使用该手机号完成一键登录的功能，详见华为账号一键登录（获取手机号和UnionID/OpenID）。 |
-| phoneNumberValid | 是 | Integer | 通过一键登录功能获取的华为账号绑定号码的实时有效性。 若发起一键登录时LoginPanelParams的verifyPhoneNumber参数值传递为true，表示华为代为验证手机号有效性，开发者无需关注此返回值； 若verifyPhoneNumber参数值传递为false, 需要根据返回的状态值进行处理。 0：在过去90天内，无法证明当前手机号码可以触达用户， 需要进行验证。 1：在过去90天内，当前手机号码被证明可以触达用户，可以直接使用。 |
+| phoneNumberValid | 是 | Integer | 通过一键登录功能获取的华为账号绑定号码的实时有效性。 若发起一键登录时LoginPanelParams的verifyPhoneNumber参数值传递为true，表示华为代为验证手机号有效性，开发者无需关注此返回值； 若verifyPhoneNumber参数值传递为false，需要根据返回的状态值进行处理。 0：在过去90天内，无法证明当前手机号码可以触达用户， 需要进行验证。 1：在过去90天内，当前手机号码被证明可以触达用户，可以直接使用。 |
 | purePhoneNumber | 是 | String | 不带国家码的手机号，此处为phoneNumber去除国际冠码与国际电话区号的形式。 |
 | phoneCountryCode | 是 | String | purePhoneNumber的国际冠码(00)+国际电话区号。 |
 
@@ -137,11 +137,11 @@ Content-Type: application/json
 {
     "openId": "AQAxrBzThFv*****lv9tV_4rMCc",
     "unionId": "AQAxrB1HNA*****n-IfWRSUVq2M7xU",
-    // 华为账号绑定号码，使用该手机号完成一键登录(返回数据实际为明文)
+    // 华为账号绑定号码，使用该手机号完成一键登录（返回数据实际为明文）
     "phoneNumber": "0086191******08",
     // 通过一键登录功能获取的华为账号绑定号码的实时有效性, 0表示需要进一步验证有效性， 1表示可以直接使用
     "phoneNumberValid": 1,
-    // 不带国际冠码与国际电话区号的形式(返回数据实际为明文)
+    // 不带国际冠码与国际电话区号的形式（返回数据实际为明文）
     "purePhoneNumber": "191******08",
     "phoneCountryCode": "0086"
 }

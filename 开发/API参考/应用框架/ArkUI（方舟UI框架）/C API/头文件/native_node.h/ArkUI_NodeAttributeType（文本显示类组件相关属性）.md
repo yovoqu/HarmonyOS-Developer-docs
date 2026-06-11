@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（文本显示类组件相关属性）
 
-更新时间：2026-06-03 06:59:01
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-text
 

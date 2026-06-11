@@ -1,6 +1,6 @@
 # Interface (AVScreenCaptureRecorder)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avscreencapturerecorder
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -366,7 +366,7 @@ setPickerMode(pickerMode: PickerMode): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| pickerMode | PickerMode | 是 | 选择Picker模式。 定义了在Picker中显示的内容类型： - SCREEN_ONLY：仅显示屏幕列表。 - WINDOW_ONLY：仅显示窗口列表。 - SCREEN_AND_WINDOW：同时显示屏幕列表和窗口列表（默认值）。 |
+| pickerMode | PickerMode | 是 | 选择Picker模式。 |
 
 
 **返回值：**

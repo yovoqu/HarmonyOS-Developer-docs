@@ -1,6 +1,6 @@
 # Interface (Picture)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -159,7 +159,8 @@ getHdrComposedPixelmapWithOptions(options?: HdrComposeOptions): Promise<PixelMap
 
 **示例：**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 

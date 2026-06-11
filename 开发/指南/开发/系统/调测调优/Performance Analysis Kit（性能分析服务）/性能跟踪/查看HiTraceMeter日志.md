@@ -1,6 +1,6 @@
 # 查看HiTraceMeter日志
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracemeter-view
 
@@ -163,14 +163,14 @@ API version 19及后续版本的新增字段，均以**竖线+字段**的方式�
 
 | 打点类型 | 开启HiTraceChain时格式 | 未开启HiTraceChain时格式 |
 | --- | --- | --- |
-| 开始同步trace打点 | B\|1234\|H:[a92ab94c18e1341,0,0]#tracename\|M62\|user=root,type=2 | B\|1234\|H:tracename\|M62\|user=root,type=2 |
+| 开始同步trace打点 | B\|1234\|H:[a92ab94c18e1341,0,0]#tracename\|M62\|key1=value1,key2=value2 | B\|1234\|H:tracename\|M62\|key1=value1,key2=value2 |
 | 结束同步trace打点 | E\|1234\|M62 | E\|1234\|M62 |
-| 开始异步trace打点 | S\|1234\|H:[a92ab94c18e1341,0,0]#tracename\|428\|M62\|appcategory01\|user=root,type=2 | S\|1234\|H:tracename\|428\|M62\|appcategory01\|user=root,type=2 |
+| 开始异步trace打点 | S\|1234\|H:[a92ab94c18e1341,0,0]#tracename\|428\|M62\|appcategory01\|key1=value1,key2=value2 | S\|1234\|H:tracename\|428\|M62\|appcategory01\|key1=value1,key2=value2 |
 | 结束异步trace打点 | F\|1234\|H:[a92ab94c18e1341,0,0]#tracename\|428\|M62 | F\|1234\|H:tracename\|428\|M62 |
 | 整数trace打点 | C\|1234\|H:[a92ab94c18e1341,0,0]#tracename\|5678\|M62 | C\|1234\|H:tracename\|5678\|M62 |
 
 
-上述trace日志样例中，进程号均为1234，打点内容均为tracename，级别均为M，代表COMMERCIAL级别，所属Tag集合均为62，仅包含一个Tag，对应的Tag名称为app。在开启HiTraceChain情况下，分布式跟踪链路ID为[a92ab94c18e1341,0,0]。同步trace与异步trace跟踪的自定义键值对均为user=root,type=2，其中异步trace打点的异步任务ID为428，自定义聚类名称为appcategory01。整数值跟踪的跟踪值为5678。
+上述trace日志样例中，进程号均为1234，打点内容均为tracename，级别均为M，代表COMMERCIAL级别，所属Tag集合均为62，仅包含一个Tag，对应的Tag名称为app。在开启HiTraceChain情况下，分布式跟踪链路ID为[a92ab94c18e1341,0,0]。同步trace与异步trace跟踪的自定义键值对均为key1=value1,key2=value2，其中异步trace打点的异步任务ID为428，自定义聚类名称为appcategory01。整数值跟踪的跟踪值为5678。
 
 > [!NOTE]
 > 用户态trace总长度限制为512字符，建议内容、自定义聚类名称和自定义键值对参数总长度不超过420字符，避免被截断。

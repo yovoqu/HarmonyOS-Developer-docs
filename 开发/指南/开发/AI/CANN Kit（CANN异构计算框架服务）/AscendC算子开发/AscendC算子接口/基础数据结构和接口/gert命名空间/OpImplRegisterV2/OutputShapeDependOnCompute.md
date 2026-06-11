@@ -1,6 +1,6 @@
 # OutputShapeDependOnCompute
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-outputshapedependoncompute
 
@@ -22,7 +22,7 @@ OpImplRegisterV2 &OutputShapeDependOnCompute(std::initializer_list<int32_t> outp
  
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
-| outputs | 输入 | 指定输出index列表。 |
+| outputs | 输出 | 指定输出index列表。 |
  
  
   

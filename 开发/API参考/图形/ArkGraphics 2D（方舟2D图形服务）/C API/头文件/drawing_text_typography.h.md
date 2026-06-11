@@ -1,6 +1,6 @@
 # drawing_text_typography.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -184,7 +184,7 @@
 | OH_Drawing_LineMetrics* OH_Drawing_TypographyGetLineMetrics(OH_Drawing_Typography* typography) | 获取排版对象的行位置信息，该接口需要在OH_Drawing_TypographyLayout接口调用之后调用。不再需要OH_Drawing_LineMetrics时，请使用OH_Drawing_DestroyLineMetrics接口释放该对象的指针。 |
 | size_t OH_Drawing_LineMetricsGetSize(OH_Drawing_LineMetrics* lineMetrics) | 获取行数量。 |
 | void OH_Drawing_DestroyLineMetrics(OH_Drawing_LineMetrics* lineMetrics) | 释放行位置信息对象占用的内存。 |
-| bool OH_Drawing_TypographyGetLineMetricsAt(OH_Drawing_Typography* typography,int lineNumber, OH_Drawing_LineMetrics* lineMetric) | 获取排版对象的指定行位置信息，具体参见OH_Drawing_LineMetr结构体，该接口需要在OH_Drawing_TypographyLayout接口调用之后调用。 |
+| bool OH_Drawing_TypographyGetLineMetricsAt(OH_Drawing_Typography* typography,int lineNumber, OH_Drawing_LineMetrics* lineMetric) | 获取排版对象的指定行位置信息，该接口需要在OH_Drawing_TypographyLayout接口调用之后调用。 |
 | bool OH_Drawing_TypographyGetLineInfo(OH_Drawing_Typography* typography, int lineNumber, bool oneLine,bool includeWhitespace, OH_Drawing_LineMetrics* drawingLineMetrics) | 获取排版对象中指定行的位置信息或指定行第一个字符的位置信息，该接口需要在OH_Drawing_TypographyLayout接口调用之后调用。 |
 | void OH_Drawing_SetTypographyTextFontWeight(OH_Drawing_TypographyStyle* style, int weight) | 设置排版样式默认字重。目前只有系统默认字体支持字重的调节，其他字体设置字重值小于semi-bold时字体粗细无变化，当设置字重值大于等于semi-bold时可能会触发伪加粗效果。 |
 | void OH_Drawing_SetTypographyTextFontStyle(OH_Drawing_TypographyStyle* style, int fontStyle) | 设置排版样式默认的字体样式。 |
@@ -3602,7 +3602,7 @@ bool OH_Drawing_TypographyGetLineMetricsAt(OH_Drawing_Typography* typography,int
  
 **描述**
  
-获取排版对象的指定行位置信息，具体参见[OH_Drawing_LineMetr](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-linemetrics)结构体，该接口需要在[OH_Drawing_TypographyLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_typographylayout)接口调用之后调用。
+获取排版对象的指定行位置信息，该接口需要在[OH_Drawing_TypographyLayout](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_typographylayout)接口调用之后调用。
  
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
  
@@ -3614,7 +3614,7 @@ bool OH_Drawing_TypographyGetLineMetricsAt(OH_Drawing_Typography* typography,int
 | --- | --- |
 | OH_Drawing_Typography* typography | 指向文本对象OH_Drawing_Typography的指针，由OH_Drawing_CreateTypography获取。 |
 | int lineNumber | 要获取的行数。 |
-| OH_Drawing_LineMetrics* lineMetric | 指向行位置信息对象OH_Drawing_LineMetrics的指针，由OH_Drawing_LineMetrics获取。 |
+| OH_Drawing_LineMetrics* lineMetric | 指向行位置信息对象OH_Drawing_LineMetrics的指针，作为出参使用。 |
  
  
 **返回：**

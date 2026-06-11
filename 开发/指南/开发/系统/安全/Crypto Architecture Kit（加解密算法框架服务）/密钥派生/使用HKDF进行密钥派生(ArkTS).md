@@ -1,6 +1,6 @@
 # 使用HKDF进行密钥派生(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-using-hkdf
 
@@ -21,11 +21,11 @@
 
 3. salt：盐值。
 
-4. info：可选的上下文与应用相关信息， 可为空，用于拓展短密钥。
+4. info：可选的上下文与应用相关信息，可为空，用于扩展短密钥。
 
 5. keySize：目标密钥的字节长度，需要为正整数。
 
-6. 调用[cryptoFramework.createKdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekdf11)，指定字符串参数'HKDF|SHA256|EXTRACT_AND_EXPAND'，创建密钥派生算法为HKDF、HMAC函数摘要算法为SHA256、模式为提取和拓展的密钥派生函数对象（Kdf）。
+6. 调用[cryptoFramework.createKdf](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatekdf11)，指定字符串参数'HKDF|SHA256|EXTRACT_AND_EXPAND'，创建密钥派生算法为HKDF、HMAC函数摘要算法为SHA256、模式为提取和扩展的密钥派生函数对象（Kdf）。
 
 7. 输入HKDFSpec对象，调用[Kdf.generateSecret](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesecret11)进行密钥派生。
 

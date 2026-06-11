@@ -1,6 +1,6 @@
 # 文件打印（C/C++）
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-print-file
 
@@ -394,7 +394,7 @@ static napi_value Init(napi_env env, napi_value exports)
 EXTERN_C_END
 ```
 
-主页上新增一个按钮，单击调用c++的nativeStartPrintByNative直接发送任务。
+主页上新增一个按钮，单击调用c++的nativeStartPrintJob直接发送任务。
 
 ```ArkTS
 // Index.ets

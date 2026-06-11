@@ -1,6 +1,6 @@
 # @ohos.data.sendableRelationalStore (共享关系型数据库)
 
-更新时间：2026-03-19 08:47:51
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-sendablerelationalstore
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -531,7 +531,7 @@ async function insert(context: Context, dataItem: sendableRelationalStore.Values
   console.info(`Create table test successfully!`);
 
   // 数据插入
-  const rowId = await store.insertSync("test", dataItem);
+  const rowId = store.insertSync("test", dataItem);
   await store.close();
   return rowId;
 }

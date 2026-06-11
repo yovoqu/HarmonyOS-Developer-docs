@@ -1,6 +1,6 @@
 # 使用Crashpad收集Web组件崩溃信息
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-crashpad
 
@@ -21,7 +21,7 @@ arkweb_cr..._handler  I     [crash_report_database.cc:91] crash dmp path : /data
 ```text
 /data/storage/el2/log/crashpad
 ```
-1. 参考[Native访问应用沙箱](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-file-native-side)实现访问应用沙箱dmp文件；也可将存放dmp文件的沙箱路径的文件复制到可以查看的路径。示例如下
+1. 参考[Native访问应用沙箱](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/file-native-side)实现访问应用沙箱dmp文件；也可将存放dmp文件的沙箱路径的文件复制到可以查看的路径。示例如下
 
 ```ArkTS
 import { fileIo as fs } from '@kit.CoreFileKit'

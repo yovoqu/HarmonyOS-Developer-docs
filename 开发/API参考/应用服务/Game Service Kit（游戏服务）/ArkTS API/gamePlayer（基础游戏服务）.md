@@ -1,6 +1,6 @@
 # gamePlayer（基础游戏服务）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameplayer
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -53,7 +53,7 @@ import { gamePlayer } from '@kit.GameServiceKit';
 **起始版本：** 4.0.0(10)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/ekTuRyOqQ_SFdj7eM6DshQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025049Z&HW-CC-Expire=86400&HW-CC-Sign=A347691F8B1C42A8DE00C5F7EC2F578EB4FDE777D8ACF335DAF6B23A7E16E964)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/Df4fnzVNQ2GsBC1BfEjr9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074847Z&HW-CC-Expire=86400&HW-CC-Sign=9F44C259A4430891D1EFFB95BA1FC4C7DA0C901D0AE09D3EEA066637C927B384)
  
  
 gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
@@ -128,7 +128,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| accountIcon | Resource | 否 | 否 | 游戏官方账号图标资源信息。总和最大支持35KB。 当前仅支持media目录下的图片。 |
+| accountIcon | Resource | 否 | 否 | 游戏官方账号图标资源信息。总和最大支持35KB。 当前仅支持\$r("app.media.name")生成的Resource对象，不支持\$rawfile('filename')生成的Resource对象。 |
 | accountName | string | 否 | 否 | 游戏官方账号在联合登录面板上的显示名称。 建议传入具体的“xx游账号登录”、“xx通行证登录”等，例如“游友账号登录”，不建议使用“官方账号登录”等容易有歧义的账号名称。 若游戏存在多语言版本，开发者需要自行判断语种并传入当前语种对应的账号名称。 在LoginPanelType设置成“BUTTON”时，accountName作为对外展示的按钮文字。 最大长度19个字符。 |
 | accountIdentifier | string | 否 | 是 | 当前账号的唯一标识符，用来标识账号，并在登录结果中判断玩家选择的账号。 建议传入和当前账号相关的标识符，例如“youyou_account”。 默认值：undefined。 最大长度32个字符。 起始版本： 6.0.2(22) |
 | isOnTop | boolean | 否 | 是 | 在LoginPanelType设置为“ICON”时生效。 当前账号是否在联合登录面板上置顶： - true：置顶。 - false：不置顶。 默认为false。 说明： - 仅会置顶第一个传入“true”的账号，且被置顶的账号展示为按钮样式（按钮文案为传入的accountName值），非置顶账号展示为图标样式。 - 在BUTTON或ICON类型的登录面板上，华为侧置顶华为账号的优先级更高。 起始版本： 6.0.2(22) |
@@ -701,7 +701,7 @@ bindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: 
 | --- | --- | --- | --- |
 | context | common.UIAbilityContext | 是 | 上下文信息。 |
 | thirdOpenId | string | 是 | 游戏官方账号ID。 最大长度128个字符。 |
-| teamPlayerId | string | 是 | 玩家华为账号对应的teamPlayerId。 |
+| teamPlayerId | string | 是 | 玩家华为账号对应的teamPlayerId。 最大长度128个字符。 |
  
  
 **返回值**：

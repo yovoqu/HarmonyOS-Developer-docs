@@ -1,6 +1,6 @@
 # frame_generation_gles.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/frame__generation__gles_8h
 **支持设备：** Phone | Tablet | TV
@@ -82,6 +82,6 @@
 | FG_ErrorCode HMS_FG_Dispatch_GLES(FG_Context_GLES* context, const FG_DispatchDescription_GLES* desc) | 配置帧预测所需的参数信息，生成预测帧，当前处于激活状态时有效，该接口仅适配OpenGL ES图形API平台。 |
 | FG_ErrorCode HMS_FG_SetExtendedCameraInfo_GLES(FG_Context_GLES* context, const FG_PerFrameExtendedCameraInfo* info) | 设置超帧相机扩展属性信息，当视图投影矩阵的平移分量非常大时，提供该信息以获得更加准确的超帧效果。可选调用，该接口仅适配OpenGL ES图形API平台。 |
 | FG_ErrorCode HMS_FG_DestroyContext_GLES(FG_Context_GLES** context) | 销毁超帧上下文实例并释放内存资源。该接口仅适配OpenGL ES图形API平台。 |
-| FG_ErrorCode HMS_FG_SetIntegrationMode_GLES(FG_Context_GLES* context, const FG_IntegrationInfo* integrationInfo) | 设置超帧预测的集成信息，当FG_PredictionMode为FG_PREDICTION_MODE_INTERPOLATION时，FG_IntegrationInfo中的presentMode、needDepthAndColorCache、needFlipColorTexture成员才会生效。其他情况下这些参数应忽略或设置为默认值。该接口仅适配OpenGL ES图形API平台。 |
+| FG_ErrorCode HMS_FG_SetIntegrationMode_GLES(FG_Context_GLES* context, const FG_IntegrationInfo* integrationInfo) | 设置超帧预测的集成信息，当FG_PredictionMode为FG_PREDICTION_MODE_INTERPOLATION时，FG_IntegrationInfo中的presentMode、textureCachedByGame、needFlipInputColor、needFlipOutputColor成员才会生效。其他情况下这些参数应忽略或设置为默认值。该接口仅适配OpenGL ES图形API平台。 |
 | FG_ErrorCode HMS_FG_SetUiPredictionEnabled_GLES(FG_Context_GLES* context, bool isEnabled) | 选择是否启用UI预测功能，这个功能只能在系统送显模式下启用，在游戏送显模式下无效。UI预测功能启用后，画面中2D UI内容可以与主画面一样做预测、帧生成；如不启用该功能，预测帧会复用真实帧的UI进行展示。该接口仅适配OpenGL ES图形API平台。 |
 | FG_ErrorCode HMS_FG_SetTargetFps_GLES(FG_Context_GLES* context, int targetFps) | 设置超帧后的目标帧率，这个设置仅在系统送显模式下生效，对游戏送显模式无影响。参数targetFps的取值范围[30, 144]旨在确保在不同平台上的性能稳定性和用户体验一致性。开发者应根据实际业务场景选择合适的帧率。该接口在游戏初次上架之后生效且仅适配OpenGL ES图形API平台。 |

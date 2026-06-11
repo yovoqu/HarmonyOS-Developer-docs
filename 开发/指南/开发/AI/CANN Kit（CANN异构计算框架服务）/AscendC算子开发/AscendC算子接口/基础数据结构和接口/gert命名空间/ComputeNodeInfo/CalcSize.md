@@ -1,6 +1,6 @@
 # CalcSize
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-calcsize
 
@@ -26,9 +26,9 @@ static ge::graphStatus CalcSize(const size_t ir_inputs_num, const size_t ir_outp
 | 参数 | 输入/输出 | 说明 |
 | --- | --- | --- |
 | ir_inputs_num | 输入 | 算子IR原型定义的输入个数。 |
-| ir_outputs_num | 输入 | 算子IR原型定义的输出个数。 |
+| ir_outputs_num | 输出 | 算子IR原型定义的输出个数。 |
 | inputs_num | 输入 | 算子实际的输入个数。 |
-| outputs_num | 输入 | 算子实际的输出个数。 |
+| outputs_num | 输出 | 算子实际的输出个数。 |
 | total_size | 输出 | 需要预分配的ComputeNodeInfo和相关信息的内存总大小，不包含RuntimeAttrs的内存大小。 |
  
  

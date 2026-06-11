@@ -1,6 +1,6 @@
 # AtomicServiceWeb
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicserviceweb
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -839,16 +839,20 @@ struct WebComponent {
         console.info(`AtomicServiceWebLog accessStep = ${this.controller.accessStep(1)}`);
       })
       Button('forward').onClick(() => {
-        console.info(`AtomicServiceWebLog forward = ${this.controller.forward()}`);
+        this.controller.forward();
+        console.info(`AtomicServiceWebLog forward`);
       })
       Button('backward').onClick(() => {
-        console.info(`AtomicServiceWebLog backward = ${this.controller.backward()}`);
+        this.controller.backward();
+        console.info(`AtomicServiceWebLog backward`);
       })
       Button('refresh').onClick(() => {
-        console.info(`AtomicServiceWebLog refresh = ${this.controller.refresh()}`);
+        this.controller.refresh();
+        console.info(`AtomicServiceWebLog refresh`);
       })
       Button('loadUrl').onClick(() => {
-        console.info(`AtomicServiceWebLog loadUrl = ${this.controller.loadUrl('https://www.baidu.com/')}`);
+        this.controller.loadUrl('https://www.baidu.com/');
+        console.info(`AtomicServiceWebLog loadUrl`);
       })
       Button('深色模式').onClick(() => {
         this.forceDarkAccess = !this.forceDarkAccess;

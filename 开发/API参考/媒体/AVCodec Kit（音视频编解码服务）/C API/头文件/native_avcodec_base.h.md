@@ -1,6 +1,6 @@
 # native_avcodec_base.h
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -235,8 +235,8 @@
 | const char * OH_MD_KEY_VIDEO_CROP_RIGHT | 描述裁剪矩形右坐标(x)值的键，值类型为int32_t。 包含裁剪框最右边的列，列索引从0开始。 该键只用于视频解码。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_VIDEO_STRIDE | 描述视频帧宽跨距的键，值类型为int32_t。 宽跨距表示内存中相邻两行数据起始位置之间的字节距离。由于硬件对齐要求，stride通常大于或等于图像有效宽度。当stride等于width，表示无水平填充。应始终通过OH_VideoEncoder_GetInputDescription（编码）、OH_VideoDecoder_GetOutputDescription（解码）或OH_AVCodecOnStreamChanged回调中的OH_AVFormat参数获取实际跨距值，而非假设固定值。 使用示例详见视频编码Buffer模式的步骤8或者视频解码Buffer模式的步骤11。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_VIDEO_SLICE_HEIGHT | 描述视频帧高跨距的键，值类型为int32_t。 高跨距表示内存中为单个平面分配的总行数。由于硬件对齐要求，sliceHeight通常大于或等于图像有效高度。U平面的起始地址相对于Y平面原点的偏移量为（sliceHeight * stride）。应始终通过OH_VideoEncoder_GetInputDescription（编码）、OH_VideoDecoder_GetOutputDescription（解码）或 OH_AVCodecOnStreamChanged回调中的OH_AVFormat参数获取实际高跨距值，而非假设固定值。 使用示例详见视频编码Buffer模式的步骤8或视频解码Buffer模式的步骤11。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |
-| const char * OH_MD_KEY_VIDEO_PIC_WIDTH | 描述解码后视频帧实际有效宽度的键名。值类型为int32_t。该键为只读，仅用于视频解码。 调用OH_VideoDecoder_GetOutputDescription时，或通过OH_AVCodecOnStreamChanged回调检测到解码输出流变化时，可从返回的OH_AVFormat实例中获取该值。该值表示剪裁后的可见宽度，与Configure阶段设置的OH_MD_KEY_WIDTH不同，后者是用于预分配缓冲区的配置提示。当存在剪裁时，应使用该值（而非stride）作为显示或保存图像的实际宽度。 图像排布和使用示例详见视频编码Buffer模式的步骤8或视频解码Buffer模式的步骤11。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |
-| const char * OH_MD_KEY_VIDEO_PIC_HEIGHT | 描述解码后视频帧实际有效高度的键名。值类型为int32_t。该键为只读，仅用于视频解码。 调用OH_VideoDecoder_GetOutputDescription时，或通过OH_AVCodecOnStreamChanged回调检测到解码输出码流变化时，可从返回的OH_AVFormat实例中获取该值。该值表示剪裁后的可见高度，与Configure阶段设置的OH_MD_KEY_HEIGHT不同，后者是用于预分配缓冲区的配置提示。当存在剪裁时，应使用该值（而非sliceHeight）作为显示或保存图像的实际高度。 图像排布和使用示例详见视频编码Buffer模式的步骤8或视频解码Buffer模式的步骤11。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |
+| const char * OH_MD_KEY_VIDEO_PIC_WIDTH | 描述解码后视频帧实际有效宽度的键名。值类型为int32_t。该键为只读，仅用于视频解码。 调用OH_VideoDecoder_GetOutputDescription时，或通过OH_AVCodecOnStreamChanged回调检测到解码输出流变化时，可从返回的OH_AVFormat实例中获取该值。该值表示图像有效宽度，与Configure阶段设置的OH_MD_KEY_WIDTH不同，后者是用于预分配缓冲区的配置提示。当需要获取显示或保存图像的实际宽度时，读取该值。 图像排布和使用示例详见视频编码Buffer模式的步骤8或视频解码Buffer模式的步骤11。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |
+| const char * OH_MD_KEY_VIDEO_PIC_HEIGHT | 描述解码后视频帧实际有效高度的键名。值类型为int32_t。该键为只读，仅用于视频解码。 调用OH_VideoDecoder_GetOutputDescription时，或通过OH_AVCodecOnStreamChanged回调检测到解码输出码流变化时，可从返回的OH_AVFormat实例中获取该值。该值表示图像有效高度，与Configure阶段设置的OH_MD_KEY_HEIGHT不同，后者是用于预分配缓冲区的配置提示。当需要获取显示或保存图像的实际高度时，读取该值。 图像排布和使用示例详见视频编码Buffer模式的步骤8或视频解码Buffer模式的步骤11。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_VIDEO_ENABLE_LOW_LATENCY | 使能低时延视频解码的键，值类型为int32_t，1表示使能，0表示不使能，默认值为0。配置非0值将按照配置1处理，表示使能。 该键是可选的，在Configure阶段使用。 如果使能，则视频解码器持有的输入和输出数据不会超过解码器标准所要求的数量。 可以通过能力查询接口OH_AVCapability_IsFeatureSupported来查询特定解码器是否支持低时延。若解码器支持，使能此接口时，视频解码器将按照解码序输出帧。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_VIDEO_ENCODER_QP_MAX | 描述视频编码器允许的最大量化参数的键，值类型为int32_t。 在Configure/SetParameter阶段使用，或随帧立即生效。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |
 | const char * OH_MD_KEY_VIDEO_ENCODER_QP_MIN | 描述视频编码器允许的最小量化参数的键，值类型为int32_t。 在Configure/SetParameter阶段使用，或随帧立即生效。 起始版本： 12 系统能力： SystemCapability.Multimedia.Media.CodecBase |

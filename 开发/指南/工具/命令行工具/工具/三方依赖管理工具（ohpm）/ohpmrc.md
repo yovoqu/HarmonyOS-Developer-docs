@@ -1,6 +1,6 @@
 # ohpmrc
 
-更新时间：2026-04-30 02:42:31
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc
 
@@ -708,7 +708,7 @@ ohpm客户端从5.1.1开始新增开关配置enable_unified_lockfile字段。启
 启用enable_unified_lockfile=true后，项目级统一管理lockfile锁文件，针对模块间存在重复依赖的场景，显著减少ohpm install耗时，优化构建流程。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/HuSVD2QgQnCa1_LTYCeviw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030630Z&HW-CC-Expire=86400&HW-CC-Sign=42158C2330A18FF980CC0342EBFA7F849013300C26375A00F96E3B29CB4224E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8f/v3/NHF7ZpryQeW7C3Wj1XynSg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=7C2E2F90EEB7D1BE1BC99D5D15B9F0BCFC522FC1B20BF4C7E9D850605496FB39)
  
 
 启用enable_unified_lockfile=true后，原分散在各模块下的.hsp依赖安装目录将统一迁移至项目根目录。在流水线上开启此特性时，需搭配配套的hvigor使用。
@@ -730,7 +730,7 @@ ohpm客户端从5.3.1开始新增开关配置enable_lock_inner_pkg_version字段
 如下图所示，蓝色箭头标识最终要安装的依赖，安装的依赖D@1.0.0来自依赖B@1.0.0（依赖名称和依赖版本相同的依赖会被定性为相同依赖，最终安装哪个由依赖构建先后顺序决定）, 因B@1.0.0并没有安装，但oh-package-lock.json5中锁定了依赖D的版本，在二次安装时会爆出D的依赖路径不存在错误，此时需要将该开关设置为false。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/RdTslfdKQz-zUTJWbioYNw/zh-cn_image_0000002602066443.png?HW-CC-KV=V1&HW-CC-Date=20260528T030630Z&HW-CC-Expire=86400&HW-CC-Sign=D4F962C11D52325A908AF3F467216048995F0BD46130E70D42949B096E2B7AF0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/QZcNbOX7T-a8WPeDO03IVA/zh-cn_image_0000002602066443.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=AA131954F9D351938E56DC61D419CA604B839E63AFE31E9F86F413F7AC5CB0BA)
 
  
 **oh-package-lock.json5示例**

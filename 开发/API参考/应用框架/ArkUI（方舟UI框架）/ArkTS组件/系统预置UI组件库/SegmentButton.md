@@ -1,6 +1,6 @@
 # SegmentButton
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-segmentbutton
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,7 +50,7 @@ import { SegmentButton, SegmentButtonOptions, SegmentButtonItemOptionsArray } fr
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItemClicked: Callback&lt;number&gt;, maxFontScale: number | Resource, enableStateAnimation: boolean })
+SegmentButton({ options: SegmentButtonOptions, selectedIndexes: number[], onItemClicked?: Callback&lt;number&gt;, maxFontScale: number | Resource, enableStateAnimation: boolean })
 
 **装饰器类型：**@Component
 
@@ -913,7 +913,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/LGHRfR1PS628LdDI8YCyUg/zh-cn_image_0000002581276344.png?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=7B5ED91DDCCFE5DE55A3D2A4669787529F0F57A514C5192D6856AB735325E45C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fe/v3/PzKtZF5fQcegXmMng3fZCg/zh-cn_image_0000002622700153.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=B4C227DB0D5CF13AC8C63E5A8C89631D574FDD3FC0D35AD00EC0E55D23824C3C)
 
 
 
@@ -1025,7 +1025,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/hkt7V8XmSfmz2rOv0zj3RQ/zh-cn_image_0000002611756201.png?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=745422573A3F69C8EB38EF683A6D14E1A9D7082BB3D10797ADD34BBDCB02A372)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/kAzH2s3jRRaDBb7u0bSm1g/zh-cn_image_0000002592220594.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=5CF2DAD456AF32105ED26F94B8502E72479F90F5A31EBC7EC28591FDDD7057DF)
 
 
 
@@ -1106,7 +1106,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/oV1BaecuS56r3p4Jkb1_rQ/zh-cn_image_0000002581436260.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=3249C6617A04C6B7D92F2262ABA933CB7A71AF63CFBF93E91EC4EF038E1A8568)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/NkSljpo6TE2zX01XFLg8Tw/zh-cn_image_0000002592380526.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=0A05D89A36F69F2B83EFAD00065C21F51FAF40DC3BF692397C21C26E62DB30A3)
 
 
 
@@ -1220,7 +1220,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/OwV4-k6TSou7E6C-SL1HrQ/zh-cn_image_0000002611836091.png?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=C8792E311436EF63C9405FCC14713D2006DAA0C1E3189264D3378CBD649D0C12)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/uU_NZ5Z4R-2Kkdffjw2kGw/zh-cn_image_0000002622860037.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=5494BAEFBDB86A85C00FF0BE17D9B0CC8B6918EA4AE2827A9EE9BBA4DCFCDF69)
 
 
 
@@ -1416,7 +1416,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/OmOZLpE3Rh6MIx5YJzZi6w/zh-cn_image_0000002581276346.png?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=E8C64C2F22EED6E9E0FBE0418CF06DFA4230ED0BA3A7D670159B921C0ED48BBF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/42NKjxt9R5u0CtdSAp5O3Q/zh-cn_image_0000002622700155.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=C47082BB14FEC578EB9F6C4EBA10774CE7D8313FB31A5D64D1DC664977287A14)
 
 
 
@@ -1496,4 +1496,4 @@ struct Index12 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/I7OJ9l9sSHqqeWomWzO3tQ/zh-cn_image_0000002611756203.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025526Z&HW-CC-Expire=86400&HW-CC-Sign=0518B661C2BC980A3B0D217F8884B0A4C586263455BAD3CFA8F2525D34B8121E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/-KEFVmBIRfmiheVq-9mDSA/zh-cn_image_0000002592220596.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=EB20021AD9FFC410E7DAAA504231C1753D192C649C2189E3496A72B813F5C841)

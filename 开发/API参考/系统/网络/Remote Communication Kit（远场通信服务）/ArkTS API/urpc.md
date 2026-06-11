@@ -1,6 +1,6 @@
 # urpc（高性能rpc通信库）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-urpcapi
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -189,8 +189,9 @@ urpcStubCreate(config: UrpcInitConfiguration, funcList: string | string[]): Prom
 import { BusinessError } from '@kit.BasicServicesKit';
 import { urpc } from "@kit.RemoteCommunicationKit";
 
+// 下面IP地址仅作为示意
 let node: urpc.IpAndPort = {
-  ip: '127.0.0.1',
+  ip: '192.168.1.1',
   port: 8000
 }
 let connect: urpc.UrpcConnectConfiguration = {
@@ -339,8 +340,9 @@ SessionConfiguration接口定义了会话的配置参数，为开发者提供了
 ```text
 import { urpc } from "@kit.RemoteCommunicationKit";
 
+// 下面IP地址仅作为示意
 let node: urpc.IpAndPort = {
-  ip: '127.0.0.1',
+  ip: '192.168.1.1',
   port: 8000
 }
 let connect: urpc.UrpcConnectConfiguration = {
@@ -404,8 +406,9 @@ UrpcConnectConfiguration配置URPC连接的关键信息，可以配置连接的i
 ```text
 import { urpc } from "@kit.RemoteCommunicationKit"
 
+// 下面IP地址仅作为示意
 let node: urpc.IpAndPort = {
-  ip: '127.0.0.1',
+  ip: '192.168.1.1',
   port: 8000
 }
 let connect: urpc.UrpcConnectConfiguration = {
@@ -413,7 +416,7 @@ let connect: urpc.UrpcConnectConfiguration = {
   protocol: 'eat',
   multiPath: false,
   flags: 0,
-  host: "127.0.0.1",
+  host: "192.168.1.1",
   caPath: "data/single_urpc/eat.pem"
 }
 ```
@@ -443,8 +446,9 @@ IpAndPort用于配置URPC的连接IP和端口号。
 ```text
 import { urpc } from "@kit.RemoteCommunicationKit"
 
+// 下面IP地址仅作为示意
 let node: urpc.IpAndPort = {
-  ip: '127.0.0.1',
+  ip: '192.168.1.1',
   port: 8000
 }
 ```

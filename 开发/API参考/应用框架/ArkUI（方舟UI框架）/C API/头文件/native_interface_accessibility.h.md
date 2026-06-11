@@ -1,6 +1,6 @@
 # native_interface_accessibility.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-accessibility-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -337,7 +337,7 @@ int32_t OH_ArkUI_AccessibilityProviderRegisterCallback(ArkUI_AccessibilityProvid
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityProvider* provider | 表示指向ArkUI_AccessibilityProvider实例的指针。 |
-| ArkUI_AccessibilityProviderCallbacks* callbacks | 表示指向GetAccessibilityNodeCursorPosition实例的指针。 |
+| ArkUI_AccessibilityProviderCallbacks* callbacks | 表示指向ArkUI_AccessibilityProviderCallbacks实例的指针。 |
 
 
 **返回：**

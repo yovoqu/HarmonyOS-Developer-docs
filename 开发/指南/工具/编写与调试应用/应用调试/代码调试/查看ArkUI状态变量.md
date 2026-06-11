@@ -1,6 +1,6 @@
 # 查看ArkUI状态变量
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-arkui-state
 
@@ -17,14 +17,14 @@
 状态变量面板分为总览（Summary）和当前值（Current Value）两个子面板：
  
 - 总览面板显示了当前应用运行时，状态变量更新的总体情况，包含了状态变量的名称、更新次数、装饰器类型、所属组件、所属类、当前值。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/fh8QfGuLTB2vo6pMG78OEQ/zh-cn_image_0000002571386868.png?HW-CC-KV=V1&HW-CC-Date=20260528T030551Z&HW-CC-Expire=86400&HW-CC-Sign=3C92D7542E9BA3386BF655149947C9050B86884FED6D6A0E98C92E35C103777A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/0LxZbJnbRvW7Z4u6LloDSA/zh-cn_image_0000002571386868.png?HW-CC-KV=V1&HW-CC-Date=20260611T074913Z&HW-CC-Expire=86400&HW-CC-Sign=5AD15C74661B32EA2B219AB5D95469E18CB878C3DEF9924D95710351192FC8B1)
 
 - 当前值面板记录了状态变量实时变化的数据，包含了状态变量的更新时间、名称、所属组件、所属类、装饰器类型、当前值、影响的组件数量。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/T9hIinY1SUSZAA7MFV4Yaw/zh-cn_image_0000002602186033.png?HW-CC-KV=V1&HW-CC-Date=20260528T030551Z&HW-CC-Expire=86400&HW-CC-Sign=FFC759ED9D9F17EE5054854987F2931F802CBA6B29AE0BE8377E863E6E96BD6A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/aIgL7grZR1SX9vW7PQAUhA/zh-cn_image_0000002602186033.png?HW-CC-KV=V1&HW-CC-Date=20260611T074913Z&HW-CC-Expire=86400&HW-CC-Sign=832801FA1109F2C848FE04D177322DB1FF44CFC80F36AA9A3E06381965FE2BAE)
 当点击右侧的箭头时，新弹出的面板将显示当前选中状态变量影响的组件列表，包含影响组件的组件名、组件ID、是否为自定义组件。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/YB_VU8SIRv-WyhPc5TeBIg/zh-cn_image_0000002602065979.png?HW-CC-KV=V1&HW-CC-Date=20260528T030551Z&HW-CC-Expire=86400&HW-CC-Sign=750EEBCA4332CFEEA8762ECA541B2B69930E5FAAA3C86F03872417B6F7D194A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/XNqgXSAWRaWyJ5auaUz5Ng/zh-cn_image_0000002602065979.png?HW-CC-KV=V1&HW-CC-Date=20260611T074913Z&HW-CC-Expire=86400&HW-CC-Sign=16283801C9C7D32F1182E77EF49A5A9AB323BA6F2CBA15EB790ED5945236C6BD)
 
 
  

@@ -1,6 +1,6 @@
 # 基础耗时：Time分析
 
-更新时间：2026-04-30 02:42:31
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-time
 
@@ -91,7 +91,7 @@ ArkTS：程序正在执行ArkTS代码；
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/anBIiCvtSAmdJALbmyoIgA/zh-cn_image_0000002602186797.png?HW-CC-KV=V1&HW-CC-Date=20260528T030656Z&HW-CC-Expire=86400&HW-CC-Sign=D9E88E8CD40A8BC862F00451B0F8108CED0346698B18F736B26BED16A060F3AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/2mhOBlUVQJCFfESt6Kdu-w/zh-cn_image_0000002602186797.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=8EAA72524A27394B31B1CBF8778F065FFECB96A0EDAF55A5A0A2EBFFDDF884FE)
 
 
 
@@ -103,11 +103,11 @@ DevEco Profiler提供离线符号解析能力，基于携带符号表信息的so
 对于有so库路径和偏移地址的采样数据，如图所示，通过导入对应的携带符号表信息的so库进行解析，补充release so库中缺失的符号表信息（包括系统so库，用户自编译的so库，三方库）。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/zC3BNJ8_SeKV-3jVc9NL5Q/zh-cn_image_0000002571547254.png?HW-CC-KV=V1&HW-CC-Date=20260528T030656Z&HW-CC-Expire=86400&HW-CC-Sign=D1A4C4FE3042D28629788EF016BA3CF91E82124AE90E2EEC928DE8633E0D0D8A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/k_tAwpesSIO6LRRIcVQxmw/zh-cn_image_0000002571547254.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=62E88C25882C8228F61608D337058A4DDD258DD2F1C3AFCE29B360E06BA47E7E)
 
 
 您可以通过点击工具栏
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/iGAHsVKTQAOlwhbe0agXLg/zh-cn_image_0000002602066739.png?HW-CC-KV=V1&HW-CC-Date=20260528T030656Z&HW-CC-Expire=86400&HW-CC-Sign=EB0DBE41E923CAE06C8BF0B53BD8C5E9E318C2F61D741B07838C2E93FB1027DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/0z8S1EvTSJiVqrkwpHqY_g/zh-cn_image_0000002602066739.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=A04A25546329FB163589ABBD01B21DC0972A4F1954FAD55C7D486614DC1D9D14)
 按钮，导入包含debug信息的so库。
 
 > [!NOTE]
@@ -115,7 +115,7 @@ DevEco Profiler提供离线符号解析能力，基于携带符号表信息的so
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/nzh0_0_BRNe59uTHf4t3hw/zh-cn_image_0000002571387622.png?HW-CC-KV=V1&HW-CC-Date=20260528T030656Z&HW-CC-Expire=86400&HW-CC-Sign=00E6857459BD1B62882B51FCFAFDB2BBAD3C143D922D2CA20E94660C35BD693B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/LPKoGpCQRTq9O5X0jpGbzQ/zh-cn_image_0000002571387622.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=5E2F24CAD54F2DB4FB2770F79A241722E14A19724EA50259ECCD5A70E212083A)
 
 
 
@@ -129,7 +129,7 @@ DevEco Profiler提供离线符号解析能力，基于携带符号表信息的so
 单击User Trace泳道的“options”下拉列表，可以设置是按照Task Name维度还是Thread ID维度显示。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/gT90dA-SRea_g-ffjeog2g/zh-cn_image_0000002602066735.png?HW-CC-KV=V1&HW-CC-Date=20260528T030656Z&HW-CC-Expire=86400&HW-CC-Sign=10F9B8799EA129D449B39E009DD44377002DDFB1920F321C20A388E0A516EC31)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/oBke1PmdQaGI9lhITytyow/zh-cn_image_0000002602066735.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=4B3F0140CA3A7D3E313D18DE3C571D5E7A0FECD7EA138BEEEF1D293B72412BBF)
 
 
  - Statistics页签：显示当前任务泳道在所选时间段内的打点任务统计信息，包括任务的名称、同一任务执行的次数、平均持续时长、最长持续时间和最短持续时间。通过这些统计信息，开发者可直观地了解打点任务的执行频率、持续时间偏差等，方便定位。
@@ -143,4 +143,4 @@ DevEco Profiler提供离线符号解析能力，基于携带符号表信息的so
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/qEap3G8HTjSv3Scd3G_o-w/zh-cn_image_0000002602186791.png?HW-CC-KV=V1&HW-CC-Date=20260528T030656Z&HW-CC-Expire=86400&HW-CC-Sign=24E3EADC0B46063B2E57E5BB347176E36793F8E9B5CA504C35E914AF28AB466D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/FwgIDKbJTqmchVKRwJgIyQ/zh-cn_image_0000002602186791.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=E151FF40025AF5D9D5E9D494F956EFA8B1DDADDC0B80E143F2643CB148670AA2)

@@ -1,6 +1,6 @@
 # 使用X963KDF进行密钥派生(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-derivation-using-x963kdf
 
@@ -21,7 +21,7 @@
 
   如果使用string类型，需要直接传入用于密钥派生的数据，而不是HexString、base64等字符串类型。同时需要确保该字符串为utf-8编码，否则派生结果会有差异。
 
-3. info：可选的上下文与应用相关信息，可为空，用于拓展短密钥。
+3. info：可选的上下文与应用相关信息，可为空，用于扩展短密钥。
 
 4. keySize：目标密钥的字节长度，需要为正整数。
 

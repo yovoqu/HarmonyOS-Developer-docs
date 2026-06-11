@@ -1,6 +1,6 @@
 # AutoMappingFnDynamic
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingfndynamic
 
@@ -42,7 +42,7 @@ Status AutoMappingFnDynamic(const google::protobuf::Message *op_src, ge::Operato
 动态输入的代码示例：
  
 ```text
-// register MapStage op to GE
+// 将MapStage操作注册到GE
 Status MapStageMapping(const google::protobuf::Message* op_src, ge::Operator& op) {
   map<string, pair<string, string>> value;
   value["in"] = pair<string, string>("values", "fake_dtypes");

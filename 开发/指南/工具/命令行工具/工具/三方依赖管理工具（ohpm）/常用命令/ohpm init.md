@@ -1,6 +1,6 @@
 # ohpm init
 
-更新时间：2026-04-22 06:52:30
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-init
 

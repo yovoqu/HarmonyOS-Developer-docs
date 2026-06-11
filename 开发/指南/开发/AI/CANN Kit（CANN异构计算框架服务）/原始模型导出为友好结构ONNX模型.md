@@ -1,6 +1,6 @@
 # 原始模型导出为友好结构ONNX模型
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-onnx-model
 
@@ -37,5 +37,5 @@ hf_model_path: you hf_model absolute path
 ```text
 python export_model_single_qwen2.py
 ```
-  执行成功后，在model_info_target.yaml中配置的output_dir路径下会生成onnx模型文件及pb权重文件。
+  执行成功后，在model_info_target.yaml中配置的output_dir路径下会生成ONNX模型文件及pb权重文件。
 3. ONNX模型与[量化参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-usage-environmental-preparation)结合，转换得到端侧部署的模型。

@@ -1,6 +1,6 @@
 # 使用Image_NativeModule完成图片解码
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-source-c
 
@@ -117,7 +117,7 @@ napi_value ReturnErrorCode(napi_env env, Image_ErrorCode errCode, std::string fu
 napi_value GetSupportedFormats(napi_env env, napi_callback_info info)
 {
     Image_MimeType* mimeType = nullptr;
-    size_t length = 10;
+    size_t length = 0;
     Image_ErrorCode errCode = OH_ImageSourceNative_GetSupportedFormats(&mimeType, &length);
     if (errCode != IMAGE_SUCCESS) {
         OH_LOG_ERROR(LOG_APP, "OH_ImageSourceNative_GetSupportedFormats failed, "
@@ -210,8 +210,20 @@ napi_value GetImageInfo(napi_env env, napi_callback_info info)
     
     uint32_t width;
     uint32_t height;
-    OH_ImageSourceInfo_GetWidth(g_thisImageSource->imageInfo, &width);
-    OH_ImageSourceInfo_GetHeight(g_thisImageSource->imageInfo, &height);
+    errCode = OH_ImageSourceInfo_GetWidth(g_thisImageSource->imageInfo, &width);
+    if (errCode != IMAGE_SUCCESS) {
+        OH_LOG_ERROR(LOG_APP, "OH_ImageSourceInfo_GetWidth failed, errCode: %{public}d.", errCode);
+        OH_ImageSourceInfo_Release(g_thisImageSource->imageInfo);
+        g_thisImageSource->imageInfo = nullptr;
+        return GetJsResult(env, errCode);
+    }
+    errCode = OH_ImageSourceInfo_GetHeight(g_thisImageSource->imageInfo, &height);
+    if (errCode != IMAGE_SUCCESS) {
+        OH_LOG_ERROR(LOG_APP, "OH_ImageSourceInfo_GetHeight failed, errCode: %{public}d.", errCode);
+        OH_ImageSourceInfo_Release(g_thisImageSource->imageInfo);
+        g_thisImageSource->imageInfo = nullptr;
+        return GetJsResult(env, errCode);
+    }
     OH_LOG_INFO(LOG_APP, "OH_ImageSourceNative_GetImageInfo success,"
                "width: %{public}d, height: %{public}d.", width, height);
     OH_ImageSourceInfo_Release(g_thisImageSource->imageInfo);
@@ -242,12 +254,16 @@ napi_value GetImageProperty(napi_env env, napi_callback_info info)
     Image_String getKey;
     getKey.data = key;
     getKey.size = keySize;
-    Image_String getValue;
+    Image_String getValue = {nullptr, 0};
     OH_LOG_INFO(LOG_APP, "OH_ImageSourceNative_GetImageProperty key: %{public}s.", getKey.data);
     Image_ErrorCode errCode = OH_ImageSourceNative_GetImagePropertyWithNull(g_thisImageSource->source,
                                                                             &getKey, &getValue);
     if (errCode != IMAGE_SUCCESS) {
         OH_LOG_ERROR(LOG_APP, "OH_ImageSourceNative_GetImageProperty failed, errCode: %{public}d.", errCode);
+        if (getValue.data != nullptr) {
+            free(getValue.data);
+            getValue.data = nullptr;
+        }
         return GetJsResult(env, errCode);
     }
     napi_value resultNapi = nullptr;
@@ -320,12 +336,18 @@ napi_value CreatePixelmapList(napi_env env, napi_callback_info info)
 {
     OH_DecodingOptions *opts = nullptr;
     OH_DecodingOptions_Create(&opts);
-    OH_PixelmapNative** resVecPixMap = new OH_PixelmapNative* [g_thisImageSource->frameCnt];
+    OH_PixelmapNative** resVecPixMap = new OH_PixelmapNative* [g_thisImageSource->frameCnt]();
     size_t outSize = g_thisImageSource->frameCnt;
     Image_ErrorCode errCode = OH_ImageSourceNative_CreatePixelmapList(g_thisImageSource->source,
                                                                       opts, resVecPixMap, outSize);
     OH_DecodingOptions_Release(opts);
     opts = nullptr;
+    for (size_t index = 0; index < outSize; index++) {
+        if (resVecPixMap[index] != nullptr) {
+            OH_PixelmapNative_Release(resVecPixMap[index]);
+            resVecPixMap[index] = nullptr;
+        }
+    }
     delete[] resVecPixMap;
     return ReturnErrorCode(env, errCode, "OH_ImageSourceNative_CreatePixelmapList");
 }
@@ -343,7 +365,13 @@ napi_value GetDelayTimeList(napi_env env, napi_callback_info info)
     size_t size = g_thisImageSource->frameCnt;
     OH_LOG_INFO(LOG_APP, "GetDelayTimeList size: %{public}zu.", size);
     Image_ErrorCode errCode = OH_ImageSourceNative_GetDelayTimeList(g_thisImageSource->source, delayTimeList, size);
+    if (errCode == IMAGE_SUCCESS) {
+        for (size_t index = 0; index < size; index++) {
+            OH_LOG_INFO(LOG_APP, "Frame %{public}zu delay time: %{public}d ms.", index, delayTimeList[index]);
+        }
+    }
     delete[] delayTimeList;
+    delayTimeList = nullptr;
     return ReturnErrorCode(env, errCode, "OH_ImageSourceNative_GetDelayTimeList");
 }
 ```

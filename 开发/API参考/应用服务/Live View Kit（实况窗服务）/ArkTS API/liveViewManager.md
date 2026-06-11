@@ -1,6 +1,6 @@
 # liveViewManager
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-liveviewmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -1214,8 +1214,8 @@ async function buildWantAgent(): Promise<Want> {
 | --- | --- | --- | --- | --- |
 | weatherType | WeatherType | 否 | 是 | 天气类型。创建实况窗时，若不传入weatherType或传入值为undefined、WeatherType.WEATHER_TYPE_UNDEFINED、未定义的枚举值，则不展示天气效果。 |
 | locationType | WeatherLocationType | 否 | 是 | 天气位置类型。创建实况窗时，若locationType不传入或传入值为undefined、未定义的枚举值，则不展示天气效果。 |
-| highTemperature | number | 否 | 是 | 天气最高温度，当前仅支持摄氏度，需小于等于58℃且大于传入的最低温度值（lowTemperature）。创建实况窗时，若不传入或传入值为undefined、超出取值范围，则不展示温度信息。 |
-| lowTemperature | number | 否 | 是 | 天气最低温度，当前仅支持摄氏度，需大于等于-95℃且小于传入的最高温度值（highTemperature）。创建实况窗时，若不传入或传入值为undefined、超出取值范围，则不展示温度信息。 |
+| highTemperature | number | 否 | 是 | 天气最高温度，当前仅支持摄氏度，需小于等于58℃且大于传入的最低温度值（lowTemperature）。仅支持左右文本模板（即layoutType为LAYOUT_TYPE_FLIGHT）展示温度信息。创建实况窗时，若不传入或传入值为undefined、超出取值范围，则不展示温度信息。 |
+| lowTemperature | number | 否 | 是 | 天气最低温度，当前仅支持摄氏度，需大于等于-95℃且小于传入的最高温度值（highTemperature）。持左右文本模板（即layoutType为LAYOUT_TYPE_FLIGHT）展示温度信息。创建实况窗时，若不传入或传入值为undefined、超出取值范围，则不展示温度信息。 |
 
 
 

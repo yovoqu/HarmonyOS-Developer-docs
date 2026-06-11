@@ -1,6 +1,6 @@
 # @ohos.abilityAccessCtrl (程序访问控制管理)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -174,6 +174,12 @@ on(type: 'selfPermissionStateChange', permissionList: Array&lt;Permissions&gt;, 
 
  - 多次调用本订阅接口时，如果订阅的权限列表相同，callback不同，允许订阅成功。
  - 多次调用本订阅接口时，如果订阅的权限列表间有相同的子集，callback相同时，订阅失败。
+
+
+权限状态由“已授权”变更为“未授权”可能存在两种场景：
+
+ - 用户主动撤销：系统会终止对应应用进程。
+ - 系统主动回收：应用进程不会终止。典型场景如安全控件的单次授权，在授权周期结束后由系统自动回收。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -485,7 +491,7 @@ requestGlobalSwitch(context: Context, type: SwitchType): Promise&lt;boolean&gt;
 在某些情况下，如果录音、拍照等功能被禁用，应用可拉起此弹框请求用户同意开启对应功能。如果当前全局开关的状态为开启，则不拉起弹框。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/S-Aj_TekS0aM7vBG3WTavg/zh-cn_image_0000002611835353.png?HW-CC-KV=V1&HW-CC-Date=20260528T025625Z&HW-CC-Expire=86400&HW-CC-Sign=11DA15D8F793667A85D39A8E12EC6D02815F5ED01FD8514D0A8BCFABAAA08A41)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/_zicMymhQq-51RKvMq7wOg/zh-cn_image_0000002622859301.png?HW-CC-KV=V1&HW-CC-Date=20260611T074821Z&HW-CC-Expire=86400&HW-CC-Sign=6F6F75BD2274A3C16A64510682083A3A0953CAD8B25DFB96256A813FAEE1ED35)
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。

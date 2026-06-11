@@ -1,6 +1,6 @@
 # Host侧Tiling实现
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tiling-implementation-on-the-host
 
@@ -149,10 +149,6 @@ static ge::graphStatus TilingFunc(gert::TilingContext* context)
  }
 ```
  
-> [!NOTE]
-> 编译时，可以通过设置 --tiling_keys 编译选项指定TilingKey，编译时只编译指定TilingKey相关的kernel代码，用于加速编译过程。
-
- 
   
 
 #### WorkspaceSize（可选）
@@ -185,7 +181,7 @@ Tiling实现开发的流程图如下。
 **图2** Tiling开发流程图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/aLmvaaWbQb-tQ6oyB0wTEQ/zh-cn_image_0000002611835175.png?HW-CC-KV=V1&HW-CC-Date=20260528T025931Z&HW-CC-Expire=86400&HW-CC-Sign=F544B8556709B65CCFE8F04C4493CA51E5B9FF32620BFACA5028D0E882E158C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/sfsaHNeHQi6mQyGFCOOBvA/zh-cn_image_0000002622859125.png?HW-CC-KV=V1&HW-CC-Date=20260611T074934Z&HW-CC-Expire=86400&HW-CC-Sign=FEB5556E996401CE9216ABC3F887B7223B3C8BD4225807D8BED7DC00279A3A45)
 
  
 下面将从一个简单的Add算子为例介绍Tiling的实现流程。本样例中待处理数据的Shape大小可以平均分配到每个核上，并且可以对齐到一个datablock(32B)的大小。

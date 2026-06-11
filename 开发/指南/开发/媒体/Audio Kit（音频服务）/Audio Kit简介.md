@@ -1,6 +1,6 @@
 # Audio Kit简介
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-kit-intro
 
@@ -125,7 +125,7 @@ audio模块下的接口支持PCM编码，包括AudioRenderer、AudioCapturer、T
 
 本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下。
 
- - 通用差异：请参见[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section18112195514315)。
+ - 通用差异：请参见[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification)。
  - 不支持低时延音频播放。
  - 不支持低时延音频录制。
  - 不支持低功耗音频播放。

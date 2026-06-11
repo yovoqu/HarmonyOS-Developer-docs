@@ -1,6 +1,6 @@
 # fast_ads_concurrent_hashmap.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-ads-concurrent-hashmap-8h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -35,12 +35,12 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| typedef void * FAST_ConcurrentHashmapHandle | 并发哈希表句柄。 |
-| typedef void * FAST_ConcurrentHashmapKeyPtr | 并发哈希表键指针 |
-| typedef void * FAST_ConcurrentHashmapValuePtr | 并发哈希表的值指针 |
-| typedef uint64_t (*HMS_FAST_ConcurrentHashmap_HashFunc) (const FAST_ConcurrentHashmapKeyPtr key) | 开发者自定义的哈希值计算函数 |
-| typedef int32_t (*HMS_FAST_ConcurrentHashmap_KeyEqualFunc) (const FAST_ConcurrentHashmapKeyPtr leftKey, const FAST_ConcurrentHashmapKeyPtr rightKey) | 开发者自定义的键比较函数 |
-| typedef int32_t (*HMS_FAST_ConcurrentHashmap_HookFunc) (const FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapValuePtr value, void* context) | 开发者自定义的通用回调函数形式 |
+| typedef void* FAST_ConcurrentHashmapHandle | 并发哈希表句柄。 |
+| typedef void* FAST_ConcurrentHashmapKeyPtr | 并发哈希表键指针。 |
+| typedef void* FAST_ConcurrentHashmapValuePtr | 并发哈希表的值指针。 |
+| typedef uint64_t (*HMS_FAST_ConcurrentHashmap_HashFunc) (const FAST_ConcurrentHashmapKeyPtr key) | 开发者自定义的哈希值计算函数。 |
+| typedef int32_t (*HMS_FAST_ConcurrentHashmap_KeyEqualFunc) (const FAST_ConcurrentHashmapKeyPtr leftKey, const FAST_ConcurrentHashmapKeyPtr rightKey) | 开发者自定义的键比较函数。 |
+| typedef int32_t (*HMS_FAST_ConcurrentHashmap_HookFunc) (const FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapValuePtr value, void* context) | 开发者自定义的通用回调函数形式。 |
  
  
   

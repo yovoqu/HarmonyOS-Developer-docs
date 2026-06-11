@@ -1,12 +1,12 @@
-# 基于AudioRender播放PCM音频
+# 基于AudioRenderer播放PCM音频
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-06-10 07:05:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-audiorenderer
 
 #### 概述
 
-AudioRender是用于音频播放的ArkTS API，仅支持PCM格式的音频。指导开发者使用AudioRender接口实现播放PCM音频的功能，主要涉及基本播控、精准跳转、静音播放、倍速播放、音量控制、焦点管理、后台播放与接入播控中心、冷启动等开发场景。
+AudioRenderer是用于音频播放的ArkTS API，仅支持PCM格式的音频。指导开发者使用AudioRenderer接口实现播放PCM音频的功能，主要涉及基本播控、精准跳转、静音播放、倍速播放、音量控制、焦点管理、后台播放与接入播控中心、冷启动等开发场景。
  
 本文是音频播放系列文章的第1篇，实现的功能效果如下：
  
@@ -14,7 +14,9 @@ AudioRender是用于音频播放的ArkTS API，仅支持PCM格式的音频。指
 ![](assets/基于AudioRender播放PCM音频/file-20260515114702674-0.gif)
  
 ![](assets/基于AudioRender播放PCM音频/file-20260515114702674-1.gif)
+
  
+
 ![](assets/基于AudioRender播放PCM音频/file-20260515114702674-10.gif)
 
  
@@ -28,7 +30,7 @@ AudioRender是用于音频播放的ArkTS API，仅支持PCM格式的音频。指
 | 跳转播放 | 滑动进度条精准跳转到指定时间进行播放。 | 使用Slider组件实现进度条，在AudioRenderer的on('writeData')回调中触发进度调节。 |
 | 静音播放 | 点击按钮设置静音播放。 | 使用AudioRenderer的setSilentModeAndMixWithOthers()方法控制静音状态。 |
 | 切换歌曲播放 | 点击上一首或下一首或歌单列表中的歌曲进行不同歌曲播放。 | 在AudioRenderer的on('writeData')回调中，将获取到的不同的歌曲资源写入数据缓冲区，实现播放不同歌曲的功能。 |
-| 倍速设置 | 滑动倍速调节面板调节播放速度。 | 使用AudioRenderer的setSpeed()设置播放倍速。 |
+| 倍速设置 | 选择不同档位调节播放速度。 | 使用AudioRenderer的setSpeed()设置播放倍速。 |
 | 音量设置 | 滑动音量调节面板调节播放音量。 | 使用AudioRenderer的setVolume()设置播放音量。 |
 | 接入播控中心 | 通过播控中心，控制播放、暂停、切换音频、调整播放进度、切换循环模式 | 通过AVSessionKit音频播控服务实现音频应用接入播控中心。 |
 | 后台播放 | 音频切换到后台播放。 | 接入播控中心，在此基础上申请后台运行权限并创建长时后台任务，从而实现音频在后台持续播放的功能。 |
@@ -461,7 +463,7 @@ public async playNext() {
 
 #### 场景描述
 
-滑动倍速调节面板调节播放速度。
+选择不同档位调节播放速度。
  
 
 ![](assets/基于AudioRender播放PCM音频/file-20260515114702674-3.gif)
@@ -471,13 +473,13 @@ public async playNext() {
 
 #### 实现原理
 
-通过调节面板面板获取目标速度值，输入到[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)接口中，实现设置播放速度的功能。
+通过选择不同档位获取目标速度值，输入到[AudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer)的[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)接口中，实现设置播放速度的功能。
  
  
 
 #### 开发步骤
 
-1. 通过调节面板获取速度值，传入[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)接口中。
+1. 通过选择不同档位获取速度值，传入[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)接口中。
  
 ```ArkTS
 Slider({

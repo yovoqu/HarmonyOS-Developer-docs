@@ -1,6 +1,6 @@
 # ohpm install
 
-更新时间：2026-04-22 06:52:30
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-install
 
@@ -381,7 +381,7 @@ dependencyMap.json5内容示例：
 4、overrides中的依赖版本优先级高于&lt;target_path&gt;/moduleName/oh-package.json5中对应的依赖版本。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/mWC9fCOwSoOC3mvVdhmfjg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030633Z&HW-CC-Expire=86400&HW-CC-Sign=72A96339BE42D7FBFB3ED088722F4D06DCC0F80F91F8B88DB8142D011EA25F29)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ShY3jOk8R8ip8oHysJk32g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=A4EE18B40453C609F8C301AD63CB3DA0D5C0A3C48B38FC838F90A89769828481)
  
 
 仅当&lt;target_path&gt;/dependencyMap.json5中targetName的值不为空且不等于'default'时，&lt;project_root&gt;/moduleName目录下生成的lock文件名才会变更为：oh-package-targetName-lock.json5。

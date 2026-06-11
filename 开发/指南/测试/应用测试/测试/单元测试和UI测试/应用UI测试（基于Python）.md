@@ -1,6 +1,6 @@
 # 应用UI测试（基于Python）
 
-更新时间：2026-04-28 12:59:30
+更新时间：2026-06-05 07:53:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines
 
@@ -39,7 +39,7 @@ DevEco Testing Hypium （以下简称Hypium）是HarmonyOS平台的UI自动化�
 在命令行中执行以下命令安装最新版本hypium
  
 ```text
-pip install hypium -U
+pip install hypium -U --trusted-host mirrors.huaweicloud.com -i https://mirrors.huaweicloud.com/repository/pypi/simple
 ```
  
 
@@ -259,7 +259,7 @@ UiViewer插件当前仅支持USB连接本地设备调测和本地模拟器进行
 当需要对某一设备进行控件查看时，插件将自动退出双设备投屏模式，切换至单设备控件查看界面，以确保控件信息的准确展示与操作体验。完成控件查看后，用户可手动返回双设备投屏视图。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/PW3WjNY9Q_uJZYawm0zepQ/zh-cn_image_0000002492503742.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=62A9122491068D441255BE80802911F1B9F73C7ECB98D011C6A284F70616CEA7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/CVIzFguTSsKh57g5qNkxcQ/zh-cn_image_0000002492503742.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=84FAFCB238AB10DCB02B9A2DE56ACE2B32F816F2BF7E1E19E3C4799D0106AC29)
 
  
 **执行结果报告展示功能**
@@ -267,7 +267,7 @@ UiViewer插件当前仅支持USB连接本地设备调测和本地模拟器进行
 使用“一键执行当前用例”功能完成测试用例执行后，插件将在控制台旁边自动生成执行结果标签。点击该标签，即可查看本次用例执行过程中各步骤的截图。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/kZjI84XbTMaPzi6zCpn3Nw/zh-cn_image_0000002524623411.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=27886742A621395CCFE7F577BFD5AB8CCA93D98985BFF91DF9E63E17570C2311)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/Vt5qsDkbT0OOErg08FwO6A/zh-cn_image_0000002524623411.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=C54310431BBF5C5E1435FEE1A7DDB054EA3B79E776F0001DA5C53D52C001881E)
 
  
 **Ⅳ. 设置面板区**
@@ -275,7 +275,7 @@ UiViewer插件当前仅支持USB连接本地设备调测和本地模拟器进行
 打开PyCharm设置面板，选中左侧的DevEco Testing Hypium选项，可以进入DevEco Testing Hypium的设置面板，如下图所示。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/5olAfwL2R8qvXsXM7zjaXQ/zh-cn_image_0000002553106760.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=ACB28A19C568FB02E9FBBFD313860B711447BD498300306495BB13B9E4336701)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/gZx4BxWiS_i59uSztVLGOQ/zh-cn_image_0000002553106760.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=F43C23F8AF8371454846C77884649A0C3FA092DEC96DA1759FE9C0E53FBF6A72)
 
  
 各个配置项的详细说明见下表：
@@ -300,13 +300,13 @@ UiViewer插件当前仅支持USB连接本地设备调测和本地模拟器进行
 在PyCharm顶部点击File -> New Project 进入模板工程创建面板。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/gaBGYeHJSpaS52WXTKofiw/zh-cn_image_0000002524623425.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=D3E1182AEAB08B4DE9F9BB38450BC1CEA7F0FFEA294F7A0C4BE32A15B47A0BAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/AkDeEi4MS_mvYuO8agdsyw/zh-cn_image_0000002524623425.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=FCF09EAEBDA7077BAAF1B7AC9D06C6A01D9C251A4513CD7EA3570D2E569C2DD8)
 
  
 点击左侧的DevEco Testing Hypium，可以创建Hypium用例模板工程。共有两种类型的Hypium模板工程，分别对应单设备和双设备的测试场景。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/rvQU2eeqQDCoqxm1Rg2R1Q/zh-cn_image_0000002524623429.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=7A4C24A18C7D0E972874A529367F194FCAD8C3EF1A3606BEE98BAA976AF2CDAA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/JNGS8O-QQnyWPo5xfm5ffQ/zh-cn_image_0000002524623429.jpg?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=3B2A4C152DD0CC11DD896EE6EBE2616FC0971400E6BB77374D5AC78C02FC5A6C)
 
  
 选择对应模板，配置工程路径以及Python环境参数，点击Create即可创建Hypium测试用例工程。工程目录中包含一个模板用例和一个模板配置文件user_config.xml。
@@ -314,7 +314,7 @@ UiViewer插件当前仅支持USB连接本地设备调测和本地模拟器进行
 以单设备工程为例，创建完成后的界面如下图所示。连接被测设备后，可右键点击模板用例文件代码编辑区域“执行hypium用例”来运行当前用例。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/L0jRR24LQVWD-xF84e2-GA/zh-cn_image_0000002492503754.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=26619DF21AE7B97241C33F3206D00631EBC009362BB86DD097349B90B3FA9951)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/ondePLe1Sc68iEL2s9py9w/zh-cn_image_0000002492503754.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=34D83E984890E8F48432F9FC4785413BE4987CF304E354201E9CEF0691EFD3B1)
 
  
  
@@ -330,7 +330,7 @@ UiViewer插件当前仅支持USB连接本地设备调测和本地模拟器进行
  
 a）直接使用以下附件中的模板工程。
  
-[HypiumProjectTemplate.zip](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260428202149.86767420690067113494768043790742:20260529110547:2800:11544099441E69FC057E6AC12D7C422F79D8D8148CD8B23E6F9C3D00371DACF0.zip?needInitFileName=true)
+[HypiumProjectTemplate.zip](https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20260605143416.07374567072026182423097294726872:20260612154938:2800:1BAD71F3F81EFE817F21A99C966FB0D296932315545033FFDBBDFBA4227728DB.zip?needInitFileName=true)
  
 b）通过PyCharm上的DevEcoTesting-Hypium插件进行创建。请参考本文档的**“安装向导 -> DevEco Testing Hypium插件安装及使用方法 -> 插件功能 -> 工程创建区域****”**小节。
  
@@ -781,7 +781,7 @@ driver.swipe(UiParam.LEFT)
 通过 DevEco Testing Hypium插件中的 UiViewer 工具，可以查看界面控件的各项属性，有助于在后续测试用例开发中准确定位控件。具体使用方法请参考本文档的**“安装向导 -> DevEco Testing Hypium插件安装及使用方法**“小节。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/-KuqTZQXRVmw6TH9rNFMRw/zh-cn_image_0000002524623459.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=74DD928611360EF560250EFA66E8C0647270A7E011FABBC17C68294E2259BFA6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/_upWp3pgQhCHzwu4JF8ZqA/zh-cn_image_0000002524623459.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=2B455FEDB86C25C8309D8AE7E833774D11B262006C30544F9A1F3605B6E08724)
 
  
 
@@ -821,7 +821,7 @@ component = driver.touch(BY.text(<span style="color: rgb(192,0,0);">"蓝牙"</sp
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/yz2fgREaRUynK59XbDxMVg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=543A215946006B5C08AAEABADBE3D402A8B4A75D4DE87A9AC1B12EEF532F1984)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/D8c5ZlhHToqPMPnch5GiOQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=1688E2C648F028E663444A667F61012DAD004470343DBDA77263CA1A90800D89)
  
 
 默认情况下，find_component和touch等方法会查找/操作第一个条件匹配的控件，如需操作第n个满足匹配条件的控件，请参考查找所有匹配控件。
@@ -895,7 +895,7 @@ component = driver.find_component(BY.text(<span style="color: rgb(192,0,0);">"�
 相对位置通常和控件的属性结合使用来定位控件，以下图场景为例，界面上存在多个按钮，用户需要点击显示通知图标之后的按钮，定位方式如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/VvDZowtlTX6-tAkNhJ2JCQ/zh-cn_image_0000002524623441.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=16C88C55ACFF6FD42D2D641209DCC4F35D203B1FFDB539125C44C5E8A201F99F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/1ap--PKeRiWj7ARAhmV-aQ/zh-cn_image_0000002524623441.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=10435A3B6BA7E2009A08D6A75E349389B67ABCDEBF720F1B84EB83DD0639624F)
 
  1. 首先选择一个可以通过属性唯一定位的锚点控件。例如**BY.text("显示通知图标")**
 2. 然后找到需要操作的目标控件，选择该控件的一个不唯一属性，通常为type属性。例如**BY.type("Button")**
@@ -924,7 +924,7 @@ component = driver.find_component(BY.<span style="color: rgb(79,129,189);">text<
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/E5PEA10vQ5-TAcWewBZgug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=2386669727E567B8C92F7EACE616654499EDD7BCD1BEB6FEC47B00BFFB129395)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/G-IkKIwMRMGpf801O2XeEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=9FB37E8E358B4CC832D9E5D1F2129E0CF295109B667C7425EF4BD0B85A2C1362)
  
 
 相对位置中的锚点控件**不能**再使用相对位置描述，即**BY.isBefore**方法的参数中不能再出现**BY.isBefore**或者**BY.isAfter**等相对定位的方式。
@@ -938,7 +938,7 @@ component = driver.find_component(BY.<span style="color: rgb(79,129,189);">text<
 BY.xpath匹配器支持通过XPath语法来查找控件。部分控件没有唯一定位的属性，同时通过相对定位的方式也无法准确定位，推荐使用XPath语法来进行更精确的控件定位。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/jRDVyvKgQxGNMfolpre3Yw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=07E8B8F9BC2205DD3BB8EBDCD20615D917289557F9105985EE0506727B89F98C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/MDn3CSf1SHS9XwXzLIrA8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=6BA29F7C78388731206223E4B854A64F7768B065738FDF9C8E53EDA75DD9175F)
  
 
 XPath不能和其他属性匹配一起使用，通过XPath查找控件相比单属性和多属性查找控件的效率会有所下降。
@@ -948,7 +948,7 @@ XPath不能和其他属性匹配一起使用，通过XPath查找控件相比单�
 在如下场景中，用户需要找到红框标识的图标，然而该图标没有唯一定位的属性，推荐使用XPath语法描述该控件相对其他可定位控件的路径关系来定位该控件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/HT0v78onSxCZqfksyhW-tQ/zh-cn_image_0000002492503760.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=0BC0205C7AC5783DC6BCA4D501C2B13FBE6B878D1628A995F52E7F653AEA8ED9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d9/v3/KKO9sD0DTJqeH12QnRTEtw/zh-cn_image_0000002492503760.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=C3EFEF0EC34DFDB618BE54CA26DCE7D2EC6899B1536881D35D7A8CB2AB298651)
 
  
 该页面上，“可用 WLAN”是一个固定的可唯一定位的文本，用户可以首先通过XPath定位到该文本**//*[@text='可用 WLAN']**，然后定位到该文本控件所在的List控件**/ancestor::List**，然后从该List控件开始找到对应的Image控件**/ListItemGroup/ListItem[1]//Text/following::Image**。
@@ -981,7 +981,7 @@ driver.touch(BY.xpath(<span style="color: rgb(192,0,0);">"//*[@text='WLAN']"</sp
 以如下场景为例，界面上存在多个Button，用户需要点击第2个特定的Button或点击所有Button时，可以使用**driver.find_all_components**。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/MNVAIoyHQd-YGK2spjEyhw/zh-cn_image_0000002524503477.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=5C9E59920167592BD64D4709FC40229895B77B209BA2AF1205F600E42C896784)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/rHAAqJhrSIm2ck1NoNzGLQ/zh-cn_image_0000002524503477.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=175FA423F4D12394665A076503CF569258F8B4816F5D06741EBA9AD847B7F793)
 
  
 **示例代码**
@@ -1005,13 +1005,13 @@ driver.touch(component[1])
 以如下场景为例，若红框中的控件没有可以唯一定位的属性，也无法通过与附近控件的相对位置定位，用户可以尝试使用图片匹配的方式定位控件，定位方式如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/V-w8xEhwQz-TmnxtJpFK7A/zh-cn_image_0000002524623447.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=853128B33D0CF11148623831C541562C1418988580E8B783DF06A9F97940F9D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/GITVhqONTSKHG4S3FJADfA/zh-cn_image_0000002524623447.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=9A72D6609E0328A32A140CABF89108F7CC575E720F8D5FE173E16E9C21989AC8)
 
  1. 截取红框中图片保存到为template.jpeg（文件名根据需要定义）。
 2. 调用driver.touch_image，传入template.jpeg图片的路径。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/lShcmBARRr62LBidHXsnnw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=DDC8A6850ECB56B26FF13574198CAE003DF14B4A60571E26B8D4D5C45CBD6BAE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/ICjH8IBwQOWn-z24wrnVaw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=94769E6D0A34928B1BCA659A6B2E8F6922B03719591C8F389B84DBA435526213)
  
 
 使用图片定位控件需要安装opencv-python包，使用如下命令安装：
@@ -1032,7 +1032,7 @@ bounds = driver.find_image(<span style="color: rgb(192,0,0);">"template.jpeg"</s
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/pbrMszWCQcqW8KxJ4aQX5A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=45A3931E07ADE16A2B13A99289008795B2CA67D3E32EB507BEE936428E452EF2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/EnZeqMhWREilJ8YM_s9KPA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=40236DB21CB7D6E3B7753DC63DD803119215C494F8CF555CC39B24360B38276B)
  
 
 当前仅支持查找匹配度最高的匹配的图片区域，不支持匹配多个目标。
@@ -1054,13 +1054,13 @@ bounds = driver.find_image(<span style="color: rgb(192,0,0);">"template.jpeg"</s
 以下图场景为例，如果红框中的控件无法通过上述方式定位，用户可以采用比例坐标的方式点击。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/VmZ8ii9IQlSHwRvCrM7Hug/zh-cn_image_0000002524503469.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=4F9E4179AA6C0065A4D241580054FA862D99C8A85F9E8E3DE64D8EE968352DE5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/ecXQ83kWTXawC4tSkyVl9g/zh-cn_image_0000002524503469.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=A8703CB96079EFB7BBCEDFC3670FE132E74B863AA74F017AEFDB0B17F70184CB)
 
  
 用户可以通过 UiViewer 工具的控件查看模式获取控件的比例坐标。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/A3Xc9ZZvSuuOBoBftHE5ZQ/zh-cn_image_0000002492343782.png?HW-CC-KV=V1&HW-CC-Date=20260528T030547Z&HW-CC-Expire=86400&HW-CC-Sign=E84AD155BE7CAC23093185EC1F9507830D17A1E30F532322B45D9F4CCD10B53C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/T4YKthTVSGGxQAUicAd1xA/zh-cn_image_0000002492343782.png?HW-CC-KV=V1&HW-CC-Date=20260611T074938Z&HW-CC-Expire=86400&HW-CC-Sign=668B6665ED32A838E4D97799BB7450B194F8F3486B287681F47A79D2E5C4D68F)
 
  
 ```text

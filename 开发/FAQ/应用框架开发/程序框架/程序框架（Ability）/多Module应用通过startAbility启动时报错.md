@@ -1,6 +1,6 @@
 # 多Module应用通过startAbility()启动时报错
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-20
 
@@ -10,7 +10,7 @@
  
 **解决措施**
  
-单击Run > Edit Configurations，设置指定模块的HAP安装方式，勾选“Keep Application Data”，表示采用覆盖安装方式，保留应用和服务的缓存数据。
+单击Run > Edit Configurations，在Deploy Multi Hap/Hsp中，勾选Deploy Multi Hap/Hsp Packaqes，选择多个模块。
  
 
 ![](assets/多Module应用通过startAbility启动时报错/file-20260515125628000-0.png)

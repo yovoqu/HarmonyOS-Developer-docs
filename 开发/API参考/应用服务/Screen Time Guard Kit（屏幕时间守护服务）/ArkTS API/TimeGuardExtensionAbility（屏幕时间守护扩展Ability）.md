@@ -1,6 +1,6 @@
 # TimeGuardExtensionAbility（屏幕时间守护扩展Ability）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-timeguardextensionability
 **支持设备：** Phone | Tablet
@@ -47,7 +47,7 @@ import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
 
 onStart(strategyName: string): Promise&lt;void&gt;
  
-应用所启动的策略管控生效时，执行该回调。使用Promise异步回调。
+当管控应用启动的策略管控生效时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -73,11 +73,22 @@ onStart(strategyName: string): Promise&lt;void&gt;
  
 ```text
 import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
-
-let index = 0;
+ 
+let index = 0; // 用于自增操作
+ 
+function asyncIncrement(): Promise<void> {
+  // index自增的异步操作
+  return new Promise<void>((resolve) => {
+    index++;
+    resolve();
+  });
+}
+ 
 export default class EntryAbility extends TimeGuardExtensionAbility {
-   async onStart(strategyName: string): Promise<void> {
-      console.info('test --- onStart', strategyName, index++);
+  async onStart(strategyName: string): Promise<void> {
+    // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑
+    await asyncIncrement();
+    console.info('test --- onStart:', strategyName, index);
   }
 }
 ```
@@ -90,7 +101,7 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
 
 onStop(strategyName: string): Promise&lt;void&gt;
  
-应用所启动的策略管控效果结束时，执行该回调。使用Promise异步回调。
+当管控应用启动的策略管控结束时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -116,11 +127,22 @@ onStop(strategyName: string): Promise&lt;void&gt;
  
 ```text
 import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
-
-let index = 0;
+ 
+let index = 0; // 用于自增操作
+ 
+function asyncIncrement(): Promise<void> {
+  // index自增的异步操作
+  return new Promise<void>((resolve) => {
+    index++;
+    resolve();
+  });
+}
+ 
 export default class EntryAbility extends TimeGuardExtensionAbility {
-   async onStop(strategyName: string): Promise<void> {
-      console.info('test --- onStop', strategyName, index++);
+  async onStop(strategyName: string): Promise<void> {
+    // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑
+    await asyncIncrement();
+    console.info('test --- onStop:', strategyName, index);
   }
 }
 ```
@@ -133,7 +155,7 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
 
 onUserAuthSwitchOn(): Promise&lt;void&gt;
  
-当用户在“设置 > 健康使用设备 > 可访问健康使用设备的应用”中授予应用授权时，应用接收该回调。使用Promise异步回调。
+当用户在“健康使用设备”中授予管控应用权限时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -152,12 +174,23 @@ onUserAuthSwitchOn(): Promise&lt;void&gt;
  
 ```text
 import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
-
-let index = 0;
+ 
+let index = 0; // 用于自增操作
+ 
+function asyncIncrement(): Promise<void> {
+  // index自增的异步操作
+  return new Promise<void>((resolve) => {
+    index++;
+    resolve();
+  });
+}
+ 
 export default class EntryAbility extends TimeGuardExtensionAbility {
-   async onUserAuthSwitchOn(): Promise<void> {
-      console.info('test --- onUserAuthSwitchOn', this.context, index++);
-   }
+  async onUserAuthSwitchOn(): Promise<void> {
+    // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑
+    await asyncIncrement();
+    console.info('test --- onUserAuthSwitchOn:', index);
+  }
 }
 ```
  
@@ -169,7 +202,7 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
 
 onUserAuthSwitchOff(): Promise&lt;void&gt;
  
-当用户在“设置 > 健康使用设备 > 可访问健康使用设备的应用”中撤销应用授权时，应用接收该回调。使用Promise异步回调。
+当用户在“健康使用设备”中授予管控应用权限时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -188,11 +221,22 @@ onUserAuthSwitchOff(): Promise&lt;void&gt;
  
 ```text
 import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
-
-let index = 0;
+ 
+let index = 0; // 用于自增操作
+ 
+function asyncIncrement(): Promise<void> {
+  // index自增的异步操作
+  return new Promise<void>((resolve) => {
+    index++;
+    resolve();
+  });
+}
+ 
 export default class EntryAbility extends TimeGuardExtensionAbility {
-   async onUserAuthSwitchOff(): Promise<void> {
-      console.info('test --- onUserAuthSwitchOff', this.context, index++);
+  async onUserAuthSwitchOff(): Promise<void> {
+    // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑
+    await asyncIncrement();
+    console.info('test --- onUserAuthSwitchOff:', index);
   }
 }
 ```

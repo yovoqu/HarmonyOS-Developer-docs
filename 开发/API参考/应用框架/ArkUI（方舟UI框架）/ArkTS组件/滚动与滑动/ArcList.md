@@ -1,6 +1,6 @@
 # ArcList
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclist
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,7 +41,7 @@ import { ArcList } from '@kit.ArkUI';
 仅支持[ArcListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-arclistitem)子组件。
 
 > [!NOTE]
-> ArcList的子组件索引值计算规则： 按子组件的顺序依次递增。 if/else 语句中，只有条件成立的分支内的子组件会参与索引值计算，条件不成立的分支内子组件不计算索引值。 ForEach / LazyForEach 语句中，会计算展开所有子节点索引值。 if/else 、 ForEach 和 LazyForEach 发生变化以后，会更新子节点索引值。 ArcList子组件 visibility 属性设置为Hidden或None依然会计算索引值。
+> ArcList的子组件索引值计算规则： 按子组件的顺序依次递增。 if/else 语句中，只有条件成立的分支内的子组件会参与索引值计算，条件不成立的分支内子组件不计算索引值。 ForEach / LazyForEach 语句中，会计算展开所有子组件索引值。 if/else 、 ForEach 和 LazyForEach 发生变化以后，会更新子组件索引值。 ArcList子组件 visibility 属性设置为Hidden或None依然会计算索引值。
 
 
 
@@ -622,4 +622,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/NNH7JSbjQF6wDOTafYs1AA/zh-cn_image_0000002581435750.png?HW-CC-KV=V1&HW-CC-Date=20260528T025549Z&HW-CC-Expire=86400&HW-CC-Sign=5EB235B1E5B74827F91E1851AD43514B55611E1EF3C107E3949E953ACC116CBB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/Tn-jBt4mT9iabRfIu0UIYQ/zh-cn_image_0000002592380018.png?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=052ECFC95CA8FE4D2392ACF403720437F25F70333F4BD5F4523DA169DA3DB2D6)

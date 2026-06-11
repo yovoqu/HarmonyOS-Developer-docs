@@ -1,6 +1,6 @@
 # 使用WindowManager管理多模输入事件（C/C++）
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-window-event-filter
 

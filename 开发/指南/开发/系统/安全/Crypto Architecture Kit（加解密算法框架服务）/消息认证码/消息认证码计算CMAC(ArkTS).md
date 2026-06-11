@@ -1,6 +1,6 @@
 # 消息认证码计算CMAC(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-compute-cmac
 
@@ -17,7 +17,7 @@ CMAC通过使用分组密码（如AES）和一个密钥生成认证码，确保�
 
 #### CMAC（一次性传入数据）
 1. 调用[cryptoFramework.createMac](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemac18)，指定消息认证码算法为CMAC，指定对称算法为AES128，生成消息认证码实例（Mac）。
-2. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)和[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为AES256的对称密钥（SymKey）。
+2. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)和[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为AES128的对称密钥（SymKey）。
 
   生成对称密钥的详细开发指导，请参考[指定二进制数据生成对称密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-binary-data-to-sym-key)。
 3. 调用[Mac.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-6)，指定共享对称密钥（SymKey），初始化Mac对象。
@@ -98,8 +98,8 @@ function doCmacBySync() {
 
 
 #### 分段CMAC
-1. 调用[cryptoFramework.createMac](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemac18)，指定消息认证码算法CMAC，对称算法AES256，生成消息认证码实例（Mac）。
-2. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)、[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为AES256的对称密钥（SymKey）。
+1. 调用[cryptoFramework.createMac](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemac18)，指定消息认证码算法CMAC，对称算法AES128，生成消息认证码实例（Mac）。
+2. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)、[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为AES128的对称密钥（SymKey）。
 
   生成对称密钥的详细开发指导，请参考[指定二进制数据生成对称密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-binary-data-to-sym-key)。
 3. 调用[Mac.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-7)，指定共享对称密钥（SymKey），初始化Mac对象。
@@ -131,7 +131,7 @@ async function doLoopCmac() {
   };
   let mac = cryptoFramework.createMac(spec);
   // 假设消息共43字节，根据UTF-8解码后，仍是43字节。
-  let messageText = 'aaaaa......bbbbb......ccccc......ddddd......eee';
+  let messageText = 'aaaaa.....bbbbb.....ccccc.....ddddd.....eee';
   let messageData = new Uint8Array(buffer.from(messageText, 'utf-8').buffer);
   let updateLength = 20; // 假设以20字节为单位进行分段update，实际并无具体要求。
   await mac.init(key);

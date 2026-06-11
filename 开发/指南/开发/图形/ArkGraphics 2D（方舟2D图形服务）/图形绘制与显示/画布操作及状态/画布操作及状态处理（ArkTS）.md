@@ -1,6 +1,6 @@
 # 画布操作及状态处理（ArkTS）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-operation-state-arkts
 
@@ -201,7 +201,7 @@ canvas.detachBrush();
 
 #### 接口说明
 
-画布状态保存与恢复使用的接口如下表所示，详细的使用和参数说明请见[canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas)。
+画布状态保存与恢复使用的接口如下表所示，详细的使用和参数说明请见[drawing.Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-canvas)。
 
 | 接口 | 描述 |
 | --- | --- |
@@ -236,7 +236,7 @@ canvas.detachPen();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/hIRomCcXS8yIHr_7c2o4nA/zh-cn_image_0000002581274812.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030532Z&HW-CC-Expire=86400&HW-CC-Sign=5822EFC96EEF9775705BC7B994A467CD81F846A333DBF24ECB3F4B4ED132785E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/E2hIs8msTDybfaNZcnc9-A/zh-cn_image_0000002622698629.jpg?HW-CC-KV=V1&HW-CC-Date=20260611T074930Z&HW-CC-Expire=86400&HW-CC-Sign=1B83090B74F7817532FC9D0D7D6B0FA5F5256A61FEF001C7CDAEC779AB49123B)
 
 
 

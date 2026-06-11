@@ -1,10 +1,10 @@
 # 通过Authorization Code获取GroupUnionID
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-groupunionid-code
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/hCmXeps2Tmap2d7hRkF9sQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025117Z&HW-CC-Expire=86400&HW-CC-Sign=FB15E1270C158DD88BE39BE5045A50954BD70350DE77A9F8046F21F81D8DABB9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/v9HOoOUkT2uOXU-B4PC22g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074846Z&HW-CC-Expire=86400&HW-CC-Sign=444CE2FF0B688C190F9BA6B2761C9D566E8DCEE4060A73A81DD397065E23BC58)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -111,7 +111,7 @@ grant_type=authorization_code&code=&client_id=<client_id>&client_secret=<client_
 | token_type | 是 | String | 固定字符串“Bearer”。 |
 | access_token | 是 | String | Access Token，访问被权限管控资源的凭证。Access Token长度详见Access Token和Refresh Token长度限制要求。 |
 | scope | 是 | String | Access Token中的scope，以空格分隔，最大不会超过150个。 |
-| expires_in | 是 | Integer | Access Token的过期时间，以秒为单位。有效期为3600秒。 |
+| expires_in | 是 | Integer | Access Token的过期时间，单位：s。默认有效期为3600s。 |
 | refresh_token | 是 | String | Refresh Token，用于刷新Access Token。Refresh Token有效期为180天，长度详见Access Token和Refresh Token长度限制要求。 |
 | id_token | 是 | String | ID Token（JWT格式），详细信息请参见验证ID Token有效性中ID Token描述。 |
 | group_union_id | 否 | String | GroupUnionID是用户在关联主体账号组内的统一身份标识，使用场景详见不同开发者的应用之间如何实现用户数据互通。当请求参数need_group_union_id不传或者为false时，该字段不返回。 |

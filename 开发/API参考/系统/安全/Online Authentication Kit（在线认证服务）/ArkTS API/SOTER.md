@@ -1,6 +1,6 @@
 # SOTER
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -68,7 +68,7 @@ import { soter } from '@kit.OnlineAuthenticationKit';
 
 getVersionSync(): string
  
-该接口用于获取SOTER免密认证API接口的版本号，同步返回结果。
+获取SOTER免密认证API接口的版本号，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -107,7 +107,7 @@ let res: string = soter.getVersionSync();// 开发者处理结果
 
 getVersion(): Promise&lt;string&gt;
  
-该接口用于获取SOTER免密认证API接口的版本号，使用Promise异步回调。
+获取SOTER免密认证API接口的版本号，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -154,7 +154,7 @@ resPromise.then(result => {
 
 hasAppSecureKeySync(keyType: KeyType): boolean
  
-该接口用于查询应用密钥的生成状态，同步返回结果。
+查询应用密钥的生成状态，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -205,7 +205,7 @@ console.info('Succeeded in doing hasAppSecureKeySync. hasAppSecureKey:', hasAppS
 
 hasAppSecureKey(keyType: KeyType): Promise&lt;boolean&gt;
  
-该接口用于查询应用密钥的生成状态，使用Promise异步回调。
+查询应用密钥的生成状态，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -263,7 +263,7 @@ hasAppSecureKeyPromise.then(result => {
 
 generateAppSecureKeySync(keyType: KeyType): Uint8Array
  
-该接口用于生成App应用密钥，同步返回结果。
+生成App应用密钥，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -314,7 +314,7 @@ console.info('Succeeded in doing generateAppSecureKeySync. appSecureKey:', appSe
 
 generateAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
  
-该接口用于生成App应用密钥，使用Promise异步回调。
+生成App应用密钥，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -372,7 +372,7 @@ appSecureKeyPromise.then(result => {
 
 getAppSecureKeySync(keyType: KeyType): Uint8Array
  
-该接口用于获取App应用密钥，同步返回结果。
+获取App应用密钥，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -423,7 +423,7 @@ console.info('Succeeded in doing getAppSecureKeySync. appSecureKey:', appSecureK
 
 getAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
  
-该接口用于获取App应用密钥，使用Promise异步回调。
+获取App应用密钥，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -481,7 +481,7 @@ appSecureKeyPromise.then(result => {
 
 hasAuthKeySync(keyAlias: string, keyType: KeyType): boolean
  
-该接口用于查询AuthKey生成状态，同步返回结果。
+查询AuthKey生成状态，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -534,7 +534,7 @@ console.info('Succeeded in doing hasAuthKeySync. hasAuthKey:', hasAuthKey);
 
 hasAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;boolean&gt;
  
-该接口用于查询AuthKey生成状态，使用Promise异步回调。
+查询AuthKey生成状态，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -594,7 +594,7 @@ hasAuthKeyPromise.then((result: boolean) => {
 
 generateAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
-该接口用于生成AuthKey，同步返回结果。
+生成AuthKey，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -648,7 +648,7 @@ console.info('Succeeded in doing generateAuthKeySync. authKey:', authKey);
 
 generateAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
-该接口用于生成AuthKey，使用Promise异步回调。
+生成AuthKey，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -708,7 +708,7 @@ authKeyPromise.then(result => {
 
 getAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
-该接口用于获取AuthKey，同步返回结果。
+获取AuthKey，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -762,7 +762,7 @@ console.info('Succeeded in doing getAuthKeySync. authKey:', authKey);
 
 getAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
-该接口用于获取AuthKey，使用Promise异步回调。
+获取AuthKey，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -822,7 +822,7 @@ authKeyPromise.then(result => {
 
 generateChallengeSync(keyAlias: string): Uint8Array
  
-该接口用于生成Challenge，同步返回结果。
+生成Challenge，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -873,7 +873,7 @@ console.info('Succeeded in doing generateChallengeSync. challenge:', challenge);
 
 generateChallenge(keyAlias: string): Promise&lt;Uint8Array&gt;
  
-该接口用于生成Challenge，使用Promise异步回调。
+生成Challenge，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -931,7 +931,7 @@ challengePromise.then(result => {
 
 signWithAuthKeySync(keyAlias: string, authToken: Uint8Array, info: string): SignedResult
  
-该接口用于SOTER免密认证，同步返回签名的报文。
+SOTER免密认证，同步返回签名的报文。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -985,7 +985,7 @@ console.info('Succeeded in doing signWithAuthKeySync. authResult:', JSON.stringi
 
 signWithAuthKey(keyAlias: string, authToken: Uint8Array, info: string): Promise&lt;SignedResult&gt;
  
-该接口用于SOTER免密认证，使用Promise异步回调返回签名的报文。
+SOTER免密认证，使用Promise异步回调返回签名的报文。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1046,7 +1046,7 @@ authResultPromise.then(result => {
 
 deleteAuthKeySync(keyAlias: string): void
  
-该接口用于删除AuthKey。
+删除AuthKey。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1088,7 +1088,7 @@ soter.deleteAuthKeySync(keyAlias);
 
 deleteAuthKey(keyAlias: string): Promise&lt;void&gt;
  
-该接口用于删除AuthKey，使用Promise异步回调。
+删除AuthKey，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1144,7 +1144,7 @@ delPromise.then(() => {
 
 deleteAppSecureKeySync(): void
  
-该接口用于删除应用密钥，同步返回结果。
+删除应用密钥，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1177,7 +1177,7 @@ soter.deleteAppSecureKeySync();
 
 deleteAppSecureKey(): Promise&lt;void&gt;
  
-该接口用于删除应用密钥，使用Promise异步回调。
+删除应用密钥，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  

@@ -1,6 +1,6 @@
 # CreateVecIndex
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-data-createvecindex
 
@@ -97,7 +97,7 @@ public:
     }
     __aicore__ inline void Process()
     {
-        // Do not need CopyIn
+        // 无需CopyIn
         Compute();
         CopyOut();
     }

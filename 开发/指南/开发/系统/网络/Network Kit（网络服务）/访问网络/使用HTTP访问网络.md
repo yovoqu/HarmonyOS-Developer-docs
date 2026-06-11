@@ -1,6 +1,6 @@
 # 使用HTTP访问网络
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request
 
@@ -677,9 +677,9 @@ struct Index {
 5. 配置跳过证书校验：       
 HTTPS：通过[remoteValidation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http#remotevalidation18) = 'skip' 配置。
 
-6. WebSocket：通过[websocketrequestoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#websocketrequestoptions)的skipServerCertVerification = false 配置。
+6. WebSocket：通过[websocketrequestoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket#websocketrequestoptions)的skipServerCertVerification = true 配置。
 
-7. TLSSocket：通过[tlsconnectoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#tlsconnectoptions9)的skipRemoteValidation = false 配置。
+7. TLSSocket：通过[tlsconnectoptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket#tlsconnectoptions9)的skipRemoteValidation = true 配置。
 
   **调试参考**
 
@@ -715,7 +715,7 @@ openssl s_client -servername www.example.com -connect www.example.com:443 \
 直接把证书原文件预置在APP中。目前支持crt和pem格式的证书文件。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/nRFahURRReWJM5OUjDZucw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030240Z&HW-CC-Expire=86400&HW-CC-Sign=4B94A071680E2B9006533A7B9F3205F1336D779A8187DEFC91382D6514C6316F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/CKWhhEW8SRSoMOKy5wimFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074927Z&HW-CC-Expire=86400&HW-CC-Sign=3A26750D5CC36B0E4CA707E2949A78EB12154BB2F694E0E9CBE5CCBF42C33BBC)
 
 
 当前ohos.net.http和Image组件的证书锁定，会匹配证书链上所有证书的哈希值，如果服务器更新了任意一本证书，都会导致校验失败。如果服务器出现了更新证书的情况，APP版本应当随之更新并推荐消费者尽快升级APP版本，否则可能导致联网失败。
@@ -877,7 +877,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 {
   "network-security-config": {
     "base-config": {
-      "cleartextTrafficPermitted": true // 可选，自API version 20开始支持该属性。
+      "cleartextTrafficPermitted": true // 可选，自API version 18开始支持该属性。
     },
     "domain-config": [
       {
@@ -887,7 +887,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
             "name": "example.com"
           }
         ],
-        "cleartextTrafficPermitted": false // 可选，自API version 20开始支持该属性。
+        "cleartextTrafficPermitted": false // 可选，自API version 18开始支持该属性。
       }
     ],
     "component-config": {
@@ -905,13 +905,13 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 
 | 字段 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| base-config | array | 否 | 指示应用程序范围的明文配置。优先级最低。 |
+| base-config | object | 否 | 指示应用程序范围的明文配置。优先级最低。 |
 | cleartextTrafficPermitted18+ | boolean | 否 | 明文HTTP是否允许。true表示允许，false表示不允许，默认为true。 |
 | domain-config | array | 否 | 指示每个域的明文配置。可以包含任意个item。每个item必须包含1个domains。若相同域存在规则冲突时，以匹配到的第一条为准。优先级次于component-config。 |
 | include-subdomains | boolean | 否 | 配置为true时，name支持正则匹配。配置为false时，name不支持正则匹配。注意：每增加1000条域名配置，正则匹配的延迟将增加大约10至15毫秒。当域名配置数量超过10000条时，正则匹配会带来较高耗时。默认为true。 |
 | name | string | 否 | 配置主域名。 |
-| component-config20+ | array | 否 | 指示每个组件的明文配置。优先级最高。 |
-| Request | boolean | 否 | Request从API version 18开始默认支持明文HTTP功能，不可配置。从API version 20开始支持配置开启或关闭明文HTTP功能 。true表示支持，false表示不支持，默认为true。 |
+| component-config20+ | object | 否 | 指示每个组件的明文配置。优先级最高。 |
+| Request | boolean | 否 | Request从API version 18开始默认支持明文HTTP功能，不可配置。从API version 20开始支持配置开启或关闭明文HTTP功能。true表示支持，false表示不支持，默认为true。 |
 | Network Kit | boolean | 否 | Network Kit从API version 18开始默认支持明文HTTP功能，不可配置。从API version 20开始支持配置开启或关闭明文HTTP功能。true表示支持，false表示不支持，默认为true。 |
 | ArkWeb | boolean | 否 | ArkWeb从API version 20开始支持配置开启或关闭明文HTTP功能。true表示支持，false表示不支持，默认为false。 |
 | Media Kit | boolean | 否 | Media Kit从API version 23开始支持配置开启或关闭明文HTTP功能。true表示支持，false表示不支持，默认为false。 |
@@ -931,7 +931,7 @@ openssl dgst -sha256 -binary www.example.com.pubkey.der | openssl base64
 | 拦截点名称 | 位置说明 | 拦截点interceptorHandle接口的出参和入参 |
 | --- | --- | --- |
 | 初始请求拦截点（INITIAL_REQUEST） | 初始请求组装完成后，这是第一个拦截点，适合用于添加全局参数、签名、加密请求体。 | 当出参为true时，此时入参中的request值为原始值，可以修改，response值为空值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为空值，可以修改。 |
-| 网络连接拦截点（CONNECT_NETWORK） | 在网络连接建立之前，例如TCP/TLS连接。适合进行网络链路相关的操作，如记录网络连接开始时间。 | 当出参为true时，此时入参中的request值为原始值，可以修改，response值为空值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为空值，可以修改。 |
+| 网络连接拦截点（NETWORK_CONNECT） | 在网络连接建立之前，例如TCP/TLS连接。适合进行网络链路相关的操作，如记录网络连接开始时间。 | 当出参为true时，此时入参中的request值为原始值，可以修改，response值为空值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为空值，可以修改。 |
 | 缓存拦截点（CACHE_CHECKED） | 缓存检查逻辑命中缓存之后，已确认存在可用缓存。适用于查看缓存值或者修改查询到的缓存结果。 | 当出参为true时，此时入参中的request值为原始值，修改无效，response值为原始值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为原始值，可以修改。 |
 | 重定向拦截点（REDIRECTION） | 收到重定向响应并准备发送新请求之前。允许修改重定向的目标URL或请求信息。 | 当出参为true时，此时入参中的request值为原始值，可以修改URL，response值为原始值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为原始值，可以修改。 |
 | 最终响应拦截点（FINAL_RESPONSE） | 获得最终响应之后。最后一个拦截点，适合对响应进行统一解密、解析、日志记录、错误处理。 | 当出参为true时，此时入参中的request值为原始值，修改无效，response值为原始值，修改无效。 当出参为false时，此时入参中的request值为原始值，修改无效，response值为原始值，可以修改。 |

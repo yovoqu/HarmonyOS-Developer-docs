@@ -1,6 +1,6 @@
 # 使用SM2密钥对签名验签 (C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sm2-sign-sig-verify-pkcs1-ndk
 
@@ -158,7 +158,7 @@ bool DoTestSm2Signature()
         return false;
     }
     bool res = OH_CryptoVerify_Final(verify, &msgBlob, &signBlob);
-    if (ret != true) {
+    if (res != true) {
         OH_CryptoVerify_Destroy(verify);
         OH_CryptoAsymKeyGenerator_Destroy(keyCtx);
         return false;

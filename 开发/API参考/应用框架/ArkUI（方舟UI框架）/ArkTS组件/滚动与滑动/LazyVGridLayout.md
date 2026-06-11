@@ -1,13 +1,13 @@
 # LazyVGridLayout
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-lazyvgridlayout
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 该组件用于实现支持懒加载的网格布局，其父组件仅限于[WaterFlow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-waterflow)或[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)，并支持使用自定义组件、[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)组件封装后，在WaterFlow或FlowItem组件下应用。
  
-该组件仅在WaterFlow组件的单列模式或分段布局中的单列分段，并且布局方向[FlexDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexdirection)设置为FlexDirection.Column的情况下支持懒加载。在WaterFlow的多列模式或布局方向为FlexDirection.Row或FlexDirection.RowReverse的情况下使用该组件，则不支持懒加载。此外，在布局方向为FlexDirection.ColumnReverse的WaterFlow组件下使用该组件会导致显示异常。当懒加载功能生效时，该组件仅加载WaterFlow显示区域内的子组件，并在帧间空闲时隙预加载显示区域上方和下方各半屏的内容。
+该组件仅在WaterFlow组件的单列模式或分段布局中的单列分段，并且布局方向[FlexDirection](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#flexdirection)设置为FlexDirection.Column的情况下支持懒加载。在WaterFlow的多列模式或布局方向为横向（FlexDirection.Row或FlexDirection.RowReverse）的情况下使用该组件，则不支持懒加载。此外，在布局方向为FlexDirection.ColumnReverse的WaterFlow组件下使用该组件会导致显示异常。当懒加载功能生效时，该组件仅加载WaterFlow显示区域内的子组件，并在帧间空闲时隙预加载显示区域上方和下方各半屏的内容。
  
 > [!NOTE]
 > 该组件从API version 19开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 LazyVGridLayout组件高度默认自适应内容，不建议设置高度、高度约束或宽高比，设置后会导致显示异常。
@@ -52,9 +52,13 @@ columnsTemplate('repeat(auto-fill, track-size)')是设置固定列宽值为track
  
 columnsTemplate('repeat(auto-stretch, track-size)')是设置固定列宽值为track-size，使用columnsGap为最小列间距，自动计算列数和实际列间距。
  
-其中repeat、auto-fit、auto-fill、auto-stretch为关键字。track-size为列宽，支持的单位包括px、vp、%或有效数字，默认单位为vp，track-size至少包含一个有效列宽。
+其中repeat、auto-fit、auto-fill、auto-stretch为关键字。
  
-auto-fit模式和auto-stretch模式只支持track-size为一个有效列宽值，并且auto-stretch模式中的track-size只支持px、vp和有效数字，不支持%。auto-fill模式支持一个或多个有效列宽，如columnsTemplate('repeat(auto-fill, 20)')、columnsTemplate('repeat(auto-fill, 20 80px)')。
+track-size为列宽，支持的单位包括px、vp、%或有效数字，默认单位为vp，track-size至少包含一个有效列宽。
+ 
+auto-fit模式和auto-stretch模式只支持track-size为一个有效列宽值，并且auto-stretch模式中的track-size只支持px、vp和有效数字，不支持%。
+ 
+auto-fill模式支持一个或多个有效列宽，如columnsTemplate('repeat(auto-fill, 20)')、columnsTemplate('repeat(auto-fill, 20 80px)')。
  
 设置为'0fr'时，该列的列宽为0，不显示子组件。设置为其他非法值时，子组件显示为固定1列。
  
@@ -87,7 +91,7 @@ columnsGap(value: LengthMetrics): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | LengthMetrics | 是 | 列与列的间距。 默认值：0vp |
+| value | LengthMetrics | 是 | 列与列的间距。 默认值：LengthMetrics.vp(0) |
  
  
 **返回值：**
@@ -115,7 +119,7 @@ rowsGap(value: LengthMetrics): T
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | LengthMetrics | 是 | 行与行的间距。 默认值：0vp |
+| value | LengthMetrics | 是 | 行与行的间距。 默认值：LengthMetrics.vp(0) |
  
  
 **返回值：**
@@ -155,6 +159,7 @@ struct LazyVGridLayoutSample1 {
   build() {
     Column() {
       WaterFlow() {
+        // 第一个LazyVGridLayout：单列布局
         LazyVGridLayout() {
           LazyForEach(this.arr1, (item:number)=>{
             Text('item' + item.toString())
@@ -165,9 +170,10 @@ struct LazyVGridLayoutSample1 {
               .textAlign(TextAlign.Center)
           })
         }
-        .columnsTemplate('1fr')
-        .rowsGap(LengthMetrics.vp(10))
+        .columnsTemplate('1fr') // 单列布局
+        .rowsGap(LengthMetrics.vp(10)) // 行间距10vp
 
+        // 第二个LazyVGridLayout：双列布局
         LazyVGridLayout() {
           LazyForEach(this.arr2, (item:number)=>{
             Text('item' + item.toString())
@@ -178,9 +184,9 @@ struct LazyVGridLayoutSample1 {
               .textAlign(TextAlign.Center)
           })
         }
-        .columnsTemplate('1fr 1fr')
-        .rowsGap(LengthMetrics.vp(10))
-        .columnsGap(LengthMetrics.vp(10))
+        .columnsTemplate('1fr 1fr') // 双列布局，两列等宽
+        .rowsGap(LengthMetrics.vp(10)) // 行间距10vp
+        .columnsGap(LengthMetrics.vp(10)) // 列间距10vp
       }.padding(10)
       .rowsGap(10)
     }
@@ -188,6 +194,7 @@ struct LazyVGridLayoutSample1 {
     .backgroundColor('#DCDCDC')
   }
 
+  // 初始化数据源
   aboutToAppear(): void {
     for (let i = 0; i < 6; i++) {
       this.arr1.pushData(i);
@@ -290,4 +297,4 @@ export class MyDataSource<T> extends BasicDataSource<T> {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/cBJE2PIdQF6T4Hqc-KvQqg/zh-cn_image_0000002581275864.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=FD5DB77882F3F17A4F92F82E1B91995AAE7887F67B2304982D41CFABB67862E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/Qxpyl_j-T56ZdRoTXCd2xg/zh-cn_image_0000002622699679.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074825Z&HW-CC-Expire=86400&HW-CC-Sign=19313385206D880BC0BA843F8744381A3BAC95281A7618B5243DD29601C9F3A5)

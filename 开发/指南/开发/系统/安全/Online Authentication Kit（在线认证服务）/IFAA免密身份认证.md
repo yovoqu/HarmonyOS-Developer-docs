@@ -1,6 +1,6 @@
 # IFAA免密身份认证
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-ifaa
 
@@ -67,7 +67,7 @@ try {
 | register(registerData: Uint8Array): Promise&lt;Uint8Array&gt; | 开通指定用户的指定生物信息类型（指纹/3D人脸）的IFAA免密身份认证能力。 |
 | auth(authToken: Uint8Array, authData: Uint8Array): Promise&lt;Uint8Array&gt; | 使用指定用户的生物信息类型进行IFAA免密身份认证。 |
 | deregisterSync(deregisterData: Uint8Array): void | 注销指定用户指定生物信息类型（指纹/3D人脸）的IFAA免密身份认证能力。 |
-| getAnonymousIdSync(userToken: Uint8Array): Uint8Array | 获取移动端设备标识ID。 |
+| getAnonymousIdSync(userToken: Uint8Array): Uint8Array | 获取IFAA免密认证的匿名化ID。 |
 
 
 

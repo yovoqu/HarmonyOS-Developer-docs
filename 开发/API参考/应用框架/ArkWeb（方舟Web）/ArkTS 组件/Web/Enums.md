@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -468,8 +468,8 @@ Web布局模式的配置。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| ASYNC_RENDER | 0 | Web组件异步渲染模式，ArkWeb组件作为图形surface节点，独立送显，Web组件的宽度最大规格不超过7,680 px（物理像素）。 |
-| SYNC_RENDER | 1 | Web组件同步渲染模式，ArkWeb组件作为图形canvas节点，跟随系统组件一起送显，可以渲染更长的Web组件内容，Web组件的宽度最大规格不超过500,000 px（物理像素）。 |
+| ASYNC_RENDER | 0 | Web组件异步渲染模式，ArkWeb组件作为图形surface节点，独立送显，Web组件的高度最大规格不超过7,680 px（物理像素）。 |
+| SYNC_RENDER | 1 | Web组件同步渲染模式，ArkWeb组件作为图形canvas节点，跟随系统组件一起送显，可以渲染更长的Web组件内容，Web组件的高度最大规格不超过500,000 px（物理像素）。 |
  
  
   

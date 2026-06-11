@@ -1,6 +1,6 @@
 # Configure构建工程配置HarmonyOS编译工具链
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-configure-build-project
 
@@ -134,8 +134,8 @@ owner@ubuntu:/mnt/e/configure/jpeg-9e$ export CXXFLAGS="-fPIC -D__MUSL__=1"     
 ```bash
 owner@ubuntu:/mnt/e/configure/jpeg-9e$ ./configure --prefix=xxx/jpeg --host=aarch64-linux       # 执行configure命令配置交叉编译信息
 checking build system type... x86_64-pc-linux-gnu
-checking host system type... x86_64-pc-linux-gnu
-checking target system type... x86_64-pc-linux-gnu
+checking host system type... aarch64-unknown-linux-gnu
+checking target system type... aarch64-unknown-linux-gnu
 ...
 # 省略部分configure信息
 ...

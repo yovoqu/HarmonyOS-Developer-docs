@@ -1,6 +1,6 @@
 # 真机设备连接后，在DevEco Studio中无法识别设备
 
-更新时间：2026-03-12 12:31:01
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-3
 

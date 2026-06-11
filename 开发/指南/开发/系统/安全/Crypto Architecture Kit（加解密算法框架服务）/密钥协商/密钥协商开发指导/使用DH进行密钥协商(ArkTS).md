@@ -1,6 +1,6 @@
 # 使用DH进行密钥协商(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-agreement-using-dh
 
@@ -47,7 +47,7 @@ async function dhAwait() {
 ```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-function dhAwait() {
+function dhSync() {
   let keyGen = cryptoFramework.createAsyKeyGenerator('DH_modp1536');
   // 随机生成公私钥对A
   let keyPairA = keyGen.generateKeyPairSync();

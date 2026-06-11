@@ -1,6 +1,6 @@
 # ohpm list
 
-更新时间：2026-04-22 06:52:30
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-list
 
@@ -133,7 +133,7 @@ ohpm list
  结果示例：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/xzN7GSGSQUiJkUBORnBjew/zh-cn_image_0000002602186513.png?HW-CC-KV=V1&HW-CC-Date=20260528T030634Z&HW-CC-Expire=86400&HW-CC-Sign=6A5949CD8F1C334DED8A46D6A263D486F1E4040AEA7D4709A941BCD8053C888A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/Xc9fpSQES-KanAgDfmZ1tg/zh-cn_image_0000002602186513.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=1FC0F08F30FC02AE89BA2E116541A8DD7068ABDAFDC67E828DAE53892F76C8F0)
 
 - 查看当前项目安装的**某个**三方库的依赖关系
 
@@ -146,7 +146,7 @@ ohpm list universalify
  结果示例：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/tYLmsJcfSEa7fCI6iMNLBw/zh-cn_image_0000002571387344.png?HW-CC-KV=V1&HW-CC-Date=20260528T030634Z&HW-CC-Expire=86400&HW-CC-Sign=58F0A545567121A243C891C919FA78D9A41EC092306990957638B0B8450C6800)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/nPuB8PUnRu6KfyqLpBJWjQ/zh-cn_image_0000002571387344.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=42E5A3B3B60DE1F8046837165C50121C68A985BA24F874F28F36AC5A0B255389)
 
 - 查看当前项目所有module安装的**所有**三方库及依赖关系。执行以下命令：
 

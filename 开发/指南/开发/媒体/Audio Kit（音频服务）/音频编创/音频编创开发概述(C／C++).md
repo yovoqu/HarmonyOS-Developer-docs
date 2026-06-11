@@ -1,6 +1,6 @@
 # 音频编创开发概述(C/C++)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite
 
@@ -17,9 +17,9 @@
 
 #### 引擎
 
-[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)中的引擎是一个统一管理音频管线、控制[离线编辑(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-manual-rendering)和[实时渲染(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-real-time-rendering)的对象，开发者可以根据自身的需求搭建音频处理链。调用方式如上图所示，由应用发起，先调用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)的接口依次创建引擎、管线、节点，再把创建的节点在管线内连接起来，用于传输PCM（Pulse Code Modulation）音频数据，使对应的效果节点实现音效处理能力。当管线停止时，开发者可以有限制地（具体规则请参考[管线的组成和编排](#管线的组成和编排)）连接、断开和移除节点，通过调节节点编排实现复杂的音效处理。
+[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)中的引擎是一个统一管理音频管线、控制[离线编辑(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-manual-rendering)和[实时预览(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-real-time-rendering)的对象，开发者可以根据自身的需求搭建音频处理链。调用方式如上图所示，由应用发起，先调用[OHAudioSuite](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudiosuite)的接口依次创建引擎、管线、节点，再把创建的节点在管线内连接起来，用于传输PCM（Pulse Code Modulation）音频数据，使对应的效果节点实现音效处理能力。当管线停止时，开发者可以有限制地（具体规则请参考[管线的使用规则](#管线的使用规则)）连接、断开和移除节点，通过调节节点编排实现复杂的音效处理。
 
-引擎最多支持创建10条管线，其中实时渲染管线最多创建1条。
+引擎最多支持创建10条管线，其中实时预览管线最多创建1条。
 
 
 
@@ -49,7 +49,7 @@
  - 输入节点负责处理PCM音频数据输入，从应用侧获取数据。
  - 输出节点负责处理PCM音频数据输出，开发者可以设置音频数据的输出格式。
  - [离线编辑(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-manual-rendering)场景支持均衡器、音源分离、声场效果、降噪、声音美化、环境效果、混音等音效节点。
- - [实时渲染(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-real-time-rendering)场景支持均衡器音效节点。
+ - [实时预览(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-real-time-rendering)场景支持均衡器音效节点。
  - 均衡器、音源分离、声场效果、降噪等音效节点支持对应的音效处理功能和多音频混音操作，最终输出的PCM音频数据支持格式设置（如[OH_Audio_SampleFormat(位深度)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audio_sampleformat)、[OH_Audio_SampleRate(采样率)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audio_samplerate)和[OH_AudioChannelLayout(声道数)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-channel-layout-h#oh_audiochannellayout)等）。
 
 
@@ -57,7 +57,7 @@
 
 #### 管线
 
-管线是一个统一管理音频节点连接、配置的对象，支持两种工作模式，分别是[离线编辑(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-manual-rendering)和[实时渲染(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-real-time-rendering)。
+管线是一个统一管理音频节点连接、配置的对象，支持两种工作模式，分别是[离线编辑(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-manual-rendering)和[实时预览(C/C++)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-real-time-rendering)。
 
 管线的数据处理采用反向驱动机制。由[OH_AudioSuiteEngine_RenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_renderframe)或者[OH_AudioSuiteEngine_MultiRenderFrame()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_multirenderframe)发起，输出节点逐级向连接的上游节点请求数据，最终由输入节点的[OH_InputNode_RequestDataCallback()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_inputnode_requestdatacallback)回调函数向开发者请求需要处理的音频数据。
 
@@ -87,21 +87,32 @@
 
 
 
-#### 管线的组成和编排
+#### 管线的使用规则
 
-管线由节点编排组成。每一个管线中，输入节点[INPUT_NODE_TYPE_DEFAULT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)不超过5个，输出节点[OUTPUT_NODE_TYPE_DEFAULT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)不超过1个，效果类节点不超过5个，其中混音节点[EFFECT_NODE_TYPE_AUDIO_MIXER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)不超过3个，音源分离节点[EFFECT_MULTII_OUTPUT_NODE_TYPE_AUDIO_SEPARATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)不超过1个。
+管线由节点编排组成，管线创建节点规则如下所示。
 
-管线创建节点规则如下所示。
+ - 管线通过[OH_AudioSuiteEngine_CreateNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_createnode)接口创建节点时，如果已创建的节点数量超过系统限制后，接口将返回错误码[AUDIOSUITE_ERROR_CREATED_EXCEED_SYSTEM_LIMITS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audiosuite_result)。       
+在API version 24之前，输入节点[INPUT_NODE_TYPE_DEFAULT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)的数量不超过5个；在API version 24及以后，输入节点[INPUT_NODE_TYPE_DEFAULT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)的数量不超过15个。
+ - 输出节点[OUTPUT_NODE_TYPE_DEFAULT](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)的数量不超过1个。
+ - 混音节点[EFFECT_NODE_TYPE_AUDIO_MIXER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)的数量不超过3个。
+ - 音源分离节点[EFFECT_MULTII_OUTPUT_NODE_TYPE_AUDIO_SEPARATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)的数量不超过1个。
+ - 在API version 24之前，其余效果类节点的数量每类不超过5个；在API version 24及以后，其余效果类节点的数量每类不超过15个。
 
- - 管线创建的节点数量超过该类型的限制后，再创建该类型节点会失败。
- - 每条管线至少要有1个输入节点，有且只有1个输出节点。
+      - 每条管线至少要有1个输入节点，有且只有1个输出节点。
  - 创建节点前需要调用[OH_AudioSuiteEngine_IsNodeTypeSupported()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-engine-h#oh_audiosuiteengine_isnodetypesupported)检查节点类型是否受支持，避免创建节点失败。
  - 输入节点和输出节点支持设置节点格式，其余节点不支持设置格式。输入的格式是音频源的音频格式，输出的格式是开发者期望输出的音频格式。
 
 
 管线中节点的编排规则如下所示。
 
- - 管线连接顺序为：输入节点 -> 效果节点 -> 输出节点。
+ - 管线中节点连接顺序为：输入节点 -> 效果节点 -> 输出节点。
  - 音源分离效果节点[EFFECT_MULTII_OUTPUT_NODE_TYPE_AUDIO_SEPARATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)后面只能连接输出节点，其余效果类节点则没有这个限制。
  - 混音效果节点[EFFECT_NODE_TYPE_AUDIO_MIXER](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audio-suite-base-h#oh_audionode_type)支持多路输入连接，其余类型节点则不支持。
  - 节点的连接是单向的，不支持后序节点反向连接到前序节点。输入节点是每条管线的首节点，输出节点是每条管线的尾节点。
+
+
+
+
+#### 完整示例代码
+
+ - [音频编创示例代码](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/Audio/AudioSuiteSample)

@@ -1,6 +1,6 @@
 # Graphics Accelerate Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-introduction
 
@@ -59,7 +59,7 @@ Graphics Accelerate Kit（图形加速服务）是集成了先进的图形渲染
 | 核心服务 | 支持的设备 |
 | --- | --- |
 | 游戏渲染加速服务 | Phone、Tablet、TV |
-| 游戏资源加速服务 | Phone、Tablet |
+| 游戏资源加速服务 | Phone、Tablet、PC/2in1 |
 | 游戏启动加速服务 | Phone、Tablet、PC/2in1 |
  
  

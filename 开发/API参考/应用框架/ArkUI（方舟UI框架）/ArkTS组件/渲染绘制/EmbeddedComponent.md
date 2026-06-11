@@ -1,6 +1,6 @@
 # EmbeddedComponent
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -156,7 +156,7 @@ onError(callback: ErrorCallback)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本示例展示EmbeddedComponent组件和EmbeddedUIExtensionAbility的基础使用方式，示例应用的bundleName为"com.example.embeddeddemo", 同应用下被拉起的EmbeddedUIExtensionAbility为"ExampleEmbeddedAbility"。本示例仅支持在拥有多进程权限的设备上运行，如2in1。
+本示例展示EmbeddedComponent组件和EmbeddedUIExtensionAbility的基础使用方式，示例应用的bundleName为"com.example.embeddedComponent", 同应用下被拉起的EmbeddedUIExtensionAbility为"ExampleEmbeddedAbility"。本示例仅支持在拥有多进程权限的设备上运行，如2in1。
 
  - 示例应用中的EntryAbility(UIAbility)加载首页文件ets/pages/Index.ets，其中内容如下：
 
@@ -305,4 +305,4 @@ struct Extension {
  - 示例图如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/4u_hX-e1TvC9V73I_iPxyg/zh-cn_image_0000002581436156.png?HW-CC-KV=V1&HW-CC-Date=20260528T025555Z&HW-CC-Expire=86400&HW-CC-Sign=0F5B79481DA364CC3FF6B6C5963255D524F5BAF195FA00576B1164933F8E00DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/TmVajk-JT8eYUnex4S6iAw/zh-cn_image_0000002592380422.png?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=3FC8A55EC1BBBB08D8D22D19FEC092143EC31804E93950FF6D224563B41E0B32)

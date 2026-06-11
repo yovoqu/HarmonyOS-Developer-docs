@@ -1,6 +1,6 @@
 # 证书链校验时从p12文件构造TrustAnchor对象数组
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-trustanchor-from-p12
 
@@ -8,7 +8,7 @@
 
 
 #### 开发步骤
-1. 导入[证书算法库框架模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
+1. 导入[证书模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
 2. 基于现有的p12文件数据，调用[cert.createTrustAnchorsWithKeyStore](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#certcreatetrustanchorswithkeystore12)创建[X509TrustAnchor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert#x509trustanchor11)数组对象，并返回结果。
 
 ```ArkTS

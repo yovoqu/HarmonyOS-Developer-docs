@@ -1,6 +1,6 @@
 # Interface (NativeMediaPlayerBridge)
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-nativemediaplayerbridge
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -20,7 +20,7 @@ ArkWeb内核通过该接口类的实例对象来控制应用创建的用来接�
 
 updateRect(x: number, y: number, width: number, height: number): void
  
-更新surface位置信息。
+向应用通知surface位置信息。
  
 **系统能力：** SystemCapability.Web.Webview.Core
  

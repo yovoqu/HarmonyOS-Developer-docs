@@ -1,6 +1,6 @@
 # ohpm-repo私有化后删除上传包及审核上传包步骤
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-command-line-tool-2
 

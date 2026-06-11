@@ -1,6 +1,6 @@
 # FoldSplitContainer
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-foldsplitcontainer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -73,7 +73,7 @@ FoldSplitContainer({primary: Callback&lt;void&gt;, secondary: Callback&lt;void&g
 | isExtraRegionPerpendicular | boolean | 否 | 是 | 设置为true时，扩展区域从上到下贯穿整个组件；设置为false时，扩展区域不贯穿整个组件。此字段仅在extra有效时生效。 默认值：true |
 | verticalSplitRatio | number | 否 | 是 | 主要区域与次要区域之间的高度比例。 默认值：PresetSplitRatio.LAYOUT_1V1 |
 | horizontalSplitRatio | number | 否 | 是 | 主要区域与扩展区域之间的宽度比例。此字段在extra有效时生效。 默认值：PresetSplitRatio.LAYOUT_3V2 |
-| extraRegionPosition | ExtraRegionPosition | 否 | 是 | 扩展区域的位置信息。当isExtraRegionPerpendicular设置为false时，此字段生效。 默认值：ExtraRegionPosition.top |
+| extraRegionPosition | ExtraRegionPosition | 否 | 是 | 扩展区域的位置信息。当isExtraRegionPerpendicular设置为false时，此字段生效。 默认值：ExtraRegionPosition.TOP |
 
 
 
@@ -92,7 +92,7 @@ FoldSplitContainer({primary: Callback&lt;void&gt;, secondary: Callback&lt;void&g
 | --- | --- | --- | --- | --- |
 | showExtraRegion | boolean | 否 | 是 | 可折叠屏幕在半折叠状态下是否显示扩展区域。设置为true时表示显示扩展区域，设置为false时表示不显示扩展区域。 默认值：false |
 | horizontalSplitRatio | number | 否 | 是 | 主要区域与扩展区域之间的宽度比例，当且仅当extra有效时此字段才生效。 默认值：PresetSplitRatio.LAYOUT_3V2 |
-| extraRegionPosition | ExtraRegionPosition | 否 | 是 | 扩展区域的位置信息，当且仅当showExtraRegion设置为true时此字段才生效。 默认值：ExtraRegionPosition.top |
+| extraRegionPosition | ExtraRegionPosition | 否 | 是 | 扩展区域的位置信息，当且仅当showExtraRegion设置为true时此字段才生效。 默认值：ExtraRegionPosition.TOP |
 
 
 > [!NOTE]

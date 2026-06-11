@@ -1,6 +1,6 @@
 # ohpm-repo install
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-install
 
@@ -84,7 +84,7 @@ ohpm-repo install  --config D:\config.yaml
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/8Ing6dg4RBaUuN2xq509MA/zh-cn_image_0000002602064947.png?HW-CC-KV=V1&HW-CC-Date=20260528T030648Z&HW-CC-Expire=86400&HW-CC-Sign=9FE798A112A350B89F397F409ED279A3B51B04BB22FC1A274011FC5ACBC747CF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/q4wRzBG6TfGc0sEQp3oRQQ/zh-cn_image_0000002602064947.png?HW-CC-KV=V1&HW-CC-Date=20260611T074906Z&HW-CC-Expire=86400&HW-CC-Sign=893AF86817884A514543939879F3F5D54C22823DEF5F3AEE1B86E2534D5FF6E9)
 
  
  

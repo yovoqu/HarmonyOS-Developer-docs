@@ -1,6 +1,6 @@
 # 是否有处理"9图"（又称"draw9patch"、".9图"、"点9图"等）的平替方案
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-208
 
@@ -15,7 +15,7 @@ struct NineMapPrinciple {
   build() {
     Row() {
       Image($r('app.media.startIcon'))
-        .resizable({ slice: { top: 10, left: 10, bottom: 50, right: 50 } })
+        .resizable({ slice: { top: '10px', left: '10px', bottom: '10px', right: '10px' } })
     }
     .height('50%')
   }

@@ -1,6 +1,6 @@
 # Menu
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -29,7 +29,7 @@ Menu()
 作为菜单的固定容器，无参数。
  
 > [!NOTE]
-> 菜单和菜单项宽度计算规则： 布局过程中，期望每个菜单项的宽度一致。若子组件设置了宽度，则以 尺寸计算规则 为准。 Menu不设置宽度的情况：Menu会对子组件MenuItem、MenuItemGroup设置默认2栅格的宽度，若菜单项内容区比2栅格宽，则会自适应撑开。 Menu设置宽度的情况：Menu会对子组件MenuItem、MenuItemGroup设置减去padding后的固定宽度。 Menu支持设置的最小宽度为64vp。 Menu不支持的通用属性： outline 下的属性、 shadow 。
+> 菜单和菜单项宽度计算规则： 布局过程中，期望每个菜单项的宽度一致。若子组件设置了宽度，则以尺寸计算规则 constraintSize 为准。 Menu不设置宽度的情况：Menu会对子组件MenuItem、MenuItemGroup设置默认2栅格的宽度，若菜单项内容区比2栅格宽，则会自适应撑开。 Menu设置宽度的情况：Menu会对子组件MenuItem、MenuItemGroup设置减去padding后的固定宽度。 Menu支持设置的最小宽度为64vp。 Menu不支持的通用属性： outline 下的属性、 shadow 。
 
  
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -190,7 +190,7 @@ subMenuExpandSymbol(symbol: SymbolGlyphModifier)
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| symbol | SymbolGlyphModifier | 是 | Menu子菜单展开符号。 1、子菜单的展开样式为SubMenuExpandingMode.SIDE_EXPAND时，不显示展开符号。 2、子菜单的展开样式为SubMenuExpandingMode.EMBEDDED_EXPAND时，展开时展开符号会顺时针旋转180°。 默认值：\$r('sys.symbol.chevron_down').fontSize('24vp') 3、子菜单的展开样式为SubMenuExpandingMode.STACK_EXPAND时，展开时展开符号会顺时针旋转90°。 默认值：\$r('sys.symbol.chevron_forward').fontSize('20vp').padding('2vp') |
+| symbol | SymbolGlyphModifier | 是 | Menu子菜单展开符号。 1、子菜单的展开样式为SubMenuExpandingMode.SIDE_EXPAND时，不显示展开符号。 2、子菜单的展开样式为SubMenuExpandingMode.EMBEDDED_EXPAND时，展开时展开符号会顺时针旋转180°。展开符号默认使用new SymbolGlyphModifier(\$r('sys.symbol.chevron_down')).fontSize('24vp')。 3、子菜单的展开样式为SubMenuExpandingMode.STACK_EXPAND时，展开时展开符号会顺时针旋转90°。展开符号默认使用new SymbolGlyphModifier(\$r('sys.symbol.chevron_forward')).fontSize('20vp').padding('2vp')。 |
  
  
   
@@ -391,7 +391,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/uHInkcGpS0eapY9PMa7BKQ/zh-cn_image_0000002617710205.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=169CF0605B8F935C5D954237CC7C90737F8EF818B2DEA2D9034D476CC17EC9E2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/QcoLNatOQFO7nkbDMbB43g/zh-cn_image_0000002622700051.png?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=AFFD0C949E26A1F6FF6A5783B521167CEB20F11D124887AEB9EE5952875730D8)
 
  
   
@@ -459,7 +459,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/jcizIARWS867uUYt7h9gwg/zh-cn_image_0000002587110624.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=7EBB1EC9BFA2A891BA0DF23BC20225B658A1FDBBDBF867BE72768AD235D52A05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/C1qSZfywQla0HnMy7TGyBQ/zh-cn_image_0000002592220492.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=686C3D7B005E5B980EDB3B23A5BD1A29FB6A7D578B2D56999E4A199E3CF4355D)
 
  
   
@@ -511,4 +511,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/SMvbbDDfQimGo9KfLnmTDQ/zh-cn_image_0000002617670303.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=4B11B4B804F6A3035FB91363207617B08BE65CD1FFFBCB3229113C7855A29031)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/KTHLIue9R2OJ--XB1Hs2mg/zh-cn_image_0000002592380424.png?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=E757B00A720BCDB5AD355C10CBB70161FCAEBB6D828419FEF1020FA7030C7480)

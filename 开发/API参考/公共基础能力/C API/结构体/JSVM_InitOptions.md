@@ -1,6 +1,6 @@
 # JSVM_InitOptions
 
-更新时间：2026-03-09 07:25:19
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-jsvm-initoptions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -16,7 +16,13 @@ typedef struct {...} JSVM_InitOptions
 
 初始化选项，用于初始化JavaScript虚拟机。
  
+**使用场景：** 嵌入JavaScript引擎的应用程序初始化，需要在应用中执行JavaScript代码的场景，需要自定义虚拟机配置的开发调试场景。
+ 
+**系统能力：** SystemCapability.ArkCompiler.JSVM
+ 
 **起始版本：** 11
+ 
+**支持设备类型：** Phone | PC/2in1 | Tablet | Wearable。具体支持情况可通过对应的API接口进行判断。
  
 **相关模块：** [JSVM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm)
  

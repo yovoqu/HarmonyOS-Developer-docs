@@ -1,6 +1,6 @@
 # Interface (RdbStore)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-rdbstore
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -5806,7 +5806,7 @@ on(event: 'autoSyncProgress', progress: Callback&lt;ProgressDetails&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 取值为'autoSyncProgress'，表示自动同步进度通知。 |
-| progress | Callback&lt;ProgressDetails&gt; | 是 | 回调函数。 |
+| progress | Callback&lt;ProgressDetails&gt; | 是 | 用于返回ProgressDetails结果的回调函数。 |
 
 
 **错误码：**

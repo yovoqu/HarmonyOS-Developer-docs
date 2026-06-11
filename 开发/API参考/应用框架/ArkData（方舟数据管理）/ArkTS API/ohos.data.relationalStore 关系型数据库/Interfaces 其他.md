@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -23,14 +23,14 @@
 | encrypt | boolean | 否 | 是 | 指定数据库是否加密，默认非加密。数据库创建完成后，此参数不允许直接修改。如需变更数据库加密状态，请调用rekeyEx接口进行更新操作。 true：加密。 false：非加密。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | dataGroupId10+ | string | 否 | 是 | 应用组ID，需要向应用市场获取，详见dataGroupId申请流程。基于dataGroupId的数据共享支持两种场景：1.同一应用的不同进程间共享，只支持三方应用中输入法和输入法的扩展场景使用；2.不同应用间的数据共享，只支持系统应用使用。 模型约束： 此属性仅在Stage模型下可用。 从API version 10开始，支持此可选参数。dataGroupId共享沙箱的方式不支持多进程访问加密数据库，当此参数不填时，默认在本应用沙箱目录下创建RdbStore实例。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | customDir11+ | string | 否 | 是 | 数据库自定义路径。 使用约束： 数据库路径大小限制为128字节，如果超过该大小会开库失败，返回错误。 从API version 11开始，支持此可选参数。数据库将在如下的目录结构中被创建：context.databaseDir + "/rdb/" + customDir，其中context.databaseDir是应用沙箱对应的路径，"/rdb/"表示创建的是关系型数据库，customDir表示自定义的路径。当此参数不填时，默认在本应用沙箱目录下创建RdbStore实例。从API version 18开始，如果同时配置了rootDir参数，将打开或删除如下路径数据库：rootDir + "/" + customDir + "/" + name。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
-| rootDir18+ | string | 否 | 是 | 指定数据库根路径。 从API version 18开始，支持此可选参数。将从如下目录打开或删除数据库：rootDir + "/" + customDir。通过设置此参数打开的数据库为只读模式，不允许对数据库进行写操作，否则返回错误码801。配置此参数打开或删除数据库时，应确保对应路径下数据库文件存在，并且有读取权限，否则返回错误码14800010。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
+| rootDir18+ | string | 否 | 是 | 指定数据库根路径，默认值为空字符串。 从API version 18开始，支持此可选参数。将从如下目录打开或删除数据库：rootDir + "/" + customDir。通过设置此参数打开的数据库为只读模式，不允许对数据库进行写操作，否则返回错误码801。配置此参数打开或删除数据库时，应确保对应路径下数据库文件存在，并且有读取权限，否则返回错误码14800010。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | autoCleanDirtyData11+ | boolean | 否 | 是 | 指定是否自动清理云端删除后同步到本地的数据，true表示自动清理，false表示手动清理，默认自动清理。 对于端云协同的数据库，当云端删除的数据同步到设备端时，可通过该参数设置设备端是否自动清理。手动清理可以通过cleanDirtyData11+接口清理。 从API version 11开始，支持此可选参数。 系统能力： SystemCapability.DistributedDataManager.CloudSync.Client |
 | allowRebuild12+ | boolean | 否 | 是 | 指定数据库是否支持异常时自动删除，并重建一个空库空表，默认不自动删除。 true：自动删除。 false：不自动删除。 从API version 12开始，支持此可选参数。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | isReadOnly12+ | boolean | 否 | 是 | 指定数据库是否只读，默认为数据库可读写。 true：只允许从数据库读取数据，不允许对数据库进行写操作，否则会返回错误码801。 false：允许对数据库进行读写操作。 从API version 12开始，支持此可选参数。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
-| pluginLibs12+ | Array&lt;string&gt; | 否 | 是 | 配置加载自定义动态库，数组中可传入多个动态库名称。具体请见pluginLibs的使用约束和示例。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
+| pluginLibs12+ | Array&lt;string&gt; | 否 | 是 | 配置加载自定义动态库，数组中可传入多个动态库名称，默认值为空数组。具体请见pluginLibs的使用约束和示例。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | cryptoParam14+ | CryptoParam | 否 | 是 | 指定用户自定义的加密参数。 当此参数不填时，使用默认的加密参数，见CryptoParam各参数默认值。 此配置只有在encrypt选项设置为true或密钥非空时才有效。 从API version 14开始，支持此可选参数。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | vector18+ | boolean | 否 | 是 | 指定数据库是否是向量数据库，true表示向量数据库，false表示关系型数据库，默认为false。 向量数据库适用于存储和处理高维向量数据，关系型数据库适用于存储和处理结构化数据。 当使用向量数据库时，在调用deleteRdbStore接口前，应当确保向量数据库已打开的RdbStore和ResultSet均已成功关闭。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
-| tokenizer17+ | Tokenizer | 否 | 是 | 指定用户在fts场景下使用哪种分词器。 当此参数不填时，则在fts下不支持中文以及多国语言分词，但仍可支持英文分词。 如果用户想使用自定义分词器，可以通过pluginLibs参数进行配置，具体请见pluginLibs的使用约束和示例。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
+| tokenizer17+ | Tokenizer | 否 | 是 | 指定用户在FTS（Full-Text Search）场景下使用哪种分词器。 当此参数不填时，则在FTS下不支持中文以及多国语言分词，但仍可支持英文分词。 如果用户想使用自定义分词器，可以通过pluginLibs参数进行配置，具体请见pluginLibs的使用约束和示例。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | persist18+ | boolean | 否 | 是 | 指定数据库是否需要持久化。true表示持久化，false表示不持久化，即内存数据库。默认为true。 内存数据库不支持加密、backup、restore、跨进程访问及分布式能力，securityLevel属性会被忽略。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 | enableSemanticIndex20+ | boolean | 否 | 是 | 指定数据库是否启用语义索引处理功能。true表示启用语义索引处理功能，false表示不启用。默认为false。 系统能力： SystemCapability.DistributedDataManager.RelationalStore.Core |
 
@@ -253,7 +253,7 @@
 
 **使用pluginLibs加载开发者自定义分词器示例：**
 
-1. 开发者需要实现一个fts5可加载分词器扩展，并将其编译成so，编译可参考[使用命令行CMake构建NDK工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-cmake)。
+1. 开发者需要实现一个FTS5可加载分词器扩展，并将其编译成so，编译可参考[使用命令行CMake构建NDK工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-cmake)。
 
 2. 将生成的so文件拷贝到工程目录"entry/libs/"文件夹下的相应子目录中(没有相应目录时用户可自行创建)，子目录根据系统架构确定。例如，系统架构为arm64-v8a时，放置在"entry/libs/arm64-v8a"目录下；系统架构为armeabi-v7a时，放置在"entry/libs/armeabi-v7a"目录下。
 
@@ -273,7 +273,7 @@ export default class EntryAbility extends UIAbility {
       securityLevel: relationalStore.SecurityLevel.S1,
     };
     let bundleCodeDir = this.context.bundleCodeDir;
-    // libdistributeddb_extension.so为实现的fts5可加载分词器扩展编译成的so名称
+    // libdistributeddb_extension.so为实现的FTS5可加载分词器扩展编译成的so名称
     let soPath = bundleCodeDir + "/libs/arm64/libdistributeddb_extension.so";
     let res = await fileIo.access(soPath);
     if (!res) {
@@ -286,8 +286,8 @@ export default class EntryAbility extends UIAbility {
     STORE_CONFIG.pluginLibs = [soPath];
     try {
       rdbStore = await relationalStore.getRdbStore(this.context, STORE_CONFIG);
-      // 使用自定义分词器创建fts5虚拟表，tokenize后面是实现的分词器名称
-      await rdbStore.executeSql("CREATE VIRTUAL TABLE IF NOT EXISTS pages USING fts5(title, keywords, body, tokenize=koowork_tokenizer);");
+      // 使用自定义分词器创建FTS5虚拟表，tokenize后面是实现的分词器名称
+      await rdbStore.executeSql("CREATE VIRTUAL TABLE IF NOT EXISTS pages USING FTS5(title, keywords, body, tokenize=koowork_tokenizer);");
       console.info("CREATE VIRTUAL TABLE OK");
       await rdbStore.executeSql("INSERT INTO pages(keywords, title, body) VALUES('歌曲', 'xxx', '1234歌曲，像北哈升');");
       console.info("INSERT VIRTUAL TABLE OK, body is '1234歌曲，像北哈升'");

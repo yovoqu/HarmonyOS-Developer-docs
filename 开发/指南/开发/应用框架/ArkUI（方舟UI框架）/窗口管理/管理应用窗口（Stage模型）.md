@@ -1,6 +1,6 @@
 # 管理应用窗口（Stage模型）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-window-stage
 
@@ -29,7 +29,7 @@
 
 #### 接口说明
 
-上述场景涉及的常用接口如下表所示。更多API说明请参见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)。
+上述场景涉及的常用接口如下表所示。更多API说明请参见[@ohos.window (窗口)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)。
 
 | 实例名 | 接口名 | 描述 |
 | --- | --- | --- |
@@ -122,7 +122,7 @@ export default class EntryAbility extends UIAbility {
 开发者可以按需创建应用子窗口，如弹窗等，并对其进行属性设置等操作。
 
 > [!NOTE]
-> 以下几种场景不建议使用子窗口，建议优先考虑使用控件 overlay 能力实现。 移动设备（手机、在非自由模式下的平板设备）场景下子窗不能超出处于智慧多窗悬浮窗模式、分屏模式的应用主窗口范围，与控件一致。 分屏窗口与自由窗口模式下，主窗口位置大小发生改变时控件实时跟随变化能力优于子窗。 部分设备平台下根据实际的系统配置限制，子窗只有系统默认的动效和圆角阴影，应用无法设置，自由度低。
+> 以下几种场景不建议使用子窗口，建议优先考虑使用控件 浮层 能力实现。 移动设备（手机、在非自由模式下的平板设备）场景下子窗不能超出处于智慧多窗悬浮窗模式、分屏模式的应用主窗口范围，与控件一致。 分屏窗口与自由窗口模式下，主窗口位置大小发生改变时控件实时跟随变化能力优于子窗。 部分设备平台下根据实际的系统配置限制，子窗只有系统默认的动效和圆角阴影，应用无法设置，自由度低。
 
 
 
@@ -534,7 +534,7 @@ export default class EntryAbility extends UIAbility {
 在其他设备或场景下，请使用画中画功能，使用方式参考：[画中画开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-pipwindow)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/6DC7D9xLTyaYr-k4vXDmtg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030421Z&HW-CC-Expire=86400&HW-CC-Sign=DDB142A2B5CB6141B8207D8043E079591D521962EE99BD75767AA6ECF8901DDC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/kaUxtt04QGW2jNk6wOenBw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074920Z&HW-CC-Expire=86400&HW-CC-Sign=EA029609DCE009A249C87BB7487DBEF22D9FC93700D510D3B4AEFEA825B8B4EA)
 
 
 如果应用未在AppGallery Connect申请相应的权限证书，却试图在配置文件中声明此类权限，将会导致应用安装失败。

@@ -1,6 +1,6 @@
 # PushExtensionAbility（推送扩展Ability）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-extension-ability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -15,6 +15,8 @@ PushExtensionAbility为推送扩展Ability，提供获取场景化消息数据�
  - 不允许调用通知API、卡片API、窗口API、弹窗API、实况窗API。
  - 生命周期根据场景受控，默认小于10秒，超过10秒子进程生命周期结束。
 
+
+执行ExtensionAbility失败可能会返回错误，请按具体报错信息排查，详请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code)。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 

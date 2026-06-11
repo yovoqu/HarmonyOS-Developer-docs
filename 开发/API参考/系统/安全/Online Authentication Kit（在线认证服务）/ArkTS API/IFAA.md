@@ -1,6 +1,6 @@
 # IFAA
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-ifaa-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -28,7 +28,7 @@ import { ifaa } from '@kit.OnlineAuthenticationKit';
 
 getVersionSync(): number
  
-该接口用于获取IFAA免密认证接口的版本号，同步返回结果。
+获取IFAA免密认证接口的版本号，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -68,7 +68,7 @@ console.info('Succeeded in doing getVersionSync. version:', result);
 
 getAnonymousIdSync(userToken: Uint8Array): Uint8Array
  
-该接口用于获取IFAA免密认证的匿名化ID，同步返回结果。
+获取IFAA免密认证的匿名化ID，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -120,7 +120,7 @@ console.info('Succeeded in doing getAnonymousIdSync. anonymousId:', result);
 
 getAnonymousId(userToken: Uint8Array): Promise&lt;Uint8Array&gt;
  
-该接口用于获取IFAA免密认证的匿名化ID，使用Promise异步回调。
+获取IFAA免密认证的匿名化ID，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -178,7 +178,7 @@ getAnonIdPromise.then(result => {
 
 getAnonymousId(userToken: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;): void
  
-该接口用于获取IFAA免密认证的匿名化ID，使用Callback异步回调。
+获取IFAA免密认证的匿名化ID，使用Callback异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -232,7 +232,7 @@ ifaa.getAnonymousId(arg,
 
 queryStatusSync(userToken: Uint8Array): boolean
  
-该接口用于查询IFAA免密认证的开通状态，同步返回结果。
+查询IFAA免密认证的开通状态，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -287,7 +287,7 @@ if (status) {
 
 queryStatus(userToken: Uint8Array): Promise&lt;boolean&gt;
  
-该接口用于查询IFAA免密认证的开通状态，使用Promise异步回调。
+查询IFAA免密认证的开通状态，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -345,7 +345,7 @@ promise.then(result => {
 
 queryStatus(userToken: Uint8Array, callback: AsyncCallback&lt;boolean&gt;): void
  
-该接口用于查询IFAA免密认证的开通状态，使用Callback异步回调。
+查询IFAA免密认证的开通状态，使用Callback异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -399,7 +399,7 @@ ifaa.queryStatus(arg,
 
 register(registerData: Uint8Array): Promise&lt;Uint8Array&gt;
  
-该接口用于开通IFAA免密认证，使用Promise异步回调。
+开通IFAA免密认证，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -457,7 +457,7 @@ registerPromise.then(registerResult => {
 
 register(registerData: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;): void
  
-该接口用于开通IFAA免密认证，使用Callback异步回调。
+开通IFAA免密认证，使用Callback异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -510,7 +510,7 @@ ifaa.register(arg, (err: BusinessError, registerResult: Uint8Array) => {
 
 preAuthSync(): Uint8Array
  
-该接口用于获取IFAA免密认证的预认证参数，同步返回结果。
+获取IFAA免密认证的预认证参数，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -552,7 +552,7 @@ console.info('Succeeded in doing preAuthSync. preAuthResult:', preAuthResult);
 
 preAuth(): Promise&lt;Uint8Array&gt;
  
-该接口用于获取IFAA免密认证的预认证参数，使用Promise异步回调。
+获取IFAA免密认证的预认证参数，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -600,7 +600,7 @@ preAuthPromise.then(preAuthResult => {
 
 preAuth(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
-该接口用于获取IFAA免密认证的预认证参数，使用Callback异步回调。
+获取IFAA免密认证的预认证参数，使用Callback异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -651,7 +651,7 @@ ifaa.preAuth(
 
 authSync(authToken: Uint8Array, authData: Uint8Array): Uint8Array
  
-该接口用于IFAA免密认证，同步返回结果。
+IFAA免密认证，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -706,7 +706,7 @@ console.info('Succeeded in doing authSync. authResult:', authResult);
 
 auth(authToken: Uint8Array, authData: Uint8Array): Promise&lt;Uint8Array&gt;
  
-该接口用于IFAA免密认证，使用Promise异步回调。
+IFAA免密认证，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -767,7 +767,7 @@ authPromise.then(authResult => {
 
 auth(authToken: Uint8Array, authData: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;): void
  
-该接口用于IFAA免密认证，使用Callback异步回调。
+IFAA免密认证，使用Callback异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -824,7 +824,7 @@ ifaa.auth(token, arg,
 
 deregisterSync(deregisterData: Uint8Array): void
  
-该接口用于关闭IFAA免密认证，同步返回结果。
+注销IFAA免密认证，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -867,7 +867,7 @@ ifaa.deregisterSync(arg);
 
 deregister(deregisterData: Uint8Array): Promise&lt;void&gt;
  
-该接口用于关闭IFAA免密认证，使用Promise异步回调。
+注销IFAA免密认证，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -924,7 +924,7 @@ promise.then(()=> {
 
 deregister(deregisterData: Uint8Array, callback: AsyncCallback&lt;void&gt;): void
  
-该接口用于关闭IFAA免密认证，使用Callback异步回调。
+注销IFAA免密认证，使用Callback异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -977,7 +977,7 @@ ifaa.deregister(arg,
 
 getProtocolVersionSync(): Uint8Array
  
-该接口用于获取IFAA免密认证的协议版本号，同步返回结果。
+获取IFAA免密认证的协议版本号，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1017,7 +1017,7 @@ let res: Uint8Array = ifaa.getProtocolVersionSync();
 
 getProtocolVersion(): Promise&lt;Uint8Array&gt;
  
-该接口用于获取IFAA免密认证的协议版本号，使用Promise异步回调。
+获取IFAA免密认证的协议版本号，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1065,7 +1065,7 @@ promise.then(result => {
 
 getProtocolVersion(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
-该接口用于获取IFAA免密认证的协议版本号，使用Callback异步回调。
+获取IFAA免密认证的协议版本号，使用Callback异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1116,7 +1116,7 @@ ifaa.getProtocolVersion(
 
 getSupportedCertTypesSync(): Uint8Array
  
-该接口用于获取IFAA免密认证支持的证书格式，同步返回结果。
+获取IFAA免密认证支持的证书格式，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1158,7 +1158,7 @@ console.info('Succeeded in doing getSupportedCertTypesSync. supportedCertTypes:'
 
 getSupportedCertTypes(): Promise&lt;Uint8Array&gt;
  
-该接口用于获取IFAA免密认证支持的证书格式，使用Promise异步回调。
+获取IFAA免密认证支持的证书格式，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1206,7 +1206,7 @@ promise.then(result => {
 
 getSupportedCertTypes(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
-该接口用于获取IFAA免密认证支持的证书格式，使用Callback异步回调。
+获取IFAA免密认证支持的证书格式，使用Callback异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  

@@ -1,6 +1,6 @@
 # 消息认证码计算HMAC(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-compute-hmac
 
@@ -34,8 +34,86 @@ import { buffer } from '@kit.ArkTS';
 
 async function genSymKeyByData(symKeyData: Uint8Array) {
   let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
-  let aesGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
-  let symKey = await aesGenerator.convertKey(symKeyBlob);
+  let hmacGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
+  let symKey = await hmacGenerator.convertKey(symKeyBlob);
+  console.info('convertKey result: success.');
+  return symKey;
+}
+
+async function doHmac() {
+  // 把字符串按utf-8解码为Uint8Array，使用固定的128位的密钥，即16字节
+  let keyData = new Uint8Array(buffer.from('12345678abcdefgh', 'utf-8').buffer);
+  let key = await genSymKeyByData(keyData);
+  let macAlgName = 'SHA256'; // 摘要算法名
+  let message = 'hmacTestMessage'; // 待进行HMAC的数据
+  let mac = cryptoFramework.createMac(macAlgName);
+  await mac.init(key);
+  // 数据量较少时，可以只做一次update，将数据全部传入，接口未对入参长度做限制
+  await mac.update({ data: new Uint8Array(buffer.from(message, 'utf-8').buffer) });
+  let macResult = await mac.doFinal();
+  console.info('HMAC result: ' + macResult.data);
+  let macLen = mac.getMacLength();
+  console.info('HMAC len: ' + macLen);
+}
+```
+
+ - 以使用同步方式一次性传入数据，获取消息认证码计算结果为例：
+
+  
+```ArkTS
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+import { buffer } from '@kit.ArkTS';
+
+function genSymKeyByData(symKeyData: Uint8Array) {
+  let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
+  let hmacGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
+  let symKey = hmacGenerator.convertKeySync(symKeyBlob);
+  console.info('[Sync]convertKey result: success.');
+  return symKey;
+}
+
+function doHmacBySync() {
+  // 把字符串按utf-8解码为Uint8Array，使用固定的128位的密钥，即16字节
+  let keyData = new Uint8Array(buffer.from('12345678abcdefgh', 'utf-8').buffer);
+  let key = genSymKeyByData(keyData);
+  let macAlgName = 'SHA256'; // 摘要算法名
+  let message = 'hmacTestMessage'; // 待进行HMAC的数据
+  let mac = cryptoFramework.createMac(macAlgName);
+  mac.initSync(key);
+  // 数据量较少时，可以只做一次update，将数据全部传入，接口未对入参长度做限制
+  mac.updateSync({ data: new Uint8Array(buffer.from(message, 'utf-8').buffer) });
+  let macResult = mac.doFinalSync();
+  console.info('[Sync]HMAC result: ' + macResult.data);
+  let macLen = mac.getMacLength();
+  console.info('HMAC len: ' + macLen);
+}
+```
+
+
+
+
+
+#### 分段HMAC
+1. 调用[cryptoFramework.createMac](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemac)，指定摘要算法SHA256，生成消息认证码实例（Mac）。
+2. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)和[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为HMAC的对称密钥（SymKey）。
+
+  生成对称密钥的开发指导，请参考[指定二进制数据生成对称密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-binary-data-to-sym-key)。
+3. 调用[Mac.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-7)，指定共享对称密钥（SymKey），初始化Mac对象。
+4. 传入自定义消息，将一次传入数据量设置为20字节，多次调用[Mac.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-9)，进行消息认证码计算。
+5. 调用[Mac.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-3)，获取Mac计算结果。
+6. 调用[Mac.getMacLength](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getmaclength)，获取Mac消息认证码的长度，单位为字节。
+
+ - 使用await方式分段传入数据，获取消息认证码计算结果。
+
+  
+```ArkTS
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+import { buffer } from '@kit.ArkTS';
+
+async function genSymKeyByData(symKeyData: Uint8Array) {
+  let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
+  let hmacGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
+  let symKey = await hmacGenerator.convertKey(symKeyBlob);
   console.info('convertKey result: success.');
   return symKey;
 }
@@ -63,7 +141,7 @@ async function doLoopHmac() {
 }
 ```
 
- - 以使用同步方式一次性传入数据，获取消息认证码计算结果为例：
+ - 使用同步方式分段传入数据，获取消息认证码计算结果。
 
   
 ```ArkTS
@@ -72,8 +150,8 @@ import { buffer } from '@kit.ArkTS';
 
 function genSymKeyByData(symKeyData: Uint8Array) {
   let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
-  let aesGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
-  let symKey = aesGenerator.convertKeySync(symKeyBlob);
+  let hmacGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
+  let symKey = hmacGenerator.convertKeySync(symKeyBlob);
   console.info('[Sync]convertKey result: success.');
   return symKey;
 }
@@ -105,85 +183,7 @@ function doLoopHmacBySync() {
 
 
 
-#### 分段HMAC
-1. 调用[cryptoFramework.createMac](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemac)，指定摘要算法SHA256，生成消息认证码实例（Mac）。
-2. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)和[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为HMAC的对称密钥（SymKey）。
-
-  生成对称密钥的开发指导，请参考[指定二进制数据生成对称密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-binary-data-to-sym-key)。
-3. 调用[Mac.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-7)，指定共享对称密钥（SymKey），初始化Mac对象。
-4. 传入自定义消息，将一次传入数据量设置为20字节，多次调用[Mac.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-9)，进行消息认证码计算。
-5. 调用[Mac.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-3)，获取Mac计算结果。
-6. 调用[Mac.getMacLength](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getmaclength)，获取Mac消息认证码的长度，单位为字节。
-
- - 使用await方式分段传入数据，获取消息认证码计算结果。
-
-  
-```ArkTS
-import { cryptoFramework } from '@kit.CryptoArchitectureKit';
-import { buffer } from '@kit.ArkTS';
-
-async function genSymKeyByData(symKeyData: Uint8Array) {
-  let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
-  let aesGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
-  let symKey = await aesGenerator.convertKey(symKeyBlob);
-  console.info('convertKey result: success.');
-  return symKey;
-}
-
-async function doHmac() {
-  // 把字符串按utf-8解码为Uint8Array，使用固定的128位的密钥，即16字节
-  let keyData = new Uint8Array(buffer.from('12345678abcdefgh', 'utf-8').buffer);
-  let key = await genSymKeyByData(keyData);
-  let macAlgName = 'SHA256'; // 摘要算法名
-  let message = 'hmacTestMessage'; // 待进行HMAC的数据
-  let mac = cryptoFramework.createMac(macAlgName);
-  await mac.init(key);
-  // 数据量较少时，可以只做一次update，将数据全部传入，接口未对入参长度做限制
-  await mac.update({ data: new Uint8Array(buffer.from(message, 'utf-8').buffer) });
-  let macResult = await mac.doFinal();
-  console.info('HMAC result: ' + macResult.data);
-  let macLen = mac.getMacLength();
-  console.info('HMAC len: ' + macLen);
-}
-```
-
- - 使用同步方式分段传入数据，获取消息认证码计算结果。
-
-  
-```ArkTS
-import { cryptoFramework } from '@kit.CryptoArchitectureKit';
-import { buffer } from '@kit.ArkTS';
-
-function genSymKeyByData(symKeyData: Uint8Array) {
-  let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
-  let aesGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
-  let symKey = aesGenerator.convertKeySync(symKeyBlob);
-  console.info('[Sync]convertKey result: success.');
-  return symKey;
-}
-
-function doHmacBySync() {
-  // 把字符串按utf-8解码为Uint8Array，使用固定的128位的密钥，即16字节
-  let keyData = new Uint8Array(buffer.from('12345678abcdefgh', 'utf-8').buffer);
-  let key = genSymKeyByData(keyData);
-  let macAlgName = 'SHA256'; // 摘要算法名
-  let message = 'hmacTestMessage'; // 待进行HMAC的数据
-  let mac = cryptoFramework.createMac(macAlgName);
-  mac.initSync(key);
-  // 数据量较少时，可以只做一次update，将数据全部传入，接口未对入参长度做限制
-  mac.updateSync({ data: new Uint8Array(buffer.from(message, 'utf-8').buffer) });
-  let macResult = mac.doFinalSync();
-  console.info('[Sync]HMAC result: ' + macResult.data);
-  let macLen = mac.getMacLength();
-  console.info('HMAC len: ' + macLen);
-}
-```
-
-
-
-
-
-#### HMAC(HmacSpec作为参数传入)
+#### HMAC（HmacSpec作为参数传入）
 1. 调用[cryptoFramework.createMac](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemac)，指定消息认证码算法HMAC，指定摘要算法SHA256，生成消息认证码实例（Mac）。
 2. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)和[SymKeyGenerator.convertKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertkey-1)，生成密钥算法为HMAC的对称密钥（SymKey）。
 
@@ -200,8 +200,8 @@ import { buffer } from '@kit.ArkTS';
 
 async function genSymKeyByData(symKeyData: Uint8Array) {
   let symKeyBlob: cryptoFramework.DataBlob = { data: symKeyData };
-  let aesGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
-  let symKey = await aesGenerator.convertKey(symKeyBlob);
+  let hmacGenerator = cryptoFramework.createSymKeyGenerator('HMAC');
+  let symKey = await hmacGenerator.convertKey(symKeyBlob);
   console.info('convertKey success');
   return symKey;
 }

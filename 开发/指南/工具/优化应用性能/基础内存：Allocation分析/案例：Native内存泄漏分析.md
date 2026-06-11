@@ -1,12 +1,12 @@
 # 案例：Native内存泄漏分析
 
-更新时间：2026-05-21 06:15:30
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-native-allocation-case
 
 本案例介绍如何判断应用存在Native内存泄漏。
  
-从[6.1.0(23) Beta1](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-610#section174491130173414)开始，通过Native Allocation泳道找出Native内存泄漏的原因。
+[6.1.0(23) Beta1](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-610#section174491130173414)以下版本，通过Native Allocation泳道找出Native内存泄漏的原因。
  
 [6.1.0(23) Beta1](https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/overview-610#section174491130173414)及以上版本，通过All Heap泳道找出Native内存泄漏的原因。
  
@@ -114,7 +114,7 @@ All Allocations：框选的时间段的所有分配内存信息。
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/-jUprFioTV2fcze5l8yzOA/zh-cn_image_0000002602065937.png?HW-CC-KV=V1&HW-CC-Date=20260528T030658Z&HW-CC-Expire=86400&HW-CC-Sign=E32FED8EE822F6919540999D1C92CF57CDC6273D588D919BBFEC6B75BB01DCAD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/X9TH2FQnSiiYOTzfbMaBmQ/zh-cn_image_0000002602065937.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=E7FAE79CB26DB90E1A4098D44214E464A90CC41D9F0D0B50D4A631615143CF25)
 
 3. 操作应用复现问题场景，并在问题复现完成后，点击下图中方块按钮或者左侧停止按钮结束录制。
 
@@ -124,7 +124,7 @@ All Allocations：框选的时间段的所有分配内存信息。
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/tt_iNcWBRT25azXGpv8_7w/zh-cn_image_0000002571386820.png?HW-CC-KV=V1&HW-CC-Date=20260528T030658Z&HW-CC-Expire=86400&HW-CC-Sign=FEDA66C73A37E101D732B6297D8FD7B4BF4D51886423EE0ECC83383DD8966B80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/-clvfD5ZSVCsKP-rDKDSxw/zh-cn_image_0000002571386820.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=A885B42D0E50571BB1E6E93998230D84C93273B66E42CA2F76B2FFB5480FDDBA)
 
  
  
@@ -140,7 +140,7 @@ All Allocations：框选的时间段的所有分配内存信息。
 4. 切换到“Call Trees”页签，该部分数据展示了详细的内存分配栈信息，同样需要选择Created & Existing。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/9YUWOapLRO6yj2aDXwOUIg/zh-cn_image_0000002602065939.png?HW-CC-KV=V1&HW-CC-Date=20260528T030658Z&HW-CC-Expire=86400&HW-CC-Sign=27E14C136E75756F10AEF7CF09C241C41DA824040D097CFF25E26C4D4D7AA9B8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/Yd33YR3SS3qHRdg56S9fzA/zh-cn_image_0000002602065939.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=8773507B41335918C2981C16C2E47C7DE7757440B91A2A1577955538C8BB7DD7)
 
 5. 优先在内存分配栈信息中寻找与业务代码强相关的Symbol Name，即Category中为亮色。从上图中看，主要泄漏点在业务代码侧，需要结合业务代码进行分析。
 

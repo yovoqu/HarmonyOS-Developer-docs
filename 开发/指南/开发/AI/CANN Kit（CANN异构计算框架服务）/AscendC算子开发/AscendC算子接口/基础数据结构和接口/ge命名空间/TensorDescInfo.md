@@ -1,13 +1,13 @@
 # TensorDescInfo
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tensordescinfo
 
 ```text
 struct TensorDescInfo {
-    Format format_ = FORMAT_RESERVED;        /* tbe op register support format */
-    DataType dataType_ = DT_UNDEFINED;       /* tbe op register support datatype */
+    Format format_ = FORMAT_RESERVED;        /* tbe op注册支持的格式 */
+    DataType dataType_ = DT_UNDEFINED;       /* tbe op注册支持的数据类型 */
     };
 ```
  

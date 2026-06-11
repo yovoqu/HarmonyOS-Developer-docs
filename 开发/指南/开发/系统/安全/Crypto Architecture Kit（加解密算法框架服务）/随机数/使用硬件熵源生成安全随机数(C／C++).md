@@ -1,6 +1,6 @@
 # 使用硬件熵源生成安全随机数(C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-random-number-hardware-ndk
 
@@ -85,7 +85,7 @@ OH_Crypto_ErrCode doTestHardwareRandomNumber()
 
     // 生成指定长度的随机数。
     Crypto_DataBlob out = {0};
-    uint32_t randomLength = 24; // 生成24字节的随机数。
+    int randomLength = 24; // 生成24字节的随机数。
     ret = OH_CryptoRand_GenerateRandom(rand, randomLength, &out);
     if (ret != CRYPTO_SUCCESS) {
         OH_CryptoRand_Destroy(rand);

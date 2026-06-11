@@ -1,6 +1,6 @@
 # bm工具
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool
 
@@ -51,7 +51,7 @@ bm help
 
 #### userId
 
-表示当前系统账号的编号，系统账号的相关接口请参考[系统账号管理模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount)，下面给出几种常见的系统账号。
+表示当前系统账号的编号，系统账号的相关接口请参考[@ohos.account.osAccount (系统账号管理)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-osaccount)，下面给出几种常见的系统账号。
 
  - userId = 100，表示编号为100的系统账号，系统默认账号，在设备出厂首次启动时由系统账号管理模块创建，且创建完成后会在100账号下安装所有的预置应用。
  - userId = 102，表示编号为102的系统账号，由系统账号管理模块创建，仅支持系统应用创建账号。在100账号下安装的应用，在102账号下不会显示，如有需求，需要在102账号下重新安装。在创建102账号过程中，系统会在102账号下安装预置系统应用。
@@ -605,6 +605,10 @@ HAP/HSP包没有签名。
 
 请开发者根据实际场景选择自动签名或者手动签名，例如无法连接互联网的情况下推荐使用手动签名方式，详情参考[使用场景说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section54361623194519)。
 
+> [!TIP]
+> 在工程级build-profile.json5文件下的products标签中，signingConfig字段为非必填字段，若该字段缺失，将导致签名失效。详情请参考 products 标签下的字段说明。
+
+
 方法一. 使用[自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section18815157237)。在连接设备后，重新为应用进行签名。
 
 方法二. 使用手动签名，请参考[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)。
@@ -799,7 +803,7 @@ error: fail to verify pkcs7 file.
 error: install parse profile prop check error.
 
 
-![](assets/bm工具/file-20260514131424098-1.png)
+![](assets/bm工具/file-20260514131424098-10.png)
 
 
 **错误描述**
@@ -835,17 +839,17 @@ error: Failed to install the HAP or HSP because the dependent module does not ex
  - 方法一：先通过[bm install -p](#安装命令install)命令安装依赖的动态共享包（HSP）模块，再在应用运行配置页勾选Keep Application Data，点击OK保存配置，再运行/调试。
 
   
-![](assets/bm工具/file-20260514131424098-10.png)
+![](assets/bm工具/file-20260514131424098-11.png)
 
  - 方法二：在运行配置页，选择Deploy Multi Hap标签页，勾选Deploy Multi Hap Packages，选择依赖的模块，点击OK保存配置，再进行运行/调试。
 
   
-![](assets/bm工具/file-20260514131424098-11.png)
+![](assets/bm工具/file-20260514131424098-12.png)
 
  - 方法三：单击Run > Edit Configurations，在General中，勾选Auto Dependencies。点击OK保存配置，再运行/调试。
 
   
-![](assets/bm工具/file-20260514131424098-12.png)
+![](assets/bm工具/file-20260514131424098-13.png)
 
 
 
@@ -860,7 +864,7 @@ error: Failed to install the HAP or HSP because the dependent module does not ex
 DevEco Studio自动安装运行应用时，查看Run中的日志，如果存在remote_hsp目录，说明依赖集成态HSP，remote_hsp目录下的HSP文件就是集成态HSP编译后的包。
 
 
-![](assets/bm工具/file-20260514131424098-13.png)
+![](assets/bm工具/file-20260514131424098-14.png)
 
 
 
@@ -872,7 +876,7 @@ DevEco Studio自动安装运行应用时，查看Run中的日志，如果存在r
 error: install parse profile missing prop.
 
 
-![](assets/bm工具/file-20260514131424098-14.png)
+![](assets/bm工具/file-20260514131424098-2.png)
 
 
 **错误描述**
@@ -908,7 +912,7 @@ hilog -w start
 error: install releaseType target not same.
 
 
-![](assets/bm工具/file-20260514131424098-2.png)
+![](assets/bm工具/file-20260514131424098-3.png)
 
 
 **错误描述**
@@ -1116,7 +1120,7 @@ error: install file path invalid.
 error: signature verification failed due to not trusted app source.
 
 
-![](assets/bm工具/file-20260514131424098-3.png)
+![](assets/bm工具/file-20260514131424098-4.png)
 
 
 **错误描述**
@@ -1187,7 +1191,7 @@ error: install failed due to insufficient disk memory.
 error: install failed due to grant request permissions failed.
 
 
-![](assets/bm工具/file-20260514131424098-4.png)
+![](assets/bm工具/file-20260514131424098-5.png)
 
 
 **错误描述**
@@ -1268,7 +1272,7 @@ SysCap不一致导致安装失败。
 
 **可能原因**
 
-多个HAP/HSP中配置的[SysCap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)不一致。
+多个HAP/HSP中配置的[SysCap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#syscap的用途)不一致。
 
 **处理步骤**
 
@@ -1283,7 +1287,7 @@ SysCap不一致导致安装失败。
 error: install failed due to older sdk version in the device.
 
 
-![](assets/bm工具/file-20260514131424098-5.png)
+![](assets/bm工具/file-20260514131424098-6.png)
 
 
 **错误描述**
@@ -1355,7 +1359,7 @@ error: moduleName is not unique.
 error: install sign info inconsistent.
 
 
-![](assets/bm工具/file-20260514131424098-6.png)
+![](assets/bm工具/file-20260514131424098-7.png)
 
 
 **错误描述**
@@ -1380,7 +1384,7 @@ error: install sign info inconsistent.
 error: verify signature failed.
 
 
-![](assets/bm工具/file-20260514131424098-7.png)
+![](assets/bm工具/file-20260514131424098-8.png)
 
 
 **错误描述**
@@ -1408,7 +1412,7 @@ error: verify signature failed.
 error: install permission denied.
 
 
-![](assets/bm工具/file-20260514131424098-8.png)
+![](assets/bm工具/file-20260514131424098-9.png)
 
 
 **错误描述**
@@ -2521,12 +2525,12 @@ error: installd set selinux label failed.
 1. 确认签名文件p7b中apl字段是否有误。
 
   
-![](assets/bm工具/file-20260514131424098-9.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/SCNuKxDNTAybFSute5_Tmw/zh-cn_image_0000002592378874.png?HW-CC-KV=V1&HW-CC-Date=20260611T074928Z&HW-CC-Expire=86400&HW-CC-Sign=8A5F1ECA68630992E89825CC76A93E606020245D861069C710B5CE8ACBAE03A5)
 
 2. 若apl字段有误，修改UnsgnedReleasedProfileTemplate.json文件中apl字段，并重新签名。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/GR9DxP1eThiciWPSt_iwPw/zh-cn_image_0000002581434602.png?HW-CC-KV=V1&HW-CC-Date=20260528T030229Z&HW-CC-Expire=86400&HW-CC-Sign=31243FB9BA0187218B424066CA890354125C528619332EB48D28D01B76D2AFF8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/fZAOiyoUR4OYn5yL7VuBfA/zh-cn_image_0000002622858381.png?HW-CC-KV=V1&HW-CC-Date=20260611T074928Z&HW-CC-Expire=86400&HW-CC-Sign=47AC4F043CA17D3ACBD9AF0E094E13CF5FCB7345962EE7C0E97E4B60B37C7323)
 
 
 
@@ -3168,7 +3172,7 @@ error: install parse syscap error.
 
 **错误描述**
 
-安装过程中，解析安装包获取[SysCap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap)信息失败。
+安装过程中，解析安装包获取[SysCap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#syscap的用途)信息失败。
 
 **可能原因**
 

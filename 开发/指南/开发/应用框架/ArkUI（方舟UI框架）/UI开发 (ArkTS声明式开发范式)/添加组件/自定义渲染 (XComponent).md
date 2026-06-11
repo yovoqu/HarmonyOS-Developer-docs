@@ -1,6 +1,6 @@
 # 自定义渲染 (XComponent)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-xcomponent-guidelines
 
@@ -195,7 +195,7 @@ struct Index {
  - 通过ArkTS声明式UI描述来创建组件并结合OH_ArkUI_SurfaceHolders实现对Surface生命周期的管理。
 
   
-```text
+```ArkTS
 import native from 'libnativerender.so';
 
 // ...
@@ -233,7 +233,7 @@ export struct SurfaceHolderDeclarative {
 Native侧获取SurfaceHolder并绑定Surface生命周期回调的具体实现。
 
   
-```text
+```cpp
 napi_value PluginManager::BindNode(napi_env env, napi_callback_info info)
 {
     size_t argc = 2;
@@ -312,7 +312,7 @@ class MyNodeController extends NodeController {
  - 通过ArkTS自定义组件节点来创建组件并结合OH_ArkUI_SurfaceHolder实现对Surface生命周期的管理。
 
   
-```text
+```ArkTS
 import native from 'libnativerender.so';
 import { FrameNode, NodeController, typeNode, UIContext } from '@kit.ArkUI';
 
@@ -365,7 +365,7 @@ export struct SurfaceHolderTypeNode {
 Native侧绑定Surface生命周期回调的具体实现。
 
   
-```text
+```cpp
 napi_value PluginManager::BindNode(napi_env env, napi_callback_info info)
 {
     size_t argc = 2;
@@ -392,7 +392,7 @@ napi_value PluginManager::BindNode(napi_env env, napi_callback_info info)
  - 通过NDK接口来创建组件并使用OH_ArkUI_SurfaceHolder实现对Surface生命周期的管理。
 
   
-```text
+```ArkTS
 @Component
 export struct SurfaceHolderNDK {
   @State currentStatus: string = 'init';
@@ -422,7 +422,7 @@ export struct SurfaceHolderNDK {
 Native侧createNativeNode可以参照如下代码实现。
 
   
-```text
+```cpp
 napi_value PluginManager::createNativeNode(napi_env env, napi_callback_info info)
 {
     // ...
@@ -463,7 +463,7 @@ napi_value PluginManager::createNativeNode(napi_env env, napi_callback_info info
 创建XComponent组件并使用SurfaceHolder管理Surface生命周期的实现如下。
 
   
-```text
+```cpp
 ArkUI_NodeHandle CreateNodeHandleUsingSurfaceHolder(const std::string &tag)
 {
     ArkUI_NodeHandle column = nodeAPI->createNode(ARKUI_NODE_COLUMN);
@@ -515,7 +515,7 @@ ArkUI_NodeHandle CreateNodeHandleUsingSurfaceHolder(const std::string &tag)
  - OH_NativeXComponent
 
   
-```text
+```ArkTS
 XComponent({
   id: 'xcomponentId',
   type: XComponentType.SURFACE,
@@ -534,7 +534,7 @@ XComponent({
  - OH_ArkUI_SurfaceHolder
 
   
-```text
+```ArkTS
 XComponent({
   type: XComponentType.SURFACE,
 })
@@ -564,7 +564,7 @@ XComponent({
  - OH_NativeXComponent
 
   
-```text
+```cpp
 void PluginManager::Export(napi_env env, napi_value exports)
 {
     if ((env == nullptr) || (exports == nullptr)) {
@@ -610,7 +610,7 @@ void PluginManager::Export(napi_env env, napi_value exports)
 注册Surface生命周期。
 
   
-```text
+```cpp
 void PluginRender::RegisterCallback(OH_NativeXComponent* nativeXComponent)
 {
     renderCallback_.OnSurfaceCreated = OnSurfaceCreatedCB;
@@ -625,7 +625,7 @@ void PluginRender::RegisterCallback(OH_NativeXComponent* nativeXComponent)
  - OH_ArkUI_SurfaceHolder
 
   
-```text
+```cpp
 napi_value PluginManager::BindNode(napi_env env, napi_callback_info info)
 {
     size_t argc = 2;
@@ -663,7 +663,7 @@ napi_value PluginManager::BindNode(napi_env env, napi_callback_info info)
   在OnSurfaceCreated等生命周期回调返回的参数(即下面的void *window)中获取。
 
   
-```text
+```cpp
 void OnSurfaceCreatedCB(OH_NativeXComponent *component, void *window)
 {
     // ...
@@ -687,7 +687,7 @@ void DispatchTouchEventCB(OH_NativeXComponent *component, void *window)
   调用OH_ArkUI_XComponent_GetNativeWindow接口从OH_ArkUI_SurfaceHolder中获取。
 
   
-```text
+```cpp
 void OnSurfaceCreatedNative(OH_ArkUI_SurfaceHolder *holder)
 {
     auto window = OH_ArkUI_XComponent_GetNativeWindow(holder); // 获取native window
@@ -706,7 +706,7 @@ void OnSurfaceCreatedNative(OH_ArkUI_SurfaceHolder *holder)
  - OH_NativeXComponent
 
   
-```text
+```cpp
 renderCallback_.DispatchTouchEvent = DispatchTouchEventCB; // 注册触摸事件
 OH_NativeXComponent_RegisterCallback(nativeXComponent, &renderCallback_);
 mouseCallback_.DispatchMouseEvent = DispatchMouseEventCB;
@@ -723,7 +723,7 @@ OH_NativeXComponent_RegisterBlurEventCallback(nativeXComponent, OnBlurEventCB); 
   以下只以注册触摸事件为例，鼠标、按键等更多事件请参考[绑定基础输入事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-bind-input-events)。
 
   
-```text
+```cpp
 if (!nodeAPI->addNodeEventReceiver(handle, onEvent)) { // 添加事件监听，返回成功码 0
     OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "onBind", "addNodeEventReceiver error");
 }
@@ -1718,7 +1718,7 @@ target_link_libraries(nativerender PUBLIC ${EGL-lib} ${GLES-lib} ${hilog-lib} ${
 上述用例具体实现可参考[NativeXComponent](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/ArkUISample/NativeXComponentSample)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/Wdj-6d9nSCOofFQevWK6kg/zh-cn_image_0000002587108332.jpeg?HW-CC-KV=V1&HW-CC-Date=20260604T012631Z&HW-CC-Expire=86400&HW-CC-Sign=0655C56D714AA45E005943B3DF6CEDD5BB99DEAACB4B72CCA9C985CE1A4C3404)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/m9PFMgLfTgCZSenuQIZQBQ/zh-cn_image_0000002592378222.jpeg?HW-CC-KV=V1&HW-CC-Date=20260611T074919Z&HW-CC-Expire=86400&HW-CC-Sign=BA9A672E0583D9B9ECDCACBE43C262DBB5CCED914153ACBDAA3A1E56D7EC0517)
 
 
 

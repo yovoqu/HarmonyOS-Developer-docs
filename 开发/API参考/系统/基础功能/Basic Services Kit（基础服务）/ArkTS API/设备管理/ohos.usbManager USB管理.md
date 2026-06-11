@@ -1,6 +1,6 @@
 # @ohos.usbManager (USB管理)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-usbmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -1561,8 +1561,8 @@ function controlTransfer() {
 | --- | --- | --- | --- | --- |
 | address | number | 否 | 否 | 端点地址。 |
 | attributes | number | 否 | 否 | 端点属性。 |
-| interval | number | 否 | 否 | 端点间隔。 |
-| maxPacketSize | number | 否 | 否 | 端点最大数据包大小。 |
+| interval | number | 否 | 否 | 端点间隔，（单位：毫秒）。 |
+| maxPacketSize | number | 否 | 否 | 端点最大数据包大小，（单位：字节）。 |
 | direction | USBRequestDirection | 否 | 否 | 端点的方向。 |
 | number | number | 否 | 否 | 端点号。 |
 | type | number | 否 | 否 | 端点类型。取值见UsbEndpointTransferType |

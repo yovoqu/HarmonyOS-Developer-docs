@@ -1,6 +1,6 @@
 # AppPicker（应用选择页）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-app-picker
 **支持设备：** Phone | Tablet
@@ -82,13 +82,13 @@ import { appPicker } from '@kit.ScreenTimeGuardKit';
 struct TestPage {
    build() {
       Column() {
-      Button("TestStartAppPicker")
+      Button('TestStartAppPicker')
          .onClick(() => {
             const context = this.getUIContext().getHostContext() as common.UIAbilityContext;
             appPicker.startAppPicker(context, { appTokens: [] })
                .then((tokens) => {
                   console.info('startAppPicker invoke success' + tokens);
-               })
+               });
          })
       }
    }
@@ -157,14 +157,14 @@ import { appPicker } from '@kit.ScreenTimeGuardKit';
 struct TestPage {
    build() {
       Column() {
-      Button("TestStartAppForm")
+      Button('TestStartAppForm')
          .onClick(() => {
             let selectedTokens: string[] = []; // 可以通过调用startAppPicker接口获取相应的应用token
             const context = this.getUIContext().getHostContext() as common.UIAbilityContext;
-            appPicker.startAppForm(context, { appTokens: selectedTokens }, "TestStartAppForm", false)
+            appPicker.startAppForm(context, { appTokens: selectedTokens }, 'TestStartAppForm', false)
                .then(() => {
                   console.info('startAppForm invoke success');
-               })
+               });
          })
       }
    }

@@ -1,6 +1,6 @@
 # (可选）一键生成Model Class
 
-更新时间：2026-01-21 08:03:01
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agc-harmonyos-clouddev-modelclass
 

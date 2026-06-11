@@ -1,6 +1,6 @@
 # 消息摘要计算SHA256(C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-message-digest-ndk
 
@@ -104,6 +104,7 @@ OH_Crypto_ErrCode doLoopSha256Md()
 
     ret = OH_CryptoDigest_Create("SHA256", &ctx);
     if (ret != CRYPTO_SUCCESS) {
+        free(testData);
         return ret;
     }
     do {
@@ -123,6 +124,7 @@ OH_Crypto_ErrCode doLoopSha256Md()
         }
         mdLen = OH_CryptoDigest_GetLength(ctx);
     } while (0);
+    free(testData);
     OH_Crypto_FreeDataBlob(&out);
     OH_DigestCrypto_Destroy(ctx);
     return ret;

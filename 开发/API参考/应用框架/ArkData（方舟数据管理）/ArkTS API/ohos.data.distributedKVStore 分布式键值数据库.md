@@ -1,6 +1,6 @@
 # @ohos.data.distributedKVStore (分布式键值数据库)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedkvstore
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,7 +42,7 @@ import { distributedKVStore } from '@kit.ArkData';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | context | BaseContext | 否 | 否 | 应用的上下文。 FA模型的应用Context定义见Context。 Stage模型的应用Context定义见Context。 从API version 10开始，context的参数类型为BaseContext。 |
-| bundleName | string | 否 | 否 | 调用方的包名。 |
+| bundleName | string | 否 | 否 | 调用方的包名，不可为空且长度不大于256字节。 |
 
 
 
@@ -98,7 +98,7 @@ import { distributedKVStore } from '@kit.ArkData';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type | ValueType | 否 | 否 | 值类型。 |
-| value | Uint8Array \| string \| number \| boolean | 否 | 否 | 值。 |
+| value | Uint8Array \| string \| number \| boolean | 否 | 否 | 键值对中的值。Uint8Array、string类型的长度不大于MAX_VALUE_LENGTH。 |
 
 
 
@@ -113,7 +113,7 @@ import { distributedKVStore } from '@kit.ArkData';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| key | string | 否 | 否 | 键值。 |
+| key | string | 否 | 否 | 表示键名。不能为空且长度不大于MAX_KEY_LENGTH。 |
 | value | Value | 否 | 否 | 值对象。 |
 
 
@@ -508,11 +508,15 @@ if (kvManager !== undefined) {
 
 getKVStore&lt;T&gt;(storeId: string, options: Options, callback: AsyncCallback&lt;T&gt;): void
 
-通过指定options和storeId，创建并获取分布式键值数据库，使用callback异步回调。
+通过指定options和storeId，创建并获取分布式键值数据库，使用callback异步回调。获取数据库后，在使用完毕时需调用[closeKVStore](#closekvstore)关闭数据库释放资源。
 
-注意：
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/41/v3/EnLMD1wyRg6KDu2STBZ_ng/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074821Z&HW-CC-Expire=86400&HW-CC-Sign=6DE446F4E6FE5D6A4A04B57E6976D47B63F4900D94DA73C0616468E076CACB09)
+
 
 在获取已有的分布式键值数据库时，如果数据库文件无法打开（例如文件头损坏），将触发自动重建逻辑，并返回新创建的分布式键值数据库实例。建议对重要且无法重新生成的数据使用备份恢复功能，以防止数据丢失。有关备份恢复的使用方法，请参阅[数据库备份与恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore)。
+
+
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -577,11 +581,15 @@ try {
 
 getKVStore&lt;T&gt;(storeId: string, options: Options): Promise&lt;T&gt;
 
-指定options和storeId，创建并获取分布式键值数据库，使用Promise回调。
+指定options和storeId，创建并获取分布式键值数据库，使用Promise回调。获取数据库后，在使用完毕时需调用[closeKVStore](#closekvstore)关闭数据库释放资源。
 
-注意：
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/qL2Vx3hERVmNJC9kJHcq2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074821Z&HW-CC-Expire=86400&HW-CC-Sign=7DB0BCFA671D05CEED7B4D7271D5BC08603C1E0FEF9CC7F1882470620E37B42D)
+
 
 获取已有的分布式键值数据库时，如果数据库文件无法打开（如文件头损坏），将触发自动重建逻辑，并返回新创建的分布式键值数据库实例。建议对重要且无法重新生成的数据使用备份恢复功能，防止数据丢失。备份恢复的使用方法详见[数据库备份与恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-backup-and-restore)。
+
+
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -648,7 +656,7 @@ try {
 
 closeKVStore(appId: string, storeId: string, callback: AsyncCallback&lt;void&gt;): void
 
-通过storeId的值关闭指定的分布式键值数据库，使用callback异步回调。
+通过storeId的值关闭指定的分布式键值数据库，使用callback异步回调。此方法与getKVStore()方法配对使用，使用完毕的数据库应通过此方法关闭。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -656,7 +664,7 @@ closeKVStore(appId: string, storeId: string, callback: AsyncCallback&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字符。 |
+| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字节。 |
 | storeId | string | 是 | 要关闭的数据库唯一标识符，长度不大于MAX_STORE_ID_LENGTH，且只能包含字母数字或下划线_。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当要关闭的数据库成功关闭，err为undefined，否则为错误对象。 |
 
@@ -728,7 +736,7 @@ closeKVStore(appId: string, storeId: string, kvConfig?: Options): Promise&lt;voi
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字符。 |
+| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字节。 |
 | storeId | string | 是 | 要关闭的数据库唯一标识符，长度不大于MAX_STORE_ID_LENGTH，且只能包含字母数字或下划线_。 |
 | kvConfig24+ | Options | 否 | 要关闭的数据库的配置信息，默认为空。 |
 
@@ -806,7 +814,7 @@ deleteKVStore(appId: string, storeId: string, callback: AsyncCallback&lt;void&gt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字符。 |
+| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字节。 |
 | storeId | string | 是 | 要删除的数据库唯一标识符，长度不大于MAX_STORE_ID_LENGTH，且只能包含字母数字或下划线_。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当要删除的数据库成功删除，err为undefined，否则为错误对象。 |
 
@@ -880,7 +888,7 @@ deleteKVStore(appId: string, storeId: string, kvConfig?: Options): Promise&lt;vo
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字符。 |
+| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字节。 |
 | storeId | string | 是 | 要删除的数据库唯一标识符，长度不大于MAX_STORE_ID_LENGTH，且只能包含字母数字或下划线_。 |
 | kvConfig24+ | Options | 否 | 要删除的数据库的配置信息，默认为空。 |
 
@@ -959,7 +967,7 @@ getAllKVStoreId(appId: string, callback: AsyncCallback<string[]>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字符。 |
+| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字节。 |
 | callback | AsyncCallback<string[]> | 是 | 回调函数。返回所有创建的分布式键值数据库的storeId。 |
 
 
@@ -1009,7 +1017,7 @@ getAllKVStoreId(appId: string): Promise<string[]>
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字符。 |
+| appId | string | 是 | 应用的BundleName，不可为空且长度不大于256字节。 |
 
 
 **返回值：**
@@ -1415,7 +1423,7 @@ move(offset: number): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| offset | number | 是 | 表示与当前位置的相对偏移量，正偏移表示向前移动，负偏移表示向后移动。当游标超出结果集最前或者最后的位置时，接口返回false。 |
+| offset | number | 是 | 表示与当前位置的相对偏移量，正偏移表示向结果集末尾方向移动（行号增大），负偏移表示向结果集起始方向移动（行号减小）。当游标超出结果集最前或者最后的位置时，接口返回false。 |
 
 
 **返回值：**
@@ -1491,7 +1499,7 @@ moveToPosition(position: number): boolean
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
 
 
-**示例**
+**示例：**
 
 ```text
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1716,7 +1724,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-使用谓词表示数据库查询，提供创建Query实例、查询数据库中的数据和添加谓词的方法。一个Query对象中谓词数量上限为256个。
+使用谓词表示数据库查询，提供创建Query实例、查询数据库中的数据和添加谓词的方法。Query对象的谓词方法均返回自身，支持链式调用。一个Query对象中谓词数量上限为256个。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -1748,7 +1756,7 @@ reset(): Query
 
 | 类型 | 说明 |
 | --- | --- |
-| Query | 返回重置的Query对象。 |
+| Query | 返回重置后的Query对象，所有已添加的谓词条件被清空，可用于重新构建查询条件。 |
 
 
 **示例：**
@@ -1791,7 +1799,7 @@ equalTo(field: string, value: number|string|boolean): Query
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 表示指定字段，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
-| value | number\|string\|boolean | 是 | 表示指定的值。 |
+| value | number\|string\|boolean | 是 | 表示指定字段要匹配的值，值的类型应与Schema中定义的字段类型一致。 |
 
 
 **返回值：**
@@ -1849,7 +1857,7 @@ notEqualTo(field: string, value: number|string|boolean): Query
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 表示指定字段，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
-| value | number\|string\|boolean | 是 | 表示指定的值。 |
+| value | number\|string\|boolean | 是 | 表示指定字段要匹配的值，值的类型应与Schema中定义的字段类型一致。 |
 
 
 **返回值：**
@@ -1907,7 +1915,7 @@ greaterThan(field: string, value: number|string|boolean): Query
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 表示指定字段，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
-| value | number\|string\|boolean | 是 | 表示指定的值。 |
+| value | number\|string\|boolean | 是 | 表示指定字段要匹配的值，值的类型应与Schema中定义的字段类型一致。 |
 
 
 **返回值：**
@@ -1965,7 +1973,7 @@ lessThan(field: string, value: number|string): Query
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 表示指定字段，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
-| value | number\|string | 是 | 表示指定的值。 |
+| value | number\|string | 是 | 表示指定字段要匹配的值，值的类型应与Schema中定义的字段类型一致。 |
 
 
 **返回值：**
@@ -2023,7 +2031,7 @@ greaterThanOrEqualTo(field: string, value: number|string): Query
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 表示指定字段，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
-| value | number\|string | 是 | 表示指定的值。 |
+| value | number\|string | 是 | 表示指定字段要匹配的值，值的类型应与Schema中定义的字段类型一致。 |
 
 
 **返回值：**
@@ -2081,7 +2089,7 @@ lessThanOrEqualTo(field: string, value: number|string): Query
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 表示指定字段，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
-| value | number\|string | 是 | 表示指定的值。 |
+| value | number\|string | 是 | 表示指定字段要匹配的值，值的类型应与Schema中定义的字段类型一致。 |
 
 
 **返回值：**
@@ -2428,7 +2436,7 @@ like(field: string, value: string): Query
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 表示指定字段，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
-| value | string | 是 | 表示指定的字符串值。 |
+| value | string | 是 | 表示指定字段要匹配的字符串值。 |
 
 
 **返回值：**
@@ -2486,7 +2494,7 @@ unlike(field: string, value: string): Query
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | field | string | 是 | 表示指定字段，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
-| value | string | 是 | 表示指定的字符串值。 |
+| value | string | 是 | 表示指定字段要不匹配的字符串值。 |
 
 
 **返回值：**
@@ -2531,7 +2539,7 @@ try {
 
 and(): Query
 
-构造一个带有与条件的查询对象。
+构造一个带有与条件的查询对象。需先通过equalTo、notEqualTo等谓词方法添加查询条件后，再调用and()连接多个条件，无前置谓词时调用and()无效。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -2569,7 +2577,7 @@ try {
 
 or(): Query
 
-构造一个带有或条件的Query对象。
+构造一个带有或条件的Query对象。需先通过equalTo、notEqualTo等谓词方法添加查询条件后，再调用or()连接多个条件，无前置谓词时调用or()无效。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -2731,8 +2739,8 @@ limit(total: number, offset: number): Query
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| total | number | 是 | 表示最大数据记录数，取值应为非负整数。 当total为负数时，表示查询整个结果集。 |
-| offset | number | 是 | 指定查询结果的起始位置，取值应为非负整数。 当offset为负数时，表示查询整个结果集。 当offset超出结果集最后位置时，查询结果为空。 |
+| total | number | 是 | 表示最大数据记录数。 取值为非负整数时表示指定的最大记录数。 取值为负数时，表示查询整个结果集。 |
+| offset | number | 是 | 指定查询结果的起始位置。取值为非负整数时表示指定的起始位置；取值为负数时，表示查询整个结果集。当offset超出结果集最后位置时，查询结果为空。 |
 
 
 **返回值：**
@@ -2837,7 +2845,7 @@ try {
 
 beginGroup(): Query
 
-创建一个带有左括号的查询条件组。
+创建一个带有左括号的查询条件组。必须与[endGroup()](#endgroup)成对使用，以形成完整的查询条件分组。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -2875,7 +2883,7 @@ try {
 
 endGroup(): Query
 
-创建一个带有右括号的查询条件组。
+创建一个带有右括号的查询条件组。必须与[beginGroup()](#begingroup)成对使用，以形成完整的查询条件分组。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -2921,7 +2929,7 @@ prefixKey(prefix: string): Query
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| prefix | string | 是 | 表示指定的键前缀，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
+| prefix | string | 是 | 表示指定的键前缀，长度不大于MAX_KEY_LENGTH，不能包含'^'。包含'^'将导致谓词失效，查询结果会返回数据库中的所有数据。 |
 
 
 **返回值：**
@@ -3085,7 +3093,7 @@ getSqlLike():string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 返回一个字段列中包含对应子串的结果。 |
+| string | 返回Query对象构建的查询语句字符串，可用于查看和调试当前的查询条件。 |
 
 
 **示例：**
@@ -3122,7 +3130,7 @@ SingleKVStore数据库实例，提供增加数据、删除数据和订阅数据�
 
 put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncCallback&lt;void&gt;): void
 
-添加指定类型键值对到数据库，使用callback异步回调。
+添加指定类型键值对到数据库，使用callback异步回调。若Key已存在则更新对应Value；若已订阅数据变更通知，将触发变更通知回调。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -3131,7 +3139,7 @@ put(key: string, value: Uint8Array | string | number | boolean, callback: AsyncC
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 要添加数据的Key，不能为空且长度不大于MAX_KEY_LENGTH。 |
-| value | Uint8Array \| string \| number \| boolean | 是 | 要添加数据的value，支持Uint8Array、number 、 string 、boolean，Uint8Array、string 的长度不大于MAX_VALUE_LENGTH。 |
+| value | Uint8Array \| string \| number \| boolean | 是 | 要添加数据的value，支持Uint8Array、string、number、boolean，Uint8Array、string的长度不大于MAX_VALUE_LENGTH。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。数据添加成功，err为undefined，否则为错误对象。 |
 
 
@@ -3182,7 +3190,7 @@ try {
 
 put(key: string, value: Uint8Array | string | number | boolean): Promise&lt;void&gt;
 
-添加指定类型键值对到数据库，使用Promise异步回调。
+添加指定类型键值对到数据库，使用Promise异步回调。若Key已存在则更新对应Value；若已订阅数据变更通知，将触发变更通知回调。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -3191,7 +3199,7 @@ put(key: string, value: Uint8Array | string | number | boolean): Promise&lt;void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 要添加数据的Key，不能为空且长度不大于MAX_KEY_LENGTH。 |
-| value | Uint8Array \| string \| number \| boolean | 是 | 要添加数据的value，支持Uint8Array、number 、 string 、boolean，Uint8Array、string 的长度不大于MAX_VALUE_LENGTH。 |
+| value | Uint8Array \| string \| number \| boolean | 是 | 要添加数据的value，支持Uint8Array、string、number、boolean，Uint8Array、string的长度不大于MAX_VALUE_LENGTH。 |
 
 
 **返回值：**
@@ -3246,7 +3254,7 @@ try {
 
 putBatch(entries: Entry[], callback: AsyncCallback&lt;void&gt;): void
 
-批量插入键值对到SingleKVStore数据库中，使用callback异步回调。
+批量插入键值对到SingleKVStore数据库中，使用callback异步回调。若Key已存在则更新对应Value；若已订阅数据变更通知，将触发变更通知回调。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -3328,7 +3336,7 @@ try {
 
 putBatch(entries: Entry[]): Promise&lt;void&gt;
 
-批量插入键值对到SingleKVStore数据库中，使用Promise异步回调。
+批量插入键值对到SingleKVStore数据库中，使用Promise异步回调。若Key已存在则更新对应Value；若已订阅数据变更通知，将触发变更通知回调。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -3410,7 +3418,7 @@ try {
 
 delete(key: string, callback: AsyncCallback&lt;void&gt;): void
 
-从数据库中删除指定键值的数据，使用callback异步回调。
+从数据库中删除指定键值的数据，使用callback异步回调。删除成功后，指定键值对将被永久删除，无法再通过get等方法查询；若已订阅数据变更通知，将触发变更通知回调。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -3478,7 +3486,7 @@ try {
 
 delete(key: string): Promise&lt;void&gt;
 
-从数据库中删除指定键值的数据，使用Promise异步回调。
+从数据库中删除指定键值的数据，使用Promise异步回调。删除成功后，指定键值对将被永久删除，无法再通过get等方法查询；若已订阅数据变更通知，将触发变更通知回调。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -3548,7 +3556,7 @@ try {
 
 deleteBatch(keys: string[], callback: AsyncCallback&lt;void&gt;): void
 
-批量删除SingleKVStore数据库中的键值对，使用callback异步回调。
+批量删除SingleKVStore数据库中的键值对，使用callback异步回调。删除成功后，指定键值对将被永久删除，无法再通过get等方法查询；若已订阅数据变更通知，将触发变更通知回调。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -3556,7 +3564,7 @@ deleteBatch(keys: string[], callback: AsyncCallback&lt;void&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keys | string[] | 是 | 表示要批量删除的键值对，不能为空。 |
+| keys | string[] | 是 | 表示要批量删除的键名列表，不能为空，数组中每个元素的长度不大于MAX_KEY_LENGTH。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。批量删除指定的数据成功，err为undefined，否则为错误对象。 |
 
 
@@ -3629,7 +3637,7 @@ try {
 
 deleteBatch(keys: string[]): Promise&lt;void&gt;
 
-批量删除SingleKVStore数据库中的键值对，使用Promise异步回调。
+批量删除SingleKVStore数据库中的键值对，使用Promise异步回调。删除成功后，指定键值对将被永久删除，无法再通过get等方法查询；若已订阅数据变更通知，将触发变更通知回调。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -3637,7 +3645,7 @@ deleteBatch(keys: string[]): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keys | string[] | 是 | 表示要批量删除的键值对，不能为空。 |
+| keys | string[] | 是 | 表示要批量删除的键名列表，不能为空，数组中每个元素的长度不大于MAX_KEY_LENGTH。 |
 
 
 **返回值：**
@@ -3712,7 +3720,7 @@ try {
 
 removeDeviceData(deviceId: string, callback: AsyncCallback&lt;void&gt;): void
 
-删除指定设备的数据，使用callback异步回调。
+删除指定设备的数据，使用callback异步回调。删除成功后，指定设备的所有数据将从本地数据库中永久移除，无法再通过get等方法查询该设备的数据。
 
 > [!NOTE]
 > 其中deviceId为 DeviceBasicInfo 中的networkId，通过调用 deviceManager.getAvailableDeviceListSync 方法得到。 deviceId具体获取方式请参考 sync接口示例
@@ -3786,7 +3794,7 @@ try {
 
 removeDeviceData(deviceId: string): Promise&lt;void&gt;
 
-删除指定设备的数据，使用Promise异步回调。
+删除指定设备的数据，使用Promise异步回调。删除成功后，指定设备的所有数据将从本地数据库中永久移除，无法再通过get等方法查询该设备的数据。
 
 > [!NOTE]
 > 其中deviceId为 DeviceBasicInfo 中的networkId，通过调用 deviceManager.getAvailableDeviceListSync 方法得到。 deviceId具体获取方式请参考 sync接口示例
@@ -3865,7 +3873,7 @@ get(key: string, callback: AsyncCallback<boolean | string | number | Uint8Array>
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | key | string | 是 | 要查询数据的Key，不能为空且长度不大于MAX_KEY_LENGTH。 |
-| callback | AsyncCallback<boolean \| string \| number \| Uint8Array> | 是 | 回调函数。返回获取查询的值。 |
+| callback | AsyncCallback<boolean \| string \| number \| Uint8Array> | 是 | 回调函数。返回获取查询的值，值的类型取决于存储时的数据类型。 |
 
 
 **错误码：**
@@ -3934,7 +3942,7 @@ get(key: string): Promise<boolean | string | number | Uint8Array>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<boolean \| string \| number \| Uint8Array> | Promise对象。返回获取查询的值。 |
+| Promise<boolean \| string \| number \| Uint8Array> | Promise对象。返回指定键对应的值，值的类型取决于存储时的数据类型。 |
 
 
 **错误码：**
@@ -4142,7 +4150,7 @@ getEntries(query: Query, callback: AsyncCallback<Entry[]>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| query | Query | 是 | 表示要匹配的键前缀。 |
+| query | Query | 是 | 表示要查询的对象。 |
 | callback | AsyncCallback<Entry[]> | 是 | 回调函数。返回与指定Query对象匹配的键值对列表。 |
 
 
@@ -4600,7 +4608,7 @@ try {
 
 closeResultSet(resultSet: KVStoreResultSet, callback: AsyncCallback&lt;void&gt;): void
 
-关闭由[SingleKvStore.getResultSet](#getresultset-1)返回的KVStoreResultSet对象，使用callback异步回调。
+关闭由[SingleKVStore.getResultSet](#getresultset-1)返回的KVStoreResultSet对象，使用callback异步回调。关闭结果集后，该结果集对象将不可再用，相关数据库资源被释放。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -4659,7 +4667,7 @@ try {
 
 closeResultSet(resultSet: KVStoreResultSet): Promise&lt;void&gt;
 
-关闭由[SingleKvStore.getResultSet](#getresultset-1)返回的KVStoreResultSet对象，使用Promise异步回调。
+关闭由[SingleKVStore.getResultSet](#getresultset-1)返回的KVStoreResultSet对象，使用Promise异步回调。关闭结果集后，该结果集对象将不可再用，相关数据库资源被释放。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -4865,7 +4873,7 @@ try {
 
 backup(file:string, callback: AsyncCallback&lt;void&gt;):void
 
-以指定名称备份数据库，使用callback异步回调。
+以指定名称备份数据库到默认路径（context.databaseDir），使用callback异步回调。如需备份到自定义路径，请使用[backupEx](#backupex24)接口。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -4915,7 +4923,7 @@ try {
 
 backup(file:string): Promise&lt;void&gt;
 
-以指定名称备份数据库，使用Promise异步回调。
+以指定名称备份数据库到默认路径（context.databaseDir），使用Promise异步回调。如需备份到自定义路径，请使用[backupEx](#backupex24)接口。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5026,7 +5034,7 @@ try {
 
 restore(file:string, callback: AsyncCallback&lt;void&gt;):void
 
-从指定的数据库文件恢复数据库，使用callback异步回调。
+从数据库默认路径（context.databaseDir）下指定名称的备份文件恢复数据库，使用callback异步回调。恢复成功后，当前数据库中的数据将被替换为备份文件中的数据，原有的未备份数据将丢失。如需从自定义路径恢复，请使用[restoreEx](#restoreex24)接口。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5076,7 +5084,7 @@ try {
 
 restore(file:string): Promise&lt;void&gt;
 
-从指定的数据库文件恢复数据库，使用Promise异步回调。
+从数据库默认路径（context.databaseDir）下指定名称的备份文件恢复数据库，使用Promise异步回调。恢复成功后，当前数据库中的数据将被替换为备份文件中的数据，原有的未备份数据将丢失。如需从自定义路径恢复，请使用[restoreEx](#restoreex24)接口。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5130,7 +5138,7 @@ try {
 
 restoreEx(backupConfig:BackupConfig): Promise&lt;void&gt;
 
-从指定的数据库文件恢复数据库，使用Promise异步回调。
+从指定路径和名称的备份文件恢复数据库，使用Promise异步回调。恢复成功后，当前数据库中的数据将被替换为备份文件中的数据，原有的未备份数据将丢失。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5187,7 +5195,7 @@ try {
 
 deleteBackup(files:Array&lt;string&gt;, callback: AsyncCallback<Array<[string, number]>>):void
 
-根据指定名称删除备份文件，使用callback异步回调。
+根据指定名称从默认路径（context.databaseDir）删除备份文件，使用callback异步回调。删除备份文件后，将无法再通过[restore](#restore-1)接口恢复该备份文件中的数据。如需从自定义路径删除备份，请使用[deleteBackupEx](#deletebackupex24)接口。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5236,7 +5244,7 @@ try {
 
 deleteBackup(files:Array&lt;string&gt;): Promise<Array<[string, number]>>
 
-根据指定名称删除备份文件，使用Promise异步回调。
+根据指定名称从默认路径（context.databaseDir）删除备份文件，使用Promise异步回调。删除备份文件后，将无法再通过[restore](#restore)接口恢复该备份文件中的数据。如需从自定义路径删除备份，请使用[deleteBackupEx](#deletebackupex24)接口。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5345,7 +5353,7 @@ try {
 
 startTransaction(callback: AsyncCallback&lt;void&gt;): void
 
-启动SingleKVStore数据库中的事务，使用callback异步回调。
+启动SingleKVStore数据库中的事务，使用callback异步回调。启动事务后，后续的数据库操作将纳入此事务范围，直到调用[commit](#commit)提交或[rollback](#rollback)回滚才会结束事务。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5430,7 +5438,7 @@ try {
 
 startTransaction(): Promise&lt;void&gt;
 
-启动SingleKVStore数据库中的事务，使用Promise异步回调。
+启动SingleKVStore数据库中的事务，使用Promise异步回调。启动事务后，后续的数据库操作将纳入此事务范围，直到调用[commit](#commit)提交或[rollback](#rollback)回滚才会结束事务。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5487,7 +5495,7 @@ try {
 
 commit(callback: AsyncCallback&lt;void&gt;): void
 
-提交SingleKVStore数据库中的事务，使用callback异步回调。
+提交SingleKVStore数据库中的事务，使用callback异步回调。需先调用[startTransaction](#starttransaction)启动事务后再调用本接口提交事务。提交成功后，事务期间的所有数据变更将永久生效并写入数据库。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5534,7 +5542,7 @@ try {
 
 commit(): Promise&lt;void&gt;
 
-提交SingleKVStore数据库中的事务，使用Promise异步回调。
+提交SingleKVStore数据库中的事务，使用Promise异步回调。需先调用[startTransaction](#starttransaction)启动事务后再调用本接口提交事务。提交成功后，事务期间的所有数据变更将永久生效并写入数据库。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5579,7 +5587,7 @@ try {
 
 rollback(callback: AsyncCallback&lt;void&gt;): void
 
-在SingleKVStore数据库中回滚事务，使用callback异步回调。
+在SingleKVStore数据库中回滚事务，使用callback异步回调。需先调用[startTransaction](#starttransaction)启动事务后再调用本接口回滚事务。回滚成功后，事务期间的所有数据变更将被丢弃，不会写入数据库。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5626,7 +5634,7 @@ try {
 
 rollback(): Promise&lt;void&gt;
 
-在SingleKVStore数据库中回滚事务，使用Promise异步回调。
+在SingleKVStore数据库中回滚事务，使用Promise异步回调。需先调用[startTransaction](#starttransaction)启动事务后再调用本接口回滚事务。回滚成功后，事务期间的所有数据变更将被丢弃，不会写入数据库。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5671,7 +5679,7 @@ try {
 
 enableSync(enabled: boolean, callback: AsyncCallback&lt;void&gt;): void
 
-设定是否开启端端同步，使用callback异步回调。
+设定是否开启端端同步，使用callback异步回调。开启端端同步后，数据库中的数据可在多设备间自动同步；关闭后则不会自动同步，需要手动调用[sync](#sync)接口触发同步。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5719,7 +5727,7 @@ try {
 
 enableSync(enabled: boolean): Promise&lt;void&gt;
 
-设定是否开启端端同步，使用Promise异步回调。
+设定是否开启端端同步，使用Promise异步回调。开启端端同步后，数据库中的数据可在多设备间自动同步；关闭后则不会自动同步，需要手动调用[sync](#sync)接口触发同步。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5771,7 +5779,7 @@ try {
 
 setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: AsyncCallback&lt;void&gt;): void
 
-设置同步范围标签，使用callback异步回调。
+设置同步范围标签，使用callback异步回调。通过设置本地设备和远程设备的同步标签，决定哪些设备间可以进行数据同步。只有当本地设备的标签与远程设备的标签存在交集时，两端才允许同步数据。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5779,8 +5787,8 @@ setSyncRange(localLabels: string[], remoteSupportLabels: string[], callback: Asy
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| localLabels | string[] | 是 | 表示本地设备的同步标签。 |
-| remoteSupportLabels | string[] | 是 | 表示要同步数据的设备的同步标签。 |
+| localLabels | string[] | 是 | 表示本地设备的同步标签，用于标识本设备可参与同步的范围。 |
+| remoteSupportLabels | string[] | 是 | 表示期望同步数据的对端设备的同步标签，用于标识允许同步的对端设备范围。当本端的remoteSupportLabels与对端的localLabels存在交集时，设备间才允许数据同步。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。设置成功，err为undefined，否则为错误对象。 |
 
 
@@ -5822,7 +5830,7 @@ try {
 
 setSyncRange(localLabels: string[], remoteSupportLabels: string[]): Promise&lt;void&gt;
 
-设置同步范围标签，使用Promise异步回调。
+设置同步范围标签，使用Promise异步回调。通过设置本地设备和远程设备的同步标签，决定哪些设备间可以进行数据同步。只有当本地设备的标签与远程设备的标签存在交集时，两端才允许同步数据。
 
 **系统能力：** SystemCapability.DistributedDataManager.KVStore.Core
 
@@ -5830,8 +5838,8 @@ setSyncRange(localLabels: string[], remoteSupportLabels: string[]): Promise&lt;v
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| localLabels | string[] | 是 | 表示本地设备的同步标签。 |
-| remoteSupportLabels | string[] | 是 | 表示要同步数据的设备的同步标签。 |
+| localLabels | string[] | 是 | 表示本地设备的同步标签，用于标识本设备可参与同步的范围。 |
+| remoteSupportLabels | string[] | 是 | 表示期望同步数据的对端设备的同步标签，用于标识允许同步的对端设备范围。当本端的remoteSupportLabels与对端的localLabels存在交集时，设备间才允许数据同步。 |
 
 
 **返回值：**
@@ -5987,7 +5995,7 @@ try {
 
 sync(deviceIds: string[], mode: SyncMode, delayMs?: number): void
 
-在手动同步方式下，触发数据库端端同步。关于键值型数据库的端端同步方式说明，请见[键值型数据库跨设备数据同步](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-kv-store)。
+在手动同步方式下，触发数据库端端同步。同步结果可通过订阅[on('syncComplete')](#onsynccomplete)事件获取。关于键值型数据库的端端同步方式说明，请见[键值型数据库跨设备数据同步](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-kv-store)。
 
 > [!NOTE]
 > 其中deviceIds为 DeviceBasicInfo 中的networkId, 通过调用 deviceManager.getAvailableDeviceListSync 方法得到。
@@ -6080,7 +6088,7 @@ export default class EntryAbility extends UIAbility {
 
 sync(deviceIds: string[], query: Query, mode: SyncMode, delayMs?: number): void
 
-在手动同步方式下，触发数据库端端同步，此方法为同步方法。关于键值型数据库的端端同步方式说明，请见[键值型数据库跨设备数据同步](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-kv-store)。
+在手动同步方式下，触发数据库端端同步，支持按查询条件过滤同步数据。同步结果可通过订阅[on('syncComplete')](#onsynccomplete)事件获取。关于键值型数据库的端端同步方式说明，请见[键值型数据库跨设备数据同步](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-kv-store)。
 
 > [!NOTE]
 > 其中deviceIds为 DeviceBasicInfo 中的networkId, 通过调用 deviceManager.getAvailableDeviceListSync 方法得到。
@@ -6585,7 +6593,7 @@ get(key: string): Promise<boolean | string | number | Uint8Array>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<boolean \| string \| number \| Uint8Array> | Promise对象。返回获取查询的值。 |
+| Promise<boolean \| string \| number \| Uint8Array> | Promise对象。返回获取查询的值，值的类型取决于存储时的数据类型。 |
 
 
 **错误码：**
@@ -6648,7 +6656,7 @@ get(deviceId: string, key: string, callback: AsyncCallback<boolean | string | nu
 | --- | --- | --- | --- |
 | deviceId | string | 是 | 标识要查询其数据的设备。 |
 | key | string | 是 | 表示要查询Key值的键, 不能为空且长度不大于MAX_KEY_LENGTH。 |
-| callback | AsyncCallback<boolean\|string\|number\|Uint8Array> | 是 | 回调函数，返回匹配给定条件的字符串值。 |
+| callback | AsyncCallback<boolean\|string\|number\|Uint8Array> | 是 | 回调函数。成功时返回匹配给定条件的字符串值（值的类型取决于存储时的数据类型），失败时返回错误对象。 |
 
 
 **错误码：**
@@ -6721,7 +6729,7 @@ get(deviceId: string, key: string): Promise<boolean | string | number | Uint8Arr
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<boolean\|string\|number\|Uint8Array> | Promise对象。返回匹配给定条件的字符串值。 |
+| Promise<boolean\|string\|number\|Uint8Array> | Promise对象。返回匹配给定条件的字符串值，值的类型取决于存储时的数据类型。 |
 
 
 **错误码：**
@@ -7089,7 +7097,7 @@ getEntries(query: Query, callback: AsyncCallback<Entry[]>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| query | Query | 是 | 表示要匹配的键前缀。 |
+| query | Query | 是 | 表示要查询的对象。 |
 | callback | AsyncCallback<Entry[]> | 是 | 回调函数。返回本设备与指定Query对象匹配的键值对列表。 |
 
 
@@ -7972,7 +7980,7 @@ getResultSet(query: Query, callback:AsyncCallback&lt;KVStoreResultSet&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | query | Query | 是 | 表示查询对象。 |
-| callback | AsyncCallback&lt;KVStoreResultSet&gt; | 是 | 回调函数，获取与指定Predicates对象匹配的KVStoreResultSet对象。 |
+| callback | AsyncCallback&lt;KVStoreResultSet&gt; | 是 | 回调函数。成功时返回与指定Query对象匹配的KVStoreResultSet对象，失败时返回错误对象。 |
 
 
 **错误码：**

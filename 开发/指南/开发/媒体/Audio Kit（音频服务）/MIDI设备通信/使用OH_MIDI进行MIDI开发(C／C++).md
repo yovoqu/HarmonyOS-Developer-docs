@@ -1,6 +1,6 @@
 # 使用OH_MIDI进行MIDI开发(C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-ohmidi
 
@@ -115,7 +115,7 @@ MIDI功能的权限需求根据使用场景不同而有所区别。
 通过调用[OH_MIDIClient_Create](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_midiclient_create)接口创建MIDI客户端实例，传入回调结构体和用户数据。
 
 ```cpp
-// Create MIDI client
+// 创建MIDI客户端。
 static napi_value CreateMIDIClient(napi_env env, napi_callback_info info)
 {
     // ...
@@ -232,14 +232,14 @@ MIDI BLE设备可通过服务UUID 03B80E5A-EDE8-4B33-A751-6CE34EC4C700 进行过
 通过[OH_MIDIClient_OpenBLEDevice](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_midiclient_openbledevice)接口异步打开BLE MIDI设备，传入设备MAC地址和结果回调。
 
 ```cpp
-// Open BLE device asynchronously
+// 异步打开BLE设备。
 static napi_value OpenBLEDevice(napi_env env, napi_callback_info info)
 {
     size_t argc = 2;
     napi_value args[2] = {nullptr};
     napi_get_cb_info(env, info, &argc, args, nullptr, nullptr);
 
-    // Get device address
+    // 获取设备地址。
     size_t addrLen = 0;
     napi_get_value_string_utf8(env, args[0], nullptr, 0, &addrLen);
     std::string deviceAddr(addrLen, '\0');
@@ -357,7 +357,7 @@ static napi_value GetPortInfos(napi_env env, napi_callback_info info)
 ```cpp
 static void OnMIDIReceived(void *userData, const OH_MIDIEvent *events, size_t eventCount)
 {
-    // userData指向InputPortContext
+    // userData指向InputPortContext。
     InputPortContext* context = static_cast<InputPortContext*>(userData);
     // ...
 }
@@ -380,12 +380,12 @@ static napi_value OpenInputPort(napi_env env, napi_callback_info info)
         return result;
     }
 
-    // Construct port descriptor
+    // 构造端口描述符。
     OH_MIDIPortDescriptor descriptor;
     descriptor.portIndex = args.portIndex;
     descriptor.protocol = static_cast<OH_MIDIProtocol>(args.protocol);
 
-    // Create input port context for thread-safe callback handling
+    // 创建输入端口上下文，用于线程安全回调处理。
     auto context = std::make_shared<InputPortContext>(args.deviceId, args.portIndex);
 
     OH_MIDIStatusCode status = OH_MIDIDevice_OpenInputPort(it->second, descriptor, OnMIDIReceived, context.get());
@@ -398,7 +398,7 @@ static napi_value OpenInputPort(napi_env env, napi_callback_info info)
 使用[OH_MIDIDevice_CloseInputPort](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_mididevice_closeinputport)接口关闭已打开的输入端口。关闭端口后，该端口将不再接收MIDI消息，注册的回调函数也将不再被调用。
 
 ```cpp
-// Close input port
+// 关闭输入端口。
 static napi_value CloseInputPort(napi_env env, napi_callback_info info)
 {
     size_t argc = 2;
@@ -426,7 +426,7 @@ static napi_value CloseInputPort(napi_env env, napi_callback_info info)
 
     OH_MIDIStatusCode status = OH_MIDIDevice_CloseInputPort(it->second, portIndex);
 
-    // Clean up input port context
+    // 清理输入端口上下文。
     auto key = std::make_pair(deviceId, portIndex);
     auto contextIt = g_inputPortContexts.find(key);
     if (contextIt != g_inputPortContexts.end()) {
@@ -456,7 +456,7 @@ static napi_value OpenOutputPort(napi_env env, napi_callback_info info)
     uint32_t portIndex = 0;
     napi_get_value_uint32(env, args[1], &portIndex);
 
-    int32_t protocol = static_cast<int32_t>(MIDI_PROTOCOL_1_0); // Default to MIDI 1.0
+    int32_t protocol = static_cast<int32_t>(MIDI_PROTOCOL_1_0); // 默认使用MIDI 1.0协议。
     napi_get_value_int32(env, args[MIDI_ARG_INDEX_2], &protocol);
 
     OH_LOG_INFO(LOG_APP, "[OpenOutputPort] ++enter, deviceId=%{public}lld, portIndex=%{public}u, protocol=%{public}d",
@@ -486,7 +486,7 @@ static napi_value OpenOutputPort(napi_env env, napi_callback_info info)
 使用[OH_MIDIDevice_CloseOutputPort](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h#oh_mididevice_closeoutputport)接口关闭已打开的输出端口。关闭端口后，将无法再通过该端口发送MIDI消息。
 
 ```cpp
-// Close output port
+// 关闭输出端口。
 static napi_value CloseOutputPort(napi_env env, napi_callback_info info)
 {
     size_t argc = 2;
@@ -512,7 +512,7 @@ static napi_value CloseOutputPort(napi_env env, napi_callback_info info)
         return result;
     }
     OH_MIDIStatusCode status = OH_MIDIDevice_CloseOutputPort(it->second, portIndex);
-    // Remove protocol info for this output port
+    // 移除此输出端口的协议信息。
     if (status == OH_MIDI_STATUS_OK) {
         auto key = std::make_pair(deviceId, portIndex);
         g_outputPortProtocols.erase(key);
@@ -595,22 +595,22 @@ OH_MIDI强制使用UMP（Universal MIDI Packet）格式。常用的MIDI 1.0通�
 **常用MIDI消息UMP构造示例**
 
 ```cpp
-// Build MIDI 1.0 Note On UMP (32-bit, 1 word)
+// 构建MIDI 1.0音符开启UMP（一个32位无符号整数）。
 static void BuildMIDI1NoteOn(uint32_t channel, uint32_t note, uint32_t velocity, uint32_t* umpData)
 {
-    // UMP format: MT[31-28]=0x2, Group[27-24]=0x0, Status[23-20]=0x9
-    // Channel[19-16], Data1[15-8]=note, Data2[7-0]=velocity
+    // UMP格式（MIDI 1.0 Channel Voice - Note On）：第28~31位为消息类型(MT=0x2)，第24~27位为组号(Group=0x0)，
+    // 第20~23位为状态码(Status=0x9)，第16~19位为通道号(Channel)，第8~15位为音符号(Note)，第0~7位为力度值(Velocity)。
     umpData[0] = (MIDI_UMP_MT_1_0 << MIDI_UMP_WORDS_28) | (0x0 << MIDI_UMP_SHIFT_24) |
                  (MIDI_UMP_STATUS_NOTE_ON << MIDI_UMP_SHIFT_20) |
                  ((channel & MIDI_CHANNEL_MASK) << MIDI_UMP_WORDS_16) |
                  ((note & MIDI_NOTE_MASK) << MIDI_UMP_SHIFT_8) | (velocity & MIDI_NOTE_MASK);
 }
 
-// Build MIDI 1.0 Note Off UMP (32-bit, 1 word)
+// 构建MIDI 1.0音符关闭UMP（一个32位无符号整数）。
 static void BuildMIDI1NoteOff(uint32_t channel, uint32_t note, uint32_t velocity, uint32_t* umpData)
 {
-    // UMP format: MT[31-28]=0x2, Group[27-24]=0x0, Status[23-20]=0x8
-    // Channel[19-16], Data1[15-8]=note, Data2[7-0]=velocity
+    // UMP格式（MIDI 1.0 Channel Voice - Note Off）：第28~31位为消息类型(MT=0x2)，第24~27位为组号(Group=0x0)，
+    // 第20~23位为状态码(Status=0x8)，第16~19位为通道号(Channel)，第8~15位为音符号(Note)，第0~7位为力度值(Velocity)。
     umpData[0] = (MIDI_UMP_MT_1_0 << MIDI_UMP_WORDS_28) | (0x0 << MIDI_UMP_SHIFT_24) |
                  (MIDI_UMP_STATUS_NOTE_OFF << MIDI_UMP_SHIFT_20) |
                  ((channel & MIDI_CHANNEL_MASK) << MIDI_UMP_WORDS_16) |

@@ -1,6 +1,6 @@
 # 使用SM2密文格式转换(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sm2-ciphertext-conversion
 
@@ -32,7 +32,7 @@ function testGenCipherTextBySpec() {
 
 **从标准ASN.1密文中，获取密文参数**
 1. 准备符合国密标准的ASN.1格式的SM2密文。
-2. 调用[getCipherTextSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#genciphertextbyspec12)，从标准密文中，获取具体的SM2密文参数。
+2. 调用[getCipherTextSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getciphertextspec12)，从标准密文中，获取具体的SM2密文参数。
 3. 根据业务需要，自行拼接SM2密文参数，形成其他格式的SM2密文。
 
 ```ArkTS

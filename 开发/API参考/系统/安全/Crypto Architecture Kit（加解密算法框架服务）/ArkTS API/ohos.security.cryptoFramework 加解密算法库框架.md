@@ -1,6 +1,6 @@
 # @ohos.security.cryptoFramework (加解密算法库框架)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -1050,7 +1050,7 @@ RSA私钥编码参数，使用获取私钥字符串时，可以添加此参数�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-密钥派生函数参数[MacSpec](#macspec18)的子类，作为HMAC消息验证码计算的输入。
+消息认证码参数[MacSpec](#macspec18)的子类，作为HMAC消息验证码计算的输入。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -1071,7 +1071,7 @@ RSA私钥编码参数，使用获取私钥字符串时，可以添加此参数�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-密钥派生函数参数[MacSpec](#macspec18)的子类，作为CMAC消息验证码计算的输入。
+消息认证码参数[MacSpec](#macspec18)的子类，作为CMAC消息验证码计算的输入。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -7455,7 +7455,7 @@ digestSync(): DataBlob
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 import { buffer } from '@kit.ArkTS';
 
-async function mdBySync() {
+function mdBySync() {
   let md = cryptoFramework.createMd('SHA256');
   md.updateSync({ data: new Uint8Array(buffer.from('mdTestMessage', 'utf-8').buffer) });
   let mdOutput = md.digestSync();

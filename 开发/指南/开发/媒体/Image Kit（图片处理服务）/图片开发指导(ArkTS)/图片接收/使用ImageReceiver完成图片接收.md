@@ -1,13 +1,13 @@
 # 使用ImageReceiver完成图片接收
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-receiver
 
 图片接收类ImageReceiver用于获取组件SurfaceId，接收最新的图片和读取下一张图片，以及释放ImageReceiver实例。
 
 > [!NOTE]
-> Receiver作为消费者，需要有对应的生产者提供数据才能实现完整功能。常见的生产者是相机的拍照流或预览流。ImageReceiver只作为图片的接收方、消费者，在ImageReceiver设置的size、format等属性实际上并不会生效，图片createImageReceiver时传入的参数不产生实际影响。图片属性需要在发送方、生产者进行设置，如 相机创建预览流 时配置 profile 。
+> Receiver作为消费者，需要有对应的生产者提供数据才能实现完整功能。常见的生产者是相机的拍照流或预览流。ImageReceiver只作为图片的接收方、消费者，在ImageReceiver设置的size、format等属性实际上并不会生效，图片createImageReceiver时传入的参数不产生实际影响。图片属性需要在发送方、生产者进行设置，如在使用 createpreviewoutput 创建相机预览流时配置 profile 。
 
 
 ImageReceiver可以接收相机预览流中的图片，实现[双路预览](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-dual-channel-preview)。
@@ -35,6 +35,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 async function initImageReceiver(): Promise<void> {
   // 创建ImageReceiver对象。createImageReceiver的参数不会对接收到的数据产生实际影响。
   let size: image.Size = { width: imageWidth, height: imageHeight };
+  // capacity为期望缓存数量，实际值由设备能力决定，此处8仅为示例值。
   let imageReceiver = image.createImageReceiver(size, image.ImageFormat.JPEG, 8);
   // 获取预览流SurfaceId。
   let imageReceiverSurfaceId = await imageReceiver.getReceivingSurfaceId();
@@ -56,12 +57,13 @@ function onImageArrival(receiver: image.ImageReceiver) {
         return;
       }
       // 解析图像内容。
-      nextImage.getComponent(image.ComponentType.JPEG, async (err: BusinessError,
-        imgComponent: image.Component) => {
-        if (err || imgComponent === undefined) {
-          console.error('getComponent failed');
-        }
-        if (imgComponent.byteBuffer) {
+      (async () => {
+        try {
+          let imgComponent = await nextImage.getComponent(image.ComponentType.JPEG);
+          if (!imgComponent.byteBuffer) {
+            console.error('byteBuffer is null');
+            return;
+          }
           // 详情见下方解析图片buffer数据参考，本示例以方式一为例。
           let width = nextImage.size.width; // 获取图片的宽。
           let height = nextImage.size.height; // 获取图片的高。
@@ -71,7 +73,7 @@ function onImageArrival(receiver: image.ImageReceiver) {
           if (stride == width) {
             let pixelMap = await image.createPixelMap(imgComponent.byteBuffer, {
               size: { height: height, width: width },
-              srcPixelFormat: 8,
+              srcPixelFormat: image.PixelMapFormat.NV21,
             })
           } else {
             // stride与width不一致。
@@ -84,16 +86,17 @@ function onImageArrival(receiver: image.ImageReceiver) {
             }
             let pixelMap = await image.createPixelMap(dstArr.buffer, {
               size: { height: height, width: width },
-              srcPixelFormat: 8,
+              srcPixelFormat: image.PixelMapFormat.NV21,
             })
           }
-        } else {
-          console.error('byteBuffer is null');
+        } catch (error) {
+          console.error('getComponent failed');
+        } finally {
+          // 确保当前buffer没有在使用的情况下，可进行资源释放。
+          // 如果对buffer进行异步操作，需要在异步操作结束后再释放该资源（nextImage.release()）。
+          await nextImage.release();
         }
-        // 确保当前buffer没有在使用的情况下，可进行资源释放。
-        // 如果对buffer进行异步操作，需要在异步操作结束后再释放该资源（nextImage.release()）。
-        nextImage.release();
-      })
+      })();
     })
   })
 }
@@ -103,7 +106,7 @@ function onImageArrival(receiver: image.ImageReceiver) {
 通过[image.Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#component9)解析图片的buffer数据。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/_VD9yM9BS2yWe19bQdUsDg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012923Z&HW-CC-Expire=86400&HW-CC-Sign=FBCA46349D25FD8DD99D002AFED12321B5B5689FAB8B9B24CD72294B70F77A3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/xaVd7f90Sqi8QVco6wop2w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074930Z&HW-CC-Expire=86400&HW-CC-Sign=3433E9ECEA3396BBD00A214B416DB962F3714A910133C7FF8CCC4198BB18B5E9)
 
 
 需要确认图像的宽（width）是否与行距（rowStride）一致，如果不一致可参考以下方式一和方式二进行预处理。
@@ -122,7 +125,7 @@ for (let j = 0; j < height * 1.5; j++) {
 }
 let pixelMap = await image.createPixelMap(dstArr.buffer, {
   size: { height: height, width: width },
-  srcPixelFormat: 8,
+  srcPixelFormat: image.PixelMapFormat.NV21,
 })
 ```
 
@@ -131,7 +134,7 @@ let pixelMap = await image.createPixelMap(dstArr.buffer, {
 ```ArkTS
 // 创建pixelMap，width传入行距（stride）的值。
 let pixelMap = await image.createPixelMap(imgComponent.byteBuffer, {
-  size:{height: height, width: stride}, srcPixelFormat: 8});
+  size:{height: height, width: stride}, srcPixelFormat: image.PixelMapFormat.NV21});
 // 裁剪多余的像素。
 try {
   pixelMap.cropSync({size:{width:width, height:height}, x:0, y:0});

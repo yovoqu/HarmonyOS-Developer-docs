@@ -1,6 +1,6 @@
 # 应用使用API如何在不同系统版本设备上做兼容性保护判断（ArkTS/C++）
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-18
 

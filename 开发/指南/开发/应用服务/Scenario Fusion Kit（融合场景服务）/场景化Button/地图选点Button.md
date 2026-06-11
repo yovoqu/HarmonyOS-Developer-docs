@@ -1,6 +1,6 @@
 # 地图选点Button
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-selecting-point
 
@@ -14,7 +14,7 @@
 
 #### 约束与限制
 
-地图选点Button支持Phone和Tablet设备，并且从5.0.1（13）版本开始，新增支持PC/2in1设备。
+地图选点Button支持Phone和Tablet设备，并且从5.0.1(13)版本开始，新增支持PC/2in1设备。
 
 
 

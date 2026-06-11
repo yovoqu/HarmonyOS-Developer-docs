@@ -1,6 +1,6 @@
 # 华为账号一键登录（获取手机号和UnionID/OpenID）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login
 
@@ -1054,7 +1054,7 @@ struct WebPage {
  - 在应用客户端调用应用服务端提供的接口，将Authorization Code传输给应用的服务端；
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/dSE9kkmvSfu-VP2-aEO-cA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030137Z&HW-CC-Expire=86400&HW-CC-Sign=CD42C21B00FDA877E5C1935B3C4A6B1633A2AE3AD4E13B9B6869F97B4C7E0E0E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/ZHg-84GtR3-LiIXqrFOeJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074931Z&HW-CC-Expire=86400&HW-CC-Sign=D55BC54CD93D06894266B1E9D283CF0F5959398256B0AC74AF738DA6DF6FC609)
  
 
   应用客户端与应用服务端的交互安全需要应用自行保证。
@@ -1638,13 +1638,13 @@ class LoginService {
 1. 在客户端获取到Authorization Code之后，传送给服务端接口；在服务端使用Authorization Code获取华为账号绑定的手机号、UnionID、OpenID。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2/v3/zWr-jEB3Q4q8GNn0sst_aA/zh-cn_image_0000002581274926.png?HW-CC-KV=V1&HW-CC-Date=20260528T030137Z&HW-CC-Expire=86400&HW-CC-Sign=F57A9DE608D9C5A44377F971812F68FF6777C760FC72FC62C761ED6CC5B7B900)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/t2sgYB9kSzCzAFUJpDYCQA/zh-cn_image_0000002622698743.png?HW-CC-KV=V1&HW-CC-Date=20260611T074931Z&HW-CC-Expire=86400&HW-CC-Sign=98BB90035BBEB65D666880610AAEFF48A82790A7087CE79643541272C0F652E5)
 
 2. 根据应用登录方案使用华为账号绑定的手机号、UnionID、OpenID登录成功后，应用服务端返回用户信息给应用客户端，应用客户端可根据需要进行本地持久化存储，例如：登录状态、用户账号名、手机号、用户身份标识等。
 3. 在应用客户端首页或个人信息页等位置，对当前登录用户信息进行展示，举例如下图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/rLiUceZ3TFiydqonmJqfnw/zh-cn_image_0000002611754781.png?HW-CC-KV=V1&HW-CC-Date=20260528T030137Z&HW-CC-Expire=86400&HW-CC-Sign=84A07277DDFE8ACADFDE0DD9751AE8B833F649150982ECE8745C1B7AFA2E2382)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/iFQdtxQdTYWYkyDfhefwrg/zh-cn_image_0000002592219182.png?HW-CC-KV=V1&HW-CC-Date=20260611T074931Z&HW-CC-Expire=86400&HW-CC-Sign=8A995D19326F2DFC2B473179A5383870E6ED39593ED2B95EB8B90486AE531360)
 
 
 
@@ -1659,8 +1659,9 @@ class LoginService {
 
 | 标准编号 | 标准项名称 | 类型 | 标准详细描述 |
 | --- | --- | --- | --- |
-| 1 | 满足华为账号提供登录设计规范 | 规则 | 需满足华为账号开放登录中 【华为账号一键登录】按钮 规范，保障HarmonyOS应用拥有简单易用、高效一致、快速安全的登录体验； |
-| 2 | 用户交互体验原则 | 建议 | （1）登录页面的用户协议与隐私协议、华为账号用户认证协议可展示、可点击； （2）当用户点击协议后，回退页面，须回到点击前的页面； （3）只有用户勾选并同意所有协议后，才可继续进行登录操作，若用户未勾选协议时直接点击华为账号登录按钮，须有明确的同意协议提醒； （4）点击登录按钮须直接完成登录流程，可出现头像、昵称授权页，但取消场景须不影响登录流程；若出现处理异常，须及时终止页面，不应出现应用卡死无法操作； |
-| 3 | 登录页面内容用户体验原则 | 建议 | （1）若未提供其他登录方式，不应显示“其他登录方式”的入口； （2）若使用华为账号一键登录，页面匿名手机号须展示从华为账号侧获取的匿名手机号，不应展示其他来源的手机号； （3）用户协议中，必须包含《华为账号用户认证协议》，且协议必须可点击、可加载，加载后支持回退页面，且回到点击前的页面； |
-| 4 | 异常处理用户体验原则 | 建议 | 登录页面需进行异常处理保证： （1）若登录异常（如网络异常、海外账号不支持等情况），勿将错误码等原始信息直接透传给用户； （2）若登录时触发了华为侧的短信验证码校验，则在校验成功之后，应用不应再展示额外的验证码验证页面； |
-| 5 | 应用生命周期变化的华为账号用户体验原则 | 建议 | 应用更新后，其登录状态须与更新前一致； |
+| 1 | 满足华为账号提供登录设计规范 | 规则 | 需满足华为账号开放登录中 【华为账号一键登录】按钮 规范，保障HarmonyOS应用拥有简单易用、高效一致、快速安全的登录体验。 |
+| 2 | 业务安全验证原则 | 建议 | 应用在用户同意后获取到手机号，需结合自身业务风控体系进行必要的安全验证，以保障用户数据安全。 |
+| 3 | 用户交互体验原则 | 建议 | （1）登录页面的用户协议与隐私协议、华为账号用户认证协议可展示、可点击； （2）当用户点击协议后，回退页面，须回到点击前的页面； （3）只有用户勾选并同意所有协议后，才可继续进行登录操作，若用户未勾选协议时直接点击华为账号登录按钮，须有明确的同意协议提醒； （4）点击登录按钮须直接完成登录流程，可出现头像、昵称授权页，但取消场景须不影响登录流程；若出现处理异常，须及时终止页面，不应出现应用无法操作的现象。 |
+| 4 | 登录页面内容用户体验原则 | 建议 | （1）若未提供其他登录方式，不应显示“其他登录方式”的入口； （2）若使用华为账号一键登录，页面匿名手机号须展示从华为账号侧获取的匿名手机号，不应展示其他来源的手机号； （3）用户协议中，必须包含《华为账号用户认证协议》，且协议必须可点击、可加载，加载后支持回退页面，且回到点击前的页面。 |
+| 5 | 异常处理用户体验原则 | 建议 | 登录页面需进行异常处理保证： （1）若登录异常（如网络异常、海外账号不支持等情况），勿将错误码等原始信息直接透传给用户； （2）若登录时触发了华为侧的短信验证码校验，则在校验成功之后，应用不应再展示额外的验证码验证页面。 |
+| 6 | 应用生命周期变化的华为账号用户体验原则 | 建议 | 应用更新后，其登录状态须与更新前一致。 |

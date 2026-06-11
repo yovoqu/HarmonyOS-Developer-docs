@@ -1,6 +1,6 @@
 # SVG标签说明
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-svg
 
@@ -120,7 +120,7 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/rQ7reU1eR9Gt9TY-2JS25w/zh-cn_image_0000002581435982.png?HW-CC-KV=V1&HW-CC-Date=20260528T025535Z&HW-CC-Expire=86400&HW-CC-Sign=D902F4E2EA33F3975FC54438C11C1E9AF7BC7EE618C98BCCF0EAFA47A55692E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/2EzPuzkqQMarR-azCwGD2g/zh-cn_image_0000002592380250.png?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=4AA229EB7A66BAC6E51F0D4D9895745DE6869EC7DF73EAD56FADFEA2BA5918ED)
 
  
   
@@ -230,6 +230,6 @@ struct Index {
 | 元素 | 说明 | 特有属性 | 通用属性 |
 | --- | --- | --- | --- |
 | &lt;svg&gt; | 容器，定义个svg片段 | x：x轴偏移分量； y：y轴偏移分量； width：宽度； height：高度； viewBox：视口 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |
-| &lt;g&gt; | 分组 | width：宽度； height：高度 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |
+| &lt;g&gt; | 分组 | width：宽度； height：高度。 x、y轴偏移分量：可通过transform属性的translate(x, y)实现，参考SVG标签解析能力增强。 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |
 | &lt;use&gt; | 复用已有元素 | x：x轴偏移分量； y：y轴偏移分量； href：目标元素 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |
 | &lt;defs&gt; | 定义可复用对象 | 无特有属性 | fill、fill-rule、fill-opacity、stroke、stroke-dasharray、stroke-dashoffset、stroke-opacity、stroke-width、stroke-linecap、stroke-linejoin、stroke-miterlimit、transform |

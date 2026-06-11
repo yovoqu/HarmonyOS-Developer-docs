@@ -1,6 +1,6 @@
 # ohpm仓库接口协议
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-interface-protocol
 
@@ -1082,7 +1082,7 @@ body的item是一个json对象，包含十二个字段，描述如下：
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/BbQiViv9QpqRheEXMk5UMA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030646Z&HW-CC-Expire=86400&HW-CC-Sign=01FEAD61A7C130C8688CB3BDFAE91BEE2DD41B5ADD1FF7FA5BEB0E3B2657F1FF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Qp4XXeJMTOKDdxyankz-1w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074908Z&HW-CC-Expire=86400&HW-CC-Sign=1077D7240AA33F1EB79CC93297D412065EC1CEA149D80EA325592288B1727674)
  
 
-由于[流式上传接口](#section08863329310)在ohpm 5.0.1版本才开始支持，当ohpm调用该接口时，若返回的响应状态码为404时，ohpm客户端会再次调用[上传接口](#section444511511524)上传。为了保证与ohpm客户端的兼容性，请确保当访问仓库不存在的接口仓库的响应状态码为404。
+由于[流式上传接口](#zh-cn_topic_0000002268583698_section08863329310)在ohpm 5.0.1版本才开始支持，当ohpm调用该接口时，若返回的响应状态码为404时，ohpm客户端会再次调用[上传接口](#zh-cn_topic_0000002268583698_section444511511524)上传。为了保证与ohpm客户端的兼容性，请确保当访问仓库不存在的接口仓库的响应状态码为404。

@@ -1,6 +1,6 @@
 # native_node_napi.h
 
-更新时间：2026-04-13 09:29:20
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-napi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -257,7 +257,7 @@ ArkUI_ErrorCode OH_ArkUI_GetNavigationId(ArkUI_NodeHandle node, char* buffer, in
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点不在Navigation中。 ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR 数据大小超过指定的缓冲区大小。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点未挂载在页面下。 ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR 数据大小超过指定的缓冲区大小。 |
  
  
   
@@ -290,7 +290,7 @@ ArkUI_ErrorCode OH_ArkUI_GetNavDestinationName(ArkUI_NodeHandle node, char* buff
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点不在Navigation中。 ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR 给定的buffer size小于可以容纳目标的最小缓冲区大小。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点未挂载在页面下。 ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR 给定的buffer size小于可以容纳目标的最小缓冲区大小。 |
  
  
   
@@ -321,7 +321,7 @@ ArkUI_ErrorCode OH_ArkUI_GetNavStackLength(ArkUI_NodeHandle node, int32_t* lengt
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点不在Navigation中。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点未挂载在页面下。 |
  
  
   
@@ -355,7 +355,7 @@ ArkUI_ErrorCode OH_ArkUI_GetNavDestinationNameByIndex(ArkUI_NodeHandle node, int
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_NODE_INDEX_INVALID index为非法值。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点不在Navigation中。 ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR 给定的buffer size小于可以容纳目标的最小缓冲区大小。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_NODE_INDEX_INVALID index为非法值。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点未挂载在页面下。 ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR 给定的buffer size小于可以容纳目标的最小缓冲区大小。 |
  
  
   
@@ -388,7 +388,7 @@ ArkUI_ErrorCode OH_ArkUI_GetNavDestinationId(ArkUI_NodeHandle node, char* buffer
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点不在Navigation中。 ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR 数据大小超过指定的缓冲区大小。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点未挂载在页面下。 ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR 数据大小超过指定的缓冲区大小。 |
  
  
   
@@ -419,7 +419,7 @@ ArkUI_ErrorCode OH_ArkUI_GetNavDestinationState(ArkUI_NodeHandle node, ArkUI_Nav
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点不在Navigation中。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点未挂载在页面下。 |
  
  
   
@@ -450,7 +450,7 @@ ArkUI_ErrorCode OH_ArkUI_GetNavDestinationIndex(ArkUI_NodeHandle node, int32_t* 
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点不在Navigation中。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点未挂载在页面下。 |
  
  
   
@@ -511,7 +511,7 @@ ArkUI_ErrorCode OH_ArkUI_GetRouterPageIndex(ArkUI_NodeHandle node, int32_t* inde
   
 | 类型 | 说明 |
 | --- | --- |
-| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 指定的节点或传递的索引异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点不在Navigation中。 |
+| ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 指定的节点或传递的索引异常。 ARKUI_ERROR_CODE_GET_INFO_FAILED 查询信息失败，可能因为当前节点未挂载在页面下。 |
  
  
   

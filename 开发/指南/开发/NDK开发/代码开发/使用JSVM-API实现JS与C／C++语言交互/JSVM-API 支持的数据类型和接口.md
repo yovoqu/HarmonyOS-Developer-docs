@@ -1,6 +1,6 @@
 # JSVM-API 支持的数据类型和接口
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/jsvm-data-types-interfaces
 
@@ -262,10 +262,6 @@ typedef struct {
 } JSVM_ScriptOrigin;
 ```
  
-  
-
-#### JSVM
-
   
 
 #### 内存管理类型
@@ -676,7 +672,7 @@ static void RunScriptWithOption(JSVM_Env env, string& src,
     OH_JSVM_CreateStringUtf8(env, src.c_str(), src.size(), &jsSrc);
 
     uint8_t* data = dataPtr ? *dataPtr : nullptr;
-    auto compilMode = data ? JSVM_COMPILE_MODE_CONSUME_CODE_CACHE :  JSVM_COMPILE_MODE_DEFAULT;
+    auto compileMode = data ? JSVM_COMPILE_MODE_CONSUME_CODE_CACHE :  JSVM_COMPILE_MODE_DEFAULT;
     size_t length = lengthPtr ? *lengthPtr : 0;
     JSVM_Script script;
     // 编译js代码
@@ -692,7 +688,7 @@ static void RunScriptWithOption(JSVM_Env env, string& src,
     JSVM_CompileOptions option[3];
     option[0] = {
         .id = JSVM_COMPILE_MODE,
-        .content = { .num = compilMode }
+        .content = { .num = compileMode }
     };
     JSVM_CodeCache codeCache = {
         .cache = data,

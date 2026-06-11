@@ -1,6 +1,6 @@
 # @ohos.security.cert (证书模块)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -419,7 +419,7 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | certChain | X509CertChain | 是 | 否 | 生成的证书链对象。 |
-| validationResult | CertChainValidationResult | 是 | 否 | 指定最终证书链的最大长度。 |
+| validationResult | CertChainValidationResult | 是 | 否 | 证书链校验结果。 |
 
 
 
@@ -568,24 +568,6 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 | --- | --- | --- | --- | --- |
 | trustAnchor | X509TrustAnchor | 是 | 否 | 表示信任锚。 |
 | entityCert | X509Cert | 是 | 否 | 表示实体证书。 |
-
-
-
-
-#### EncodingBaseFormat18+
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-编码基础格式。
-
-**元服务API：** 从API version 18开始，该接口支持在元服务中使用。
-
-**系统能力：** SystemCapability.Security.Cert
-
-| 名称 | 值 | 说明 |
-| --- | --- | --- |
-| PEM | 0 | 表示PEM格式。 |
-| DER | 1 | 表示DER格式。 |
 
 
 
@@ -8816,7 +8798,7 @@ let crlEncodingBlob: cert.EncodingBlob = {
   encodingFormat: cert.EncodingFormat.FORMAT_PEM
 };
 
-async function crlHashCode() {
+async function crlGetExtensionsObject() {
   let x509Crl: cert.X509CRL = {} as cert.X509CRL;
   try {
     x509Crl = await cert.createX509CRL(crlEncodingBlob);
@@ -15879,7 +15861,7 @@ async function testCmsDecryptTest() {
     console.info('[XTS] Decrypt result: success, decPlainText = ' + decPlainText);
     console.info('decryptEnvelopedData result: success.');
   } catch (error) {
-    console.error(`verifySignedData failed: errCode: ${error.code}, errMsg: ${error.message}`);
+    console.error(`decryptEnvelopedData failed: errCode: ${error.code}, errMsg: ${error.message}`);
   }
 }
 ```

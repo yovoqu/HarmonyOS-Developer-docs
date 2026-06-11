@@ -1,6 +1,6 @@
-# wearEngine (穿戴设备能力开放)
+# wearEngine（穿戴设备能力开放）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api
 **支持设备：** Phone | Tablet | Wearable
@@ -485,17 +485,22 @@ import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+try {
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
-  let device: wearEngine.Device = devices[0];
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
+    let device: wearEngine.Device = devices[0];
 
-  device.isWearEngineCapabilitySupported(wearEngine.WearEngineCapability.P2P_COMMUNICATION).then((isSupportP2P) => {
-    console.info(`Succeeded in checking p2p capability, result is ${isSupportP2P}`);
-  }).catch((error: BusinessError) => {
-    console.error(`Failed to check p2p capability. Code is ${error.code}, message is ${error.message}`);
-  })
+    device.isWearEngineCapabilitySupported(wearEngine.WearEngineCapability.P2P_COMMUNICATION)
+      .then((isSupportP2P) => {
+        console.info(`Succeeded in checking p2p capability, result is ${isSupportP2P}`);
+      }).catch((error: BusinessError) => {
+      console.error(`Failed to check p2p capability. Code is ${error.code}, message is${error.message}`);
+    })
+  }
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is${error.message}`);
 }
 ```
 
@@ -558,6 +563,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 try {
   let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+  
   if (devices.length > 0) {
     // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
     let device: wearEngine.Device = devices[0];
@@ -945,7 +951,7 @@ try {
     let device: wearEngine.Device = devices[0];
 
     let callback = (monitorEventData: wearEngine.MonitorEventData) => {
-      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`)
+      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`);
     }
     monitorClient.subscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
       .then(() => {
@@ -1022,25 +1028,40 @@ import { wearEngine } from '@kit.WearEngine';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 let monitorClient: wearEngine.MonitorClient = wearEngine.getMonitorClient(this.getUIContext().getHostContext());
 
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
-  let device: wearEngine.Device = devices[0];
+try {
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-  // 解注册时回调函数需要保证和注册时为同一个对象
-  let callback = (monitorEventData: wearEngine.MonitorEventData) => {
-    console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`)
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
+    let device: wearEngine.Device = devices[0];
+
+    // 解注册时回调函数需要保证和注册时为同一个对象
+    let callback = (monitorEventData: wearEngine.MonitorEventData) => {
+      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`);
+    }
+
+    // 创建待删除的订阅任务
+    monitorClient.subscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
+      .then(() => {
+        console.info(`Succeeded in subscribing wear status`);
+
+        // 删除之前创建的订阅任务
+        monitorClient.unsubscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
+          .then(() => {
+            console.info(`Succeeded in unsubscribing wear status`);
+          })
+          .catch((error: BusinessError) => {
+            console.error(`Failed to unsubscribe wear status. Code is ${error.code}, message is ${error.message}.`);
+          })
+      })
+      .catch((error: BusinessError) => {
+        console.error(`Failed to subscribe wear status. Code is ${error.code}, message is ${error.message}.`);
+      })
   }
-  // 创建待删除的订阅任务
-  await monitorClient.subscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback);
-  // 删除之前创建的订阅任务
-  monitorClient.unsubscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback).then(() => {
-    console.info(`Succeeded in unsubscribing wear status`);
-  }).catch((error: BusinessError) => {
-    console.error(`Failed to unsubscribe wear status. Code is ${error.code}, message is ${error.message}.`);
-  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is${error.message}`);
 }
 ```
 
@@ -1254,35 +1275,35 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = [];
 
 try {
-  deviceList = await deviceClient.getConnectedDevices();
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 将设备侧应用包名定义为remoteBundleName
+        let remoteBundleName: string = '';
+
+        p2pClient.isRemoteAppInstalled(device.randomId, remoteBundleName).then((isInstall) => {
+          console.info(`Succeeded in checking remote app install, result is ${isInstall}.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to check remote app install. Code is ${error.code}, message is ${error.message}.`);
+        })
+      }
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
+    }
+
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
 } catch (error) {
   console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
 }
-
-deviceList.forEach(async (device, idx) => {
-  // 挑选支持应用安装的设备
-  try {
-    if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-      // 将设备侧应用包名定义为remoteBundleName
-      let remoteBundleName: string = '';
-
-      p2pClient.isRemoteAppInstalled(device.randomId, remoteBundleName).then((isInstall) => {
-        console.info(`Succeeded in checking remote app install, result is ${isInstall}.`);
-      }).catch((error: BusinessError) => {
-        console.error(`Failed to check remote app install. Code is ${error.code}, message is ${error.message}.`);
-      })
-    }
-  } catch (error) {
-    console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
 ```
 
 
@@ -1347,25 +1368,35 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx, arr) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 将设备侧应用包名定义为remoteBundleName
-    let remoteBundleName: string = '';
+try {
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-    p2pClient.getRemoteAppVersion(device.randomId, remoteBundleName).then((version) => {
-      console.info(`Succeeded in getting remote app version, version is ${version}.`);
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to check get remote app version. Code is ${error.code}, message is ${error.message}.`);
-    })
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 将设备侧应用包名定义为remoteBundleName
+        let remoteBundleName: string = '';
+
+        p2pClient.getRemoteAppVersion(device.randomId, remoteBundleName).then((version) => {
+          console.info(`Succeeded in getting remote app version, version is ${version}.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to check get remote app version. Code is ${error.code}, message is${error.message}.`);
+        })
+      }
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is${error.message}.`);
+    }
+
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is${error.message}`);
+}
 ```
 
 
@@ -1431,26 +1462,36 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 将设备侧应用包名定义为remoteBundleName
-    let remoteBundleName: string = '';
+try {
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-    // transformLocalBundleName不传入参数时，默认为false
-    p2pClient.startRemoteApp(device.randomId, remoteBundleName).then((p2pResult) => {
-      console.info(`Succeeded in starting remote app, result is ${p2pResult.code}.`);
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to start remote app. Code is ${error.code}, message is ${error.message}.`);
-    })
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 将设备侧应用包名定义为remoteBundleName
+        let remoteBundleName: string = '';
+
+        // transformLocalBundleName不传入参数时，默认为false
+        p2pClient.startRemoteApp(device.randomId, remoteBundleName).then((p2pResult) => {
+          console.info(`Succeeded in starting remote app, result is ${p2pResult.code}.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to start remote app. Code is ${error.code}, message is${error.message}.`);
+        })
+      }
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is${error.message}.`);
+    }
+
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is${error.message}`);
+}
 ```
 
 
@@ -1515,28 +1556,33 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-if (devices.length > 0) {
+try {
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+
+  if (devices.length > 0) {
     // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备，第一位即为目标设备且具备相关能力）
     let device: wearEngine.Device = devices[0];
     // 设置设备侧应用的应用信息：包名与指纹
     let remoteApp: wearEngine.AppInfo = {
       bundleName: 'example_bundleName',
       fingerprint: 'example_fingerprint'
-    }
-    
+    };
+
     // 设置拉起对端设备侧应用的组件类型
     let startConfig: wearEngine.StartConfig = {
       entryType: wearEngine.EntryType.DISTRIBUTED_SERVICE,
       entryName: 'example_entryName'
     };
-    
+
     p2pClient.startRemoteApp(device.randomId, remoteApp, startConfig).then((p2pResult) => {
       console.info(`Succeeded in starting remote app, result is ${p2pResult.code}.`);
     }).catch((error: BusinessError) => {
-      console.error(`Failed to start remote app. Code is ${error.code}, message is ${error.message}.`);
+      console.error(`Failed to start remote app. Code is ${error.code}, message is${error.message}.`);
     })
+  }
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is${error.message}`);
 }
 ```
 
@@ -1601,50 +1647,50 @@ import { util } from '@kit.ArkTS';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = [];
+
 try {
-  deviceList = await deviceClient.getConnectedDevices();
-} catch (error) {
-  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
-}
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx) => {
-  try {
-    // 挑选支持应用安装的设备
-    if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-      // 设置设备侧应用的应用信息：包名与指纹
-      // 包名与指纹，可在华为开发者联盟可以获取
-      let appInfo: wearEngine.AppInfo = {
-        bundleName: '',
-        fingerprint: ''
-      }
-      // 将设备侧应用参数类定义为appParam
-      let appParam: wearEngine.P2pAppParam = {
-        remoteApp: appInfo
-        // transformLocalAppInfo默认为false，不转换包名指纹
-      }
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 设置设备侧应用的应用信息：包名与指纹
+        // 包名与指纹，可在华为开发者联盟获取
+        let appInfo: wearEngine.AppInfo = {
+          bundleName: '',
+          fingerprint: ''
+        }
+        // 将设备侧应用参数类定义为appParam
+        let appParam: wearEngine.P2pAppParam = {
+          remoteApp: appInfo
+          // transformLocalAppInfo默认为false，不转换包名指纹
+        }
+        // 设置需要发送的消息内容
+        let messageContent: string = 'this is message';
+        let textEncoder: util.TextEncoder = new util.TextEncoder;
+        let message: wearEngine.P2pMessage = {
+          content: textEncoder.encodeInto(messageContent)
+        }
 
-      // 设置需要发送的消息内容
-      let messageContent: string = 'this is message';
-      let textEncoder: util.TextEncoder = new util.TextEncoder;
-      let message: wearEngine.P2pMessage = {
-        content: textEncoder.encodeInto(messageContent)
+        p2pClient.sendMessage(device.randomId, appParam, message).then((p2pResult) => {
+          console.info(`Succeeded in sending message, result is ${p2pResult.code}.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to send message. Code is ${error.code}, message is ${error.message}.`);
+        })
       }
-
-      p2pClient.sendMessage(device.randomId, appParam, message).then((p2pResult) => {
-        console.info(`Succeeded in sending message, result is ${p2pResult.code}.`);
-      }).catch((error: BusinessError) => {
-        console.error(`Failed to send message. Code is ${error.code}, message is ${error.message}.`);
-      })
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
     }
+
     if (idx === deviceList.length - 1) {
       // 若不存在目标设备则抛出错误
       throw new Error('cannot find target device');
     }
-  } catch (error) {
-    console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
-  }
-})
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 ```
 
 
@@ -1703,51 +1749,61 @@ import { fileIo } from '@kit.CoreFileKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 设置设备侧应用的应用信息：包名与指纹
-    // 包名与指纹，可在华为开发者联盟可以获取
-    let appInfo: wearEngine.AppInfo = {
-      bundleName: '',
-      fingerprint: ''
-    }
-    // 将设备侧应用参数类定义为appParam
-    let appParam: wearEngine.P2pAppParam = {
-      remoteApp: appInfo
-      // transformLocalAppInfo默认为false，不转换包名指纹
-    }
-    // 设置需要发送的文件
-    let p2pFile: wearEngine.P2pFile = {
-      file: fileIo.openSync('')
-    }
+try {
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-    p2pClient.transferFile(device.randomId, appParam, p2pFile,
-      (error: BusinessError, p2pResult: wearEngine.P2pResult) => {
-      // callback处理逻辑
-      if (error) {
-        console.error(`Failed to transfer file. Code is ${error.code}, message is ${error.message}.`);
-        return;
-      }
-      if (p2pResult.code) {
-        if (p2pResult.code === wearEngine.P2pResultCode.COMMUNICATION_SUCCESS) {
-          console.info(`Succeeded in transfering file, the result is ${p2pResult.code}.`);
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 设置设备侧应用的应用信息：包名与指纹
+        // 包名与指纹，可在华为开发者联盟获取
+        let appInfo: wearEngine.AppInfo = {
+          bundleName: '',
+          fingerprint: ''
         }
-        console.info(`Failed to transfer file, the error code is ${p2pResult.code}.`);
+        // 将设备侧应用参数类定义为appParam
+        let appParam: wearEngine.P2pAppParam = {
+          remoteApp: appInfo
+          // transformLocalAppInfo默认为false，不转换包名指纹
+        }
+        // 设置需要发送的文件
+        let p2pFile: wearEngine.P2pFile = {
+          file: fileIo.openSync('')
+        }
+
+        p2pClient.transferFile(device.randomId, appParam, p2pFile,
+          (error: BusinessError, p2pResult: wearEngine.P2pResult) => {
+            // callback处理逻辑
+            if (error) {
+              console.error(`Failed to transfer file. Code is ${error.code}, message is ${error.message}.`);
+              return;
+            }
+            if (p2pResult.code) {
+              if (p2pResult.code === wearEngine.P2pResultCode.COMMUNICATION_SUCCESS) {
+                console.info(`Succeeded in transfering file, the result is ${p2pResult.code}.`);
+              }
+              console.info(`Failed to transfer file, the error code is ${p2pResult.code}.`);
+            }
+            if (p2pResult.progress) {
+              console.info(`Succeeded in transfering file, the progress is ${p2pResult.progress}.`);
+            }
+          })
+        fileIo.close(p2pFile.file);
       }
-      if (p2pResult.progress) {
-        console.info(`Succeeded in transfering file, the progress is ${p2pResult.progress}.`);
-      }
-    });
-    fileIo.close(p2pFile.file);
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
+    }
+
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 ```
 
 
@@ -1815,45 +1871,55 @@ import { fileIo } from '@kit.CoreFileKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 设置设备侧应用的应用信息：包名与指纹
-    // 包名与指纹，可在华为开发者联盟可以获取
-    let appInfo: wearEngine.AppInfo = {
-      bundleName: '',
-      fingerprint: ''
-    }
-    // 将设备侧应用参数类定义为appParam
-    let appParam: wearEngine.P2pAppParam = {
-      remoteApp: appInfo
-      // transformLocalAppInfo默认为false，不转换包名指纹
-    }
-    // 设置需要发送的文件信息
-    let p2pFile: wearEngine.P2pFile = {
-      file: fileIo.openSync('')
-    }
+try {
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-    p2pClient.transferFile(device.randomId, appParam, p2pFile, () => {
-      // 回调函数执行逻辑
-    })
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 设置设备侧应用的应用信息：包名与指纹
+        // 包名与指纹，可在华为开发者联盟获取
+        let appInfo: wearEngine.AppInfo = {
+          bundleName: '',
+          fingerprint: ''
+        }
+        // 将设备侧应用参数类定义为appParam
+        let appParam: wearEngine.P2pAppParam = {
+          remoteApp: appInfo
+          // transformLocalAppInfo默认为false，不转换包名指纹
+        }
+        // 设置需要发送的文件信息
+        let p2pFile: wearEngine.P2pFile = {
+          file: fileIo.openSync('')
+        }
 
-    p2pClient.cancelFileTransfer(device.randomId, appParam, p2pFile).then((p2pResult) => {
-      if (p2pResult.code === wearEngine.P2pResultCode.COMMUNICATION_SUCCESS) {
-        console.info(`Succeeded in cancelling transfer file, the result is ${p2pResult.code}.`);
+        p2pClient.transferFile(device.randomId, appParam, p2pFile, () => {
+          // 回调函数执行逻辑
+        })
+
+        p2pClient.cancelFileTransfer(device.randomId, appParam, p2pFile).then((p2pResult) => {
+          if (p2pResult.code === wearEngine.P2pResultCode.COMMUNICATION_SUCCESS) {
+            console.info(`Succeeded in cancelling transfer file, the result is ${p2pResult.code}.`);
+          }
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to cancel transfer file. Code is ${error.code}, message is ${error.message}.`);
+        })
+        fileIo.close(p2pFile.file);
       }
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to cancel transfer file. Code is ${error.code}, message is ${error.message}.`);
-    })
-    fileIo.close(p2pFile.file);
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
+    }
+
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 ```
 
 
@@ -1917,38 +1983,48 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 设置设备侧应用的应用信息：包名与指纹
-    // 包名与指纹，可在华为开发者联盟可以获取
-    let appInfo: wearEngine.AppInfo = {
-      bundleName: '',
-      fingerprint: ''
-    }
-    // 将设备侧应用参数类定义为appParam
-    let appParam: wearEngine.P2pAppParam = {
-      remoteApp: appInfo
-      // transformLocalAppInfo默认为false，不转换包名
-    }
-    // 设置需要发送的文件信息
-    let callback = (p2pMessage: wearEngine.P2pMessage) => {
-      console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`)
+try {
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 设置设备侧应用的应用信息：包名与指纹
+        // 包名与指纹，可在华为开发者联盟获取
+        let appInfo: wearEngine.AppInfo = {
+          bundleName: '',
+          fingerprint: ''
+        }
+        // 将设备侧应用参数类定义为appParam
+        let appParam: wearEngine.P2pAppParam = {
+          remoteApp: appInfo
+          // transformLocalAppInfo默认为false，不转换包名
+        }
+        // 设置需要发送的文件信息
+        let callback = (p2pMessage: wearEngine.P2pMessage) => {
+          console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`);
+        }
+
+        p2pClient.registerMessageReceiver(device.randomId, appParam, callback).then(() => {
+          console.info(`Succeeded in registering message receiver.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to register message receiver. Code is ${error.code}, message is ${error.message}.`);
+        })
+      }
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
     }
 
-    p2pClient.registerMessageReceiver(device.randomId, appParam, callback).then(() => {
-      console.info(`Succeeded in registering message receiver.`);
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to register message receiver. Code is ${error.code}, message is ${error.message}.`);
-    })
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 ```
 
 
@@ -2012,38 +2088,48 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 设置设备侧应用的应用信息：包名与指纹
-    // 包名与指纹，可在华为开发者联盟可以获取
-    let appInfo: wearEngine.AppInfo = {
-      bundleName: '',
-      fingerprint: ''
-    }
-    // 将设备侧应用参数类定义为appParam
-    let appParam: wearEngine.P2pAppParam = {
-      remoteApp: appInfo
-      // transformLocalAppInfo默认为false，不转换包名指纹
-    }
-    // 设置需要发送的文件信息
-    let callback = (p2pMessage: wearEngine.P2pFile) => {
-      console.info(`Succeeded in receiving file.`)
+try {
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 设置设备侧应用的应用信息：包名与指纹
+        // 包名与指纹，可在华为开发者联盟获取
+        let appInfo: wearEngine.AppInfo = {
+          bundleName: '',
+          fingerprint: ''
+        }
+        // 将设备侧应用参数类定义为appParam
+        let appParam: wearEngine.P2pAppParam = {
+          remoteApp: appInfo
+          // transformLocalAppInfo默认为false，不转换包名指纹
+        }
+        // 设置需要发送的文件信息
+        let callback = (p2pMessage: wearEngine.P2pFile) => {
+          console.info(`Succeeded in receiving file.`);
+        }
+
+        p2pClient.registerFileReceiver(device.randomId, appParam, callback).then(() => {
+          console.info(`Succeeded in registering file receiver.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
+        })
+      }
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
     }
 
-    p2pClient.registerFileReceiver(device.randomId, appParam, callback).then(() => {
-      console.info(`Succeeded in registering file receiver.`)
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
-    })
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 ```
 
 
@@ -2106,42 +2192,52 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 设置设备侧应用的应用信息：包名与指纹
-    // 包名与指纹，可在华为开发者联盟可以获取
-    let appInfo: wearEngine.AppInfo = {
-      bundleName: '',
-      fingerprint: ''
-    }
-    // 将设备侧应用参数类定义为appParam
-    let appParam: wearEngine.P2pAppParam = {
-      remoteApp: appInfo
-      // transformLocalAppInfo默认为false，不转换包名指纹
-    }
-    // 设置需要发送的文件信息和传输进度
-    let callback = (p2pMessage: wearEngine.P2pFile) => {
-      if (!p2pMessage.file) {
-        console.info(`progress is ${p2pMessage.progress}`)
-      } else {
-        console.info(`Succeeded in receiving file.`)
+try {
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 设置设备侧应用的应用信息：包名与指纹
+        // 包名与指纹，可在华为开发者联盟获取
+        let appInfo: wearEngine.AppInfo = {
+          bundleName: '',
+          fingerprint: ''
+        }
+        // 将设备侧应用参数类定义为appParam
+        let appParam: wearEngine.P2pAppParam = {
+          remoteApp: appInfo
+          // transformLocalAppInfo默认为false，不转换包名指纹
+        }
+        // 设置需要发送的文件信息和传输进度
+        let callback = (p2pMessage: wearEngine.P2pFile) => {
+          if (!p2pMessage.file) {
+            console.info(`progress is ${p2pMessage.progress}`);
+          } else {
+            console.info(`Succeeded in receiving file.`);
+          }
+        }
+
+        p2pClient.registerFileReceiverWithProgress(device.randomId, appParam, callback).then(() => {
+          console.info(`Succeeded in registering file receiver.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
+        })
       }
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
     }
 
-    p2pClient.registerFileReceiverWithProgress(device.randomId, appParam, callback).then(() => {
-      console.info(`Succeeded in registering file receiver.`)
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
-    })
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 ```
 
 
@@ -2204,44 +2300,54 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 设置设备侧应用的应用信息：包名与指纹
-    // 包名与指纹，可在华为开发者联盟可以获取
-    let appInfo: wearEngine.AppInfo = {
-      bundleName: '',
-      fingerprint: ''
-    }
-    // 将设备侧应用参数类定义为appParam
-    let appParam: wearEngine.P2pAppParam = {
-      remoteApp: appInfo
-      // transformLocalAppInfo默认为false，不转换包名指纹
-    }
-    // 设置需要发送的文件信息
-    let callback = (p2pMessage: wearEngine.P2pMessage) => {
-      console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`)
+try {
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 设置设备侧应用的应用信息：包名与指纹
+        // 包名与指纹，可在华为开发者联盟获取
+        let appInfo: wearEngine.AppInfo = {
+          bundleName: '',
+          fingerprint: ''
+        }
+        // 将设备侧应用参数类定义为appParam
+        let appParam: wearEngine.P2pAppParam = {
+          remoteApp: appInfo
+          // transformLocalAppInfo默认为false，不转换包名指纹
+        }
+        // 设置需要发送的文件信息
+        let callback = (p2pMessage: wearEngine.P2pMessage) => {
+          console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`);
+        }
+
+        p2pClient.registerMessageReceiver(device.randomId, appParam, callback).then(() => {
+          console.info(`Succeeded in registering message receiver.`);
+
+          p2pClient.unregisterMessageReceiver(device.randomId, appParam, callback).then(() => {
+            console.info(`Succeeded in unregistering message receiver.`);
+          }).catch((error: BusinessError) => {
+            console.error(`Failed to unregister message receiver. Code is ${error.code}, message is ${error.message}.`);
+          })
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to register message receiver. Code is ${error.code}, message is ${error.message}.`);
+        })
+      }
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
     }
 
-    p2pClient.registerMessageReceiver(device.randomId, appParam, callback).then(() => {
-      console.info(`Succeeded in registering message receiver.`)
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to register message receiver. Code is ${error.code}, message is ${error.message}.`);
-    })
-
-    p2pClient.unregisterMessageReceiver(device.randomId, appParam, callback).then(() => {
-      console.info(`Succeeded in unregistering message receiver.`)
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to unregister message receiver. Code is ${error.code}, message is ${error.message}.`);
-    })
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 ```
 
 
@@ -2304,44 +2410,54 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
 let p2pClient: wearEngine.P2pClient = wearEngine.getP2pClient(this.getUIContext().getHostContext());
-let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-deviceList.forEach(async (device, idx) => {
-  // 挑选支持应用安装的设备
-  if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
-    // 设置设备侧应用的应用信息：包名与指纹
-    // 包名与指纹，可在华为开发者联盟可以获取
-    let appInfo: wearEngine.AppInfo = {
-      bundleName: '',
-      fingerprint: ''
-    }
-    // 将设备侧应用参数类定义为appParam
-    let appParam: wearEngine.P2pAppParam = {
-      remoteApp: appInfo
-      // transformLocalAppInfo默认为false，不转换包名指纹
-    }
-    // 设置需要发送的文件信息
-    let callback = (p2pMessage: wearEngine.P2pFile) => {
-      console.info(`Succeeded in receiving file.`)
+try {
+  let deviceList: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+
+  deviceList.forEach(async (device, idx) => {
+    try {
+      // 挑选支持应用安装的设备
+      if (await device.isDeviceCapabilitySupported(wearEngine.DeviceCapability.APP_INSTALLATION)) {
+        // 设置设备侧应用的应用信息：包名与指纹
+        // 包名与指纹，可在华为开发者联盟获取
+        let appInfo: wearEngine.AppInfo = {
+          bundleName: '',
+          fingerprint: ''
+        }
+        // 将设备侧应用参数类定义为appParam
+        let appParam: wearEngine.P2pAppParam = {
+          remoteApp: appInfo
+          // transformLocalAppInfo默认为false，不转换包名指纹
+        }
+        // 设置需要发送的文件信息
+        let callback = (p2pMessage: wearEngine.P2pFile) => {
+          console.info(`Succeeded in receiving file.`);
+        }
+
+        p2pClient.registerFileReceiver(device.randomId, appParam, callback).then(() => {
+          console.info(`Succeeded in registering file receiver.`);
+
+          p2pClient.unregisterFileReceiver(device.randomId, appParam, callback).then(() => {
+            console.info(`Succeeded in unregistering file receiver.`);
+          }).catch((error: BusinessError) => {
+            console.error(`Failed to unregister file receiver. Code is ${error.code}, message is ${error.message}.`);
+          })
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
+        })
+      }
+    } catch (error) {
+      console.error(`Failed to check device capability. Code is ${error.code}, message is ${error.message}.`);
     }
 
-    p2pClient.registerFileReceiver(device.randomId, appParam, callback).then(() => {
-      console.info(`Succeeded in registering file receiver.`);
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
-    })
-
-    p2pClient.unregisterFileReceiver(device.randomId, appParam, callback).then(() => {
-      console.info(`Succeeded in unregistering file receiver.`);
-    }).catch((error: BusinessError) => {
-      console.error(`Failed to unregister file receiver. Code is ${error.code}, message is ${error.message}.`);
-    })
-  }
-  if (idx === deviceList.length - 1) {
-    // 若不存在目标设备则抛出错误
-    throw new Error('cannot find target device');
-  }
-})
+    if (idx === deviceList.length - 1) {
+      // 若不存在目标设备则抛出错误
+      throw new Error('cannot find target device');
+    }
+  })
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
+}
 ```
 
 
@@ -2635,35 +2751,40 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let notifyClient: wearEngine.NotifyClient = wearEngine.getNotifyClient(this.getUIContext().getHostContext());
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
-  let device: wearEngine.Device = devices[0];
+try {
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
-  let button1: wearEngine.NotificationButton = {
-    buttonId: wearEngine.ButtonId.FIRST_BUTTON,
-    content: 'button_1'
-  }
-  let type1Notification: wearEngine.Notification = {
-    type: wearEngine.NotificationType.NOTIFICATION_WITH_ONE_BUTTON,
-    bundleName: 'bundleName',
-    title: 'title',
-    text: 'text',
-    buttons: [button1]
-  }
-  let options: wearEngine.NotificationOptions = {
-    notification: type1Notification,
-    onAction: (feedback: wearEngine.NotificationFeedback) => {
-      console.info(`one button notify get feedback is ${feedback.action ? feedback.action : feedback.errorCode}`);
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备且第一位即为目标设备）
+    let device: wearEngine.Device = devices[0];
+
+    let button1: wearEngine.NotificationButton = {
+      buttonId: wearEngine.ButtonId.FIRST_BUTTON,
+      content: 'button_1'
     }
-  }
+    let type1Notification: wearEngine.Notification = {
+      type: wearEngine.NotificationType.NOTIFICATION_WITH_ONE_BUTTON,
+      bundleName: 'bundleName',
+      title: 'title',
+      text: 'text',
+      buttons: [button1]
+    }
+    let options: wearEngine.NotificationOptions = {
+      notification: type1Notification,
+      onAction: (feedback: wearEngine.NotificationFeedback) => {
+        console.info(`one button notify get feedback is ${feedback.action ? feedback.action : feedback.errorCode}`);
+      }
+    }
 
-  notifyClient.notify(device.randomId, options).then(result => {
-    console.info(`Succeeded in sending notification.`);
-  }).catch((error: BusinessError) => {
-    console.error(`Failed to send notification. Code is ${error.code}, message is ${error.message}`);
-  })
+    notifyClient.notify(device.randomId, options).then(result => {
+      console.info(`Succeeded in sending notification.`);
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to send notification. Code is ${error.code}, message is ${error.message}`);
+    })
+  }
+} catch (error) {
+  console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -2989,6 +3110,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let sensorClient: wearEngine.SensorClient = wearEngine.getSensorClient(this.getUIContext().getHostContext());
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
+
 try {
   let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
 
@@ -3070,34 +3192,34 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let sensorClient: wearEngine.SensorClient = wearEngine.getSensorClient(this.getUIContext().getHostContext());
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = [];
+
 try {
-  devices = await deviceClient.getConnectedDevices();
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备，第一位即为目标设备且具备相关能力）
+    let device: wearEngine.Device = devices[0];
+    try {
+      let sensorList: wearEngine.Sensor[] = await sensorClient.getSensorList(device.randomId);
+      sensorList.forEach((sensor) => {
+        if (sensor.type === wearEngine.SensorType.ACCELEROMETER) {
+          let callback = (sensorResult: wearEngine.SensorResult) => {
+            console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
+          }
+          // 订阅加速度传感器数据上报
+          sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
+            console.info(`Succeeded in subscribing sensor data.`);
+          }).catch((error: BusinessError) => {
+            console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+          })
+        }
+      })
+    } catch (error) {
+      console.error(`Failed to get sensor list. Code is ${error.code}, message is ${error.message}`);
+    }
+  }
 } catch (error) {
   console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
-}
-
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备，第一位即为目标设备且具备相关能力）
-  let device: wearEngine.Device = devices[0];
-  try {
-    let sensorList: wearEngine.Sensor[] = await sensorClient.getSensorList(device.randomId);
-    sensorList.forEach((sensor) => {
-      if (sensor.type === wearEngine.SensorType.ACCELEROMETER) {
-        let callback = (sensorResult: wearEngine.SensorResult) => {
-          console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
-        }
-      // 订阅加速度传感器数据上报
-        sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
-          console.info(`Succeeded in subscribing sensor data.`);
-        }).catch((error: BusinessError) => {
-          console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-        })
-      }
-    })
-  } catch (error) {
-    console.error(`Failed to get sensor list. Code is ${error.code}, message is ${error.message}`);
-  }
 }
 ```
 
@@ -3163,40 +3285,45 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let sensorClient: wearEngine.SensorClient = wearEngine.getSensorClient(this.getUIContext().getHostContext());
 let deviceClient: wearEngine.DeviceClient = wearEngine.getDeviceClient(this.getUIContext().getHostContext());
-let devices: wearEngine.Device[] = [];
+
 try {
-  devices = await deviceClient.getConnectedDevices();
+  let devices: wearEngine.Device[] = await deviceClient.getConnectedDevices();
+
+  if (devices.length > 0) {
+    // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备，第一位即为目标设备且具备相关能力）
+    let device: wearEngine.Device = devices[0];
+    try {
+      let sensorList: wearEngine.Sensor[] = await sensorClient.getSensorList(device.randomId);
+      sensorList.forEach((sensor) => {
+        if (sensor.type === wearEngine.SensorType.ACCELEROMETER) {
+          let callback = (sensorResult: wearEngine.SensorResult) => {
+            console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
+          }
+          // 订阅加速度传感器数据上报
+          sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback)
+            .then(() => {
+              console.info(`Succeeded in subscribing sensor data.`);
+
+              // 取消加速度传感器数据上报，注意传入的回调函数需与订阅时为同一对象
+              sensorClient.unsubscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback)
+                .then(() => {
+                  console.info(`Succeeded in unsubscribing sensor data.`);
+                })
+                .catch((error: BusinessError) => {
+                  console.error(`Failed to unsubscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+                })
+            })
+            .catch((error: BusinessError) => {
+              console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+            })
+        }
+      })
+    } catch (error) {
+      console.error(`Failed to get sensor list. Code is ${error.code}, message is ${error.message}`);
+    }
+  }
 } catch (error) {
   console.error(`Failed to get connected devices. Code is ${error.code}, message is ${error.message}`);
-}
-
-if (devices.length > 0) {
-  // 从得到的设备列表中选取目标设备，并定义为device（假设数组中存在已连接设备，第一位即为目标设备且具备相关能力）
-  let device: wearEngine.Device = devices[0];
-  try {
-    let sensorList: wearEngine.Sensor[] = await sensorClient.getSensorList(device.randomId);
-    sensorList.forEach((sensor) => {
-      if (sensor.type === wearEngine.SensorType.ACCELEROMETER) {
-        let callback = (sensorResult: wearEngine.SensorResult) => {
-          console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
-        }
-        // 订阅加速度传感器数据上报
-        sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
-          console.info(`Succeeded in subscribing sensor data.`);
-        }).catch((error: BusinessError) => {
-          console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-        })
-        // 取消加速度传感器数据上报，注意传入的回调函数需与订阅时为同一对象
-        sensorClient.unsubscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
-          console.info(`Succeeded in unsubscribing sensor data.`);
-        }).catch((error: BusinessError) => {
-          console.error(`Failed to unsubscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-        })
-      }
-    })
-  } catch (error) {
-    console.error(`Failed to get sensor list. Code is ${error.code}, message is ${error.message}`);
-  }
 }
 ```
 
@@ -3277,7 +3404,7 @@ if (devices.length > 0) {
 
 **支持设备：** Phone | Tablet | Wearable
 
-传感器上报结果错误码。
+传感器上报在设备侧发生错误的反馈枚举类。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 

@@ -1,6 +1,6 @@
 # 应用UI生成
 
-更新时间：2026-04-24 09:16:30
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ui-generator
 

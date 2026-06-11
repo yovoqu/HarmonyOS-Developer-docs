@@ -1,6 +1,6 @@
 # AtomicServiceNavigation
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-atomicservice-atomicservicenavigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -189,7 +189,7 @@ NavDestination组件内容。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-导航栏背景底色的可选项。
+导航栏背景底色不透明度的可选项。
  
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
  
@@ -688,4 +688,4 @@ export struct PageTwo {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/WOsHuj5yQCWggBG17pPDeA/zh-cn_image_0000002617670363.png?HW-CC-KV=V1&HW-CC-Date=20260604T012832Z&HW-CC-Expire=86400&HW-CC-Sign=DA47D1125E6A74ED2118B4E35880DF58431328DFBCD692538C62733B13C40780)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/hIv6JX9xTim_YSCt4iEPyg/zh-cn_image_0000002592380482.png?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=B6BDD119603F4FC167E4C25B43DA795F054560B15BB525E028369205C24819F0)

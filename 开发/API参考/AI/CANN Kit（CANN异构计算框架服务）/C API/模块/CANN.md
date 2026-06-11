@@ -1,6 +1,6 @@
 # CANN
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -70,9 +70,9 @@
 | typedef struct HiAI_SingleOpTensor HiAI_SingleOpTensor | 单算子Tensor句柄。 |
 | typedef struct HiAI_SingleOpOptions HiAI_SingleOpOptions | 单算子选项句柄。 |
 | typedef struct HiAI_SingleOpDescriptor HiAI_SingleOpDescriptor | 单算子的算子描述句柄。 |
-| typedef struct HiAISingleOpDescriptor_ConvolutionParam | HMS_HiAISingleOpDescriptor_CreateConvolution输入参数。 |
-| typedef struct HiAI_SingleOpExecutorConvolutionParam | HMS_HiAISingleOpExecutor_CreateConvolution输入参数。 |
-| typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam | HMS_HiAISingleOpExecutor_CreateFusedConvolutionActivation输入参数。 |
+| typedef struct HiAISingleOpDescriptor_ConvolutionParam HiAISingleOpDescriptor_ConvolutionParam | HMS_HiAISingleOpDescriptor_CreateConvolution输入参数。 |
+| typedef struct HiAI_SingleOpExecutorConvolutionParam HiAI_SingleOpExecutorConvolutionParam | HMS_HiAISingleOpExecutor_CreateConvolution输入参数。 |
+| typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam HiAI_SingleOpExecutorFusedConvolutionActivationParam | HMS_HiAISingleOpExecutor_CreateFusedConvolutionActivation输入参数。 |
 | typedef struct HiAI_SingleOpExecutor HiAI_SingleOpExecutor | 单算子执行器句柄。 |
 | typedef struct HMS_LLMEngine_Context HMS_LLMEngine_Context | 定义LLM引擎上下文的别名。 |
 | typedef struct HMS_LLMEngine_Executor HMS_LLMEngine_Executor | LLM引擎执行器。 |

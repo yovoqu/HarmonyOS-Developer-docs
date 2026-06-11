@@ -1,6 +1,6 @@
 # list-item
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-container-list-item
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -66,7 +66,7 @@
   
 | 名称 | 参数 | 描述 |
 | --- | --- | --- |
-| sticky | { state: boolean } | 吸顶组件回调事件。 value: false表示当前item处于非吸顶状态； value: true表示当前item处于吸顶状态； 说明：仅当item设置sticky属性时支持注册此事件。 |
+| sticky | { state: boolean } | 吸顶组件回调事件。 state: false表示当前item处于非吸顶状态； state: true表示当前item处于吸顶状态； 说明：仅当item设置sticky属性时支持注册此事件。 |
  
  
   

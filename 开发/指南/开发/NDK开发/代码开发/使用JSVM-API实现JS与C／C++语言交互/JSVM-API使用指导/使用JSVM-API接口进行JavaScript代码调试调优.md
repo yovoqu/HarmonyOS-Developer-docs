@@ -1,8 +1,8 @@
 # 使用JSVM-API接口进行JavaScript代码调试调优
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-03 01:38:22
 
-来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/m-heapstatistics-debugger-cpuprofiler-heapsnapshot
+来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-jsvm-heapstatistics-debugger-cpuprofiler-heapsnapshot
 
 #### 简介
 

@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -539,7 +539,7 @@ createPixelMapFromSurfaceSync(surfaceId: string, region: Region): PixelMap
 **示例：**
 
 ```text
-async function Demo(surfaceId: string) {
+async function CreatePixelMapFromSurfaceSync(surfaceId: string) {
   let region: image.Region = { x: 0, y: 0, size: { height: 100, width: 100 } };
   let pixelMap: image.PixelMap = image.createPixelMapFromSurfaceSync(surfaceId, region);
   return pixelMap;
@@ -1288,7 +1288,7 @@ createImageSource(uri: string, options: SourceOptions): ImageSource
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uri | string | 是 | 图片路径，当前仅支持应用沙箱路径（可参考使用说明）。 当前支持格式有：JPEG、PNG、GIF、BMP、WebP、DNG、HEIC12+、WBMP23+、HEIFS23+、TIFF23+、SVG10+（可参考SVG标签说明）、ICO11+。从API版本26.0.0开始，增加支持AVIF格式。部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用image.getImageSourceSupportedFormats20+接口，动态查询当前设备上的解码能力。 |
+| uri | string | 是 | 图片路径，当前仅支持应用沙箱路径（可参考使用说明）。 当前支持格式有：JPEG、PNG、GIF、BMP、WebP、DNG、HEIC12+、WBMP23+、HEIFS23+、TIFF23+、SVG10+（可参考SVG标签说明）、ICO11+。部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用image.getImageSourceSupportedFormats20+接口，动态查询当前设备上的解码能力。 |
 | options | SourceOptions | 是 | 图片属性，包括图片像素密度、像素格式和图片尺寸。 |
 
 

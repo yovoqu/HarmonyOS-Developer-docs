@@ -1,6 +1,6 @@
 # native_animate.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-animate-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -23,13 +23,13 @@
  
 **相关示例：** [AnimationNDK](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/AnimationNDK)
  
- 
+  
 
 #### 汇总
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
- 
+  
 
 #### 结构体
 
@@ -51,7 +51,7 @@
 | ArkUI_TransitionEffect | ArkUI_TransitionEffect | 定义transition属性配置转场参数对象。 |
  
  
- 
+  
 
 #### 函数
 
@@ -81,7 +81,7 @@
 | void OH_ArkUI_KeyframeAnimateOption_Dispose(ArkUI_KeyframeAnimateOption* option) | 销毁关键帧动画参数。 |
 | int32_t OH_ArkUI_KeyframeAnimateOption_SetDelay(ArkUI_KeyframeAnimateOption* option, int32_t value) | 设置关键帧动画的整体延时时间，单位为ms（毫秒），默认不延时播放。 |
 | int32_t OH_ArkUI_KeyframeAnimateOption_SetIterations(ArkUI_KeyframeAnimateOption* option, int32_t value) | 设置关键帧动画的动画播放次数。默认播放一次，设置为-1时表示无限次播放，设置为0时表示无动画效果。 |
-| int32_t OH_ArkUI_KeyframeAnimateOption_RegisterOnFinishCallback(ArkUI_KeyframeAnimateOption* option, void* userData, void (*onFinish)()(void* userData)) | 设置关键帧动画播放完成回调。当关键帧动画所有次数播放完成后调用。 |
+| int32_t OH_ArkUI_KeyframeAnimateOption_RegisterOnFinishCallback(ArkUI_KeyframeAnimateOption* option, void* userData, void (*onFinish)(void* userData)) | 设置关键帧动画播放完成回调。当关键帧动画ArkUI_KeyframeAnimateOption所有次数播放完成后调用。 |
 | int32_t OH_ArkUI_KeyframeAnimateOption_SetExpectedFrameRate(ArkUI_KeyframeAnimateOption* option, ArkUI_ExpectedFrameRateRange* frameRate) | 设置关键帧动画期望帧率。 |
 | int32_t OH_ArkUI_KeyframeAnimateOption_SetDuration(ArkUI_KeyframeAnimateOption* option, int32_t value, int32_t index) | 设置关键帧动画某段关键帧动画的持续时间，单位为ms（毫秒）。 |
 | int32_t OH_ArkUI_KeyframeAnimateOption_SetCurve(ArkUI_KeyframeAnimateOption* option, ArkUI_CurveHandle value, int32_t index) | 设置关键帧动画某段关键帧使用的动画曲线。 |
@@ -149,13 +149,13 @@
 | int32_t OH_ArkUI_TransitionEffect_SetAnimation(ArkUI_TransitionEffect* effect, ArkUI_AnimateOption* animation) | 设置转场效果动画参数。 |
  
  
- 
+  
 
 #### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
- 
+  
 
 #### OH_ArkUI_AnimateOption_Create()
 
@@ -178,7 +178,7 @@ ArkUI_AnimateOption* OH_ArkUI_AnimateOption_Create()
 | ArkUI_AnimateOption* | 新的动画效果参数指针。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_Dispose()
 
@@ -201,7 +201,7 @@ void OH_ArkUI_AnimateOption_Dispose(ArkUI_AnimateOption* option)
 | ArkUI_AnimateOption* option | 动画效果参数。 option为NULL时，操作无效。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_GetDuration()
 
@@ -231,7 +231,7 @@ uint32_t OH_ArkUI_AnimateOption_GetDuration(ArkUI_AnimateOption* option)
 | uint32_t | 动画持续时间，单位为ms（毫秒）。option异常时返回0。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_GetTempo()
 
@@ -261,7 +261,7 @@ float OH_ArkUI_AnimateOption_GetTempo(ArkUI_AnimateOption* option)
 | float | 动画播放速度。取值范围：[0, +∞)。option异常时返回0.0。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_GetCurve()
 
@@ -291,7 +291,7 @@ ArkUI_AnimationCurve OH_ArkUI_AnimateOption_GetCurve(ArkUI_AnimateOption* option
 | ArkUI_AnimationCurve | 动画曲线。option异常时返回-1。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_GetDelay()
 
@@ -321,7 +321,7 @@ int32_t OH_ArkUI_AnimateOption_GetDelay(ArkUI_AnimateOption* option)
 | int32_t | 动画延迟播放时间。option异常时返回0。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_GetIterations()
 
@@ -351,7 +351,7 @@ int32_t OH_ArkUI_AnimateOption_GetIterations(ArkUI_AnimateOption* option)
 | int32_t | 动画播放次数。option异常时返回0。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_GetPlayMode()
 
@@ -381,7 +381,7 @@ ArkUI_AnimationPlayMode OH_ArkUI_AnimateOption_GetPlayMode(ArkUI_AnimateOption* 
 | ArkUI_AnimationPlayMode | 动画播放模式。option异常时返回-1。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_GetExpectedFrameRateRange()
 
@@ -411,7 +411,7 @@ ArkUI_ExpectedFrameRateRange* OH_ArkUI_AnimateOption_GetExpectedFrameRateRange(A
 | ArkUI_ExpectedFrameRateRange* | 动画的期望帧率，单位为帧/秒（fps）。option异常时返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_SetDuration()
 
@@ -435,7 +435,7 @@ void OH_ArkUI_AnimateOption_SetDuration(ArkUI_AnimateOption* option, int32_t val
 | int32_t value | 动画持续时间，单位为ms（毫秒）。取值范围：[0, +∞)。 value小于0时，按0处理。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_SetTempo()
 
@@ -459,7 +459,7 @@ void OH_ArkUI_AnimateOption_SetTempo(ArkUI_AnimateOption* option, float value)
 | float value | 动画播放速度。取值范围：[0, +∞)。 说明： 传入小于0的数值，会默认设置为1。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_SetCurve()
 
@@ -483,7 +483,7 @@ void OH_ArkUI_AnimateOption_SetCurve(ArkUI_AnimateOption* option, ArkUI_Animatio
 | ArkUI_AnimationCurve value | 动画曲线。默认值：ARKUI_CURVE_LINEAR，建议使用ARKUI_CURVE_EASE_IN_OUT获得更平滑的动画效果。 value值异常时，设置无效。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_SetDelay()
 
@@ -507,7 +507,7 @@ void OH_ArkUI_AnimateOption_SetDelay(ArkUI_AnimateOption* option, int32_t value)
 | int32_t value | 动画延迟播放时间，单位为ms（毫秒）。取值范围：(-∞, +∞)。默认值：0，表示不延迟。value大于0时表示延迟播放，小于0表示提前播放。value小于0时，如果value的绝对值小于实际动画时长，动画将在开始后第一帧直接运动到value绝对值的时刻的状态；如果value的绝对值大于等于实际动画时长，动画将在开始后第一帧直接运动到终点状态。其中实际动画时长等于单次动画时长乘以动画播放次数。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_SetIterations()
 
@@ -531,7 +531,7 @@ void OH_ArkUI_AnimateOption_SetIterations(ArkUI_AnimateOption* option, int32_t v
 | int32_t value | 动画播放次数。取值范围：[-1, +∞)，其中设置为0时不播放，-1表示无限次播放。默认值：1（播放一次）。 value小于-1时，操作无效。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_SetPlayMode()
 
@@ -555,7 +555,7 @@ void OH_ArkUI_AnimateOption_SetPlayMode(ArkUI_AnimateOption* option, ArkUI_Anima
 | ArkUI_AnimationPlayMode value | 动画播放模式。默认值：ARKUI_ANIMATION_PLAY_MODE_NORMAL。 value值异常时，操作无效。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_SetExpectedFrameRateRange()
 
@@ -579,7 +579,7 @@ void OH_ArkUI_AnimateOption_SetExpectedFrameRateRange(ArkUI_AnimateOption* optio
 | ArkUI_ExpectedFrameRateRange* value | 动画的期望帧率，单位为帧/秒（fps）。 value为NULL时，操作无效。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_SetICurve()
 
@@ -607,7 +607,7 @@ void OH_ArkUI_AnimateOption_SetICurve(ArkUI_AnimateOption* option, ArkUI_CurveHa
 | ArkUI_CurveHandle value | 动画曲线参数。 value为NULL时，操作无效。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimateOption_GetICurve()
 
@@ -637,7 +637,7 @@ ArkUI_CurveHandle OH_ArkUI_AnimateOption_GetICurve(ArkUI_AnimateOption* option)
 | ArkUI_CurveHandle | 动画的动画曲线。参数option异常时返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_Create()
 
@@ -667,7 +667,7 @@ ArkUI_KeyframeAnimateOption* OH_ArkUI_KeyframeAnimateOption_Create(int32_t size)
 | ArkUI_KeyframeAnimateOption* | 关键帧动画参数对象。size小于0时返回NULL，option异常时返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_Dispose()
 
@@ -690,7 +690,7 @@ void OH_ArkUI_KeyframeAnimateOption_Dispose(ArkUI_KeyframeAnimateOption* option)
 | ArkUI_KeyframeAnimateOption* option | 关键帧动画参数对象。 option为NULL时，操作无效。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_SetDelay()
 
@@ -721,7 +721,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetDelay(ArkUI_KeyframeAnimateOption* opt
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_SetIterations()
 
@@ -752,7 +752,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetIterations(ArkUI_KeyframeAnimateOption
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_RegisterOnFinishCallback()
 
@@ -764,7 +764,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_RegisterOnFinishCallback(ArkUI_KeyframeAn
  
 **描述：**
  
-设置关键帧动画播放完成回调。当[关键帧动画](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-keyframeanimateoption)所有次数播放完成后调用。
+设置关键帧动画播放完成回调。当关键帧动画[ArkUI_KeyframeAnimateOption](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-keyframeanimateoption)所有次数播放完成后调用。
  
 **起始版本：** 12
  
@@ -784,7 +784,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_RegisterOnFinishCallback(ArkUI_KeyframeAn
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_SetExpectedFrameRate()
 
@@ -815,7 +815,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetExpectedFrameRate(ArkUI_KeyframeAnimat
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_SetDuration()
 
@@ -847,7 +847,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetDuration(ArkUI_KeyframeAnimateOption* 
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_SetCurve()
 
@@ -883,7 +883,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_SetCurve(ArkUI_KeyframeAnimateOption* opt
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_RegisterOnEventCallback()
 
@@ -916,7 +916,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_RegisterOnEventCallback(ArkUI_KeyframeAni
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_GetDelay()
 
@@ -946,7 +946,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_GetDelay(ArkUI_KeyframeAnimateOption* opt
 | int32_t | 整体延时时间，单位为ms（毫秒）。option异常时返回0。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_GetIterations()
 
@@ -976,7 +976,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_GetIterations(ArkUI_KeyframeAnimateOption
 | int32_t | 动画播放次数。option异常时返回0。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_GetExpectedFrameRate()
 
@@ -1006,7 +1006,7 @@ ArkUI_ExpectedFrameRateRange* OH_ArkUI_KeyframeAnimateOption_GetExpectedFrameRat
 | ArkUI_ExpectedFrameRateRange* | 关键帧动画参数的期望帧率。option异常时返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_GetDuration()
 
@@ -1037,7 +1037,7 @@ int32_t OH_ArkUI_KeyframeAnimateOption_GetDuration(ArkUI_KeyframeAnimateOption* 
 | int32_t | 持续时间，单位为ms（毫秒）。option异常时返回0。 |
  
  
- 
+  
 
 #### OH_ArkUI_KeyframeAnimateOption_GetCurve()
 
@@ -1068,7 +1068,7 @@ ArkUI_CurveHandle OH_ArkUI_KeyframeAnimateOption_GetCurve(ArkUI_KeyframeAnimateO
 | ArkUI_CurveHandle | 动画曲线。参数异常时返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_Create()
 
@@ -1102,7 +1102,7 @@ ArkUI_AnimatorOption* OH_ArkUI_AnimatorOption_Create(int32_t keyframeSize)
 | ArkUI_AnimatorOption* | animator动画对象参数指针。size小于0时返回NULL，option异常时返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_Dispose()
 
@@ -1125,7 +1125,7 @@ void OH_ArkUI_AnimatorOption_Dispose(ArkUI_AnimatorOption* option)
 | ArkUI_AnimatorOption* option | animator动画对象参数。 option为NULL时，操作无效。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetDuration()
 
@@ -1156,7 +1156,7 @@ int32_t OH_ArkUI_AnimatorOption_SetDuration(ArkUI_AnimatorOption* option, int32_
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetDelay()
 
@@ -1187,7 +1187,7 @@ int32_t OH_ArkUI_AnimatorOption_SetDelay(ArkUI_AnimatorOption* option, int32_t v
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetIterations()
 
@@ -1222,7 +1222,7 @@ int32_t OH_ArkUI_AnimatorOption_SetIterations(ArkUI_AnimatorOption* option, int3
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetFill()
 
@@ -1253,7 +1253,7 @@ int32_t OH_ArkUI_AnimatorOption_SetFill(ArkUI_AnimatorOption* option, ArkUI_Anim
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetDirection()
 
@@ -1284,7 +1284,7 @@ int32_t OH_ArkUI_AnimatorOption_SetDirection(ArkUI_AnimatorOption* option, ArkUI
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetCurve()
 
@@ -1319,7 +1319,7 @@ int32_t OH_ArkUI_AnimatorOption_SetCurve(ArkUI_AnimatorOption* option, ArkUI_Cur
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetBegin()
 
@@ -1334,7 +1334,7 @@ int32_t OH_ArkUI_AnimatorOption_SetBegin(ArkUI_AnimatorOption* option, float val
 设置animator动画插值起点。
  
 > [!NOTE]
-> 当Animator动画为 关键帧动画 时，此方法不生效。
+> 当Animator动画为关键帧动画 ArkUI_KeyframeAnimateOption 时，此方法不生效。
 
  
 **起始版本：** 12
@@ -1354,7 +1354,7 @@ int32_t OH_ArkUI_AnimatorOption_SetBegin(ArkUI_AnimatorOption* option, float val
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetEnd()
 
@@ -1369,7 +1369,7 @@ int32_t OH_ArkUI_AnimatorOption_SetEnd(ArkUI_AnimatorOption* option, float value
 设置animator动画插值终点。
  
 > [!NOTE]
-> 当Animator动画为 关键帧动画 时，此方法不生效。
+> 当Animator动画为关键帧动画 ArkUI_KeyframeAnimateOption 时，此方法不生效。
 
  
 **起始版本：** 12
@@ -1389,7 +1389,7 @@ int32_t OH_ArkUI_AnimatorOption_SetEnd(ArkUI_AnimatorOption* option, float value
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetExpectedFrameRateRange()
 
@@ -1420,7 +1420,7 @@ int32_t OH_ArkUI_AnimatorOption_SetExpectedFrameRateRange(ArkUI_AnimatorOption* 
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetKeyframe()
 
@@ -1453,7 +1453,7 @@ int32_t OH_ArkUI_AnimatorOption_SetKeyframe(ArkUI_AnimatorOption* option, float 
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_SetKeyframeCurve()
 
@@ -1489,7 +1489,7 @@ int32_t OH_ArkUI_AnimatorOption_SetKeyframeCurve(ArkUI_AnimatorOption* option, A
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetDuration()
 
@@ -1519,7 +1519,7 @@ int32_t OH_ArkUI_AnimatorOption_GetDuration(ArkUI_AnimatorOption* option)
 | int32_t | 动画播放的时长，单位毫秒。option异常时返回0。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetDelay()
 
@@ -1549,7 +1549,7 @@ int32_t OH_ArkUI_AnimatorOption_GetDelay(ArkUI_AnimatorOption* option)
 | int32_t | 动画延时播放时长，单位毫秒。option异常时返回0。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetIterations()
 
@@ -1579,7 +1579,7 @@ int32_t OH_ArkUI_AnimatorOption_GetIterations(ArkUI_AnimatorOption* option)
 | int32_t | 动画播放次数。option异常时返回0。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetFill()
 
@@ -1609,7 +1609,7 @@ ArkUI_AnimationFillMode OH_ArkUI_AnimatorOption_GetFill(ArkUI_AnimatorOption* op
 | ArkUI_AnimationFillMode | 动画执行时组件在动画开始前和结束后的状态。option异常时返回-1。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetDirection()
 
@@ -1639,7 +1639,7 @@ ArkUI_AnimationDirection OH_ArkUI_AnimatorOption_GetDirection(ArkUI_AnimatorOpti
 | ArkUI_AnimationDirection | 动画播放方向。option异常时返回-1。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetCurve()
 
@@ -1669,7 +1669,7 @@ ArkUI_CurveHandle OH_ArkUI_AnimatorOption_GetCurve(ArkUI_AnimatorOption* option)
 | ArkUI_CurveHandle | 动画插值曲线。option异常时返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetBegin()
 
@@ -1699,7 +1699,7 @@ float OH_ArkUI_AnimatorOption_GetBegin(ArkUI_AnimatorOption* option)
 | float | 动画插值起点。option异常时返回0.0。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetEnd()
 
@@ -1729,7 +1729,7 @@ float OH_ArkUI_AnimatorOption_GetEnd(ArkUI_AnimatorOption* option)
 | float | 动画插值终点。option异常时返回0.0。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetExpectedFrameRateRange()
 
@@ -1759,7 +1759,7 @@ ArkUI_ExpectedFrameRateRange* OH_ArkUI_AnimatorOption_GetExpectedFrameRateRange(
 | ArkUI_ExpectedFrameRateRange* | 期望的帧率范围对象指针。函数参数异常时返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetKeyframeTime()
 
@@ -1790,7 +1790,7 @@ float OH_ArkUI_AnimatorOption_GetKeyframeTime(ArkUI_AnimatorOption* option, int3
 | float | 关键帧时间，单位为ms（毫秒）。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetKeyframeValue()
 
@@ -1821,7 +1821,7 @@ float OH_ArkUI_AnimatorOption_GetKeyframeValue(ArkUI_AnimatorOption* option, int
 | float | 关键帧数值。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_GetKeyframeCurve()
 
@@ -1852,7 +1852,7 @@ ArkUI_CurveHandle OH_ArkUI_AnimatorOption_GetKeyframeCurve(ArkUI_AnimatorOption*
 | ArkUI_CurveHandle | 动画插值曲线。函数参数异常时返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorEvent_GetUserData()
 
@@ -1882,7 +1882,7 @@ void* OH_ArkUI_AnimatorEvent_GetUserData(ArkUI_AnimatorEvent* event)
 | void* | 用户自定义对象。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOnFrameEvent_GetUserData()
 
@@ -1912,7 +1912,7 @@ void* OH_ArkUI_AnimatorOnFrameEvent_GetUserData(ArkUI_AnimatorOnFrameEvent* even
 | void* | 用户自定义对象。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOnFrameEvent_GetValue()
 
@@ -1942,7 +1942,7 @@ float OH_ArkUI_AnimatorOnFrameEvent_GetValue(ArkUI_AnimatorOnFrameEvent* event)
 | float | 动画插值结果。 说明： 在动画过程中，插值结果根据动画参数在插值起点OH_ArkUI_AnimatorOption_SetBegin和插值终点OH_ArkUI_AnimatorOption_SetEnd间变化。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_RegisterOnFrameCallback()
 
@@ -1974,7 +1974,7 @@ int32_t OH_ArkUI_AnimatorOption_RegisterOnFrameCallback(ArkUI_AnimatorOption* op
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_RegisterOnFinishCallback()
 
@@ -2006,7 +2006,7 @@ int32_t OH_ArkUI_AnimatorOption_RegisterOnFinishCallback(ArkUI_AnimatorOption* o
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_RegisterOnCancelCallback()
 
@@ -2038,7 +2038,7 @@ int32_t OH_ArkUI_AnimatorOption_RegisterOnCancelCallback(ArkUI_AnimatorOption* o
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_AnimatorOption_RegisterOnRepeatCallback()
 
@@ -2070,7 +2070,7 @@ int32_t OH_ArkUI_AnimatorOption_RegisterOnRepeatCallback(ArkUI_AnimatorOption* o
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_Animator_ResetAnimatorOption()
 
@@ -2101,7 +2101,7 @@ int32_t OH_ArkUI_Animator_ResetAnimatorOption(ArkUI_AnimatorHandle animatorHandl
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_Animator_Play()
 
@@ -2131,7 +2131,7 @@ int32_t OH_ArkUI_Animator_Play(ArkUI_AnimatorHandle animatorHandle)
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_Animator_Finish()
 
@@ -2161,7 +2161,7 @@ int32_t OH_ArkUI_Animator_Finish(ArkUI_AnimatorHandle animatorHandle)
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_Animator_Pause()
 
@@ -2191,7 +2191,7 @@ int32_t OH_ArkUI_Animator_Pause(ArkUI_AnimatorHandle animatorHandle)
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_Animator_Cancel()
 
@@ -2221,7 +2221,7 @@ int32_t OH_ArkUI_Animator_Cancel(ArkUI_AnimatorHandle animatorHandle)
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_Animator_Reverse()
 
@@ -2251,7 +2251,7 @@ int32_t OH_ArkUI_Animator_Reverse(ArkUI_AnimatorHandle animatorHandle)
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_Curve_CreateCurveByType()
 
@@ -2281,7 +2281,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateCurveByType(ArkUI_AnimationCurve curve)
 | ArkUI_CurveHandle | 曲线的插值对象指针。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_Curve_CreateStepsCurve()
 
@@ -2312,7 +2312,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateStepsCurve(int32_t count, bool end)
 | ArkUI_CurveHandle | 曲线的插值对象指针。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_Curve_CreateCubicBezierCurve()
 
@@ -2345,7 +2345,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateCubicBezierCurve(float x1, float y1, floa
 | ArkUI_CurveHandle | 曲线的插值对象指针。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_Curve_CreateSpringCurve()
 
@@ -2378,7 +2378,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateSpringCurve(float velocity, float mass, f
 | ArkUI_CurveHandle | 曲线的插值对象指针。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_Curve_CreateSpringMotion()
 
@@ -2414,7 +2414,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateSpringMotion(float response, float dampin
 | ArkUI_CurveHandle | 曲线的插值对象指针。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_Curve_CreateResponsiveSpringMotion()
 
@@ -2450,7 +2450,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateResponsiveSpringMotion(float response, fl
 | ArkUI_CurveHandle | 曲线的插值对象指针。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_Curve_CreateInterpolatingSpring()
 
@@ -2487,7 +2487,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateInterpolatingSpring(float velocity, float
 | ArkUI_CurveHandle | 曲线的插值对象指针。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_Curve_CreateCustomCurve()
 
@@ -2518,7 +2518,7 @@ ArkUI_CurveHandle OH_ArkUI_Curve_CreateCustomCurve(void* userData, float (*inter
 | ArkUI_CurveHandle | 曲线的插值对象指针。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_Curve_DisposeCurve()
 
@@ -2541,7 +2541,7 @@ void OH_ArkUI_Curve_DisposeCurve(ArkUI_CurveHandle curveHandle)
 | ArkUI_CurveHandle curveHandle | 曲线的插值对象指针。 |
  
  
- 
+  
 
 #### OH_ArkUI_CreateOpacityTransitionEffect()
 
@@ -2571,7 +2571,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateOpacityTransitionEffect(float opacity)
 | ArkUI_TransitionEffect* | 组件转场时的透明度效果对象。 |
  
  
- 
+  
 
 #### OH_ArkUI_CreateTranslationTransitionEffect()
 
@@ -2601,7 +2601,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateTranslationTransitionEffect(ArkUI_Transla
 | ArkUI_TransitionEffect* | 组件转场时的平移效果对象。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_CreateScaleTransitionEffect()
 
@@ -2631,7 +2631,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateScaleTransitionEffect(ArkUI_ScaleOptions*
 | ArkUI_TransitionEffect* | 组件转场时的缩放效果对象。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_CreateRotationTransitionEffect()
 
@@ -2661,7 +2661,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateRotationTransitionEffect(ArkUI_RotationOp
 | ArkUI_TransitionEffect* | 组件转场时的旋转效果对象。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_CreateMovementTransitionEffect()
 
@@ -2691,7 +2691,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateMovementTransitionEffect(ArkUI_Transition
 | ArkUI_TransitionEffect* | 组件转场时的平移效果对象。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_CreateAsymmetricTransitionEffect()
 
@@ -2726,7 +2726,7 @@ ArkUI_TransitionEffect* OH_ArkUI_CreateAsymmetricTransitionEffect(ArkUI_Transiti
 | ArkUI_TransitionEffect* | 非对称的转场效果对象。如果参数异常返回NULL。 |
  
  
- 
+  
 
 #### OH_ArkUI_TransitionEffect_Dispose()
 
@@ -2749,7 +2749,7 @@ void OH_ArkUI_TransitionEffect_Dispose(ArkUI_TransitionEffect* effect)
 | ArkUI_TransitionEffect* effect | 转场效果对象。 |
  
  
- 
+  
 
 #### OH_ArkUI_TransitionEffect_Combine()
 
@@ -2780,7 +2780,7 @@ int32_t OH_ArkUI_TransitionEffect_Combine(ArkUI_TransitionEffect* firstEffect, A
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
  
  
- 
+  
 
 #### OH_ArkUI_TransitionEffect_SetAnimation()
 

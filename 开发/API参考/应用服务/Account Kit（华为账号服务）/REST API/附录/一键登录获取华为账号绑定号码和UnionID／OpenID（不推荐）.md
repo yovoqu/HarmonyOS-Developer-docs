@@ -1,10 +1,10 @@
 # 一键登录获取华为账号绑定号码和UnionID/OpenID（不推荐）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-user-info-quicklogin-getid
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/XUnhW9-_TYOTx_25jDbY8Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025117Z&HW-CC-Expire=86400&HW-CC-Sign=B0FCE3CE7747BA41AE3C8A022DC6119CE8EEC914A610A334D20355AE0C7FB0D3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/aUO8eXwfRkyKCs6tfKROUA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074846Z&HW-CC-Expire=86400&HW-CC-Sign=2FEDA653ADBC499108E2D88099A89CAC5FBF5C943CB6C009AC3EDC81D1120A36)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -122,7 +122,7 @@ access_token=<Access Token>
 
 
 > [!TIP]
-> 如字段无特殊说明，华为账号服务器返回的手机号码格式如下： 当账号注册地为中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）且绑定手机号为中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）手机号码时，省略国际冠码与国际电话区号，直接返回手机号码，如： 111****0008。 其它情况则遵循格式：国际冠码(统一使用00) + 国际电话区号 + 手机号码，如：0085261234567 (香港特别行政区)、 0079871234560 (俄罗斯)。
+> 如字段无特殊说明，华为账号服务器返回的手机号码格式如下： 当账号注册地为中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）且绑定手机号为中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）手机号码时，省略国际冠码与国际电话区号，直接返回手机号码，如： 111****0008。 其它情况则遵循格式：国际冠码(统一使用00) + 国际电话区号 + 手机号码，如：0085261****67 (香港特别行政区)、 00798****4560 (俄罗斯)。
 
 
 调用失败时，响应消息返回如下：
@@ -148,11 +148,11 @@ Content-Type: application/json;charset=utf-8
 {
     "openID": "MDFAMTAxMDA1MTg1QGFlMzM0OWIyOGY0*****MDRiaNTI5ODAxYTA3MDh*****A4ZTZmNTA2ZTE4ZT*****lmNGVmN2E1ZjY1OTg4NWRiaN2QxMzQy*****TU0YWQ3",
     "unionID": "MDF9pBd6xxxxA8iaG4ZNPTw*****3fyXzG9WgUcmY8XibBvQ",
-    // 华为账号绑定号码，使用该手机号完成一键登录的功能(返回数据实际为明文)
+    // 华为账号绑定号码，使用该手机号完成一键登录的功能（返回数据实际为明文）
     "loginMobileNumber": "191******08",
     // 通过一键登录功能获取的华为账号绑定号码的实时有效性， 0表示需要进一步验证有效性， 1表示可以直接使用
     "loginMobileValid": 1,
-    // 不带国际冠码与国际电话区号的手机号码(返回数据实际为明文)
+    // 不带国际冠码与国际电话区号的手机号码（返回数据实际为明文）
     "purePhoneNumber": "191******08",
     "phoneCountryCode": "0086"
 }

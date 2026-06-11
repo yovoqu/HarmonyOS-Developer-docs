@@ -1,6 +1,6 @@
 # aa工具
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aa-tool
 
@@ -300,7 +300,7 @@ aa dump -l
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/F7RYVZxaR6q1Uv11QzHx9w/zh-cn_image_0000002581434594.png?HW-CC-KV=V1&HW-CC-Date=20260528T030229Z&HW-CC-Expire=86400&HW-CC-Sign=2E46FB08F70D665284595AB7F15092CA1BF2EDE45863D3118385FC245CDBFD9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/ArLogffIR32W3CGWkvda0w/zh-cn_image_0000002622858373.png?HW-CC-KV=V1&HW-CC-Date=20260611T074928Z&HW-CC-Expire=86400&HW-CC-Sign=70807AF0C5EE59D6CCEDC167DB80D4A4C091A1DFFDBD2800FA0FACB90591300A)
 
 
 ```bash
@@ -309,7 +309,7 @@ aa dump -i 105
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/uDqLISvSQs28Y6iqSE8H8w/zh-cn_image_0000002611834425.png?HW-CC-KV=V1&HW-CC-Date=20260528T030229Z&HW-CC-Expire=86400&HW-CC-Sign=9E55DFBF152727FDA9F753CD17317C480DA3E6512AC355179CA98771F9ABE222)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/rsl49167Q0y9la1l2GaXGg/zh-cn_image_0000002622698495.png?HW-CC-KV=V1&HW-CC-Date=20260611T074928Z&HW-CC-Expire=86400&HW-CC-Sign=E7D7A42535C0C3F34D062C2EE7DC4C8FDB4D52738D0F24F15F8BA86DA4411AD7)
 
 
 
@@ -544,7 +544,7 @@ aa appdebug -g
 
 #### 应用调试/调优命令（process）
 
-对应用进行调试或调优，IDE用该命令集成调试和调优工具。
+对应用进行调试或调优，DevEco Studio用该命令集成调试和调优工具。
 
 ```bash
 # 调试应用

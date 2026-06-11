@@ -1,10 +1,10 @@
 # Notification Kit简介
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-overview
 
-Notification Kit（用户通知服务）为开发者提供本地通知发布通道，开发者可借助Notification Kit将应用产生的通知直接在客户端本地推送给用户，本地通知根据通知类型及发布场景会产生对应的铃声、震动、横幅、锁屏、息屏、通知栏提醒和显示。
+Notification Kit（用户通知服务）为开发者提供本地通知发布通道，开发者可借助Notification Kit将应用产生的通知直接在客户端本地推送给用户，本地通知根据通知类型及发布场景会产生对应的铃声、振动、横幅、锁屏、自动亮屏、状态栏图标和通知中心的显示。
 
 
 #### 使用场景
@@ -81,7 +81,7 @@ Notification Kit中常用的通知样式如下：
 
 #### 违规处罚
 
-应用发送的通知需遵守Push Kit的[通知内容原则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-detail-rules)，如出现违反通知内容原则的行为，将被视为违规。
+应用发布的云端通知与本地通知都需遵守Push Kit的[消息分类标准](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-apply-right#通知消息分类标准与提醒方式)，如出现分类错误，违反消息分类标准的场景，将被判为违规。本地通知消息分类标准请参见[通知渠道类型说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/notification-slot#通知渠道类型说明)。
 
 违规行为及相应的处理措施请参见[违规分类、违规行为及违规处罚标准](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-punishment-standards)。
 

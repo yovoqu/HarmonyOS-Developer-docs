@@ -1,6 +1,6 @@
 # 使用RSA私钥进行编码解码(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-encoded-decoded
 
@@ -16,11 +16,11 @@
   如何生成RSA非对称密钥对，开发者可参考下文示例，并结合[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#rsa)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/1YtqkWcVQ8uua1G5jUloYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030312Z&HW-CC-Expire=86400&HW-CC-Sign=67E834479BCFB7AFA0645AE2471E71CD2930203769537E9C33D75D8DBD6A8E99)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/cjL-OmoQSA6yZiGCeBWQtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074922Z&HW-CC-Expire=86400&HW-CC-Sign=61D52F429450187DBF3D542753CAF62913C767667C52E1A49DD3B08BACFEA771)
  
 
   解码应该与编码传入的算法一致。
-2. 调用异步[asyKeyGenerator.convertPemKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpemkey18)或者同步方法[asyKeyGenerator.convertPemKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpemkeysync18)，传入编码后的私钥字符串与编码口令。最后返回编码前的私钥字符串。
+2. 调用异步[asyKeyGenerator.convertPemKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpemkey18)或者同步方法[asyKeyGenerator.convertPemKeySync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpemkeysync18)，传入编码后的私钥字符串与编码口令。最后返回密钥对对象（KeyPair），其中包含解码后的私钥。
 
  - 编码示例：
 

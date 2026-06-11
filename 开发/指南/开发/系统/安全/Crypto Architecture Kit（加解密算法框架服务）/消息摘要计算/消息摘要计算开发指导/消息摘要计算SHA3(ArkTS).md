@@ -1,6 +1,6 @@
 # 消息摘要计算SHA3(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-message-digest-sha3
 
@@ -68,7 +68,7 @@ function doMdBySync() {
 
 
 #### 分段摘要算法
-1. 调用[cryptoFramework.createMd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemd)，指定摘要算法MD5，生成摘要实例（Md）。
+1. 调用[cryptoFramework.createMd](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatemd)，指定摘要算法SHA3-256，生成摘要实例（Md）。
 2. 传入自定义消息，将一次传入数据量设置为20字节，多次调用[Md.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-7)，进行摘要更新计算。
 3. 调用[Md.digest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#digest-1)，获取摘要计算结果。
 4. 调用[Md.getMdLength](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getmdlength)，获取摘要计算长度，单位为字节。

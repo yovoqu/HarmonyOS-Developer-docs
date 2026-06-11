@@ -1,6 +1,6 @@
 # @ohos.deviceInfo (设备信息)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -73,7 +73,7 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 | distributionOSApiName13+ | string | 是 | 发行版系统api版本名称。 |
 | distributionOSReleaseType10+ | string | 是 | 发行版系统类型。 示例：Release |
 | ODID12+ | string | 是 | 开发者匿名设备标识符。 ODID值会在以下场景重新生成： 手机恢复出厂设置。 同一设备上同一个开发者(developerId相同)的应用全部卸载后重新安装时。 ODID生成规则： 根据签名信息里developerId解析出的groupId生成，developerId规则为groupId.developerId，若无groupId则取整个developerId作为groupId。 同一设备上运行的同一个开发者(developerId相同)的应用，ODID相同。 同一个设备上不同开发者(developerId不同)的应用，ODID不同。 不同设备上同一个开发者(developerId相同)的应用，ODID不同。 不同设备上不同开发者(developerId不同)的应用，ODID不同。 说明：数据长度为37字节(包含结束符)。 示例：1234a567-XXXX-XXXX-XXXX-XXXXXXXXXXXX |
-| diskSN15+ | string | 是 | 硬盘序列号。 说明 ：该字段只能在2in1设备进行查询，其他设备查询结果为空。 需要权限：ohos.permission.ACCESS_DISK_PHY_INFO 示例：2502EM400567 |
+| diskSN15+ | string | 是 | 硬盘序列号。 说明 ：该字段只能在部分2in1设备上进行查询，其他设备查询结果为空。 需要权限：ohos.permission.ACCESS_DISK_PHY_INFO 示例：2502EM400567 |
 | performanceClass19+ | PerformanceClassLevel | 是 | 描述设备能力等级，基于CPU、内存、存储读写性能和屏幕分辨率等因素综合评估。 |
 | chipType21+ | string | 是 | 当前设备CPU芯片型号 示例：xxxxx |
 | bootCount21+ | number | 是 | 当前设备重启次数，获取失败时返回-1 示例：100 |

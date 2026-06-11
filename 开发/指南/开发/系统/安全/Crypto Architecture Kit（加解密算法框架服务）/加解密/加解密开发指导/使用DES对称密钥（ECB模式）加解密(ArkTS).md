@@ -1,6 +1,6 @@
 # 使用DES对称密钥（ECB模式）加解密(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-des-sym-encrypt-decrypt-ecb
 
@@ -21,7 +21,7 @@
 
 5. 当数据量较大时，可以多次调用update，即分段加解密。
 
-6. 数据量大小可以使用者自行决定。比如大于20字节使用update。
+6. 用户可以根据数据量大小自行决定操作方式。比如大于20字节使用update。
 
 7. 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，获取加密后的数据。
 

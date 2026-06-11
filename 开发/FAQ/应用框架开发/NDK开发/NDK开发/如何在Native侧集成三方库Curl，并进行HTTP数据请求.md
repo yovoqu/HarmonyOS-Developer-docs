@@ -1,6 +1,6 @@
 # 如何在Native侧集成三方库Curl，并进行HTTP数据请求
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-31
 

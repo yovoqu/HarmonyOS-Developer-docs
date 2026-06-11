@@ -1,6 +1,6 @@
 # oh-package.json5
 
-更新时间：2026-05-26 06:48:01
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-oh-package-json5
 
@@ -15,6 +15,11 @@
 
 #### 工程级oh-package.json5 字段说明
 
+
+
+> [!NOTE] 说明
+> 如debug和beta环境下需要配置不同的parameterFile，实现不同的包依赖管理，诸如此类场景称为多环境。
+
 | 配置项 | 字段名称 | 字段说明 | 字段要求 | 字段类型 | 默认值 | 备注 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 开发态版本 | modelVersion | 开发态版本号 | 必选 | 字符串 | 无 | 开发态版本号。 |
@@ -28,10 +33,7 @@
 | 其他 | scripts | 自定义脚本 | 可选 | 对象 | {} | 维护一个脚本别名到脚本内容的映射表，开发者可以通过ohpm run &lt;脚本别名&gt;来触发对应脚本内容的执行。 |
 | 其他 | hooks | 钩子 | 可选 | 对象 | {} | 安装或卸载的钩子设置，包含 "preInstall"，"postInstall"，"preUninstall"，"postUninstall"，"preVersion"，"postVersion"，"prePublish"，"postPublish" 字段。仅支持执行当前工程中的 hooks，不支持执行依赖中的 hooks。 |
 | 其他 | parameterFile | 参数化配置文件路径 | 可选 | 字符串 | 无 | 标识是否开启参数化。未配置：关闭参数化；已配置：开启参数化。需同时指定参数化配置文件路径，详情见parameterFile。 |
-| 其他 | properties | 多环境依赖管理参数 | 可选 | 对象 | {} | 该配置参数用于多环境下的依赖管理。 开发者通过parameterFile完成依赖配置后，在parameterFile字段中使用properties参数，详情见properties。 
-> [!TIP]
-> 如debug和beta环境下需要配置不同的parameterFile，实现不同的包依赖管理，诸如此类场景称为多环境。
- |
+| 其他 | properties | 多环境依赖管理参数 | 可选 | 对象 | {} | 该配置参数用于多环境下的依赖管理。 开发者通过parameterFile完成依赖配置后，在parameterFile字段中使用properties参数，详情见properties。 |
 
 
 
@@ -209,8 +211,8 @@ ohpm init --yes
     // 本地源码引入，可引入本地其他模块的源码，示例直接引入本地的"module1"模块
     "local_source_code": "file:../module1"
 
-<span id="ZH-CN_TOPIC_0000002571386518__ph0251914181216">    // 项目存在Foo模块，即build-profile.json5文件或dependencyMap.json5文件中modules节点下存在名称为Foo的模块；该模块Foo的oh-package.json5中name为：foo_test</span>
-<span id="ZH-CN_TOPIC_0000002571386518__ph1425161413120">    "foo_test": "@module:Foo"</span>
+<span>    // 项目存在Foo模块，即build-profile.json5文件或dependencyMap.json5文件中modules节点下存在名称为Foo的模块；该模块Foo的oh-package.json5中name为：foo_test</span>
+<span>    "foo_test": "@module:Foo"</span>
   },
   "devDependencies": {
     // 支持依赖引入类型同dependencies
@@ -281,8 +283,8 @@ ohpm init --yes
 ```json
 {
    "overrides": {
-<span id="ZH-CN_TOPIC_0000002571386518__ph19833357134611">      // 项目存在Foo模块，即build-profile.json5文件或dependencyMap.json5文件中modules节点下存在名称为Foo的模块；该模块Foo的oh-package.json5中name为：foo_test</span>
-<span id="ZH-CN_TOPIC_0000002571386518__ph198332574466">      // "foo_test": "@module:Foo"</span>
+<span>      // 项目存在Foo模块，即build-profile.json5文件或dependencyMap.json5文件中modules节点下存在名称为Foo的模块；该模块Foo的oh-package.json5中name为：foo_test</span>
+<span>      // "foo_test": "@module:Foo"</span>
       // 本地存在"foo"的源码目录，如项目根目录下的foo目录
       // "foo": "file:./foo" 
       // 本地存在"foo"的HAR文件，如项目根目录下的libs目录中的foo.har

@@ -1,6 +1,6 @@
 # Chip
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-arkui-advanced-chip
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -92,7 +92,7 @@ ChipOptions定义Chip的样式及具体式样参数。
 
 
 > [!NOTE]
-> 当suffixSymbol有传入参数时，suffixIcon和allowClose不生效；当suffixSymbol没有传入参数而suffixIcon有传入参数时，allowClose不生效；当suffixSymbol和suffixIcon都没有传入参数时，allowClose决定是否显示删除图标。 backgroundColor和activatedBackgroundColor赋值为undefined时，显示默认背景颜色；赋值为非法值时，背景颜色透明。 prefixSymbol/suffixSymbol的fontColor默认值为：normalFontColor: [\$r('sys.color.ohos_id_color_primary')]、activatedFontColor: [\$r('sys.color.ohos_id_color_text_primary_contrary')]。fontColor默认值为16。 prefixIcon的fillColor默认值为：\$r('sys.color.ohos_id_color_secondary')，suffixIcon的fillColor默认值为：\$r('sys.color.ohos_id_color_primary')。fillColor对颜色的解析与Image组件保持一致。 prefixIcon和suffixIcon的activatedFillColor默认值均为：\$r('sys.color.ohos_id_color_text_primary_contrary')。activatedFillColor对颜色的解析与Image组件保持一致。
+> 当suffixSymbol有传入参数时，suffixIcon和allowClose不生效；当suffixSymbol没有传入参数而suffixIcon有传入参数时，allowClose不生效；当suffixSymbol和suffixIcon都没有传入参数时，allowClose决定是否显示删除图标。 backgroundColor和activatedBackgroundColor赋值为undefined时，显示默认背景颜色；赋值为非法值时，背景颜色透明。 当prefixSymbol或suffixSymbol设置了图标时，若Chip为非激活状态，图标颜色fontColor为[\$r('sys.color.ohos_id_color_secondary')]，若Chip为激活状态，图标颜色fontColor为[\$r('sys.color.ohos_id_color_text_primary_contrary')]。此外，图标的默认大小fontSize为16fp。 当prefixIcon和suffixIcon设置了图标时，fillColor默认值均为：\$r('sys.color.ohos_id_color_secondary')。fillColor对颜色的解析与Image组件保持一致。 当prefixIcon和suffixIcon设置了图标时，activatedFillColor默认值均为：\$r('sys.color.ohos_id_color_text_primary_contrary')。activatedFillColor对颜色的解析与Image组件保持一致。
 
 
 
@@ -520,7 +520,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/5fVZvqx2S5aoe3AsZs25Qg/zh-cn_image_0000002587110700.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=CE0562F1ECAB5F02B239E06698E7AB517ACCF18569E19BFDBBB2E6A0E525FA10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/FXlKRLRcSvmgUmoOvD_dPQ/zh-cn_image_0000002592220566.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=DF85C52B1AA10AEEB749723661B0F9EADB910AEB72049165CE004AF102B506FB)
 
 
 
@@ -571,7 +571,7 @@ struct Index {
           console.info('chip on clicked');
         }
       })
-       // 点击“改变激活状态”，用于控制操作块的激活与关闭。
+      // 点击“改变激活状态”，用于控制操作块的激活与关闭。
       Button('改变激活状态')
         .onClick(() => {
           this.isActivated = !this.isActivated;
@@ -582,7 +582,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/_Jreo1C1Sju402CRyfFeAg/zh-cn_image_0000002617670379.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=521920752E3834991C33EE8EAABFC7E3E4039171CF1DD46FEF169F5EB1007334)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/-ileFRAnQZGQ9XqeMv2JFQ/zh-cn_image_0000002592380498.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=A6C28D74AAC8F98DB51FCC1414652791C4A1FECDBCE884B28A3CD06031B3C325)
 
 
 
@@ -641,7 +641,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/OZEYbnhwTxquaIMffDkhrA/zh-cn_image_0000002587270604.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=39BDFB6307468BCE3727ACCFE97CD8EC86B536DED51D31C06EF3EFA29DF6F9C9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/7YhYuxKtTgCZXl4QHEYTHg/zh-cn_image_0000002622860009.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=BAF421FA3500843513EFFD7B12AB972AD5C09D4AFDB2DB36427D1CD5F4CB97F3)
 
 
 
@@ -697,7 +697,7 @@ struct ChipPage {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/bLRQy-WkT4uDQYpeLxpLOw/zh-cn_image_0000002617710281.png?HW-CC-KV=V1&HW-CC-Date=20260604T012553Z&HW-CC-Expire=86400&HW-CC-Sign=93F962DF23078F8EBEE9308E6015D834965067AAAC4B69734C705527845B212D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/vgrjEwiKQ5CvrCs70tIJKA/zh-cn_image_0000002622700127.png?HW-CC-KV=V1&HW-CC-Date=20260611T074827Z&HW-CC-Expire=86400&HW-CC-Sign=03665F23539F952FAF2026BC4DBCEEE2DC51F9190F282CEF19A896D992AD0361)
 
 
 

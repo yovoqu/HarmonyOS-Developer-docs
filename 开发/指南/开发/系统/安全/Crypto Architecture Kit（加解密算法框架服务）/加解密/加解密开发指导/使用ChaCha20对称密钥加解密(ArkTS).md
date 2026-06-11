@@ -1,10 +1,10 @@
 # 使用ChaCha20对称密钥加解密(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-chacha20-encrypt-decrypt
 
-从API22开始，算法库支持该算法。
+从API version 22开始，算法库支持该算法。
 
 对应的算法规格请查看[对称密钥加解密算法规格：ChaCha20](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#chacha20)。
 
@@ -138,7 +138,7 @@ function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramewo
 function decryptMessage(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
   let decoder = cryptoFramework.createCipher('ChaCha20');
   decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, ivSpec);
-  let decryptData = decoder.updateSync(cipherText);
+  let decryptData = decoder.doFinalSync(cipherText);
   return decryptData;
 }
 

@@ -1,6 +1,6 @@
 # 指定PEM格式字符串数据转换非对称密钥对(C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-string-data-to-asym-key-pair-ndk
 
@@ -26,7 +26,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 
   生成RSA非对称密钥时，默认素数为2，此处省略了参数PRIMES_2。
 2. 调用[OH_CryptoAsymKeyGenerator_Convert](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_convert)，传入二进制密钥数据，生成非对称密钥对象（OH_CryptoKeyPair）。
-3. 调用[OH_CryptoPubKey_Encode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptopubkey_encode)，将非对称密钥对象中的公钥转换成pkcs1或x509格式。
+3. 调用[OH_CryptoPubKey_Encode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-asym-key-h#oh_cryptopubkey_encode)，将非对称密钥对象中的公钥转换成PKCS#1或X.509格式。
 
  - 以下以生成RSA密钥对为例：        
 ```cpp
@@ -44,7 +44,7 @@ OH_Crypto_ErrCode doTestPemDataCovertAsymKey()
         return ret;
     }
 
-    uint8_t sm2PubKeyBlobData[] = {
+    uint8_t rsaPubKeyBlobData[] = {
         48,  129, 159, 48,  13,  6,   9,   42,  134, 72,  134, 247, 13,  1,   1,   1,   5,   0,   3,   129, 141,
         0,   48,  129, 137, 2,   129, 129, 0,   235, 184, 151, 247, 130, 216, 140, 187, 64,  124, 219, 137, 140,
         184, 53,  137, 216, 105, 156, 141, 137, 165, 30,  80,  232, 55,  96,  46,  23,  237, 197, 123, 121, 27,
@@ -55,7 +55,7 @@ OH_Crypto_ErrCode doTestPemDataCovertAsymKey()
         150, 31,  143, 56,  252, 2,   73,  41,  70,  159, 2,   3,   1,   0,   1};
 
     OH_CryptoKeyPair *dupKeyPair = nullptr;
-    Crypto_DataBlob pubBlob = {.data = sm2PubKeyBlobData, .len = sizeof(sm2PubKeyBlobData)};
+    Crypto_DataBlob pubBlob = {.data = rsaPubKeyBlobData, .len = sizeof(rsaPubKeyBlobData)};
     ret = OH_CryptoAsymKeyGenerator_Convert(ctx, CRYPTO_DER, &pubBlob, nullptr, &dupKeyPair);
     if (ret != CRYPTO_SUCCESS) {
         OH_CryptoAsymKeyGenerator_Destroy(ctx);

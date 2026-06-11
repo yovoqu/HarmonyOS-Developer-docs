@@ -1,6 +1,6 @@
 # Native侧如何合理管控对象的生命周期
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-80
 

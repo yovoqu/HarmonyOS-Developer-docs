@@ -1,6 +1,6 @@
 # Image或者ImageSpan传入一个string类型的路径时无法加载图片
 
-更新时间：2026-05-30 09:08:01
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-153
 

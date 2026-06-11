@@ -1,6 +1,6 @@
 # Interface (ResultSet)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-data-relationalstore-resultset
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -243,7 +243,7 @@ getColumnType(columnIdentifier: number | string): Promise&lt;ColumnType&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| columnIdentifier | number \| string | 是 | 表示结果集中指定列的索引或名称。索引必须是非负整数，最大不能超过属性columnNames的长度。列名必须是属性columnNames内的名称。 |
+| columnIdentifier | number \| string | 是 | 表示结果集中指定列的索引或名称。索引必须是非负整数，最大不能超过属性columnNames的长度。名称必须是属性columnNames内的名称。 |
 
 
 **返回值：**
@@ -1606,7 +1606,7 @@ if (resultSet !== undefined) {
 
 close(): void
 
-关闭结果集，若不关闭可能会引起fd泄露和内存泄露。
+关闭结果集，若不关闭可能会引起FD（File Descriptor）泄露和内存泄露。
 
 **系统能力：** SystemCapability.DistributedDataManager.RelationalStore.Core
 

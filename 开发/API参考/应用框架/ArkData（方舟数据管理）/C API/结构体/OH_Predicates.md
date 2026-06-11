@@ -1,6 +1,6 @@
 # OH_Predicates
 
-更新时间：2026-03-20 09:49:50
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-rdb-oh-predicates
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,7 +60,7 @@ typedef struct {...} OH_Predicates
 | OH_Predicates *(*distinct)(OH_Predicates *predicates) | 函数指针，配置谓词以过滤重复记录并仅保留其中一个。 该方法等同于SQL语句中的“DISTINCT”。 |
 | OH_Predicates *(*limit)(OH_Predicates *predicates, unsigned int value) | 函数指针，设置最大数据记录数的谓词。 该方法等同于SQL语句中的“LIMIT”。 |
 | OH_Predicates *(*offset)(OH_Predicates *predicates, unsigned int rowOffset) | 函数指针，配置谓词以指定返回结果的起始位置。 该方法等同于SQL语句中的“OFFSET”。 |
-| OH_Predicates *(*groupBy)(OH_Predicates *predicates, char const *const *fields, int length) | 函数指针，配置R谓词按指定列分组查询结果。 该方法等同于SQL语句中的“GROUP BY”。 |
+| OH_Predicates *(*groupBy)(OH_Predicates *predicates, char const *const *fields, int length) | 函数指针，配置谓词按指定列分组查询结果。 该方法等同于SQL语句中的“GROUP BY”。 |
 | OH_Predicates *(*in)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject) | 函数指针，配置谓词以匹配数据字段为field且值在给定范围内的指定字段。 该方法等同于SQL语句中的“IN”。 |
 | OH_Predicates *(*notIn)(OH_Predicates *predicates, const char *field, OH_VObject *valueObject) | 函数指针，配置谓词以匹配数据字段为field且值超出给定范围内的指定字段。 该方法等同于SQL语句中的“NOT IN”。 |
 | OH_Predicates *(*clear)(OH_Predicates *predicates) | 函数指针，清空谓词。 |
@@ -715,7 +715,7 @@ OH_Predicates *(*groupBy)(OH_Predicates *predicates, char const *const *fields, 
  
 **描述**
  
-函数指针，配置R谓词按指定列分组查询结果。
+函数指针，配置谓词按指定列分组查询结果。
  
 该方法等同于SQL语句中的“GROUP BY”。
  

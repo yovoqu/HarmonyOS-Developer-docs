@@ -1,6 +1,6 @@
 # 使用ConcurrentHashmap在多线程下完成键值信息的查找维护
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-concurrent-hashmap
 
@@ -13,16 +13,16 @@ FAST Kit提供的Concurrent HashMap（并发哈希表）专为高并发场景下
 
 | 名称 | 描述 |
 | --- | --- |
-| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Create (FAST_ConcurrentHashmap* handle, HMS_FAST_ConcurrentHashmap_HashFunc hasher, HMS_FAST_ConcurrentHashmap_KeyEqualFunc equaler, float maxLoadFac, size_t numShards) | 使用给定配置创建并发哈希表。 |
-| void HMS_FAST_ConcurrentHashmap_Destroy (FAST_ConcurrentHashmap* handle) | 销毁指定并发哈希表。 |
-| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Insert (FAST_ConcurrentHashmap* handle, const FAST_ConcurrentHashmapKeyPtr key, const FAST_ConcurrentHashmapValuePtr value, FAST_ConcurrentHashmapValuePtr* originValue) | 将给定的键值对插入并发哈希表中，如果键已经存在，则使用value覆写原有的值，并将对应值的地址保存在originValue中。 |
-| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Find (FAST_ConcurrentHashmap* handle, const FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapValuePtr* value) | 在给定并发哈希表中查找输入的键，并将对应的值保存在value中。 |
-| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Erase (FAST_ConcurrentHashmap* handle, const FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapKeyPtr* originKey, FAST_ConcurrentHashmapValuePtr* originValue) | 在给定哈希表中删除输入的键，并将键/值对应的地址保存在originKey和originValue中。 |
-| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_TryInsert (FAST_ConcurrentHashmap* handle, const FAST_ConcurrentHashmapKeyPtr key, const FAST_ConcurrentHashmapValuePtr value) | 将给定的键值对插入并发哈希表中，如果键已经存在、则不做操作。 |
-| size_t HMS_FAST_ConcurrentHashmap_Size (FAST_ConcurrentHashmap* handle) | 返回给定哈希表当前的元素个数。 |
-| void HMS_FAST_ConcurrentHashmap_Clear (FAST_ConcurrentHashmap* handle) | 清空给定哈希表中维护的所有元素。 |
-| size_t HMS_FAST_ConcurrentHashmap_EraseIf (FAST_ConcurrentHashmap* handle, HMS_FAST_ConcurrentHashmap_HookFunc condFunc, void* condCtx, HMS_FAST_ConcurrentHashmap_HookFunc freeFunc, void* freeCtx) | 删除哈希表中符合开发者定义条件的所有元素，并使用开发者定义的方式释放其内存。 |
-| void HMS_FAST_ConcurrentHashmap_Traverse (FAST_ConcurrentHashmap* handle, HMS_FAST_ConcurrentHashmap_HookFunc condFunc, void* condCtx, HMS_FAST_ConcurrentHashmap_HookFunc workFunc, void* workCtx) | 遍历哈希表，将所有符合开发者输入条件的键值对按开发者给定的方式修改。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Create (FAST_ConcurrentHashmapHandle* handle, HMS_FAST_ConcurrentHashmap_HashFunc hasher, HMS_FAST_ConcurrentHashmap_KeyEqualFunc equaler, float maxLoadFac, size_t numShards) | 使用给定配置创建并发哈希表。 |
+| void HMS_FAST_ConcurrentHashmap_Destroy (FAST_ConcurrentHashmapHandle* handle) | 销毁指定并发哈希表。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Insert (FAST_ConcurrentHashmapHandle* handle, const FAST_ConcurrentHashmapKeyPtr key, const FAST_ConcurrentHashmapValuePtr value, FAST_ConcurrentHashmapValuePtr* originValue) | 将给定的键值对插入并发哈希表中，如果键已经存在，则使用value覆写原有的值，并将对应值的地址保存在originValue中。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Find (FAST_ConcurrentHashmapHandle* handle, const FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapValuePtr* value) | 在给定并发哈希表中查找输入的键，并将对应的值保存在value中。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Erase (FAST_ConcurrentHashmapHandle* handle, const FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapKeyPtr* originKey, FAST_ConcurrentHashmapValuePtr* originValue) | 在给定哈希表中删除输入的键，并将键/值对应的地址保存在originKey和originValue中。 |
+| FAST_ErrorCode HMS_FAST_ConcurrentHashmap_TryInsert (FAST_ConcurrentHashmapHandle* handle, const FAST_ConcurrentHashmapKeyPtr key, const FAST_ConcurrentHashmapValuePtr value) | 将给定的键值对插入并发哈希表中，如果键已经存在、则不做操作。 |
+| size_t HMS_FAST_ConcurrentHashmap_Size (FAST_ConcurrentHashmapHandle* handle) | 返回给定哈希表当前的元素个数。 |
+| void HMS_FAST_ConcurrentHashmap_Clear (FAST_ConcurrentHashmapHandle* handle) | 清空给定哈希表中维护的所有元素。 |
+| size_t HMS_FAST_ConcurrentHashmap_EraseIf (FAST_ConcurrentHashmapHandle* handle, HMS_FAST_ConcurrentHashmap_HookFunc condFunc, void* condCtx, HMS_FAST_ConcurrentHashmap_HookFunc freeFunc, void* freeCtx) | 删除哈希表中符合开发者定义条件的所有元素，并使用开发者定义的方式释放其内存。 |
+| void HMS_FAST_ConcurrentHashmap_Traverse (FAST_ConcurrentHashmapHandle* handle, HMS_FAST_ConcurrentHashmap_HookFunc condFunc, void* condCtx, HMS_FAST_ConcurrentHashmap_HookFunc workFunc, void* workCtx) | 遍历哈希表，将所有符合开发者输入条件的键值对按开发者给定的方式修改。 |
 
 
 

@@ -1,6 +1,6 @@
 # AutoMappingSubgraphIndex
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-automappingsubgraphindex
 
@@ -29,7 +29,7 @@ const std::function<Status(int32_t netoutput_index, int32_t &parent_output_index
 | --- | --- | --- |
 | graph | 输入 | 子图对象 |
 | input | 输入 | 输入对应关系函数 |
-| output | 输入 | 输出对应关系函数 |
+| output | 输出 | 输出对应关系函数 |
  
  
   

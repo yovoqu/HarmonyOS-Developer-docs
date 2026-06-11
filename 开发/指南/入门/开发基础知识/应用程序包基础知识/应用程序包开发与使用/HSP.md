@@ -1,6 +1,6 @@
 # HSP
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp
 
@@ -36,7 +36,7 @@ HSP（Harmony Shared Package）是动态共享包，包含代码、C++库、资�
 
 #### 创建
 
-使用DevEco Studio创建一个用于调用C++代码的HSP模块。并在“Configure New Module”页面中启用“Enable native”选项。详见[创建HSP模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hsp#section7717162312546)，以创建一个名为library的HSP模块为例。基本的工程目录结构如下：
+使用DevEco Studio创建一个用于调用C++代码的HSP模块。并在“Configure New Module”页面中启用“Enable native”选项。详见[创建HSP模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hsp#section79378499185)，以创建一个名为library的HSP模块为例。基本的工程目录结构如下：
 
 ```ArkTS
 MyApplication

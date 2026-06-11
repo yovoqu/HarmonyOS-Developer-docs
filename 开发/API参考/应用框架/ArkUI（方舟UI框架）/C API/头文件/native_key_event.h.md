@@ -1,6 +1,6 @@
 # native_key_event.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-key-event-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -53,7 +53,7 @@
 | --- | --- |
 | ArkUI_KeyEventType OH_ArkUI_KeyEvent_GetType(const ArkUI_UIInputEvent* event) | 获取按键的类型。 |
 | int32_t OH_ArkUI_KeyEvent_GetKeyCode(const ArkUI_UIInputEvent* event) | 获取按键的键码。 |
-| const char OH_ArkUI_KeyEvent_GetKeyText(const ArkUI_UIInputEvent event) | 获取按键的键值。 |
+| const char *OH_ArkUI_KeyEvent_GetKeyText(const ArkUI_UIInputEvent* event) | 获取按键的键值。 |
 | ArkUI_KeySourceType OH_ArkUI_KeyEvent_GetKeySource(const ArkUI_UIInputEvent* event) | 获取当前按键的输入设备类型。 |
 | void OH_ArkUI_KeyEvent_StopPropagation(const ArkUI_UIInputEvent* event, bool stopPropagation) | 阻塞事件冒泡传递。 |
 | ArkUI_KeyIntension OH_ArkUI_KeyEvent_GetKeyIntensionCode(const ArkUI_UIInputEvent* event) | 获取按键对应的意图。 |

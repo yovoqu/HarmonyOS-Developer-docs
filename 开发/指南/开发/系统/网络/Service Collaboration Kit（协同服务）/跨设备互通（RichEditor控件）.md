@@ -1,6 +1,6 @@
 # 跨设备互通（RichEditor控件）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/servicecollaboration-richeditor-title
 
@@ -20,8 +20,8 @@
 - **设备限制**
 
   
-本端设备：HarmonyOS版本为HarmonyOS NEXT及以上的Tablet或PC/2in1设备。
-- 远端设备：HarmonyOS版本为HarmonyOS NEXT及以上、具有相机能力的Phone或Tablet设备。
+本端设备：HarmonyOS版本为HarmonyOS 5及以上的Tablet或PC/2in1设备。
+- 远端设备：HarmonyOS版本为HarmonyOS 5及以上、具有相机能力的Phone或Tablet设备。
 
   - **使用限制**
 

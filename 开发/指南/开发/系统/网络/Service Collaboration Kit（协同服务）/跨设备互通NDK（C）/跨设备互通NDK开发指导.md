@@ -1,10 +1,10 @@
 # 跨设备互通NDK开发指导
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/servicecollaboration-servicendk-guide
 
-跨设备互通提供相机、扫描以及图库（图片和视频）的跨设备调用能力，TV、Tablet或PC/2in1设备可以调用Phone的相机、扫描、图库等功能，并且在6.1.0(23)之后支持TV、Phone、Tablet或PC/2in1设备调用支持拍照、扫描、选择图库中图片与视频能力的Phone，支持拍照、扫描、选择图库中图片与视频能力的Tablet，以及支持选择图库中图片与视频能力的PC/2in1设备。
+跨设备互通提供相机、扫描以及图库（图片和视频）的跨设备调用能力，TV、Tablet或PC/2in1设备可以调用Phone的相机、扫描、图库等功能，并且从API 6.1.0(23)开始支持TV、Phone、Tablet或PC/2in1设备调用支持拍照、扫描、选择图库中图片与视频能力的Phone，支持拍照、扫描、选择图库中图片与视频能力的Tablet，以及支持选择图库中图片与视频能力的PC/2in1设备。
 
 
 #### 场景介绍
@@ -20,8 +20,8 @@
  - **设备限制**
 
   
-本端设备：HarmonyOS版本为HarmonyOS NEXT及以上的TV、Tablet或PC/2in1设备。
- - 远端设备：HarmonyOS版本为HarmonyOS NEXT及以上、具有相机能力的Phone或Tablet设备。
+本端设备：HarmonyOS版本为HarmonyOS 5及以上的TV、Tablet或PC/2in1设备，从API 6.1.0(23)开始，支持HarmonyOS版本为HarmonyOS 5及以上的TV、Phone、Tablet或PC/2in1设备。
+ - 远端设备：HarmonyOS版本为HarmonyOS 5及以上、具有相机能力的Phone或Tablet设备，从API 6.1.0(23)开始，支持HarmonyOS版本为HarmonyOS 5及以上的Phone、Tablet或PC/2in1设备。
 
       - **使用限制**
 
@@ -35,7 +35,7 @@
 
 
 #### 业务流程
-1. 通过[HMS_ServiceCollaboration_GetCollaborationDeviceInfos](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-capi-module#hms_servicecollaboration_getcollaborationdeviceinfos)接口获取设备能力列表。
+1. 通过[HMS_ServiceCollaboration_GetCollaborationDeviceInfos](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-capi-module#hms_servicecollaboration_getcollaborationdeviceinfos)接口获取支持相关能力的设备列表。
 2. 通过[HMS_ServiceCollaboration_StartCollaboration](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-capi-module#hms_servicecollaboration_startcollaboration)接口拉起跨设备互通能力。
 3. 对端设备确定回传后，本端处理对端回传的图片。
 
@@ -47,7 +47,7 @@
 
 | 接口名 | 描述 |
 | --- | --- |
-| HMS_ServiceCollaboration_GetCollaborationDeviceInfos | 获取跨设备互通可用的设备信息。 |
+| HMS_ServiceCollaboration_GetCollaborationDeviceInfos | 获取支持相关能力的设备列表。 |
 | HMS_ServiceCollaboration_StartCollaboration | 拉起跨设备互通能力，回传图片。 |
 | HMS_ServiceCollaboration_StopCollaboration | 取消跨设备互通能力。 |
 | HMS_ServiceCollaboration_StartCollaborationV2 | 拉起跨设备互通能力，回传图片和视频。 |

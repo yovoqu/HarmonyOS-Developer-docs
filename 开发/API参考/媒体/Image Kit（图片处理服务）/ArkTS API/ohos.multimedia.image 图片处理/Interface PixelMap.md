@@ -1,6 +1,6 @@
 # Interface (PixelMap)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2794,7 +2794,8 @@ pixelmap在跨线程传输时，断开原线程的引用。适用于需立即释
 
 **示例：**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { common } from '@kit.AbilityKit';
 import { taskpool } from '@kit.ArkTS';
 
@@ -2872,7 +2873,8 @@ marshalling(sequence: rpc.MessageSequence): void
 
 **示例：**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { rpc } from '@kit.IPCKit';
 
 class MySequence implements rpc.Parcelable {
@@ -2965,7 +2967,8 @@ unmarshalling(sequence: rpc.MessageSequence): Promise&lt;PixelMap&gt;
 
 **示例：**
 
-```text
+```ArkTS
+// EntryAbility.ets
 import { rpc } from '@kit.IPCKit';
 
 class MySequence implements rpc.Parcelable {
@@ -3034,7 +3037,7 @@ release(): Promise&lt;void&gt;
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/HwnpQuwkSqG4LxrCs-gU1w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025327Z&HW-CC-Expire=86400&HW-CC-Sign=819DE8DA90A13462B216203E997607EA8044D443632994366BA6754EF630C339)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/5E3j9poQTmGlOEcE_73zlA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074842Z&HW-CC-Expire=86400&HW-CC-Sign=51F7268CDEF9558E207CB25CA565A8D544A325685DC84B6EED6FD751AEE1AE76)
 
 
 释放指的是ArkTS对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。
@@ -3085,7 +3088,7 @@ release(callback: AsyncCallback&lt;void&gt;): void
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/uSIaHs1iRhqEaGrGz5Y6Tg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025327Z&HW-CC-Expire=86400&HW-CC-Sign=E78289DAD106724C4F31B544407894693365A4A408C0D7537B701B4BC45287C4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/GR5--UdYReu1YUxCeVVbQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074842Z&HW-CC-Expire=86400&HW-CC-Sign=EE78B2B2588B6970BA54F277664B8FF3CD017CE45388D9D83B9E7DB548C76985)
 
 
 释放指的是ArkTS对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。
@@ -3139,7 +3142,7 @@ YUV和RGB类型互转。使用Promise异步回调。
 从API18开始，可用于ASTC_4x4类型转为RGBA_8888类型，目前仅支持ASTC_4x4转为RGBA_8888。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/rsz6vsfvSW--oKcQAIvHEg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025327Z&HW-CC-Expire=86400&HW-CC-Sign=589C0CF641BC7211774F19DB209C3A643273E0E254AA8AD02E3AA71F321F35F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/FLYkxiFKSm2c0VIgBCNzUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074842Z&HW-CC-Expire=86400&HW-CC-Sign=E2EF6C0E476965849A46EEBD9B033203BC8A5118239C0E1B6131C10B179F19BA)
 
 
 仅在ASTC_4x4格式的图像需要进行像素访问时，建议调用此接口将ASTC_4x4类型转为RGBA_8888类型。由于使用ASTC_4x4反解为RGBA_8888时延较高，其余情况下不推荐使用。
@@ -3289,7 +3292,7 @@ isReleased(): boolean
 检查PixelMap对象是否已被释放。如果已被释放，则任何访问该对象内部数据的方法调用将会失败。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/Hwu6wf7iShWlEmCl0Gx3bA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025327Z&HW-CC-Expire=86400&HW-CC-Sign=EBFE672D0E84E24E86710D0E366BFD40CA875E3D0212F6300B285C3B2A292A25)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/gP307jNTTK2CWdMOUWxvdg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074842Z&HW-CC-Expire=86400&HW-CC-Sign=3EDCF28255EE8FEF785D222F0159CD7B63A593E7B89A9B26688139798ACDC09F)
 
 
 释放指的是ArkTS对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。
@@ -3308,7 +3311,7 @@ isReleased(): boolean
 **示例：**
 
 ```text
-async function DemoIsReleased(pixelMap: PixelMap) { // 未释放的PixelMap。
+async function IsReleased(pixelMap: PixelMap) { // 未释放的PixelMap。
   pixelMap.isReleased(); // 返回false。
   await pixelMap.release();
   pixelMap.isReleased(); // 返回true。

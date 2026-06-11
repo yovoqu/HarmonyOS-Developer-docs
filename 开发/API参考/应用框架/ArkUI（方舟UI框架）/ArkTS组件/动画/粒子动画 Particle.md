@@ -1,6 +1,6 @@
 # 粒子动画 (Particle)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-particle-animation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -194,7 +194,7 @@ interface ParticleOptions<
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | emitter | EmitterOptions&lt;PARTICLE&gt; | 否 | 否 | 粒子发射器配置。 |
-| color | ParticleColorPropertyOptions&lt;COLOR_UPDATER&gt; | 否 | 是 | 粒子颜色配置。 说明： 默认值：{ range:[Color.White,Color.White] } 。图片粒子不支持设置颜色。 |
+| color | ParticleColorPropertyOptions[/topic/body/section/table/tgroup/tbody/row/entry/color_updater {""}) (color_updater] | 否 | 是 | 粒子颜色配置。 说明： 默认值：{ range:[Color.White,Color.White] } 。图片粒子不支持设置颜色。 |
 | opacity | ParticlePropertyOptions<number, OPACITY_UPDATER> | 否 | 是 | 粒子透明度配置。 默认值：{ range:[1.0,1.0] } |
 | scale | ParticlePropertyOptions<number, SCALE_UPDATER> | 否 | 是 | 粒子大小配置。 默认值：{ range:[1.0,1.0] } |
 | velocity | VelocityOptions | 否 | 是 | 粒子速度配置。 说明： speed表示速度大小。angle表示速度的方向（单位为角度），以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。 默认值：{ speed:[0.0,0.0],angle:[0.0,0.0] } |
@@ -612,7 +612,7 @@ interface Particles<
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| particles10+ | Array< ParticleOptions< PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER > > | 否 | 否 | 粒子动画的集合。每一个的粒子动画（ParticleOptions）包含粒子发射，同时可配置粒子的颜色、透明度、大小、速度、加速度与旋转速度，旋转速度，详见ParticleOptions属性说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| particles10+ | Array< ParticleOptions< PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER > > | 否 | 否 | 粒子动画的集合。每一个的粒子动画（ParticleOptions）包含粒子发射，同时可配置粒子的颜色、透明度、大小、速度、加速度与旋转速度，详见ParticleOptions属性说明。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -759,7 +759,7 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type10+ | UPDATER | 否 | 否 | 表示颜色属性变化类型。 默认值：type默认为 ParticleUpdater.NONE。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| config10+ | ParticleColorPropertyUpdaterConfigs[UPDATER] | 否 | 否 | 颜色属性变化类型type有三类： 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.NONE]。 2、type为ParticleUpdater.RANDOM，表示随机变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.RANDOM]。 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.CURVE]。 说明： 当type为ParticleUpdater.RANDOM或者ParticleUpdater.CURVE时，updater中颜色配置的优先级高于range中的颜色配置。在updater配置的动画时间周期内，以updater中的颜色配置来变化；在updater配置的动画时间周期前，以range中的颜色配置来变化。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| config10+ | ParticleColorPropertyUpdaterConfigs[UPDATER] | 否 | 否 | 颜色属性变化类型type有三类： 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.NONE]。 2、type为ParticleUpdater.RANDOM，表示随机变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.RANDOM]。 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为ParticleColorPropertyUpdaterConfigs[ParticleUpdater.CURVE]。 说明： 当type为ParticleUpdater.RANDOM或者ParticleUpdater.CURVE时，updater中颜色配置的优先级高于range中的颜色配置。在updater配置的动画时间周期内，以updater中的颜色配置来变化；在updater配置的动画时间周期外，以range中的颜色配置来变化。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
 
@@ -1020,7 +1020,7 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/31B59YzoSXifMpKFiHCFkQ/zh-cn_image_0000002611835997.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=06B57A8DC01202AEA0DB44641516E47D43E0F145FB9A5FFE7D8D86A4C1F6DC99)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/azXbcOfsRbK1RBZFRwJVew/zh-cn_image_0000002622859943.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=0796AA044062C41447BF12CEAA74DD6D8B57FFBB64C4F554F134B0980BC3D91A)
 
 
 
@@ -1255,7 +1255,7 @@ struct ParticleExample {
                     {
                       from: 50,
                       to: -50,
-                      startMillis: 0,
+                      startMillis: 1000,
                       endMillis: 3000,
                       curve: Curve.EaseIn
                     },
@@ -1418,7 +1418,7 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/j9jYRx4cTve_uj_grBAt3w/zh-cn_image_0000002581276250.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=68997C9EC5365FFC9C821BEF0F957941FC20C803D526A102EC9D806EE974406C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/uooE5GdUTM28HVpcdaa_qw/zh-cn_image_0000002622700061.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=2ABA36AEC25197ECF95EF2BEF61DDAFB857844436B159C66F6952738330DD3FB)
 
 
 
@@ -1549,7 +1549,7 @@ struct ParticleExample3 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/ALQ-GiwQQwub_xJ81IaiAg/zh-cn_image_0000002611756105.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=CED085AC3947245FC165E8CD3CD953F9F365EDAF195793D42795F624ECF8385D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b1/v3/0cB3A8t6RzidbzNusx2eWQ/zh-cn_image_0000002592220502.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=BB3AFBBE6394ADDFFDB4F49C890398E88703C82D9ADAF3192E185399CD7EEF0C)
 
 
 
@@ -1632,7 +1632,7 @@ struct ParticleExample4 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/iWP_krCCQIq087liX03JCg/zh-cn_image_0000002581436168.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=485E5BAB7BD85836A134D483A264D49C4F4E624F7B84661F0BA5E7B4E5A5BD18)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/DojXi7KeRIedU9LFB_gXzQ/zh-cn_image_0000002592380434.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=1913F3336E1273369F7099923788D5512F00514925E664844835B09EE2E107C9)
 
 
 
@@ -1668,8 +1668,8 @@ struct ParticleExample5 {
               shape: ParticleEmitterShape.ANNULUS, // 环形发射器
               annulusRegion:{
                 center:{x:LengthMetrics.percent(0.5),y:LengthMetrics.percent(0.5)}, // 圆环的圆心坐标
-                innerRadius:LengthMetrics.vp(100), // 圆环的外圆半径
-                outerRadius:LengthMetrics.vp(120), // 圆环的内圆半径
+                innerRadius:LengthMetrics.vp(100), // 圆环的内圆半径
+                outerRadius:LengthMetrics.vp(120), // 圆环的外圆半径
                 startAngle:0, // 圆环的起始角度
                 endAngle:360 // 圆环的结束角度
               }
@@ -1723,7 +1723,7 @@ struct ParticleExample5 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/-vsP12uPRIS7ab4S6Gzmww/zh-cn_image_0000002611835999.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=4D5B1A54DE279CC26C5D3E42CD5137BDDB02F48C1047DFDA30167ED06E3CEA73)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/Iq7aeumYRE2CR-LFnJfO6g/zh-cn_image_0000002622859945.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=72F3999F3F4AE3469D672AD6C3B797C28EAA822D74C02987F08530D90EB44D4B)
 
 
 
@@ -1843,7 +1843,7 @@ struct ParticleExample6 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/VlX5-t1DR_upWZfxsMVACQ/zh-cn_image_0000002581276252.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=0216FC5840C6626625E0053F5EFDE49BD2232272D8D868D2D5785D19821675A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/22/v3/ElXIR0VaTRSqxiTXxfmayg/zh-cn_image_0000002622700063.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=F25354DFDF4E6B0EB81809A77DB3CD87565338DF6F4B205D3807197865EF9981)
 
 
 
@@ -1976,4 +1976,4 @@ struct ParticleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/q87D954dTIuInJKAcMuH3g/zh-cn_image_0000002611756107.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025531Z&HW-CC-Expire=86400&HW-CC-Sign=7B5E2286C0A37CDDE7A510A4B6ACCA932E9A8D9656ED8FE4E03738BD36FDB948)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/3AJPELwMTIq96WT87tKz-A/zh-cn_image_0000002592220504.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=4370B64416A6633723B192B59CB3CF7CBA063B450947CAFD99FFD740A59DA563)

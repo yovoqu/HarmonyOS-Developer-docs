@@ -1,10 +1,10 @@
 # 证书CMS解封装
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-cms-decapsulation-object
 
-从API 22开始，支持证书CMS解封装。
+从API version 22开始，支持证书CMS解封装。
 
 PKCS#7是用于存储签名或加密数据的标准语法。CMS作为PKCS#7的扩展，支持的数据类型包括数据、签名数据、封装数据、签名和封装数据、摘要数据以及加密数据。该标准常用于保护数据的完整性和机密性。
 
@@ -12,7 +12,7 @@ PKCS#7是用于存储签名或加密数据的标准语法。CMS作为PKCS#7的�
 
 
 #### 开发步骤
-1. 导入[证书算法库框架模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
+1. 导入[证书模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert)。
 
   
 ```text
@@ -65,7 +65,12 @@ async function createX509Cert(inStream: string): Promise<cert.X509Cert> {
     data: stringToUint8Array(inStream),
     encodingFormat: cert.EncodingFormat.FORMAT_PEM
   };
-  let x509Cert: cert.X509Cert = await cert.createX509Cert(encodingBlob);
+  let x509Cert: cert.X509Cert = {} as cert.X509Cert;
+  try {
+    x509Cert = await cert.createX509Cert(encodingBlob);
+  } catch (error) {
+    console.error(`createX509Cert failed: errCode: ${error.code}, message: ${error.message}`);
+  }
   return x509Cert;
 }
 
@@ -101,7 +106,7 @@ async function testCmsDecryptTest() {
     console.info('[XTS] decryptEnvelopedData result: success, decPlainText = ' + decPlainText);
     console.info('decryptEnvelopedData result: success.');
   } catch (error) {
-    console.error(`verifySignedData failed: errCode: ${error.code}, message: ${error.message}`);
+    console.error(`decryptEnvelopedData failed: errCode: ${error.code}, message: ${error.message}`);
   }
 }
 ```

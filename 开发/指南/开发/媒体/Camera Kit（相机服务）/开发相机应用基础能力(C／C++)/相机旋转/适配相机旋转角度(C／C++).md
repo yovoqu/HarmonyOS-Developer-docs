@@ -1,6 +1,6 @@
 # 适配相机旋转角度(C/C++)
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation-native
 
@@ -409,7 +409,7 @@ int32_t CalDeviceDegree()
 
 #### 实现相机无损出图
 
-在部分折叠屏设备上，[不同折叠状态](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-foldable-guide#section152264061715)下的[设备自然方向](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#设备自然方向)会发生改变，导致不同折叠状态下的[相机镜头安装角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#相机镜头安装角度)不同。为了屏蔽不同设备间的差异，使得不同折叠状态下的相机镜头安装角度一致，系统会自动调整部分折叠状态下的相机采集图像方向（通过旋转裁切的方式）和相机镜头安装角度，因此会存在视场角（Field of View, FOV）损失，可能会导致相机预览、拍照、录像可见范围降低，因此如果需要实现相机无损出图，可以通过[OH_CameraInput_UsePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createcamerainput)接口来实现相机无损出图。具体方式如下：
+在部分折叠屏设备上，[不同折叠状态](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#foldstatus10)下的[设备自然方向](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#设备自然方向)会发生改变，导致不同折叠状态下的[相机镜头安装角度](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-term-native#相机镜头安装角度)不同。为了屏蔽不同设备间的差异，使得不同折叠状态下的相机镜头安装角度一致，系统会自动调整部分折叠状态下的相机采集图像方向（通过旋转裁切的方式）和相机镜头安装角度，因此会存在视场角（Field of View, FOV）损失，可能会导致相机预览、拍照、录像可见范围降低，因此如果需要实现相机无损出图，可以通过[OH_CameraInput_UsePhysicalCameraOrientation](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h#oh_cameramanager_createcamerainput)接口来实现相机无损出图。具体方式如下：
  
 设备是否支持无损出图，首先需要确认设备的相机镜头安装角度是否可变，可以通过[OH_CameraInput_IsPhysicalCameraOrientationVariable](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-input-h#oh_camerainput_isphysicalcameraorientationvariable)接口查询。
  1. 当相机镜头安装角度不可变时，不同折叠状态下的相机出图均为无损出图。

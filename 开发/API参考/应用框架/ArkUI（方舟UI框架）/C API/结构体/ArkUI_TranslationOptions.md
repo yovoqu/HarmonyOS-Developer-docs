@@ -1,6 +1,6 @@
 # ArkUI_TranslationOptions
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-translationoptions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,4 +38,4 @@ typedef struct {...} ArkUI_TranslationOptions
 | --- | --- |
 | float x | 横向的平移距离，单位为vp。 |
 | float y | 纵向的平移距离，单位为vp。 |
-| float z | 竖向的平移距离，单位为vp。 |
+| float z | 深度方向的平移距离，单位为vp。 |

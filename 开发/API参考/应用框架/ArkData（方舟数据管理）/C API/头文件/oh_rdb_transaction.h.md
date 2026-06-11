@@ -1,6 +1,6 @@
 # oh_rdb_transaction.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-rdb-transaction-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
 | OH_RDB_TransOptions | OH_RDB_TransOptions | 定义OH_RDB_TransOptions结构类型。 |
-| OH_Rdb_Transaction | OH_Rdb_Transaction | 定义OH_RDB_TransOptions结构类型。 |
+| OH_Rdb_Transaction | OH_Rdb_Transaction | 定义OH_Rdb_Transaction结构类型。 |
  
  
   

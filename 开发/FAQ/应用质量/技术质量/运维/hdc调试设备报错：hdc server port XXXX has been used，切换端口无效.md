@@ -1,6 +1,6 @@
 # hdc调试设备报错：hdc server port XXXX has been used，切换端口无效
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-75
 
@@ -42,8 +42,7 @@ $ kill -9 {PID号}
 查看动态端口范围
 $ netsh int ipv4 show dynamicport tcp
 查看例外端口范围
-$ taskkill /PID {PID号} /F
-注：实际使用时请替换为真实端口号和PID号
+$ netsh interface ipv4 show excludedportrange protocol=tcp
 ```
  如果查询列表中提示被占用的端口在例外端口范围中，执行以下步骤，或手动在任务管理器中重启Hyper-V服务
 

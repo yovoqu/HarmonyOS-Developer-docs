@@ -1,20 +1,25 @@
-# 打开工程，反复执行“Updating indexes”
+# 环境中配置使用JDK25，打包失败报错，错误码：00303153 Configuration Error
 
-更新时间：2026-05-30 09:08:01
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-17
 
 **问题现象**
  
-在DevEco Studio 新建 / 打开工程，反复执行“Updating indexes”、“Indexing”。
+在使用6.0.2.640版本的DevEco Studio和Command Line Tools时，若系统环境中配置使用JDK25，在命令行中执行打包命令会导致打包失败，报错信息如下图所示：
  
-
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/16kUcDrBRl--J9flJph0WA/zh-cn_image_0000002615227079.png?HW-CC-KV=V1&HW-CC-Date=20260604T012614Z&HW-CC-Expire=86400&HW-CC-Sign=975FB1ACD786D717BEDDE2CBA57FEB4981AC3D2A893D96B1BFB7390755B7994C)
-
+```text
+ERROR： 00303153 Configuration Error
+```
+ 
+**问题原因**
+ 
+JDK25版本中JDK-8370216的接口行为变更，导致打包问题。
  
 **解决措施**
  
-导致该问题的原因是缓存路径下的文件被加密，请联系企业内的IT，确认是否有加密软件在运作，将该目录内容加入白名单中。
+使用系统命令行终端执行 java --version，判断是否默认使用JDK25版本，如果使用JDK25版本，有以下两种方案可解决本问题：
  
-- MAC的缓存路径为：~/Library/Caches/Huawei/DevEcoStudio&lt;版本号&gt; 和 ~/Library/Application Support/Huawei/DevEcoStudio&lt;版本号&gt;示例：~/Library/Caches/Huawei/DevEcoStudio6.1 和 ~/Library/Application Support/Huawei/DevEcoStudio6.1
-- Windows的缓存路径为：%APPDATA%\Huawei\DevEcoStudio&lt;版本号&gt; 和 %LOCALAPPDATA%\Huawei/DevEcoStudio&lt;版本号&gt;示例：C:\Users\用户名\AppData\Roaming\Huawei\DevEcoStudio6.1 和 C:\Users\用户名\AppData\Local\Huawei\DevEcoStudio6.1
+方案一：系统环境变量配置为低于JDK25的版本。
+ 
+方案二：升级DevEco Studio和Command Line Tools到6.0.2.642及以上版本（建议）。

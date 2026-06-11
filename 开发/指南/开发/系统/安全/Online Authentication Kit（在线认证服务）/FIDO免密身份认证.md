@@ -1,6 +1,6 @@
 # FIDO免密身份认证
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-fido
 
@@ -189,8 +189,8 @@ let notifyUafMessage: fido.UAFMessage = {
 7. 调用notifyUAFResult进行注册结果通知。         
 ```text
 try {
-  // 调用notifyUAFResult进行注册结果通知
-  fido.notifyUAFResult(this.uiContext, notifyUafMessage).then(notify => {
+  // 调用notifyUAFResult进行结果通知
+  await fido.notifyUAFResult(this.uiContext, uafMessage).then(() => {
     console.info('Succeeded in doing notifyUAFResult.');
   });
 } catch (error) {

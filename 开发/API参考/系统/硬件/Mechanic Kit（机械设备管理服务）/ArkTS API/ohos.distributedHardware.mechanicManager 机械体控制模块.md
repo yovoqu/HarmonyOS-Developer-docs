@@ -1,6 +1,6 @@
 # @ohos.distributedHardware.mechanicManager (机械体控制模块)
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-mechanicmanager
 **支持设备：** Phone | Tablet
@@ -52,12 +52,16 @@ on(type: 'attachStateChange', callback: Callback&lt;AttachStateChangeInfo&gt;): 
 **示例：**
  
 ```text
+// 定义连接状态变化回调函数，result为设备连接状态变化信息
 let callback = (result: mechanicManager.AttachStateChangeInfo) => {
   console.info(`'callback result:' ${result}`);
 };
 
+// 打印日志，表示开始注册监听
 console.info('Register');
+// 注册"attachStateChange"事件监听，当设备连接状态变化时触发callback回调
 mechanicManager.on("attachStateChange", callback);
+// 打印日志，表示注册监听成功
 console.info('Succeeded in registering callback.');
 ```
  
@@ -93,11 +97,13 @@ off(type: 'attachStateChange', callback?: Callback&lt;AttachStateChangeInfo&gt;)
 **示例：**
  
 ```text
+// 定义连接状态变化回调函数
 let callback = (result: mechanicManager.AttachStateChangeInfo) => {
   console.info(`'callback result:' ${result}`);
 };
 
 console.info('Unregister');
+// 取消注册"attachStateChange"事件监听
 mechanicManager.off("attachStateChange", callback);
 console.info('Succeeded in unregistering callback.');
 ```
@@ -134,6 +140,7 @@ getAttachedMechDevices(): MechInfo[]
  
 ```text
 console.info('Query device list');
+// 调用getAttachedMechDevices方法获取已连接的机械体设备列表
 let mechanicInfos = mechanicManager.getAttachedMechDevices();
 console.info(`'device list:' ${mechanicInfos}`);
 ```
@@ -172,6 +179,7 @@ setCameraTrackingEnabled(isEnabled: boolean): void
  
 ```text
 console.info('Enable tracing');
+// 调用setCameraTrackingEnabled方法，参数true表示启用摄像头跟踪
 mechanicManager.setCameraTrackingEnabled(true);
 console.info('Succeeded in enabling tracking.');
 ```
@@ -209,6 +217,7 @@ getCameraTrackingEnabled(): boolean
  
 ```text
 console.info('Get tracking status');
+// 调用getCameraTrackingEnabled方法获取当前摄像头跟踪是否启用
 let enabled = mechanicManager.getCameraTrackingEnabled();
 console.info(`'current tracking status:' ${enabled}`);
 ```
@@ -245,11 +254,13 @@ on(type: 'trackingStateChange', callback: Callback&lt;TrackingEventInfo&gt;): vo
 **示例：**
  
 ```text
+// 定义跟踪状态变化回调函数，result为跟踪事件信息
 let callback = (result: mechanicManager.TrackingEventInfo) => {
   console.info(`'callback result:' ${result}`);
 };
 
 console.info('Register');
+// 注册"trackingStateChange"事件监听，当跟踪状态变化时触发callback回调
 mechanicManager.on("trackingStateChange", callback);
 console.info('Succeeded in registering callback.');
 ```
@@ -271,7 +282,7 @@ off(type: 'trackingStateChange', callback?: Callback&lt;TrackingEventInfo&gt;): 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | 'trackingStateChange' | 是 | 取消注册的监听事件类型。取值为：'trackingStateChange'。 |
-| callback | Callback&lt;TrackingEventInfo&gt; | 否 | mechanicManager.off('trackingStateChange')注册的回调函数。不填时默认取消所有注册的回调函数。 |
+| callback | Callback&lt;TrackingEventInfo&gt; | 否 | 回调函数，返回跟踪事件信息。 |
  
  
 **错误码：**
@@ -286,11 +297,13 @@ off(type: 'trackingStateChange', callback?: Callback&lt;TrackingEventInfo&gt;): 
 **示例：**
  
 ```text
+// 定义跟踪状态变化回调函数
 let callback = (result: mechanicManager.TrackingEventInfo) => {
   console.info(`'callback result:' ${result}`);
 };
 
 console.info('Unregister');
+// 取消注册"trackingStateChange"事件监听
 mechanicManager.off("trackingStateChange", callback);
 console.info('Succeeded in unregistering callback.');
 ```
@@ -328,6 +341,7 @@ getCameraTrackingLayout(): CameraTrackingLayout
  
 ```text
 console.info('Query layout');
+// 调用getCameraTrackingLayout方法获取当前摄像头跟踪布局
 let layout = mechanicManager.getCameraTrackingLayout();
 console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
 ```
@@ -346,7 +360,7 @@ console.info(`'Succeeded in querying layout, current layout:' ${layout}`);
 | --- | --- | --- | --- | --- |
 | mechId | number | 否 | 否 | 机械体设备ID，取值为大于等于0的整数。 |
 | mechDeviceType | MechDeviceType | 否 | 否 | 机械体设备的类型。 |
-| mechName | string | 否 | 否 | 机械体设备名称。 |
+| mechName | string | 否 | 否 | 机械体设备名称，长度不超过64字符。 |
  
  
   

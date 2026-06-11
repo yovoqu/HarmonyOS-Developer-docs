@@ -1,6 +1,6 @@
 # CPU活动分析
 
-更新时间：2026-04-30 02:42:31
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-cpu
 
@@ -75,7 +75,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/wwoAIUZNSIyBsHjvzk-cmg/zh-cn_image_0000002571546858.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=91D7C4E9F7A589CA59D68E0C037CE394A2D1365F5AAD66D92C2244C75CDCE47F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/zhuIRWfUSRO2js87iNhyLg/zh-cn_image_0000002571546858.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=3467765B3E5C8C8DE7A9E08765E1FD6E31E569EACBDD6EA78E17F1DF041C87EE)
 
 - 框选应用进程Process主泳道，可查看此时间段内该进程下的线程并行度统计信息。并行度数据每100ms做一次统计，可以查看100ms内运行的总线程数量、各线程并行的总时间和并行度。点选某一行，可以查看对应线程编号和运行时间段。
 > [!NOTE]
@@ -83,7 +83,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/0ZrnJ6wZRkanh7liG6WY9g/zh-cn_image_0000002602186393.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=A75CA3C58FA6338E8BBA2B217B2F4A3AB3F436EB9CC848F79ED3F4E1D8DD315C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/TEYgLVlETOulaCBvNyiv-g/zh-cn_image_0000002602186393.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=14DB83A998CB8B510D1BE191BDFB944E83C8C0F0DA030001C7DADAAF219A327C)
 
 
  
@@ -99,7 +99,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/gpC_Ttc2S8S-FrK17V4RlA/zh-cn_image_0000002602186395.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=4641FDFCFF1E97B6DB16CC042B8FF603A3BAB5133AB39A52008CB39880083D35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/Usvx9VRPS1SULREAhTSFDg/zh-cn_image_0000002602186395.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=9C93C102F730169A66FAE7511C69E0DED6E27A1FF5D98DA7F1BFAD0B2EA749F0)
 
 - 框选多个Trace片段，可查看到Trace统计信息列表，包括Trace名称、此类Trace的总耗时、单个Trace的平均耗时、以及该时间段内该类Trace的触发次数等。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/cjN2OkfZRFCFwS6LrlQh8Q/zh-cn_image_0000002602186399.png?HW-CC-KV=V1&HW-CC-Date=20260528T030655Z&HW-CC-Expire=86400&HW-CC-Sign=593BEC63813D69E0EDB9F6385948C547DC5A1A6EF6F039D71F8E4C13F51F512F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/Z1W0CA6DSmqbV3g5ZF4t4A/zh-cn_image_0000002602186399.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=E7359AA620B9D54DD799C6EB9D5F50427A5CDF8C54FDD6C24F4101D1E06C2FFE)

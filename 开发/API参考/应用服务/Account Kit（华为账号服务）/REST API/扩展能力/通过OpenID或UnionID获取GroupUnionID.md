@@ -1,6 +1,6 @@
 # 通过OpenID或UnionID获取GroupUnionID
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-get-groupunionid
 
@@ -82,7 +82,7 @@
 POST /oauth2/v6/groupUnionId/batchGet HTTP/1.1
 Host: account-api.cloud.huawei.com
 Content-Type: application/json; charset=utf-8
-Authorization：Bearer <access_token>
+Authorization: Bearer <access_token>
 
 {
   "openIdList": ["<open_id1>","<open_id2>"]

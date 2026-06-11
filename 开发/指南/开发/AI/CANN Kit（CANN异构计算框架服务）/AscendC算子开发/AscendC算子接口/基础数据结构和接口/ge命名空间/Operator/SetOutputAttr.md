@@ -1,6 +1,6 @@
 # SetOutputAttr
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-setoutputattr
 
@@ -75,8 +75,8 @@ Operator &SetOutputAttr(const char_t *dst_name, const char_t *name, const std::v
 | 参数名 | 输入/输出 | 描述 |
 | --- | --- | --- |
 | name | 输入 | 属性名称。 |
-| index | 输入 | 输出索引。 |
-| dst_name | 输入 | 输出边名称。 |
+| index | 输出 | 输出索引。 |
+| dst_name | 输出 | 输出边名称。 |
 | attr_value | 输入 | 需设置的int64_t表示的整型类型属性值。 |
 | attr_value | 输入 | 需设置的int32_t表示的整型类型属性值。 |
 | attr_value | 输入 | 需设置的uint32_t表示的整型类型属性值。 |

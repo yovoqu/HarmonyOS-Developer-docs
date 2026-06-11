@@ -1,6 +1,6 @@
 # 使用ECDSA密钥对签名验签 (C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-ecdsa-sign-sig-verify-ndk
 
@@ -27,7 +27,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 #include "CryptoArchitectureKit/crypto_signature.h"
 #include "CryptoArchitectureKit/crypto_asym_key.h"
 
-static OH_Crypto_ErrCode doTestRsaPssSignSeg() {
+static OH_Crypto_ErrCode doTestEcdsaSign() {
    OH_CryptoAsymKeyGenerator *keyCtx = nullptr;
    OH_CryptoKeyPair *keyPair = nullptr;
    OH_CryptoSign *sign = nullptr;
@@ -150,7 +150,7 @@ bool DoTestEcdsaSignature()
         return false;
     }
     bool res = OH_CryptoVerify_Final(verify, &msgBlob, &signBlob);
-    if (ret != true) {
+    if (res != true) {
         OH_CryptoVerify_Destroy(verify);
         OH_CryptoAsymKeyGenerator_Destroy(keyCtx);
         return false;

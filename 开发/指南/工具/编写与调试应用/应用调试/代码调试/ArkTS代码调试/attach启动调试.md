@@ -1,6 +1,6 @@
 # attach启动调试
 
-更新时间：2026-03-11 08:49:31
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-debug-arkts-attach
 
@@ -62,4 +62,4 @@ attach不支持的场景：
 5. 点击**OK**开始attach调试。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/ipoLHjlNRK-gR9e4yAtayQ/zh-cn_image_0000002571546896.png?HW-CC-KV=V1&HW-CC-Date=20260528T030551Z&HW-CC-Expire=86400&HW-CC-Sign=9ABC11F767A3D494175C9402335D8AEDE5DF2E7A1F4212D1CE12D5D40C8EC813)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/dp2UjizwRQ6OYkiuCMyXKA/zh-cn_image_0000002571546896.png?HW-CC-KV=V1&HW-CC-Date=20260611T074913Z&HW-CC-Expire=86400&HW-CC-Sign=E1D5C2AB4154F0E25AD810927DE9DF5B619A6B7482CFA596CF3AB736EC5A4FA0)

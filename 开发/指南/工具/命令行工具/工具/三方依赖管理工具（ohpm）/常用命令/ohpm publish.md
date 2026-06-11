@@ -1,6 +1,6 @@
 # ohpm publish
 
-更新时间：2026-04-22 06:52:30
+更新时间：2026-06-10 12:49:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-publish
 
@@ -221,4 +221,4 @@ ohpm publish publish_test.har
 结果示例：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/zRfTHY1LQQiw-q51XdNmlg/zh-cn_image_0000002602186007.png?HW-CC-KV=V1&HW-CC-Date=20260528T030633Z&HW-CC-Expire=86400&HW-CC-Sign=674432517203A4E24A320056CB14A99E0F8F90763E64C469AB56337AF536D54B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/RTNnTaC_Qbmw37-HFKsv8w/zh-cn_image_0000002602186007.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=33153513029C9FD8B8C11262E857073BBB088B7C16F873C806EABB79ECF7C8D0)

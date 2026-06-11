@@ -1,6 +1,6 @@
-# Advertisement (请求的广告内容)
+# advertisement (广告内容)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-advertisement
 **支持设备：** Phone | PC/2in1 | Tablet

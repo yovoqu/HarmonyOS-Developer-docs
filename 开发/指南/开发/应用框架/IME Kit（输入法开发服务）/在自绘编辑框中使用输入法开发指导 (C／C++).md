@@ -1,6 +1,6 @@
 # 在自绘编辑框中使用输入法开发指导 (C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-inputmethod-in-custom-edit-box-ndk
 
@@ -98,15 +98,15 @@ if (OH_InputMethodProxy_NotifyConfigurationChange(inputMethodProxy, InputMethod_
   
 ```text
 // 实现InputMethod_TextEditorProxy中的输入法应用事件响应函数
-void GetTextConfig(InputMethod_TextEditorProxy *textEditorProxy, InputMethod_TextConfig *config)
+void GetTextConfigFunc(InputMethod_TextEditorProxy *textEditorProxy, InputMethod_TextConfig *config)
 {
     // 处理输入法发送的获取输入框配置请求
 }
-void InsertText(InputMethod_TextEditorProxy *textEditorProxy, const char16_t *text, size_t length)
+void InsertTextFunc(InputMethod_TextEditorProxy *textEditorProxy, const char16_t *text, size_t length)
 {
     // 处理输入法发送的插入文本请求
 }
-void DeleteForward(InputMethod_TextEditorProxy *textEditorProxy, int32_t length)
+void DeleteForwardFunc(InputMethod_TextEditorProxy *textEditorProxy, int32_t length)
 {
     // 处理输入法发送的删除文本请求
 }

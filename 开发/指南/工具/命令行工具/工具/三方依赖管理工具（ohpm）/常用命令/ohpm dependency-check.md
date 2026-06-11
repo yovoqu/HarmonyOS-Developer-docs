@@ -1,6 +1,6 @@
 # ohpm dependency-check
 
-更新时间：2026-04-22 06:52:30
+更新时间：2026-06-09 08:54:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-dependency-check
 
@@ -169,7 +169,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 
 #### 示例1
 
-查询三方库的版本详细更新信息，执行一下命令。
+查询三方库的版本详细更新信息，执行以下命令。
  
 ```text
 ohpm dc --all -c -l
@@ -203,7 +203,7 @@ test-check-update@3.8.9-beta, virusxxx
 
 #### 示例2
 
-查询三方库的版本简要更新信息，执行一下命令。
+查询三方库的版本简要更新信息，执行以下命令。
  
 ```text
 ohpm dc --all -c

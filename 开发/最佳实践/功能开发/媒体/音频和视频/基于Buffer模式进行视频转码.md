@@ -1,6 +1,6 @@
 # 基于Buffer模式进行视频转码
 
-更新时间：2026-03-19 08:43:01
+更新时间：2026-06-10 07:05:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-buffer-mode-transcoding
 
@@ -765,7 +765,7 @@ void SampleCallback::EncOnNeedInputBuffer(OH_AVCodec *codec, uint32_t index, OH_
 
   #### 在视频编解码中，Surface模式和Buffer模式的区别是什么
 
-  视频编解码包含两种方式，分别是Surface模式和Buffer模式。在Surface模式下，会通过window对象对接其他模块，如相机、屏幕录制等模块。相对于Surface模式，Buffer模式对于视频数据处理更加灵活，也更为复杂。关于Surface模式和Buffer模式的区别可以参考[Surface输入与Buffer输入](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding#surface输入与buffer输入)、[Surface输出与Buffer输出](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#surface输出与buffer输出)。
+  视频编解码包含两种方式，分别是Surface模式和Buffer模式。在Surface模式下，会通过window对象对接其他模块，如相机、屏幕录制等模块。相对于Surface模式，Buffer模式对于视频数据处理更加灵活，也更为复杂。关于Surface模式和Buffer模式的区别可以参考[视频编码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-encoding#)、[视频解码](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-decoding#)。
 
   
 

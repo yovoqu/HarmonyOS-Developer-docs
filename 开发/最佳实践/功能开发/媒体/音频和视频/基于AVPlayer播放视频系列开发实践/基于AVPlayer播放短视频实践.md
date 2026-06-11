@@ -1,6 +1,6 @@
 # 基于AVPlayer播放短视频实践
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-06-10 07:05:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-short-video
 
@@ -38,7 +38,7 @@
 
 #### 开发步骤
 
-具体开发步骤可参考基于AVPlayer播放长视频实践的[焦点管理开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section468112791916)。
+具体开发步骤可参考基于AVPlayer播放长视频实践的[焦点管理开发步骤](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-avplayer-long-video#section1716082163419)。
  
  
 
@@ -136,7 +136,7 @@
 **图2 ****异步加载示意图**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2c/v3/zfMMgS6KS2-eb2Q-eatfcQ/zh-cn_image_0000002486670621.png?HW-CC-KV=V1&HW-CC-Date=20260528T024747Z&HW-CC-Expire=86400&HW-CC-Sign=C76B18DD79D59AF75F1E4CC124C5AF43F82FBED285FBF6EC66584977508ACD04)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/LLLP6sXiSwa306yo9_yUpg/zh-cn_image_0000002486670621.png?HW-CC-KV=V1&HW-CC-Date=20260611T074939Z&HW-CC-Expire=86400&HW-CC-Sign=0CD362074CC89DCBA88699178C7F44562F50E5200A8A830D79925E1A9E997F79)
 
  
 在缓存池中有多个播放器实例，播放视频A时，提前预加载视频B并进入prepare状态；切换短视频时，可以立即播放已预加载的视频B，减少切换时间。手势上下滑动的时候，在动画开始时就更新当前索引值，最终实现短视频快速切换，综合起播时间≤230ms。

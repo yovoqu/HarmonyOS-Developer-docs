@@ -1,18 +1,17 @@
 # 如何避免Badge在数量显示切换时的Image闪烁问题
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-05 09:11:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-352
 
-在 onComplete 回调事件中处理 Badge 数量的逻辑，图片数据加载成功和解码成功时均触发该回调。示例代码如下：
+通过@Stage装饰器修饰变量，动态设置badgeSize以控制Badge状态，当值设为0时Badge自动隐藏。
  
 ```ArkTS
 @Entry
 @Component
 struct BadgeDemo {
   @State message: string = 'Hello World';
-  @State sizes: string = '0';
-  @State showCountBadge: boolean = false;
+  @State badgeSize: number = 15;
 
   build() {
     Row() {
@@ -20,42 +19,23 @@ struct BadgeDemo {
         .fontSize(50)
         .fontWeight(FontWeight.Bold)
         .onClick(() => {
-          this.showCountBadge = !this.showCountBadge; // change show status
+          // change the Badge size
+          this.badgeSize = this.badgeSize === 0 ? 15 : 0;
         })
-      Stack() {
-        Badge({
-          value: '',
-          position: {
-            x: 40,
-            y: 0
-          },
-          style: {
-            badgeSize: 15,
-            badgeColor: Color.Red
-          }
-        }) {
-          Image($r('app.media.startIcon'))
-            .width(50)
-            .height(50)
+      Badge({
+        value: '1',
+        position: {
+          x: 40,
+          y: 0
+        },
+        style: {
+          badgeSize: this.badgeSize,
+          badgeColor: Color.Red
         }
-        .visibility(this.showCountBadge ? Visibility.Visible : Visibility.None)
-
-
-        Badge({
-          count: 98,
-          maxCount: 99,
-          position: { x: 30, y: 0 },
-          style: {
-            fontSize: 15,
-            badgeSize: 15,
-            badgeColor: Color.Red
-          }
-        }) {
-          Image($r('app.media.startIcon'))
-            .width(50)
-            .height(50)
-        }
-        .visibility(this.showCountBadge ? Visibility.None : Visibility.Visible)
+      }) {
+        Image($r('app.media.startIcon'))
+          .width(50)
+          .height(50)
       }
     }
     .height('100%')

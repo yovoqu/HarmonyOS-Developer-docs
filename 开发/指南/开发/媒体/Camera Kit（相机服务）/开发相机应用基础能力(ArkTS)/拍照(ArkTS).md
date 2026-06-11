@@ -1,6 +1,6 @@
 # 拍照(ArkTS)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting
 
@@ -34,7 +34,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
   通过[CameraOutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameraoutputcapability)中的photoProfiles属性，可获取当前设备支持的拍照输出流。通过[createPhotoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createphotooutput11)方法传入支持的某一个输出流[Profile](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#profile)创建拍照输出流。
 
   
-```text
+```ArkTS
 function getPhotoOutput(cameraManager: camera.CameraManager, cameraOutputCapability: camera.CameraOutputCapability): camera.PhotoOutput | undefined {
   let photoProfilesArray: Array<camera.Profile> = cameraOutputCapability.photoProfiles;
   if (!photoProfilesArray || photoProfilesArray.length === 0) {
@@ -60,7 +60,7 @@ function getPhotoOutput(cameraManager: camera.CameraManager, cameraOutputCapabil
   需要在[photoOutput.on('photoAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput#onphotoavailable11)接口获取到buffer时，将buffer在安全控件中保存到媒体库。
 
   
-```text
+```ArkTS
 function setPhotoOutputCb(photoOutput: camera.PhotoOutput) {
 // 设置回调之后，调用photoOutput的capture方法，就会将拍照的buffer回传到回调中。
   photoOutput.on('photoAvailable', (errCode: BusinessError, photo: camera.Photo): void => {
@@ -97,7 +97,7 @@ function setPhotoOutputCb(photoOutput: camera.PhotoOutput) {
   配置相机的参数可以调整拍照的一些功能，包括闪光灯、变焦、焦距等。
 
   
-```text
+```ArkTS
 function configuringSession(photoSession: camera.PhotoSession): void {
   // 判断设备是否支持闪光灯。
   let flashStatus: boolean = false;
@@ -177,7 +177,7 @@ function configuringSession(photoSession: camera.PhotoSession): void {
 
 
   
-```text
+```ArkTS
 function capture(captureLocation: camera.Location, photoOutput: camera.PhotoOutput): void {
   let settings: camera.PhotoCaptureSetting = {
     quality: camera.QualityLevel.QUALITY_LEVEL_HIGH,  // 设置图片质量高。
@@ -209,7 +209,7 @@ function capture(captureLocation: camera.Location, photoOutput: camera.PhotoOutp
 单段式拍照的体验主要由出图速度和最终图片质量衡量。因此，为满足开发者在不同场景下的差异化需求，对这两项指标的侧重也不同。例如，街头抓拍要求快速捕捉瞬间，而风景或人像拍摄则更追求极致的画质。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/FmwLYpZcQCK6PWbkrl6vsg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012921Z&HW-CC-Expire=86400&HW-CC-Sign=34BF813A4F553553A320ADE22E614CC76F2E6C3CDED7B4A3504B9095FC860559)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/l3zb2ZRySvq_CrURiehd9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074930Z&HW-CC-Expire=86400&HW-CC-Sign=BEC5346B4F86EF40192774E7F489E0C910F6CD6365D4AC354BA8B494DEE31DBA)
 
 
 仅单段式拍照支持设置画质优先策略。若在分段式拍照中设置画质优先策略，该设置将无效。
@@ -419,7 +419,7 @@ async function modeSwitchToHigh(photoSession: camera.PhotoSession, photoOutput: 
  - 通过注册固定的captureStart回调函数获取监听拍照开始结果，photoOutput创建成功时即可监听，相机设备已经准备开始这次拍照时触发，该事件返回此次拍照的captureId。
 
   
-```text
+```ArkTS
 function onPhotoOutputCaptureStart(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('captureStartWithInfo', (err: BusinessError, captureStartInfo: camera.CaptureStartInfo) => {
     if (err !== undefined && err.code !== 0) {
@@ -433,7 +433,7 @@ function onPhotoOutputCaptureStart(photoOutput: camera.PhotoOutput): void {
  - 通过注册固定的captureEnd回调函数获取监听拍照结束结果，photoOutput创建成功时即可监听，该事件返回结果为拍照完全结束后的相关信息[CaptureEndInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#captureendinfo)。
 
   
-```text
+```ArkTS
 function onPhotoOutputCaptureEnd(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('captureEnd', (err: BusinessError, captureEndInfo: camera.CaptureEndInfo) => {
     if (err !== undefined && err.code !== 0) {
@@ -448,7 +448,7 @@ function onPhotoOutputCaptureEnd(photoOutput: camera.PhotoOutput): void {
  - 通过注册固定的captureReady回调函数获取监听可拍下一张结果，photoOutput创建成功时即可监听，当下一张可拍时触发，该事件返回结果为下一张可拍的相关信息。
 
   
-```text
+```ArkTS
 function onPhotoOutputCaptureReady(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('captureReady', (err: BusinessError) => {
     if (err !== undefined && err.code !== 0) {
@@ -462,7 +462,7 @@ function onPhotoOutputCaptureReady(photoOutput: camera.PhotoOutput): void {
  - 通过注册固定的error回调函数获取监听拍照输出流的错误结果。回调返回拍照输出接口使用错误时的对应错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
 
   
-```text
+```ArkTS
 function onPhotoOutputError(photoOutput: camera.PhotoOutput): void {
   photoOutput.on('error', (error: BusinessError) => {
     console.error(`Photo output error code: ${error.code}`);

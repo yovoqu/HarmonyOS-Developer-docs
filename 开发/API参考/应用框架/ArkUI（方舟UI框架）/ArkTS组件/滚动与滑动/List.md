@@ -1,6 +1,6 @@
 # List
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,17 +9,17 @@
 
 List的懒加载是指组件按需加载可见区域可见的子组件。相比全量加载，使用懒加载可以提升应用启动速度，减少内存消耗。List和[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)、[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)结合，懒加载能力存在差异：
 
- - 当List和ForEach结合，会一次性创建所有的子节点，在需要的时候布局和渲染屏幕范围内的节点。当用户滑动时，划出屏幕范围的节点不会下树销毁，划入屏幕范围的节点会布局和渲染。
+ - 当List和ForEach结合，会一次性创建所有的子组件，在需要的时候布局和渲染屏幕范围内的节点。当用户滑动时，划出屏幕范围的节点不会下树销毁，划入屏幕范围的节点会布局和渲染。
  - 当List和LazyForEach结合，会一次性创建、布局、渲染屏幕范围的节点。当用户滑动时，划出屏幕范围的节点会下树销毁，划入屏幕范围的节点会创建、布局、渲染。
  - 当List和带[virtualScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#virtualscroll)的Repeat结合，它的懒加载行为和LazyForEach一致。当List和不带virtualScroll的Repeat结合，它的懒加载行为和ForEach一致。
 
 
 如果可滚动组件嵌套List组件，并且滚动方向相同，List组件又没有设置主轴尺寸时，List组件会全量加载子组件，导致懒加载失效。该场景推荐使用List嵌套[ListItemGroup](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitemgroup)组件以实现优化性能。
 
-List的预加载是指除了加载显示区域内可见的子组件外，还支持空闲时隙提前加载部分显示区域外不可见的子组件。使用预加载可以减少滚动丢帧，提升流畅性。预加载需要结合懒加载才会生效。List支持通过[cachedCount](#cachedcount)设置预加载的数量。默认会预加载显示区域上下各一屏子节点（最大预加载16行子节点）。List和[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)、[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)结合，预加载能力存在差异：
+List的预加载是指除了加载显示区域内可见的子组件外，还支持空闲时隙提前加载部分显示区域外不可见的子组件。使用预加载可以减少滚动丢帧，提升流畅性。预加载需要结合懒加载才会生效。List支持通过[cachedCount](#cachedcount)设置预加载的数量。默认会预加载显示区域上下各一屏子组件（最大预加载16行子组件）。List和[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)、[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)结合，预加载能力存在差异：
 
- - 当List和ForEach结合，如果设置了cachedCount，除了会布局显示区域内子组件外，还会在空闲时隙预布局显示区域外cachedCount范围内的子节点。
- - 当List和LazyForEach结合，如果设置了cachedCount，除了会创建和布局显示区域内子组件外，还会在空闲时隙预创建和预布局显示区域外cachedCount范围内的子节点。
+ - 当List和ForEach结合，如果设置了cachedCount，除了会布局显示区域内子组件外，还会在空闲时隙预布局显示区域外cachedCount范围内的子组件。
+ - 当List和LazyForEach结合，如果设置了cachedCount，除了会创建和布局显示区域内子组件外，还会在空闲时隙预创建和预布局显示区域外cachedCount范围内的子组件。
  - 当List和带[virtualScroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-rendering-control-repeat#virtualscroll)的Repeat结合，它的预加载行为和LazyForEach一致。当List和不带virtualScroll的Repeat结合，它的预加载行为和ForEach一致。
 
 
@@ -37,7 +37,7 @@ List的预加载是指除了加载显示区域内可见的子组件外，还支�
 支持通过渲染控制类型（[if/else](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-ifelse)、[ForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach)、[LazyForEach](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach)和[Repeat](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat)）动态生成子组件，更推荐使用LazyForEach或Repeat以优化性能。
 
 > [!NOTE]
-> 如果在处理大量子组件时遇到卡顿问题，请考虑采用懒加载、缓存列表项、动态预加载、组件复用和布局优化等方法来进行优化。最佳实践请参考 优化长列表加载慢丢帧问题 。 从API version 21开始，List单个子组件的宽高最大为16777216px；API version 20及之前，List单个子组件的宽高最大为1000000px。子组件超出该大小可能导致滚动或显示异常。 List的子组件的索引值计算规则： 按子组件的顺序依次递增。 if/else语句中，只有条件成立的分支内的子组件会参与索引值计算，条件不成立的分支内子组件不计算索引值。 ForEach/LazyForEach/Repeat语句中，会计算展开所有子节点索引值。 if/else 、 ForEach 、 LazyForEach 和 Repeat 发生变化以后，会更新子节点索引值。 ListItemGroup作为一个整体计算一个索引值，ListItemGroup内部的ListItem不计算索引值。 List子组件visibility属性设置为Hidden或None依然会计算索引值。
+> 如果在处理大量子组件时遇到卡顿问题，请考虑采用懒加载、缓存列表项、动态预加载、组件复用和布局优化等方法来进行优化。最佳实践请参考 优化长列表加载慢丢帧问题 。 从API version 21开始，List单个子组件的宽高最大为16777216px；API version 20及之前，List单个子组件的宽高最大为1000000px。子组件超出该大小可能导致滚动或显示异常。 List的子组件的索引值计算规则： 按子组件的顺序依次递增。 if/else语句中，只有条件成立的分支内的子组件会参与索引值计算，条件不成立的分支内子组件不计算索引值。 ForEach/LazyForEach/Repeat语句中，会计算展开所有子组件索引值。 if/else 、 ForEach 、 LazyForEach 和 Repeat 发生变化以后，会更新子组件索引值。 ListItemGroup作为一个整体计算一个索引值，ListItemGroup内部的ListItem不计算索引值。 List子组件的visibility属性设置为Hidden或None依然会计算索引值。
 
 
 
@@ -836,7 +836,7 @@ supportEmptyBranchInLazyLoading(supported: boolean | undefined)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| supported | boolean \| undefined | 是 | 当前List组件是否支持在LazyForEach或Repeat中使用if/else渲染控制语法生成一个不含任何子节点的空分支节点。 true表示支持空分支节点；false表示不支持空分支节点。 值为undefined时，按false处理。 |
+| supported | boolean \| undefined | 是 | 当前List组件是否支持在LazyForEach或Repeat中使用if/else渲染控制语法生成一个不含任何子组件的空分支节点。 true表示支持空分支节点；false表示不支持空分支节点。 值为undefined时，按false处理。 |
 
 
 
@@ -1139,7 +1139,7 @@ onScrollStop(event: () => void)
 
 onItemMove(event: (from: number, to: number) => boolean)
 
-列表元素发生移动时触发。
+List的子组件[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)发生移动时触发。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1157,7 +1157,7 @@ onItemMove(event: (from: number, to: number) => boolean)
 
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 是否已经移动。返回值为true时列表元素发生移动，返回值为false时列表元素没有移动。 |
+| boolean | 是否已经移动。返回值为true时List子组件发生移动，返回值为false时List子组件没有移动。 |
 
 
 
@@ -1168,7 +1168,7 @@ onItemMove(event: (from: number, to: number) => boolean)
 
 onItemDragStart(event: OnItemDragStartCallback)
 
-开始拖拽列表元素时触发。
+开始拖拽List的子组件[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)时触发。
 
 不支持拖动到List边缘时触发List的自动滚动，可以使用ForEach、LazyForEach、Repeat的[onMove](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-drag-sorting#onmove)接口实现该效果，参考[示例12（使用OnMove进行拖拽）](#示例12使用onmove进行拖拽)。但需注意[onMove](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-drag-sorting#onmove)接口不支持跨ListItemGroup拖拽。
 
@@ -1184,7 +1184,7 @@ onItemDragStart(event: OnItemDragStartCallback)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| event | OnItemDragStartCallback | 是 | 列表元素拖拽开始时触发的回调。 API version 22及之前版本，该参数类型为(event: ItemDragInfo, itemIndex: number) => (() => any) \| void，其中event和itemIndex参数含义参考OnItemDragStartCallback。 |
+| event | OnItemDragStartCallback | 是 | List的子组件ListItem拖拽开始时触发的回调。 API version 22及之前版本，该参数类型为(event: ItemDragInfo, itemIndex: number) => (() => any) \| void，其中event和itemIndex参数含义参考OnItemDragStartCallback。 |
 
 
 
@@ -1195,7 +1195,7 @@ onItemDragStart(event: OnItemDragStartCallback)
 
 onItemDragEnter(event: (event: ItemDragInfo) => void)
 
-拖拽列表元素进入列表范围内时触发。
+拖拽List的子组件[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)进入列表范围内时触发。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1216,7 +1216,7 @@ onItemDragEnter(event: (event: ItemDragInfo) => void)
 
 onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void)
 
-拖拽列表元素在列表范围内移动时触发。
+拖拽List的子组件[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)在列表范围内移动时触发。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1239,7 +1239,7 @@ onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: numb
 
 onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void)
 
-拖拽列表元素离开列表范围时触发。
+拖拽List的子组件[ListItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-listitem)离开列表范围时触发。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1250,7 +1250,7 @@ onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | ItemDragInfo | 是 | 拖拽点的信息。 |
-| itemIndex | number | 是 | 拖拽离开的列表元素索引值。 |
+| itemIndex | number | 是 | 拖拽离开的List的子组件ListItem索引值。 |
 
 
 
@@ -1276,7 +1276,7 @@ onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, 
 | event | ItemDragInfo | 是 | 拖拽点的信息。 |
 | itemIndex | number | 是 | 拖拽起始位置。 |
 | insertIndex | number | 是 | 拖拽插入位置。 |
-| isSuccess | boolean | 是 | 是否成功释放。返回值为true时列表元素成功释放，返回值为false时列表元素没有成功释放。 |
+| isSuccess | boolean | 是 | 是否成功释放。返回值为true时List的子组件ListItem成功释放，返回值为false时List的子组件ListItem没有成功释放。 |
 
 
 
@@ -2736,7 +2736,7 @@ struct ListExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/RP_X08dgRWCv8bHDZgb5Ig/zh-cn_image_0000002611755681.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=FC5CE86DD656649E42A52547FB2D66C37A00A85AD545DF0CE1312C597357AE02)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/5EwGI7BWSGKXTp99o5Paww/zh-cn_image_0000002592220078.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=CF723FBB99782FE25BF6080369A643388011CDE209B93722A971842EE18DDE41)
 
 
 
@@ -2860,7 +2860,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/WWKhcH76TO2_592UVYUFgg/zh-cn_image_0000002581435744.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=EA0567D2487FFC0F6916833AAC6D293CBE7BE75BE246009CCC679E7F496F0DFC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/06phcIZTSYq9QNNn-fG8jw/zh-cn_image_0000002592380012.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=156E097581AC3E35503382B4D7318AC1D393EC83A87A40E7B0CFF101A5B848F1)
 
 
 
@@ -2968,7 +2968,7 @@ struct ContactsList {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/Qyvfzro0SS6jcLxXQ8XVcQ/zh-cn_image_0000002611835573.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=E757278507FEFC4289D4D8ED224A342D6DA0DABF0E192355B066BB7CCA275D54)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/8L53Pg8ZT_ezrfi2CRTu4w/zh-cn_image_0000002622859521.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=EF62EE0CBCABE3F5CB7D21ED4918FBF288C0224E64171C49D740D09E677EAC2B)
 
 
 
@@ -3071,4 +3071,4 @@ struct ListExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f4/v3/FU_ueUCLT8OZ61Y28WMyiQ/zh-cn_image_0000002581275826.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025548Z&HW-CC-Expire=86400&HW-CC-Sign=CB1B903B8664032118EB374252A8C22F6593F0B8BAE5AFB034CD2B2E8C1D3C99)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/yfa2zaqCTuKBWi46qYRbRQ/zh-cn_image_0000002622699641.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074824Z&HW-CC-Expire=86400&HW-CC-Sign=CB789A74D521D134117D4426B4B35C38977E7D950F9C0209C44A29755881B8B7)

@@ -1,6 +1,6 @@
 # Navigation
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-navigation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2190,7 +2190,7 @@ Navigation首页名字。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | string \| Resource14+ | 否 | 否 | API version 9：显示菜单栏单个选项的文本。 从API version 10开始，不显示菜单栏单个选项的文本。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| icon | string \| Resource14+ | 否 | 是 | 菜单栏单个选项的图标资源路径。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| icon | string \| Resource14+ | 否 | 是 | 菜单栏单个选项的图标资源路径。 说明： 当图标为SVG格式时，系统会默认设置fill颜色，覆盖SVG文件中自定义的fill属性，可能导致图标显示异常。建议在SVG文件中通过style样式设置fill来覆盖系统默认值，示例如下： 原始写法（fill属性会被系统默认值覆盖）：<rect fill="rgb(255,0,0)" .../>，建议修改为：<rect style="fill: rgb(255,0,0)" .../>。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | isEnabled12+ | boolean | 否 | 是 | 使能状态，默认使能（false未使能，true使能）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | action | () => void | 否 | 是 | 当前选项被选中的事件回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | symbolIcon12+ | SymbolGlyphModifier | 否 | 是 | 菜单栏单个选项的symbol资源（优先级高于icon）。 说明： 不支持通过SymbolGlyphModifier对象的fontSize属性修改图标大小、effectStrategy属性修改动效、symbolEffect属性修改动效类型。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -2209,7 +2209,7 @@ Navigation首页名字。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | value | ResourceStr | 否 | 否 | 工具栏单个选项的显示文本。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| icon | ResourceStr | 否 | 是 | 工具栏单个选项的图标资源路径。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| icon | ResourceStr | 否 | 是 | 工具栏单个选项的图标资源路径。 说明： 当图标为SVG格式时，系统会默认设置fill颜色，覆盖SVG文件中自定义的fill属性，可能导致图标显示异常。建议在SVG文件中通过style样式设置fill来覆盖系统默认值，原始写法（fill属性会被系统默认值覆盖）：<rect fill="rgb(255,0,0)" .../>，建议修改为：<rect style="fill: rgb(255,0,0)" .../>。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | action | () => void | 否 | 是 | 当前选项被选中的事件回调。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | status | ToolbarItemStatus | 否 | 是 | 工具栏单个选项的状态。 默认值：ToolbarItemStatus.NORMAL 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | activeIcon | ResourceStr | 否 | 是 | 工具栏单个选项处于ACTIVE态时的图标资源路径。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -5229,7 +5229,7 @@ export class CustomTransition {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/qyEhcVOtSmSblFrYGXNhlw/zh-cn_image_0000002617709833.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=CDF92713C830066B9D93E97F53D8D3382752A5C0819B6433CC8DC2DCCF93E576)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/GEuwkaKyS-q8WDs22-cpEw/zh-cn_image_0000002622699695.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=B424BA1E722C50A79794927D30C45519D293C397C7DFCA9191E09F9FD530E65D)
 
 
 
@@ -5369,7 +5369,7 @@ struct NavigationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/uftI8awiRSuCA1qLqCaXxQ/zh-cn_image_0000002587110250.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=AE370BD3EC373019146A817EB582ABC44950BC1A0B0D1001B461BF07448946E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/lqJrCRYDROSRCR5G4fntdA/zh-cn_image_0000002592220134.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=E999D03CBF2468216B9F4FDB895A784D2143F5BBA6079A1430605F396FE7B7BD)
 
 
 
@@ -5444,7 +5444,7 @@ struct NavigationExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cd/v3/zqFgNhcFSPubSL2WlFIuMw/zh-cn_image_0000002617669933.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=F05356D38706C77E8522F1D18A1C5F1C72C09403299A57971283DCDD29DA4441)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/Bbnbq8k_QeGmpefb-LbNDw/zh-cn_image_0000002592380068.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=6DF4EFDBC1C0B39F6A69420BEB42F18FDE533BB3F3E0181013C03AE89F8D007D)
 
 
 
@@ -5535,7 +5535,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/kR5WLwn5STy1QsKP93leaA/zh-cn_image_0000002587270154.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=4A7D580E9330D95BE904F8F7AD2F10A049326289BCE1428A3A9B33F5CA6E1C49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/ors-8JJUTRaNJtmObHrEsw/zh-cn_image_0000002622859577.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=0ED304796ADBF9147749C3560804E6A7C5E7C242F5CEF800EB7456752F78D74C)
 
 
 
@@ -5809,7 +5809,7 @@ export struct PageTwo {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/5ccVgLXiRL6eF0W8PGZUOg/zh-cn_image_0000002617709835.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=7A6EF0FE61DE387B598E3A268FAD70850027F9B36833D80D8472E99292F3BB35)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/Qmy-g9BrQHme8YWNELed2g/zh-cn_image_0000002622699697.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=E07A71F09663ACDCA6CD5BEA78553D16A7D28565CA4B3B6D5841618E621BEF56)
 
 
 
@@ -5976,4 +5976,4 @@ export struct NavigationMenu {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/7zEsFe1CS6WTuxDuRhwgxw/zh-cn_image_0000002587110252.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012830Z&HW-CC-Expire=86400&HW-CC-Sign=4E3DC957F1C4E4E17B3AFB0BEB2158E9C1CFD5A4EA41CFED130DC8F0E2BD831F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/3bL2T5yMR8ah1TPZ70LG9w/zh-cn_image_0000002592220136.gif?HW-CC-KV=V1&HW-CC-Date=20260611T074826Z&HW-CC-Expire=86400&HW-CC-Sign=5B20613B5FF42ECE128DB2512EAF928FC75059DF12837C72EF7F1FB720EEA771)

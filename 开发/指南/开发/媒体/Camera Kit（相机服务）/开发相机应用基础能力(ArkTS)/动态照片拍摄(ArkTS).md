@@ -1,6 +1,6 @@
 # 动态照片拍摄(ArkTS)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-moving-photo
 
@@ -36,7 +36,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
   通过[CameraOutputCapability](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i#cameraoutputcapability)中的photoProfiles属性，可获取当前设备支持的拍照输出流，通过[createPhotoOutput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#createphotooutput11)方法创建拍照输出流。
 
   
-```text
+```ArkTS
 function getPhotoOutput(cameraManager: camera.CameraManager,
   cameraOutputCapability: camera.CameraOutputCapability): camera.PhotoOutput | undefined {
   if (!cameraOutputCapability || !cameraOutputCapability.photoProfiles) {
@@ -66,7 +66,7 @@ function getPhotoOutput(cameraManager: camera.CameraManager,
 
 
   
-```text
+```ArkTS
 function isMovingPhotoSupported(photoOutput: camera.PhotoOutput): boolean {
   let isSupported: boolean = false;
   try {
@@ -88,7 +88,7 @@ function isMovingPhotoSupported(photoOutput: camera.PhotoOutput): boolean {
 
 
   
-```text
+```ArkTS
 function enableMovingPhoto(photoOutput: camera.PhotoOutput): void {
   try {
     photoOutput.enableMovingPhoto(true);
@@ -108,7 +108,7 @@ function enableMovingPhoto(photoOutput: camera.PhotoOutput): void {
 
 在相机应用开发过程中，可以随时监听动态照片拍照输出流状态。通过注册photoAsset的回调函数获取监听结果，photoOutput创建成功时即可监听。
 
-```text
+```ArkTS
 function getPhotoAccessHelper(context: Context): photoAccessHelper.PhotoAccessHelper {
   let phAccessHelper = photoAccessHelper.getPhotoAccessHelper(context);
   return phAccessHelper;

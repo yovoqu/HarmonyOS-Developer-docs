@@ -1,6 +1,6 @@
 # 加速Web页面的访问
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-predictor
 

@@ -1,6 +1,6 @@
 # pushService（推送服务基础能力）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -543,7 +543,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type PushType = 'DEFAULT' |'IM' | 'VoIP' | 'BACKGROUND' | 'EMERGENCY'
+type PushType = 'DEFAULT' | 'IM' | 'VoIP' | 'BACKGROUND' | 'EMERGENCY'
 
 场景化消息类型，取值类型为下表类型中的并集。
 

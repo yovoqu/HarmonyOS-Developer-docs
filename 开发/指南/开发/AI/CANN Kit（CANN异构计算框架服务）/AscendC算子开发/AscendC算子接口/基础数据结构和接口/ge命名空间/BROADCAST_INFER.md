@@ -1,6 +1,6 @@
 # BROADCAST_INFER
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-broadcast-infer
 
@@ -44,7 +44,7 @@ graphStatus BroadCastInfer(const function<vector<int64_t>()> &get_in1_shape,
 | --- | --- | --- |
 | in1_name | 输入 | 算子第一个输入。 |
 | in2_name | 输入 | 算子第二个输入。 |
-| out_name | 输入 | 算子输出。 |
+| out_name | 输出 | 算子输出。 |
  
  
   

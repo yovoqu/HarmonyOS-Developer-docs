@@ -1,6 +1,6 @@
 # JSVM_PropertyHandlerConfigurationStruct
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm-jsvm-propertyhandlerconfigurationstruct
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -16,7 +16,17 @@ typedef struct {...} JSVM_PropertyHandlerConfigurationStruct
 
 当执行对象的getter、setter、deleter和enumerator操作时，该结构体中对应的函数回调将会触发。
  
+**使用场景：** 需要拦截和处理JavaScript对象属性操作的场景，实现动态属性访问控制，构建代理对象或属性监听机制。
+ 
+**解决的问题：** 提供了一种机制来拦截和自定义对象的属性操作行为，允许在属性读写删除等操作时执行自定义逻辑。
+ 
+**收益：** 增强对象操作的灵活性和可控性，简化属性拦截的实现逻辑。
+ 
+**系统能力：** SystemCapability.ArkCompiler.JSVM
+ 
 **起始版本：** 12
+ 
+**支持设备类型：** Phone | PC/2in1 | Tablet | Wearable。具体支持情况可通过对应的API接口进行判断。
  
 **相关模块：** [JSVM](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm)
  
@@ -42,7 +52,7 @@ typedef struct {...} JSVM_PropertyHandlerConfigurationStruct
  
   
 
-#### 成员函数
+#### 回调函数成员
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
  
@@ -60,7 +70,7 @@ typedef struct {...} JSVM_PropertyHandlerConfigurationStruct
  
   
 
-#### 成员函数说明
+#### 回调函数成员说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 

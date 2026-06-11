@@ -1,6 +1,6 @@
 # 使用X25519进行密钥协商(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-key-agreement-using-x25519
 
@@ -54,7 +54,7 @@ async function x25519Await() {
 ```ArkTS
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 
-function x25519Await() {
+function x25519Sync() {
   // 假设此公私钥对数据为外部传入
   let pubKeyArray =
     new Uint8Array([48, 42, 48, 5, 6, 3, 43, 101, 110, 3, 33, 0, 36, 98, 216, 106, 74, 99, 179, 203, 81, 145, 147, 101,

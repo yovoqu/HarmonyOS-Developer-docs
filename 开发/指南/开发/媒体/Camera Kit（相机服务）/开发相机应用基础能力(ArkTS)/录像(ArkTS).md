@@ -1,6 +1,6 @@
 # 录像(ArkTS)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-recording
 
@@ -30,7 +30,7 @@ import { media } from '@kit.MediaKit';
   系统提供的media接口可以创建一个录像[AVRecorder](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder)实例，通过该实例的[getInputSurface](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#getinputsurface9)方法获取SurfaceId，与录像输出流做关联，处理录像输出流输出的数据。
 
   
-```text
+```ArkTS
 async function getVideoSurfaceId(aVRecorderConfig: media.AVRecorderConfig): Promise<string | undefined> {  // aVRecorderConfig可参考步骤3.创建录像输出流。
   let avRecorder: media.AVRecorder | undefined = undefined;
   let videoSurfaceId: string | undefined = undefined;
@@ -59,7 +59,7 @@ async function getVideoSurfaceId(aVRecorderConfig: media.AVRecorderConfig): Prom
 
 
   
-```text
+```ArkTS
 async function getVideoOutput(cameraManager: camera.CameraManager, videoSurfaceId: string, cameraOutputCapability: camera.CameraOutputCapability): Promise<camera.VideoOutput | undefined> {
   if (!cameraManager || !videoSurfaceId || !cameraOutputCapability || !cameraOutputCapability.videoProfiles) {
     return;
@@ -136,7 +136,7 @@ async function getVideoOutput(cameraManager: camera.CameraManager, videoSurfaceI
   先通过videoOutput的[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput#start-1)方法启动录像输出流，再通过avRecorder的[start](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#start9)方法开始录像。
 
   
-```text
+```ArkTS
 async function startVideo(videoOutput: camera.VideoOutput, avRecorder: media.AVRecorder): Promise<void> {
  try {
    await videoOutput.start();
@@ -159,7 +159,7 @@ async function startVideo(videoOutput: camera.VideoOutput, avRecorder: media.AVR
   先通过avRecorder的[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder#stop9-1)方法停止录像，再通过videoOutput的[stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videooutput#stop-1)方法停止录像输出流。
 
   
-```text
+```ArkTS
 async function stopVideo(videoOutput: camera.VideoOutput, avRecorder: media.AVRecorder): Promise<void> {
   avRecorder.stop((err: BusinessError) => {
   if (err) {
@@ -182,7 +182,7 @@ async function stopVideo(videoOutput: camera.VideoOutput, avRecorder: media.AVRe
  - 通过注册固定的frameStart回调函数获取监听录像开始结果，videoOutput创建成功时即可监听，录像第一次曝光时触发，有该事件返回结果则认为录像开始。
 
   
-```text
+```ArkTS
 function onVideoOutputFrameStart(videoOutput: camera.VideoOutput): void {
   videoOutput.on('frameStart', (err: BusinessError) => {
     if (err !== undefined && err.code !== 0) {
@@ -196,7 +196,7 @@ function onVideoOutputFrameStart(videoOutput: camera.VideoOutput): void {
  - 通过注册固定的frameEnd回调函数获取监听录像结束结果，videoOutput创建成功时即可监听，录像完成最后一帧时触发，有该事件返回结果则认为录像流已结束。
 
   
-```text
+```ArkTS
 function onVideoOutputFrameEnd(videoOutput: camera.VideoOutput): void {
   videoOutput.on('frameEnd', (err: BusinessError) => {
     if (err !== undefined && err.code !== 0) {
@@ -210,7 +210,7 @@ function onVideoOutputFrameEnd(videoOutput: camera.VideoOutput): void {
  - 通过注册固定的error回调函数获取监听录像输出错误结果，callback返回预览输出接口使用错误时对应的错误码，错误码类型参见[CameraErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#cameraerrorcode)。
 
   
-```text
+```ArkTS
 function onVideoOutputError(videoOutput: camera.VideoOutput): void {
   videoOutput.on('error', (error: BusinessError) => {
     console.error(`Video output error code: ${error.code}`);

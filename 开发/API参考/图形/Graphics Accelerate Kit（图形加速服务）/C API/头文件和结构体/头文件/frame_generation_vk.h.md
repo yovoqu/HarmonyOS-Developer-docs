@@ -1,6 +1,6 @@
 # frame_generation_vk.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/frame__generation__vk_8h
 **支持设备：** Phone | Tablet | TV
@@ -80,6 +80,6 @@
 | FG_ErrorCode HMS_FG_IsActive_VK(FG_Context_VK* context, bool* isActive) | 查询超帧上下文实例是否处于激活状态，该接口仅适配Vulkan图形API平台。 |
 | FG_ErrorCode HMS_FG_Dispatch_VK(FG_Context_VK* context, const FG_DispatchDescription_VK* desc) | 配置帧预测所需的参数信息，生成预测帧，当前处于激活状态时有效，该接口仅适配Vulkan图形API平台。 |
 | FG_ErrorCode HMS_FG_DestroyContext_VK(FG_Context_VK** context) | 销毁超帧上下文实例并释放内存资源，该接口仅适配Vulkan图形API平台。 |
-| FG_ErrorCode HMS_FG_SetIntegrationMode_VK(FG_Context_VK* context, const FG_IntegrationInfo* integrationInfo) | 设置超帧预测的集成信息，当FG_PredictionMode为FG_PREDICTION_MODE_INTERPOLATION时，FG_IntegrationInfo中的presentMode、needDepthAndColorCache、needFlipColorTexture成员才会生效。其他情况下这些参数应忽略或设置为默认值。该接口仅适配Vulkan图形API平台。 |
+| FG_ErrorCode HMS_FG_SetIntegrationMode_VK(FG_Context_VK* context, const FG_IntegrationInfo* integrationInfo) | 设置超帧预测的集成信息，当FG_PredictionMode为FG_PREDICTION_MODE_INTERPOLATION时，FG_IntegrationInfo中的presentMode、textureCachedByGame、needFlipInputColor、needFlipOutputColor成员才会生效。其他情况下这些参数应忽略或设置为默认值。该接口仅适配Vulkan图形API平台。 |
 | FG_ErrorCode HMS_FG_SetUiPredictionEnabled_VK(FG_Context_VK* context, bool isEnabled) | 选择是否启用UI预测功能，这个功能只能在系统送显模式下启用，在游戏送显模式下无效。该接口仅适配Vulkan图形API平台。 |
 | FG_ErrorCode HMS_FG_SetTargetFps_VK(FG_Context_VK* context, int targetFps) | 设置超帧后的目标帧率，这个设置仅在系统送显模式下生效，对游戏送显模式无影响。参数targetFps的取值范围[30, 144]旨在确保在不同平台上的性能稳定性和用户体验一致性。开发者应根据实际业务场景选择合适的帧率。该接口在游戏初次上架之后生效且仅适配Vulkan图形API平台。 |

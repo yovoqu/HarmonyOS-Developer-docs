@@ -1,6 +1,6 @@
-# wearEngineLite (穿戴设备能力开放)(Lite)
+# wearEngineLite（穿戴设备能力开放）（Lite）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearenginelite_api
 **支持设备：** Wearable | lite_wearable

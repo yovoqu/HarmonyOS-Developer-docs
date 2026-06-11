@@ -1,6 +1,6 @@
 # 使用URPC进行远程程序调用
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-09 02:58:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/remote-communication-urpccall
 
@@ -98,9 +98,9 @@ let response = new MediaTaskResponseMessage();
 
   
 ```text
-// 提前部署好的远程服务器的ip地址和端口号
+// 提前部署好的远程服务器的ip地址和端口号，下面IP地址仅作为示意
 let node: urpc.IpAndPort = {
-  ip: '127.0.0.1',
+  ip: '192.168.1.1',
   port: 8000
 }
 let connect: urpc.UrpcConnectConfiguration = {

@@ -1,6 +1,6 @@
 # @Builder装饰器：自定义构建函数
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-05 02:03:20
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder
 
@@ -11,7 +11,7 @@ ArkUI提供轻量的UI元素复用机制@Builder，其内部UI结构固定，仅
 在阅读本文档前，建议提前阅读：[基本语法概述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-basic-syntax-overview)、[声明式UI描述](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-declarative-ui-description)、[自定义组件-创建自定义组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)。
 
 @Builder装饰器和[@Component装饰器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)在功能和使用方式上的主要差异：
-1. @Builder装饰器用于封装可复用的UI结构，通过提取重复的布局代码提高开发效率。该装饰器严格禁止在其内部定义[状态变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-glossary#状态变量state-variables)或使用[自定义组件的生命周期函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle)，必须通过参数传递或者访问所属组件的状态变量完成数据交互。
+1. @Builder装饰器用于封装可复用的UI结构，通过提取重复的布局代码提高开发效率。该装饰器严格禁止在其内部定义[状态变量](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-glossary#state-variables状态变量)或使用[自定义组件的生命周期函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle)，必须通过参数传递或者访问所属组件的状态变量完成数据交互。
 2. 在ArkUI框架中，@Component装饰器作为封装复杂UI组件的核心机制，允许开发者通过组合多个基础组件来构建可复用的复合界面。该装饰器不仅支持内部状态变量的定义，还能完整管理组件的生命周期。
 
 > [!NOTE]
