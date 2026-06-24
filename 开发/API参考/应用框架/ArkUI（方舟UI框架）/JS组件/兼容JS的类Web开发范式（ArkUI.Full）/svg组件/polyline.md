@@ -1,6 +1,6 @@
 # polyline
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-polyline
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -57,4 +57,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/oGP69rBaSmG16720Dkq1Jw/zh-cn_image_0000002581276468.png?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=A1AD70065EA14A834598E653F0EA48A3A0B9EF818B0F2C9BFC4EF77F94639806)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/XEDxkjjPSaGCRMGGvMQhKg/zh-cn_image_0000002626230942.png?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=2CF1D31A6F79495B6B51456B4B331A0219C007220C5E9F148F51D20E73A6A3D7)

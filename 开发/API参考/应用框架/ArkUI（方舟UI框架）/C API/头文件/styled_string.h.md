@@ -1,6 +1,6 @@
 # styled_string.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-styled-string-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,7 +48,8 @@
 | OH_ArkUI_DecorationStyle | OH_ArkUI_DecorationStyle | 定义文本装饰线样式。 可以通过OH_ArkUI_DecorationStyle_Create接口创建对应的文本装饰线样式对象。 可以通过OH_ArkUI_DecorationStyle_Destroy接口销毁文本装饰线样式对象。 对象创建后通过OH_ArkUI_DecorationStyle_SetXXX系列接口设置生效的具体样式，例如通过OH_ArkUI_DecorationStyle_SetTextDecorationType设置装饰线类型。 |
 | OH_ArkUI_BaselineOffsetStyle | OH_ArkUI_BaselineOffsetStyle | 定义基线偏移量样式。 可以通过OH_ArkUI_BaselineOffsetStyle_Create接口创建对应的基线偏移量样式对象。 可以通过OH_ArkUI_BaselineOffsetStyle_Destroy接口销毁基线偏移量样式对象。 对象创建后通过OH_ArkUI_BaselineOffsetStyle_SetBaselineOffset接口设置具体的基线偏移量值。 |
 | OH_ArkUI_LetterSpacingStyle | OH_ArkUI_LetterSpacingStyle | 定义字符间距样式。 可以通过OH_ArkUI_LetterSpacingStyle_Create接口创建对应的字符间距样式对象。 可以通过OH_ArkUI_LetterSpacingStyle_Destroy接口销毁字符间距样式对象。 对象创建后通过OH_ArkUI_LetterSpacingStyle_SetLetterSpacing接口设置具体的字符间距值。 |
-| OH_ArkUI_LineHeightStyle | OH_ArkUI_LineHeightStyle | 定义行高样式。 可以通过OH_ArkUI_LineHeightStyle_Create接口创建对应的行高样式对象。 可以通过OH_ArkUI_LineHeightStyle_Destroy接口销毁行高样式对象。 对象创建后通过OH_ArkUI_LineHeightStyle_SetLineHeight接口设置具体的固定行高值。 |
+| OH_ArkUI_LineHeightStyle | OH_ArkUI_LineHeightStyle | 定义行高样式。 可以通过OH_ArkUI_LineHeightStyle_Create接口创建对应的行高样式对象。 可以通过OH_ArkUI_LineHeightStyle_Destroy接口销毁行高样式对象。 对象创建后可以通过OH_ArkUI_LineHeightStyle_SetLineHeight接口设置具体的固定行高值。 从API版本26.0.0开始，对象创建后可以通过OH_ArkUI_LineHeightStyle_SetLineHeightMultiple接口设置具体的行高的倍数值。 |
+| OH_ArkUI_LineSpacingStyle | OH_ArkUI_LineSpacingStyle | 定义行间距样式。 可以通过OH_ArkUI_LineSpacingStyle_Create接口创建对应的行间距样式对象。 可以通过OH_ArkUI_LineSpacingStyle_Destroy接口销毁行间距样式对象。 对象创建后可以通过OH_ArkUI_LineSpacingStyle_SetLineSpacing接口设置具体的行间距值。 对象创建后可以通过OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines接口设置行间距是否只在行间生效。 |
 | OH_ArkUI_UrlStyle | OH_ArkUI_UrlStyle | 定义超链接样式。 可以通过OH_ArkUI_UrlStyle_Create接口创建对应的超链接样式对象。 可以通过OH_ArkUI_UrlStyle_Destroy接口销毁超链接样式对象。 对象创建后通过OH_ArkUI_UrlStyle_SetUrl接口设置链接地址。 |
 | OH_ArkUI_BackgroundColorStyle | OH_ArkUI_BackgroundColorStyle | 定义背景颜色样式。 可以通过OH_ArkUI_BackgroundColorStyle_Create接口创建对应的背景颜色样式对象。 可以通过OH_ArkUI_BackgroundColorStyle_Destroy接口销毁背景颜色样式对象。 对象创建后通过OH_ArkUI_BackgroundColorStyle_SetColor和OH_ArkUI_BackgroundColorStyle_SetRadius接口设置背景颜色和圆角。 |
 | OH_ArkUI_UserDataSpan | OH_ArkUI_UserDataSpan | 定义用户数据Span样式。 可以通过OH_ArkUI_UserDataSpan_Create接口创建对应的用户数据Span样式对象。 可以通过OH_ArkUI_UserDataSpan_Destroy接口销毁用户数据Span样式对象。 对象创建后通过OH_ArkUI_UserDataSpan_SetUserData接口绑定用户数据。 |
@@ -236,6 +237,16 @@
 | void OH_ArkUI_LineHeightStyle_Destroy(OH_ArkUI_LineHeightStyle* lineHeightStyle) | 释放OH_ArkUI_LineHeightStyle对象占用的内存。 |
 | ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_SetLineHeight(OH_ArkUI_LineHeightStyle* lineHeightStyle, float lineHeight) | 设置文本行高。 |
 | ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_GetLineHeight(const OH_ArkUI_LineHeightStyle* lineHeightStyle, float* lineHeight) | 获取文本行高。 |
+| ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_SetLineHeightMultiple(OH_ArkUI_LineHeightStyle* lineHeightStyle, float lineHeightMultiple) | 设置行高样式的行高倍数。 |
+| ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_GetLineHeightMultiple(const OH_ArkUI_LineHeightStyle* lineHeightStyle, float* lineHeightMultiple) | 获取行高样式的行高倍数。 |
+| ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLineSpacingStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_LineSpacingStyle* lineSpacingStyle) | 设置属性字符串样式对象的行间距样式。 |
+| ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLineSpacingStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_LineSpacingStyle* lineSpacingStyle) | 获取属性字符串样式对象的行间距样式。 |
+| OH_ArkUI_LineSpacingStyle* OH_ArkUI_LineSpacingStyle_Create() | 创建OH_ArkUI_LineSpacingStyle对象。 |
+| void OH_ArkUI_LineSpacingStyle_Destroy(OH_ArkUI_LineSpacingStyle* lineSpacingStyle) | 释放OH_ArkUI_LineSpacingStyle对象占用的内存。 |
+| ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetLineSpacing(OH_ArkUI_LineSpacingStyle* lineSpacingStyle, float lineSpacing) | 设置行间距。 |
+| ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetLineSpacing(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, float* lineSpacing) | 查询行间距。 |
+| ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines(OH_ArkUI_LineSpacingStyle* lineSpacingStyle, bool onlyBetweenLines) | 设置行间距是否只在行间生效。 |
+| ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetOnlyBetweenLines(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, bool* onlyBetweenLines) | 查询行间距是否只在行间生效。 |
 | OH_ArkUI_BackgroundColorStyle* OH_ArkUI_BackgroundColorStyle_Create() | 创建OH_ArkUI_BackgroundColorStyle对象。 |
 | void OH_ArkUI_BackgroundColorStyle_Destroy(OH_ArkUI_BackgroundColorStyle* style) | 释放OH_ArkUI_BackgroundColorStyle对象占用的内存。 |
 | ArkUI_ErrorCode OH_ArkUI_BackgroundColorStyle_SetColor(OH_ArkUI_BackgroundColorStyle* style, uint32_t color) | 设置背景颜色样式的背景色。 |
@@ -328,6 +339,7 @@ enum OH_ArkUI_StyledStringKey
 | OH_ARKUI_STYLEDSTRINGKEY_LINE_HEIGHT = 5 | 文本行高样式。 |
 | OH_ARKUI_STYLEDSTRINGKEY_BACKGROUND_COLOR = 6 | 文本背景颜色样式。 |
 | OH_ARKUI_STYLEDSTRINGKEY_URL = 7 | 超链接样式。 |
+| OH_ARKUI_STYLEDSTRINGKEY_LINE_SPACING = 8 | 文本行间距样式。起始版本： 26.0.0 |
 | OH_ARKUI_STYLEDSTRINGKEY_GESTURE = 100 | 事件手势样式。 |
 | OH_ARKUI_STYLEDSTRINGKEY_PARAGRAPH_STYLE = 200 | 文本段落样式。 |
 | OH_ARKUI_STYLEDSTRINGKEY_IMAGE = 300 | 图片样式。 |
@@ -5240,6 +5252,312 @@ ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_GetLineHeight(const OH_ArkUI_LineHeight
 | --- | --- |
 | const OH_ArkUI_LineHeightStyle* lineHeightStyle | 指向OH_ArkUI_LineHeightStyle对象的指针。 |
 | float* lineHeight | 固定行高值，单位为vp。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回结果码。 ARKUI_ERROR_CODE_NO_ERROR 操作成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+
+
+
+
+#### OH_ArkUI_LineHeightStyle_SetLineHeightMultiple()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_SetLineHeightMultiple(OH_ArkUI_LineHeightStyle* lineHeightStyle, float lineHeightMultiple)
+```
+
+**描述**
+
+设置行高样式的行高倍数。
+
+> [!TIP]
+> lineHeightMultiple与lineHeight或 OH_ArkUI_LineSpacingStyle 同时设置时，仅lineHeightMultiple生效，行高为该行最高字体高度与倍数的乘积。 lineHeightMultiple小于0时不生效，使用lineHeight和 OH_ArkUI_LineSpacingStyle 设置行高和行间距。 lineHeight可以通过 OH_ArkUI_LineHeightStyle_SetLineHeight() 接口设置。 lineHeightMultiple等于0时等效于设置为1。
+
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ArkUI_LineHeightStyle* lineHeightStyle | 指向OH_ArkUI_LineHeightStyle对象的指针。 |
+| float lineHeightMultiple | 行高倍数。取值范围为[0, +∞)。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回结果码。 ARKUI_ERROR_CODE_NO_ERROR 操作成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+
+
+
+
+#### OH_ArkUI_LineHeightStyle_GetLineHeightMultiple()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_LineHeightStyle_GetLineHeightMultiple(const OH_ArkUI_LineHeightStyle* lineHeightStyle, float* lineHeightMultiple)
+```
+
+**描述**
+
+获取行高样式的行高倍数。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_ArkUI_LineHeightStyle* lineHeightStyle | 指向OH_ArkUI_LineHeightStyle对象的指针。 |
+| float* lineHeightMultiple | 行高倍数。取值范围为[0, +∞)。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回结果码。 ARKUI_ERROR_CODE_NO_ERROR 操作成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+
+
+
+
+#### OH_ArkUI_SpanStyle_SetLineSpacingStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_SpanStyle_SetLineSpacingStyle(OH_ArkUI_SpanStyle* spanStyle, const OH_ArkUI_LineSpacingStyle* lineSpacingStyle)
+```
+
+**描述**
+
+设置属性字符串样式对象的行间距样式。
+
+> [!NOTE]
+> 此操作会替换 OH_ArkUI_SpanStyle 对象中已设置的其他样式。
+
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ArkUI_SpanStyle* spanStyle | 指向OH_ArkUI_SpanStyle对象的指针。 |
+| const OH_ArkUI_LineSpacingStyle* lineSpacingStyle | 指向OH_ArkUI_LineSpacingStyle对象的指针。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回结果码。 ARKUI_ERROR_CODE_NO_ERROR 操作成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+
+
+
+
+#### OH_ArkUI_SpanStyle_GetLineSpacingStyle()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_SpanStyle_GetLineSpacingStyle(const OH_ArkUI_SpanStyle* spanStyle, OH_ArkUI_LineSpacingStyle* lineSpacingStyle)
+```
+
+**描述**
+
+获取属性字符串样式对象的行间距样式。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_ArkUI_SpanStyle* spanStyle | 指向OH_ArkUI_SpanStyle对象的指针。 |
+| OH_ArkUI_LineSpacingStyle* lineSpacingStyle | 指向OH_ArkUI_LineSpacingStyle对象的指针。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回结果码。 ARKUI_ERROR_CODE_NO_ERROR 操作成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+
+
+
+
+#### OH_ArkUI_LineSpacingStyle_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_ArkUI_LineSpacingStyle* OH_ArkUI_LineSpacingStyle_Create()
+```
+
+**描述**
+
+创建[OH_ArkUI_LineSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-linespacingstyle)对象。
+
+> [!NOTE]
+> 该对象不再使用时，请及时调用 OH_ArkUI_LineSpacingStyle_Destroy 销毁。
+
+
+**起始版本：** 26.0.0
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_ArkUI_LineSpacingStyle* | 指向OH_ArkUI_LineSpacingStyle对象的指针。 |
+
+
+
+
+#### OH_ArkUI_LineSpacingStyle_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void OH_ArkUI_LineSpacingStyle_Destroy(OH_ArkUI_LineSpacingStyle* lineSpacingStyle)
+```
+
+**描述**
+
+释放[OH_ArkUI_LineSpacingStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-oh-arkui-linespacingstyle)对象占用的内存。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ArkUI_LineSpacingStyle* lineSpacingStyle | 指向OH_ArkUI_LineSpacingStyle对象的指针。 |
+
+
+
+
+#### OH_ArkUI_LineSpacingStyle_SetLineSpacing()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetLineSpacing(OH_ArkUI_LineSpacingStyle* lineSpacingStyle, float lineSpacing)
+```
+
+**描述**
+
+设置行间距。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ArkUI_LineSpacingStyle* lineSpacingStyle | 指向OH_ArkUI_LineSpacingStyle对象的指针。 |
+| float lineSpacing | 行间距值，单位为vp。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回结果码。 ARKUI_ERROR_CODE_NO_ERROR 操作成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+
+
+
+
+#### OH_ArkUI_LineSpacingStyle_GetLineSpacing()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetLineSpacing(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, float* lineSpacing)
+```
+
+**描述**
+
+查询行间距。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_ArkUI_LineSpacingStyle* lineSpacingStyle | 指向OH_ArkUI_LineSpacingStyle对象的指针。 |
+| float* lineSpacing | 行间距值，单位为vp。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回结果码。 ARKUI_ERROR_CODE_NO_ERROR 操作成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+
+
+
+
+#### OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_SetOnlyBetweenLines(OH_ArkUI_LineSpacingStyle* lineSpacingStyle, bool onlyBetweenLines)
+```
+
+**描述**
+
+设置行间距是否只在行间生效。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ArkUI_LineSpacingStyle* lineSpacingStyle | 指向OH_ArkUI_LineSpacingStyle对象的指针。 |
+| bool onlyBetweenLines | 行间距是否只在行间生效。true表示仅在行与行之间添加间距，首行上方、尾行下方无额外间距，false表示所有行之间、首行上方、尾行下方均添加完整行间距。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回结果码。 ARKUI_ERROR_CODE_NO_ERROR 操作成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |
+
+
+
+
+#### OH_ArkUI_LineSpacingStyle_GetOnlyBetweenLines()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_LineSpacingStyle_GetOnlyBetweenLines(const OH_ArkUI_LineSpacingStyle* lineSpacingStyle, bool* onlyBetweenLines)
+```
+
+**描述**
+
+查询行间距是否只在行间生效。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_ArkUI_LineSpacingStyle* lineSpacingStyle | 指向OH_ArkUI_LineSpacingStyle对象的指针。 |
+| bool* onlyBetweenLines | 行间距是否只在行间生效。true表示仅在行与行之间添加间距，首行上方、尾行下方无额外间距，false表示所有行之间、首行上方、尾行下方均添加完整行间距。 |
 
 
 **返回：**

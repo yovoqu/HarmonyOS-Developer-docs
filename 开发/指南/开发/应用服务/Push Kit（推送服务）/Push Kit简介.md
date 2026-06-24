@@ -1,6 +1,6 @@
 # Push Kit简介
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/push-kit-introduction
 
@@ -129,7 +129,7 @@ Push Kit当前[支持的设备](#支持的设备)中Wearable设备支持的国�
 
 #### 支持的设备
 
-Push Kit相关能力支持Phone、Tablet、PC/2in1、Wearable、TV设备。
+Push Kit相关能力支持Phone、Tablet、PC/2in1、Wearable、TV、Car设备。
 
 > [!NOTE]
 > Wearable设备仅在有网且独立使用场景下支持，在连接手机场景下不支持。

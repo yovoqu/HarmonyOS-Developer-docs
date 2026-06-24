@@ -1,22 +1,24 @@
 # FAST Kit简介
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-introduction
 
-FAST Kit（算法加速服务）以理论计算机为基础、面向开发者提供算法加速能力。当前开放线段表、矩形划分求解器与数字信号处理（DSP）接口，支撑应用的开发体验和用户体验提升。
+FAST Kit（算法加速服务）以理论计算机为基础、面向开发者提供算法加速能力。当前开放线段表、矩形划分求解器、数字信号处理（DSP）与数理预测接口，支撑应用的开发体验和用户体验提升。
  
 当前FAST Kit包括以下功能域：
  
 - 高阶数据结构（Advanced Data Structure）加速功能域旨在融合理论计算机科学中具有理论保证的高级数据结构与现代硬件特性，当前提供[线段表数据结构](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-segment-map)，[并发哈希表数据结构](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-concurrent-hashmap)。
 - 规划求解（Solver）加速功能域旨在将理论计算机科学与运筹学中的优化求解能力运用到鸿蒙生态中的各类场景，当前提供[矩形划分求解器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-rect-partition)。
-- 数字信号处理（Digital Signal Processing）加速功能域旨在提供高性能的向量运算及二阶IIR滤波器能力，当前提供[向量运算](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-dsp-vector-calculation)，[二阶IIR滤波](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-dsp-iir-filter)。
+- 数字信号处理（Digital Signal Processing）加速功能域旨在提供高性能的向量运算、FFT变换及二阶IIR滤波器能力，当前提供[向量运算](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-dsp-vector-calculation)，[FFT变换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-dsp-transform)，[二阶IIR滤波](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-dsp-iir-filter)。
+- 容器（Collections）加速功能域旨在提供高性能的容器数据结构，当前提供[哈希表数据结构](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-hashmap)。
+- 数理预测（Math Prediction）加速功能域旨在提供基于历史采样数据的预测能力，当前提供[智能序列预测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fast-math-prediction)。
 
   
 
 #### 场景介绍
 
-FAST Kit基于理论计算机科学，通过理论算法优化，为应用的性能、负载与功耗优化提供算法加速能力支持，当前Kit提供“高阶数据结构-线段表”，“规划求解-矩形划分求解器”，“高阶数据结构-并发哈希表”和“数字信号处理”，具体如下：
+FAST Kit基于理论计算机科学，通过理论算法优化，为应用的性能、负载与功耗优化提供算法加速能力支持，当前Kit提供“高阶数据结构-线段表”，“规划求解-矩形划分求解器”，“高阶数据结构-并发哈希表”，“数字信号处理”，“通用和自然语言排序”和“数理预测-智能序列预测”，具体如下：
  
 - 线段表：是一种用于高效处理区间段信息的数据结构，支持数据序列区间段的快速更新和快速查询。以下是一些典型使用场景：
 
@@ -39,13 +41,30 @@ UI渲染与布局优化：多个相邻UI控件背景合并为更少的绘制区�
 - 实时缓存与数据库：高频交易系统中缓存行情数据或用户会话，支持毫秒级并发存取；数据库连接池或查询缓存中快速路由与共享资源，避免锁竞争。
 - 网络与网关服务：API网关或负载均衡器中记录IP限流计数、实时更新路由策略；Web服务器管理并发用户会话，快速定位并维持状态信息。
 
-  - 数字信号处理：提供高性能的向量运算与二阶IIR滤波器能力，支持单精度和双精度算术运算。以下是一些典型使用场景：
+  - 数字信号处理：提供高性能的向量运算、FFT计算与二阶IIR滤波器能力，支持单精度和双精度算术运算。以下是一些典型使用场景：
 
   
-音频信号处理：音频降噪、均衡器（EQ）、低通/高通/带通滤波、多通道音频处理等。
+快速傅里叶变换：频谱分析、频域滤波、信号重构、音频处理、振动分析等。
+- 音频信号处理：音频降噪、均衡器（EQ）、低通/高通/带通滤波、多通道音频处理等。
 - 传感器数据分析：加速度计、陀螺仪等传感器数据的滤波与特征提取；实时信号峰值检测与统计计算等。
 - 通信与信号分析：复数信号格式转换（交错/分离格式）、向量点积运算、信号能量计算等。
-- 机器学习推理：特征向量计算、向量归一化、统计特征提取等预处理操作。
+
+  - 智能序列预测：基于历史采样数据，利用FAST Kit内置算法预测下一个时刻的序列值。以下是一些典型使用场景：
+
+  
+手势跟踪：根据历史触摸点的位置和时间，预测下一帧触摸点的索引位置，减少触摸跟随延迟。
+- 动画曲线预测：基于动画曲线已有的关键帧索引-时间采样，预测后续帧的索引变化趋势，实现更平滑的动画过渡。
+- 运动轨迹预估：在游戏或交互应用中，根据物体的历史运动轨迹采样，预测其后续位置，提升响应速度。
+- 滚动惯性预测：在列表滚动场景中，根据历史滚动偏移量采样，预测减速阶段的最终停止位置。
+
+  - 哈希表：是一种高性能的键值对数据结构，支持插入、删除与查找操作，适用单线程场景优化设计。以下是一些典型使用场景：
+
+  
+应用启动与初始化：APP启动时快速构建配置索引表，加速资源加载与初始化流程；预加载常用数据到内存哈希表，减少后续查询延迟等。
+- 缓存与状态管理：本地缓存系统中存储用户偏好设置、会话令牌等键值数据；游戏或应用中维护玩家状态、物品属性等实时数据的快速访问等。
+- 索引与查找优化：文档编辑器中建立关键词到位置的索引，实现快速定位与高亮；内容管理系统中构建标签到文章的映射，支持快速检索与分类等。
+- 去重与计数：日志分析系统中统计特定事件的occurrence次数；网络应用中维护已处理请求的ID集合，防止重复处理；数据清洗中快速识别并过滤重复记录等。
+- 配置与元数据管理：微服务架构中缓存服务注册信息与路由配置；应用运行时动态加载的配置参数快速读取与更新等。
 
   
  

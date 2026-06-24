@@ -1,6 +1,6 @@
 # 测试过程中，控件语义识别中的“XXX的项”、“XXX的列”应如何理解
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-exploration-test-2
 

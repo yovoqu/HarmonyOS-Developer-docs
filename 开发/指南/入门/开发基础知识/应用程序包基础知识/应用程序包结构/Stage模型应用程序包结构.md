@@ -1,6 +1,6 @@
-# Stage模型应用程序包结构
+# 应用程序包结构
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-structure-stage
 
@@ -65,4 +65,4 @@
 **图3** 编译发布与上架部署流程图
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/GQmQ041XS2m0J1m7rrA5aw/zh-cn_image_0000002611753453.png?HW-CC-KV=V1&HW-CC-Date=20260528T025918Z&HW-CC-Expire=86400&HW-CC-Sign=DA2D384882CF1DAD83672F27ED2ED294F00D6200AA845094883D21573B7A31AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/uvvV9JyoQ6aXy6mKA-FH7g/zh-cn_image_0000002626227906.png?HW-CC-KV=V1&HW-CC-Date=20260624T020653Z&HW-CC-Expire=86400&HW-CC-Sign=C1069C3A629B4EFB91FA7DAC24020F5A159521644A86D58991EF003493D64C2C)

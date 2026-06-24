@@ -1,6 +1,6 @@
 # FIDO2_PublicKeyCredentialRpEntity
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_rp_entity
 
@@ -22,8 +22,8 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| char * id | 依赖方标识符。 |
-| char * name | 依赖方名称。 |
+| char * id | 依赖方标识符。默认值为空。长度限制0到512。 |
+| char * name | 依赖方名称。 长度限制0到512。 |
  
  
   

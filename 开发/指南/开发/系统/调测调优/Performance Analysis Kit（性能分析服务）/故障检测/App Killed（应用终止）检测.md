@@ -1,6 +1,6 @@
 # App Killed（应用终止）检测
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appkilled-guidelines
 
@@ -116,6 +116,8 @@
 
 | PowerSaveClean | 整机切换到省电模式或应急模式。 | 无需处理。 | 否 | 否 |
 
+| VrsKill | 三方应用检测到恶意进程后，调用PC端病毒检测处置服务接口终止进程。 | 无需处理。 | 否 | 否 |
+
 | RssThresholdKiller | 应用的RSS内存超一定阈值。 | 尝试通过HiAppEvent订阅RESOURCE_OVERLIMIT获取更多的RSS内存日志，找到泄漏点后，尝试降低应用自身的内存占用，避免出现RSS内存超过阈值的情况。 | 是 | 是 |
 
 | OomKiller | 整机低内存，触发了内核管控，按照一定策略终止应用。 | 尝试降低应用自身的内存占用，以减少被整机管控策略选中的概率。 | 否 | 否 |
@@ -162,7 +164,7 @@
 
 | AppFreeze | 应用冻屏无响应。 | 通过HiAppEvent订阅APP_FREEZE事件，到APP_FREEZE事件中去匹配。 | 是 | 是，具体参考AppFreeze。 |
 
-| MALICIOUS_CONTINUOUSTASK_ACTIVE | 恶意连续任务活跃。 | 检查应用是否存在恶意连续任务，优化任务调度。 | 是 | 否 |
+| MaliciousContinuousTaskActive | 恶意连续任务活跃。 | 检查应用是否存在恶意连续任务，优化任务调度。 | 是 | 否 |
 
 | RsDataOverflow | RS数据溢出。 | 尝试降低应用RS数据使用量。 | 否 | 否 |
 
@@ -172,7 +174,7 @@
 
 | TooManyReadyThreads | 单进程就绪线程过多。 | 尝试减少应用创建的线程数量，优化线程管理。 | 是 | 否 |
 
-| REASON_RESOURCE_CONTROL | 资源控制原因。 | 尝试降低应用自身的资源占用。 | 否 | 否 |
+| JsHeapSleepCleanKill | sleep状态（夜间充电）进行js heapsize检测，超限后终止应用。 | 归类为整机后台内存清理，尝试优化js heap的使用率。 | 否 | 否 |
 
 | HardwareDecodingResourcesLimit | 硬件解码资源限制。 | 尝试减少应用对硬件解码资源的使用。 | 否 | 否 |
 

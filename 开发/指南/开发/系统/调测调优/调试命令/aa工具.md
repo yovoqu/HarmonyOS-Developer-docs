@@ -1,6 +1,6 @@
 # aa工具
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/aa-tool
 
@@ -38,6 +38,7 @@ hdc shell "aa process -b com.example.myapplication -a EntryAbility -p perf-cmd"
 | appdebug | 等待调试命令。用于设置、取消设置应用等待调试状态，以及获取处于等待调试状态的应用包名和持久化信息。等待调试状态只对debug类型应用生效。appdebug的设置命令只对单个应用生效，当重复设置时，应用包名与持久化状态会替换成最新设置内容。 |
 | process | 应用调试/调优命令。对应用进行调试或调优，IDE用该命令集成调试和调优工具。 |
 | send-memory-level | onMemoryLevel回调命令。指定进程的pid和内存使用级别来触发该进程的onMemoryLevel生命周期回调。 |
+| pre-start | 应用预启动命令。用于在后台预先启动应用到生命周期特定阶段，以提升用户点击应用的启动速度。 |
 
 
 
@@ -58,10 +59,10 @@ aa help
 ```bash
 # 显示启动Ability。
 # 如果需要启动分身应用，可以使用[--pi ohos.extra.param.key.appCloneIndex <unsigned integer-value>]来指定分身应用的索引。
-aa start [-d <deviceId>] [-a <abilityName> -b <bundleName>] [-m <moduleName>] [-c] [-E] [-D] [-R] [-S] [-W] [--pi <key> <unsigned integer-value>] [--pb <key> <bool-value: true/false/t/f大小写不敏感] [--ps <key> <value>] [--psn <key>] [--wl <windowLeft>] [--wt <windowTop>] [--wh <windowHeight>] [--ww <windowWidth>] [-p <perf-cmd>]
+aa start [-d <deviceId>] [-a <abilityName> -b <bundleName>] [-m <moduleName>] [-u <userId>] [-c] [-E] [-D] [-R] [-S] [-W] [--pi <key> <unsigned integer-value>] [--pb <key> <bool-value: true/false/t/f大小写不敏感] [--ps <key> <value>] [--psn <key>] [--wl <windowLeft>] [--wt <windowTop>] [--wh <windowHeight>] [--ww <windowWidth>] [-p <perf-cmd>]
 
 # 隐式启动Ability。如果命令中的参数都不填，会导致启动失败。
-aa start [-d <deviceId>] [-U <URI>] [-t <type>] [-A <action>] [-e <entity>] [-c] [-D] [-E] [-R] [--pi <key> <unsigned integer-value>] [--pb <key> <bool-value: true/false/t/f大小写不敏感] [--ps <key> <value>] [--psn <key>] [--wl <windowLeft>] [--wt <windowTop>] [--wh <windowHeight>] [--ww <windowWidth>] [-p <perf-cmd>]
+aa start [-d <deviceId>] [-U <URI>] [-t <type>] [-A <action>] [-e <entity>] [-u <userId>] [-c] [-D] [-E] [-R] [--pi <key> <unsigned integer-value>] [--pb <key> <bool-value: true/false/t/f大小写不敏感] [--ps <key> <value>] [--psn <key>] [--wl <windowLeft>] [--wt <windowTop>] [--wh <windowHeight>] [--ww <windowWidth>] [-p <perf-cmd>]
 ```
 
 **启动命令参数列表**
@@ -76,6 +77,7 @@ aa start [-d <deviceId>] [-U <URI>] [-t <type>] [-A <action>] [-e <entity>] [-c]
 | -U | 可选参数，URI。 说明： 仅支持传递字符串。 |
 | -A | 可选参数，action。 |
 | -e | 可选参数，entity。 |
+| -u | 可选参数，userId，表示用户ID。在多用户场景下，用于区分同一设备上不同用户账号下的应用。 说明： 从API版本26.0.0开始，支持该参数。 |
 | -t | 可选参数，type。 |
 | --pi | 可选参数，整型类型键值对。 说明： 仅支持无符号整型值。 |
 | --pb | 可选参数，布尔类型键值对。 |
@@ -300,7 +302,7 @@ aa dump -l
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/ArLogffIR32W3CGWkvda0w/zh-cn_image_0000002622858373.png?HW-CC-KV=V1&HW-CC-Date=20260611T074928Z&HW-CC-Expire=86400&HW-CC-Sign=70807AF0C5EE59D6CCEDC167DB80D4A4C091A1DFFDBD2800FA0FACB90591300A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/2D_yJIF1TpS5YrSQJUPQng/zh-cn_image_0000002626229084.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=71249AB6CDD0A9B2C14010F85473876A68D5B7215BB93DB66C2DB18B017D30AF)
 
 
 ```bash
@@ -309,7 +311,7 @@ aa dump -i 105
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3d/v3/rsl49167Q0y9la1l2GaXGg/zh-cn_image_0000002622698495.png?HW-CC-KV=V1&HW-CC-Date=20260611T074928Z&HW-CC-Expire=86400&HW-CC-Sign=E7D7A42535C0C3F34D062C2EE7DC4C8FDB4D52738D0F24F15F8BA86DA4411AD7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/jZiwkVzdRg2lCfgpklok_w/zh-cn_image_0000002626069174.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=A9E2189365862486870A89D8D91ED0869FE45F187BB2D39D2BABEC2A5D7D3C9F)
 
 
 
@@ -627,6 +629,47 @@ aa send-memory-level -p 6066 -l 0
 
 
 
+#### 应用预启动命令（pre-start）
+
+从 API version 26.0.0 开始，开发者可以通过此命令在后台预先启动应用，以提升用户点击应用的启动速度。当前支持预启动应用到生命周期的特定阶段，即会先将应用预启动到[onDidForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#ondidforeground20)阶段（前台窗口会隐藏不显示），若默认30秒内用户未手动点击应用，系统会自动将应用预启动到[onDidBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability#ondidbackground20)阶段。
+
+```bash
+aa pre-start -m <MODE> -b <BUNDLE-NAME> -u <USER-ID>
+```
+
+**参数列表**
+
+| 参数 | 参数说明 |
+| --- | --- |
+| -h/--help | 帮助信息。用于显示命令的帮助信息。 |
+| -m | 必选参数，预启动模式。当前仅支持模式 1，表示预启动应用到生命周期特定阶段，参数值需设为 1。 |
+| -b | 必选参数，bundleName。表示要预启动的应用包名。 |
+| -u | 必选参数，userId。表示用户ID，用于指定预启动应用的用户。 |
+
+
+**返回值**：
+
+当执行成功时，返回"prestart successfully."；当执行失败时，返回"error: failed to prestart."；当输入未知参数时返回"fail: unknown option."并打印帮助信息。
+
+**错误码**：
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 10106003 | Currently, only mode 1 (Specific stage prelaunch) is supported. |
+
+
+**示例**：
+
+```bash
+# 预启动指定包名的应用
+aa pre-start -m 1 -b com.example.myapplication -u 100
+
+# 查看帮助信息
+aa pre-start -h
+```
+
+
+
 #### aa工具错误码
 
 
@@ -823,6 +866,26 @@ aa start命令的参数wl、wt、wh、ww或aa test命令不支持release签名�
 **处理步骤**
 
 使用Debug签名证书重新签名，安装新签名出的HAP后，再尝试执行该命令。
+
+
+
+#### 10106003 不支持的预启动模式
+
+**错误信息**
+
+Currently, only mode 1 (Specific stage prelaunch) is supported.
+
+**错误描述**
+
+使用 aa pre-start 命令时指定的预启动模式不受支持，系统将返回该错误码。
+
+**可能原因**
+
+aa pre-start 命令的 -m 参数指定的值不是 1。当前仅支持模式 1，即预启动应用到生命周期特定阶段。
+
+**处理步骤**
+
+检查-m参数的值，确保设置为1。
 
 
 

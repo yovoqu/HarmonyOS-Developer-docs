@@ -1,6 +1,6 @@
 # 通过标准化数据通路实现数据共享 (ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unified-data-channels
 
@@ -120,13 +120,13 @@ try {
     if (err === undefined) {
       hilog.info(0xFF00, '[Sample_Udmf]', `Succeeded in inserting data. key = ${key}`);
     } else {
-      hilog.error(0xFF00, '[Sample_Udmf]', `Succeeded in inserting data. key = ${key})`);
+      hilog.error(0xFF00, '[Sample_Udmf]', `Failed to insert data. code is ${err.code}, message is ${err.message}`);
     }
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
   hilog.error(0xFF00, '[Sample_Udmf]',
-    `Insert data throws an exception. code is ${error.code},message is ${error.message}`);
+    `Insert data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -160,13 +160,13 @@ try {
     if (err === undefined) {
       hilog.info(0xFF00, '[Sample_Udmf]', `Succeeded in updating data.`);
     } else {
-      hilog.error(0xFF00, '[Sample_Udmf]', `Failed to update data. code is ${err.code},message is ${err.message}`);
+      hilog.error(0xFF00, '[Sample_Udmf]', `Failed to update data. code is ${err.code}, message is ${err.message}`);
     }
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
   hilog.error(0xFF00, '[Sample_Udmf]',
-    `Update data throws an exception. code is ${error.code},message is ${error.message}`);
+    `Update data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -201,13 +201,13 @@ try {
         }
       }
     } else {
-      hilog.error(0xFF00, '[Sample_Udmf]', `Failed to delete data. code is ${err.code},message is ${err.message}`);
+      hilog.error(0xFF00, '[Sample_Udmf]', `Failed to delete data. code is ${err.code}, message is ${err.message}`);
     }
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
   hilog.error(0xFF00, '[Sample_Udmf]',
-    `Delete data throws an exception. code is ${error.code},message is ${error.message}`);
+    `Delete data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```
 
@@ -255,12 +255,12 @@ try {
         }
       }
     } else {
-      hilog.error(0xFF00, '[Sample_Udmf]', `Failed to query data. code is ${err.code},message is ${err.message}`);
+      hilog.error(0xFF00, '[Sample_Udmf]', `Failed to query data. code is ${err.code}, message is ${err.message}`);
     }
   });
 } catch (e) {
   let error: BusinessError = e as BusinessError;
   hilog.error(0xFF00, '[Sample_Udmf]',
-    `Query data throws an exception. code is ${error.code},message is ${error.message}`);
+    `Query data throws an exception. code is ${error.code}, message is ${error.message}`);
 }
 ```

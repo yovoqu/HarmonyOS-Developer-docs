@@ -1,6 +1,6 @@
 # ArkTS运行时常见问题
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-runtime-faq
 
@@ -269,7 +269,7 @@ let res = str.replace(/^/, 'abc');
 如果在Async函数内部产生了异常，且没有使用catch捕获该异常，在ArkTS中不会导致进程退出。其本质是Async函数返回了一个rejected状态的Promise对象，没有被处理，使得Promise的rejected状态没有被捕获。Async函数内部的异常会变成 unhandledRejection，表现为异常未抛出。
 
 **Async函数内部异常的捕获方式**
-1. 使用[errorManager.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-errormanager#errormanageronerror)捕获到Async函数产生的unhandledrejection事件，再通过编写errorManager.on()注册的回调函数，来进行异常处理操作。
+1. 使用[errorManager.on()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-errormanager#errormanageronerror)捕获到Async函数产生的unhandledRejection事件，再通过编写errorManager.on()注册的回调函数，来进行异常处理操作。
 
   
 ```ArkTS
@@ -302,7 +302,7 @@ hilog -b D
 然后点击DevEco Studio下方HiLog选项卡，输入过滤条件“Throw error:”，即可查看到Async函数内产生的异常信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/64/v3/wLioiAvMRbuOwxHvzjrsAQ/zh-cn_image_0000002611833429.png?HW-CC-KV=V1&HW-CC-Date=20260528T030518Z&HW-CC-Expire=86400&HW-CC-Sign=0A542D6CEA7389D5F0821E2EF7FFCC4EF8B21FD5A80B9DB31A801AA81E151161)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/UEemgug1S0-nN3iXWD9LuQ/zh-cn_image_0000002656347405.png?HW-CC-KV=V1&HW-CC-Date=20260624T020739Z&HW-CC-Expire=86400&HW-CC-Sign=926773598498019CC04F19CF892153E7D049A6A9FDD39F11986202E20BE1224D)
 
 
 

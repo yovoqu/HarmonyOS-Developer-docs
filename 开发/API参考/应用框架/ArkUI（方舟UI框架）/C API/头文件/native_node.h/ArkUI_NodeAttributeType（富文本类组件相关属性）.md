@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（富文本类组件相关属性）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-richeditor
 
@@ -121,14 +121,14 @@ TextEditor组件滚动条显示模式，支持属性设置、属性重置和属�
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 文本区域的滚动条显示模式，参数类型ArkUI_BarState，默认值为ARKUI_BAR_STATE_AUTO。 |
+| .value[0].i32 | 滚动条显示模式，参数类型ArkUI_BarState，默认值为ARKUI_BAR_STATE_AUTO。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 文本区域的滚动条显示模式，参数类型ArkUI_BarState。 |
+| .value[0].i32 | 滚动条显示模式，参数类型ArkUI_BarState。 |
  
  
   
@@ -562,14 +562,14 @@ TextEditor组件中西文自动间距开关，支持属性设置、属性重置�
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否启用自动间距，0表示不启用，1表示启用，默认值为0。 |
+| .value[0].i32 | 是否启用中西文自动间距，0表示不启用，1表示启用，默认值为0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否启用自动间距，0表示不启用，1表示启用。 |
+| .value[0].i32 | 是否启用中西文自动间距，0表示不启用，1表示启用。 |
  
  
   
@@ -697,14 +697,14 @@ TextEditor组件行首标点符号压缩开关，支持属性设置、属性重�
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 是否启用标点符号压缩，0表示不启用，1表示启用，默认值为0。 |
+| .value[0].i32 | 是否启用行首标点符号压缩，0表示不启用，1表示启用，默认值为0。 |
  
  
 **返回：**
   
 | 类型 | 说明 |
 | --- | --- |
-| .value[0].i32 | 是否启用标点符号压缩，0表示不启用，1表示启用。 |
+| .value[0].i32 | 是否启用行首标点符号压缩，0表示不启用，1表示启用。 |
  
  
   
@@ -761,3 +761,59 @@ TextEditor组件单行模式开关，支持属性设置、属性重置和属性�
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 是否启用单行模式，0表示不启用，1表示启用。 |
+ 
+ 
+  
+
+#### NODE_TEXT_EDITOR_ORPHAN_CHAR_OPTIMIZATION
+
+```text
+NODE_TEXT_EDITOR_ORPHAN_CHAR_OPTIMIZATION = 22028
+```
+ 
+设置TextEditor文本排版时是否使能孤字优化，设置后，通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[ArkUI_WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_wordbreak)属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 是否使能孤字优化，1表示使能，0表示不使能。默认值为0。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 是否使能孤字优化。 |
+ 
+ 
+  
+
+#### NODE_TEXT_EDITOR_HORIZONTAL_SCROLLING
+
+```text
+NODE_TEXT_EDITOR_HORIZONTAL_SCROLLING = 22029
+```
+ 
+设置TextEditor组件在文本宽度超过内容区宽度时是否启用水平滚动，支持属性设置，属性重置和属性获取。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 是否启用水平滚动。1表示启用水平滚动，0表示不启用水平滚动。默认值为0。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 是否启用水平滚动。 |

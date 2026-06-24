@@ -1,6 +1,6 @@
 # napi_call_function调用时除了会有pending exception外，是否还有其他异常场景
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-69
 

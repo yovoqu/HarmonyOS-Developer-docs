@@ -1,6 +1,6 @@
 # 针对 HarmonyOS 应用测试，DevEco Testing提供了哪些配套测试能力
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-deveco-testing-faq-1
 

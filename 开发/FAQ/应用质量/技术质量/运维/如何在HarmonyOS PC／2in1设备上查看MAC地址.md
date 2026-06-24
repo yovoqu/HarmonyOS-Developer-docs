@@ -1,6 +1,6 @@
 # 如何在HarmonyOS PC/2in1设备上查看MAC地址
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:32:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-50
 

@@ -1,6 +1,6 @@
 # Sendable对象冻结
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sendable-freeze
 
@@ -16,7 +16,6 @@ Sendable对象支持冻结操作。冻结后，对象变为只读，不能修改
 
   
 ```ts
-// helper.ts
 export function freezeObj(obj: any) {
   Object.freeze(obj);
 }
@@ -26,10 +25,9 @@ export function freezeObj(obj: any) {
 
   
 ```ArkTS
-// SendableFreeze.ets
 import { freezeObj } from './helper';
 import { worker } from '@kit.ArkTS';
- 
+
 @Sendable
 export class GlobalConfig {
   // 一些配置属性与方法
@@ -38,21 +36,28 @@ export class GlobalConfig {
     freezeObj(this); // 初始化完成后冻结当前对象
   }
 }
- 
+
 @Entry
 @Component
 struct Index {
+  @State message: string = 'Sendable freezeObj Test';
+
   build() {
-    Column() {
-      Text("Sendable freezeObj Test")
+    RelativeContainer() {
+      Text(this.message)
         .id('HelloWorld')
         .fontSize(50)
         .fontWeight(FontWeight.Bold)
+        .alignRules({
+          center: { anchor: '__container__', align: VerticalAlign.Center },
+          middle: { anchor: '__container__', align: HorizontalAlign.Center }
+        })
         .onClick(() => {
-          let gConfig = new GlobalConfig();
-          gConfig.init();
-          const workerInstance = new worker.ThreadWorker('entry/ets/workers/Worker.ets', { name: "Worker1" });
-          workerInstance.postMessage(gConfig);
+          let gConifg = new GlobalConfig();
+          gConifg.init();
+          const workerInstance = new worker.ThreadWorker('entry/ets/workers/Worker.ets', { name: 'Worker1' });
+          workerInstance.postMessage(gConifg);
+          this.message = 'success';
         })
     }
     .height('100%')
@@ -65,9 +70,9 @@ struct Index {
 
   
 ```ArkTS
-// Worker.ets
 import { ErrorEvent, MessageEvents, ThreadWorkerGlobalScope, worker } from '@kit.ArkTS';
-import { GlobalConfig } from '../pages/Index';
+// import { GlobalConfig } from '../pages/Index';
+import { GlobalConfig } from '../managers/SendableFreeze';
 
 const workerPort: ThreadWorkerGlobalScope = worker.workerPort;
 workerPort.onmessage = (e: MessageEvents) => {

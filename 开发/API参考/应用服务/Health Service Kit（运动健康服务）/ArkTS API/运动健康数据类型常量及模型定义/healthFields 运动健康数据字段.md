@@ -1,6 +1,6 @@
 # healthFields (运动健康数据字段)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthfields
 **支持设备：** Phone | Tablet | Wearable
@@ -33,6 +33,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -51,6 +53,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -72,10 +76,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| altitude | number | 否 | 否 | 海拔。 单位：米 |
+| altitude | number | 否 | 否 | 海拔。 单位：m |
  
  
   
@@ -89,14 +95,16 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| max | number | 否 | 否 | 最大值。 单位：米 |
-| min | number | 否 | 否 | 最小值。 单位：米 |
-| avg | number | 否 | 是 | 平均值，若未填写，默认为空。 单位：米 |
-| totalAscent | number | 否 | 是 | 累计爬升，若未填写，默认为空。 单位：米 取值范围：[0, ∞) |
-| totalDescent | number | 否 | 是 | 累计下降，若未填写，默认为空。 单位：米 取值范围：[0, ∞) |
+| max | number | 否 | 否 | 最大值。 单位：m |
+| min | number | 否 | 否 | 最小值。 单位：m |
+| avg | number | 否 | 是 | 平均值，若未填写，默认为空。 单位：m |
+| totalAscent | number | 否 | 是 | 累计爬升，若未填写，默认为空。 单位：m 取值范围：[0, ∞) |
+| totalDescent | number | 否 | 是 | 累计下降，若未填写，默认为空。 单位：m 取值范围：[0, ∞) |
  
  
   
@@ -110,6 +118,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -129,6 +139,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -151,6 +163,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -171,6 +185,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -184,11 +200,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type BiathlonSummary = SportsSummary
+ 
 冬季两项统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -207,10 +227,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| spo2 | number | 否 | 否 | 血氧饱和度。 单位：百分比 取值范围：(0, 100]。 |
+| spo2 | number | 否 | 否 | 血氧饱和度。 单位：% 取值范围：(0, 100] |
  
  
   
@@ -224,6 +246,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -241,6 +265,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -262,10 +288,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| bodyTemperature | number | 否 | 否 | 体温。 单位：摄氏度 取值范围：[34, 42]。 |
+| bodyTemperature | number | 否 | 否 | 体温。 单位：°C 取值范围：[34, 42] |
  
  
   
@@ -279,6 +307,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -291,11 +321,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type BreathHoldingTestDetail = SportsDetail
+ 
 闭气测试详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -313,10 +347,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| diaphragmTime | number | 否 | 否 | 横膈膜打点时间。 单位：秒 |
+| diaphragmTime | number | 否 | 否 | 横膈膜打点时间。 单位：s |
  
  
   
@@ -330,6 +366,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -343,11 +381,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type BreathHoldingTrainDetail = SportsDetail
+ 
 闭气训练详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -365,11 +407,13 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| breathTime | number | 否 | 否 | 呼吸时间。 单位：秒 |
-| breathHoldingTime | number | 否 | 否 | 闭气时间。 单位：秒 |
+| breathTime | number | 否 | 否 | 呼吸时间。 单位：s |
+| breathHoldingTime | number | 否 | 否 | 闭气时间。 单位：s |
 | breathHoldingTrainRhythm | number | 否 | 是 | 闭气训练节奏数，若未填写，默认为空。 单位：次 |
  
  
@@ -384,6 +428,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -402,6 +448,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -414,11 +462,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type CadenceSummary = QuantitySummary
+ 
 步频统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -438,10 +490,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| totalCalories | number | 否 | 否 | 卡路里总和。 单位：卡 取值范围：(0, ∞) |
+| totalCalories | number | 否 | 否 | 卡路里总和。 单位：cal 取值范围：(0, ∞) |
  
  
   
@@ -474,6 +528,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -497,6 +553,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -522,16 +580,18 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | step | number | 否 | 否 | 步数。 单位：步 取值范围：[0, 500) |
-| calorie | number | 否 | 否 | 热量。 单位：卡 取值范围：[0, 65536) |
-| distance | number | 否 | 否 | 距离。 单位：米 取值范围：[0, ∞) |
-| duration | number | 否 | 是 | 时长，若未填写，默认为空。 单位：分钟 取值范围：0 或 1 |
+| calorie | number | 否 | 否 | 热量。 单位：cal 取值范围：[0, 65536) |
+| distance | number | 否 | 否 | 距离。 单位：m 取值范围：[0, ∞) |
+| duration | number | 否 | 是 | 时长，若未填写，默认为空。 单位：min 取值范围：0 或 1 |
 | status | number | 否 | 是 | 状态（走、跑、骑、爬等），若未填写，默认为空。 取值范围： 2： 登山 3： 骑行 4： 跑步 5：走路 9：游泳 10：健身 13：站立 |
 | isIntensity | number | 否 | 是 | 是否中高强度，若未填写，默认为空。 取值范围： 0：否 1：是 |
-| climbHighAltitude | number | 否 | 是 | 爬高海拔差（支持正负），若未填写，默认为空。 单位：米 |
+| climbHighAltitude | number | 否 | 是 | 爬高海拔差（支持正负），若未填写，默认为空。 单位：m |
 | isStand | number | 否 | 是 | 是否站立（一个小时有活动记录，就标志这个小时的第一分钟为1），若未填写，默认为空。 取值范围： 0：否 1：是 |
  
  
@@ -548,6 +608,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -570,10 +632,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| totalDistance | number | 否 | 否 | 距离统计。 单位：米 取值范围：(0, ∞) |
+| totalDistance | number | 否 | 否 | 距离统计。 单位：m 取值范围：(0, ∞) |
  
  
   
@@ -587,10 +651,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| depth | number | 否 | 否 | 潜水深度。 单位：米 |
+| depth | number | 否 | 否 | 潜水深度。 单位：m |
  
  
   
@@ -599,16 +665,20 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type DivingDepthSummary = Omit<QuantitySummary, 'min'>
+ 
 潜水深度统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| avg | number | 否 | 否 | 平均值。 单位：米 取值范围：[0, ∞) |
-| max | number | 否 | 否 | 最大值。 单位：米 取值范围：[0, ∞) |
+| avg | number | 否 | 否 | 平均值。 单位：m 取值范围：[0, ∞) |
+| max | number | 否 | 否 | 最大值。 单位：m 取值范围：[0, ∞) |
  
  
   
@@ -622,6 +692,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -640,19 +712,21 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| divingTime | number | 否 | 否 | 潜水时间。 单位：秒 |
+| divingTime | number | 否 | 否 | 潜水时间。 单位：s |
 | divingCount | number | 否 | 否 | 潜水次数。 |
 | divingMode | number | 否 | 否 | 潜水模式。 取值参考如下： 0：自由潜水 1：休闲水肺潜水 2：技术水肺潜水 3：仪表潜水 |
-| maxUnderwaterTime | number | 否 | 是 | 单次水下最长时间，若未填写，默认为空。 单位：秒 |
-| underwaterTime | number | 否 | 是 | 水下时间，若未填写，默认为空。 单位：秒 |
-| noFlyTime | number | 否 | 是 | 禁飞时间，若未填写，默认为空。 单位：小时 |
+| maxUnderwaterTime | number | 否 | 是 | 单次水下最长时间，若未填写，默认为空。 单位：s |
+| underwaterTime | number | 否 | 是 | 水下时间，若未填写，默认为空。 单位：s |
+| noFlyTime | number | 否 | 是 | 禁飞时间，若未填写，默认为空。 单位：h |
 | waterType | number | 否 | 是 | 水体类型，若未填写，默认为空。 取值参考如下： 0：自定义 1：淡水 2：海水 |
-| waterDensity | number | 否 | 是 | 水密度，若未填写，默认为空。 单位：千克/升 |
-| maxAscentSpeed | number | 否 | 是 | 最大上升速度，若未填写，默认为空。 单位：米/秒 |
-| maxDescentSpeed | number | 否 | 是 | 最大下降速度，若未填写，默认为空。 单位：米/秒 |
+| waterDensity | number | 否 | 是 | 水密度，若未填写，默认为空。 单位：kg/L |
+| maxAscentSpeed | number | 否 | 是 | 最大上升速度，若未填写，默认为空。 单位：m/s |
+| maxDescentSpeed | number | 否 | 是 | 最大下降速度，若未填写，默认为空。 单位：m/s |
  
  
   
@@ -666,6 +740,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -705,6 +781,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -726,6 +804,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -751,6 +831,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -768,6 +850,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -780,11 +864,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type ExerciseHeartRateSummary = QuantitySummary
+ 
 运动心率统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -804,6 +892,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -822,6 +912,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -861,6 +953,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -879,11 +973,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type GolfPracticeDetail = SportsDetail
+ 
 高尔夫练习场模式详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -901,15 +999,17 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | golfSwingCount | number | 否 | 否 | 总挥杆数。 |
-| golfSwingSpeed | number | 否 | 是 | 平均挥杆速度，若未填写，默认为空。 单位：厘米/秒 |
-| golfMaxSwingSpeed | number | 否 | 是 | 最大挥杆速度，若未填写，默认为空。 单位：厘米/秒 |
+| golfSwingSpeed | number | 否 | 是 | 平均挥杆速度，若未填写，默认为空。 单位：cm/s |
+| golfMaxSwingSpeed | number | 否 | 是 | 最大挥杆速度，若未填写，默认为空。 单位：cm/s |
 | golfSwingTempo | number | 否 | 是 | 平均挥杆节奏（平均上杆时间/平均下杆时间），若未填写，默认为空。 |
-| golfDownSwingTime | number | 否 | 是 | 平均下杆时间，若未填写，默认为空。 单位：毫秒 |
-| golfBackSwingTime | number | 否 | 是 | 平均上杆时间，若未填写，默认为空。 单位：毫秒 |
+| golfDownSwingTime | number | 否 | 是 | 平均下杆时间，若未填写，默认为空。 单位：ms |
+| golfBackSwingTime | number | 否 | 是 | 平均上杆时间，若未填写，默认为空。 单位：ms |
  
  
   
@@ -923,6 +1023,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -942,6 +1044,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -959,6 +1063,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -976,10 +1082,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| heartRateVariabilityRMSSD | number | 否 | 否 | 心率变异性。 单位：毫秒 取值范围：(0, 200] |
+| heartRateVariabilityRMSSD | number | 否 | 否 | 心率变异性。 单位：ms 取值范围：(0, 200] |
  
  
   
@@ -993,10 +1101,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| height | number | 否 | 否 | 身高。 单位：厘米 |
+| height | number | 否 | 否 | 身高。 单位：cm |
  
  
   
@@ -1010,11 +1120,13 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| jumpHeight | number | 否 | 否 | 纵跃高度。 单位：米 |
-| passageDuration | number | 否 | 否 | 滞空时间。 单位：毫秒 |
+| jumpHeight | number | 否 | 否 | 纵跃高度。 单位：m |
+| passageDuration | number | 否 | 否 | 滞空时间。 单位：ms |
  
  
   
@@ -1028,6 +1140,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1046,6 +1160,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1067,6 +1183,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1087,12 +1205,14 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | jumpTimes | number | 否 | 否 | 跳跃次数。 |
-| maxJumpHeight | number | 否 | 是 | 最大跳跃高度，若未填写，默认为空。 单位：米 |
-| maxPassageDuration | number | 否 | 是 | 最大滞空时间，若未填写，默认为空。 单位：毫秒 |
+| maxJumpHeight | number | 否 | 是 | 最大跳跃高度，若未填写，默认为空。 单位：m |
+| maxPassageDuration | number | 否 | 是 | 最大滞空时间，若未填写，默认为空。 单位：ms |
  
  
   
@@ -1106,6 +1226,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1124,6 +1246,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1145,6 +1269,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1251,6 +1377,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1271,6 +1399,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1292,6 +1422,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1313,6 +1445,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1331,6 +1465,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1372,6 +1508,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1384,11 +1522,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type PedalingCadenceSummary = QuantitySummary
+ 
 踏频统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1427,6 +1569,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1447,12 +1591,14 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | pullTimes | number | 否 | 否 | 划水次数。 |
 | tripTimes | number | 否 | 否 | 趟数。 |
-| poolLength | number | 否 | 是 | 泳池长度，若未填写，默认为空。 单位：米 |
+| poolLength | number | 否 | 是 | 泳池长度，若未填写，默认为空。 单位：m |
 | swimmingStroke | number | 否 | 是 | 主泳姿，若未填写，默认为空。 取值参考如下： 1：蛙泳 2：自由泳 3：蝶泳 4：仰泳 5：混合泳 |
  
  
@@ -1467,6 +1613,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1490,10 +1638,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| power | number | 否 | 否 | 功率详情。 单位：瓦 取值范围：[0, ∞) |
+| power | number | 否 | 否 | 功率详情。 单位：W 取值范围：[0, ∞) |
  
  
   
@@ -1502,17 +1652,21 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type PowerSummary = QuantitySummary
+ 
 功率统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| avg | number | 否 | 否 | 平均值。 单位：瓦 取值范围：[0, ∞) |
-| max | number | 否 | 否 | 最大值。 单位：瓦 取值范围：[0, ∞) |
-| min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：瓦 取值范围：[0, ∞) |
+| avg | number | 否 | 否 | 平均值。 单位：W 取值范围：[0, ∞) |
+| max | number | 否 | 否 | 最大值。 单位：W 取值范围：[0, ∞) |
+| min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：W 取值范围：[0, ∞) |
  
  
   
@@ -1526,6 +1680,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1545,6 +1701,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1562,6 +1720,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1571,11 +1731,11 @@ import { healthStore } from '@kit.HealthServiceKit';
 | resLv4LowerLimit | number | 否 | 否 | 阻力区间4下限。 取值范围：[1, 100] |
 | resLv5LowerLimit | number | 否 | 否 | 阻力区间5下限。 取值范围：[1, 100] |
 | resLv5UpperLimit | number | 否 | 否 | 阻力区间5上限。 取值范围：[1, 100] |
-| resLv1Duration | number | 否 | 否 | 在阻力区间1内运动时长。 单位：分钟 取值范围：[0, ∞) |
-| resLv2Duration | number | 否 | 否 | 在阻力区间2内运动时长。 单位：分钟 取值范围：[0, ∞) |
-| resLv3Duration | number | 否 | 否 | 在阻力区间3内运动时长。 单位：分钟 取值范围：[0, ∞) |
-| resLv4Duration | number | 否 | 否 | 在阻力区间4内运动时长。 单位：分钟 取值范围：[0, ∞) |
-| resLv5Duration | number | 否 | 否 | 在阻力区间5内运动时长。 单位：分钟 取值范围：[0, ∞) |
+| resLv1Duration | number | 否 | 否 | 在阻力区间1内运动时长。 单位：min 取值范围：[0, ∞) |
+| resLv2Duration | number | 否 | 否 | 在阻力区间2内运动时长。 单位：min 取值范围：[0, ∞) |
+| resLv3Duration | number | 否 | 否 | 在阻力区间3内运动时长。 单位：min 取值范围：[0, ∞) |
+| resLv4Duration | number | 否 | 否 | 在阻力区间4内运动时长。 单位：min 取值范围：[0, ∞) |
+| resLv5Duration | number | 否 | 否 | 在阻力区间5内运动时长。 单位：min 取值范围：[0, ∞) |
 | maxRes | number | 否 | 是 | 设备可设置的最大阻力级别，若未填写，默认为空。 取值范围：[1, 100] |
 | minRes | number | 否 | 是 | 设备可设置的最小阻力级别，若未填写，默认为空。 取值范围：[1, 100] |
  
@@ -1586,11 +1746,13 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
-静息心率数据字段列表.
+静息心率数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1608,6 +1770,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1625,6 +1789,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1641,11 +1807,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type RowerFeature = RowingFeature
+ 
 划船机特征数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1663,6 +1833,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1687,6 +1859,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1705,6 +1879,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1722,6 +1898,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1743,6 +1921,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1765,12 +1945,14 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| avgPace | number | 否 | 否 | 平均配速。 取值范围：[0, ∞) 单位：秒/公里 |
-| bestPace | number | 否 | 否 | 最快配速。 取值范围：[0, ∞) 单位：秒/公里 |
-| paceMap | healthStore.PaceValueType | 否 | 是 | 每公里的配速，若未填写，默认为空。单位：秒/公里 例如 '1.0':407.945 '2.0':473.98846 '2.170':473.98846 最后不满一公里的部分，按比例换算为整公里的配速存入。 |
+| avgPace | number | 否 | 否 | 平均配速。 取值范围：[0, ∞) 单位：s/km |
+| bestPace | number | 否 | 否 | 最快配速。 取值范围：[0, ∞) 单位：s/km |
+| paceMap | healthStore.PaceValueType | 否 | 是 | 每公里的配速，若未填写，默认为空。单位：s/km 例如 '1.0':407.945 '2.0':473.98846 '2.170':473.98846 最后不满一公里的部分，按比例换算为整公里的配速存入。 |
 | partTimeMap | healthStore.PaceValueType | 否 | 是 | 公制分段数据表（key：公里，value：秒），若未填写，默认为空。 其中公里保留到小数点后4位。 Value是一个累积到当前公里的时间如： - '1.0':3.0 - '2.0':6.0 - '3.0':9.0 - '21.0975':7020.0 - '42.195':18000.0 其中，21.0975，42.195分别为半马和全马的距离（仅半马全马key值小数点后不为0）。 |
  
  
@@ -1785,22 +1967,24 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| groundContactTime | number | 否 | 否 | 触地时间。 单位：毫秒 取值范围：[0, 5000] |
+| groundContactTime | number | 否 | 否 | 触地时间。 单位：ms 取值范围：[0, 5000] |
 | groundImpactAcceleration | number | 否 | 是 | 着地冲击，若未填写，默认为空。 单位：g（重力加速度） 取值范围：[0, 50] |
 | swingAngle | number | 否 | 是 | 摆动角度，若未填写，默认为空。 单位：度 取值范围：[0, 360] |
 | eversionExcursion | number | 否 | 是 | 外翻幅度，若未填写，默认为空。 单位：度 取值范围：[-100, 100] |
-| hangTime | number | 否 | 是 | 腾空时间，若未填写，默认为空。 单位：毫秒 取值范围：[0, 500] |
+| hangTime | number | 否 | 是 | 腾空时间，若未填写，默认为空。 单位：ms 取值范围：[0, 500] |
 | groundHangTimeRate | number | 否 | 是 | 触地腾空比，若未填写，默认为空。 取值范围：[0, 500] |
 | foreFootStrikePattern | number | 否 | 是 | 触地方式中的前脚掌触地次数，若未填写，默认为空。 取值范围：[0, 100] |
 | hindFootStrikePattern | number | 否 | 是 | 触地方式中的后脚掌触地次数，若未填写，默认为空。 取值范围：[0, 100] |
 | wholeFootStrikePattern | number | 否 | 是 | 触地方式中的全脚掌触地次数，若未填写，默认为空。 取值范围：[0, 100] |
 | impactPeak | number | 否 | 是 | 触地峰值，若未填写，默认为空。 单位：BW（体重倍数） 取值范围：[0, 10] |
-| verticalOscillation | number | 否 | 是 | 垂直振幅，若未填写，默认为空。 单位：厘米 取值范围：[0, 25.6] |
-| verticalRatio | number | 否 | 是 | 垂直步幅比，若未填写，默认为空。 单位：百分比 取值范围：[0, 100] |
-| gcTimeBalance | number | 否 | 是 | 左右触地平衡，若未填写，默认为空。 单位：百分比（返回数据为左脚的触地平衡，右脚需自行计算，二者之和为100%） 取值范围：[0, 100] |
+| verticalOscillation | number | 否 | 是 | 垂直振幅，若未填写，默认为空。 单位：cm 取值范围：[0, 25.6] |
+| verticalRatio | number | 否 | 是 | 垂直步幅比，若未填写，默认为空。 单位：% 取值范围：[0, 100] |
+| gcTimeBalance | number | 否 | 是 | 左右触地平衡，若未填写，默认为空。 单位：%（返回数据为左脚的触地平衡，右脚需自行计算，二者之和为100%） 取值范围：[0, 100] |
  
  
   
@@ -1814,23 +1998,25 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| avgGroundContactTime | number | 否 | 否 | 平均触地时间。 单位：毫秒 取值范围：[0, 5000] |
+| avgGroundContactTime | number | 否 | 否 | 平均触地时间。 单位：ms 取值范围：[0, 5000] |
 | avgGroundImpactAcceleration | number | 否 | 是 | 平均着地冲击，若未填写，默认为空。 单位：g（重力加速度） |
 | avgSwingAngle | number | 否 | 是 | 平均摆动角度，若未填写，默认为空。 单位：度 |
 | avgEversionExcursion | number | 否 | 是 | 平均外翻幅度，若未填写，默认为空。 单位：度 |
-| avgHangTime | number | 否 | 是 | 平均腾空时间，若未填写，默认为空。 单位：毫秒 |
+| avgHangTime | number | 否 | 是 | 平均腾空时间，若未填写，默认为空。 单位：ms |
 | avgGroundHangTimeRate | number | 否 | 是 | 平均触地腾空比，若未填写，默认为空。 |
 | foreFootStrikePattern | number | 否 | 是 | 触地方式中的前脚掌触地次数，若未填写，默认为空。 |
 | hindFootStrikePattern | number | 否 | 是 | 触地方式中的后脚掌触地次数，若未填写，默认为空。 |
 | wholeFootStrikePattern | number | 否 | 是 | 触地方式中的全脚掌触地次数，若未填写，默认为空。 |
 | avgImpactPeak | number | 否 | 是 | 平均触地峰值，若未填写，默认为空。 单位：BW（体重倍数） |
 | avgVerticalImpactRate | number | 否 | 是 | 平均冲击负载率，若未填写，默认为空。 单位：BW/S |
-| avgVerticalOscillation | number | 否 | 是 | 平均垂直振幅，若未填写，默认为空。 单位：厘米 |
-| avgVerticalRatio | number | 否 | 是 | 平均垂直步幅比，若未填写，默认为空。 单位：百分比 |
-| avgGcTimeBalance | number | 否 | 是 | 平均左右触地平衡，若未填写，默认为空。 单位：百分比（返回数据为左脚的触地平衡，右脚需自行计算，二者之和为100%） |
+| avgVerticalOscillation | number | 否 | 是 | 平均垂直振幅，若未填写，默认为空。 单位：cm |
+| avgVerticalRatio | number | 否 | 是 | 平均垂直步幅比，若未填写，默认为空。 单位：% |
+| avgGcTimeBalance | number | 否 | 是 | 平均左右触地平衡，若未填写，默认为空。 单位：%（返回数据为左脚的触地平衡，右脚需自行计算，二者之和为100%） |
  
  
   
@@ -1844,6 +2030,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1870,6 +2058,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1888,21 +2078,23 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| divingTime | number | 否 | 否 | 潜水时间。 单位：秒 |
+| divingTime | number | 否 | 否 | 潜水时间。 单位：s |
 | divingCount | number | 否 | 否 | 潜水次数。 |
 | divingMode | number | 否 | 否 | 潜水模式。 取值参考如下： 0：自由潜水 1：休闲水肺潜水 2：技术水肺潜水 3：仪表潜水 |
-| maxUnderwaterTime | number | 否 | 是 | 单次水下最长时间，若未填写，默认为空。 单位：秒 |
-| underwaterTime | number | 否 | 是 | 水下时间，若未填写，默认为空。 单位：秒 |
-| noFlyTime | number | 否 | 是 | 禁飞时间，若未填写，默认为空。 单位：小时 |
+| maxUnderwaterTime | number | 否 | 是 | 单次水下最长时间，若未填写，默认为空。 单位：s |
+| underwaterTime | number | 否 | 是 | 水下时间，若未填写，默认为空。 单位：s |
+| noFlyTime | number | 否 | 是 | 禁飞时间，若未填写，默认为空。 单位：h |
 | cns | number | 否 | 是 | CNS(中枢神经系统毒性等级)，若未填写，默认为空。 等级： 一：0%-79% 二：80%-99% 三：大于等于100% |
 | otu | number | 否 | 是 | OTU(氧气毒性单元)，若未填写，默认为空。 等级： 一：0-249 二：250-299 三：大于等于300 |
 | waterType | number | 否 | 是 | 水体类型，若未填写，默认为空。 取值参考如下： 0：自定义 1：淡水 2：海水 |
-| waterDensity | number | 否 | 是 | 水密度，若未填写，默认为空。 单位：千克/升 |
-| maxAscentSpeed | number | 否 | 是 | 最大上升速度，若未填写，默认为空。 单位：米/秒 |
-| maxDescentSpeed | number | 否 | 是 | 最大下降速度，若未填写，默认为空。 单位：米/秒 |
+| waterDensity | number | 否 | 是 | 水密度，若未填写，默认为空。 单位：kg/L |
+| maxAscentSpeed | number | 否 | 是 | 最大上升速度，若未填写，默认为空。 单位：m/s |
+| maxDescentSpeed | number | 否 | 是 | 最大下降速度，若未填写，默认为空。 单位：m/s |
  
  
   
@@ -1916,6 +2108,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1950,11 +2144,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type SkiingDetail = MountainHikeDetail
+ 
 滑雪详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -1975,14 +2173,16 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | tripTimes | number | 否 | 否 | 趟数。 |
 | maxSlopePercent | number | 否 | 是 | 滑雪最大坡度百分比，若未填写，默认为空。 |
 | maxSlopeDegree | number | 否 | 是 | 滑雪最大坡，若未填写，默认为空。 单位：度 |
-| totalTime | number | 否 | 是 | 滑行时间，若未填写，默认为空。 单位：毫秒 |
-| totalDistance | number | 否 | 是 | 滑行距离，若未填写，默认为空。 单位：米 |
+| totalTime | number | 否 | 是 | 滑行时间，若未填写，默认为空。 单位：ms |
+| totalDistance | number | 否 | 是 | 滑行距离，若未填写，默认为空。 单位：m |
  
  
   
@@ -1996,6 +2196,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2036,10 +2238,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| skinTemperature | number | 否 | 否 | 皮肤温度。 单位：摄氏度 取值范围：[20, 42] |
+| skinTemperature | number | 否 | 否 | 皮肤温度。 单位：°C 取值范围：[20, 42] |
  
  
   
@@ -2053,6 +2257,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2070,6 +2276,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2082,11 +2290,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type SkipSpeedSummary = QuantitySummary
+ 
 跳绳速度统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2106,6 +2318,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2119,11 +2333,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type SledSummary = SportsSummary
+ 
 滑雪橇统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2142,22 +2360,24 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| fallAsleepTime | number | 否 | 否 | 分期睡眠最早入睡时间点。 单位：毫秒 取值范围：[0, ∞) |
-| wakeupTime | number | 否 | 否 | 分期睡眠最晚醒来时间点。 单位：毫秒 取值范围：[0, ∞) |
-| duration | number | 否 | 否 | 夜间/普通睡眠时长（不含零星小睡时长）。 单位：秒 取值范围：[0, ∞) |
+| fallAsleepTime | number | 否 | 否 | 分期睡眠最早入睡时间点。 单位：ms 取值范围：[0, ∞) |
+| wakeupTime | number | 否 | 否 | 分期睡眠最晚醒来时间点。 单位：ms 取值范围：[0, ∞) |
+| duration | number | 否 | 否 | 夜间/普通睡眠时长（不含零星小睡时长）。 单位：s 取值范围：[0, ∞) |
 | bedTime | number | 否 | 是 | 最早上床时间点，若未填写，默认为空。 取值范围：[0, ∞) |
 | risingTime | number | 否 | 是 | 最晚起床时间点，若未填写，默认为空。 取值范围：[0, ∞) |
-| prepareSleepTime | number | 否 | 是 | 准备入睡时间点，若未填写，默认为空。 单位：毫秒 取值范围：[0, ∞) |
-| shallowDuration | number | 否 | 是 | 浅睡时长，若未填写，默认为空。 单位：秒 取值范围：[0, ∞) |
-| deepDuration | number | 否 | 是 | 深睡时长，若未填写，默认为空。 单位：秒 取值范围：[0, ∞) |
-| dreamDuration | number | 否 | 是 | REM时长，若未填写，默认为空。 单位：秒 取值范围：[0, ∞) |
-| wakeDuration | number | 否 | 是 | 清醒时长，若未填写，默认为空。 单位：秒 取值范围：[0, ∞) |
+| prepareSleepTime | number | 否 | 是 | 准备入睡时间点，若未填写，默认为空。 单位：ms 取值范围：[0, ∞) |
+| shallowDuration | number | 否 | 是 | 浅睡时长，若未填写，默认为空。 单位：s 取值范围：[0, ∞) |
+| deepDuration | number | 否 | 是 | 深睡时长，若未填写，默认为空。 单位：s 取值范围：[0, ∞) |
+| dreamDuration | number | 否 | 是 | REM时长，若未填写，默认为空。 单位：s 取值范围：[0, ∞) |
+| wakeDuration | number | 否 | 是 | 清醒时长，若未填写，默认为空。 单位：s 取值范围：[0, ∞) |
 | wakeCount | number | 否 | 是 | 清醒次数，若未填写，默认为空。 取值范围：[0, ∞) |
-| onBedDuration | number | 否 | 是 | 卧床时长，若未填写，默认为空。 单位：秒 取值范围：[0, ∞) |
-| recordDuration | number | 否 | 是 | 睡眠记录时长，若未填写，默认为记录结束时间减去开始时间。 单位：秒 取值范围：[0, ∞) |
+| onBedDuration | number | 否 | 是 | 卧床时长，若未填写，默认为空。 单位：s 取值范围：[0, ∞) |
+| recordDuration | number | 否 | 是 | 睡眠记录时长，若未填写，默认为记录结束时间减去开始时间。 单位：s 取值范围：[0, ∞) |
 | sleepEfficiency | number | 否 | 是 | 睡眠效率，若未填写，默认为空。 取值范围：[0, 100] |
 | sleepScore | number | 否 | 是 | 睡眠得分，若未填写，默认为空。 取值范围：[0, 100] |
 | deepSleepContinuity | number | 否 | 是 | 深睡连续性，若未填写，默认为空。 取值范围：[0, 100] |
@@ -2179,6 +2399,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2196,11 +2418,13 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| noonDuration | number | 否 | 否 | 午睡时长(零星小睡）。 单位：秒 取值范围：[0, ∞) |
-| noonRecordDuration | number | 否 | 是 | 零星小睡记录时长，若未填写，默认为记录结束时间减去开始时间。 单位：秒 取值范围：[0, ∞) |
+| noonDuration | number | 否 | 否 | 午睡时长(零星小睡）。 单位：s 取值范围：[0, ∞) |
+| noonRecordDuration | number | 否 | 是 | 零星小睡记录时长，若未填写，默认为记录结束时间减去开始时间。 单位：s 取值范围：[0, ∞) |
  
  
   
@@ -2214,11 +2438,13 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | sleepStatus | number | 否 | 否 | 睡眠状态。 取值范围： 0：未知 1：深睡 2：浅睡 3：REM 4：清醒 5：午睡（零星小睡） 6：卧床 7：睡眠（手工） |
-| endTime | number | 否 | 否 | 结束时间。 单位：毫秒 取值范围：[0, ∞) |
+| endTime | number | 否 | 否 | 结束时间。 单位：ms 取值范围：[0, ∞) |
  
  
   
@@ -2227,11 +2453,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type SnowboardingDetail = MountainHikeDetail
+ 
 单板滑雪详情数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2247,19 +2477,23 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type SnowboardingFeature = SkiingFeature
+ 
 单板滑雪特征数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | tripTimes | number | 否 | 否 | 趟数。 |
 | maxSlopePercent | number | 否 | 是 | 滑雪最大坡度百分比，若未填写，默认为空。 |
 | maxSlopeDegree | number | 否 | 是 | 滑雪最大坡，若未填写，默认为空。 单位：度 |
-| totalTime | number | 否 | 是 | 滑行时间，若未填写，默认为空。 单位：毫秒 |
-| totalDistance | number | 否 | 是 | 滑行距离，若未填写，默认为空。 单位：米 |
+| totalTime | number | 否 | 是 | 滑行时间，若未填写，默认为空。 单位：ms |
+| totalDistance | number | 否 | 是 | 滑行距离，若未填写，默认为空。 单位：m |
  
  
   
@@ -2273,6 +2507,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2294,10 +2530,12 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| speed | number | 否 | 否 | 速度详情。 单位：米/秒 取值范围：[0, ∞) |
+| speed | number | 否 | 否 | 速度详情。 单位：m/s 取值范围：[0, ∞) |
  
  
   
@@ -2306,17 +2544,21 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type SpeedSummary = QuantitySummary
+ 
 速度统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| avg | number | 否 | 否 | 平均值。 单位：米/秒 取值范围：[0, ∞) |
-| max | number | 否 | 否 | 最大值。 单位：米/秒 取值范围：[0, ∞) |
-| min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：米/秒 取值范围：[0, ∞) |
+| avg | number | 否 | 否 | 平均值。 单位：m/s 取值范围：[0, ∞) |
+| max | number | 否 | 否 | 最大值。 单位：m/s 取值范围：[0, ∞) |
+| min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：m/s 取值范围：[0, ∞) |
  
  
   
@@ -2330,6 +2572,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2347,6 +2591,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2365,6 +2611,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2382,6 +2630,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2399,6 +2649,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2416,6 +2668,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2428,11 +2682,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type StrokeRateSummary = Omit<QuantitySummary, 'min'>
+ 
 桨频统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2451,6 +2709,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2463,11 +2723,15 @@ import { healthStore } from '@kit.HealthServiceKit';
 
 **支持设备：** Phone | Tablet | Wearable
 
+type SwimStrokeRateSummary = Omit<QuantitySummary, 'max' | 'min'>
+ 
 划水频率统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2485,6 +2749,8 @@ SWOLF采样数据字段列表，继承[healthStore.SequencePoint](https://develo
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2497,11 +2763,15 @@ SWOLF采样数据字段列表，继承[healthStore.SequencePoint](https://develo
 
 **支持设备：** Phone | Tablet | Wearable
 
+type SwolfSummary = QuantitySummary
+ 
 SWOLF统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2521,6 +2791,8 @@ SWOLF统计数据字段列表。
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2542,6 +2814,8 @@ SWOLF统计数据字段列表。
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -2566,10 +2840,12 @@ SWOLF统计数据字段列表。
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| temperature | number | 否 | 否 | 温度。 单位：摄氏度 |
+| temperature | number | 否 | 否 | 温度。 单位：°C |
  
  
   
@@ -2578,16 +2854,20 @@ SWOLF统计数据字段列表。
 
 **支持设备：** Phone | Tablet | Wearable
 
+type WaterTemperatureSummary = Omit<QuantitySummary, 'avg'>
+ 
 水温统计数据字段列表。
  
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| max | number | 否 | 否 | 最大值。 单位：摄氏度 取值范围: [0, ∞) |
-| min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：摄氏度 取值范围: [0, ∞) |
+| max | number | 否 | 否 | 最大值。 单位：°C 取值范围: [0, ∞) |
+| min | number | 否 | 是 | 最小值，若未填写，默认为空。 单位：°C 取值范围: [0, ∞) |
  
  
   
@@ -2601,21 +2881,23 @@ SWOLF统计数据字段列表。
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| bodyWeight | number | 否 | 否 | 体重。 单位：千克 取值范围：[0.1, 500] |
-| bmi | number | 否 | 是 | 身体质量指数，若未填写，默认为空。 单位：千克/平方米 取值范围：[1,200] |
-| bodyFat | number | 否 | 是 | 体脂量，若未填写，默认为空。 单位：千克 取值范围：[0, 500] |
-| bodyFatRate | number | 否 | 是 | 体脂率，若未填写，默认为空。 单位：百分比 取值范围：[0, 100] |
-| muscleMass | number | 否 | 是 | 肌肉量，若未填写，默认为空。 单位：千克 取值范围：[0.1, 150] |
-| basalMetabolism | number | 否 | 是 | 基础代谢，若未填写，默认为空。 单位：千卡/天 取值范围：[0, ∞) |
-| moisture | number | 否 | 是 | 水分量，若未填写，默认为空。 单位：千克 取值范围：[0, 500] |
-| moistureRate | number | 否 | 是 | 水分率，若未填写，默认为空。 单位：百分比 取值范围：[0, 100] |
+| bodyWeight | number | 否 | 否 | 体重。 单位：kg 取值范围：[0.1, 500] |
+| bmi | number | 否 | 是 | 身体质量指数，若未填写，默认为空。 单位：kg/m² 取值范围：[1,200] |
+| bodyFat | number | 否 | 是 | 体脂量，若未填写，默认为空。 单位：kg 取值范围：[0, 500] |
+| bodyFatRate | number | 否 | 是 | 体脂率，若未填写，默认为空。 单位：% 取值范围：[0, 100] |
+| muscleMass | number | 否 | 是 | 肌肉量，若未填写，默认为空。 单位：kg 取值范围：[0.1, 150] |
+| basalMetabolism | number | 否 | 是 | 基础代谢，若未填写，默认为空。 单位：kcal/day 取值范围：[0, ∞) |
+| moisture | number | 否 | 是 | 水分量，若未填写，默认为空。 单位：kg 取值范围：[0, 500] |
+| moistureRate | number | 否 | 是 | 水分率，若未填写，默认为空。 单位：% 取值范围：[0, 100] |
 | visceralFatLevel | number | 否 | 是 | 内脏脂肪等级，若未填写，默认为空。 取值范围：[1, 59] |
-| boneSalt | number | 否 | 是 | 骨盐量，若未填写，默认为空。 单位：千克 取值范围：[0.5, 5] |
-| proteinRate | number | 否 | 是 | 蛋白质率，若未填写，默认为空。 单位：百分比 取值范围：[0, 100] |
-| bodyScore | number | 否 | 是 | 身体得分，若未填写，默认为空。 单位：百分比 取值范围：[0, 100] |
+| boneSalt | number | 否 | 是 | 骨盐量，若未填写，默认为空。 单位：kg 取值范围：[0.5, 5] |
+| proteinRate | number | 否 | 是 | 蛋白质率，若未填写，默认为空。 单位：% 取值范围：[0, 100] |
+| bodyScore | number | 否 | 是 | 身体得分，若未填写，默认为空。 单位：% 取值范围：[0, 100] |
 | bodyAge | number | 否 | 是 | 身体年龄，若未填写，默认为空。 取值范围：[5, 99] |
-| skeletalMuscleMass | number | 否 | 是 | 骨骼肌量，若未填写，默认为空。 单位：千克 取值范围：[1, 150] |
+| skeletalMuscleMass | number | 否 | 是 | 骨骼肌量，若未填写，默认为空。 单位：kg 取值范围：[1, 150] |
 | impedance | number | 否 | 是 | 阻抗。 单位：欧姆 取值范围：[0.1, 100000] |

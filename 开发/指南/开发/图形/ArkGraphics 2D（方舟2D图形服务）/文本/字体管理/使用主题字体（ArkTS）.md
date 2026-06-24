@@ -1,6 +1,6 @@
 # 使用主题字体（ArkTS）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/theme-font-arkts
 
@@ -189,4 +189,4 @@ export default class EntryAbility extends UIAbility {
 **图3** 主题字体2的效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/X_8qcxR4T2eQYq7r64i8Xg/zh-cn_image_0000002581434764.png?HW-CC-KV=V1&HW-CC-Date=20260528T030534Z&HW-CC-Expire=86400&HW-CC-Sign=A4E5617578F109ADE407DC8EA9331E189285C17B8CE98E2D76BF0EED40703F7A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/djhFn-9mT3Wl6F5Mt4jqpg/zh-cn_image_0000002656348691.png?HW-CC-KV=V1&HW-CC-Date=20260624T020914Z&HW-CC-Expire=86400&HW-CC-Sign=AA981062372B5E083FCE5872C3CFC5C271E109A6BE8A1EF2F1FD193F503D5663)

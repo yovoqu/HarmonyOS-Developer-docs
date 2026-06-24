@@ -1,6 +1,6 @@
 # oh_window.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -59,6 +59,12 @@
 | void OH_WindowManager_ReleaseMainWindowSnapshot(const OH_PixelmapNative* snapshotPixelMapList) | - | 释放主窗口截图列表的内存。 |
 | int32_t OH_WindowManager_LockCursor(int32_t windowId, bool isCursorFollowMovement) | - | 锁定鼠标光标，控制鼠标光标不超过指定窗口区域，同时可控制光标是否跟随鼠标移动。仅支持获焦窗口调用，失焦之后会自动取消锁定。 |
 | int32_t OH_WindowManager_UnlockCursor(int32_t windowId) | - | 清除窗口设置的鼠标光标指定的模式。 |
+| int32_t OH_WindowManager_FrameMetrics_IsFirstDrawFrame(const OH_WindowManager_FrameMetrics* metrics, bool* isFirstDrawFrame) | - | 判断当前帧是否为首帧。 |
+| int32_t OH_WindowManager_FrameMetrics_GetInputHandlingDuration(const OH_WindowManager_FrameMetrics* metrics, uint64_t* duration) | - | 获取当前帧中手势处理的耗时。 |
+| int32_t OH_WindowManager_FrameMetrics_GetLayoutMeasureDuration(const OH_WindowManager_FrameMetrics* metrics, uint64_t* duration) | - | 获取当前帧中布局测量的耗时。 |
+| int32_t OH_WindowManager_FrameMetrics_GetVsyncTimestamp(const OH_WindowManager_FrameMetrics* metrics, uint64_t* timestamp) | - | 获取当前帧开始的时间戳。 |
+| int32_t OH_WindowManager_RegisterFrameMetricsMeasuredCallback(int32_t windowId, OH_WindowManager_FrameMetricsMeasuredCallback callback) | - | 订阅窗口帧率指标变更监听事件。 该接口依赖窗口页面内容加载，即需要在ArkTS侧loadContent()接口或setUIContent()接口生效后调用。 应用注册帧率指标变更监听后，仅当客户端UI内容发生重绘（例如页面切换、响应式组件交互、设置背景色和透明度等）时才会触发已注册回调。 如需取消订阅，请使用OH_WindowManager_UnregisterFrameMetricsMeasuredCallback接口。 |
+| int32_t OH_WindowManager_UnregisterFrameMetricsMeasuredCallback(int32_t windowId, OH_WindowManager_FrameMetricsMeasuredCallback callback) | - | 取消订阅窗口帧率指标变更监听事件。 该接口依赖窗口页面内容加载，即需要在ArkTS侧loadContent()接口或setUIContent()接口生效后调用。 如需订阅，请使用OH_WindowManager_RegisterFrameMetricsMeasuredCallback接口。 |
 | int32_t OH_WindowManager_DensityInfo_GetDefaultDensity(const OH_WindowManager_DensityInfo* info, float* density) | - | 获取窗口所在屏幕的系统默认显示大小缩放系数。 |
 | int32_t OH_WindowManager_DensityInfo_GetSystemDensity(const OH_WindowManager_DensityInfo* info, float* density) | - | 获取窗口所在屏幕的系统显示大小缩放系数。 |
 | int32_t OH_WindowManager_DensityInfo_GetCustomDensity(const OH_WindowManager_DensityInfo* info, float* density) | - | 获取窗口的自定义显示大小缩放系数。 |
@@ -94,7 +100,7 @@ int32_t OH_WindowManager_SetWindowStatusBarEnabled(int32_t windowId, bool enable
 
 **设备行为差异：**
 
-该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
 **参数：**
 
@@ -132,7 +138,7 @@ int32_t OH_WindowManager_SetWindowStatusBarColor(int32_t windowId, int32_t color
 
 **设备行为差异：**
 
-该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由窗口)状态的设备上可正常调用。
+该接口在支持并处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上调用不生效也不报错；在支持但不处于[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备及不支持[自由窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#freeform-window自由窗口)状态的设备上可正常调用。
 
 **参数：**
 
@@ -645,7 +651,7 @@ int32_t OH_WindowManager_GetAllMainWindowInfo(WindowManager_MainWindowInfo** inf
 
 获取全部主窗信息。
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
 **需要权限：** ohos.permission.CUSTOM_SCREEN_CAPTURE
 
@@ -727,7 +733,7 @@ int32_t OH_WindowManager_GetMainWindowSnapshot(int32_t* windowIdList, size_t win
 
 获取一个或多个指定windowId的主窗口截图。
 
-**设备行为差异：** 该接口在2in1设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
 **需要权限：** ohos.permission.CUSTOM_SCREEN_CAPTURE
 
@@ -840,6 +846,202 @@ int32_t OH_WindowManager_UnlockCursor(int32_t windowId)
 
 
 
+#### OH_WindowManager_FrameMetrics_IsFirstDrawFrame()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+int32_t OH_WindowManager_FrameMetrics_IsFirstDrawFrame(const OH_WindowManager_FrameMetrics* metrics, bool* isFirstDrawFrame)
+```
+
+**描述**
+
+判断当前帧是否为首帧。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_WindowManager_FrameMetrics* metrics | 帧率指标数据对象。 |
+| bool* isFirstDrawFrame | 作为出参使用，表示当前帧是否为首帧，true表示是首帧，false表示不是首帧。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误，对应参数取值范围不合理。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+#### OH_WindowManager_FrameMetrics_GetInputHandlingDuration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+int32_t OH_WindowManager_FrameMetrics_GetInputHandlingDuration(const OH_WindowManager_FrameMetrics* metrics, uint64_t* duration)
+```
+
+**描述**
+
+获取当前帧中手势处理的耗时。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_WindowManager_FrameMetrics* metrics | 帧率指标数据对象。 |
+| uint64_t* duration | 作为出参使用，表示当前帧中手势处理的耗时，单位为纳秒。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误，对应参数取值范围不合理。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+#### OH_WindowManager_FrameMetrics_GetLayoutMeasureDuration()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+int32_t OH_WindowManager_FrameMetrics_GetLayoutMeasureDuration(const OH_WindowManager_FrameMetrics* metrics, uint64_t* duration)
+```
+
+**描述**
+
+获取当前帧中布局测量的耗时。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_WindowManager_FrameMetrics* metrics | 帧率指标数据对象。 |
+| uint64_t* duration | 作为出参使用，表示当前帧中布局测量的耗时，单位为纳秒。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误，对应参数取值范围不合理。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+#### OH_WindowManager_FrameMetrics_GetVsyncTimestamp()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+int32_t OH_WindowManager_FrameMetrics_GetVsyncTimestamp(const OH_WindowManager_FrameMetrics* metrics, uint64_t* timestamp)
+```
+
+**描述**
+
+获取当前帧开始的时间戳。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_WindowManager_FrameMetrics* metrics | 帧率指标数据对象。 |
+| uint64_t* timestamp | 作为出参使用，表示当前帧开始的时间戳，单位为纳秒。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误，对应参数取值范围不合理。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+#### OH_WindowManager_RegisterFrameMetricsMeasuredCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+int32_t OH_WindowManager_RegisterFrameMetricsMeasuredCallback(int32_t windowId, OH_WindowManager_FrameMetricsMeasuredCallback callback)
+```
+
+**描述**
+
+订阅窗口帧率指标变更监听事件。
+
+该接口依赖窗口页面内容加载，即需要在ArkTS侧loadContent()接口或setUIContent()接口生效后调用。
+
+应用注册帧率指标变更监听后，仅当客户端UI内容发生重绘（例如页面切换、响应式组件交互、设置背景色和透明度等）时才会触发已注册回调。
+
+如需取消订阅，请使用[OH_WindowManager_UnregisterFrameMetricsMeasuredCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h#oh_windowmanager_unregisterframemetricsmeasuredcallback)接口。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| int32_t windowId | 创建窗口时的窗口ID。 |
+| OH_WindowManager_FrameMetricsMeasuredCallback callback | 用于返回帧率指标结果的回调函数。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。可能原因： 1. 窗口未创建或已销毁； 2. 窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误，对应参数取值范围不合理。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
+#### OH_WindowManager_UnregisterFrameMetricsMeasuredCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+int32_t OH_WindowManager_UnregisterFrameMetricsMeasuredCallback(int32_t windowId, OH_WindowManager_FrameMetricsMeasuredCallback callback)
+```
+
+**描述**
+
+取消订阅窗口帧率指标变更监听事件。
+
+该接口依赖窗口页面内容加载，即需要在ArkTS侧loadContent()接口或setUIContent()接口生效后调用。
+
+如需订阅，请使用[OH_WindowManager_RegisterFrameMetricsMeasuredCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-h#oh_windowmanager_registerframemetricsmeasuredcallback)接口。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| int32_t windowId | 创建窗口时的窗口ID。 |
+| OH_WindowManager_FrameMetricsMeasuredCallback callback | 用于返回帧率指标结果的回调函数。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_STATE_ABNORMAL，表示窗口状态异常。可能原因： 1. 窗口未创建或已销毁； 2. 窗口状态异常。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误，对应参数取值范围不合理。 具体可见WindowManager_ErrorCode。 |
+
+
+
+
 #### OH_WindowManager_DensityInfo_GetDefaultDensity()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -928,7 +1130,7 @@ int32_t OH_WindowManager_DensityInfo_GetCustomDensity(const OH_WindowManager_Den
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 返回结果代码。 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误。可能原因：参数取值范围无效。 具体可见WindowManager_ErrorCode。 |
+| int32_t | 返回结果代码 返回OK，表示函数调用成功。 返回WINDOW_MANAGER_ERRORCODE_INCORRECT_PARAM，表示参数错误。可能原因：参数取值范围无效。 具体可见WindowManager_ErrorCode。 |
 
 
 

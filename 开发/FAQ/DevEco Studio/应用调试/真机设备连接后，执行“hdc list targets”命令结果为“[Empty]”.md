@@ -1,6 +1,6 @@
 # 真机设备连接后，执行“hdc list targets”命令结果为“[Empty]”
 
-更新时间：2026-06-05 09:11:02
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-32
 
@@ -57,7 +57,7 @@
 
  
  
-三、将设备的连接方式从TCP连接模式切换回USB模式。
+三、进入【设置>系统>开发人员选项>usb调试】重新关闭、打开USB调试；
  
 四、若连接设备时出现“\[Fail\] Failed to communicate with daemon”。1. hdc与设备不匹配：如果设备烧写的镜像是最新版本，hdc也必须使用最新版本。
 2. 端口被占用可能导致hdc和hdc_std无法同时运行，因为它们使用相同的端口。请注意，只运行其中一个。

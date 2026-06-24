@@ -1,6 +1,6 @@
 # 卡片跳转到应用页面（router事件）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-event-router
 
@@ -304,4 +304,4 @@ struct FunB {
 #### 运行效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/Q3axi1LwRZadASl-v272tw/zh-cn_image_0000002611834201.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030400Z&HW-CC-Expire=86400&HW-CC-Sign=9F3DE9A5A2DD7C6085B7670CEF71DAA90AB2F4C64679CE3822952F1FE5305C04)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/14bb33BnTQikG_x99MsNig/zh-cn_image_0000002626228844.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020815Z&HW-CC-Expire=86400&HW-CC-Sign=388D62C3D15B8BA33C3B843242AFF09556DA4AD239FA1B2D915EC52AFCDC4F3B)

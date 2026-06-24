@@ -1,6 +1,6 @@
 # libc标准库
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/musl
 
@@ -49,6 +49,26 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
 2. 支持dlclose真实卸载动态库能力，musl的开源版本不支持。
 3. 支持symbol-versioning功能。
 4. dlopen支持直接加载zip包中未压缩的文件。
+5. 支持C API兼容性版本保护。
+ 
+  
+
+#### APIAVAILABLE 兼容性版本保护
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/XN1_YHhpSXq1yh6SUB1PTg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020408Z&HW-CC-Expire=86400&HW-CC-Sign=61E539D27DF8FFEAF7F41B9FE3B8DF01C01B5AED96AA4DCACA405C24633C7092)
+ 
+ 
+使用APIAVAILABLE特性，需要对强符号、弱符号、弱库等机制非常熟悉，而且要严格按照指导书步骤操作，否则可能存在运行期崩溃现象。
+ 
+易用性在优化中，在优化完成前，建议还是使用dlopen、dlsym的方式来解决兼容性问题。
+  
+
+  
+| 宏定义名称 | 说明 |
+| --- | --- |
+| APIAVAILABLE(maj, min, patch) | 需与编译器配合使用，用于保障应用在不同系统版本间的兼容性与稳定性，通过编译时和运行时的条件检查，防止在低版本系统上调用不存在的接口导致崩溃。使用高于目标分发版本（compatibleSdkVersion）的接口时，须使用该宏进行兼容性保护并提供合理的降级方案。入参maj为主版本号（取值范围0-99），min为次版本号（取值范围0-99），patch为补丁版本号（取值范围0-99）。 起始版本： 22。 |
+ 
  
   
 
@@ -66,7 +86,7 @@ libdl：dlopen等动态链接器接口，当前在HarmonyOS中是一个链接，
 musl支持的字符集编码格式，以及受支持的别名。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/oOeSRvxjTsOzwXuBbe2aPA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012613Z&HW-CC-Expire=86400&HW-CC-Sign=FB79D93C326DBBD5560714F369F3A710BBDBE104E25181E16353185421B83D11)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/O5e8E76DRb229mU5xiG91Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020408Z&HW-CC-Expire=86400&HW-CC-Sign=263B5496C145A186213851AC329E9A9739C58770DB44DEB0BC8B35FBCADBCB53)
  
  
 在进行字符集编码格式转换时，请使用正确的源字符集编码格式，且目标字符集编码格式必须支持这些受转换的字符，否则转换失败。

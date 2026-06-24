@@ -1,6 +1,6 @@
 # oh_window_comm.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-comm-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,6 +41,7 @@
 | WindowManager_AvoidArea | WindowManager_AvoidArea | 定义避让区域结构体。 |
 | WindowManager_MainWindowInfo | WindowManager_MainWindowInfo | 主窗口信息。 |
 | WindowManager_WindowSnapshotConfig | WindowManager_WindowSnapshotConfig | 主窗口截图的配置项。 |
+| OH_WindowManager_FrameMetrics | OH_WindowManager_FrameMetrics | 帧率指标数据对象。 |
 | OH_WindowManager_DensityInfo | OH_WindowManager_DensityInfo | 窗口缩放系数相关信息，包括系统显示大小缩放系数、系统默认显示大小缩放系数、自定义显示大小缩放系数。 |
  
  
@@ -65,6 +66,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
+| typedef void (*OH_WindowManager_FrameMetricsMeasuredCallback)(int32_t windowId, const OH_WindowManager_FrameMetrics* metrics) | OH_WindowManager_FrameMetricsMeasuredCallback | 帧率指标回调类型。 |
 | typedef void (*OH_WindowManager_DensityInfoCallback)(int32_t windowId, const OH_WindowManager_DensityInfo* info) | OH_WindowManager_DensityInfoCallback | 窗口缩放系数相关信息回调类型。 |
  
  
@@ -163,6 +165,23 @@ enum WindowManager_WindowType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+  
+
+#### OH_WindowManager_FrameMetricsMeasuredCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void (*OH_WindowManager_FrameMetricsMeasuredCallback)(
+    int32_t windowId, const OH_WindowManager_FrameMetrics* metrics)
+```
+ 
+**描述**
+ 
+帧率指标回调类型。
+ 
+**起始版本：** 26.0.0
+ 
   
 
 #### OH_WindowManager_DensityInfoCallback()

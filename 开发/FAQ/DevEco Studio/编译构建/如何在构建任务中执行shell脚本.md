@@ -1,6 +1,6 @@
 # 如何在构建任务中执行shell脚本
 
-更新时间：2026-05-30 09:08:01
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-104
 

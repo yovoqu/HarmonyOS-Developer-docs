@@ -1,10 +1,10 @@
 # @performance/custom-node-memory-leak-check
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-custom-node-memory-leak-check
 
-建议在Component中新建自定义节点时主动释放节点，避免因未释放节点导致的内存泄露。
+建议在Component中新建自定义节点时主动释放节点，避免因未释放节点导致的内存泄漏。
  
 
 #### 规则配置

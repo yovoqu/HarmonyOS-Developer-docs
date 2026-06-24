@@ -1,6 +1,6 @@
 # insightIntent
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/intents-arkts-api-insightintent
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -28,6 +28,8 @@ import { insightIntent } from '@kit.IntentsKit';
 
 InsightIntent，包括意图名称、意图版本号、标识、Action信息、Entity信息。
  
+**模型约束：** 该接口仅可在Stage模型下使用。
+ 
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力**： SystemCapability.AI.InsightIntent
@@ -51,6 +53,8 @@ InsightIntent，包括意图名称、意图版本号、标识、Action信息、E
 
 IntentActionInfo，表示意图的执行信息。
  
+**模型约束：** 该接口仅可在Stage模型下使用。
+ 
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力**： SystemCapability.AI.InsightIntent
@@ -69,6 +73,8 @@ IntentActionInfo，表示意图的执行信息。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 IntentEntityInfo，表示意图的实体信息。
+ 
+**模型约束：** 该接口仅可在Stage模型下使用。
  
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -94,6 +100,8 @@ shareIntent(context: common.BaseContext, intents: InsightIntent[], callback: Asy
 共享已执行或预期的InsightIntent ，使用callback异步回调。
  
 为避免共享能力滥用，默认每个应用每天最多共享20次，超出限制后会返回错误码：1000101104。每次共享的数据条数不限，但是每次最多50KB数据量，单次数据量超出限制后会返回错误码：1000101105。所有接入方每天共享总次数上限为3000次，超出总次数限制会返回错误码：1000101106。建议积攒一定量的数据后一次全部共享并控制共享次数。
+ 
+**模型约束：** 该接口仅可在Stage模型下使用。
  
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -206,6 +214,8 @@ shareIntent(context: common.BaseContext, intents: InsightIntent[]): Promise&lt;v
  
 为避免共享能力滥用，默认每个应用每天最多共享20次，超出限制后会返回错误码：1000101104。每次共享的数据条数不限，但是每次最多50KB数据量，单次数据量超出限制后会返回错误码：1000101105。所有接入方每天共享总次数上限为3000次，超出总次数限制会返回错误码：1000101106。建议积攒一定量的数据后一次全部共享并控制共享次数。
  
+**模型约束：** 该接口仅可在Stage模型下使用。
+ 
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.InsightIntent
@@ -316,6 +326,8 @@ deleteIntent(context: common.BaseContext, intentName: string, identifiers: strin
  
 删除InsightIntent。如果设置了identifiers参数，则删除intent名称下的identifiers对应的记录。否则，删除意图名称下的所有记录。使用callback异步回调。
  
+**模型约束：** 该接口仅可在Stage模型下使用。
+ 
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.InsightIntent
@@ -389,6 +401,8 @@ deleteIntent(context: common.BaseContext, intentName: string, callback: AsyncCal
  
 删除InsightIntent。清空指定意图名称下的所有记录。使用callback异步回调。
  
+**模型约束：** 该接口仅可在Stage模型下使用。
+ 
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.InsightIntent
@@ -460,6 +474,8 @@ struct Index {
 deleteIntent(context: common.BaseContext, intentName: string, identifiers?: string[]): Promise&lt;void&gt;
  
 删除InsightIntent。如果设置了identifiers参数，则删除intent名称下的identifiers对应的记录。否则，删除意图名称下的所有记录。使用Promise异步回调。
+ 
+**模型约束：** 该接口仅可在Stage模型下使用。
  
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -534,6 +550,8 @@ deleteEntity(context: common.BaseContext, entityName: string, entityIds: string[
  
 根据实体ID删除InsightIntent实体。使用callback异步回调。
  
+**模型约束：** 该接口仅可在Stage模型下使用。
+ 
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.InsightIntent
@@ -607,6 +625,8 @@ deleteEntity(context: common.BaseContext, entityName: string, entityIds: string[
  
 根据实体ID删除InsightIntent实体。使用Promise异步回调。
  
+**模型约束：** 该接口仅可在Stage模型下使用。
+ 
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.InsightIntent
@@ -679,6 +699,8 @@ struct Index {
 getSid(context: common.BaseContext, renew: boolean): Promise&lt;string&gt;
  
 获取Service Open ID。使用Promise异步回调。
+ 
+**模型约束：** 该接口仅可在Stage模型下使用。
  
 **元服务API**： 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  

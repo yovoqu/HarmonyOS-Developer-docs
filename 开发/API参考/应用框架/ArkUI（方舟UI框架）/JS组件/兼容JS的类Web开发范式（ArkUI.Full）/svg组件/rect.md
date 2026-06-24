@@ -1,6 +1,6 @@
 # rect
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-rect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -65,4 +65,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/X9PZ-r9lSCO8RVIZXRdsdg/zh-cn_image_0000002611836211.png?HW-CC-KV=V1&HW-CC-Date=20260528T025441Z&HW-CC-Expire=86400&HW-CC-Sign=BBFFB3EE48CB4F3669ADC2C0BDB047D8BB3BE25074A7D20A4FC82D1BC7098C94)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/VrDgay6DSb-Q5hZM_Me-9w/zh-cn_image_0000002656350353.png?HW-CC-KV=V1&HW-CC-Date=20260624T015941Z&HW-CC-Expire=86400&HW-CC-Sign=3F4F3A3200E16E681D5334F57947838DFC596194317F5B92D6B0871494B6F55C)

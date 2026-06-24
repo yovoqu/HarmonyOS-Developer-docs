@@ -1,6 +1,6 @@
 # Interface (CameraManager)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,9 @@ import { camera } from '@kit.CameraKit';
 
 getSupportedCameras(): Array&lt;CameraDevice&gt;
 
-获取支持的相机设备对象，同步返回结果。
+获取支持的基础相机设备对象（如获取CameraType为CAMERA_TYPE_DEFAULT的默认相机），同步返回结果。
+
+如果需要获取额外的相机设备对象（如获取CameraType为CAMERA_TYPE_TELEPHOTO的长焦相机），可通过[getCameraDevices](#getcameradevices23)接口获取。
 
 **元服务API：** 从API version 19开始，该接口支持在元服务中使用。
 
@@ -256,8 +258,8 @@ createCameraInput(camera: CameraDevice): CameraInput
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
-| 7400102 | Operation not allowed. |
-| 7400201 | Camera service fatal error. |
+| 7400102 | Operation not allowed. 适用版本：12+ |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
 
 
 **示例：**
@@ -318,8 +320,8 @@ createCameraInput(position: CameraPosition, type: CameraType): CameraInput
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
-| 7400102 | Operation not allowed. |
-| 7400201 | Camera service fatal error. |
+| 7400102 | Operation not allowed. 适用版本：12+ |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
 
 
 **示例：**
@@ -378,7 +380,7 @@ createPreviewOutput(profile: Profile, surfaceId: string): PreviewOutput
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
-| 7400201 | Camera service fatal error. |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
 
 
 **示例：**
@@ -490,7 +492,7 @@ createDeferredPreviewOutput(profile: Profile): PreviewOutput
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7400101 | profile is missing or incorrect. |
+| 7400101 | Parameter missing or parameter type incorrect. |
 | 7400201 | Camera service fatal error. |
 
 
@@ -548,7 +550,7 @@ createPhotoOutput(profile?: Profile): PhotoOutput
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
-| 7400201 | Camera service fatal error. |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
 
 
 **示例：**
@@ -614,7 +616,7 @@ createVideoOutput(profile: VideoProfile, surfaceId: string): VideoOutput
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
-| 7400201 | Camera service fatal error. |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
 
 
 **示例：**
@@ -727,7 +729,7 @@ createMetadataOutput(metadataObjectTypes: Array&lt;MetadataObjectType&gt;): Meta
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
-| 7400201 | Camera service fatal error. |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
 
 
 **示例：**
@@ -782,7 +784,7 @@ createSession<T extends Session>(mode: SceneMode): T
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7400101 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3.Parameter verification failed. |
+| 7400101 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3.Parameter verification failed. 适用版本：19+ |
 | 7400201 | Camera service fatal error. |
 
 
@@ -972,7 +974,7 @@ isTorchSupported(): boolean
 
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 表示设备是否支持手电筒，true表示设备支持手电筒，false表示设备不支持手电。 如果返回false，则isTorchModeSupported、getTorchMode、setTorchMode都不会生效。 若接口调用失败，返回undefined。 |
+| boolean | 表示设备是否支持手电筒，true表示设备支持手电筒，false表示设备不支持手电。 如果返回false，则isTorchModeSupported、getTorchMode、setTorchMode、isTorchLevelControlSupported和setTorchModeOnWithLevel都不会生效。 若接口调用失败，返回undefined。 |
 
 
 **示例：**
@@ -1079,8 +1081,9 @@ setTorchMode(mode: TorchMode): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7400102 | Operation not allowed. |
-| 7400201 | Camera service fatal error. |
+| 7400101 | Parameter missing or parameter type incorrect. 适用版本：11-17 |
+| 7400102 | Operation not allowed. 适用版本：12+ |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
 
 
 **示例：**
@@ -1170,6 +1173,84 @@ off(type: 'torchStatusChange', callback?: AsyncCallback&lt;TorchStatusInfo&gt;):
 ```text
 function unregisterTorchStatusChange(cameraManager: camera.CameraManager): void {
   cameraManager.off('torchStatusChange');
+}
+```
+
+
+
+#### isTorchLevelControlSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isTorchLevelControlSupported(): boolean
+
+检测设备是否支持手电筒亮度调节功能。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 表示设备是否支持手电筒亮度调节功能。返回true表示支持，返回false表示不支持。若接口调用失败，返回undefined。 |
+
+
+**示例：**
+
+```text
+function isTorchLevelControlSupported(cameraManager: camera.CameraManager): boolean {
+  let isSupported = cameraManager.isTorchLevelControlSupported();
+  return isSupported;
+}
+```
+
+
+
+#### SetTorchModeOnWithLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+SetTorchModeOnWithLevel(torchLevel: number): void
+
+手电筒设置指定亮度级别。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API version 26开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| torchLevel | number | 是 | 手电筒亮度级别。通常范围是[0.0, 1.0]（0.0为最暗，1.0为最亮）。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7400201 | Camera service fatal error. |
+| 7400102 | Operation not allowed. |
+
+
+**示例：**
+
+```text
+function SetTorchModeOnWithLevel(cameraManager: camera.CameraManager, torchLevel: number): void {
+  cameraManager.setTorchModeOnWithLevel(torchLevel);
+  return ;
 }
 ```
 

@@ -1,6 +1,6 @@
 # OH_CryptoKdf
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-cryptokdfapi-oh-cryptokdf
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

@@ -1,6 +1,6 @@
 # CANN
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -328,7 +328,7 @@ typedef struct HiAI_SingleOpDescriptor HiAI_SingleOpDescriptor
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
-typedef struct HiAISingleOpDescriptor_ConvolutionParam
+typedef struct HiAISingleOpDescriptor_ConvolutionParam HiAISingleOpDescriptor_ConvolutionParam
 ```
  
 **描述**
@@ -360,7 +360,7 @@ typedef struct HiAI_SingleOpExecutor HiAI_SingleOpExecutor
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
-typedef struct HiAI_SingleOpExecutorConvolutionParam
+typedef struct HiAI_SingleOpExecutorConvolutionParam HiAI_SingleOpExecutorConvolutionParam
 ```
  
 **描述**
@@ -376,7 +376,7 @@ typedef struct HiAI_SingleOpExecutorConvolutionParam
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
-typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam
+typedef struct HiAI_SingleOpExecutorFusedConvolutionActivationParam HiAI_SingleOpExecutorFusedConvolutionActivationParam
 ```
  
 **描述**

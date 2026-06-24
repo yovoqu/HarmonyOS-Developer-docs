@@ -1,13 +1,13 @@
 # Interface (VideoSession)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-videosession
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-VideoSession继承自[Session](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session)、[Flash](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flash)、[AutoExposure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure)、 [WhiteBalance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-whitebalance)、[Focus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus)、[Zoom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoom)、[Stabilization](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-stabilization)、[ColorManagement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement)、[AutoDeviceSwitch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autodeviceswitch)、[Macro](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-macro)、[ControlCenter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenter)。
+VideoSession继承自[Session](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session)、[Flash](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-flash)、[AutoExposure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure)、[WhiteBalance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-whitebalance)、[Focus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-focus)、[Zoom](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoom)、[Stabilization](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-stabilization)、[ColorManagement](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagement)、[AutoDeviceSwitch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autodeviceswitch)、[Macro](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-macro)、[ControlCenter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-controlcenter)、[ManualExposure](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-manualexposure)、[ManualFocus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-manualfocus)、[ManualIso](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-manualiso)、[OIS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-ois)、[Aperture](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-aperture)。
 
-普通录像模式会话类，提供了对闪光灯、曝光、白平衡、对焦、变焦、视频防抖、色彩空间、微距及控制器的操作。
+普通录像模式会话类，提供了对闪光灯、曝光、白平衡、对焦、变焦、视频防抖、色彩空间、微距及控制器、手动曝光、手动对焦、手动ISO、光学防抖及光圈的操作。
 
 默认的视频录制模式，适用于一般场景。支持720P、1080p等多种分辨率的录制，可选择不同帧率（如30fps、60fps）。
 
@@ -759,5 +759,73 @@ function unregisterIsoInfoChanged(videoSession: camera.VideoSession): void {
 
 function unregisterAllIsoInfoChanged(videoSession: camera.VideoSession): void {
   videoSession.offIsoInfoChange();
+}
+```
+
+
+
+#### onExposureInfoChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onExposureInfoChange(callback: Callback&lt;ExposureInfo&gt;): void
+
+订阅曝光信息变化事件回调。曝光参数更改后，系统将返回更新后的曝光信息。使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;ExposureInfo&gt; | 是 | 回调函数，用于获取曝光值变化信息。 |
+
+
+**示例：**
+
+```text
+function onExposureInfoChange(videoSession: camera.VideoSession): void {
+  videoSession.onExposureInfoChange((exposureInfo: camera.ExposureInfo) => {
+    console.info(`Exposure info changed, exposureTime: ${exposureInfo.exposureTime}`);
+  });
+}
+```
+
+
+
+#### offExposureInfoChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offExposureInfoChange(callback?: Callback&lt;ExposureInfo&gt;): void
+
+取消订阅曝光信息变化事件回调。如果订阅了曝光信息，请在释放相机前取消订阅。使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;ExposureInfo&gt; | 否 | 回调函数，如果指定参数则取消对应callback（callback对象不可是匿名函数），否则取消所有callback。 |
+
+
+**示例：**
+
+```text
+function offExposureInfoChange(videoSession: camera.VideoSession): void {
+  videoSession.offExposureInfoChange();
 }
 ```

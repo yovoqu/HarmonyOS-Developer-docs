@@ -1,6 +1,6 @@
 # liveViewManager
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-liveviewmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -597,7 +597,7 @@ try {
 
 startLiveViewByTrigger(liveView: LiveView, trigger:Trigger): Promise&lt;LiveViewResult&gt;
 
-增加由条件触发创建实况的消息，使用Promise异步回调。
+注册一个由条件触发创建的实况窗。调用startLiveViewByTrigger后，系统会记录trigger条件，但不会立即创建实况窗。当条件满足时，系统会自动创建实况窗，使用Promise异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -619,7 +619,7 @@ startLiveViewByTrigger(liveView: LiveView, trigger:Trigger): Promise&lt;LiveView
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;LiveViewResult&gt; | Promise对象，返回添加基于地理位置触发创建实况窗的结果。 |
+| Promise&lt;LiveViewResult&gt; | Promise对象，返回由条件触发创建的实况窗注册结果。 |
 
 
 **错误码：**
@@ -741,7 +741,7 @@ async function buildWantAgent(): Promise<Want> {
 
 stopLiveViewByTrigger(liveView: LiveView, trigger:Trigger): Promise&lt;LiveViewResult&gt;
 
-增加由条件触发结束实况的消息，使用Promise异步回调。
+注册一个由条件触发结束的实况窗。调用stopLiveViewByTrigger后，系统会记录trigger条件，但不会立即结束实况窗。当条件满足时，系统会自动结束实况窗，使用Promise异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -763,7 +763,7 @@ stopLiveViewByTrigger(liveView: LiveView, trigger:Trigger): Promise&lt;LiveViewR
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;LiveViewResult&gt; | Promise对象，返回添加基于地理位置触发结束实况窗的结果。 |
+| Promise&lt;LiveViewResult&gt; | Promise对象，返回注册由条件触发结束实况窗的结果。 |
 
 
 **错误码：**
@@ -1014,10 +1014,12 @@ async function buildWantAgent(): Promise<Want> {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | id | number | 否 | 否 | 实况窗唯一标识，取值范围为[-2147483648, 2147483647]，由开发者自行生成。对应Push Kit中LiveViewPayload的activityId字段。 |
-| event | string | 否 | 否 | 实况窗的应用场景。 ● TAXI：出行打车。 ● DELIVERY：即时配送（外卖、生鲜）。 ● FLIGHT：航班。 ● TRAIN：高铁/火车。 ● QUEUE：排队。 ● PICK_UP：取餐。 ● SCORE：赛事比分。 ● RENT：共享租赁。 ● TIMER：计时。 ● WORKOUT：运动锻炼。 ● NAVIGATION：导航。 ● CHECK_IN：打卡。 ● EXPRESS：快递。 使用对应场景需要申请权益，详情请参见实况窗权益说明。 |
+| event | string | 否 | 否 | 实况窗的应用场景。 ● TAXI：出行打车。 ● DELIVERY：即时配送（外卖、生鲜）。 ● FLIGHT：航班。 ● TRAIN：高铁/火车。 ● QUEUE：排队。 ● PICK_UP：取餐。 ● SCORE：赛事比分。 ● RENT：共享租赁。 ● TIMER：计时。 ● WORKOUT：运动锻炼。 ● NAVIGATION：导航。 ● CHECK_IN：打卡。 ● EXPRESS：快递。 ● PROGRESS：进度类型。 使用对应场景需要申请权益，详情请参见实况窗权益说明。 |
+| subEvent | string | 否 | 是 | 实况窗的应用子场景。主要用于统计子业务场景的实况窗数量，使用对应子场景无需额外申请权益。 ● 即时配送（外卖、生鲜）场景(event为"DELIVERY") FOOD：美食、GOODS：商超、MEDICINE：买药、BACHELOR：跑腿、GROUPBUY：拼团 ● 导航场景(event为"NAVIGATION") DRIVING：驾车、WALKING：步行、CYCLING：骑行、BUS：公交、METRO：地铁 ● 出行打车场景(event为"TAXI") STANDARD：普通即时打车、SPECIAL：专车、HITCHHIKING：顺风车、CARPOOLING：拼车 ● 排队场景(event为"QUEUE") RESTAURANT：餐饮排号、HOSPITAL：就诊排号、BANK：银行排号、GOVERNMENT：政务中心排号、ATTRACTION：景区排号 ● 共享租赁场景(event为"RENT") BICYCLE：共享单车、EBIKE：共享电动车或助力车、POWERBANK：共享充电宝、CAR：共享汽车 ● 运动锻炼场景(event为"WORKOUT") RUNNING：跑步、CYCLING：骑行、WALKING：步行 ● 进度类型场景(event为"PROGRESS") UPLOAD：文件上传、DOWNLOAD：文件下载、IMPORT：资源导入、EXPORT：资源导出、BACKUP：备份、RECOVER：恢复 起始版本： 26.0.0 |
 | sequence | number | 否 | 是 | 支持实况窗消息更新和结束保序能力，取值范围为[0, 2147483647]，新的实况窗版本号需大于当前展示实况窗版本号，否则更新和结束会失败。若不传入参数值，Live View Kit不会自动生成（此时，调用getActiveLiveView接口查询实况信息，返回结果中sequence：4294967295为无效值，该无效值不允许用来更新实况），也不会校验实况窗版本号。对应Push Kit中的version字段。 |
 | isMute | boolean | 否 | 是 | 消息提醒方式。若您在创建或更改实况窗状态时不传入此字段，则始终默认静默提醒。 ● true：静默提醒。 ● false：铃声震动提醒。 |
 | timer | LiveViewTimer | 否 | 是 | 实况窗计时器，展示时每秒刷新一次。 配置了计时器后，可以在部分字段中使用占位符：${placeholder.timer}，系统会将占位符替换为计时器。 当前支持使用占位符的字段： ● liveViewData.primary.title ● liveViewData.primary.content ● liveViewData.primary.layoutData.content ● liveViewData.primary.layoutData.competitionTime 起始版本： 5.0.0(12) |
+| lifeCycleMode | LifeCycleMode | 否 | 是 | 实况窗生命周期模式，控制实况窗是否随应用进程结束自动结束。默认为常规生命周期，需要由开发者主动调用API结束实况窗，不跟随应用进程结束而自动结束。 仅在创建实况时生效，并且在以下场景中传入该字段不生效： ● 当event为导航场景/运动健康场景 ● 当调用startLiveViewByTrigger注册由条件触发创建的实况窗 说明：不传lifeCycleMode与传入lifeCycleMode为STOP_BY_APP时效果一样。 起始版本： 26.0.0 |
 | liveViewData | LiveViewData | 否 | 否 | 实况窗详细信息。 |
 
 
@@ -1039,7 +1041,7 @@ async function buildWantAgent(): Promise<Want> {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| time | number | 否 | 是 | 计时器初始值，单位为毫秒，默认为0，取值范围为[0,9223372036854775807]。每秒刷新一次。 |
+| time | number | 否 | 是 | 计时器初始值，单位：ms，默认为0，取值范围为[0,9223372036854775807]。每秒刷新一次。 |
 | isCountdown | boolean | 否 | 是 | 计时器是否为倒计时，默认为false。 ● true：计时器为倒计时类型 ● false：计时器为正计时类型 |
 | isPaused | boolean | 否 | 是 | 计时器是否暂停，默认false。计时器暂停时，会显示暂停的那一秒。 ● true：暂停。 ● false：不暂停（默认值）。 |
 | countdownPreset | CountdownPreset | 否 | 是 | 当倒计时到0时，系统将自动更新实况窗卡片模板扩展区标题（title）和扩展区内容（content）字段为卡片预置结构体（countdownPreset）中的标题（presetTitle）和内容（presetContent）。 仅当满足以下条件时，上述功能生效： ● layoutType为LAYOUT_TYPE_PICKUP强调文本模板； ● liveViewData.primary.layoutData.content中使用占位符${placeholder.timer}。 起始版本： 6.0.0(20) |
@@ -1118,7 +1120,7 @@ async function buildWantAgent(): Promise<Want> {
 | liveViewLockScreenPicture | string \| image.PixelMap | 否 | 是 | 锁屏沉浸实况窗大图样式在指定路径下的文件名。传入实际存在的图片时，用户在锁屏下点击实况胶囊中的应用图标、长按实况胶囊内容或长按卡片内容，会进入沉浸态，展示大图。不传入或传入图片不存在时，用户点击行为不会进入沉浸态。 ● string类型的取值为在“/resources/rawfile”路径下的文件名，长度小于256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 建议使用大小约为1000*1000的图片，不支持GIF格式的图片文件。 起始版本： 5.0.0(12) |
 | liveViewLockScreenAbilityName | string | 否 | 是 | LiveViewLockScreenExtensionAbility（锁屏沉浸实况窗扩展Ability）的名称，仅创建实况窗时生效，传入时值不可为空，长度最大为128。若在创建实况窗时与liveViewLockScreenPicture同时传入，则仅本字段生效。 起始版本： 5.0.0(12) |
 | liveViewLockScreenAbilityParameters | Record<string, string> | 否 | 是 | 用户自定义向LiveViewLockScreenExtensionAbility（锁屏沉浸实况窗扩展Ability）传入的参数，填值时不能为空，key-value键值对最多50个，传入后可在ability的onSessionCreate()中，通过want.parameters获取。 起始版本： 5.0.0(12) |
-| backgroundType | BackgroundType | 否 | 是 | 表示实况窗卡片的背景氛围类型，仅支持左右文本模板(即layoutType为LAYOUT_TYPE_FLIGHT)展示背景。 当传入实况窗卡片的背景氛围类型参数backgroundType值为赏月航班或夕阳航班时，且同时传入天气类型（WeatherInfo）为雨、雪特殊天气，卡片上优先展示天气背景，其余非特殊天气在卡片上展示赏月航班或夕阳航班背景氛围。 起始版本： 6.0.0(20) |
+| backgroundType | BackgroundType | 否 | 是 | 表示实况窗卡片的背景氛围类型，仅支持左右文本模板（即layoutType为LAYOUT_TYPE_FLIGHT）展示背景。 当传入实况窗卡片的背景氛围类型参数backgroundType值为赏月航班或夕阳航班时，且同时传入天气类型（WeatherInfo）为雨、雪特殊天气，卡片上优先展示天气背景，其余非特殊天气在卡片上展示赏月航班或夕阳航班背景氛围。 起始版本： 6.0.0(20) |
 | aliveTime | number | 否 | 是 | 实况窗最长存活时间，范围[15,28800]，传入值小于15时默认取值为15，传入值大于28800时默认取值为28800，单位：s。 起始版本： 6.1.1(24) |
 
 
@@ -1128,7 +1130,7 @@ async function buildWantAgent(): Promise<Want> {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-航班场景下卡片背景类型，为枚举值。
+实况窗卡片的背景氛围类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1153,6 +1155,21 @@ async function buildWantAgent(): Promise<Want> {
 
 辅助区参数。
 
+**辅助区元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/3L272RbORWG_9DwP8DJbDA/zh-cn_image_0000002656470965.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=1D4D7A5AD756ACD600A97A9A6ECB6E00262FB46BD5373F451A50D5F0DB0F57BA)
+
+
+ - 1 实况卡片辅助区类型，对应type字段:       
+当辅助区类型为ExtensionType.EXTENSION_TYPE_COMMON_TEXT时，辅助区显示普通文本，使用API字段text传入文本内容。
+ - 当辅助区类型为ExtensionType.EXTENSION_TYPE_CAPSULE_TEXT时，辅助区显示实况胶囊文本，使用API字段text传入文本内容。
+ - 当辅助区类型为ExtensionType.EXTENSION_TYPE_PIC时，辅助区显示图片，使用API字段pic传入图片资源。
+ - 当辅助区类型为ExtensionType.EXTENSION_TYPE_ICON时，辅助区显示图标，使用API字段pic传入图标资源。
+ - 当辅助区类型为ExtensionType.EXTENSION_TYPE_PROGRESS时，辅助区显示进度环，使用API字段progress传入进度百分比。
+
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.LiveView.LiveViewService
@@ -1165,9 +1182,10 @@ async function buildWantAgent(): Promise<Want> {
 | --- | --- | --- | --- | --- |
 | type | ExtensionType | 否 | 是 | 辅助区显示类型，默认为EXTENSION_TYPE_DEFAULT不显示辅助区。 |
 | text | string | 否 | 创建：否（仅当type值为ExtensionType.EXTENSION_TYPE_COMMON_TEXT或ExtensionType.EXTENSION_TYPE_CAPSULE_TEXT时） 更新或结束：是 | 辅助区显示的文本信息，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
-| pic | string \| image.PixelMap | 否 | 创建：否（仅当type值为ExtensionType.EXTENSION_TYPE_PIC或ExtensionType.EXTENSION_TYPE_ICON时） 更新或结束：是 | 辅助区显示的图片，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
+| pic | string \| image.PixelMap | 否 | 创建：否（仅当type值为ExtensionType.EXTENSION_TYPE_PIC或ExtensionType.EXTENSION_TYPE_ICON时） 更新或结束：是 | 辅助区显示的图片，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
 | clickAction | WantAgent | 否 | 是 | 点击辅助区的跳转动作，请调用wantAgent.getWantAgent()来构造。 |
 | actionType | ActionType | 否 | 是 | 点击辅助区的行为。 起始版本： 6.1.1(24) |
+| progress | number | 否 | 是 | 进度百分比，值范围：[0,100]。 当type值为ExtensionType.EXTENSION_TYPE_PROGRESS时创建必填，更新时不填或格式错误时会导致辅助区更新失败。 起始版本： 26.0.0 |
 
 
 
@@ -1189,7 +1207,7 @@ async function buildWantAgent(): Promise<Want> {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | layoutType | LayoutType | 否 | 否 | 模板类型。 |
-| serviceButtons | Array&lt;ServiceButton&gt; | 否 | 是 | 传入连续服务按钮结构体数组。 更新连续服务按钮时，需要同时更新辅助区ExtensionData的clickAction字段和连续服务按钮。 起始版本： 5.1.1(19)。 |
+| serviceButtons | Array&lt;ServiceButton&gt; | 否 | 是 | 传入连续服务按钮结构体数组。 更新连续服务按钮时，需要同时更新辅助区ExtensionData的clickAction字段和连续服务按钮。 起始版本： 5.1.1(19) |
 | isServiceButtonsDisplayed | boolean | 否 | 是 | 是否显示连续服务按钮，默认false。 ● true：显示按钮 ● false：不显示按钮 起始版本： 5.1.1(19) |
 | weatherInfo | WeatherInfo | 否 | 是 | 传入天气信息结构体。 目的地天气类型仅支持左右文本模板（即layoutType为LAYOUT_TYPE_FLIGHT）； 本地天气类型仅支持基础模板、进度可视化模板和强调文本模板（即layoutType为LAYOUT_TYPE_DEFAULT/LAYOUT_TYPE_PROGRESS/LAYOUT_TYPE_PICKUP）。 当传入天气信息，且同时传入实况窗卡片的背景氛围类型参数backgroundType值为赏月航班（SYS_BACKGROUND_FLIGHT_MOON）或夕阳航班（SYS_BACKGROUND_FLIGHT_SUNSET）时，若天气类型为雨、雪特殊天气，卡片上优先展示天气背景，其余非特殊天气在卡片上优先展示赏月航班或夕阳航班背景氛围。 说明： 从6.0.0(20)开始支持展示目的地天气效果； 从6.0.2(22)开始支持展示本地天气效果。 |
 
@@ -1318,6 +1336,19 @@ async function buildWantAgent(): Promise<Want> {
 
 进度可视化模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_PROGRESS时，使用此类型。
 
+**卡片元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/ruA8vib3Q0ywyJSJvA66yA/zh-cn_image_0000002656351015.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=925624D95E820EC7DFA5E5EA0B1FAE8CD89A6AAB074D757AF07A5AA9FF0DCF5B)
+
+
+ - 1 进度百分比，对应progress字段。
+ - 2 进度条进度的颜色，对应color字段。
+ - 3 进度条背景颜色，对应backgroundColor字段。
+ - 4 进度条指示器图标，对应indicatorIcon字段。
+ - 5 进度条节点图标，对应nodeIcons字段。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.LiveView.LiveViewService
@@ -1332,9 +1363,9 @@ async function buildWantAgent(): Promise<Want> {
 | color | string | 否 | 是 | 进度条颜色，"#ARGB"16进制格式，长度为9。默认颜色为#FF317AF7。 |
 | backgroundColor | string | 否 | 是 | 进度条背景颜色，"#ARGB"16进制格式，长度为9。默认颜色为#19000000，深色模式默认颜色#19FFFFFF。 |
 | indicatorType | IndicatorType | 否 | 是 | 扩展区指示器小图标显示类型，默认不显示指示器小图标。 |
-| indicatorIcon | string \| image.PixelMap | 否 | 创建或模板切换：否（仅当indicatorType值为IndicatorType.INDICATOR_TYPE_UP或IndicatorType.INDICATOR_TYPE_OVERLAY时） 更新或结束：是 | 进度条指示器图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
+| indicatorIcon | string \| image.PixelMap | 否 | 创建或模板切换：否（仅当indicatorType值为IndicatorType.INDICATOR_TYPE_UP或IndicatorType.INDICATOR_TYPE_OVERLAY时） 更新或结束：是 | 进度条指示器图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
 | lineType | LineType | 否 | 是 | 扩展区进度条显示类型，默认为虚线进度。 |
-| nodeIcons | Array<string \| image.PixelMap> | 否 | 创建或模板切换：否 更新或结束：是 | 进度条每个节点图标，数组长度范围为[2, 5]，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
+| nodeIcons | Array<string \| image.PixelMap> | 否 | 创建或模板切换：否 更新或结束：是 | 进度条每个节点图标，数组长度范围为[2, 5]，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
 
 
 
@@ -1345,6 +1376,18 @@ async function buildWantAgent(): Promise<Want> {
 
 强调文本模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_PICKUP时，使用此类型。
 
+**卡片元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/XTXsdxGIRhiPL6AAxbOMOw/zh-cn_image_0000002626231602.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=7FC286630B713033B3955D3C2EC98CC45C804231C911CAC11EC69EE9F32BDE3E)
+
+
+ - 1 扩展区标题，对应title字段。
+ - 2 扩展区内容，对应content字段。
+ - 3 扩展区内容下划线颜色，对应underlineColor字段。
+ - 4 扩展区右侧产品描述图，对应descPic字段。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.LiveView.LiveViewService
@@ -1355,10 +1398,10 @@ async function buildWantAgent(): Promise<Want> {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| title | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区标题，若填值时不能为空，长度小于128。 |
-| content | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区内容，若填值时不能为空，长度小于128。 |
+| title | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区标题，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
+| content | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区内容，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
 | underlineColor | string | 否 | 是 | 扩展区内容下划线颜色，"#ARGB"16进制格式，长度为9，默认不显示下划线。 |
-| descPic | string \| image.PixelMap | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧产品描述图，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
+| descPic | string \| image.PixelMap | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧产品描述图，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
 
 
 
@@ -1369,6 +1412,24 @@ async function buildWantAgent(): Promise<Want> {
 
 左右文本模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_FLIGHT时，使用此类型。
 
+**卡片元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/CYsDahaDSAq9JWIzEux4Ag/zh-cn_image_0000002626071690.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=FA286121768BD175DA1465AEA2546FFFAC9B6BD950097FD99BE97D7A78CD8418)
+
+
+ - 1 左侧文本标题，对应firstTitle字段。
+ - 2 左侧文本内容，对应firstContent字段。
+ - 3 右侧文本标题，对应lastTitle字段。
+ - 4 右侧文本内容，对应lastContent字段。
+ - 5 右侧标题的右上角展示内容，对应lastTitleSuperscript字段。
+ - 6 右侧内容的右上角展示内容，对应lastContentSuperscript字段。
+ - 7 中间间隔图标，对应spaceIcon字段。
+ - 8 中间间隔文本，对应spaceText字段。
+ - 9 是否展示扩展区分割线，由isHorizontalLineDisplayed字段控制。
+ - 10 扩展区底部内容，对应additionalText字段。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.LiveView.LiveViewService
@@ -1379,15 +1440,15 @@ async function buildWantAgent(): Promise<Want> {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| style | FlightLayoutStyle | 否 | 是 | 左右文本子样式类型，若未填默认为强调型子样式。 ● 0：强调型子样式类型。 ● 1：均衡型子样式类型。 起始版本： 5.0.2(14) |
-| firstTitle | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区左侧标题，若填值时不能为空，长度小于128。 |
-| firstContent | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区左侧内容，若填值时不能为空，长度小于128。 |
-| lastTitle | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧标题，若填值时不能为空，长度小于128。 |
-| lastContent | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧内容，若填值时不能为空，长度小于128。 |
-| lastTitleSuperscript | string | 否 | 是 | 扩展区右侧标题的右上角展示内容，若填值时不能为空，长度小于128。若用于表示到达时间跨天，传入值长度等于2，格式为"+X", 其中X为数字，例如"+1", "+2"等。 起始版本： 5.0.2(14) |
-| lastContentSuperscript | string | 否 | 是 | 扩展区右侧内容的右上角展示内容，若填值时不能为空，长度小于128。若用于表示到达时间跨天，传入值长度等于2，格式为"+X", 其中X为数字，例如"+1", "+2"等。 起始版本： 5.0.2(14) |
+| style | FlightLayoutStyle | 否 | 是 | 左右文本模板子样式类型，若未填默认为强调型子样式。 ● 0：强调型子样式类型。 ● 1：均衡型子样式类型。 起始版本： 5.0.2(14) |
+| firstTitle | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区左侧标题，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
+| firstContent | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区左侧内容，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
+| lastTitle | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧标题，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
+| lastContent | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧内容，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
+| lastTitleSuperscript | string | 否 | 是 | 扩展区右侧标题的右上角展示内容，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。若用于表示到达时间跨天，传入值长度等于2，格式为"+X", 其中X为数字，例如"+1", "+2"等。 起始版本： 5.0.2(14) |
+| lastContentSuperscript | string | 否 | 是 | 扩展区右侧内容的右上角展示内容，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。若用于表示到达时间跨天，传入值长度等于2，格式为"+X", 其中X为数字，例如"+1", "+2"等。 起始版本： 5.0.2(14) |
 | spaceType | SpaceType | 否 | 是 | 左右文本模板扩展区中间的显示类型。 ● 未携带该字段或0：显示spaceIcon指定的中间间隔图标。 ● 1：显示由spaceText指定的中间间隔文本。 起始版本： 5.0.2(14) |
-| spaceIcon | string \| image.PixelMap | 否 | 创建或模板切换：未填spaceType或spaceType为SpaceType.SPACE_TYPE_ICON时必填 | 扩展区中间间隔图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
+| spaceIcon | string \| image.PixelMap | 否 | 创建或模板切换：未填spaceType或spaceType为SpaceType.SPACE_TYPE_ICON时必填 | 扩展区中间间隔图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
 | spaceText | string | 否 | 创建或模板切换：spaceType为SpaceType.SPACE_TYPE_TEXT时必填 | 扩展区中间间隔文本，用于展示日期，例如10/28 周六、2025/09/15等。 限制为6个中文字符长度或12个英文字符长度，若超长则截断展示。 更新或结束不携带时显示上次的文本。 说明： 起始版本：5.0.2(14)。 |
 | isHorizontalLineDisplayed | boolean | 否 | 是 | 是否显示扩展区分割线，默认显示分割线。 ● true：显示。 ● false：不显示。 |
 | additionalText | string | 否 | 是 | 扩展区底部内容，长度小于1024。 起始版本： 5.0.0(12) |
@@ -1401,6 +1462,23 @@ async function buildWantAgent(): Promise<Want> {
 
 赛事比分模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_SCORE时，使用此类型。
 
+**卡片元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/jqYjBCkATeWtY4y2vPCYiA/zh-cn_image_0000002656470967.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=98F51E7265990FD2FB7A7D9ED165D983006CE02D27B999E176C8C9E1CC322713)
+
+
+ - 1 左侧主队名称，对应hostName字段。
+ - 2 左侧主队图标，对应hostIcon字段。
+ - 3 左侧主队比分，对应hostScore字段。
+ - 4 右侧客队名称，对应guestName字段。
+ - 5 右侧客队图标，对应guestIcon字段。
+ - 6 右侧客队比分，对应guestScore字段。
+ - 7 中间上方描述，对应competitionDesc字段。
+ - 8 中间下方比赛时间，对应competitionTime字段。
+ - 9 是否展示扩展区分割线，由isHorizontalLineDisplayed字段控制。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.LiveView.LiveViewService
@@ -1412,10 +1490,10 @@ async function buildWantAgent(): Promise<Want> {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | hostName | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区左侧名称，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
-| hostIcon | string \| image.PixelMap | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区左侧图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
+| hostIcon | string \| image.PixelMap | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区左侧图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
 | hostScore | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区左侧比分，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
 | guestName | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧名称，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
-| guestIcon | string \| image.PixelMap | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
+| guestIcon | string \| image.PixelMap | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
 | guestScore | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区右侧比分，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
 | competitionDesc | string \| Array&lt;RichText&gt; | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区中间上方描述文本，比赛介绍，若传入数组对象，对象中text字段参数值不能为以下值：null/undefined/空字符串/全为空格的字符串。 ● 填string时，字符串长度需小于128。 ● 填Array&lt;RichText&gt;时： 数组中所有对象的text字段字符串长度总和需小于128。 数组中对象不设置textColor字段时，文本颜色默认为#99000000；设置textColor字段时，所有拥有textColor字段的对象仅能设置同一种颜色。 说明： 从5.0.0(12)版本开始，新增支持入参类型Array&lt;RichText&gt;。 |
 | competitionTime | string | 否 | 创建或模板切换：否 更新或结束：是 | 扩展区中间下方比赛时间，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
@@ -1430,6 +1508,17 @@ async function buildWantAgent(): Promise<Want> {
 
 导航模板扩展区参数，继承[LayoutData](#layoutdata)。当[layoutType](#layouttype)为LayoutType.LAYOUT_TYPE_NAVIGATION时，使用此类型。
 
+**卡片元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5c/v3/vniZ0sXUQx-CyO0LSkAPdA/zh-cn_image_0000002656351017.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=D7777757AC428ADE9B1EDCC51C970C264E173905FA9E178B63B64989DD892278)
+
+
+ - 1 当前导航方向，对应currentNavigationIcon字段。
+ - 2 导航方向的箭头集合图片，对应navigationIcons字段。
+ - 3 是否展示扩展区导航方向的箭头集合图片，由isNavigationIconsDisplayed字段控制。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.LiveView.LiveViewService
@@ -1440,8 +1529,8 @@ async function buildWantAgent(): Promise<Want> {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| currentNavigationIcon | string \| image.PixelMap | 否 | 创建或模板切换：否 更新或结束：是 | 当前导航方向。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为128。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 若本地资源不存在，创建时失败，更新或结束时导航模板扩展区不更新。 说明： 为确保图片在系统深浅模式下的显示效果，系统将对png、svg格式图片做赋色处理，其他格式图片保留原样显示不支持赋色。具体参考 卡片模板 的 "导航定制模板"说明。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
-| navigationIcons | Array<string \| image.PixelMap> | 否 | 是 | 导航方向的箭头集合图片，支持1-11个。创建时不传，则不展示扩展区。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为128。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 若本地资源不存在，创建时失败，更新或结束时导航模板扩展区不更新。 说明： 为确保在系统深浅模式下的显示效果，系统将对png、svg格式图片做赋色处理，其他格式图片保留原样显示不支持赋色。具体参考 卡片模板 的 "导航定制模板"说明。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
+| currentNavigationIcon | string \| image.PixelMap | 否 | 创建或模板切换：否 更新或结束：是 | 当前导航方向。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为128。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 若本地资源不存在，创建时失败，更新或结束时导航模板扩展区不更新。 说明： 为确保图片在系统深浅模式下的显示效果，系统将对png、svg格式图片做赋色处理，其他格式图片保留原样显示不支持赋色。具体参考 卡片模板 的 "导航定制模板"说明。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
+| navigationIcons | Array<string \| image.PixelMap> | 否 | 是 | 导航方向的箭头集合图片，支持1-11个。创建时不传，则不展示扩展区。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为128。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 若本地资源不存在，创建时失败，更新或结束时导航模板扩展区不更新。 说明： 为确保在系统深浅模式下的显示效果，系统将对png、svg格式图片做赋色处理，其他格式图片保留原样显示不支持赋色。具体参考 卡片模板 的 "导航定制模板"说明。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
 | isNavigationIconsDisplayed | boolean | 否 | 是 | 控制导航方向的箭头集合图片是否展示。更新或结束未填时，继承上一次状态变更时的值。其他情况不传值时默认为展示。 ● true：展示 ● false：不展示 起始版本：5.0.3(15) |
 
 
@@ -1452,6 +1541,19 @@ async function buildWantAgent(): Promise<Want> {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 定义实况胶囊基本属性的基类。
+
+**胶囊元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/smxaMO6GTGmSzIIguJmJtw/zh-cn_image_0000002626231604.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=5573CB297A02BD33BAC70617D6EA37C53B3CE9A2249A0B27A8D1B45213602033)
+
+
+ - 1 实况胶囊类型，对应type字段。
+ - 2 实况胶囊的图标，对应icon字段。
+ - 3 实况胶囊的尾部图标，对应tailIcon字段。
+ - 4 实况胶囊副文本是否展示，由isContentDisplayed字段控制。
+ - 5 实况胶囊尾部图标是否展示，由isTailIconDisplayed字段控制。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1465,8 +1567,8 @@ async function buildWantAgent(): Promise<Want> {
 | --- | --- | --- | --- | --- |
 | type | CapsuleType | 否 | 否 | 实况胶囊的类型。 |
 | status | number | 否 | 否 | 实况胶囊的显示状态。 ● 1：显示实况胶囊。 ● -1：结束显示实况胶囊。 |
-| icon | string \| image.PixelMap | 否 | 创建：否 更新或结束：是 | 实况胶囊的图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为255。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 |
-| tailIcon | string \| image.PixelMap | 否 | 是 | 实况胶囊的尾部图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为255。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 起始版本： 6.0.0(20) |
+| icon | string \| image.PixelMap | 否 | 创建：否 更新或结束：是 | 实况胶囊的图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为255。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 |
+| tailIcon | string \| image.PixelMap | 否 | 是 | 实况胶囊的尾部图标，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为255。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 起始版本： 6.0.0(20) |
 | backgroundColor | string | 否 | 创建：否 更新或结束：是 | 实况胶囊的背景颜色，"#ARGB"16进制格式，长度为9。更新或结束未填时，继承上一次状态变更时的颜色。 不建议使用以下颜色： ● #FF000000 ● #FFFFFFFF ● #FFF1F3F5 |
 | isContentDisplayed | boolean | 否 | 是 | 实况胶囊的副文本是否展示。该参数未填时，继承上一次创建或更新实况窗时传入的值。其他情况不传值时默认为展示。 ● true：展示 ● false：不展示 isContentDisplayed与isTailIconDisplayed均为false时，实况胶囊的副文本及尾部图标区域不展示。 起始版本： 5.0.3(15) |
 | isTailIconDisplayed | boolean | 否 | 是 | 实况胶囊的尾部图标是否展示。该参数未填时，继承上一次创建或更新实况窗时传入的值。其他情况不传值时默认不展示。 ● true：展示 ● false：不展示 isContentDisplayed与isTailIconDisplayed均为false时，实况胶囊的副文本及尾部图标区域不展示。 起始版本： 6.0.0(20) |
@@ -1479,6 +1581,16 @@ async function buildWantAgent(): Promise<Want> {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 文本实况胶囊参数，继承[CapsuleData](#capsuledata)。当[type](#capsuledata)为CapsuleType.CAPSULE_TYPE_TEXT时，使用此类型。
+
+**胶囊元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/fQrtWwKRQvukd7BZuPbWIg/zh-cn_image_0000002626071692.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=A51408A7321F9EC6928546B16990DFB0465DBEF4E42656CECE66A452BA04F92A)
+
+
+ - 1 实况胶囊主文本，对应title字段。
+ - 2 实况胶囊副文本，对应content字段。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1501,6 +1613,16 @@ async function buildWantAgent(): Promise<Want> {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 计时器实况胶囊参数，继承[CapsuleData](#capsuledata)。当[type](#capsuledata)为CapsuleType.CAPSULE_TYPE_TIMER时，使用此类型。
+
+**胶囊元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/Qfk1aUnqRnK8f8V14uqySw/zh-cn_image_0000002656470969.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=C2C3B639E4A022B39AAB946BE79428671B87309118732C95D3BABC97A9ED0829)
+
+
+ - 1 实况胶囊副文本，对应content字段。
+ - 2 实况胶囊计时器初始值，对应time字段。计时器正计时或倒计时，由isCountdown字段控制。计时器是否暂停，由isPaused字段控制。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1526,6 +1648,19 @@ async function buildWantAgent(): Promise<Want> {
 
 进度实况胶囊参数，继承[CapsuleData](#capsuledata)。当[type](#capsuledata)为CapsuleType.CAPSULE_TYPE_PROGRESS时，使用此类型。
 
+**胶囊元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/Jo_s3GoWTT2YmjDX4vTP1A/zh-cn_image_0000002656351019.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=16DE75DAAC6F1D667EE98EDA7031B08363D7F93E7837B16A825774B2CD6B188F)
+
+
+ - 1 进度值显示数值占比或百分比，由indeterminate字段控制：       
+indeterminate为false：展示数值占比，格式为x/y（x对应progress字段，y对应max字段）。
+ - indeterminate为true：展示百分比，格式为(x/y)*100% （x对应progress字段，y对应max字段）。
+
+      - 2 实况胶囊的副文本，对应字段content字段。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.LiveView.LiveViewService
@@ -1550,6 +1685,18 @@ async function buildWantAgent(): Promise<Want> {
 
 外屏形态模板参数。
 
+**外屏元素对应的API字段：**
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/MbgDRQYaSD-MaDJ-Zjgb1w/zh-cn_image_0000002626231606.png?HW-CC-KV=V1&HW-CC-Date=20260624T020339Z&HW-CC-Expire=86400&HW-CC-Sign=DF31D04EC9DBD11D9E25D36826F3ADD09D21ADE41EEBA47ECC5F085C186D40AA)
+
+
+ - 1 外屏标题，对应title字段。
+ - 2 外屏内容，对应content字段。
+ - 3 外屏背景颜色，对应backgroundColor字段。
+ - 4 外屏背景图片，对应字段backgroundPicture字段。
+
+
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.LiveView.LiveViewService
@@ -1560,11 +1707,11 @@ async function buildWantAgent(): Promise<Want> {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| title | string | 否 | 创建：否 更新或结束：是 | 外屏标题，若填值时不能为空，长度小于128。 |
-| content | Array&lt;RichText&gt; | 否 | 创建：否 更新或结束：是 | 外屏内容，应用可以设置字符串中部分文本的颜色，若填值时不能为空。 ● 数组中所有对象的text字段字符串长度总和需小于128。 ● 数组中对象不设置textColor字段时，文本颜色默认为#99000000；设置textColor字段时，所有拥有textColor字段的对象仅能设置同一种颜色。 |
+| title | string | 否 | 创建：否 更新或结束：是 | 外屏标题，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串，长度小于128。 |
+| content | Array&lt;RichText&gt; | 否 | 创建：否 更新或结束：是 | 外屏内容，应用可以设置字符串中部分文本的颜色，若传入数组对象，对象中text字段参数值不能为以下值：null/undefined/空字符串/全为空格的字符串。 ● 数组中所有对象的text字段字符串长度总和需小于128。 ● 数组中对象不设置textColor字段时，文本颜色默认为#99000000；设置textColor字段时，所有拥有textColor字段的对象仅能设置同一种颜色。 |
 | type | ExternalType | 否 | 是 | 外屏背景样式类型，默认为背景色。 起始版本： 5.0.0(12) |
 | backgroundColor | string | 否 | 是 | 外屏背景颜色，"#RGB"16进制格式， 长度为7，默认颜色为#F1F3F5。 |
-| backgroundPicture | string \| image.PixelMap | 否 | 创建：否（仅当type为ExternalType.BACKGROUND_PICTURE时） 更新或结束：是（当type为ExternalType.BACKGROUND_PICTURE时，此参数生效） | 外屏背景图片，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，图片大小不大于30KB。 起始版本： 5.0.0(12) |
+| backgroundPicture | string \| image.PixelMap | 否 | 创建：否（仅当type为ExternalType.BACKGROUND_PICTURE时） 更新或结束：是（当type为ExternalType.BACKGROUND_PICTURE时，此参数生效） | 外屏背景图片，更新或结束不携带时显示上次的图片。 ● 当此参数类型为string时，取值为在“/resources/rawfile”路径下的本地资源文件名，长度最大为256。 示例：图片文件“icon.png”存放在应用的“/resources/rawfile”路径下，则取值为“icon.png”。 ● 当此参数类型为image.PixelMap时，传入图片的PixelMap实例大小有如下限制： 对于26.0.0之前版本，不大于30KB；从26.0.0开始，不大于192KB。 起始版本： 5.0.0(12) |
 
 
 
@@ -1630,11 +1777,11 @@ async function buildWantAgent(): Promise<Want> {
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | LAYOUT_TYPE_DEFAULT | -1 | 不显示扩展区。 |
-| LAYOUT_TYPE_PROGRESS | 3 | 进度可视化类型。 |
-| LAYOUT_TYPE_PICKUP | 4 | 强调文本类型。 |
-| LAYOUT_TYPE_FLIGHT | 5 | 左右文本类型。 |
-| LAYOUT_TYPE_SCORE | 7 | 赛事类型。 |
-| LAYOUT_TYPE_NAVIGATION | 8 | 导航类型。 起始版本： 5.0.0(12) |
+| LAYOUT_TYPE_PROGRESS | 3 | 进度可视化类型。适用于需要展示进度节点的场景，如即时配送和出行打车，用于展示实况活动进度。 |
+| LAYOUT_TYPE_PICKUP | 4 | 强调文本类型。适用于取餐、出行打车等场景，用于展示取餐码、车牌号等关键信息。 |
+| LAYOUT_TYPE_FLIGHT | 5 | 左右文本类型。适用于火车、航班出行场景，用于显示行程信息，包括出发地、目的地与时间。 |
+| LAYOUT_TYPE_SCORE | 7 | 赛事类型。适用于体育赛事和电竞赛事比分场景，用于展示队伍比分。 |
+| LAYOUT_TYPE_NAVIGATION | 8 | 导航类型。适用于导航出行场景，用于展示导航信息。 起始版本： 5.0.0(12) |
 
 
 
@@ -1656,10 +1803,11 @@ async function buildWantAgent(): Promise<Want> {
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | EXTENSION_TYPE_DEFAULT | 0 | 不显示辅助区。 |
-| EXTENSION_TYPE_COMMON_TEXT | 1 | 普通文本。 |
-| EXTENSION_TYPE_CAPSULE_TEXT | 2 | 实况胶囊文本。 |
-| EXTENSION_TYPE_PIC | 3 | 显示图片。 |
-| EXTENSION_TYPE_ICON | 4 | 显示图标。 |
+| EXTENSION_TYPE_COMMON_TEXT | 1 | 辅助区显示普通文本。 |
+| EXTENSION_TYPE_CAPSULE_TEXT | 2 | 辅助区显示实况胶囊文本。 |
+| EXTENSION_TYPE_PIC | 3 | 辅助区显示图片。 |
+| EXTENSION_TYPE_ICON | 4 | 辅助区显示图标。 |
+| EXTENSION_TYPE_PROGRESS | 5 | 辅助区显示进度环。 起始版本： 26.0.0 说明： 当API版本小于26.0.0且ExtensionType赋此值时，创建和更新实况窗失败，需要开发者针对新旧版本进行适配处理。 |
 
 
 
@@ -1682,6 +1830,28 @@ async function buildWantAgent(): Promise<Want> {
 | --- | --- | --- |
 | ACTION_TYPE_OPEN_APP_PAGE | 1 | 打开应用自定义页面 |
 | ACTION_TYPE_STOP_LIVEVIEW | 3 | 结束实况通知 |
+
+
+
+
+#### LifeCycleMode
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+实况窗生命周期模式，为枚举值。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.LiveView.LiveViewService
+
+**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。
+
+**起始版本：** 26.0.0
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| STOP_BY_APP | 0 | 常规生命周期，不跟随应用进程结束而自动结束，需要由开发者主动调用liveViewManager.stopLiveView方法结束实况窗。 |
+| AUTO_STOP_WHEN_APP_TERMINATE | 1 | 实况窗随应用进程结束而消失，适用于实况窗的创建、更新和结束都由端侧应用APP控制的场景。 |
 
 
 
@@ -1781,7 +1951,7 @@ async function buildWantAgent(): Promise<Want> {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-左右文本子样式类型，为枚举值。
+左右文本模板子样式类型，为枚举值。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 

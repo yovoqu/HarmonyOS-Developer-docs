@@ -1,6 +1,6 @@
 # clock
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-clock
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -145,4 +145,4 @@
 **2*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/fjA4aKnBR1uqNZZZC7KDJw/zh-cn_image_0000002617670723.png?HW-CC-KV=V1&HW-CC-Date=20260604T012835Z&HW-CC-Expire=86400&HW-CC-Sign=B284A2984ED6A225A917AD94C729E6B53F03D3987796616AA3377FC899C4F733)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/94ba8pGWT1GWjvWD1c8FcA/zh-cn_image_0000002656470495.png?HW-CC-KV=V1&HW-CC-Date=20260624T015950Z&HW-CC-Expire=86400&HW-CC-Sign=D20CB008919D15E736AC375ABCA344567AB1D5C0D48426F52CC907AB2CA5BEBC)

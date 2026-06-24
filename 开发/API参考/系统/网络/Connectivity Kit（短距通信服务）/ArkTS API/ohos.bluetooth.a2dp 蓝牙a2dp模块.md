@@ -1,6 +1,6 @@
 # @ohos.bluetooth.a2dp (蓝牙a2dp模块)
 
-更新时间：2026-03-20 09:49:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-a2dp
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

@@ -1,6 +1,6 @@
 # 拉起导航类应用（startAbilityByType）
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-navigation-apps
 
@@ -55,6 +55,8 @@ startAbilityByType接口中type字段为navigation，支持路线规划、导航
 | destinationLongitude | number | 是 | 终点经度。 |
 
 | destinationPoiIds | Record<number, string> | 否 | 终点POI ID列表，当前仅支持传入花瓣地图、高德地图、百度地图的POI ID。 |
+
+| vehicleType | number | 否 | 交通出行工具，取值：0-驾车，1-步行，2-骑行，3-公交。 |
  - 位置搜索场景
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -64,6 +66,23 @@ startAbilityByType接口中type字段为navigation，支持路线规划、导航
 | sceneType | number | 是 | 意图场景，表明本次请求对应的操作意图。位置搜索场景填3。 |
 
 | destinationName | string | 是 | 地点名称。 |
+ - 地点详情场景
+
+| 参数名 | 类型 | 必填 | 说明 |
+
+| --- | --- | --- | --- |
+
+| sceneType | number | 是 | 意图场景，表明本次请求对应的操作意图。地点详情场景填4。 |
+
+| destinationName | string | 否 | 地点名称。 |
+
+| destinationLatitude | number | 是 | 地点纬度。 |
+
+| destinationLongitude | number | 是 | 地点经度。 |
+
+| zoom | number | 否 | 地图缩放级别，取值为大于0的整数。 |
+
+| destinationPoiIds | Record<number, string> | 否 | 地点POI ID列表，当前仅支持传入花瓣地图、高德地图、百度地图的POI ID。 |
 
 
 
@@ -143,7 +162,7 @@ struct Index {
 效果示例图：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/70/v3/o69x4LfiRHKv-LAEpkR2Gw/zh-cn_image_0000002581433550.png?HW-CC-KV=V1&HW-CC-Date=20260528T030510Z&HW-CC-Expire=86400&HW-CC-Sign=3743DA747B1D7E311199C31A38FBE2C7FFEBE738AC3964D233D310448E326D70)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/kiTg40fLSdGD4J_kQaPQ5A/zh-cn_image_0000002656347355.png?HW-CC-KV=V1&HW-CC-Date=20260624T020725Z&HW-CC-Expire=86400&HW-CC-Sign=0CB42AB2302C6EC988A8F552F07313F013AA74A96BA224306795D0BE88D4F1BB)
 
 
 
@@ -163,6 +182,8 @@ struct Index {
 | RoutePlan | 声明应用支持路线规划功能 |
 
 | PlaceSearch | 声明应用支持位置搜索功能 |
+
+| DetailLocation | 声明应用支持地点详情功能 |
 
 2. 设置scheme、host、port、path/pathStartWith属性，与Want中URI相匹配，以便区分不同功能。
 
@@ -191,6 +212,12 @@ struct Index {
               "host": "search",
               "path": "",
               "linkFeature": "PlaceSearch" // 声明应用支持位置搜索功能
+              },
+              {
+              "scheme": "maps", // 这里仅示意，应用需确保这里声明的uri能被外部正常拉起
+              "host": "detailLocation",
+              "path": "",
+              "linkFeature": "DetailLocation" // 声明应用支持地点详情功能
               }
           ]
           }
@@ -247,6 +274,8 @@ UIAbility.onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void
 | destinationLongitude | number | 是 | 终点经度。 |
 
 | destinationPoiId | string | 否 | 终点POI ID，当前仅支持花瓣地图、高德地图、百度地图获取此参数。 |
+
+| vehicleType | number | 否 | 交通出行工具，取值：0-驾车，1-步行，2-骑行，3-公交。 |
  - 位置搜索场景
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -254,9 +283,24 @@ UIAbility.onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void
 | --- | --- | --- | --- |
 
 | destinationName | string | 是 | 地点名称。 |
+ - 地点详情场景
+
+| 参数名 | 类型 | 必填 | 说明 |
+
+| --- | --- | --- | --- |
+
+| destinationName | string | 否 | 地点名称。 |
+
+| destinationLatitude | number | 是 | 地点纬度。 |
+
+| destinationLongitude | number | 是 | 地点经度。 |
+
+| zoom | number | 否 | 地图缩放级别，取值为大于0的整数。 |
+
+| destinationPoiIds | Record<number, string> | 否 | 地点POI ID列表，当前仅支持传入花瓣地图、高德地图、百度地图的POI ID。 |
 
 
-应用可根据[linkFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)中定义的特性功能，比如路线规划、导航和位置搜索，结合接收到的uri和参数开发不同的样式页面。
+应用可根据[linkFeature](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file#skills标签)中定义的特性功能，比如路线规划、导航、位置搜索和地点详情，结合接收到的uri和参数开发不同的样式页面。
 
 
 **完整示例：**
@@ -281,6 +325,7 @@ export default class EntryAbility extends UIAbility {
     vehicleType?: number;
     destinationPoiId?: string;
     originPoiId?: string;
+    zoom?: number;
 
     onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
         hilog.info(0x0000, TAG, `onCreate, want=${JSON.stringify(want)}`);
@@ -311,6 +356,7 @@ export default class EntryAbility extends UIAbility {
         this.vehicleType = want.parameters?.vehicleType as number | undefined;
         this.destinationPoiId = want.parameters?.destinationPoiId as string | undefined;
         this.originPoiId = want.parameters?.originPoiId as string | undefined;
+        this.zoom = want.parameters?.zoom as number | undefined;
     }
 
     private loadPage(windowStage: window.WindowStage): void {
@@ -320,7 +366,8 @@ export default class EntryAbility extends UIAbility {
             const storage: LocalStorage = new LocalStorage({
                 "destinationLatitude": this.destinationLatitude,
                 "destinationLongitude": this.destinationLongitude,
-                "destinationPoiId": this.destinationPoiId
+                "destinationPoiId": this.destinationPoiId,
+                "vehicleType": this.vehicleType,
             } as Record<string, Object>);
             // 拉起导航页面
             windowStage.loadContent('pages/NavigationPage', storage)
@@ -346,6 +393,17 @@ export default class EntryAbility extends UIAbility {
             } as Record<string, Object>);
             // 拉起位置搜索页面
             windowStage.loadContent('pages/PlaceSearchPage', storage)
+        }   else if (this.uri === 'maps://detailLocation') {
+            // 构建地点详情场景参数
+            const storage: LocalStorage = new LocalStorage({
+                "destinationName": this.destinationName,
+                "destinationLatitude": this.destinationLatitude,
+                "destinationLongitude": this.destinationLongitude,
+                "zoom": this.zoom,
+                "destinationPoiId": this.destinationPoiId,
+            } as Record<string, Object>);
+            // 拉起地点详情页面
+            windowStage.loadContent('pages/DetailLocation', storage)
         } else {
             // 默认拉起首页
             windowStage.loadContent('pages/Index', (err) => {

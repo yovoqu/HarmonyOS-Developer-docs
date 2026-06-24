@@ -1,6 +1,6 @@
 # inputmethod_controller_capi.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-controller-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,7 +37,7 @@
 | --- | --- |
 | InputMethod_ErrorCode OH_InputMethodController_Attach(InputMethod_TextEditorProxy *textEditorProxy,InputMethod_AttachOptions *options, InputMethod_InputMethodProxy **inputMethodProxy) | 将应用绑定到输入法服务。 |
 | InputMethod_ErrorCode OH_InputMethodController_AttachWithUIContext(ArkUI_ContextHandle context, InputMethod_TextEditorProxy *textEditorProxy, InputMethod_AttachOptions *options, InputMethod_InputMethodProxy **inputMethodProxy) | 将应用绑定到输入法服务。 |
-| InputMethod_ErrorCode OH_InputMethodController_Detach(InputMethod_InputMethodProxy *inputMethodProxy) | 将应用从输入法服务解绑。 |
+| InputMethod_ErrorCode OH_InputMethodController_Detach(InputMethod_InputMethodProxy *inputMethodProxy) | 将应用从输入法服务解除绑定。 |
  
  
   
@@ -68,7 +68,7 @@ InputMethod_ErrorCode OH_InputMethodController_Attach(InputMethod_TextEditorProx
 | --- | --- |
 | InputMethod_TextEditorProxy *textEditorProxy | 表示指向InputMethod_TextEditorProxy实例的指针。调用者需要自行管理textEditorProxy的生命周期。并且如果调用成功，调用者在下次发起绑定或解绑之前，不能将textEditorProxy释放。 |
 | InputMethod_AttachOptions *options | 表示指向InputMethod_AttachOptions实例的指针。该参数用于指定附加输入法时的选项。 |
-| InputMethod_InputMethodProxy **inputMethodProxy | 表示指向InputMethod_InputMethodProxy实例的指针。生命周期维持到下一次绑定或解绑的调用。 |
+| InputMethod_InputMethodProxy **inputMethodProxy | 表示指向InputMethod_InputMethodProxy实例的指针。生命周期由调用者负责，在调用成功后需保持有效直到下次绑定或解绑操作完成，避免提前释放导致运行时错误。 |
  
  
 **返回：**
@@ -101,7 +101,7 @@ InputMethod_ErrorCode OH_InputMethodController_AttachWithUIContext(ArkUI_Context
 | ArkUI_ContextHandle context | 表示指向ArkUI_Context实例的指针。 |
 | InputMethod_TextEditorProxy *textEditorProxy | 表示指向InputMethod_TextEditorProxy实例的指针。调用者需要自行管理textEditorProxy的生命周期。并且如果调用成功，调用者在下次发起绑定或解绑之前，不能将textEditorProxy释放。 |
 | InputMethod_AttachOptions *options | 表示指向InputMethod_AttachOptions实例的指针。该参数用于指定附加输入法时的选项。 |
-| InputMethod_InputMethodProxy **inputMethodProxy | 表示指向InputMethod_InputMethodProxy实例的指针。生命周期维持到下一次绑定或解绑的调用。 |
+| InputMethod_InputMethodProxy **inputMethodProxy | 表示指向InputMethod_InputMethodProxy实例的指针。生命周期由调用者负责，在调用成功后需保持有效直到下次绑定或解绑操作完成，避免提前释放导致运行时错误。 |
  
  
 **返回：**
@@ -123,7 +123,7 @@ InputMethod_ErrorCode OH_InputMethodController_Detach(InputMethod_InputMethodPro
  
 **描述**
  
-将应用从输入法服务解绑。
+将应用从输入法服务解除绑定。
  
 **起始版本：** 12
  

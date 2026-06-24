@@ -1,6 +1,6 @@
 # 创建网格 (Grid/GridItem)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-create-grid
 
@@ -248,7 +248,7 @@ export struct DataInGrid {
 **图8** 网格的行列间距
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/eSoPT8B3SfW-b6WUioqtkQ/zh-cn_image_0000002611753787.png?HW-CC-KV=V1&HW-CC-Date=20260528T030437Z&HW-CC-Expire=86400&HW-CC-Sign=0EE1BCA379FFA3A5EE404EA6175EEACC96402B1FF2B9E40D0F1516259987EEE0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/1pS4FKaQQ3OgP2eGvjblPg/zh-cn_image_0000002656347681.png?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=5BA9E495350ED90CFDC1B700DA7C59AAE2A2218114918784877463FA0C63159B)
 
 
 通过Grid的[rowsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#rowsgap)和[columnsGap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-grid#columnsgap)可以设置网格布局的行列间距。在图5所示的计算器中，行间距为15vp，列间距为10vp。
@@ -270,7 +270,7 @@ Grid() {
 **图9** 横向可滚动网格布局
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/uGjJh75nTZ2iaFlcM2WTxw/zh-cn_image_0000002581433852.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030437Z&HW-CC-Expire=86400&HW-CC-Sign=BCF25BA5C85E81A56E995AAE7FAA37711EAC37F8F88A95248812B16A885B3402)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/hZbHWAn-SpOJ9z4UuhZizw/zh-cn_image_0000002626228266.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=9B408F2BA7BA75491B2FBD725996DBE241E6618282FA0E00EFB108916D887A5E)
 
 
 如果设置的是columnsTemplate，Grid的滚动方向为垂直方向；如果设置的是rowsTemplate，Grid的滚动方向为水平方向。
@@ -323,7 +323,7 @@ export struct ScrollableGrid {
 **图10** 日历翻页
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/vPZUEVhbTuWuwR9WcYtI1A/zh-cn_image_0000002611833681.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030437Z&HW-CC-Expire=86400&HW-CC-Sign=C4A43FD4D7B179A266531A0FD3B18D9383D16D29E35947A0E23133628C837424)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/irPjsabsTyqbUnxwOUVO3Q/zh-cn_image_0000002626068358.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=B9B4A1EED5997E57E5E00A81D9344DCD04BC14DE809AD7325D07709D62510CA1)
 
 
 Grid组件初始化时，可以绑定一个[Scroller](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scroller)对象，用于进行滚动控制，例如通过Scroller对象的[scrollPage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll#scrollpage9)方法进行翻页。
@@ -394,7 +394,7 @@ ScrollBar({ scroller: this.gridScroller })
 **图11** 网格的外置滚动条
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/0wUAtTouRESS0-G0WAp5uw/zh-cn_image_0000002581273934.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030437Z&HW-CC-Expire=86400&HW-CC-Sign=CE316E91FED915A83557244F68C12B2C72451E2CDD55F191A09572D73FF1EB61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/MfF6KUuaS3yFNlMXegwohA/zh-cn_image_0000002656467635.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020750Z&HW-CC-Expire=86400&HW-CC-Sign=625C21BD87CAC2C84F057044977A6EF1793C3E5D245380BC848BE179C31F4A45)
 
 
 > [!NOTE]

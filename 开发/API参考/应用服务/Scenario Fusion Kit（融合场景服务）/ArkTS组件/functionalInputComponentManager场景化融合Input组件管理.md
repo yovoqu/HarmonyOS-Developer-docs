@@ -1,6 +1,6 @@
 # functionalInputComponentManager(场景化融合Input组件管理)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalinputcomponentmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -85,7 +85,7 @@ import { functionalInputComponentManager } from '@kit.ScenarioFusionKit';
  
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
  
-**设备行为差异：** 该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.1.0(18)
   
@@ -137,7 +137,7 @@ onSelectDistrict(callback: AsyncCallback&lt;DistrictSelectResult&gt;): Functiona
  
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
  
-**设备行为差异：** 该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.1.0(18)
  
@@ -145,7 +145,7 @@ onSelectDistrict(callback: AsyncCallback&lt;DistrictSelectResult&gt;): Functiona
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;DistrictSelectResult&gt; | 是 | 回调函数。callback返回区划选择请求的结果。 |
+| callback | AsyncCallback&lt;DistrictSelectResult&gt; | 是 | 回调函数。当区域选择操作成功，err为undefined，data为获取到的区域选择请求的结果；否则为错误对象。 |
  
  
 **返回值：**
@@ -202,11 +202,11 @@ struct Index {
             data: functionalInputComponentManager.DistrictSelectResult) => {
             if (err) {
               // 错误日志处理。
-              hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+              hilog.error(0x0000, 'testTag', 'Failed to select district, error: %{public}d %{public}s', err.code, err.message);
               return;
             }
             // 成功日志处理。
-            hilog.info(0x0000, "testTag", "succeeded in selecting district");
+            hilog.info(0x0000, 'testTag', 'succeeded in selecting district');
             // 在输入组件中显示所选区域信息。
             this.inputContent = data.inputContent;
           })

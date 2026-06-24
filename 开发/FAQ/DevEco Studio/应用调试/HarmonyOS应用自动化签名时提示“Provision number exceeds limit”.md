@@ -1,6 +1,6 @@
 # HarmonyOS应用自动化签名时提示“Provision number exceeds limit”
 
-更新时间：2026-05-22 09:48:01
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-4
 

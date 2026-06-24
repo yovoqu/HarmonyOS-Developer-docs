@@ -1,6 +1,6 @@
 # knowledgeProcessor（知识加工）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-knowledgeprocessor-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -31,6 +31,8 @@ getKnowledgeProcessor(context: common.BaseContext, config: KnowledgeProcessorCon
 获取知识加工对象，用于获取知识加工状态等操作。使用promise异步回调。
  
 在schema升级场景下，首次开库或调用getKnowledgeProcessor接口前需调用[cleanKnowledgeData](#cleanknowledgedata)接口。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
@@ -101,11 +103,13 @@ async function getProcessor() {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-cleanKnowledgeData(context: common.BaseContext, config: KnowledgeProcessorConfig): Promise&lt;void&gt;
+cleanKnowledgeData(context: common.Context, config: KnowledgeProcessorConfig): Promise&lt;void&gt;
  
 根据入参中的知识加工配置获取对应知识库信息，将对应知识库进行清空。使用promise异步回调。
  
 在schema升级场景下，首次开库或调用[getKnowledgeProcessor](#getknowledgeprocessor)接口前调用cleanKnowledgeData接口，其他场景调用可能会导致知识库数据丢失或者数据损坏。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
@@ -115,7 +119,7 @@ cleanKnowledgeData(context: common.BaseContext, config: KnowledgeProcessorConfig
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| context | common.BaseContext | 是 | 知识加工对象的上下文。 |
+| context | common.Context | 是 | 知识加工对象的上下文。 |
 | config | KnowledgeProcessorConfig | 是 | 知识加工配置。 |
  
  
@@ -174,6 +178,8 @@ async function cleanKnowledgeData() {
 
 管理知识加工对象的配置。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
 **起始版本：** 6.0.0(20)
@@ -181,6 +187,8 @@ async function cleanKnowledgeData() {
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | sourceConfig | KnowledgeSourceConfig | 是 | 当前知识加工数据源配置。 |
+| llm | ChatLLM | 否 | 接口调用方维护的LLM模型指针。为使用邮件分析的任意 handler ，必须配置本参数且不允许为空。 起始版本： 26.0.0 |
+| properties | string | 否 | 知识加工所需的属性信息，json字符串形如："{\"userName\": \"John\", \"maxCtxLen\": 30000}"，为使用邮件分析的任意handler，必须配置本参数且不允许为空。 - userName：用户本人姓名，长度范围[1,256]，用于排除非本人待办被误提取。为使用邮件分析的任意handler，必须配置本参数。 - maxCtxLen：接口调用方自定义大模型的最大上下文长度，长度[1,INT32_MAX]。接口调用方应保证ChatLLM接口调用的大模型上下文长度大于等于此值，否则可能会因大模型上下文长度超限而导致邮件分析失败。为使用邮件分析的任意handler，必须配置本参数。 起始版本： 26.0.0 |
  
  
   
@@ -191,13 +199,15 @@ async function cleanKnowledgeData() {
 
 管理知识数据源配置。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
 **起始版本：** 6.0.0(20)
   
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | relationalStore.StoreConfig | 否 | RDB数据库配置。加工数据源为RDB数据库时配置，当前版本仅支持RDB数据源，若不填该参数，接口返回错误码1021400001。 |
+| rdbSource | relationalStore.StoreConfig | 否 | RDB数据库配置。加工数据源为RDB数据库时配置，当前版本仅支持RDB数据源，若不填该参数，接口返回错误码1021400001。 |
  
  
   
@@ -208,31 +218,65 @@ async function cleanKnowledgeData() {
 
 知识加工配置。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
 **起始版本：** 6.1.0(23)
   
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| mode | KnowledgeProcessorMode | 是 | 知识加工参数。倒排或者倒排+向量两种加工模式. |
+| mode | KnowledgeProcessMode | 是 | 知识加工参数。倒排或者倒排+向量两种加工模式. |
  
  
   
 
-#### KnowledgeProcessorMode
+#### ChatLLM
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+chat(query: string): Promise&lt;string&gt;
+ 
+由接口调用方对期望使用的大模型问答过程进行封装的函数类型。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| query | string | 是 | 表示与LLM问答模型问答的问题信息。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 必填 | 说明 |
+| --- | --- | --- |
+| Promise&lt;string&gt; | 是 | Promise对象，正常情况下返回问答结果，如果出现异常则返回空字符串。 |
+ 
+ 
+  
+
+#### KnowledgeProcessMode
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 知识加工模式。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
 **起始版本：** 6.1.0(23)
   
-| 名称 | 说明 |
-| --- | --- |
-| INVERTED_INDEX | 倒排加工模式。 |
-| INVERTED_INDEX_VECTORIZATION | 倒排＋向量加工模式。 |
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| INVERTED_INDEX | 1 | 倒排加工模式。 |
+| INVERTED_INDEX_VECTORIZATION | 3 | 倒排＋向量加工模式。 |
  
  
   
@@ -242,6 +286,8 @@ async function cleanKnowledgeData() {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 知识加工对象，用于获取知识加工状态等操作。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
@@ -256,6 +302,8 @@ async function cleanKnowledgeData() {
 getStatus(): Promise&lt;ProcessorStatus&gt;
  
 获取知识加工状态。使用promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
@@ -320,6 +368,8 @@ async function getStatus() {
 startProcess(config: KnowledgeProcessConfig): Promise&lt;void&gt;
  
 根据入参的配置，启动知识加工。使用promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
@@ -395,6 +445,8 @@ stopProcess(): Promise&lt;void&gt;
  
 停止当前知识加工。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
 **起始版本：** 6.1.0(23)
@@ -447,12 +499,14 @@ async function stopProcess() {
 
 知识加工状态。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.KnowledgeProcessor
  
 **起始版本：** 6.0.0(20)
   
-| 名称 | 说明 |
-| --- | --- |
-| DATA_REMAINING_TO_PROCESS | 存在待加工的数据。 |
-| DATA_PROCESSING_IN_PROGRESS | 数据正在进行知识加工中。 |
-| DATA_PROCESSING_COMPLETE | 所有数据已完成加工。 |
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| DATA_REMAINING_TO_PROCESS | 0 | 存在待加工的数据。 |
+| DATA_PROCESSING_IN_PROGRESS | 1 | 数据正在进行知识加工中。 |
+| DATA_PROCESSING_COMPLETE | 2 | 所有数据已完成加工。 |

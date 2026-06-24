@@ -1,6 +1,6 @@
 # text
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-text
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -120,4 +120,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/xTxnNXrrSzqXMJx-w2n48Q/zh-cn_image_0000002611756495.png?HW-CC-KV=V1&HW-CC-Date=20260528T025433Z&HW-CC-Expire=86400&HW-CC-Sign=3A50BE60D9AD7A69F8A1730151B4C2E2A858E16F6198A855DAC1A0350551F731)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/nkTVZBrtR-mc5_Q7fdqrfw/zh-cn_image_0000002626071202.png?HW-CC-KV=V1&HW-CC-Date=20260624T015947Z&HW-CC-Expire=86400&HW-CC-Sign=C124E3E4F34E66CA6CC7D8B9750B75A00AFA7E407EDD50D0B2AA9BA4129F0F7C)

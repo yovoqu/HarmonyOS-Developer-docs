@@ -1,6 +1,6 @@
 # cloudCommon (公共模块)
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cloudfoundation-cloudcommon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -20,7 +20,7 @@ import { cloudCommon } from '@kit.CloudFoundationKit';
  
   
 
-#### cloudCommon.init
+#### init
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -55,18 +55,18 @@ init(options?: CloudOptions): void
 **示例**：
  
 > [!NOTE]
-> 云函数业务免鉴权，开发云函数无需获取用户凭据。开发云存储或云数据库业务则需要获取用户凭据。获取用户凭据有两种方式，以下代码仅以通过AGC认证服务SDK获取为例，更多信息可参考 AuthProvider 。
+> 云函数业务免鉴权，开发云函数无需获取用户凭据。开发云存储或云数据库业务则需要获取用户凭据。获取用户凭据有两种方式，以下代码仅以通过AGC认证服务SDK获取为例，完整代码可参考 AuthProvider.getAccessToken 方法的“方式一”示例。
 
  
 ```json
 import { cloudCommon } from '@kit.CloudFoundationKit';
-import { request } from '@kit.BasicServicesKit';
 import auth from '@hw-agconnect/auth';
+import { request } from '@kit.BasicServicesKit';
 
-let provider = auth.getAuthProvider(); // 在用户登录成功的情况下调用此方法获取authProvider
+let authProvider = auth.getAuthProvider(); // 在用户登录成功的情况下调用此方法获取authProvider
 cloudCommon.init({
   region: cloudCommon.CloudRegion.CHINA,
-  authProvider: provider,
+  authProvider: authProvider,
   functionOptions: { timeout: 10 * 1000 },
   storageOptions: { mode: request.agent.Mode.BACKGROUND, network: request.agent.Network.ANY },
   databaseOptions: { schema: "schema.json", traceId: "traceId" }
@@ -128,7 +128,7 @@ cloudCommon.init({
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-认证提供方。开发者可以使用[AGC认证服务SDK](https://developer.huawei.com/consumer/cn/doc/app/agc-help-auth-introduction-0000002271496181)获取AuthProvider，或者使用华为账号服务Access Token接口自定义AuthProvider。
+认证提供方。开发者可以使用[AGC认证服务SDK](https://developer.huawei.com/consumer/cn/doc/app/agc-help-auth-introduction-0000002271496181)获取AuthProvider，或者使用华为账号服务的[获取用户级凭证](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-obtain-user-token)接口自定义AuthProvider。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -190,7 +190,7 @@ import { cloudCommon } from '@kit.CloudFoundationKit';
 import auth from '@hw-agconnect/auth';
 import { request } from '@kit.BasicServicesKit';
 
-let authProvider = auth.getAuthProvider();
+let authProvider = auth.getAuthProvider(); // 在用户登录成功的情况下调用此方法获取authProvider
 cloudCommon.init({
   region: cloudCommon.CloudRegion.CHINA,
   authProvider: authProvider,
@@ -277,7 +277,7 @@ cloudCommon.init({
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| timeout | number | 否 | 是 | 函数请求超时时间，单位毫秒，默认为70*1000毫秒。 取值范围无限制，会转成unsigned long类型。 |
+| timeout | number | 否 | 是 | 函数请求超时时间，单位ms，默认为70*1000ms。 取值范围无限制，会转成unsigned long类型。 |
  
  
   
@@ -298,8 +298,8 @@ cloudCommon.init({
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| mode | request.agent.Mode | 否 | 是 | 任务的模式。前端任务在应用切换到后台一段时间后失败/暂停；后台任务不受影响。默认为BACKGROUND。 - BACKGROUND：后台任务。 - FOREGROUND：前端任务。 |
-| network | request.agent.Network | 否 | 是 | 使用的网络类型。网络不满足设置条件时，未执行的任务等待执行，执行中的任务失败/暂停。默认为Network.ANY。 - Network.ANY：不限网络类型。 - Network.WIFI：无线网络。 - Network.CELLULAR：蜂窝数据网络。 |
+| mode | request.agent.Mode | 否 | 是 | 任务的模式。前端任务在应用切换到后台一段时间后失败/暂停；后台任务不受影响。默认为request.agent.Mode.BACKGROUND。 - request.agent.Mode.BACKGROUND：后台任务。 - request.agent.Mode.FOREGROUND：前端任务。 |
+| network | request.agent.Network | 否 | 是 | 使用的网络类型。网络不满足设置条件时，未执行的任务等待执行，执行中的任务失败/暂停。默认为request.agent.Network.ANY。 - request.agent.Network.ANY：不限网络类型。 - request.agent.Network.WIFI：无线网络。 - request.agent.Network.CELLULAR：蜂窝数据网络。 |
  
  
   
@@ -321,4 +321,4 @@ cloudCommon.init({
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | schema | string | 否 | 是 | 全量数据表结构及权限定义，使用从云端下载的schema.json配置文件，默认读取工程固定目录：rawfile。 |
-| traceId | string | 否 | 是 | 用户自定义的traceId，用于跟踪请求操作。 自定义traceId的长度必须大于或等于1个字符，小于或等于32个字符，只能包含以下2种类型： - 字母（a-f） - 数字（0-9） 默认值为空。 |
+| traceId | string | 否 | 是 | 用户自定义的traceId，用于跟踪请求操作。 自定义traceId的长度必须大于或等于1个字符，小于或等于32个字符，只能包含以下2种类型： - 字母（a-f） - 数字（0-9） 如果没有自定义traceId或者传入不符合条件的traceId，系统将自动生成一个traceId。 默认值为空。 |

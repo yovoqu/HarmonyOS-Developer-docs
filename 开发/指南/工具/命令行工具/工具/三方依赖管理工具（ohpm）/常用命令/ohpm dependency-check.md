@@ -1,6 +1,6 @@
 # ohpm dependency-check
 
-更新时间：2026-06-09 08:54:30
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-dependency-check
 
@@ -42,7 +42,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### fetch_timeout
 
 - 默认值：60000
-- 类型： Number
+- 类型：Number
 - 别名：ft
 
  
@@ -53,7 +53,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### strict_ssl
 
 - 默认值：true
-- 类型： Boolean
+- 类型：Boolean
 
  
 可以在 dependency-check 命令后面配置--strict_ssl true参数，校验 https 证书。配置为--strict_ssl false，不校验https证书。
@@ -63,7 +63,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### retry_times
 
 - 默认值：1
-- 类型： Number
+- 类型：Number
 - 别名：rt
 
  
@@ -74,7 +74,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### retry_interval
 
 - 默认值：1000
-- 类型： Number
+- 类型：Number
 - 别名：ri
 
  
@@ -85,7 +85,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### all-modules
 
 - 默认值：true
-- 类型： Boolean
+- 类型：Boolean
 - 别名：all
 
  
@@ -96,7 +96,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### modules
 
 - 默认值：""
-- 类型： String
+- 类型：String
 - 别名：m
 
  
@@ -107,7 +107,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### project
 
 - 默认值：true
-- 类型： Boolean
+- 类型：Boolean
 - 别名：p
 
  
@@ -118,7 +118,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### dev
 
 - 默认值：true
-- 类型： Boolean
+- 类型：Boolean
 - 别名：d
 
  
@@ -129,7 +129,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### json
 
 - 默认值：true
-- 类型： Boolean
+- 类型：Boolean
 - 别名：j
 
  
@@ -140,7 +140,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### long
 
 - 默认值：true
-- 类型： Boolean
+- 类型：Boolean
 - 别名：l
 
  
@@ -151,7 +151,7 @@ ohpm dependency-check [options] [<@group>/<pkg>]
 #### console
 
 - 默认值：true
-- 类型： Boolean
+- 类型：Boolean
 - 别名：c
 
  

@@ -1,6 +1,6 @@
 # Navigation分栏开发
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-split-mode
 
@@ -269,4 +269,4 @@ struct Index {
 **图10** 运行效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/q0aJSgrhQhGzaOrnt-aNFA/zh-cn_image_0000002611753683.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=CB3AC07F3FF1284032AB2C6D853CFD9BF5FAA601DF9FC584FF34CB02A04E5177)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/HYrkjAQZTViG-p3TcGHoZg/zh-cn_image_0000002656347569.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=2D8DE679B1E5DDC648FB43E9C81471AE2C99D52740FCA86795FC62C6BB4CEE27)

@@ -1,6 +1,6 @@
 # @ohos.file.PhotoPickerComponent (PhotoPicker组件)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-file-photopickercomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -21,7 +21,7 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-// 在API version 23之前的版本中，需要使用'import { api1, api2, ... } from @ohos.file.PhotoPickerComponent'的导入方式。
+// 在API version 23之前的版本中，需要使用 'import { api1, api2, ... } from @ohos.file.PhotoPickerComponent'的导入方式。
 import {
   PhotoPickerComponent, PickerController, PickerOptions,
   DataType, BaseItemInfo, ItemInfo, PhotoBrowserInfo, ItemType, ClickType,
@@ -120,6 +120,7 @@ Picker配置选项，继承自[photoAccessHelper.BaseSelectOptions](https://deve
 | edgeEffect23+ | EdgeEffect | 否 | 是 | Picker宫格页滑动到边缘处的滑动效果。 默认为EdgeEffect.Spring。 模型约束： 此接口仅可在Stage模型下使用。 元服务API：从API version 23开始，该接口支持在元服务中使用。 |
 | appAlbumFilters23+ | Array&lt;string&gt; | 否 | 是 | 仅显示与指定bundle name对应的相册内容。 模型约束： 此接口仅可在Stage模型下使用。 元服务API：从API version 23开始，该接口支持在元服务中使用。 |
 | backgroundOpacity24+ | number | 否 | 是 | 支持配置picker背景透明度。取值范围为[0, 1]，0表示完全透明，1表示完全不透明。 模型约束： 此接口仅可在Stage模型下使用。 元服务API：从API version 24开始，该接口支持在元服务中使用。 |
+| contextRecoveryInfo | photoAccessHelper.ContextRecoveryInfo | 否 | 是 | 用于恢复上次退出时PhotoPicker现场的信息。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 起始版本： 26.0.0 |
 
 
 
@@ -302,8 +303,8 @@ private isOnClickedNotify: boolean = false;
         return true;
     };
     // 当一个宫格被点击时，代码会验证该宫格对应URI是否有效，如无效，则忽略。
-    // 然后，会检查clickedUris中否已存在该URI的记录。如没有，则创建一条记录并将isSelected属性设置为true。
-    // 如果记录存在，则将该记录的isSelected属性更新为true。
+    // 然后，会检查 clickedUris 中否已存在该URI的记录。如没有，则创建一条记录并将 isSelected 属性设置为 true。
+    // 如果记录存在，则将该记录的 isSelected 属性更新为 true。
     // 数据保存完成后点击“setClickResult”按钮，会调用addData(SET_ITEM_CLICK_RESULT)将对应宫格设置为选中状态。
     onClickedNotify: ItemClickedNotifyCallback = (itemInfo: ItemInfo, clickType: ClickType) => {
         if (!itemInfo.uri) {
@@ -379,7 +380,7 @@ private isOnClickedNotify: boolean = false;
                                     }
                                 }).margin({ right: 5 })
                             Text(uri.uri.slice(-30)).margin({right: 5}).width(150)
-                            // 从this.clickeduris中移除选择项。
+                            // 从 this.clickeduris 中移除选择项。
                             Button('Delete').onClick(() => {
                                 this.clickedUris.delete(uri.uri);
                             })
@@ -810,6 +811,31 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 
 
 
+#### completed
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+completed(): Promise&lt;CompletedResult&gt;
+
+应用可通过该接口，在Picker界面完成选择操作后获取完整现场数据，下一次启动Picker时可以使用该数据恢复现场。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;CompletedResult&gt; | Promise对象，返回恢复现场的信息。 |
+
+
+
+
 #### BaseItemInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1031,6 +1057,29 @@ setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateTyp
 | functionName | string | 否 | 否 | 产生错误的接口名称。 |
 | errorCode | number | 否 | 否 | 错误码。 |
 | message | string | 否 | 否 | 接口返回的具体错误描述信息。 |
+
+
+
+
+#### CompletedResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+Picker上次退出时现场的信息。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| photoUris | Array&lt;string&gt; | 否 | 否 | 已选择的图片或视频URI。该URI数组仅支持通过临时授权方式调用photoAccessHelper.getAssets使用。 |
+| contextRecoveryInfo | photoAccessHelper.ContextRecoveryInfo | 否 | 否 | PhotoPicker退出状态的上下文信息。 |
+| movingPhotoBadgeStates | Array<photoAccessHelper.MovingPhotoBadgeStateType> | 否 | 否 | 已选择媒体文件的动态照片状态。当isMovingPhotoBadgeShown为true时，movingPhotoBadgeStates包含动态照片状态；否则为空。 |
 
 
 

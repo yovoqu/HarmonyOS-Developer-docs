@@ -1,6 +1,6 @@
 # 在自绘编辑框中使用输入法开发指导 (C/C++)
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-inputmethod-in-custom-edit-box-ndk
 

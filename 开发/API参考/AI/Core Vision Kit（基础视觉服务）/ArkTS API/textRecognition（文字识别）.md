@@ -1,6 +1,6 @@
 # textRecognition（文字识别）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-text-recognition-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -26,7 +26,9 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 通用文本识别的配置项，用于配置是否支持朝向检测。
 
-系统能力：SystemCapability.AI.OCR.TextRecognition
+**系统能力：** SystemCapability.AI.OCR.TextRecognition
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.0.0(10)
 
@@ -45,6 +47,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.0.0(10)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -61,6 +65,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 指示像素点的位置。
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.0.0(10)
 
@@ -80,6 +86,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.0.0(10)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -97,6 +105,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 描述图像中的一行文本。
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.0.0(10)
 
@@ -117,6 +127,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.0.0(10)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -134,6 +146,8 @@ import { textRecognition } from '@kit.CoreVisionKit';
 文本识别的结果信息，包括文本内容和坐标信息。
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.0.0(10)
 
@@ -154,6 +168,8 @@ init(): Promise&lt;boolean&gt;
 初始化文字识别服务。使用Promise异步回调。
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -216,6 +232,8 @@ release(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **返回值：**
@@ -277,6 +295,8 @@ recognizeText(visionInfo: VisionInfo, callback: AsyncCallback&lt;TextRecognition
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.0.0(10)
 
 **参数：**
@@ -289,7 +309,7 @@ recognizeText(visionInfo: VisionInfo, callback: AsyncCallback&lt;TextRecognition
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -383,6 +403,8 @@ recognizeText(visionInfo: VisionInfo, configuration ?: TextRecognitionConfigurat
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.0.0(10)
 
 **参数：**
@@ -402,7 +424,7 @@ recognizeText(visionInfo: VisionInfo, configuration ?: TextRecognitionConfigurat
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -491,6 +513,8 @@ recognizeText(visionInfo: VisionInfo, configuration: TextRecognitionConfiguratio
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.0.0(10)
 
 **参数：**
@@ -504,7 +528,7 @@ recognizeText(visionInfo: VisionInfo, configuration: TextRecognitionConfiguratio
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -605,6 +629,8 @@ getSupportedLanguages(): Promise<Array&lt;string&gt;>
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.0.0(10)
 
 **返回值：**
@@ -616,7 +642,7 @@ getSupportedLanguages(): Promise<Array&lt;string&gt;>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -661,6 +687,8 @@ getSupportedLanguages(callback: AsyncCallback<Array&lt;string&gt;>): void
 
 **系统能力：** SystemCapability.AI.OCR.TextRecognition
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.0.0(10)
 
 **参数：**
@@ -672,7 +700,7 @@ getSupportedLanguages(callback: AsyncCallback<Array&lt;string&gt;>): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

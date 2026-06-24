@@ -1,6 +1,6 @@
 # Resource Leak（资源泄漏）检测
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-leak-guidelines
 
@@ -53,7 +53,7 @@
 
 资源泄漏日志由LeakDetector模块进行管理，可通过以下方式获取：
  
-- 方式一：通过[DevEco Testing进行探索测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/exploratory-testing)并获取日志。
+- 方式一：通过[DevEco Testing进行稳定性测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/stability-testing)并获取日志。
 
   DevEco Testing工具会收集设备/data/log/reliability/resource_leak/路径下的资源泄漏故障日志，根据进程名、故障和时间分类显示。
 
@@ -706,7 +706,7 @@ bins:           size ind    allocated      nmalloc (#/sec)      ndalloc (#/sec) 
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6b/v3/rcJL75yUSRecvqeX0FGkHA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030232Z&HW-CC-Expire=86400&HW-CC-Sign=497D5D012D81DD2C8E0CC13C465D7B88DDDA5CC3351DAD004EA3A9887EA75063)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/4I-cewgET_qoCnn3kc8XxQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020856Z&HW-CC-Expire=86400&HW-CC-Sign=0793603202C05EEDB14BA0164032F6C3228E8ADD78AC8B5AAFCC030F978ADA23)
  
 
   系统自动抓的调用栈（memleak-native-[process_name]-[pid]-[timestamp].txt）**无法直接在DevEco Studio打开，需要修改后缀名为.nas**。
@@ -715,7 +715,7 @@ bins:           size ind    allocated      nmalloc (#/sec)      ndalloc (#/sec) 
   点击Call Trees可以查看抓取进程的调用栈，筛选“Created & Existing”，根据没有释放的内存占比排序，展开可查看详细进程调用信息，优先排查内存占用较高的堆栈。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/x5WBx9YNS8W73eks8IJn5g/zh-cn_image_0000002581434582.png?HW-CC-KV=V1&HW-CC-Date=20260528T030232Z&HW-CC-Expire=86400&HW-CC-Sign=0D1E68F60D692606E51D789518AA48D9E63D67D1D4EFBB422104ADCF5D15D567)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/le_OmJsqQHK4xv1amfMH8w/zh-cn_image_0000002656348485.png?HW-CC-KV=V1&HW-CC-Date=20260624T020856Z&HW-CC-Expire=86400&HW-CC-Sign=60CAA8B5A83D2340C537C5B2B66B927228BE71AE2F981FDC5CEEDD35CC2453D7)
 
 
   
@@ -727,7 +727,7 @@ bins:           size ind    allocated      nmalloc (#/sec)      ndalloc (#/sec) 
   同样选择“Created & Existing”，表示在hook抓取内存申请未释放的。长度越长代表在剩余内存中占用越多，优先排查。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2a/v3/LHLPTRvDTB2KnDmWQnW__Q/zh-cn_image_0000002611834413.png?HW-CC-KV=V1&HW-CC-Date=20260528T030232Z&HW-CC-Expire=86400&HW-CC-Sign=F4071FADC900B451400983C5111FE78BDC0556E7AC09342C9A31EF60134978CA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/gKyI5tGVQWyUDHTNHqNLfg/zh-cn_image_0000002626229072.png?HW-CC-KV=V1&HW-CC-Date=20260624T020856Z&HW-CC-Expire=86400&HW-CC-Sign=4CF8B2447B12507CB03FD962E7AE799570D412B9578BDA084CD400E4B13BFE6F)
 
 
  
@@ -1108,7 +1108,7 @@ C: host default memory (Total memory: 1789351)
 2. 聚类到gpu内存类型后，筛选出其中占用最大的内存段并进行聚类。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/urUtzxqyRLeuDRJX5oq5vA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030232Z&HW-CC-Expire=86400&HW-CC-Sign=F0DB6AFF878FEE46203C0A6BB0D99BD37D21A22727BCF69CFA7508E47DDF29E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/_XA-MzlJSrmKDj9cYhv7yg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020856Z&HW-CC-Expire=86400&HW-CC-Sign=F76F8E8490747ACA6B31E4AAAADB89C584FA34E6E4DFC0B7BF0CD76CA9421E0F)
  
  
 不同的芯片平台中，gpu表现形式会存在差异：

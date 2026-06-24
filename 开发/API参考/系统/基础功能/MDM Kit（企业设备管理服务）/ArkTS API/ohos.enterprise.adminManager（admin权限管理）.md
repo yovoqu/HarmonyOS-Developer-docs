@@ -1,6 +1,6 @@
 # @ohos.enterprise.adminManager（admin权限管理）
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -32,9 +32,9 @@ disableAdmin(admin: Want, userId?: number): Promise&lt;void&gt;
 
 **需要权限：** ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN（仅系统应用支持申请）或ohos.permission.START_PROVISIONING_MESSAGE或ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
 
-- 从API version 23开始，支持申请ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN权限。仅当[SDA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#sda)或[DA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#da)设备管理应用解除激活自身时，可以申请该权限。
+- 从API version 23开始，支持申请ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN权限。仅当[SDA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#super-device-admin-sda超级设备管理员)或[DA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#device-admin-da普通设备管理员)设备管理应用解除激活自身时，可以申请该权限。
 
-- 从API version 20开始，支持申请ohos.permission.START_PROVISIONING_MESSAGE权限。仅当[BYOD](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#byod)设备管理应用解除激活自身时，可以申请该权限。
+- 从API version 20开始，支持申请ohos.permission.START_PROVISIONING_MESSAGE权限。仅当[BYOD](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#bring-your-own-device-byod自带设备办公)设备管理应用解除激活自身时，可以申请该权限。
 
 - API 19及之前的版本，需要申请ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN（仅系统应用支持申请）。
 
@@ -473,7 +473,17 @@ startAdminProvision(admin: Want, type: AdminType, context: common.Context, param
 | admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
 | type | AdminType | 是 | 激活的设备管理应用类型，仅支持ADMIN_TYPE_BYOD类型。 |
 | context | common.Context | 是 | 管理应用的上下文信息。 |
-| parameters | Record<string, string> | 是 | 自定义参数信息，其中Key值必须包含："activateId"，可以包含"customizedInfo"、"localDeactivationPolicy"。 - activateId：项目激活ID。 - customizedInfo：企业自定义信息。 - localDeactivationPolicy：从API version 22开始支持，本地延迟取消激活时间（单位：小时）。 |
+| parameters | Record<string, string> | 是 | 自定义参数信息，其中Key值必须包含："activateId"，可以包含"customizedInfo"、"localDeactivationPolicy"。 - activateId：项目激活ID。 - customizedInfo：企业自定义信息。 - localDeactivationPolicy：从API version 22开始支持，本地延迟取消激活时间（单位：小时） |
+
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/nC0F9cr2S0W3vVL0grvZFg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020150Z&HW-CC-Expire=86400&HW-CC-Sign=E3D21CE216EB17D32506921CA2708AC4BF9102257184AAC18E5987117E92DA8A)
+
+
+1、此接口只能在企业设备上生效。
+
+2、参数credential为激活凭证，该激活凭证支持管理员通过HEM平台申请，[申请指导](https://developer.huawei.com/business/cn/doc/HEM/hem_user-guide_add-reseller_management-resellerr-0000002469112100)。。 |
+
 
 
 **错误码**：
@@ -521,7 +531,7 @@ try {
 
 enableDeviceAdmin(admin: Want): Promise&lt;void&gt;
 
-[超级设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#sda)通过该接口可以激活其他[普通设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#da)，使用Promise异步回调。该接口仅支持超级设备管理应用调用。
+[SDA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#super-device-admin-sda超级设备管理员)应用通过该接口可以激活其他[DA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#device-admin-da普通设备管理员)应用，使用Promise异步回调。该接口仅支持超级设备管理应用调用。
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
 
@@ -585,7 +595,7 @@ adminManager.enableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 
 disableDeviceAdmin(admin: Want): Promise&lt;void&gt;
 
-[超级设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#sda)通过该接口可以解除激活其他[普通设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#da)，使用Promise异步回调。该接口仅支持超级设备管理应用调用。
+[SDA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#super-device-admin-sda超级设备管理员)应用通过该接口可以解除激活其他[DA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#device-admin-da普通设备管理员)应用，使用Promise异步回调。该接口仅支持超级设备管理应用调用。
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
 
@@ -662,6 +672,8 @@ adminManager.disableDeviceAdmin(wantTemp).catch((err: BusinessError) => {
 | MANAGED_EVENT_ACCOUNT_REMOVED18+ | 7 | 账号删除事件。 |
 | MANAGED_EVENT_STARTUP_GUIDE_COMPLETED24+ | 8 | 开机向导完成事件。 模型约束：此接口仅可在Stage模型下使用。 |
 | MANAGED_EVENT_BOOT_COMPLETED24+ | 9 | 设备启动完成事件。 模型约束：此接口仅可在Stage模型下使用。 |
+| MANAGED_EVENT_BUNDLE_UPDATED | 10 | 应用更新事件。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 |
+| MANAGED_EVENT_POLICIES_CHANGED | 11 | 策略变更事件。仅支持超级设备管理应用订阅该事件，其他类型设备管理应用订阅该事件时返回9200002错误码。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 |
 
 
 

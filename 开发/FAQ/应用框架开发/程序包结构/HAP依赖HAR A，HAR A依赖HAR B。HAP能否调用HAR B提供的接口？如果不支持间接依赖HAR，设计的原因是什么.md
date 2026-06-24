@@ -1,6 +1,6 @@
 # HAP依赖HAR A，HAR A依赖HAR B。HAP能否调用HAR B提供的接口？如果不支持间接依赖HAR，设计的原因是什么
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-17
 

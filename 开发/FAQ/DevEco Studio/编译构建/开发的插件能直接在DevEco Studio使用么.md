@@ -1,6 +1,6 @@
 # 开发的插件能直接在DevEco Studio使用么
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-66
 

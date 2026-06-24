@@ -1,6 +1,6 @@
 # Core
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-core
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -25,6 +25,7 @@ Core模块提供用于媒体系统的基础骨干能力，包含内存、错误�
 | --- | --- |
 | media_types.h | 声明了常见媒体类型的定义。 |
 | native_audio_channel_layout.h | 在录制和播放时的扬声器布局。 |
+| native_audio_vivid.h | 声明Audio Vivid相关的函数和枚举。 |
 | native_avbuffer.h | 声明了媒体数据结构AVBuffer的函数接口。 |
 | native_avbuffer_info.h | 声明了媒体数据结构AVBuffer属性的定义。 |
 | native_averrors.h | 媒体框架错误码。 |

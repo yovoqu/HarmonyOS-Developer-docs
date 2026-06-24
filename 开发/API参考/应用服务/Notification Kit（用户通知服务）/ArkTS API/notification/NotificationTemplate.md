@@ -1,6 +1,6 @@
 # NotificationTemplate
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 通知模板。
  
 > [!NOTE]
-> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 提供预定义模板支持。允许应用开发者使用系统预定义的通知模板，只需提供模板名称和相应的数据，系统会自动渲染出符合规范的通知样式。 使用场景：当前仅支持上传下载场景。
 
   
 

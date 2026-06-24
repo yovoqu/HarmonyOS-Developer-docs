@@ -1,6 +1,6 @@
 # 弹性布局 (Flex)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-flex-layout
 

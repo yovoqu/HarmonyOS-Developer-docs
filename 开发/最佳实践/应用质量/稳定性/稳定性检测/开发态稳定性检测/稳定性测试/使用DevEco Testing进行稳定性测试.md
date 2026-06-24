@@ -1,6 +1,6 @@
 # 使用DevEco Testing进行稳定性测试
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-06-23 06:26:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-deveco-testing
 
@@ -69,7 +69,7 @@
 检测不通过或检测异常的规则项，点击查看详情即可查看异常问题详情，包含检测项概览、测试截图、问题列表。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/NeFin0w2QfOMQOIrIQzq8g/zh-cn_image_0000002475048409.png?HW-CC-KV=V1&HW-CC-Date=20260528T024721Z&HW-CC-Expire=86400&HW-CC-Sign=6F051612DAE2F50AECB33931350FD37194E08CB98A2F34034C2AD3F28C1EEC93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/QfTXM5NkQGWe4fXP5n19rA/zh-cn_image_0000002475048409.png?HW-CC-KV=V1&HW-CC-Date=20260624T020959Z&HW-CC-Expire=86400&HW-CC-Sign=36264697874F2789679C5D20E0D48B73B54A89A47304F187CD8096A9E0BC749F)
 点击查看按钮，支持查看测试过程中的日志，用户可结合问题描述及日志详情进一步分析。
  
 > [!NOTE]
@@ -77,13 +77,7 @@
 
  
 
-#### 其他专项测试
-
- 
-请参考：[专项测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing)。
- 
-
 #### 探索测试
 
  
-请参考：[应用探索测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/exploratory-testing#section12324184817324)。
+请参考：[内存泄漏测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/stability-testing#section1896912152183)。

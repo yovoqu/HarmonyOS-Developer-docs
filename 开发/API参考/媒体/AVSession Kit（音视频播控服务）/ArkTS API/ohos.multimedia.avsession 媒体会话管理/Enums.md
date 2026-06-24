@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-e
 **支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
@@ -56,10 +56,10 @@
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| TYPE_CAST | "cast" | 调用方来自投播。 |
-| TYPE_BLUETOOTH | "bluetooth" | 调用方来自蓝牙。 |
-| TYPE_APP | "app" | 调用方来自应用。 |
-| TYPE_NEARLINK | "nearlink" | 调用方来自星闪。 模型约束： 此接口仅可在Stage模型下使用。 |
+| TYPE_CAST | 'cast' | 调用方来自投播。 |
+| TYPE_BLUETOOTH | 'bluetooth' | 调用方来自蓝牙。 |
+| TYPE_APP | 'app' | 调用方来自应用。 |
+| TYPE_NEARLINK | 'nearlink' | 调用方来自星闪。 模型约束： 此接口仅可在Stage模型下使用。 |
  
  
   
@@ -133,9 +133,9 @@
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| OH_AVCODEC_MIMETYPE_VIDEO_AVC | "video/avc" | VIDEO AVC |
-| OH_AVCODEC_MIMETYPE_VIDEO_HEVC | "video/hevc" | VIDEO HEVC |
-| OH_AVCODEC_MIMETYPE_AUDIO_VIVID | "audio/av3a" | AUDIO AV3A |
+| OH_AVCODEC_MIMETYPE_VIDEO_AVC | 'video/avc' | VIDEO AVC格式。 |
+| OH_AVCODEC_MIMETYPE_VIDEO_HEVC | 'video/hevc' | VIDEO HEVC格式。 |
+| OH_AVCODEC_MIMETYPE_AUDIO_VIVID | 'audio/av3a' | AUDIO AV3A格式。 |
  
  
   
@@ -355,3 +355,23 @@
 | --- | --- | --- |
 | ENABLE_BACKGROUND_PLAY | 0 | 支持后台播放。 |
 | DISABLE_BACKGROUND_PLAY | 1 | 不支持后台播放。 |
+ 
+ 
+  
+
+#### ExtraKey
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+表示定义在不同场景中使用的额外键的枚举。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| DLNA_CURRENT_URI_METADATA | 'CurrentURIMetadata' | AVMediaDescription中extras属性可传入的键，值传入string类型。 用于DLNA投播场景下，在发送给对端的报文中，为CurrentURIMetaData标签添加内容。 系统能力： SystemCapability.Multimedia.AVSession.AVCast |
+| DLNA_DIDL_LITE | 'DIDL-Lite' | AVMediaDescription中extras属性可传入的键，值传入string类型。 用于DLNA投播场景下，在发送给对端的报文中，为DIDL-Lite标签添加内容。 系统能力： SystemCapability.Multimedia.AVSession.AVCast |

@@ -1,6 +1,6 @@
 # NFC错误码
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nfc
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable
@@ -25,6 +25,7 @@ NFC服务内部执行NFC打开或关闭异常。
 **可能原因**
 1. 和NFC服务建立通信异常。
 2. NFC芯片通信异常。
+3. 企业设备管理策略禁止操作NFC开关。
 
 **处理步骤**
 
@@ -123,26 +124,6 @@ NFC Tag不支持所执行的读写操作。
 **处理步骤**
 
 应用程序根据业务场景进行异常处理或提示。
-
-
-
-#### 3100205 NFC标签状态异常
-
-**错误信息**
-
-The tag leaves the field.
-
-**错误描述**
-
-NFC标签已经离场。
-
-**可能原因**
-
-NFC标签已离开nfc设备感应范围。
-
-**处理步骤**
-
-重新将标签靠近nfc读卡设备。
 
 
 

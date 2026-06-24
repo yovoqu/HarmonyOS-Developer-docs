@@ -1,6 +1,6 @@
 # Speech Kit简介
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/speech-production
 

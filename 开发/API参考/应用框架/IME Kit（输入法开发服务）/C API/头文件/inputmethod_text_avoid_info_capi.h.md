@@ -1,6 +1,6 @@
 # inputmethod_text_avoid_info_capi.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-avoid-info-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供输入框避让信息对象的创建、销毁与读写方法。
+提供输入框避让信息对象的创建、销毁与读写方法，用于在软键盘弹起时动态调整输入框的位置，避免遮挡输入内容。
  
 **引用文件：** <inputmethod/inputmethod_text_avoid_info_capi.h>
  
@@ -35,7 +35,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| InputMethod_TextAvoidInfo | InputMethod_TextAvoidInfo | 输入框避让信息。输入框用于避让键盘的信息。 |
+| InputMethod_TextAvoidInfo | InputMethod_TextAvoidInfo | 输入框避让信息。输入框用于避让键盘显示区域的信息。 |
  
  
   
@@ -80,7 +80,7 @@ InputMethod_TextAvoidInfo *OH_TextAvoidInfo_Create(double positionY, double heig
   
 | 参数项 | 描述 |
 | --- | --- |
-| double positionY | 表示输入框位置的Y坐标值，单位px。 |
+| double positionY | 表示输入框位置的Y坐标值，单位px。Y坐标值表示输入框顶部距离屏幕顶部的距离，单位为像素（px）。 |
 | double height | 表示输入框高度，单位px。 |
  
  

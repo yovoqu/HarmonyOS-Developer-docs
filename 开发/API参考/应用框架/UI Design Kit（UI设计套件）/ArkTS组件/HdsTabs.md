@@ -1,6 +1,6 @@
 # HdsTabs
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdstabs
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -673,7 +673,7 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 | barWidth | HdsBarWidthRangeOptions | 否 | 是 | 页签栏分档宽度。 默认值：页签个数小于等于3时，且HdsTabs宽度小于600vp，单个页签宽度76vp，当HdsTabs宽度大于等于600vp时，单个页签宽度80vp。页签个数大于等于4时，页签栏最大宽度不超过328vp。 |
 | barSideMargin | Length | 否 | 是 | 页签栏与HdsTabs左右边距。 默认值：HdsTabs宽度小于600vp时，默认边距16vp；HdsTabs宽度在600vp-840vp之间，默认边距24vp，HdsTabs宽度大于840vp，默认边距32vp。 |
 | barBottomMargin | Length | 否 | 是 | 页签栏与HdsTabs底部距离。 默认值：页签栏距离底部0vp。 |
-| gradientMask | HdsTabsBackgroundStyle | 否 | 是 | 背板蒙层的样式设置，可用来设置背板蒙层的高度和颜色。 默认值：蒙层颜色浅色模式是#CCF1F3F5，深色模式是#99000000。蒙层高度等于页签栏默认高度加16vp。 |
+| gradientMask | HdsTabsBackgroundStyle | 否 | 是 | 背板蒙层的样式设置，可用来设置背板蒙层的高度和颜色。 默认值：蒙层颜色浅色模式是#CCF1F3F5，深色模式是#99000000。蒙层高度等于页签栏默认高度加16vp。 说明： 蒙层高度不可设置为0。 |
 | miniBar | HdsTabsMiniBar | 否 | 是 | 迷你栏的属性配置。 默认值：undefined，表示没有迷你栏。 |
 | adaptToHandedness | boolean | 否 | 是 | 左右跟手开关。 true：跟手。 false：不跟手。 默认值：false。 |
 | lightColor | ResourceColor | 否 | 是 | 页签栏光效颜色。 默认值：深色模式#33E5E5E5，浅色模式#33fffffff。 |
@@ -700,9 +700,9 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| smallWidth | Length | 否 | 是 | 当HdsTabs宽度小于440vp时，页签栏或迷你栏的宽度。 默认值：页签个数小于等于3，且HdsTabs宽度小于600vp时，单个页签宽度76vp。页签个数大于等于4时，页签栏最大宽度不超过328vp。迷你栏最大宽度不超过328vp。 |
-| mediumWidth | Length | 否 | 是 | 当HdsTabs宽度在440vp-600vp之间，或宽度在600-840vp之间且高宽比小于0.8时，页签栏或迷你栏的宽度。 默认值：页签个数小于等于3，且HdsTabs宽度小于600vp时，单个页签宽度76vp，HdsTabs宽度大于600vp时，单个页签宽度80vp。页签个数大于等于4时，页签栏最大宽度不超过328vp。迷你栏最大宽度不超过328vp。 |
-| largeWidth | Length | 否 | 是 | 当HdsTabs宽度大于840vp，或宽度在600vp-840vp之间且高宽比大于0.8时，页签栏或迷你栏的宽度。 默认值：页签个数小于等于3，单个页签宽度80vp。页签个数大于等于4时，页签栏最大宽度不超过328vp。迷你栏最大宽度不超过328vp。 |
+| smallWidth | Length | 否 | 是 | 当HdsTabs宽度小于440vp时，页签栏或迷你栏的宽度。 默认值：页签个数小于等于3，且HdsTabs宽度小于600vp时，单个页签宽度76vp。页签个数大于等于4时，页签栏最大宽度不超过328vp。迷你栏最大宽度不超过328vp。 说明：暂不支持百分比。 |
+| mediumWidth | Length | 否 | 是 | 当HdsTabs宽度在440vp-600vp之间，或宽度在600-840vp之间且高宽比小于0.8时，页签栏或迷你栏的宽度。 默认值：页签个数小于等于3，且HdsTabs宽度小于600vp时，单个页签宽度76vp，HdsTabs宽度大于600vp时，单个页签宽度80vp。页签个数大于等于4时，页签栏最大宽度不超过328vp。迷你栏最大宽度不超过328vp。 说明：暂不支持百分比。 |
+| largeWidth | Length | 否 | 是 | 当HdsTabs宽度大于840vp，或宽度在600vp-840vp之间且高宽比大于0.8时，页签栏或迷你栏的宽度。 默认值：页签个数小于等于3，单个页签宽度80vp。页签个数大于等于4时，页签栏最大宽度不超过328vp。迷你栏最大宽度不超过328vp。 说明：暂不支持百分比。 |
 
 
 
@@ -732,7 +732,11 @@ barFloatingStyle(barFloatingStyle?: Optional&lt;HdsTabsFloatingStyle&gt;)
 | onTabBarAnimationStart | TabBarAnimationStartCallback | 否 | 是 | 页签栏折叠展开动效开始回调。 |
 | enableMiniBarBackground | boolean | 否 | 是 | 迷你栏背景。 true：迷你栏跟随页签栏背景。 false：迷你栏背景无色透明。 默认值：true。 |
 | enableMiniBarClip | boolean | 否 | 是 | 迷你栏是否裁剪miniBarBuilder内容。 true：裁剪miniBarBuilder内容。 false：不裁剪miniBarBuilder内容。 默认值：true。 |
-| barLayoutMode | HdsBarLayoutMode | 否 | 是 | 设置minibar和tabbar的布局模式。 - 未设置时：minibar和tabbar默认是左右布局。 - 设置为HORIZONTAL时：minibar和tabbar是水平左右布局模式。 - 设置为VERTICAL时：minibar和tabbar是垂直上下布局模式。 起始版本： 6.1.1(24)。 |
+| barLayoutMode | HdsBarLayoutMode | 否 | 是 | 设置minibar和tabbar的布局模式。 - 未设置时：minibar和tabbar默认是左右布局。 - 设置为HORIZONTAL时：minibar和tabbar是水平左右布局模式。 - 设置为VERTICAL时：minibar和tabbar是垂直上下布局模式。 起始版本： 6.1.1(24) |
+
+
+> [!NOTE]
+> 迷你栏和页签栏处于左右布局场景时： 若HdsTabs组件宽度小于440vp，且出现“迷你栏展开、页签栏折叠”或“迷你栏折叠、页签栏展开”的情况，页签栏和迷你栏将整体底部居中显示。 若HdsTabs组件宽度在440vp-600vp之间，且出现“迷你栏展开、页签栏折叠”或“迷你栏折叠、页签栏展开”的情况，展开的页签栏或迷你栏将底部居中显示。 若HdsTabs组件宽度大于600vp，且出现页签栏和迷你栏同时展开的情况，页签栏和迷你栏将整体底部居中显示。
 
 
 
@@ -1487,7 +1491,7 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/dJswJSPQQEqryCni1rkypQ/zh-cn_image_0000002581276754.png?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=A75570BA6F8FFAD66A4DCA76FBE91B06FFD75C67297AFEB489D66FF8C171136A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/lv3shGjXToWkUnD7WLJ6Eg/zh-cn_image_0000002656470595.png?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=901DC56D2321724B3E270B79F376E577982BC2A5C099A18A074160FE15E9344B)
 
 
 
@@ -1540,7 +1544,7 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c2/v3/F_XVxv-NR2udbFOjZ2sWoQ/zh-cn_image_0000002611756611.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=4EEA950EC990F95FEC2874E007ACF05D087541FC7DBB355116AB5ADBEA805A81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/01/v3/tqX15V32RlqlGKB7OGKM4w/zh-cn_image_0000002656350645.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=2FA75BAD7834C1908F93C820B1BB95563CCEBFEAC821511842F35AEBA6B06F61)
 
 
 
@@ -1590,4 +1594,94 @@ struct Index {
 效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/7mNpmxnfRN6m0HhfL39Ilw/zh-cn_image_0000002581436670.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=989B16B4249424B63D671292195BBE201F732AF18C061B572245BB4D9433D889)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/83/v3/pMYnvpNNT1ORhZSthzPfkg/zh-cn_image_0000002626231232.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=99236AAC8CCA71F15F6E1D5A7C63C77DFE67B82DB1CE1BE6151A4B4BA3DFD0EF)
+
+
+
+
+#### 页签栏悬浮样式
+
+通过设置HdsTabs组件的barFloatingStyle样式，并设置barOverlap为true，vertical为false，barPosition为BarPosition.End，可实现页签栏的悬浮样式。若在barFloatingStyle中设置miniBar，则可实现迷你栏。
+
+```text
+import { HdsTabs, HdsTabsAttribute, HdsTabsController, hdsMaterial } from '@kit.UIDesignKit';
+
+@Entry
+@Component
+struct Index {
+  // 初始化HdsTabs控制器。
+  private controller: HdsTabsController = new HdsTabsController();
+
+  @Builder
+  miniBarBuilder() {
+    Row() {
+      Column() {
+        Image($r('app.media.alarm_stop'))
+          .width(40)
+          .height(40)
+          .borderRadius(40)
+      }.width(48).height(48).justifyContent(FlexAlign.Center).margin({left: 4, right: 4})
+
+      Text('Hello')
+
+      Column() {
+        Image($r('sys.media.ohos_ic_public_pause'))
+          .width(40)
+          .height(40)
+          .borderRadius(40)
+      }.width(48).height(48).justifyContent(FlexAlign.Center)
+    }
+  }
+
+  build() {
+    Column() {
+      HdsTabs({ controller: this.controller }) {
+        TabContent() {
+          Scroll() {
+            Column(){
+              Image($r('app.media.ocean'))
+              Image($r('app.media.desert'))
+              Image($r('app.media.mountain'))
+              Image($r('app.media.sunset'))
+            }
+          }
+        }
+        .tabBar(new BottomTabBarStyle($r('sys.media.ohos_ic_public_clock'), 'Green'))
+
+        TabContent() {
+          Image($r('app.media.ocean'))
+        }
+        .tabBar(new BottomTabBarStyle($r('sys.media.wifi_router_fill'), 'Blue'))
+
+        TabContent() {
+          Image($r('app.media.ocean'))
+        }
+        .tabBar(new BottomTabBarStyle($r('sys.media.ohos_ic_public_clock'), 'Yellow'))
+      }
+      // 设置barOverlap为true，vertical为false，barPosition为BarPosition.End
+      .barOverlap(true)
+      .barPosition(BarPosition.End)
+      .vertical(false)
+      // 设置页签栏悬浮样式。
+      .barFloatingStyle({
+        barWidth: { smallWidth: 200, mediumWidth: 300, largeWidth: 400 },
+        barBottomMargin: 28,
+        gradientMask: { maskColor: '#66F1F3F5', maskHeight: 92 },
+        systemMaterialEffect: {
+          materialType: hdsMaterial.MaterialType.IMMERSIVE,
+          materialLevel: hdsMaterial.MaterialLevel.ADAPTIVE
+        },
+        // 设置迷你栏，若不设置，则仅有页签栏。
+        miniBar: {
+          miniBarBuilder: () => this.miniBarBuilder()
+        }
+      })
+    }
+  }
+}
+```
+
+效果：
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/aGdR4_dTQom0OgX5h0PNDg/zh-cn_image_0000002626071320.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=EA09A1A9FADCA0FAA8EB98DF70FD9F3738986ACF31319D58A257C37F1B65EA7C)

@@ -1,6 +1,6 @@
 # 自定义性能脚本测试（基于Python）
 
-更新时间：2026-04-28 12:59:30
+更新时间：2026-06-12 06:58:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-perf-python-guidelines
 
@@ -11,7 +11,7 @@ DevEco Testing场景化的性能测试服务，基于Hypium自动化测试框架
  
 Hypium基本API接口功能介绍，请参考指导：[Hypium框架-API使用方法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hypium-python-guidelines#section1141818121333)。
  
-测试服务执行测试脚本详情介绍，请参考指导：[场景化性能测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing#section8642101711299)。
+测试服务执行测试脚本详情介绍，请参考指导：[场景化性能测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-testing#section8642101711299)。
  
 
 #### **环境搭建**
@@ -47,7 +47,7 @@ Hypium基本API接口功能介绍，请参考指导：[Hypium框架-API使用方
  
 **安装hypium_perf**
  
-1）打开DevEco Testing客户端-专项测试-场景化性能测试卡片，点击获取安装包，打开安装包目录，如下图。
+1）打开DevEco Testing客户端-测试服务-性能测试-场景化性能测试卡片，点击获取安装包，打开安装包目录，如下图。
  
 
 ![](assets/自定义性能脚本测试（基于Python）/file-20260514134438318-0.png)
@@ -85,7 +85,7 @@ pip install perf_analyzer-6.1.0.12b0-py3-none-any.whl perf_collector-6.1.0.12b0-
  
 **1、下载工程模板**
  
-1）打开DevEco Testing客户端-专项测试-场景化性能测试卡片，在测试前准备中，点击创建工程模板按钮。
+1）打开DevEco Testing客户端-测试服务-性能测试-场景化性能测试卡片，在测试前准备中，点击创建工程模板按钮。
  
 
 ![](assets/自定义性能脚本测试（基于Python）/file-20260514134438318-10.png)
@@ -933,4 +933,4 @@ action_testsuite.json示例
 #### **性能脚本测试执行**
 
  
-性能脚本本地调试验证成功后，可在DevEco Testing创建性能测试任务，请查看文档：[场景化性能测试-任务创建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing#section8642101711299)。
+性能脚本本地调试验证成功后，可在DevEco Testing创建性能测试任务，请查看文档：[场景化性能测试-任务创建](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-testing#section8642101711299)。

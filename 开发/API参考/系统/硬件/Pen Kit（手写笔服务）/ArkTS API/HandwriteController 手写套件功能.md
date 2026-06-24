@@ -1,6 +1,6 @@
 # HandwriteController (手写套件功能)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-handwritecontroller
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -60,7 +60,7 @@ load(path: string): void
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -103,7 +103,7 @@ save(path: string): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -139,7 +139,7 @@ onLoad(callback: AsyncCallback&lt;string&gt;): void
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -177,7 +177,7 @@ getContentRange(): Rect
 
 getThumbnail(rect: Rect): Promise&lt;PixelMap&gt;
 
-获取缩略图数据。
+获取缩略图数据。使用Promise异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -255,7 +255,12 @@ scrollTo(yOffset: number): void
 **支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
-import { HandwriteController, HandwriteComponent, PenType, PenHspInfo } from '@kit.Penkit';
+import {
+  HandwriteController,
+  HandwriteComponent,
+  PenType,
+  PenHspInfo
+} from '@kit.Penkit';
 
 @Entry
 @Component
@@ -298,7 +303,7 @@ struct HandWriteDemoComp {
           },
           onDidScroll: (yOffset: number) => {
             // 画布滚动时的回调方法，将返回当前滚动位置的纵坐标，可在此处进行自定义行为。
-            this.yOffset = yOffset
+            this.yOffset = yOffset;
           }
         })
         // 保存及获取缩略图。非必要组件，用户可自行调整或删除。
@@ -307,7 +312,7 @@ struct HandWriteDemoComp {
             // 需根据应用存储规则，获取到手写文件保存的路径，此处仅为实例参考。
             const path = this.getUIContext().getHostContext()?.filesDir + '/aa';
             await this.controller?.save(path).then().catch((error: Error) => {
-              console.error('err：' + error);
+              console.error('err: ' + error);
             })
             // 获取缩略图。
             this.controller.getThumbnail(this.controller?.getContentRange())?.then((pixelMap: PixelMap) => {
@@ -321,7 +326,7 @@ struct HandWriteDemoComp {
         Search()
           .searchButton('scrollTo').onSubmit((value: string) => {
           if (!Number.isNaN(Number(value))) {
-            this.controller.scrollTo(Number(value))
+            this.controller.scrollTo(Number(value));
           }
         }).margin({ top: 100 }).width(220)
         // 当前画布的偏移量。

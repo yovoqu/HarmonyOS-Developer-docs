@@ -1,6 +1,6 @@
 # Web组件的生命周期
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-event-sequence
 
@@ -14,7 +14,7 @@ Web组件的状态主要包括：Controller绑定到Web组件、网页加载开�
 
 Web页面保活可以参考[使用离线Web组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-offline-mode)。
 
-自定义组件析构销毁时执行[aboutToDisappear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear)函数，Web组件会被销毁，Web组件与WebviewController解绑，js运行环境也会一并销毁。
+自定义组件析构销毁时执行[aboutToDisappear](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-custom-component-lifecycle#abouttodisappear)函数，Web组件会被销毁，Web组件与[WebviewController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller)解绑，js运行环境也会一并销毁。
 
 **图1** Web组件网页正常加载过程中的回调事件
 
@@ -174,7 +174,7 @@ struct WebComponent {
 
 网页加载过程中需要关注一些重要的性能指标。例如，FCP(First Contentful Paint)首次内容绘制，FMP(First Meaningful Paint)首次有效绘制，LCP(Largest Contentful Paint)最大内容绘制等。Web组件提供了如下接口来通知开发者，接口仅支持在线非PDF网页，不支持本地网页和PDF网页。
 
- - [onFirstContentfulPaint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onfirstcontentfulpaint10)事件：网页首次内容绘制的回调函数。首次绘制文本、图像、非空白Canvas或SVG的时间点。
+ - [onFirstContentfulPaint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onfirstcontentfulpaint10)事件：网页首次内容绘制的回调函数。首次绘制文本、图像、非空白[Canvas](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-canvas)或SVG的时间点。
  - [onFirstMeaningfulPaint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onfirstmeaningfulpaint12)事件：网页绘制页面主要内容的回调函数。首次绘制主要内容的时间点。
  - [onLargestContentfulPaint](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onlargestcontentfulpaint12)事件：网页绘制页面最大内容的回调函数。绘制可视区域内最大图片、文本块或视频的时间点。
 

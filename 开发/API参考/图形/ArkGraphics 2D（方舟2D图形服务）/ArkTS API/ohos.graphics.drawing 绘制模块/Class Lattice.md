@@ -1,6 +1,6 @@
 # Class (Lattice)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-lattice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -77,7 +77,7 @@ class DrawingRenderNode extends RenderNode {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/0xFonG4rSsS2UaI2tU-g0w/zh-cn_image_0000002581277088.png?HW-CC-KV=V1&HW-CC-Date=20260528T025708Z&HW-CC-Expire=86400&HW-CC-Sign=3862A9AA1AF3E7EDF1B52DEDC787E6AAB62C169A25CDA231B2D60CD59B1829D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a2/v3/0iC857iUTvilQIEar6D_CQ/zh-cn_image_0000002626231564.png?HW-CC-KV=V1&HW-CC-Date=20260624T020307Z&HW-CC-Expire=86400&HW-CC-Sign=A3887A2ACC69CFBFF74F08AE3234D80BFBCB8C2A1AFA925F85AAC6BF3B9D16AC)
 
 
 

@@ -1,6 +1,6 @@
 # Interface (PreviewOutput)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-previewoutput
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -419,7 +419,7 @@ getPreviewRotation(displayRotation?: number): ImageRotation
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| displayRotation | number | 否 | 显示设备的屏幕旋转角度，通过display.getDefaultDisplaySync获得。 从API version 23开始，入参displayRotation为可选参数，当不传入参数时，由系统获取displayRotation进行预览旋转角度计算。 |
+| displayRotation | number | 否 | 显示设备的屏幕旋转角度，通过display.getDefaultDisplaySync获得。 从API version 23开始，入参displayRotation为可选参数，当不传入参数时，由系统获取displayRotation进行预览旋转角度计算。 单位为度数（degree），取值范围为[0, 360]。 |
 
 
 **返回值：**
@@ -435,6 +435,7 @@ getPreviewRotation(displayRotation?: number): ImageRotation
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 7400101 | Parameter missing or parameter type incorrect. 适用版本：12-22 |
 | 7400201 | Camera service fatal error. |
 
 

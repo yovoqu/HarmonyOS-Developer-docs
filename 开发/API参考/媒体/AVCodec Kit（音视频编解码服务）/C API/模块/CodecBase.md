@@ -1,6 +1,6 @@
 # CodecBase
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-codecbase
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -159,6 +159,7 @@ CodecBase模块提供用于音视频封装、解封装、编解码基础功能�
 | OH_MD_KEY_VIDEO_ENCODER_ENABLE_TEMPORAL_SCALABILITY | 使能分层编码的键，值类型为int32_t，1表示使能，0表示不使能。该键是可选的且只用于视频编码，默认不配置则表示不使能，在Configure阶段使用。 |
 | OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE | 描述图片组基本层图片的间隔大小的键，值类型为int32_t，只在使能分层编码时生效。该键是可选的且只用于视频编码，在Configure阶段使用。 |
 | OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE | 描述图片组内参考模式的键，值类型为int32_t，请参见OH_TemporalGopReferenceMode，只在使能分层编码时生效。该键是可选的且只用于视频编码，在Configure阶段使用。 |
+| OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_LAYER_ID | 描述图像组（GOP）内的时域层号ID键，数据类型为int32_t。 时域层号为0时，表示基础层，1及以上时表示增强层，最大时域层号与OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_REFERENCE_MODE参数和OH_MD_KEY_VIDEO_ENCODER_TEMPORAL_GOP_SIZE参数相关。 该键目前仅用于查询编码器输出的AVBuffer中携带的时域层号。 使用流程如下： 1. 通过OH_AVCodecOnNewOutputBuffer接口或OH_VideoEncoder_GetOutputBuffer获取缓冲区实例（AVBuffer）。 2. 通过OH_AVBuffer_GetParameter获取除基础属性外的其他参数实例（OH_AVFormat）。 3. 通过OH_AVFormat_GetIntValue接口和本键获取对应帧的时域层号。 起始版本： 26.0.0 |
 | OH_MD_KEY_VIDEO_ENCODER_LTR_FRAME_COUNT | 描述长期参考帧（LTR）个数的键，值类型为int32_t，必须在支持的值范围内使用。该键是可选的且只用于视频编码。 |
 | OH_MD_KEY_VIDEO_ENCODER_PER_FRAME_MARK_LTR | 标记当前帧为长期参考帧（LTR）的键，值类型为int32_t，1表示被标记为长期参考帧（LTR），0表示未被标记为长期参考帧（LTR）。该键是可选的且只用于视频编码。 |
 | OH_MD_KEY_VIDEO_ENCODER_PER_FRAME_USE_LTR | 描述当前帧参考的长期参考帧（LTR）的POC号的键，值类型为int32_t。该键是可选的且只用于视频编码。 |
@@ -186,6 +187,13 @@ CodecBase模块提供用于音视频封装、解封装、编解码基础功能�
 | OH_MD_KEY_VIDEO_ENCODER_MAX_B_FRAMES | 描述视频编码器支持的最大连续B帧数的键，值类型为int32_t。注意：该键目前仅用于查询编码器能力。 使用规范如下： 1. 通过OH_AVCapability_IsFeatureSupported接口和枚举值OH_AVCapabilityFeature.VIDEO_ENCODER_B_FRAME查询特性支持情况。 2. 通过OH_AVCapability_GetFeatureProperties接口和枚举值OH_AVCapabilityFeature.VIDEO_ENCODER_B_FRAME获取OH_AVFormat指针。 3. 通过OH_AVFormat_GetIntValue接口和本键获取最大B帧数。 |
 | OH_MD_KEY_VIDEO_DECODER_BLANK_FRAME_ON_SHUTDOWN | 用于指定视频解码器关闭时是否输出空白帧的键，值类型为int32_t，1表示使能，0表示不使能，默认值为0。配置非0值将按照配置1处理，表示使能。该键是可选的且仅用于视频解码Surface模式。 使能后，调用OH_VideoDecoder_Stop接口或者OH_VideoDecoder_Destroy接口时，视频解码器将输出空白帧（通常为黑色）。该机制可避免因解码器突然终止导致的显示残留。 |
 | OH_MD_KEY_VIDEO_NATIVE_BUFFER_FORMAT | 用于查询视频编解码中native buffer像素格式的键，值类型为int32_t。 具体取值请参见OH_NativeBuffer_Format中定义的像素格式。该键主要用于以下两种场景： 1. 视频解码：调用OH_VideoDecoder_GetOutputDescription接口或OH_AVCodecOnStreamChanged，从返回的OH_AVFormat对象中获取当前输出格式。 2. 视频编码：调用OH_VideoEncoder_GetInputDescription接口，从返回的OH_AVFormat对象中获取当前输入格式。 |
+| OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH | 视频编码前处理降采样目标宽度的键，值类型为int32_t。该键是可选的，降采样功能默认关闭。该键与OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT必须同时配置，当都设置为0时则关闭降采样功能，可以通过OH_AVCapability_IsVideoSizeSupported查询支持的降采样宽高范围。降采样参数与裁剪参数互斥，降采样功能与裁剪功能不可同时启用。 该键仅用于支持前处理的视频编码器或一入二出编码场景，可在Configure阶段配置或通过SetParameter运行时动态调整。 起始版本： 26.0.0 |
+| OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_HEIGHT | 视频编码前处理降采样目标高度的键，值类型为int32_t。该键是可选的，降采样功能默认关闭。该键与OH_MD_KEY_VIDEO_ENCODER_PREPROC_DOWNSAMPLING_WIDTH必须同时配置，当都设置为0时则关闭降采样功能，可以通过OH_AVCapability_IsVideoSizeSupported查询支持的降采样宽高范围。降采样参数与裁剪参数互斥，降采样功能与裁剪功能不可同时启用。 该键仅用于支持前处理的视频编码器或一入二出编码场景，可在Configure阶段配置或通过SetParameter运行时动态调整。 起始版本： 26.0.0 |
+| OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT | 视频编码前处理裁剪区域左边坐标（x）的键，值类型为int32_t。该键是可选的，裁剪功能默认关闭。OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT/TOP/RIGHT/BOTTOM 4个参数必须同时配置，当全部设置为0时则关闭裁剪功能，默认坐标原点为输入视频帧左上角(0, 0)，坐标取值不可超过输入视频帧宽高，且需满足(0, 0) <= (LEFT, TOP) < (RIGHT, BOTTOM) < (输入视频帧宽度，输入视频帧高度)。降采样参数与裁剪参数互斥，降采样功能与裁剪功能不可同时启用。 该键仅用于支持前处理的视频编码器或一入二出编码场景，可在Configure阶段配置或通过SetParameter运行时动态调整。 起始版本： 26.0.0 |
+| OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_TOP | 视频编码前处理裁剪区域顶部坐标（y）的键，值类型为int32_t。该键是可选的，裁剪功能默认关闭。OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT/TOP/RIGHT/BOTTOM 4个参数必须同时配置，当全部设置为0时则关闭裁剪功能，默认坐标原点为输入视频帧左上角(0, 0)，坐标取值不可超过输入视频帧宽高，且需满足(0, 0) <= (LEFT, TOP) < (RIGHT, BOTTOM) < (输入视频帧宽度，输入视频帧高度)。降采样参数与裁剪参数互斥，降采样功能与裁剪功能不可同时启用。 该键仅用于支持前处理的视频编码器或一入二出编码场景，可在Configure阶段配置或通过SetParameter运行时动态调整。 起始版本： 26.0.0 |
+| OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_RIGHT | 视频编码前处理裁剪区域右边坐标（x）的键，值类型为int32_t。该键是可选的，裁剪功能默认关闭。OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT/TOP/RIGHT/BOTTOM 4个参数必须同时配置，当全部设置为0时则关闭裁剪功能，默认坐标原点为输入视频帧左上角(0, 0)，坐标取值不可超过输入视频帧宽高，且需满足(0, 0) <= (LEFT, TOP) < (RIGHT, BOTTOM) < (输入视频帧宽度，输入视频帧高度)。降采样参数与裁剪参数互斥，降采样功能与裁剪功能不可同时启用。 该键仅用于支持前处理的视频编码器或一入二出编码场景，可在Configure阶段配置或通过SetParameter运行时动态调整。 起始版本： 26.0.0 |
+| OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_BOTTOM | 视频编码前处理裁剪区域底部坐标（y）的键，值类型为int32_t。该键是可选的，裁剪功能默认关闭。OH_MD_KEY_VIDEO_ENCODER_PREPROC_CROP_LEFT/TOP/RIGHT/BOTTOM 4个参数必须同时配置，当全部设置为0时则关闭裁剪功能，默认坐标原点为输入视频帧左上角(0, 0)，坐标取值不可超过输入视频帧宽高，且需满足(0, 0) <= (LEFT, TOP) < (RIGHT, BOTTOM) < (输入视频帧宽度，输入视频帧高度)。降采样参数与裁剪参数互斥，降采样功能与裁剪功能不可同时启用。 该键仅用于支持前处理的视频编码器或一入二出编码场景，可在Configure阶段配置或通过SetParameter运行时动态调整。 起始版本： 26.0.0 |
+| OH_MD_KEY_VIDEO_ENCODER_PREPROC_DROP_TO_FRAME_RATE | 视频编码前处理丢帧目标帧率的键，值类型为double，数值精度保留2位小数。该键是可选的，丢帧功能默认关闭。当设置0.00时则关闭丢帧功能，配置值时自动四舍五入保留两位小数。可独立使用，也可与降采样或裁剪组合使用。 该键仅用于支持前处理的视频编码器或一入二出编码场景，可在Configure阶段配置或通过SetParameter运行时动态调整。 起始版本： 26.0.0 |
 
 
 
@@ -207,10 +215,14 @@ CodecBase模块提供用于音视频封装、解封装、编解码基础功能�
 | OH_MD_KEY_AAC_IS_ADTS | aac格式的键，aac格式分为ADTS格式和LATM格式。值类型为int32_t，aac解码器支持。该键是可选的。 |
 | OH_MD_KEY_IDENTIFICATION_HEADER | vorbis标识头的键，值类型为uint8_t*，仅vorbis解码器支持。该键是可选的。 |
 | OH_MD_KEY_SETUP_HEADER | vorbis设置头的键，值类型为uint8_t*，仅vorbis解码器支持。该键是可选的。 |
-| OH_MD_KEY_AUDIO_OBJECT_NUMBER | 音频对象数目的键，值类型为int32_t，只有Audio Vivid解码使用。该键是可选的。 |
-| OH_MD_KEY_AUDIO_VIVID_METADATA | Audio Vivid元数据的键，值类型为uint8_t*，只有Audio Vivid解码使用。该键是可选的。 |
+| OH_MD_KEY_AUDIO_OBJECT_NUMBER | 音频对象数目的键，值类型为int32_t，该键是可选的且仅用于Audio Vivid编解码器。 |
+| OH_MD_KEY_AUDIO_OBJECT_BITRATE | 设置音频对象编码比特率的键，值类型为int64_t，该键是可选的且仅用于Audio Vivid编码器。 实际编码比特率可能会根据编码器的能力调整。 该键从API版本26.0.0开始支持。 |
+| OH_MD_KEY_AUDIO_VIVID_METADATA | Audio Vivid元数据的键，值类型为uint8_t*，该键是可选的且仅用于Audio Vivid编解码器。 |
 | OH_MD_KEY_BLOCK_ALIGN | 划分音频数据块大小的键，单位为字节，值类型为int32_t。该键从API version 22开始支持，仅WMAV1、WMAV2、WMA PRO解码时必须配置。 |
 | OH_MD_KEY_ENABLE_BUFFER_SKIP_SAMPLES | 在音频解码器中使能OH_MD_KEY_BUFFER_SKIP_SAMPLES_INFO的键，值类型为int32_t。1表示使能，0表示不使能，默认值为0。配置非1值将按照配置0处理，表示不使能。 该键是可选的。仅用于音频解码器。 该键从API version 24开始支持。 |
+| OH_MD_KEY_AUDIO_VIVID_SIGNAL_FORMAT | 设置Audio Vivid输入信号格式的键，值类型为int32_t，该键适用于Audio Vivid编码器。 具体取值请参见OH_AudioVividSignalFormat。 该键从API版本26.0.0开始支持。 |
+| OH_MD_KEY_AUDIO_SOUNDBED_LAYOUT | 设置音频声床的通道布局的键，值类型为int64_t，该键是可选的且仅用于Audio Vivid编码器。 具体取值请参见OH_AudioChannelLayout。 该键从API版本26.0.0开始支持。 |
+| OH_MD_KEY_AUDIO_SOUNDBED_BITRATE | 设置音频声床编码比特率的键，值类型为int64_t，该键是可选的且仅用于Audio Vivid编码器。 实际编码比特率可能会根据编码器的能力调整。 该键从API版本26.0.0开始支持。 |
 
 
 

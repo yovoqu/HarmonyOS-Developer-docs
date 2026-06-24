@@ -1,6 +1,6 @@
 # 文件分享能否使用Want配置打开具体应用，而不是显示选择窗口
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-9
 

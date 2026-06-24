@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -183,18 +183,18 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| audioBitrate | number | 否 | 是 | 音频编码比特率，选择音频录制时必填。 支持范围： - AAC编码格式支持比特率范围[32000, 500000]。 - G711-mulaw编码格式支持比特率大小：64000。 - MP3编码格式支持范围[8000, 16000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000, 224000, 256000, 320000]。 当使用MP3编码格式时，采样率和比特率的映射关系： - 采样率使用16K以下时，对应比特率范围为[8000 - 64000]。 - 采样率使用16K~32K时对应的比特率范围为[8000, 160000]。 - 采样率使用32K以上时对应的比特率范围为[32000, 320000]。 - AMR_NB编码格式支持比特率范围[4750, 5150, 5900, 6700, 7400, 7950, 10200, 12200]。 - AMR_WB编码格式支持比特率范围[6600, 8850, 12650, 14250, 15850, 18250, 19850, 23050, 23850]。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
-| audioChannels | number | 否 | 是 | 音频采集声道数，选择音频录制时必填。 - AAC编码格式支持范围[1, 2]。 - G711-mulaw编码格式支持大小：1。 - MP3编码格式支持范围[1, 2]。 - AMR-NB和AMR-WB编码格式支持大小：1。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
+| audioBitrate | number | 否 | 是 | 音频编码比特率，选择音频录制时必填。单位为比特/秒（bit/s）。 取值范围： - AAC编码格式支持比特率范围[32000, 500000]。 - G711-mulaw编码格式支持比特率大小：64000。 - MP3编码格式取值范围[8000, 16000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000, 224000, 256000, 320000]。 当使用MP3编码格式时，采样率和比特率的映射关系： - 采样率使用16K以下时，对应比特率范围为[8000 - 64000]。 - 采样率使用16K~32K时对应的比特率范围为[8000, 160000]。 - 采样率使用32K以上时对应的比特率范围为[32000, 320000]。 - AMR_NB编码格式支持比特率范围[4750, 5150, 5900, 6700, 7400, 7950, 10200, 12200]。 - AMR_WB编码格式支持比特率范围[6600, 8850, 12650, 14250, 15850, 18250, 19850, 23050, 23850]。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
+| audioChannels | number | 否 | 是 | 音频采集声道数，选择音频录制时必填。 - AAC编码格式取值范围[1, 2]。 - G711-mulaw编码格式支持大小：1。 - MP3编码格式取值范围[1, 2]。 - AMR-NB和AMR-WB编码格式支持大小：1。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
 | audioCodec | CodecMimeType | 否 | 是 | 音频编码格式，选择音频录制时必填。 当前支持AUDIO_AAC、AUDIO_MP3、AUDIO_G711MU、AUDIO_AMR_NB和AUDIO_AMR_WB。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
 | aacProfile22+ | AacProfile | 否 | 是 | 音频编码扩展格式，默认为AAC_LC格式。 当前支持类型：AAC_LC、AAC_HE和AAC_HE_V2。 元服务API： 从API version 22 开始，该接口支持在元服务中使用。 |
-| audioSampleRate | number | 否 | 是 | 音频采样率，选择音频录制时必填。 支持范围： - AAC编码支持采样率范围[8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 64000, 88200, 96000]。 - G711-mulaw编码支持采样率大小：8000。 - MP3编码支持采样率范围[8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000]。 - AMR_NB编码支持采样率大小：8000。 - AMR_WB编码支持采样率大小：16000。 可变比特率模式，码率仅作参考。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
+| audioSampleRate | number | 否 | 是 | 音频采样率，选择音频录制时必填。单位为赫兹（Hz）。 取值范围： - AAC编码支持采样率范围[8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 64000, 88200, 96000]。 - G711-mulaw编码支持采样率大小：8000。 - MP3编码支持采样率范围[8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000]。 - AMR_NB编码支持采样率大小：8000。 - AMR_WB编码支持采样率大小：16000。 可变比特率模式，码率仅作参考。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
 | fileFormat | ContainerFormatType | 否 | 否 | 文件的容器格式，必要参数。当前支持MP4、M4A、MP3、WAV、AMR、AAC封装格式，当前AAC音频封装默认为ADTS帧头格式。不支持在MP4封装格式下使用AUDIO_MP3编码格式。 元服务API： 从API version 12 开始，该接口支持在元服务中使用。 |
-| videoBitrate | number | 否 | 是 | 视频编码比特率，选择视频录制时必填，支持范围[10000, 100000000]。 |
+| videoBitrate | number | 否 | 是 | 视频编码比特率，选择视频录制时必填。取值范围[10000, 100000000]，单位为比特/秒（bit/s）。 |
 | videoCodec | CodecMimeType | 否 | 是 | 视频编码格式，选择视频录制时必填。当前支持VIDEO_AVC和VIDEO_HEVC。 |
-| videoFrameWidth | number | 否 | 是 | 视频帧的宽，选择视频录制时必填，支持范围[176, 4096]。 |
-| videoFrameHeight | number | 否 | 是 | 视频帧的高，选择视频录制时必填，支持范围[144, 4096]。 |
-| videoFrameRate | number | 否 | 是 | 视频帧率，选择视频录制时必填，推荐范围[1, 60]。 |
-| isHdr11+ | boolean | 否 | 是 | HDR编码，选择视频录制时选填，isHdr默认为false，对应编码格式没有要求，isHdr为true时，对应的编码格式必须为video/hevc。 |
+| videoFrameWidth | number | 否 | 是 | 视频帧的宽，选择视频录制时必填。取值范围[176, 4096]，单位为像素（px）。 |
+| videoFrameHeight | number | 否 | 是 | 视频帧的高，选择视频录制时必填。取值范围[144, 4096]，单位为像素（px）。 |
+| videoFrameRate | number | 否 | 是 | 视频帧率，选择视频录制时必填。推荐范围[1, 60]，单位为帧/秒（fps）。 |
+| isHdr11+ | boolean | 否 | 是 | HDR编码，选择视频录制时选填。isHdr默认为false，对应编码格式没有要求，isHdr为true时，对应的编码格式必须为video/hevc。 |
 | enableTemporalScale12+ | boolean | 否 | 是 | 视频录制是否支持时域分层编码功能，选择视频录制时选填，enableTemporalScale默认为false。设置为true时，编码输出的码流中部分帧可以支持跳过不编码。 |
 | enableBFrame20+ | boolean | 否 | 是 | 视频录制是否启用B帧编码。true表示启用B帧编码（仅在视频编码格式为H.265且设备硬件支持的情况下生效），false表示不启用B帧编码。 该参数为视频录制场景下的可选项，默认值为false。 |
 
@@ -325,6 +325,7 @@ media.createAVPlayer((err: BusinessError, player: media.AVPlayer) => {
 | location12+ | Location | 否 | 是 | 视频的地理位置信息。 |
 | customInfo12+ | Record<string, string> | 否 | 是 | 从moov.meta.list 获取的自定义参数键值映射。 |
 | tracks20+ | Array&lt;MediaDescription&gt; | 否 | 是 | 媒体资源的轨道信息。不支持AVRecorder设置该属性。 |
+| encoder | string | 否 | 是 | 用于编码的软件、硬件及其设置的标识符。不支持AVRecorder设置该属性。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -522,6 +523,7 @@ async function setupPlayer() {
 | keepCaptureDuringCall | boolean | 否 | 是 | 蜂窝通话时是否保持录屏。true表示蜂窝通话时保持录屏，false表示蜂窝通话时不进行录屏，默认为false。 |
 | enableBFrame | boolean | 否 | 是 | 录屏是否使能B帧编码。true表示录屏文件使能B帧编码，false表示录屏文件禁用B帧编码，默认是false。 B帧视频编码相关的约束和限制可以参考文档B帧视频编码约束和限制。如果当前不符合B帧视频编码的约束和限制，则正常录制不含B帧的视频，不会返回错误。 |
 | privacyMaskMode23+ | number | 否 | 是 | 设置屏幕录制时对隐私窗口的屏蔽模式。 - 0：表示存在隐私窗口时，采用全屏屏蔽模式，默认是0。 - 1：表示存在隐私窗口时，采用隐私窗口屏蔽模式。 - 设置为其他值时返回错误。 模型约束： 此接口仅可在Stage模型下使用。 |
+| enablePause | boolean | 否 | 是 | 表示录屏过程中是否允许暂停录屏。 true表示允许，false表示不允许。默认是false。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -569,6 +571,57 @@ async function setupPlayer() {
 
 
 
+#### VideoSize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+描述视频尺寸。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| width | number | 否 | 是 | 视频分辨率的宽度。 取值约束：该值必须为正整数。 单位为像素。 |
+| height | number | 否 | 是 | 视频分辨率的高度。 取值约束：该值必须为正整数。 单位为像素。 |
+
+
+
+
+#### TrackSelectionFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+描述轨道选择的过滤条件。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| maxVideoBitrate | number | 否 | 是 | 允许的视频最大比特率。 单位为比特/秒。 该值必须为正整数，如果未指定此参数，则视频最大比特率不受限制。 |
+| minVideoBitrate | number | 否 | 是 | 允许的视频最小比特率。 单位为比特/秒。 该值必须为正整数，如果未指定此参数，则视频最小比特率不受限制。 |
+| maxVideoFrameRate | number | 否 | 是 | 允许的视频最大帧率。 单位为帧/秒。 该值必须为正整数，如果未指定此参数，则视频最大帧率不受限制。 |
+| minVideoFrameRate | number | 否 | 是 | 允许的视频最小帧率。 单位为帧/秒。 该值必须为正整数，如果未指定此参数，则视频最小帧率不受限制。 |
+| maxVideoResolution | VideoSize | 否 | 是 | 允许的视频最大分辨率。如果未指定此参数，则视频最大分辨率不受限制。 |
+| minVideoResolution | VideoSize | 否 | 是 | 允许的视频最小分辨率。如果未指定此参数，则视频最小分辨率不受限制。 |
+| preferredVideoMimeTypes | Array&lt;string&gt; | 否 | 是 | 视频轨道的首选MIME类型。多个MIME按数组顺序排列，优先级依次递减。 取值约束：格式为MIME字符串或HLS/DASH中的编解码器字符串。 如果未指定或设置为空数组，则MIME类型不受限制。 |
+| maxAudioBitrate | number | 否 | 是 | 允许的音频最大比特率。 单位为比特/秒。 该值必须为正整数，如果未指定此参数，则音频最大比特率不受限制。 |
+| minAudioBitrate | number | 否 | 是 | 允许的音频最小比特率。 单位为比特/秒。 该值必须为正整数，如果未指定此参数，则音频最小比特率不受限制。 |
+| maxAudioChannels | number | 否 | 是 | 允许的音频最大通道数。该值必须为正整数，如果未指定此参数，则音频通道数不受限制。 |
+| preferredAudioMimeTypes | Array&lt;string&gt; | 否 | 是 | 音频轨道的首选MIME类型。多个MIME按数组顺序排列，优先级依次递减。 取值约束：格式为MIME字符串或HLS/DASH中的编解码器字符串。 如果未指定此参数或设置为空数组，则音频的MIME类型不受限制。 |
+| preferredAudioLanguages | Array&lt;string&gt; | 否 | 是 | 音频轨道的首选语言。多个语言按数组顺序排列，优先级依次递减。 取值约束：语言字符串符合IETF BCP 47标准定义。 如果未指定此参数或设置为空数组，则音频语言不受限制。 |
+| preferredSubtitleLanguages | Array&lt;string&gt; | 否 | 是 | 字幕轨道的首选语言。多个语言按数组顺序排列，优先级依次递减。 取值约束：语言字符串符合IETF BCP 47标准定义。 如果未指定此参数或设置为空数组，则字幕语言不受限制。 |
+
+
+
+
 #### AudioRecorderConfig(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -592,3 +645,26 @@ async function setupPlayer() {
 | uri | string | 否 | 否 | 音频输出URI：fd://xx (fd number) 文件需要由调用者创建，并赋予适当的权限。 说明： 从API version 6开始支持，从API version 9开始废弃，建议使用AVRecorderConfig中的url替代。 |
 | audioEncoderMime8+ | CodecMimeType | 否 | 是 | 容器编码格式。 说明： 从API version 8开始支持，从API version 9开始废弃，建议使用AVRecorderProfile中的audioCodec替代。 |
 | fileFormat8+ | ContainerFormatType | 否 | 是 | 音频编码格式。 说明： 从API version 8开始支持，从API version 9开始废弃，建议使用AVRecorderProfile中的fileFormat替代。 |
+
+
+
+
+#### AVTimedMetaData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+描述基于时间的元数据的信息。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| id | string | 否 | 是 | 基于时间的元数据的唯一标记。 该标记在视频源的数据信息中须保持唯一。 |
+| classify | string | 否 | 是 | 基于时间的元数据的分类标签。 |
+| start | number | 否 | 否 | 基于时间的元数据相对整个媒体起始时间的偏移值。 取值限定为整数。 单位：毫秒。 |
+| duration | number | 否 | 否 | 基于时间的元数据的持续时长。 取值限定为整数。 单位：毫秒。 |
+| contents | Record<string, object> | 否 | 否 | 基于时间的元数据对应的键值对集合。 |

@@ -1,6 +1,6 @@
 # HUKS错误码
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-huks
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -418,7 +418,7 @@ The input parameter is invalid.
 
 #### 12000019 同名provider已注册
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 
@@ -548,7 +548,7 @@ The provider or Ukey is busy.
 
 #### 12000025 资源超过限制
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 **错误信息**
 

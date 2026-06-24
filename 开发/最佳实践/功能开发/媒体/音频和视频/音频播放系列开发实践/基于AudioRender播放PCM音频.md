@@ -1,6 +1,6 @@
 # 基于AudioRenderer播放PCM音频
 
-更新时间：2026-06-10 07:05:30
+更新时间：2026-06-12 07:22:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-playing-pcm-audio-based-audiorenderer
 
@@ -482,31 +482,31 @@ public async playNext() {
 1. 通过选择不同档位获取速度值，传入[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)接口中。
  
 ```ArkTS
-Slider({
-  value: this.speed,
-  min: 0.25,
-  max: 4,
-  step: 0.25,
-  style: SliderStyle.InSet,
-})
-  .blockSize(
-    {
-      width: 28,
-      height: 28
+@Builder
+speedBuilder() {
+  Menu() {
+    MenuItemGroup({ header: this.speedTitle() }) {
+      ForEach(this.speedArr, (speed: number, index: number) => {
+        MenuItem({
+          content: `${speed}x`,
+          symbolEndIcon: this.speed === speed ? new SymbolGlyphModifier($r('sys.symbol.checkmark')).fontSize('24vp') :
+            undefined
+        })
+          .width('100%')
+          .onClick(() => {
+            this.speed = speed;
+            MediaControlCenter.getInstance().setSpeed(this.speed);
+          })
+      })
     }
-  )
-  .trackThickness(35)
-  .trackColor($r('sys.color.button_background_color_transparent'))
-  .selectedColor(Color.Transparent)
-  .layoutWeight(1)
-  .width('100%')
-  .showTips(false)
-  .showSteps(true)
-  .onChange((value: number, mode: SliderChangeMode) => {
-    this.speed = value;
-    MediaControlCenter.getInstance().setSpeed(this.speed);
-    Logger.info(TAG, 'value:' + value + 'mode:' + mode.toString());
+  }
+  .menuItemDivider({
+    strokeWidth: LengthMetrics.vp(0.5),
+    mode: DividerMode.EMBEDDED_IN_MENU,
+    color: 'rgba(0,0,0,0.2)'
   })
+  .width(224)
+}
 ```
  
 2. 根据支持的倍数范围，通过[setSpeed()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#setspeed11)接口设置播放的倍数值。
@@ -552,16 +552,17 @@ public setSpeed(speed: number) {
  
 ```ArkTS
 Slider({
-  value: this.volume,
+  value: this.volume * 100,
   min: 0,
-  max: 1,
-  step: 0.1,
-  style: SliderStyle.InSet
+  max: 100,
+  step: 20,
+  style: SliderStyle.OutSet
 })
+  .showSteps(true)
   .showTips(false)
   .layoutWeight(1)
   .onChange((value: number, mode: SliderChangeMode) => {
-    this.volume = value;
+    this.volume = value / 100;
     // ...
   })
 ```
@@ -692,7 +693,7 @@ public async setAVMetadata() {
 }
 ```
  
-3. 设置用于被播控中心拉起的UIAbility。
+3. 设置播控中心拉起的UIAbility。
  
 ```ArkTS
 // Set LaunchAbility.
@@ -806,6 +807,8 @@ public setPlayState(isPlay: boolean) {
 ![](assets/基于AudioRender播放PCM音频/file-20260515114702674-8.gif)
 
  
+
+ 
  
 
 #### 实现原理
@@ -839,7 +842,7 @@ public setPlayState(isPlay: boolean) {
 }
 ```
  
-2. 创建后台任务管理类，实现后台任务的申请（startContinuousTask）与取消（stopContinuousTask），长时任务类型选择[AUDIO_PLAYBACK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager#backgroundmode)，表示音频后台播放。
+2. 创建后台任务管理类，通过startContinuousTask申请后台长时任务（长时任务类型设置为[AUDIO_PLAYBACK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-backgroundtaskmanager#backgroundmode)，以实现音频后台播放），并通过stopContinuousTask取消长时任务。
  
 ```ArkTS
 export class BackgroundUtil {
@@ -951,13 +954,13 @@ public pause() {
 
 #### 实现原理
 
-注册并适配[意图调用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-habit-rec-access-programme)，实现一键冷启动播放和历史歌单。
+注册并适配[端侧意图调用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-habit-rec-access-programme#端侧意图调用)，实现一键冷启动播放和历史歌单。
  
  
 
 #### 开发步骤
 
-1. 注册播放意图。应用按照播放业务，选择PlayMusicList意图，编辑对应的意图配置PROJECT_HOME/entry/src/main/resources/base/profile/insight_intent.json文件，实现播放意图注册，具体步骤参考：[意图注册](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-habit-rec-access-programme)。
+1. 注册播放意图。应用按照播放业务，选择PlayMusicList意图，编辑对应的意图配置PROJECT_HOME/entry/src/main/resources/base/profile/insight_intent.json文件，实现播放意图注册，具体步骤参考：[意图注册](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-habit-rec-access-programme#意图注册)。
  
 2. 注册成功后，在配置文件中，配置歌曲播放方法，则实现一键冷启动播放。触发播控冷启动播放时，系统会在意图参数intentParam的歌单id为空，即解析出得的entityId为空字符串，由应用决定播放内容。触发歌单播放时，系统会将歌单的唯一标识id传回应用，应用可以在意图调用接口中，通过解析意图参数intentParam中的entityId，获取到歌单的id，实现对应歌单的播放。
  

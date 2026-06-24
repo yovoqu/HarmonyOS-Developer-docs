@@ -1,6 +1,6 @@
 # CollaborationCamera (跨设备互通组件)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationcamera
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -35,6 +35,8 @@ createCollaborationCameraMenuItems(businessFilter?: Array&lt;CollaborationCamera
 该方法为自定义构建函数，开发者在使用前需要先了解[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)。
 
 **废弃说明：** 从5.0.0(12) 开始废弃，建议使用[createCollaborationServiceMenuItems](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice#createcollaborationservicemenuitems)替代。
+
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
 
 **装饰器类型：** @Builder
 
@@ -71,6 +73,8 @@ myTestMenu() {
 能力类型枚举值。
 
 **废弃说明：** 从5.0.0(12) 开始废弃，建议使用[CollaborationServiceFilter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice#collaborationservicefilter)替代。
+
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Collaboration.Camera
 
@@ -111,6 +115,8 @@ myTestMenu() {
 
 **废弃说明：** 从5.0.0(12) 开始废弃，建议使用[CollaborationServiceStateDialog](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice#collaborationservicestatedialog)替代。
 
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+
 **装饰器类型：** @Component
 
 **系统能力：** SystemCapability.Collaboration.Camera
@@ -131,6 +137,8 @@ onState: (stateCode: number, buffer: ArrayBuffer) => void
 
 **废弃说明：** 从5.0.0(12) 开始废弃，建议使用[onState](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice#onstate)替代。
 
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Collaboration.Camera
 
 **设备行为差异：** 该接口在PC/2in1、Tablet可正常调用，在其他设备类型上无法展示设备列表，无法使用跨设备互通能力。
@@ -147,7 +155,7 @@ onState: (stateCode: number, buffer: ArrayBuffer) => void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-error-code)。
+以下错误码的详细介绍请参见[ArkTS 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-servicecollaboration)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -171,6 +179,8 @@ build(): void
 struct的默认构造函数，开发者无法直接调用此方法。
 
 **废弃说明：** 从5.0.0(12) 开始废弃，建议使用[build](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice#build)替代。
+
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Collaboration.Camera
 

@@ -1,6 +1,6 @@
 # @ohos.notificationManager (NotificationManager模块)
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notificationmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,14 +54,14 @@ publish(request: NotificationRequest, callback: AsyncCallback&lt;void&gt;): void
 | 1600003 | Failed to connect to the service. |
 | 1600004 | Notification disabled. |
 | 1600005 | Notification slot disabled. |
-| 1600007 | The notification does not exist. |
+| 1600007 | The notification does not exist. 适用版本：11 |
 | 1600009 | The notification sending frequency reaches the upper limit. |
 | 1600012 | No memory space. |
-| 1600014 | No permission. |
-| 1600015 | The current notification status does not support duplicate configurations. |
-| 1600016 | The notification version for this update is too low. |
-| 1600020 | The application is not allowed to send notifications due to permission settings. |
-| 2300007 | Network unreachable. |
+| 1600014 | No permission. 适用版本：11 |
+| 1600015 | The current notification status does not support duplicate configurations. 适用版本：11 |
+| 1600016 | The notification version for this update is too low. 适用版本：11 |
+| 1600020 | The application is not allowed to send notifications due to permission settings. 适用版本：12 |
+| 2300007 | Network unreachable. 适用版本：11 |
 
 
 **示例：**
@@ -132,14 +132,14 @@ publish(request: NotificationRequest): Promise&lt;void&gt;
 | 1600003 | Failed to connect to the service. |
 | 1600004 | Notification disabled. |
 | 1600005 | Notification slot disabled. |
-| 1600007 | The notification does not exist. |
+| 1600007 | The notification does not exist. 适用版本：11 |
 | 1600009 | The notification sending frequency reaches the upper limit. |
 | 1600012 | No memory space. |
-| 1600014 | No permission. |
-| 1600015 | The current notification status does not support duplicate configurations. |
-| 1600016 | The notification version for this update is too low. |
-| 1600020 | The application is not allowed to send notifications due to permission settings. |
-| 2300007 | Network unreachable. |
+| 1600014 | No permission. 适用版本：11 |
+| 1600015 | The current notification status does not support duplicate configurations. 适用版本：11 |
+| 1600016 | The notification version for this update is too low. 适用版本：11 |
+| 1600020 | The application is not allowed to send notifications due to permission settings. 适用版本：12 |
+| 2300007 | Network unreachable. 适用版本：11 |
 
 
 **示例：**
@@ -1048,7 +1048,7 @@ setBadgeNumber(badgeNumber: number): Promise&lt;void&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18 |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1097,7 +1097,7 @@ setBadgeNumber(badgeNumber: number, callback: AsyncCallback&lt;void&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed. |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18 |
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
@@ -1603,7 +1603,7 @@ requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback&lt;
 应用需要获取用户授权才能发送通知。在通知发布前调用该接口，可以拉起通知授权弹窗，让用户选择是否允许发送通知。使用callback异步回调。
 
 > [!NOTE]
-> 仅当应用界面加载完成后（即调用 loadContent 成功），方可使用该接口。 在使用该接口拉起通知授权弹窗后，如果用户拒绝授权，将无法使用该接口再次拉起弹窗。开发者可以调用 openNotificationSettings 二次申请授权，拉起通知管理弹窗。
+> 仅当应用界面加载完成后（即调用 loadContent 成功），方可使用该接口。 在使用该接口拉起通知授权弹窗后，如果用户拒绝授权，将无法使用该接口再次拉起弹窗。开发者可以调用 openNotificationSettingsWithResult 二次申请授权，拉起通知管理弹窗。
 
 
 **模型约束**：此接口仅可在Stage模型下使用。
@@ -1628,8 +1628,8 @@ requestEnableNotification(context: UIAbilityContext, callback: AsyncCallback&lt;
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
-| 1600004 | Notification disabled. |
-| 1600013 | A notification dialog box is already displayed. |
+| 1600004 | Notification disabled. 适用版本：11 |
+| 1600013 | A notification dialog box is already displayed. 适用版本：11 |
 
 
 **示例：**
@@ -1673,7 +1673,7 @@ requestEnableNotification(context: UIAbilityContext): Promise&lt;void&gt;
 应用需要获取用户授权才能发送通知。在通知发布前调用该接口，可以拉起通知授权弹窗，让用户选择是否允许发送通知。使用Promise异步回调。
 
 > [!NOTE]
-> 仅当应用界面加载完成后（即调用 loadContent 成功），方可使用该接口。 在使用该接口拉起通知授权弹窗后，如果用户拒绝授权，将无法使用该接口再次拉起弹窗。开发者可以调用 openNotificationSettings 二次申请授权，拉起通知管理弹窗。
+> 仅当应用界面加载完成后（即调用 loadContent 成功），方可使用该接口。 在使用该接口拉起通知授权弹窗后，如果用户拒绝授权，将无法使用该接口再次拉起弹窗。开发者可以调用 openNotificationSettingsWithResult 二次申请授权，拉起通知管理弹窗。
 
 
 **模型约束**：此接口仅可在Stage模型下使用。
@@ -1704,8 +1704,8 @@ requestEnableNotification(context: UIAbilityContext): Promise&lt;void&gt;
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
-| 1600004 | Notification disabled. |
-| 1600013 | A notification dialog box is already displayed. |
+| 1600004 | Notification disabled. 适用版本：11 |
+| 1600013 | A notification dialog box is already displayed. 适用版本：11 |
 
 
 **示例：**
@@ -1768,8 +1768,8 @@ requestEnableNotification(callback: AsyncCallback&lt;void&gt;): void
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
-| 1600004 | Notification disabled. |
-| 1600013 | A notification dialog box is already displayed. |
+| 1600004 | Notification disabled. 适用版本：11 |
+| 1600013 | A notification dialog box is already displayed. 适用版本：11 |
 
 
 **示例：**
@@ -1819,8 +1819,8 @@ requestEnableNotification(): Promise&lt;void&gt;
 | 1600001 | Internal error. |
 | 1600002 | Marshalling or unmarshalling error. |
 | 1600003 | Failed to connect to the service. |
-| 1600004 | Notification disabled. |
-| 1600013 | A notification dialog box is already displayed. |
+| 1600004 | Notification disabled. 适用版本：11 |
+| 1600013 | A notification dialog box is already displayed. 适用版本：11 |
 
 
 **示例：**
@@ -1963,7 +1963,7 @@ openNotificationSettings(context: UIAbilityContext): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported. |
+| 801 | Capability not supported. 适用版本：18 |
 | 1600001 | Internal error. |
 | 1600003 | Failed to connect to the service. |
 | 1600018 | The notification settings window is already displayed. |
@@ -1990,6 +1990,75 @@ class MyAbility extends UIAbility {
         hilog.info(0x0000, 'testTag', `[ANS] openNotificationSettings success`);
       }).catch((err: BusinessError) => {
         hilog.error(0x0000, 'testTag', `[ANS] openNotificationSettings failed, code is ${err.code}, message is ${err.message}`);
+      });
+    });
+  }
+}
+```
+
+
+
+#### notificationManager.openNotificationSettingsWithResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+openNotificationSettingsWithResult(context: UIAbilityContext): Promise&lt;NotificationSetting&gt;
+
+拉起应用的通知设置界面，该页面以半模态形式呈现，可用于设置通知开关、通知提醒方式等。使用Promise异步回调，当半模态窗口关闭时返回用户设置的状态。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Notification.NotificationSettings
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | UIAbilityContext | 是 | 通知设置页面绑定Ability的上下文。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;NotificationSetting&gt; | Promise对象，返回此应用程序的通知设置。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[通知错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-notification)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | Capability not supported. |
+| 1600001 | Internal error. |
+| 1600003 | Failed to connect to the service. |
+| 1600018 | The notification settings window is already displayed. |
+
+
+**示例：**
+
+```json
+import { BusinessError } from '@kit.BasicServicesKit';
+import { UIAbility } from '@kit.AbilityKit';
+import { window } from '@kit.ArkUI';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+class MyAbility extends UIAbility {
+  onWindowStageCreate(windowStage: window.WindowStage) {
+    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+    windowStage.loadContent('pages/Index', (err, data) => {
+      if (err.code) {
+        hilog.error(0x0000, 'testTag', `Failed to load the content. Cause: ${JSON.stringify(err) ?? ''}`);
+        return;
+      }
+      hilog.info(0x0000, 'testTag', `Succeeded in loading the content. Data: ${JSON.stringify(data) ?? ''}`);
+      notificationManager.openNotificationSettingsWithResult(this.context).then((data) => {
+        hilog.info(0x0000, 'testTag', `[ANS] openNotificationSettingsWithResult success, data: ${JSON.stringify(data)}`);
+      }).catch((err: BusinessError) => {
+        hilog.error(0x0000, 'testTag', `[ANS] openNotificationSettingsWithResult failed, code is ${err.code}, message is ${err.message}`);
       });
     });
   }
@@ -2153,7 +2222,7 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-通知设置状态，包括是否开启振动、是否开启响铃。
+通知提醒方式开关的设置状态。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -2161,6 +2230,10 @@ notificationManager.isGeofenceEnabled().then((data: boolean) => {
 | --- | --- | --- | --- | --- |
 | vibrationEnabled | boolean | 否 | 否 | 表示是否开启振动。 - true：开启。 - false：关闭。 |
 | soundEnabled | boolean | 否 | 否 | 表示是否开启响铃。 - true：开启。 - false：关闭。 |
+| lockScreenEnabled | boolean | 否 | 是 | 表示是否开启锁屏通知。 模型约束: 此接口仅可在Stage模型下使用。 起始版本：26.0.0 - true：开启。 - false：关闭。 |
+| bannerEnabled | boolean | 否 | 是 | 表示是否开启横幅通知。 模型约束: 此接口仅可在Stage模型下使用。 起始版本：26.0.0 - true：开启。 - false：关闭。 |
+| badgeNumberEnabled | boolean | 否 | 是 | 表示是否开启通知角标数字展示。 模型约束: 此接口仅可在Stage模型下使用。 起始版本：26.0.0 - true：开启。 - false：关闭。 |
+| notificationEnabled | boolean | 否 | 是 | 表示应用通知使能状态。 模型约束: 此接口仅可在Stage模型下使用。 起始版本：26.0.0 - true：开启。 - false：关闭。 |
 
 
 

@@ -1,6 +1,6 @@
 # Input_DeviceInfo
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-deviceinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct Input_DeviceInfo Input_DeviceInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-输入设备信息。
+输入设备信息，用于描述输入设备的基本信息和能力特征，包括设备类型、设备ID等属性。开发者可以通过此结构体获取和管理输入设备的详细信息，便于设备识别和配置管理。
  
 **起始版本：** 13
  

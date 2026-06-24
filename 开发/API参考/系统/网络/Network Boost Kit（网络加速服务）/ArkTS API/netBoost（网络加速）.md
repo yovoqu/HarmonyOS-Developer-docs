@@ -1,6 +1,6 @@
 # netBoost（网络加速）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netboost
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -28,7 +28,11 @@ setSceneDesc(sceneDesc : SceneDesc): void
  
 设置业务场景。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.INTERNET
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -43,7 +47,7 @@ setSceneDesc(sceneDesc : SceneDesc): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts-errorcode)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -95,7 +99,7 @@ setLowPowerMode(isEnable : boolean): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts-errorcode)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -119,11 +123,88 @@ try {
  
   
 
+#### netBoost.setDataFlowDesc
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+setDataFlowDesc(dataFlowDesc : DataFlowDesc): void
+ 
+设置数据流描述。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**需要权限：** ohos.permission.INTERNET
+ 
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| dataFlowDesc | dataFlowDesc | 是 | 待设置的数据流描述。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 1013600001 | Internal error. For example, internal management state machine exceptions, internal message queue processing blockages, etc. |
+| 1013600002 | System service error. For example, IPC cross-process call failure, network management service startup failure. |
+ 
+ 
+**示例：**
+ 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+import { netBoost } from '@kit.NetworkBoostKit';
+try {
+  let localAddr: netBoost.NetAddress = {
+    address: "192.168.xx.xxx",  // 本端地址
+    port: 1234,
+  }
+  let remoteAddr: netBoost.NetAddress = {
+    address: "192.168.xx.xxx",  // 对端地址
+    port: 443,
+  }
+  let dataFlowInfo: netBoost.DataFlowInfo = {
+    protocol: netBoost.ProtocolType.PROTOCOL_TCP,
+    local: localAddr,
+    remote: remoteAddr
+  }
+  let expectedDescription: netBoost.ExpectedDescription = {
+    uplinkBandwidth: 2000,
+    downlinkBandwidth: 4000,
+    latency: 100,
+    priority: netBoost.PriorityLevel.PRIO_HIGH
+  }
+  let dataFlowDesc: netBoost.DataFlowDesc = {
+    dataFlowInfo: dataFlowInfo,
+    scene: 'videoConference',
+    sceneEvent: netBoost.SceneEvent.SCENE_EVENT_ENTER,
+    expectations: expectedDescription
+  }
+  netBoost.setDataFlowDesc(dataFlowDesc);
+} catch (err) {
+  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+}
+```
+ 
+  
+
 #### SceneDesc
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 业务场景描述信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -141,11 +222,131 @@ try {
  
   
 
+#### DataFlowDesc
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+数据流描述信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| dataFlowInfo | SocketFd \| DataFlowInfo | 是 | 数据流信息，可以唯一表示数据流的参数。 |
+| scene | netQuality.ServiceType | 是 | 表示业务场景类型。 |
+| sceneEvent | SceneEvent | 是 | 表示业务场景事件。 |
+| expectations | ExpectedDescription | 否 | 对指定数据流的期望。 |
+ 
+ 
+  
+
+#### DataFlowInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+数据流信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| protocol | ProtocolType | 是 | 协议类型。 |
+| local | NetAddress | 是 | 本地网络地址和端口。 |
+| remote | NetAddress | 是 | 远端网络地址和端口。 |
+ 
+ 
+  
+
+#### NetAddress
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+网络地址信息描述。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| address | string | 是 | IP地址。 |
+| port | number | 是 | 端口号。 |
+ 
+ 
+  
+
+#### ExpectedDescription
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+数据流期望描述信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| uplinkBandwidth | number | 否 | 预期上行带宽，单位为Kbps。 |
+| downlinkBandwidth | number | 否 | 预期下行带宽，单位为Kbps。 |
+| latency | number | 否 | 预期时延，单位为ms。 |
+| objectSize | number | 否 | 请求或发送对象的大小。 |
+| priority | PriorityLevel | 否 | 预期优先级。 |
+| lowPowerMode | boolean | 否 | 需要低功耗传输。 - true：表示启用低功耗传输模式； - false：表示禁用低功耗传输模式，默认值为false。 当开发者主动配置lowPowerMode参数时，dataFlowInfo必须设置为socketFd类型。 当开发者未配置lowPowerMode参数时，dataFlowInfo不限制类型。 |
+ 
+ 
+  
+
+#### SocketFd
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+type SocketFd = number
+ 
+Socket文件描述符。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
+ 
+**起始版本：** 26.0.0
+  
+| 类型 | 说明 |
+| --- | --- |
+| number | Socket文件描述符。 |
+ 
+ 
+  
+
 #### SceneEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 表示业务事件枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -156,3 +357,43 @@ try {
 | SCENE_EVENT_ENTER | 0 | 进入业务场景。 |
 | SCENE_EVENT_UPDATE | 1 | 更新上一次的业务事件信息。 |
 | SCENE_EVENT_LEAVE | 2 | 离开业务场景。 |
+ 
+ 
+  
+
+#### ProtocolType
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+网络协议类型枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| PROTOCOL_UDP | 0 | UDP网络协议。 |
+| PROTOCOL_TCP | 1 | TCP网络协议。 |
+ 
+ 
+  
+
+#### PriorityLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+优先级枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Communication.NetworkBoost.Core
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| PRIO_NORMAL | 0 | 普通优先级。 |
+| PRIO_HIGH | 1 | 高优先级。 |

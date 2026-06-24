@@ -1,6 +1,6 @@
 # module.json5配置文件
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file
 
@@ -94,6 +94,16 @@
     ],
     "fileContextMenu": "$profile:menu", // 资源配置，指向profile下面定义的配置文件menu.json
     "crossAppSharedConfig": "$profile:shared_config",
+    "skillProfiles": [
+      {
+        "name": "my-skill",
+        "abilityName": "EntryAbility",
+        "srcEntries": [
+          "../../my-skill/scripts/Test.ets"
+        ],
+        "permissions": []
+      }
+    ],
     // ...
   }
 }
@@ -110,7 +120,7 @@ module.json5配置文件包含以下标签。
 | 属性名称 | 含义 | 数据类型 | 是否可缺省 |
 | --- | --- | --- | --- |
 | name | 标识当前Module的名称，确保该名称在整个应用中唯一。命名规则如下 ： - 由字母、数字和下划线组成，且必须以字母开头。 - 最大长度128字节。 应用升级时允许修改该名称，但需要应用适配Module相关数据目录的迁移，详见@ohos.file.fs (文件管理)。 说明： DevEco Studio新建模块时，限制模块名称的长度不能超过31。如果长度无法满足开发者需求，可以在配置文件修改该标签。 | 字符串 | 该标签不可缺省。 |
-| type | 标识当前Module的类型。支持的取值如下： - entry：应用的主模块。 - feature：应用的动态特性模块。 - har：静态共享包模块。 - shared：动态共享包模块。 | 字符串 | 该标签不可缺省。 |
+| type | 标识当前Module的类型。支持的取值如下： - entry：应用的主模块。 - feature：应用的动态特性模块。 - har：静态共享包模块。 - shared：动态共享包模块。 - skill：技能包模块，用于定义AI代理的技能能力。该类型模块必须配置skillProfiles标签。仅当应用的bundleType配置为skill，即app.json5配置文件中的bundleType为skill时，才允许将Module的type配置为skill，且此时应用只能包含1个Module。从API版本26.0.0开始，支持该标签。该标签仅对预置应用生效。 | 字符串 | 该标签不可缺省。 |
 | srcEntry | 标识AbilityStage组件的代码路径，详情参考AbilityStage组件容器，取值为长度不超过127字节的字符串。 | 字符串 | 该标签可缺省，缺省值为空。 |
 | description | 标识当前Module的描述信息，开发者可以通过该标签描述当前模块的功能与作用，取值为长度不超过255字节的字符串，可以采用字符串资源索引格式。 | 字符串 | 该标签可缺省，缺省值为空。 |
 | mainElement | 标识当前Module的入口UIAbility名称，取值为长度不超过255字节的字符串，详情请参考配置应用图标和名称中的配置优先级和生成策略。 | 字符串 | 该标签可缺省，缺省值为空。 |
@@ -147,6 +157,7 @@ module.json5配置文件包含以下标签。
 | formWidgetModule | 在独立卡片包中，应用包需要配置该标签，用来关联卡片包。取值为卡片包的模块名称，对应卡片包module.json5中的name标签。具体使用方式请参考FormExtensionAbility配置。 说明： 1. 从API version 20开始，支持该标签。 2. 仅在独立卡片包的应用包中，该标签配置生效，且要求对应的卡片包模块必须配置formExtensionModule标签。 | 字符串 | 该标签可缺省，缺省值为空。 |
 | formExtensionModule | 在独立卡片包中，卡片包需要配置该标签，用来关联应用包。取值为应用包的模块名称，对应应用包module.json5中的name标签。具体使用方式请参考独立卡片包配置。 说明： 1. 从API version 20开始，支持该标签。 2. 仅在独立卡片包的卡片包中，该标签配置生效，且要求对应的应用包模块必须配置formWidgetModule标签。 | 字符串 | 该标签可缺省，缺省值为空。 |
 | shareFiles | 标识应用沙箱中分享目录的配置文件路径，用于为应用文件提供有安全保障的开放范围，保护应用资产。只允许entry类型模块配置，取值为长度不超过255字节的字符串。具体使用方式请参考应用共享目录配置。 说明： 从API version 23开始，支持该标签。 | 字符串 | 该标签可缺省，缺省值为空。 |
+| skillProfiles | 标识当前模块的技能配置信息，用于定义AI代理的技能能力。仅允许type字段取值为entry、feature、shared、skill的模块配置，对于skill类型的模块必须配置该标签。 说明： 从API版本26.0.0开始，支持该标签。 | 对象数组 | 对于skill类型的模块，该标签不可缺省。对于其他类型的模块，该标签可缺省，缺省值为空。 |
 | executableBinaryPaths | 标识应用内可执行二进制文件的路径信息。 说明： 1. 从API version 24开始，支持该标签。 2. 仅在PC/2in1设备上生效。 | 对象数组 | 该标签可缺省，缺省值为空。 |
 | uiSyntax(deprecated) | 标识当前Module syntax定义该JS Component的语法类型。 - hml：标识该JS Component使用hml/css/js进行开发。 - ets：标识该JS Component使用ArkTS声明式语法进行开发。 说明： 该标签从API version 9开始废弃。 | 字符串 | 该标签可缺省，缺省值为hml。 |
 | srcEntrance(deprecated) | 标识当前Module所对应的代码路径，标签值为字符串（最长为127字节）。 说明： 该标签从API version 9开始废弃，请使用srcEntry字段替代。 | 字符串 | 该标签可缺省，缺省值为空。 |
@@ -478,10 +489,11 @@ skills示例：
 | skills | 标识当前ExtensionAbility组件能够接收的Want的特征集。 配置规则：entry包可以配置多个具有入口能力的skills标签（配置了ohos.want.action.home和entity.system.home）的ExtensionAbility，其中第一个配置了skills标签的ExtensionAbility中的label和icon作为服务或应用的label和icon。 说明： 服务的Feature包不支持配置具有入口能力的skills标签。 应用的Feature包支持配置具有入口能力的skills标签。 | 数组 | 该标签可缺省，缺省值为空。 |
 | metadata | 标识当前ExtensionAbility组件的元信息。 说明： 该标签在type为form时，不可缺省，且必须存在一个name为ohos.extension.form的对象值，其对应的resource值不能缺省，为服务卡片的二级资源引用。 | 对象数组 | 该标签可缺省，缺省值为空。 |
 | exported | 标识当前ExtensionAbility组件是否可以被其他应用调用。 - true：表示可以被其他应用调用。 - false：表示不可以被其他应用调用，包括无法被aa工具命令拉起应用。 | 布尔值 | 该标签可缺省，缺省值为false。 |
-| extensionProcessMode | 标识当前ExtensionAbility组件的多进程实例模型,当前只对UIExtensionAbility以及从UIExtensionAbility扩展的ExtensionAbility生效。 - instance：表示该ExtensionAbility每个实例一个进程。 - type：表示该ExtensionAbility实例都运行在同一个进程里，与其他ExtensionAbility分离进程。 - bundle：表示该ExtensionAbility实例都运行在应用统一进程里，与其他配置了bundle模型的ExtensionAbility共进程。 - runWithMainProcess：表示该ExtensionAbility和应用主进程共进程，只有状态栏开放服务的ExtensionAbility可以配置runWithMainProcess。 | 字符串 | 该标签可缺省，缺省值为空。 |
+| extensionProcessMode | 标识当前ExtensionAbility组件的进程模型，根据ExtensionAbility的类型不同，支持的配置项有所区别。支持的取值范围如下，默认值为bundle。 - instance：表示该ExtensionAbility每个实例都各自运行在单独进程。 - type：表示该ExtensionAbility的所有实例都运行在同一独立进程，与其他name的ExtensionAbility组件实例运行在不同进程。 - bundle：表示该ExtensionAbility的实例与同包名下相同extensionType的ExtensionAbility实例运行在同一进程。 对于UIExtensionAbility及其子类，支持以上三种进程模型。 对于类型为appService的ExtensionAbility，支持type和bundle两种进程模型。 - runWithMainProcess：表示该ExtensionAbility和应用主进程共进程，只有状态栏开放服务的ExtensionAbility可以配置runWithMainProcess。 | 字符串 | 该标签可缺省，缺省值为bundle。 |
 | dataGroupIds | 标识当前ExtensionAbility组件的dataGroupId集合。如果当前ExtensionAbility组件所在的应用在应用市场申请的证书里groupIds也申请了某个dataGroupId，那么当前ExtensionAbility组件可以和应用共享这一个dataGroupId生成的目录，所以ExtensionAbility组件的dataGroupId需要是应用的签名证书中groupIds标签里配置的才能生效。 且该标签仅在当前ExtensionAbility组件存在独立的沙箱目录时生效。详见共享沙箱介绍第3点共享沙箱的配置流程中的步骤a申请data-group-id。 | 字符串数组 | 该标签可缺省，缺省值为空。 |
 | process | 标识组件的进程名称，只有type为embeddedUI时可以配置该标签。具体使用方式参考进程模型定义中的"静态指定进程"。 说明： 1. 仅在PC/2in1和Tablet设备上生效。 2. UIAbility组件和ExtensionAbility组件标签一致时运行在同一个进程中。 3. 从API version 14开始，支持该标签。 | 字符串 | 该标签可缺省，缺省值为空。 |
 | isolationProcess | 标识ExtensionAbility组件能否运行在独立的进程中。 - true：表示能运行在独立的进程中。 - false：表示不能运行在独立的进程中。 说明： 仅当ExtensionAbility组件的type为"sys/commonUI"时该标签配置生效，且仅支持由系统应用配置type为"sys/commonUI"。 从API version 20开始，支持该标签。 | 布尔值 | 该标签可缺省，缺省值为false。 |
+| skipAbilityStageLifecycle | 标识type为backup的ExtensionAbility组件是否跳过AbilityStage生命周期回调。 - true：跳过AbilityStage生命周期，不执行onCreate、onDestroy等回调。 - false：不跳过AbilityStage生命周期，正常执行生命周期回调。 说明： 1. 该标签仅在ExtensionAbility的type为backup时配置生效。 2. 从API version 26.0.0开始，支持该标签。 | 布尔值 | 该标签可缺省，缺省值为false。 |
 
 
 extensionAbilities示例：
@@ -557,7 +569,7 @@ extensionAbilities示例：
 | adsService | 广告业务的ExtensionAbility，提供广告业务框架，三方应用配置不生效，当前配置仅在系统应用中有效。 |
 | embeddedCashier23+ | 支付业务的ExtensionAbility，与CashierComponent控件组合使用，将支付页面展示到其他应用中。三方应用配置不生效，当前配置仅在系统应用中有效，仅支持TV设备使用，其他设备配置不生效。 |
 | embeddedUI | 嵌入式UI扩展能力，提供跨进程界面嵌入的能力。 |
-| insightIntentUI | 为开发者提供能被小艺意图调用，以窗口形态呈现内容的扩展能力。 |
+| insightIntentUI | 为开发者提供能被系统入口调用，以窗口形态呈现内容的扩展能力。 |
 | ads | 广告业务的ExtensionAbility，与AdComponent控件组合使用，将广告页面展示到其他应用中。仅支持设备厂商使用。 |
 | photoEditor | 图片编辑业务的ExtensionAbility，为开发者提供基于UIExtension的图片编辑业务模板。 |
 | appAccountAuthorization | 应用账号授权扩展能力的ExtensionAbility，用于处理账号授权请求，比如账号登录授权。 |
@@ -581,6 +593,7 @@ extensionAbilities示例：
 | sysPicker/photoEditor | 图片编辑弹窗的ExtensionAbility，三方应用配置不生效，当前配置仅在系统应用中有效。 |
 | sys/commonUI | 非通用的ExtensionAbility，提供业务属性强相关的嵌入式显示或弹框，三方应用配置不生效，当前配置仅在系统应用中有效。 |
 | autoFill/smart | 用于情景化场景自动填充业务的ExtensionAbility，支持数据的保存、填充能力。 |
+| modularObject | 模块化对象管理的ExtensionAbility，从API版本26.0.0开始，支持该标签。 |
 | uiService | 弹窗服务组件，在启动过程中会创建Window，并支持双向通信，三方应用配置不生效，当前配置仅在系统应用中有效。 |
 | recentPhoto | 最近照片推荐的ExtensionAbility。 |
 | fence | 地理围栏的ExtensionAbility。 |
@@ -590,7 +603,7 @@ extensionAbilities示例：
 | distributed | 分布式扩展的ExtensionAbility。 |
 | liveForm20+ | 互动卡片的ExtensionAbility。 |
 | appService20+ | 为应用提供后台服务相关扩展能力AppServiceExtensionAbility，包括后台服务的创建、销毁、连接、断开等生命周期回调。 |
-| webNativeMessaging21+ | 为开发者提供Web原生消息通信能力的ExtensionAbility。 |
+| webNativeMessaging21+ | 为开发者提供Web消息通信能力的ExtensionAbility。 |
 | faultLog21+ | 故障延迟通知的ExtensionAbility。 |
 | notificationSubscriber22+ | 提供通知订阅相关功能的ExtensionAbility。 |
 | crypto22+ | 外部密钥管理扩展的ExtensionAbility。 |
@@ -1444,5 +1457,42 @@ executableBinaryPaths示例：
     ],
     // ...
   },
+}
+```
+
+
+
+#### skillProfiles标签
+
+从API版本26.0.0开始，新增skillProfiles标签。该标签标识当前模块的技能配置信息，用于定义AI代理的技能能力。通过定义技能，应用可以将AI代理的能力暴露给系统或其他应用，使其能够被其他应用发现和调用。仅type取值为entry、feature、shared、skill的模块配置该标签生效。
+
+**表32** skillProfiles标签说明
+
+| 属性名称 | 含义 | 数据类型 | 是否可缺省 |
+| --- | --- | --- | --- |
+| name | 标识技能的名称，确保该名称在当前模块中唯一。命名规则如下： - 仅允许使用小写字母、数字和连字符-。 - 必须以小写字母或数字开头。 - 必须以小写字母或数字结尾。 - 不能以连字符开头或结尾。 - 最大长度为64字节。 | 字符串 | 该标签不可缺省。 |
+| abilityName | 标识与该技能关联的组件名称，必须配置为abilities标签下的UIAbility或extensionAbilities标签下type为service的ServiceExtension组件名称。取值为长度不超过127字节的字符串，以字母开头，可包含字母、数字、下划线（_）或点号（.）。 说明： 该字段仅适用于entry、feature、shared类型的模块。对于skill类型的模块，不支持该字段。 | 字符串 | 该标签可缺省，缺省值为入口Ability名称。如果没有入口Ability，则取值为空字符串。 |
+| srcEntries | 标识实现技能的代码文件路径列表，指向技能实现逻辑的.ets文件。数组中的每个元素都是相对于当前模块的skills目录的文件路径。 说明： srcEntries指定的.ets文件应放置在skills/{skill-name}/scripts目录下，其中{skill-name}为skillProfiles中配置的技能名称。例如，若技能名称为"my-skill"，则.ets文件应放置在模块根目录下的skills/my-skill/scripts/目录中。最多支持100个文件路径。 | 字符串数组 | 该标签可缺省，缺省值为空。 |
+| permissions | 标识调用该技能所需要的权限列表。当其他应用调用该技能时，需要申请相应的权限。一个数组元素为一个权限名称，不超过255字节，取值请参考应用权限列表。 | 字符串数组 | 该标签可缺省，缺省值为空。 |
+
+
+skillProfiles标签示例：
+
+```ArkTS
+{
+  "module": {
+    // ...
+    "skillProfiles": [
+      {
+        "name": "my-skill",
+        "abilityName": "EntryAbility",
+        "srcEntries": [
+          "../../my-skill/scripts/Test.ets"
+        ],
+        "permissions": []
+      }
+    ],
+    // ...
+  }
 }
 ```

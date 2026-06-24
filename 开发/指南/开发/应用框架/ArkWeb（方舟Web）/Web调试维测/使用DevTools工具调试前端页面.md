@@ -1,6 +1,6 @@
 # 使用DevTools工具调试前端页面
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-debugging-with-devtools
 
@@ -450,7 +450,7 @@ hdc fport ls
   #### 开始网页调试
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/Htg3Ln0QRemuRPe9Zib6ag/zh-cn_image_0000002581274400.png?HW-CC-KV=V1&HW-CC-Date=20260528T030414Z&HW-CC-Expire=86400&HW-CC-Sign=2A411A26415A730C91870007452B445AC4F2CCD56B2FE170743945D4B19D8778)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/nijhqBL4TQ2mE8UhVrIm9g/zh-cn_image_0000002626068878.png?HW-CC-KV=V1&HW-CC-Date=20260624T020812Z&HW-CC-Expire=86400&HW-CC-Sign=892F84DC2F0D6EF8F3EDB50D12316C136FF91253F700458101A4F9748A039312)
 
 
   
@@ -585,12 +585,12 @@ hdc fport ls
 如果网页有内容， 说明端口转发成功，请在Chrome的调试页面[等待被调试页面的出现](#等待发现被调试页面)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/AtAysJAySMmN2IdpWeRtyA/zh-cn_image_0000002611754257.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030414Z&HW-CC-Expire=86400&HW-CC-Sign=4855B273683C501D2A3FB27889D98BE1F3FC2FB429161793F35A7CED5B4FECA8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/sIZ4I77LTJeZ7fH3t4ZVow/zh-cn_image_0000002656468159.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020812Z&HW-CC-Expire=86400&HW-CC-Sign=DCB054A9C94F6C07A121455E2AD8795EB104DD238A47544D7102BF0F504AC5AF)
 
  - 如果展示的是错误网页， 说明端口转发失败， 请参阅[端口转发不成功](#端口转发不成功)中的解决方法。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/UAIRFaw2SdmAQJqA_Vzdfw/zh-cn_image_0000002581434322.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030414Z&HW-CC-Expire=86400&HW-CC-Sign=549B13789B28B3CAC7EDDAFF2F057F0519AE24CB7890B8C489E81E035E2A48A7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/3RmFMGd7SeudZpaLN4YvVw/zh-cn_image_0000002656348207.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020812Z&HW-CC-Expire=86400&HW-CC-Sign=B6D84973992B65D4FD875785BD62B144A170774379CEE432AFB83F565F45E7EB)
 
 
       - 电脑端Chrome浏览器打开 [http://localhost:9222/json](http://localhost:9222/json) 页面有内容，但是Chrome的调试工具界面还是无法发现调试目标。

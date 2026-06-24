@@ -1,6 +1,6 @@
 # TaskPool简介
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/taskpool-introduction
 
@@ -30,7 +30,7 @@ TaskPool支持在宿主线程提交任务到任务队列，系统选择合适的
 
 除上述注意事项外，使用TaskPool时还需注意[并发注意事项](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/multi-thread-concurrency-overview#并发注意事项)。
 
-```text
+```ArkTS
 import { taskpool } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -51,6 +51,32 @@ function testArrayBuffer() {
     }).catch((e: BusinessError) => {
       console.error(`execute group error: ${e.message}`);
     })
+  }
+}
+
+@Entry
+@Component
+struct Notes {
+  @State message: string = 'Hello World';
+
+  build() {
+    Row() {
+      Column() {
+        Text(this.message)
+          .fontSize(50)
+          .fontWeight(FontWeight.Bold)
+        Button() {
+          Text('notes start')
+        }.onClick(() => {
+          testArrayBuffer();
+          this.message = 'notes success';
+        })
+        .id('notes button')
+        .width('20%')
+        .height('10%')
+      }
+      .width('100%')
+    }.height('100%')
   }
 }
 ```

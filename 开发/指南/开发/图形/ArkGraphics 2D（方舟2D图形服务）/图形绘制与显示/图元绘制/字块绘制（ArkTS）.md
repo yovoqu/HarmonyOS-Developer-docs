@@ -1,6 +1,6 @@
 # 字块绘制（ArkTS）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/textblock-drawing-arkts
 
@@ -234,7 +234,7 @@ for (let s of text) {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/7ZaLtN5UStCDNLIhbSIFqA/zh-cn_image_0000002611754693.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030532Z&HW-CC-Expire=86400&HW-CC-Sign=8FBD0D1FBD864860725A2892F183084481F515ACF16FE444F713897F0F8277B4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/05WpeBF5RqGEYA0k2qr28A/zh-cn_image_0000002656468635.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020914Z&HW-CC-Expire=86400&HW-CC-Sign=5B7E33E6B6A5538B2CAD7C94B2E5A8640AC23C06AB017D6E4D2A53C8D59E0017)
 
 
 进阶场景：绘制带字体特征的字符。
@@ -261,7 +261,7 @@ for (let s of text) {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/j2NCcJR9R-S6bdjabIr15g/zh-cn_image_0000002581434756.png?HW-CC-KV=V1&HW-CC-Date=20260528T030532Z&HW-CC-Expire=86400&HW-CC-Sign=A3A74FB04031A768AB196556BF62D1EC4D3848E7702A08753C584DE8F3299964)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/FP6K6usPTJWjMOSGUj-Fjg/zh-cn_image_0000002656348683.png?HW-CC-KV=V1&HW-CC-Date=20260624T020914Z&HW-CC-Expire=86400&HW-CC-Sign=D3927132DC95C2F11BED0AC67D29F087FC58D89F72646784E5A374DDEB47E57E)
 
 
 > [!NOTE]

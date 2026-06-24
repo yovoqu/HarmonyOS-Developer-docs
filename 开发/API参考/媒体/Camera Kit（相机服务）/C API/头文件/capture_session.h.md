@@ -1,6 +1,6 @@
 # capture_session.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -144,6 +144,9 @@
 | Camera_ErrorCode OH_CaptureSession_IsMacroSupported(Camera_CaptureSession* session, bool* isSupported) | - | 检查是否支持微距能力。 |
 | Camera_ErrorCode OH_CaptureSession_EnableMacro(Camera_CaptureSession* session, bool enabled) | - | 是否启用相机设备的微距能力。 |
 | Camera_ErrorCode OH_CaptureSession_SetWhiteBalance(Camera_CaptureSession* session, int32_t colorTemperature) | - | 设置白平衡的色温。 设置前，建议通过OH_CaptureSession_GetWhiteBalanceRange获取支持配置的白平衡色温范围。 |
+| Camera_ErrorCode OH_CaptureSession_GetColorTintRange(const Camera_CaptureSession* session, int32_t *minColorTint, int32_t *maxColorTint) | - | 获取支持配置的白平衡色调调节范围。 |
+| Camera_ErrorCode OH_CaptureSession_GetColorTint(const Camera_CaptureSession* session, int32_t *colorTint) | - | 获取当前白平衡的色调调节值。 |
+| Camera_ErrorCode OH_CaptureSession_SetColorTint(const Camera_CaptureSession* session, int32_t colorTint) | - | 设置白平衡的色调调节值。设置前，建议通过OH_CaptureSession_GetColorTintRange获取支持配置的白平衡色调调节范围。 |
 | Camera_ErrorCode OH_CaptureSession_GetWhiteBalance(Camera_CaptureSession* session, int32_t *colorTemperature) | - | 获取当前白平衡色温值。 |
 | Camera_ErrorCode OH_CaptureSession_GetWhiteBalanceMode(Camera_CaptureSession* session, Camera_WhiteBalanceMode* whiteBalanceMode) | - | 获取当前的白平衡模式。 |
 | Camera_ErrorCode OH_CaptureSession_IsWhiteBalanceModeSupported(Camera_CaptureSession* session, Camera_WhiteBalanceMode whiteBalanceMode, bool* isSupported) | - | 检查是否支持指定的白平衡模式。 |
@@ -168,6 +171,11 @@
 | Camera_ErrorCode OH_CaptureSession_GetCurrentCustomOISBias(const Camera_CaptureSession* session, float* pitchBias, float* yawBias) | - | 获取所有光学防抖轴当前的自定义偏移值。 |
 | Camera_ErrorCode OH_CaptureSession_SetOISMode(const Camera_CaptureSession* session, OH_Camera_OISMode oisMode) | - | 设置光学防抖（OIS）模式。 |
 | Camera_ErrorCode OH_CaptureSession_SetOISModeCustom(const Camera_CaptureSession* session, float pitchBias, float yawBias) | - | 为对应轴设置自定义光学防抖偏移值。 |
+| typedef void (*OH_CaptureSession_OnExposureStateChange)(void* context, OH_Camera_ExposureState exposureState) | OH_CaptureSession_OnExposureStateChange | 定义曝光状态变更时的回调函数。 |
+| Camera_ErrorCode OH_CaptureSession_RegisterExposureStateChangeCallback(const Camera_CaptureSession* session, void* context, OH_CaptureSession_OnExposureStateChange callback) | - | 注册曝光状态变化的回调。注册此回调后，当捕获会话中的曝光状态发生变化时，将调用该回调。 |
+| Camera_ErrorCode OH_CaptureSession_UnregisterExposureStateChangeCallback(const Camera_CaptureSession* session, void* context, OH_CaptureSession_OnExposureStateChange callback) | - | 注销曝光状态变更时的回调函数。 |
+| Camera_ErrorCode OH_CaptureSession_GetZoomPointInfos(const Camera_CaptureSession* session, uint32_t* size, OH_Camera_ZoomPointInfo** zoomPointInfo) | - | 获取变焦点信息。 需要通过调用OH_CaptureSession_DeleteZoomPointInfos来释放变焦点信息的内存。 |
+| Camera_ErrorCode OH_CaptureSession_DeleteZoomPointInfos(const Camera_CaptureSession* session, OH_Camera_ZoomPointInfo* zoomPointInfo) | - | 删除变焦点信息。 |
 
 
 
@@ -3158,6 +3166,100 @@ Camera_ErrorCode OH_CaptureSession_SetWhiteBalance(Camera_CaptureSession* sessio
 
 
 
+#### OH_CaptureSession_GetColorTintRange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_CaptureSession_GetColorTintRange(const Camera_CaptureSession* session, int32_t *minColorTint, int32_t *maxColorTint)
+```
+
+**描述**
+
+获取支持配置的白平衡色调调节范围。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_CaptureSession* session | Camera_CaptureSession实例。 |
+| int32_t *minColorTint | 指向最小色调值的指针。 |
+| int32_t *maxColorTint | 指向最大色调值的指针。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SESSION_NOT_CONFIG：当调用该方法时，捕获会话未配置。 |
+
+
+
+
+#### OH_CaptureSession_GetColorTint()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_CaptureSession_GetColorTint(const Camera_CaptureSession* session, int32_t *colorTint)
+```
+
+**描述**
+
+获取当前白平衡的色调调节值。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_CaptureSession* session | Camera_CaptureSession实例。 |
+| int32_t *colorTint | 指向色调值的指针。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SESSION_NOT_CONFIG：当调用该方法时，捕获会话未配置。 |
+
+
+
+
+#### OH_CaptureSession_SetColorTint()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_CaptureSession_SetColorTint(const Camera_CaptureSession* session, int32_t colorTint)
+```
+
+**描述**
+
+设置白平衡的色调调节值。设置前，建议通过[OH_CaptureSession_GetColorTintRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_getcolortintrange)获取支持配置的白平衡色调调节范围。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_CaptureSession* session | Camera_CaptureSession实例。 |
+| int32_t colorTint | 色调调节值。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SESSION_NOT_CONFIG：当调用该方法时，捕获会话未配置。 |
+
+
+
+
 #### OH_CaptureSession_GetWhiteBalance()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3702,7 +3804,7 @@ Camera_ErrorCode OH_CaptureSession_GetRAWCaptureZoomRatioRange(const Camera_Capt
 
 | 类型 | 说明 |
 | --- | --- |
-| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或者参数不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许，会话或相机状态异常。 CAMERA_SESSION_NOT_CONFIG：捕获会话未配置。 |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或者参数不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许,会话或相机状态异常。 CAMERA_SESSION_NOT_CONFIG：捕获会话未配置。 |
 
 
 
@@ -3895,3 +3997,156 @@ Camera_ErrorCode OH_CaptureSession_SetOISModeCustom(const Camera_CaptureSession*
 | 类型 | 说明 |
 | --- | --- |
 | Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或者参数不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许。 CAMERA_SESSION_NOT_CONFIG：捕获会话未配置。 |
+
+
+
+
+#### OH_CaptureSession_OnExposureStateChange()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void (*OH_CaptureSession_OnExposureStateChange)(void* context, OH_Camera_ExposureState exposureState)
+```
+
+**描述**
+
+定义曝光状态变更时的回调函数。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| void* context | 指向自定义上下文的指针。 |
+| OH_Camera_ExposureState exposureState | 当前曝光状态。 |
+
+
+
+
+#### OH_CaptureSession_RegisterExposureStateChangeCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_CaptureSession_RegisterExposureStateChangeCallback(const Camera_CaptureSession* session, void* context, OH_CaptureSession_OnExposureStateChange callback)
+```
+
+**描述**
+
+注册曝光状态变化的回调。注册此回调后，当捕获会话中的曝光状态发生变化时，将调用该回调。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_CaptureSession* session | Camera_CaptureSession实例。 |
+| void* context | 指向自定义上下文的指针。 |
+| OH_CaptureSession_OnExposureStateChange callback | 表示曝光状态改变的回调函数。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数缺失或参数类型不正确。 |
+
+
+
+
+#### OH_CaptureSession_UnregisterExposureStateChangeCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_CaptureSession_UnregisterExposureStateChangeCallback(const Camera_CaptureSession* session, void* context, OH_CaptureSession_OnExposureStateChange callback)
+```
+
+**描述**
+
+注销曝光状态变更时的回调函数。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_CaptureSession* session | Camera_CaptureSession实例。 |
+| void* context | 指向注册回调时指定的自定义上下文的指针。 |
+| OH_CaptureSession_OnExposureStateChange callback | 表示曝光状态改变的回调函数。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数缺失或参数类型不正确。 |
+
+
+
+
+#### OH_CaptureSession_GetZoomPointInfos()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_CaptureSession_GetZoomPointInfos(const Camera_CaptureSession* session, uint32_t* size, OH_Camera_ZoomPointInfo** zoomPointInfo)
+```
+
+**描述**
+
+获取变焦点信息。
+
+需要通过调用[OH_CaptureSession_DeleteZoomPointInfos](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-capture-session-h#oh_capturesession_deletezoompointinfos)来释放变焦点信息的内存。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_CaptureSession* session | 捕获会话对象的实例指针。 |
+| uint32_t* size | 输出参数，返回查询到的变焦点信息数量。 |
+| OH_Camera_ZoomPointInfo** zoomPointInfo | 输出参数，返回查询到的变焦点信息数组。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或者参数不正确。 CAMERA_OPERATION_NOT_ALLOWED：操作不允许。 CAMERA_SESSION_NOT_CONFIG：捕获会话未配置。 |
+
+
+
+
+#### OH_CaptureSession_DeleteZoomPointInfos()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_CaptureSession_DeleteZoomPointInfos(const Camera_CaptureSession* session, OH_Camera_ZoomPointInfo* zoomPointInfo)
+```
+
+**描述**
+
+删除变焦点信息。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_CaptureSession* session | 捕获会话对象的实例指针。 |
+| OH_Camera_ZoomPointInfo* zoomPointInfo | 待删除的变焦点信息数组，方法调用成功后该内存将被释放。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或者参数不正确。 |

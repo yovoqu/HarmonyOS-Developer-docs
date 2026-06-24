@@ -1,6 +1,6 @@
 # 如何解决DevEco Studio编译hsp和闭源har包的时候，生成声明文件时emit的耗时过长导致编译慢的问题
 
-更新时间：2026-06-05 09:11:02
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-71
 
@@ -15,4 +15,4 @@
 ![](assets/如何解决DevEco%20Studio编译hsp和闭源har包的时候，生成声明文件时emit的耗时过长导致编译慢的问题/file-20260515130126834-1.png)
 
 2. 修改 getEmitOutput 函数，将其改为 getFileEmitOutput 函数，以获取声明文件。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/JFadiLfBTVOsD3Nv64Ob0g/zh-cn_image_0000002194318168.png?HW-CC-KV=V1&HW-CC-Date=20260611T074857Z&HW-CC-Expire=86400&HW-CC-Sign=40C430018616A483DF7634F120C00CEC96780101FA1AC3864E1690B0C09F210F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/SOetKy2-RcKXFG0DY22Fjw/zh-cn_image_0000002194318168.png?HW-CC-KV=V1&HW-CC-Date=20260624T020433Z&HW-CC-Expire=86400&HW-CC-Sign=37CC61490394C086248D7CDE81E485A68FE1BC3AA3F3D7E4A14557445C8E4AA6)

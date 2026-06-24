@@ -1,6 +1,6 @@
 # 复杂文本绘制与显示（C/C++）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-text-c
 
@@ -189,6 +189,9 @@ OH_Drawing_DestroyTypography(typography);
  - **高对比度文字绘制：** 主要通过将深色文字变黑、浅色文字变白，增强文本的对比效果。
  - **行高调整：** 调整行高可改变文本行的垂直间距，使行间距更松散或更紧凑，显著改善文本垂直截断问题，提高可读性。
  - **行间距调整：** 通过调整行间距的方式可以实现行高调整一样的效果，优化阅读体验。
+ - **省略号样式设置：** 在文本内容超出显示区域时，可以使用省略号截断文本，支持头部、中部、尾部以及多行省略模式。
+ - **文字换行方式设置：** 文本排版时支持不同的断行策略，可根据场景选择合适的换行方式。
+ - **行首标点压缩：** 在排版中，通过开启行首标点压缩功能，将行首标点符号进行挤压处理，避免标点占用行首空间，提升排版紧凑度。
 
 
 
@@ -596,7 +599,7 @@ OH_Drawing_DestroyTypography(typographyNoPlaceholder);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/KNU9Cp7yTHCStO3kgBCAOA/zh-cn_image_0000002581434788.png?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=7D40E3B03DACA43D4458FEAB14AF83E3EC5E0E8AC50B3E373684BB5F943D7B95)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/QA5Krb74SVinplrBZdioWQ/zh-cn_image_0000002656468673.png?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=EAFA722D5560FD6F2944DA1F400915D12A4FE38AEA6681738EE4286E475B8904)
 
 
 
@@ -732,7 +735,7 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/TWwZ4AcER52w1Kc96gEVVg/zh-cn_image_0000002611754727.png?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=585C8B90637C8986EBE38FDFF84B3A1A37D36985680E9396E1D4126DB24734DC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/QxxcSnNcR3aT9DkP3_Bpfg/zh-cn_image_0000002626069398.png?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=6979AD1F3F637974DE849A7CF2F9979AF12784F22762AA8F530048B23815F842)
 
 
 
@@ -782,7 +785,7 @@ OH_Drawing_DestroyTypography(typography);
 效果如下（黑框仅为展示文本绘制区域，实际不绘制）：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/efgEt1GgRHGLA3d5VKcK8w/zh-cn_image_0000002581434776.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=52AEEABD095211427A0D0921335FB4CAAD85DE1D57A85285508EB7A741397EC4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/pz1pT18ARWaCufkIO6QiGA/zh-cn_image_0000002656348703.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=2E4B9362937BC2AD46F4013A9F0D8B0AD0F16FABD6C38EBDF9765C26C81FE75E)
 
 
 
@@ -836,7 +839,7 @@ OH_Drawing_DestroyTypography(typography);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/qkWZC4hlSV6eZZ3dBZoFCw/zh-cn_image_0000002611754715.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=FA56AA4FDD176C1242FE2162CD2D22DF48A755B10272D22317D9D6E9F44F9E00)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/IPu535iYQv-SPYHszDQkJw/zh-cn_image_0000002656468657.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=A95C5D831C93CD601985C63EEF515C4CFBD835E26C3BCFDD868C52C0DEEB20C1)
 
 
 
@@ -1057,6 +1060,82 @@ OH_Drawing_DestroyTypography(typography);
 
 
 
+#### 省略号样式设置
+
+从API version 22开始，支持设置省略号样式，在文本内容超出显示区域时截断文本。从API version 24开始，支持多行省略模式。
+
+使用[OH_Drawing_SetTypographyStyleAttributeInt](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_settypographystyleattributeint)接口，传入[TYPOGRAPHY_STYLE_ATTR_I_ELLIPSIS_MODAL](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_typographystyleattributeid)设置省略号模式，可选的省略号模式可见[OH_Drawing_EllipsisModal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_ellipsismodal)。
+
+```cpp
+// 创建一个带有省略号设置的 TypographyStyle
+OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
+// 设置最大行数为2，超过2行的部分将被省略
+OH_Drawing_SetTypographyTextMaxLines(typoStyle, 2);
+// 设置省略号模式为尾部省略
+OH_Drawing_SetTypographyStyleAttributeInt(typoStyle,
+    OH_Drawing_TypographyStyleAttributeId::TYPOGRAPHY_STYLE_ATTR_I_ELLIPSIS_MODAL, ELLIPSIS_MODAL_TAIL);
+// 设置自定义省略号字符串
+OH_Drawing_SetTypographyTextEllipsis(typoStyle, "...");
+```
+
+| 省略号模式 | 效果 |
+| --- | --- |
+| ELLIPSIS_MODAL_TAIL |  |
+| ELLIPSIS_MODAL_HEAD |  |
+| ELLIPSIS_MODAL_MIDDLE |  |
+| ELLIPSIS_MODAL_MULTILINE_HEAD |  |
+| ELLIPSIS_MODAL_MULTILINE_MIDDLE |  |
+
+
+
+
+#### 文字换行方式设置
+
+从API version 22开始，支持在文本排版时设置断行策略，断行策略决定了文本如何在行尾进行换行处理。
+
+使用[OH_Drawing_SetTypographyTextBreakStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_settypographytextbreakstrategy)接口设置断行策略，可选的断行策略可见[OH_Drawing_BreakStrategy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_breakstrategy)。
+
+```cpp
+// 创建一个设置了均衡断行策略的 TypographyStyle
+OH_Drawing_TypographyStyle *typoStyle = OH_Drawing_CreateTypographyStyle();
+// 设置断行策略为 BALANCED（均衡策略）
+OH_Drawing_SetTypographyTextBreakStrategy(typoStyle, BREAK_STRATEGY_BALANCED);
+```
+
+| 换行方式 | 效果 |
+| --- | --- |
+| GREEDY |  |
+| HIGH_QUALITY |  |
+| BALANCED |  |
+
+
+
+
+#### 行首标点压缩
+
+从API version 23开始，在文本排版中支持行首标点压缩功能。通过启用行首标点压缩功能，可以将行首标点符号进行挤压处理，提升排版紧凑度。
+
+使用[OH_Drawing_SetTypographyStyleAttributeBool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_settypographystyleattributebool)接口，传入[TYPOGRAPHY_STYLE_ATTR_B_COMPRESS_HEAD_PUNCTUATION](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_typographystyleattributeid)设置是否启用行首标点压缩，使用[OH_Drawing_GetTypographyStyleAttributeBool](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h#oh_drawing_gettypographystyleattributebool)接口查询是否启用了行首标点压缩。
+
+```cpp
+// 第二段：开启行首标点压缩
+OH_Drawing_TypographyStyle *typoStyleCompress = OH_Drawing_CreateTypographyStyle();
+OH_Drawing_SetTypographyTextAlign(typoStyleCompress, TEXT_ALIGN_LEFT);
+OH_Drawing_ErrorCode errorCode = OH_Drawing_SetTypographyStyleAttributeBool(typoStyleCompress,
+    OH_Drawing_TypographyStyleAttributeId::TYPOGRAPHY_STYLE_ATTR_B_COMPRESS_HEAD_PUNCTUATION, true);
+if (errorCode != OH_DRAWING_SUCCESS) {
+    DRAWING_LOGE("SetTypographyStyleAttributeBool failed, errorCode: %{public}d", errorCode);
+}
+```
+
+| 是否开启行首标点压缩 | 效果 |
+| --- | --- |
+| 关闭行首标点压缩 |  |
+| 开启行首标点压缩 |  |
+
+
+
+
 #### 样式的拷贝、绘制与显示
 
 支持拷贝文本样式、段落样式、阴影样式，以便快速复制相关样式作用到不同文字上。
@@ -1079,7 +1158,8 @@ OH_Drawing_SetTypographyTextAutoSpace(typoStyle, true);
 // 设置段落最大行数为3行
 OH_Drawing_SetTypographyTextMaxLines(typoStyle, 3);
 // 设置省略号模式为尾部省略号
-OH_Drawing_SetTypographyTextEllipsisModal(typoStyle, ELLIPSIS_MODAL_TAIL);
+OH_Drawing_SetTypographyStyleAttributeInt(typoStyle,
+    OH_Drawing_TypographyStyleAttributeId::TYPOGRAPHY_STYLE_ATTR_I_ELLIPSIS_MODAL, ELLIPSIS_MODAL_TAIL);
 // 设置省略号文本
 OH_Drawing_SetTypographyTextEllipsis(typoStyle, "...");
 // 设置对齐方式为居中对齐
@@ -1159,4 +1239,4 @@ OH_Drawing_DestroyTypography(typographyCopy);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/zM8I2_0lSnS7B09f1rhTBA/zh-cn_image_0000002611754729.png?HW-CC-KV=V1&HW-CC-Date=20260528T030533Z&HW-CC-Expire=86400&HW-CC-Sign=29AC359ACCA1F7B489B339A987AB16D45ED9C8E3A30B7ECC08192FFE5B71CACE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/LY5WQHTOQgmRH1iummjktg/zh-cn_image_0000002656348729.png?HW-CC-KV=V1&HW-CC-Date=20260624T020916Z&HW-CC-Expire=86400&HW-CC-Sign=C73A8E3287E0FFE4120B9B41B3585DAFEDA9736BC79971C0D0CC4E195FA0B0D1)

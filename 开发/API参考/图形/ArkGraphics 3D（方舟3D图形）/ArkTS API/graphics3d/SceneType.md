@@ -1,6 +1,6 @@
 # SceneType
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-types
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -209,6 +209,25 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
  
   
 
+#### ShadowAlgorithmType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+阴影算法的枚举类型。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.ArkUi.Graphics3D
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| PCF | 0 | 百分比邻近过滤算法。 |
+ 
+ 
+  
+
 #### CustomGeometry18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -297,7 +316,7 @@ import { Vec2, Vec3, Vec4, Quaternion, Aabb, Color, Rect, GeometryType, Primitiv
 以radius=0.5，height=1，segmentCount=20为例，生成圆柱体的网格以及UV布局如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/rsKji9kXTxuJWJgS6r0Acw/zh-cn_image_0000002611836871.png?HW-CC-KV=V1&HW-CC-Date=20260528T025701Z&HW-CC-Expire=86400&HW-CC-Sign=F10B87E9D5E8AEA80861DDE55D1C3898D43DDC3F638A4E247DB1E42AC63A525A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/53Ov8-dSSciHMFEq25yTyA/zh-cn_image_0000002656351013.png?HW-CC-KV=V1&HW-CC-Date=20260624T020328Z&HW-CC-Expire=86400&HW-CC-Sign=6CB9744F1D2A78543FF1C3C7D2EED25DBDFDEE87D84C0127570974B898EDCCA9)
 
  
   

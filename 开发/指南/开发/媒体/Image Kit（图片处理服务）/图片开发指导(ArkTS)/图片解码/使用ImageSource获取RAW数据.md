@@ -1,6 +1,6 @@
 # 使用ImageSource获取RAW数据
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-raw-data
 
@@ -129,7 +129,7 @@ const imageSource: image.ImageSource = image.createImageSource(rawFileDescriptor
 10. 获取ImageRawData图片对象并打印像素值。
 
   
-```json
+```ArkTS
 async  createImageRawData(imageSource: image.ImageSource | undefined) : Promise<image.ImageRawData | undefined> {
   if (!imageSource) {
     console.error('imageSource is undefined.');

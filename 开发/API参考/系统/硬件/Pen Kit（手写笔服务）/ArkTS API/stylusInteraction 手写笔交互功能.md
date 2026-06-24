@@ -1,6 +1,6 @@
 # stylusInteraction (手写笔交互功能)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-stylusinteraction
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -29,6 +29,8 @@ import { stylusInteraction } from '@kit.Penkit';
 on(type: 'squeeze', receiver: Callback&lt;SqueezeEvent&gt;): void
  
 监听手写笔笔身轻捏事件，使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Stylus.StylusService
  
@@ -66,6 +68,8 @@ off(type: 'squeeze', receiver?: Callback&lt;SqueezeEvent&gt;): void
  
 取消监听手写笔笔身轻捏事件，使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
  
 **起始版本：** 5.1.1(19)
@@ -100,6 +104,8 @@ try {
 on(type: 'doubleTap', receiver: Callback&lt;DoubleTapEvent&gt;): void
  
 监听手写笔笔身双击事件，使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Stylus.StylusService
  
@@ -136,6 +142,8 @@ off(type: 'doubleTap', receiver?: Callback&lt;DoubleTapEvent&gt;): void
  
 取消监听手写笔笔身双击事件，使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
  
 **起始版本：** 5.1.1(19)
@@ -169,6 +177,8 @@ try {
 
 手写笔笔身轻捏事件信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Stylus.StylusService
  
 **起始版本：** 5.1.1(19)
@@ -187,6 +197,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 手写笔笔身双击事件信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Stylus.StylusService
  

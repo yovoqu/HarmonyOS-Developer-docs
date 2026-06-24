@@ -1,6 +1,6 @@
 # fast_dsp_common.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast-dsp-common-8h
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -71,18 +71,18 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| float HMS_FAST_DSP_Maxmgv (const float* input, size_t stride, size_t length) | 计算步长实值向量中的最大幅值（单精度）。 |
-| double HMS_FAST_DSP_MaxmgvD (const double* input, size_t stride, size_t length) | 计算步长实值向量中的最大幅值（双精度）。 |
-| void HMS_FAST_DSP_Maxvi (const float* input, size_t stride, size_t length, float* value, size_t* index) | 查找步长实值向量中的最大值及其索引（单精度）。 |
-| void HMS_FAST_DSP_MaxviD (const double* input, size_t stride, size_t length, double* value, size_t* index) | 查找步长实值向量中的最大值及其索引（双精度）。 |
-| float HMS_FAST_DSP_Meamgv (const float* input, size_t stride, size_t length) | 计算步长实值向量绝对值的均值（单精度）。 |
-| double HMS_FAST_DSP_MeamgvD (const double* input, size_t stride, size_t length) | 计算步长实值向量绝对值的均值（双精度）。 |
-| float HMS_FAST_DSP_Sve (const float* input, size_t stride, size_t length) | 计算步长实值向量的和（单精度）。 |
-| double HMS_FAST_DSP_SveD (const double* input, size_t stride, size_t length) | 计算步长实值向量的和（双精度）。 |
+| float HMS_FAST_DSP_Maxmgv (const float* input, size_t stride, size_t length) | 计算步长实数向量中的最大幅值（单精度）。 |
+| double HMS_FAST_DSP_MaxmgvD (const double* input, size_t stride, size_t length) | 计算步长实数向量中的最大幅值（双精度）。 |
+| void HMS_FAST_DSP_Maxvi (const float* input, size_t stride, size_t length, float* value, size_t* index) | 查找步长实数向量中的最大值及其索引（单精度）。 |
+| void HMS_FAST_DSP_MaxviD (const double* input, size_t stride, size_t length, double* value, size_t* index) | 查找步长实数向量中的最大值及其索引（双精度）。 |
+| float HMS_FAST_DSP_Meamgv (const float* input, size_t stride, size_t length) | 计算步长实数向量绝对值的均值（单精度）。 |
+| double HMS_FAST_DSP_MeamgvD (const double* input, size_t stride, size_t length) | 计算步长实数向量绝对值的均值（双精度）。 |
+| float HMS_FAST_DSP_Sve (const float* input, size_t stride, size_t length) | 计算步长实数向量的和（单精度）。 |
+| double HMS_FAST_DSP_SveD (const double* input, size_t stride, size_t length) | 计算步长实数向量的和（双精度）。 |
 | float HMS_FAST_DSP_Svemg (const float* input, size_t stride, size_t length) | 计算步长向量的绝对值之和（L1范数）（单精度）。 |
 | double HMS_FAST_DSP_SvemgD (const double* input, size_t stride, size_t length) | 计算步长向量的绝对值之和（L1范数）（双精度）。 |
-| float HMS_FAST_DSP_Dotpr (const float* inputA, size_t strideA, const float* inputB, size_t strideB, size_t length) | 计算两个步长实值向量的点积（单精度）。 |
-| double HMS_FAST_DSP_DotprD (const double* inputA, size_t strideA, const double* inputB, size_t strideB, size_t length) | 计算两个步长实值向量的点积（双精度）。 |
+| float HMS_FAST_DSP_Dotpr (const float* inputA, size_t strideA, const float* inputB, size_t strideB, size_t length) | 计算两个步长实数向量的点积（单精度）。 |
+| double HMS_FAST_DSP_DotprD (const double* inputA, size_t strideA, const double* inputB, size_t strideB, size_t length) | 计算两个步长实数向量的点积（双精度）。 |
 | void HMS_FAST_DSP_Vsbsm (const float* inputA, size_t strideA, const float* inputB, size_t strideB, float scalar, float* outputC, size_t strideC, size_t length) | 执行向量减法：outputC[i] = (inputA[i] - inputB[i]) * scalar（单精度）。 |
 | void HMS_FAST_DSP_VsbsmD (const double* inputA, size_t strideA, const double* inputB, size_t strideB, double scalar, double* outputC, size_t strideC, size_t length) | 执行向量减法：outputC[i] = (inputA[i] - inputB[i]) * scalar（双精度）。 |
 | void HMS_FAST_DSP_Ctoz (const float* input, size_t strideInput, FAST_SplitComplex* output, size_t strideOutput, size_t length) | 将交错复数数组转换为分离格式（单精度）。 |

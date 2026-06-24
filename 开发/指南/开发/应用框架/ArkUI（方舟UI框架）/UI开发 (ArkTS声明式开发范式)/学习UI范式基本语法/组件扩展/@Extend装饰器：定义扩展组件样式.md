@@ -1,6 +1,6 @@
 # @Extend装饰器：定义扩展组件样式
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-extend
 
@@ -320,7 +320,7 @@ struct FancyUse {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/6qH46vcSQEWcR3axcyUmBw/zh-cn_image_0000002611753577.png?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=70633679FBC9A8D2A69ACFA37C4D5AC25C65F0FC1711D3FEC84D7742107DAB53)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/4dp-wSG3TLOByoKtzvenCw/zh-cn_image_0000002656347463.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=FD3A13EE18A95F69D09D447FDA7C36A5E3341D88053CEDE998C8F2C29453BFF7)
 
 
 使用@Extend将样式组合复用，示例如下。

@@ -1,6 +1,6 @@
 # NotificationRequest
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationrequest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -31,7 +31,7 @@
 | sound12+ | string | 否 | 是 | 应用通知自定义铃声资源路径，默认为空。支持两种音频资源来源： - 资源文件：应用预置的音频文件，资源文件必须放在放在resources/rawfile目录下，使用时直接传入文件名。 - 沙箱文件：网络下载或者用户生成的音频文件，必须放在沙箱文件目录EL1区域的files目录或者其子目录下，传入格式为uri::{fileUri}，其中fileUri是通过getUriFromPath获取的路径。例如，应用将下载的音频资源demo.mp3传入沙箱文件目录/data/storage/el1/base/files/，通过getUriFromPath获取的路径为file://{bundleName}/data/storage/el1/base/files/demo.mp3，使用该路径发布通知即可播放应用下载的音频资源。 支持m4a、aac、mp3、ogg、wav、flac、amr等格式。 |
 | badgeNumber9+ | number | 否 | 是 | 应用程序图标上显示的通知数，该数量累计展示，默认值为0。 当badgeNumber取值小于或等于0时，将忽略本次角标设定。 当角标累加设定个数取值大于99时，通知角标将显示99+。 例如，应用发布3条通知，badgeNumber依次设置为2、0、3，应用将依次展示为2、2、5。 |
 | wantAgent | WantAgent | 否 | 是 | 封装了应用的行为意图，点击通知时触发该行为，默认为空。 |
-| actionButtons | Array&lt;NotificationActionButton&gt; | 否 | 是 | 通知按钮，默认为空。一条通知中最多包含两个按钮。从API version 16开始，支持wearable设备，wearable设备中一条通知中最多包含三个按钮。 |
+| actionButtons | Array&lt;NotificationActionButton&gt; | 否 | 是 | 通知按钮，默认为空。一条通知中最多包含两个按钮。从API version 16开始，wearable设备一条通知最多包含三个按钮。 |
 | removalWantAgent9+ | WantAgent | 否 | 是 | 封装了应用的行为意图，移除通知时触发该行为，默认为空。 当前不支持跳转UIAbility，只支持发布公共事件（即WantAgentInfo的actionType字段取值为4）。 |
 | tapDismissed | boolean | 否 | 是 | 点击通知携带的wantAgent或actionButtons时，该通知是否自动清除。当通知携带wantAgent或actionButtons时该字段生效。默认值为true。 - true：点击通知或按钮后，自动删除当前通知。 - false：点击通知或按钮后，保留当前通知。 |
 | autoDeletedTime | number | 否 | 是 | 通知定时清除时间。设置该参数可使通知在指定时间后自动清除。默认值为0。 数据格式：时间戳。 单位：ms。 例如，希望某通知存留3秒（3000ms）后对其进行清除，则对应的清除时间为：new Date().getTime() + 3000。 |

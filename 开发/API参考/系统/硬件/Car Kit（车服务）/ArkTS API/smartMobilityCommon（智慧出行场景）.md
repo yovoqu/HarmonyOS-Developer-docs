@@ -1,6 +1,6 @@
 # smartMobilityCommon（智慧出行场景）
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-smartmobilitycommon
 **支持设备：** Phone | Tablet
@@ -26,6 +26,8 @@ import { smartMobilityCommon } from '@kit.CarKit';
 
 公共事件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
 **起始版本：** 5.0.0(12)
@@ -44,6 +46,8 @@ import { smartMobilityCommon } from '@kit.CarKit';
 **支持设备：** Phone | Tablet
 
 该类为智慧出行的状态信息，定义了当前的业务类型、连接状态、业务数据。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
@@ -64,6 +68,8 @@ import { smartMobilityCommon } from '@kit.CarKit';
 
 业务连接状态枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
 **起始版本：** 5.0.0(12)
@@ -81,6 +87,8 @@ import { smartMobilityCommon } from '@kit.CarKit';
 **支持设备：** Phone | Tablet
 
 业务类型枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
@@ -103,9 +111,11 @@ getSmartMobilityAwareness(): SmartMobilityAwareness
  
 用于获取智慧出行管理类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_CAR_DISTRIBUTED_ENGINE
  
@@ -128,7 +138,7 @@ let awareness: smartMobilityCommon.SmartMobilityAwareness = smartMobilityCommon.
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -144,6 +154,8 @@ let awareness: smartMobilityCommon.SmartMobilityAwareness = smartMobilityCommon.
 
 智慧出行管理类，用于调用智慧出行接口。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
 **起始版本：** 5.0.0(12)
@@ -158,9 +170,11 @@ on(type: 'smartMobilityEvent', smartMobilityTypes: SmartMobilityType[],callback:
  
 注册智慧出行业务的事件监听，例如导航流转完成后通知事件时，触发此回调执行。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_CAR_DISTRIBUTED_ENGINE
  
@@ -177,7 +191,7 @@ on(type: 'smartMobilityEvent', smartMobilityTypes: SmartMobilityType[],callback:
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -219,9 +233,11 @@ off(type: 'smartMobilityEvent', smartMobilityTypes: SmartMobilityType[], callbac
  
 取消注册智慧出行业务的事件监听。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_CAR_DISTRIBUTED_ENGINE
  
@@ -238,7 +254,7 @@ off(type: 'smartMobilityEvent', smartMobilityTypes: SmartMobilityType[], callbac
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -281,9 +297,11 @@ getSmartMobilityEvent(type: SmartMobilityType, eventName: string): SmartMobility
  
 应用获取指定事件的信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_CAR_DISTRIBUTED_ENGINE
  
@@ -306,7 +324,7 @@ getSmartMobilityEvent(type: SmartMobilityType, eventName: string): SmartMobility
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -347,9 +365,11 @@ on(type: 'smartMobilityStatus', smartMobilityTypes: SmartMobilityType[], callbac
  
 注册智慧出行连接状态的监听。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_CAR_DISTRIBUTED_ENGINE
  
@@ -366,7 +386,7 @@ on(type: 'smartMobilityStatus', smartMobilityTypes: SmartMobilityType[], callbac
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -408,9 +428,11 @@ off(type: 'smartMobilityStatus', smartMobilityTypes: SmartMobilityType[], callba
  
 取消注册智慧出行连接状态的监听。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_CAR_DISTRIBUTED_ENGINE
  
@@ -427,7 +449,7 @@ off(type: 'smartMobilityStatus', smartMobilityTypes: SmartMobilityType[], callba
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -469,9 +491,11 @@ getSmartMobilityStatus(type: SmartMobilityType): SmartMobilityInfo
  
 获取智慧出行连接状态。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.DistributedEngine
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_CAR_DISTRIBUTED_ENGINE
  
@@ -493,7 +517,7 @@ getSmartMobilityStatus(type: SmartMobilityType): SmartMobilityInfo
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

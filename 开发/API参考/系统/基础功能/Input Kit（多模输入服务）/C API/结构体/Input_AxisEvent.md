@@ -1,6 +1,6 @@
 # Input_AxisEvent
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-axisevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct Input_AxisEvent Input_AxisEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-轴事件对象。
+轴事件对象。用于表示输入设备的轴事件数据，如游戏手柄的摇杆移动、鼠标滚轮滚动等场景。开发者可以通过轴事件获取输入设备的轴值变化，实现精细的输入控制，提升用户交互体验。
  
 **起始版本：** 12
  

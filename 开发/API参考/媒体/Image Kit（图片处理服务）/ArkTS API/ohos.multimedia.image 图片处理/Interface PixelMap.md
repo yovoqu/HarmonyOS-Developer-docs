@@ -1,15 +1,15 @@
 # Interface (PixelMap)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-图像像素类，用于读取或写入图像数据以及获取图像信息。在调用PixelMap的方法前，需要先通过[image.createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)创建一个PixelMap实例。目前PixelMap序列化大小最大128MB，超过会送显失败。大小计算方式为（宽*高*每像素占用字节数（参考[PixelMapFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#pixelmapformat7)））。
+图像像素类，用于读取或写入图像数据以及获取图像信息。在调用PixelMap的方法前，需要先通过[image.createPixelMapFromPixels](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapfrompixels)创建一个PixelMap实例。目前PixelMap序列化大小最大128MB，超过会渲染失败。大小计算方式为（宽*高*每像素占用字节数（参考[PixelMapFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-e#pixelmapformat7)））。
 
 从API version 11开始，PixelMap支持通过[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker)跨线程调用。当PixelMap通过[Worker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-worker)跨线程后，原线程的PixelMap的所有接口均不能调用，否则将报错501 服务器不具备完成请求的功能。
 
-在调用PixelMap的方法前，可以通过[image.createPixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmap8)传入像素数据创建一个PixelMap对象，也可以通过[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)进行图片解码创建PixelMap对象。
+在调用PixelMap的方法前，可以通过[image.createPixelMapFromPixels](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f#imagecreatepixelmapfrompixels)传入像素数据创建一个PixelMap对象，也可以通过[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)进行图片解码创建PixelMap对象。
 
 开发元服务请通过[ImageSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource)构建PixelMap对象。
 
@@ -44,6 +44,129 @@ import { image } from '@kit.ImageKit';
 
 
 
+#### readAllPixelsToBuffer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+readAllPixelsToBuffer(dst: ArrayBuffer): Promise&lt;void&gt;
+
+读取整个PixelMap的像素数据，并按照PixelMap的像素格式写入缓冲区。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| dst | ArrayBuffer | 是 | 目标缓冲区，函数执行结束后获取的图像像素数据会被写入该缓冲区。缓冲区的大小由getPixelBytesNumber接口获取。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600206 | Invalid parameter. Possible cause: Size of the buffer is too small. |
+| 7600302 | Failed to copy the memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoReadAllPixelsToBuffer(pixelMap: image.PixelMap) {
+  const readBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
+
+  pixelMap.readAllPixelsToBuffer(readBuffer)
+    .then(() => {
+      console.info('pixelMap中的像素数据已拷贝至readBuffer。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`读取像素失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### readAllPixelsToBufferSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+readAllPixelsToBufferSync(dst: ArrayBuffer): void
+
+读取整个PixelMap的像素数据，并按照PixelMap的像素格式写入缓冲区。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| dst | ArrayBuffer | 是 | 目标缓冲区，函数执行结束后获取的图像像素数据会被写入该缓冲区。缓冲区的大小由getPixelBytesNumber接口获取。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600206 | Invalid parameter. Possible cause: Size of the buffer is too small. |
+| 7600302 | Failed to copy the memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoReadAllPixelsToBufferSync(pixelMap: image.PixelMap) {
+  const readBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
+
+  try {
+    pixelMap.readAllPixelsToBufferSync(readBuffer);
+    console.info('pixelMap中的像素数据已拷贝至readBuffer。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`读取像素失败。错误码：${error.code} 错误信息：${error.message}`);
+  }
+}
+```
+
+
+
 #### readPixelsToBuffer7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,6 +174,8 @@ import { image } from '@kit.ImageKit';
 readPixelsToBuffer(dst: ArrayBuffer): Promise&lt;void&gt;
 
 按照PixelMap的像素格式，读取PixelMap的图像像素数据，并写入缓冲区中。使用Promise异步回调。
+
+从API版本26.0.0开始，建议使用[readAllPixelsToBuffer](#readallpixelstobuffer)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -99,6 +224,8 @@ readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback&lt;void&gt;): void
 
 按照PixelMap的像素格式，读取PixelMap的图像像素数据，并写入缓冲区中，使用callback形式返回。
 
+从API版本26.0.0开始，建议使用[readAllPixelsToBuffer](#readallpixelstobuffer)代替，以获得更完善的异常处理能力。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -143,6 +270,8 @@ readPixelsToBufferSync(dst: ArrayBuffer): void
 
 按照PixelMap的像素格式，读取PixelMap的图像像素数据，并写入缓冲区中，同步返回结果。
 
+从API版本26.0.0开始，建议使用[readAllPixelsToBufferSync](#readallpixelstobuffersync)代替，以获得更完善的异常处理能力。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -180,6 +309,197 @@ function ReadPixelsToBufferSync(pixelMap : image.PixelMap) {
 
 
 
+#### readPixelsToArea
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+readPixelsToArea(area: PositionArea): Promise&lt;void&gt;
+
+读取PixelMap指定区域内的像素数据，并按照BGRA_8888像素格式写入缓冲区。使用Promise异步回调。
+
+> [!NOTE]
+> 可使用公式计算PositionArea需要申请的内存大小。 RGBA的区域计算公式：读取区域（Region.size {width * height}）* 4（1倍R分量 + 1倍G分量 + 1倍B分量 + 1倍A分量） YUV的区域计算公式：读取区域（Region.size {width * height}）* 1.5（1倍Y分量 + 0.25倍U分量 + 0.25倍V分量）
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| area | PositionArea | 是 | 读取的区域。 该区域由PositionArea.region指定，函数执行结束后获取的图像像素数据会被写入PositionArea.pixels缓冲区。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600206 | Invalid parameter. Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range. |
+| 7600302 | Failed to copy the memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoReadPixelsToAreaRGBA(pixelMap: image.PixelMap) {
+  const area: image.PositionArea = {
+    pixels: new ArrayBuffer(24), // 24为需要创建的像素缓冲区大小，取值为：width * height * 4。
+    offset: 0,
+    stride: 8, // 跨距，即每行像素所占的字节数，在没有行末空白字节填充的情况下取值为：width * 4。
+    region: {
+      size: { width: 2, height: 3 },
+      x: 0,
+      y: 0
+    }
+  };
+
+  pixelMap.readPixelsToArea(area)
+    .then(() => {
+      console.info('pixelMap区域中的像素数据已拷贝至area.pixels。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`读取像素失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+
+function DemoReadPixelsToAreaYUV(pixelMap: image.PixelMap) {
+  const area: image.PositionArea = {
+    pixels: new ArrayBuffer(9), // 9为需要创建的像素缓冲区大小，取值为：width * height * 1.5。
+    offset: 0,
+    stride: 2, // 跨距，即每行像素所占的字节数，在没有行末空白字节填充的情况下取值为：width * 1（1倍Y分量）。
+    region: {
+      size: { width: 2, height: 3 },
+      x: 0,
+      y: 0
+    }
+  };
+
+  pixelMap.readPixelsToArea(area)
+    .then(() => {
+      console.info('pixelMap指定区域中的像素数据已拷贝至area.pixels。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`读取像素失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### readPixelsToAreaSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+readPixelsToAreaSync(area: PositionArea): void
+
+读取PixelMap指定区域内的像素数据，并按照BGRA_8888像素格式写入缓冲区。
+
+> [!NOTE]
+> 可使用公式计算PositionArea需要申请的内存大小。 RGBA的区域计算公式：读取区域（Region.size {width * height}）* 4（1倍R分量 + 1倍G分量 + 1倍B分量 + 1倍A分量） YUV的区域计算公式：读取区域（Region.size {width * height}）* 1.5（1倍Y分量 + 0.25倍U分量 + 0.25倍V分量）
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| area | PositionArea | 是 | 读取的区域。 该区域由PositionArea.region指定，函数执行结束后获取的图像像素数据会被写入PositionArea.pixels缓冲区。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600206 | Invalid parameter. Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range. |
+| 7600302 | Failed to copy the memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoReadPixelsToAreaSyncRGBA(pixelMap: image.PixelMap) {
+  const area: image.PositionArea = {
+    pixels: new ArrayBuffer(24), // 24为需要创建的像素缓冲区大小，取值为：width * height * 4。
+    offset: 0,
+    stride: 8, // 跨距，即每行像素所占的字节数，在没有行末空白字节填充的情况下取值为：width * 4。
+    region: {
+      size: { width: 2, height: 3 },
+      x: 0,
+      y: 0
+    }
+  };
+
+  try {
+    pixelMap.readPixelsToAreaSync(area);
+    console.info('pixelMap指定区域中的像素数据已拷贝至area.pixels。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`读取像素失败。错误码：${error.code} 错误信息：${error.message}`);
+  }
+}
+
+function DemoReadPixelsToAreaSyncYUV(pixelMap: image.PixelMap) {
+  const area: image.PositionArea = {
+    pixels: new ArrayBuffer(9), // 9为需要创建的像素缓冲区大小，取值为：width * height * 1.5。
+    offset: 0,
+    stride: 2, // 跨距，即每行像素所占的字节数，在没有行末空白字节填充的情况下取值为：width * 1（1倍Y分量）。
+    region: {
+      size: { width: 2, height: 3 },
+      x: 0,
+      y: 0
+    }
+  };
+
+  try {
+    pixelMap.readPixelsToAreaSync(area);
+    console.info('pixelMap区域中的像素数据已拷贝至area.pixels。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`读取像素失败。错误码：${error.code} 错误信息：${error.message}`);
+  }
+}
+```
+
+
+
 #### readPixels7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -193,6 +513,8 @@ readPixels(area: PositionArea): Promise&lt;void&gt;
 YUV的区域计算公式：读取区域（region.size{width * height}）* 1.5 （1倍的Y分量+0.25倍U分量+0.25倍V分量）
 
 RGBA的区域计算公式：读取区域（region.size{width * height}）* 4 （1倍的R分量+1倍G分量+1倍B分量+1倍A分量）
+
+从API版本26.0.0开始，建议使用[readPixelsToArea](#readpixelstoarea)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -270,6 +592,8 @@ YUV的区域计算公式：读取区域（region.size{width * height}）* 1.5 �
 
 RGBA的区域计算公式：读取区域（region.size{width * height}）* 4 （1倍的R分量+1倍G分量+1倍B分量+1倍A分量）
 
+从API版本26.0.0开始，建议使用[readPixelsToArea](#readpixelstoarea)代替，以获得更完善的异常处理能力。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -340,6 +664,8 @@ readPixelsSync(area: PositionArea): void
 
 固定按照BGRA_8888格式，读取PixelMap指定区域内的图像像素数据，并写入[PositionArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#positionarea7).pixels缓冲区中，该区域由[PositionArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#positionarea7).region指定，同步返回结果。
 
+从API版本26.0.0开始，建议使用[readPixelsToAreaSync](#readpixelstoareasync)代替，以获得更完善的异常处理能力。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -379,6 +705,231 @@ function ReadPixelsSync(pixelMap : image.PixelMap) {
 
 
 
+#### writePixelsFromArea
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+writePixelsFromArea(area: PositionArea): Promise&lt;void&gt;
+
+读取缓冲区内的图像像素数据（缓冲区内数据的像素格式必须是BGRA_8888），并按照BGRA_8888格式将其写入PixelMap的指定区域。使用Promise异步回调。
+
+> [!NOTE]
+> 可使用公式计算PositionArea需要申请的内存大小。 RGBA的区域计算公式：写入区域（Region.size {width * height}）* 4（1倍R分量 + 1倍G分量 + 1倍B分量 + 1倍A分量） YUV的区域计算公式：写入区域（Region.size {width * height}）* 1.5（1倍Y分量 + 0.25倍U分量 + 0.25倍V分量）
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| area | PositionArea | 是 | 写入的区域。 该区域由PositionArea.region指定，函数执行结束后PositionArea.pixels缓冲区内的图像像素数据会被写入PixelMap。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is not editable or is locked. |
+| 7600206 | Invalid parameter. Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range. |
+| 7600302 | Failed to copy the memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoWritePixelsFromAreaRGBA(pixelMap: image.PixelMap) {
+  const area: image.PositionArea = {
+    pixels: new ArrayBuffer(24), // 24为需要创建的像素缓冲区大小，取值为：width * height * 4。
+    offset: 0,
+    stride: 8, // 跨距，即每行像素所占的字节数，在没有行末空白字节填充的情况下取值为：width * 4。
+    region: {
+      size: { width: 2, height: 3 },
+      x: 0,
+      y: 0
+    }
+  };
+  const bufferArr = new Uint8Array(area.pixels);
+  for (let i = 0; i < bufferArr.length; i += 4) {
+    // 假设pixelMap的像素格式为RGBA_8888，则下列数组索引依次为：R通道、G通道、B通道、A通道。
+    bufferArr[i] = 0xFF;
+    bufferArr[i + 1] = 0x00;
+    bufferArr[i + 2] = 0x00;
+    bufferArr[i + 3] = 0xFF;
+  }
+
+  pixelMap.writePixelsFromArea(area)
+    .then(() => {
+      console.info('area.pixels中的像素数据已拷贝至pixelMap指定区域。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`写入像素失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+
+function DemoWritePixelsFromAreaYUV(pixelMap: image.PixelMap) {
+  const area: image.PositionArea = {
+    pixels: new ArrayBuffer(9), // 9为需要创建的像素缓冲区大小，取值为：width * height * 1.5。
+    offset: 0,
+    stride: 2, // 跨距，即每行像素所占的字节数，在没有行末空白字节填充的情况下取值为：width * 1（1倍Y分量）。
+    region: {
+      size: { width: 2, height: 3 },
+      x: 0,
+      y: 0
+    }
+  };
+  const bufferArr = new Uint8Array(area.pixels);
+  const ySize = area.region.size.width * area.region.size.height;
+  for (let i = 0; i < ySize; i++) { // Y平面。
+    bufferArr[i] = 0xFF;
+  }
+  for (let i = ySize; i < bufferArr.length; i++) { // UV交错平面。
+    bufferArr[i] = 0x80;
+  }
+
+  pixelMap.writePixelsFromArea(area)
+    .then(() => {
+      console.info('area.pixels中的像素数据已拷贝至pixelMap指定区域。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`写入像素失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### writePixelsFromAreaSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+writePixelsFromAreaSync(area: PositionArea): void
+
+读取缓冲区内的图像像素数据（缓冲区内数据的像素格式必须是BGRA_8888），并按照BGRA_8888格式将其写入PixelMap的指定区域。
+
+> [!NOTE]
+> 可使用公式计算PositionArea需要申请的内存大小。 RGBA的区域计算公式：写入区域（Region.size {width * height}）* 4（1倍R分量 + 1倍G分量 + 1倍B分量 + 1倍A分量） YUV的区域计算公式：写入区域（Region.size {width * height}）* 1.5（1倍Y分量 + 0.25倍U分量 + 0.25倍V分量）
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| area | PositionArea | 是 | 写入的区域。 该区域由PositionArea.region指定，函数执行结束后PositionArea.pixels缓冲区内的图像像素数据会被写入PixelMap。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is not editable or is locked. |
+| 7600206 | Invalid parameter. Possible causes: 1. PositionArea.pixels is too small. 2. PositionArea.region is out of range. |
+| 7600302 | Failed to copy the memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoWritePixelsFromAreaSyncRGBA(pixelMap: image.PixelMap) {
+  const area: image.PositionArea = {
+    pixels: new ArrayBuffer(24), // 24为需要创建的像素缓冲区大小，取值为：width * height * 4。
+    offset: 0,
+    stride: 8, // 跨距，即每行像素所占的字节数，在没有行末空白字节填充的情况下取值为：width * 4。
+    region: {
+      size: { width: 2, height: 3 },
+      x: 0,
+      y: 0
+    }
+  };
+  const bufferArr = new Uint8Array(area.pixels);
+  for (let i = 0; i < bufferArr.length; i += 4) {
+    // 假设pixelMap的像素格式为RGBA_8888，则下列数组索引依次为：R通道、G通道、B通道、A通道。
+    bufferArr[i] = 0xFF;
+    bufferArr[i + 1] = 0x00;
+    bufferArr[i + 2] = 0x00;
+    bufferArr[i + 3] = 0xFF;
+  }
+
+  try {
+    pixelMap.writePixelsFromAreaSync(area);
+    console.info('area.pixels中的像素数据已拷贝至pixelMap指定区域。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`写入像素失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+
+function DemoWritePixelsFromAreaSyncYUV(pixelMap: image.PixelMap) {
+  const area: image.PositionArea = {
+    pixels: new ArrayBuffer(9), // 9为需要创建的像素缓冲区大小，取值为：width * height * 1.5。
+    offset: 0,
+    stride: 2, // 跨距，即每行像素所占的字节数，在没有行末空白字节填充的情况下取值为：width * 1（1倍Y分量）。
+    region: {
+      size: { width: 2, height: 3 },
+      x: 0,
+      y: 0
+    }
+  };
+  const bufferArr = new Uint8Array(area.pixels);
+  const ySize = area.region.size.width * area.region.size.height;
+  for (let i = 0; i < ySize; i++) { // Y平面。
+    bufferArr[i] = 0xFF;
+  }
+  for (let i = ySize; i < bufferArr.length; i++) { // UV交错平面。
+    bufferArr[i] = 0x80;
+  }
+
+  try {
+    pixelMap.writePixelsFromAreaSync(area);
+    console.info('area.pixels中的像素数据已拷贝至pixelMap指定区域。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`写入像素失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### writePixels7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -392,6 +943,8 @@ writePixels(area: PositionArea): Promise&lt;void&gt;
 YUV的区域计算公式：读取区域（region.size{width * height}）* 1.5 （1倍的Y分量+0.25倍U分量+0.25倍V分量）
 
 RGBA的区域计算公式：读取区域（region.size{width * height}）* 4 （1倍的R分量+1倍G分量+1倍B分量+1倍A分量）
+
+从API版本26.0.0开始，建议使用[writePixelsFromArea](#writepixelsfromarea)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -475,6 +1028,8 @@ YUV的区域计算公式：读取区域（region.size{width * height}）* 1.5 �
 
 RGBA的区域计算公式：读取区域（region.size{width * height}）* 4 （1倍的R分量+1倍G分量+1倍B分量+1倍A分量）
 
+从API版本26.0.0开始，建议使用[writePixelsFromArea](#writepixelsfromarea)代替，以获得更完善的异常处理能力。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -549,6 +1104,8 @@ writePixelsSync(area: PositionArea): void
 
 固定按照BGRA_8888格式，读取[PositionArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#positionarea7).pixels缓冲区中的图像像素数据，并写入PixelMap指定区域内，该区域由[PositionArea](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#positionarea7).region指定，同步返回结果。
 
+从API版本26.0.0开始，建议使用[writePixelsFromAreaSync](#writepixelsfromareasync)代替，以获得更完善的异常处理能力。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -594,6 +1151,147 @@ function WritePixelsSync(pixelMap:image.PixelMap) {
 
 
 
+#### writeAllPixelsFromBuffer
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+writeAllPixelsFromBuffer(src: ArrayBuffer): Promise&lt;void&gt;
+
+读取缓冲区内的图像像素数据，并将其写入整个PixelMap。缓冲区中的像素数据必须是整个PixelMap的像素数据，且像素格式必须与PixelMap相同。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| src | ArrayBuffer | 是 | 源数据缓冲区，函数执行结束后该缓冲区内的图像像素数据会被写入PixelMap。缓冲区的大小由getPixelBytesNumber接口获取。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is not editable or is locked. |
+| 7600206 | Invalid parameter. Possible cause: Size of the buffer is too small. |
+| 7600302 | Failed to copy the memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoWriteAllPixelsFromBuffer(pixelMap: image.PixelMap) {
+  const writeBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
+  const bufferArr = new Uint8Array(writeBuffer);
+  for (let i = 0; i < bufferArr.length; i += 4) {
+    // 假设pixelMap的像素格式为RGBA_8888，则下列数组索引依次为：R通道、G通道、B通道、A通道。
+    bufferArr[i] = 0xFF;
+    bufferArr[i + 1] = 0x00;
+    bufferArr[i + 2] = 0x00;
+    bufferArr[i + 3] = 0xFF;
+  }
+
+  pixelMap.writeAllPixelsFromBuffer(writeBuffer)
+    .then(() => {
+      console.info('writeBuffer中的像素数据已拷贝至pixelMap。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`写入像素失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### writeAllPixelsFromBufferSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+writeAllPixelsFromBufferSync(src: ArrayBuffer): void
+
+读取缓冲区内的图像像素数据，并将其写入整个PixelMap。缓冲区中的像素数据必须是整个PixelMap的像素数据，且像素格式必须与PixelMap相同。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| src | ArrayBuffer | 是 | 源数据缓冲区，函数执行结束后该缓冲区内的图像像素数据会被写入PixelMap。缓冲区的大小由getPixelBytesNumber接口获取。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is not editable or is locked. |
+| 7600206 | Invalid parameter. Possible cause: Size of the buffer is too small. |
+| 7600302 | Failed to copy the memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoWriteAllPixelsFromBufferSync(pixelMap: image.PixelMap) {
+  const writeBuffer = new ArrayBuffer(pixelMap.getPixelBytesNumber());
+  const bufferArr = new Uint8Array(writeBuffer);
+  for (let i = 0; i < bufferArr.length; i += 4) {
+    // 假设pixelMap的像素格式为RGBA_8888，则下列数组索引依次为：R通道、G通道、B通道、A通道。
+    bufferArr[i] = 0xFF;
+    bufferArr[i + 1] = 0x00;
+    bufferArr[i + 2] = 0x00;
+    bufferArr[i + 3] = 0xFF;
+  }
+
+  try {
+    pixelMap.writeAllPixelsFromBufferSync(writeBuffer);
+    console.info('writeBuffer中的像素数据已拷贝至pixelMap。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`写入像素失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### writeBufferToPixels7+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -601,6 +1299,8 @@ function WritePixelsSync(pixelMap:image.PixelMap) {
 writeBufferToPixels(src: ArrayBuffer): Promise&lt;void&gt;
 
 按照PixelMap的像素格式，读取缓冲区中的图像像素数据，并写入PixelMap。使用Promise异步回调。
+
+从API版本26.0.0开始，建议使用[writeAllPixelsFromBuffer](#writeallpixelsfrombuffer)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -653,6 +1353,8 @@ writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback&lt;void&gt;): void
 
 按照PixelMap的像素格式，读取缓冲区中的图像像素数据，并写入PixelMap，使用callback形式返回。
 
+从API版本26.0.0开始，建议使用[writeAllPixelsFromBuffer](#writeallpixelsfrombuffer)代替，以获得更完善的异常处理能力。
+
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
@@ -700,6 +1402,8 @@ async function WriteBufferToPixels(pixelMap:image.PixelMap) {
 writeBufferToPixelsSync(src: ArrayBuffer): void
 
 按照PixelMap的像素格式，读取缓冲区中的图像像素数据，并写入PixelMap，同步返回结果。
+
+从API版本26.0.0开始，建议使用[writeAllPixelsFromBufferSync](#writeallpixelsfrombuffersync)代替，以获得更完善的异常处理能力。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -959,6 +1663,127 @@ function GetDensity(pixelMap: image.PixelMap) {
 
 
 
+#### setOpacity
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setOpacity(value: number): Promise&lt;void&gt;
+
+设置PixelMap的不透明度，指定的不透明度值将被应用于所有像素，不受原图不透明度的影响。YUV格式的图像不支持设置不透明度。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number | 是 | 不透明度值。取值范围是(0.0, 1.0]，1.0表示完全不透明，数值越接近0.0则透明度越高。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. Possible cause: The specified value is out of range. |
+| 7600207 | Unsupported data format. Possible cause: Alpha type is not supported. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoSetOpacity(pixelMap: image.PixelMap) {
+  pixelMap.setOpacity(0.5)
+    .then(() => {
+      console.info('不透明度设置成功。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`不透明度设置失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### setOpacitySync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setOpacitySync(value: number): void
+
+设置PixelMap的不透明度，指定的不透明度值将被应用于所有像素，不受原图不透明度的影响。YUV格式的图像不支持设置不透明度。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number | 是 | 不透明度值。取值范围是(0.0, 1.0]，1.0表示完全不透明，数值越接近0.0则透明度越高。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. Possible cause: The specified value is out of range. |
+| 7600207 | Unsupported data format. Possible cause: Alpha type is not supported. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoSetOpacitySync(pixelMap: image.PixelMap) {
+  try {
+    pixelMap.setOpacitySync(0.5);
+    console.info('不透明度设置成功。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`不透明度设置失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### opacity9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -966,6 +1791,8 @@ function GetDensity(pixelMap: image.PixelMap) {
 opacity(rate: number, callback: AsyncCallback&lt;void&gt;): void
 
 通过设置透明比率来让PixelMap达到对应的透明效果，yuv图片不支持设置透明度，使用callback形式返回。
+
+从API版本26.0.0开始，建议使用[setOpacity](#setopacity)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -1010,6 +1837,8 @@ async function Opacity(pixelMap:image.PixelMap) {
 opacity(rate: number): Promise&lt;void&gt;
 
 通过设置透明比率来让PixelMap达到对应的透明效果，yuv图片不支持设置透明度。使用Promise异步回调。
+
+从API版本26.0.0开始，建议使用[setOpacity](#setopacity)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -1058,6 +1887,8 @@ opacitySync(rate: number): void
 
 设置PixelMap的透明比率，yuv图片不支持设置透明度，初始化PixelMap并同步返回结果。
 
+从API版本26.0.0开始，建议使用[setOpacitySync](#setopacitysync)代替，以获得更完善的异常处理能力。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -1092,13 +1923,127 @@ function OpacitySync(pixelMap:image.PixelMap) {
 
 
 
+#### extractAlphaPixelMap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+extractAlphaPixelMap(): Promise&lt;PixelMap&gt;
+
+提取PixelMap的Alpha通道数据，并生成一个仅包含Alpha通道信息的ALPHA_U8格式的PixelMap。生成的新PixelMap不可编辑，可用于阴影效果。YUV格式不支持此接口。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;PixelMap&gt; | Promise对象，返回仅包含Alpha通道信息的ALPHA_U8格式的PixelMap。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The current PixelMap has been released. |
+| 7600106 | The current PixelMap has been passed across threads. |
+| 7600305 | Failed to create the PixelMap. Possible cause: Current PixelMap data is corrupted. |
+| 7600306 | Failed to convert the data. Possible causes: 1. Failed to perform pixel format conversion. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoExtractAlphaPixelMap(pixelMap: image.PixelMap) {
+  pixelMap.extractAlphaPixelMap()
+    .then((alphaMap: image.PixelMap) => {
+      console.info('创建Alpha通道PixelMap成功。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`创建Alpha通道PixelMap失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### extractAlphaPixelMapSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+extractAlphaPixelMapSync(): PixelMap
+
+提取PixelMap的Alpha通道数据，并生成一个仅包含Alpha通道信息的ALPHA_U8格式的PixelMap。生成的新PixelMap不可编辑，可用于阴影效果。YUV格式不支持此接口。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| PixelMap | 返回仅包含Alpha通道信息的ALPHA_U8格式的PixelMap。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The current PixelMap has been released. |
+| 7600106 | The current PixelMap has been passed across threads. |
+| 7600305 | Failed to create the PixelMap. Possible cause: Current PixelMap data is corrupted. |
+| 7600306 | Failed to convert the data. Possible causes: 1. Failed to perform pixel format conversion. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoExtractAlphaPixelMapSync(pixelMap: image.PixelMap) {
+  try {
+    const alphaMap = pixelMap.extractAlphaPixelMapSync();
+    console.info('创建Alpha通道PixelMap成功。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`创建Alpha通道PixelMap失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### createAlphaPixelmap9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createAlphaPixelmap(): Promise&lt;PixelMap&gt;
 
-根据Alpha通道的信息，来生成一个仅包含Alpha通道信息的PixelMap，生成的新PixelMap不可编辑，可用于阴影效果。YUV格式不支持此接口。使用Promise异步回调。
+根据Alpha通道的信息，来生成一个仅包含Alpha通道信息的ALPHA_8格式的PixelMap，生成的新PixelMap不可编辑，可用于阴影效果。YUV格式不支持此接口。使用Promise异步回调。
+
+从API版本26.0.0开始，建议使用[extractAlphaPixelMap](#extractalphapixelmap)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -1137,7 +2082,9 @@ async function CreateAlphaPixelmap(pixelMap:image.PixelMap) {
 
 createAlphaPixelmap(callback: AsyncCallback&lt;PixelMap&gt;): void
 
-根据Alpha通道的信息，来生成一个仅包含Alpha通道信息的PixelMap，生成的新PixelMap不可编辑，可用于阴影效果。YUV格式不支持此接口。使用callback异步回调。
+根据Alpha通道的信息，来生成一个仅包含Alpha通道信息的ALPHA_8格式的PixelMap，生成的新PixelMap不可编辑，可用于阴影效果。YUV格式不支持此接口。使用callback异步回调。
+
+从API版本26.0.0开始，建议使用[extractAlphaPixelMap](#extractalphapixelmap)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -1179,7 +2126,9 @@ async function CreateAlphaPixelmap(pixelMap:image.PixelMap) {
 
 createAlphaPixelmapSync(): PixelMap
 
-根据Alpha通道的信息，生成一个仅包含Alpha通道信息的PixelMap，生成的新PixelMap不可编辑，可用于阴影效果。YUV格式不支持此接口。同步返回PixelMap类型的结果。
+根据Alpha通道的信息，生成一个仅包含Alpha通道信息的ALPHA_8格式的PixelMap，生成的新PixelMap不可编辑，可用于阴影效果。YUV格式不支持此接口。同步返回PixelMap类型的结果。
+
+从API版本26.0.0开始，建议使用[extractAlphaPixelMapSync](#extractalphapixelmapsync)代替，以获得更完善的异常处理能力。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1216,6 +2165,139 @@ function CreateAlphaPixelmapSync(pixelMap:image.PixelMap) {
 
 
 
+#### applyScale
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyScale(x: number, y: number, level?: AntiAliasingLevel): Promise&lt;void&gt;
+
+根据指定的宽高缩放倍数和缩放算法对PixelMap进行缩放。使用Promise异步回调。
+
+> [!NOTE]
+> 建议宽高的缩放倍数取正数，否则会产生翻转效果。 缩放倍数 = 缩放后的图像尺寸 / 缩放前的图像尺寸。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| x | number | 是 | 宽度的缩放倍数。取值不能为0。 |
+| y | number | 是 | 高度的缩放倍数。取值不能为0。 |
+| level | AntiAliasingLevel | 否 | 采用的缩放算法。该参数对于ASTC格式的PixelMap不生效。默认值是AntiAliasingLevel.NONE。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyScale(pixelMap: image.PixelMap) {
+  pixelMap.applyScale(2, 1.5, image.AntiAliasingLevel.LOW)
+    .then(() => {
+      console.info('缩放成功。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`缩放失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### applyScaleSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyScaleSync(x: number, y: number, level?: AntiAliasingLevel): void
+
+根据指定的宽高缩放倍数和缩放算法对PixelMap进行缩放。
+
+> [!NOTE]
+> 建议宽高的缩放倍数取正数，否则会产生翻转效果。 缩放倍数 = 缩放后的图像尺寸 / 缩放前的图像尺寸。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| x | number | 是 | 宽度的缩放倍数。取值不能为0。 |
+| y | number | 是 | 高度的缩放倍数。取值不能为0。 |
+| level | AntiAliasingLevel | 否 | 采用的缩放算法。该参数对于ASTC格式的PixelMap不生效。默认值是AntiAliasingLevel.NONE。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyScaleSync(pixelMap: image.PixelMap) {
+  try {
+    pixelMap.applyScaleSync(2, 1.5, image.AntiAliasingLevel.LOW);
+    console.info('缩放成功。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`缩放失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### scale9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1223,6 +2305,8 @@ function CreateAlphaPixelmapSync(pixelMap:image.PixelMap) {
 scale(x: number, y: number, callback: AsyncCallback&lt;void&gt;): void
 
 根据输入的宽高的缩放倍数对图片进行缩放，使用callback形式返回。
+
+从API版本26.0.0开始，建议使用[applyScale](#applyscale)代替，以获得更完善的异常处理能力。
 
 > [!NOTE]
 > 建议宽高的缩放倍数取非负数，否则会产生翻转效果。 宽高的缩放倍数 = 缩放后的图片宽高 / 缩放前的图片宽高。
@@ -1273,6 +2357,8 @@ async function Scale(pixelMap:image.PixelMap) {
 scale(x: number, y: number): Promise&lt;void&gt;
 
 根据输入的宽高的缩放倍数对图片进行缩放。使用Promise异步回调。
+
+从API版本26.0.0开始，建议使用[applyScale](#applyscale)代替，以获得更完善的异常处理能力。
 
 > [!NOTE]
 > 建议宽高的缩放倍数取非负数，否则会产生翻转效果。 宽高的缩放倍数 = 缩放后的图片宽高 / 缩放前的图片宽高。
@@ -1327,6 +2413,8 @@ scaleSync(x: number, y: number): void
 
 根据输入的宽高的缩放倍数对图片进行缩放，同步返回结果。
 
+从API版本26.0.0开始，建议使用[applyScaleSync](#applyscalesync)代替，以获得更完善的异常处理能力。
+
 > [!NOTE]
 > 建议宽高的缩放倍数取非负数，否则会产生翻转效果。 宽高的缩放倍数 = 缩放后的图片宽高 / 缩放前的图片宽高。
 
@@ -1374,6 +2462,8 @@ function ScaleSync(pixelMap: image.PixelMap) {
 scale(x: number, y: number, level: AntiAliasingLevel): Promise&lt;void&gt;
 
 根据指定的缩放算法和输入的宽高的缩放倍数对图片进行缩放。使用Promise异步回调。
+
+从API版本26.0.0开始，建议使用[applyScale](#applyscale)代替，以获得更完善的异常处理能力。
 
 > [!NOTE]
 > 建议宽高的缩放倍数取非负数，否则会产生翻转效果。 宽高的缩放倍数 = 缩放后的图片宽高 / 缩放前的图片宽高。
@@ -1438,6 +2528,8 @@ function ScaleSync(pixelMap:image.PixelMap) {
 scaleSync(x: number, y: number, level: AntiAliasingLevel): void
 
 根据指定的缩放算法和输入的宽高的缩放倍数对图片进行缩放，同步返回结果。
+
+从API版本26.0.0开始，建议使用[applyScaleSync](#applyscalesync)代替，以获得更完善的异常处理能力。
 
 > [!NOTE]
 > 建议宽高的缩放倍数取非负数，否则会产生翻转效果。 宽高的缩放倍数 = 缩放后的图片宽高 / 缩放前的图片宽高。
@@ -1812,6 +2904,137 @@ function CloneSync(pixelMap: image.PixelMap) {
 
 
 
+#### applyTranslate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyTranslate(x: number, y: number): Promise&lt;void&gt;
+
+根据指定的横向和纵向距离对PixelMap进行平移。使用Promise异步回调。
+
+> [!NOTE]
+> 平移后的图片尺寸将变为：宽度 = 原宽度 + x，高度 = 原高度 + y。 建议平移后的图片尺寸不要超过屏幕的宽高。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| x | number | 是 | 横向平移的距离。单位为像素（px）。 |
+| y | number | 是 | 纵向平移的距离。单位为像素（px）。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyTranslate(pixelMap: image.PixelMap) {
+  pixelMap.applyTranslate(10, 20)
+    .then(() => {
+      console.info('平移成功。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`平移失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### applyTranslateSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyTranslateSync(x: number, y: number): void
+
+根据指定的横向和纵向距离对PixelMap进行平移。
+
+> [!NOTE]
+> 平移后的图片尺寸将变为：宽度 = 原宽度 + x，高度 = 原高度 + y。 建议平移后的图片尺寸不要超过屏幕的宽高。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| x | number | 是 | 横向平移的距离。单位为像素（px）。 |
+| y | number | 是 | 纵向平移的距离。单位为像素（px）。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyTranslateSync(pixelMap: image.PixelMap) {
+  try {
+    pixelMap.applyTranslateSync(10, 20);
+    console.info('平移成功。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`平移失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### translate9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1821,6 +3044,8 @@ translate(x: number, y: number, callback: AsyncCallback&lt;void&gt;): void
 根据输入的坐标对图片进行位置变换，使用callback形式返回。
 
 translate后的图片尺寸改变为：width+X ，height+Y，建议translate后的图片尺寸宽高不要超过屏幕的宽高。
+
+从API版本26.0.0开始，建议使用[applyTranslate](#applytranslate)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -1869,6 +3094,8 @@ translate(x: number, y: number): Promise&lt;void&gt;
 根据输入的坐标对图片进行位置变换。使用Promise异步回调。
 
 translate后的图片尺寸改变为：width+X ，height+Y，建议translate后的图片尺寸宽高不要超过屏幕的宽高。
+
+从API版本26.0.0开始，建议使用[applyTranslate](#applytranslate)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -1921,6 +3148,8 @@ translateSync(x: number, y: number): void
 
 translate后的图片尺寸改变为：width+X ，height+Y，建议translate后的图片尺寸宽高不要超过屏幕的宽高。
 
+从API版本26.0.0开始，建议使用[applyTranslateSync](#applytranslatesync)代替，以获得更完善的异常处理能力。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -1957,6 +3186,135 @@ function TranslateSync(pixelMap:image.PixelMap) {
 
 
 
+#### applyRotate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyRotate(angle: number): Promise&lt;void&gt;
+
+根据指定的角度对PixelMap进行旋转。YUV格式仅支持90°倍数的旋转角。使用Promise异步回调。
+
+> [!NOTE]
+> 图像旋转角度的取值范围为[0, 360]。超出取值范围时，将根据圆周360°自动矫正。例如，-100°与260°效果相同。 当旋转角度不是90°的倍数时，图像的尺寸会扩大为旋转后的外接矩形尺寸，以容纳旋转后的图像内容。例如：旋转45°时，输出图像尺寸为原图像的√2倍。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| angle | number | 是 | 旋转的角度。单位为角度。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyRotate(pixelMap: image.PixelMap) {
+  pixelMap.applyRotate(90)
+    .then(() => {
+      console.info('旋转成功。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`旋转失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### applyRotateSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyRotateSync(angle: number): void
+
+根据指定的角度对PixelMap进行旋转。YUV格式仅支持90°倍数的旋转角。
+
+> [!NOTE]
+> 图像旋转角度的取值范围为[0, 360]。超出取值范围时，将根据圆周360°自动矫正。例如，-100°与260°效果相同。 当旋转角度不是90°的倍数时，图像的尺寸会扩大为旋转后的外接矩形尺寸，以容纳旋转后的图像内容。例如：旋转45°时，输出图像尺寸为原图像的√2倍。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| angle | number | 是 | 旋转的角度。单位为角度。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyRotateSync(pixelMap: image.PixelMap) {
+  try {
+    pixelMap.applyRotateSync(90);
+    console.info('旋转成功。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`旋转失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### rotate9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1964,6 +3322,8 @@ function TranslateSync(pixelMap:image.PixelMap) {
 rotate(angle: number, callback: AsyncCallback&lt;void&gt;): void
 
 根据输入的角度对图片进行旋转，使用callback形式返回。
+
+从API版本26.0.0开始，建议使用[applyRotate](#applyrotate)代替，以获得更完善的异常处理能力。
 
 > [!NOTE]
 > 图片旋转的角度取值范围：[0, 360]。超出取值范围时，根据圆周360度自动矫正。例如，-100度与260度效果相同。 如果图片旋转的角度不是90的整数倍，旋转后图片的尺寸会发生改变。
@@ -2012,6 +3372,8 @@ async function Rotate(pixelMap:image.PixelMap) {
 rotate(angle: number): Promise&lt;void&gt;
 
 根据输入的角度对图片进行旋转。使用Promise异步回调。
+
+从API版本26.0.0开始，建议使用[applyRotate](#applyrotate)代替，以获得更完善的异常处理能力。
 
 > [!NOTE]
 > 图片旋转的角度取值范围：[0, 360]。超出取值范围时，根据圆周360度自动矫正。例如，-100度与260度效果相同。 如果图片旋转的角度不是90的整数倍，旋转后图片的尺寸会发生改变。
@@ -2064,6 +3426,8 @@ rotateSync(angle: number): void
 
 根据输入的角度对图片进行旋转，同步返回结果。
 
+从API版本26.0.0开始，建议使用[applyRotateSync](#applyrotatesync)代替，以获得更完善的异常处理能力。
+
 > [!NOTE]
 > 图片旋转的角度取值范围：[0, 360]。超出取值范围时，根据圆周360度自动矫正。例如，-100度与260度效果相同。 如果图片旋转的角度不是90的整数倍，旋转后图片的尺寸会发生改变。
 
@@ -2102,6 +3466,129 @@ function RotateSync(pixelMap: image.PixelMap) {
 
 
 
+#### applyFlip
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyFlip(horizontal: boolean, vertical: boolean): Promise&lt;void&gt;
+
+根据指定的条件对PixelMap进行翻转。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| horizontal | boolean | 是 | 是否进行水平翻转。true表示进行水平翻转，false表示不进行水平翻转。 |
+| vertical | boolean | 是 | 是否进行垂直翻转。true表示进行垂直翻转，false表示不进行垂直翻转。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. |
+| 7600301 | Failed to allocate memory. Possible cause: The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyFlip(pixelMap: image.PixelMap) {
+  pixelMap.applyFlip(true, false)
+    .then(() => {
+      console.info('翻转成功。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`翻转失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### applyFlipSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyFlipSync(horizontal: boolean, vertical: boolean): void
+
+根据指定的条件对PixelMap进行翻转。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| horizontal | boolean | 是 | 是否进行水平翻转。true表示进行水平翻转，false表示不进行水平翻转。 |
+| vertical | boolean | 是 | 是否进行垂直翻转。true表示进行垂直翻转，false表示不进行垂直翻转。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600206 | Invalid parameter. |
+| 7600301 | Failed to allocate memory. Possible cause: The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyFlipSync(pixelMap: image.PixelMap) {
+  try {
+    pixelMap.applyFlipSync(true, false);
+    console.info('翻转成功。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`翻转失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### flip9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2109,6 +3596,8 @@ function RotateSync(pixelMap: image.PixelMap) {
 flip(horizontal: boolean, vertical: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 根据输入的条件对图片进行翻转，使用callback形式返回。
+
+从API版本26.0.0开始，建议使用[applyFlip](#applyflip)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -2155,6 +3644,8 @@ async function Flip(pixelMap:image.PixelMap) {
 flip(horizontal: boolean, vertical: boolean): Promise&lt;void&gt;
 
 根据输入的条件对图片进行翻转。使用Promise异步回调。
+
+从API版本26.0.0开始，建议使用[applyFlip](#applyflip)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -2205,6 +3696,8 @@ flipSync(horizontal: boolean, vertical: boolean): void
 
 根据输入的条件对图片进行翻转并同步返回结果。
 
+从API版本26.0.0开始，建议使用[applyFlipSync](#applyflipsync)代替，以获得更完善的异常处理能力。
+
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
@@ -2243,6 +3736,147 @@ function FlipSync(pixelMap:image.PixelMap) {
 
 
 
+#### applyCrop
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyCrop(region: Region): Promise&lt;void&gt;
+
+根据指定的区域信息对PixelMap进行裁剪。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| region | Region | 是 | 裁剪的区域，区域范围不能超过图片的宽高。单位为像素（px）。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600204 | The specified region is invalid or out of range. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. Failed to process pixel data. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyCrop(pixelMap: image.PixelMap) {
+  const currSize = pixelMap.getImageInfoSync().size;
+  const region: image.Region = { // 裁剪区域设为图像中心四分之一的区域。
+    x: currSize.width / 4,
+    y: currSize.height / 4,
+    size: {
+      width: currSize.width / 2,
+      height: currSize.height / 2
+    }
+  };
+
+  pixelMap.applyCrop(region)
+    .then(() => {
+      console.info('裁剪成功。');
+    })
+    .catch((e: BusinessError) => {
+      console.error(`裁剪失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### applyCropSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+applyCropSync(region: Region): void
+
+根据指定的区域信息对PixelMap进行裁剪。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| region | Region | 是 | 裁剪的区域，区域范围不能超过图片的宽高。单位为像素（px）。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600104 | Failed to get image data. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+| 7600105 | The PixelMap has been released. |
+| 7600106 | The PixelMap has been passed to another thread. |
+| 7600201 | Unsupported operation because the PixelMap is locked. |
+| 7600204 | The specified region is invalid or out of range. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. Failed to process pixel data. 2. The system is out of memory. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoApplyCropSync(pixelMap: image.PixelMap) {
+  const currSize = pixelMap.getImageInfoSync().size;
+  const region: image.Region = { // 裁剪区域设为图像中心四分之一的区域。
+    x: currSize.width / 4,
+    y: currSize.height / 4,
+    size: {
+      width: currSize.width / 2,
+      height: currSize.height / 2
+    }
+  };
+
+  try {
+    pixelMap.applyCropSync(region);
+    console.info('裁剪成功。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`裁剪失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### crop9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2250,6 +3884,8 @@ function FlipSync(pixelMap:image.PixelMap) {
 crop(region: Region, callback: AsyncCallback&lt;void&gt;): void
 
 根据输入的尺寸对图片进行裁剪，使用callback形式返回。
+
+从API版本26.0.0开始，建议使用[applyCrop](#applycrop)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -2294,6 +3930,8 @@ async function Crop(pixelMap:image.PixelMap) {
 crop(region: Region): Promise&lt;void&gt;
 
 根据输入的尺寸对图片进行裁剪。使用Promise异步回调。
+
+从API版本26.0.0开始，建议使用[applyCrop](#applycrop)代替，以获得更完善的异常处理能力。
 
 **卡片能力：** 从API version 12开始，该接口支持在ArkTS卡片中使用。
 
@@ -2342,6 +3980,8 @@ async function Crop(pixelMap:image.PixelMap) {
 cropSync(region: Region): void
 
 根据输入的尺寸裁剪图片。
+
+从API版本26.0.0开始，建议使用[applyCropSync](#applycropsync)代替，以获得更完善的异常处理能力。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -3037,7 +4677,7 @@ release(): Promise&lt;void&gt;
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/5E3j9poQTmGlOEcE_73zlA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074842Z&HW-CC-Expire=86400&HW-CC-Sign=51F7268CDEF9558E207CB25CA565A8D544A325685DC84B6EED6FD751AEE1AE76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/fmoUlnXrQva43BalY11lKA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020240Z&HW-CC-Expire=86400&HW-CC-Sign=AF427F6F64E2760D95BF627AAECA0EB1D6855ECA41B808C436384D9C4A99120E)
 
 
 释放指的是ArkTS对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。
@@ -3088,7 +4728,7 @@ release(callback: AsyncCallback&lt;void&gt;): void
 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/GR5--UdYReu1YUxCeVVbQA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074842Z&HW-CC-Expire=86400&HW-CC-Sign=EE78B2B2588B6970BA54F277664B8FF3CD017CE45388D9D83B9E7DB548C76985)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/g7BE4ublRvGEub4aHuxr3w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020240Z&HW-CC-Expire=86400&HW-CC-Sign=7B11A545917D07ED7D58E983306E62766665FD5704C581B911BDF7F3035C3287)
 
 
 释放指的是ArkTS对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。
@@ -3142,7 +4782,7 @@ YUV和RGB类型互转。使用Promise异步回调。
 从API18开始，可用于ASTC_4x4类型转为RGBA_8888类型，目前仅支持ASTC_4x4转为RGBA_8888。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/FLYkxiFKSm2c0VIgBCNzUw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074842Z&HW-CC-Expire=86400&HW-CC-Sign=E2EF6C0E476965849A46EEBD9B033203BC8A5118239C0E1B6131C10B179F19BA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/ZY2Hr7S-QhG3rw817WcWQQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020240Z&HW-CC-Expire=86400&HW-CC-Sign=90B563ED349922A5C48BCBD6DE571510642A951404941D49CCA95DFDC02B16D5)
 
 
 仅在ASTC_4x4格式的图像需要进行像素访问时，建议调用此接口将ASTC_4x4类型转为RGBA_8888类型。由于使用ASTC_4x4反解为RGBA_8888时延较高，其余情况下不推荐使用。
@@ -3292,7 +4932,7 @@ isReleased(): boolean
 检查PixelMap对象是否已被释放。如果已被释放，则任何访问该对象内部数据的方法调用将会失败。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/gP307jNTTK2CWdMOUWxvdg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074842Z&HW-CC-Expire=86400&HW-CC-Sign=3EDCF28255EE8FEF785D222F0159CD7B63A593E7B89A9B26688139798ACDC09F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/XSwqlHjWQKSZF1CgRXBoQg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020240Z&HW-CC-Expire=86400&HW-CC-Sign=6F4FD872D0885B3123729945C6F5E7E8D58A6D2B1D0DB323721AE7CE364C47D3)
 
 
 释放指的是ArkTS对象释放与之关联的native对象的管理权。仅当所有管理该native对象的ArkTS对象都被释放时，native对象占用的内存才会被回收。

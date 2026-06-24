@@ -1,6 +1,6 @@
 # netQuality（网络质量）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-netquality
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -28,7 +28,11 @@ on(type: 'netQosChange', callback: Callback<Array&lt;NetworkQos&gt;>): void
  
 订阅网络质量信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.GET_NETWORK_INFO
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -82,7 +86,11 @@ off(type: 'netQosChange', callback?: Callback<Array&lt;NetworkQos&gt;>): void
  
 取消订阅网络质量信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.GET_NETWORK_INFO
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -129,7 +137,11 @@ on(type: 'netSceneChange', callback: Callback<Array&lt;NetworkScene&gt;>): void
  
 订阅网络场景信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.GET_NETWORK_INFO
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -186,7 +198,11 @@ off(type: 'netSceneChange', callback?: Callback<Array&lt;NetworkScene&gt;>): voi
  
 取消订阅网络场景信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.GET_NETWORK_INFO
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -233,7 +249,11 @@ reportQoe(appQoe: AppQoe): void
  
 应用传输体验反馈，上报失败，接口会抛出异常。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.GET_NETWORK_INFO
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -283,6 +303,10 @@ try {
 
 应用传输体验信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -301,6 +325,10 @@ try {
 
 网络质量回调信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -310,7 +338,7 @@ try {
 | pathType | PathType | 否 | 否 | 表明相应的数据路径上的网络质量信息。 |
 | linkUpBandwidth | RateBps | 否 | 否 | 上行带宽信息，单位为bps。 |
 | linkDownBandwidth | RateBps | 否 | 否 | 下行带宽信息，单位为bps。 |
-| linkUpRate | RateBps | 否 | 否 | 上行速率，单位为bps。 |
+| linkUpRate | RateBps | 否 | 否 | 上行速率，单位为bps |
 | linkDownRate | RateBps | 否 | 否 | 下行速率，单位为bps。 |
 | rttMs | number | 否 | 否 | RTT时延，表示统计时间间隔内，pathType对应数据路径上，所有的TCP上下行数据包的平均往返时延。取值范围为0或任意正数，单位：毫秒（ms）。 如果在统计时间间隔内没有收到某次TCP请求的回复，则该次的RTT时延不会被计入该统计时间间隔内。因此，在完全不可上网的场景下，由于无法收到TCP的回复，回调中的RTT时延值会比较小，与实际状态不一致。针对完全不可上网的场景，建议结合on('netCapabilitiesChange')方法进行综合判断。 |
 | linkUpBufferDelayMs | number | 否 | 否 | 上行发送空口缓冲时延，取值范围是任意正数。 |
@@ -324,6 +352,10 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 数据路径类型，枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -347,6 +379,10 @@ type RateBps = number
  
 带宽或速率的抽象表示。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -365,6 +401,10 @@ type RateBps = number
 type ServiceType = 'default' | 'background' | 'realtimeVoice' | 'realtimeVideo' | 'callSignaling' | 'realtimeGame' | 'normalGame' | 'shortVideo' | 'longVideo' | 'livestreamingAnchor' | 'livestreamingWatcher' | 'download' | 'upload' | 'browser' | 'transaction' | 'shopping' | 'detection' | 'cloudService' | 'voiceConference' | 'videoConference' | 'audio' | 'navigation' | 'seckillService' | 'login'
  
 应用业务类型。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -408,6 +448,10 @@ type QoeType = 'good' | BadQoeCause
  
 应用体验类型。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -427,6 +471,10 @@ type QoeType = 'good' | BadQoeCause
 type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOutOfOrder' | 'highJitter' | 'highLatency'
  
 应用体验差类型。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -451,6 +499,10 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
 
 定义了多个速率或带宽的常量值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -472,6 +524,10 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
 
 网络场景状态变更回调信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -491,6 +547,10 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
 **支持设备：** Phone | PC/2in1 | Tablet
 
 弱信号预测相关信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -512,6 +572,10 @@ type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOu
 type Scene = 'normal' | 'congestion' | 'frequentHandover' | 'weakSignal'
  
 场景类型。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -535,6 +599,10 @@ type DataSpeedSimpleAction = 'suspendData' | 'decreaseData' | 'increaseData' | '
  
 应用发包策略的简单建议。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -556,6 +624,10 @@ type DataSpeedSimpleAction = 'suspendData' | 'decreaseData' | 'increaseData' | '
 type RecommendedAction = 'doCaching' | DataSpeedSimpleAction
  
 应用数传策略建议。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  

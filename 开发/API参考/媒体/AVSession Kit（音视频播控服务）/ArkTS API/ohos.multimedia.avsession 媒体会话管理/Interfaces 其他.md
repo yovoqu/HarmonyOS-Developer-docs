@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-i
 **支持设备：** Phone | PC/2in1 | Tablet | TV | Wearable
@@ -83,6 +83,8 @@
 | drmSchemes12+ | Array&lt;string&gt; | 否 | 是 | 当前session支持的DRM方案，取值为DRM方案uuid。 |
 | skipIntervals11+ | SkipIntervals | 否 | 是 | 快进快退支持的时间间隔。默认为SECONDS_15，即15秒。 |
 | displayTags11+ | number | 否 | 是 | 媒体资源的金标类型，取值参考DisplayTag。 |
+| rewindSkipIntervals | SkipIntervals | 否 | 是 | 快退支持的时间间隔。默认为SECONDS_15，即15秒。 系统会使用此值作为快退操作的时间间隔，而非skipIntervals的值。 若未设置此参数，快退操作的时间间隔仍会沿用skipIntervals的值。 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 |
+| fastForwardSkipIntervals | SkipIntervals | 否 | 是 | 快进支持的时间间隔。默认为SECONDS_15，即15秒。 系统会使用此值作为快进操作的时间间隔，而非skipIntervals的值。 若未设置此参数，快进操作的时间间隔仍会沿用skipIntervals的值。 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 |
 
 
 
@@ -100,7 +102,7 @@
 | subtitle | string | 否 | 是 | 播放列表媒体子标题。 在使用了cast+协议的音频投播场景下，不支持使用该属性。 系统能力： SystemCapability.Multimedia.AVSession.Core 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | description | string | 否 | 是 | 播放列表媒体描述的文本。 系统能力： SystemCapability.Multimedia.AVSession.Core 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | mediaImage | image.PixelMap \| string | 否 | 是 | 设置播放列表媒体图片像素数据。 在使用了cast+协议的音视频投播场景下，该字段用于给对端设备设置媒体专辑封面。 当入参为string类型时： - 只支持使用网络URI设置封面，不支持本地URI。 - 其作用与albumCoverUri属性功能相同，且优先级高于albumCoverUri。 从API version 23开始，支持入参为image.PixelMap类型给对端设备设置媒体信息。 系统能力： SystemCapability.Multimedia.AVSession.Core 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| extras | {[key: string]: Object;} | 否 | 是 | 播放列表媒体额外字段。 系统能力： SystemCapability.Multimedia.AVSession.Core |
+| extras | {[key: string]: Object} | 否 | 是 | 播放列表媒体额外字段。 从API版本26.0.0开始，DLNA投播场景下支持将ExtraKey中DLNA_CURRENT_URI_METADATA和DLNA_DIDL_LITE两个键的值传递给对端设备，键值对的值需传入符合XML格式的字符串。如传入入参{[avSession.ExtraKey.DLNA_CURRENT_URI_METADATA]: '&lt;xxtv&gt;...</xxtv>'}。 - 非DLNA投播场景不生效。 - 非字符串类型不生效。 - 非XML格式会触发on('castControlIoError')回调并返回错误码6612000。错误码的详细介绍请参见媒体会话管理错误码。 - 通过extras字段，在ExtraKey中通过DLNA_CURRENT_URI_METADATA和DLNA_DIDL_LITE键传入的字符串总长度需小于40960字节。 系统能力： SystemCapability.Multimedia.AVSession.Core |
 | mediaUri | string | 否 | 是 | 播放列表媒体URI。 系统能力： SystemCapability.Multimedia.AVSession.Core 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | mediaType | string | 否 | 是 | 播放列表媒体类型。 系统能力： SystemCapability.Multimedia.AVSession.Core 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | mediaSize | number | 否 | 是 | 播放列表媒体的大小。 系统能力： SystemCapability.Multimedia.AVSession.Core 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -164,7 +166,7 @@
 | duration11+ | number | 否 | 是 | 当前媒体资源的时长。 |
 | videoWidth11+ | number | 否 | 是 | 媒体资源的视频宽度，单位为像素（px）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | videoHeight11+ | number | 否 | 是 | 媒体资源的视频高度，单位为像素（px）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| extras | {[key: string]: Object;} | 否 | 是 | 自定义媒体数据。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| extras | {[key: string]: Object} | 否 | 是 | 自定义媒体数据。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 
 
 

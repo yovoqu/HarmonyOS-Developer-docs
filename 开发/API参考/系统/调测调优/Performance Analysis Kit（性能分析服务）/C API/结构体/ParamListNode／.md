@@ -1,6 +1,6 @@
 # ParamListNode*
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-paramlistnode8h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ParamListNode* ParamList
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-事件参数列表节点。
+事件参数列表节点。用于组织和管理事件参数列表信息，通过ParamListNode可以构建参数链表，支持多参数事件的参数传递。
  
 **起始版本：** 8
  

@@ -1,6 +1,6 @@
 # AntifraudPicker（反诈选择器）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-antifraudpicker-api
 **支持设备：** Phone | Tablet
@@ -26,6 +26,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 
 获取诈骗消息的请求参数。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Antifraud
  
 **起始版本：** 5.0.3(15)
@@ -42,6 +44,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 **支持设备：** Phone | Tablet
 
 单条诈骗消息信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.Antifraud
  
@@ -67,6 +71,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 
 彩信附件信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Antifraud
  
 **起始版本：** 5.0.3(15)
@@ -85,6 +91,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 
 诈骗消息结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Antifraud
  
 **起始版本：** 5.0.3(15)
@@ -101,6 +109,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 **支持设备：** Phone | Tablet
 
 单条诈骗通话记录信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.Antifraud
  
@@ -123,6 +133,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 
 诈骗通话记录结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Antifraud
  
 **起始版本：** 5.0.3(15)
@@ -139,6 +151,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 **支持设备：** Phone | Tablet
 
 获取诈骗通话记录的请求参数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.Antifraud
  
@@ -158,6 +172,8 @@ import {antifraudPicker} from '@kit.DeviceSecurityKit';
 selectFraudMessage(context: common.Context, options?: [AntifraudMessageOptions](#antifraudmessageoptions)): Promise<[AntifraudMessageResult](#antifraudmessageresult)>
  
 拉起诈骗消息选择器，并获取用户选择的诈骗消息信息。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.USE_FRAUD_MESSAGES_PICKER
  
@@ -182,7 +198,7 @@ selectFraudMessage(context: common.Context, options?: [AntifraudMessageOptions](
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-antifraudpicker) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-antifraudpicker) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -226,6 +242,8 @@ selectFraudCallLog(context: common.Context, options?: [AntifraudCallLogOptions](
  
 拉起诈骗通话记录选择器，并获取用户选择的诈骗通话记录信息。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.USE_FRAUD_CALL_LOG_PICKER
  
 **系统能力：** SystemCapability.Security.Antifraud
@@ -249,7 +267,7 @@ selectFraudCallLog(context: common.Context, options?: [AntifraudCallLogOptions](
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-antifraudpicker) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-antifraudpicker) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -291,6 +309,8 @@ try {
 
 获取诈骗应用的请求参数。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Antifraud
  
 **起始版本：** 5.1.1(19)
@@ -308,6 +328,8 @@ try {
 
 诈骗应用结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Antifraud
  
 **起始版本：** 5.1.1(19)
@@ -324,6 +346,8 @@ try {
 **支持设备：** Phone | Tablet
 
 单条诈骗应用信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.Antifraud
  
@@ -351,6 +375,8 @@ selectFraudApp(context: common.Context, options?: [AntifraudAppOptions](#antifra
  
 拉起诈骗应用选择器，并获取用户选择的诈骗应用信息。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.USE_FRAUD_APP_PICKER
  
 **系统能力：** SystemCapability.Security.Antifraud
@@ -374,7 +400,7 @@ selectFraudApp(context: common.Context, options?: [AntifraudAppOptions](#antifra
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-antifraudpicker) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-antifraudpicker) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |

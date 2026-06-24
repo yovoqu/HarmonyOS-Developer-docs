@@ -1,6 +1,6 @@
 # wearEngine（穿戴设备能力开放）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api
 **支持设备：** Phone | Tablet | Wearable
@@ -60,7 +60,7 @@ getAuthClient(context: common.Context): AuthClient
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -126,7 +126,7 @@ requestAuthorization(request: AuthorizationRequest): Promise&lt;AuthorizationRes
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -187,7 +187,7 @@ getAuthorization(): Promise&lt;AuthorizationResponse&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -317,7 +317,7 @@ getDeviceClient(context: common.Context): DeviceClient
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -373,7 +373,7 @@ getConnectedDevices(): Promise<Device[]>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -462,7 +462,7 @@ isWearEngineCapabilitySupported(capability: WearEngineCapability): Promise&lt;bo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -538,7 +538,7 @@ isDeviceCapabilitySupported(capability: DeviceCapability): Promise&lt;boolean&gt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -606,7 +606,7 @@ getSerialNumber(): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -766,7 +766,7 @@ getMonitorClient(context: common.Context): MonitorClient
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -833,12 +833,12 @@ queryStatus(deviceRandomId: string, item: MonitorItem): Promise&lt;MonitorData&g
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| 801 | Capability not supported. |
+| 801 | The wearable device does not support the capabilities. |
 | 1008500001 | Network error. The network is unavailable. |
 | 1008500002 | No device is bound. |
 | 1008500003 | Device disconnected. |
@@ -914,12 +914,12 @@ subscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&lt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| 801 | Capability not supported. |
+| 801 | In Wearable, when subscribing to events other than changes in device connection status, this error code is returned. |
 | 1008500001 | Network error. The network is unavailable. |
 | 1008500002 | No device is bound. |
 | 1008500003 | Device disconnected. |
@@ -951,7 +951,7 @@ try {
     let device: wearEngine.Device = devices[0];
 
     let callback = (monitorEventData: wearEngine.MonitorEventData) => {
-      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`);
+      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`)
     }
     monitorClient.subscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
       .then(() => {
@@ -1002,12 +1002,12 @@ unsubscribeEvent(deviceRandomId: string, type: MonitorEvent, callback: Callback&
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
-| 801 | Capability not supported. |
+| 801 | In Wearable, when unsubscribing to events other than changes in device connection status, this error code is returned. |
 | 1008500001 | Network error. The network is unavailable. |
 | 1008500002 | No device is bound. |
 | 1008500003 | Device disconnected. |
@@ -1039,25 +1039,25 @@ try {
 
     // 解注册时回调函数需要保证和注册时为同一个对象
     let callback = (monitorEventData: wearEngine.MonitorEventData) => {
-      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`);
+      console.info(`Succeeded in listening change of ${monitorEventData.event}, the new status is ${monitorEventData.data}.`)
     }
 
     // 创建待删除的订阅任务
     monitorClient.subscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
       .then(() => {
         console.info(`Succeeded in subscribing wear status`);
-
-        // 删除之前创建的订阅任务
-        monitorClient.unsubscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
-          .then(() => {
-            console.info(`Succeeded in unsubscribing wear status`);
-          })
-          .catch((error: BusinessError) => {
-            console.error(`Failed to unsubscribe wear status. Code is ${error.code}, message is ${error.message}.`);
-          })
       })
       .catch((error: BusinessError) => {
         console.error(`Failed to subscribe wear status. Code is ${error.code}, message is ${error.message}.`);
+      })
+
+    // 删除之前创建的订阅任务
+    monitorClient.unsubscribeEvent(device.randomId, wearEngine.MonitorEvent.EVENT_WEAR_STATUS_CHANGED, callback)
+      .then(() => {
+        console.info(`Succeeded in unsubscribing wear status`);
+      })
+      .catch((error: BusinessError) => {
+        console.error(`Failed to unsubscribe wear status. Code is ${error.code}, message is ${error.message}.`);
       })
   }
 } catch (error) {
@@ -1185,7 +1185,7 @@ getP2pClient(context: common.Context): P2pClient
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1249,7 +1249,7 @@ isRemoteAppInstalled(deviceRandomId: string, remoteBundleName: string): Promise&
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1341,7 +1341,7 @@ getRemoteAppVersion(deviceRandomId: string, remoteBundleName: string): Promise&l
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1435,7 +1435,7 @@ startRemoteApp(deviceRandomId: string, remoteBundleName: string, transformLocalB
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1530,7 +1530,7 @@ startRemoteApp(deviceRandomId: string, remoteApp: AppInfo, startConfig: StartCon
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1620,7 +1620,7 @@ sendMessage(deviceRandomId: string, appParam: P2pAppParam, message: P2pMessage):
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1721,7 +1721,7 @@ transferFile(deviceRandomId: string, appParam: P2pAppParam, file: P2pFile, callb
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1842,7 +1842,7 @@ cancelFileTransfer(deviceRandomId: string, appParam: P2pAppParam, file: P2pFile)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1956,7 +1956,7 @@ registerMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callback:
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2004,7 +2004,7 @@ try {
         }
         // 设置需要发送的文件信息
         let callback = (p2pMessage: wearEngine.P2pMessage) => {
-          console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`);
+          console.info(`Succeeded in receiving message, the message is ${p2pMessage.content}.`)
         }
 
         p2pClient.registerMessageReceiver(device.randomId, appParam, callback).then(() => {
@@ -2061,7 +2061,7 @@ registerFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: Ca
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2109,11 +2109,11 @@ try {
         }
         // 设置需要发送的文件信息
         let callback = (p2pMessage: wearEngine.P2pFile) => {
-          console.info(`Succeeded in receiving file.`);
+          console.info(`Succeeded in receiving file.`)
         }
 
         p2pClient.registerFileReceiver(device.randomId, appParam, callback).then(() => {
-          console.info(`Succeeded in registering file receiver.`);
+          console.info(`Succeeded in registering file receiver.`)
         }).catch((error: BusinessError) => {
           console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
         })
@@ -2166,7 +2166,7 @@ registerFileReceiverWithProgress(deviceRandomId: string, appParam: P2pAppParam, 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2214,14 +2214,14 @@ try {
         // 设置需要发送的文件信息和传输进度
         let callback = (p2pMessage: wearEngine.P2pFile) => {
           if (!p2pMessage.file) {
-            console.info(`progress is ${p2pMessage.progress}`);
+            console.info(`progress is ${p2pMessage.progress}`)
           } else {
-            console.info(`Succeeded in receiving file.`);
+            console.info(`Succeeded in receiving file.`)
           }
         }
 
         p2pClient.registerFileReceiverWithProgress(device.randomId, appParam, callback).then(() => {
-          console.info(`Succeeded in registering file receiver.`);
+          console.info(`Succeeded in registering file receiver.`)
         }).catch((error: BusinessError) => {
           console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
         })
@@ -2274,7 +2274,7 @@ unregisterMessageReceiver(deviceRandomId: string, appParam: P2pAppParam, callbac
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2326,14 +2326,14 @@ try {
 
         p2pClient.registerMessageReceiver(device.randomId, appParam, callback).then(() => {
           console.info(`Succeeded in registering message receiver.`);
-
-          p2pClient.unregisterMessageReceiver(device.randomId, appParam, callback).then(() => {
-            console.info(`Succeeded in unregistering message receiver.`);
-          }).catch((error: BusinessError) => {
-            console.error(`Failed to unregister message receiver. Code is ${error.code}, message is ${error.message}.`);
-          })
         }).catch((error: BusinessError) => {
           console.error(`Failed to register message receiver. Code is ${error.code}, message is ${error.message}.`);
+        })
+
+        p2pClient.unregisterMessageReceiver(device.randomId, appParam, callback).then(() => {
+          console.info(`Succeeded in unregistering message receiver.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to unregister message receiver. Code is ${error.code}, message is ${error.message}.`);
         })
       }
     } catch (error) {
@@ -2384,7 +2384,7 @@ unregisterFileReceiver(deviceRandomId: string, appParam: P2pAppParam, callback: 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2436,14 +2436,14 @@ try {
 
         p2pClient.registerFileReceiver(device.randomId, appParam, callback).then(() => {
           console.info(`Succeeded in registering file receiver.`);
-
-          p2pClient.unregisterFileReceiver(device.randomId, appParam, callback).then(() => {
-            console.info(`Succeeded in unregistering file receiver.`);
-          }).catch((error: BusinessError) => {
-            console.error(`Failed to unregister file receiver. Code is ${error.code}, message is ${error.message}.`);
-          })
         }).catch((error: BusinessError) => {
           console.error(`Failed to register file receiver. Code is ${error.code}, message is ${error.message}.`);
+        })
+
+        p2pClient.unregisterFileReceiver(device.randomId, appParam, callback).then(() => {
+          console.info(`Succeeded in unregistering file receiver.`);
+        }).catch((error: BusinessError) => {
+          console.error(`Failed to unregister file receiver. Code is ${error.code}, message is ${error.message}.`);
         })
       }
     } catch (error) {
@@ -2658,7 +2658,7 @@ getNotifyClient(context: common.Context): NotifyClient
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2725,7 +2725,7 @@ notify(deviceRandomId: string, options: NotificationOptions): Promise&lt;void&gt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3018,7 +3018,7 @@ getSensorClient(context: common.Context): SensorClient
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3084,7 +3084,7 @@ getSensorList(deviceRandomId: string): Promise<Sensor[]>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3165,7 +3165,7 @@ subscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&lt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3259,7 +3259,7 @@ unsubscribeSensor(deviceRandomId: string, type: SensorType, callback: Callback&l
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3300,22 +3300,17 @@ try {
             console.info(`Succeeded in getting sensor result, result is ${sensorResult}`);
           }
           // 订阅加速度传感器数据上报
-          sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback)
-            .then(() => {
-              console.info(`Succeeded in subscribing sensor data.`);
-
-              // 取消加速度传感器数据上报，注意传入的回调函数需与订阅时为同一对象
-              sensorClient.unsubscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback)
-                .then(() => {
-                  console.info(`Succeeded in unsubscribing sensor data.`);
-                })
-                .catch((error: BusinessError) => {
-                  console.error(`Failed to unsubscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-                })
-            })
-            .catch((error: BusinessError) => {
-              console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
-            })
+          sensorClient.subscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
+            console.info(`Succeeded in subscribing sensor data.`);
+          }).catch((error: BusinessError) => {
+            console.error(`Failed to subscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+          })
+          // 取消加速度传感器数据上报，注意传入的回调函数需与订阅时为同一对象
+          sensorClient.unsubscribeSensor(device.randomId, wearEngine.SensorType.ACCELEROMETER, callback).then(() => {
+            console.info(`Succeeded in unsubscribing sensor data.`);
+          }).catch((error: BusinessError) => {
+            console.error(`Failed to unsubscribe sensor data. Code is ${error.code}, message is ${error.message}`);
+          })
         }
       })
     } catch (error) {
@@ -3473,7 +3468,7 @@ on(type: 'serviceDie', callback: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3526,7 +3521,7 @@ off(type: 'serviceDie', callback?: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3579,7 +3574,7 @@ destroy(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wearengine_api_error_code)。
+以下错误码的详细介绍请参见[Wear Engine ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wearengine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

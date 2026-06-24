@@ -1,11 +1,13 @@
 # ShellCmdResult
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-shellcmdresult
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供Shell命令执行结果的能力。
+ShellCmdResult是测试框架中用于封装Shell命令执行结果的数据对象，它包含stdResult（标准输出内容）和exitCode（退出码）两个关键属性，为测试脚本提供了结构化的命令执行结果访问方式。
+ 
+该模块适用于需要验证Shell命令执行结果或处理命令返回数据的测试场景，通过abilityDelegator的[executeShellCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitydelegator#executeshellcommand)方法获取。需要注意的是，其接口仅限测试框架中使用，不应在正式业务代码中调用。
  
 > [!NOTE]
 > 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在 单元测试框架 中使用。
@@ -26,7 +28,7 @@ import { abilityDelegatorRegistry } from '@kit.TestKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-通过abilityDelegator中的[executeShellCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitydelegator#executeshellcommand)方法来获取。
+调用abilityDelegator中的[executeShellCommand](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitydelegator#executeshellcommand)方法获取ShellCmdResult实例。调用成功后，返回ShellCmdResult对象，包含Shell命令的标准输出内容（stdResult）和退出码（exitCode）。
  
 **示例：**
  
@@ -37,7 +39,9 @@ import { BusinessError } from '@kit.BasicServicesKit';
 let abilityDelegator: abilityDelegatorRegistry.AbilityDelegator;
 let cmd = 'cmd';
 
+// 获取AbilityDelegator实例
 abilityDelegator = abilityDelegatorRegistry.getAbilityDelegator();
+// 执行Shell命令，通过回调获取执行结果
 abilityDelegator.executeShellCommand(cmd, (error: BusinessError, data) => {
   if (error) {
     console.error(`executeShellCommand fail, error: ${JSON.stringify(error)}`);
@@ -60,4 +64,4 @@ abilityDelegator.executeShellCommand(cmd, (error: BusinessError, data) => {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | stdResult | string | 否 | 否 | Shell命令的标准输出内容。 |
-| exitCode | number | 否 | 否 | Shell命令的结果码。 |
+| exitCode | number | 否 | 否 | Shell命令的退出码。返回值为0表示命令执行成功，非0表示命令执行失败。 |

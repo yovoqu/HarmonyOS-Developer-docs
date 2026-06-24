@@ -1,14 +1,10 @@
 # LoginWithHuaweiIDButton (华为账号Button登录组件)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-huawei-id-button
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-本模块提供LoginWithHuaweiIDButton组件，应用通过集成该组件完成华为账号登录功能。
- 
-LoginWithHuaweiIDButton需要配合[loginComponentManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager)一起使用，用于实现华为账号登录功能。LoginWithHuaweiIDButton组件文本内容默认支持多语言。
- 
 **起始版本：** 4.1.0(11)
   
 
@@ -26,7 +22,10 @@ import { LoginWithHuaweiIDButton, loginComponentManager } from '@kit.AccountKit'
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-该类为用来展示登录华为账号按钮的UI组件。
+@hms.core.account.LoginComponent模块提供独立的华为账号登录按钮组件，支持多种样式。该组件可嵌入应用自定义登录页面，开发者可通过如下方式接入：
+ 1. 创建[loginComponentManager.LoginWithHuaweiIDButtonController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#loginwithhuaweiidbuttoncontroller)控制器对象，支持通过链式调用注册按钮点击事件的回调函数、主动设置用户协议同意状态。对于一键登录场景，必须设置为 ACCEPTED 才能发起登录。
+2. 构造[loginComponentManager.LoginWithHuaweiIDButtonParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#loginwithhuaweiidbuttonparams)参数对象，配置登录类型、按钮样式等属性。
+3. 在页面组件中调用LoginWithHuaweiIDButton组件，传入LoginWithHuaweiIDButtonController控制器对象、LoginWithHuaweiIDButtonParams参数对象。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -40,8 +39,8 @@ import { LoginWithHuaweiIDButton, loginComponentManager } from '@kit.AccountKit'
   
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| params | LoginWithHuaweiIDButtonParams | 是 | - | LoginWithHuaweiIDButton组件参数。 |
-| controller | LoginWithHuaweiIDButtonController | 是 | - | LoginWithHuaweiIDButton组件控制器用来接收组件的点击事件。 |
+| params | loginComponentManager.LoginWithHuaweiIDButtonParams | 是 | @Require | LoginWithHuaweiIDButton组件参数。 |
+| controller | loginComponentManager.LoginWithHuaweiIDButtonController | 是 | @Require | LoginWithHuaweiIDButton组件控制器用来接收组件的点击事件。 |
  
  
   
@@ -52,7 +51,7 @@ import { LoginWithHuaweiIDButton, loginComponentManager } from '@kit.AccountKit'
 
 build(): void
  
-用于创建[LoginWithHuaweiIDButton](#loginwithhuaweiidbutton)对象的构造函数。
+[LoginWithHuaweiIDButton](#loginwithhuaweiidbutton)组件的构造函数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -108,7 +107,7 @@ struct QuickLoginButtonComponent {
           return;
         }
         if (response) {
-          // 获取到Authorization Code
+          // 获取到Authorization Code后，传给应用服务端
           const authorizationCode = response.authorizationCode;
           hilog.info(0x0000, 'testTag', 'Succeeded in getting response.');
           return;
@@ -129,7 +128,7 @@ struct QuickLoginButtonComponent {
     if (error.code === ErrorCode.ERROR_CODE_LOGIN_OUT) {
       // 用户未登录华为账号，请登录华为账号并重试或者尝试使用其他方式登录
     } else if (error.code === ErrorCode.ERROR_CODE_NETWORK_ERROR) {
-      // 网络异常，请检查当前网络状态并重试或者尝试使用其他方式登录
+      // 网络错误，请检查当前网络状态并重试
     } else if (error.code === ErrorCode.ERROR_CODE_INTERNAL_ERROR) {
       // 登录失败，请尝试使用其他方式登录
     } else if (error.code === ErrorCode.ERROR_CODE_USER_CANCEL) {

@@ -1,28 +1,30 @@
 # CPU活动分析
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-cpu
 
+#### 功能介绍
+
+ 
 开发者可使用DevEco Profiler的CPU场景调优分析，在应用或元服务运行时，实时显示CPU使用率和线程的运行状态，了解指定时间段内的CPU资源消耗情况，查看系统的关键打点（例如图形系统打点、应用服务框架打点等），进行更具针对性的优化。
+ 
+CPU模板支持的泳道包括：Energy、CPU Core、Process。本文介绍CPU Core、Process泳道，Energy泳道的详细信息请参考[能耗诊断：Energy分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-profiler-energy)。
+ 
+> [!NOTE]
+> 任务分析前，需创建CPU分析任务并录制相关数据，操作方法可参考 性能问题定位：深度录制 ，或在会话区选择 Open File ，导入历史数据。
+
  
 
 #### 查看各CPU使用情况
-1. 创建CPU分析任务并录制相关数据，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)，或在会话区选择**Open File**，导入历史数据。
-
-  CPU分析任务支持在录制前单击
-![](assets/CPU活动分析/file-20260514133157065-0.png)
-指定要录制的泳道。
-2. “CPU Core”泳道显示当前选择调优应用或元服务的CPU的使用率。
-
-  可在“CPU Core”右侧的下拉列表中选择显示内容：
+1. **CPU Core**泳道显示当前选择调优应用或元服务的CPU的使用率，在泳道右侧**options**下拉列表中选择显示内容：
 
   
 - Slice and Frequency：每个子泳道包含时间片和频率两部分，时间片显示占用该CPU核心的进程、线程。
 
-3. Usage and Frequency：每个子泳道包含CPU核心使用率和频率两部分。
+2. Usage and Frequency：每个子泳道包含CPU核心使用率和频率两部分。
 
-4. 将其展开，子泳道显示各CPU核心调度信息、各CPU核心频率信息以及各CPU核心使用率信息。
+3. 将其展开，子泳道显示各CPU核心调度信息、各CPU核心频率信息以及各CPU核心使用率信息。
 
   
 > [!NOTE]
@@ -33,24 +35,19 @@
 ![](assets/CPU活动分析/file-20260514133157065-11.png)
 
 
-5. 指定时间片，查看统计信息。
+4. 指定时间片，查看统计信息。
 
   
 单击某个运行状态的时间片，可查询这个时间片的基本运行信息及调度时延信息。
 ![](assets/CPU活动分析/file-20260514133157065-2.png)
 
 
-6. 框选多个时间片，则可查询多时间片的进程维度统计信息以及所有时间片的数据统计信息。
+5. 框选多个时间片，则可查询多时间片的进程维度统计信息以及所有时间片的数据统计信息。
 ![](assets/CPU活动分析/file-20260514133157065-3.png)
 
 
-7. 开启"View Integrated Scheduling Chain"后，点击CPU时间片泳道的节点可以查看某一个CPU运行线程的完整唤醒调度链。
+6. 开启"View Integrated Scheduling Chain"后，点击CPU时间片泳道的节点可以查看某一个CPU运行线程的完整唤醒调度链。
 ![](assets/CPU活动分析/file-20260514133157065-4.png)
-
-
-  
-> [!NOTE]
-> 在任务分析窗口，可以通过“Ctrl+鼠标滚轮”缩放时间轴，通过“Shift+鼠标滚轮”左右移动时间轴。或使用快捷键W/S放大或缩小时间轴，使用A键/D键可以左右移动时间轴。 将鼠标悬停在泳道任意位置，可以通过M键添加单点的时间标签。 鼠标框选要关注的时间段，可以通过“Shift+M”添加时间段的时间标签。 在任务分析窗口，可以通过“Ctrl+, ”向前选中单点的时间标签，通过“Ctrl+. ”向后选中单点的时间标签。 在任务分析窗口，可以通过“Ctrl+[ ”向前选中时间段的时间标签，通过“Ctrl+]”向后选中时间段的时间标签。 CPU分析支持能耗分析，请参见 能耗诊断：Energy分析 。
 
 
   
@@ -58,16 +55,16 @@
   #### 查询进程详情
 
   单击工具控制栏中的
-![](assets/CPU活动分析/file-20260514133157065-6.png)
+![](assets/CPU活动分析/file-20260514133157065-5.png)
 按钮，可以设置是否为精简模式。精简模式下，trace数据量将大幅减少，主要采集当前进程、大桌面进程和render_service进程的trace数据。
 
   
-![](assets/CPU活动分析/file-20260514133157065-7.png)
+![](assets/CPU活动分析/file-20260514133157065-6.png)
 
 
   进程泳道显示进程对各CPU核心的占用情况。展开进程泳道，显示进程下的线程列表以及线程的运行状态。
 单击运行状态的时间片，显示线程在该片段的运行详情，包括起始时间、持续时长、运行状态、频率、线程优先级、所属进程、所属线程、上一运行状态、下一运行状态、唤醒线程，支持跳转到上个或者下个线程运行状态，支持跳转到唤醒线程状态等。
-![](assets/CPU活动分析/file-20260514133157065-8.png)
+![](assets/CPU活动分析/file-20260514133157065-7.png)
 
 - 框选Thread泳道中多个运行状态的时间片，可查看此时间段内的不同运行状态的线程的统计信息，包括总耗时时长、最大耗时、最小耗时、平均耗时、处于当前状态的线程数量以及线程中的中载和重载数据统计。
 > [!NOTE]
@@ -75,7 +72,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/31/v3/zhuIRWfUSRO2js87iNhyLg/zh-cn_image_0000002571546858.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=3467765B3E5C8C8DE7A9E08765E1FD6E31E569EACBDD6EA78E17F1DF041C87EE)
+![](assets/CPU活动分析/file-20260514133157065-9.png)
 
 - 框选应用进程Process主泳道，可查看此时间段内该进程下的线程并行度统计信息。并行度数据每100ms做一次统计，可以查看100ms内运行的总线程数量、各线程并行的总时间和并行度。点选某一行，可以查看对应线程编号和运行时间段。
 > [!NOTE]
@@ -83,7 +80,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/TEYgLVlETOulaCBvNyiv-g/zh-cn_image_0000002602186393.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=14DB83A998CB8B510D1BE191BDFB944E83C8C0F0DA030001C7DADAAF219A327C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/kSlPqJJZS0i_9YzWYDuftw/zh-cn_image_0000002624994169.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=ADCE463215D05B6C3AC2F73ACC2575ADFDDB4F37AA38F89F203F162E05CBF4C3)
 
 
  
@@ -99,7 +96,7 @@
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5f/v3/Usvx9VRPS1SULREAhTSFDg/zh-cn_image_0000002602186395.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=9C93C102F730169A66FAE7511C69E0DED6E27A1FF5D98DA7F1BFAD0B2EA749F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/VdDLo9j2T1iGq8dEKlTqWQ/zh-cn_image_0000002624994167.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=3C71084C91B61C654804C63026515D2B259ABAB229BE0F48CFD7F85330C0D9A8)
 
 - 框选多个Trace片段，可查看到Trace统计信息列表，包括Trace名称、此类Trace的总耗时、单个Trace的平均耗时、以及该时间段内该类Trace的触发次数等。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4b/v3/Z1W0CA6DSmqbV3g5ZF4t4A/zh-cn_image_0000002602186399.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=E7359AA620B9D54DD799C6EB9D5F50427A5CDF8C54FDD6C24F4101D1E06C2FFE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/zVtTzzz4RQqqGgyNfTarDg/zh-cn_image_0000002624994173.png?HW-CC-KV=V1&HW-CC-Date=20260624T020722Z&HW-CC-Expire=86400&HW-CC-Sign=16B8A08B596EDFDF7036732955F3908D69EE4B246B5ECB121AC3D06D94C513B7)

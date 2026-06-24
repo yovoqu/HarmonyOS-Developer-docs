@@ -1,6 +1,6 @@
 # cloudFunction (云函数模块)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cloudfoundation-cloudfunction
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,7 +48,7 @@ call(parameters: FunctionParams, callback: AsyncCallback&lt;FunctionResult&gt;):
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -119,7 +119,7 @@ call(parameters: FunctionParams): Promise&lt;FunctionResult&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -171,7 +171,7 @@ cloudFunction.call({
 | name | string | 否 | 否 | 云函数名称。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | data | string \| Object | 否 | 是 | 函数请求体。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | version | string | 否 | 是 | 云函数版本，默认是‘$latest’，表示最新版本。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| timeout | number | 否 | 是 | 函数请求超时时间，单位毫秒，默认为70*1000毫秒。 取值范围无限制，会转成unsigned long类型。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| timeout | number | 否 | 是 | 函数请求超时时间，单位ms，默认为70*1000ms。 取值范围无限制，会转成unsigned long类型。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | loadMode | LoadMode | 否 | 是 | 函数请求加载模式，默认为NORMAL。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | localUrl | string | 否 | 是 | 本地启动的云函数地址，格式为http://域名:端口，例如http://localhost:18090。 该参数仅在调试本地云函数阶段需要使用，调试完成将云函数部署至云侧后不能再使用。 起始版本： 6.0.1(21) 元服务API： 从版本6.0.1(21)开始，该接口支持在元服务中使用。 |
  
@@ -195,7 +195,7 @@ cloudFunction.call({
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NORMAL | 0 | 普通模式，每次调用call方法均需请求服务器拉取数据。 |
-| PRELOAD | 1 | 预加载模式，仅在安装应用时返回一次结果数据，后续调用将返回错误。 设备行为差异： 该参数在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中传此参数时，返回1008211001错误码。 说明： HarmonyOS 5.0.3版本增强了预加载功能，将多种预加载能力（如安装预加载、周期性预加载）整合进了一套全新的API中，使体验更加友好，具体请参见cloudResPrefetch（预加载模块）。 |
+| PRELOAD | 1 | 预加载模式，仅在安装应用时返回一次结果数据，后续调用安装预加载将返回错误。 设备行为差异： 该参数在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中传此参数时，返回1008211001错误码。 说明： HarmonyOS 5.0.3版本增强了预加载功能，将多种预加载能力（如安装预加载、周期性预加载）整合进了一套全新的API中，使体验更加友好，具体请参见cloudResPrefetch（预加载模块）。 |
  
  
   

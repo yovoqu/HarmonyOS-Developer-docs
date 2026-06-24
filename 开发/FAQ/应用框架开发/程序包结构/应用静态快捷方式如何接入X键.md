@@ -1,6 +1,6 @@
 # 应用静态快捷方式如何接入X键
 
-更新时间：2026-04-08 09:21:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-71
 

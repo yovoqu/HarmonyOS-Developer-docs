@@ -1,6 +1,6 @@
 # @ohos.multimedia.movingphotoview (动态照片)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-multimedia-movingphotoview
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -589,7 +589,7 @@ class MediaDataHandlerMovingPhoto implements photoAccessHelper.MediaAssetDataHan
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/KvJjjyM6SYWauqyhlAyD8Q/zh-cn_image_0000002611756937.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025340Z&HW-CC-Expire=86400&HW-CC-Sign=165FA36CFF8C5E0115583BE73B730FAF206EFC76E6A72782C2BE3262767E5767)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/CO2VV3IMTcaOdKQLAg6d5Q/zh-cn_image_0000002626071644.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020303Z&HW-CC-Expire=86400&HW-CC-Sign=2359012685A858F3A37DEF715C3D90D294A641F3CECB8834CB35275502910810)
 
 
 
@@ -691,7 +691,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/30/v3/YLM6sSIGQtGm5yuCZfXGww/zh-cn_image_0000002581436996.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025340Z&HW-CC-Expire=86400&HW-CC-Sign=8353FDDB458601B319F0C5639B95DCC50FBA1FECED05C4BE43B362D3B716B94C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/2y5g9QtlQ9yNqt1IV3BQDA/zh-cn_image_0000002656470921.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020303Z&HW-CC-Expire=86400&HW-CC-Sign=2A6017FCB7EE23AEC1C7F1055B106F6473488BF56575FEEC9623626F6F231EB9)
 
 
 
@@ -853,4 +853,4 @@ class MediaDataHandlerMovingPhoto implements photoAccessHelper.MediaAssetDataHan
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/08/v3/Xvr8l_t6R7aYRU1fTsxqoQ/zh-cn_image_0000002611836829.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025340Z&HW-CC-Expire=86400&HW-CC-Sign=136373DC6BEBED6E8052C5350B46D9486F36DF3BB61B2D59B7DDB022D1C0C1F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/MCuVDLdNQdSsxK34mgz2jg/zh-cn_image_0000002656350971.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020303Z&HW-CC-Expire=86400&HW-CC-Sign=8618E3F3B5E4BEBAD1AC47AD872BE87521E1558AF2DE63BFC2AF6014DC698C3C)

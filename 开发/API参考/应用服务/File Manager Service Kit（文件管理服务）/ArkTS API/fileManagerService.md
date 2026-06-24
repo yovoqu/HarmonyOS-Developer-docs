@@ -1,6 +1,6 @@
 # fileManagerService
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/filemanagerservice-arkts-filemanagerservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -36,6 +36,8 @@ deleteToTrash(uri: string): Promise&lt;string&gt;
   
 
  
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.FileManagement.FileManagerService.Core
  
 **起始版本：** 5.0.5(17)
@@ -51,7 +53,7 @@ deleteToTrash(uri: string): Promise&lt;string&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | 文件删除到回收站后的uri。使用Promise异步回调。 |
+| Promise&lt;string&gt; | Promise对象，返回文件删除到回收站后的uri。 |
  
  
 **错误码**：
@@ -100,6 +102,8 @@ getFileIconSync(fileType: string): string | Resource
  
 **需要权限**：ohos.permission.GET_FILE_ICON
  
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.FileManagement.FileManagerService.Core
  
 **起始版本：** 5.0.5(17)
@@ -143,7 +147,9 @@ struct Index {
 
   private getFileIconByFileExtension(filenameExtension: string): void {
     try {
+      // 1、根据文件的后缀名，获取后缀名对应文件类型的UTD-ID
       let typeId: string = uniformTypeDescriptor.getUniformDataTypeByFilenameExtension(filenameExtension);
+      // 2、调用getFileIconSync方法，根据UTD-ID获取对应的文件图标
       this.fileIcon = fileManagerService.getFileIconSync(typeId);
     } catch (error) {
       let err: BusinessError = error as BusinessError;
@@ -182,6 +188,8 @@ getFileIcon(fileType: string): Promise<string | Resource>
  
 **需要权限**：ohos.permission.GET_FILE_ICON
  
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.FileManagement.FileManagerService.Core
  
 **起始版本：** 5.0.5(17)
@@ -197,7 +205,7 @@ getFileIcon(fileType: string): Promise<string | Resource>
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise<string \| Resource> | 文件图标的Base64编码或资源对象。使用Promise异步回调。 |
+| Promise<string \| Resource> | Promise对象，返回文件图标的Base64编码或资源对象。 |
  
  
 **错误码**：
@@ -226,7 +234,9 @@ struct Index {
   private getFileIconByFileExtension(filenameExtension: string): void {
     try {
       console.info('getFileIconByFileExtension');
+      // 1、根据文件的后缀名，获取后缀名对应文件类型的UTD-ID
       let typeId: string = uniformTypeDescriptor.getUniformDataTypeByFilenameExtension(filenameExtension);
+      // 2、调用getFileIcon方法，根据UTD-ID获取对应的文件图标
       fileManagerService.getFileIcon(typeId).then((retIcon: string | Resource) => {
         this.fileIcon = retIcon;
       });
@@ -265,6 +275,8 @@ parseShortcut(linkUri: string): Promise&lt;string&gt;
  
 根据快捷方式文件的URI解析出对应原文件的URI。使用Promise异步回调。
  
+**模型约束**：此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.FileManagement.FileManagerService.Core
  
 **起始版本**：6.1.0(23)
@@ -280,7 +292,7 @@ parseShortcut(linkUri: string): Promise&lt;string&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | 对应原文件的URI。使用Promise异步回调。 |
+| Promise&lt;string&gt; | Promise对象，返回对应原文件的URI。 |
  
  
 **错误码**：

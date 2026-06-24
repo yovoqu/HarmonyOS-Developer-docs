@@ -1,18 +1,18 @@
 # @ohos.i18n (国际化-I18n)
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i18n
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供系统相关的以及增强的[国际化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/i18n-l10n)能力，包括区域管理、电话号码处理、日历等，相关接口为[ECMA 402](https://dev.ecma-international.org/publications-and-standards/standards/ecma-402/)标准中未定义的补充接口。[Intl模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-intl)提供了ECMA 402标准定义的基础国际化接口，与本模块共同使用可提供完整地国际化能力。接口中使用的名词定义如下：
+本模块提供系统相关的以及增强的[国际化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/i18n-l10n)能力，包括区域管理、电话号码处理、日历等，相关接口为[ECMA 402](https://dev.ecma-international.org/publications-and-standards/standards/ecma-402/)标准中未定义的补充接口。[国际化-Intl](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-intl)模块提供了ECMA 402标准定义的基础国际化接口，与本模块共同使用可提供完整的国际化能力。接口中使用的名词定义如下：
 
  - 模式字符串：由[Unicode日期字段符号](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table)和单引号包裹的自定义文本自由组合而成的字符串。
  - 框架字符串：由[Unicode日期字段符号](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table)自由组合而成的字符串，不支持自定义文本。
 
 
 > [!NOTE]
-> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口基于 CLDR 国际化数据库实现，随着CLDR标准的迭代演进，接口处理结果可能会相应调整。例如 时间日期格式化接口 ，其返回值仅适用于界面展示场景，开发者请勿对返回格式进行硬编码或假设性判断，否则可能导致版本兼容问题。其中，API version 12 对应 CLDR 42 版本，具体数据变更详情可查阅 CLDR官方文档 。 从API version 11开始，本模块部分接口支持在ArkTS卡片中使用。
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口基于 CLDR 国际化数据库实现，随着CLDR标准的迭代演进，接口处理结果可能会相应调整。例如时间日期格式化接口，其返回值仅适用于界面展示场景，开发者请勿对返回格式进行硬编码或假设性判断，否则可能导致版本兼容问题。其中，API version 12 对应 CLDR 42 版本，具体数据变更详情可查阅 CLDR官方文档 。 从API version 11开始，本模块部分接口支持在ArkTS卡片中使用。
 
 
 
@@ -856,43 +856,6 @@ let isArRTL: boolean = i18n.isRTL('ar-EG'); // 阿语是镜像语言，返回tru
 
 
 
-#### i18n.getCalendar8+
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-getCalendar(locale: string, type? : string): Calendar
-
-获取指定区域和历法的日历对象。
-
-**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
-**系统能力：** SystemCapability.Global.I18n
-
-**参数：**
-
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| locale | string | 是 | 表示区域ID的字符串，由语言、脚本、国家地区组成，例如zh-Hans-CN。 |
-| type | string | 否 | 表示历法，取值包括：buddhist, chinese, coptic, ethiopic, hebrew, gregory, indian, islamic_civil, islamic_tbla, islamic_umalqura, japanese, persian。 默认值：区域默认的历法。不同取值代表的含义和使用场景请参考设置日历和历法。 |
-
-
-**返回值：**
-
-| 类型 | 说明 |
-| --- | --- |
-| Calendar | 日历对象。 |
-
-
-**示例：**
-
-```text
-import { i18n } from '@kit.LocalizationKit';
-
-let calendar: i18n.Calendar = i18n.getCalendar('zh-Hans', 'chinese'); // 获取中国农历日历对象
-```
-
-
-
 #### EntityRecognizer11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1026,6 +989,41 @@ try {
 
 
 
+#### i18n.getCalendar8+
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getCalendar(locale: string, type? : string): Calendar
+
+获取指定区域和历法的日历对象。
+
+**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| locale | string | 是 | 表示区域ID的字符串，由语言、脚本、国家地区组成，例如zh-Hans-CN。 |
+| type | string | 否 | 表示历法，取值包括：buddhist, chinese, coptic, ethiopic, hebrew, gregory, indian, islamic_civil, islamic_tbla, islamic_umalqura, japanese, persian。 默认值：区域默认的历法。不同取值代表的含义和使用场景请参考设置日历和历法。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Calendar | 日历对象。 |
+
+
+**示例：**
+
+```text
+let calendar: i18n.Calendar = i18n.getCalendar('zh-Hans', 'chinese'); // 获取中国农历日历对象
+```
+
+
+
 #### Calendar
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1044,7 +1042,7 @@ try {
 
 setTime(date: Date): void
 
-基于传入的Date对象，设置日历对象内部的时间、日期。
+基于传入的Date对象，设置日历对象内部的时间日期。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1054,7 +1052,7 @@ setTime(date: Date): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| date | Date | 是 | 时间、日期。说明：月份从0开始计数，例如0表示一月。 |
+| date | Date | 是 | 时间日期。说明：月份从0开始计数，例如0表示一月。 |
 
 
 **示例：**
@@ -1075,7 +1073,7 @@ calendar.setTime(date);
 
 setTime(time: number): void
 
-基于传入的时间戳，设置日历对象内部的时间、日期。
+基于传入的时间戳，设置日历对象内部的时间日期。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1333,33 +1331,7 @@ get(field: string): number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| field | string | 是 | 指定的日历属性，目前支持的属性值请参考下表。 |
-
-
-| 属性名称 | 说明 |
-| --- | --- |
-| era | 纪元，例如公历中的公元前或者公元后。 |
-| year | 年。 |
-| month | 月。说明：月份从0开始计数，例如0表示一月。 |
-| date | 日。 |
-| hour | 挂钟小时数。 |
-| hour_of_day | 一天中的第几小时。 |
-| minute | 分。 |
-| second | 秒。 |
-| millisecond | 毫秒。 |
-| week_of_year | 一年中的第几周，按照星期计算周，注意：第一周的归属算法各地有区别。 |
-| year_woy | 一年中的第几周，按照数值计算周，例如一年中前1~7日属于第一周。 |
-| week_of_month | 一个月中的第几周，按照星期计算周。 |
-| day_of_week_in_month | 一月中的第几周，按照数值计算周，例如1-7日属于第一周。 |
-| day_of_year | 一年中的第几天。 |
-| day_of_week | 一周中的第几天(星期)。 |
-| milliseconds_in_day | 一天中的第几毫秒。 |
-| zone_offset | 以毫秒计时的时区固定偏移量（不含夏令时）。 |
-| dst_offset | 以毫秒计时的夏令时偏移量。 |
-| dow_local | 本地星期。 |
-| extended_year | 扩展的年份数值，支持负数。 |
-| julian_day | 儒略日,与当前时区相关。 |
-| is_leap_month | 是否为闰月。 |
+| field | string | 是 | 指定的日历属性，取值包括： "era"：纪元，例如公历中的公元前或者公元后。 "year"：年。 "month"：月，从0开始计数，0表示一月。 "date"：日。 "hour"：挂钟小时数。 "hour_of_day"：一天中的第几小时。 "minute"：分。 "second"：秒。 "millisecond"：毫秒。 "week_of_year"：一年中的第几周，按照星期计算周，第一周的归属各地有区别。 "year_woy"：一年中的第几周，按照数值计算周，例如一年中前1~7日属于第一周。 "week_of_month"：一个月中的第几周，按照星期计算周。 "day_of_week_in_month"：一月中的第几周，按照数值计算周，例如1-7日属于第一周。 "day_of_year"：一年中的第几天。 "day_of_week"：一周中的第几天(星期)。 "milliseconds_in_day"：一天中的第几毫秒。 "zone_offset"：以毫秒计时的时区固定偏移量（不含夏令时）。 "dst_offset"：以毫秒计时的夏令时偏移量。 "dow_local"：本地星期。 "extended_year"：扩展的年份数值，支持负数。 "julian_day"：儒略日，与当前时区相关。 "is_leap_month"：返回1表示是闰月，返回0表示不是闰月。 |
 
 
 **返回值：**
@@ -1434,7 +1406,7 @@ isWeekend(date?: Date): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| date | Date | 否 | 时间、日期。说明：月份从0开始计数，例如0表示一月。 默认值：日历对象的当前日期。 |
+| date | Date | 否 | 时间日期。说明：月份从0开始计数，例如0表示一月。 默认值：日历对象的当前日期。 |
 
 
 **返回值：**
@@ -1554,7 +1526,7 @@ compareDays(date: Date): number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| date | Date | 是 | 时间、日期。说明：月份从0开始计数，例如0表示一月。 |
+| date | Date | 是 | 时间日期。说明：月份从0开始计数，例如0表示一月。 |
 
 
 **返回值：**
@@ -1589,6 +1561,168 @@ try {
   console.error(`call Calendar.compareDays failed, error code: ${err.code}, message: ${err.message}.`);
 }
 ```
+
+
+
+#### i18n.getChineseCalendar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getChineseCalendar(locale?: Intl.Locale): ChineseCalendar
+
+获取指定区域的农历对象。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| locale | Intl.Locale | 否 | 区域对象，默认值：系统区域对象。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ChineseCalendar | 农历对象。 |
+
+
+**示例：**
+
+```text
+let locale: Intl.Locale = i18n.System.getSystemLocaleInstance();
+let calendar: i18n.ChineseCalendar = i18n.getChineseCalendar(locale);
+```
+
+
+
+#### ChineseCalendar
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+提供农历相关的能力，包括设置农历时间、判断指定年份某月是否存在闰月。继承自[Calendar](#calendar)，支持[Calendar](#calendar)的方法。
+
+
+
+#### setChineseCalendarTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setChineseCalendarTime(chineseCalendarTime: ChineseCalendarTime): void
+
+设置农历对象的时间日期。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| chineseCalendarTime | ChineseCalendarTime | 是 | 农历时间对象。 |
+
+
+**示例：**
+
+```text
+let locale: Intl.Locale = i18n.System.getSystemLocaleInstance();
+let calendar: i18n.ChineseCalendar = i18n.getChineseCalendar(locale);
+calendar.setChineseCalendarTime({
+  gregorianYear: 2026,
+  cyclicalYear: 43,
+  month: 1,
+  date: 15
+});
+```
+
+
+
+#### checkLeapMonth
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+static checkLeapMonth(gregorianYear: number, cyclicalYear: number, month: number): boolean
+
+判断指定年份某月是否存在闰月。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| gregorianYear | number | 是 | 公历的年。 |
+| cyclicalYear | number | 是 | 农历的干支年。 |
+| month | number | 是 | 农历的月。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 是否存在闰月。true表示该月存在闰月，false表示该月不存在闰月。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[ohos.i18n错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-i18n)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 8900001 | Invalid parameter. Possible causes: Parameter verification failed. |
+
+
+**示例：**
+
+```text
+let isExist = i18n.ChineseCalendar.checkLeapMonth(2026, 43, 2);
+```
+
+
+
+#### ChineseCalendarTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+农历时间对象。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| gregorianYear | number | 否 | 否 | 公历的年。 |
+| cyclicalYear | number | 否 | 否 | 农历的干支年。 |
+| month | number | 否 | 否 | 农历的月。月份从0开始计数，例如0表示一月。 |
+| date | number | 否 | 否 | 农历的日。 |
+| isLeapMonth | boolean | 否 | 是 | 是否是闰月。默认值：false。 |
+| hour | number | 否 | 是 | 农历的时。默认值：0。 |
+| minute | number | 否 | 是 | 农历的分。默认值：0。 |
+| second | number | 否 | 是 | 农历的秒。默认值：0。 |
+
 
 
 
@@ -2733,6 +2867,143 @@ let dateFormat: string =
 
 
 
+#### isDaylightSavingTime
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isDaylightSavingTime(date: Date): boolean
+
+判断指定的时间日期是否处于夏令时。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| date | Date | 是 | 时间日期。月份从0开始计数，例如0表示一月。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 是否处于夏令时。true表示处于夏令时，false表示不处于夏令时。 |
+
+
+**示例：**
+
+```text
+let timezone: i18n.TimeZone = i18n.getTimeZone('Asia/Shanghai');
+let isDST = timezone.isDaylightSavingTime(new Date(2026, 3, 15));
+```
+
+
+
+#### setAppDefaultTimeZoneById
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+static setAppDefaultTimeZoneById(zoneID: string): void
+
+设置当前应用的默认时区，在应用运行时生命周期内有效。
+
+> [!NOTE]
+> 进行日期时间格式化时，若未指定时区，会优先使用应用设置的默认时区。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| zoneID | string | 是 | 应用设置默认的时区ID，如："Asia/Shanghai"。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[ohos.i18n错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-i18n)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 8900001 | Invalid parameter. Possible causes: Parameter verification failed. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+import { i18n } from '@kit.LocalizationKit';
+
+try {
+  let zoneID: string = 'Asia/Shanghai';
+  i18n.TimeZone.setAppDefaultTimeZoneById(zoneID);
+  console.info('setAppDefaultTimeZoneById success.');
+} catch (error) {
+  let err: BusinessError = error as BusinessError;
+  console.error(`call TimeZone.setAppDefaultTimeZoneById failed, error code: ${err.code}, message: ${err.message}.`);
+}
+```
+
+
+
+#### getAppDefaultTimeZone
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+static getAppDefaultTimeZone(): TimeZone
+
+获取应用使用的默认时区对象。若调用[setAppDefaultTimeZoneById](#setappdefaulttimezonebyid)设置了默认时区，则返回设置的默认时区对象；否则，返回系统时区对象。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| TimeZone | 应用使用的默认时区对象。 |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+import { i18n } from '@kit.LocalizationKit';
+
+try {
+  let zoneID: string = 'Asia/Shanghai';
+  i18n.TimeZone.setAppDefaultTimeZoneById(zoneID);
+  console.info('setAppDefaultTimeZoneById success.');
+} catch (error) {
+  let err: BusinessError = error as BusinessError;
+  console.error(`call TimeZone.setAppDefaultTimeZoneById failed, error code: ${err.code}, message: ${err.message}.`);
+}
+let timeZone: i18n.TimeZone = i18n.TimeZone.getAppDefaultTimeZone();
+let id: string = timeZone.getID();
+console.info(`getAppDefaultTimeZone success, time zone id: ${id}`);
+```
+
+
+
 #### ZoneRules20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2937,7 +3208,7 @@ static getAvailableIDs(): string[]
 ```text
 import { i18n } from '@kit.LocalizationKit';
 
-// 共支持742个ID。每一个ID由使用中划线分割的两部分组成，格式为 source-destination。例如ids = ['Han-Latin','Latin-ASCII', 'Amharic-Latin/BGN','Accents-Any', ...]，Han-Latin表示汉语转为译拉丁文，Amharic-Latin表示阿姆哈拉语转为拉丁文。
+// 共支持742个ID。每一个ID由短横线分隔的两部分组成，格式为 source-destination。例如ids = ['Han-Latin','Latin-ASCII', 'Amharic-Latin/BGN','Accents-Any', ...]，Han-Latin表示汉语转为拉丁文，Amharic-Latin表示阿姆哈拉语转为拉丁文。
 // 更多使用信息可以参考ISO-15924。
 let ids: string[] = i18n.Transliterator.getAvailableIDs();
 ```
@@ -3353,44 +3624,7 @@ static getType(ch: string): string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 输入字符的一般类别值。 |
-
-
-一般类别值如下，更详细的介绍可以参考Unicode标准。
-
-| 名称 | 值 | 说明 |
-| --- | --- | --- |
-| U_UNASSIGNED | U_UNASSIGNED | 表示未分配和非字符代码点对应类别。 |
-| U_GENERAL_OTHER_TYPES | U_GENERAL_OTHER_TYPES | 与 U_UNASSIGNED 一致。 |
-| U_UPPERCASE_LETTER | U_UPPERCASE_LETTER | 表示大写字母。 |
-| U_LOWERCASE_LETTER | U_LOWERCASE_LETTER | 表示小写字母。 |
-| U_TITLECASE_LETTER | U_TITLECASE_LETTER | 表示首字母大写。 |
-| U_MODIFIER_LETTER | U_MODIFIER_LETTER | 表示字母修饰符。 |
-| U_OTHER_LETTER | U_OTHER_LETTER | 表示其它字母，不属于大写字母、小写字母、首字母大写或修饰符字母的字母。 |
-| U_NON_SPACING_MARK | U_NON_SPACING_MARK | 表示非间距标记，例如重音符号'，变音符号#。 |
-| U_ENCLOSING_MARK | U_ENCLOSING_MARK | 表示封闭标记和能围住其它字符的标记，如圆圈、方框等。 |
-| U_COMBINING_SPACING_MARK | U_COMBINING_SPACING_MARK | 表示间距标记，例如元音符号[ ]。 |
-| U_DECIMAL_DIGIT_NUMBER | U_DECIMAL_DIGIT_NUMBER | 表示十进制数字。 |
-| U_LETTER_NUMBER | U_LETTER_NUMBER | 表示字母数字，罗马数字。 |
-| U_OTHER_NUMBER | U_OTHER_NUMBER | 表示其它作为加密符号和记号的数字，非阿拉伯数字的数字表示符，例如@、#、（1）、①等。 |
-| U_SPACE_SEPARATOR | U_SPACE_SEPARATOR | 表示空白分隔符，如空格符、不间断空格、固定宽度的空白符。 |
-| U_LINE_SEPARATOR | U_LINE_SEPARATOR | 表示行分隔符。 |
-| U_PARAGRAPH_SEPARATOR | U_PARAGRAPH_SEPARATOR | 表示段落分割符。 |
-| U_CONTROL_CHAR | U_CONTROL_CHAR | 表示控制字符。 |
-| U_FORMAT_CHAR | U_FORMAT_CHAR | 表示格式字符。 |
-| U_PRIVATE_USE_CHAR | U_PRIVATE_USE_CHAR | 表示私人使用区代码点类别，例如公司 logo。 |
-| U_SURROGATE | U_SURROGATE | 表示代理项，在UTF-16中用来表示补充字符的方法。 |
-| U_DASH_PUNCTUATION | U_DASH_PUNCTUATION | 表示短划线标点。 |
-| U_START_PUNCTUATION | U_START_PUNCTUATION | 表示开始标点，如左括号。 |
-| U_END_PUNCTUATION | U_END_PUNCTUATION | 表示结束标点，如右括号。 |
-| U_INITIAL_PUNCTUATION | U_INITIAL_PUNCTUATION | 表示前引号，例如左双引号、左单引号。 |
-| U_FINAL_PUNCTUATION | U_FINAL_PUNCTUATION | 表示后引号，例如右双引号、右单引号。 |
-| U_CONNECTOR_PUNCTUATION | U_CONNECTOR_PUNCTUATION | 表示连接符标点。 |
-| U_OTHER_PUNCTUATION | U_OTHER_PUNCTUATION | 表示其他标点。 |
-| U_MATH_SYMBOL | U_MATH_SYMBOL | 表示数学符号。 |
-| U_CURRENCY_SYMBOL | U_CURRENCY_SYMBOL | 表示货币符号。 |
-| U_MODIFIER_SYMBOL | U_MODIFIER_SYMBOL | 表示修饰符号。 |
-| U_OTHER_SYMBOL | U_OTHER_SYMBOL | 表示其它符号。 |
+| string | 输入字符的一般类别值。取值包括： U_UNASSIGNED： 表示未分配和非字符代码点对应类别。 U_GENERAL_OTHER_TYPES： 与 U_UNASSIGNED 一致。 U_UPPERCASE_LETTER： 表示大写字母。 U_LOWERCASE_LETTER： 表示小写字母。 U_TITLECASE_LETTER： 表示首字母大写。 U_MODIFIER_LETTER： 表示字母修饰符。 U_OTHER_LETTER： 表示其它字母，不属于大写字母、小写字母、首字母大写或修饰符字母的字母。 U_NON_SPACING_MARK： 表示非间距标记，例如重音符号'，变音符号#。 U_ENCLOSING_MARK： 表示封闭标记和能围住其它字符的标记，如圆圈、方框等。 U_COMBINING_SPACING_MARK： 表示间距标记，例如元音符号[ ]。 U_DECIMAL_DIGIT_NUMBER： 表示十进制数字。 U_LETTER_NUMBER： 表示字母数字，罗马数字。 U_OTHER_NUMBER： 表示其它作为加密符号和记号的数字，非阿拉伯数字的数字表示符，例如@、#、（1）、①等。 U_SPACE_SEPARATOR： 表示空白分隔符，如空格符、不间断空格、固定宽度的空白符。 U_LINE_SEPARATOR： 表示行分隔符。 U_PARAGRAPH_SEPARATOR： 表示段落分隔符。 U_CONTROL_CHAR： 表示控制字符。 U_FORMAT_CHAR： 表示格式字符。 U_PRIVATE_USE_CHAR： 表示私人使用区代码点类别，例如公司 logo。 U_SURROGATE： 表示代理项，在UTF-16中用来表示补充字符的方法。 U_DASH_PUNCTUATION： 表示短划线标点。 U_START_PUNCTUATION： 表示开始标点，如左括号。 U_END_PUNCTUATION： 表示结束标点，如右括号。 U_INITIAL_PUNCTUATION： 表示前引号，例如左双引号、左单引号。 U_FINAL_PUNCTUATION： 表示后引号，例如右双引号、右单引号。 U_CONNECTOR_PUNCTUATION： 表示连接符标点。 U_OTHER_PUNCTUATION： 表示其他标点。 U_MATH_SYMBOL： 表示数学符号。 U_CURRENCY_SYMBOL： 表示货币符号。 U_MODIFIER_SYMBOL： 表示修饰符号。 U_OTHER_SYMBOL： 表示其它符号。 更详细的介绍可以参考Unicode标准。 |
 
 
 **示例：**
@@ -3400,6 +3634,69 @@ import { i18n } from '@kit.LocalizationKit';
 
 let unicodeType: string = i18n.Unicode.getType('a'); // unicodeType = 'U_LOWERCASE_LETTER'
 ```
+
+
+
+#### detectEncoding
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+static detectEncoding(bytes: Uint8Array): EncodingInfo
+
+识别输入字节流的编码信息。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| bytes | Uint8Array | 是 | 输入字节流。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| EncodingInfo | 编码信息，包含编码名称和置信度。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let uint8Array = new Uint8Array([0xEF, 0xBB, 0xBF, 0xE4, 0xB8, 0xAD]);
+let info = i18n.Unicode.detectEncoding(uint8Array); // info.encodingName = 'UTF-8', info.confidence = 100
+```
+
+
+
+#### EncodingInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+编码信息。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| encodingName | string | 否 | 否 | 编码名称，如UTF-8。 |
+| confidence | number | 否 | 否 | 识别结果的置信度，范围是0-100。值越大，识别结果越可靠。 |
+
 
 
 
@@ -3768,6 +4065,97 @@ try {
 
 
 
+#### setUnicodeWrappedBidiDirection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+static setUnicodeWrappedBidiDirection(text: string, direction: 'RTL' | 'LTR'): string
+
+设置整段文本中部分文本方向，包括RTL、LTR。
+
+> [!NOTE]
+> 在强字符（指具有明确书写方向的字符）中不生效。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| text | string | 是 | 需要设置方向的文本。 |
+| direction | 'RTL' \| 'LTR' | 是 | 'RTL'表示从右到左，'LTR'表示从左到右。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 设置方向后的文本。 |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+import { i18n } from '@kit.LocalizationKit';
+
+try {
+  let text: string = '(012) 345-6789';
+  let result: string = i18n.I18NUtil.setUnicodeWrappedBidiDirection(text, 'LTR');
+  console.info(`setUnicodeWrappedBidiDirection, result: ${result}`);
+} catch (error) {
+  let err: BusinessError = error as BusinessError;
+  console.error(`call I18NUtil.setUnicodeWrappedBidiDirection failed, error code: ${err.code}, message: ${err.message}.`);
+}
+```
+
+
+
+#### convertCanonicalLocaleIdentifier
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+static convertCanonicalLocaleIdentifier(locale: string): string
+
+将区域ID调整成符合[BCP47](https://www.rfc-editor.org/info/bcp47)标准的格式。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| locale | string | 是 | 区域ID。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 有效的区域ID会返回符合BCP47标准格式的区域ID。无效的区域ID会返回空字符串。 |
+
+
+**示例：**
+
+```text
+let result: string = i18n.I18NUtil.convertCanonicalLocaleIdentifier('zh-cn'); // result = 'zh-CN'
+```
+
+
+
 #### getUnicodeWrappedFilePath(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -4038,7 +4426,7 @@ isHoliday(date?: Date): boolean
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| date | Date | 否 | 时间、日期。说明：月份从0开始计数，例如0表示一月。 默认值：当前日期。 |
+| date | Date | 否 | 时间日期。说明：月份从0开始计数，例如0表示一月。 默认值：当前日期。 |
 
 
 **返回值：**
@@ -4403,7 +4791,7 @@ try {
 
 format(date: Date): string
 
-对时间、日期进行格式化。
+对时间日期进行格式化。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -4413,14 +4801,14 @@ format(date: Date): string
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| date | Date | 是 | 时间、日期。说明：月份从0开始计数，例如0表示一月。 |
+| date | Date | 是 | 时间日期。说明：月份从0开始计数，例如0表示一月。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 格式化后的时间、日期字符串。 |
+| string | 格式化后的时间日期字符串。 |
 
 
 **示例：**
@@ -4447,6 +4835,327 @@ try {
   console.error(`call SimpleDateTimeFormat.format failed, error code: ${err.code}, message: ${err.message}.`);
 }
 ```
+
+
+
+#### SymbolDateTimeFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+提供自定义时间日期符号的能力。继承自[Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)，支持[Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)的方法。
+
+
+
+#### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+constructor(locale?: Intl.Locale, options?: SymbolDateTimeFormatOptions)
+
+创建使用自定义符号的时间日期格式化对象。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| locale | Intl.Locale | 否 | 区域对象。默认值：系统区域对象。 |
+| options | SymbolDateTimeFormatOptions | 否 | 自定义符号时间日期格式化的配置项。默认值：区域对象默认的符号。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[ohos.i18n错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-i18n)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 8900001 | Invalid parameter. Possible causes: Parameter verification failed. |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolDateTimeFormat(locale, {
+  timeStyle: 'short',
+  amPMSymbol: ['早', '晚']
+});
+```
+
+
+
+#### format
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+format(date?: Date | number): string
+
+对时间日期进行格式化，返回使用自定义符号的时间日期字符串。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| date | Date \| number | 否 | 时间日期对象或时间日期对应的毫秒值。默认值：系统当前时间。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 使用自定义符号的时间日期字符串。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolDateTimeFormat(locale, {
+  timeStyle: 'short',
+  amPMSymbol: ['早', '晚']
+});
+let result = formatter.format(new Date(2026, 3, 26, 14, 20, 0)); // result = '晚2:20'
+```
+
+
+
+#### formatToParts
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+formatToParts(date?: Date | number): Intl.DateTimeFormatPart[]
+
+对时间日期进行格式化，返回使用自定义符号的时间日期元素数组。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| date | Date \| number | 否 | 时间日期对象或时间日期对应的毫秒值。默认值：系统当前时间。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Intl.DateTimeFormatPart[] | 使用自定义符号的时间日期元素数组。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolDateTimeFormat(locale, {
+  timeStyle: 'short',
+  amPMSymbol: ['早', '晚']
+});
+let parts = formatter.formatToParts(new Date(2026, 3, 26, 14, 20, 0)); // parts[0].type = 'dayPeriod'
+```
+
+
+
+#### formatRange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+formatRange(startDate: Date | number | bigint, endDate: Date | number | bigint): string
+
+对时间日期范围进行格式化。自定义符号在该接口上暂不生效。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| startDate | Date \| number \| bigint | 是 | 时间日期对象或时间日期对应的毫秒值。 |
+| endDate | Date \| number \| bigint | 是 | 时间日期对象或时间日期对应的毫秒值。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 格式化后的时间日期范围字符串。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolDateTimeFormat(locale, {
+  timeStyle: 'short',
+  amPMSymbol: ['早', '晚']
+});
+let startDate = new Date(2026, 3, 27, 14, 20, 0);
+let endDate = new Date(2026, 3, 27, 18, 20, 0);
+let result = formatter.formatRange(startDate, endDate); // result = '下午2:20至6:20'
+```
+
+
+
+#### formatRangeToParts
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+formatRangeToParts(startDate: Date | number | bigint, endDate: Date | number | bigint): Intl.DateTimeRangeFormatPart[]
+
+把时间日期范围格式化成时间日期元素数组。自定义符号在该接口上暂不生效。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| startDate | Date \| number \| bigint | 是 | 时间日期对象或时间日期对应的毫秒值。 |
+| endDate | Date \| number \| bigint | 是 | 时间日期对象或时间日期对应的毫秒值。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Intl.DateTimeRangeFormatPart[] | 时间日期范围元素数组。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolDateTimeFormat(locale, {
+  timeStyle: 'short',
+  amPMSymbol: ['早', '晚']
+});
+let startDate = new Date(2026, 3, 27, 14, 20, 0);
+let endDate = new Date(2026, 3, 27, 18, 20, 0);
+let parts = formatter.formatRangeToParts(startDate, endDate); // parts[0].type = 'dayPeriod'
+```
+
+
+
+#### resolvedOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+resolvedOptions(): ResolvedSymbolDateTimeFormatOptions
+
+解析自定义时间日期符号的配置项。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ResolvedSymbolDateTimeFormatOptions | 自定义符号时间日期格式化对象配置项的解析结果。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolDateTimeFormat(locale, {
+  timeStyle: 'short',
+  amPMSymbol: ['早', '晚']
+});
+let options = formatter.resolvedOptions(); // options.timeStyle = 'short', options.amPMSymbol = ['早', '晚']
+```
+
+
+
+#### SymbolDateTimeFormatOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+创建自定义符号时间日期格式化对象时的可选配置项。继承自Intl.DateTimeFormatOptions，支持Intl.DateTimeFormatOptions的所有配置项，并且功能与其一致。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| amPMSymbol | string[] \| undefined | 否 | 是 | 指定的上午和下午符号，要求数组长度不小于2，其中第一个元素为上午符号，第二个元素为下午符号。默认值：区域默认的符号。 |
+
+
+
+
+#### ResolvedSymbolDateTimeFormatOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+自定义符号时间日期格式化对象配置项的解析结果。继承自Intl.ResolvedDateTimeFormatOptions，支持Intl.ResolvedDateTimeFormatOptions的所有配置项，并且功能与其一致。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| amPMSymbol | string[] | 否 | 是 | 指定的上午和下午符号，其中第一个元素为上午符号，第二个元素为下午符号。默认值：区域默认的符号。 |
+
 
 
 
@@ -4598,6 +5307,117 @@ try {
 | weekday | TextStyle | 否 | 是 | 指定星期的文本样式。默认值：StyledString默认的文本样式。 |
 | era | TextStyle | 否 | 是 | 指定纪元的文本样式。默认值：StyledString默认的文本样式。 |
 | timeZoneName | TextStyle | 否 | 是 | 指定时区名称的文本样式。默认值：StyledString默认的文本样式。 |
+
+
+
+
+#### ISO8601DateTimeFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+符合ISO 8601标准的日期格式化对象。
+
+
+
+#### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+constructor(options?: ISO8601DateTimeFormatOptions)
+
+创建符合ISO 8601标准的日期格式化对象。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | ISO8601DateTimeFormatOptions | 否 | 符合ISO 8601标准的日期格式化对象创建时的选项。默认值：所有属性均使用默认值的ISO8601DateTimeFormatOptions对象。 |
+
+
+**示例：**
+
+```text
+let formatter = new i18n.ISO8601DateTimeFormat({
+  dateFormat: 'calendar',
+  timePrecision: 'minutes',
+  separatorStyle: 'extended'
+});
+```
+
+
+
+#### format
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+format(date: Date): string
+
+对时间日期进行格式化，返回符合ISO 8601标准的时间日期字符串。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| date | Date | 是 | 时间日期。月份从0开始计数，例如0表示一月。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 格式化后的时间日期字符串。 |
+
+
+**示例：**
+
+```text
+let formatter = new i18n.ISO8601DateTimeFormat({
+  dateFormat: 'calendar',
+  timePrecision: 'minutes',
+  separatorStyle: 'extended'
+});
+let result = formatter.format(new Date(2026, 2, 15, 12, 0, 0));
+```
+
+
+
+#### ISO8601DateTimeFormatOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+符合ISO 8601标准的日期格式化对象创建时的选项。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| dateFormat | 'calendar' \| 'ordinal' \| 'week' | 否 | 是 | 日期格式。取值包括： calendar：日期模式为YYYY-MM-DD。 ordinal：日期模式为YYYY-DDD。 week：日期模式为YYYY-Www-D。 默认值：calendar。模式中字符含义参考日期字段符号表。 |
+| timePrecision | 'dateOnly' \| 'hours' \| 'minutes' \| 'seconds' \| 'milliSeconds' | 否 | 是 | 时间精度。取值包括： dateOnly：只显示日期。 hours：显示小时。 minutes：显示时分。 seconds：显示时分秒。 milliSeconds：显示时分秒毫秒。 默认值：seconds。 |
+| separatorStyle | 'extended' \| 'basic' | 否 | 是 | 分隔符风格。取值包括： extended：显示日期和时间分隔符。 basic：不显示日期和时间分隔符。 默认值：extended。 |
+| timeZone | TimeZone | 否 | 是 | 时区。默认值：UTC。 |
+| displayTimeZone | boolean | 否 | 是 | 是否显示时区，true表示显示时区，false表示不显示时区。默认值：true。 |
 
 
 
@@ -4763,6 +5583,330 @@ try {
   console.error(`call SimpleNumberFormat.format failed, error code: ${err.code}, message: ${err.message}.`);
 }
 ```
+
+
+
+#### SymbolNumberFormat
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+提供自定义数字符号的能力。继承自[Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)，支持[Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)的方法。
+
+
+
+#### constructor
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+constructor(locale?: Intl.Locale, options?: SymbolNumberFormatOptions)
+
+创建使用自定义符号的数字格式化对象。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| locale | Intl.Locale | 否 | 区域对象。默认值：系统区域对象。 |
+| options | SymbolNumberFormatOptions | 否 | 自定义数字格式化符号的配置项。默认值：区域默认的符号。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolNumberFormat(locale, {
+  style: 'unit',
+  unit: 'day',
+  zero: '(0)'
+});
+```
+
+
+
+#### format
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+format(value: number | bigint): string
+
+对数字进行格式化，返回使用自定义符号的数字字符串。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number \| bigint | 是 | 待格式化的数字。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 使用自定义符号的数字字符串。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolNumberFormat(locale, {
+  style: 'unit',
+  unit: 'day',
+  zero: '(0)'
+});
+let result = formatter.format(10); // result = '1(0)天'
+```
+
+
+
+#### formatToParts
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+formatToParts(value?: number | bigint): Intl.NumberFormatPart[]
+
+对数字进行格式化，返回使用自定义符号的数字元素数组。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| value | number \| bigint | 否 | 待格式化的数字。默认值：NaN。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Intl.NumberFormatPart[] | 使用自定义符号的数字元素数组。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolNumberFormat(locale, {
+  style: 'unit',
+  unit: 'day',
+  zero: '(0)'
+});
+let result = formatter.formatToParts(10); // result[0].type = 'integer'
+```
+
+
+
+#### formatRange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+formatRange(startRange: number, endRange: number): string
+
+对数字范围进行格式化，返回使用自定义符号的数字范围字符串。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| startRange | number | 是 | 起始数字。 |
+| endRange | number | 是 | 终止数字。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 使用自定义符号的数字范围字符串。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolNumberFormat(locale, {
+  style: 'unit',
+  unit: 'day',
+  zero: '(0)'
+});
+let result = formatter.formatRange(10, 20); // result = '1(0)-2(0)天'
+```
+
+
+
+#### formatRangeToParts
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+formatRangeToParts(startRange: number, endRange: number): Intl.NumberFormatPart[]
+
+对数字范围进行格式化，返回使用自定义符号的数字元素数组。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| startRange | number | 是 | 起始数字。 |
+| endRange | number | 是 | 终止数字。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Intl.NumberFormatPart[] | 使用自定义符号的数字元素数组。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolNumberFormat(locale, {
+  style: 'unit',
+  unit: 'day',
+  zero: '(0)'
+});
+let result = formatter.formatRangeToParts(10, 20); // result[0].type = 'integer'
+```
+
+
+
+#### resolvedOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+resolvedOptions(): ResolvedSymbolNumberFormatOptions
+
+解析自定义数字符号的配置项。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ResolvedSymbolNumberFormatOptions | 自定义符号数字格式化对象配置项的解析结果。 |
+
+
+**示例：**
+
+```text
+import { i18n } from '@kit.LocalizationKit';
+
+let locale = new Intl.Locale('zh-Hans-CN');
+let formatter = new i18n.SymbolNumberFormat(locale, {
+  style: 'unit',
+  unit: 'day',
+  zero: '(0)'
+});
+let result = formatter.resolvedOptions(); // result.style = 'unit', result.unit = 'day', result.zero = '(0)'
+```
+
+
+
+#### SymbolNumberFormatOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+创建自定义符号数字格式化对象时的可选配置项。继承自Intl.NumberFormatOptions，支持Intl.NumberFormatOptions的所有配置项，并且功能与其一致。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| zero | string \| undefined | 否 | 是 | 零符号。默认值：区域默认的符号。 |
+| nan | string \| undefined | 否 | 是 | NaN符号。默认值：区域默认的符号。 |
+| minusSign | string \| undefined | 否 | 是 | 减符号。默认值：区域默认的符号。 |
+| plusSign | string \| undefined | 否 | 是 | 加符号。默认值：区域默认的符号。 |
+| infinity | string \| undefined | 否 | 是 | 无穷符号。默认值：区域默认的符号。 |
+| groupingSeparator | string \| undefined | 否 | 是 | 分组符号。默认值：区域默认的符号。 |
+
+
+
+
+#### ResolvedSymbolNumberFormatOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+自定义符号数字格式化对象配置项的解析结果。继承自Intl.ResolvedNumberFormatOptions，支持Intl.ResolvedNumberFormatOptions的所有配置项，并且功能与其一致。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.I18n
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| zero | string | 否 | 是 | 零符号。默认值：区域默认的符号。 |
+| nan | string | 否 | 是 | NaN符号。默认值：区域默认的符号。 |
+| minusSign | string | 否 | 是 | 减符号。默认值：区域默认的符号。 |
+| plusSign | string | 否 | 是 | 加符号。默认值：区域默认的符号。 |
+| infinity | string | 否 | 是 | 无穷符号。默认值：区域默认的符号。 |
+| groupingSeparator | string | 否 | 是 | 分组符号。默认值：区域默认的符号。 |
+
 
 
 
@@ -5277,7 +6421,7 @@ let region: string = i18n.getSystemRegion();
 
 getSystemLocale(): string
 
-从API version 7开始支持，从API version 9开始废弃，建议使用[System.getSystemLocale](#getsystemlocaledeprecated)代替。
+从API version 7开始支持，从API version 9开始废弃，建议使用[System.getSystemLocale](#getsystemlocaleinstance20)代替。
 
 获取系统区域ID。
 

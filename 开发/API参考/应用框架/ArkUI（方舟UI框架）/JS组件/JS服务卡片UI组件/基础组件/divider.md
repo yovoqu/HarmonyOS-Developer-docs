@@ -1,6 +1,6 @@
 # divider
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-divider
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -98,4 +98,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ea/v3/2H5h-s7vTl6T8BA1S4STWA/zh-cn_image_0000002611836401.png?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=83AB3928F118475609270E409FADFBF4DF995EB958BFE37B5E4C808AE93437A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/pPyz_lfNQGCrLy8bI-FRhg/zh-cn_image_0000002656350543.png?HW-CC-KV=V1&HW-CC-Date=20260624T015950Z&HW-CC-Expire=86400&HW-CC-Sign=38E1062C0CB6E7D67012322F3D67226FBDA70D2E563D6DFD4C481EEC1D144AC1)

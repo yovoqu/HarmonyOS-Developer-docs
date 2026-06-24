@@ -1,6 +1,6 @@
 # 创建subwindow默认是否铺满全屏，铺满全屏时如何隐藏状态栏
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-240
 

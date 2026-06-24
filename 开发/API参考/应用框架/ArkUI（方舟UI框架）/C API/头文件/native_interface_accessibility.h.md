@@ -1,6 +1,6 @@
 # native_interface_accessibility.h
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-accessibility-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -704,7 +704,7 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetOperationActions(ArkUI_Accessibility
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_AccessibilityElementInfo* elementInfo | 表示指向ArkUI_AccessibilityElementInfo的指针。 |
-| int32_t* operationCount | 组件支持的action数量。 |
+| int32_t operationCount | 组件支持的action数量。 |
 | ArkUI_AccessibleAction* operationActions | 组件支持的action。 |
 
 
@@ -790,6 +790,10 @@ int32_t OH_ArkUI_AccessibilityElementInfoSetChecked(ArkUI_AccessibilityElementIn
 **描述：**
 
 为ArkUI_AccessibilityElementInfo设置是否被检查。
+
+> [!NOTE]
+> 本接口仅设置是否被检查，不会设置是否可查。若需要设置是否可查，需调用 OH_ArkUI_AccessibilityElementInfoSetCheckable 。
+
 
 **起始版本：** 13
 

@@ -1,6 +1,6 @@
 # @ohos.commonEventManager (公共事件模块)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-commoneventmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -56,7 +56,7 @@ publish(event: string, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 1500003 | The common event sending frequency too high. |
+| 1500003 | The common event sending frequency too high. 适用版本：20 |
 | 1500007 | Failed to send the message to the common event service. |
 | 1500008 | Failed to initialize the common event service. |
 | 1500009 | Failed to obtain system parameters. |
@@ -111,7 +111,7 @@ publish(event: string, options: CommonEventPublishData, callback: AsyncCallback&
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 1500003 | The common event sending frequency too high. |
+| 1500003 | The common event sending frequency too high. 适用版本：20 |
 | 1500007 | Failed to send the message to the common event service. |
 | 1500008 | Failed to initialize the common event service. |
 | 1500009 | Failed to obtain system parameters. |
@@ -172,7 +172,7 @@ createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallbac
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -238,7 +238,7 @@ createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise&lt;CommonEven
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -295,7 +295,7 @@ createSubscriber的同步接口。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例：**
@@ -349,7 +349,7 @@ subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback&lt;CommonEv
 | 801 | capability not supported. |
 | 1500007 | Failed to send the message to the common event service. |
 | 1500008 | Failed to initialize the common event service. |
-| 1500010 | The count of subscriber exceed system specification. |
+| 1500010 | The count of subscriber exceed system specification. 适用版本：20 |
 
 
 **示例：**
@@ -422,7 +422,7 @@ unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback&lt;void&
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 801 | capability not supported. |
 | 1500007 | Failed to send the message to the common event service. |
 | 1500008 | Failed to initialize the common event service. |

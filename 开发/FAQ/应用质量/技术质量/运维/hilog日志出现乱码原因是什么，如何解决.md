@@ -1,6 +1,6 @@
 # hilog日志出现乱码原因是什么，如何解决
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:32:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-3
 

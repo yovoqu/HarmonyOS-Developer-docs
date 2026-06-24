@@ -1,6 +1,6 @@
 # 如何判断Web滑动到了顶部/底部，并且把滑动事件传递给页面
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-40
 

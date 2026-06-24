@@ -1,6 +1,6 @@
 # devicePicker (设备选择控制器)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-devicepicker
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -30,6 +30,8 @@ type DeviceEvent = 'deviceSelected' | 'deviceUnselected' | 'selectedDeviceOfflin
  
 设备事件类型，支持设备选择事件、设备取消事件、已选择设备的下线事件。
  
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Collaboration.DevicePicker
  
 **起始版本：** 4.0.0(10)
@@ -50,6 +52,8 @@ type DeviceEvent = 'deviceSelected' | 'deviceUnselected' | 'selectedDeviceOfflin
 createDevicePickerController(): DevicePickerController
  
 创建设备选择控制器，通过该控制器提供的接口可以与设备选择面板进行交互。
+ 
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Collaboration.DevicePicker
  
@@ -96,6 +100,8 @@ struct Index {
 
 DevicePickerController类提供了与设备选择面板交互的接口。
  
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Collaboration.DevicePicker
  
 **起始版本：** 4.0.0(10)
@@ -109,6 +115,8 @@ DevicePickerController类提供了与设备选择面板交互的接口。
 on(event: DeviceEvent, callback: Callback<distributedDeviceManager.DeviceBasicInfo>): void
  
 注册设备相关的事件回调，目前支持：设备选择、设备取消选择、已选择设备的下线事件。
+ 
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Collaboration.DevicePicker
  
@@ -197,6 +205,8 @@ off(event: DeviceEvent, callback?: Callback<distributedDeviceManager.DeviceBasic
  
 取消注册设备相关的事件回调，目前支持的事件：设备选择、设备取消选择、已选择设备的下线事件。
  
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Collaboration.DevicePicker
  
 **起始版本：** 4.0.0(10)
@@ -259,6 +269,8 @@ struct CustomControls {
 updateState(networkId: string, state: BusinessState, desc?: ResourceStr): void
  
 更新设备的业务状态，在设备选择面板上会显示更新后的状态。业务失败情况下，可以传入失败的描述信息，会随着状态一起显示。
+ 
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Collaboration.DevicePicker
  
@@ -350,6 +362,8 @@ release(): void
  
 在应用不需要设备选择控制器的时候需要调用release()接口进行释放，比如在应用onCreate()生命周期回调中通过[createDevicePickerController](#createdevicepickercontroller)创建了设备选择控制器，可以在onDestroy()生命周期回调中通过release()进行释放。
  
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Collaboration.DevicePicker
  
 **起始版本：** 4.0.0(10)
@@ -385,6 +399,8 @@ export default class EntryAbility extends UIAbility {
 
 设备选择器属性类，在设备选择面板的应用描述部分会显示该属性配置的信息；如果未设置则使用调用者对应的ability配置文件中的标签信息。该属性与流转组件接口[CollaborationDevicePicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationdevicepicker)配合使用。
  
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Collaboration.DevicePicker
  
 **起始版本：** 4.0.0(10)
@@ -404,6 +420,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 业务状态枚举类。
+ 
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Collaboration.DevicePicker
  

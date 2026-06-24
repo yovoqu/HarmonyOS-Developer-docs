@@ -1,6 +1,6 @@
 # 自适应VRS
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xengine-kit-adaptive-vrs
 
@@ -29,7 +29,7 @@ XEngine Kit提供自适应VRS功能，其通过合理分配画面的计算资源
 | GL_APICALL void GL_APIENTRY HMS_XEG_ApplyAdaptiveVRS (GLuint shadingRateImage) | 将着色率图像应用到渲染目标中。 |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_EnumerateDeviceExtensionProperties (VkPhysicalDevice physicalDevice, uint32_t * pPropertyCount, XEG_ExtensionProperties * pProperties) | XEngine Vulkan扩展特性查询接口。 |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateAdaptiveVRS (VkDevice device, XEG_AdaptiveVRSCreateInfo * pXegAdaptiveVRSCreateInfo, XEG_AdaptiveVRS * pXegAdaptiveVRS) | 创建XEG_AdaptiveVRS对象。 |
-| VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdDispatchAdaptiveVRS (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription * pXegAdaptiveVRSDescription) | 执行计算自适应可变着色率命令。 |
+| VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdDispatchAdaptiveVRS (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription * pXegAdaptiveVRSDescription) | 执行计算自适应VRS命令。 |
 | VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyAdaptiveVRS (XEG_AdaptiveVRS xegAdaptiveVRS) | 销毁XEG_AdaptiveVRS对象。 |
 
 
@@ -44,13 +44,13 @@ XEngine Kit提供自适应VRS功能，其通过合理分配画面的计算资源
 
 
 1. 用户在进入游戏初始化场景时调用HMS_XEG_GetString接口查询XEngine支持的特性，当查询接口返回支持的特性列表中包含自适应VRS时代表可以使用此特性。
-2. 此时调用HMS_XEG_AdaptiveVRSParameter接口配置自适应可变着色率参数。
+2. 此时调用HMS_XEG_AdaptiveVRSParameter接口配置自适应VRS参数。
 3. 当游戏运行时，游戏渲染当前帧纹理。
 4. 在使用自适应VRS特性的阶段前，调用HMS_XEG_DispatchAdaptiveVRS接口计算着色率图。
 5. 调用HMS_XEG_ApplyAdaptiveVRS将着色率图像应用到渲染目标中。
 6. 游戏渲染剩下的纹理，如UI等。
 7. 当前帧已全部渲染完成，进行送显。
-8. 当游戏退出时，自适应可变着色率资源会自行释放。
+8. 当游戏退出时，自适应VRS资源会自行释放。
 
  - 下面是基于Vulkan图形API平台集成自适应VRS的主要业务流程
 
@@ -168,7 +168,7 @@ ${Vulkan-lib} ${xengine-lib})
 const char* extensions = (const char*)HMS_XEG_GetString(XEG_EXTENSIONS);
 // 查询是否支持自适应VRS
 if (!strstr(extensions, XEG_ADAPTIVE_VRS_EXTENSION_NAME)) {
-    exit(1); // return error
+    exit(1); // 异常退出
 }
 ```
 
@@ -244,7 +244,7 @@ if (pPropertyCount > 0) {
 }
 // 查询是否支持自适应VRS
 if (std::find(supportedExtensions.begin(), supportedExtensions.end(), XEG_ADAPTIVE_VRS_EXTENSION_NAME) == supportedExtensions.end()) {
-   exit(1); // return error
+   exit(1); // 异常退出
 }
 ```
 

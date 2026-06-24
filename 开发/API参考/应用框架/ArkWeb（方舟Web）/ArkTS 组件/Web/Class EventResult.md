@@ -1,13 +1,11 @@
 # Class (EventResult)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-eventresult
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-通知Web组件同层事件消费结果，支持的事件：[TouchType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#touchtype)（触摸事件的类型）和[MouseAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#mouseaction8)（鼠标事件的类型），鼠标仅支持左中右按键，通过[MouseButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#mousebutton8)定义鼠标按键的类型。
- 
-如果应用不消费该事件，则应设置消费结果为false，事件将会被Web组件消费；反之如果应用消费了该事件，则应将消费结果设置为true，Web组件将不消费该事件。若应用设置消费结果不符合以上使用规格，将产生与开发者预期不匹配的现象。
+EventResult是ArkWeb Kit中用于通知Web组件同层事件消费结果的类。在同层嵌入场景下，应用与Web组件共同暴露在事件响应链EventResult允许应用向Web组件声明自身是否消费了触摸或鼠标事件，从而决定Web组件是否继续处理该事件。当应用设置消费结果为true时，表示应用已消费该事件，Web组件将不再消费；当设置为false时，表示应用不消费该事件，事件将由Web组件消费。EventResult触摸事件（[TouchType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#touchtype)）和鼠标事件（[MouseAction](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#mouseaction8)，仅限左中右按键）的消费结果设置，通过[MouseButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#mousebutton8)定义鼠标按键的类型，适用于应用与Web组件同层交互的事件协调场景。
  
 触摸事件示例代码参考[onNativeEmbedGestureEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onnativeembedgestureevent11)事件。
  

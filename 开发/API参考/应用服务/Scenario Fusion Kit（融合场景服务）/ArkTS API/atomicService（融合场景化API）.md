@@ -1,6 +1,6 @@
 # atomicService（融合场景化API）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-atomicservice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -42,9 +42,9 @@ import { atomicService } from '@kit.ScenarioFusionKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| bluetoothEnabled | boolean | 否 | 是 | 蓝牙系统开关。“true”表示开关已打开，“false”表示开关已关闭。 |
-| locationEnabled | boolean | 否 | 是 | 地理位置的系统开关。“true”表示开关已打开，“false”表示开关已关闭。 |
-| wifiEnabled | boolean | 否 | 是 | Wi-Fi 的系统开关。“true”表示开关已打开，“false”表示开关已关闭。 |
+| bluetoothEnabled | boolean | 否 | 是 | 蓝牙系统开关。true表示开关已打开，false表示开关已关闭。 |
+| locationEnabled | boolean | 否 | 是 | 地理位置的系统开关。true表示开关已打开，false表示开关已关闭。 |
+| wifiEnabled | boolean | 否 | 是 | Wi-Fi 的系统开关。true表示开关已打开，false表示开关已关闭。 |
 | deviceOrientation | string | 否 | 是 | 设备当前显示的方向。“portrait”表示竖屏，“landscape”表示横屏。 |
  
  
@@ -68,21 +68,21 @@ import { atomicService } from '@kit.ScenarioFusionKit';
 | --- | --- | --- | --- | --- |
 | brand | string | 否 | 是 | 设备品牌名称。 |
 | deviceModel | string | 否 | 是 | 设备类型。 说明： 返回值中如果出现特殊字符，需要进行转义。 |
-| screenWidth | number | 否 | 是 | 屏幕的宽度，单位px。 |
-| screenHeight | number | 否 | 是 | 屏幕的高度，单位px。 |
-| statusBarHeight | number | 否 | 是 | 状态栏的高度，单位px。 |
+| screenWidth | number | 否 | 是 | 屏幕的宽度，单位：px。 |
+| screenHeight | number | 否 | 是 | 屏幕的高度，单位：px。 |
+| statusBarHeight | number | 否 | 是 | 状态栏的高度，单位：px。 |
 | screenSafeArea | window.AvoidArea | 否 | 是 | 竖屏正方向下的安全区域。 |
 | language | string | 否 | 是 | 系统语言。 |
 | osFullName | string | 否 | 是 | 系统版本。 |
 | fontSizeSetting | number | 否 | 是 | 显示设备逻辑像素的密度，代表物理像素与逻辑像素的缩放系数，计算方式为： 该参数为浮点数，受densityDPI范围限制，取值范围在[0.5，4.0]。一般取值1.0、3.0等，实际取值取决于不同设备提供的densityDPI。 |
 | sdkApiVersion | number | 否 | 是 | 系统软件API版本。 |
-| bluetoothEnabled | boolean | 否 | 是 | 蓝牙系统开关。“true”表示开关已打开，“false”表示开关已关闭。 |
-| locationEnabled | boolean | 否 | 是 | 地理位置的系统开关。“true”表示开关已打开，“false”表示开关已关闭。 |
-| wifiEnabled | boolean | 否 | 是 | Wi-Fi 的系统开关。“true”表示开关已打开，“false”表示开关已关闭。 |
+| bluetoothEnabled | boolean | 否 | 是 | 蓝牙系统开关。true表示开关已打开，false表示开关已关闭。 |
+| locationEnabled | boolean | 否 | 是 | 地理位置的系统开关。true表示开关已打开，false表示开关已关闭。 |
+| wifiEnabled | boolean | 否 | 是 | Wi-Fi 的系统开关。true表示开关已打开，false表示开关已关闭。 |
 | deviceOrientation | string | 否 | 是 | 设备当前显示的方向。“portrait”表示竖屏，“landscape”表示横屏。 |
 | theme | ColorMode | 否 | 是 | 深浅色模式，可选值为： - ColorMode.LIGHT：浅色模式； - ColorMode.DARK：深色模式。 |
-| windowWidth | number | 否 | 是 | 可使用窗口宽度，单位px，该参数应为整数。 |
-| windowHeight | number | 否 | 是 | 可使用窗口高度，单位px，该参数应为整数。 |
+| windowWidth | number | 否 | 是 | 可使用窗口宽度，单位：px，该参数应为整数。 |
+| windowHeight | number | 否 | 是 | 可使用窗口高度，单位：px，该参数应为整数。 |
  
  
   
@@ -131,7 +131,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
 | --- | --- | --- | --- | --- |
 | pubId | string | 否 | 否 | 服务号ID。从华为开发者联盟服务号管理页面获取，长度限制1~64位字符。 |
 | channelId | string | 否 | 是 | 渠道ID。长度限制0~32位字符，只能是数字或字母。用于识别组件关注的来源渠道。 |
-| offset | Position \| Edges \| LocalizedEdges | 否 | 是 | 组件放置位置，基于屏幕中心点的位置偏移。 默认值：{ x: 0, y: 300 } |
+| offset | Position \| Edges \| LocalizedEdges | 否 | 是 | 组件放置位置，基于屏幕中心点的位置偏移，单位：vp。 默认值：{ x: 0, y: 300 } |
  
  
   
@@ -140,7 +140,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-关注组件的回调接口。
+关注组件的回调接口。使用callback异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -184,11 +184,7 @@ import { atomicService } from '@kit.ScenarioFusionKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-type SystemInfoType = 'brand' | 'deviceModel' | 'screenWidth' | 'screenHeight' | 'statusBarHeight'
- 
-| 'screenSafeArea' | 'language' | 'osFullName' | 'fontSizeSetting' | 'sdkApiVersion' | 'bluetoothEnabled'
- 
-| 'locationEnabled' | 'wifiEnabled' | 'deviceOrientation' | 'theme' | 'windowWidth' | 'windowHeight'
+type SystemInfoType = 'brand' | 'deviceModel' | 'screenWidth' | 'screenHeight' | 'statusBarHeight' | 'screenSafeArea' | 'language' | 'osFullName' | 'fontSizeSetting' | 'sdkApiVersion' | 'bluetoothEnabled' | 'locationEnabled' | 'wifiEnabled' | 'deviceOrientation' | 'theme' | 'windowWidth' | 'windowHeight'
  
 系统信息属性取值类型。
  
@@ -198,7 +194,7 @@ type SystemInfoType = 'brand' | 'deviceModel' | 'screenWidth' | 'screenHeight' |
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
   
@@ -239,7 +235,7 @@ type SystemSettingType = 'bluetoothEnabled' | 'locationEnabled' | 'wifiEnabled' 
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
   
@@ -261,13 +257,17 @@ getSystemInfoSync(properties?: Array&lt;SystemInfoType&gt;): SystemInfo
  
 调用该方法获取设备、网络状态、屏幕、语言、主题等系统信息。
  
+> [!NOTE]
+> 在多线程中调用getSystemInfoSync接口时，请勿获取theme、windowWidth、windowHeight、statusBarHeight和screenSafeArea的信息，可能会引发空指针问题导致程序异常终止。
+
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
  
@@ -277,10 +277,6 @@ getSystemInfoSync(properties?: Array&lt;SystemInfoType&gt;): SystemInfo
 | --- | --- | --- | --- |
 | properties | Array&lt;SystemInfoType&gt; | 否 | 获取设备、网络状态、屏幕、语言、主题等系统信息的请求对象。 说明： - 使用5.0.1(13)及以上版本时不需要配置Wi-Fi权限、蓝牙权限。 - 获取Wi-Fi信息需要配置权限ohos.permission.GET_WIFI_INFO。 - 获取蓝牙开启状态需要配置权限ohos.permission.ACCESS_BLUETOOTH。 - 获取用户程序访问控制权限可参考程序访问控制管理。 |
  
- 
-> [!NOTE]
-> 在多线程中调用getSystemInfoSync接口时，请勿获取theme、windowWidth、windowHeight、statusBarHeight和screenSafeArea的信息，可能会引发空指针问题导致程序异常终止。
-
  
 **返回值：**
   
@@ -301,6 +297,7 @@ let stateArray: Array<atomicService.SystemInfoType> =
 try {
   let data = atomicService.getSystemInfoSync(stateArray);
   hilog.info(0x0000, 'testTag', 'succeeded in getting system info');
+  // 当前参数未调用，开发者自行实现参数的逻辑处理
   let brand: string | undefined = data.brand;
   let deviceModel: string | undefined = data.deviceModel;
   let screenWidth: number | undefined = data.screenWidth;
@@ -315,7 +312,7 @@ try {
   let deviceOrientation: string | undefined = data.deviceOrientation;
   let theme: ColorMode | undefined = data.theme;
 } catch (error) {
-  hilog.error(0x0000, 'testTag', 'failReason: %{public}d %{public}s', error.code, error.message);
+  hilog.error(0x0000, 'testTag', 'Failed to get system info, failReason: %{public}d %{public}s', error.code, error.message);
 }
 ```
  
@@ -329,13 +326,17 @@ getSystemInfo(properties?: Array&lt;SystemInfoType&gt;): Promise&lt;SystemInfo&g
  
 调用该方法获取设备、网络状态、屏幕、语言、主题等系统信息，使用Promise异步回调。
  
+> [!NOTE]
+> 在多线程中调用getSystemInfo接口时，请勿获取theme、windowWidth、windowHeight、statusBarHeight和screenSafeArea的信息，可能会引发空指针问题导致程序异常终止。
+
+ 
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
  
@@ -345,10 +346,6 @@ getSystemInfo(properties?: Array&lt;SystemInfoType&gt;): Promise&lt;SystemInfo&g
 | --- | --- | --- | --- |
 | properties | Array&lt;SystemInfoType&gt; | 否 | 获取设备、网络状态、屏幕、语言、主题等系统信息的请求对象。 说明： - 使用5.0.1(13)及以上版本时不需要配置Wi-Fi权限、蓝牙权限。 - 获取Wi-Fi信息需要配置权限ohos.permission.GET_WIFI_INFO。 - 获取蓝牙开启状态需要配置权限ohos.permission.ACCESS_BLUETOOTH。 - 获取用户程序访问控制权限可参考程序访问控制管理。 |
  
- 
-> [!NOTE]
-> 在多线程中调用getSystemInfo接口时，请勿获取theme、windowWidth、windowHeight、statusBarHeight和screenSafeArea的信息，可能会引发空指针问题导致程序异常终止。
-
  
 **返回值：**
   
@@ -372,6 +369,7 @@ let stateArray: Array<atomicService.SystemInfoType> =
 try {
   atomicService.getSystemInfo(stateArray).then((data: atomicService.SystemInfo) => {
     hilog.info(0x0000, 'testTag', 'succeeded in getting system info asynchronously');
+    // 当前参数未调用，开发者自行实现参数的逻辑处理
     let brand: string | undefined = data.brand;
     let deviceModel: string | undefined = data.deviceModel;
     let screenWidth: number | undefined = data.screenWidth;
@@ -393,7 +391,7 @@ try {
     hilog.error(0x0000, 'testTag', 'Promise error: %{public}d %{public}s', error.code, error.message);
   })
 } catch (error) {
-  hilog.error(0x0000, 'testTag', 'failReason: %{public}d %{public}s', error.code, error.message);
+  hilog.error(0x0000, 'testTag', 'Failed to get system info asynchronously, failReason: %{public}d %{public}s', error.code, error.message);
 }
 ```
  
@@ -413,7 +411,7 @@ getSystemSetting(properties?: Array&lt;SystemSettingType&gt;): SystemSettingInfo
  
 **系统能力：** SystemCapability.AtomicserviceComponent.atomicservice
  
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、Wearable、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、Wearable、TV、Car中可正常调用，在其他设备类型中返回801错误码。
  
 **起始版本：** 5.0.0(12)
  
@@ -442,12 +440,13 @@ let stateArray: Array<atomicService.SystemSettingType> =
 try {
   let data = atomicService.getSystemSetting(stateArray);
   hilog.info(0x0000, 'testTag', 'succeeded in getting system setting info');
+  // 当前参数未调用，开发者自行实现参数的逻辑处理
   let bluetoothEnabled: boolean | undefined = data.bluetoothEnabled;
   let locationEnabled: boolean | undefined = data.locationEnabled;
   let deviceOrientation: string | undefined = data.deviceOrientation;
   let wifiEnabled: boolean | undefined = data.wifiEnabled;
 } catch (error) {
-  hilog.error(0x0001, 'testTag', 'failReason: %{public}d %{public}s', error.code, error.message);
+  hilog.error(0x0001, 'testTag', 'Failed to get system setting info, failReason: %{public}d %{public}s', error.code, error.message);
 }
 ```
  
@@ -459,7 +458,7 @@ try {
 
 showFollowComponent(ctx: UIContext, params: FollowComponentParams, callback: FollowComponentCallback): Promise&lt;void&gt;
  
-调用该方法展示关注组件。
+调用该方法展示关注组件。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -521,20 +520,20 @@ struct Index {
       onFollowComplete: (err, result) => {
         if (err) {
           // 错误日志处理。
-          hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+          hilog.error(0x0000, 'testTag', 'Failed to get the FollowCompleteResult, error: %{public}d %{public}s', err.code, err.message);
           return;
         }
-        hilog.info(0x0000, "testTag", "follow result: %{public}d", result.code);
+        hilog.info(0x0000, 'testTag', 'follow result: %{public}d', result.code);
         if (result.code === atomicService.FollowResult.SUCCESS) {
-          hilog.info(0x0000, "testTag", "follow succeeded handle");
+          hilog.info(0x0000, 'testTag', 'follow succeeded handle');
         } else {
-          hilog.info(0x0000, "testTag", "follow failed handle");
+          hilog.info(0x0000, 'testTag', 'follow failed handle');
         }
       }
     }
     // 展示关注组件。
     atomicService.showFollowComponent(this.getUIContext(), params, callbacks).catch((error: BusinessError<void>) => {
-      hilog.error(0x0000, 'testTag', 'showFollowComponent failReason: %{public}d %{public}s:', error.code,
+      hilog.error(0x0000, 'testTag', 'Failed to show the Follow Component, failReason: %{public}d %{public}s:', error.code,
         error.message);
     })
   }

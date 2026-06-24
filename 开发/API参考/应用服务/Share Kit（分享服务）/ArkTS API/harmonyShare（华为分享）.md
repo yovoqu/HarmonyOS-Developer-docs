@@ -1,6 +1,6 @@
 # harmonyShare（华为分享）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-harmony-share
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -240,6 +240,29 @@ clarifyNonShare(info: SharableErrorInfo): Promise&lt;void&gt;
  
   
 
+#### getInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getInfo(): SharableTargetInfo
+ 
+获取PC/2in1或Tablet设备作为发送端触发碰一碰事件时的相关信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Collaboration.HarmonyShare
+ 
+**起始版本：** 26.0.0
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| SharableTargetInfo | PC/2in1或Tablet设备作为发送端触发碰一碰事件时的相关信息，如轻碰屏幕位置的坐标信息等。 |
+ 
+ 
+  
+
 #### ReceivableTarget
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -311,6 +334,29 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
 | 类型 | 说明 |
 | --- | --- |
 | Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+ 
+ 
+  
+
+#### getInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getInfo(): ReceivableTargetInfo
+ 
+获取PC/2in1或Tablet设备作为接收端触发碰一碰事件时的相关信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Collaboration.HarmonyShare
+ 
+**起始版本：** 26.0.0
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| ReceivableTargetInfo | PC/2in1或Tablet设备作为接收端触发碰一碰事件时的相关信息，如轻碰屏幕位置的坐标信息等。 |
  
  
   
@@ -468,6 +514,64 @@ reject(error: ReceivableErrorCode): Promise&lt;void&gt;
  
   
 
+#### CoordinateInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+手机与PC/2in1或Tablet设备碰一碰触发时，轻碰屏幕位置的坐标信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Collaboration.HarmonyShare
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| screenX | number | 否 | 否 | 碰一碰事件触发时，以屏幕左上角为原点的相对坐标系的X坐标。当前仅支持整数。 |
+| screenY | number | 否 | 否 | 碰一碰事件触发时，以屏幕左上角为原点的相对坐标系的Y坐标。当前仅支持整数。 |
+ 
+ 
+  
+
+#### SharableTargetInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+PC/2in1或Tablet设备作为发送端，触发碰一碰时的相关信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Collaboration.HarmonyShare
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| coordinate | CoordinateInfo | 否 | 是 | 碰一碰事件触发时，轻碰屏幕位置的坐标信息。 |
+ 
+ 
+  
+
+#### ReceivableTargetInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+PC/2in1或Tablet设备作为接收端，触发碰一碰时的相关信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Collaboration.HarmonyShare
+ 
+**起始版本：** 26.0.0
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| coordinate | CoordinateInfo | 否 | 是 | 碰一碰事件触发时，轻碰屏幕位置的坐标信息。 |
+ 
+ 
+  
+
 #### on('knockShare')
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -502,19 +606,19 @@ on(event: 'knockShare', callback: Callback&lt;SharableTarget&gt;): void
 **示例：**
  
 ```text
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-import { systemShare, harmonyShare } from '@kit.ShareKit';
-
-// 注册设备轻贴'knockShare'监听事件
-harmonyShare.on('knockShare', (sharableTarget: harmonyShare.SharableTarget) => {
-  // 构造分享数据
-  let shareData: systemShare.SharedData = new systemShare.SharedData({
-    utd: utd.UniformDataType.PLAIN_TEXT,
-    content: '这是一段文本内容'
-  });
-  // 发起分享
-  sharableTarget.share(shareData);
-});
+private tipsListening() {
+  if (!this.tipsStatus) {
+    harmonyShare.on('knockShare', this.sendOnlyCallback);
+    this.tipsStatus = true;
+  } else {
+    try {
+      const uiContext: UIContext = this.getUIContext();
+      uiContext.getPromptAction().showToast({ message: $r('app.string.knock_close_other') });
+    } catch (error) {
+      hilog.error(DOMAIN, 'testTag', `showToast error. Code: ${error?.code}, message: ${error?.message}`);
+    }
+  }
+}
 ```
  
   
@@ -553,8 +657,10 @@ off(event: 'knockShare', callback?: Callback&lt;SharableTarget&gt;): void
 **示例：**
  
 ```text
-// 取消设备轻贴'knockShare'监听事件
-harmonyShare.off('knockShare');
+private tipsDisablingListening() {
+  harmonyShare.off('knockShare', this.sendOnlyCallback);
+  this.tipsStatus = true;
+}
 ```
  
   
@@ -585,22 +691,25 @@ on(event: 'knockShare', capability: SendCapabilityRegistry, callback: Callback&l
 **示例：**
  
 ```text
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-import { systemShare, harmonyShare } from '@kit.ShareKit';
-
-let capabilityRegistry: harmonyShare.SendCapabilityRegistry = {
-  windowId: 999 // 此值仅为示例 实际使用时请替换正确的windowId
+private sendOnlyListening() {
+  if (!this.sendOnlyStatus) {
+    if (this.windowId) {
+      let capabilityRegistry: harmonyShare.SendCapabilityRegistry = {
+        windowId: this.windowId,
+        sendOnly: true,
+      }
+      harmonyShare.on('knockShare', capabilityRegistry, this.sendOnlyCallback);
+      this.sendOnlyStatus = true;
+    }
+  } else {
+    try {
+      const uiContext: UIContext = this.getUIContext();
+      uiContext.getPromptAction().showToast({ message: $r('app.string.knock_close_other') });
+    } catch (error) {
+      hilog.error(DOMAIN, 'testTag', `showToast error. Code: ${error?.code}, message: ${error?.message}`);
+    }
+  }
 }
-// 注册设备轻贴'knockShare'监听事件
-harmonyShare.on('knockShare', capabilityRegistry, (sharableTarget: harmonyShare.SharableTarget) => {
-  // 构造分享数据
-  let shareData: systemShare.SharedData = new systemShare.SharedData({
-    utd: utd.UniformDataType.PLAIN_TEXT,
-    content: '这是一段文本内容'
-  });
-  // 发起分享
-  sharableTarget.share(shareData);
-});
 ```
  
   
@@ -631,11 +740,16 @@ off(event: 'knockShare', capability: SendCapabilityRegistry, callback?: Callback
 **示例：**
  
 ```text
-let capabilityRegistry: harmonyShare.SendCapabilityRegistry = {
-  windowId: 999 // 此值仅为示例 实际使用时请替换正确的windowId
+private sendOnlyDisablingListening() {
+  if (this.windowId) {
+    let capabilityRegistry: harmonyShare.SendCapabilityRegistry = {
+      windowId: this.windowId,
+      sendOnly: true,
+    }
+    harmonyShare.off('knockShare', capabilityRegistry, this.sendOnlyCallback);
+    this.sendOnlyStatus = false;
+  }
 }
-// 取消设备轻贴'knockShare'监听事件
-harmonyShare.off('knockShare', capabilityRegistry);
 ```
  
   
@@ -665,19 +779,19 @@ on(event: 'gesturesShare', callback: Callback&lt;SharableTarget&gt;): void
 **示例：**
  
 ```text
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-import { systemShare, harmonyShare } from '@kit.ShareKit';
-
-// 注册隔空传送'gesturesShare'监听事件
-harmonyShare.on('gesturesShare', (sharableTarget: harmonyShare.SharableTarget) => {
-  // 构造分享数据
-  let shareData: systemShare.SharedData = new systemShare.SharedData({
-    utd: utd.UniformDataType.PLAIN_TEXT,
-    content: '这是一段文本内容'
-  });
-  // 发起分享
-  sharableTarget.share(shareData);
-});
+private immersiveListening() {
+  if (this.isNoListening()) {
+    harmonyShare.on('gesturesShare', this.immersiveCallback);
+    this.immersiveStatus = true;
+  } else {
+    try {
+      const uiContext: UIContext = this.getUIContext();
+      uiContext.getPromptAction().showToast({ message: $r('app.string.gesture_close_other') });
+    } catch (error) {
+      hilog.error(DOMAIN, 'testTag', `showToast error. Code: ${error?.code}, message: ${error?.message}`);
+    }
+  }
+}
 ```
  
   
@@ -707,8 +821,10 @@ off(event: 'gesturesShare', callback?: Callback&lt;SharableTarget&gt;): void
 **示例：**
  
 ```text
-// 取消隔空传送'gesturesShare'监听事件
-harmonyShare.off('gesturesShare');
+private immersiveDisablingListening() {
+  harmonyShare.off('gesturesShare', this.immersiveCallback);
+  this.immersiveStatus = false;
+}
 ```
  
   
@@ -739,22 +855,24 @@ on(event: 'gesturesShare', capability: SendCapabilityRegistry, callback: Callbac
 **示例：**
  
 ```text
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-import { systemShare, harmonyShare } from '@kit.ShareKit';
-
-let capabilityRegistry: harmonyShare.SendCapabilityRegistry = {
-  windowId: 999 // 此值仅为示例 实际使用时请替换正确的windowId
+private purityListening() {
+  if (this.isNoListening()) {
+    if (this.windowId) {
+      let capabilityRegistry: harmonyShare.SendCapabilityRegistry = {
+        windowId: this.windowId,
+      }
+      harmonyShare.on('gesturesShare', capabilityRegistry, this.purityCallback);
+      this.purityStatus = true;
+    }
+  } else {
+    try {
+      const uiContext: UIContext = this.getUIContext();
+      uiContext.getPromptAction().showToast({ message: $r('app.string.gesture_close_other') });
+    } catch (error) {
+      hilog.error(DOMAIN, 'testTag', `showToast error. Code: ${error?.code}, message: ${error?.message}`);
+    }
+  }
 }
-// 注册隔空传送'gesturesShare'监听事件
-harmonyShare.on('gesturesShare', capabilityRegistry, (sharableTarget: harmonyShare.SharableTarget) => {
-  // 构造分享数据
-  let shareData: systemShare.SharedData = new systemShare.SharedData({
-    utd: utd.UniformDataType.PLAIN_TEXT,
-    content: '这是一段文本内容'
-  });
-  // 发起分享
-  sharableTarget.share(shareData);
-});
 ```
  
   
@@ -785,11 +903,15 @@ off(event: 'gesturesShare', capability: SendCapabilityRegistry, callback?: Callb
 **示例：**
  
 ```text
-let capabilityRegistry: harmonyShare.SendCapabilityRegistry = {
-  windowId: 999 // 此值仅为示例 实际使用时请替换正确的windowId
+private purityDisablingListening() {
+  if (this.windowId) {
+    let capabilityRegistry: harmonyShare.SendCapabilityRegistry = {
+      windowId: this.windowId,
+    }
+    harmonyShare.off('gesturesShare', capabilityRegistry, this.purityCallback);
+    this.purityStatus = false;
+  }
 }
-// 取消隔空传送'gesturesShare'监听事件
-harmonyShare.off('gesturesShare', capabilityRegistry);
 ```
  
   
@@ -822,35 +944,56 @@ on(event: 'dataReceive', capability: RecvCapabilityRegistry, callback: Callback&
 **示例：**
  
 ```text
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-import { systemShare, harmonyShare } from '@kit.ShareKit';
-import { common } from '@kit.AbilityKit';
-
-let capabilityRegistry: harmonyShare.RecvCapabilityRegistry = {
-  windowId: 999, // 此值仅为示例 实际使用时请替换正确的windowId
-  capabilities: [{
-    utd: utd.UniformDataType.IMAGE,
-    maxSupportedCount: 1
-  }]
-}
-// 注册沙箱接收'dataReceive'监听事件
-harmonyShare.on('dataReceive', capabilityRegistry, (receivableTarget: harmonyShare.ReceivableTarget) => {
+private dataReceiveCallback = (receivableTarget: harmonyShare.ReceivableTarget) => {
   let uiContext: UIContext = this.getUIContext();
   let context = uiContext.getHostContext() as common.UIAbilityContext;
-  receivableTarget.receive(context.filesDir, { // 此路径仅为示例 使用时请替换实际路径
+  let sandboxUri = fileUri.getUriFromPath(context.filesDir);
+  receivableTarget.receive(sandboxUri, {
     onDataReceived: (sharedData: systemShare.SharedData) => {
       let sharedRecords = sharedData.getRecords();
       sharedRecords.forEach((record: systemShare.SharedRecord) => {
-        // 处理分享数据
+        this.dataReceiveUri = record.uri;
       });
     },
-    onResult(resultCode: harmonyShare.ShareResultCode) {
+    onResult: (resultCode: harmonyShare.ShareResultCode) => {
       if (resultCode === harmonyShare.ShareResultCode.SHARE_SUCCESS) {
-        // To do things.
+        try {
+          const uiContext: UIContext = this.getUIContext();
+          uiContext.getPromptAction().showToast({ message: $r('app.string.success_supported') });
+        } catch (error) {
+          hilog.error(DOMAIN, 'testTag', `showToast error. Code: ${error?.code}, message: ${error?.message}`);
+        }
       }
     }
   });
-});
+}
+
+private isNoListening() {
+  return !this.dataReceiveStatus;
+}
+
+private dataReceiveListening() {
+  if (this.isNoListening()) {
+    if (this.windowId) {
+      let capabilityRegistry: harmonyShare.RecvCapabilityRegistry = {
+        windowId: this.windowId,
+        capabilities: [{
+          utd: utd.UniformDataType.IMAGE,
+          maxSupportedCount: 1,
+        }]
+      }
+      harmonyShare.on('dataReceive', capabilityRegistry, this.dataReceiveCallback);
+      this.dataReceiveStatus = true;
+    }
+  } else {
+    try {
+      const uiContext: UIContext = this.getUIContext();
+      uiContext.getPromptAction().showToast({ message: $r('app.string.knock_close_other') });
+    } catch (error) {
+      hilog.error(DOMAIN, 'testTag', `showToast error. Code: ${error?.code}, message: ${error?.message}`);
+    }
+  }
+}
 ```
  
   
@@ -881,13 +1024,21 @@ off(event: 'dataReceive', capability: RecvCapabilityRegistry, callback?: Callbac
 **示例：**
  
 ```text
-let capabilityRegistry: harmonyShare.RecvCapabilityRegistry = {
-  windowId: 999, // 此值仅为示例 实际使用时请替换正确的windowId
-  capabilities: [{
-    utd: utd.UniformDataType.IMAGE,
-    maxSupportedCount: 1
-  }]
+private dataReceiveDisablingListening() {
+  try {
+    if (this.windowId) {
+      let capabilityRegistry: harmonyShare.RecvCapabilityRegistry = {
+        windowId: this.windowId,
+        capabilities: [{
+          utd: utd.UniformDataType.IMAGE,
+          maxSupportedCount: 1,
+        }]
+      }
+      harmonyShare.off('dataReceive', capabilityRegistry, this.dataReceiveCallback);
+      this.dataReceiveStatus = false;
+    }
+  } catch (error) {
+    hilog.error(DOMAIN, 'testTag', 'error message: %s', error?.message ?? 'unknown error');
+  }
 }
-// 取消沙箱接收'dataReceive'监听事件
-harmonyShare.off('dataReceive', capabilityRegistry);
 ```

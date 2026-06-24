@@ -1,6 +1,6 @@
 # 如何解决网络连接状态变化的公共事件返回内容为"NetType":1的问题
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-60
 

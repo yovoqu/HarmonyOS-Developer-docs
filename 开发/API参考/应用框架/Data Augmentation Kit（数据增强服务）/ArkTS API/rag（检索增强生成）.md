@@ -1,6 +1,6 @@
 # rag（检索增强生成）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-rag-api
 **支持设备：** PC/2in1
@@ -8,6 +8,47 @@
 本模块提供创建和关闭会话（[RagSession](#ragsession)）、流式请求大语言模型（[ChatLLM](#chatllm)）以及流式问答（[streamRun](#streamrun)）的能力。
  
 **起始版本：** 6.0.0(20)
+  
+
+#### 模块概述
+
+**支持设备：** PC/2in1
+
+RAG（Retrieval-Augmented Generation，检索增强生成）模块提供基于知识库的智能问答能力。其工作流程如下：
+ 1. 开发者通过[createRagSession](#createragsession)创建RagSession会话实例，同时配置大模型（Large Language Model，简称LLM）和检索相关参数。
+2. 调用[RagSession.streamRun](#streamrun)发起流式问答，系统首先根据问题从知识库检索相关内容。
+3. 检索结果与问题一并提交给大语言模型，由模型生成最终答案。
+4. 开发者可通过[RagSession.cancel](#cancel-1)取消正在进行的问答。
+5. 问答完成后，开发者可通过[feedback](#feedback)接口上报用户反馈信息。
+6. 不再使用时，调用[RagSession.close](#close)关闭会话，释放资源。
+ 
+**使用约束：** 此模块不支持多线程调用，即同一时刻仅能有一个RAG会话执行streamRun或cancel操作。
+ 
+  
+
+#### 关键Class/Interface介绍
+
+**支持设备：** PC/2in1
+
+  
+
+#### 核心类型概览
+ 
+| 名称 | 类型 | 说明 |
+| --- | --- | --- |
+| ChatLLM | 抽象类 | LLM流式请求抽象类，应用需继承实现streamChat和cancel方法 |
+| RagSession | 接口 | RAG会话，用于知识库问答，提供streamRun和cancel方法 |
+| Config | 接口 | 会话配置，包含LLM实例和检索配置 |
+ 
+ 
+  
+
+#### UML类图
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/854r-MKRRamRALIsSkU8kg/zh-cn_image_0000002656350631.png?HW-CC-KV=V1&HW-CC-Date=20260624T020036Z&HW-CC-Expire=86400&HW-CC-Sign=DAAE3DA4562EC43A08105EE71D132F51B96BBB9E4A233FDBC882F0A53E35204C)
+
+ 
   
 
 #### 导入模块
@@ -34,7 +75,7 @@ import { rag } from '@kit.DataAugmentationKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| isFinished | boolean | 否 | 否 | 表示LLM（Large Language Model，大语言模型）流式输出是否已经结束。true表示已结束，false表示后续还有答案输出。 |
+| isFinished | boolean | 否 | 否 | 表示LLM流式输出是否已经结束。true表示已结束，false表示后续还有答案输出。 |
 | chunk | string | 否 | 否 | 表示LLM流式输出过程中单轮返回的chunk（被拆分后的文本单元）内容。单轮流式返回结果无固定上限，单次问答所有流式返回结果长度上限为8192字节。 |
 | err | BusinessError&lt;string&gt; | 否 | 是 | 表示LLM流式输出过程中出现的错误。code取值范围为[1021011000, 1021012000)，超过范围则会报错1021000000。基类必选参数name和message的长度上限为1000字符，超出部分将被截断。不带本参数则认为无错误发生。 |
  
@@ -55,11 +96,11 @@ import { rag } from '@kit.DataAugmentationKit';
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| LLM_SUCCESS | 0 | 请求LLM成功。 |
-| LLM_REQUEST_ERROR | 1 | 请求错误。 |
-| LLM_LOAD_FAILED | 2 | LLM加载失败。 |
-| LLM_TIMEOUT | 3 | LLM请求超时。 |
-| LLM_BUSY | 4 | LLM繁忙。 |
+| LLM_SUCCESS | 0 | 请求LLM成功。表示streamChat已成功发起LLM调用并获得有效响应。 |
+| LLM_REQUEST_ERROR | 1 | 请求错误。表示在请求LLM过程中发生了错误（如网络问题、参数错误等），建议检查网络连接和query参数是否符合要求。 |
+| LLM_LOAD_FAILED | 2 | LLM加载失败。表示LLM模型未能成功加载，可能是模型资源缺失或内存不足导致。建议确保设备有足够的存储空间和内存。 |
+| LLM_TIMEOUT | 3 | LLM请求超时。表示LLM响应时间超过了预期上限，可能是模型繁忙或网络延迟导致。建议稍后重试。 |
+| LLM_BUSY | 4 | LLM繁忙。表示当前LLM实例正在处理其他请求，无法接受新的请求。建议等待一段时间后重试。 |
  
  
   
@@ -78,8 +119,8 @@ import { rag } from '@kit.DataAugmentationKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| chatId | number | 否 | 否 | 表示大模型的请求ID。取值范围：[0, 2147483647]。 |
-| status | LLMRequestStatus | 否 | 否 | 表示streamChat请求的状态。 |
+| chatId | number | 否 | 否 | 表示大模型的请求ID。取值范围：[0, 2147483647]。开发者需要自行维护chatId与实际HTTP请求的映射关系，以便后续调用cancel时能够取消对应的请求。 |
+| status | LLMRequestStatus | 否 | 否 | 表示streamChat请求的状态。通过此字段，调用方可以判断本次LLM调用是否成功，以及失败的具体原因。 |
  
  
   
@@ -116,7 +157,7 @@ abstract streamChat(query: string, callback: Callback&lt;LLMStreamAnswer&gt;): P
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| query | string | 是 | 与大模型交互时的请求内容，根据输入问题、问题预处理、检索等结果动态拼接，最大长度为20000字节。 说明： 其中已带有需要带给大模型的提示prompt，无需额外附加内容，且提示prompt中的示例数据均只是提示大模型按照预期输出的模拟数据，无其他额外用途。 |
+| query | string | 是 | 与大模型交互时的请求内容，根据输入问题、问题预处理、检索等结果动态拼接，最大长度为20000字节。使用的API模型不同最大长度不同，开发者使用相关模型时注意对应的最大长度。说明： 其中已带有需要带给大模型的提示prompt，无需额外附加内容，且提示prompt中的示例数据均只是提示大模型按照预期输出的模拟数据，无其他额外用途。 |
 | callback | Callback&lt;LLMStreamAnswer&gt; | 是 | 将与大语言模型交互后得到的结果返回给RAG基础框架的回调。 |
  
  
@@ -124,7 +165,7 @@ abstract streamChat(query: string, callback: Callback&lt;LLMStreamAnswer&gt;): P
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;LLMRequestInfo&gt; | Promise对象，返回LLM请求信息对象。 |
+| Promise&lt;LLMRequestInfo&gt; | Promise对象，返回LLM请求信息对象。其中chatId用于标识本次LLM请求，开发者需要在后续cancel时传入相同的chatId；status表示请求状态，LLM_SUCCESS表示成功，其他值表示失败。 |
  
  
 **示例：**
@@ -188,7 +229,7 @@ abstract cancel(chatId: number): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| chatId | number | 是 | 需要被取消的请求LLM的ID。与streamChat返回值LLMRequestInfo中填入的chatId保持一致。取值范围：[0, 2147483647]。 |
+| chatId | number | 是 | 需要被取消的请求LLM的ID。与streamChat返回值LLMRequestInfo中填入的chatId保持一致。取值范围：[0, 2147483647]。开发者需要在streamChat被调用时保存chatId与实际HTTP请求的映射关系，以便在cancel时能够找到对应的请求并取消。 |
  
  
 **示例：**
@@ -229,9 +270,9 @@ RAG会话的配置项。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| llm | ChatLLM | 否 | 否 | 表示ChatLLM的提供者。 |
-| retrievalConfig | retrieval.RetrievalConfig | 否 | 否 | 表示检索使用的配置。 |
-| retrievalCondition | retrieval.RetrievalCondition | 否 | 否 | 表示检索的条件。 |
+| llm | ChatLLM | 否 | 否 | 表示ChatLLM的提供者。开发者需要创建ChatLLM子类的实例并传入。当需要使用RAG进行问答时，必须配置此项。llm实例负责与实际的大语言模型交互。 |
+| retrievalConfig | retrieval.RetrievalConfig | 否 | 否 | 表示检索使用的配置。包括向量数据库连接信息、检索通道配置等。当需要从知识库检索相关内容时，需要配置此项。 |
+| retrievalCondition | retrieval.RetrievalCondition | 否 | 否 | 表示检索的条件。包括召回条件、过滤条件等。当需要对知识库检索进行更精细的控制时，需要配置此项。 |
  
  
 **示例：**
@@ -296,9 +337,9 @@ let config: rag.Config = {
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| THOUGHT | 0 | 思考过程数据。 |
-| REFERENCE | 1 | 检索到的文档或知识的来源。 |
-| ANSWER | 2 | 生成的内容的最终结果。 |
+| THOUGHT | 0 | 思考过程数据。表示LLM在生成最终答案前的推理过程或中间思考内容。部分LLM会输出思考过程。 |
+| REFERENCE | 1 | 检索到的文档或知识的来源。表示RAG框架从知识库中检索到的相关内容，作为LLM生成答案的参考。 |
+| ANSWER | 2 | 生成的内容的最终结果。表示LLM基于检索结果生成的最终回答。 |
  
  
   
@@ -411,7 +452,7 @@ streamRun(question: string, config: RunConfig, callback: AsyncCallback&lt;Stream
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dataaugmentation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -502,7 +543,7 @@ cancel(runId: number): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dataaugmentation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -554,7 +595,7 @@ close(): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dataaugmentation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -599,7 +640,7 @@ createRagSession(context: common.Context, config: Config): Promise&lt;RagSession
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | common.Context | 是 | 表示当前应用上下文。 |
-| config | Config | 是 | 表示与此RagSession相关的配置。 |
+| config | Config | 是 | 表示与此RagSession相关的配置。包括LLM、retrievalConfig、retrievalCondition等。 |
  
  
 **返回值：**
@@ -611,7 +652,7 @@ createRagSession(context: common.Context, config: Config): Promise&lt;RagSession
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dataaugmentation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -704,7 +745,7 @@ feedback(context: common.Context, feedbackInfo: FeedbackInfo): Promise&lt;void&g
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[数据增强错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dataaugmentation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

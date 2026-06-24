@@ -1,6 +1,6 @@
 # UI Design Kit简介
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-design-introduction
 

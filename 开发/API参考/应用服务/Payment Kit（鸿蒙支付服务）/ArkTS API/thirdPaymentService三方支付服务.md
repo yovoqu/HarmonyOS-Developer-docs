@@ -1,6 +1,6 @@
 # thirdPaymentService(三方支付服务)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-third-payment-service
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -172,7 +172,7 @@ pay(payInfo: string): Promise&lt;void&gt;;
  
 **错误码**：
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

@@ -1,6 +1,6 @@
 # 关系型数据库跨设备数据同步 (ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-18 06:48:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/data-sync-of-rdb-store
 
@@ -134,7 +134,7 @@ const DOMAIN = 0x0000;
  - 创建关系型数据库，创建数据表，并将需要进行跨设备同步的数据表设置为分布式表，默认采用多设备协同表模式进行数据存储和管理。
 
   
-```text
+```ArkTS
 const context = new UIContext().getHostContext() as common.UIAbilityContext;
 let store: relationalStore.RdbStore | undefined = undefined;
 // ...
@@ -397,7 +397,16 @@ version：当前schema版本，int类型，必填字段。
  - tables：数据库中表信息，array[table]。         
 tableName：表名，string，必填字段。
  - deviceSyncFields：指定端端同步对应的列，array[string]，其中字段必须在fields中，且必须在数据库表中，否则不会同步；该字段为必填字段，否则设置分布式表失败。
- - fields：数据库表字段详细信息，array[field]。           
+ - cloudType: 表类型，为enum类型，取值范围为[ "Local", "Cloud DB", "Device DB" ]。
+
+  "Local"表示本端表。"Cloud_DB"表示端云表。"Device DB"表示设备表。
+
+  针对搭载HarmonyOS 6.1.0、HarmonyOS 6.1.1版本的设备，此字段为必填字段。
+
+  针对搭载HarmonyOS 7.0.0及以上版本的设备，此字段为可选字段。
+ - fields：数据库表字段详细信息，array[field]。
+
+  
 columnName：字段名，string类型，必填字段。
  - type：字段类型，string类型，必填字段，可选参数范围为：["Text", "Integer", "Long", "Float", "Double", "Blob" ]。
  - primaryKey：该字段表示是否为指定解冲突列，与表中是否为主键无关，bool类型。若是自增表，该字段为必填字段。其中：true表示为解冲突列，false表示非解冲突列，默认为false。
@@ -423,6 +432,7 @@ columnName：字段名，string类型，必填字段。
         {
           "tableName": "EMPLOYEE",
           "deviceSyncFields": ["NAME", "AGE", "SALARY", "CODES"],
+          "cloudType": ["Local"],
           "fields": [
             {
               "columnName": "ID",
@@ -514,108 +524,111 @@ columnName：字段名，string类型，必填字段。
 ```json
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME", "AGE"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME", "AGE"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+      "type": "Text",
+      "primaryKey": true,
+      "notNull": true,
+      "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
  - 升级版本schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 1,
+  "bundleName": "com.example.rdbDataSync",
+  "dbName": "RdbTest",
+  "tables": [
     {
-      "version": 1,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME", "AGE"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": false,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": true,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+    "deviceSyncFields": ["NAME", "AGE"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+      "type": "Text",
+      "primaryKey": false,
+      "notNull": true,
+      "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+      "type": "Integer",
+      "primaryKey": true,
+      "notNull": false,
+      "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
 
-      - 解冲突列只能有一个。
 
-  错误示例：schema中指定字段"NAME"和"AGE"两个解冲突列。schema示例如下：
+
+ - 解冲突列只能有一个。       错误示例：schema中指定字段"NAME"和"AGE"两个解冲突列。schema示例如下：
 
   
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME", "AGE"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": true,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME", "AGE"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": true,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
@@ -627,315 +640,317 @@ columnName：字段名，string类型，必填字段。
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL, AGE INTEGER, SALARY REAL, CODES BLOB)'
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAMe", "AGE"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAMe", "AGE"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
 
       - 同步列变化时，存量数据会重新同步。若schema中有新增指定同步列，已有指定同步列以及新增指定列数据会重新触发同步。
- - schema有变化时，version需要增加。
+ - schema有变化时，version需要增加。       错误示例：schema中新增同步字段"AGE"，但是version未增加。
 
-  错误示例：schema中新增同步字段"AGE"，但是version未增加。
+  旧版本schema：
 
   
-旧版本schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
+  ]
+}
+```
+升级版本schema：
+
+  
+```text
+{
+  "dbSchema": [
+  {
+    "version": 0,
+  "bundleName": "com.example.rdbDataSync",
+  "dbName": "RdbTest",
+  "tables": [
+    {
+      "tableName": "EMPLOYEE",
+    "deviceSyncFields": ["NAME", "AGE"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+      "type": "Text",
+      "primaryKey": true,
+      "notNull": true,
+      "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+      "type": "Integer",
+      "primaryKey": false,
+      "notNull": false,
+      "autoIncrement": false
+      }
+      ]
+    }
+    ]
+  }
   ]
 }
 ```
 
- - 升级版本schema：         
-```json
-{
-  "dbSchema": [
-    {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME", "AGE"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-
-      - 单版本表模式下，表中所有UNIQUE列必须同步。
-
-  错误示例："AGE"为UNIQUE列，但是未指定该字段同步
+ - 单版本表模式下，表中所有UNIQUE列必须同步。       错误示例："AGE"为UNIQUE列，但是未指定该字段同步
 
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL UNIQUE, AGE INTEGER UNIQUE, SALARY REAL, CODES BLOB)'。
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
 
-      - 自增表下，不支持指定非主键列解冲突又同步主键。
-
-  错误示例：自增表下，指定"NAME"为解冲突列，但是又同步字段"ID"。
+      - 自增表下，不支持指定非主键列解冲突又同步主键。       错误示例：自增表下，指定"NAME"为解冲突列，但是又同步字段"ID"。
 
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL UNIQUE, AGE INTEGER, SALARY REAL, CODES BLOB)'。
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["ID", "NAME" ],
-          "fields": [
-            {
-              "columnName": "ID",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": true
-            },
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["ID", "NAME" ],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "ID",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": true
+      },
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
 
-      - schema版本升级时，指定同步列只能新增不能减少。
+      - schema版本升级时，指定同步列只能新增不能减少。       错误示例：schema版本由0升级为1，指定同步列"AGE"被删除。
 
-  错误示例：schema版本由0升级为1，指定同步列"AGE"被删除。
+  旧版本schema：
 
   
-旧版本schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME", "AGE"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME", "AGE"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
-
- - 升级版本schema：         
-```json
-{
-  "dbSchema": [
-    {
-      "version": 1,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-
-      - 同步列不能为空，deviceSyncFields长度至少为1，若schema中未配置字段deviceSyncFields，默认为空。
-
-  错误示例：schema中没有配置deviceSyncFields，设置单版本模式分布式表失败。schema示例如下：
+升级版本schema：
 
   
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 1,
+  "bundleName": "com.example.rdbDataSync",
+  "dbName": "RdbTest",
+  "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+    "deviceSyncFields": ["NAME"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+      "type": "Text",
+      "primaryKey": true,
+      "notNull": true,
+      "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+      "type": "Integer",
+      "primaryKey": false,
+      "notNull": false,
+      "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
+
+ - 同步列不能为空，deviceSyncFields长度至少为1，若schema中未配置字段deviceSyncFields，默认为空。       错误示例：schema中没有配置deviceSyncFields，设置单版本模式分布式表失败。schema示例如下：
+
+  
+```text
+{
+  "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
+    {
+      "tableName": "EMPLOYEE",
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": false
+      }
+      ]
+    }
+    ]
+  }
+  ]
+}
+```
+
+
 
  - 表中not null字段必须有默认值，否则要指定同步。
 
@@ -944,247 +959,241 @@ columnName：字段名，string类型，必填字段。
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL UNIQUE, AGE INTEGER NOT NULL, SALARY REAL, CODES BLOB)'。
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": true,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": true,
+        "autoIncrement": false
+      }
       ]
     }
-  ]
+    ]
+  }
+  ]      
 }
 ```
 
 
-      - 无主键表不支持指定列同步，不支持配置单版本表模式。
-
-  错误示例："EMPLOYEE"是无主键表，设置单版本模式分布式表时会失败。
+      - 无主键表不支持指定列同步，不支持配置单版本表模式。       错误示例："EMPLOYEE"是无主键表，设置单版本模式分布式表时会失败。
 
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (NAME TEXT NOT NULL UNIQUE, AGE INTEGER, SALARY REAL, CODES BLOB)'。
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
 
-      - 主键为非自增，主键必须同步，且解冲突列必须为主键。
-
-  错误示例："NAME"为非自增主键，但是指定"AGE"为解冲突列。
+      - 主键为非自增，主键必须同步，且解冲突列必须为主键。       错误示例："NAME"为非自增主键，但是指定"AGE"为解冲突列。
 
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (NAME TEXT NOT NULL PRIMARY KEY, AGE INTEGER NOT NULL UNIQUE, SALARY REAL, CODES BLOB)'。
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["AGE"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": false,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": true,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["AGE"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": false,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": true,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
 
-      - 配置解冲突列必须为UNIQUE属性，且为类似uuid等全局唯一字段。
-
-  错误示例：指定解冲突列"NAME"没有UNIQUE属性。
+      - 配置解冲突列必须为UNIQUE属性，且为类似uuid等全局唯一字段。       错误示例：指定解冲突列"NAME"没有UNIQUE属性。
 
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL, AGE INTEGER, SALARY REAL, CODES BLOB)'。
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME", "AGE"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            },
-            {
-              "columnName": "AGE",
-              "type": "Integer",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME", "AGE"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      },
+      {
+        "columnName": "AGE",
+        "type": "Integer",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
 
-      - deviceSyncFields中字段必须在fields中，否则该字段将不会同步。
-
-  错误示例：字段"AGE"未出现在fields中，该字段将不会同步。
+      - deviceSyncFields中字段必须在fields中，否则该字段将不会同步。       错误示例：字段"AGE"未出现在fields中，该字段将不会同步。
 
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL UNIQUE, AGE INTEGER, SALARY REAL, CODES BLOB)'。
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME", "AGE"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": true,
-              "notNull": true,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME", "AGE"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": true,
+        "notNull": true,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
 
-      - 必须同步uuid等全局唯一的主键，自增主键不允许同步，若主键为自增，必须配置一个非主键列解冲突。
-
-  错误示例：schema中指定了"ID"同步，该字段为自增主键。
+      - 必须同步uuid等全局唯一的主键，自增主键不允许同步，若主键为自增，必须配置一个非主键列解冲突。       错误示例：schema中指定了"ID"同步，该字段为自增主键。
 
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL UNIQUE, AGE INTEGER, SALARY REAL, CODES BLOB)'。
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["ID", "NAME"],
-          "fields": [
-            {
-              "columnName": "ID",
-              "type": "Integer",
-              "primaryKey": true,
-              "notNull": false,
-              "autoIncrement": true
-            },
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": false,
-              "notNull": true,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["ID", "NAME"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "ID",
+        "type": "Integer",
+        "primaryKey": true,
+        "notNull": false,
+        "autoIncrement": true
+      },
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": false,
+        "notNull": true,
+        "autoIncrement": false
+      }
       ]
     }
+    ]
+  }
   ]
 }
 ```
 
 
-      - 指定解冲突列中的值不能出现null值。若指定解冲突列存量数据有null值，设置分布式表会失败；若指定解冲突列增量数据为null值，写入会失败。
-
-  错误示例：若先执行写入语句，执行设置分布式表语句会失败；若先执行设置分布式表语句，执行写入语句会失败。
+      - 指定解冲突列中的值不能出现null值。若指定解冲突列存量数据有null值，设置分布式表会失败；若指定解冲突列增量数据为null值，写入会失败。       错误示例：若先执行写入语句，执行设置分布式表语句会失败；若先执行设置分布式表语句，执行写入语句会失败。
 
   
 建表语句：'CREATE TABLE IF NOT EXISTS EMPLOYEE (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT UNIQUE, AGE INTEGER, SALARY REAL, CODES BLOB)'。
@@ -1195,8 +1204,7 @@ valueBucket["NAME"] = null;
 valueBucket["AGE"] = 25;
 valueBucket["SALARY"] = 23456.7;
 let value = new Uint8Array([1, 2, 3, 4, 5]);
-valueBucket["CODES"] = value;
-await rdbstore.insert("EMPLOYEE", valueBucket);
+valueBucket["CODES"] = value;      await rdbstore.insert("EMPLOYEE", valueBucket);
 ```
 
  - 设置分布式表语句：         
@@ -1211,29 +1219,30 @@ await store.setDistributedTables(['EMPLOYEE'], relationalStore.DistributedType.D
 ```
 
  - schema：         
-```json
+```text
 {
   "dbSchema": [
+  {
+    "version": 0,
+    "bundleName": "com.example.rdbDataSync",
+    "dbName": "RdbTest",
+    "tables": [
     {
-      "version": 0,
-      "bundleName": "com.example.rdbDataSync",
-      "dbName": "RdbTest",
-      "tables": [
-        {
-          "tableName": "EMPLOYEE",
-          "deviceSyncFields": ["NAME"],
-          "fields": [
-            {
-              "columnName": "NAME",
-              "type": "Text",
-              "primaryKey": false,
-              "notNull": false,
-              "autoIncrement": false
-            }
-          ]
-        }
+      "tableName": "EMPLOYEE",
+      "deviceSyncFields": ["NAME"],
+      "cloudType": ["Local"],
+      "fields": [
+      {
+        "columnName": "NAME",
+        "type": "Text",
+        "primaryKey": false,
+        "notNull": false,
+        "autoIncrement": false
+      }
       ]
-    }
+     }
+    ]
+  }
   ]
 }
 ```

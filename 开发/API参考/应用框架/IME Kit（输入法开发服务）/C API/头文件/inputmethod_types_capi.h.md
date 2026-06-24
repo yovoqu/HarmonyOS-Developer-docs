@@ -1,6 +1,6 @@
 # inputmethod_types_capi.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-types-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供了输入法相关的类型定义。
+提供了输入法相关的类型定义，包含键盘状态、回车键功能类型，光标移动方向等。
  
 **引用文件：** <inputmethod/inputmethod_types_capi.h>
  

@@ -1,6 +1,6 @@
 # @ohos.UiTest
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uitest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@ UiTest提供模拟UI操作的能力，供开发者在测试场景使用，主要
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-import { Component, Driver, UiWindow, ON, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix, UiDirection, MouseButton, UIElementInfo, UIEventObserver, UiComponent, UiDriver, BY } from '@kit.TestKit';
+import { Component, Driver, UiWindow, ON, MatchPattern, DisplayRotation, ResizeDirection, WindowMode, PointerMatrix, UiDirection, MouseButton, UIElementInfo, UIEventObserver, UiComponent, UiDriver, BY, KeyOptions, TouchOptions, PenKey, PenMode, PenKeyOperation, PenKeyOperationOptions } from '@kit.TestKit';
 ```
 
 
@@ -168,7 +168,7 @@ import { Component, Driver, UiWindow, ON, MatchPattern, DisplayRotation, ResizeD
 | focused | boolean | 否 | 是 | 窗口是否处于获焦状态，true：获焦状态，false：未获焦状态，默认值为false。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | actived(deprecated) | boolean | 否 | 是 | 窗口是否正与用户进行交互，true：交互状态，false：未交互状态，默认值为false。 从API version 11开始废弃，建议使用active替代。 |
 | active11+ | boolean | 否 | 是 | 窗口是否正与用户进行交互，true：交互状态，false：未交互状态，默认值为false。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| displayId20+ | number | 否 | 是 | 窗口所属的屏幕ID。取值大于或等于0的整数。默认值为设备默认屏ID。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| displayId20+ | number | 否 | 是 | 窗口所属的屏幕ID。取值大于或等于0的整数。默认值为设备默认屏幕ID。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 
 
 
@@ -344,6 +344,127 @@ UI事件的相关信息。
 | --- | --- | --- | --- | --- |
 | paste | boolean | 否 | 是 | 输入文本时是否指定以复制粘贴方式输入。true：指定以复制粘贴方式输入。false：指定以逐字键入方式输入。默认为false。 说明： 当输入文本中包含中文、特殊字符或文本长度超过200字符时，无论该参数取值为何，均以复制粘贴方式输入。 |
 | addition | boolean | 否 | 是 | 输入文本时是否以追加的方式进行输入。true：以追加方式输入。false：不以追加方式输入。默认为false。 |
+
+
+
+
+#### KeyOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+按键操作选项。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| key1 | number | 否 | 是 | 操作时注入的第一个按键值，取值范围：KeyCode键码值。未设置时不注入按键事件。 |
+| key2 | number | 否 | 是 | 操作时注入的第二个按键值，取值范围：KeyCode键码值。未设置时不注入按键事件。 说明： 仅设置key2而不设置key1时，将抛出17000007参数校验失败的错误。 |
+
+
+
+
+#### TouchOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+触摸操作通用选项。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| speed | number | 否 | 是 | 操作速率，取值范围为200-40000的整数，默认值为600，单位：px/s。取值为超出取值范围的非负数或为null/undefined时按照默认值600处理，为负数时抛出17000007错误码。 |
+| duration | number | 否 | 是 | 操作持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。 |
+| pressure | number | 否 | 是 | 触摸的压力值，取值范围为0-1，默认值为0。取值为null或undefined时按照默认值处理，其他超出取值范围情况时抛出17000007错误码。 |
+
+
+
+
+#### PenKey
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+手写笔按键类型枚举。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| HANDWRITING | 0 | 书写键。 |
+| SMART | 1 | 智慧键。 |
+| AIR_MOUSE | 2 | 空鼠键。 |
+
+
+
+
+#### PenMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+手写笔模式枚举。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| HANDWRITING | 0 | 手写模式。 |
+| AIR_MOUSE | 1 | 空鼠模式。 |
+
+
+
+
+#### PenKeyOperation
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+手写笔按键操作类型枚举。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| CLICK | 0 | 单击。 |
+| DOUBLE_CLICK | 1 | 双击。 |
+
+
+
+
+#### PenKeyOperationOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+手写笔按键操作选项。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| point | Point | 否 | 是 | 空鼠模式下的坐标点，在triggerPenKey接口中，当参数key设置为AIR_MOUSE时必须设置该属性，否则接口调用抛出17000007错误码。 |
 
 
 
@@ -1025,6 +1146,58 @@ let on: On = ON.type('Button').isBefore(ON.text('123')); // 查找text为123之�
 
 
 
+#### isBefore
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isBefore(com: Component): On
+
+指定目标控件位于给出的特征控件之前，返回On对象自身。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| com | Component | 是 | 特征控件。 可以借助DevEco Testing中UiViewer获取控件树，以判断控件间位置关系。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| On | 返回指定目标控件位于给出的特征控件之前的On对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000007 | Parameter verification failed. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Component, Driver, On, ON } from '@kit.TestKit';
+
+async function demo() {
+  let driver = Driver.create();
+  let com: Component = await driver.findComponent(ON.type('Text'));
+  let on: On = ON.text('123').isBefore(com); // 查找第一个Text组件之前的text为123的组件
+}
+```
+
+
+
 #### isAfter9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1072,6 +1245,58 @@ let on: On = ON.type('Text').isAfter(ON.text('123')); // 查找 text为123之后
 
 
 
+#### isAfter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isAfter(com: Component): On
+
+指定目标控件位于给出的特征控件之后，返回On对象自身。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| com | Component | 是 | 特征控件。 可以借助DevEco Testing中UiViewer获取控件树，以判断控件间位置关系。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| On | 返回指定目标控件位于给出的特征控件之后的On对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000007 | Parameter verification failed. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Component, Driver, On, ON } from '@kit.TestKit';
+
+async function demo() {
+  let driver = Driver.create();
+  let com: Component = await driver.findComponent(ON.type('Text'));
+  let on: On = ON.text('123').isAfter(com); // 查找第一个Text组件之后的text为123的组件
+}
+```
+
+
+
 #### within10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1115,6 +1340,58 @@ import { On, ON } from '@kit.TestKit';
 
 // 使用静态构造器ON创建On对象，指定目标控件位于给出的特征属性控件之内。
 let on: On = ON.text('java').within(ON.type('Scroll')); // 查找Scroller里面的text为java的子组件
+```
+
+
+
+#### within
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+within(com: Component): On
+
+指定目标控件位于给出的特征控件之内，返回On对象自身。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| com | Component | 是 | 特征控件。可以借助DevEco Testing中UiViewer获取控件树，以判断控件间位置关系。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| On | 返回指定目标控件位于给出的特征控件内的On对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000007 | Parameter verification failed. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Component, Driver, On, ON } from '@kit.TestKit';
+
+async function demo() {
+  let driver = Driver.create();
+  let com: Component = await driver.findComponent(ON.type('Text'));
+  let on: On = ON.text('123').within(com); // 查找第一个Text组件内部的text为123的组件
+}
 ```
 
 
@@ -1382,7 +1659,7 @@ click(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -1391,7 +1668,7 @@ click(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1426,7 +1703,7 @@ doubleClick(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -1435,7 +1712,7 @@ doubleClick(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1470,7 +1747,7 @@ longClick(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -1479,7 +1756,7 @@ longClick(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1523,7 +1800,7 @@ getId(): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1571,7 +1848,7 @@ getText(): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1615,7 +1892,7 @@ getType(): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1659,7 +1936,7 @@ getBounds(): Promise&lt;Rect&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1703,7 +1980,7 @@ getBoundsCenter(): Promise&lt;Point&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1747,7 +2024,7 @@ isClickable(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1761,9 +2038,9 @@ async function demo() {
   let driver: Driver = Driver.create();
   let button: Component = await driver.findComponent(ON.type('Button'));
   if (await button.isClickable()) {
-    console.info('This button can be Clicked');
+    console.info('This button can be clicked');
   } else {
-    console.info('This button can not be Clicked');
+    console.info('This button can not be clicked');
   }
 }
 ```
@@ -1795,7 +2072,7 @@ isLongClickable(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1809,9 +2086,9 @@ async function demo() {
   let driver: Driver = Driver.create();
   let button: Component = await driver.findComponent(ON.type('Button'));
   if (await button.isLongClickable()) {
-    console.info('This button can longClick');
+    console.info('This button supports long click');
   } else {
-    console.info('This button can not longClick');
+    console.info('This button can not support long click');
   }
 }
 ```
@@ -1843,7 +2120,7 @@ isChecked(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1891,7 +2168,7 @@ isCheckable(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1939,7 +2216,7 @@ isScrollable(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -1987,7 +2264,7 @@ isEnabled(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -2035,7 +2312,7 @@ isFocused(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -2083,7 +2360,7 @@ isSelected(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -2122,7 +2399,7 @@ inputText(text: string): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **参数：**
@@ -2138,7 +2415,7 @@ inputText(text: string): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
@@ -2182,7 +2459,7 @@ inputText(text: string, mode: InputTextMode): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -2191,10 +2468,10 @@ inputText(text: string, mode: InputTextMode): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 801 | Capability not supported, function can not work correctly due to limited device capabilities. |
+| 801 | Capability not supported. Function can not work correctly due to limited device capabilities. |
 
 
 **示例：**
@@ -2228,7 +2505,7 @@ clearText(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -2237,7 +2514,7 @@ clearText(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -2288,7 +2565,7 @@ scrollSearch(on: On): Promise&lt;Component&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
@@ -2342,7 +2619,7 @@ scrollSearch(on: On, vertical?: boolean, offset?: number): Promise&lt;Component&
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
@@ -2385,7 +2662,7 @@ scrollToTop(speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -2394,7 +2671,7 @@ scrollToTop(speed?: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 401 | Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed. |
 
@@ -2437,7 +2714,7 @@ scrollToBottom(speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -2446,7 +2723,7 @@ scrollToBottom(speed?: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 401 | Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter verification failed. |
 
@@ -2491,7 +2768,7 @@ dragTo(target: Component): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -2500,7 +2777,7 @@ dragTo(target: Component): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
@@ -2544,7 +2821,7 @@ pinchOut(scale: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -2553,7 +2830,7 @@ pinchOut(scale: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
@@ -2596,7 +2873,7 @@ pinchIn(scale: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -2605,7 +2882,7 @@ pinchIn(scale: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
@@ -2650,7 +2927,7 @@ getDescription(): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -2694,7 +2971,7 @@ getHint(): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -2738,7 +3015,7 @@ getDisplayId(): Promise&lt;number&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -2782,7 +3059,7 @@ getOriginalText(): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -2807,7 +3084,7 @@ async function demo() {
 
 Driver类为uitest测试框架的总入口，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。
 
-该类提供的方法除Driver.create()以外的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
+该类提供的方法除Driver.create()和Driver.createUIEventObserver()以外的所有方法都使用Promise方式作为异步方法，需使用await方式调用。
 
 
 
@@ -2875,7 +3152,7 @@ delayMs(duration: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -2884,7 +3161,7 @@ delayMs(duration: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -2934,7 +3211,7 @@ findComponent(on: On): Promise&lt;Component&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -2984,7 +3261,7 @@ findComponents(on: On): Promise<Array&lt;Component&gt;>
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3034,7 +3311,7 @@ findWindow(filter: WindowFilter): Promise&lt;UiWindow&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3085,7 +3362,7 @@ waitForComponent(on: On, time: number): Promise&lt;Component&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3126,7 +3403,7 @@ assertComponentExist(on: On): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3135,7 +3412,7 @@ assertComponentExist(on: On): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000003 | Assertion failed. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
@@ -3170,7 +3447,7 @@ pressBack(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3179,7 +3456,7 @@ pressBack(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 
 
 **示例：**
@@ -3219,7 +3496,7 @@ pressBack(displayId: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3228,7 +3505,7 @@ pressBack(displayId: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -3262,14 +3539,14 @@ triggerKey(keyCode: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyCode | number | 是 | 指定的key值，取值范围：大于等于0的整数。取值范围：KeyCode键码值。 |
+| keyCode | number | 是 | 指定的key值，取值范围：KeyCode键码值。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3278,7 +3555,7 @@ triggerKey(keyCode: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3313,7 +3590,7 @@ triggerKey(keyCode: number, displayId: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyCode | number | 是 | 指定的key值，取值范围：大于等于0的整数。取值范围：KeyCode键码值。 |
+| keyCode | number | 是 | 指定的key值，取值范围：KeyCode键码值。 |
 | displayId | number | 是 | 指定的屏幕ID，取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
@@ -3321,7 +3598,7 @@ triggerKey(keyCode: number, displayId: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3330,7 +3607,7 @@ triggerKey(keyCode: number, displayId: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3365,16 +3642,16 @@ triggerCombineKeys(key0: number, key1: number, key2?: number): Promise&lt;void&g
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key0 | number | 是 | 指定的第一个key值，取值大于等于0的整数，取值范围：KeyCode键码值。 |
-| key1 | number | 是 | 指定的第二个key值，取值大于等于0的整数，取值范围：KeyCode键码值。 |
-| key2 | number | 否 | 指定的第三个key值，取值范围：大于等于0的整数。取值范围：KeyCode键码值，默认值为0。 |
+| key0 | number | 是 | 指定的第一个key值，取值范围：KeyCode键码值。 |
+| key1 | number | 是 | 指定的第二个key值，取值范围：KeyCode键码值。 |
+| key2 | number | 否 | 指定的第三个key值，取值范围：KeyCode键码值，默认值为0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3383,7 +3660,7 @@ triggerCombineKeys(key0: number, key1: number, key2?: number): Promise&lt;void&g
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3417,9 +3694,9 @@ triggerCombineKeys(key0: number, key1: number, key2?: number, displayId?: number
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| key0 | number | 是 | 指定的第一个key值，取值大于等于0的整数，取值范围：KeyCode键码值。 |
-| key1 | number | 是 | 指定的第二个key值，取值大于等于0的整数，取值范围：KeyCode键码值。 |
-| key2 | number | 否 | 指定的第三个key值，取值范围：大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
+| key0 | number | 是 | 指定的第一个key值，取值范围：KeyCode键码值。 |
+| key1 | number | 是 | 指定的第二个key值，取值范围：KeyCode键码值。 |
+| key2 | number | 否 | 指定的第三个key值，取值范围：KeyCode键码值，默认值为0。 |
 | displayId | number | 否 | 指定的屏幕ID，取值范围：大于等于0的整数，默认值为设备默认屏幕ID。 |
 
 
@@ -3427,7 +3704,7 @@ triggerCombineKeys(key0: number, key1: number, key2?: number, displayId?: number
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3436,7 +3713,7 @@ triggerCombineKeys(key0: number, key1: number, key2?: number, displayId?: number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3478,7 +3755,7 @@ click(x: number, y: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3487,7 +3764,7 @@ click(x: number, y: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3528,7 +3805,7 @@ clickAt(point: Point): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3537,7 +3814,7 @@ clickAt(point: Point): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -3550,6 +3827,63 @@ import { Driver } from '@kit.TestKit';
 async function demo() {
   let driver: Driver = Driver.create();
   await driver.clickAt({ x: 100, y: 100, displayId: 0 });
+}
+```
+
+
+
+#### clickAt
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+clickAt(point: Point, options?: TouchOptions): Promise&lt;void&gt;
+
+在目标坐标点进行单击，支持指定触摸选项。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| point | Point | 是 | 以Point对象的形式传入目标点信息。 |
+| options | TouchOptions | 否 | 触摸操作选项。仅支持设置TouchOptions中的pressure属性，设置其他属性将抛出17000007参数校验失败的错误。默认值继承TouchOptions各属性默认值。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000002 | The API does not support concurrent calls. |
+| 17000007 | Parameter verification failed. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Driver, TouchOptions } from '@kit.TestKit';
+
+async function demo() {
+  let driver: Driver = Driver.create();
+  let options: TouchOptions = {
+    pressure: 0.5
+  };
+  // 在目标坐标点进行单击，并指定触摸压力
+  await driver.clickAt({ x: 100, y: 100, displayId: 0 }, options);
 }
 ```
 
@@ -3579,7 +3913,7 @@ doubleClick(x: number, y: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3588,7 +3922,7 @@ doubleClick(x: number, y: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3629,7 +3963,7 @@ doubleClickAt(point: Point): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3638,7 +3972,7 @@ doubleClickAt(point: Point): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -3680,7 +4014,7 @@ longClick(x: number, y: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3689,7 +4023,7 @@ longClick(x: number, y: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3731,7 +4065,7 @@ longClickAt(point: Point, duration?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3740,7 +4074,7 @@ longClickAt(point: Point, duration?: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -3753,6 +4087,64 @@ import { Driver } from '@kit.TestKit';
 async function demo() {
   let driver: Driver = Driver.create();
   await driver.longClickAt({ x: 100, y: 100, displayId: 0 }, 1500);
+}
+```
+
+
+
+#### longClickAt
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+longClickAt(point: Point, options?: TouchOptions): Promise&lt;void&gt;
+
+长按目标坐标点，支持指定触摸选项。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| point | Point | 是 | 以Point对象的形式传入目标点信息。 |
+| options | TouchOptions | 否 | 触摸操作选项。仅支持设置TouchOptions中的duration和pressure属性，设置其他属性将抛出17000007参数校验失败的错误。默认值继承TouchOptions各属性默认值。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000002 | The API does not support concurrent calls. |
+| 17000007 | Parameter verification failed. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Driver, TouchOptions } from '@kit.TestKit';
+
+async function demo() {
+  let driver: Driver = Driver.create();
+  let options: TouchOptions = {
+    duration: 2000, // 长按持续2000ms
+    pressure: 0.8  // 触摸压力值
+  };
+  // 在目标坐标点进行长按，并指定长按时长和触摸压力
+  await driver.longClickAt({ x: 100, y: 100, displayId: 0 }, options);
 }
 ```
 
@@ -3785,7 +4177,7 @@ swipe(startx: number, starty: number, endx: number, endy: number, speed?: number
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3794,7 +4186,7 @@ swipe(startx: number, starty: number, endx: number, endy: number, speed?: number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -3837,7 +4229,7 @@ swipeBetween(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3846,7 +4238,7 @@ swipeBetween(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -3859,6 +4251,65 @@ import { Driver } from '@kit.TestKit';
 async function demo() {
   let driver: Driver = Driver.create();
   await driver.swipeBetween({ x: 100, y: 100, displayId: 0 }, { x: 1000, y: 1000, displayId: 0 }, 800);
+}
+```
+
+
+
+#### swipeBetween
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+swipeBetween(from: Point, to: Point, options?: TouchOptions): Promise&lt;void&gt;
+
+从起始坐标点滑向目标坐标点，支持指定触摸选项。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| from | Point | 是 | 以Point对象的形式传入起始点的坐标信息和所属屏幕ID。 |
+| to | Point | 是 | 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。 说明： 应与起始点属于同一个屏幕，否则将抛出17000007异常。 |
+| options | TouchOptions | 否 | 触摸操作选项。仅支持设置TouchOptions中的speed和pressure属性，设置其他属性将抛出17000007参数校验失败的错误。默认值继承TouchOptions各属性默认值。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000002 | The API does not support concurrent calls. |
+| 17000007 | Parameter verification failed. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Driver, TouchOptions } from '@kit.TestKit';
+
+async function demo() {
+  let driver: Driver = Driver.create();
+  let options: TouchOptions = {
+    speed: 800,   // 滑动速率800px/s
+    pressure: 0.5  // 触摸压力值
+  };
+  // 从起始坐标点滑向目标坐标点，并指定滑动速率和触摸压力
+  await driver.swipeBetween({ x: 100, y: 100, displayId: 0 }, { x: 1000, y: 1000, displayId: 0 }, options);
 }
 ```
 
@@ -3893,7 +4344,7 @@ drag(startx: number, starty: number, endx: number, endy: number, speed?: number)
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3902,8 +4353,7 @@ drag(startx: number, starty: number, endx: number, endy: number, speed?: number)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
-| 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
+| 17000002 | The API does not support concurrent calls. |
 
 
 **示例：**
@@ -3948,7 +4398,7 @@ dragBetween(from: Point, to: Point, speed?: number, duration?: number): Promise&
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -3957,7 +4407,7 @@ dragBetween(from: Point, to: Point, speed?: number, duration?: number): Promise&
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -3970,6 +4420,68 @@ import { Driver } from '@kit.TestKit';
 async function demo() {
   let driver: Driver = Driver.create();
   await driver.dragBetween({ x: 100, y: 100, displayId: 0 }, { x: 1000, y: 1000, displayId: 0 }, 800, 1500);
+}
+```
+
+
+
+#### dragBetween
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+dragBetween(from: Point, to: Point, options?: TouchOptions): Promise&lt;void&gt;
+
+从起始坐标点拖拽至目标坐标点，支持指定触摸选项。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**设备行为差异**：该接口在Phone、Tablet、PC/2in1、TV设备上生效，在其他设备中调用无效果。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| from | Point | 是 | 以Point对象的形式传入起始点的坐标信息和所属屏幕ID。 |
+| to | Point | 是 | 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。 说明： 应与起始点属于同一个屏幕，否则将抛出17000007异常。 |
+| options | TouchOptions | 否 | 触摸操作选项。仅支持设置TouchOptions中的pressure、speed和duration属性，设置其他属性将抛出17000007参数校验失败的错误。默认值继承TouchOptions各属性默认值。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000002 | The API does not support concurrent calls. |
+| 17000007 | Parameter verification failed. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Driver, TouchOptions } from '@kit.TestKit';
+
+async function demo() {
+  let driver: Driver = Driver.create();
+  let options: TouchOptions = {
+    speed: 800,     // 拖拽速率800px/s
+    duration: 2000, // 拖拽前长按2000ms
+    pressure: 0.5   // 触摸压力值
+  };
+  // 从起始坐标点拖拽至目标坐标点，并指定拖拽速率、长按时长和触摸压力
+  await driver.dragBetween({ x: 100, y: 100, displayId: 0 }, { x: 1000, y: 1000, displayId: 0 }, options);
 }
 ```
 
@@ -4007,7 +4519,7 @@ screenCap(savePath: string): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4042,7 +4554,7 @@ screenCap(savePath: string, displayId: number): Promise&lt;boolean&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | savePath | string | 是 | 文件保存路径。路径需为当前应用的沙箱路径。 |
-| displayId | number | 是 | 指定设备屏幕ID。取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
+| displayId | number | 是 | 指定设备屏幕ID，取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
 **返回值：**
@@ -4058,7 +4570,7 @@ screenCap(savePath: string, displayId: number): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4071,6 +4583,60 @@ import { Driver } from '@kit.TestKit';
 async function demo() {
   let driver: Driver = Driver.create();
   await driver.screenCap('/data/storage/el2/base/cache/1.png', 0);
+}
+```
+
+
+
+#### dumpLayout
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+dumpLayout(savePath: string, displayId?: number): Promise&lt;boolean&gt;
+
+获取当前布局信息并保存为JSON格式的文件。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| savePath | string | 是 | JSON文件保存路径。路径需为当前应用的沙箱目录。 |
+| displayId | number | 否 | 指定设备屏幕ID，默认为主屏幕的displayId。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;boolean&gt; | Promise对象，返回布局信息导出和文件存储是否成功完成。true：完成。false：未完成。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000002 | The API does not support concurrent calls. |
+| 17000007 | Parameter verification failed. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Driver } from '@kit.TestKit';
+
+async function demo() {
+  let driver: Driver = Driver.create();
+  // 获取当前布局信息并保存为JSON文件
+  await driver.dumpLayout('/data/storage/el2/base/cache/layout.json', 0);
 }
 ```
 
@@ -4101,7 +4667,7 @@ setDisplayRotation(rotation: DisplayRotation): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -4110,7 +4676,7 @@ setDisplayRotation(rotation: DisplayRotation): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4153,7 +4719,7 @@ getDisplayRotation(): Promise&lt;DisplayRotation&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 
 
 **示例：**
@@ -4186,7 +4752,7 @@ getDisplayRotation(displayId: number): Promise&lt;DisplayRotation&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| displayId | number | 是 | 指定设备屏幕ID。取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
+| displayId | number | 是 | 指定设备屏幕ID，取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
 **返回值：**
@@ -4202,7 +4768,7 @@ getDisplayRotation(displayId: number): Promise&lt;DisplayRotation&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -4245,7 +4811,7 @@ setDisplayRotationEnabled(enabled: boolean): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -4254,7 +4820,7 @@ setDisplayRotationEnabled(enabled: boolean): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4297,7 +4863,7 @@ getDisplaySize(): Promise&lt;Point&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 
 
 **示例：**
@@ -4330,7 +4896,7 @@ getDisplaySize(displayId: number): Promise&lt;Point&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| displayId | number | 是 | 指定设备屏幕ID。取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
+| displayId | number | 是 | 指定设备屏幕ID，取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
 **返回值：**
@@ -4346,7 +4912,7 @@ getDisplaySize(displayId: number): Promise&lt;Point&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -4389,7 +4955,7 @@ getDisplayDensity(): Promise&lt;Point&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 
 
 **示例：**
@@ -4422,7 +4988,7 @@ getDisplayDensity(displayId: number): Promise&lt;Point&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| displayId | number | 是 | 指定设备屏幕ID。取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
+| displayId | number | 是 | 指定设备屏幕ID，取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
 **返回值：**
@@ -4438,7 +5004,7 @@ getDisplayDensity(displayId: number): Promise&lt;Point&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -4472,7 +5038,7 @@ wakeUpDisplay(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -4481,7 +5047,7 @@ wakeUpDisplay(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 
 
 **示例：**
@@ -4516,7 +5082,7 @@ pressHome(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -4525,7 +5091,7 @@ pressHome(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 
 
 **示例：**
@@ -4560,14 +5126,14 @@ pressHome(displayId: number): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| displayId | number | 是 | 指定设备屏幕ID。取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
+| displayId | number | 是 | 指定设备屏幕ID，取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -4576,7 +5142,7 @@ pressHome(displayId: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -4627,7 +5193,7 @@ waitForIdle(idleTime: number, timeout: number): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4664,14 +5230,14 @@ fling(from: Point, to: Point, stepLen: number, speed: number): Promise&lt;void&g
 | from | Point | 是 | 手指接触屏幕的起始点坐标。 |
 | to | Point | 是 | 手指离开屏幕时的坐标点。 |
 | stepLen | number | 是 | 间隔距离，取值大于等于0的整数，单位：px。 |
-| speed | number | 是 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数设为默认值600。为负数时抛出401错误码。 |
+| speed | number | 是 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数时设为默认值600。为负数时抛出401错误码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -4680,7 +5246,7 @@ fling(from: Point, to: Point, stepLen: number, speed: number): Promise&lt;void&g
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4731,7 +5297,7 @@ injectMultiPointerAction(pointers: PointerMatrix, speed?: number): Promise&lt;bo
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4784,7 +5350,7 @@ fling(direction: UiDirection, speed: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -4793,7 +5359,7 @@ fling(direction: UiDirection, speed: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4828,15 +5394,15 @@ fling(direction: UiDirection, speed: number, displayId: number): Promise&lt;void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | direction | UiDirection | 是 | 进行抛滑的方向。 |
-| speed | number | 是 | 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数时设为默认值600。为负数时抛出401错误码。 |
-| displayId | number | 是 | 指定设备屏幕ID。取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
+| speed | number | 是 | 滑动速率，取值范围为200-40000，默认值为600，单位：px/s。为不在范围内的非负数时设为默认值600。为负数时抛出401错误码。 |
+| displayId | number | 是 | 指定设备屏幕ID，取值范围：大于等于0的整数。 说明： 传入displayId不存在时，将抛出17000007异常。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -4845,7 +5411,7 @@ fling(direction: UiDirection, speed: number, displayId: number): Promise&lt;void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4896,7 +5462,7 @@ screenCapture(savePath: string, rect?: Rect): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4937,15 +5503,15 @@ mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise&
 | --- | --- | --- | --- |
 | p | Point | 是 | 鼠标点击的坐标。 |
 | btnId | MouseButton | 是 | 按下的鼠标按钮。 |
-| key1 | number | 否 | 指定的第一个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
+| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -4954,7 +5520,7 @@ mouseClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Promise&
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -4991,15 +5557,15 @@ mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): P
 | p | Point | 是 | 鼠标点击的坐标。 |
 | down | boolean | 是 | 滚轮滑动方向是否向下。true表示向下滑动。false表示向上滚动。 |
 | d | number | 是 | 鼠标滚轮滚动的格数，取值大于等于0的整数，每格对应目标点位移120px。 |
-| key1 | number | 否 | 指定的第一个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
+| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5008,7 +5574,7 @@ mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number): P
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5049,7 +5615,7 @@ mouseMoveTo(p: Point): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5058,7 +5624,7 @@ mouseMoveTo(p: Point): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5101,7 +5667,7 @@ createUIEventObserver(): UIEventObserver;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 
 
 **示例：**
@@ -5137,8 +5703,8 @@ mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, sp
 | p | Point | 是 | 鼠标点击的坐标。 |
 | down | boolean | 是 | 滚轮滑动方向是否向下。true表示向下滑动。false表示向上滚动。 |
 | d | number | 是 | 鼠标滚轮滚动的格数，取值大于等于0的整数，每格对应目标点位移120px。 |
-| key1 | number | 否 | 指定的第一个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
+| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
 | speed | number | 否 | 鼠标滚轮滚动的速度，范围：1-500的整数，单位：格/秒。为不在范围内的非负数或为null/undefined时设为默认值20。为负数时抛出401错误码。 |
 
 
@@ -5146,7 +5712,7 @@ mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, sp
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5155,7 +5721,7 @@ mouseScroll(p: Point, down: boolean, d: number, key1?: number, key2?: number, sp
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5191,15 +5757,15 @@ mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Pr
 | --- | --- | --- | --- |
 | p | Point | 是 | 鼠标双击的坐标。 |
 | btnId | MouseButton | 是 | 按下的鼠标按钮。 |
-| key1 | number | 否 | 指定的第一个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值0。 |
-| key2 | number | 否 | 指定的第二个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值0。 |
+| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值0。 |
+| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5208,7 +5774,7 @@ mouseDoubleClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Pr
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5244,15 +5810,15 @@ mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Prom
 | --- | --- | --- | --- |
 | p | Point | 是 | 鼠标长按的坐标。 |
 | btnId | MouseButton | 是 | 按下的鼠标按钮。 |
-| key1 | number | 否 | 指定的第一个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
+| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5261,7 +5827,7 @@ mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number): Prom
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5297,8 +5863,8 @@ mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number, durat
 | --- | --- | --- | --- |
 | p | Point | 是 | 鼠标长按的坐标。 |
 | btnId | MouseButton | 是 | 按下的鼠标按钮。 |
-| key1 | number | 否 | 指定的第一个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
-| key2 | number | 否 | 指定的第二个key值，取值大于等于0的整数，取值范围：KeyCode键码值，默认值为0。 |
+| key1 | number | 否 | 指定的第一个key值，取值范围：KeyCode键码值，默认值为0。 |
+| key2 | number | 否 | 指定的第二个key值，取值范围：KeyCode键码值，默认值为0。 |
 | duration | number | 否 | 长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。 |
 
 
@@ -5306,7 +5872,7 @@ mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number, durat
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5315,7 +5881,7 @@ mouseLongClick(p: Point, btnId: MouseButton, key1?: number, key2?: number, durat
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5358,7 +5924,7 @@ mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5367,7 +5933,7 @@ mouseMoveWithTrack(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5412,7 +5978,7 @@ mouseDrag(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5421,7 +5987,7 @@ mouseDrag(from: Point, to: Point, speed?: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5467,7 +6033,7 @@ mouseDrag(from: Point, to: Point, speed?: number, duration?: number): Promise&lt
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5476,7 +6042,7 @@ mouseDrag(from: Point, to: Point, speed?: number, duration?: number): Promise&lt
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5489,6 +6055,72 @@ import { Driver } from '@kit.TestKit';
 async function demo() {
   let driver: Driver = Driver.create();
   await driver.mouseDrag({ x: 100, y: 100 }, { x: 200, y: 200 }, 600, 2000);
+}
+```
+
+
+
+#### mouseDrag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+mouseDrag(from: Point, to: Point, touchOptions?: TouchOptions, keyOptions?: KeyOptions): Promise&lt;void&gt;
+
+按住鼠标左键从起始坐标点拖拽至终点坐标点，支持指定触摸选项和按键选项。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**设备行为差异**：该接口在Phone、Tablet、PC/2in1、TV设备上生效，在其他设备中调用无效果。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| from | Point | 是 | 起始点坐标。 |
+| to | Point | 是 | 终点坐标。 |
+| touchOptions | TouchOptions | 否 | 触摸操作选项。仅支持设置TouchOptions中的speed和duration属性，设置其他属性将抛出17000007参数校验失败的错误。默认值继承TouchOptions各属性默认值。 |
+| keyOptions | KeyOptions | 否 | 按键操作选项。拖拽过程中同时按下指定的按键。默认值继承KeyOptions各属性默认值。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000002 | The API does not support concurrent calls. |
+| 17000007 | Parameter verification failed. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Driver, TouchOptions, KeyOptions } from '@kit.TestKit';
+
+async function demo() {
+  let driver: Driver = Driver.create();
+  let touchOptions: TouchOptions = {
+    speed: 800,     // 拖拽速率800px/s
+    duration: 2000  // 拖拽前长按2000ms
+  };
+  let keyOptions: KeyOptions = {
+    key1: 2072,  // Ctrl键
+    key2: 2019   // C键
+  };
+  // 鼠标拖拽并同时按下Ctrl+C组合键
+  await driver.mouseDrag({ x: 100, y: 100 }, { x: 200, y: 200 }, touchOptions, keyOptions);
 }
 ```
 
@@ -5518,7 +6150,7 @@ inputText(p: Point, text: string): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5527,7 +6159,7 @@ inputText(p: Point, text: string): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5572,7 +6204,7 @@ inputText(p: Point, text: string, mode: InputTextMode): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -5581,9 +6213,9 @@ inputText(p: Point, text: string, mode: InputTextMode): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 801 | Capability not support, function can not work correctly due to limited device capabilities. |
+| 801 | Capability not supported. function can not work correctly due to limited device capabilities. |
 
 
 **示例：**
@@ -5646,7 +6278,7 @@ touchPadMultiFingerSwipe(fingers: number, direction: UiDirection, options?: Touc
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000005 | This operation is not supported. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
@@ -5702,7 +6334,7 @@ touchPadTwoFingersScroll(point: Point, direction: UiDirection, d: number, speed?
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000005 | This operation is not supported. |
 | 17000007 | Parameter verification failed. |
 
@@ -5753,7 +6385,7 @@ penClick(point: Point): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5804,7 +6436,7 @@ penLongClick(point: Point, pressure?: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5854,7 +6486,7 @@ penDoubleClick(point: Point): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5907,7 +6539,7 @@ penSwipe(startPoint: Point, endPoint: Point, speed?: number, pressure?: number):
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5959,7 +6591,7 @@ injectPenPointerAction(pointers: PointerMatrix, speed?: number, pressure?: numbe
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
@@ -5976,6 +6608,74 @@ async function demo() {
     pointer.setPoint(0, step, { x: 500, y: 1100 - 100 * step });
   }
   await driver.injectPenPointerAction(pointer, 600, 0.5);
+}
+```
+
+
+
+#### triggerPenKey
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+triggerPenKey(key: PenKey, mode: PenMode, operation: PenKeyOperation, options?: PenKeyOperationOptions): Promise&lt;void&gt;
+
+触发手写笔按键操作。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.Test.UiTest
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| key | PenKey | 是 | 手写笔按键。 |
+| mode | PenMode | 是 | 手写笔模式。 |
+| operation | PenKeyOperation | 是 | 操作类型。 |
+| options | PenKeyOperationOptions | 否 | 操作选项，包括可选的坐标点。默认值继承PenKeyOperationOptions各属性默认值。 |
+
+
+**支持的参数组合：**
+
+ - mode取值为[HANDWRITING](#penmode)时**：支持key取值为[HANDWRITING](#penkey)，operation取值为[CLICK](#penkeyoperation)或[DOUBLE_CLICK](#penkeyoperation)。
+ - mode取值为[AIR_MOUSE](#penmode)时**：支持key取值为[AIR_MOUSE](#penkey)，operation取值为[CLICK](#penkeyoperation)或[DOUBLE_CLICK](#penkeyoperation)（需要在options中指定point）；支持key取值为[HANDWRITING](#penkey)，operation取值为[CLICK](#penkeyoperation)或[DOUBLE_CLICK](#penkeyoperation)；支持key取值为[SMART](#penkey)，operation取值为[CLICK](#penkeyoperation)。
+ - 使用其他参数组合将抛出17000007错误码。
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[uitest错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17000002 | The API does not support concurrent calls. |
+| 17000005 | This operation is not supported. |
+| 17000007 | Parameter verification failed. Unsupported key, mode, and operation combination. |
+
+
+**示例：**
+
+```ArkTS
+// xxx.test.ets
+import { Driver, PenKey, PenMode, PenKeyOperation } from '@kit.TestKit';
+
+async function demo() {
+  let driver: Driver = Driver.create();
+  // 手写模式下触发手写键单击
+  await driver.triggerPenKey(PenKey.HANDWRITING, PenMode.HANDWRITING, PenKeyOperation.CLICK);
+  // 空鼠模式下触发空鼠键双击
+  await driver.triggerPenKey(PenKey.AIR_MOUSE, PenMode.AIR_MOUSE, PenKeyOperation.DOUBLE_CLICK, { point: { x: 500, y: 500 } });
+  // 空鼠模式下触发智慧键单击
+  await driver.triggerPenKey(PenKey.SMART, PenMode.AIR_MOUSE, PenKeyOperation.CLICK);
 }
 ```
 
@@ -6000,14 +6700,14 @@ crownRotate(d: number, speed?: number): Promise&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | d | number | 是 | 手表表冠旋转的格数，正值表示顺时针旋转，负值表示逆时针旋转，取值需为整数。 |
-| speed | number | 否 | 手表表冠旋转的速度，取值范围：1-500的整数，单位：格/秒。为不在范围内的非负数或为null/undefined时设为默认值20。为负数时抛出17000007错误码。 |
+| speed | number | 否 | 手表表冠旋转的速度，取值范围：1-500的整数，单位：格/秒。为不在范围内的非负数或为null/undefined时设为默认值20。为负数时抛出17000007错误码。 说明： 参数取值超出合法范围时，设为默认值20。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -6016,9 +6716,9 @@ crownRotate(d: number, speed?: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
-| 801 | Capability not support, function can not work correctly due to limited device capabilities. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
 
 
 **示例：**
@@ -6077,7 +6777,7 @@ knuckleKnock(pointers: Array&lt;Point&gt;, times: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000005 | This operation is not supported. |
 | 17000007 | Parameter verification failed. |
 
@@ -6137,7 +6837,7 @@ injectKnucklePointerAction(pointers: PointerMatrix, speed?: number): Promise&lt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000005 | This operation is not supported. |
 | 17000007 | Parameter verification failed. |
 
@@ -6198,7 +6898,7 @@ isComponentPresentWhenLongClick(on: On, point: Point, duration?: number): Promis
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -6252,7 +6952,7 @@ isComponentPresentWhenDrag(on: On, from: Point, to: Point, speed?: number, durat
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -6305,7 +7005,7 @@ isComponentPresentWhenSwipe(on: On, from: Point, to: Point, speed?: number): Pro
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000007 | Parameter verification failed. |
 
 
@@ -6468,7 +7168,7 @@ getBundleName(): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -6512,7 +7212,7 @@ getBounds(): Promise&lt;Rect&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -6556,7 +7256,7 @@ getTitle(): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -6600,7 +7300,7 @@ getWindowMode(): Promise&lt;WindowMode&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -6644,7 +7344,7 @@ isFocused(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -6690,7 +7390,7 @@ isActived(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -6734,7 +7434,7 @@ focus(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -6788,7 +7488,7 @@ moveTo(x: number, y: number): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 17000005 | This operation is not supported. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
@@ -6845,13 +7545,11 @@ resize(wide: number, height: number, direction: ResizeDirection): Promise&lt;voi
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 17000005 | This operation is not supported. |
 | 401 | Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
-
-**示例：**
 
 ```ArkTS
 // xxx.test.ets
@@ -6893,7 +7591,7 @@ split(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 17000005 | This operation is not supported. |
 
@@ -6940,7 +7638,7 @@ maximize(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 17000005 | This operation is not supported. |
 
@@ -6987,7 +7685,7 @@ minimize(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 17000005 | This operation is not supported. |
 
@@ -7025,7 +7723,7 @@ resume(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -7034,7 +7732,7 @@ resume(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 17000005 | This operation is not supported. |
 
@@ -7072,7 +7770,7 @@ close(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -7081,7 +7779,7 @@ close(): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 | 17000005 | This operation is not supported. |
 
@@ -7126,7 +7824,7 @@ isActive(): Promise&lt;boolean&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -7170,7 +7868,7 @@ getDisplayId(): Promise&lt;number&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17000002 | The async function is not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000004 | The window or component is invisible or destroyed. |
 
 
@@ -7301,7 +7999,7 @@ async function demo() {
 
 once(type: 'windowChange', windowChangeType: WindowChangeType, options: WindowChangeOptions, callback: Callback&lt;UIElementInfo&gt;): void
 
-开始监听指定类型的窗口变化事件，支持设置事件监听的扩展配置，监听到指定窗口变化事件时触发callback回调。仅支持[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#自由多窗模式)的窗口监听。
+开始监听指定类型的窗口变化事件，支持设置事件监听的扩展配置，监听到指定窗口变化事件时触发callback回调。仅支持[自由多窗模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-terminology#free-multi-window-mode自由多窗模式)的窗口监听。
 
 **元服务API：** 从API version 22开始，该接口支持在元服务中使用。
 
@@ -7406,9 +8104,9 @@ async function demo() {
     console.info(UIElementInfo.windowId?.toString());
     console.info(UIElementInfo.componentId);
     console.info(UIElementInfo.componentRect?.left.toString());
-    console.info(UIElementInfo.componentRect?.left.toString());
-    console.info(UIElementInfo.componentRect?.left.toString());
-    console.info(UIElementInfo.componentRect?.left.toString());
+    console.info(UIElementInfo.componentRect?.top.toString());
+    console.info(UIElementInfo.componentRect?.right.toString());
+    console.info(UIElementInfo.componentRect?.bottom.toString());
   };
   observer.once('componentEventOccur', ComponentEventType.COMPONENT_CLICKED, option, callback);
 }
@@ -7909,7 +8607,7 @@ click(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -7945,7 +8643,7 @@ doubleClick(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -7981,7 +8679,7 @@ longClick(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -8368,7 +9066,7 @@ inputText(text: string): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -8502,7 +9200,7 @@ UiDriver对象在给定的时间内延时。使用Promise异步回调。
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -8628,7 +9326,7 @@ assertComponentExist(by: By): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **错误码：**
@@ -8638,7 +9336,7 @@ assertComponentExist(by: By): Promise&lt;void&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | if the input parameters are invalid. |
-| 17000002 | if the async function was not called with await. |
+| 17000002 | The API does not support concurrent calls. |
 | 17000003 | if the assertion failed. |
 
 
@@ -8674,7 +9372,7 @@ UiDriver对象进行点击BACK键的操作。使用Promise异步回调。
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -8709,14 +9407,14 @@ UiDriver对象采取如下操作：通过key值找到对应键并点击。使用
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keyCode | number | 是 | 指定的key值，取值大于等于0的整数，取值范围：KeyCode键码值。 |
+| keyCode | number | 是 | 指定的key值，取值范围：KeyCode键码值。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -8760,7 +9458,7 @@ UiDriver对象采取如下操作：在目标坐标点单击。使用Promise异�
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -8803,7 +9501,7 @@ UiDriver对象采取如下操作：在目标坐标点双击。使用Promise异�
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -8846,7 +9544,7 @@ UiDriver对象采取如下操作：在目标坐标点长按下鼠标左键。使
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**
@@ -8891,7 +9589,7 @@ UiDriver对象采取如下操作：从给出的起始坐标点滑向给出的目
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象。无返回结果。 |
 
 
 **示例：**

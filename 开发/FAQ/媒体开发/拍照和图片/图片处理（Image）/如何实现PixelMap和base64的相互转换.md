@@ -1,6 +1,6 @@
 # 如何实现PixelMap和base64的相互转换
 
-更新时间：2026-06-05 09:11:02
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-15
 

@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-06-01 08:32:30
+更新时间：2026-06-12 06:54:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-610
 
@@ -261,7 +261,7 @@ ArkTS卡片开发支持V2装饰器语法。（[指南](https://developer.huawei.
 
 - 新增支持根据给定的bundleInfoGetFlag获取设备指定用户下已安装应用列表。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-bundlemanager#bundlemanagergetinstalledbundlelist23)）
 - 应用管理模块新增支持设置UIAbility组件禁用策略。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-applicationmanager#applicationmanagersetabilitydisabled23)）
-- MDM应用支持在后台访问context和启动应用的功能。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/s-apis-application-enterpriseadminextensioncontext)）
+- MDM应用支持在后台访问context和启动应用的功能。（[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-application-enterpriseadminextensioncontext)）
 
  
  

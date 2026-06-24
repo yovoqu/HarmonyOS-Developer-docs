@@ -1,6 +1,6 @@
 # SSAP客户端
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-ssap-client-connect
 
@@ -21,12 +21,12 @@
 | --- | --- |
 | createClient(address: string): Client | 创建ssap客户端实例。 |
 | connect(): Promise&lt;void&gt; | 向服务端发起连接。 |
-| getServices(): Promise<Array&lt;Service&gt;> | 获取服务端支持的服务列表。 |
-| readProperty(property: Property): Promise&lt;Property&gt; | 读取服务端属性。 |
-| writeProperty(property: Property, writeType: PropertyWriteType): Promise&lt;void&gt; | 写入服务端属性。 |
+| getServices(): Promise<Array&lt;Service&gt;> | 获取服务端支持的服务列表。使用Promise异步回调。 |
+| readProperty(property: Property): Promise&lt;Property&gt; | 读取服务端属性。使用Promise异步回调。 |
+| writeProperty(property: Property, writeType: PropertyWriteType): Promise&lt;void&gt; | 写入服务端属性。使用Promise异步回调。 |
 | setPropertyNotification(property: Property, enable: boolean): Promise&lt;void&gt; | 启用/禁用某个属性变化的通知。 |
-| on(type: 'propertyChange', callback: Callback&lt;Property&gt;): void | 订阅属性变化事件。 |
-| on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void | 订阅连接状态变化事件。 |
+| on(type: 'propertyChange', callback: Callback&lt;Property&gt;): void | 订阅属性变化事件。使用callback异步回调。 |
+| on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void | 订阅连接状态变化事件。使用callback异步回调。 |
 
 
 
@@ -60,7 +60,7 @@ try {
 ```json
 let onReceiveConnectionChangeEvent:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 try {
   client.on('connectionStateChange', onReceiveConnectionChangeEvent);
 } catch (err) {
@@ -74,7 +74,7 @@ try {
 ```json
 let onReceivePropertyChangeEvent:(data: ssap.Property) => void = (data: ssap.Property) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 try {
   client.on('propertyChange', onReceivePropertyChangeEvent);
 } catch (err) {

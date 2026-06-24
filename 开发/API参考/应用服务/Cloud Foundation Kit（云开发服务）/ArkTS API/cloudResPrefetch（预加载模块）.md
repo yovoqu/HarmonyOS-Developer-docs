@@ -1,6 +1,6 @@
 # cloudResPrefetch（预加载模块）
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cloudfoundation-cloudresprefetch
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -45,7 +45,7 @@ registerPrefetchTask(options: PrefetchOptions): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -119,7 +119,7 @@ getPrefetchResult(mode: PrefetchMode, callback: AsyncCallback&lt;PrefetchResult&
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -206,7 +206,7 @@ getPrefetchResult(mode: PrefetchMode, params?: PrefetchParams): Promise&lt;Prefe
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

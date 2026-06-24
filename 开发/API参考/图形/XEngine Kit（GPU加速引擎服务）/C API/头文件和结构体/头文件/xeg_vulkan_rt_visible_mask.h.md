@@ -1,6 +1,6 @@
 # xeg_vulkan_rt_visible_mask.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-vulkan-rt-visible-mask-8h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-XEngine RT VisibleMask特性接口。使用此头文件中的接口前需要通过[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口查询[XEG_RT_SHADOW_AO_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rt_shadow_ao_extension_name)扩展可用。
+XEngine Ray-Traced VisibleMask（光线追踪阴影和环境光遮蔽）特性接口。使用此头文件中的接口前需要通过[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口查询[XEG_RT_SHADOW_AO_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rt_shadow_ao_extension_name)扩展可用。
  
 **引用文件**：<xengine/xeg_vulkan_rt_visible_mask.h>
  

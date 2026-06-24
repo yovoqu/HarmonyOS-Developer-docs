@@ -1,6 +1,6 @@
 # log.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-log-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -87,7 +87,7 @@ HiLog模块日志接口定义，通过这些接口实现日志打印相关功能
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/Cdi-0mVETeWpA0pWkWc4jA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025208Z&HW-CC-Expire=86400&HW-CC-Sign=4A50B7708CA9A9B0FCB74D3C162B445C9AAAF26B015434102921F5852F1BB807)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/1Kgi_kmkStu9xlinhkj-8g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020203Z&HW-CC-Expire=86400&HW-CC-Sign=CB1E1A10DB977980847AA0D61AEB8517F5D0178111286993D63EDE8AA5A21E32)
 
 
 如果设置的日志级别低于[全局日志级别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog#查看和设置日志级别)，OH_LOG_SetMinLogLevel()设置不生效。

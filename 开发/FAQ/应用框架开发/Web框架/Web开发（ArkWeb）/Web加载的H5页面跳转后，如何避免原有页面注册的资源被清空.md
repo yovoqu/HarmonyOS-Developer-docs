@@ -1,6 +1,6 @@
 # Web加载的H5页面跳转后，如何避免原有页面注册的资源被清空
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-42
 

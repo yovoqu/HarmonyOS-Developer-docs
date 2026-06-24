@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -266,20 +266,21 @@
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| SAMPLE_RATE_8000 | 8000 | 采样率为8000。 |
-| SAMPLE_RATE_11025 | 11025 | 采样率为11025。 |
-| SAMPLE_RATE_12000 | 12000 | 采样率为12000。 |
-| SAMPLE_RATE_16000 | 16000 | 采样率为16000。 |
-| SAMPLE_RATE_22050 | 22050 | 采样率为22050。 |
-| SAMPLE_RATE_24000 | 24000 | 采样率为24000。 |
-| SAMPLE_RATE_32000 | 32000 | 采样率为32000。 |
-| SAMPLE_RATE_44100 | 44100 | 采样率为44100。 |
-| SAMPLE_RATE_48000 | 48000 | 采样率为48000。 |
-| SAMPLE_RATE_64000 | 64000 | 采样率为64000。 |
-| SAMPLE_RATE_8820012+ | 88200 | 采样率为88200。 |
-| SAMPLE_RATE_96000 | 96000 | 采样率为96000。 |
-| SAMPLE_RATE_17640012+ | 176400 | 采样率为176400。 |
-| SAMPLE_RATE_19200012+ | 192000 | 采样率为192000。 |
+| SAMPLE_RATE_8000 | 8000 | 采样率为8000。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_11025 | 11025 | 采样率为11025。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_12000 | 12000 | 采样率为12000。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_16000 | 16000 | 采样率为16000。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_22050 | 22050 | 采样率为22050。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_24000 | 24000 | 采样率为24000。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_32000 | 32000 | 采样率为32000。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_44100 | 44100 | 采样率为44100。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_48000 | 48000 | 采样率为48000。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_64000 | 64000 | 采样率为64000。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_8820012+ | 88200 | 采样率为88200。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_96000 | 96000 | 采样率为96000。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_17640012+ | 176400 | 采样率为176400。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_19200012+ | 192000 | 采样率为192000。单位为赫兹（Hz）。 |
+| SAMPLE_RATE_384000 | 384000 | 采样率为384000。单位为赫兹（Hz） 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -704,6 +705,8 @@
 
 表示音频并发模式的枚举。
 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
 | 名称 | 值 | 说明 |
@@ -939,5 +942,5 @@
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| DEFAULT_BEHAVIOR24+ | 0x00000000 | 默认行为，用于清空音频会话行为设置。 |
-| MUTE_WHEN_INTERRUPTED24+ | 0x00000002 | 当系统需要停止或暂停音频流时，执行强制静音替代。 调用setAudioSessionBehavior接口配置该行为时，必须同步调用setAudioSessionScene接口，否则配置将无法生效。 在音频会话场景下，当音频流静音或恢复时，应用将分别收到AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_MUTE与AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE的通知。 在AudioRenderer和AudioCapturer场景下，当音频流静音或恢复时，应用将分别收到InterruptHint.INTERRUPT_HINT_MUTE与InterruptHint.INTERRUPT_HINT_UNMUTE的通知。 |
+| DEFAULT_BEHAVIOR | 0x00000000 | 默认行为，用于清空音频会话行为设置。 |
+| MUTE_WHEN_INTERRUPTED | 0x00000002 | 当系统需要停止或暂停音频流时，执行强制静音替代。 调用setAudioSessionBehavior接口配置该行为时，必须同步调用setAudioSessionScene接口，否则配置将无法生效。 在音频会话场景下，当音频流静音或恢复时，应用将分别收到AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_MUTE与AudioSessionStateChangeHint.AUDIO_SESSION_STATE_CHANGE_HINT_UNMUTE的通知。 在AudioRenderer和AudioCapturer场景下，当音频流静音或恢复时，应用将分别收到InterruptHint.INTERRUPT_HINT_MUTE与InterruptHint.INTERRUPT_HINT_UNMUTE的通知。 |

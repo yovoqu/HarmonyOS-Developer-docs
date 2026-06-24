@@ -1,6 +1,6 @@
 # numberIdentify (号码识别查询基本能力)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/callservicekit-numberldentify
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -69,7 +69,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
 let isSupport = await numberIdentify.isSupportEnterpriseNumberIdentify(context);
-hilog.info(0, 'TAG',`isSupport：${isSupport}`);
+hilog.info(0, 'TAG',`isSupport:${isSupport}`);
 ```
  
   
@@ -84,7 +84,7 @@ queryNumberIdentifySwitchState(context: Context):SwitchState
  
 **模型约束：** 该接口仅可在Stage模型下使用。
  
-**系统能力**：SystemCapability.Telephony.NumberIdentifyService
+**系统能力：** SystemCapability.Telephony.NumberIdentifyService
  
 **起始版本：** 6.1.0(23)
  

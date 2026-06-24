@@ -1,6 +1,6 @@
 # IAP Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/iap-introduction
 
@@ -31,10 +31,10 @@ IAP Kit（应用内支付服务）为开发者提供便捷的应用内支付体�
 
 | 商品类型 | 支持设备 |
 | --- | --- |
-| 消耗型商品 | Phone、PC/2in1、Tablet、Wearable、TV |
-| 非消耗型商品 | Phone、PC/2in1、Tablet、Wearable、TV |
-| 自动续期订阅商品 | Phone、PC/2in1、Tablet、TV |
-| 非续期订阅商品 | Phone、PC/2in1、Tablet、TV |
+| 消耗型商品 | Phone、PC/2in1、Tablet、Wearable、TV、Car |
+| 非消耗型商品 | Phone、PC/2in1、Tablet、Wearable、TV、Car |
+| 自动续期订阅商品 | Phone、PC/2in1、Tablet、TV、Car |
+| 非续期订阅商品 | Phone、PC/2in1、Tablet、TV、Car |
 
 
 从6.1.0（23）开始，提供了IAP嵌入式收银台组件。
@@ -47,7 +47,7 @@ IAP Kit（应用内支付服务）为开发者提供便捷的应用内支付体�
 在TV设备拉起支付收银台页面为扫码支付页，参考示例如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/kedKmGH8SKGvcV_tc4omaw/zh-cn_image_0000002611754955.png?HW-CC-KV=V1&HW-CC-Date=20260528T030058Z&HW-CC-Expire=86400&HW-CC-Sign=81A8390604AF551FF4B74490E44813673FC78752028C7335FD2B869ABC65AC9A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/7aiVjmRmQVaUXPAq4WDr_g/zh-cn_image_0000002656348961.png?HW-CC-KV=V1&HW-CC-Date=20260624T020928Z&HW-CC-Expire=86400&HW-CC-Sign=E7138DA2BE827027231D3F902D197978F371FBE79F37769D58F02CFF430A99C9)
 
 
 

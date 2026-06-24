@@ -1,6 +1,6 @@
 # Class (ShaderEffect)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-shadereffect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -262,7 +262,7 @@ static createRadialGradient(centerPt: common2D.Point, radius: number, colors: Ar
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | centerPt | common2D.Point | 是 | 表示渐变的圆心。 |
-| radius | number | 是 | 表示渐变的半径，小于等于0时无效，该参数为浮点数。 |
+| radius | number | 是 | 表示渐变的半径，小于等于0时无效，该参数为浮点数。单位为物理像素px。 |
 | colors | Array&lt;number&gt; | 是 | 表示在圆心和圆边界之间分布的颜色数组，数组中的值为32位（ARGB）无符号整数。 |
 | mode | TileMode | 是 | 着色器效果平铺模式。 |
 | pos | Array&lt;number&gt; \| null | 否 | 表示每种对应颜色在颜色数组中的相对位置。数组长度需和colors保持一致，数组的首个元素应当是0.0，末尾元素应当是1.0，中间的元素应当在0与1之间并且逐下标递增，表示colors中每个对应颜色的相对位置。默认为null，表示颜色均匀分布在圆心和圆边界之间。 |
@@ -373,9 +373,9 @@ static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | startPt | common2D.Point | 是 | 表示渐变的起始圆的圆心。 |
-| startRadius | number | 是 | 表示渐变的起始圆的半径，小于0时无效。该参数为浮点数。 |
+| startRadius | number | 是 | 表示渐变的起始圆的半径，小于0时无效。该参数为浮点数。单位为物理像素px。 |
 | endPt | common2D.Point | 是 | 表示渐变的结束圆的圆心。 |
-| endRadius | number | 是 | 表示渐变的结束圆的半径，小于0时无效。该参数为浮点数。 |
+| endRadius | number | 是 | 表示渐变的结束圆的半径，小于0时无效。该参数为浮点数。单位为物理像素px。 |
 | colors | Array&lt;number&gt; | 是 | 表示在起始圆和结束圆之间分布的颜色数组，数组中的值为32位（ARGB）无符号整数。 |
 | mode | TileMode | 是 | 着色器效果平铺模式。 |
 | pos | Array&lt;number&gt; \| null | 否 | 表示每种对应颜色在颜色数组中的相对位置。数组长度需和colors保持一致，数组的首个元素应当是0.0，末尾元素应当是1.0，中间的元素应当在0与1之间并且逐下标递增，表示colors中每个对应颜色的相对位置。默认为null，表示颜色均匀分布在起始圆和结束圆之间。 |
@@ -383,7 +383,7 @@ static createConicalGradient(startPt: common2D.Point, startRadius: number, endPt
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/U_qI5i2_SeaKd1ISurTlDw/zh-cn_image_0000002611836839.png?HW-CC-KV=V1&HW-CC-Date=20260528T025707Z&HW-CC-Expire=86400&HW-CC-Sign=30F422A381015CFD844F5B484AB8A40001A197B2FDD812F5D6F64415FAB5957E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/CCacRJIAQuGuX2nY8xhhTg/zh-cn_image_0000002656350981.png?HW-CC-KV=V1&HW-CC-Date=20260624T020309Z&HW-CC-Expire=86400&HW-CC-Sign=A5C9019A80671462DBB73182326768E3F5FA9A830C4C79BC9A3DD7719333C482)
 
 
 如上图所示，设置颜色数组为红绿蓝，位置数组为0.0、0.5和1.0的绘制结果。左侧为起始圆不在结束圆内的绘制结果，右侧为起始圆在结束圆内的绘制结果。

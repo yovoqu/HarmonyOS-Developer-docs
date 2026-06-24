@@ -1,6 +1,6 @@
 # HiDebug能力概述
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidebug-guidelines
 
@@ -196,7 +196,7 @@ HiDebug可用于获取VM内存数据、GC统计数据及VM堆转储。
 | hidebug.getAppVMMemoryInfo | 获取VM内存相关信息。 |
 | hidebug.getVMRuntimeStats | 获取系统GC统计信息。 |
 | hidebug.getVMRuntimeStat | 根据参数获取指定的系统GC统计信息。 |
-| hidebug.dumpJsRawHeapData | 使用异步方式为当前线程转储虚拟机的原始堆快照，辅助JS内存泄漏分析。 说明： 从API version 18开始，支持该接口。 从API version 24开始，该接口支持清除nodeId缓存。 |
+| hidebug.dumpJsRawHeapData | 使用异步方式为当前线程转储虚拟机的原始堆快照，辅助JS内存泄漏分析。 说明： 从API version 18开始，支持该接口。 从API version 24开始，该接口支持清除nodeId缓存。 从API版本26.0.0开始，该接口支持转储当前线程所属进程的虚拟机原始堆快照。 |
 | hidebug.setJsRawHeapTrimLevel | 设置当前进程转储虚拟机原始堆快照的裁剪级别。 说明：从API version 20开始，支持该接口。 |
 | hidebug.dumpJsHeapData | 使用同步方式导出虚拟机堆，辅助JS内存泄漏分析。 说明：从API version 24开始，该接口支持清除nodeId缓存。 |
 | hidebug.getAppMemoryLimit | 获取应用程序进程内存限制，其中vmHeapLimit为当前线程对应的虚拟机堆大小限制，vmTotalHeapSize为当前进程所有虚拟机堆总和大小的限制。 |
@@ -446,6 +446,22 @@ HiDebug提供修改转储堆快照级别的接口。
 | --- | --- |
 | OH_HiDebug_StartProfiler | 按指定类型启动资源分配栈信息采集，须与OH_HiDebug_StopProfiler配对使用。 说明：从API version 24开始，支持该接口。 |
 | OH_HiDebug_StopProfiler | 停止资源分配栈信息采集，须与OH_HiDebug_StartProfiler配对使用。 说明：从API version 24开始，支持该接口。 |
+
+
+
+
+#### 导出内存快照
+
+从API版本26.0.0开始，HiDebug支持注册内存导出监听器，用于在内存占用较高或通过[hidumper命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper#查询虚拟机堆内存)手动触发时导出应用内存快照，便于本地导出或上报。
+
+
+
+#### 接口说明（C/C++）
+
+| 接口名 | 描述 |
+| --- | --- |
+| OH_HiDebug_RegisterMemDumpListener | 注册内存导出监听器。 说明：从API版本26.0.0开始，支持该接口。 |
+| OH_HiDebug_UnregisterMemDumpListener | 注销已注册的内存导出监听器。 说明：从API版本26.0.0开始，支持该接口。 |
 
 
 

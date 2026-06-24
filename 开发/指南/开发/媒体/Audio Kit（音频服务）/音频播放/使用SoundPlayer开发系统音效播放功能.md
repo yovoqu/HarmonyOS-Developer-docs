@@ -1,6 +1,6 @@
 # 使用SoundPlayer开发系统音效播放功能
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-soundplayer-for-playback
 

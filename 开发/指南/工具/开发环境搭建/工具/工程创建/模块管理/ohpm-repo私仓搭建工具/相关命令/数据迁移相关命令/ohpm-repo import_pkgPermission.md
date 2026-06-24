@@ -1,6 +1,6 @@
 # ohpm-repo import_pkgPermission
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-import-pkgpermission
 
@@ -33,7 +33,7 @@ ohpm-repo import_pkgPermission <pkg_permission_list> [options]
 
 #### &lt;pkg_permission_list&gt;
 
-- 类型： String
+- 类型：String
 - 必填参数
 
  
@@ -86,7 +86,7 @@ ohpm-repo import_pkgPermission <pkg_permission_list> [options]
 --target-repo
  
 - 默认值：无
-- 类型： string
+- 类型：string
 
  
 当[export_pkgPermission命令](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-export-pkgpermission)导出的json文件中仅包含一个仓库的包权限数据时，可在import_pkgPermission命令后面配置--target-repo &lt;string&gt;，用于指定待导入的仓库名称。

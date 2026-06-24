@@ -1,6 +1,6 @@
-# crypto framework错误码
+# cryptoFramework错误码
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV | lite_wearable
@@ -73,6 +73,28 @@ Parameter check failed.
 **处理步骤**
 
 检查当前输入的参数是否在支持的范围内。
+
+
+
+#### 17620004 无效的函数调用
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+Invalid function call.
+
+**错误描述**
+
+无效的函数调用。
+
+**可能原因**
+
+当前操作不支持当前函数调用。
+
+**处理步骤**
+
+检查当前函数调用是否合理。
 
 
 

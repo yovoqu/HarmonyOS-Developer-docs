@@ -1,6 +1,6 @@
 # 如何通过hdc命令拉起指定的UIAbility
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:32:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-45
 

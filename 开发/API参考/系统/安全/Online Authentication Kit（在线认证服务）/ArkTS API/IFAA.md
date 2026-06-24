@@ -1,13 +1,11 @@
 # IFAA
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-ifaa-api
 **支持设备：** Phone | PC/2in1 | Tablet
 
 IFAA提供移动端免密身份认证能力，实现接入IIFAA（互联网可信认证联盟）的业务免密登录，免密支付等业务场景（注：IFAA在本文中指HarmonyOS系统免密认证模块，IIFAA在本文中指联盟及相关技术规范）。
- 
-支持的设备类型为：Phone, PC/2in1, Tablet
  
 **起始版本：** 4.1.0(11)
   
@@ -32,6 +30,8 @@ getVersionSync(): number
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -45,7 +45,7 @@ getVersionSync(): number
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -72,6 +72,8 @@ getAnonymousIdSync(userToken: Uint8Array): Uint8Array
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -92,7 +94,7 @@ getAnonymousIdSync(userToken: Uint8Array): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -124,6 +126,8 @@ getAnonymousId(userToken: Uint8Array): Promise&lt;Uint8Array&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -144,7 +148,7 @@ getAnonymousId(userToken: Uint8Array): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -182,6 +186,8 @@ getAnonymousId(userToken: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;)
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -196,7 +202,7 @@ getAnonymousId(userToken: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;)
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -236,6 +242,8 @@ queryStatusSync(userToken: Uint8Array): boolean
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -256,7 +264,7 @@ queryStatusSync(userToken: Uint8Array): boolean
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -291,6 +299,8 @@ queryStatus(userToken: Uint8Array): Promise&lt;boolean&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -311,7 +321,7 @@ queryStatus(userToken: Uint8Array): Promise&lt;boolean&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -349,6 +359,8 @@ queryStatus(userToken: Uint8Array, callback: AsyncCallback&lt;boolean&gt;): void
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -363,7 +375,7 @@ queryStatus(userToken: Uint8Array, callback: AsyncCallback&lt;boolean&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -403,6 +415,8 @@ register(registerData: Uint8Array): Promise&lt;Uint8Array&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -423,7 +437,7 @@ register(registerData: Uint8Array): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -461,6 +475,8 @@ register(registerData: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;): v
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -475,7 +491,7 @@ register(registerData: Uint8Array, callback: AsyncCallback&lt;Uint8Array&gt;): v
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -514,6 +530,8 @@ preAuthSync(): Uint8Array
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -527,7 +545,7 @@ preAuthSync(): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -556,6 +574,8 @@ preAuth(): Promise&lt;Uint8Array&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -569,7 +589,7 @@ preAuth(): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -604,6 +624,8 @@ preAuth(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -617,7 +639,7 @@ preAuth(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -655,6 +677,8 @@ IFAA免密认证，同步返回结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -676,7 +700,7 @@ IFAA免密认证，同步返回结果。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -710,6 +734,8 @@ IFAA免密认证，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -731,7 +757,7 @@ IFAA免密认证，使用Promise异步回调。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -771,6 +797,8 @@ IFAA免密认证，使用Callback异步回调。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -786,7 +814,7 @@ IFAA免密认证，使用Callback异步回调。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -828,6 +856,8 @@ deregisterSync(deregisterData: Uint8Array): void
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -841,7 +871,7 @@ deregisterSync(deregisterData: Uint8Array): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -871,6 +901,8 @@ deregister(deregisterData: Uint8Array): Promise&lt;void&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -891,7 +923,7 @@ deregister(deregisterData: Uint8Array): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -928,6 +960,8 @@ deregister(deregisterData: Uint8Array, callback: AsyncCallback&lt;void&gt;): voi
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -942,7 +976,7 @@ deregister(deregisterData: Uint8Array, callback: AsyncCallback&lt;void&gt;): voi
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -981,6 +1015,8 @@ getProtocolVersionSync(): Uint8Array
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -994,7 +1030,7 @@ getProtocolVersionSync(): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1021,6 +1057,8 @@ getProtocolVersion(): Promise&lt;Uint8Array&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -1034,7 +1072,7 @@ getProtocolVersion(): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1069,6 +1107,8 @@ getProtocolVersion(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -1082,7 +1122,7 @@ getProtocolVersion(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1120,6 +1160,8 @@ getSupportedCertTypesSync(): Uint8Array
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -1133,7 +1175,7 @@ getSupportedCertTypesSync(): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1162,6 +1204,8 @@ getSupportedCertTypes(): Promise&lt;Uint8Array&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -1175,7 +1219,7 @@ getSupportedCertTypes(): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1210,6 +1254,8 @@ getSupportedCertTypes(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.Ifaa
  
 **起始版本：** 4.1.0(11)
@@ -1223,7 +1269,7 @@ getSupportedCertTypes(callback: AsyncCallback&lt;Uint8Array&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-ifaa)。
+以下错误码的详细介绍请参见[IFAA免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-ifaa)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

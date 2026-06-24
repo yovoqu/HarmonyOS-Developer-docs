@@ -1,10 +1,10 @@
 # 案例：ArkTS内存泄漏分析
 
-更新时间：2026-05-07 02:57:00
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-arkts-memory-leak-analysis
 
-本案例介绍如何判断应用存在ArkTS泄漏，以及如何通过快照对比找出ArkTS内存泄漏的原因。
+本案例介绍如何判断应用存在ArkTS内存泄漏，以及如何通过快照对比找出ArkTS内存泄漏的原因。
  
 
 #### 初步识别内存问题
@@ -88,7 +88,7 @@
 
 #### 分析ArkTS Heap
 
-1. 在每次拍摄堆快照之前，虚拟机都会触发GC，所以理论上堆快照内存在的对象都是当前虚拟机已经无法GC掉的对象。我们可以将两个堆快照进行比较，来查看哪些对象是在触发问题场景时新增了且不能释放的。切换到窗口下方详情区域的“Comparison”页签，将两次快照进行对比。图中数据的含义是以Snapshot2作为基准，Snapshot2对比Snapshot1的数据变化量。
+1. 在每次拍摄堆快照之前，虚拟机都会触发GC，所以理论上堆快照内存在的对象都是当前虚拟机已经无法GC掉的对象。我们可以将两个堆快照进行比较，来查看哪些对象是在触发问题场景时新增了且不能释放的。切换到窗口下方详情区域的**Comparison**区域，将两次快照进行对比。图中数据的含义是以Snapshot2作为基准，Snapshot2对比Snapshot1的数据变化量。
 
   
 ![](assets/案例：ArkTS内存泄漏分析/file-20260514133144336-19.png)
@@ -242,6 +242,28 @@ DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，用于管理
  
 DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，允许用户管理ArkTS/JS值的生命周期的引用句柄（napi_ref）。
  
+**VMRoot**
+ 
+26.0.0 Beta1版本新增，位于(handle)标签中，表示虚拟机层面的根节点。
+ 
+**FrameRoot**
+ 
+26.0.0 Beta1版本新增，位于(handle)标签中，表示函数调用栈帧在GC遍历过程中的根节点。
+ 
+**SourceTextModule**
+ 
+SourceTextModule为虚拟机创建的对象，当应用使用export暴露对象后会被SourceTextModule对象持有。
+ 
+属性EcmaModuleRecordName表示export对象所在的文件名，属性EcmaModuleFileName表示export对象文件所在的abc文件名，这两个属性名在26.0.0 Beta1版本新增。如果快照用TRIM_LEVEL_2级别裁剪生成的.rawheap文件转换成的.heapsnapshot文件则不显示这两个属性名。
+ 
+**Proxy-&lt;对象实例名称&gt;**
+ 
+26.0.0 Beta1版本新增，被@Observed装饰的class实例，或被状态管理V1装饰器（如@State）装饰的对象实例，系统会自动在Proxy后带上对象实例名称。
+ 
+> [!NOTE]
+> 若开启进程级堆快照转储以后，是由子线程触发的进程级堆快照转储将不会展示对象实例名称。
+
+ 
  
 
 #### 常见属性介绍
@@ -271,13 +293,13 @@ DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，允许用户
 对于声明对象，可以通过constructor属性来确定对象名称。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/5yuRlBq3RwyxAjEJaChN4A/zh-cn_image_0000002602186547.png?HW-CC-KV=V1&HW-CC-Date=20260528T030657Z&HW-CC-Expire=86400&HW-CC-Sign=0395E3EB680B50888E247FDC70F80879BDD272866ACF339DE7E854642D95E432)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/80/v3/7tiP9LNnTGGq5jgetwlJOg/zh-cn_image_0000002594474914.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=FC053DBC4359626A394472E0EE7580D099A421953FB12DE9B69C65061D448A60)
 
  
 对于实例化对象，一般没有constructor，则需要展开__proto__属性后查找constructor；
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/hQYbGMMyQmOp5ryZoU8fSQ/zh-cn_image_0000002602186549.png?HW-CC-KV=V1&HW-CC-Date=20260528T030657Z&HW-CC-Expire=86400&HW-CC-Sign=07BF2E62FF8E52E93C44D16580648F5F8D5C1215AA47CD164EFB6AE9CC40B2BE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/ZGUVbeKuTAKioZgs78I6Og/zh-cn_image_0000002594474916.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=76B989D90ACFE921D1C1F66E9604AF4F0D204CABE1B92647A1CF9830DB0109C9)
 
  
 若对象里有一些标志性属性，可以通过在代码里搜索属性名称来找到具体是哪个对象。
@@ -285,7 +307,7 @@ DevEco Studio 6.1.0 Release版本新增，位于(handle)标签中，允许用户
 如果对象间有继承关系，则可以继续展开__proto__：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/51/v3/jPfCdVkmT3KELS-MVxdkVg/zh-cn_image_0000002571547014.png?HW-CC-KV=V1&HW-CC-Date=20260528T030657Z&HW-CC-Expire=86400&HW-CC-Sign=3B89F406ACF498E33A8F5503B6B5530E15D5191DA4B89A7E0A39EB77E17C4EB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/NjBTdA04SQ6nsBx0rU_Yug/zh-cn_image_0000002594634836.png?HW-CC-KV=V1&HW-CC-Date=20260624T020720Z&HW-CC-Expire=86400&HW-CC-Sign=C169482CA8263E625A0EF1696EBAA0634A16D3F97F1128C4D237BF2E0B0A6806)
 
  
 如上图则表明Man对象继承自People对象。

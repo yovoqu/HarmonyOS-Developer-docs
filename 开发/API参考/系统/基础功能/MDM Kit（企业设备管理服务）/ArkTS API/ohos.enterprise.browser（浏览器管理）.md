@@ -1,6 +1,6 @@
 # @ohos.enterprise.browser（浏览器管理）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-browser
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -38,7 +38,7 @@ setPolicySync(admin: Want, appId: string, policyName: string, policyValue: strin
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
+**冲突规则：** 同一个浏览器应用的同一个策略[独占](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则2独占)；不同浏览器、同一浏览器的不同策略[合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
 
 **参数：**
 
@@ -159,17 +159,13 @@ setManagedBrowserPolicy(admin: Want, bundleName: string, policyName: string, pol
 
 为指定的浏览器设置浏览器策略，成功后会发布系统公共事件[COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/commoneventmanager-definitions#common_event_managed_browser_policy_changed)。
 
-> [!NOTE]
-> 在多MDM应用场景下，针对同一浏览器的同一策略，一旦被首个Admin配置并生效，其他Admin将无法配置。
-
-
 **需要权限：** ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
+**冲突规则：** 同一个浏览器应用的同一个策略[独占](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则2独占)；不同浏览器、同一浏览器的不同策略[合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
 
 **参数：**
 

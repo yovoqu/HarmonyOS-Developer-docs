@@ -1,6 +1,6 @@
 # Hilog模块提供的OH_LOG_SetCallback接口返回的日志与系统落盘的Hilog日志是否一致
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:32:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-62
 

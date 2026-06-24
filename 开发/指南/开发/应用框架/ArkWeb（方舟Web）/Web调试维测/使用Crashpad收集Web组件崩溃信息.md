@@ -1,6 +1,6 @@
 # 使用Crashpad收集Web组件崩溃信息
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-crashpad
 

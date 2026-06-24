@@ -1,11 +1,11 @@
 # @ohos.net.http (数据请求)
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-http
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供HTTP数据请求能力。应用可以通过HTTP发起一个数据请求，支持常见的GET、POST、OPTIONS、HEAD、PUT、DELETE、TRACE、CONNECT方法。
+本模块提供HTTP数据请求能力。应用可以通过HTTP发起一个数据请求，支持常见的GET、POST、OPTIONS、HEAD、PUT、DELETE、PATCH、TRACE、CONNECT方法。
 
 > [!NOTE]
 > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -32,7 +32,7 @@ import { http } from '@kit.NetworkKit';
 
 ```json
 // 引入包名
-import { http } from '@kit.NetworkKit';
+import { http, connection } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 
@@ -45,12 +45,14 @@ httpRequest.on('headersReceive', (header: Object) => {
   console.info('header: ' + JSON.stringify(header));
 });
 
-httpRequest.request(// 填写HTTP请求的URL地址，可以带参数也可以不带参数。URL地址需要开发者自定义。请求的参数可以在extraData中指定。
+httpRequest.request(// 填写HTTP请求的URL地址，可以带参数也可以不带参数。URL地址需要开发者自定义。
   "EXAMPLE_URL",
   {
     method: http.RequestMethod.POST, // 可选，默认为http.RequestMethod.GET。
-    // 当使用POST请求时此字段用于传递请求体内容，具体格式与服务端协商确定。
-    extraData: 'data to send',
+    // 推荐使用body字段传递请求体内容，具体格式与服务端协商确定。
+    body: 'data to send', // 自API 26开始支持。
+    // 推荐使用queryParams字段传递URL参数。可传string或对象。
+    queryParams: { scene: 'demo', tag: ['a', 'b'] }, // 自API 26开始支持。
     expectDataType: http.HttpDataType.STRING, // 可选，指定返回数据的类型。
     usingCache: true, // 可选，默认为true。
     priority: 1, // 可选，默认为1。
@@ -114,7 +116,17 @@ httpRequest.request(// 填写HTTP请求的URL地址，可以带参数也可以�
     addressFamily: http.AddressFamily.DEFAULT, // 可选，系统默认选择目标域名的IPv4地址或IPv6地址，自API 15开始支持该属性。
     customMethod: 'GET', // 可选，自API 23开始支持该属性。
     maxRedirects: 30, // 可选，默认值是30次，自API 23开始支持该属性。
-    sniHostName: "www.example.com" // 可选，自API 23开始支持该属性。
+    sniHostName: "www.example.com", // 可选，自API 23开始支持该属性。
+    reuseConnections: true, // 可选，默认为true，自API 26.0.0开始支持该属性。
+    inactivityMs: 0, // 可选，默认为0表示不限制，自API 26.0.0开始支持该属性。
+    usingSocks5Proxy: { // 可选，默认不使用SOCKS5代理，自API 26.0.0开始支持该属性。如果指定了此属性，usingProxy属性不生效。
+      host: 'host', // SOCKS5代理服务器主机名，自API 26.0.0开始支持该属性。
+      port: 1080, // SOCKS5代理服务器端口，自API 26.0.0开始支持该属性。
+      username: 'username', // 可选，SOCKS5代理认证用户名，自API 26.0.0开始支持该属性。
+      password: 'password', // 可选，SOCKS5代理认证密码，自API 26.0.0开始支持该属性。
+      dnsStrategy: connection.Socks5DnsStrategy.SYSTEM_MODE, // 可选，指定DNS解析由系统执行还是由SOCKS5代理服务器执行，默认由系统执行，自API 26.0.0开始支持该属性。
+      exclusionList: [ 'www.example.com' ] // 可选，指定哪些域名不使用SOCKS5代理，自API 26.0.0开始支持该属性。
+    }
   },
   (err: BusinessError, data: http.HttpResponse) => {
     if (!err) {
@@ -167,7 +179,7 @@ createHttp(): HttpRequest
 
 | 类型 | 说明 |
 | --- | --- |
-| HttpRequest | 返回一个HttpRequest对象，里面包括request、requestInStream、destroy、on和off方法。 |
+| HttpRequest | 返回一个HttpRequest对象，里面包括request、requestInStream、requestSync、enableAutoCookie、destroy、on和off方法。 |
 
 
 **示例：**
@@ -364,8 +376,10 @@ class Header {
 let httpRequest = http.createHttp();
 let options: http.HttpRequestOptions = {
     method: http.RequestMethod.POST, // 可选，默认为http.RequestMethod.GET。
-    // 当使用POST请求时此字段用于传递请求体内容，具体格式与服务端协商确定。
-    extraData: 'data to send',
+  // 推荐使用body字段传递请求体内容，具体格式与服务端协商确定。
+  body: 'data to send', // 自API 26开始支持。
+  // 推荐使用queryParams字段传递URL参数。可传string或对象。
+  queryParams: { scene: 'request-demo', page: 1 }, // 自API 26开始支持。
     expectDataType: http.HttpDataType.STRING, // 可选，指定返回数据的类型。
     usingCache: true, // 可选，默认为true。
     priority: 1, // 可选，默认为1。
@@ -545,7 +559,7 @@ requestInStream(url: string, callback: AsyncCallback&lt;number&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | url | string | 是 | 发起网络请求的URL地址。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当请求成功，err为undefined，返回HTTP请求响应错误码；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当请求成功，err为undefined，返回HTTP请求响应错误码，具体含义见ResponseCode；否则为错误对象。 |
 
 
 **错误码：**
@@ -629,12 +643,12 @@ requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallbac
 | --- | --- | --- | --- |
 | url | string | 是 | 发起网络请求的URL地址。 |
 | options | HttpRequestOptions | 是 | 参考HttpRequestOptions。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当请求成功，err为undefined，返回HTTP请求响应错误码；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当请求成功，err为undefined，返回HTTP请求响应错误码，具体含义见ResponseCode；否则为错误对象。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和HTTP错误码。
+以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[HTTP错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-http)。
 
 HTTP错误码映射关系：2300000 + curl错误码。更多常用错误码可参考：[curl错误码](https://curl.se/libcurl/c/libcurl-errors.html)
 
@@ -693,7 +707,7 @@ let httpRequest = http.createHttp();
 let options: http.HttpRequestOptions = {
     method: http.RequestMethod.POST, // 可选，默认为http.RequestMethod.GET。
     // 当使用POST请求时此字段用于传递请求体内容，具体格式与服务端协商确定。
-    extraData: 'data to send',
+    extraData: 'data to send', // 自API version 26开始，推荐使用body字段传递请求体内容，具体格式与服务端协商确定。
     expectDataType: http.HttpDataType.STRING, // 可选，指定返回数据的类型。
     usingCache: true, // 可选，默认为true。
     priority: 1, // 可选，默认为1。
@@ -741,7 +755,7 @@ requestInStream(url: string, options? : HttpRequestOptions): Promise&lt;number&g
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以Promise形式返回发起请求的结果。 |
+| Promise&lt;number&gt; | 以Promise形式返回发起请求的结果，具体含义见ResponseCode。 |
 
 
 **错误码：**
@@ -811,6 +825,180 @@ promise.then((data: number) => {
   console.info("requestInStream OK!" + data);
 }).catch((err: Error) => {
   console.error("requestInStream ERROR : err = " + JSON.stringify(err));
+});
+```
+
+
+
+#### requestSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+requestSync(url: string, options?: HttpRequestOptions): HttpResponse
+
+根据URL地址、相关配置项（可选），发起HTTP网络请求，同步返回响应结果。
+
+> [!NOTE]
+> (1) 此接口仅支持接收50MB以内的数据，如果需要接收超过50MB的数据，则需主动在 HttpRequestOptions 的maxLimit中进行设置。 (2) 如需传入cookies，请开发者自行在参数options中添加。 (3) 若URL包含中文或其他语言，需先调用encodeURL(URL)编码，再发起请求。 (4) 此接口为同步接口，会阻塞当前线程直到返回HTTP请求响应结果或错误码。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.INTERNET
+
+**系统能力：** SystemCapability.Communication.NetStack
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| url | string | 是 | 发起网络请求的URL地址。 |
+| options | HttpRequestOptions | 否 | 参考HttpRequestOptions。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| HttpResponse | 同步返回HTTP请求响应结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[HTTP错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-http)。
+
+HTTP错误码映射关系：2300000 + curl错误码。更多常用错误码可参考：[curl错误码](https://curl.se/libcurl/c/libcurl-errors.html)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 2300001 | Unsupported protocol. |
+| 2300003 | Invalid URL format or missing URL. |
+| 2300005 | Failed to resolve the proxy name. |
+| 2300006 | Failed to resolve the host name. |
+| 2300007 | Failed to connect to the server. |
+| 2300008 | Invalid server response. |
+| 2300009 | Access to the remote resource denied. |
+| 2300016 | Error in the HTTP2 framing layer. |
+| 2300018 | Transferred a partial file. |
+| 2300023 | Failed to write the received data to the disk or application. |
+| 2300025 | Upload failed. |
+| 2300026 | Failed to open or read local data from the file or application. |
+| 2300027 | Out of memory. |
+| 2300028 | Operation timeout. |
+| 2300047 | The number of redirections reaches the maximum allowed. |
+| 2300052 | The server returned nothing (no header or data). |
+| 2300055 | Failed to send data to the peer. |
+| 2300056 | Failed to receive data from the peer. |
+| 2300058 | Local SSL certificate error. |
+| 2300059 | The specified SSL cipher cannot be used. |
+| 2300060 | Invalid SSL peer certificate or SSH remote key. |
+| 2300061 | Invalid HTTP encoding format. |
+| 2300063 | Maximum file size exceeded. |
+| 2300070 | Remote disk full. |
+| 2300073 | Remote file already exists. |
+| 2300077 | The SSL CA certificate does not exist or is inaccessible. |
+| 2300078 | Remote file not found. |
+| 2300094 | Authentication error. |
+| 2300997 | Cleartext traffic not permitted. |
+| 2300998 | It is not allowed to access this domain. |
+| 2300999 | Internal error. |
+
+
+**示例：**
+
+```json
+import { http } from '@kit.NetworkKit';
+
+class Header {
+  public contentType: string;
+
+  constructor(contentType: string) {
+    this.contentType = contentType;
+  }
+}
+
+let httpRequest = http.createHttp();
+let options: http.HttpRequestOptions = {
+    method: http.RequestMethod.POST, // 可选，默认为http.RequestMethod.GET。
+    // 当使用POST请求时此字段用于传递请求体内容，具体格式与服务端协商确定。
+    extraData: 'data to send',
+    expectDataType: http.HttpDataType.STRING, // 可选，指定返回数据的类型。
+    usingCache: true, // 可选，默认为true。
+    priority: 1, // 可选，默认为1。
+    // 开发者根据自身业务需要添加header字段。
+    header: new Header('application/json'),
+    readTimeout: 60000, // 可选，默认为60000ms。
+    connectTimeout: 60000, // 可选，默认为60000ms。
+    usingProtocol: http.HttpProtocol.HTTP1_1, // 可选，协议类型默认值由系统自动指定。
+    usingProxy: false, // 可选，默认使用系统代理，设置为false不使用代理，自API 10开始支持该属性。
+};
+let url = "EXAMPLE_URL"; // 访问url
+try {
+  let data: http.HttpResponse = httpRequest.requestSync(url, options);
+  console.info('Result:' + data.result);
+  console.info('code:' + data.responseCode);
+  console.info('type:' + JSON.stringify(data.resultType));
+  console.info('header:' + JSON.stringify(data.header));
+  console.info('cookies:' + data.cookies); // 自API version 8开始支持cookie。
+} catch (err) {
+  console.error('error:' + JSON.stringify(err));
+}
+httpRequest.destroy();
+```
+
+
+
+#### enableAutoCookie
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+enableAutoCookie(enable: boolean): void
+
+设置是否自动携带和共享Cookie，用于在同一个HttpRequest实例的多次请求之间自动复用服务端下发的Cookie。
+
+> [!NOTE]
+> (1) 默认值为false，表示默认不自动携带Cookie。 (2) 当配置由false切换为true后，会在后续调用request接口发起请求时生效，并自动共享Cookie。 (3) 当配置由true切换为false时，会清空当前实例内保存的Cookie共享状态。 (4) 关于重定向场景的Cookie处理：通过header字段手动配置的Cookie在发生重定向时不会自动发送给重定向后的目标主机，仅服务端通过Set-Cookie下发的Cookie会根据域名规则自动携带。 (5) 关于跨域Cookie携带规则：Cookie的自动携带仅在相同域名或相同子域名之间生效，不同域名之间不支持Cookie的自动携带。
+
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Communication.NetStack
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enable | boolean | 是 | 是否自动携带Cookie。true表示开启，false表示关闭。 |
+
+
+**示例：**
+
+```json
+import { http } from '@kit.NetworkKit';
+
+let httpRequest = http.createHttp();
+let url = "EXAMPLE_URL"; // 访问url，需要开发者根据实际场景自行定义。
+
+// 开启自动Cookie共享。
+httpRequest.enableAutoCookie(true);
+
+httpRequest.request(url, {
+  method: http.RequestMethod.GET
+}).then((data: http.HttpResponse) => {
+  console.info('first request code:' + data.responseCode);
+  // 后续请求将自动复用该实例保存的Cookie。
+  return httpRequest.request(url, { method: http.RequestMethod.GET });
+}).then((data: http.HttpResponse) => {
+  console.info('second request code:' + data.responseCode);
+}).catch((err: Error) => {
+  console.error('error:' + JSON.stringify(err));
+}).finally(() => {
+  httpRequest.destroy();
 });
 ```
 
@@ -1003,7 +1191,7 @@ on(type: "dataReceive", callback: Callback&lt;ArrayBuffer&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 订阅事件，固定为'headersReceive'。headersReceive：响应头接收事件。 |
-| callback | Callback&lt;ArrayBuffer&gt; | 是 | 回调函数。当订阅成功时，err为undefined，data为获取到的HTTP流式数据，类型为ArrayBuffer；否则为错误对象。 |
+| callback | Callback&lt;ArrayBuffer&gt; | 是 | 回调函数。当订阅成功时，err为undefined，data为获取到的HTTP流式数据接收数据，类型为ArrayBuffer；否则为错误对象。 |
 
 
 **示例：**
@@ -1269,7 +1457,9 @@ httpRequest.off("dataSendProgress");
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | method | RequestMethod | 否 | 是 | 请求方式，默认为GET。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| extraData | string \| Object \| ArrayBuffer | 否 | 是 | 发送请求的额外数据，默认无此字段。 说明： 没有额外数据时，避免添加该参数；若必须添加，请填写undefined或者null，避免直接传入"。 1. 当HTTP请求为POST、PUT、DELETE等方法时，此字段为HTTP请求的content，以UTF-8编码形式作为请求体。 示例如下： (1) 当'content-Type'为'application/x-www-form-urlencoded'时，请求提交的信息主体数据必须在key和value进行URL转码后（encodeURIComponent/encodeURI），按照键值对"key1=value1&key2=value2&key3=value3"的方式进行编码，该字段对应的类型通常为String。 (2) 当'content-Type'为'text/xml'时，该字段对应的类型通常为String。 (3) 当'content-Type'为'application/json'时，该字段对应的类型通常为Object。 (4) 当'content-Type'为'application/octet-stream'时，该字段对应的类型通常为ArrayBuffer。 (5) 当'content-Type'为'multipart/form-data'且需上传的字段为文件时，该字段对应的类型通常为ArrayBuffer。 以上信息仅供参考，并可能根据具体情况有所不同。 2. 当HTTP请求为GET、OPTIONS、TRACE、CONNECT等方法时，此字段为HTTP请求参数的补充。开发者需传入Encode编码后的string类型参数，Object类型的参数无需预编码，参数内容会拼接到URL中进行发送。ArrayBuffer类型的参数不会做拼接处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| extraData | string \| Object \| ArrayBuffer | 否 | 是 | 发送请求的额外数据，默认无此字段。自API version 26开始，建议优先使用body和queryParams字段。 说明： 没有额外数据时，避免添加该参数；若必须添加，请填写undefined或者null，避免直接传入"。 1. 当HTTP请求为POST、PUT、DELETE等方法时，此字段为HTTP请求的content，以UTF-8编码形式作为请求体。 示例如下： (1) 当'content-Type'为'application/x-www-form-urlencoded'时，请求提交的信息主体数据必须在key和value进行URL转码后（encodeURIComponent/encodeURI），按照键值对"key1=value1&key2=value2&key3=value3"的方式进行编码，该字段对应的类型通常为String。 (2) 当'content-Type'为'text/xml'时，该字段对应的类型通常为String。 (3) 当'content-Type'为'application/json'时，该字段对应的类型通常为Object。 (4) 当'content-Type'为'application/octet-stream'时，该字段对应的类型通常为ArrayBuffer。 (5) 当'content-Type'为'multipart/form-data'且需上传的字段为文件时，该字段对应的类型通常为ArrayBuffer。 以上信息仅供参考，并可能根据具体情况有所不同。 2. 当HTTP请求为GET、OPTIONS、TRACE、CONNECT等方法时，此字段为HTTP请求参数的补充。开发者需传入Encode编码后的string类型参数，Object类型的参数无需预编码，参数内容会拼接到URL中进行发送。ArrayBuffer类型的参数不会做拼接处理。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| body | string \| Object \| ArrayBuffer | 否 | 是 | HTTP请求体内容。设置该字段后，框架会优先将该字段作为请求体发送。 - 支持string、Object、ArrayBuffer三种类型：string按原值发送，Object会序列化后发送，ArrayBuffer按二进制发送。 - 当body与extraData同时配置时，body优先，extraData会被忽略。 - 可与任意请求方法搭配使用，用于显式指定请求体。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| queryParams | string \| QueryParamObject | 否 | 是 | 附加到URL中的请求参数。 - 支持string和QueryParamObject两种形式：string会按原样拼接到URL（不重复编码）；QueryParamObject会由系统自动编码并序列化。 - 使用string时不需要携带前导?，多个参数用&分隔。 - 当queryParams与extraData同时配置时，queryParams优先，extraData中的URL参数补充逻辑会被忽略。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 | expectDataType9+ | HttpDataType | 否 | 是 | 指定返回数据的类型，默认无此字段。如果设置了此参数，系统将优先返回指定的类型。当指定其类型为Object时，最大长度为65536字符数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | usingCache9+ | boolean | 否 | 是 | 是否使用缓存，true表示请求时优先读取缓存，false表示不使用缓存；默认为true，请求时优先读取缓存。缓存跟随当前进程生效，新缓存会替换旧缓存。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | priority9+ | number | 否 | 是 | HTTP/HTTPS请求并发优先级，值越大优先级越高，范围[1,1000]，默认为1，超出范围将设置为默认值。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
@@ -1277,7 +1467,7 @@ httpRequest.off("dataSendProgress");
 | readTimeout | number | 否 | 是 | 读取超时时间。单位为毫秒（ms），默认为60000ms。传入值需为uint32_t范围内的整数。 设置为0表示不会出现超时情况。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | connectTimeout | number | 否 | 是 | 连接超时时间。单位为毫秒（ms），默认为60000ms。传入值需为uint32_t范围内的整数。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | usingProtocol9+ | HttpProtocol | 否 | 是 | HTTP请求使用的协议版本。未指定时，由系统自动协商最适合的协议版本。若指定HTTP3，由于HTTP3协议的安全限制，需通过TlsConfig指定TLS 版本为1.3，且目标域名支持HTTP3协议，才能启用HTTP3，否则将协商降级。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
-| usingProxy10+ | boolean \| HttpProxy | 否 | 是 | HTTP代理配置，该项不配置时默认使用系统代理。 - 当usingProxy为布尔类型true时，使用默认网络代理，为false时，不使用代理。 - 当usingProxy为HttpProxy类型时，使用指定网络代理。从API version 22开始，HttpProxy支持指定username和password字段。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| usingProxy10+ | boolean \| HttpProxy | 否 | 是 | HTTP代理配置，该项不配置时默认使用系统代理。 - 当usingProxy为布尔类型true时，使用默认网络代理，为false时，不使用代理。 - 当usingProxy为HttpProxy类型时，使用指定网络代理。从API version 22开始，HttpProxy支持指定username和password字段。 - 从API version 26.0.0开始，当usingSocks5Proxy被正确配置时，usingProxy项不生效。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | caPath10+ | string | 否 | 是 | 如果设置了此参数且证书有效，系统将使用用户指定的CA证书和系统预设的CA证书；否则仅使用系统预设的CA证书。CA证书路径为沙箱映射路径（开发者可通过UIAbilityContext提供的能力获取应用沙箱路径）。目前仅支持后缀名为.pem的文本格式证书。 系统预设CA证书位置：/etc/ssl/certs/cacert.pem。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | caData20+ | string | 否 | 是 | 如果设置了此参数且证书有效，系统将使用用户指定的CA证书和系统预设的CA证书；否则仅使用系统预设的CA证书。如果同时设置了caPath和caData，caData将被系统忽略。目前仅支持传入.pem格式的证书内容，最大长度为8000字节。仅支持传入单证书，不支持证书链传入。 系统预设CA证书位置：/etc/ssl/certs/cacert.pem。证书路径为沙箱映射路径（开发者可通过UIAbilityContext提供的能力获取应用沙箱路径）。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 | resumeFrom11+ | number | 否 | 是 | 用于设置下载起始位置，该参数只能用于GET方法，不能用于其他。HTTP标准（RFC 7233第3.1节）允许服务器忽略范围请求。 - 使用HTTP PUT时，不能使用该选项，因为该选项可能与其他选项冲突。 - 取值范围是：[1，4294967296（4GB）]，超出范围则不生效。 |
@@ -1298,6 +1488,10 @@ httpRequest.off("dataSendProgress");
 | maxRedirects23+ | number | 否 | 是 | 支持针对HttpRequest指定最大跳转次数。 - 默认值为30次。 - 取值范围是：[0，2147483647]，设置0即为关闭重定向，当服务器的重定向次数超过设置的最大重定向次数时会返回错误码2300047。超出此范围该配置不生效，配置默认值30。 |
 | sniHostName23+ | string | 否 | 是 | 支持客户端通过配置SNI（Server Name Indication，服务器名称指示）在TLS握手阶段向服务器声明目标域名，使服务器能够根据域名选择对应的SSL/TLS证书进行加密通信。 - 默认值为空字符串，sniHostName参数长度上限为255个字符。若超出长度限制或设置为空字符串，该设置将不会生效。 |
 | pathPreference23+ | PathPreference | 否 | 是 | 支持HTTP请求指定特定激活的网络。 |
+| reuseConnections | boolean | 否 | 是 | HTTP请求是否复用连接。默认值为true，表示复用已有的连接；设置为false时，每次请求将建立新的连接，不再复用已有连接。本字段可与inactivityMs字段搭配使用，自定义连接超时关闭时间。 - 连接复用是指在完成一次HTTP请求后，底层的TCP连接不会被立即关闭，而是保持在连接池中，后续的HTTP请求如果目标地址相同，可以重用该连接，从而减少TCP握手和TLS握手的开销，提高性能。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| inactivityMs | number | 否 | 是 | 连接池中的连接最大空闲时间，超过该时间后连接将被关闭。单位为毫秒（ms），默认配置值为118秒。系统内部比较时间时会先计算连接空闲时间的差值，然后向下取整到秒，再与配置的值进行比较。 - 取值范围是(0, 2147483647]，传入小于等于0的数值时系统使用默认值118秒。当reuseConnections配置为false时，该参数不生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| usingSocks5Proxy | Socks5Proxy | 否 | 是 | SOCKS5代理配置，该项不配置时不启动SOCKS5代理。 当该项被正确配置时，如果同时配置了usingProxy，usingProxy不生效。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| enablePartialChain | boolean | 否 | 是 | 是否允许在证书链验证时使用信任库中的中间CA证书作为信任锚点。设置为false时，证书链必须逐级验证至受信任的根CA证书。设置为true时，若信任库中存在中间CA证书，则证书链验证到该中间CA时即可视为通过，无需继续追溯至根CA证书。当SslType使用默认值或设置为TLS时，默认值为true；当SslType设置为TLCP时，默认值为false。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1308,20 +1502,19 @@ httpRequest.off("dataSendProgress");
 
 HTTP 请求方法。
 
-**元服务API：** 从API version 11开始，该接口支持在元服务中使用。
-
 **系统能力**：SystemCapability.Communication.NetStack
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| OPTIONS | "OPTIONS" | OPTIONS方法描述了目标资源的通信选项。 |
-| GET | "GET" | GET方法请求指定资源的表示。使用GET的请求应该只检索数据，不应该包含请求内容。 |
-| HEAD | "HEAD" | HEAD方法请求与GET请求相同的响应，但没有响应主体。 |
-| POST | "POST" | POST方法将实体提交给指定的资源，通常会导致服务器上的状态更改。 |
-| PUT | "PUT" | PUT方法将目标资源的所有当前表示替换为请求内容。 |
-| DELETE | "DELETE" | DELETE方法用于删除指定的资源。 |
-| TRACE | "TRACE" | TRACE方法沿到达目标资源的路径执行消息环回测试。 |
-| CONNECT | "CONNECT" | CONNECT方法建立到由目标资源标识的服务器的隧道。 |
+| OPTIONS | "OPTIONS" | OPTIONS方法描述了目标资源的通信选项。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| GET | "GET" | GET方法请求指定资源的表示。使用GET的请求应该只检索数据，不应该包含请求内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| HEAD | "HEAD" | HEAD方法请求与GET请求相同的响应，但没有响应主体。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| POST | "POST" | POST方法将实体提交给指定的资源，通常会导致服务器上的状态更改。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| PUT | "PUT" | PUT方法将目标资源的所有当前表示替换为请求内容。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| DELETE | "DELETE" | DELETE方法用于删除指定的资源。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| TRACE | "TRACE" | TRACE方法沿到达目标资源的路径执行消息环回测试。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| CONNECT | "CONNECT" | CONNECT方法建立到由目标资源标识的服务器的隧道。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
+| PATCH | "PATCH" | PATCH方法对资源进行部分修改。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1500,8 +1693,8 @@ HTTP请求交互的详细信息。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| sendSize | number | 否 | 否 | 每次发送的数据量(单位：Byte)。 |
-| totalSize | number | 否 | 否 | 总共要发送的数据量(单位：Byte)。 |
+| sendSize | number | 否 | 否 | 每次发送的数据量(单位：字节)。 |
+| totalSize | number | 否 | 否 | 总共要发送的数据量(单位：字节)。 |
 
 
 
@@ -1855,6 +2048,73 @@ type HttpProxy = connection.HttpProxy
 | 类型 | 说明 |
 | --- | --- |
 | connection.HttpProxy | 网络代理配置信息。 |
+
+
+
+
+#### Socks5Proxy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type Socks5Proxy = connection.Socks5Proxy
+
+SOCKS5代理配置信息。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Communication.NetStack
+
+| 类型 | 说明 |
+| --- | --- |
+| connection.Socks5Proxy | SOCKS5代理配置信息。 |
+
+
+
+
+#### QueryParamValue
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type QueryParamValue = string | number | boolean | null | undefined
+
+QueryParamObject中允许使用的单个参数值类型。
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Communication.NetStack
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 字符串类型。 |
+| number | 数字类型，会先转为字符串再参与编码。 |
+| boolean | 布尔类型，会先转为字符串再参与编码。 |
+| null | 空值类型，会按仅key不带=值的形式序列化。 |
+| undefined | 未定义类型，会按仅key不带=值的形式序列化。 |
+
+
+
+
+#### QueryParamObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type QueryParamObject = Record<string, QueryParamValue | QueryParamValue[]>
+
+用于构造URL查询参数的键值对象类型。
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Communication.NetStack
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 类型 | 说明 |
+| --- | --- |
+| Record<string, QueryParamValue \| QueryParamValue[]> | 键值对象类型，用于构造URL查询参数。每个属性名作为URL参数的key，属性值作为参数值。 说明： (1) 对象的每个属性名作为URL参数的key，属性值作为参数值。例如{ scene: 'demo', page: 1 }会序列化为scene=demo&page=1。 (2) 当属性值为数组时，会展开为同名多参数。例如{ tag: ['a', 'b'] }会序列化为tag=a&tag=b。 (3) key和value由系统自动进行URL编码，开发者应传入原始未编码内容。 (4) 如需严格控制参数顺序或重复键顺序，建议直接使用queryParams的string形式。 |
 
 
 

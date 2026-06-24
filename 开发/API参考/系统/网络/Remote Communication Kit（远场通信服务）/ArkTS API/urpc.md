@@ -1,6 +1,6 @@
 # urpc（高性能rpc通信库）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-urpcapi
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -174,7 +174,7 @@ urpcStubCreate(config: UrpcInitConfiguration, funcList: string | string[]): Prom
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -245,7 +245,7 @@ type UrpcCall = (funcName: string, request: object, returnValue: object, config?
 | UrpcPromise | Promise对象，返回来自服务器的响应对象。 |
  
  
-**错误码：** 错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+**错误码：** 错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
   
 
@@ -270,7 +270,7 @@ type UrpcCancel = (callingId?: number | number[]) => void
 | callingId | number \| number[] | 否 | 取消指定callingId的请求。如果不填该字段表示取消本次UrpcStub对应的所有请求，取值范围[0, 2147483647]。 |
  
  
-**错误码：** 错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+**错误码：** 错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
   
 
@@ -288,7 +288,7 @@ type UrpcDestroy = () => void
  
 **起始版本：** 5.0.1(13)
  
-**错误码：** 错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+**错误码：** 错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
   
 

@@ -1,6 +1,6 @@
 # @ohos.enterprise.deviceSettings （设备设置管理）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicesettings
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -340,11 +340,11 @@ let wantTemp: Want = {
 try {
   // 需根据实际情况进行替换
   let accountId = 100;
-  let floatingNavigationStatus: string = "0"
-  deviceSettings.setValueForAccount(wantTemp, deviceSettings.SettingsItem.FLOATING_NAVIGATION, accountId, floatingNavigationStatus);
-  console.info('Succeeded in setting floating navigation status.');
+  let deviceName: string = "deviceName"
+  deviceSettings.setValueForAccount(wantTemp, deviceSettings.SettingsItem.DEVICE_NAME, accountId, deviceName);
+  console.info('Succeeded in setting device name.');
 } catch (err) {
-  console.error(`Failed to set floating navigation status. Code: ${err.code}, message: ${err.message}`);
+  console.error(`Failed to set device name. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
@@ -408,10 +408,10 @@ let wantTemp: Want = {
 try {
   // 需根据实际情况进行替换
   let accountId = 100;
-  let result: string = deviceSettings.getValueForAccount(wantTemp, deviceSettings.SettingsItem.FLOATING_NAVIGATION, accountId);
-  console.info(`Succeeded in getting floating navigation status., result : ${result}`);
+  let result: string = deviceSettings.getValueForAccount(wantTemp, deviceSettings.SettingsItem.DEVICE_NAME, accountId);
+  console.info(`Succeeded in getting device name, result : ${result}`);
 } catch (err) {
-  console.error(`Failed to get floating navigation status. Code: ${err.code}, message: ${err.message}`);
+  console.error(`Failed to get device name. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 
@@ -617,6 +617,73 @@ try {
 
 
 
+#### deviceSettings.setSwitchStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+setSwitchStatus(admin: Want, key: SwitchKey, status: SwitchStatus): void
+
+设置开关的状态。支持设置星闪、蓝牙、Wi-Fi、NFC的状态为开启或关闭，设置完毕后，用户可以手动开关。支持设置蓝牙、NFC的状态为强制开启，设置完毕后，用户不可以手动开关。若已经通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy) 接口禁用了某个开关，则通过本接口设置这个开关的状态会抛出错误码203，需通过[setDisallowedPolicy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions#restrictionssetdisallowedpolicy) 接口解除该开关禁用策略。当设备有多个MDM应用时，各MDM应用设置开关状态不存在冲突，最后设置的策略生效。开启(用户可手动开启、关闭)、关闭(用户可手动开启、关闭)、强制开启(用户不可手动关闭)三个状态可以随意切换，也不存在冲突。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SETTINGS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| key | SwitchKey | 是 | 开关的名称，应用申请权限 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS 并通过接口startAdminProvision激活为自带设备管理应用，可以使用此接口设置以下开关：星闪、蓝牙、Wi-Fi。设置NFC开关时会报错误码9200002。 |
+| status | SwitchStatus | 是 | 开关的状态，应用申请权限 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS 并通过接口startAdminProvision激活为自带设备管理应用，可以使用此接口设置以下状态：ON、OFF。设置为FORCE_ON状态时会报错误码9200002。 |
+
+
+**错误码**：
+
+以下的错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 9201042 | Failed to toggle the switch state. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 203 | This function is prohibited by enterprise management policies. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { deviceSettings } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+try {
+  // 需根据实际情况进行替换
+  let key: deviceSettings.SwitchKey = deviceSettings.SwitchKey.BLUETOOTH;
+  let status: deviceSettings.SwitchStatus  = deviceSettings.SwitchStatus.ON;
+  deviceSettings.setSwitchStatus(wantTemp, key, status);
+  console.info(`Succeeded in setting switch status.`);
+} catch (err) {
+  console.error(`Failed to set switch status. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
 #### SettingsItem24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -650,7 +717,7 @@ try {
 | BLUETOOTH | 4 | 星闪和蓝牙/蓝牙。 |
 | NETWORK | 5 | 网络。 |
 | MOBILE_NETWORK | 6 | 移动网络。 |
-| SUPER_DEVICE | 7 | 多设备协同—超级终端。 |
+| SUPER_DEVICE | 7 | 多设备协同-超级终端。 |
 | MORE_CONNECTIVITY_OPTIONS | 8 | 多设备协同。 |
 | HOME_SCREEN_STYLE | 9 | 桌面和个性化。 |
 | DISPLAY_BRIGHTNESS | 10 | 显示和亮度。 |
@@ -666,23 +733,66 @@ try {
 | ACCESSIBILITY | 20 | 关怀和无障碍。 |
 | SYSTEM | 21 | 系统。 |
 | ABOUT_DEVICE | 22 | 关于本机。 |
-| SYSTEM_NAVIGATION | 23 | 系统—系统导航。 |
-| LANGUAGE_REGION | 24 | 系统—语言和地区。 |
-| INPUT_METHODS | 25 | 系统—输入法。 |
-| DATE_TIME | 26 | 系统—日期和时间。 |
-| DATA_CLONE | 27 | 系统—数据克隆。 |
-| BACKUP_SETTINGS | 28 | 系统—备份和恢复。 |
-| RESET | 29 | 系统—重置。 |
-| SUPERHUB | 30 | 系统—中转站。 |
-| USER_EXPERIENCE | 31 | 系统—用户体验改进计划。 |
-| SCREEN_CAST | 32 | 多设备协同—无线投屏。 |
+| SYSTEM_NAVIGATION | 23 | 系统-系统导航。 |
+| LANGUAGE_REGION | 24 | 系统-语言和地区。 |
+| INPUT_METHODS | 25 | 系统-输入法。 |
+| DATE_TIME | 26 | 系统-日期和时间。 |
+| DATA_CLONE | 27 | 系统-数据克隆。 |
+| BACKUP_SETTINGS | 28 | 系统-备份和恢复。 |
+| RESET | 29 | 系统-重置。 |
+| SUPERHUB | 30 | 系统-中转站。 |
+| USER_EXPERIENCE | 31 | 系统-用户体验改进计划。 |
+| SCREEN_CAST | 32 | 多设备协同-无线投屏。 |
 | PRINTERS_SCANNERS | 33 | 打印机和扫描仪。 |
-| MOBILE_DATA | 34 | 移动网络—移动数据。 |
-| PERSONAL_HOTSPOT | 35 | 移动网络—个人热点。 |
-| SIM_MANAGEMENT | 36 | 移动网络—SIM卡管理。 |
-| AIRPLANE_MODE | 37 | 移动网络—飞行模式。 |
-| MANAGE_DATA_USAGE | 38 | 移动网络—流量管理。 |
-| VPN_SETTINGS | 39 | 移动网络—VPN。 |
-| TEXT_DISPLAY_SIZE | 40 | 显示和亮度—字体大小和界面缩放。 |
-| APP_DUPLICATOR | 41 | 系统—应用分身。 |
+| MOBILE_DATA | 34 | 移动网络-移动数据。 |
+| PERSONAL_HOTSPOT | 35 | 移动网络-个人热点。 |
+| SIM_MANAGEMENT | 36 | 移动网络-SIM卡管理。 |
+| AIRPLANE_MODE | 37 | 移动网络-飞行模式。 |
+| MANAGE_DATA_USAGE | 38 | 移动网络-流量管理。 |
+| VPN_SETTINGS | 39 | 移动网络-VPN。 |
+| TEXT_DISPLAY_SIZE | 40 | 显示和亮度-字体大小和界面缩放。 |
+| APP_DUPLICATOR | 41 | 系统-应用分身。 |
 | SEARCH | 42 | 搜索。 |
+
+
+
+
+#### SwitchKey
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+开关名称的枚举。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+| 名称 | 值 | 说明 | 需要权限 |
+| --- | --- | --- | --- |
+| NEARLINK | 0 | 星闪开关。 | ohos.permission.ENTERPRISE_MANAGE_SETTINGS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS |
+| BLUETOOTH | 1 | 蓝牙开关。 | ohos.permission.ENTERPRISE_MANAGE_SETTINGS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS |
+| WIFI | 2 | Wi-Fi开关。 | ohos.permission.ENTERPRISE_MANAGE_SETTINGS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS |
+| NFC | 3 | NFC开关。 | ohos.permission.ENTERPRISE_MANAGE_SETTINGS |
+
+
+
+
+#### SwitchStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+开关状态的枚举。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+| 名称 | 值 | 说明 | 需要权限 |
+| --- | --- | --- | --- |
+| ON | 0 | 开启状态。 | ohos.permission.ENTERPRISE_MANAGE_SETTINGS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS |
+| OFF | 1 | 关闭状态。 | ohos.permission.ENTERPRISE_MANAGE_SETTINGS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS |
+| FORCE_ON | 2 | 强制开启状态。 | ohos.permission.ENTERPRISE_MANAGE_SETTINGS |

@@ -1,6 +1,6 @@
 # @system.fetch (数据请求)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-fetch
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -98,42 +98,102 @@ fetch(options:{
  
 **示例：**
  
+ArkTS示例：
+ 
 ```json
-export default {
-  data: {
-    responseData: 'NA',
-    url: "test_url",
+fetch.fetch({
+  url: 'test_url',
+  success: (response) => {
+    console.info('fetch success');
+    console.info(JSON.stringify(response));
   },
-  fetch: function () {
-    var that = this;
-    fetch.fetch({
-      url: that.url,
-      success: function(response) {
-        console.info("fetch success");
-        that.responseData = JSON.stringify(response);
-      },
-      fail: function() {
-        console.info("fetch fail");
-      }
-    });
+  fail: () => {
+    console.error('fetch failed');
   }
+});
+```
+ 
+JS示例：
+ 
+```xml
+<!-- index.hml -->
+<div class="container">
+    <text class="title">测试网络连接</text>
+    <input type="button" value="点击测试" style="width: 240px; height: 50px;margin: 5px;" onclick="usingFetch"></input>
+    <text class="title" style="color: {{fontColor}};">{{result}}</text>
+</div>
+```
+ 
+```text
+/* index.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0px;
+  top: 0px;
+  width: 454px;
+  height: 454px;
+}
+.title {
+  font-size: 30px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+.button {
+  font-size: 30px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
 }
 ```
  
+```json
+// index.js
+import fetch from '@system.fetch';
+
+export default {
+    data: {
+        fontColor: '#FFF',
+        result: '',
+    },
+    usingFetch: function() {
+        const that = this;
+        fetch.fetch({
+            url: 'test_url',
+            success: function(response) {
+                that.fontColor = '#00FF00';
+                that.result = 'SUCCESS';
+                console.info('fetch success');
+                console.info(JSON.stringify(response));
+            },
+            fail: function() {
+                that.fontColor = '#FF0000';
+                that.result = 'FAILED';
+                console.error('fetch failed');
+            }
+        });
+    }
+};
+```
+ 
 > [!NOTE]
-> 默认支持https，如果要支持http，需要在config.json里增加network标签，属性标识 "cleartextTraffic": true。即：
+> 默认支持https，如果要支持http，需要在config.json里增加network标签，属性标识 "cleartextTraffic": true。
 
  
 ```text
 {
   "deviceConfig": {
     "default": {
-     "network": {
+      "network": {
         "cleartextTraffic": true
       }
-      ... // 用户的其它配置信息
+      // 用户的其它配置信息
+      // ...
     }
   }
-  ... // 用户的其它配置信息
+  // 用户的其它配置信息
+  // ...
 }
 ```

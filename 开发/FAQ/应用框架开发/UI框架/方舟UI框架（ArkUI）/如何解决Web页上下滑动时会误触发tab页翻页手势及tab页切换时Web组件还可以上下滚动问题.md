@@ -1,6 +1,6 @@
 # 如何解决Web页上下滑动时会误触发tab页翻页手势及tab页切换时Web组件还可以上下滚动问题
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-339
 

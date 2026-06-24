@@ -1,6 +1,6 @@
 # 如何在Text组件关闭bindSelection自定义菜单时，取消文本的选中状态
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-323
 
@@ -10,7 +10,7 @@
  
 **解决措施**
  
-在该场景下，取消选中状态可通过重新设置selection来实现。调用closeSelectionMenu关闭自定义菜单时，在onDisappear回调中重新设置selection的start和end即可取消选中状态。示例代码如下：
+在该场景下，取消选中状态可通过重新设置selection来实现。在调用closeSelectionMenu()关闭自定义菜单时，通过重置selection的start和end属性来取消选中状态。示例代码如下：
  
 ```ArkTS
 @Entry

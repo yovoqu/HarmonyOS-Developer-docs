@@ -1,12 +1,12 @@
 # 使用ECC压缩/非压缩公钥格式转换(ArkTS)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-compressed-or-uncompressed-ecc-pubkey
 
 可通过指定ECC公钥数据生成公钥对象（PubKey），也可以从公钥对象（PubKey）中获取ECC公钥数据。
 
-当前仅支持满足X.509规范的ECC算法压缩和非压缩格式的公钥数据。此处的公钥数据应当是完整的X509公钥，对于只使用点数据的情况，请参考[使用ECC压缩/非压缩点格式转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-compressed-or-uncompressed-ecc-point)。
+当前仅支持满足X.509规范的ECC算法压缩和非压缩格式的公钥数据。此处的公钥数据应当是完整的X.509公钥，对于只使用点数据的情况，请参考[使用ECC压缩/非压缩点格式转换](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-compressed-or-uncompressed-ecc-point)。
 
 ECC的算法规格请查看[非对称密钥生成和转换规格：ECC](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#ecc)。
 

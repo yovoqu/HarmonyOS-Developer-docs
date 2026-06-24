@@ -1,14 +1,16 @@
 # Class (WebController)
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-通过WebController可以控制Web组件各种行为。一个WebController对象只能控制一个Web组件，且必须在Web组件和WebController绑定后，才能调用WebController上的方法。
+WebController是ArkWeb组件的控制器类，用于控制Web组件的各种行为。一个WebController对象只能与一个Web组件绑定，绑定后开发者可通过该控制器对Web组件进行页面导航（前进/后退/加载）、焦点控制、缩放调整、页面刷新与停止、Cookie管理、JavaScript注入与执行等操作。
+ 
+WebController适用于需要在应用侧对嵌入式Web组件进行主动控制的场景，例如实现浏览器式的前进后退导航、在应用侧与网页侧之间建立JavaScript交互通道、动态加载网页内容或管理Cookie数据。
  
 > [!NOTE]
-> 该组件首批接口从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 8开始支持。 该组件从API version 9开始废弃，建议使用 WebviewController 9+ 代替。 示例效果请以真机运行为准。
+> 该组件首批接口从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 8开始支持。 该组件从API version 9开始废弃，建议使用 WebviewController 代替。 示例效果请以真机运行为准。
 
   
 
@@ -390,7 +392,7 @@ getHitTest(): HitTestType
 获取当前被点击区域的元素类型。
  
 > [!NOTE]
-> 从API version 8开始支持，从API version 9开始废弃，建议使用 getHitTest 9+ 代替。
+> 从API version 8开始支持，从API version 9开始废弃，建议使用 getHitTest (deprecated) 代替。
 
  
 **系统能力：** SystemCapability.Web.Webview.Core

@@ -1,6 +1,6 @@
 # hiperf
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiperf
 
@@ -286,6 +286,8 @@ Supported events for hardware:
 | --pipe_input | 在设备开发中，该参数用于客户端进程调用hiperf时建立命令输入通道，开发者可参考hiperf_client接口使用该能力。在应用开发中，无需使用该参数。 |
 | --pipe_output | 在设备开发中，该参数用于客户端进程调用hiperf时建立响应输出通道，开发者可参考hiperf_client接口使用该能力。在应用开发中，无需使用该参数。 |
 | --append-smo-data | 开启此参数后增加打包的so中原始so的名称。 说明：从API version 23开始，支持该参数。 |
+| --add-counter | 采集该参数指定事件的性能计数器值，多个事件以逗号分隔。该参数必须和--no-inherit一起使用。 说明：从API版本26.0.0开始，支持该参数。 |
+| --raw-data | 启用事件原始二进制数据采集，通常用于获取tracepoint等事件的详细信息。 说明：从API版本26.0.0开始，支持该参数。 |
 
 
 **命令行示例**：
@@ -312,7 +314,7 @@ $ hiperf record -p 267 -d 10 -s dwarf
 
 命令采集的进程应为[使用debug证书签名的应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiperf#hiperf采集没有debug证书签名的应用失败)。
 
-从API version 24开始，PC设备通过终端命令行应用可以采集在[配置文件标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#配置文件标签)中开启了profileable属性的应用。
+从API version 24开始，PC通过终端命令行应用可以采集在[配置文件标签](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#配置文件标签)中开启了profileable属性的应用。
 
 
 

@@ -1,6 +1,6 @@
 # 如何实现http长连接
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-18 09:05:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-48
 
@@ -11,7 +11,7 @@ import { http } from '@kit.NetworkKit';
 
 let httpRequest = http.createHttp();
 // 设置5秒轮询一次
-setTimeout(() => {
+setInterval(() => {
   httpRequest.request("EXAMPLE_URL", {
     method: http.RequestMethod.GET,
     connectTimeout: 60000,

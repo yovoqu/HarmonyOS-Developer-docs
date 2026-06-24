@@ -1,6 +1,6 @@
 # dataTransfer（星闪数传能力）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-data-transfer-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,6 +28,8 @@ type ConnectionState = constant.ConnectionState
 
 表示和远端设备的连接状态，为枚举值。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
@@ -47,6 +49,8 @@ createPort(uuid: string): void
 
 注册端口通道。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -62,7 +66,7 @@ createPort(uuid: string): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -100,6 +104,8 @@ destroyPort(uuid: string): void
 
 销毁端口通道。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -115,7 +121,7 @@ destroyPort(uuid: string): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -152,6 +158,8 @@ connect(params: ConnectionParams): Promise&lt;void&gt;
 
 连接远端设备，建立端口通道。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -174,7 +182,7 @@ connect(params: ConnectionParams): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -196,10 +204,12 @@ try {
   let connectionParams:dataTransfer.ConnectionParams = {
     address: '01:02:03:04:05:06', // 星闪远端设备地址
     uuid: '37BEA880-FC70-11EA-B720-00000000060D', // 星闪服务UUID
-    mtu: 1024 // 期望发送数据包的字节大小,可选参数
+    mtu: 1024 // 期望发送数据包的字节大小，可选参数
   };
   dataTransfer.connect(connectionParams).then(()=>{
     console.info('connect success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -216,6 +226,8 @@ disconnect(params: ConnectionParams): Promise&lt;void&gt;
 
 断连远端设备，销毁端口通道。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -238,7 +250,7 @@ disconnect(params: ConnectionParams): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -260,10 +272,12 @@ try {
   let connectionParams:dataTransfer.ConnectionParams = {
     address: '01:02:03:04:05:06', // 星闪远端设备地址
     uuid: '37BEA880-FC70-11EA-B720-00000000060D', // 星闪服务UUID
-    mtu: 1024, // 期望发送数据包的字节大小，可选参数
+    mtu: 1024 // 期望发送数据包的字节大小，可选参数
   };
   dataTransfer.disconnect(connectionParams).then(()=>{
     console.info('disconnect success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -278,7 +292,9 @@ try {
 
 on(type: 'connectionStateChanged', callback: Callback&lt;ConnectionResult&gt;): void
 
-订阅端口通道连接状态变更事件。
+订阅端口通道连接状态变更事件。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -296,7 +312,7 @@ on(type: 'connectionStateChanged', callback: Callback&lt;ConnectionResult&gt;): 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -310,8 +326,7 @@ on(type: 'connectionStateChanged', callback: Callback&lt;ConnectionResult&gt;): 
 
 ```json
 import { dataTransfer} from '@kit.NearLinkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Callback } from '@kit.BasicServicesKit';
+import { BusinessError, Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<dataTransfer.ConnectionResult> = (data: dataTransfer.ConnectionResult) => {
   console.info('data: ' + JSON.stringify(data));
@@ -331,7 +346,9 @@ try {
 
 off(type: 'connectionStateChanged', callback?: Callback&lt;ConnectionResult&gt;): void
 
-取消订阅端口通道连接状态变更事件。
+取消订阅端口通道连接状态变更事件。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -349,7 +366,7 @@ off(type: 'connectionStateChanged', callback?: Callback&lt;ConnectionResult&gt;)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -382,6 +399,8 @@ getConnectionState(params: ConnectionStateParams): ConnectionState
 
 获取与远端设备之间的端口通道连接状态。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -404,7 +423,7 @@ getConnectionState(params: ConnectionStateParams): ConnectionState
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -426,7 +445,7 @@ try {
     address: '01:02:03:04:05:06', // 扫描获取到的远端设备地址
     uuid: 'FFFFFFFF-FC70-11EA-B720-000078951234' // 星闪服务UUID示例
   };
-  let state:dataTransfer.ConnectionState = dataTransfer.getConnectionState (connectionStateParams);
+  let state:dataTransfer.ConnectionState = dataTransfer.getConnectionState(connectionStateParams);
   console.info('state:' + JSON.stringify(state));
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -442,6 +461,8 @@ try {
 writeData(params: DataParams): Promise&lt;void&gt;
 
 通过设备地址和uuid向远端设备发数据。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -465,7 +486,7 @@ writeData(params: DataParams): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -497,6 +518,8 @@ try {
   };
   dataTransfer.writeData(dataParams).then(() => {
     console.info('writeData success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -511,7 +534,9 @@ try {
 
 on(type: 'readData', callback: Callback&lt;DataParams&gt;): void
 
-订阅端口通道数据接收事件。
+订阅端口通道数据接收事件。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -529,7 +554,7 @@ on(type: 'readData', callback: Callback&lt;DataParams&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -543,8 +568,7 @@ on(type: 'readData', callback: Callback&lt;DataParams&gt;): void
 
 ```json
 import { dataTransfer} from '@kit.NearLinkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Callback } from '@kit.BasicServicesKit';
+import { BusinessError, Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<dataTransfer.DataParams> = (data: dataTransfer.DataParams) => {
   console.info('data: ' + JSON.stringify(data));
@@ -564,7 +588,9 @@ try {
 
 off(type: 'readData', callback?: Callback&lt;DataParams&gt;): void
 
-取消订阅端口通道数据接收事件。
+取消订阅端口通道数据接收事件。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -582,7 +608,7 @@ off(type: 'readData', callback?: Callback&lt;DataParams&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -613,13 +639,15 @@ try {
 
 发起端口连接的参数。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 | mtu | number | 否 | 是 | 期望发送数据的包长，单位为byte。范围[0, 65535]，默认值为512。 |
 | transferMode | TransferMode | 否 | 是 | 表示和远端设备的数据传输模式。默认值是BASIC。 |
@@ -633,13 +661,15 @@ try {
 
 端口数据发送和接收的参数。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 | data | ArrayBuffer | 否 | 否 | 发送的数据包。 |
 
@@ -652,13 +682,15 @@ try {
 
 与远端设备端口连接参数的协商结果
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 | mtu | number | 否 | 否 | 协商后的发送和接收数据的包长，单位为byte，范围[0, 65535]。 |
 | state | ConnectionState | 否 | 否 | 与远端设备的连接状态。 |
@@ -672,13 +704,15 @@ try {
 
 获取端口通道连接状态所需参数。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.1.0(18)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 远端设备的星闪地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | uuid | string | 否 | 否 | 星闪服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 
 
@@ -689,6 +723,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示和远端设备的数据传输模式，为枚举值。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 

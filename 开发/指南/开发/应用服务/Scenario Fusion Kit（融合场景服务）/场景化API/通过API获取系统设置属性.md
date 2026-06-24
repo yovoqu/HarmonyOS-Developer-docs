@@ -1,6 +1,6 @@
 # 通过API获取系统设置属性
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-api-system-setup
 
@@ -12,7 +12,7 @@ Scenario Fusion Kit提供获取系统设置属性API，调用该接口可以获�
 
 #### 约束与限制
 
-场景化API支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持Wearable和TV设备。
+场景化API支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持Wearable和TV设备，从26.0.0版本开始，新增支持Car设备。
 
 
 
@@ -40,16 +40,17 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
   
 ```text
-let stateArray: Array<atomicService.SystemSettingType> =
+let stateArray: atomicService.SystemSettingType[] =
   ['bluetoothEnabled', 'locationEnabled', 'deviceOrientation', 'wifiEnabled'];
 try {
   let data = atomicService.getSystemSetting(stateArray);
   hilog.info(0x0000, 'testTag', 'succeeded in getting system setting info');
+  // 当前参数未调用，开发者自行实现参数的逻辑处理
   let bluetoothEnabled: boolean | undefined = data.bluetoothEnabled;
   let locationEnabled: boolean | undefined = data.locationEnabled;
   let deviceOrientation: string | undefined = data.deviceOrientation;
   let wifiEnabled: boolean | undefined = data.wifiEnabled;
 } catch (error) {
-  hilog.error(0x0001, 'testTag', 'failReason: %{public}d %{public}s', error.code, error.message);
+  hilog.error(0x0001, 'testTag', 'Failed to get system setting info, failReason: %{public}d %{public}s', error.code, error.message);
 }
 ```

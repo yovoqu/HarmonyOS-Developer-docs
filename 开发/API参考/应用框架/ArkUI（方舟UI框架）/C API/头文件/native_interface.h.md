@@ -1,6 +1,6 @@
 # native_interface.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -151,3 +151,25 @@ do {                                                                            
 基于结构体类型获取对应结构体指针的宏函数。此宏函数接收[ArkUI_NativeAPIVariantKind](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-interface-h#arkui_nativeapivariantkind)类型枚举参数nativeAPIVariantKind、const char*类型参数structType、structType*类型参数structPtr，调用[OH_ArkUI_QueryModuleInterfaceByName](#oh_arkui_querymoduleinterfacebyname)获取native接口抽象指针，转换为structType*类型后赋值给structPtr。
  
 **起始版本：** 12
+ 
+  
+
+#### OH_ArkUI_NativeModule_GetErrorMessage()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+const char* OH_ArkUI_NativeModule_GetErrorMessage()
+```
+ 
+**描述：**
+ 
+获取最新一次的报错信息，包括错误码、方法名称和错误原因。错误码相关信息请参考[ArkUI_ErrorCode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_errorcode)。当其他接口返回错误码时，会保存对应的错误信息，通过此接口可获取当前存储的错误信息。返回的字符串是由系统创建的线程局部全局字符串，不得修改其内容。如需任何编辑，请自行创建字符串内容的拷贝副本。该接口返回的信息可能随版本演进而变化，仅用于输出以辅助分析与故障排查，不应作为逻辑判断依据。返回的报错信息无需手动释放。
+ 
+**起始版本：** 26.0.0
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| const char* | 最新一次的报错信息，包括错误码、方法名称和错误原因。 |

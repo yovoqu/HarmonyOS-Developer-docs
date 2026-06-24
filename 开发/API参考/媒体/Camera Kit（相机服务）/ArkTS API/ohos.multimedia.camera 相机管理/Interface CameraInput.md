@@ -1,6 +1,6 @@
 # Interface (CameraInput)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -434,7 +434,7 @@ getPhysicalCameraOrientation(): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回设备当前折叠状态下的物理镜头角度。 |
+| number | 返回设备当前折叠状态下的物理镜头角度。 单位为度数（degree），取值范围为[0, 360]。 |
 
 
 **示例：**

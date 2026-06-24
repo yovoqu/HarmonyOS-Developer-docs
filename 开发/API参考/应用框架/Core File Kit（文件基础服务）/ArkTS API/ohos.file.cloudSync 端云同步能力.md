@@ -1,6 +1,6 @@
 # @ohos.file.cloudSync (端云同步能力)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-cloudsync
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -278,7 +278,7 @@ start(): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回值。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1408,7 +1408,7 @@ registerChange(uri: string, recursion: boolean, callback: Callback&lt;ChangeData
 | --- | --- | --- | --- |
 | uri | string | 是 | 待下载文件uri。 |
 | recursion | boolean | 是 | true为监听该URI以及子文件和子目录，false为仅监听该URI文件。 |
-| callback | Callback&lt;ChangeData&gt; | 是 | 回调函数。返回更改的数据。 |
+| callback | Callback&lt;ChangeData&gt; | 是 | 回调函数，返回更改的数据。 |
 
 
 **错误码：**
@@ -1547,7 +1547,7 @@ cloudSync.unregisterChange(uri);
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| editedTime | number | 否 | 否 | 文件内容修改时间。 |
+| editedTime | number | 否 | 否 | 文件内容修改的时间戳，单位：ms。 |
 | fileSize | number | 否 | 否 | 文件大小，单位：Byte。 |
 | versionId | string | 否 | 否 | 文件版本号。 |
 | originalFileName | string | 否 | 否 | 当前版本对应的文件名。 |
@@ -1588,7 +1588,7 @@ cloudSync.unregisterChange(uri);
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | state | State | 否 | 否 | 所选版本云文件的下载状态。 |
-| progress | number | 否 | 否 | 下载进度。 |
+| progress | number | 否 | 否 | 下载进度，单位：百分比。 |
 | errType | DownloadErrorType | 否 | 否 | 若出现下载失败，失败的错误类型。 |
 
 

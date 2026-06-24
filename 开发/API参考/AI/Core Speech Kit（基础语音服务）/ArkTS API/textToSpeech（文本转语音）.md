@@ -1,6 +1,6 @@
 # textToSpeech（文本转语音）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-texttospeech
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -33,6 +33,8 @@ createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback&lt;
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -105,6 +107,8 @@ createEngine(createEngineParams: CreateEngineParams): Promise&lt;TextToSpeechEng
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -183,6 +187,8 @@ listVoices(queryParams: VoiceQuery): Promise<VoiceInfo[]>
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 **参数：**
@@ -254,6 +260,8 @@ downloadVoice(downloadParams: VoiceDownload, callback: AsyncCallback&lt;Download
 **系统能力：** SystemCapability.AI.TextToSpeech
 
 **设备行为差异：** 该接口在Phone、Tablet、2in1设备中可正常调用，在其他设备中调起下载弹窗后点击下载返回1002300008错误码。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.1(19)
 
@@ -378,6 +386,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 
@@ -393,6 +403,8 @@ listVoices(params: VoiceQuery, callback: AsyncCallback<Array&lt;VoiceInfo&gt;>):
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -460,6 +472,8 @@ listVoices(params: VoiceQuery): Promise<Array&lt;VoiceInfo&gt;>
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -532,6 +546,8 @@ setListener(listener: SpeakListener): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -598,6 +614,8 @@ speak(text: string, speakParams: SpeakParams): void
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -670,6 +688,8 @@ stop(): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **示例：**
@@ -730,6 +750,8 @@ isBusy(): boolean
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -800,6 +822,8 @@ shutdown(): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **示例：**
@@ -859,6 +883,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 
@@ -874,6 +900,8 @@ onStart(requestId: string, response: StartResponse): void
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -943,6 +971,8 @@ onStop(requestId: string, response: StopResponse): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -1010,6 +1040,8 @@ onComplete(requestId: string, response: CompleteResponse): void
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -1087,6 +1119,8 @@ onData?: OnDataCallback
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -1153,6 +1187,8 @@ onError(requestId: string, errorCode: number, errorMessage: string): void
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -1223,6 +1259,8 @@ type OnDataCallback = (requestId: string, audio: ArrayBuffer, response: Synthesi
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 **参数：**
@@ -1245,6 +1283,8 @@ type OnDataCallback = (requestId: string, audio: ArrayBuffer, response: Synthesi
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -1292,6 +1332,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1336,6 +1378,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1372,6 +1416,8 @@ let voicesDownload: textToSpeech.VoiceDownload = {
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 **参数：**
@@ -1394,6 +1440,8 @@ on(type: 'start', callback: Callback&lt;string&gt;): void
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.1(19)
 
@@ -1434,6 +1482,8 @@ on(type: 'progress', callback: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 **参数：**
@@ -1472,6 +1522,8 @@ on(type: 'complete', callback: Callback&lt;VoiceInfo&gt;): void
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.1(19)
 
@@ -1512,6 +1564,8 @@ on(type: 'cancel', callback: Callback&lt;string&gt;): void
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.1(19)
 
@@ -1556,6 +1610,8 @@ on(type: 'error', callback: ErrorCallback&lt;BusinessError&gt;): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 **参数：**
@@ -1596,6 +1652,8 @@ off(type: 'start', callback?: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 **参数：**
@@ -1635,6 +1693,8 @@ off(type: 'progress', callback?: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 **参数：**
@@ -1673,6 +1733,8 @@ off(type: 'complete', callback?: Callback&lt;VoiceInfo&gt;): void
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.1(19)
 
@@ -1714,6 +1776,8 @@ off(type: 'cancel', callback?: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 **参数：**
@@ -1753,6 +1817,8 @@ off(type: 'error', callback?: ErrorCallback&lt;BusinessError&gt;): void
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.1(19)
 
 **参数：**
@@ -1790,6 +1856,8 @@ downloadResponse.off('error', errorCallback);
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -1842,6 +1910,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1866,6 +1936,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1889,6 +1961,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1909,6 +1983,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.TextToSpeech
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1928,6 +2004,8 @@ struct Page {
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.TextToSpeech
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 

@@ -1,6 +1,6 @@
 # Weex框架+H5接入智能填充
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-weex
 
@@ -27,7 +27,7 @@
 #### 效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/_s18WwkaRUO95YvwnLkXJg/zh-cn_image_0000002581275340.png?HW-CC-KV=V1&HW-CC-Date=20260528T030143Z&HW-CC-Expire=86400&HW-CC-Sign=9D5836DCDAAE0BB93AE3791B087FF70A9AE526DB9F4FA9D1C57E05DB769E3CAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/ohW9XZLSSROXL8uLa-cQig/zh-cn_image_0000002656469157.png?HW-CC-KV=V1&HW-CC-Date=20260624T020938Z&HW-CC-Expire=86400&HW-CC-Sign=6994E251F7B22FF2A9F356E8059DA763F304D3948F1AA05574C578A90EEEF451)
 
  
   
@@ -85,17 +85,17 @@
 </template>
 <script>
 export default {
-  data() {
-    return {};
+  data () {
+    return {}
   }
-};
+}
 </script>
 <style scoped>
 .header {
   width: 100%;
   display: flex;
   justify-content: center;
-  font-size: 40px;
+  font-size: 20px;
 }
 .form-item {
   display: flex;
@@ -128,11 +128,11 @@ export default {
   .button {
     background-color:  blue;
     color: white;
-    height: 47px;
+    height: 25px;
     border: 0;
-    font-size: 30px;
-    border-radius: 15px;
-    width: 200px;
+    font-size: 15px;
+    border-radius: 10px;
+    width: 120px;
     text-align: center;
   }
 }

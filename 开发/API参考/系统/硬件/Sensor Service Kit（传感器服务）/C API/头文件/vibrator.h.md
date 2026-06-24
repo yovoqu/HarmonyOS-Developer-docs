@@ -1,6 +1,6 @@
 # vibrator.h
 
-更新时间：2026-03-19 08:47:51
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vibrator-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -76,7 +76,7 @@ int32_t OH_Vibrator_PlayVibration(int32_t duration, Vibrator_Attribute attribute
   
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 如果操作成功，则返回0；否则返回非零值。请参阅 Vibrator_ErrorCode。 |
+| int32_t | 如果操作成功，则返回0；否则返回 Vibrator_ErrorCode 中的错误码。 |
  
  
   
@@ -109,7 +109,7 @@ int32_t OH_Vibrator_PlayVibrationCustom(Vibrator_FileDescription fileDescription
   
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 如果操作成功，则返回0；否则返回非零值。请参阅 Vibrator_ErrorCode。 |
+| int32_t | 如果操作成功，则返回0；否则返回 Vibrator_ErrorCode 中的错误码。 |
  
  
   
@@ -134,4 +134,4 @@ int32_t OH_Vibrator_Cancel()
   
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 如果操作成功，则返回0；否则返回非零值。请参阅 Vibrator_ErrorCode。 |
+| int32_t | 如果操作成功，则返回0；否则返回 Vibrator_ErrorCode 中的错误码。 |

@@ -1,6 +1,6 @@
 # Class (PhotoViewPicker)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -31,7 +31,7 @@ select(option?: PhotoSelectOptions) : Promise&lt;PhotoSelectResult&gt;
 通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。使用Promise异步回调。传入可选参数PhotoSelectOptions对象，返回PhotoSelectResult对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/Oa-yGopvRqq829oxrovnXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025338Z&HW-CC-Expire=86400&HW-CC-Sign=A2B8011D82FAC6904F2E74E90B85E0B36F823780E53C7147D0B322444E7065C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/R0ZzcyZlRBWOjESQPU_kAA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020301Z&HW-CC-Expire=86400&HW-CC-Sign=5B843E626E0D4A7F4752B7C00710A162551FC3615BED975C90CE84D7D0DAC201)
 
 
 此接口返回的PhotoSelectResult对象中的photoUris具有永久授权，可通过调用接口[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)去使用。具体操作请参考[媒体文件URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#媒体文件uri的使用方式)。
@@ -101,7 +101,7 @@ select(option: PhotoSelectOptions, callback: AsyncCallback&lt;PhotoSelectResult&
 通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。接口采用callback异步返回形式，传入参数PhotoSelectOptions对象，返回PhotoSelectResult对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/pcOJWIGKQPmKcZgerwMoYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025338Z&HW-CC-Expire=86400&HW-CC-Sign=1C1E2F4F838F7A08C9A67663AAB5CB85AC691D1B6958314E965A569C22A6EF89)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/oKMB71o1RmiLxeqNaqhVJQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020301Z&HW-CC-Expire=86400&HW-CC-Sign=280208A3D825E6F4A28CECABA2C285330FB1DA138A170DB4BFD2C8792519A6E1)
 
 
 此接口返回的PhotoSelectResult对象中的photoUris具有永久授权，可通过调用接口[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)去使用。具体操作请参考[媒体文件URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#媒体文件uri的使用方式)。
@@ -167,7 +167,7 @@ select(callback: AsyncCallback&lt;PhotoSelectResult&gt;) : void
 通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。接口采用callback异步返回形式，返回PhotoSelectResult对象。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/IWUgn7STRK-2mie89334pw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025338Z&HW-CC-Expire=86400&HW-CC-Sign=C4E7B4BD24D9BAC059153BAF876BD6944510EE536AFB6E713D4AD59621E5714B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/b8x9Zw9mQgOExHvennxviQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020301Z&HW-CC-Expire=86400&HW-CC-Sign=3E26C211F48D4E31145D72710B90C477F08A251371B3FF4CCAE5C99DBCA1D288)
 
 
 此接口返回的PhotoSelectResult对象中的photoUris具有永久授权，可通过调用接口[photoAccessHelper.getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)去使用。具体操作请参考[媒体文件URI的使用方式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro#媒体文件uri的使用方式)。

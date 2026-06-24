@@ -1,6 +1,6 @@
 # 组件A通过bindContextMenu配置了长按菜单，点击菜单外区域，组件A响应了点击事件
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-447
 

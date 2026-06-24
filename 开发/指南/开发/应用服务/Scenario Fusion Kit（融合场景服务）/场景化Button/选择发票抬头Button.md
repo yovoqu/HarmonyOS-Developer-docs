@@ -1,6 +1,6 @@
 # 选择发票抬头Button
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-invoice-title
 
@@ -62,11 +62,11 @@ struct Index {
             .onChooseInvoiceTitle((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to obtain invoice title, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in obtaining invoice title");
+              hilog.info(0x0000, 'testTag', 'succeeded in obtaining invoice title');
               // 获取发票信息。
               let type: string = data.type;
               let title: string = data.title;

@@ -1,6 +1,6 @@
 # @ohos.InputMethodExtensionContext (InputMethodExtensionContext)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethod-extension-context
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -155,7 +155,7 @@ startAbility(want: Want): Promise&lt;void&gt;;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 16000001 | The specified ability does not exist. |
 | 16000002 | Incorrect ability type. |
 | 16000004 | Cannot start an invisible component. |

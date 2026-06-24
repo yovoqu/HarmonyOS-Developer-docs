@@ -1,6 +1,6 @@
 # @Styles装饰器：定义组件重用样式
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-style
 
@@ -53,7 +53,7 @@ struct FancyUse {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/7DEwwX7XSpK3XNTPAJ7xDA/zh-cn_image_0000002581433640.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030434Z&HW-CC-Expire=86400&HW-CC-Sign=1F94ACB3D2CF0AC6FD9B5C89144A208333A017513CFB032E41F8095C5C6800E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/RPqKPISWR7exHZ9kaRIOow/zh-cn_image_0000002626228046.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=878A456B403A9FCDCD6F954BEF59AA351652D8EEAED487C61F17DA645CBEEBBA)
 
 
 
@@ -150,4 +150,4 @@ struct GlobalFancy {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/GEXz7LqwQJWTYJ1ZKBonAQ/zh-cn_image_0000002611833469.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030434Z&HW-CC-Expire=86400&HW-CC-Sign=329105B01408CAE811218259D3786F873A60F0C5598E948E6359E7BAC892F513)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/i0a_joIhQ5SlnphWfsdT1A/zh-cn_image_0000002626068138.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=ED92C80593FD3E9B8B02ADED65541F0BD83805F7C6602A5189ACDAA9AA4FA151)

@@ -1,6 +1,6 @@
 # http_interceptor_type.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-http-interceptor-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -109,13 +109,12 @@ enum OH_Interceptor_Type
  
 定义拦截器的类型。
  
-**起始版本：** 24
- 
 **参数：**
   
 | 枚举项 | 描述 |
 | --- | --- |
-| OH_TYPE_READ_ONLY | 只读拦截器。 |
+| OH_TYPE_READ_ONLY | 只读拦截器。起始版本： 24。 |
+| OH_TYPE_MODIFY_NETWORK_KIT | 可修改拦截器。仅针对Network Kit HTTP请求生效。起始版本： 26.0.0。 |
  
  
   

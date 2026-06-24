@@ -1,6 +1,6 @@
 # stateStyles：多态样式
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-statestyles
 
@@ -113,7 +113,7 @@ struct MyComponent {
 **图2** 正常态和按压态
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/jAlxP03zRQSjmxFq4Gk3TQ/zh-cn_image_0000002611833471.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=4CE6EC36A3E99144F7DDF36DED5AD15E05FD94E308160E83085A6D0CBC52F2F7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/3ORrUnGFRsWMZCSwoPm-vA/zh-cn_image_0000002626068140.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=B8CF6529968A41EEEA93565FE604E69B89755F26C1234CF8454B26E9AE68A269)
 
 
 
@@ -156,4 +156,4 @@ Button默认normal态显示蓝色，第一次按下Tab键让Button获焦显示�
 **图3** 点击改变获焦态样式
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/pHqnEf8ZQWirv2gXUc5kHg/zh-cn_image_0000002581273724.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=1CBB06BC86F46C2F4E1222A43D6447C4CFA08E87A406EFC657289B8C4C7649E1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/dBvUfyinRWaArUzhLJJvXA/zh-cn_image_0000002656467415.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=FC6149DA85F5009C9ADDD8B8620A213B17212BB577D2C76D489F2BEEE410920C)

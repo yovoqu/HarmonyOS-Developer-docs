@@ -1,6 +1,6 @@
 # text
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-text
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -156,4 +156,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/a9vp1FbVQDiqUgcFYFaIgw/zh-cn_image_0000002611756325.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=260811E234E474B3A6DDBC32CE3FD4C3114FA59C2BC6D7BCC6F4ED497ED3D6ED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/C9G6cjIZQEawjuKwuJZ7_A/zh-cn_image_0000002626071034.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=813B8FE34356374A1F1DE3E6BF1DDC2FE46C62430F20A38BFCD4B976BAEB50DF)

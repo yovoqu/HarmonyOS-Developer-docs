@@ -1,6 +1,6 @@
 # if/else：条件渲染
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-ifelse
 
@@ -193,7 +193,7 @@ struct KeepMainView {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ffpyqNKZQReqMQ3xC143aA/zh-cn_image_0000002611833529.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=D7A1EB50DEBC687116FE4625D1B79A1DCE04FAD1ED3635E6041651750F373E8D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/HSrLGKUoR4Khb-5Hl1TXBA/zh-cn_image_0000002626068198.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=8ED67E185A9F6404CE14112BDF48CC6E1C3B2CFE708C5993B2C0A2FBEDF31F51)
 
 
 此处，@State counter变量归父组件所有。因此，当KeepCounterView组件实例被删除时，该变量不会被销毁。KeepCounterView组件通过[@Link](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-link)装饰器引用状态。状态必须从子级移动到其父级（或父级的父级），以避免在条件内容或重复内容被销毁时丢失状态。
@@ -255,4 +255,4 @@ struct NestedIf {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/b07IvZMcTMSDn_Pn4uMBgQ/zh-cn_image_0000002581273782.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=5365397973FBD5867B06FD0B69C4A27F777C01ED781F3ACEEA5F4AF9607EF515)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/5JN4f1IVQk6fsV0zsdj-XQ/zh-cn_image_0000002656467473.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=C264CD29C39894454D8D12533F4F33FBA19118A067CB84E768944F4A47394EA1)

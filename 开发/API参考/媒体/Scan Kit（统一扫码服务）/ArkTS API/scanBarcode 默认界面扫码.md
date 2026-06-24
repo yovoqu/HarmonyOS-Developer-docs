@@ -1,6 +1,6 @@
 # scanBarcode (默认界面扫码)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-scanbarcode-api
 **支持设备：** Phone | Tablet | Wearable
@@ -28,6 +28,8 @@ import { scanBarcode } from '@kit.ScanKit';
 
 扫码结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **起始版本：** 4.0.0(10)
@@ -36,10 +38,10 @@ import { scanBarcode } from '@kit.ScanKit';
 | --- | --- | --- | --- | --- |
 | scanType | scanCore.ScanType | 否 | 否 | 码类型。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
 | originalValue | string | 否 | 否 | 码识别内容结果。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| scanCodeRect | ScanCodeRect | 否 | 是 | 码识别位置信息。 起始版本： 4.1.0(11) |
-| cornerPoints | Array&lt;Point&gt; | 否 | 是 | 码识别角点位置信息，返回QR Code四个角点。此参数仅图像识码接口detectBarcode.decodeImage返回。 起始版本： 5.0.0(12) |
+| scanCodeRect | ScanCodeRect | 否 | 是 | 码识别位置信息。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 起始版本： 4.1.0(11) |
+| cornerPoints | Array&lt;Point&gt; | 否 | 是 | 码识别角点位置信息，返回QR Code四个角点。此参数仅图像识码接口detectBarcode.decodeImage返回。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 起始版本： 5.0.0(12) |
 | isGS1 | boolean | 否 | 是 | 码图是否携带GS1（Global Standards 1）数据。 true表示码图携带GS1数据；false表示码图不携带GS1数据。默认值是false。 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用。 起始版本： 6.0.2(22) |
-| source | scanCore.ScanSource | 否 | 是 | 扫码结果来源。此参数仅默认界面扫码接口返回。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用。 起始版本： 6.0.2(22) |
+| source | scanCore.ScanSource | 否 | 是 | 扫码结果来源。此参数仅默认界面扫码接口返回。 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用。 起始版本： 6.0.2(22) |
  
  
   
@@ -49,6 +51,10 @@ import { scanBarcode } from '@kit.ScanKit';
 **支持设备：** Phone | Tablet | Wearable
 
 码的位置信息。使用默认界面扫码（startScan和startScanForResult）不返回码位置。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
@@ -74,6 +80,10 @@ import { scanBarcode } from '@kit.ScanKit';
 
 点坐标，该坐标系左上角为{0，0}，此坐标系是以设备充电口在右侧时的横向设备方向为基准的。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **起始版本：** 5.0.0(12)
@@ -91,6 +101,8 @@ import { scanBarcode } from '@kit.ScanKit';
 **支持设备：** Phone | Tablet | Wearable
 
 扫码、识码参数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -168,7 +180,7 @@ startScanForResult(context: common.Context, options?: ScanOptions): Promise&lt;S
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -233,7 +245,7 @@ startScanForResult(context: common.Context, callback: AsyncCallback&lt;ScanResul
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -300,7 +312,7 @@ startScanForResult(context: common.Context, options: ScanOptions, callback: Asyn
  
 **错误码**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -351,6 +363,8 @@ startScan(options?: ScanOptions): Promise&lt;ScanResult&gt;
  
 **废弃说明：** 从版本4.1.0(11)开始废弃，建议使用[startScanForResult](#scanbarcodestartscanforresult)替代。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中无响应。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -373,7 +387,7 @@ startScan(options?: ScanOptions): Promise&lt;ScanResult&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -415,6 +429,8 @@ startScan(callback: AsyncCallback&lt;ScanResult&gt;): void
  
 **废弃说明：** 从版本4.1.0(11)开始废弃，建议使用[startScanForResult](#scanbarcodestartscanforresult-1)替代。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中无响应。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -430,7 +446,7 @@ startScan(callback: AsyncCallback&lt;ScanResult&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -472,6 +488,8 @@ startScan(options: ScanOptions, callback: AsyncCallback&lt;ScanResult&gt;): void
  
 **废弃说明：** 从版本4.1.0(11)开始废弃，建议使用[startScanForResult](#scanbarcodestartscanforresult-2)替代。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中无响应。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -488,7 +506,7 @@ startScan(options: ScanOptions, callback: AsyncCallback&lt;ScanResult&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

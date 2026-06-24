@@ -1,6 +1,6 @@
 # 通用文件缓存加速（C/C++）
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/preview-filecacheboost
 
@@ -28,7 +28,7 @@
 
 #### 开发准备
 
-需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#使用caniuse判断syscap是否可调用)查询您的目标设备是否支持SystemCapability.PCService.OpenFileBoost系统能力，当前仅在2in1设备上支持该能力。
+需要先通过[Syscap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/syscap#使用caniuse判断syscap是否可调用)查询您的目标设备是否支持SystemCapability.PCService.OpenFileBoost系统能力，当前仅在PC/2in1设备上支持该能力。
 
 
 

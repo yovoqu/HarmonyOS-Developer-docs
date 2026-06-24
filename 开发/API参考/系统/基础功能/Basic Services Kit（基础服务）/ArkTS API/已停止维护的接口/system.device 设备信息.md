@@ -1,6 +1,6 @@
 # @system.device (设备信息)
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-device
 **支持设备：** Wearable | lite_wearable
@@ -17,12 +17,18 @@
 **支持设备：** Wearable | lite_wearable
 
 ```text
-import device from '@system.device';
+import Device from '@system.device';
 ```
  
   
 
-#### device.getInfo(deprecated)
+#### Device
+
+**支持设备：** Wearable | lite_wearable
+
+  
+
+#### Device.getInfo(deprecated)
 
 **支持设备：** Wearable | lite_wearable
 
@@ -55,7 +61,7 @@ export default class Page {
     }
 
     try {
-      device.getInfo({
+      Device.getInfo({
         success: (data: DeviceData) => {
           console.info('Device information obtained successfully. Device brand:' + data.brand);
         },
@@ -121,7 +127,7 @@ JS示例：
  
 ```text
 //xxx.js
-import device from '@system.device';
+import Device from '@system.device';
 
 export default {
     data: {
@@ -130,7 +136,7 @@ export default {
     
     getDeviceInfo() {
         try {
-            device.getInfo({
+            Device.getInfo({
                 success: (data) => {
                     console.info('Device information obtained successfully. Device brand:' + data.brand);
                     this.brandInfo = 'Device brand: ' + data.brand;

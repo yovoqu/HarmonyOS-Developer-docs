@@ -1,6 +1,6 @@
 # @ohos.enterprise.securityManager（安全管理）
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-securitymanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -485,6 +485,137 @@ try {
 
 
 
+#### securityManager.setScreenLockDisabledForAccount
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+setScreenLockDisabledForAccount(admin: Want, disable: boolean): void
+
+禁用/启用当前用户的滑动解锁能力。启用时：设备灭屏后再亮屏，用户需要在屏幕上滑动后才能进入桌面。禁用时：设备灭屏后再亮屏会直接进入桌面。
+
+> [!NOTE]
+> 1.该接口能力仅在设备无锁屏密码时生效。 2.设备默认属于启用滑动解锁的状态。 3.设备上存在密码时，设置禁用滑动解锁会失败，抛出9201021错误码。 4.下发禁用滑动解锁的策略后，用户输入了设备密码，此时密码会生效，设备需要验证密码后才能进入桌面，之前下发的策略失效。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用返回801错误码。
+
+**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| disable | boolean | 是 | 是否禁用当前用户的滑动解锁能力。true表示禁用，false表示不禁用。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9201021 | A lock screen password has been set for the device. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { securityManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+try {
+  securityManager.setScreenLockDisabledForAccount(wantTemp, true);
+  console.info(`Succeeded in setting screen lock disabled for account.`);
+} catch(err) {
+  console.error(`Failed to set screen lock disabled for account. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
+#### securityManager.isScreenLockDisabledForAccount
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+isScreenLockDisabledForAccount(admin: Want): boolean
+
+查询当前用户的滑动解锁能力是否被禁用。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用返回801错误码。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 返回true表示当前用户的滑动解锁能力已禁用，false表示未禁用。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { securityManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+try {
+  let result: boolean = securityManager.isScreenLockDisabledForAccount(wantTemp);
+  console.info(`Succeeded in checking screen lock disabled for account, result : ${result}`);
+} catch(err) {
+  console.error(`Failed to check screen lock disabled for account. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
 #### securityManager.setAppClipboardPolicy
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -506,7 +637,7 @@ setAppClipboardPolicy(admin: Want, tokenId: number, policy: ClipboardPolicy): vo
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| tokenId | number | 是 | 目标应用的身份标识。可通过bundleManager.getApplicationInfo获取accessTokenId。当前只支持最多100个tokenId被保存策略。 |
+| tokenId | number | 是 | 目标应用的身份标识。可通过bundleManager.getApplicationInfo获取accessTokenId。 |
 | policy | ClipboardPolicy | 是 | 剪贴板策略。 |
 
 
@@ -564,7 +695,7 @@ getAppClipboardPolicy(admin: Want, tokenId?: number): string
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| tokenId | number | 否 | 目标应用的身份标识。可通过bundleManager.getApplicationInfo获取accessTokenId。当前只支持最多100个tokenId被保存策略。 |
+| tokenId | number | 否 | 目标应用的身份标识。可通过bundleManager.getApplicationInfo获取accessTokenId。 |
 
 
 **返回值：**
@@ -601,7 +732,7 @@ let wantTemp: Want = {
 let tokenId: number = 586874394;
 try {
   let result: string = securityManager.getAppClipboardPolicy(wantTemp, tokenId);
-  console.info(`Succeeded in getting password policy, result : ${result}`);
+  console.info(`Succeeded in getting clipboard policy, result : ${result}`);
 } catch(err) {
   console.error(`Failed to set clipboard policy. Code: ${err.code}, message: ${err.message}`);
 }
@@ -615,7 +746,7 @@ try {
 
 setAppClipboardPolicy(admin: Want, bundleName: string, accountId: number, policy: ClipboardPolicy): void
 
-设置指定用户下指定应用的设备剪贴板策略。当前只支持最多保存100个策略。
+设置指定用户下指定应用的设备剪贴板策略。
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
 
@@ -727,7 +858,7 @@ let bundleName: string = 'com.example.myapplication';
 let accountId: number = 100;
 try {
   let result: string = securityManager.getAppClipboardPolicy(wantTemp, bundleName, accountId);
-  console.info(`Succeeded in getting password policy, result : ${result}`);
+  console.info(`Succeeded in getting clipboard policy, result : ${result}`);
 } catch(err) {
   console.error(`Failed to set clipboard policy. Code: ${err.code}, message: ${err.message}`);
 }
@@ -744,7 +875,7 @@ setWatermarkImage(admin: Want, bundleName: string, source: string | image.PixelM
 为指定用户的指定应用设置水印策略。当前只支持最多保存100个策略。
 
 > [!NOTE]
-> 本接口适用于企业场景下为三方应用设置水印，降低企业信息泄露风险。不建议为系统应用设置水印（如：桌面应用），可能存在未知异常。
+> 1.本接口适用于企业场景下为三方应用设置水印，降低企业信息泄露风险。不建议为系统应用设置水印（如：桌面应用），可能存在未知异常。 2.水印图片会以平铺方式重复覆盖整个应用界面。
 
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
@@ -1289,6 +1420,136 @@ try {
   console.error(`Failed to uninstall enterprise re signature certificate.
     Code: ${err.code}, message: ${err.message}`);
 };
+```
+
+
+
+#### securityManager.setScreenWatermarkImage
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+setScreenWatermarkImage(admin: Want, pixelMap: image.PixelMap): void
+
+设置屏幕水印策略，对所有用户生效。
+
+> [!NOTE]
+> 1.屏幕水印策略会将设置的图片平铺覆盖整个屏幕，建议使用带透明度的图片以确保设备屏幕内容可见。 2.当水印图片尺寸小于屏幕时，图片会被拉伸；当水印图片尺寸大于屏幕时，图片会被压缩。该实现方式与应用级别水印的重复平铺方式不同。
+
+
+**起始版本**：26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| pixelMap | image.PixelMap | 是 | 图像对象。图片宽度不超过设备屏幕宽度的两倍，图片高度不超过设备屏幕高度的两倍。图片像素占用大小不得超过128MB。图片像素占用大小计算公式：图片宽度(像素)×图片高度(像素)×每个像素占用的字节数（通常为4）。例如：一张100×100的图片，像素占用大小为100×100×4=40000字节。对于1920×1080分辨率的屏幕，若使用相同分辨率的图片，像素占用大小为1920×1080×4=8294400字节（约7.9MB）。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { securityManager } from '@kit.MDMKit';
+import { common, Want } from '@kit.AbilityKit';
+import { image } from '@kit.ImageKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 请在组件内获取context，确保this.getUIContext().getHostContext()返回结果为UIAbilityContext
+const context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+// 此处'test.png'仅作示例，请开发者自行替换
+const path: string = context.filesDir + "/test.png";
+// 创建ImageSource
+const imageSource: image.ImageSource = image.createImageSource(path);
+// 创建PixelMap
+imageSource.createPixelMap().then((pixelMap: image.PixelMap) => {
+  try {
+    securityManager.setScreenWatermarkImage(wantTemp, pixelMap);
+    console.info(`Succeeded in setting screen watermark image.`);
+  } catch(err) {
+    console.error(`Failed to set screen watermark image. Code: ${err.code}, message: ${err.message}`);
+  }
+}).catch((err: Error) => {
+  console.error(`Failed to create PixelMap. message: ${err.message}`);
+});
+```
+
+
+
+#### securityManager.cancelScreenWatermarkImage
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+cancelScreenWatermarkImage(admin: Want): void
+
+取消屏幕水印策略，对所有用户生效。
+
+**起始版本**：26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_SECURITY
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { securityManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+try {
+    securityManager.cancelScreenWatermarkImage(wantTemp);
+    console.info(`Succeeded in canceling screen watermark image.`);
+} catch(err) {
+    console.error(`Failed to cancel screen watermark image. Code: ${err.code}, message: ${err.message}`);
+}
 ```
 
 

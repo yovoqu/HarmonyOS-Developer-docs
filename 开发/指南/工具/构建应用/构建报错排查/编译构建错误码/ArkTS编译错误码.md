@@ -1,6 +1,6 @@
 # ArkTS编译错误码
 
-更新时间：2026-03-11 08:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-errorcode-00309
 
@@ -62,5 +62,5 @@ Cannot resolve import statement XXX.
  
 **处理步骤**
  
-- 将import文件夹改为import具体的文件，如果要import文件夹，确保文件夹中存在index.ets或index.ts（小写i）。
+- 将import的文件夹改为具体的文件，如果要import文件夹，确保文件夹中存在index.ets或index.ts（小写i）。
 - 确保import的文件和实际的文件名大小写一致。

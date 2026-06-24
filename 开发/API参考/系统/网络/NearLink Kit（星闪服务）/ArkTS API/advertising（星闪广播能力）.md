@@ -1,6 +1,6 @@
 # advertising（星闪广播能力）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-advertising
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -26,6 +26,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 表示发送广播携带的参数。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -43,6 +45,8 @@ import { advertising } from '@kit.NearLinkKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示广播配置参数。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
@@ -62,6 +66,8 @@ import { advertising } from '@kit.NearLinkKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示广播数据包。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
@@ -83,6 +89,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 表示厂商数据。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -100,6 +108,8 @@ import { advertising } from '@kit.NearLinkKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示服务相关数据。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
@@ -119,6 +129,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 表示广播启停状态变化信息。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -136,6 +148,8 @@ import { advertising } from '@kit.NearLinkKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示广播发送模式，为枚举值。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
@@ -156,6 +170,8 @@ import { advertising } from '@kit.NearLinkKit';
 
 表示广播状态，为枚举值。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -175,6 +191,8 @@ import { advertising } from '@kit.NearLinkKit';
 startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
 
 发送星闪广播。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -198,7 +216,7 @@ startAdvertising(advertisingParams: AdvertisingParams): Promise&lt;number&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -247,12 +265,14 @@ let advData: advertising.AdvertisingData = {
 let advertisingParams: advertising.AdvertisingParams = {
   advertisingSettings: setting,
   advertisingData: advData
-}
+};
 let advId = -1;
 try {
   advertising.startAdvertising(advertisingParams).then((advertisingId:number) => {
     advId = advertisingId;
     console.info('advertising id:' + JSON.stringify(advId));
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -268,6 +288,8 @@ try {
 stopAdvertising(advertisingId: number): Promise&lt;void&gt;
 
 停止发送星闪广播。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -291,7 +313,7 @@ stopAdvertising(advertisingId: number): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -312,6 +334,8 @@ try {
   let advId: number = 1; // advId在开启广播时获取，参考startAdvertising接口返回值
   advertising.stopAdvertising(advId).then(() => {
     console.info('stop advertising success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -327,6 +351,8 @@ try {
 on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeInfo&gt;): void
 
 订阅星闪广播状态变化事件。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -344,7 +370,7 @@ on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeI
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -359,10 +385,11 @@ on(type: 'advertisingStateChange', callback: Callback&lt;AdvertisingStateChangeI
 import { advertising } from '@kit.NearLinkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-let onReceiveEvent:(data: advertising.AdvertisingStateChangeInfo) => void = (data: advertising.AdvertisingStateChangeInfo) => {
+let onReceiveEvent:(data: advertising.AdvertisingStateChangeInfo) => void =
+  (data: advertising.AdvertisingStateChangeInfo) => {
   console.info('advertisingId:' + data.advertisingId);
   console.info('advertisingState:' + data.state);
-}
+};
 try {
   advertising.on('advertisingStateChange', onReceiveEvent);
 } catch (err) {
@@ -380,6 +407,8 @@ off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChang
 
 取消订阅星闪广播状态变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -396,7 +425,7 @@ off(type: 'advertisingStateChange', callback?: Callback&lt;AdvertisingStateChang
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

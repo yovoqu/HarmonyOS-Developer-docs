@@ -1,6 +1,6 @@
 # 视频播放 (Video)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-video-player
 
@@ -36,11 +36,13 @@ Video组件支持加载本地视频和网络视频。具体的数据源配置请
   
 ```ArkTS
 // xxx.ets
-// ···
+// ...
 @Component
 export struct LocalVideo {
   private controller: VideoController = new VideoController();
+  // $r('app.media.preview')需要替换为开发者所需的图像资源文件
   private previewUris: Resource = $r('app.media.preview');
+  // $rawfile('videoTest.mp4')需要替换为开发者所需的影像资源文件
   private innerResource: Resource = $rawfile('videoTest.mp4');
 
   build() {
@@ -55,18 +57,16 @@ export struct LocalVideo {
 }
 ```
 
- - [Data Ability](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/dataability-overview)提供的视频路径带有dataability://前缀，使用时确保对应视频资源存在。
+ - [Data Ability](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/dataability-overview)提供的视频路径带有dataability://前缀，使用时确保对应视频资源存在。
 
   
 ```ArkTS
 // xxx.ets
-// ...
+// ···
 @Component
 export struct LocalVideoTwo {
   private controller: VideoController = new VideoController();
-  // $r('app.media.preview')需要替换为开发者所需的图像资源文件
   private previewUris: Resource = $r('app.media.preview');
-  // $rawfile('videoTest.mp4')需要替换为开发者所需的影像资源文件
   private videoSrc: string = 'dataability://device_id/com.domainname.dataability.videodata/video/10';
 
   build() {

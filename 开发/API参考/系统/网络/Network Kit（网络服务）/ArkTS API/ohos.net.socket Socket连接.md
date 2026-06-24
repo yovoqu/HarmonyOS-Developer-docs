@@ -1,6 +1,6 @@
 # @ohos.net.socket (Socket连接)
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-socket
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1123,7 +1123,7 @@ udp.off('error');
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address11+ | string | 否 | 否 | IP地址。在bind方法中表示本地绑定的地址，在connect方法中表示目标地址。 |
+| address11+ | string | 否 | 否 | IP地址。 |
 | port | number | 否 | 否 | 端口号 ，范围0~65535。如果不指定系统随机分配端口。 |
 | family | number | 否 | 否 | 网络协议类型，可选类型： - 1：IPv4。默认为1。 - 2：IPv6。地址为IPV6类型，该字段必须被显式指定为2。 - 3：Domain18+。地址为Domain类型，该字段必须被显式指定为3。当前仅支持TCPSocket.connect和TLSSocket.connect。 |
 
@@ -1288,6 +1288,59 @@ let multicast: socket.MulticastSocket = socket.constructMulticastSocketInstance(
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 MulticastSocket连接。在调用MulticastSocket的方法前，需要先通过[socket.constructMulticastSocketInstance](#socketconstructmulticastsocketinstance11)创建MulticastSocket对象。
+
+
+
+#### setReuseAddress
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setReuseAddress(reuse: boolean): void
+
+设置多播Socket是否支持地址复用。使用同步方式调用。
+
+> [!NOTE]
+> 用于控制多播Socket绑定端口时是否开启地址复用能力。 如需绑定已被占用的端口，确保占用方开启了地址复用能力，同时本业务也需在调用 bind 前调用本接口以开启地址复用能力。
+
+
+**起始版本**：26.0.0
+
+**系统能力**：SystemCapability.Communication.NetStack
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| reuse | boolean | 是 | 是否开启地址复用。true表示开启，false表示关闭。 |
+
+
+**示例：**
+
+```text
+import { socket } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+let multicast: socket.MulticastSocket = socket.constructMulticastSocketInstance();
+let bindAddr: socket.NetAddress = {
+  // 0.0.0.0 表示绑定本机所有IPv4网络接口上的 8080 端口，常用于多播场景接收该端口的数据。
+  address: '0.0.0.0',
+  port: 8080
+}
+
+try {
+  multicast.setReuseAddress(true);
+  multicast.bind(bindAddr).then(() => {
+    console.info('setReuseAddress success');
+  }).catch((err: BusinessError) => {
+    console.error(`bind failed, code is ${err.code}, message is ${err.message}`);
+  });
+} catch (err) {
+  let error = err as BusinessError;
+  console.error(`setReuseAddress failed, code is ${error.code}, message is ${error.message}`);
+}
+```
 
 
 
@@ -9411,7 +9464,7 @@ listen(options: TLSConnectOptions, callback: AsyncCallback&lt;void&gt;): void
 绑定IP地址和端口，在TLSSocketServer上bind成功之后，监听客户端的连接，创建和初始化TLS会话，实现建立连接过程，加载证书秘钥并验证，使用callback异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/3TlZQwSfShqLvKcfnknY5w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012600Z&HW-CC-Expire=86400&HW-CC-Sign=1C2324A01925A6C55434BDF2617F5B7A93609B2B327C9393A96FFFEEAE1B6FC9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/8jBlB9ljSqCoRwxme3C6ng/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020116Z&HW-CC-Expire=86400&HW-CC-Sign=1743D8D03CA1DC93CD01354AA015CA955CA68D6052F742F4ADF2A41D654B1C61)
 
 
 IP地址设置为0.0.0.0时，可以监听本机所有地址。

@@ -1,6 +1,6 @@
 # drawing_bitmap.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-bitmap-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,6 +54,7 @@
 | void OH_Drawing_BitmapBuild(OH_Drawing_Bitmap* bitmap,const uint32_t width, const uint32_t height, const OH_Drawing_BitmapFormat* bitmapFormat) | 用于初始化位图对象的宽度和高度，并且为该位图设置像素格式。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 bitmap、bitmapFormat任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
 | uint32_t OH_Drawing_BitmapGetWidth(OH_Drawing_Bitmap* bitmap) | 用于获取指定位图的宽度。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
 | uint32_t OH_Drawing_BitmapGetHeight(OH_Drawing_Bitmap* bitmap) | 用于获取指定位图的高度。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
+| OH_Drawing_ErrorCode OH_Drawing_BitmapGetRowBytes(OH_Drawing_Bitmap* bitmap, uint32_t* bytes) | 用于获取指定位图每行的字节数。 |
 | OH_Drawing_ColorFormat OH_Drawing_BitmapGetColorFormat(OH_Drawing_Bitmap* bitmap) | 用于获取指定位图的像素存储格式。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
 | OH_Drawing_AlphaFormat OH_Drawing_BitmapGetAlphaFormat(OH_Drawing_Bitmap* bitmap) | 用于获取指定位图的像素透明度分量。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
 | void* OH_Drawing_BitmapGetPixels(OH_Drawing_Bitmap* bitmap) | 用于获取指定位图的像素地址，可以通过像素地址获取到位图的像素数据。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
@@ -257,6 +258,37 @@ bitmap为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
 | 类型 | 说明 |
 | --- | --- |
 | uint32_t | 函数返回位图的高度。 |
+ 
+ 
+  
+
+#### OH_Drawing_BitmapGetRowBytes()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_Drawing_ErrorCode OH_Drawing_BitmapGetRowBytes(OH_Drawing_Bitmap* bitmap, uint32_t* bytes)
+```
+ 
+**描述**
+ 
+用于获取指定位图每行的字节数。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_Drawing_Bitmap* bitmap | 指向位图对象OH_Drawing_Bitmap的指针。 |
+| uint32_t* bytes | 表示位图的行字节数。作为出参使用。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| OH_Drawing_ErrorCode | 函数返回执行错误码。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示参数bitmap或bytes为空。 |
  
  
   

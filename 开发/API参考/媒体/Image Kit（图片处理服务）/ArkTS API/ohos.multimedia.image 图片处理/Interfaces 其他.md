@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -192,6 +192,26 @@ PixelMap的初始化选项。
 
 
 
+#### DecodingOptionsForThumbnail
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+缩略图解码参数选项。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.ImageSource
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| generateThumbnailIfAbsent | boolean | 否 | 是 | 指定图像无缩略图时是否生成缩略图。true表示生成，false表示不生成。默认值为true。 当图片文件中无缩略图且generateThumbnailIfAbsent为false时，返回undefined（抛出错误码7700303 图片不包含缩略图数据）。 |
+| maxGeneratedPixelDimension | number | 否 | 是 | 用于指定生成缩略图的最大边长（宽和高中较大的那一边），较短的一边会根据长边的缩放比例进行缩放。此参数仅在generateThumbnailIfAbsent设置为true时生效。 该值应为整数，默认值为512。生成后的缩略图，宽和高都会限制在maxGeneratedPixelDimension以内。 若按该参数计算后，缩略图的宽或高小于1像素（取整后为0），则不会生成缩略图。 单位为像素（px）。 |
+
+
+
+
 #### Region8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -228,6 +248,7 @@ PixelMap的初始化选项。
 | bufferSize9+ | number | 否 | 是 | 接收编码数据的缓冲区大小，单位为Byte。如果不设置大小，默认为25M。如果编码图片超过25M，需要指定大小。bufferSize需大于编码后图片大小。使用packToFile不受此参数限制。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | desiredDynamicRange12+ | PackingDynamicRange | 否 | 是 | 目标动态范围。默认值为SDR。 |
 | needsPackProperties12+ | boolean | 否 | 是 | 是否需要编码图片属性信息，例如EXIF。true表示需要，false表示不需要。默认值为false。 |
+| maxEmbedThumbnailDimension | number | 否 | 是 | 用于指定编码过程中生成缩略图的最大边长（宽和高中较大的那一边），较短的一边会根据长边的缩放比例进行缩放。此参数仅在needsPackProperties设置为true时有效。 该值应为整数，默认值为0。 若未指定此参数，或根据该尺寸计算出生成的缩略图宽/高为0，则编码过程中不会生成缩略图。 单位为像素（px）。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -342,6 +363,12 @@ Gainmap图单个通道的数据内容，参考ISO 21496-1。
 | heifsMetadata | HeifsMetadata | 否 | 是 | HEIF序列图像元数据类，用于存储图像的元数据。 |
 | webPMetadata24+ | WebPMetadata | 否 | 是 | WebP图像元数据类，用于存储图像的元数据。 |
 | dngMetadata24+ | DngMetadata | 否 | 是 | DNG图像元数据。 |
+| gifMetadata | GifMetadata | 否 | 是 | GIF图像元数据。 起始版本： 26.0.0 |
+| tiffMetadata | TiffMetadata | 否 | 是 | TIFF图像元数据。 起始版本： 26.0.0 |
+| jfifMetadata | JfifMetadata | 否 | 是 | JFIF图像元数据。 起始版本： 26.0.0 |
+| pngMetadata | PngMetadata | 否 | 是 | PNG图像元数据。 起始版本： 26.0.0 |
+| xmpMetadata | XMPMetadata | 否 | 是 | XMP元数据。 起始版本： 26.0.0 |
+| avisMetadata | AvisMetadata | 否 | 是 | AVIS图像元数据。 起始版本： 26.0.0 |
 
 
 
@@ -523,6 +550,68 @@ ImageReceiver的初始化选项。
 | --- | --- | --- | --- | --- |
 | buffer | ArrayBuffer | 否 | 否 | 图像缓冲区。 |
 | bitsPerPixel | number | 否 | 否 | 每个像素在缓冲区数据中实际占用的位数，单位为比特（bit）。 |
+
+
+
+
+#### XMPTag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示XMP标签信息。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| xmpNamespace | XMPNamespace | 否 | 否 | XMP命名空间。 |
+| name | string | 否 | 否 | XMP标签名称。 |
+| type | XMPTagType | 否 | 否 | XMP标签类型。 |
+| value | string | 否 | 是 | XMP标签值。 |
+
+
+
+
+#### XMPNamespace
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示XMP命名空间。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| uri | string | 否 | 否 | XMP命名空间URI。 |
+| prefix | string | 否 | 否 | XMP命名空间前缀。 |
+
+
+
+
+#### XMPEnumerateOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示XMP枚举选项。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| isRecursive | boolean | 否 | 是 | 表示是否进行递归遍历。 true表示进行递归遍历。false表示仅遍历直接子节点。默认为false。 |
+| onlyQualifier | boolean | 否 | 是 | 表示是否仅遍历限定符节点。 true表示仅遍历限定符节点。false表示遍历所有节点。默认为false。 |
 
 
 

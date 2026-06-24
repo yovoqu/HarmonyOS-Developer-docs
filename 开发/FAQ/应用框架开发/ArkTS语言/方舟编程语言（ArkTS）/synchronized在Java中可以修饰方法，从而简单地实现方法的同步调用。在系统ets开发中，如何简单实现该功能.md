@@ -1,6 +1,6 @@
 # synchronized在Java中可以修饰方法，从而简单地实现方法的同步调用。在系统ets开发中，如何简单实现该功能
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-44
 

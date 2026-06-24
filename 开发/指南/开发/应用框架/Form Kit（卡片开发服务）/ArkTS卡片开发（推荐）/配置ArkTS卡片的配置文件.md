@@ -1,6 +1,6 @@
 # 配置ArkTS卡片的配置文件
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration
 
@@ -96,6 +96,7 @@
 | updateDuration | 表示卡片定时刷新的更新周期，单位为30分钟，取值为自然数。 当取值为0时，表示该参数不生效。 当取值为正整数N时，表示刷新周期为30*N分钟。 说明： updateDuration参数优先级高于scheduledUpdateTime，两者同时配置时，以updateDuration配置的刷新时间为准。 | 数值 | 可缺省，缺省值为0。 |
 | formConfigAbility | 表示桌面点击编辑后，需要拉起的ability路径，采用URI格式。 | 字符串 | 可缺省，缺省值为空。 |
 | metadata | 表示卡片的自定义信息，参考Metadata数组标签。 | 对象 | 可缺省，缺省值为空。 |
+| dataProxyEnabled | 表示卡片是否支持卡片代理刷新，取值范围： - true：表示支持代理刷新。 - false：表示不支持代理刷新。 设置为true时，定时刷新和下次刷新不生效，但不影响定点刷新。 说明： 从API version 12开始，支持该字段。 | 布尔类型 | 可缺省，缺省值为false。 |
 | isDynamic | 表示此卡片是否为动态卡片（仅针对ArkTS卡片生效）。 - true：为动态卡片 。 - false：为静态卡片。 | 布尔类型 | 可缺省，缺省值为true。 |
 | fontScaleFollowSystem | 表示卡片使用方设置此卡片的字体是否支持跟随系统变化。 - true：支持跟随系统字体大小变化。 - false：不支持跟随系统字体大小变化。 | 布尔类型 | 可缺省，缺省值为true。 |
 | supportShapes | 表示卡片的显示形状，取值范围如下： - rect：表示矩形卡片。 - circle：表示圆形卡片。 | 字符串数组 | 可缺省，缺省值：["rect"]。 |
@@ -104,7 +105,7 @@
 | enableBlurBackground | 表示卡片是否使用模糊背板。 - true：开启模糊背板。 - false：关闭模糊背板。 说明： 本特性对产品功耗、性能要求较高，从API version 23开始仅在旗舰机型上支持，在不支持的机型上调用后不生效。 | 布尔类型 | 可缺省，缺省值为false。 |
 | renderingMode | 表示卡片的渲染模式，取值范围如下： - autoColor：自动模式，呈现效果可以根据卡片使用方确定最终是全彩模式还是单色模式，具体请参考卡片色彩。该模式下卡片中的颜色和图片允许卡片使用方修改，卡片配置了该模式就可以添加到桌面或锁屏上。 - fullColor：全彩模式，具体请参考卡片色彩。该模式下卡片中的颜色和图片不允许被卡片使用方修改，卡片配置了该模式就可以添加到桌面上。 - singleColor：单色模式，通过透明度和模糊区分元素，不使用任何色相，具体请参考卡片色彩。该模式下卡片中的颜色和图片允许卡片使用方修改，卡片配置了该模式就可以添加到锁屏上。 说明： 从API version 15开始，支持该字段。 | 字符串 | 可缺省，缺省值为“fullColor”。 |
 | multiScheduledUpdateTime | 表示卡片的多定点刷新的时刻，作为单点刷新的一个附加参数，采用24小时制，精确到分钟，多个时间用英文逗号分隔，最多写24个时间。 说明： 从API version 18开始，支持该字段。multiScheduledUpdateTime需要配合scheduledUpdateTime使用。 | 字符串 | 可缺省，缺省时不进行多定点刷新。 |
-| conditionUpdate | 表示卡片的支持的条件刷新（仅对系统应用的ArkTS卡片生效）。取值范围如下： - network：表示支持网络刷新。 说明： 从API version 18开始，支持该字段。 | 字符串数组 | 可缺省，缺省值为空字符串数组。 |
+| conditionUpdate | 表示卡片支持的条件刷新。取值范围如下： - network：表示支持网络刷新。 说明： 从API版本18开始，支持该字段配置。从API版本26.0.0开始，设置后功能生效。 | 字符串数组 | 可缺省，缺省值为空字符串数组。 |
 | funInteractionParams | 趣味交互类型互动卡片扩展字段。从API version 20开始，支持该字段。 | 对象 | 可缺省，缺省为空。funInteractionParams 和 sceneAnimationParams 同时配置时识别为趣味交互类型互动卡片。 |
 | sceneAnimationParams | 场景动效类型互动卡片扩展字段。从API version 20开始，支持该字段。 | 对象 | 可缺省，缺省为空。funInteractionParams 和 sceneAnimationParams 同时配置时识别为趣味交互类型互动卡片。 |
 | resizable | 表示是否可以拖拽卡片调整大小。调整值必须在该卡片或者同groupId卡片的supportDimensions配置列表中。 - true：可以调整大小。 - false：不可以调整大小。 说明： 从API version 20开始，支持该字段。 | 布尔类型 | 可缺省，缺省值为false。 |
@@ -151,7 +152,7 @@
 
 | 属性名称 | 含义 | 数据类型 | 是否可缺省 |
 | --- | --- | --- | --- |
-| designWidth | 标识页面设计基准宽度。以此为基准，根据实际设备宽度来缩放元素大小。 | 数值 | 可缺省，缺省值为720px。 |
+| designWidth | 标识页面设计基准宽度。以此为基准，根据实际设备宽度来缩放元素大小。取值范围大于等于0小于2^16，单位：px | 数值 | 可缺省，缺省值为720px。 |
 | autoDesignWidth | 标识页面设计基准宽度是否自动计算。当配置为true时，designWidth将会被忽略，设计基准宽度由设备宽度与屏幕密度计算得出。 | 布尔值 | 可缺省，缺省值为false。 |
 
 
@@ -166,7 +167,7 @@
 | abilityName | 字符串 | 否 | 趣味交互场景LiveFormExtensionAbility名称，默认为空。 |
 | targetBundleName | 字符串 | 是 | 趣味交互场景主包包名。 |
 | subBundleName | 字符串 | 否 | 趣味交互场景独立分包名，默认为空。 |
-| keepStateDuration | 数值 | 否 | 趣味交互场景无交互时，激活态保持时长。默认值为10000，单位ms。取值为[0,10000]的整数，超过取值范围则取默认值10000。 |
+| keepStateDuration | 数值 | 否 | 趣味交互场景无交互时，激活态保持时长。默认值为10000，单位ms。取值为[0,60000]的整数，超过取值范围则取最大值60000。 说明： 在API版本26.0.0之前该字段为[0,10000]的整数，超过取值范围则取默认值10000。 |
 
 
 ```json
@@ -192,15 +193,19 @@
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | abilityName | 字符串 | 是 | 场景动效LiveFormExtensionAbility名称。 |
+| disabledDesktopBehaviors | 字符串数组 | 否 | 支持的取值包括SWIPE_DESKTOP（滑动桌面）、PULL_DOWN_SEARCH（下拉全搜）、LONG_CLICK（长按）、DRAG（拖动）。可以取值一个或多个，缺省表示不禁用任何行为。 说明： 从API version 20开始支持该字段配置，功能仅对系统应用生效。 |
+| triggerTypes | 字符串数组 | 否 | 场景动效触发类型，支持的取值包括shake（摇一摇）。 说明： 从API version 26.0.0开始，支持该字段。 |
 
 
 ```json
 {
      "forms": [
        {
-          // ...
          "sceneAnimationParams": {
-            "abilityName": "MyLiveFormExtensionAbility"
+            "abilityName": "MyLiveFormExtensionAbility",
+            "triggerTypes": [
+              "shake"
+            ]
          }
        }
      ]

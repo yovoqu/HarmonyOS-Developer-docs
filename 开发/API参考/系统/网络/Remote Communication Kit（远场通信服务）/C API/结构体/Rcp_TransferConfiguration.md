@@ -1,6 +1,6 @@
 # Rcp_TransferConfiguration
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___transfer_configuration
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

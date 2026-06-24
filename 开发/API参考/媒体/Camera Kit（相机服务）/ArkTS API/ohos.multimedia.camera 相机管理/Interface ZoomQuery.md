@@ -1,6 +1,6 @@
 # Interface (ZoomQuery)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoomquery
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -116,5 +116,55 @@ function getRAWCaptureZoomRatioRange(photoSession: camera.PhotoSession): Array<n
     console.error(`The getRAWCaptureZoomRatioRange call failed. error code: ${err.code}`);
   }
   return zoomRatioRange;
+}
+```
+ 
+  
+
+#### getZoomPointInfos
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getZoomPointInfos(): Array&lt;ZoomPointInfo&gt;
+ 
+获取当前模式的等效焦距信息列表。
+ 
+**起始版本：** 26.0.0
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;ZoomPointInfo&gt; | 获取当前模式的等效焦距信息列表。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7400103 | Session not config, only throw in session usage. |
+ 
+ 
+**示例：**
+ 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function getZoomPointInfos(photoSession: camera.PhotoSession): Array<camera.ZoomPointInfo> {
+  let zoomPointInfos: Array<camera.ZoomPointInfo> = [];
+  try {
+    zoomPointInfos = photoSession.getZoomPointInfos();
+  } catch (error) {
+    // 失败返回错误码error.code并处理。
+    let err = error as BusinessError;
+    console.error(`The getZoomPointInfos call failed. error code: ${err.code}`);
+  }
+  return zoomPointInfos;
 }
 ```

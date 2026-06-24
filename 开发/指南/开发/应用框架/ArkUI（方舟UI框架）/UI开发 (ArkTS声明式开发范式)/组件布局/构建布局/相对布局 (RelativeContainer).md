@@ -1,6 +1,6 @@
 # 相对布局 (RelativeContainer)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-relative-layout
 
@@ -256,7 +256,7 @@ struct ChildRefRelativeContainer {
 
 #### 子组件位置偏移
 
-子组件经过相对位置对齐后，可能尚未达到目标位置。开发者可根据需要设置额外偏移（offset）。当使用offset调整位置的组件作为锚点时，对齐位置为设置offset之前的位置。从API Version 11开始，新增了[Bias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#bias对象说明)对象，建议API Version 11及以后的版本使用bias来设置额外偏移。使用bias的示例可以参考[示例4（设置偏移）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer#示例4设置偏移)。
+子组件经过相对位置对齐后，可能尚未达到目标位置。开发者可根据需要设置额外偏移（offset）。当使用offset调整位置的组件作为锚点时，对齐位置为设置offset之前的位置。从API Version 11开始，新增了[Bias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#bias11对象说明)对象，建议API Version 11及以后的版本使用bias来设置额外偏移。使用bias的示例可以参考[示例4（设置偏移）](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-relativecontainer#示例4设置偏移)。
 
 ```ArkTS
 @Entry
@@ -574,7 +574,7 @@ struct RelativeAlignRulesExample {
 链的形成依赖于组件之间的关联关系。以组件A和组件B构成的最简水平链为例，其依赖关系为：锚点1 <-- 组件A <---> 组件B --> 锚点2，即A具有left锚点，B具有right锚点，同时A的right锚点与B的[HorizontalAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#horizontalalign).Start对齐，B的left锚点与A的[HorizontalAlign](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-appendix-enums#horizontalalign).End对齐。
 
  - 链的方向和格式在链头组件的[chainMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#chainmode12)接口中声明；链内元素的bias属性全部失效，链头元素的bias属性作为整个链的bias生效。链头是指在满足成链规则时链的第一个组件（在水平方向上，从左边开始，镜像语言中从右边开始；在垂直方向上，从上边开始）。
- - 如果链内所有元素的size超出链的锚点约束，超出部分将被均匀分配到链的两侧。在[PACKED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#chainstyle12)链中，可以通过[Bias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#bias对象说明)设置超出部分的分布。
+ - 如果链内所有元素的size超出链的锚点约束，超出部分将被均匀分配到链的两侧。在[PACKED](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-location#chainstyle12)链中，可以通过[Bias](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-types#bias11对象说明)设置超出部分的分布。
 
 
 在以下示例代码中，通过alignRules和chainMode将九个在容器内的Row组件分为三组水平链式排列。组件row1、组件row2和组件row3顶部对齐，水平方向成SPREAD链，链内组件在锚点间均匀分布。组件row4、组件row5、组件row6垂直方向基于容器居中，水平方向成SPREAD_INSIDE链，链内除首尾2个组件对齐锚点外，其他组件在链中均匀分布。组件row7、组件row8、组件row9底部对齐，水平方向组成PACKED链，链内组件无间隙。
@@ -772,7 +772,7 @@ struct RelativeGuideLineExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/1VOZ4hwdQwqeHGqMCUVasw/zh-cn_image_0000002611753731.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=18787B8B3A46032BD7D7A95764E2390B7521C169E25EDADF9ABD4CB9135D353F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/l2kuGVvJRTKLuZQscWyuwg/zh-cn_image_0000002656347617.png?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=A506ECD35C9624529F01D6C77B7E51527BB366AFE8E7C302D3CCBA739F4D023A)
 
 
 
@@ -904,4 +904,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/2xBPlxE5Rn6Fp2oTTyFBlA/zh-cn_image_0000002581433796.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=16EB67FF84E10E5C1DF4CDC51460E98B7FA50A3D2A3E4F5CE4519E12DFF37C2F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/CT6S9n1jSpClRm2eW8lGHQ/zh-cn_image_0000002626228202.png?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=A15F66969F43C5EF18110823E024A84238F5E836611426DA4C54279F387693E2)

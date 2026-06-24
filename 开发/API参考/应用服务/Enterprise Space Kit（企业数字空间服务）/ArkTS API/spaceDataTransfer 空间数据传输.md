@@ -1,6 +1,6 @@
-# spaceDataTransfer (空间数据传输)
+# @hms.enterpriseSpaceService.fileTransfer(空间数据传输)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisespace-spacedatatransfer
 **支持设备：** PC/2in1
@@ -28,16 +28,18 @@ import { fileTransfer } from '@kit.EnterpriseSpaceKit';
 
 审批信息。
  
-**系统能力**：SystemCapability.EnterpriseSpace.SpaceDataTransfer
- 
 **起始版本：** 6.0.0(20)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.EnterpriseSpace.SpaceDataTransfer
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | auditId | string | 否 | 否 | 表示在发起审批时由数据库自动生成的审批ID，通常为由9位数字组成的字符串。不能为空字符串。 |
-| userId | string | 否 | 否 | 表示用户ID。 |
+| userId | string | 否 | 否 | 表示用户ID，例如101、102。 |
 | userName | string | 否 | 否 | 表示用户名称。 |
-| time | number | 否 | 否 | 表示整型转换后的审批时间戳，以ms为单位。 |
+| time | number | 否 | 否 | 表示整型转换后的审批时间戳，以ms为单位，例如1773144344。 |
 | comments | string | 否 | 否 | 表示审批评论。无位数限制。 |
 | status | string | 否 | 否 | 表示文件审批状态。其中，"1"表示等待审批，"2"表示取消审批，"3"表示拒绝审批，"4"表示同意审批。 |
  
@@ -52,11 +54,13 @@ setAuditInfo(transactionNum: string, info: AuditInfo): number
  
 设置审批信息，将审批结果返回给空间互传应用。
  
+**起始版本：** 6.0.0(20)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ENTERPRISE_FILE_TRANSFER_AUDIT_POLICY_MANAGEMENT
  
 **系统能力：** SystemCapability.EnterpriseSpace.SpaceDataTransfer
- 
-**起始版本：** 6.0.0(20)
  
 **参数：**
   
@@ -75,7 +79,7 @@ setAuditInfo(transactionNum: string, info: AuditInfo): number
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisespace-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-space)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -89,9 +93,9 @@ setAuditInfo(transactionNum: string, info: AuditInfo): number
 ```text
 import { fileTransfer } from '@kit.EnterpriseSpaceKit';
 
-const transactionNum: string = '1111111';
+const transactionNum: string = '1234567890123456789'; // 数据库自动生成的传输编号，需要在数据库中实际存在。
 const info: fileTransfer.AuditInfo = {
-  auditId: '123456',
+  auditId: '123456789',
   userId: '100',
   userName: 'test',
   time: Date.now(),
@@ -100,7 +104,7 @@ const info: fileTransfer.AuditInfo = {
 };
 try {
   const ret: number = fileTransfer.setAuditInfo(transactionNum, info);
-  console.info(`Succeeded in setting audit info, number:`, ret);
+  console.info(`Succeeded in setting audit info. ret:`, ret);
 } catch (err) {
   console.error(`Failed to set audit info. Code: ${err.code}, message: ${err.message}`);
 }
@@ -116,11 +120,13 @@ getAuditInfo(transactionNum: string): AuditInfo
  
 获取审批信息。
  
+**起始版本：** 6.0.0(20)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ENTERPRISE_FILE_TRANSFER_AUDIT_POLICY_MANAGEMENT
  
 **系统能力：** SystemCapability.EnterpriseSpace.SpaceDataTransfer
- 
-**起始版本：** 6.0.0(20)
  
 **参数：**
   
@@ -138,7 +144,7 @@ getAuditInfo(transactionNum: string): AuditInfo
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisespace-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-space)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -152,10 +158,10 @@ getAuditInfo(transactionNum: string): AuditInfo
 ```json
 import { fileTransfer } from '@kit.EnterpriseSpaceKit';
 
-const transactionNum: string = '1111111';
+const transactionNum: string = '1234567890123456789'; // 数据库自动生成的传输编号，需要在数据库中实际存在。
 try {
   const auditInfo: fileTransfer.AuditInfo = fileTransfer.getAuditInfo(transactionNum);
-  console.info(`Succeeded in getting audit info:` + JSON.stringify(auditInfo));
+  console.info(`Succeeded in getting audit info. auditInfo: ${JSON.stringify(auditInfo)}`);
 } catch (err) {
   console.error(`Failed to get audit info. Code: ${err.code}, message: ${err.message}`);
 }
@@ -169,13 +175,15 @@ try {
 
 policyPush(policyContext: string): void
  
-配置工作空间互传单双通策略。具体而言，分别配置是否允许个人工作空间和企业工作空间向对端空间发送文件。
+配置工作空间互传单双通策略。包括分别配置是否允许个人工作空间和企业工作空间向对端空间发送文件。
+ 
+**起始版本：** 6.0.0(20)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ENTERPRISE_FILE_TRANSFER_AUDIT_POLICY_MANAGEMENT或ohos.permission.FILE_TRANSFER_OPERATION
  
 **系统能力：** SystemCapability.EnterpriseSpace.SpaceDataTransfer
- 
-**起始版本：** 6.0.0(20)
  
 **参数：**
   
@@ -209,7 +217,7 @@ policyPush(policyContext: string): void
   
 | 参数名称 | 功能描述 | 示例值 |
 | --- | --- | --- |
-| data_list | 配置检测应用的信息，包括应用的包名、组件名、参数、检测函数编码。 | [ { "check_point": "VirusCheck", "check_point_name": "VirusCheck_in", "check_sequence": "Serial", "order": "0", "allow": "VirusCheck.result == 0", "forbidden": "VirusCheck.result == 1" } ] |
+| data_list | 配置检测应用的信息，包括应用的包名、组件名、参数、检测函数编码。 | [ { "check_point_name": "SecurityCheck", "bundle_name": "com.example.enterprisespacekit_samplecode_clientdemo_arkts", "ability_name": "TestScanAbility", "func_code": "2", "type": "2" } ] |
  
  
 - **approvalpoint_config**
@@ -336,7 +344,7 @@ policyContext内容可参考如下：
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisespace-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-space)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -352,10 +360,6 @@ import { fileTransfer } from '@kit.EnterpriseSpaceKit';
 
 const policyContext: string =
   '{\"config\":{\"inEnable\":\"1\",\"incoming_check\":{\"data_list\":[{\"allow\":\"VirusCheck.result == 0\",\"approval\":\"\",\"check_point\":\"VirusCheck\",\"check_point_name\":\"VirusCheck_in\",\"check_sequence\":\"Serial\",\"forbidden\":\"VirusCheck.result == 1\",\"order\":\"0\"}]},\"outEnable\":\"0\",\"outgoing_check\":{\"data_list\":[{\"allow\":\"SecurityCheck.Result == 3 or SecurityCheck.Result == 4 or SecurityCheck.Result == 6 or SecurityCheck.Result == 7\",\"approval\":\"SecurityCheck.Result == 10\",\"check_point\":\"SecurityCheck\",\"check_point_name\":\"SecurityCheck_out\",\"check_sequence\":\"Serial\",\"forbidden\":\"SecurityCheck.Result == 0 or SecurityCheck.Result == 1 or SecurityCheck.Result == 12 or SecurityCheck.Result == 2 or SecurityCheck.Result == 5 or SecurityCheck.Result == 8 or SecurityCheck.Result == 9 or SecurityCheck.Result == 11\",\"order\":\"0\"}]},\"checkpoint_config\":{\"data_list\":[{\"check_point_name\":\"SecurityCheck\",\"bundle_name\":\"com.example.enterprisespacekit_samplecode_clientdemo_arkts\",\"ability_name\":\"TestScanAbility\",\"func_code\":\"2\",\"type\":\"2\"},{\"check_point_name\":\"VirusCheck\",\"bundle_name\":\"com.example.enterprisespacekit_samplecode_clientdemo_arkts\",\"ability_name\":\"TestScanAbility\",\"func_code\":\"3\",\"type\":\"1\"}]},\"approvalpoint_config\":{\"data_list\":[{\"bundle_name\":\"com.example.enterprisespacekit_samplecode_clientdemo_arkts\",\"ability_name\":\"TestApprovalAbility\"}]}}}';
-try {
-  fileTransfer.policyPush(policyContext);
-  console.info(`Succeeded in pushing policy`);
-} catch (err) {
-  console.error(`Failed to push policy. Code: ${err.code}, message: ${err.message}`);
-}
+fileTransfer.policyPush(policyContext);
+console.info(`Succeeded in pushing policy.`);
 ```

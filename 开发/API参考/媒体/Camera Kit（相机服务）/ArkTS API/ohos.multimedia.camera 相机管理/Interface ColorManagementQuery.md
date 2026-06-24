@@ -1,6 +1,6 @@
 # Interface (ColorManagementQuery)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-colormanagementquery
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -39,6 +39,15 @@ getSupportedColorSpaces(): Array<colorSpaceManager.ColorSpace>
 | 类型 | 说明 |
 | --- | --- |
 | Array<colorSpaceManager.ColorSpace> | 支持的色彩空间列表。若接口调用失败，返回undefined。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7400103 | Session not config, only throw in session usage. 适用版本：12-17 |
 
 
 **示例：**

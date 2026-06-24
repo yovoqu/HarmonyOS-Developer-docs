@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -21,8 +21,8 @@
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | glyph | number | 否 | 否 | 存储文字的索引，该参数为整数，传入浮点类型时向下取整。 |
-| positionX | number | 否 | 否 | 文本的起点x轴坐标，该参数为浮点数。 |
-| positionY | number | 否 | 否 | 文本的起点y轴坐标，该参数为浮点数。 |
+| positionX | number | 否 | 否 | 文本的起点x轴坐标，该参数为浮点数。单位为物理像素px。 |
+| positionY | number | 否 | 否 | 文本的起点y轴坐标，该参数为浮点数。单位为物理像素px。 |
  
  
   
@@ -40,21 +40,21 @@
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | flags12+ | FontMetricsFlags | 否 | 是 | 表明哪些字体度量标志有效。 |
-| top | number | 否 | 否 | 文字最高处到基线之间的最大距离，浮点数。 |
-| ascent | number | 否 | 否 | 文字最高处到基线之间的距离，浮点数。 |
-| descent | number | 否 | 否 | 基线到文字最低处之间的距离，浮点数。 |
-| bottom | number | 否 | 否 | 基线到文字最低处之间的最大距离，浮点数。 |
-| leading | number | 否 | 否 | 行间距，从上一行文字descent到下一行文字ascent之间的距离，浮点数。 |
-| avgCharWidth12+ | number | 否 | 是 | 平均字符宽度。 |
-| maxCharWidth12+ | number | 否 | 是 | 最大字符宽度。 |
-| xMin12+ | number | 否 | 是 | 字体中任意字形边界框最左边沿到原点的水平距离，这个值往往小于零，意味着字形在水平方向上的最小边界。 |
-| xMax12+ | number | 否 | 是 | 字体中任意字形边界框最右边沿到原点的水平距离，此值多为正数，指示了字形在水平方向上的最大延伸范围。 |
-| xHeight12+ | number | 否 | 是 | 小写字母x的高度，通常为负值。 |
-| capHeight12+ | number | 否 | 是 | 大写字母的高度，通常为负值。 |
-| underlineThickness12+ | number | 否 | 是 | 下划线的厚度。 |
-| underlinePosition12+ | number | 否 | 是 | 文本基线到下划线顶部的垂直距离，通常是正数。 |
-| strikethroughThickness12+ | number | 否 | 是 | 文本删除线的厚度，即贯穿文本字符的水平线的宽度。 |
-| strikethroughPosition12+ | number | 否 | 是 | 文本基线到底部删除线的垂直距离，通常为负值。 |
+| top | number | 否 | 否 | 文字最高处到基线之间的最大距离，浮点数。单位为物理像素px。 |
+| ascent | number | 否 | 否 | 文字最高处到基线之间的距离，浮点数。单位为物理像素px。 |
+| descent | number | 否 | 否 | 基线到文字最低处之间的距离，浮点数。单位为物理像素px。 |
+| bottom | number | 否 | 否 | 基线到文字最低处之间的最大距离，浮点数。单位为物理像素px。 |
+| leading | number | 否 | 否 | 行间距，从上一行文字descent到下一行文字ascent之间的距离，浮点数。单位为物理像素px。 |
+| avgCharWidth12+ | number | 否 | 是 | 平均字符宽度。单位为物理像素px。 |
+| maxCharWidth12+ | number | 否 | 是 | 最大字符宽度。单位为物理像素px。 |
+| xMin12+ | number | 否 | 是 | 字体中任意字形边界框最左边沿到原点的水平距离，这个值往往小于零，意味着字形在水平方向上的最小边界。单位为物理像素px。 |
+| xMax12+ | number | 否 | 是 | 字体中任意字形边界框最右边沿到原点的水平距离，此值多为正数，指示了字形在水平方向上的最大延伸范围。单位为物理像素px。 |
+| xHeight12+ | number | 否 | 是 | 小写字母x的高度，通常为负值。单位为物理像素px。 |
+| capHeight12+ | number | 否 | 是 | 大写字母的高度，通常为负值。单位为物理像素px。 |
+| underlineThickness12+ | number | 否 | 是 | 下划线的厚度。单位为物理像素px。 |
+| underlinePosition12+ | number | 否 | 是 | 文本基线到下划线顶部的垂直距离，通常是正数。单位为物理像素px。 |
+| strikethroughThickness12+ | number | 否 | 是 | 文本删除线的厚度，即贯穿文本字符的水平线的宽度。单位为物理像素px。 |
+| strikethroughPosition12+ | number | 否 | 是 | 文本基线到底部删除线的垂直距离，通常为负值。单位为物理像素px。 |
  
  
   

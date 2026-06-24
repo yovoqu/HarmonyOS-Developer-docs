@@ -1,6 +1,6 @@
 # 运行时提示“TypeError：Cannot read property xxx of undefined”错误
 
-更新时间：2026-03-25 01:58:01
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-14
 
@@ -57,7 +57,7 @@ ls
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/6YaoZT6kS3it3TXD4auhbA/zh-cn_image_0000002434852810.png?HW-CC-KV=V1&HW-CC-Date=20260528T024838Z&HW-CC-Expire=86400&HW-CC-Sign=91FAF9E8539A82EA5C310925EB6456AD506DF45D483FD58960330295B99C14DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/1CGiFqfsQUmkLjtUOgD14g/zh-cn_image_0000002434852810.png?HW-CC-KV=V1&HW-CC-Date=20260624T020451Z&HW-CC-Expire=86400&HW-CC-Sign=C0D71B924B1A93D67EF5CA6FAA8F9B7CE76620C8572EDC0C5673297880A59BF0)
 
 存在lib64文件夹：则“abiFilters”参数中需要包含arm64-v8a类型。
 5. 不存在lib64文件夹：则“abiFilters”参数中需要包含armeabi类型。

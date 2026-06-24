@@ -1,6 +1,6 @@
 # ArkUI_NativeGestureAPI_1
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativegestureapi-1
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -487,7 +487,7 @@ int32_t (*setGestureInterrupterToNode)(ArkUI_NodeHandle node, ArkUI_GestureInter
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_NodeHandle node | 需要被设置手势打断回调的ArkUI节点指针。 |
-| ArkUI_GestureInterruptResult (*interrupter)(ArkUI_GestureInterruptInfo* info) | 打断回调，info返回手势打断数据。interrupter返回GESTURE_INTERRUPT_RESULT_CONTINUE，手势正常进行；返回GESTURE_INTERRUPT_RESULT_REJECT，手势打断。设置此参数为nullptr时将取消注册回调函数。 |
+| ArkUI_GestureInterruptResult (*interrupter)(ArkUI_GestureInterruptInfo* info) | 打断回调，info返回手势打断数据。interrupter返回GESTURE_INTERRUPT_RESULT_CONTINUE，手势正常进行；返回GESTURE_INTERRUPT_RESULT_REJECT，手势打断。设置此参数为nullptr时将取消注册回调函数。 说明： 该事件中断回调注册后，后续在单次手势处理流程中都会存在。即使在单次事件处理流程中使用setGestureInterrupterToNode接口将手势打断回调重置为undefined，或者使用dispose接口使即将被触发的手势销毁，该回调在满足触发条件后仍会响应。如果在该回调中使用到的对象，在回调触发前已被释放，需要对该对象进行保护。 |
  
  
 **返回：**

@@ -1,6 +1,6 @@
 # Interface (ImageSource)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagesource
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ import { image } from '@kit.ImageKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| supportedFormats | Array&lt;string&gt; | 是 | 否 | 支持的图片格式，包括：png、jpeg、bmp、gif、webp、dng、heic12+、wbmp23+、heifs23+、tiff23+。部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用image.getImageSourceSupportedFormats20+接口，动态查询当前设备上的解码能力。 |
+| supportedFormats | Array&lt;string&gt; | 是 | 否 | 支持的图片格式。 包括：PNG、JPEG、BMP、GIF、WebP、DNG、HEIC12+、WBMP23+、HEIFS23+、TIFF23+。从API版本26.0.0开始，增加支持AVIF、AVIS格式。 部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用image.getImageSourceSupportedFormats接口，动态查询当前设备上的解码能力。 |
 
 
 
@@ -596,10 +596,10 @@ readImageMetadata(propertyKeys?: string[], index?: number): Promise&lt;ImageMeta
 
 读取图像源的元数据，使用propertyKeys指定元数据字段。使用Promise异步回调。
 
-该接口仅支持JPEG、PNG、HEIF、WEBP和DNG（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
+该接口仅支持JPEG、PNG、HEIF、WebP、DNG、GIF、TIFF、HEIFS、JFIF和AVIS（不同硬件设备支持情况不同）文件，且需要包含Exif信息。
 
 > [!NOTE]
-> 读取DNG格式图片时，该接口对部分propertyKeys有特殊处理。以下字段的字符串取值请参考 PropertyKey 中的值： NewSubfileType、ImageWidth、ImageLength、DefaultCropSize、Orientation、Compression、PhotometricInterpretation、PlanarConfiguration、RowsPerStrip、StripOffsets、StripByteCounts、SamplesPerPixel、BitsPerSample、YCbCrCoefficients、YCbCrSubSampling、YCbCrPositioning、ReferenceBlackWhite、XResolution、YResolution、ResolutionUnit字段：返回主图相关的字段值。 ImageUniqueID字段：根据规范进行校验，不符合规范时会返回空字符串。 ExifVersion、FlashpixVersion、ColorSpace字段：当图片中不存在该标签时，返回错误码。 DNGVersion字段：当版本号小于1.0.0.0时，统一返回1.0.0.0。 GPSVersionID字段：当没有有效的GPS数据时，会清除GPS版本号并返回0。 GPSAltitudeRef字段：当未设置GPSAltitude时，会设置为0xFFFFFFFF。 ISOSpeedRatings字段：当该标签值为0或65535时，会优先使用推荐曝光指数，若不存在则依次使用标准输出灵敏度、ISO速度、曝光指数。 从API版本24开始，支持读取DNG元数据。要查询的属性的具体信息请参考 DngPropertyKey 。
+> 读取DNG格式图片时，该接口对部分propertyKeys有特殊处理。以下字段的字符串取值请参考 PropertyKey 中的值： NewSubfileType、ImageWidth、ImageLength、DefaultCropSize、Orientation、Compression、PhotometricInterpretation、PlanarConfiguration、RowsPerStrip、StripOffsets、StripByteCounts、SamplesPerPixel、BitsPerSample、YCbCrCoefficients、YCbCrSubSampling、YCbCrPositioning、ReferenceBlackWhite、XResolution、YResolution、ResolutionUnit字段：返回主图相关的字段值。 ImageUniqueID字段：根据规范进行校验，不符合规范时会返回空字符串。 ExifVersion、FlashpixVersion、ColorSpace字段：当图片中不存在该标签时，返回错误码。 DNGVersion字段：当版本号小于1.0.0.0时，统一返回1.0.0.0。 GPSVersionID字段：当没有有效的GPS数据时，会清除GPS版本号并返回0。 GPSAltitudeRef字段：当未设置GPSAltitude时，会设置为0xFFFFFFFF。 ISOSpeedRatings字段：当该标签值为0或65535时，会优先使用推荐曝光指数，若不存在则依次使用标准输出灵敏度、ISO速度、曝光指数。 从API version 24开始，支持读取DNG元数据。要查询的属性的具体信息请参考 DngPropertyKey 。 从API version 24开始，支持读取HEIFS元数据。要查询的属性的具体信息请参考 HeifsPropertyKey 。 从API版本26.0.0开始，支持读取PNG元数据。要查询的属性的具体信息请参考 PngPropertyKey 。 从API版本26.0.0开始，支持读取JFIF元数据。要查询的属性的具体信息请参考 JfifPropertyKey 。 从API版本26.0.0开始，支持读取TIFF元数据。要查询的属性的具体信息请参考 TiffPropertyKey 。 从API版本26.0.0开始，支持读取GIF元数据。要查询的属性的具体信息请参考 GifPropertyKey 。 从API版本26.0.0开始，支持读取JPEG、PNG、GIF、DNG、TIFF格式图片的XMP元数据。XMP元数据的操作方法可以参考 XMPMetadata 。 从API版本26.0.0开始，支持读取AVIS元数据。要查询的属性的具体信息请参考 AvisPropertyKey 。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -662,7 +662,7 @@ writeImageMetadata(imageMetadata: ImageMetadata): Promise&lt;void&gt;
 批量修改图片属性。使用Promise异步回调。
 
 > [!NOTE]
-> 调用该接口修改属性会改变属性字节长度，建议通过传入文件描述符来创建 image.createImageSource 实例或通过传入的uri创建 image.createImageSource 实例。 该方法在内存中完成批量数据修改后会一次性写入文件，相比 modifyImageProperties 更高效。 支持修改JPEG、PNG和HEIF文件类型的图片属性，图片需要包含Exif信息。修改属性前，先通过supportedFormats属性查询设备是否支持HEIF格式的Exif读写。 调用writeImageMetadata接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
+> 调用该接口修改属性会改变属性字节长度，建议通过传入文件描述符来创建 image.createImageSource 实例或通过传入的uri创建 image.createImageSource 实例。 该方法在内存中完成批量数据修改后会一次性写入文件，相比 modifyImageProperties 更高效。 支持修改JPEG、PNG和HEIF文件类型的图片属性，图片需要包含Exif信息。修改属性前，先通过supportedFormats属性查询设备是否支持HEIF格式的Exif读写。 从API版本26.0.0开始，支持修改JPEG、PNG、GIF格式图片的XMP元数据。XMP元数据的操作方法可以参考 XMPMetadata 。 调用writeImageMetadata接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -706,7 +706,7 @@ async function WriteImageMetadata(imageSourceObj : image.ImageSource) {
     metaData.exifMetadata.imageLength = 3072;
   }
   await imageSourceObj.writeImageMetadata(metaData).then(() => {
-    console.info(`Succeeded in writing image metadata.`);
+    console.info(`Succceed in writing image metadata.`);
   }).catch((error: BusinessError) => {
     console.error(`Failed to write image metadata. error.code is ${error.code}, error.message is ${error.message}`);
   });
@@ -723,10 +723,10 @@ readImageMetadataByType(metadataTypes?: MetadataType[], index?: number): Promise
 
 读取图像源的元数据，使用metadataTypes指定元数据类型。若未指定metadataTypes，则返回所有支持的元数据。使用Promise异步回调。
 
-该接口仅支持JPEG、PNG、HEIF、WEBP、DNG和HEIFS（不同硬件设备支持情况不同）文件。
+该接口仅支持JPEG、PNG、HEIF、WebP、DNG、GIF、TIFF、HEIFS、JFIF和AVIS（不同硬件设备支持情况不同）文件。
 
 > [!NOTE]
-> EXIF_METADATA元数据类型适用于JPEG、PNG、HEIF、WEBP和DNG格式图片。 HEIFS_METADATA元数据类型适用于HEIFS格式图片。 当传入的MetadataType与图片格式无法匹配时，返回错误码7700102。
+> EXIF_METADATA元数据类型适用于JPEG、PNG、HEIF、WEBP和DNG格式图片。 HEIFS_METADATA元数据类型适用于HEIFS格式图片。 当传入的MetadataType与图片格式无法匹配时，返回错误码7700102。 从API version 24开始，支持读取DNG元数据。要查询的属性的具体信息请参考 DngPropertyKey 。 从API version 24开始，支持读取HEIFS元数据。要查询的属性的具体信息请参考 HeifsPropertyKey 。 从API版本26.0.0开始，支持读取PNG元数据。要查询的属性的具体信息请参考 PngPropertyKey 。 从API版本26.0.0开始，支持读取JFIF元数据。要查询的属性的具体信息请参考 JfifPropertyKey 。 从API版本26.0.0开始，支持读取TIFF元数据。要查询的属性的具体信息请参考 TiffPropertyKey 。 从API版本26.0.0开始，支持读取GIF元数据。要查询的属性的具体信息请参考 GifPropertyKey 。 从API版本26.0.0开始，支持读取JPEG、PNG、GIF、DNG、TIFF格式图片的XMP元数据。XMP元数据的操作方法可以参考 XMPMetadata 。 从API版本26.0.0开始，支持读取AVIS元数据。要查询的属性的具体信息请参考 AvisPropertyKey 。
 
 
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -980,11 +980,11 @@ async function CreatePicture(imageSourceObj : image.ImageSource) {
 
 createPictureAtIndex(index: number): Promise&lt;Picture&gt;
 
-通过指定序号的图片（目前仅支持GIF和HEIF23+图像序列格式）创建Picture对象。使用Promise异步回调。
+通过指定序号的图片创建Picture对象。使用Promise异步回调。
 
-由于图片占用内存较大，所以当Picture对象使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture#release13)方法，及时释放内存。
+> [!NOTE]
+> 支持GIF和HEIF 23+ 图像序列格式。从API版本26.0.0开始，增加支持AVIS格式。 由于图片占用内存较大，所以当Picture对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
-释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
 **系统能力：** SystemCapability.Multimedia.Image.ImageSource
 
@@ -1600,6 +1600,183 @@ async function CreatePixelMapUsingAllocator(context : Context) {
     console.info('Succeeded in creating pixelMap object.');
   } else {
     console.error('Failed to create pixelMap.');
+  }
+}
+```
+
+
+
+#### createThumbnail
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createThumbnail(options?: DecodingOptionsForThumbnail): Promise<PixelMap | undefined>
+
+通过图片解码参数创建缩略图PixelMap对象。使用Promise异步回调。
+
+当前支持对JPEG和HEIF格式的图片创建缩略图PixelMap对象。
+
+优先解码图片文件中包含的缩略图。若图片文件中没有缩略图，则对原图进行解码。
+
+> [!NOTE]
+> 不支持在同一个ImageSource实例上并发调用。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.ImageSource
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | DecodingOptionsForThumbnail | 否 | 解码参数，控制是否生成缩略图以及生成缩略图的目标尺寸。 默认表现： - 当图像有缩略图时，解码原始缩略图，返回的PixelMap对象的宽和高与原缩略图保持一致。 - 当原图文件无缩略图时，对原图进行解码后，根据解码参数options下采样生成缩略图，生成后的缩略图PixelMap对象宽和高都限制在512像素以内。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<PixelMap \| undefined> | Promise对象，返回PixelMap。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7700102 | Unsupported mimetype. |
+| 7700103 | Image too large. |
+| 7700204 | Invalid parameter, e.g, invalid generate size. |
+| 7700301 | Decode failed. |
+| 7700303 | Image does not carry thumbnail data. |
+| 7700305 | Thumbnail generation failed. |
+
+
+**示例：**
+
+```json
+async function CreateThumbnail(imageSource: image.ImageSource): Promise<image.PixelMap | undefined> {
+  try {
+    if (!imageSource) {
+      console.error('CreateThumbnail: imageSource is null or undefined');
+      return undefined;
+    }
+    const imageInfo = await imageSource.getImageInfo();
+    const supportedMimeTypes = ['image/jpeg', 'image/heif', 'image/heic'];
+    if (!supportedMimeTypes.includes(imageInfo.mimeType)) {
+      console.error(`CreateThumbnail: Unsupported MIME type: ${imageInfo.mimeType}`);
+      return undefined;
+    }
+
+    const decodingOptions: image.DecodingOptionsForThumbnail = {
+      generateThumbnailIfAbsent: true,
+      maxGeneratedPixelDimension: 200,
+    };
+
+    const pixelmap = await imageSource.createThumbnail(decodingOptions);
+    if (pixelmap) {
+      console.info('Succeeded in creating thumbnail pixelMap object.');
+      return pixelmap;
+    } else {
+      console.error('Failed to create thumbnail pixelMap.');
+      return undefined;
+    }
+  } catch (error) {
+    console.error('CreateThumbnail error:', JSON.stringify(error));
+    return undefined;
+  }
+}
+```
+
+
+
+#### createThumbnailSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createThumbnailSync(options?: DecodingOptionsForThumbnail): PixelMap | undefined
+
+通过图片解码参数同步创建缩略图。返回创建结果对应的[PixelMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap)对象。
+
+当前支持对JPEG和HEIF格式的图片创建缩略图PixelMap对象。
+
+优先解码图片文件中包含的缩略图。若图片文件中没有缩略图，则对原图进行解码。
+
+> [!NOTE]
+> 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法，及时释放内存。 释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。 该方法为同步方法，调用时会阻塞当前线程，不建议在主线程中调用，否则可能导致应用卡顿、掉帧或响应延迟。具体场景参考 耗时任务并发场景简介 。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.ImageSource
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| options | DecodingOptionsForThumbnail | 否 | 解码参数，控制是否生成缩略图以及生成缩略图的目标尺寸。 默认表现： - 当图像有缩略图时，解码原始缩略图，返回的PixelMap对象的宽和高与原缩略图保持一致。 - 当原图文件无缩略图时，对原图进行解码后，根据解码参数options下采样生成缩略图，生成后的缩略图PixelMap对象宽和高都限制在512像素以内。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| PixelMap \| undefined | 用于同步返回创建结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7700102 | Unsupported mimetype. |
+| 7700103 | Image too large. |
+| 7700204 | Invalid parameter, e.g, invalid generate size. |
+| 7700301 | Decode failed. |
+| 7700303 | Image does not carry thumbnail data. |
+| 7700305 | Thumbnail generation failed. |
+
+
+**示例：**
+
+```json
+async function CreateThumbnailSync(imageSource: image.ImageSource): Promise<image.PixelMap | undefined> {
+  try {
+    if (!imageSource) {
+      console.error('CreateThumbnailSync: imageSource is null or undefined');
+      return undefined;
+    }
+    const imageInfo = await imageSource.getImageInfo();
+    const supportedMimeTypes = ['image/jpeg', 'image/heif', 'image/heic'];
+    if (!supportedMimeTypes.includes(imageInfo.mimeType)) {
+      console.error(`CreateThumbnailSync: Unsupported MIME type: ${imageInfo.mimeType}`);
+      return undefined;
+    }
+
+    const decodingOptionsForThumbnail: image.DecodingOptionsForThumbnail = {
+      generateThumbnailIfAbsent: true,
+      maxGeneratedPixelDimension: 200,
+    };
+
+    const pixelmap = imageSource.createThumbnailSync(decodingOptionsForThumbnail);
+
+    if (pixelmap) {
+      console.info('Succeeded in creating thumbnail pixelMap object.');
+      return pixelmap;
+    } else {
+      console.error('Failed to create thumbnail pixelMap.');
+      return undefined;
+    }
+  } catch (error) {
+    console.error('CreateThumbnailSync error:', JSON.stringify(error));
+    return undefined;
   }
 }
 ```

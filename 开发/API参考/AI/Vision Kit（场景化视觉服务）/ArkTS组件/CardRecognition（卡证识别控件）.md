@@ -1,6 +1,6 @@
 # CardRecognition（卡证识别控件）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-card-recognition
 **支持设备：** Phone | Tablet
@@ -35,6 +35,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -57,6 +59,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 支持识别的卡证类型的枚举值。
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -84,6 +88,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 值 | 说明 |
@@ -104,6 +110,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -130,6 +138,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.1.1(19)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -148,6 +158,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 卡证识别配置项。
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -171,6 +183,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 值 | 说明 |
@@ -188,6 +202,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 卡证内容配置项，可设置各类型卡证的具体配置。
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -209,6 +225,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -225,6 +243,8 @@ CardRecognitionConfig, ShootingMode, CardContentConfig, BankCardConfig } from '@
 身份证识别的具体配置。
  
 **系统能力：** SystemCapability.AI.Component.CardRecognition
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.2(14)
   

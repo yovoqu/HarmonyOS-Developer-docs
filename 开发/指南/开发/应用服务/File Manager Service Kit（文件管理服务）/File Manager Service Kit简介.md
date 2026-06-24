@@ -1,6 +1,6 @@
 # File Manager Service Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/filemanagerservice-introduction
 
@@ -36,4 +36,6 @@ File Manager Service Kit提供以下功能：
 
 #### 模拟器支持情况
 
-从5.1.0(18)版本开始，支持模拟器运行调试。
+从5.1.0(18)版本开始，本Kit支持模拟器。
+ 
+模拟器与真机存在通用差异，详情请参见“[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section1227613205203)”。

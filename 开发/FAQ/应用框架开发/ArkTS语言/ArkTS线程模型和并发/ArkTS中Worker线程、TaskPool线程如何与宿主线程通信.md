@@ -1,6 +1,6 @@
 # ArkTS中Worker线程、TaskPool线程如何与宿主线程通信
 
-更新时间：2026-03-12 12:31:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-36
 

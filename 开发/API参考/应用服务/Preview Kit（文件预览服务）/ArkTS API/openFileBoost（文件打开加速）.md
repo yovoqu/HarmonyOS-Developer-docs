@@ -1,6 +1,6 @@
-# openFileBoost（文件打开加速）
+# openFileBoost（文件打开加速）（已废弃）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts-openfileboost-api
 **支持设备：** PC/2in1
@@ -8,6 +8,8 @@
 本模块为应用提供文件打开加速状态感知能力。应用可以通过接入对应API，感知文件的加速状态，进而应用可以实现对已加速文件给出独特的UI（user interface）标识等功能，优化用户文件打开体验。
 
 **起始版本：** 5.0.5(17)
+
+**废弃版本：** 26.0.0
 
 
 #### 导入模块
@@ -20,7 +22,7 @@ import { openFileBoost } from '@kit.PreviewKit';
 
 
 
-#### FilePreloadState
+#### FilePreloadState(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -29,6 +31,8 @@ import { openFileBoost } from '@kit.PreviewKit';
 **系统能力：** SystemCapability.PCService.OpenFileBoost
 
 **起始版本：** 5.0.5(17)
+
+**废弃版本：** 26.0.0
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -39,7 +43,7 @@ import { openFileBoost } from '@kit.PreviewKit';
 
 
 
-#### FilePreloadStatusInfo
+#### FilePreloadStatusInfo(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -48,6 +52,8 @@ import { openFileBoost } from '@kit.PreviewKit';
 **系统能力：** SystemCapability.PCService.OpenFileBoost
 
 **起始版本：** 5.0.5(17)
+
+**废弃版本：** 26.0.0
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -58,7 +64,7 @@ import { openFileBoost } from '@kit.PreviewKit';
 
 
 
-#### openFileBoost.on('filePreloadStateChanged')
+#### openFileBoost.on('filePreloadStateChanged')(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -70,6 +76,8 @@ on(type: 'filePreloadStateChanged', callback: Callback&lt;FilePreloadStatusInfo&
 
 **起始版本：** 5.0.5(17)
 
+**废弃版本：** 26.0.0
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -80,7 +88,7 @@ on(type: 'filePreloadStateChanged', callback: Callback&lt;FilePreloadStatusInfo&
 
 **错误码：**
 
-通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts-errcode)。
+通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-preview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -124,7 +132,7 @@ function register(): void {
 
 
 
-#### openFileBoost.off('filePreloadStateChanged')
+#### openFileBoost.off('filePreloadStateChanged')(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -136,6 +144,8 @@ off(type: 'filePreloadStateChanged', callback?: Callback&lt;FilePreloadStatusInf
 
 **起始版本：** 5.0.5(17)
 
+**废弃版本：** 26.0.0
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -146,7 +156,7 @@ off(type: 'filePreloadStateChanged', callback?: Callback&lt;FilePreloadStatusInf
 
 **错误码：**
 
-通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts-errcode)。
+通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-preview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -191,7 +201,7 @@ function testUnregister(): void {
 
 
 
-#### openFileBoost.addFile
+#### openFileBoost.addFile(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -209,6 +219,8 @@ addFile(file: string): void
 
 **起始版本：** 5.0.5(17)
 
+**废弃版本：** 26.0.0
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -218,7 +230,7 @@ addFile(file: string): void
 
 **错误码：**
 
-通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts-errcode)。
+通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-preview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -254,7 +266,7 @@ function testAddFile(): void {
 
 
 
-#### openFileBoost.removeFile
+#### openFileBoost.removeFile(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -266,6 +278,8 @@ removeFile(file: string): void
 
 **起始版本：** 5.0.5(17)
 
+**废弃版本：** 26.0.0
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -275,7 +289,7 @@ removeFile(file: string): void
 
 **错误码：**
 
-通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts-errcode)。
+通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-preview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -303,7 +317,7 @@ try {
 
 
 
-#### openFileBoost.queryFilePreloadStatusInfo
+#### openFileBoost.queryFilePreloadStatusInfo(deprecated)
 
 **支持设备：** PC/2in1
 
@@ -314,6 +328,8 @@ queryFilePreloadStatusInfo(file: string): FilePreloadStatusInfo
 **系统能力：** SystemCapability.PCService.OpenFileBoost
 
 **起始版本：** 5.0.5(17)
+
+**废弃版本：** 26.0.0
 
 **参数：**
 
@@ -331,7 +347,7 @@ queryFilePreloadStatusInfo(file: string): FilePreloadStatusInfo
 
 **错误码：**
 
-通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts-errcode)。
+通用错误码的详细介绍请参见和[模块错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-preview)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

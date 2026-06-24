@@ -1,6 +1,6 @@
 # @system.brightness (屏幕亮度)
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-brightness
 **支持设备：** Wearable | lite_wearable
@@ -41,6 +41,8 @@ getValue(options?: GetBrightnessOptions): void
 
 **示例：**
 
+ArkTS示例：
+
 ```text
 brightness.getValue({
     success: (data: BrightnessResponse) => {
@@ -50,6 +52,58 @@ brightness.getValue({
       console.error('get brightness fail, code: ' + code + ', data: ' + data);
     }
 });
+```
+
+JS示例：
+
+```xml
+<!-- xxx.hml -->
+<div class="container">
+    <input type="button" value="Get Value" style="width: 240px; height: 50px; margin: 5px;" onclick="getValue"></input>
+    <text class="title">getValue: {{ value }}</text>
+</div>
+```
+
+```text
+/* xxx.css */
+.container {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  width: 200px;
+  font-size: 30px;
+  text-align: center;
+}
+```
+
+```text
+// xxx.js
+import brightness from '@system.brightness';
+
+export default {
+    data: {
+        value: ''
+    },
+    getValue() {
+        let TAG = 'get_value_success_test';
+        brightness.getValue({
+            success: (brightnessResponse) => {
+                this.value = brightnessResponse.value;
+                console.info(`${TAG} brightnessResponse.value: ${brightnessResponse.value}`);
+            },
+            fail: (data, code) => {
+                console.error(`${TAG} fail data: ${data}, code: ${code}`);
+            },
+            complete: () => {
+                console.info(`${TAG} getValue complete`);
+            }
+        });
+    },
+}
 ```
 
 
@@ -73,6 +127,8 @@ setValue(options?: SetBrightnessOptions): void
 
 **示例：**
 
+ArkTS示例：
+
 ```text
 brightness.setValue({
     value: 100,
@@ -83,6 +139,58 @@ brightness.setValue({
       console.error('handling set brightness value fail, code:' + code + ', data: ' + data);
     }
 });
+```
+
+JS示例：
+
+```xml
+<!-- xxx.hml -->
+<div class="container">
+    <input type="button" value="Set Value" style="width: 240px; height: 50px; margin: 5px;" onclick="setValue"></input>
+    <text class="title">setValue: {{ value }}</text>
+</div>
+```
+
+```text
+/* xxx.css */
+.container {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  width: 200px;
+  font-size: 30px;
+  text-align: center;
+}
+```
+
+```text
+// xxx.js
+import brightness from '@system.brightness';
+
+export default {
+    data: {
+        value: 100
+    },
+    setValue() {
+        let TAG = 'set_value_success_test';
+        brightness.setValue({
+            value: this.value,
+            success: () => {
+                console.info(`${TAG} setValue success!`);
+            },
+            fail: (data, code) => {
+                console.error(`${TAG} fail data: ${data}, code: ${code}`);
+            },
+            complete: () => {
+                console.info(`${TAG} setValue complete`);
+            }
+        });
+    },
+}
 ```
 
 
@@ -106,6 +214,8 @@ getMode(options?: GetBrightnessModeOptions): void
 
 **示例：**
 
+ArkTS示例：
+
 ```text
 brightness.getMode({
     success: (data: BrightnessModeResponse) => {
@@ -115,6 +225,58 @@ brightness.getMode({
       console.error('handling get mode fail, code:' + code + ', data: ' + data);
     }
 });
+```
+
+JS示例：
+
+```xml
+<!-- xxx.hml -->
+<div class="container">
+    <input type="button" value="Get Mode" style="width: 240px; height: 50px; margin: 5px;" onclick="getMode"></input>
+    <text class="title">getMode: {{ mode }}</text>
+</div>
+```
+
+```text
+/* xxx.css */
+.container {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  width: 200px;
+  font-size: 30px;
+  text-align: center;
+}
+```
+
+```text
+// xxx.js
+import brightness from '@system.brightness';
+
+export default {
+    data: {
+        mode: ''
+    },
+    getMode() {
+        let TAG = 'get_mode_success_test';
+        brightness.getMode({
+            success: (brightnessModeResponse) => {
+                this.mode = brightnessModeResponse.mode;
+                console.info(`${TAG} brightnessModeResponse mode: ${brightnessModeResponse.mode}`);
+            },
+            fail: (data, code) => {
+                console.error(`${TAG} fail data: ${data}, code: ${code}`);
+            },
+            complete: () => {
+                console.info(`${TAG} getMode complete`);
+            }
+        });
+    },
+}
 ```
 
 
@@ -138,6 +300,8 @@ setMode(options?: SetBrightnessModeOptions): void
 
 **示例：**
 
+ArkTS示例：
+
 ```text
 brightness.setMode({
     mode: 1,
@@ -148,6 +312,58 @@ brightness.setMode({
       console.error('handling set mode fail, code:' + code + ', data: ' + data);
     }
 });
+```
+
+JS示例：
+
+```xml
+<!-- xxx.hml -->
+<div class="container">
+    <input type="button" value="Set Mode" style="width: 240px; height: 50px; margin: 5px;" onclick="setMode"></input>
+    <text class="title">setMode: {{ mode }}</text>
+</div>
+```
+
+```text
+/* xxx.css */
+.container {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  width: 200px;
+  font-size: 30px;
+  text-align: center;
+}
+```
+
+```text
+// xxx.js
+import brightness from '@system.brightness';
+
+export default {
+    data: {
+        mode: 1
+    },
+    setMode() {
+        let TAG = 'set_mode_success_test';
+        brightness.setMode({
+            mode: this.mode,
+            success: () => {
+                console.info(`${TAG} setMode success`);
+            },
+            fail: (data, code) => {
+                console.error(`${TAG} fail data: ${data}, code: ${code}`);
+            },
+            complete: () => {
+                console.info(`${TAG} setMode complete`);
+            }
+        });
+    },
+}
 ```
 
 
@@ -163,7 +379,7 @@ setKeepScreenOn(options?: SetKeepScreenOnOptions): void
 设置屏幕是否保持常亮状态，开启常亮模式推荐在onShow()阶段调用。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/s30Fu2PNRRKjM_evD95xMQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025149Z&HW-CC-Expire=86400&HW-CC-Sign=6CD8D14BAD6E38CEC64D3C1DCB0C2635711276BA5BBF70AEF80A269BEECC0C8B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/GpbTpFQaQxuKTtk_8MtRxA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020139Z&HW-CC-Expire=86400&HW-CC-Sign=0F3E1603B45C3C0F9053CA105251AF588BC2E37574604EB69722D2064DED4506)
 
 
 在Lite Wearable上，该接口仅能阻止系统无活动超时灭屏（自动），无法阻止用户主动操作（如盖屏）、常亮时刻结束等导致的灭屏。
@@ -181,6 +397,8 @@ setKeepScreenOn(options?: SetKeepScreenOnOptions): void
 
 **示例：**
 
+ArkTS示例：
+
 ```text
 brightness.setKeepScreenOn({
     keepScreenOn: true,
@@ -191,6 +409,58 @@ brightness.setKeepScreenOn({
       console.error('handling set keep screen on fail, code:' + code + ', data: ' + data);
     }
 });
+```
+
+JS示例：
+
+```xml
+<!-- xxx.hml -->
+<div class="container">
+    <input type="button" value="SetKeepScreenOn" style="width: 240px; height: 50px; margin: 5px;" onclick="setKeepScreenOn"></input>
+    <text class="title">setKeepScreenOn: {{ keepScreenOn }}</text>
+</div>
+```
+
+```text
+/* xxx.css */
+.container {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.title {
+  width: 200px;
+  font-size: 30px;
+  text-align: center;
+}
+```
+
+```text
+// xxx.js
+import brightness from '@system.brightness';
+
+export default {
+    data: {
+        keepScreenOn: true
+    },
+    setKeepScreenOn() {
+        let TAG = 'set_keep_screen_on_success_test';
+        brightness.setKeepScreenOn({
+            keepScreenOn: this.keepScreenOn,
+            success: () => {
+                console.info(`${TAG} setKeepScreenOn success`);
+            },
+            fail: (data, code) => {
+                console.error(`${TAG} fail data: ${data}, code: ${code}`);
+            },
+            complete: () => {
+                console.info(`${TAG} setKeepScreenOn complete`);
+            }
+        });
+    },
+}
 ```
 
 

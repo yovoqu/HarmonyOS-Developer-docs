@@ -1,6 +1,6 @@
 # @ohos.net.connection (网络连接管理)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-connection
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2205,12 +2205,12 @@ setPacFileUrl(pacFileUrl: string): void
 设置PAC脚本（Proxy Auto-Configuration Script，代理自动配置脚本）的URL地址，并启动PAC代理能力，比如：[http://127.0.0.1:21998/PacProxyScript.pac](http://127.0.0.1:21998/PacProxyScript.pac) 。可通过调用[findProxyForUrl](#connectionfindproxyforurl20)解析URL地址来获取代理信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d7/v3/q-btjvAVRpGYvDgPOZYxjA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025212Z&HW-CC-Expire=86400&HW-CC-Sign=A7AC88965B01ED6F6E070C80A78F37251025930E97C8C21345ADAF81CA05F788)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/DBtbunXaRTqxYIyEEdz_Kw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020115Z&HW-CC-Expire=86400&HW-CC-Sign=2F88F18CA4C23FAB0FE0D71446E02D89A5D7637F38D03C946F06DE06D10E4D38)
 
 
 1、本接口当前在PC/2in120+、Phone23+、Tablet23+、TV23+设备上支持解析脚本并启用PAC代理能力，Wearable设备类型上只保存脚本地址，不会启用PAC代理能力。
 
-2、该接口不会校验URL真实性，PC设备上在设置完成之后，会启动PAC代理，若URL有误，则启动代理失败，返回2100002错误码。
+2、该接口不会校验URL真实性，在启动PAC代理时，若URL有误，则启动代理失败，返回2100002错误码。
 
 
 
@@ -2292,7 +2292,7 @@ findProxyForUrl(url: string): string
 通过设置的PAC脚本，解析指定的URL代理地址，返回对应的PAC代理信息。
 
 > [!NOTE]
-> 1、可通过 setPacFileUrl 或 setPacUrl 设置PAC脚本。 2、如果调用本接口前未设置PAC脚本，则返回空字符串。 3、由于 setPacFileUrl 接口支持PC/2in1 20+ 、Phone 23+ 、Tablet 23+ 、TV 23+ 设备解析脚本并启用PAC代理能力，因此本接口支持PC设备获取PAC代理信息。 Wearable设备调用本接口功能不生效，返回空字串。
+> 1、可通过 setPacFileUrl 或 setPacUrl 设置PAC脚本。 2、如果调用本接口前未设置PAC脚本，则返回空字符串。 3、由于 setPacFileUrl 接口支持PC/2in1 20+ 、Phone 23+ 、Tablet 23+ 、TV 23+ 设备解析脚本并启用PAC代理能力，因此本接口支持以上设备获取PAC代理信息。 Wearable设备调用本接口功能不生效，返回空字串。
 
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
@@ -2983,6 +2983,137 @@ connection.getSystemNetPortStates().then((data: connection.NetPortStatesInfo) =>
 
 
 
+#### connection.queryTraceRoute
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+queryTraceRoute(destination: string, option?: TraceRouteOptions): Promise<TraceRouteInfo[]>
+
+查询网络路由跟踪信息，使用Promise方式作为异步方法。
+
+> [!NOTE]
+> 应用调用该接口需申请精确位置权限。根据 申请位置权限开发指导 ，调用方需同时申请ohos.permission.APPROXIMATELY_LOCATION和ohos.permission.LOCATION。
+
+
+**起始版本**：26.0.0
+
+**需要权限**：ohos.permission.INTERNET、ohos.permission.ACCESS_NET_TRACE_INFO、ohos.permission.LOCATION和ohos.permission.APPROXIMATELY_LOCATION
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Communication.NetManager.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| destination | string | 是 | 目标域名或IP地址，例如www.example.com、8.8.8.8。 |
+| option | TraceRouteOptions | 否 | 路由跟踪的选项参数，缺省则使用默认配置。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<TraceRouteInfo[]> | Promise对象，返回路由跟踪信息数组。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[网络连接管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-connection)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 2100001 | Invalid parameter value. |
+| 2100003 | Internal error. |
+
+
+**示例：**
+
+```json
+import { connection } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+let dest: string = "www.example.com";
+let options: connection.TraceRouteOptions = {
+    maxJumpNumber: 30,
+    packetsType: connection.PacketsType.NETCONN_PACKETS_ICMP
+};
+
+connection.queryTraceRoute(dest, options).then((data: connection.TraceRouteInfo[]) => {
+    console.info(JSON.stringify(data));
+}).catch((err: BusinessError) => {
+    console.error(JSON.stringify(err));
+});
+```
+
+
+
+#### connection.queryProbeResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+queryProbeResult(destination: string, duration: number): Promise&lt;ProbeResultInfo&gt;
+
+查询网络探测结果。若出现异常（例如断网），导致发送请求失败，则接口会立即返回，不再进行后续探测。本接口使用Promise方式作为异步方法。
+
+> [!NOTE]
+> 此接口用于对目标主机进行一段持续时间的网络探测，以获取丢包率和RTT信息。
+
+
+**起始版本**：26.0.0
+
+**需要权限**：ohos.permission.INTERNET。
+
+**系统能力：** SystemCapability.Communication.NetManager.Core
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| destination | string | 是 | 目标域名或IP地址，例如www.example.com、8.8.8.8。 |
+| duration | number | 是 | 探测持续时间，单位为秒，取值范围[1, 1000]。探测间隔为1秒。若未出现异常（例如断网），探测时间到期后返回探测结果。该字段表示探测持续总时长，设置过长可能导致长时间占用应用线程资源。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;ProbeResultInfo&gt; | Promise对象，返回探测结果信息。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[网络连接管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-connection)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 2100001 | Invalid parameter value. |
+| 2100003 | Internal error. |
+
+
+**示例：**
+
+```json
+import { connection } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+let dest: string = "www.example.com";
+let duration: number = 10;
+
+connection.queryProbeResult(dest, duration).then((data: connection.ProbeResultInfo) => {
+    console.info(`LossRate: ${data.lossRate}, RTT: ${data.rtt}`);
+}).catch((err: BusinessError) => {
+    console.error(JSON.stringify(err));
+});
+```
+
+
+
 #### NetConnection
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3004,7 +3135,7 @@ register(callback: AsyncCallback&lt;void&gt;): void
 订阅指定网络状态变化的通知。如需监听特定事件，确保调用on监听事件后再调用register进行注册。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/GnSvt6HYQcC4QO74uS9wXg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025212Z&HW-CC-Expire=86400&HW-CC-Sign=048D6BE8C43CB4AE1E1F954209A24E1A987152927F3F4EEBED1E93FF7C643418)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5/v3/ZFBxNOGAQjegE99d7kxd9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020115Z&HW-CC-Expire=86400&HW-CC-Sign=4F832BDCD64D03B5907AE519EB43B7D2E63127C3748741CD51FEAFC32D4170D7)
 
 
 使用完register接口后需要及时调用unregister取消注册。
@@ -3969,6 +4100,26 @@ TCP状态。
 
 
 
+#### PacketsType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+网络探测数据包类型。
+
+**起始版本**：26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Communication.NetManager.Core
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| NETCONN_PACKETS_ICMP | 0 | ICMP数据包类型。 |
+| NETCONN_PACKETS_UDP | 1 | UDP数据包类型。 |
+
+
+
+
 #### HttpProxy10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3984,6 +4135,50 @@ TCP状态。
 | exclusionList | Array&lt;string&gt; | 否 | 否 | 不使用代理的主机名列表，主机名支持域名、IP地址以及通配符形式，详细匹配规则如下： 1、域名匹配规则： （1）完全匹配：代理服务器主机名只要与列表中的任意一个主机名完全相同，就可以匹配。 （2）包含匹配：代理服务器主机名只要包含列表中的任意一个主机名，就可以匹配。 例如，如果在主机名列表中设置了 “ample.com”，则 “ample.com”、“www.ample.com”、“ample.com:80”都会被匹配，而 “www.example.com”、“ample.com.org”则不会被匹配。 2、IP地址匹配规则：代理服务器主机名只要与列表中的任意一个IP地址完全相同，就可以匹配。 3、域名跟IP地址可以同时添加到列表中进行匹配。 4、单个“*”是唯一有效的通配符，当列表中只有通配符时，将与所有代理服务器主机名匹配，表示禁用代理。通配符只能单独添加，不可以与其他域名、IP地址一起添加到列表中，否则通配符将不生效。 5、匹配规则不区分主机名大小写。 6、匹配主机名时，不考虑http和https等协议前缀。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | username12+ | string | 否 | 是 | 使用代理的用户名。 说明: 需同时设置password参数才会生效。 |
 | password12+ | string | 否 | 是 | 使用代理的用户密码。 说明: 需同时设置username参数才会生效。 |
+
+
+
+
+#### Socks5DnsStrategy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+SOCKS5代理的DNS查询策略配置信息。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Communication.NetManager.Core
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| SYSTEM_MODE | 0 | 使用SOCKS5代理时，DNS解析由系统执行。 |
+| PROXY_MODE | 1 | 使用SOCKS5代理时，DNS解析由代理服务器执行。 |
+
+
+
+
+#### Socks5Proxy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+SOCKS5代理配置信息。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Communication.NetManager.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| host | string | 否 | 否 | 代理服务器主机名。 说明: 当该项为空字符串时，视为未配置SOCKS5代理。 |
+| port | number | 否 | 否 | 主机端口。取值范围[0, 65535]。 说明: 当参数不在上述取值范围时，视为未配置SOCKS5代理。 |
+| username | string | 否 | 是 | 使用代理的用户名。 说明: 需同时设置password参数才会生效。 |
+| password | string | 否 | 是 | 使用代理的用户密码。 说明: 需同时设置username参数才会生效。 |
+| dnsStrategy | Socks5DnsStrategy | 否 | 是 | 指定DNS解析由系统执行还是由代理服务器执行。 说明: 当此项未指定时，如果host有socks5h://协议前缀，则DNS解析由代理服务器执行，否则DNS解析由系统执行。 |
+| exclusionList | Array&lt;string&gt; | 否 | 是 | 不使用代理的主机名列表，主机名支持域名、IP地址以及通配符形式，详细匹配规则如下： 1、域名匹配规则： （1）完全匹配：代理服务器主机名只要与列表中的任意一个主机名完全相同，就可以匹配。 （2）包含匹配：代理服务器主机名只要包含列表中的任意一个主机名，就可以匹配。 例如，如果在主机名列表中设置了“example.com”，则“example.com”、“www.example.com”、“example.com:80”都会被匹配，而 “www.myexample.com”、“myexample.com.org”则不会被匹配。 2、IP地址匹配规则：代理服务器主机名只要与列表中的任意一个IP地址完全相同，就可以匹配。 3、域名跟IP地址可以同时添加到列表中进行匹配。 4、单个“*”是唯一有效的通配符，当列表中只有通配符时，将与所有代理服务器主机名匹配，表示禁用代理。通配符只能单独添加，不可以与其他域名、IP地址一起添加到列表中，否则通配符将不生效。 5、匹配规则不区分主机名大小写。 6、匹配主机名时，不考虑http、https、socks5、socks5h等协议前缀。 |
 
 
 
@@ -4115,7 +4310,7 @@ wifiManager.addCandidateConfig(config,(error,networkId) => {
 网络连接信息。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/ySx8GkB_S66QY89Kr2liMA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025212Z&HW-CC-Expire=86400&HW-CC-Sign=BC4D80BBD3639682ABA2D7AA5355ABB8F6A2E767ED09A60E37D670D7F6597022)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/5Hxon1FbQtuVjnjQMng_Mw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020115Z&HW-CC-Expire=86400&HW-CC-Sign=F45AC12EA078CBFE5147BFDABF783A2D93877D719349EB054491CF3A76889143)
 
 
 linkAddresses、routes和dnses可能为空，需要做好空值保护，建议使用前先判断对象是否存在。
@@ -4336,3 +4531,64 @@ UDP端口状态信息。
 | --- | --- | --- | --- | --- |
 | tcpPortStatesInfo | Array&lt;TcpNetPortStatesInfo&gt; | 否 | 是 | 系统当前监听的TCP信息。 |
 | udpPortStatesInfo | Array&lt;UdpNetPortStatesInfo&gt; | 否 | 是 | 系统当前监听的UDP信息。 |
+
+
+
+
+#### TraceRouteOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+路由跟踪的选项。
+
+**起始版本**：26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Communication.NetManager.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| maxJumpNumber | number | 否 | 是 | 最大跳数，取值范围[1, 30]，默认值为30。 |
+| packetsType | PacketsType | 否 | 是 | 探测使用的数据包类型，默认为NETCONN_PACKETS_ICMP。 |
+
+
+
+
+#### TraceRouteInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+路由跟踪信息。
+
+**起始版本**：26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Communication.NetManager.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| jumpNo | number | 否 | 否 | 跳数序号。 |
+| address | string | 否 | 否 | 该跳的IP地址。 |
+| rtt | number[] | 否 | 否 | 往返时间（RTT），单位为毫秒。每一跳发送5个探测报文，数组元素依次为这些探测报文RTT中的最小值、平均值、最大值、标准差。 |
+
+
+
+
+#### ProbeResultInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+网络探测结果信息。
+
+**起始版本**：26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Communication.NetManager.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| lossRate | number | 否 | 否 | 丢包率，取值范围[0, 100]。例如，100表示100%丢包，50表示50%丢包。 |
+| rtt | number[] | 否 | 否 | 往返时间（RTT），单位为毫秒。对目的主机发送多个探测报文，探测报文数量由queryProbeResult接口中duration参数决定。数组元素依次为这些探测报文RTT中最小值、平均值、最大值、标准差。 |

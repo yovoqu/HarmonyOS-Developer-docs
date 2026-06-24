@@ -1,6 +1,6 @@
 # pdfService（PDF服务）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pdf-arkts-pdfservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -169,7 +169,7 @@ saveDocument(path: string, onProgress?: (progress: number) => number): boolean
 **示例：**
  
 ```text
-import { fileIo as fs } from '@kit.CoreFileKit';
+import { fileIo } from '@kit.CoreFileKit';
 import { pdfService } from '@kit.PDFKit';
 import { Font } from '@kit.ArkUI';
 
@@ -1492,6 +1492,85 @@ let loadResult = pdfDocument.loadDocument(filePath);
 if(pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
    let setPassword: boolean = pdfDocument.setPdfPassword('123456');
  }
+```
+ 
+  
+
+#### getPixelMapWithPages
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getPixelMapWithPages(pageIndices: number[], matrices: PdfMatrix[], bitmapWidth: number, bitmapHeight: number, pixelOptions?: PixelOptions): image.PixelMap
+ 
+获取多个页面合并后的pixelMap，最多支持指定16张PDF页面。
+ 
+**系统能力：** SystemCapability.OfficeService.PDFService.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| pageIndices | number[] | 是 | 页面索引数组，0为起始页。 |
+| matrices | PdfMatrix[] | 是 | 坐标变换矩阵数组，用于在渲染时对页面内容做缩放、平移、旋转等。与pageIndices数组一一对应。 |
+| bitmapWidth | number | 是 | 渲染后图像的宽度，单位为Points（一英寸等于72Points），取值范围：大于0。 |
+| bitmapHeight | number | 是 | 渲染后图像的高度，单位为Points（一英寸等于72Points），取值范围：大于0。 |
+| pixelOptions | PixelOptions | 否 | PDF页面转图片参数。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| image.PixelMap | 合并后PDF页面的image.PixelMap。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pdf)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1011301001 | Page indices and matrix size do not match. |
+| 1011301002 | Page index is out of range. |
+| 1011301003 | Bitmap size exceeds the maximum allowed limit. |
+| 1011301004 | Failed to create bitmap. |
+| 1011301005 | Failed to render bitmap. |
+| 1011301006 | The PDF document is not loaded. |
+ 
+ 
+**示例：**
+ 
+```text
+import { pdfService } from '@kit.PDFKit';
+import { image } from '@kit.ImageKit';
+
+let tempFilePath = '/data/storage/el2/base/temp/test.pdf';
+let pdfDocument = new pdfService.PdfDocument();
+let loadResult = pdfDocument.loadDocument(tempFilePath, '');
+if (pdfService.ParseResult.PARSE_SUCCESS === loadResult) {
+  let pageIndices: number[] = [0, 1];
+  let matrices: pdfService.PdfMatrix[] = [
+    new pdfService.PdfMatrix(),
+    new pdfService.PdfMatrix()
+  ];
+  matrices[0].x = 0;
+  matrices[0].y = 0;
+  matrices[0].width = 200;
+  matrices[0].height = 200;
+  matrices[0].rotate = 0;
+  matrices[1].x = 250;
+  matrices[1].y = 250;
+  matrices[1].width = 200;
+  matrices[1].height = 200;
+  matrices[1].rotate = 0;
+  let options: pdfService.PixelOptions = new pdfService.PixelOptions();
+  options.isGray = false;
+  options.drawAnnotations = true;
+  options.isTransparent = false;
+  let pixelMap: image.PixelMap = pdfDocument.getPixelMapWithPages(pageIndices, matrices, 500, 500, options);
+}
 ```
  
   

@@ -1,11 +1,11 @@
 # deferredLink (延迟链接能力)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/applinking-deferredlink-api
 **支持设备：** Phone | PC/2in1 | Tablet
 
-本模块提供App Linking Kit的延迟链接能力。通过该能力，系统会对用户点击的应用链接保存十分钟，以便当用户下载安装并打开应用时，仍能获取之前点击的该应用相关链接。
+本模块提供App Linking Kit的延迟链接能力。通过该能力，系统会对用户点击的应用链接保存10分钟，以便当用户下载安装并打开应用时，仍能获取之前点击的该应用相关链接。
  
 **起始版本：** 5.0.3(15)
   

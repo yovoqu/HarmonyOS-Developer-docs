@@ -1,6 +1,6 @@
 # 使用WebNativeMessagingExtensionAbility组件实现浏览器扩展和应用通信场景
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-native-messaging
 
@@ -36,7 +36,7 @@
 
  - WebNativeMessagingExtensionAbility组件无需额外权限，允许任意三方应用集成使用，但拉起方（浏览器）需申请ACL权限（ohos.permission.WEB_NATIVE_MESSAGING）。此权限仅对浏览器类应用开放。
  - WebNativeMessagingExtensionAbility组件内不支持调用[Window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window)相关API。
- - WebNativeMessagingExtensionAbility仅支持拉起本应用的UIAbility，不支持拉起其他应用UIAbility或者其他类型ExtensionAbility。
+ - WebNativeMessagingExtensionAbility仅支持拉起本应用的[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)，不支持拉起其他应用UIAbility或者其他类型ExtensionAbility。
  - WebNativeMessagingExtensionAbility仅用于浏览器扩展与应用通信场景，不支持如后台服务等其他场景使用。
 
 
@@ -49,7 +49,7 @@
 #### 整体流程
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/QLfSAX6oSyC4Tfhtpoug5w/zh-cn_image_0000002581434316.png?HW-CC-KV=V1&HW-CC-Date=20260528T030411Z&HW-CC-Expire=86400&HW-CC-Sign=F9E611E9F21F265A3653027538BA1128EC73356238A9BF817A75BB0780524B9E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/NPIQenzyRCC5mI6is10c4A/zh-cn_image_0000002656348201.png?HW-CC-KV=V1&HW-CC-Date=20260624T020811Z&HW-CC-Expire=86400&HW-CC-Sign=D3FBB8C64FE0B59F2A44C1FA9F9DF2EC9E476420AA9867947F02D97F93C13791)
 
 
  - **流程：**
@@ -116,7 +116,7 @@ extension配置通过[dataShare配置项](https://developer.huawei.com/consumer/
 
 #### 消息格式和限制
 
-NativeMessaging连接使用的具体格式，每个消息都使用 JSON 进行序列化，编码为 UTF-8，并在前面附加 32 位消息长度（采用原生字节顺序）。来自WebNativeMessagingExtensionAbility的单个消息的大小上限为 1 MB，这主要是为了保护浏览器免受行为异常的应用影响。发送到WebNativeMessagingExtensionAbility的消息大小上限为 64 MB。
+NativeMessaging连接使用的具体格式，每个消息都使用JSON进行序列化，编码为UTF-8，并在前面附加32位消息长度（采用原生字节顺序）。来自WebNativeMessagingExtensionAbility的单个消息的大小上限为 1 MB，这主要是为了保护浏览器免受行为异常的应用影响。发送到WebNativeMessagingExtensionAbility的消息大小上限为 64 MB。
 
 
 

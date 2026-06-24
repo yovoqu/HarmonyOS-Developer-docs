@@ -1,6 +1,6 @@
 # grid-col
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-grid-col
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -144,4 +144,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/3Ry3RdzNQHC_OIFus45IOg/zh-cn_image_0000002611756319.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025439Z&HW-CC-Expire=86400&HW-CC-Sign=1512591F67189B75F6EAA1E61558D7B84CC3AF299280F40629132BF8982102DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/nVv-aoZIQ9Oc0-gzhPjLBA/zh-cn_image_0000002626071028.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015941Z&HW-CC-Expire=86400&HW-CC-Sign=5ED8E15C8914678B12343B5C8B57984F599825AA9DF6599766BAB7E5CE7A941C)

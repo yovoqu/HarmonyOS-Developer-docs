@@ -1,6 +1,6 @@
 # C++创建的（napi_create_object），或者作为参数传下来的JS value，如果想持久持有，需要怎么做？以及怎么主动销毁或减少引用计数
 
-更新时间：2026-03-12 12:31:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-48
 

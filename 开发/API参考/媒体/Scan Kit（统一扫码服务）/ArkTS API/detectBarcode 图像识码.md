@@ -1,6 +1,6 @@
 # detectBarcode (图像识码)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-imagedecode
 **支持设备：** Phone | Tablet | Wearable
@@ -27,6 +27,10 @@ import { detectBarcode } from '@kit.ScanKit';
 **支持设备：** Phone | Tablet | Wearable
 
 待识别的图片信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
@@ -74,6 +78,10 @@ decode(inputImage: InputImage, options?: scanBarcode.ScanOptions): Promise<Array
  
 通过配置参数调用图片识码返回识码结果。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **起始版本：** 4.1.0(11)
@@ -95,7 +103,7 @@ decode(inputImage: InputImage, options?: scanBarcode.ScanOptions): Promise<Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -149,6 +157,10 @@ decode(inputImage: InputImage, options: scanBarcode.ScanOptions, callback: Async
  
 通过配置参数调用图片识码返回识码结果。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **起始版本：** 4.1.0(11)
@@ -164,7 +176,7 @@ decode(inputImage: InputImage, options: scanBarcode.ScanOptions, callback: Async
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -220,6 +232,10 @@ decode(inputImage: InputImage, callback: AsyncCallback<Array<scanBarcode.ScanRes
  
 图片识码返回识码结果。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **起始版本：** 4.1.0(11)
@@ -234,7 +250,7 @@ decode(inputImage: InputImage, callback: AsyncCallback<Array<scanBarcode.ScanRes
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -286,6 +302,10 @@ photoPicker.select(photoOption).then((data) => {
 
 待识别的图像数据。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **起始版本：** 5.0.0(12)
@@ -320,13 +340,17 @@ let byteImg: detectBarcode.ByteImage = {
 
 枚举，图像数据类型。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **起始版本：** 5.0.0(12)
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| NV21 | 0 | 图像格式为NV21。 |
+| NV21 | 0 | 图像的像素格式为NV21。 |
  
  
   
@@ -337,6 +361,10 @@ let byteImg: detectBarcode.ByteImage = {
 
 识别结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **起始版本：** 5.0.0(12)
@@ -344,7 +372,7 @@ let byteImg: detectBarcode.ByteImage = {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | scanResults | Array<scanBarcode.ScanResult> | 否 | 否 | 扫码结果。 |
-| zoomValue | number | 否 | 否 | 相机可变焦距比，通过setZoomRatio控制相机实现变焦功能。 说明： 1. 使用Camera Kit getZoomRatio接口获取相机当前变焦比zoomRatio。 2. 使用Camera Kit setZoomRatio接口设置targetRatio，目标值为zoomRatio * zoomValue。 |
+| zoomValue | number | 否 | 否 | 期望图像放大倍数，在值大于1时，可通过setZoomRatio控制相机进行变焦放大图像。 说明： 1. 使用Camera Kit getZoomRatio接口获取相机当前变焦比zoomRatio。 2. 使用Camera Kit setZoomRatio接口设置targetRatio，目标值为zoomRatio * zoomValue。 |
  
  
   
@@ -356,6 +384,10 @@ let byteImg: detectBarcode.ByteImage = {
 decodeImage(image: ByteImage, options?: scanBarcode.ScanOptions): Promise&lt;DetectResult&gt;
  
 通过配置参数调用图像数据识码能力返回识码结果。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
@@ -378,7 +410,7 @@ decodeImage(image: ByteImage, options?: scanBarcode.ScanOptions): Promise&lt;Det
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

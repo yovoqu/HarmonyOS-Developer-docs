@@ -1,6 +1,6 @@
 # NavPathStack清空页面栈或者按返回键，为什么显示的是导航栏，如何实现退出Navigation所在的页面
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-430
 

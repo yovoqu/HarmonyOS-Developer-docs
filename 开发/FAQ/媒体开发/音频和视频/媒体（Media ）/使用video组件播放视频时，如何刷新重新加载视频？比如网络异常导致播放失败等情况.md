@@ -1,6 +1,6 @@
 # 使用video组件播放视频时，如何刷新重新加载视频？比如网络异常导致播放失败等情况
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-5
 

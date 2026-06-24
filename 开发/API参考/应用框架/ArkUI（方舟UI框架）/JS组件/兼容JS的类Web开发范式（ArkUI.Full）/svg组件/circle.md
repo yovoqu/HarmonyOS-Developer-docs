@@ -1,6 +1,6 @@
 # circle
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-circle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -59,4 +59,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/PLfAb_0xThKMTmdAWgF6dQ/zh-cn_image_0000002581276464.png?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=3F3223233F91A0A56968249BB19FDF4C2434962E68C6836DD6758E1A45820C58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e/v3/MdRlltKsThOb_wy8GbMo5g/zh-cn_image_0000002626230940.png?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=A2FB55EBE5C30C8ED654CB59E73B1FD13E0FB21703D82EB928743F3E192CBDAF)

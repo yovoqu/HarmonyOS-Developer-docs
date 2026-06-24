@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -396,6 +396,164 @@
 
 
 
+#### MetadataBasicFaceObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+相机检测到的基础人脸元数据信息，继承自[MetadataObject](#metadataobject)。[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.[on('metadataObjectsAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-metadataoutput#onmetadataobjectsavailable)接口获取。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| leftEyeBoundingBox | Rect | 是 | 是 | 左眼区域框。 |
+| rightEyeBoundingBox | Rect | 是 | 是 | 右眼区域框。 |
+| pitchAngle | number | 是 | 是 | 俯仰角度。取值范围为[-90, 90]，以向下为正方向。 |
+| yawAngle | number | 是 | 是 | 左右旋转角度。取值范围为[-90, 90]，以向右为正方向。 |
+| rollAngle | number | 是 | 是 | 平面内旋转角度。取值范围为[-180, 180]，以顺时针方向为正方向。 |
+
+
+
+
+#### MetadataFaceObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+相机检测到的人脸元数据信息，继承自[MetadataObject](#metadataobject)。[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.[on('metadataObjectsAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-metadataoutput#onmetadataobjectsavailable)接口获取。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| leftEyeBoundingBox | Rect | 是 | 否 | 左眼区域框。 |
+| rightEyeBoundingBox | Rect | 是 | 否 | 右眼区域框。 |
+| emotion | Emotion | 是 | 否 | 检测到的情绪类型。 |
+| emotionConfidence | number | 是 | 否 | 情绪检测置信度。取值范围为[0, 1]。 |
+| pitchAngle | number | 是 | 否 | 俯仰角度。取值范围为[-90, 90]，以向下为正方向。 |
+| yawAngle | number | 是 | 否 | 左右旋转角度。取值范围为[-90, 90]，以向右为正方向。 |
+| rollAngle | number | 是 | 否 | 平面内旋转角度。取值范围为[-180, 180]，以顺时针方向为正方向。 |
+
+
+
+
+#### MetadataHumanBodyObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+相机检测到的人体元数据信息，继承自[MetadataObject](#metadataobject)。[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.[on('metadataObjectsAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-metadataoutput#onmetadataobjectsavailable)接口获取。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+
+
+#### MetadataCatFaceObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+相机检测到的猫脸元数据信息，继承自[MetadataObject](#metadataobject)。[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.[on('metadataObjectsAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-metadataoutput#onmetadataobjectsavailable)接口获取。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| leftEyeBoundingBox | Rect | 是 | 否 | 左眼区域框。 |
+| rightEyeBoundingBox | Rect | 是 | 否 | 右眼区域框。 |
+
+
+
+
+#### MetadataCatBodyObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+相机检测到的猫的身体元数据信息，继承自[MetadataObject](#metadataobject)。[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.[on('metadataObjectsAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-metadataoutput#onmetadataobjectsavailable)接口获取。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+
+
+#### MetadataDogFaceObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+相机检测到的狗脸元数据信息，继承自[MetadataObject](#metadataobject)。[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.[on('metadataObjectsAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-metadataoutput#onmetadataobjectsavailable)接口获取。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| leftEyeBoundingBox | Rect | 是 | 否 | 左眼区域框。 |
+| rightEyeBoundingBox | Rect | 是 | 否 | 右眼区域框。 |
+
+
+
+
+#### MetadataDogBodyObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+相机检测到的狗的身体元数据信息，继承自[MetadataObject](#metadataobject)。[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.[on('metadataObjectsAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-metadataoutput#onmetadataobjectsavailable)接口获取。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+
+
+#### MetadataSalientDetectionObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+相机检测到的显著性物体元数据信息，继承自[MetadataObject](#metadataobject)。[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.[on('metadataObjectsAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-metadataoutput#onmetadataobjectsavailable)接口获取。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+
+
+#### MetadataBarcodeObject
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+相机检测到的二维码元数据信息，继承自[MetadataObject](#metadataobject)。[CameraInput](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-camerainput)相机信息中的数据来源，通过metadataOutput.[on('metadataObjectsAvailable')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-metadataoutput#onmetadataobjectsavailable)接口获取。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+
+
 #### SmoothZoomInfo11+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -515,3 +673,23 @@
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | exposureTime | number | 是 | 是 | 曝光时间值。单位：微秒。 |
+
+
+
+
+#### ZoomPointInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+等效焦距信息。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| zoomRatio | number | 是 | 否 | 可变焦距比。 |
+| equivalentFocalLength | number | 是 | 否 | 当前焦距比对应的等效焦距值。 |

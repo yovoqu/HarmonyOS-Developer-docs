@@ -1,6 +1,6 @@
 # 关于对relationalStore.RdbStore的使用问题：如何查询数据库，需要开一个子线程吗
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-database-management-47
 

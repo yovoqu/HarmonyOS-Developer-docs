@@ -1,6 +1,6 @@
 # restool工具
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restool
 
@@ -793,7 +793,7 @@ The paths 'xxx' and 'xxx' of the module.json (in the stage model) or config.json
 
 **错误描述**
 
-应用配置文件[module.json（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)或[config.json（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-configuration-file-overview-fa)的路径存在冲突。
+应用配置文件[module.json（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)或[config.json（FA模型）](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/application-configuration-file-overview-fa)的路径存在冲突。
 
 **可能原因**
 
@@ -1113,7 +1113,7 @@ There are multiple input paths, but the path of the module.json (in the stage mo
 
 **错误描述**
 
-缺少应用配置文件[module.json（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)或[config.json（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-configuration-file-overview-fa)的路径。
+缺少应用配置文件[module.json（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)或[config.json（FA模型）](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/application-configuration-file-overview-fa)的路径。
 
 **可能原因**
 
@@ -1137,7 +1137,7 @@ Invalid module type 'xxx'. Valid values: ["entry", "har", "shared", "feature"].
 
 **可能原因**
 
-应用配置文件[module.json（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)或[config.json（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-configuration-file-overview-fa)中指定的模块类型错误，取值不在["entry", "har", "shared", "feature"]范围内。
+应用配置文件[module.json（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)或[config.json（FA模型）](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/application-configuration-file-overview-fa)中指定的模块类型错误，取值不在["entry", "har", "shared", "feature"]范围内。
 
 **处理步骤**
 
@@ -1241,7 +1241,7 @@ The module name 'xxx' is not found in ["yyy","zzz"], which is specified by -m/--
 
 **可能原因**
 1. -m/--modules指定的模块名称列表错误。
-2. 应用配置文件[module.json（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)或[config.json（FA模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-configuration-file-overview-fa)中name指定的模块名称错误。
+2. 应用配置文件[module.json（Stage模型）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)或[config.json（FA模型）](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/application-configuration-file-overview-fa)中name指定的模块名称错误。
 
 **处理步骤**
 

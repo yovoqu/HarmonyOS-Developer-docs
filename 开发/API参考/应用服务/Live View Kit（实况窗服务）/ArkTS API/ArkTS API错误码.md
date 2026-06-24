@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-error-code
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -414,7 +414,7 @@ The location switch is off.
  
 **处理步骤**
  
-请提示用户开启位置功能的开关。
+需要用户选择设置->隐私和安全->位置，打开“访问我的位置”开关。
  
   
 
@@ -436,4 +436,4 @@ The "Awareness & suggestions" switch of the location-based service is turned off
  
 **处理步骤**
  
-需要用户按如下位置打开开关，设置->隐私和安全->位置->最底部"系统服务"->感知与提醒。
+需要用户选择设置->隐私和安全->位置->最底部"系统服务"，打开访问“感知与提醒”开关。

@@ -1,6 +1,6 @@
 # 使用AudioRenderer开发音频播放功能(ArkTs)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-audiorenderer-for-playback
 
@@ -15,12 +15,6 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
 
 为保证UI线程不被阻塞，大部分AudioRenderer调用都是异步的。对于每个API均提供了callback函数和Promise函数，以下示例均采用callback函数。
 
-**图1** AudioRenderer状态变化示意图
-
-
-![](assets/使用AudioRenderer开发音频播放功能(ArkTs)/file-20260514131439044-0.png)
-
-
 在进行应用开发的过程中，建议开发者通过[on('stateChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#onstatechange8)方法订阅AudioRenderer的状态变更。因为针对AudioRenderer的某些操作，仅在音频播放器在固定状态时才能执行。如果应用在音频播放器处于错误状态时执行操作，系统可能会抛出异常或生成其他未定义的行为。
 
  - prepared状态：通过调用[audio.createAudioRenderer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-f#audiocreateaudiorenderer8)方法进入到该状态。
@@ -30,19 +24,27 @@ AudioRenderer是音频渲染器，用于播放PCM（Pulse Code Modulation）音�
  - released状态：在prepared、paused、stopped等状态，用户均可通过[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiorenderer#release8)方法释放掉所有占用的硬件和软件资源，并且不会再进入到其他的任何一种状态了。
 
 
-当音频流处于工作状态（非released状态）时，需要占用系统的音频流资源。由于系统对音频流数量有限制，所以当客户端暂时不使用音频流时，调用release()回收音频资源，做好资源利用，避免后续创建音频流失败。
+当音频流处于工作状态（非released状态）时，会占用系统的音频流资源。由于系统对音频流数量有限制，所以当客户端暂时不使用音频流时，调用release()回收音频资源，做好资源利用，避免后续创建音频流失败。
+
+**图1** AudioRenderer状态变化示意图
+
+
+![](assets/使用AudioRenderer开发音频播放功能(ArkTs)/file-20260514131439044-0.png)
+
 
 
 
 #### 开发步骤及注意事项
 
-以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/blob/master/code/DocsSample/Media/Audio/AudioRendererSampleJS)。
+以下各步骤示例为片段代码，可通过示例代码右下方链接获取[完整示例](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/Audio/AudioRendererSampleJS)。
 1. 配置音频渲染参数并创建AudioRenderer实例，音频渲染参数的详细信息可以查看[AudioRendererOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i#audiorendereroptions8)。
 
   
 ```ArkTS
 import { audio } from '@kit.AudioKit';
 // ...
+// 从API版本26.0.0开始，参数samplingRate支持number类型。
+// 音频渲染扩展支持8000Hz到384000Hz范围内以10Hz为步长的采样率值。具体设备支持的采样率规格会存在差异。
 let audioStreamInfo: audio.AudioStreamInfo = {
   samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000, // 采样率。
   channels: audio.AudioChannel.CHANNEL_2, // 通道。
@@ -60,7 +62,7 @@ let audioRendererOptions: audio.AudioRendererOptions = {
 // ...
   audio.createAudioRenderer(audioRendererOptions, (err, renderer) => { // 创建AudioRenderer实例。
     if (!err) {
-      console.info(`${TAG}: creating AudioRenderer success`);
+      console.info('Succeeded in creating audio renderer.');
       // ...
       audioRenderer = renderer;
       if (audioRenderer !== undefined) {
@@ -68,8 +70,8 @@ let audioRendererOptions: audio.AudioRendererOptions = {
         // ...
       }
     } else {
-      console.info(`${TAG}: creating AudioRenderer failed, error: ${err.message}`);
-      globalLogUpdate(`${TAG}: creating AudioRenderer failed, error: ${err.message}`, false);
+      console.info(`Failed to create audio renderer. Code: ${err.code}, message: ${err.message}`);
+      globalLogUpdate(`Failed to create audio renderer. Code: ${err.code}, message: ${err.message}`, false);
     }
   });
 ```
@@ -117,10 +119,10 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // ...
     audioRenderer.start((err: BusinessError) => {
       if (err) {
-        console.error('Renderer start failed.');
+        console.error(`Failed to start audio renderer. Code: ${err.code}, message: ${err.message}`);
         // ...
       } else {
-        console.info('Renderer start success.');
+        console.info('Succeeded in starting audio renderer.');
         // ...
       }
     });
@@ -135,10 +137,10 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // ...
     audioRenderer.stop((err: BusinessError) => {
       if (err) {
-        console.error('Renderer stop failed.');
+        console.error(`Failed to stop audio renderer. Code: ${err.code}, message: ${err.message}`);
         // ...
       } else {
-        console.info('Renderer stop success.');
+        console.info('Succeeded in stopping audio renderer.');
         // ...
       }
     });
@@ -155,11 +157,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 // ...
     audioRenderer.release((err: BusinessError) => {
       if (err) {
-        console.error('Renderer release failed.');
+        console.error(`Failed to release audio renderer. Code: ${err.code}, message: ${err.message}`);
         // ...
       } else {
-        // 关闭沙箱文件
-        console.info('Renderer release success.');
+        // 关闭沙箱文件。
+        console.info('Succeeded in releasing audio renderer.');
         // ...
       }
     });
@@ -207,7 +209,6 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { fileIo as fs } from '@kit.CoreFileKit';
 import { common } from '@kit.AbilityKit';
 // ...
-const TAG = 'AudioRendererDemo';
 class Options {
   public offset?: number;
   public length?: number;
@@ -215,6 +216,8 @@ class Options {
 // ...
 
 let audioRenderer: audio.AudioRenderer | undefined = undefined;
+// 从API版本26.0.0开始，参数samplingRate支持number类型。
+// 音频渲染扩展支持8000Hz到384000Hz范围内以10Hz为步长的采样率值。具体设备支持的采样率规格会存在差异。
 let audioStreamInfo: audio.AudioStreamInfo = {
   samplingRate: audio.AudioSamplingRate.SAMPLE_RATE_48000, // 采样率。
   channels: audio.AudioChannel.CHANNEL_2, // 通道。
@@ -233,20 +236,22 @@ let writeDataCallback: audio.AudioRendererWriteDataCallback;
 
 async function initArguments(context: common.UIAbilityContext) {
   let bufferSize: number = 0;
-  let file = await context.resourceManager.getRawFd('32_xiyouji.pcm');
+  let file = await context.resourceManager.getRawFd('S16LE_2_48000.pcm');
   writeDataCallback = (buffer: ArrayBuffer) => {
     let options: Options = {
-      offset: bufferSize,
+      offset: bufferSize + file.offset,
       length: buffer.byteLength
     };
-
+    if (bufferSize > file.length) {
+      return audio.AudioDataCallbackResult.INVALID;
+    }
     try {
       let bufferLength = fs.readSync(file.fd, buffer, options);
       bufferSize += buffer.byteLength;
-      // 如果当前回调传入的数据不足一帧，空白区域需要使用静音数据填充，否则会导致播放出现杂音。
-      if (bufferLength < buffer.byteLength) {
+      // 系统会判定buffer有效，正常播放。
+      if (bufferSize > file.length) {
         let view = new DataView(buffer);
-        for (let i = bufferLength; i < buffer.byteLength; i++) {
+        for (let i = bufferSize - file.length; i < buffer.byteLength; i++) {
           // 空白区域填充静音数据。当使用音频采样格式为SAMPLE_FORMAT_U8时0x7F为静音数据，使用其他采样格式时0为静音数据。
           view.setUint8(i, 0);
         }
@@ -255,7 +260,7 @@ async function initArguments(context: common.UIAbilityContext) {
       // 如果开发者不希望播放某段buffer，返回audio.AudioDataCallbackResult.INVALID即可。
       return audio.AudioDataCallbackResult.VALID;
     } catch (error) {
-      console.error('Error reading file:', error);
+      console.error(`Failed to read file. Code: ${error.code}, message: ${error.message}`);
       // ...
       // API version 11不支持返回回调结果，从API version 12开始支持返回回调结果。
       return audio.AudioDataCallbackResult.INVALID;
@@ -267,7 +272,7 @@ async function initArguments(context: common.UIAbilityContext) {
 async function init() {
   audio.createAudioRenderer(audioRendererOptions, (err, renderer) => { // 创建AudioRenderer实例。
     if (!err) {
-      console.info(`${TAG}: creating AudioRenderer success`);
+      console.info('Succeeded in creating audio renderer.');
       // ...
       audioRenderer = renderer;
       if (audioRenderer !== undefined) {
@@ -275,7 +280,7 @@ async function init() {
         // ...
       }
     } else {
-      console.info(`${TAG}: creating AudioRenderer failed, error: ${err.message}`);
+      console.info(`Failed to create audio renderer. Code: ${err.code}, message: ${err.message}`);
       // ...
     }
   });
@@ -286,17 +291,17 @@ async function start() {
   if (audioRenderer !== undefined) {
     let stateGroup = [audio.AudioState.STATE_PREPARED, audio.AudioState.STATE_PAUSED, audio.AudioState.STATE_STOPPED];
     if (stateGroup.indexOf(audioRenderer.state.valueOf()) === -1) { // 当且仅当状态为prepared、paused和stopped之一时才能启动渲染。
-      console.error(TAG + 'start failed');
+      console.error('Audio renderer state is invalid.');
       // ...
       return;
     }
     // 启动渲染。
     audioRenderer.start((err: BusinessError) => {
       if (err) {
-        console.error('Renderer start failed.');
+        console.error(`Failed to start audio renderer. Code: ${err.code}, message: ${err.message}`);
         // ...
       } else {
-        console.info('Renderer start success.');
+        console.info('Succeeded in starting audio renderer.');
         // ...
       }
     });
@@ -308,17 +313,17 @@ async function pause() {
   if (audioRenderer !== undefined) {
     // 只有渲染器状态为running的时候才能暂停。
     if (audioRenderer.state.valueOf() !== audio.AudioState.STATE_RUNNING) {
-      console.info('Renderer is not running');
+      console.info('Audio renderer state is not running.');
       // ...
       return;
     }
     // 暂停渲染。
     audioRenderer.pause((err: BusinessError) => {
       if (err) {
-        console.error('Renderer pause failed.');
+        console.error(`Failed to pause audio renderer. Code: ${err.code}, message: ${err.message}`);
         // ...
       } else {
-        console.info('Renderer pause success.');
+        console.info('Succeeded in pausing audio renderer.');
         // ...
       }
     });
@@ -331,17 +336,17 @@ async function stop() {
     // 只有渲染器状态为running或paused的时候才可以停止。
     if (audioRenderer.state.valueOf() !== audio.AudioState.STATE_RUNNING &&
       audioRenderer.state.valueOf() !== audio.AudioState.STATE_PAUSED) {
-      console.info('Renderer is not running or paused.');
+      console.info('Audio renderer state is not running or paused.');
       // ...
       return;
     }
     // 停止渲染。
     audioRenderer.stop((err: BusinessError) => {
       if (err) {
-        console.error('Renderer stop failed.');
+        console.error(`Failed to stop audio renderer. Code: ${err.code}, message: ${err.message}`);
         // ...
       } else {
-        console.info('Renderer stop success.');
+        console.info('Succeeded in stopping audio renderer.');
         // ...
       }
     });
@@ -353,7 +358,7 @@ async function release() {
   if (audioRenderer !== undefined) {
     // 渲染器状态不是released状态，才能release。
     if (audioRenderer.state.valueOf() === audio.AudioState.STATE_RELEASED) {
-      console.info('Renderer already released');
+      console.info('Audio renderer state is released.');
       // ...
       return;
     }
@@ -363,11 +368,11 @@ async function release() {
     // 释放资源。
     audioRenderer.release((err: BusinessError) => {
       if (err) {
-        console.error('Renderer release failed.');
+        console.error(`Failed to release audio renderer. Code: ${err.code}, message: ${err.message}`);
         // ...
       } else {
-        // 关闭沙箱文件
-        console.info('Renderer release success.');
+        // 关闭沙箱文件。
+        console.info('Succeeded in releasing audio renderer.');
         // ...
       }
     });

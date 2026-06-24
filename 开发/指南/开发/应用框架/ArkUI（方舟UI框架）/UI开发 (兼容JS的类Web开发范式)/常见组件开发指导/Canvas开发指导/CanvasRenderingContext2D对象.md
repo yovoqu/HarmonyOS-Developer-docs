@@ -1,6 +1,6 @@
 # CanvasRenderingContext2D对象
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ui-js-components-canvasrenderingcontext2d
 
@@ -180,7 +180,7 @@ export default {
             this.ctx.stroke();
             // 右上
             this.ctx.beginPath();
-            //线条相交处内角和外角的距离
+            // 线条相交处内角和外角的距离
             this.ctx.lineJoin = 'miter';
             this.ctx.miterLimit = 3;
             this.ctx.moveTo(400, 100);
@@ -285,7 +285,7 @@ export default {
             this.ctx.setLineDash([0, 0]);
             // 画圆
             this.ctx.arc(300, 250, 150, 0, 6.28);
-            //进行边框绘制
+            // 进行边框绘制
             this.ctx.stroke();
         } else if (e.newValue == 'value3') {
             this.ctx.clearRect(0, 0, 600, 500);
@@ -844,4 +844,4 @@ export default {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/G3e4YcbAT5ux4fmo1PHFOw/zh-cn_image_0000002611834031.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030426Z&HW-CC-Expire=86400&HW-CC-Sign=967018F03C4D73DC644EFF1D185CBEF388EDFD6653D8EA2C238FF27599EC0481)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/hxwqAKbXQlOgGrlanBZ_Hw/zh-cn_image_0000002626228662.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020802Z&HW-CC-Expire=86400&HW-CC-Sign=35ED2DAE2A84D7396AA04720FE23750936BB77A0F25E4F3B3B63415EE0811D2E)

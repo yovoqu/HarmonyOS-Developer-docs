@@ -1,6 +1,6 @@
 # @ohos.thermal (热管理)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-thermal
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@ import {thermal} from '@kit.BasicServicesKit';
 
 registerThermalLevelCallback(callback: Callback&lt;ThermalLevel&gt;): void
 
-**方法介绍：** 订阅热档位变化时的回调提醒。使用callback异步回调。
+订阅热档位变化时的回调提醒。使用callback异步回调。
 
 **系统能力：** SystemCapability.PowerManager.ThermalManager
 
@@ -69,7 +69,7 @@ try {
 
 unregisterThermalLevelCallback(callback?: Callback&lt;void&gt;): void
 
-**方法介绍：** 取消订阅热档位变化时的回调提醒。使用callback异步回调。
+取消订阅热档位变化时的回调提醒。使用callback异步回调。
 
 **系统能力：** SystemCapability.PowerManager.ThermalManager
 
@@ -110,7 +110,7 @@ try {
 
 getLevel(): ThermalLevel
 
-**方法介绍：** 获取当前热档位信息。
+获取当前热档位信息。
 
 **系统能力：** SystemCapability.PowerManager.ThermalManager
 
@@ -140,7 +140,7 @@ subscribeThermalLevel(callback: AsyncCallback&lt;ThermalLevel&gt;): void
 > 从API version 8开始支持，从API version 9开始不再维护，建议使用 thermal.registerThermalLevelCallback 替代。
 
 
-**方法介绍：** 订阅热档位变化时的回调提醒。使用callback异步回调。
+订阅热档位变化时的回调提醒。使用callback异步回调。
 
 **系统能力：** SystemCapability.PowerManager.ThermalManager
 
@@ -171,7 +171,7 @@ unsubscribeThermalLevel(callback?: AsyncCallback&lt;void&gt;): void
 > 从API version 8开始支持，从API version 9开始不再维护，建议使用 thermal.unregisterThermalLevelCallback 替代。
 
 
-**方法介绍：** 取消订阅热档位变化时的回调提醒。使用callback异步回调。
+取消订阅热档位变化时的回调提醒。使用callback异步回调。
 
 **系统能力：** SystemCapability.PowerManager.ThermalManager
 
@@ -202,7 +202,7 @@ getThermalLevel(): ThermalLevel
 > 从API version 8开始支持，从API version 9开始不再维护，建议使用 thermal.getLevel 替代。
 
 
-**方法介绍：** 获取当前热档位信息。
+获取当前热档位信息。
 
 **系统能力：** SystemCapability.PowerManager.ThermalManager
 

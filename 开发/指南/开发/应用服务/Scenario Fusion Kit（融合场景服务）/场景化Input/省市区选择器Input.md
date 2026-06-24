@@ -1,6 +1,6 @@
 # 省市区选择器Input
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-input-zone-selectors
 
@@ -78,11 +78,11 @@ struct Index {
             data: functionalInputComponentManager.DistrictSelectResult) => {
             if (err) {
               // 错误日志处理。
-              hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+              hilog.error(0x0000, 'testTag', 'Failed to select district, error: %{public}d %{public}s', err.code, err.message);
               return;
             }
             // 成功日志处理。
-            hilog.info(0x0000, "testTag", "succeeded in selecting district");
+            hilog.info(0x0000, 'testTag', 'succeeded in selecting district');
             // 在输入组件中显示所选区域信息。
             this.inputContent = data.inputContent;
           })

@@ -1,12 +1,12 @@
 # @correctness/avsession-buttons-check
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-17 07:24:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-avsession-buttons-check
 
 建议音乐、视频、听书类应用通过AVSession监听播放、暂停、停止、下一首、上一首按键事件，并响应。
  
-改善[音视频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene#注册控制命令)体验场景下，建议优先修改。
+改善[音视频播放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/avsession-access-scene#控制命令的处理)体验场景下，建议优先修改。
  
 
 #### 规则配置

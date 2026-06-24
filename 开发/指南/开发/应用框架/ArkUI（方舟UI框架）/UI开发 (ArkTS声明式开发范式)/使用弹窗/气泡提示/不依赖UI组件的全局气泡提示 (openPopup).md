@@ -1,6 +1,6 @@
 # 不依赖UI组件的全局气泡提示 (openPopup)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-uicontext-popup
 
@@ -345,4 +345,4 @@ export struct OpenPopup {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/Ce2WroPLQguhMeIoBpzGbg/zh-cn_image_0000002581433986.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030441Z&HW-CC-Expire=86400&HW-CC-Sign=5E6667AB2E117BB4407A718ADC89816CFF1934B532714F080A2A63FFBE9B5B6E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/VsZ5lanSQIa8pIzctd7AKQ/zh-cn_image_0000002626068510.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020753Z&HW-CC-Expire=86400&HW-CC-Sign=E97364A97CDFC2A7CBD93962B09B40DF66AF67793F46994DD85E875C412F3366)

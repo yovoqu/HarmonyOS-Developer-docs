@@ -1,6 +1,6 @@
 # @ohos.security.huks (通用密钥库系统)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-huks
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -147,6 +147,12 @@ generateKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback&
 | 12000015 | Failed to obtain the security information via UserIAM. |
 | 12000017 | The key with same alias is already exist. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000011 | The queried entity does not exist. This may happen because the key resource ID specified by keyAlias has not been opened in the external crypto scenario. |
+| 12000020 | the provider operation failed. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -196,7 +202,7 @@ JS示例：
 
 ```xml
 <stack class="container">
-    <input class="generateBtn" @click="generateKey">生成密钥</input>
+    <input type="button" class="generateBtn" @click="generateKey">生成密钥</input>
     <text class="result">{{result}}</text>
 </stack>
 ```
@@ -324,8 +330,14 @@ generateKeyItem(keyAlias: string, options: HuksOptions) : Promise&lt;void&gt;
 | 12000013 | queried credential does not exist. |
 | 12000014 | memory is insufficient. |
 | 12000015 | Failed to obtain the security information via UserIAM. |
-| 12000017 | The key with same alias is already exist. |
+| 12000017 | the key with same alias is already exist. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000011 | The queried entity does not exist. This may happen because the key resource ID specified by keyAlias has not been opened in the external crypto scenario. |
+| 12000020 | the provider operation failed. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -430,7 +442,7 @@ JS示例：
 
 ```xml
 <stack class="container">
-    <input class="deleteBtn" @click="deleteKey">删除密钥</input>
+    <input type="button" class="deleteBtn" @click="deleteKey">删除密钥</input>
     <text class="result">{{result}}</text>
 </stack>
 ```
@@ -704,7 +716,7 @@ importKeyItem(keyAlias: string, options: HuksOptions) : Promise&lt;void&gt;
 | 12000013 | queried credential does not exist. |
 | 12000014 | memory is insufficient. |
 | 12000015 | Failed to obtain the security information via UserIAM. |
-| 12000017 | The key with same alias is already exist. |
+| 12000017 | the key with same alias is already exist. |
 | 12000018 | the group id specified by the access group tag is invalid. |
 
 
@@ -1083,6 +1095,7 @@ anonAttestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallbac
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -1227,6 +1240,7 @@ anonAttestKeyItem(keyAlias: string, options: HuksOptions) : Promise&lt;HuksRetur
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -1318,6 +1332,128 @@ async function anonAttestKey(): Promise<void> {
 
 
 
+#### huks.anonAttestKeyItemOffline
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+anonAttestKeyItemOffline(keyAlias: string, params: HuksParam[]) : Promise&lt;HuksReturnResult&gt;
+
+离线模式下获取匿名化密钥证书。使用Promise异步回调。
+
+> [!NOTE]
+> 离线密钥证明依赖网络，需要定期联网使用该接口以更新离线证书，推荐优先使用离线匿名密钥证明。 离线匿名密钥证明需保证本地时间是准确的，否则可能导致对端校验证书超期失败。
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Security.Huks.Extension
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| keyAlias | string | 是 | 密钥别名，存放待获取证书密钥的别名。 |
+| params | HuksParam[] | 是 | 用于获取证书时指定所需参数与数据。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;HuksReturnResult&gt; | Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的certChains成员为获取到的证书链。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[HUKS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-huks)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | The API is not supported. |
+| 12000001 | The algorithm mode is not supported. |
+| 12000004 | The file operation failed. |
+| 12000005 | The IPC communication failed. |
+| 12000006 | The encryption engine is faulty. |
+| 12000011 | The queried entity does not exist. |
+| 12000012 | The device environment or input parameter is abnormal. |
+| 12000014 | The memory is insufficient. |
+| 12000018 | The parameter is incorrect. Possible causes: 1. A mandatory parameter is left empty. 2. The parameter type is incorrect. 3. The parameter verification failed. 4. The group ID specified by the access group tag is invalid. |
+| 12000024 | The operation times out. This may be caused by network jitter. You can try again later. |
+| 12000027 | The network is unavailable. Check network connections. |
+
+
+**示例：**
+
+```text
+import { huks } from '@kit.UniversalKeystoreKit';
+
+function stringToUint8Array(str: string): Uint8Array {
+  let arr: number[] = [];
+  for (let i = 0, j = str.length; i < j; ++i) {
+    arr.push(str.charCodeAt(i));
+  }
+  let tmpUint8Array = new Uint8Array(arr);
+  return tmpUint8Array;
+}
+
+let challenge = stringToUint8Array('challenge_data');
+let keyAliasString = "key anon local attest";
+
+async function generateKey(alias: string) {
+  let properties: Array<huks.HuksParam> = [
+    {
+      tag: huks.HuksTag.HUKS_TAG_ALGORITHM,
+      value: huks.HuksKeyAlg.HUKS_ALG_ECC
+    },
+    {
+      tag: huks.HuksTag.HUKS_TAG_KEY_SIZE,
+      value: huks.HuksKeySize.HUKS_ECC_KEY_SIZE_256
+    },
+    {
+      tag: huks.HuksTag.HUKS_TAG_PURPOSE,
+      value: huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_SIGN | huks.HuksKeyPurpose.HUKS_KEY_PURPOSE_VERIFY
+    },
+    {
+      tag: huks.HuksTag.HUKS_TAG_DIGEST,
+      value: huks.HuksKeyDigest.HUKS_DIGEST_SHA256
+    },
+    {
+      tag: huks.HuksTag.HUKS_TAG_PADDING,
+      value: huks.HuksKeyPadding.HUKS_PADDING_NONE
+    }
+  ];
+  let options: huks.HuksOptions = {
+    properties: properties
+  };
+
+  await huks.generateKeyItem(alias, options);
+}
+
+async function anonAttestKeyOffline() {
+  let aliasString = keyAliasString;
+  let aliasUint8 = stringToUint8Array(aliasString);
+  let properties: Array<huks.HuksParam> = [
+    {
+      tag: huks.HuksTag.HUKS_TAG_ATTESTATION_CHALLENGE,
+      value: challenge
+    },
+    {
+      tag: huks.HuksTag.HUKS_TAG_ATTESTATION_ID_ALIAS,
+      value: aliasUint8
+    }
+  ];
+
+  await generateKey(aliasString);
+  await huks.anonAttestKeyItemOffline(aliasString, properties);
+}
+```
+
+
+
 #### huks.importWrappedKeyItem9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -1361,8 +1497,13 @@ API version 9-11系统能力为SystemCapability.Security.Huks.Extension；从API
 | 12000013 | queried credential does not exist. |
 | 12000014 | memory is insufficient. |
 | 12000015 | Failed to obtain the security information via UserIAM. |
-| 12000017 | The key with same alias is already exist. |
+| 12000017 | the key with same alias is already exist. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000020 | the provider operation failed. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -1581,8 +1722,13 @@ importWrappedKeyItem(keyAlias: string, wrappingKeyAlias: string, options: HuksOp
 | 12000013 | queried credential does not exist. |
 | 12000014 | memory is insufficient. |
 | 12000015 | Failed to obtain the security information via UserIAM. |
-| 12000017 | The key with same alias is already exist. |
+| 12000017 | the key with same alias is already exist. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000020 | the provider operation failed. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -1641,6 +1787,9 @@ API version 9-11系统能力为SystemCapability.Security.Huks.Extension；从API
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000020 | the provider operation failed. |
+| 12000024 | the provider or Ukey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -1708,6 +1857,9 @@ exportKeyItem(keyAlias: string, options: HuksOptions) : Promise&lt;HuksReturnRes
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000020 | the provider operation failed. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -1736,6 +1888,8 @@ huks.exportKeyItem(keyAlias, emptyOptions)
 wrapKeyItem(keyAlias: string, params: HuksOptions): Promise&lt;HuksReturnResult&gt;
 
 加密导出密钥。使用Promise异步回调。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.Huks.Core
 
@@ -1767,6 +1921,7 @@ wrapKeyItem(keyAlias: string, params: HuksOptions): Promise&lt;HuksReturnResult&
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the input parameter is invalid. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -1854,6 +2009,8 @@ unwrapKeyItem(keyAlias: string, params: HuksOptions, wrappedKey: Uint8Array): Pr
 
 加密导入密钥。使用Promise异步回调。
 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
 **系统能力：** SystemCapability.Security.Huks.Core
 
 **参数：**
@@ -1885,6 +2042,7 @@ unwrapKeyItem(keyAlias: string, params: HuksOptions, wrappedKey: Uint8Array): Pr
 | 12000014 | memory is insufficient. |
 | 12000015 | Failed to obtain the security information via UserIAM. |
 | 12000018 | the input parameter is invalid. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -1958,6 +2116,7 @@ API version 9-11系统能力为SystemCapability.Security.Huks.Extension；从API
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -2025,6 +2184,7 @@ getKeyItemProperties(keyAlias: string, options: HuksOptions) : Promise&lt;HuksRe
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -2118,7 +2278,7 @@ JS示例：
 
 ```xml
 <stack class="container">
-    <input class="existBtn" @click="existKey">查询密钥</input>
+    <input type="button" class="existBtn" @click="existKey">查询密钥</input>
     <text class="result">{{result}}</text>
 </stack>
 ```
@@ -2423,16 +2583,17 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000003 | algorithm param is invalid. |
 | 12000004 | operating file failed. |
 | 12000005 | IPC communication failed. |
-| 12000006 | error occurred in crypto engine or Ukey driver. |
+| 12000006 | error occurred in crypto engine or UKey driver. |
 | 12000010 | the number of sessions has reached limit. |
 | 12000011 | queried entity does not exist. |
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the input parameter is invalid. Possible causes: 1. the aead length is invalid. 2. the group id specified by the access group tag is invalid. |
 | 12000020 | the provider operation failed. |
-| 12000021 | the Ukey PIN is locked. |
-| 12000023 | the Ukey PIN not authenticated. |
-| 12000024 | the provider or Ukey is busy. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 
@@ -2479,16 +2640,17 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000003 | algorithm param is invalid. |
 | 12000004 | operating file failed. |
 | 12000005 | IPC communication failed. |
-| 12000006 | error occurred in crypto engine or Ukey driver. |
+| 12000006 | error occurred in crypto engine or UKey driver. |
 | 12000010 | the number of sessions has reached limit. |
 | 12000011 | queried entity does not exist. |
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the input parameter is invalid. Possible causes: 1. the aead length is invalid. 2. the group id specified by the access group tag is invalid. |
 | 12000020 | the provider operation failed. |
-| 12000021 | the Ukey PIN is locked. |
-| 12000023 | the Ukey PIN not authenticated. |
-| 12000024 | the provider or Ukey is busy. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 
@@ -2529,7 +2691,7 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000003 | algorithm param is invalid. |
 | 12000004 | operating file failed. |
 | 12000005 | IPC communication failed. |
-| 12000006 | error occurred in crypto engine or Ukey driver. |
+| 12000006 | error occurred in crypto engine or UKey driver. |
 | 12000007 | this credential is already invalidated permanently. |
 | 12000008 | verify auth token failed. |
 | 12000009 | auth token is already timeout. |
@@ -2538,9 +2700,10 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000014 | memory is insufficient. |
 | 12000018 | the group id specified by the access group tag is invalid. |
 | 12000020 | the provider operation failed. |
-| 12000021 | the Ukey PIN is locked. |
-| 12000023 | the Ukey PIN not authenticated. |
-| 12000024 | the provider or Ukey is busy. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 
@@ -2590,6 +2753,7 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000014 | memory is insufficient. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000026 | the secure element is not available. |
 
 
 
@@ -2637,7 +2801,7 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000003 | algorithm param is invalid. |
 | 12000004 | operating file failed. |
 | 12000005 | IPC communication failed. |
-| 12000006 | error occurred in crypto engine or Ukey driver. |
+| 12000006 | error occurred in crypto engine or UKey driver. |
 | 12000007 | this credential is already invalidated permanently. |
 | 12000008 | verify auth token failed. |
 | 12000009 | auth token is already timeout. |
@@ -2646,9 +2810,10 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000014 | memory is insufficient. |
 | 12000018 | the group id specified by the access group tag is invalid. |
 | 12000020 | the provider operation failed. |
-| 12000021 | the Ukey PIN is locked. |
-| 12000023 | the Ukey PIN not authenticated. |
-| 12000024 | the provider or Ukey is busy. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 
@@ -2699,9 +2864,10 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000017 | The key with same alias is already exist. |
 | 12000018 | the group id specified by the access group tag is invalid. |
 | 12000020 | the provider operation failed. |
-| 12000021 | the Ukey PIN is locked. |
-| 12000023 | the Ukey PIN not authenticated. |
-| 12000024 | the provider or Ukey is busy. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 
@@ -2752,6 +2918,7 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000014 | memory is insufficient. |
 | 12000017 | The key with same alias is already exist. |
 | 12000018 | the group id specified by the access group tag is invalid. |
+| 12000026 | the secure element is not available. |
 
 
 
@@ -2809,9 +2976,10 @@ huks.initSession、huks.updateSession、huks.finishSession为三段式接口，�
 | 12000017 | The key with same alias is already exist. |
 | 12000018 | the group id specified by the access group tag is invalid. |
 | 12000020 | the provider operation failed. |
-| 12000021 | the Ukey PIN is locked. |
-| 12000023 | the Ukey PIN not authenticated. |
-| 12000024 | the provider or Ukey is busy. |
+| 12000021 | the UKey PIN is locked. |
+| 12000023 | the UKey PIN not authenticated. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 
@@ -2847,12 +3015,13 @@ abortSession终止密钥操作。使用callback异步回调。
 | 801 | api is not supported. |
 | 12000004 | operating file failed. |
 | 12000005 | IPC communication failed. |
-| 12000006 | error occurred in crypto engine or Ukey driver. |
+| 12000006 | error occurred in crypto engine or UKey driver. |
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000018 | the group id specified by the access group tag is invalid. |
 | 12000014 | memory is insufficient. |
 | 12000020 | the provider operation failed. |
-| 12000024 | the provider or Ukey is busy. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -2930,8 +3099,8 @@ JS示例：
 
 ```xml
 <stack class="container">
-    <input class="threeStageBtn1" @click="threeStageEncrypt">加密数据</input>
-    <input class="threeStageBtn2" @click="threeStageDecrypt">解密数据</input>
+    <input type="button" class="threeStageBtn1" @click="threeStageEncrypt">加密数据</input>
+    <input type="button" class="threeStageBtn2" @click="threeStageDecrypt">解密数据</input>
     <text class="result">{{result}}</text>
 </stack>
 ```
@@ -3263,12 +3432,13 @@ abortSession终止密钥操作。使用Promise异步回调。
 | 801 | api is not supported. |
 | 12000004 | operating file failed. |
 | 12000005 | IPC communication failed. |
-| 12000006 | error occurred in crypto engine or Ukey driver. |
+| 12000006 | error occurred in crypto engine or UKey driver. |
 | 12000012 | Device environment or input parameter abnormal. |
 | 12000018 | the group id specified by the access group tag is invalid. |
 | 12000014 | memory is insufficient. |
 | 12000020 | the provider operation failed. |
-| 12000024 | the provider or Ukey is busy. |
+| 12000024 | the provider or UKey is busy. |
+| 12000026 | the secure element is not available. |
 
 
 **示例：**
@@ -3444,6 +3614,8 @@ async function testListAliases() {
 | HUKS_ERR_CODE_PIN_NO_AUTH22+ | 12000023 | Ukey PIN码未认证。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.CryptoExtension |
 | HUKS_ERR_CODE_BUSY22+ | 12000024 | 设备或资源繁忙。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_ERR_CODE_EXCEED_LIMIT22+ | 12000025 | 资源超过限制。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
+| HUKS_ERR_CODE_SE_FAULT | 12000026 | 安全元件故障。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
+| HUKS_ERR_CODE_NETWORK_UNAVAILABLE | 12000027 | 网络不可用。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Extension |
 
 
 
@@ -3575,6 +3747,9 @@ API version 8-11系统能力为SystemCapability.Security.Huks.Extension；从API
 | HUKS_DES_KEY_SIZE_6412+ | 64 | 表示DES算法的密钥长度为64bit。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_3DES_KEY_SIZE_12812+ | 128 | 表示3DES算法的密钥长度为128bit。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_3DES_KEY_SIZE_19212+ | 192 | 表示3DES算法的密钥长度为192bit。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
+| HUKS_ML_DSA_KEY_PARAM_SET_44 | 44 | 表示使用ML-DSA算法的安全参数集为44。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
+| HUKS_ML_DSA_KEY_PARAM_SET_65 | 65 | 表示使用ML-DSA算法的安全参数集为65。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
+| HUKS_ML_DSA_KEY_PARAM_SET_87 | 87 | 表示使用ML-DSA算法的安全参数集为87。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 
 
 
@@ -3606,6 +3781,7 @@ API version 8-11系统能力为SystemCapability.Security.Huks.Extension；从API
 | HUKS_ALG_DES12+ | 160 | 表示使用DES算法（API 12开始支持轻量级智能穿戴，API 18开始支持手机、平板、PC/2in1设备、TV、智能穿戴）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_ALG_3DES12+ | 161 | 表示使用3DES算法（API 12开始支持轻量级智能穿戴，API 18开始支持手机、平板、PC/2in1设备、TV、智能穿戴）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_ALG_CMAC12+ | 162 | 表示使用CMAC算法（API 12开始支持轻量级智能穿戴，API 18开始支持手机、平板、PC/2in1设备、TV、智能穿戴）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
+| HUKS_ALG_ML_DSA | 201 | 表示使用ML-DSA算法。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 
 
 
@@ -3778,7 +3954,7 @@ API version 10-11系统能力为SystemCapability.Security.Huks.Extension；从AP
 | HUKS_USER_AUTH_TYPE_FINGERPRINT | 1 << 0 | 表示用户认证类型为指纹。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | HUKS_USER_AUTH_TYPE_FACE | 1 << 1 | 表示用户认证类型为人脸。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | HUKS_USER_AUTH_TYPE_PIN | 1 << 2 | 表示用户认证类型为PIN码。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| HUKS_USER_AUTH_TYPE_TUI_PIN20+ | 1 << 5 | 表示用户认证类型为TUI PIN码。 |
+| HUKS_USER_AUTH_TYPE_TUI_PIN20+ | 1 << 5 | 表示用户认证类型为TUI PIN码。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -3896,7 +4072,7 @@ API version 11系统能力为SystemCapability.Security.Huks.Extension；从API v
 
 
 > [!NOTE]
-> 业务在使用存储等级为ECE的密钥时，建议通过感知 锁屏事件 来清理使用该密钥创建的会话资源，以保证安全性。
+> 业务在使用存储等级为ECE的密钥时，建议通过感知 锁屏事件COMMON_EVENT_SCREEN_LOCKED 来清理使用该密钥创建的会话资源，以保证安全性。
 
 
 
@@ -3914,6 +4090,28 @@ API version 11系统能力为SystemCapability.Security.Huks.Extension；从API v
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | HUKS_KEY_WRAP_TYPE_HUK_BASED | 2 | 硬件唯一密钥加密类型。 |
+
+
+
+
+#### HuksKeySecurityLevel
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
+
+表示密钥安全级别的枚举。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.Huks.Core
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| HUKS_KEY_SECURITY_LEVEL_TEE | 0 | 密钥在可信执行环境中生成并使用。 |
+| HUKS_KEY_SECURITY_LEVEL_SE | 1 | 密钥在安全环境中生成并使用。 |
 
 
 
@@ -3945,8 +4143,6 @@ API version 11系统能力为SystemCapability.Security.Huks.Extension；从API v
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
 
 表示调用参数的Tag。
-
-**系统能力：** SystemCapability.Security.Huks.Core
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -4015,7 +4211,9 @@ API version 11系统能力为SystemCapability.Security.Huks.Extension；从API v
 | HUKS_TAG_AE_TAG_LEN22+ | HuksTagType.HUKS_TAG_TYPE_UINT \| 521 | 表示指定的AEAD标签长度，单位：byte。 元服务API： 从API version 22开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_TAG_KEY_CLASS22+ | HuksTagType.HUKS_TAG_TYPE_UINT \| 522 | 表示密钥来源。 系统能力： SystemCapability.Security.Huks.Extension |
 | HUKS_TAG_KEY_ACCESS_GROUP23+ | HuksTagType.HUKS_TAG_TYPE_BYTES \| 523 | 表示指定的分组信息。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Extension |
+| HUKS_TAG_KEY_SECURITY_LEVEL | HuksTagType.HUKS_TAG_TYPE_UINT \| 526 | 表示密钥安全级别。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_TAG_AAD24+ | HuksTagType.HUKS_TAG_TYPE_BYTES \| 527 | 标记指示GCM或CCM模式的附加验证数据。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.Security.Huks.Core |
+| HUKS_TAG_CONTEXT | HuksTagType.HUKS_TAG_TYPE_BYTES \| 528 | 表示ML-DSA签名验签的context参数。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_TAG_IS_KEY_ALIAS | HuksTagType.HUKS_TAG_TYPE_BOOL \| 1001 | 表示是否使用生成key时传入的别名的Tag。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_TAG_KEY_STORAGE_FLAG | HuksTagType.HUKS_TAG_TYPE_UINT \| 1002 | 表示密钥存储方式的Tag。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core |
 | HUKS_TAG_IS_ALLOWED_WRAP | HuksTagType.HUKS_TAG_TYPE_BOOL \| 1003 | 预留。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 系统能力： SystemCapability.Security.Huks.Core12+ SystemCapability.Security.Huks.Extension8-11 |

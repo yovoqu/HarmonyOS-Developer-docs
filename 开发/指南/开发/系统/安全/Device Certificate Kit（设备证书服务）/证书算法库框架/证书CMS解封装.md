@@ -1,12 +1,12 @@
 # 证书CMS解封装
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-cms-decapsulation-object
 
 从API version 22开始，支持证书CMS解封装。
 
-PKCS#7是用于存储签名或加密数据的标准语法。CMS作为PKCS#7的扩展，支持的数据类型包括数据、签名数据、封装数据、签名和封装数据、摘要数据以及加密数据。该标准常用于保护数据的完整性和机密性。
+PKCS #7是用于存储签名或加密数据的标准语法。CMS作为PKCS #7的扩展，支持的数据类型包括数据、签名数据、封装数据、签名和封装数据、摘要数据以及加密数据。该标准常用于保护数据的完整性和机密性。
 
 目前仅支持CMS签名数据和封装数据。
 
@@ -103,7 +103,7 @@ async function testCmsDecryptTest() {
     let cmsDecrypt: cert.CmsParser = cert.createCmsParser();
     await cmsDecrypt.setRawData(envelopeData, cert.CmsFormat.PEM);
     let decPlainText: Uint8Array = await cmsDecrypt.decryptEnvelopedData(config);
-    console.info('[XTS] decryptEnvelopedData result: success, decPlainText = ' + decPlainText);
+    console.info('decryptEnvelopedData result: success, decPlainText = ' + decPlainText);
     console.info('decryptEnvelopedData result: success.');
   } catch (error) {
     console.error(`decryptEnvelopedData failed: errCode: ${error.code}, message: ${error.message}`);

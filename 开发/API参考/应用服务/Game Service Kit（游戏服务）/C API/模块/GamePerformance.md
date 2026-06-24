@@ -1,6 +1,6 @@
 # GamePerformance
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-game-performance
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -549,7 +549,7 @@ typedef void(*GamePerformance_ThermalLevelChangedCallback) (GamePerformance_Devi
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -827,7 +827,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetAntiAliasingEnabled 
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -858,7 +858,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetCurrentFrameRate (Ga
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -889,7 +889,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetCurrentPictureQualit
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -920,7 +920,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetCurrentResolution (G
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -951,7 +951,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetHdModeEnabled (GameP
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -982,7 +982,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetMaxFrameRate (GamePe
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1013,7 +1013,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetMaxPictureQualityLev
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1044,7 +1044,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetMaxResolution (GameP
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1075,7 +1075,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetMultithreadingEnable
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1106,7 +1106,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetParticleEnabled (Gam
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1137,7 +1137,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ConfigInfo_SetShadowEnabled (GameP
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1168,7 +1168,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CpuInfo_GetCpuLoadLevel (GamePerfo
  
 **起始版本：** 6.0.2(22)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1199,7 +1199,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CpuInfo_GetSingleThreadLoadLevel (
  
 **起始版本：** 6.0.2(22)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1230,7 +1230,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateConfigInfo (GamePerformance_
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1260,7 +1260,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateInitParameters (GamePerforma
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1290,7 +1290,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateNetInfo (GamePerformance_Net
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1320,7 +1320,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreatePackageInfo (GamePerformance
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1350,7 +1350,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreatePlayerInfo (GamePerformance_
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1380,7 +1380,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateSceneInfo (GamePerformance_S
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1410,7 +1410,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_CreateThermalInfoQueryParameters (
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1440,7 +1440,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyConfigInfo (GamePerformance
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1470,7 +1470,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyCpuInfo (GamePerformance_Cp
  
 **起始版本：** 6.0.2(22)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1500,7 +1500,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyDeviceInfo (GamePerformance
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1530,7 +1530,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyGpuInfo (GamePerformance_Gp
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1560,7 +1560,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyInitParameters (GamePerform
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1590,7 +1590,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyNetInfo (GamePerformance_Ne
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1620,7 +1620,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyPackageInfo (GamePerformanc
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1650,7 +1650,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyPlayerInfo (GamePerformance
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1680,7 +1680,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroySceneInfo (GamePerformance_
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1710,7 +1710,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyThermalInfo (GamePerformanc
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1740,7 +1740,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DestroyThermalInfoQueryParameters 
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1770,7 +1770,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DeviceInfo_GetCpuInfo (GamePerform
  
 **起始版本：** 6.0.2(22)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1801,7 +1801,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DeviceInfo_GetGpuInfo (GamePerform
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1832,7 +1832,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_DeviceInfo_GetThermalInfo (GamePer
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1863,7 +1863,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetBandwidthLoadLevel (Gam
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1894,7 +1894,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetCurrentFrequency (GameP
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1925,7 +1925,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetFragmentLoadLevel (Game
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1956,7 +1956,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetGpuLoadLevel (GamePerfo
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -1987,7 +1987,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetTextureLoadLevel (GameP
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2018,7 +2018,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_GpuInfo_GetVertexLoadLevel (GamePe
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2053,7 +2053,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_Init (GamePerformance_InitParamete
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2083,7 +2083,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_InitParameters_SetAppVersion (Game
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2114,7 +2114,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_InitParameters_SetBundleName (Game
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2145,7 +2145,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetDownlinkLatency (GamePe
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2176,7 +2176,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetNetLoad (GamePerformanc
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2207,7 +2207,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetServerLatency (GamePerf
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2238,7 +2238,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetTotalLatency (GamePerfo
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2269,7 +2269,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_NetInfo_SetUplinkLatency (GamePerf
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2300,7 +2300,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetAppVersion (GamePer
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2331,7 +2331,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetBundleName (GamePer
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2362,7 +2362,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetEngineType (GamePer
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2393,7 +2393,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetEngineVersion (Game
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2424,7 +2424,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetGameType (GamePerfo
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2455,7 +2455,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PackageInfo_SetVulkanSupported (Ga
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2490,7 +2490,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PlayerInfo_SetGamePlayerId (GamePe
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2525,7 +2525,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PlayerInfo_SetTeamPlayerId (GamePe
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2560,7 +2560,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_PlayerInfo_SetThirdOpenId (GamePer
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2591,7 +2591,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_QueryCpuInfo (GamePerformance_CpuI
  
 **起始版本：** 6.0.2(22)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2625,7 +2625,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_QueryGpuInfo (GamePerformance_GpuI
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2655,7 +2655,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_QueryThermalInfo (GamePerformance_
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2692,7 +2692,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_RegisterThermalLevelChangedCallbac
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2725,7 +2725,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetChannelCount (GamePer
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2756,7 +2756,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetCurrentFrameRate (Gam
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2787,7 +2787,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetDescription (GamePerf
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2818,7 +2818,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetDrawCallCount (GamePe
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2849,7 +2849,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetImportanceLevel (Game
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2880,7 +2880,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetKeyThread (GamePerfor
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2911,7 +2911,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetMaxFrameRate (GamePer
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2942,7 +2942,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetMeshCount (GamePerfor
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -2973,7 +2973,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetParticipantCount (Gam
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3004,7 +3004,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetRecommendedCpuLevel (
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3035,7 +3035,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetRecommendedDdrLevel (
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3066,7 +3066,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetRecommendedGpuLevel (
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3097,7 +3097,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSceneFrequency (GameP
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3128,7 +3128,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSceneID (GamePerforma
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3159,7 +3159,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSceneTime (GamePerfor
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3190,7 +3190,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetShaderCount (GamePerf
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3221,7 +3221,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSubDescription (GameP
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3252,7 +3252,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetSubSceneID (GamePerfo
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3283,7 +3283,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetTextureCount (GamePer
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3314,7 +3314,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetTriangleCount (GamePe
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3345,7 +3345,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_SceneInfo_SetVertexCount (GamePerf
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3378,7 +3378,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetNowNormalizedCurren
  
 **设备行为差异：** 该接口在Phone中可正常调用，在其他设备类型中无返回值。
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3411,7 +3411,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetRecommendMaxNormali
  
 **设备行为差异：** 该接口在Phone中可正常调用，在其他设备类型中无返回值。
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3444,7 +3444,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetRecommendNormalized
  
 **设备行为差异：** 该接口在Phone中可正常调用，在其他设备类型中无返回值。
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3475,7 +3475,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetThermalLevel (GameP
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3506,7 +3506,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetThermalMargin (Game
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3537,7 +3537,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfo_GetThermalTrend (GameP
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3568,7 +3568,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfoQueryParameters_SetNeed
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3599,12 +3599,12 @@ GamePerformance_ErrorCode HMS_GamePerformance_ThermalInfoQueryParameters_SetTarg
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
 | parameters | 指针指向GamePerformance_ThermalInfoQueryParameters实例。该值不可以为空，否则将返回错误码401。 |
-| targetThermalLevel | 预测温升趋势的目标温度等级。如果需要预测温升趋势，将根据该目标温度等级计算返回温度时间裕量和温度趋势。取值请参见温度等级。 |
+| targetThermalLevel | 预测温升趋势的目标温度等级。如果needsPrediction为true，即需要预测温升趋势，将根据该目标温度等级计算返回温度时间裕量和温度趋势。取值请参见温度等级。 |
  
  
 **返回：**
@@ -3653,7 +3653,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UnregisterThermalLevelChangedCallb
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3683,7 +3683,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UpdateConfigInfo (GamePerformance_
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3717,7 +3717,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UpdateNetInfo (GamePerformance_Net
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3751,7 +3751,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UpdatePackageInfo (GamePerformance
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3781,7 +3781,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UpdatePlayerInfo (GamePerformance_
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |
@@ -3815,7 +3815,7 @@ GamePerformance_ErrorCode HMS_GamePerformance_UpdateSceneInfo (GamePerformance_S
  
 **起始版本：** 5.0.2(14)
  
-**参数:**
+**参数：**
   
 | 名称 | 描述 |
 | --- | --- |

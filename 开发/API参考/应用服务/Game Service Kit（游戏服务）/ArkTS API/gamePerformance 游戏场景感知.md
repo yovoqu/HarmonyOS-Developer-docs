@@ -1,11 +1,13 @@
-# gamePerformance (游戏场景感知)
+# gamePerformance（游戏场景感知）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameperformance
 **支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供接入Game Service Kit的游戏场景感知能力。
+ 
+**模型约束：** 本模块接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -26,6 +28,8 @@ import { gamePerformance } from '@kit.GameServiceKit';
 
 设备信息类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.0(12)
@@ -44,6 +48,8 @@ import { gamePerformance } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 GPU性能信息类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -67,6 +73,8 @@ GPU性能信息类。
 
 温度变化趋势数据类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.1(13)
@@ -85,6 +93,8 @@ GPU性能信息类。
 
 游戏基本信息类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.0(12)
@@ -102,6 +112,8 @@ GPU性能信息类。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 游戏包信息类，继承[BaseGameInfo](#basegameinfo)。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -124,6 +136,8 @@ GPU性能信息类。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 游戏配置信息类，继承[BaseGameInfo](#basegameinfo)。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -151,6 +165,8 @@ GPU性能信息类。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 游戏场景信息类，继承[BaseGameInfo](#basegameinfo)。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -190,6 +206,8 @@ GPU性能信息类。
 
 游戏网络信息类，继承[BaseGameInfo](#basegameinfo)。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.0(12)
@@ -208,12 +226,14 @@ GPU性能信息类。
 
 游戏玩家信息类，继承[BaseGameInfo](#basegameinfo)。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.0(12)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3f/v3/gC8bL37mS3iKCxJe6pFA2g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025050Z&HW-CC-Expire=86400&HW-CC-Sign=1165585DFFC9750B71EEFB09E1D0588E9D6CB12DA8612D53B27CBB01505E2873)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/i3j3HVz4Rg-4GrL-0ewlug/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020336Z&HW-CC-Expire=86400&HW-CC-Sign=F62B14FC00A24E78F38EA5D224AEAB22C76636AA75691693C28348D29C40E1CC)
  
  
 gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
@@ -235,6 +255,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 设备状态信息参数类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.1(13)
@@ -252,6 +274,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 设备状态信息类型枚举对象。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -271,13 +295,15 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 设备状态信息参数键值枚举对象。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.1(13)
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| THERMAL_TEMP_LEVEL | tempLevel | 温控档位。 |
+| THERMAL_TEMP_LEVEL | 'tempLevel' | 温控档位。 |
  
  
   
@@ -287,6 +313,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 游戏自定义数据的标签枚举对象。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -305,11 +333,13 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 Game Service Kit错误码类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.0(12)
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -327,6 +357,8 @@ Game Service Kit错误码类。
 init(gamePackageInfo: GamePackageInfo): Promise&lt;void&gt;
  
 游戏启动时，需要对游戏场景感知模块进行初始化。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -348,7 +380,7 @@ init(gamePackageInfo: GamePackageInfo): Promise&lt;void&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -390,6 +422,8 @@ updateGameInfo<T extends BaseGameInfo>(gameInfo: T): Promise&lt;void&gt;
  
 更新游戏信息。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.0(12)
@@ -410,7 +444,7 @@ updateGameInfo<T extends BaseGameInfo>(gameInfo: T): Promise&lt;void&gt;
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -451,11 +485,13 @@ try {
 
 on(type: 'deviceStateChanged', callback: Callback&lt;DeviceInfo&gt;): void
  
-订阅设备状态变化。使用callback回调。
+订阅设备状态变化。使用callback异步回调。
  
 > [!NOTE]
 > Mali系列GPU不支持采集GPU性能信息，无法获取设备GPU性能信息。
 
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -508,11 +544,13 @@ try {
 
 on(type: 'deviceStateChanged', callback: Callback&lt;DeviceInfo&gt;, scope: Array&lt;DeviceInfoType&gt;): void
  
-按需订阅设备状态变化。使用callback回调。
+按需订阅设备状态变化。使用callback异步回调。
  
 > [!NOTE]
 > Mali系列GPU不支持采集GPU性能信息，无法获取设备GPU性能信息。
 
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -529,7 +567,7 @@ on(type: 'deviceStateChanged', callback: Callback&lt;DeviceInfo&gt;, scope: Arra
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -568,7 +606,9 @@ try {
 
 off(type: 'deviceStateChanged', callback?: Callback&lt;DeviceInfo&gt;): void
  
-取消订阅设备状态变化。使用callback回调。
+取消订阅设备状态变化。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.GameService.GamePerformance
  
@@ -636,6 +676,8 @@ getDeviceInfoByScope(scope: Array&lt;DeviceInfoParameter&gt;): Promise&lt;Device
 > Mali系列GPU不支持采集GPU性能信息，无法获取设备GPU性能信息。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.0.1(13)
@@ -656,7 +698,7 @@ getDeviceInfoByScope(scope: Array&lt;DeviceInfoParameter&gt;): Promise&lt;Device
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -700,6 +742,8 @@ addGameCustomData(data: Record<string, string>, tag: GameCustomTag): void
  
 上报带标签的游戏自定义数据。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.GameService.GamePerformance
  
 **起始版本：** 5.1.0(18)
@@ -714,7 +758,7 @@ addGameCustomData(data: Record<string, string>, tag: GameCustomTag): void
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

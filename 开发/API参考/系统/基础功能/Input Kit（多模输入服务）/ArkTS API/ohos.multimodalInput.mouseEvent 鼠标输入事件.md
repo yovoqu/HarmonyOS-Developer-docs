@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.mouseEvent (鼠标输入事件)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-mouseevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -129,12 +129,12 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | action | Action | 否 | 否 | 鼠标事件类型。 |
-| screenX | number | 否 | 否 | 该鼠标事件以指定屏幕左上角为原点的相对坐标系的X坐标。当前仅支持整数。 |
-| screenY | number | 否 | 否 | 该鼠标事件以指定屏幕左上角为原点的相对坐标系的Y坐标。当前仅支持整数。 |
-| windowX | number | 否 | 否 | 鼠标所在窗口左上角为原点的相对坐标系的X坐标。当前仅支持整数。 |
-| windowY | number | 否 | 否 | 鼠标所在窗口左上角为原点的相对坐标系的Y坐标。当前仅支持整数。 |
-| rawDeltaX | number | 否 | 否 | 鼠标当前事件相对于上次事件的X坐标偏移值。当前仅支持整数。 |
-| rawDeltaY | number | 否 | 否 | 鼠标当前事件相对于上次事件的Y坐标偏移值。当前仅支持整数。 |
+| screenX | number | 否 | 否 | 该鼠标事件以指定屏幕左上角为原点的相对坐标系的X坐标。当前仅支持整数，单位为像素（px）。 |
+| screenY | number | 否 | 否 | 该鼠标事件以指定屏幕左上角为原点的相对坐标系的Y坐标。当前仅支持整数，单位为像素（px）。 |
+| windowX | number | 否 | 否 | 鼠标所在窗口左上角为原点的相对坐标系的X坐标。当前仅支持整数，单位为像素（px）。 |
+| windowY | number | 否 | 否 | 鼠标所在窗口左上角为原点的相对坐标系的Y坐标。当前仅支持整数，单位为像素（px）。 |
+| rawDeltaX | number | 否 | 否 | 鼠标当前事件相对于上次事件的X坐标偏移值。当前仅支持整数，单位为像素（px）。 |
+| rawDeltaY | number | 否 | 否 | 鼠标当前事件相对于上次事件的Y坐标偏移值。当前仅支持整数，单位为像素（px）。 |
 | button | Button | 否 | 否 | 鼠标按键。 |
 | pressedButtons | Button[] | 否 | 否 | 当前处于按下状态的鼠标按键。 |
 | axes | AxisValue[] | 否 | 否 | 鼠标轴类型和轴的值。 |
@@ -148,5 +148,5 @@ import { Action, Button, Axis, AxisValue, MouseEvent } from '@kit.InputKit';
 | numLock | boolean | 否 | 否 | 当前numLock是否处于使能状态。 true表示使能状态，false表示处于未使能状态。 |
 | scrollLock | boolean | 否 | 否 | 当前scrollLock是否处于使能状态。 true表示使能状态，false表示处于未使能状态。 |
 | toolType11+ | ToolType | 否 | 否 | 工具类型。 |
-| globalX20+ | number | 否 | 是 | 该鼠标事件以主屏左上角为原点的全局坐标系的X坐标。作为出参时，由系统上报。 |
-| globalY20+ | number | 否 | 是 | 该鼠标事件以主屏左上角为原点的全局坐标系的Y坐标。作为出参时，由系统上报。 |
+| globalX20+ | number | 否 | 是 | 该鼠标事件以主屏左上角为原点的全局坐标系的X坐标，单位为像素（px）。作为出参时，由系统上报。 |
+| globalY20+ | number | 否 | 是 | 该鼠标事件以主屏左上角为原点的全局坐标系的Y坐标，单位为像素（px）。作为出参时，由系统上报。 |

@@ -1,12 +1,12 @@
 # 记忆（Memory）配置
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-memory
 
 #### 功能介绍
 
-CodeGenie搭载长期记忆功能，在应用开发过程中，会学习和提取个人偏好、项目细节等有价值的信息，进行主动记忆或自动记忆。伴随开发者的持续使用，逐步形成覆盖开发者信息、项目场景、问题沉淀的全域记忆体系。在长期交互中，记忆也会随时间更新。
+从 DevEco Studio 6.1.0 Beta2 版本开始，CodeGenie搭载长期记忆功能，在应用开发过程中，会学习和提取个人偏好、项目细节等有价值的信息，进行主动记忆或自动记忆。伴随开发者的持续使用，逐步形成覆盖开发者信息、项目场景、问题沉淀的全域记忆体系。在长期交互中，记忆也会随时间更新。
  
 依托这一核心能力，CodeGenie能够精准理解和生成符合开发者需求的代码、回答等，与开发者实现更高效的协作。
  
@@ -22,7 +22,7 @@ CodeGenie搭载长期记忆功能，在应用开发过程中，会学习和提�
 
 #### 使用约束
 
-- 当前仅自定义Agent支持长期记忆检索和生成。
+- 当前仅自定义Agent和HarmonyOS Act智能体支持长期记忆检索和生成。其中HarmonyOS Act智能体从26.0.0 Beta1版本开始支持。
 - 当CodeGenie记忆与[规则（Rules）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-agent-rules)发生冲突时，以规则为准。
 - Mac(64-bit)架构的MacOS操作系统不支持记忆能力。
 

@@ -1,6 +1,6 @@
 # @ohos.nfc.tag (标准NFC-Tag)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag
 **支持设备：** Phone | Wearable
@@ -12,7 +12,7 @@
 前台读卡是指提前打开应用程序，并进入对应的NFC读卡页面后读卡，只会把读到的标签卡片信息分发给前台应用程序。
 
 > [!NOTE]
-> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 调用本模块接口和常量时请使用canIUse("SystemCapability.Communication.NFC.Tag")判断设备是否支持NFC能力，否则可能导致应用运行稳定性问题，参考 nfc-tag开发指南 。 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考 syscap开发指南 。
+> 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 调用本模块接口和常量时请使用 canIUse("SystemCapability.Communication.NFC.Tag") 判断设备是否支持NFC能力，否则可能导致应用运行稳定性问题，参考 nfc-tag开发指南 。 导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考 syscap开发指南 。
 
 
 
@@ -778,13 +778,13 @@ export default class MainAbility extends UIAbility {
 
 
 
-#### tag.on11+
+#### tag.on('readerMode')11+
 
 **支持设备：** Phone | Wearable
 
 on(type: 'readerMode', elementName: [ElementName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-elementname), discTech: number[], callback: AsyncCallback<[TagInfo](#taginfo)>): void
 
-订阅NFC Tag读卡事件，实现前台应用优先分发。设备会进入读卡器模式，同时关闭卡模拟。通过discTech设置支持的读卡技术类型，通过callback方式获取到Tag的[TagInfo](#taginfo)信息。需要与取消读卡器模式的[tag.off](#tagoff11)成对使用，如果已通过on进行设置，需要在页面退出前台或页面销毁时调用[tag.off](#tagoff11)。使用callback异步回调。
+订阅NFC Tag读卡事件，实现前台应用优先分发。设备会进入读卡器模式，同时关闭卡模拟。通过discTech设置支持的读卡技术类型，通过callback方式获取到Tag的[TagInfo](#taginfo)信息。需要与取消读卡器模式的[tag.off](#tagoffreadermode11)成对使用，如果已通过on进行设置，需要在页面退出前台或页面销毁时调用[tag.off](#tagoffreadermode11)。使用callback异步回调。与注册读卡器模式的[tag.on](#tagonreadermodewithinterval23)互斥使用。
 
 **需要权限：** ohos.permission.NFC_TAG
 
@@ -817,17 +817,17 @@ on(type: 'readerMode', elementName: [ElementName](https://developer.huawei.com/c
 
 **示例：**
 
-示例请参见[tag.off](#tagoff11)接口的示例。
+示例请参见[tag.off](#tagoffreadermode11)接口的示例。
 
 
 
-#### tag.off11+
+#### tag.off('readerMode')11+
 
 **支持设备：** Phone | Wearable
 
 off(type: 'readerMode', elementName: [ElementName](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bundlemanager-elementname), callback?: AsyncCallback<[TagInfo](#taginfo)>): void
 
-取消订阅NFC Tag读卡事件。设备退出读卡模式，并恢复卡模拟。如果已通过[tag.on](#tagon11)设置NFC的读卡器模式，需要在页面退出前台或页面销毁时调用off进行取消。
+取消订阅NFC Tag读卡事件。设备退出读卡模式，并恢复卡模拟。如果已通过[tag.on](#tagonreadermode11)设置NFC的读卡器模式，需要在页面退出前台或页面销毁时调用off进行取消。
 
 **需要权限：** ohos.permission.NFC_TAG
 
@@ -841,7 +841,7 @@ off(type: 'readerMode', elementName: [ElementName](https://developer.huawei.com/
 | --- | --- | --- | --- |
 | type | string | 是 | 要注销的回调类型，固定填"readerMode"字符串。 |
 | elementName | ElementName | 是 | 所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。 |
-| callback | AsyncCallback&lt;TagInfo&gt; | 否 | 前台读卡监听回调函数，返回读到的Tag信息。 |
+| callback | AsyncCallback&lt;TagInfo&gt; | 否 | 前台读卡监听回调函数，返回读到的Tag信息。不填该参数则取消订阅该type对应的读卡回调。 |
 
 
 **错误码：**
@@ -920,7 +920,7 @@ export default class MainAbility extends UIAbility {
 
 
 
-#### tag.on23+
+#### tag.on('readerModeWithInterval')23+
 
 **支持设备：** Phone | Wearable
 
@@ -930,7 +930,8 @@ on(type: 'readerModeWithInterval', elementName: ElementName, discTech: number[],
 
  - 设备会进入读卡器模式，同时关闭卡模拟。
  - 通过discTech设置支持的读卡技术类型，通过callback方式获取到Tag的[TagInfo](#taginfo)信息，通过interval设置卡在位检测间隔。
- - 需要与取消读卡器模式的[tag.off](#tagoff23)成对使用，如果已通过on进行设置，需要在页面退出前台或页面销毁时调用[tag.off](#tagoff23)。
+ - 需要与取消读卡器模式的[tag.off](#tagoffreadermodewithinterval23)成对使用，如果已通过on进行设置，需要在页面退出前台或页面销毁时调用[tag.off](#tagoffreadermodewithinterval23)。
+ - 与注册读卡器模式的[tag.on](#tagonreadermode11)互斥使用。
 
 
 **需要权限：** ohos.permission.NFC_TAG
@@ -945,9 +946,9 @@ on(type: 'readerModeWithInterval', elementName: ElementName, discTech: number[],
 | --- | --- | --- | --- |
 | type | string | 是 | 要注册的回调类型，固定填"readerModeWithInterval"字符串。 |
 | elementName | ElementName | 是 | 所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值）。 |
-| discTech | number[] | 是 | 前台应用指定的NFC读卡技术类型，至少指定一种读卡技术类型。每个number值表示所支持技术类型的常量值型，根据number值设置NFC读卡轮询的Tag技术类型（仅包含NFC_A, NFC_B, NFC_F, NFC_V中的一种或多种）。 |
+| discTech | number[] | 是 | 前台应用指定的NFC读卡技术类型，至少指定一种读卡技术类型。每个number值表示所支持技术类型的常量值型，根据number值设置NFC读卡轮询的Tag技术类型（仅包含NFC_A, NFC_B, NFC_F, NFC_V。 |
 | callback | Callback&lt;TagInfo&gt; | 是 | 读卡器模式监听回调函数，返回读到的Tag信息。 |
-| interval | number | 是 | 设置卡在位检测间隔，单位为ms。 |
+| interval | number | 是 | 设置卡在位检测间隔，单位为ms。推荐范围100-2000，若传入负值则不生效，系统会使用默认卡在位间隔（150ms）。 |
 
 
 **错误码：**
@@ -964,17 +965,17 @@ on(type: 'readerModeWithInterval', elementName: ElementName, discTech: number[],
 
 **示例：**
 
-示例请参见[tag.off](#tagoff23)接口的示例。
+示例请参见[tag.off](#tagoffreadermodewithinterval23)接口的示例。
 
 
 
-#### tag.off23+
+#### tag.off('readerModeWithInterval')23+
 
 **支持设备：** Phone | Wearable
 
 off(type: 'readerModeWithInterval', elementName: ElementName, callback?: Callback&lt;TagInfo&gt;): void
 
-取消订阅NFC Tag读卡事件。设备退出读卡模式，并恢复卡模拟。如果已通过[tag.on](#tagon23)设置NFC的读卡器模式，需要在页面退出前台或页面销毁时调用off进行取消。使用callback异步回调。
+取消订阅NFC Tag读卡事件。设备退出读卡模式，并恢复卡模拟。如果已通过[tag.on](#tagonreadermodewithinterval23)设置NFC的读卡器模式，需要在页面退出前台或页面销毁时调用[tag.off](#tagoffreadermodewithinterval23)进行取消。使用callback异步回调。
 
 **需要权限：** ohos.permission.NFC_TAG
 
@@ -988,7 +989,7 @@ off(type: 'readerModeWithInterval', elementName: ElementName, callback?: Callbac
 | --- | --- | --- | --- |
 | type | string | 是 | 要注销的回调类型，固定填"readerModeWithInterval"字符串。 |
 | elementName | ElementName | 是 | 所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值）。 |
-| callback | Callback&lt;TagInfo&gt; | 否 | 前台读卡监听回调函数，返回读到的Tag信息。 |
+| callback | Callback&lt;TagInfo&gt; | 否 | 前台读卡监听回调函数，返回读到的Tag信息。不填该参数则取消订阅该type对应的读卡回调。 |
 
 
 **错误码：**
@@ -1128,7 +1129,7 @@ try {
 
 makeTextRecord(text: string, locale: string): NdefRecord
 
-根据输入的文本数据和编码类型，构建NDEF标签的Record。
+根据输入的文本数据和语言类型，构建NDEF标签的Record。
 
 **系统能力：** SystemCapability.Communication.NFC.Tag
 
@@ -1138,8 +1139,8 @@ makeTextRecord(text: string, locale: string): NdefRecord
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| text | string | 是 | 写入到NDEF Record里面的文本数据内容。 |
-| locale | string | 是 | 文本数据内容的编码方式。 |
+| text | string | 是 | 写入到NDEF Record里面的文本数据内容。长度小于待写入的NFC标签容量。 |
+| locale | string | 是 | Record中记录文本的语言类型。长度小于待写入的NFC标签容量。 |
 
 
 **返回值：**

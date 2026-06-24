@@ -1,6 +1,6 @@
 # customDialog里面页面跳转后，页面显示在弹窗下面，怎么调整
 
-更新时间：2026-04-27 09:10:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-463
 

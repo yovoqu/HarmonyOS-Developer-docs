@@ -1,6 +1,6 @@
 # @BuilderParam装饰器：引用@Builder函数
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builderparam
 
@@ -532,7 +532,7 @@ struct HelloWorldPage {
 示例效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/GwS_WFRbSMeFKgnrug5Dzg/zh-cn_image_0000002611753573.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=55AA62C3A4475D7CAFE7053ADBD874AA54749867D214A6ECB7CB5A4B5472E729)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/z-in0bTDRIKHaFXlFHNNAg/zh-cn_image_0000002656347459.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=51CFD2B714A01002E44A11545FEBD4A459C9CAAC2B887DAB27304C1705BD7D8C)
 
 
 
@@ -622,7 +622,7 @@ struct ParentPage {
 示例效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/2zGWGOJKTDmQf3HqhnolUg/zh-cn_image_0000002581433638.png?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=E4441421F77F3C2C14E63D1E19CAF34CA6294E2A4371DD92A2FEF87B57421BE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/iLpALvmbSKKDR2VFkt-Elw/zh-cn_image_0000002626228044.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=D9E561F23ECD8761D9DBFDCF32983BE40D7BD52CBE2AD2BDABA6BEC2B96DE95D)
 
 
 
@@ -712,7 +712,7 @@ struct ParentPage {
 示例效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/2k6mgo8HTNOhJcdqiK1Yeg/zh-cn_image_0000002611833467.png?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=856F5CE5E4F48A50C9049DA36C980A645EE0D70C8A13A90D7B7AB4B969C26C9F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/0f0ygZgdTGimnQGfzF-yzQ/zh-cn_image_0000002626068136.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=E9D9C65D9BCE751A1566D8BBC69138EBE9BC660782D99D85B877D8B8E488D2E1)
 
 
 

@@ -1,6 +1,6 @@
 # Class (ImageFilter)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-imagefilter
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,8 +36,8 @@ static createBlurImageFilter(sigmaX: number, sigmaY: number, tileMode: TileMode,
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sigmaX | number | 是 | 表示沿x轴方向上高斯模糊的标准差，必须大于0，该参数为浮点数。 |
-| sigmaY | number | 是 | 表示沿y轴方向上高斯模糊的标准差，必须大于0，该参数为浮点数。 |
+| sigmaX | number | 是 | 表示沿x轴方向上高斯模糊的标准差，必须大于0，该参数为浮点数。单位为物理像素px。 |
+| sigmaY | number | 是 | 表示沿y轴方向上高斯模糊的标准差，必须大于0，该参数为浮点数。单位为物理像素px。 |
 | tileMode | TileMode | 是 | 表示在边缘处应用的平铺模式。 |
 | imageFilter | ImageFilter \| null | 否 | 要与当前图像滤波器叠加的输入滤波器，默认为null，表示直接将当前图像滤波器作用于原始图像。 |
 
@@ -301,8 +301,8 @@ static createOffsetImageFilter(dx: number, dy: number, input?: ImageFilter | nul
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| dx | number | 是 | 水平方向的平移距离， 该参数为浮点数。 |
-| dy | number | 是 | 竖直方向的平移距离， 该参数为浮点数。 |
+| dx | number | 是 | 水平方向的平移距离，该参数为浮点数。单位为物理像素px。 |
+| dy | number | 是 | 竖直方向的平移距离，该参数为浮点数。单位为物理像素px。 |
 | input | ImageFilter \| null | 否 | 需进行平移的滤波器。默认为空，如果为空，则将无滤波效果的绘制结果进行平移。 |
 
 

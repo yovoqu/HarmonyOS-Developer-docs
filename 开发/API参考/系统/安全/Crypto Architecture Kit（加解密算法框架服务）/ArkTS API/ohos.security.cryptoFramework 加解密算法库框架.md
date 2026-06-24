@@ -1,6 +1,6 @@
 # @ohos.security.cryptoFramework (加解密算法库框架)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -37,6 +37,7 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 | ERR_OUT_OF_MEMORY | 17620001 | 内存操作失败。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | ERR_RUNTIME_ERROR | 17620002 | 表示在ArkTS和C之间转换参数失败。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | ERR_PARAMETER_CHECK_FAILED20+ | 17620003 | 表示参数检查失败。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
+| ERR_INVALID_CALL | 17620004 | 表示无效的函数调用。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 | ERR_CRYPTO_OPERATION | 17630001 | 调用三方算法库API出错。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 
 
@@ -133,13 +134,13 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| iv | DataBlob | 否 | 否 | 指明加解密参数iv，长度为1~16字节，常用为12字节。 |
+| iv | DataBlob | 否 | 否 | 指明加解密参数iv，长度为1~128字节，常用为12字节。 |
 | aad | DataBlob | 否 | 否 | 指明加解密参数aad，长度为0~INT_MAX字节，常用为16字节。 |
 | authTag | DataBlob | 否 | 否 | 指明加解密参数authTag，长度为16字节。 采用GCM模式加密时，需从doFinal()或doFinalSync()输出的DataBlob中提取末尾16字节，作为init()或initSync()方法中GcmParamsSpec的authTag。 |
 
 
 > [!NOTE]
-> 传入 init() 方法前需要指定其algName属性（来源于父类 ParamsSpec ）。 对于1~16字节长度的iv，加解密算法库无额外限制，但结果取决于底层openssl的支持情况。 当aad参数不需要使用或aad长度为0时，可以将aad的data属性设置为一个空的Uint8Array，来构造GcmParamsSpec，写法为aad: { data: new Uint8Array() }。
+> 传入 init() 方法前需要指定其algName属性（来源于父类 ParamsSpec ）。 对于1~128字节长度的iv，加解密算法库无额外限制，但结果取决于底层OpenSSL的支持情况。 当aad参数不需要使用或aad长度为0时，可以将aad的data属性设置为一个空的Uint8Array，来构造GcmParamsSpec，写法为aad: { data: new Uint8Array() }。
 
 
 
@@ -192,6 +193,35 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 > [!NOTE]
 > 传入 init() 方法前需要指定其algName属性（来源于父类 ParamsSpec ）。 在Poly1305模式加密时，需从 doFinal() 或 doFinalSync() 输出的 DataBlob 末尾提取16字节，作为解密时 init() 或 initSync() 方法的参数 Poly1305ParamsSpec 中的authTag。
+
+
+
+
+#### AeadParamsSpec
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+用于AEAD（带关联数据的认证加密）对称加解密的[init()](#init-1)方法参数，继承自[ParamsSpec](#paramsspec)。
+
+适用于[AES算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-encrypt-decrypt-spec#aes)的CCM分组模式。
+
+> [!NOTE]
+> 在AES-CCM模式下使用AeadParamsSpec加密时： 若加密时指定了tag长度，解密时必须传入相同长度。 当前使用AeadParamsSpec参数，CCM模式下 update 与 doFinal 只能调用其中一个进行加密或者解密。且每个方法只能调用一次。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.CryptoFramework.Cipher
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| nonce | Uint8Array | 否 | 否 | 指明加解密参数nonce。对于AES算法的CCM模式长度为7-13字节；对于AES算法的GCM模式、SM4算法的GCM模式长度为1-128字节；对于ChaCha20算法的Poly1305模式长度为12字节。 |
+| authenticatedData | Uint8Array | 否 | 是 | 指明加解密参数aad，长度为任意字节。 |
+| tagLen | number | 否 | 是 | 指定加解密参数authTag长度，对于AES-CCM若不填则长度默认为12字节。tagLen长度范围为4-16，并且为偶数。 |
 
 
 
@@ -264,6 +294,31 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 
 
+#### AsyKeyDataItem
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示非对称密钥数据项类型的枚举。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| EC_PRIVATE_K | 6 | 表示椭圆曲线（EC）私钥的 K。 |
+| EC_PRIVATE_04_X_Y_K | 7 | 表示椭圆曲线（EC）私钥的 04\|\|X\|\|Y\|\|K。 |
+| EC_PUBLIC_X_Y | 8 | 表示椭圆曲线（EC）公钥的 X\|\|Y。 |
+| EC_PUBLIC_04_X_Y | 9 | 表示椭圆曲线（EC）公钥的 04\|\|X\|\|Y。 |
+| EC_PUBLIC_COMPRESS_X | 10 | 表示椭圆曲线（EC）公钥的 02\|\|X 或 03\|\|X。 |
+
+
+
+
 #### AsyKeySpecType10+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -298,7 +353,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **系统能力：** SystemCapability.Security.CryptoFramework.Cipher
 
-API version 10-11 系统能力为 SystemCapability.Security.CryptoFramework；从 API version 12 开始为SystemCapability.Security.CryptoFramework.Cipher
+API version 10-11 系统能力为 SystemCapability.Security.CryptoFramework；从 API version 12 开始为SystemCapability.Security.CryptoFramework.Cipher。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -454,7 +509,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
 
-API version 10-11系统能力为SystemCapability.Security.CryptoFramework。从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
+API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从API version 12开始为SystemCapability.Security.CryptoFramework.Key.AsymKey。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -951,7 +1006,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 
 > [!NOTE]
-> passphrase指的是原始密码，如果使用string类型，需要直接传入用于密钥派生的数据，而不是HexString、base64等字符串类型，同时需要确保该字符串为utf-8编码，否则派生结果会有差异。
+> passphrase指的是原始密码，如果使用string类型，需要直接传入用于密钥派生的数据，而不是HexString、base64等字符串类型，同时需要确保该字符串为UTF-8编码，否则派生结果会有差异。
 
 
 
@@ -1092,7 +1147,7 @@ RSA私钥编码参数，使用获取私钥字符串时，可以添加此参数�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-包含（r、s）的sm2签名数据的结构体。
+包含（r、s）的ECC/SM2签名数据的结构体。
 
 > [!NOTE]
 > r和s的长度各为256位。
@@ -1144,7 +1199,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 getEncoded(): DataBlob
 
-同步方法，获取密钥数据的字节流。密钥可以是对称密钥、公钥或私钥。公钥格式需符合ASN.1语法、X.509规范和DER编码；私钥格式需符合ASN.1语法、PKCS#8规范和DER编码。
+同步方法，获取密钥数据的字节流。密钥可以是对称密钥、公钥或私钥。公钥格式需符合ASN.1语法、X.509规范和DER编码；私钥格式需符合ASN.1语法、PKCS #8规范和DER编码。
 
 > [!NOTE]
 > RSA算法使用密钥参数生成私钥时，私钥对象支持getEncoded。
@@ -1165,7 +1220,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1184,6 +1239,55 @@ async function testGenerateAesKey() {
   let symKey = await symKeyGenerator.generateSymKey();
   let encodedKey = symKey.getEncoded();
   console.info('key hex: ' + encodedKey.data);
+}
+```
+
+
+
+#### getKeySize
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getKeySize(): number
+
+以同步方式获取密钥的比特长度。密钥可以是对称密钥、公钥或私钥。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.CryptoFramework.Key
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| number | 获取密钥的比特长度。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17620001 | memory operation failed. |
+| 17620002 | failed to convert parameters between arkts and c. |
+| 17630001 | crypto operation error. |
+
+
+**示例：**
+
+```text
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+
+async function testGenerateAesKey() {
+  let symKeyGenerator = cryptoFramework.createSymKeyGenerator('AES256');
+  let symKey = await symKeyGenerator.generateSymKey();
+  let symKeyLen = symKey.getKeySize();
+  console.info('keysize is: ' + symKeyLen);
 }
 ```
 
@@ -1271,7 +1375,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1279,6 +1383,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 | 801 | this operation is not supported. |
 | 17620001 | memory operation failed. |
 | 17630001 | crypto operation error. |
+| 17620003 | parameter check failed. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -1341,7 +1446,7 @@ getEncodedDer(format: string): DataBlob
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| format | string | 是 | 用于指定当前密钥格式，取值仅支持"X509\|COMPRESSED"和"X509\|UNCOMPRESSED"。 |
+| format | string | 是 | 用于指定当前密钥格式。 在API版本12-24，取值仅支持"X509\|COMPRESSED"和"X509\|UNCOMPRESSED"。 从API版本26.0.0开始，RSA公钥格式取值支持"PKCS1"和"X509"。 |
 
 
 **返回值：**
@@ -1353,7 +1458,7 @@ getEncodedDer(format: string): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1386,7 +1491,7 @@ async function testGetEncodedDer() {
 
 getEncodedPem(format: string): string
 
-同步方法，获取密钥数据的字符串。密钥可以是RSA公钥或私钥。公钥需符合X.509、PKCS#1规范，并采用PEM编码。
+同步方法，获取密钥数据的字符串。密钥可以是RSA公钥或私钥。公钥需符合X.509、PKCS #1规范，并采用PEM编码。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1408,13 +1513,14 @@ getEncodedPem(format: string): string
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17630001 | crypto operation error. |
+| 17620003 | parameter check failed. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -1435,6 +1541,120 @@ function TestPubKeyPkcs1ToX509BySync1024() {
   let pubPemKey = keyPair.pubKey;
   let pubString = pubPemKey.getEncodedPem('X509');
   console.info('[sync]TestPubKeyPkcs1ToX509BySync1024 pubString output = ' + pubString);
+}
+```
+
+
+
+#### getKeyData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getKeyData(itemType: AsyKeyDataItem): Promise&lt;Uint8Array&gt;
+
+指定密钥数据项类型，获取对应类型的公钥数据。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| itemType | AsyKeyDataItem | 是 | 指定密钥数据项类型。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;Uint8Array&gt; | Promise对象，返回指定密钥数据项类型的公钥数据。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17620001 | memory operation failed. |
+| 17620002 | failed to convert parameters between arkts and c. |
+| 17620003 | parameter check failed. |
+| 17630001 | crypto operation error. |
+
+
+**示例：**
+
+```text
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+
+async function eccGetKeyDataTest() {
+  let eccGenerator = cryptoFramework.createAsyKeyGenerator('ECC_BrainPoolP256r1');
+  let keyPair = await eccGenerator.generateKeyPair();
+  let returnBlob = await keyPair.pubKey.getKeyData(cryptoFramework.AsyKeyDataItem.EC_PUBLIC_X_Y);
+  console.info('EC_PUBLIC_X_Y data: ' + returnBlob);
+}
+```
+
+
+
+#### getKeyDataSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getKeyDataSync(itemType: AsyKeyDataItem): Uint8Array
+
+同步方法，指定密钥数据项类型，获取对应类型的公钥数据。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| itemType | AsyKeyDataItem | 是 | 指定密钥数据项类型。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Uint8Array | 返回指定密钥数据项类型的公钥数据。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17620001 | memory operation failed. |
+| 17620002 | failed to convert parameters between arkts and c. |
+| 17620003 | parameter check failed. |
+| 17630001 | crypto operation error. |
+
+
+**示例：**
+
+```text
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+
+function eccGetKeyDataTest() {
+  let eccGenerator = cryptoFramework.createAsyKeyGenerator('ECC_BrainPoolP256r1');
+  let keyPair = eccGenerator.generateKeyPairSync();
+  let returnBlob = keyPair.pubKey.getKeyDataSync(cryptoFramework.AsyKeyDataItem.EC_PUBLIC_X_Y);
+  console.info('EC_PUBLIC_X_Y data: ' + returnBlob);
 }
 ```
 
@@ -1514,7 +1734,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1522,6 +1742,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 | 801 | this operation is not supported. |
 | 17620001 | memory operation failed. |
 | 17630001 | crypto operation error. |
+| 17620003 | parameter check failed. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -1569,10 +1790,14 @@ async function testgetAsyKeySpec() {
 
 getEncodedDer(format: string): DataBlob
 
-支持根据指定的密钥格式（如采用哪个规范），获取满足ASN.1语法、DER编码的私钥数据。当前仅支持获取PKCS8格式的ecc私钥数据。
+支持根据指定的密钥格式（如采用哪个规范），获取满足ASN.1语法、DER编码的私钥数据。
+
+在API版本12-24，仅支持获取PKCS8格式的ECC私钥数据。
+
+从API版本26.0.0开始，增加支持获取PKCS1和PKCS8格式的RSA私钥数据。
 
 > [!NOTE]
-> 本接口和 Key.getEncoded() 的区别是： 本接口可根据入参决定数据的输出格式，当前支持获取PKCS8格式的ecc私钥数据。 Key.getEncoded() 接口，不支持指定密钥格式。
+> 本接口和 Key.getEncoded() 的区别是： 本接口可根据入参决定数据的输出格式，当前支持获取PKCS8格式的ECC私钥数据。 Key.getEncoded() 接口，不支持指定密钥格式。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1583,7 +1808,7 @@ getEncodedDer(format: string): DataBlob
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| format | string | 是 | 用于指定当前密钥格式，取值当前仅支持"PKCS8"。 |
+| format | string | 是 | 用于指定当前密钥格式。 在API版本12-24，取值仅支持"PKCS8"。 从API版本26.0.0开始，RSA私钥格式支持"PKCS1"和"PKCS8"。 |
 
 
 **返回值：**
@@ -1595,13 +1820,14 @@ getEncodedDer(format: string): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17630001 | crypto operation error. |
+| 17620003 | parameter check failed. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -1629,7 +1855,7 @@ async function testGetEncodedDer() {
 
 getEncodedPem(format: string): string
 
-同步方法，获取密钥数据的字符串。密钥可以是RSA公钥或私钥。私钥格式需符合PKCS#8、PKCS#1规范，并采用PEM编码。
+同步方法，获取密钥数据的字符串。密钥可以是RSA公钥或私钥。私钥格式需符合PKCS #8、PKCS #1规范，并采用PEM编码。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1639,7 +1865,7 @@ getEncodedPem(format: string): string
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| format | string | 是 | 指定的获取密钥字符串的编码格式。其中，私钥可为'PKCS1' 或'PKCS8'格式。 |
+| format | string | 是 | 指定的获取密钥字符串的编码格式。其中，私钥可为'PKCS1' 或'PKCS8'格式。从API版本26.0.0起，ECC算法的私钥可为'EC'格式。 |
 
 
 **返回值：**
@@ -1651,13 +1877,14 @@ getEncodedPem(format: string): string
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17630001 | crypto operation error. |
+| 17620003 | parameter check failed. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -1699,7 +1926,7 @@ function TestPriKeyPkcs1ToPkcs8BySync1024() {
 
 getEncodedPem(format: string, config: KeyEncodingConfig): string
 
-同步方法，获取密钥数据的字符串。支持RSA公钥和私钥。私钥格式满足PKCS#8规范、PKCS#1规范和PEM编码方式。
+同步方法，获取密钥数据的字符串。支持RSA公钥和私钥。私钥格式满足PKCS #8规范、PKCS #1规范和PEM编码方式。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -1710,7 +1937,7 @@ getEncodedPem(format: string, config: KeyEncodingConfig): string
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | format | string | 是 | 指定的获取密钥字符串的编码格式。其中，私钥可为'PKCS1' 或'PKCS8'格式。 |
-| config | KeyEncodingConfig | 是 | 指定编码的算法跟口令，对私钥进行编码操作。 |
+| config | KeyEncodingConfig | 是 | 指定编码的算法和口令，对私钥进行编码操作。 |
 
 
 **返回值：**
@@ -1722,7 +1949,7 @@ getEncodedPem(format: string, config: KeyEncodingConfig): string
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1790,7 +2017,7 @@ getPubKey(): Promise&lt;PubKey&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1892,7 +2119,7 @@ getPubKeySync(): PubKey
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1973,6 +2200,120 @@ function generateAsyKey() {
 
 
 
+#### getKeyData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getKeyData(itemType: AsyKeyDataItem): Promise&lt;Uint8Array&gt;
+
+指定密钥数据项类型，获取对应类型的公钥数据。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| itemType | AsyKeyDataItem | 是 | 指定密钥数据项类型。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;Uint8Array&gt; | Promise对象，返回指定密钥数据项类型的私钥数据。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17620001 | memory operation failed. |
+| 17620002 | failed to convert parameters between arkts and c. |
+| 17620003 | parameter check failed. |
+| 17630001 | crypto operation error. |
+
+
+**示例：**
+
+```text
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+
+async function eccGetKeyDataTest() {
+  let eccGenerator = cryptoFramework.createAsyKeyGenerator('ECC_BrainPoolP256r1');
+  let keyPair = await eccGenerator.generateKeyPair();
+  let returnBlob = await keyPair.priKey.getKeyData(cryptoFramework.AsyKeyDataItem.EC_PRIVATE_04_X_Y_K);
+  console.info('EC_PRIVATE_04_X_Y_K data: ' + returnBlob);
+}
+```
+
+
+
+#### getKeyDataSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getKeyDataSync(itemType: AsyKeyDataItem): Uint8Array
+
+同步方法，指定密钥数据项类型，获取对应类型的私钥数据。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.CryptoFramework.Key.AsymKey
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| itemType | AsyKeyDataItem | 是 | 指定密钥数据项类型。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Uint8Array | 返回指定密钥数据项类型的私钥数据。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 17620001 | memory operation failed. |
+| 17620002 | failed to convert parameters between arkts and c. |
+| 17620003 | parameter check failed. |
+| 17630001 | crypto operation error. |
+
+
+**示例：**
+
+```text
+import { cryptoFramework } from '@kit.CryptoArchitectureKit';
+
+function eccGetKeyDataTest() {
+  let eccGenerator = cryptoFramework.createAsyKeyGenerator('ECC_BrainPoolP256r1');
+  let keyPair = eccGenerator.generateKeyPairSync();
+  let returnBlob = keyPair.priKey.getKeyDataSync(cryptoFramework.AsyKeyDataItem.EC_PRIVATE_04_X_Y_K);
+  console.info('EC_PRIVATE_04_X_Y_K data: ' + returnBlob);
+}
+```
+
+
+
 #### KeyPair
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2037,7 +2378,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2113,11 +2454,12 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17620001 | memory operation failed. |
+| 17620004 | invalid function call. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -2160,11 +2502,12 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17620001 | memory operation failed. |
+| 17620004 | invalid function call. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -2213,11 +2556,12 @@ generateSymKeySync(): SymKey
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 17620001 | memory operation failed. |
+| 17620004 | invalid function call. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -2267,12 +2611,13 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
+| 17620003 | parameter check failed. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -2332,12 +2677,13 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
+| 17620003 | parameter check failed. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -2403,12 +2749,13 @@ convertKeySync(key: DataBlob): SymKey
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
+| 17620003 | parameter check failed. 适用版本：26.0.0+ |
 
 
 **示例：**
@@ -2464,7 +2811,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2531,7 +2878,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2580,7 +2927,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2627,7 +2974,7 @@ generateKeyPairSync(): KeyPair
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2681,7 +3028,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2748,7 +3095,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2813,7 +3160,7 @@ convertKeySync(pubKey: DataBlob | null, priKey: DataBlob | null): KeyPair
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2861,7 +3208,7 @@ convertPemKey(pubKey: string | null, priKey: string | null): Promise&lt;KeyPair&
 解析密钥数据，生成非对称密钥对象。使用Promise异步回调。
 
 > [!NOTE]
-> 当调用convertPemKey方法将外来字符串数据转换为算法库非对称密钥对象时，公钥应满足ASN.1语法、X.509规范、PEM编码格式，私钥应满足ASN.1语法、PKCS#8规范、PEM编码格式。 convertPemKey方法中，公钥和私钥字符串数据为非必选项，可单独传入公钥或私钥的数据，生成对应只包含公钥或私钥的KeyPair对象。 convertPemKey方法将外来字符串数据转换为算法库非对称密钥对象时，不会校验生成的密钥对象的规格与创建非对称密钥生成器时指定的密钥规格是否一致。
+> 当调用convertPemKey方法将外来字符串数据转换为算法库非对称密钥对象时，公钥应满足ASN.1语法、X.509规范、PEM编码格式，私钥应满足ASN.1语法、PKCS #8规范、PEM编码格式。 convertPemKey方法中，公钥和私钥字符串数据为非必选项，可单独传入公钥或私钥的数据，生成对应只包含公钥或私钥的KeyPair对象。 convertPemKey方法将外来字符串数据转换为算法库非对称密钥对象时，不会校验生成的密钥对象的规格与创建非对称密钥生成器时指定的密钥规格是否一致。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -2885,7 +3232,7 @@ convertPemKey(pubKey: string | null, priKey: string | null): Promise&lt;KeyPair&
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2945,7 +3292,7 @@ convertPemKey(pubKey: string | null, priKey: string | null, password: string): P
 解析密钥数据，生成非对称密钥对象。支持加密的私钥，同步传入私钥口令解密私钥。使用Promise异步回调。
 
 > [!NOTE]
-> 当调用convertPemKey方法将外来字符串数据转换为算法库非对称密钥对象时，公钥应满足ASN.1语法、X.509规范、PEM编码格式，私钥应满足ASN.1语法、PKCS#8规范、PEM编码格式。 convertPemKey方法中，公钥和私钥字符串数据为非必选项，可单独传入公钥或私钥的数据，生成对应只包含公钥或私钥的KeyPair对象。 convertPemKey方法将外来字符串数据转换为算法库非对称密钥对象时，不会校验生成的密钥对象的规格与创建非对称密钥生成器时指定的密钥规格是否一致。 password为口令，传入后可以解密加密后的私钥。
+> 当调用convertPemKey方法将外来字符串数据转换为算法库非对称密钥对象时，公钥应满足ASN.1语法、X.509规范、PEM编码格式，私钥应满足ASN.1语法、PKCS #8规范、PEM编码格式。 convertPemKey方法中，公钥和私钥字符串数据为非必选项，可单独传入公钥或私钥的数据，生成对应只包含公钥或私钥的KeyPair对象。 convertPemKey方法将外来字符串数据转换为算法库非对称密钥对象时，不会校验生成的密钥对象的规格与创建非对称密钥生成器时指定的密钥规格是否一致。 password为口令，传入后可以解密加密后的私钥。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -2970,7 +3317,7 @@ convertPemKey(pubKey: string | null, priKey: string | null, password: string): P
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3050,7 +3397,7 @@ convertPemKeySync(pubKey: string | null, priKey: string | null): KeyPair
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3138,7 +3485,7 @@ convertPemKeySync(pubKey: string | null, priKey: string | null, password: string
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3218,7 +3565,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3313,7 +3660,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3392,7 +3739,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3469,7 +3816,7 @@ generateKeyPairSync(): KeyPair
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3553,7 +3900,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3632,7 +3979,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3709,7 +4056,7 @@ generatePriKeySync(): PriKey
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3791,7 +4138,7 @@ API version10-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3870,7 +4217,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3947,7 +4294,7 @@ generatePubKeySync(): PubKey
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4042,7 +4389,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4100,7 +4447,7 @@ static convertPoint(curveName: string, encodedPoint: Uint8Array): Point
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4155,7 +4502,7 @@ static getEncodedPoint(curveName: string, point: Point, format: string): Uint8Ar
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4227,7 +4574,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4290,7 +4637,7 @@ static genCipherTextBySpec(spec: SM2CipherTextSpec, mode?: string): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4352,7 +4699,7 @@ static getCipherTextSpec(cipherText: DataBlob, mode?: string): SM2CipherTextSpec
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4417,7 +4764,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4505,7 +4852,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4552,7 +4899,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4590,7 +4937,7 @@ initSync(opMode: CryptoMode, key: Key, params: ParamsSpec | null): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4633,7 +4980,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4682,7 +5029,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4727,7 +5074,7 @@ updateSync(data: DataBlob): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4774,7 +5121,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4885,7 +5232,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4987,7 +5334,7 @@ doFinalSync(data: DataBlob | null): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5071,7 +5418,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5126,7 +5473,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5181,7 +5528,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5271,7 +5618,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5315,7 +5662,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5350,7 +5697,7 @@ Sign类不支持重复调用initSync。
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5392,13 +5739,14 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17620002 | failed to convert parameters between arkts and c. |
+| 17620004 | invalid function call. |
 | 17630001 | crypto operation error. |
 
 
@@ -5440,13 +5788,14 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17620002 | failed to convert parameters between arkts and c. |
+| 17620004 | invalid function call. |
 | 17630001 | crypto operation error. |
 
 
@@ -5479,13 +5828,14 @@ updateSync(data: DataBlob): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17620002 | failed to convert parameters between arkts and c. |
+| 17620004 | invalid function call. |
 | 17630001 | crypto operation error. |
 
 
@@ -5515,7 +5865,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5557,7 +5907,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5597,7 +5947,7 @@ signSync(data: DataBlob | null): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5833,7 +6183,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5887,7 +6237,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -5942,7 +6292,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6024,7 +6374,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6066,7 +6416,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6099,7 +6449,7 @@ initSync(pubKey: PubKey): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6122,7 +6472,7 @@ update(data: DataBlob, callback: AsyncCallback&lt;void&gt;): void
 必须在对[Verify](#verify)实例使用[init](#init-4)初始化后，才能使用本函数。
 
 > [!NOTE]
-> 根据数据量，可以不调用update（即 init 完成后直接调用 verify ）或多次调用update。 算法库目前没有对update（单次或累计）的数据量设置大小限制，建议对于大数据量的验签操作，采用多次update的方式传入数据，避免一次性申请过大内存。 验签使用多次update操作的示例代码详见 使用RSA密钥对分段签名验签 ，其余算法操作类似。 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
+> 根据数据量，可以不调用update（即 init 完成后直接调用 verify ）或多次调用update。 算法库目前没有对update（单次或累计）的数据量设置大小限制，建议对于大数据量的验签操作，采用多次update的方式传入数据，避免一次性申请过大内存。 验签使用多次update操作的示例代码详见 使用RSA密钥对分段签名验签 ，其余算法操作类似。 OnlyVerify模式下，不支持update操作，直接使用verify传入数据即可。 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -6141,13 +6491,14 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17620002 | failed to convert parameters between arkts and c. |
+| 17620004 | invalid function call. |
 | 17630001 | crypto operation error. |
 
 
@@ -6164,7 +6515,7 @@ update(data: DataBlob): Promise&lt;void&gt;
 必须在对[Verify](#verify)实例使用[init()](#init-5)初始化后，才能使用本函数。
 
 > [!NOTE]
-> 根据数据量，可以不调用update（即 init 完成后直接调用 verify ）或多次调用update。 算法库目前没有对update（单次或累计）的数据量设置大小限制，建议对于大数据量的验签操作，采用多次update的方式传入数据，避免一次性申请过大内存。 验签使用多次update操作的示例代码详见 使用RSA密钥对分段签名验签 ，其余算法操作类似。 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
+> 根据数据量，可以不调用update（即 init 完成后直接调用 verify ）或多次调用update。 算法库目前没有对update（单次或累计）的数据量设置大小限制，建议对于大数据量的验签操作，采用多次update的方式传入数据，避免一次性申请过大内存。 验签使用多次update操作的示例代码详见 使用RSA密钥对分段签名验签 ，其余算法操作类似。 OnlyVerify模式下，不支持update操作，直接使用verify传入数据即可。 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持update操作，update接口会返回错误码ERR_CRYPTO_OPERATION。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -6189,13 +6540,14 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17620002 | failed to convert parameters between arkts and c. |
+| 17620004 | invalid function call. |
 | 17630001 | crypto operation error. |
 
 
@@ -6212,7 +6564,7 @@ updateSync(data: DataBlob): void
 必须在对[Verify](#verify)实例使用[initSync()](#initsync12-2)初始化后，才能使用本函数。
 
 > [!NOTE]
-> 根据数据量，可以不调用updateSync（即 initSync 完成后直接调用 verifySync ）或多次调用updateSync。 算法库目前没有对updateSync（单次或累计）的数据量设置大小限制，建议对于大数据量的验签操作，采用多次updateSync的方式传入数据，避免一次性申请过大内存。 验签使用多次updateSync操作的示例代码详见 使用RSA密钥对分段签名验签 ，其余算法操作类似。 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持updateSync操作，updateSync接口会返回错误码ERR_CRYPTO_OPERATION。
+> 根据数据量，可以不调用updateSync（即 initSync 完成后直接调用 verifySync ）或多次调用updateSync。 算法库目前没有对updateSync（单次或累计）的数据量设置大小限制，建议对于大数据量的验签操作，采用多次updateSync的方式传入数据，避免一次性申请过大内存。 验签使用多次updateSync操作的示例代码详见 使用RSA密钥对分段签名验签 ，其余算法操作类似。 OnlyVerify模式下，不支持update操作，需要直接使用verifySync传入数据。 当使用DSA算法进行验签，并设置了摘要算法为NoHash时，则不支持updateSync操作，updateSync接口会返回错误码ERR_CRYPTO_OPERATION。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -6228,13 +6580,14 @@ updateSync(data: DataBlob): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17620002 | failed to convert parameters between arkts and c. |
+| 17620004 | invalid function call. |
 | 17630001 | crypto operation error. |
 
 
@@ -6265,7 +6618,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6308,7 +6661,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6349,7 +6702,7 @@ verifySync(data: DataBlob | null, signatureData: DataBlob): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6619,13 +6972,14 @@ recover(signatureData: DataBlob): Promise<DataBlob | null>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17620002 | failed to convert parameters between arkts and c. |
+| 17620004 | invalid function call. |
 | 17630001 | crypto operation error. |
 
 
@@ -6741,13 +7095,14 @@ recoverSync(signatureData: DataBlob): DataBlob | null
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 17620001 | memory operation failed. |
 | 17620002 | failed to convert parameters between arkts and c. |
+| 17620004 | invalid function call. |
 | 17630001 | crypto operation error. |
 
 
@@ -6783,7 +7138,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6839,7 +7194,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6894,7 +7249,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6963,7 +7318,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7006,7 +7361,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7047,7 +7402,7 @@ generateSecretSync(priKey: PriKey, pubKey: PubKey): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7143,7 +7498,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7222,7 +7577,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7269,7 +7624,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7305,7 +7660,7 @@ updateSync(input: DataBlob): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7341,7 +7696,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7393,7 +7748,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7402,6 +7757,8 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 
 **示例：**
+
+ArkTS示例：
 
 ```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
@@ -7414,6 +7771,90 @@ async function mdByPromise() {
   console.info('[Promise]: MD result: ' + mdOutput.data);
   console.info('[Promise]: MD len: ' + md.getMdLength());
 }
+```
+
+JS示例：
+
+```xml
+<div class="container">
+    <text class="TestTitle">Crypto测试</text>
+    <input class="btn" @click="MdTest">Md异步测试</input>
+</div>
+```
+
+```text
+.container {
+  width: 100%;
+  height: 2000px;
+  align-items: center;
+  background-color: #fffefcfc;
+  flex-direction: column;
+  display: flex;
+}
+
+.TestTitle {
+  width: 300px;
+  height: 80px;
+  text-align: center;
+  background-color: white;
+  color: #fff61515;
+  font-size: 15fp;
+}
+
+.btn {
+  width: 90%;
+  height: 80px;
+  text-align: center;
+  background-color: #fff17f04;
+  margin-top: 3px;
+  color: white;
+  font-size: 20fp;
+}
+```
+
+```text
+import cryptoFramework from '@ohos.security.cryptoFramework';
+
+function StringToUint8Array(str) {
+    let arr = [];
+    for (let i = 0, j = str.length; i < j; ++i) {
+        arr.push(str.charCodeAt(i));
+    }
+    return new Uint8Array(arr);
+}
+
+let plainText = "123456";
+
+function mdTest() {
+    let inData = StringToUint8Array(plainText);
+    let md = cryptoFramework.createMd('SHA256');
+    console.info("createMd " + typeof md);
+
+    md.update({data: inData}, function (finishErr) {
+        if (finishErr) {
+            console.error("Digest update failed. Code:" + finishErr.code + " : " + finishErr.message);
+        } else {
+            console.info("Digest update successfully.");
+        }
+    })
+
+    md.digest(function (finishErr, digestOutput){
+        if (finishErr) {
+            console.error("Digest failed. Code:" + finishErr.code + " : " + finishErr.message);
+        } else {
+            console.info("Digest successfully:" + digestOutput);
+        }
+    })
+}
+
+export default {
+    data: {
+        result: ''
+    },
+    MdTest() {
+        mdTest();
+    }
+};
 ```
 
 
@@ -7439,7 +7880,7 @@ digestSync(): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7450,6 +7891,8 @@ digestSync(): DataBlob
 
 
 **示例：**
+
+ArkTS示例：
 
 ```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
@@ -7462,6 +7905,77 @@ function mdBySync() {
   console.info('[Sync]: MD result: ' + mdOutput.data);
   console.info('[Sync]: MD len: ' + md.getMdLength());
 }
+```
+
+JS示例：
+
+```xml
+<div class="container">
+    <text class="TestTitle">Crypto测试</text>
+    <input class="btn" @click="MdTestSync">Md同步测试</input>
+</div>
+```
+
+```text
+.container {
+  width: 100%;
+  height: 2000px;
+  align-items: center;
+  background-color: #fffefcfc;
+  flex-direction: column;
+  display: flex;
+}
+
+.TestTitle {
+  width: 300px;
+  height: 80px;
+  text-align: center;
+  background-color: white;
+  color: #fff61515;
+  font-size: 15fp;
+}
+
+.btn {
+  width: 90%;
+  height: 80px;
+  text-align: center;
+  background-color: #fff17f04;
+  margin-top: 3px;
+  color: white;
+  font-size: 20fp;
+}
+```
+
+```text
+import cryptoFramework from '@ohos.security.cryptoFramework';
+
+function StringToUint8Array(str) {
+    let arr = [];
+    for (let i = 0, j = str.length; i < j; ++i) {
+        arr.push(str.charCodeAt(i));
+    }
+    return new Uint8Array(arr);
+}
+
+function mdTestSync() {
+    let mdAlgName = 'SHA256';
+    let message = 'mdTestMessage';
+    let md = cryptoFramework.createMd(mdAlgName);
+    md.updateSync({ data: StringToUint8Array(message) });
+    let mdResult = md.digestSync();
+    console.info('Digest successfully. result:' + mdResult.data);
+    let mdLen = md.getMdLength();
+    console.info("Digest successfully. md len: " + mdLen);
+}
+
+export default {
+    data: {
+        result: ''
+    },
+    MdTestSync() {
+        mdTestSync();
+    }
+};
 ```
 
 
@@ -7489,7 +8003,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7541,7 +8055,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7596,7 +8110,7 @@ createMac(macSpec: MacSpec): Mac
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7680,7 +8194,7 @@ API version 9-11 系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7721,7 +8235,7 @@ API version 9-11 系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7753,7 +8267,7 @@ initSync(key: SymKey): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7792,7 +8306,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7837,7 +8351,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7873,7 +8387,7 @@ updateSync(input: DataBlob): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7907,7 +8421,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7965,7 +8479,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8017,7 +8531,7 @@ doFinalSync(): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8073,7 +8587,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8142,7 +8656,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8216,7 +8730,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8274,7 +8788,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8284,6 +8798,8 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 
 **示例：**
+
+ArkTS示例：
 
 ```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
@@ -8296,6 +8812,72 @@ promiseGenerateRand.then(randData => {
 }).catch((error: BusinessError) => {
   console.error(`[Promise] failed: errCode: ${error.code}, errMsg: ${error.message}`);
 });
+```
+
+JS示例：
+
+```xml
+<div class="container">
+    <text class="TestTitle">Crypto测试</text>
+    <input class="btn" @click="RandTest">Rand异步测试</input>
+</div>
+```
+
+```text
+.container {
+  width: 100%;
+  height: 2000px;
+  align-items: center;
+  background-color: #fffefcfc;
+  flex-direction: column;
+  display: flex;
+}
+
+.TestTitle {
+  width: 300px;
+  height: 80px;
+  text-align: center;
+  background-color: white;
+  color: #fff61515;
+  font-size: 15fp;
+}
+
+.btn {
+  width: 90%;
+  height: 80px;
+  text-align: center;
+  background-color: #fff17f04;
+  margin-top: 3px;
+  color: white;
+  font-size: 20fp;
+}
+```
+
+```text
+import cryptoFramework from '@ohos.security.cryptoFramework';
+
+function randTest() {
+    let rand = cryptoFramework.createRandom();
+    let seed = new Uint8Array([1, 2, 3]);
+    rand.setSeed({ data : seed });
+
+    rand.generateRandom(12, function (finishErr, randData){
+        if (finishErr) {
+            console.error("GenerateRandom failed. Code:" + finishErr.code + " : " + finishErr.message);
+        } else {
+            console.info("GenerateRandom successfully:" + randData);
+        }
+    })
+}
+
+export default {
+    data: {
+        result: ''
+    },
+    RandTest() {
+        randTest();
+    }
+};
 ```
 
 
@@ -8330,7 +8912,7 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8340,6 +8922,8 @@ API version 10-11系统能力为SystemCapability.Security.CryptoFramework；从A
 
 
 **示例：**
+
+ArkTS示例：
 
 ```text
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
@@ -8359,6 +8943,73 @@ try {
 }
 ```
 
+JS示例：
+
+```xml
+<div class="container">
+    <text class="TestTitle">Crypto测试</text>
+    <input class="btn" @click="RandTestSync">Rand同步测试</input>
+</div>
+```
+
+```text
+.container {
+  width: 100%;
+  height: 2000px;
+  align-items: center;
+  background-color: #fffefcfc;
+  flex-direction: column;
+  display: flex;
+}
+
+.TestTitle {
+  width: 300px;
+  height: 80px;
+  text-align: center;
+  background-color: white;
+  color: #fff61515;
+  font-size: 15fp;
+}
+
+.btn {
+  width: 90%;
+  height: 80px;
+  text-align: center;
+  background-color: #fff17f04;
+  margin-top: 3px;
+  color: white;
+  font-size: 20fp;
+}
+```
+
+```text
+import cryptoFramework from '@ohos.security.cryptoFramework';
+
+function randTestSync() {
+    let rand = cryptoFramework.createRandom();
+    let randLen = 24;
+    try {
+        let randData = rand.generateRandomSync(randLen);
+        if (randData != null) {
+            console.info("GenerateRandom successfully: " + randData.data);
+        } else {
+            console.error("GenerateRandom failed!");
+        }
+    } catch (error) {
+        console.error(`GenerateRandom random number failed. Code: ${error.code}, message: ${error.message}`);
+    }
+}
+
+export default {
+    data: {
+        result: ''
+    },
+    RandTestSync() {
+        randTestSync();
+    }
+};
+```
+
 
 
 #### enableHardwareEntropy21+
@@ -8375,7 +9026,7 @@ enableHardwareEntropy(): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8433,7 +9084,7 @@ API version 9-11系统能力为SystemCapability.Security.CryptoFramework；从AP
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8494,7 +9145,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8565,7 +9216,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8657,7 +9308,7 @@ API version 11系统能力为SystemCapability.Security.CryptoFramework；从API 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8747,7 +9398,7 @@ generateSecretSync(params: KdfSpec): DataBlob
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8836,7 +9487,7 @@ static genEccSignatureSpec(data: Uint8Array): EccSignatureSpec
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -8875,7 +9526,7 @@ function testGenEccSignatureSpec() {
 
 static genEccSignature(spec: EccSignatureSpec): Uint8Array;
 
-将（r、s）的sm2签名数据转换为ASN1 DER格式。
+将（r、s）的ECC/SM2签名数据转换为ASN1 DER格式。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -8885,7 +9536,7 @@ static genEccSignature(spec: EccSignatureSpec): Uint8Array;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| spec | EccSignatureSpec | 是 | （r、s）的sm2签名数据。 |
+| spec | EccSignatureSpec | 是 | （r、s）的ECC/SM2签名数据。 |
 
 
 **返回值：**
@@ -8897,7 +9548,7 @@ static genEccSignature(spec: EccSignatureSpec): Uint8Array;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[crypto framework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
+以下错误码的详细介绍请参见[cryptoFramework错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-crypto-framework)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

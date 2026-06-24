@@ -1,6 +1,6 @@
 # faceComparator（人脸比对）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-facecomparator-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -28,6 +28,8 @@ import { faceComparator } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.Face.Comparator
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -44,6 +46,8 @@ import { faceComparator } from '@kit.CoreVisionKit';
 人脸比对的结果。
 
 **系统能力：** SystemCapability.AI.Face.Comparator
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -64,6 +68,8 @@ init(): Promise&lt;boolean&gt;
 初始化人脸比对分析器服务。使用Promise异步回调。
 
 **系统能力：** SystemCapability.AI.Face.Comparator
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -125,6 +131,8 @@ release(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.AI.Face.Comparator
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **返回值：**
@@ -185,6 +193,8 @@ compareFaces(visionInfo1: VisionInfo, visionInfo2: VisionInfo): Promise&lt;FaceC
 
 **系统能力：** SystemCapability.AI.Face.Comparator
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -204,7 +214,7 @@ compareFaces(visionInfo1: VisionInfo, visionInfo2: VisionInfo): Promise&lt;FaceC
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

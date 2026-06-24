@@ -1,6 +1,6 @@
 # mapCommon（地图属性模型）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-common
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -358,7 +358,7 @@ let poi: mapCommon.Poi = {
 | snippet | string | 否 | 是 | 信息窗口的子标题，信息窗的最大宽度为136vp，超长字串超出部分用省略号“...”表示。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
 | infoWindowAnchorU | number | 否 | 是 | 指示标记信息窗口的锚点在水平方向上的位置。值范围：[0, 1]，默认值为0.5，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
 | infoWindowAnchorV | number | 否 | 是 | 指示标记信息窗口的锚点在垂直方向上的位置。值范围：[0, 1]，默认值为0，异常值按默认值处理。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| altitude | number | 否 | 是 | 海拔高度，单位：m，默认值为0，异常值按默认值处理。 说明： 开启3D地球时，设置altitude会影响marker之间的压盖关系，altitude值大的marker处于上方。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| altitude | number | 否 | 是 | 海拔高度，单位：m，默认值为0，异常值按默认值处理。 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | collisionRule | CollisionRule | 否 | 是 | 标记与地图POI之间的冲突处理规则，默认值为CollisionRule.NONE。异常值按照默认值处理。 说明： 从5.0.3(15)版本开始，collisionRule属性支持CollisionRule.NONE和CollisionRule.ALL类型；从6.1.0(23)版本开始，collisionRule属性新增支持CollisionRule.NAME和CollisionRule.ICON_CASCADE类型。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 |
 | annotations | Text[] | 否 | 是 | 标记的注释，最小长度为1，最大长度为3。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 |
 | showIcon | boolean | 否 | 是 | 是否显示标记的图标，默认值为true。根据显示的图标对异常值进行处理。 - true：显示标记的图标 - false：不显示标记的图标 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 |
@@ -1004,7 +1004,7 @@ export class ClusterOverlayParamsMore implements mapCommon.ClusterOverlayParams 
     offContext.textAlign = 'center';
     offContext.textBaseline = 'middle';
     offContext.fillStyle = 0xffffffff;
-    offContext.fillText(JSON.stringify(clusterItems[0].position.longitude).substring(0,3), 31, 31);
+    offContext.fillText(JSON.stringify(clusterItems[0].position.longitude).substring(0, 3), 31, 31);
     offContext.restore();
     let iconPixelMap = offContext.getPixelMap(0, 0, 62, 62);
     return iconPixelMap;
@@ -1962,6 +1962,58 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 
 
 
+#### LineText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+线段的文字信息，展示在线段两侧。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 26.0.0
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| lineNames | string[] | 否 | 否 | 线段的文字内容列表。 |
+| lineNameIndexes | number[] | 否 | 否 | 分段文字所在折线的线段区间。 说明： - 每个值必须大于等于0。 - 值序列必须单调非递减即后续值不小于前一个值。 - LineNameIndexes数组长度必须为lineNames数组长度的2倍。 若不满足上述条件，则视为无效参数。 |
+| nameOnRight | boolean | 否 | 是 | 文字显示在折线的哪一侧。 - true：右侧。 - false：左侧。 默认值：true，异常值按默认值处理。 |
+| color | number | 否 | 是 | 文字内容的颜色，颜色值采用ARGB格式，默认值：0xFF000000，异常值按默认值处理。 |
+| fontSize | number | 否 | 是 | 文字内容的字体大小，默认值：15，单位：px，取值范围：[0, 100]，超出按边界值处理，null和undefined按默认值处理。 |
+| strokeColor | number | 否 | 是 | 文本内容描边颜色，颜色值采用ARGB格式，默认值：0xFFFFFFFF，异常值按默认值处理。 |
+| fontStyle | FontStyle | 否 | 是 | 文字内容的字体样式，默认值：FontStyle，异常值按默认值处理。 |
+
+
+
+
+#### SphereParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+3D地球的属性，包括启用晨昏线、城市灯光、动画持续时间、背景和覆盖物。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 26.0.0
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| sunLightEnabled | boolean | 否 | 是 | 是否启用晨昏线。 - true：启用晨昏线。 - false：关闭晨昏线。 默认值：true，异常值按默认值处理。 说明： 晨昏线是地球表面上太阳光照范围的分界线，将地球分为白天和黑夜两个区域。晨昏线在地球上的位置会随着地球自转和公转而不断变化。 |
+| cityLightEnabled | boolean | 否 | 是 | 是否启用城市灯光，默认值：true，异常值按默认值处理。 - true：启用城市灯光。 - false：关闭城市灯光。 |
+| animateDuration | number | 否 | 是 | 动画持续时间，单位ms，取值范围：不小于0，异常值按默认值处理。 |
+| backgroundImage | ResourceStr \| image.PixelMap | 否 | 是 | 3D地球的背景。 |
+| coverageImage | ResourceStr \| image.PixelMap | 否 | 是 | 3D地球的覆盖物。 |
+
+
+
+
 #### MapType
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -2165,8 +2217,10 @@ type TileProvider = (x: number, y: number, z: number) => Promise&lt;ArrayBuffer&
 | DEFAULT | 0 | 连续定位，相机不移动到我的位置，定位蓝点跟踪设备移动。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | LOCATE | 1 | 定位一次，且将相机移动到地图中心点。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | FOLLOW | 2 | 连续定位，且将相机移动到地图中心点，定位蓝点跟随设备移动。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| FOLLOW_ROTATE | 3 | 连续定位，且将相机移动到地图中心点，定位蓝点依照设备方向旋转，并且会跟随设备移动。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 说明： 使用FOLLOW_ROTATE需应用申请传感器权限：ohos.permission.ACCELEROMETER。 |
-| TRACK_ROTATE | 4 | 连续定位，位置图标会跟随设备的移动并根据设备方向旋转，但不会移动到地图中心。 起始版本： 6.0.0(20) 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。 说明： 使用TRACK_ROTATE需应用申请传感器权限：ohos.permission.ACCELEROMETER。 |
+| FOLLOW_ROTATE | 3 | 连续定位，且将相机移动到地图中心点，定位蓝点依照设备方向旋转，并且会跟随设备移动。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 说明： 需要权限：ohos.permission.ACCELEROMETER。 |
+| TRACK_ROTATE | 4 | 连续定位，位置图标会跟随设备的移动并根据设备方向旋转，但不会移动到地图中心。 起始版本： 6.0.0(20) 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。 说明： 需要权限：ohos.permission.ACCELEROMETER。 |
+| MAP_ROTATE | 5 | 连续定位，相机移动到地图中心点。定位蓝点随设备移动，地图根据设备方向旋转。 起始版本： 26.0.0 元服务API： 从版本26.0.0开始，该接口支持在元服务中使用。 说明： 需要权限：ohos.permission.ACCELEROMETER。 |
+| MAP_ROTATE_NO_CENTER | 6 | 连续定位，相机不移动到地图中心点。定位蓝点随设备移动，地图根据设备方向旋转。 起始版本： 26.0.0 元服务API： 从版本26.0.0开始，该接口支持在元服务中使用。 说明： 需要权限：ohos.permission.ACCELEROMETER。 |
 
 
 

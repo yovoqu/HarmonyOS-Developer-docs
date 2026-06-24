@@ -1,6 +1,6 @@
 # 使用AVPlayer设置播放URL(ArkTS)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/playback-url-setting-method
 
@@ -134,7 +134,7 @@ import { media } from '@kit.MediaKit';
  // 通过UIAbilityContext获取沙箱地址filesDir，以Stage模型为例。
  let m3u8FileName = '';
  let filePath = `${this.context.filesDir}/${m3u8FileName}`;
- // 通过fs.openSync获取文件句柄。
+ // 通过fileIo.openSync获取文件句柄。
  let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_ONLY);
  let fd : string = file.fd.toString();
  // 用文件句柄构造本地m3u8的URL。

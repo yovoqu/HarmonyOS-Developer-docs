@@ -1,6 +1,6 @@
 # Navigation跳转页面白屏，可能原因是什么
 
-更新时间：2026-04-27 09:10:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-390
 

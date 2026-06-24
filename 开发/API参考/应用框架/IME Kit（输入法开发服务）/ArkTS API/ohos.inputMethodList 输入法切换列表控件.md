@@ -1,6 +1,6 @@
 # @ohos.inputMethodList (输入法切换列表控件)
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inputmethodlist
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -154,4 +154,4 @@ struct SettingsItem {
 示例效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6e/v3/Xv_81034QqKCwbpT_qKXvg/zh-cn_image_0000002611836487.png?HW-CC-KV=V1&HW-CC-Date=20260528T025426Z&HW-CC-Expire=86400&HW-CC-Sign=A974E8E09E4E6F754400D065EECAD2ACB2C7FBA086573BBA8A54A7728E777BDA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/29N6e1bTSni8bsKaSPG8tw/zh-cn_image_0000002626231218.png?HW-CC-KV=V1&HW-CC-Date=20260624T020039Z&HW-CC-Expire=86400&HW-CC-Sign=5BC0CBC051936A332D4D696C2355A02522B92693A32DE6E3232B61953E774758)

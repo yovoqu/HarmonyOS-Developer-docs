@@ -1,6 +1,6 @@
 # 环境检查时显示ohpm registry access不通过
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-development-environment-10
 
@@ -53,7 +53,7 @@ ohpm info @ohos/lottie
 registry证书地址校验不通过，详细信息提示“UNABLE_TO_VERIFY_LEAF_SIGNATURE”。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/niUWbq0uQHqazcIygiZipg/zh-cn_image_0000002358279041.png?HW-CC-KV=V1&HW-CC-Date=20260528T024840Z&HW-CC-Expire=86400&HW-CC-Sign=529A075FA299293A47A661101B89027A0BBF1C6C08ADD3587B2C9CC2D5D3D388)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/IkbZYhyPT1euWIbubIVxjA/zh-cn_image_0000002358279041.png?HW-CC-KV=V1&HW-CC-Date=20260624T020423Z&HW-CC-Expire=86400&HW-CC-Sign=0023624F7D18E190A14A5490E84B22B3EE13538B3A7681EED9729C14C534D459)
 
  
 **解决措施**

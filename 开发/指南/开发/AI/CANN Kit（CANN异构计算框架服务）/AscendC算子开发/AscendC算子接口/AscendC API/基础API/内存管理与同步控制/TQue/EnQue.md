@@ -1,6 +1,6 @@
 # EnQue
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-tque-enque
 
@@ -96,10 +96,10 @@ que.EnQue(tensor1);// 将tensor加入VECOUT的Queue中
 // 接口：EnQue指定特定的src/dst position，加入相应的队列
 // template <TPosition srcUserPos, TPosition dstUserPos> bool EnQue(LocalTensor<T>& tensor)
 AscendC::TPipe pipe;
-AscendC::TQueBind<AscendC::TPosition::VECIN, AscendC::TPosition::VECOUT, 1> que;
+AscendC::TQueBind<AscendC::QuePosition::VECIN, AscendC::QuePosition::VECOUT, 1> que;
 int num = 4;
 int len = 1024;
 pipe.InitBuffer(que, num, len);
 AscendC::LocalTensor<half> tensor1 = que.AllocTensor<half>();
-que.EnQue<AscendC::TPosition::GM, AscendC::TPosition::VECIN, half>(tensor1);// 将tensor加入VECIN的Queue中，实现内存复用
+que.EnQue<AscendC::QuePosition::GM, AscendC::QuePosition::VECIN, half>(tensor1);// 将tensor加入VECIN的Queue中，实现内存复用
 ```

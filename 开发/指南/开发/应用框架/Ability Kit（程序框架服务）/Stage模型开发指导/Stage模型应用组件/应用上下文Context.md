@@ -1,6 +1,6 @@
 # 应用上下文Context
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-context-stage
 
@@ -301,7 +301,7 @@ export default class EntryAbility extends UIAbility {
 
 #### 获取应用文件路径
 
-[基类Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)提供了获取应用文件路径的能力，[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)、[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)和[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)均继承该能力。不同类型的Context获取的路径可能存在差异。
+[Context](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-context)提供了获取应用文件路径的能力，[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)、[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)和[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)均继承该能力。不同类型的Context获取的路径可能存在差异。
 
  - 通过[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)可以获取应用级的文件路径。该路径用于存放应用全局信息，路径下的文件会跟随应用的卸载而删除。
  - 通过[AbilityStageContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitystagecontext)、[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)、[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)，可以获取[Module](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-overview)级的文件路径。该路径用于存放Module相关信息，路径下的文件会跟随[HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)/[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)的卸载而删除。HAP/HSP的卸载不会影响应用级路径下的文件，除非该应用的HAP/HSP已全部卸载。
@@ -395,7 +395,7 @@ struct ApplicationContextFile {
         // ···
         Button() {
           Text('create file')
-              // ···
+          // ···
             .onClick(() => {
               let applicationContext = this.context.getApplicationContext();
               // 获取应用文件路径
@@ -536,41 +536,7 @@ struct AreaContext {
 
 #### 监听应用前后台变化
 
-开发者可以使用[ApplicationContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext)的相关能力，监听应用的前后台变化。当应用前后台切换时，可以收到相应回调函数的通知，从而执行一些依赖前后台的方法，或者进行应用前后台切换频率等数据统计。
-
-以[UIAbilityContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-uiabilitycontext)中的使用为例进行说明。
-
-```ArkTS
-import { UIAbility, ApplicationStateChangeCallback } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { hilog } from '@kit.PerformanceAnalysisKit';
-  
-const TAG = '[LifecycleAbility]';
-const DOMAIN = 0xF811;
-
-export default class LifecycleAbility extends UIAbility {
-  onCreate() {
-    let applicationStateChangeCallback: ApplicationStateChangeCallback = {
-      onApplicationForeground() {
-        hilog.info(DOMAIN, TAG, 'applicationStateChangeCallback onApplicationForeground');
-      },
-      onApplicationBackground() {
-        hilog.info(DOMAIN, TAG, 'applicationStateChangeCallback onApplicationBackground');
-      }
-    }
-
-    // 1.获取applicationContext
-    let applicationContext = this.context.getApplicationContext();
-    try {
-      // 2.通过applicationContext注册应用前后台状态监听
-      applicationContext.on('applicationStateChange', applicationStateChangeCallback);
-    } catch (paramError) {
-      hilog.error(DOMAIN, TAG, `error: ${(paramError as BusinessError).code}, ${(paramError as BusinessError).message}`);
-    }
-    hilog.info(DOMAIN, TAG, 'Register applicationStateChangeCallback');
-  }
-}
-```
+开发者可以使用ApplicationContext的[on('applicationStateChange')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-applicationcontext#applicationcontextonapplicationstatechange10)监听应用的前后台变化，详见[监听应用前后台变化](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-lifecycle#监听应用前后台变化)中的介绍。
 
 
 

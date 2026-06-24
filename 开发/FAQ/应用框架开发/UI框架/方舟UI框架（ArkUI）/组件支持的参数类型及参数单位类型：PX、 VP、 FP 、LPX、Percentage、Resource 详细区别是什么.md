@@ -1,6 +1,6 @@
 # 组件支持的参数类型及参数单位类型：PX、 VP、 FP 、LPX、Percentage、Resource 详细区别是什么
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-45
 

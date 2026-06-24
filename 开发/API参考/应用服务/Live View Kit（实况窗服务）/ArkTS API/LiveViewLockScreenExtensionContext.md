@@ -1,11 +1,11 @@
 # LiveViewLockScreenExtensionContext
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-lock-screen-context
 **支持设备：** Phone | PC/2in1 | Tablet
 
-LiveViewLockScreenExtensionContext继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)，作为 [LiveViewLockScreenExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-lock-screen-ability)的上下文环境，为开发者提供在锁屏场景下访问 锁屏沉浸态实况窗的上下文能力。
+LiveViewLockScreenExtensionContext继承自[ExtensionContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-extensioncontext)，作为[LiveViewLockScreenExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/liveview-lock-screen-ability)的上下文环境，为开发者提供在锁屏场景下访问锁屏沉浸态实况窗的上下文能力。
  
 **起始版本：** 5.0.0(12)
   

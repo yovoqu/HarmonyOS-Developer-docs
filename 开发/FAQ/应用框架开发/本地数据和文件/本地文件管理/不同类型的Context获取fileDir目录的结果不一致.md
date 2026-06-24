@@ -1,6 +1,6 @@
 # 不同类型的Context获取fileDir目录的结果不一致
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-42
 

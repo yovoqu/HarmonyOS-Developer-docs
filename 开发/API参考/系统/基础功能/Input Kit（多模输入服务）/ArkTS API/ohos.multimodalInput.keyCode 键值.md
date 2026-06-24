@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.keyCode (键值)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -293,7 +293,7 @@ import { KeyCode } from '@kit.InputKit';
 | KEYCODE_SPREADSHEET | 2703 | 电子表格键。 |
 | KEYCODE_GRAPHICSEDITOR | 2704 | 图形编辑器键。 |
 | KEYCODE_PRESENTATION | 2705 | 演示文稿键。 |
-| KEYCODE_DATABASE | 2706 | 数据库键标。 |
+| KEYCODE_DATABASE | 2706 | 数据库键。 |
 | KEYCODE_NEWS | 2707 | 新闻键。 |
 | KEYCODE_VOICEMAIL | 2708 | 语音信箱。 |
 | KEYCODE_ADDRESSBOOK | 2709 | 通讯簿。 |
@@ -319,6 +319,9 @@ import { KeyCode } from '@kit.InputKit';
 | KEYCODE_KBDINPUTASSIST_NEXTGROUP | 2729 | 键盘输入Assist_Next，切换输入组中下一个输入法。 |
 | KEYCODE_KBDINPUTASSIST_ACCEPT | 2730 | 键盘输入Assist_Accept。 |
 | KEYCODE_KBDINPUTASSIST_CANCEL | 2731 | 键盘输入Assist_Cancel。 |
+| KEYCODE_MOUSE_ASSISTANT | 2732 | 鼠标AI助手键。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| KEYCODE_MOUSE_INTELLIGENCE_SELECTION | 2733 | 鼠标智慧框选键。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| KEYCODE_AOD_SINGLE_CLICK | 2740 | 手机触摸屏单击事件，在熄屏显示状态下使用。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 | KEYCODE_FRONT | 2800 | 挡风玻璃除雾器开关。 |
 | KEYCODE_SETUP | 2801 | 设置键。 |
 | KEYCODE_WAKEUP | 2802 | 唤醒键。 |
@@ -380,3 +383,6 @@ import { KeyCode } from '@kit.InputKit';
 | KEYCODE_DAGGER_DOUBLE_CLICK18+ | 3212 | 智能手表智感窗按键双击。 |
 | KEYCODE_DAGGER_LONG_PRESS18+ | 3213 | 智能手表智感窗按键长按。 |
 | KEYCODE_DIV20+ | 3220 | 智能手表左按键。 |
+| KEYCODE_XKEY | 3232 | 自定义快捷键。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| KEYCODE_FINGERPRINT_SLIDE_UP | 3233 | 智控键上滑。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
+| KEYCODE_FINGERPRINT_SLIDE_DOWN | 3234 | 智控键下滑。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |

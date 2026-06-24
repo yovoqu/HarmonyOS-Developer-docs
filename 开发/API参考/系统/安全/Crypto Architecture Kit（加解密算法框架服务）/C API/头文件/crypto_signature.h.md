@@ -1,6 +1,6 @@
 # crypto_signature.h
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-signature-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -219,7 +219,7 @@ OH_Crypto_ErrCode OH_CryptoVerify_Update(OH_CryptoVerify *ctx, Crypto_DataBlob *
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：参数无效。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：参数无效。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_INVALID_CALL：（从API版本26.0.0开始支持）无效的函数调用。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
  
  
 **参考：**
@@ -297,7 +297,7 @@ OH_Crypto_ErrCode OH_CryptoVerify_Recover(OH_CryptoVerify *ctx, Crypto_DataBlob 
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：参数无效。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_INVALID_PARAMS：参数无效。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_INVALID_CALL：（从API版本26.0.0开始支持）无效的函数调用。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
  
  
   
@@ -517,7 +517,7 @@ OH_Crypto_ErrCode OH_CryptoSign_Update(OH_CryptoSign *ctx, const Crypto_DataBlob
   
 | 类型 | 说明 |
 | --- | --- |
-| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
+| OH_Crypto_ErrCode | CRYPTO_SUCCESS：操作成功。 CRYPTO_NOT_SUPPORTED：操作不支持。 CRYPTO_MEMORY_ERROR：内存错误。 CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。 CRYPTO_INVALID_CALL：（从API版本26.0.0开始支持）无效的函数调用。 CRYPTO_OPERATION_ERROR：调用三方算法库API出错。 |
  
  
 **参考：**

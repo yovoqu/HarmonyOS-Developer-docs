@@ -1,6 +1,6 @@
 # uitest错误码
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-uitest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -38,19 +38,19 @@ Initialization failed.
 
 **错误信息**
 
-The async function is not called with await.
+The API does not support concurrent calls.
 
 **错误描述**
 
-API没有被异步调用。
+接口不支持并行调用。
 
 **可能原因**
 
-API没有使用await进行异步调用，造成堵塞。
+异步API没有使用await等待异步执行完成，导致出现接口并行调用。
 
 **处理步骤**
 
-检查测试用例，确保异步接口使用await调用。
+使用await同步等待异步函数执行完成。
 
 
 

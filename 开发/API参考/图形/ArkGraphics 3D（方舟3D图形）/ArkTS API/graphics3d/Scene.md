@@ -1,6 +1,6 @@
 # Scene
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -232,6 +232,54 @@ function createImageResource(): Promise<Image> {
     uri: $rawfile("image/Cube_BaseColor.png")
   };
   return renderResourceFactory.createImage(imageParams);
+}
+```
+
+
+
+#### createImageStream
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createImageStream(params: SceneResourceParameters): Promise&lt;ImageStream&gt;
+
+根据指定场景名称参数创建流图片，使用Promise异步回调。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUi.Graphics3D
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| params | SceneResourceParameters | 是 | 创建流图片的参数。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;ImageStream&gt; | Promise对象，返回创建的流图片。 |
+
+
+**示例：**
+
+```text
+import { ImageStream, SceneResourceParameters, Scene, RenderContext, RenderResourceFactory } from '@kit.ArkGraphics3D';
+
+function createImageStreamResource(): Promise<ImageStream> {
+  const renderContext: RenderContext | null = Scene.getDefaultRenderContext();
+  if (!renderContext) {
+    return Promise.reject(new Error("RenderContext is null"));
+  }
+  const renderResourceFactory: RenderResourceFactory = renderContext.getRenderResourceFactory();
+  let imageStreamParams: SceneResourceParameters = {
+    name: "sampleImageStream"
+  };
+  return renderResourceFactory.createImageStream(imageStreamParams);
 }
 ```
 
@@ -1035,6 +1083,45 @@ function registerResourcePath(): void {
 
 
 
+#### SoftShadowConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+软阴影配置抽象基类，用于控制阴影渲染的算法类型及其参数配置。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUi.Graphics3D
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| shadowAlgorithmType | ShadowAlgorithmType | 是 | 否 | 阴影算法的枚举值。 |
+
+
+
+
+#### PCFConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+PCF（Percentage Closer Filtering，百分比邻近过滤）软阴影配置类，继承自[SoftShadowConfig](#softshadowconfig)。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.ArkUi.Graphics3D
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| shadowSampleRadius | number \| undefined | 否 | 是 | 采样半径，决定了阴影边缘模糊的范围，半径越大，阴影边缘越柔和。采样半径过大会导致阴影过度模糊，失去阴影形状特征。 默认值为5.0。 取值范围：>= 0。 - 设置为0时，将不进行PCF采样，无阴影效果。 - 设置为undefined时，恢复默认值5.0进行渲染。 |
+| shadowSampleCount | number \| undefined | 否 | 是 | 采样数量，决定了每个像素采样阴影图的次数，数量越多，阴影质量越高，但性能开销越大。 默认值为16。 取值范围：0 ~ 64。 - 超出此范围的值会被自动限制到最近的有效边界值（例如65实际按64处理）。 - 设置为0时，将不进行PCF采样，无阴影效果。 - 设置为undefined时，恢复默认值16进行渲染。 |
+
+
+
+
 #### RenderConfiguration23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1046,6 +1133,7 @@ function registerResourcePath(): void {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | shadowResolution | Vec2 | 否 | 是 | 表示全局阴影贴图分辨率，单位为像素（px）。默认值为undefined，表示阴影贴图分辨率设置为1024 * 1024。输入的值需要大于0才能正确生效。如果输入值为浮点数则自动截取整数部分；如果输入值小于或等于0则无视该输入，维持原有配置。 |
+| softShadowConfig | SoftShadowConfig | 否 | 是 | 软阴影配置参数，用于控制阴影渲染的算法类型及其具体配置。 当值为undefined或不设置该参数时，使用默认的硬阴影算法（无阴影柔化效果）。 当设置为有效的SoftShadowConfig对象（如PCFConfig）时，启用对应的软阴影算法。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 

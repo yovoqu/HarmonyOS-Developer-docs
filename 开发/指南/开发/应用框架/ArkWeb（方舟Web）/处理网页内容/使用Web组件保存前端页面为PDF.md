@@ -1,6 +1,6 @@
 # 使用Web组件保存前端页面为PDF
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-createpdf
 
@@ -32,7 +32,7 @@
 通过callback方式调用createPdf接口，获取到的result通过pdfArrayBuffer接口取得PDF二进制数据流，最后使用fileIo方法将二进制数据流保存为PDF文件。
 
 ```ArkTS
-import { fileIo as fs } from '@kit.CoreFileKit';
+import { fileIo } from '@kit.CoreFileKit';
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
@@ -63,15 +63,15 @@ struct Index {
                 // 获取到的result通过`pdfArrayBuffer`接口取得PDF二进制数据流，最后使用`fileIo`方法将二进制数据流保存为PDF文件
                 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
                 let filePath = context.filesDir + '/test.pdf';
-                let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
-                fs.write(file.fd, result.pdfArrayBuffer().buffer).then((writeLen: number) => {
+                let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
+                fileIo.write(file.fd, result.pdfArrayBuffer().buffer).then((writeLen: number) => {
                   console.info('createPDF write data to file succeed and size is:' + writeLen);
                 }).catch((err: BusinessError) => {
                   console.error('createPDF write data to file failed with error message: ' + err.message +
                       ', error code: ' + err.code);
                 }).finally(() => {
                   // 关闭file
-                  fs.closeSync(file);
+                  fileIo.closeSync(file);
                 });
               } catch (resError) {
                 console.error(
@@ -92,7 +92,7 @@ struct Index {
 通过Promise方式调用createPdf接口，获取到的result通过pdfArrayBuffer接口取得PDF二进制数据流，最后使用fileIo方法将二进制数据流保存为PDF文件。
 
 ```ArkTS
-import { fileIo as fs } from '@kit.CoreFileKit';
+import { fileIo } from '@kit.CoreFileKit';
 import { webview } from '@kit.ArkWeb';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
@@ -122,15 +122,15 @@ struct Index {
                 // 获取到的result通过`pdfArrayBuffer`接口取得PDF二进制数据流，最后使用`fileIo`方法将二进制数据流保存为PDF文件
                 let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
                 let filePath = context.filesDir + '/test.pdf';
-                let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
-                fs.write(file.fd, result.pdfArrayBuffer().buffer).then((writeLen: number) => {
+                let file = fileIo.openSync(filePath, fileIo.OpenMode.READ_WRITE | fileIo.OpenMode.CREATE);
+                fileIo.write(file.fd, result.pdfArrayBuffer().buffer).then((writeLen: number) => {
                   console.info('createPDF write data to file succeed and size is:' + writeLen);
                 }).catch((err: BusinessError) => {
                   console.error('createPDF write data to file failed with error message: ' + err.message +
                       ', error code: ' + err.code);
                 }).finally(() => {
                   // 关闭file
-                  fs.closeSync(file);
+                  fileIo.closeSync(file);
                 });
               } catch (resError) {
                 console.error(

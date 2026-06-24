@@ -1,6 +1,6 @@
 # Profiler分析任务录制失败
 
-更新时间：2026-06-05 09:11:02
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-profiler-1
 

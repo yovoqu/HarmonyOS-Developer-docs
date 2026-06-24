@@ -1,6 +1,6 @@
 # 通过fileIo.openSync获得的fd，传递到C侧调close后，ArkTS侧fileIo.closeSync是不是不用调了
 
-更新时间：2026-04-21 08:35:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-21
 

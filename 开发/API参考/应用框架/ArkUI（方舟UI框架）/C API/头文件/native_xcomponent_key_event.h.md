@@ -1,6 +1,6 @@
 # native_xcomponent_key_event.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-xcomponent-key-event-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -312,7 +312,7 @@ enum OH_NativeXComponent_KeyCode
 | KEY_SPREADSHEET = 2703 | 电子表格键。 |
 | KEY_GRAPHICSEDITOR = 2704 | 图形编辑器键。 |
 | KEY_PRESENTATION = 2705 | 演示文稿键。 |
-| KEY_DATABASE = 2706 | 数据库键标。 |
+| KEY_DATABASE = 2706 | 数据库键。 |
 | KEY_NEWS = 2707 | 新闻键。 |
 | KEY_VOICEMAIL = 2708 | 语音信箱。 |
 | KEY_ADDRESSBOOK = 2709 | 通讯簿。 |

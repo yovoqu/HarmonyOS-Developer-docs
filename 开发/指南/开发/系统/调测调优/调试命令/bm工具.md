@@ -1,6 +1,6 @@
 # bm工具
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bm-tool
 
@@ -535,7 +535,7 @@ error: user not exist.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -973,7 +973,7 @@ error: install host installer failed.
 
 
 
-#### 9568262 插件安装命令错误
+#### 9568262 安装解析应用失败
 
 **错误信息**
 
@@ -981,15 +981,17 @@ error: install parse failed.
 
 **错误描述**
 
-插件安装使用的命令不正确。
+安装解析应用失败。
 
 **可能原因**
-
-安装插件用了[bm install](#安装命令install)命令。
+1. 使用了[bm install](#安装命令install)命令安装插件。
+2. 使用了[bm install](#安装命令install)命令安装[bundleType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#配置文件标签)为skill类型的包。
+3. 待安装应用的module.json中配置了skillProfiles，但配置的skill名称、skill目录名与SKILL.md中frontmatter的name不一致。
 
 **处理步骤**
-
-安装插件请使用[bm install-plugin](#安装插件命令install-plugin)命令。
+1. 安装插件请使用[bm install-plugin](#安装插件命令install-plugin)命令。
+2. skill类型的包不支持命令行安装，请修改应用[bundleType](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#配置文件标签)的类型。
+3. 检查module.json中skillProfiles下skill的name、skills目录下的子目录名称、SKILL.md中frontmatter的name，确保三者一致。
 
 
 
@@ -1138,9 +1140,8 @@ error: signature verification failed due to not trusted app source.
 
  - 场景一：使用[调试profile文件](https://developer.huawei.com/consumer/cn/doc/app/agc-help-debug-profile-0000002248181278)重新签名应用。
  - 场景二：请确保profile文件是由配置中的.cer文件生成的，可以登录[AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)，选择“证书、APP ID和Profile”，在左侧导航栏选择“证书、APP ID和Profile > Profile”，进入“Profile”页面，选择配置的profile文件，右侧操作点击“查看”，确认“查看Profile”页面中“归属证书”是否与配置的.cer文件一致。
- - 场景三：
+ - 场景三：使用[自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section18815157237)。在连接设备后，重新为应用进行签名。
 
-1. 使用[自动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section18815157237)。在连接设备后，重新为应用进行签名。
 
 
 
@@ -1228,7 +1229,7 @@ error: install failed due to update hap token failed.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -1400,7 +1401,7 @@ error: verify signature failed.
 **处理步骤**
 
  - 场景一：HSP只能给同包名的应用使用，只有集成态HSP可以给不同包名的应用使用。需要用户与三方开发者确认，三方开发者应提供集成态HSP、或同包名的HSP给用户使用。
- - 场景二：检查签名流程和签名证书，参考[应用/元服务签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
+ - 场景二：检查签名流程和签名证书，参考[配置调试签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
 
 
 
@@ -1847,7 +1848,7 @@ error: copy file failed.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -1898,7 +1899,7 @@ error: delivery sign profile failed.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -1925,7 +1926,7 @@ error: remove sign profile failed.
 
 **处理步骤**
 1. 重启手机后再次尝试卸载应用（PC/2in1设备需要确保所有用户下都卸载完成，手机/平板侧需要关注隐私空间和主用户下是否卸载完成）。
-2. 重复上述步骤3到5次后依旧卸载失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧卸载失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -1991,7 +1992,7 @@ bm工具进程异常或者权限丢失，导致卸载应用时无权限。
 
 **处理步骤**
 1. 设备重启之后再尝试卸载应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -2092,7 +2093,7 @@ error: unknown.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -2361,7 +2362,7 @@ error: installd param error.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -2388,7 +2389,7 @@ error: installd create dir failed.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -2415,7 +2416,7 @@ error: installd remove dir failed.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -2442,7 +2443,7 @@ error: installd extract files failed.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -2469,7 +2470,7 @@ error: installd rename dir failed.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -2496,7 +2497,7 @@ error: installd clean dir failed.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash
@@ -2525,12 +2526,12 @@ error: installd set selinux label failed.
 1. 确认签名文件p7b中apl字段是否有误。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/SCNuKxDNTAybFSute5_Tmw/zh-cn_image_0000002592378874.png?HW-CC-KV=V1&HW-CC-Date=20260611T074928Z&HW-CC-Expire=86400&HW-CC-Sign=8A5F1ECA68630992E89825CC76A93E606020245D861069C710B5CE8ACBAE03A5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5d/v3/0LyvKRzDRZ6F0IIm6je7YQ/zh-cn_image_0000002656348505.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=183ED87B54A39D3111C58FC5FD845FDD2DB0A82E4F509C82514DE46A91711AE3)
 
 2. 若apl字段有误，修改UnsgnedReleasedProfileTemplate.json文件中apl字段，并重新签名。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/fZAOiyoUR4OYn5yL7VuBfA/zh-cn_image_0000002622858381.png?HW-CC-KV=V1&HW-CC-Date=20260611T074928Z&HW-CC-Expire=86400&HW-CC-Sign=47AC4F043CA17D3ACBD9AF0E094E13CF5FCB7345962EE7C0E97E4B60B37C7323)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/ofFu6un9TsWEVWSJA_NFLw/zh-cn_image_0000002626229092.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=A98A0D5BD8690A1EF237C6622158634B3F2E1AF7B00F78285213B83D247C9285)
 
 
 
@@ -3060,7 +3061,7 @@ error: Install incompatible signature info.
 
 **处理步骤**
 
-重新签名，使多个HAP包签名信息一致。参考[应用/元服务签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
+重新签名，使多个HAP包签名信息一致。参考[配置调试签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
 
 
 
@@ -3203,7 +3204,7 @@ error: install parse native so failed.
 
 
 **处理步骤**
-1. 将设备或模拟器与DevEco Studio进行连接，具体指导及要求可查看[运行应用/元服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device)。
+1. 将设备或模拟器与DevEco Studio进行连接，具体指导及要求可查看[使用本地真机运行应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device)。
 2. 在命令行执行如下[hdc命令](#环境要求hdc工具)，查询设备支持的Abi列表。
 
   
@@ -3255,7 +3256,7 @@ error: Installd get proxy error.
 
 **处理步骤**
 1. 重启手机后再次尝试安装应用。
-2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
+2. 重复上述步骤3到5次后依旧安装失败，请导出日志文件，提[在线工单](https://developer.huawei.com/consumer/cn/support/feedback/#/)获取帮助。
 
   
 ```bash

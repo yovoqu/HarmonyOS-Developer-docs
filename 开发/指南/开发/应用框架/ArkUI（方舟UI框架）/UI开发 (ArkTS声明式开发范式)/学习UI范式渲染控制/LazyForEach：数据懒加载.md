@@ -1,6 +1,6 @@
 # LazyForEach：数据懒加载
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-lazyforeach
 
@@ -2088,7 +2088,7 @@ LazyForEach(this.data, (item: string) => {
 **定义键值生成函数后，点击按钮更新数据，组件刷新**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/jUOg_SmPQhKRS0Jrzr3KnQ/zh-cn_image_0000002581433720.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030456Z&HW-CC-Expire=86400&HW-CC-Sign=F7E706734D05CC0980EC670DFB8F114CDB49482542321CC8E3B62C498AB9EDF9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8c/v3/viNmPb6yQj2ze4e-VIrQVQ/zh-cn_image_0000002626228126.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=557A1EED05504E62664675AFCE57D0CEB7BF950058A9053F4C7976C2E7E4AABC)
 
 
 

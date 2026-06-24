@@ -1,6 +1,6 @@
 # ArkGraphics 2D简介
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkgraphics2d-introduction
 
@@ -21,7 +21,7 @@ ArkGraphics 2D（方舟2D图形服务 ）主要提供图形绘制与显示相关
 
 #### 使用场景
 
- - 图像效果处理：开发者可根据不同的UI效果需要，使用[effectKit模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit)实现图像的效果处理，以提升用户浏览体验。
+ - 图像效果处理：开发者可根据不同的UI效果需要，使用[@ohos.effectKit (图像效果)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit)实现图像的效果处理，以提升用户浏览体验。
  - 设置图像色域：开发者可根据设计需求使用图像文件并设置色域信息，实现图像广色域效果的绘制和显示。
  - 定制帧率场景：支持开发者根据不同内容和需要，定制帧率进行绘制。比如不同游戏场景和界面时，设置不同的帧率，以提升用户体验流畅性并达到平衡功耗的效果。
  - 自绘制场景：开发者可根据不同的UI效果和场景需要，使用Drawing等模块实现除ArkUI组件外的自定义组件或者自定义UI效果的绘制和显示。

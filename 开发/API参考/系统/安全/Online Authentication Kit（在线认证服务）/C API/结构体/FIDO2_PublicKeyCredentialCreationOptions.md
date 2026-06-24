@@ -1,6 +1,6 @@
 # FIDO2_PublicKeyCredentialCreationOptions
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_creation_options
 
@@ -32,7 +32,7 @@
 | FIDO2_PublicKeyCredentialHintArray hints | 认证方式指示。默认值为[]。可选。 |
 | FIDO2_AttestationConveyancePreference attestation | 凭据传递首选项。默认值为FIDO2_NONE，可选。 |
 | FIDO2_AttestationFormatsArray attestationFormats | 依赖方可以使用此选项指定有关认证方使用的证明声明格式的偏好。默认值为[]。 |
-| char * extensions | 扩展名必须是表示Map<string, Object>对象的JSON字符串。默认空。可选。 |
+| char * extensions | 扩展名必须是表示Map<string, Object>对象的JSON字符串。默认空。可选，最大长度为2048字符。 |
  
  
   

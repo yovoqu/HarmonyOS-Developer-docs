@@ -1,6 +1,6 @@
 # 使用NDK接口实现画中画功能开发（C/C++）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pipwindow-native
 
@@ -954,4 +954,4 @@ struct NDKImplementIndexPage {
 以上示例代码对应的示意图如下所示：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/DR-TxHfJTnicHk7bpT6zbQ/zh-cn_image_0000002587268538.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012632Z&HW-CC-Expire=86400&HW-CC-Sign=D6EBBF9DD307DCF72054428D7B931DFFB2ADBB8387F0231A9E3CDD44D348ACB9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/zxJrUx8TTouycXWmxCij8g/zh-cn_image_0000002626068798.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020805Z&HW-CC-Expire=86400&HW-CC-Sign=44DB4D3C1CA7E36E087837821E6606B283682B3C637A99FDA0E6912A124A756D)

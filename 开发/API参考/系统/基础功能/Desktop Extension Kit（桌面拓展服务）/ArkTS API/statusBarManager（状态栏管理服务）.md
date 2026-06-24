@@ -1,6 +1,6 @@
 # statusBarManager（状态栏管理服务）
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-manager
 **支持设备：** PC/2in1
@@ -26,6 +26,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 
 状态栏图标详细参数。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.0(12)
@@ -46,6 +48,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 
 状态栏图标的图片信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.0(12)
@@ -64,6 +68,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 
 状态栏图标左键业务弹窗的详细信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.0(12)
@@ -74,7 +80,7 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 | height | number | 否 | 否 | 状态栏图标的左键业务弹窗的自定义区域高度，单位：vp。 取值范围：大于0。 |
 | abilityName | string | 否 | 否 | 状态栏图标左键业务弹窗的应用定制区域对应的自定义StatusBarViewExtensionAbility的名称。 说明： 当传空字符串时，支持通过监听statusBarIconClick事件处理点击业务。 |
 | moduleName | string | 否 | 是 | 状态栏图标左键业务弹窗的应用定制区域对应的自定义StatusBarViewExtensionAbility所在的模块名称。 默认值：''。 |
-| loadingStatus | boolean | 否 | 是 | 点击状态栏图标展开二级菜单场景下是否加载动效。 默认值：false。 起始版本： 6.0.0(20) |
+| loadingStatus | boolean | 否 | 是 | 点击状态栏图标展开业务弹窗场景下是否加载动效。 默认值：false。 说明： loadingStatus为true时，打开弹窗时会显示加载动效；为false时，不会显示加载动效。 起始版本： 6.0.0(20) |
  
  
   
@@ -86,6 +92,8 @@ import { statusBarManager } from '@kit.DeskTopExtensionKit';
 type StatusBarGroupMenu = StatusBarMenuItem[]
  
 状态栏图标右键菜单的分组菜单信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
@@ -103,6 +111,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 **支持设备：** PC/2in1
 
 状态栏图标右键菜单的一级菜单项信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
@@ -125,6 +135,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 
 状态栏图标右键菜单的菜单项点击行为信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.0(12)
@@ -144,6 +156,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 **支持设备：** PC/2in1
 
 状态栏图标右键菜单中的二级菜单项信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
@@ -165,6 +179,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 
 菜单项中显示的图标，继承自[StatusBarIcon](#statusbaricon)。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 6.1.1(24)
@@ -182,6 +198,8 @@ type StatusBarGroupMenu = StatusBarMenuItem[]
 **支持设备：** PC/2in1
 
 菜单项的可选参数，支持配置菜单项的默认显示图标、及选中时显示的图标。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
@@ -204,6 +222,8 @@ addToStatusBar(context: common.Context, statusBarItem: StatusBarItem): void
  
 应用接入状态栏方法，当前同一个应用仅支持添加一个图标，重复添加无效。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.0(12)
@@ -218,7 +238,7 @@ addToStatusBar(context: common.Context, statusBarItem: StatusBarItem): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -324,6 +344,8 @@ addToStatusBar(context: common.Context, statusBarItem: StatusBarItem, callback: 
  
 应用接入状态栏方法，使用callback异步回调，当前同一个应用仅支持添加一个图标，重复添加无效。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.2(14)
@@ -334,12 +356,12 @@ addToStatusBar(context: common.Context, statusBarItem: StatusBarItem, callback: 
 | --- | --- | --- | --- |
 | context | common.Context | 是 | 上下文信息。 说明： 当前context仅支持传入Context的子类UIAbilityContext、ServiceExtensionContext、FormExtensionContext。 |
 | statusBarItem | StatusBarItem | 是 | 应用自定义接入状态栏的图标的详细信息。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 表示应用添加图标到状态栏回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当添加图标到状态栏成功时，err为undefined，否则为错误对象。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -452,6 +474,8 @@ removeFromStatusBar(context: common.Context): void
  
 应用移除状态栏对应图标方法。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.0(12)
@@ -465,7 +489,7 @@ removeFromStatusBar(context: common.Context): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -506,6 +530,8 @@ removeFromStatusBar(context: common.Context, callback: AsyncCallback&lt;void&gt;
  
 应用移除状态栏对应图标方法，使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.2(14)
@@ -515,12 +541,12 @@ removeFromStatusBar(context: common.Context, callback: AsyncCallback&lt;void&gt;
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | common.Context | 是 | 上下文信息。 说明： 当前context仅支持传入Context的子类UIAbilityContext、ServiceExtensionContext、FormExtensionContext。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 表示应用移除状态栏图标回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当从状态栏移除图标成功时，err为undefined，否则为错误对象。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -568,6 +594,8 @@ updateQuickOperationHeight(context: common.Context, height: number): void
  
 应用更新状态栏图标的左键弹窗应用定制区域高度。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.0(12)
@@ -582,7 +610,7 @@ updateQuickOperationHeight(context: common.Context, height: number): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -623,6 +651,8 @@ updateQuickOperationHeight(context: common.Context, height: number, callback: As
  
 应用更新状态栏图标的左键弹窗应用定制区域高度，使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.2(14)
@@ -633,12 +663,12 @@ updateQuickOperationHeight(context: common.Context, height: number, callback: As
 | --- | --- | --- | --- |
 | context | common.Context | 是 | 上下文信息。 说明： 当前context仅支持传入Context的子类UIAbilityContext、ServiceExtensionContext、FormExtensionContext。 |
 | height | number | 是 | 状态栏图标左键的应用面板自定义区域高度，单位：vp。 取值范围：大于0。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 表示应用更新状态栏图标的左键弹窗应用定制区域高度回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当更新状态栏图标的左键弹窗应用定制区域高度成功时，err为undefined，否则为错误对象。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -650,7 +680,6 @@ updateQuickOperationHeight(context: common.Context, height: number, callback: As
  
 ```text
 import { statusBarManager } from '@kit.DeskTopExtensionKit';
-import { BusinessError } from '@kit.BasicServicesKit';
 
 /**
  * 可以通过自定义组件的内置方法获取Context信息
@@ -686,6 +715,8 @@ updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroup
  
 应用更新状态栏图标的右键菜单内容。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.0(12)
@@ -700,7 +731,7 @@ updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroup
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -762,6 +793,8 @@ updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroup
  
 应用更新状态栏图标的右键菜单内容，使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.2(14)
@@ -772,12 +805,12 @@ updateStatusBarMenu(context: common.Context, statusBarGroupMenus: StatusBarGroup
 | --- | --- | --- | --- |
 | context | common.Context | 是 | 上下文信息。 说明： 当前context仅支持传入Context的子类UIAbilityContext、ServiceExtensionContext、FormExtensionContext。 |
 | statusBarGroupMenus | StatusBarGroupMenu[] | 是 | 更新后的应用右键菜单栏相关信息。 说明： 当前所有分组下一级菜单项的总和不可超过20个。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 表示应用更新状态栏图标的右键菜单内容回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当更新状态栏图标的右键菜单内容成功时，err为undefined，否则为错误对象。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -846,6 +879,8 @@ updateStatusBarIcon(context: common.Context, statusBarIcon: StatusBarIcon): void
  
 应用更新接入状态栏的图标。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.0(12)
@@ -860,7 +895,7 @@ updateStatusBarIcon(context: common.Context, statusBarIcon: StatusBarIcon): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -924,6 +959,8 @@ updateStatusBarIcon(context: common.Context, statusBarIcon: StatusBarIcon, callb
  
 应用更新接入状态栏的图标，使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.2(14)
@@ -934,12 +971,12 @@ updateStatusBarIcon(context: common.Context, statusBarIcon: StatusBarIcon, callb
 | --- | --- | --- | --- |
 | context | common.Context | 是 | 上下文信息。 说明： 当前context仅支持传入Context的子类UIAbilityContext、ServiceExtensionContext、FormExtensionContext。 |
 | statusBarIcon | StatusBarIcon | 是 | 更新的图标。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 表示应用更新接入状态栏的图标回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当更新接入状态栏的图标成功时，err为undefined，否则为错误对象。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1010,6 +1047,8 @@ on(type: 'statusBarIconClick', callback: Callback<emitter.EventData>): void
  
 监听状态栏图标点击事件。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 5.0.2(14)
@@ -1025,22 +1064,27 @@ on(type: 'statusBarIconClick', callback: Callback<emitter.EventData>): void
 **示例：**
  
 ```text
-private onStatusBarIconClick = (eventData: emitter.EventData) => {
-  // 自定义图标点击业务
-  let data = eventData.data;
-  if (data) {
-    switch (data['iconClickType']) {
-      case 'leftClick':
-        // 自定义左键点击业务
-        break;
-      default:
-        break;
+import { emitter } from '@kit.BasicServicesKit';
+import { statusBarManager } from '@kit.DeskTopExtensionKit';
+
+function statusBarIconClickOnTest() {
+  let onStatusBarIconClick = (eventData: emitter.EventData) => {
+    // 自定义图标点击业务
+    let data = eventData.data;
+    if (data) {
+      switch (data['iconClickType']) {
+        case 'leftClick':
+          // 自定义左键点击业务
+          break;
+        default:
+          break;
+      }
     }
   }
-}
 
-// 监听状态栏图标点击事件
-statusBarManager.on('statusBarIconClick', this.onStatusBarIconClick);
+  // 监听状态栏图标点击事件
+  statusBarManager.on('statusBarIconClick', onStatusBarIconClick);
+}
 ```
  
   
@@ -1052,6 +1096,8 @@ statusBarManager.on('statusBarIconClick', this.onStatusBarIconClick);
 off(type: 'statusBarIconClick', callback?: Callback<emitter.EventData>): void
  
 注销状态栏图标点击事件。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
@@ -1068,24 +1114,29 @@ off(type: 'statusBarIconClick', callback?: Callback<emitter.EventData>): void
 **示例：**
  
 ```text
-private onStatusBarIconClick = (eventData: emitter.EventData) => {
-  // 自定义图标点击业务
-  let data = eventData.data;
-  if (data) {
-    switch (data['iconClickType']) {
-      case 'leftClick':
-        // 自定义左键点击业务
-        break;
-      default:
-        break;
+import { emitter } from '@kit.BasicServicesKit';
+import { statusBarManager } from '@kit.DeskTopExtensionKit';
+
+function statusBarIconClickOffTest() {
+  let onStatusBarIconClick = (eventData: emitter.EventData) => {
+    // 自定义图标点击业务
+    let data = eventData.data;
+    if (data) {
+      switch (data['iconClickType']) {
+        case 'leftClick':
+          // 自定义左键点击业务
+          break;
+        default:
+          break;
+      }
     }
   }
-}
-// 取消事件回调处理函数
-statusBarManager.off('statusBarIconClick', this.onStatusBarIconClick);
+  // 取消事件回调处理函数
+  statusBarManager.off('statusBarIconClick', onStatusBarIconClick);
 
-// 注销事件监听
-statusBarManager.off('statusBarIconClick');
+  // 注销事件监听
+  statusBarManager.off('statusBarIconClick');
+}
 ```
  
   
@@ -1097,6 +1148,8 @@ statusBarManager.off('statusBarIconClick');
 on(type: 'rightMenuClick', callback: Callback<emitter.EventData>): void
  
 监听状态栏图标右键菜单点击事件。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
@@ -1113,17 +1166,22 @@ on(type: 'rightMenuClick', callback: Callback<emitter.EventData>): void
 **示例：**
  
 ```text
-private onRightMenuClick = (eventData: emitter.EventData) => {
-  // 自定义图标右键菜单点击业务
-  let data = eventData.data;
-  if (data) {
-    let menuCode = data['menuCode'] as string;
-    // 处理点击菜单项业务
-  }
-}
+import { emitter } from '@kit.BasicServicesKit';
+import { statusBarManager } from '@kit.DeskTopExtensionKit';
 
-// 监听右键菜单点击事件
-statusBarManager.on('rightMenuClick', this.onRightMenuClick);
+function rightMenuClickOnTest() {
+  let onRightMenuClick = (eventData: emitter.EventData) => {
+    // 自定义图标右键菜单点击业务
+    let data = eventData.data;
+    if (data) {
+      let menuCode = data['menuCode'] as string;
+      // 处理点击菜单项业务
+    }
+  }
+
+  // 监听右键菜单点击事件
+  statusBarManager.on('rightMenuClick', onRightMenuClick);
+}
 ```
  
   
@@ -1135,6 +1193,8 @@ statusBarManager.on('rightMenuClick', this.onRightMenuClick);
 off(type: 'rightMenuClick', callback?: Callback<emitter.EventData>): void
  
 注销状态栏图标右键菜单点击事件。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
@@ -1151,20 +1211,25 @@ off(type: 'rightMenuClick', callback?: Callback<emitter.EventData>): void
 **示例：**
  
 ```text
-private onRightMenuClick = (eventData: emitter.EventData) => {
-  // 自定义图标右键菜单点击业务
-  let data = eventData.data;
-  if (data) {
-    let menuCode = data['menuCode'] as string;
-    // 处理点击菜单项业务
+import { emitter } from '@kit.BasicServicesKit';
+import { statusBarManager } from '@kit.DeskTopExtensionKit';
+
+function rightMenuClickOffTest() {
+  let onRightMenuClick = (eventData: emitter.EventData) => {
+    // 自定义图标右键菜单点击业务
+    let data = eventData.data;
+    if (data) {
+      let menuCode = data['menuCode'] as string;
+      // 处理点击菜单项业务
+    }
   }
+
+  // 取消事件回调处理函数
+  statusBarManager.off('rightMenuClick', onRightMenuClick);
+
+  // 注销事件监听
+  statusBarManager.off('rightMenuClick');
 }
-
-// 取消事件回调处理函数
-statusBarManager.off('rightMenuClick', this.onRightMenuClick);
-
-// 注销事件监听
-statusBarManager.off('rightMenuClick');
 ```
  
   
@@ -1177,6 +1242,8 @@ updateStatusBarHoverTips(context: common.Context, hoverTips: string): Promise&lt
  
 更新状态栏图标hover时显示内容。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 6.0.2(22)
@@ -1186,7 +1253,7 @@ updateStatusBarHoverTips(context: common.Context, hoverTips: string): Promise&lt
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | common.Context | 是 | 上下文信息。 说明： 当前context仅支持传入Context的子类UIAbilityContext、ServiceExtensionContext、FormExtensionContext。 |
-| hoverTips | string | 是 | 状态栏图标hover时的显示信息。 字符串长度范围：1~128。 |
+| hoverTips | string | 是 | 状态栏图标hover时的显示信息。 字符串长度范围：1~128。 说明： 超出取值范围会抛错误码1010710005。 |
  
  
 **返回值：**
@@ -1198,7 +1265,7 @@ updateStatusBarHoverTips(context: common.Context, hoverTips: string): Promise&lt
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1239,6 +1306,8 @@ updateStatusBarMenuItem(context: common.Context, item: StatusBarMenuItem): Promi
  
 更新单个一级菜单项的内容。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 6.1.1(24)
@@ -1260,7 +1329,7 @@ updateStatusBarMenuItem(context: common.Context, item: StatusBarMenuItem): Promi
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1340,6 +1409,8 @@ updateStatusBarSubMenuItem(context: common.Context, item: StatusBarSubMenuItem):
  
 更新单个二级菜单项的内容。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.StatusBarManager
  
 **起始版本：** 6.1.1(24)
@@ -1361,7 +1432,7 @@ updateStatusBarSubMenuItem(context: common.Context, item: StatusBarSubMenuItem):
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

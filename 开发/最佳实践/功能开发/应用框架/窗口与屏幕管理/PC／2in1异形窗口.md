@@ -1,6 +1,6 @@
 # PC/2in1异形窗口
 
-更新时间：2026-05-22 09:46:30
+更新时间：2026-06-23 06:26:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-2in1-window-shape
 
@@ -72,7 +72,7 @@
 }
 ```
 
-2. 具体代码中，使用createSubWindow()创建子窗口（参考[设置应用子窗口](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-window-stage#设置应用子窗口)），或使用createWindow()接口创建悬浮窗（参考[设置悬浮窗受限开放](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-window-stage#设置全局悬浮窗受限开放)），设置窗口的位置、大小及其他属性等，然后使用setUIContent()接口设置窗口加载的page页面。
+2. 具体代码中，使用createSubWindow()创建子窗口（参考[设置应用子窗口](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomic-application-window#设置应用子窗口)），或使用createWindow()接口创建悬浮窗，设置窗口的位置、大小及其他属性等，然后使用setUIContent()接口设置窗口加载的page页面。
 
   
 ```ArkTS

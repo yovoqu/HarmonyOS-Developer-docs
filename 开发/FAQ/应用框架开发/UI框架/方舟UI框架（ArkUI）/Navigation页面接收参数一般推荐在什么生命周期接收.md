@@ -1,6 +1,6 @@
 # Navigation页面接收参数一般推荐在什么生命周期接收
 
-更新时间：2026-05-30 09:08:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-419
 

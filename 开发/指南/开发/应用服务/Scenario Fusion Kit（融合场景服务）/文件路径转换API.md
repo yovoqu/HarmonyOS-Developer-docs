@@ -1,6 +1,6 @@
 # 文件路径转换API
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-api-path-conversion
 
@@ -61,6 +61,6 @@ try {
     hilog.error(0x0000, 'testTag', 'Promise error: %{public}d %{public}s', error.code, error.message);
   });
 } catch (error) {
-  hilog.error(0x0000, 'testTag', 'failReason: %{public}d %{public}s', error.code, error.message);
+  hilog.error(0x0000, 'testTag', 'Failed to convert file uris, failReason: %{public}d %{public}s', error.code, error.message);
 }
 ```

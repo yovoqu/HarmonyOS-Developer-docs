@@ -1,6 +1,6 @@
 # healthStore (运动健康数据服务)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore
 **支持设备：** Phone | Tablet | Wearable
@@ -34,6 +34,8 @@ type AggregateMetrics = Partial<Record<[AggregateMetricScope](#aggregatemetricsc
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | max | number | 否 | 是 | 最大值聚合，若未填写，则不查询此聚合类型。 |
@@ -59,6 +61,8 @@ type AggregateMetricScope = 'max' | 'min' | 'avg' | 'sum' | 'last' | 'count'
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 类型 | 说明 |
 | --- | --- |
@@ -86,6 +90,8 @@ AggregateRequest<T extends Record<string, [AggregateMetrics](#aggregatemetrics)>
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | dataType | DataType | 否 | 否 | 聚合查询的数据类型。 |
@@ -109,6 +115,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | fields | Pick<T, keyof T> | 否 | 否 | 聚合查询字段。 |
@@ -125,6 +133,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -148,6 +158,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | readDataTypes | DataType[] | 否 | 否 | 读数据类型。 |
@@ -165,6 +177,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -184,6 +198,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -206,6 +222,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | count | number | 否 | 是 | 读取数据的条数，若未填写，默认为无条数限制。 取值范围：[1, ∞) |
@@ -225,12 +243,14 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | startLocalDate | string | 否 | 否 | 数据的开始本地日期，格式'MM/DD/YYYY'。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | endLocalDate | string | 否 | 否 | 数据的结束本地日期，格式'MM/DD/YYYY'。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| startTime | number | 否 | 否 | 请求的开始时间，Unix时间戳，以毫秒为单位。 该参数在Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
-| endTime | number | 否 | 否 | 请求的结束时间，Unix时间戳，以毫秒为单位。 该参数在Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
+| startTime | number | 否 | 否 | 请求的开始时间，Unix时间戳，单位：ms。 该参数在Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
+| endTime | number | 否 | 否 | 请求的结束时间，Unix时间戳，单位：ms。 该参数在Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
 | dataSourceOptions | DataSourceOptions | 否 | 是 | 请求关联的数据源信息，若未填写，默认为无数据源限制。 |
 
 
@@ -245,6 +265,8 @@ AggregateResult<T extends Record<string, [AggregateMetrics](#aggregatemetrics)> 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -267,6 +289,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceInfo | DeviceInfo | 是 | 是 | 设备信息，若未填写，默认为空。 |
@@ -284,6 +308,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -304,6 +330,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -326,6 +354,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | id | number | 是 | 否 | 数据类型唯一标识值。 |
@@ -343,6 +373,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -378,6 +410,8 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | uniqueId | string | 是 | 否 | 设备UniqueId，唯一标识，长度小于256字节。 |
@@ -402,16 +436,18 @@ type DataSourceBase = Omit<DataSource, 'dataSourceId'>
 
 ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> = Record<string, [ExerciseSummary](#exercisesummary)>,DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
-锻炼记录数据类，继承[SampleDataBase](#sampledatabase)。
+锻炼记录数据类，包含锻炼记录统计数据和详情数据，继承[SampleDataBase](#sampledatabase)。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | exerciseType | SubDataType | 否 | 否 | 锻炼记录子数据类型。 |
-| duration | number | 否 | 是 | 锻炼时长，单位毫秒，若未填写，默认为结束时间减去开始时间。 取值范围：(0, ∞) |
+| duration | number | 否 | 是 | 锻炼时长，单位：ms，若未填写，默认为结束时间减去开始时间。 取值范围：(0, ∞) |
 | summaries | Pick<K, keyof K> | 否 | 否 | 统计数据，锻炼记录关联的统计数据类型参考exerciseSequenceHelper定义的模型。 |
 | details | Pick<DK, keyof DK> | 否 | 是 | 详情数据，锻炼记录关联的详情数据类型参考exerciseSequenceHelper定义的模型，若未填写，默认为空。 |
 
@@ -427,6 +463,8 @@ ExerciseSequence<K extends Record<string, [ExerciseSummary](#exercisesummary)> =
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -447,6 +485,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | exerciseType | SubDataType \| SubDataType[] \| null | 否 | 否 | 锻炼记录子数据类型，为空时查询所有类型。 |
@@ -464,6 +504,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -483,6 +525,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -504,6 +548,8 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | DAY | 3 | 按天聚合。 |
@@ -517,11 +563,13 @@ ExerciseSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencep
 
 HealthSequence<K extends Record<string, [HealthValueType](#healthvaluetype)> = Record<string, [HealthValueType](#healthvaluetype)>,DK extends Record<string, [SequencePoint](#sequencepoint)[]> = Record<string, [SequencePoint](#sequencepoint)[]>>
 
-健康记录数据类，继承[SampleDataBase](#sampledatabase)。
+健康记录数据类，包含健康记录特征数据和详情数据，继承[SampleDataBase](#sampledatabase)。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -541,6 +589,8 @@ HealthSequence<K extends Record<string, [HealthValueType](#healthvaluetype)> = R
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | healthSequenceDataType | DataType \| DataType[] | 否 | 否 | 健康数据类型。 |
@@ -559,6 +609,8 @@ HealthSequenceReadRequest<DK extends Record<string, [SequencePoint](#sequencepoi
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -582,6 +634,8 @@ type HealthValueType = number | string | boolean | undefined
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 类型 | 说明 |
 | --- | --- |
 | number | 表示值类型为数字，可取任意值。 |
@@ -604,6 +658,8 @@ type PaceValueType = Record<string, number>
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 类型 | 说明 |
 | --- | --- |
 | Record<string, number> | 配速数据字段。 |
@@ -621,15 +677,17 @@ type PaceValueType = Record<string, number>
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | dataType | DataType | 否 | 否 | 数据类型。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | dataSourceId | string | 否 | 否 | 数据源唯一标识值。 |
 | localDate | string | 否 | 否 | 数据的本地日期，格式'MM/DD/YYYY'。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| startTime | number | 否 | 否 | 数据开始时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| endTime | number | 否 | 否 | 数据结束时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| startTime | number | 否 | 否 | 数据开始时间，Unix时间戳，单位：ms。 取值范围：(0, ∞) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
+| endTime | number | 否 | 否 | 数据结束时间，Unix时间戳，单位：ms。 取值范围：(0, ∞) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | timeZone | string | 否 | 否 | 数据所在的时区，格式为+0800。 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
-| modifiedTime | number | 否 | 否 | 创建或修改时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) |
+| modifiedTime | number | 否 | 否 | 创建或修改时间，Unix时间戳，单位：ms。 取值范围：(0, ∞) |
 
 
 
@@ -640,11 +698,13 @@ type PaceValueType = Record<string, number>
 
 SamplePoint<K extends Record<string, [HealthValueType](#healthvaluetype)> = Record<string, [HealthValueType](#healthvaluetype)>>
 
-数据采样点，继承[SampleDataBase](#sampledatabase)。
+数据采样点，定义了顺时采样测量的模型，使用一个或多个字段来描述数据，继承[SampleDataBase](#sampledatabase)。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -665,6 +725,8 @@ type SamplePointDeleteRequest = UnixTimeBasedDataDeleteRequest
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | dataType | DataType \| DataType[] | 否 | 否 | 待删除的数据类型。 |
@@ -684,6 +746,8 @@ SamplePointReadRequest<FK extends Record<string, [HealthValueType](#healthvaluet
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | samplePointDataType | DataType\| DataType[] | 否 | 否 | 查询的数据类型。 |
@@ -702,9 +766,11 @@ SamplePointReadRequest<FK extends Record<string, [HealthValueType](#healthvaluet
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| startTime | number | 否 | 否 | 数据开始时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) |
+| startTime | number | 否 | 否 | 数据开始时间，Unix时间戳，单位：ms。 取值范围：(0, ∞) |
 | [P: string] | HealthValueType | 否 | 否 | 详情数据点字段。 |
 
 
@@ -721,6 +787,8 @@ SequenceReadOptions<DK extends Record<string, [SequencePoint](#sequencepoint)[]>
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -741,6 +809,8 @@ type SequenceValueType = number | string | boolean | object
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 | 类型 | 说明 |
 | --- | --- |
@@ -764,6 +834,8 @@ type SequenceValueType = number | string | boolean | object
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | ASC | 0 | 升序。 |
@@ -784,6 +856,8 @@ type SubDataType = DataType
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | id | number | 是 | 否 | 子数据类型唯一标识值。 |
@@ -802,6 +876,8 @@ type SubDataType = DataType
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | dataType | DataType \| DataType[] | 否 | 否 | 待删除的数据类型。 |
@@ -815,7 +891,7 @@ type SubDataType = DataType
 
 init(context: common.Context): Promise&lt;void&gt;
 
-Health Service初始化接口，使用Promise异步方式，其他接口调用前需先初始化，仅首次调用需要。
+Health Service初始化接口，使用Promise异步回调，其他接口调用前需先初始化，仅首次调用需要。
 
 该接口从API 19 Release开始，支持Wearable设备开发。
 
@@ -824,6 +900,8 @@ Health Service初始化接口，使用Promise异步方式，其他接口调用�
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -836,7 +914,7 @@ Health Service初始化接口，使用Promise异步方式，其他接口调用�
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -871,13 +949,15 @@ try {
 
 insertDataSource(dataSource: DataSourceBase): Promise&lt;string&gt;
 
-插入指定的数据源，使用Promise异步方式。
+插入指定的数据源，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -932,7 +1012,7 @@ let dataSource: healthStore.DataSourceBase = {
     hardwareVersion: '1',
     softwareVersion: '2',
     firmwareVersion: '3',
-    udid: ''
+    udid: 'simulateUdid'
   }
 }
 
@@ -952,13 +1032,15 @@ try {
 
 readDataSource(request: DataSourceReadRequest): Promise<DataSource[]>
 
-读取数据源，使用Promise异步方式。
+读取数据源，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1022,13 +1104,15 @@ try {
 
 updateDataSource(dataSource: DataSource): Promise&lt;void&gt;
 
-更新数据源，使用Promise异步方式。
+更新数据源，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1041,7 +1125,7 @@ updateDataSource(dataSource: DataSource): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1106,13 +1190,15 @@ try {
 
 saveData(sampleData: SamplePoint[] | SamplePoint): Promise&lt;void&gt;
 
-保存数据采样点，使用Promise异步方式。
+保存数据采样点，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1125,7 +1211,7 @@ saveData(sampleData: SamplePoint[] | SamplePoint): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1184,13 +1270,15 @@ try {
 
 saveData(exerciseSequence: ExerciseSequence[] | ExerciseSequence): Promise&lt;void&gt;
 
-保存锻炼记录数据，使用Promise异步方式。
+保存锻炼记录数据，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1203,7 +1291,7 @@ saveData(exerciseSequence: ExerciseSequence[] | ExerciseSequence): Promise&lt;vo
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1308,13 +1396,15 @@ try {
 
 saveData(healthSequence: HealthSequence[] | HealthSequence): Promise&lt;void&gt;
 
-保存健康记录数据，使用Promise异步方式。
+保存健康记录数据，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1327,7 +1417,7 @@ saveData(healthSequence: HealthSequence[] | HealthSequence): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1418,13 +1508,15 @@ try {
 
 readData<T extends SamplePoint>(request: SamplePointReadRequest): Promise<T[]>
 
-读取数据采样点，使用Promise异步方式。
+读取数据采样点，使用Promise异步回调。
 
 该接口从API 19 Release开始，支持Wearable设备开发。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1494,13 +1586,15 @@ try {
 
 readData<T extends ExerciseSequence>(request: ExerciseSequenceReadRequest): Promise<T[]>
 
-读取锻炼记录数据，使用Promise异步方式。
+读取锻炼记录数据，使用Promise异步回调。
 
 该接口从API 19 Release开始，支持Wearable设备开发。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1584,13 +1678,15 @@ try {
 
 readData<T extends HealthSequence>(request: HealthSequenceReadRequest): Promise<T[]>
 
-读取健康记录数据，使用Promise异步方式。
+读取健康记录数据，使用Promise异步回调。
 
 该接口从API 19 Release开始，支持Wearable设备开发。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1664,13 +1760,15 @@ try {
 
 deleteData(request: SamplePointDeleteRequest | SamplePointDeleteRequest[]): Promise&lt;void&gt;
 
-删除数据采样点，使用Promise异步方式。
+删除数据采样点，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1683,7 +1781,7 @@ deleteData(request: SamplePointDeleteRequest | SamplePointDeleteRequest[]): Prom
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1734,13 +1832,15 @@ try {
 
 deleteData(request: ExerciseSequenceDeleteRequest | ExerciseSequenceDeleteRequest[]): Promise&lt;void&gt;
 
-删除锻炼记录数据，使用Promise异步方式。
+删除锻炼记录数据，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1753,7 +1853,7 @@ deleteData(request: ExerciseSequenceDeleteRequest | ExerciseSequenceDeleteReques
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1803,13 +1903,15 @@ try {
 
 deleteData(request: HealthSequenceDeleteRequest | HealthSequenceDeleteRequest[]): Promise&lt;void&gt;
 
-删除健康记录数据，使用Promise异步方式。
+删除健康记录数据，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1822,7 +1924,7 @@ deleteData(request: HealthSequenceDeleteRequest | HealthSequenceDeleteRequest[])
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1872,13 +1974,15 @@ try {
 
 deleteData(samplePoint: SamplePoint | SamplePoint[]): Promise&lt;void&gt;
 
-删除指定数据采样点，使用Promise异步方式。
+删除指定数据采样点，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1891,7 +1995,7 @@ deleteData(samplePoint: SamplePoint | SamplePoint[]): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1945,13 +2049,15 @@ try {
 
 deleteData(exerciseSequence: ExerciseSequence | ExerciseSequence[]): Promise&lt;void&gt;
 
-删除指定锻炼记录数据，使用Promise异步方式。
+删除指定锻炼记录数据，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -1964,7 +2070,7 @@ deleteData(exerciseSequence: ExerciseSequence | ExerciseSequence[]): Promise&lt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -2021,13 +2127,15 @@ try {
 
 deleteData(healthSequence: HealthSequence | HealthSequence[]): Promise&lt;void&gt;
 
-删除指定健康记录数据，使用Promise异步方式。
+删除指定健康记录数据，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -2040,7 +2148,7 @@ deleteData(healthSequence: HealthSequence | HealthSequence[]): Promise&lt;void&g
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -2094,7 +2202,7 @@ try {
 
 aggregateData<T extends AggregateResult>(request: AggregateRequest | AggregateRequest[]): Promise<T[]>
 
-聚合查询，使用Promise异步方式。
+聚合查询，使用Promise异步回调。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
@@ -2103,6 +2211,8 @@ aggregateData<T extends AggregateResult>(request: AggregateRequest | AggregateRe
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回1002700001错误码。
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -2187,7 +2297,7 @@ try {
 
 requestAuthorizations(context: common.UIAbilityContext, request: AuthorizationRequest): Promise&lt;AuthorizationResponse&gt;
 
-用户授权，使用Promise异步方式。
+用户授权，使用Promise异步回调。
 
 该接口从API 19 Release开始，支持Wearable设备开发。
 
@@ -2196,6 +2306,8 @@ requestAuthorizations(context: common.UIAbilityContext, request: AuthorizationRe
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -2214,7 +2326,7 @@ requestAuthorizations(context: common.UIAbilityContext, request: AuthorizationRe
 
 **错误码：**
 
-以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)，其他错误码请参见[华为账号服务ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)，其他错误码请参见[华为账号服务ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2264,13 +2376,15 @@ try {
 
 getAuthorizations(request: AuthorizationRequest): Promise&lt;AuthorizationResponse&gt;
 
-查询权限，使用Promise异步方式。
+查询权限，使用Promise异步回调。
 
 该接口从API 19 Release开始，支持Wearable设备开发。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
 **起始版本：** 5.0.0(12)
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **参数：**
 
@@ -2337,7 +2451,7 @@ try {
 
 cancelAuthorizations(): Promise&lt;void&gt;
 
-用户取消授权，使用Promise异步方式。
+用户取消授权，使用Promise异步回调。
 
 该接口从API 19 Release开始，支持Wearable设备开发。
 
@@ -2347,16 +2461,18 @@ cancelAuthorizations(): Promise&lt;void&gt;
 
 **起始版本：** 5.0.0(12)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)，其他错误码请参见[华为账号服务ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[运动健康服务ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice)，其他错误码请参见[华为账号服务ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2389,7 +2505,7 @@ try {
 
 syncAll(): Promise&lt;void&gt;
 
-用户主动触发数据同步，使用Promise异步方式。
+用户主动触发云端数据同步，使用Promise异步回调。
 
 **系统能力：** SystemCapability.Health.HealthStore
 
@@ -2397,11 +2513,13 @@ syncAll(): Promise&lt;void&gt;
 
 **起始版本：** 5.1.0(18)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -2454,12 +2572,14 @@ on(type: 'serviceDie', callback: Callback&lt;void&gt;): void
 
 **起始版本：** 5.1.0(18)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | Health Service Kit进程状态的回调类型，支持的事件为：'serviceDie'，当Health Service Kit进程销毁时，触发该事件。 |
-| callback | Callback&lt;void&gt; | 是 | 无返回结果的回调函数。 |
+| callback | Callback&lt;void&gt; | 是 | 回调函数，无返回结果。 |
 
 
 > [!NOTE]
@@ -2493,12 +2613,14 @@ off(type: 'serviceDie', callback?: Callback&lt;void&gt;): void
 
 **起始版本：** 5.1.0(18)
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | Health Service Kit进程状态的回调类型，支持的事件为：'serviceDie'，当Health Service Kit进程销毁时，触发该事件。 |
-| callback | Callback&lt;void&gt; | 否 | 无返回结果的回调函数。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
+| callback | Callback&lt;void&gt; | 否 | 回调函数，无返回结果。 - callback为空：取消所有callback回调。 - callback非空：取消指定的callback回调。 |
 
 
 > [!NOTE]

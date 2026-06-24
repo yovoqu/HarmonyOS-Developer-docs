@@ -1,6 +1,6 @@
 # DevEco Studio设置新建ets文件时自动添加头部注释和版权声明的方法
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-coding-8
 

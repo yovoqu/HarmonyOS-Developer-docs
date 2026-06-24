@@ -1,6 +1,6 @@
 # gbk字符串TextEncoder编码结果属性buffer长度为何比编码结果长度略大
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-137
 

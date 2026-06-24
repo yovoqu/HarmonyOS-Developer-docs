@@ -1,6 +1,6 @@
 # @ohos.batteryInfo (电量信息)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-battery-info
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -32,7 +32,7 @@ import {batteryInfo} from '@kit.BasicServicesKit';
   
 | 名称 | 类型 | 只读 | 说明 |
 | --- | --- | --- | --- |
-| batterySOC | number | 是 | 表示当前设备剩余电池电量百分比。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| batterySOC | number | 是 | 表示当前设备剩余电池电量百分比，取值范围是[0，100]。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | chargingStatus | BatteryChargeState | 是 | 表示当前设备电池的充电状态。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | healthStatus | BatteryHealthState | 是 | 表示当前设备电池的健康状态。 |
 | pluggedType | BatteryPluggedType | 是 | 表示当前设备连接的充电器类型。 |

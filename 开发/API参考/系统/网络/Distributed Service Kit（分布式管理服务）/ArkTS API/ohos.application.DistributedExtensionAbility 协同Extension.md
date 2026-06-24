@@ -1,6 +1,6 @@
 # @ohos.application.DistributedExtensionAbility (协同Extension)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributedextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,6 +36,8 @@ import { DistributedExtensionAbility} from '@kit.DistributedServiceKit';
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
 
+**设备行为差异：** 该接口在不支持分布式业务的Wearable设备不生效。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | context | DistributedExtensionContext | 否 | 否 | DistributedExtension的上下文环境，继承自ExtensionContext。 |
@@ -54,6 +56,8 @@ Extension生命周期回调，在创建时回调，执行初始化业务逻辑�
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
+
+**设备行为差异：** 该接口在不支持分布式业务的Wearable设备不生效。
 
 **参数：**
 
@@ -90,6 +94,8 @@ onCollaborate(wantParam: Record <string, Object>) : AbilityConstant.CollaborateR
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
+
+**设备行为差异：** 该接口在不支持分布式业务的Wearable设备不生效。
 
 **参数：**
 
@@ -138,6 +144,8 @@ Extension生命周期回调，在销毁时回调，执行资源清理等操作�
 **模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.DistributedSched.AppCollaboration
+
+**设备行为差异：** 该接口在不支持分布式业务的Wearable设备不生效。
 
 **示例：**
 

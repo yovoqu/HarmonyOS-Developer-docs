@@ -1,6 +1,6 @@
 # 有了代码签名特性后，开发者的so文件在调试、发布等阶段该如何部署
 
-更新时间：2026-03-20 08:54:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-82
 

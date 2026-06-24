@@ -1,6 +1,6 @@
 # OHPM版本号规则
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-version-rules
 

@@ -1,6 +1,6 @@
 # 使用Picker选择媒体库资源
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-photoviewpicker
 
@@ -130,7 +130,7 @@ export class MediaAssetDataHandler implements photoAccessHelper.MediaAssetDataHa
 2. 使用[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets-1)接口获取要访问的资产，并通过[requestImageData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetmanager#requestimagedata11)获取对应资源。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/kJRZRIc1SPyV6xkqQ0KZHg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030346Z&HW-CC-Expire=86400&HW-CC-Sign=8F7701F7AF95F665D9F09C9731D124E602ED5649F28CDE278C5B4BBF6B76FF92)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/NnQQE2imSgWjdiIzPawvDw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020910Z&HW-CC-Expire=86400&HW-CC-Sign=D58374CF13F842F87B6E150F2C321E425B13EC3CCF59A5770D8CF57D2D3B7443)
  
 
   出于对用户隐私安全的保护，对媒体资源EXIF中的地理位置和拍摄参数信息做了去隐私化处理。如果需要获取被去隐私化的EXIF信息，需要[申请相册管理模块权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/photoaccesshelper-preparation#申请相册管理模块功能相关权限)'ohos.permission.MEDIA_LOCATION'。

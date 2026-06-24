@@ -1,6 +1,6 @@
 # ArkGuard字节码混淆开启指南
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bytecode-obfuscation-guide
 
@@ -223,7 +223,7 @@ console.info(obj002.dynamicName + ''); // 使用点语法静态访问属性
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/TlfZ2NytQOKEkYx31w1QOg/zh-cn_image_0000002611833433.png?HW-CC-KV=V1&HW-CC-Date=20260528T030516Z&HW-CC-Expire=86400&HW-CC-Sign=20D7B63AC1A00725C3B6B4622AC7147294E91EA34853B2AC8C71AC55054F6C45)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ce/v3/8Ljl2d4jT_qhEnasBtiQHA/zh-cn_image_0000002656347409.png?HW-CC-KV=V1&HW-CC-Date=20260624T020740Z&HW-CC-Expire=86400&HW-CC-Sign=2B6880277B7C9EC03A18CE566E0AC4EFE658EA886A7206E1BF504D78A5C29E40)
 
  
   
@@ -235,4 +235,4 @@ console.info(obj002.dynamicName + ''); // 使用点语法静态访问属性
 反混淆工具需要使用应用编译过程中生成的sourceMaps.json文件以及混淆名称映射文件nameCache.json文件，因此请本地备份它们；为方便问题定位，建议备份release目录。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/H33Mt7UiSaa2EYUErHmEtg/zh-cn_image_0000002581273686.png?HW-CC-KV=V1&HW-CC-Date=20260528T030516Z&HW-CC-Expire=86400&HW-CC-Sign=1FDA8A77030B81C87C5EB27F43B66254ECB41E6F2E76FF4CC97AAEAF58DF2DBB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/D6_w5Q7TTxOCbYYzCrlsQw/zh-cn_image_0000002626227994.png?HW-CC-KV=V1&HW-CC-Date=20260624T020740Z&HW-CC-Expire=86400&HW-CC-Sign=EBCD00901450E01B26F2895C21FC666DB073BCA78A20626124B66843E9C3F7EF)

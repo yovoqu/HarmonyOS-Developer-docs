@@ -1,6 +1,6 @@
 # visionBase（Core Vision Kit基类）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -28,6 +28,8 @@ import { visionBase } from '@kit.CoreVisionKit';
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 值 | 说明 |
@@ -45,6 +47,8 @@ import { visionBase } from '@kit.CoreVisionKit';
 待识别的视觉信息对象。
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -65,6 +69,8 @@ type InputData = ImageData | ImageData[]
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 类型 | 说明 |
@@ -81,6 +87,8 @@ type InputData = ImageData | ImageData[]
 视觉AI能力的内切框。
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -102,6 +110,8 @@ type InputData = ImageData | ImageData[]
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -119,6 +129,8 @@ type InputData = ImageData | ImageData[]
 表示三维平面上的朝向。
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -139,6 +151,8 @@ type InputData = ImageData | ImageData[]
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -155,6 +169,8 @@ type InputData = ImageData | ImageData[]
 模型下载完成时触发的下载完成事件的数据结构。该字段为预留接口，当前版本暂不支持。
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.2(14)
   
@@ -174,6 +190,8 @@ type InputData = ImageData | ImageData[]
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -190,6 +208,8 @@ type InputData = ImageData | ImageData[]
 下载状态事件的数据结构，用于报告下载过程中的各种状态，比如网络错误、参数无效等。该字段为预留接口，当前版本暂不支持。
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.2(14)
   
@@ -210,6 +230,8 @@ type InputData = ImageData | ImageData[]
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -227,6 +249,8 @@ type InputData = ImageData | ImageData[]
 下载状态的枚举类。该字段为预留接口，当前版本暂不支持。
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.2(14)
   
@@ -253,6 +277,8 @@ type InputData = ImageData | ImageData[]
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -272,6 +298,8 @@ type InputData = ImageData | ImageData[]
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -289,6 +317,8 @@ Analyzer基类，充当能力引擎。
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
   
@@ -302,6 +332,8 @@ destroy(): Promise&lt;void&gt;
 用于销毁多种视觉能力的进程。使用Promise异步回调。
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -328,6 +360,8 @@ on(type: 'downloadStart', callback: Callback&lt;DownloadStartData&gt;): void
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -340,7 +374,7 @@ on(type: 'downloadStart', callback: Callback&lt;DownloadStartData&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -381,6 +415,8 @@ on(type: 'downloadComplete', callback: Callback&lt;DownloadCompleteData&gt;): vo
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -393,7 +429,7 @@ on(type: 'downloadComplete', callback: Callback&lt;DownloadCompleteData&gt;): vo
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -434,6 +470,8 @@ on(type: 'downloadCancel', callback: Callback&lt;DownloadCancelData&gt;): void
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -446,7 +484,7 @@ on(type: 'downloadCancel', callback: Callback&lt;DownloadCancelData&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -487,6 +525,8 @@ on(type: 'downloadStatus', callback: Callback&lt;DownloadStatusData&gt;): void
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -499,7 +539,7 @@ on(type: 'downloadStatus', callback: Callback&lt;DownloadStatusData&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -540,6 +580,8 @@ on(type: 'downloadProgress', callback: Callback&lt;DownloadProgressData&gt;): vo
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -552,7 +594,7 @@ on(type: 'downloadProgress', callback: Callback&lt;DownloadProgressData&gt;): vo
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -593,6 +635,8 @@ off(type: 'downloadStart', callback?: Callback&lt;DownloadStartData&gt;): void
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -605,7 +649,7 @@ off(type: 'downloadStart', callback?: Callback&lt;DownloadStartData&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -651,6 +695,8 @@ off(type: 'downloadComplete', callback?: Callback&lt;DownloadCompleteData&gt;): 
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -663,7 +709,7 @@ off(type: 'downloadComplete', callback?: Callback&lt;DownloadCompleteData&gt;): 
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -709,6 +755,8 @@ off(type: 'downloadCancel', callback?: Callback&lt;DownloadCancelData&gt;): void
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -721,7 +769,7 @@ off(type: 'downloadCancel', callback?: Callback&lt;DownloadCancelData&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -767,6 +815,8 @@ off(type: 'downloadStatus', callback?: Callback&lt;DownloadStatusData&gt;): void
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -779,7 +829,7 @@ off(type: 'downloadStatus', callback?: Callback&lt;DownloadStatusData&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -826,6 +876,8 @@ off(type: 'downloadProgress', callback?: Callback&lt;DownloadProgressData&gt;): 
  
 **系统能力：** SystemCapability.AI.Vision.VisionBase
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.2(14)
  
 **参数：**
@@ -838,7 +890,7 @@ off(type: 'downloadProgress', callback?: Callback&lt;DownloadProgressData&gt;): 
  
 **错误码：**
  
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

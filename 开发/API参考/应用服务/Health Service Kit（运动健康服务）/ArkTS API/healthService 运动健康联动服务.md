@@ -1,6 +1,6 @@
 # healthService (运动健康联动服务)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice
 **支持设备：** Phone | Tablet | Wearable
@@ -29,6 +29,8 @@ import { healthService } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -52,6 +54,8 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -75,6 +79,8 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### ActivityReport
@@ -88,17 +94,19 @@ SampleReal<K extends Record<string, [healthStore.HealthValueType](https://develo
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | steps | number | 否 | 否 | 步数。 |
 | stepsGoal | number | 否 | 是 | 步数目标（若未设置过，无法读取到运动健康App中展示的默认目标）。 |
-| activeCalories | number | 否 | 否 | 活动热量。 单位：卡 |
-| activeCaloriesGoal | number | 否 | 是 | 活动热量目标。 单位：卡 |
-| exercise | number | 否 | 否 | 锻炼时长。 单位：分钟 |
-| exerciseGoal | number | 否 | 是 | 锻炼时长目标。 单位：分钟 |
-| activeHours | number | 否 | 否 | 活动小时数。 |
-| activeHoursGoal | number | 否 | 是 | 活动小时数目标。 |
+| activeCalories | number | 否 | 否 | 活动热量。 单位：cal |
+| activeCaloriesGoal | number | 否 | 是 | 活动热量目标，默认值为运动健康App中展示的默认目标。 单位：cal |
+| exercise | number | 否 | 否 | 锻炼时长。 单位：min |
+| exerciseGoal | number | 否 | 是 | 锻炼时长目标，默认值为运动健康App中展示的默认目标。 单位：min |
+| activeHours | number | 否 | 否 | 活动小时数（某个小时时段内进行身体活动超过一分钟，该时段被标记为活动小时）。 |
+| activeHoursGoal | number | 否 | 是 | 活动小时数目标（某个小时时段内进行身体活动超过一分钟，该时段被标记为活动小时），默认值为运动健康App中展示的默认目标。 |
  
  
   
@@ -114,6 +122,8 @@ type ConfigType = number | string | boolean
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -133,6 +143,8 @@ type ConfigType = number | string | boolean
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -152,6 +164,8 @@ type ConfigType = number | string | boolean
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -170,6 +184,8 @@ type ConfigType = number | string | boolean
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -188,6 +204,8 @@ type ConfigType = number | string | boolean
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -208,6 +226,8 @@ type ConfigType = number | string | boolean
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -269,6 +289,8 @@ type ConfigType = number | string | boolean
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -290,6 +312,8 @@ type ConfigType = number | string | boolean
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
@@ -307,13 +331,15 @@ type ConfigType = number | string | boolean
 
 config(workoutConfig: WorkoutConfig): Promise&lt;void&gt;
  
-配置联动，使用Promise异步方式。
+配置联动，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **参数：**
   
@@ -326,7 +352,7 @@ config(workoutConfig: WorkoutConfig): Promise&lt;void&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -337,7 +363,7 @@ config(workoutConfig: WorkoutConfig): Promise&lt;void&gt;
 | --- | --- |
 | 201 | Permission verification failed. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. |
-| 1009104003 | Illegal command. Called when workout not in stoped or idle state. |
+| 1009104003 | Illegal command. Called when workout not in stopped or idle state. |
 | 1009104999 | System internal error. |
  
  
@@ -357,7 +383,7 @@ try {
     sportType: healthStore.exerciseSequenceHelper.running.EXERCISE_TYPE.id
   };
   await healthService.workout.config(workoutOptions);
-  hilog.info(0x0000, 'testTag', 'Succeed in configuring workout');
+  hilog.info(0x0000, 'testTag', 'Succeeded in configuring workout');
 } catch (err) {
   hilog.error(0x0000, 'testTag', `Failed to configure workout. Code: ${err.code}, message: ${err.message}`);
 }
@@ -371,13 +397,15 @@ try {
 
 start(): Promise&lt;StartResult&gt;
  
-开启联动，使用Promise异步方式。
+开启联动，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **返回值：**
   
@@ -395,7 +423,7 @@ start(): Promise&lt;StartResult&gt;
 | 201 | Permission verification failed. |
 | 1009104001 | Sport service busy. Workout is already started by other application. |
 | 1009104002 | Unsupported sport type. |
-| 1009104003 | Illegal command. Called when workout in sporting, paused or stoped state. |
+| 1009104003 | Illegal command. Called when workout in sporting, paused or stopped state. |
 | 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |
 | 1009104999 | System internal error. |
  
@@ -412,7 +440,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   await healthService.workout.start();
-  hilog.info(0x0000, 'testTag', 'Succeed in starting workout');
+  hilog.info(0x0000, 'testTag', 'Succeeded in starting workout');
 } catch (err) {
   hilog.error(0x0000, 'testTag', `Failed to start workout. Code: ${err.code}, message: ${err.message}`);
 }
@@ -426,7 +454,7 @@ try {
 
 pause(): Promise&lt;void&gt;
  
-暂停联动，使用Promise异步方式。
+暂停联动，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
@@ -434,11 +462,13 @@ pause(): Promise&lt;void&gt;
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -448,7 +478,7 @@ pause(): Promise&lt;void&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. |
-| 1009104003 | Illegal command. Called when workout in ready, paused or stoped state. |
+| 1009104003 | Illegal command. Called when workout in ready, paused or stopped state. |
 | 1009104999 | System internal error. |
  
  
@@ -464,7 +494,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   await healthService.workout.pause();
-  hilog.info(0x0000, 'testTag', 'Succeed in pausing workout');
+  hilog.info(0x0000, 'testTag', 'Succeeded in pausing workout');
 } catch (err) {
   hilog.error(0x0000, 'testTag', `Failed to pause workout. Code: ${err.code}, message: ${err.message}`);
 }
@@ -478,7 +508,7 @@ try {
 
 resume(): Promise&lt;void&gt;
  
-恢复联动，使用Promise异步方式。
+恢复联动，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
@@ -486,11 +516,13 @@ resume(): Promise&lt;void&gt;
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -500,7 +532,7 @@ resume(): Promise&lt;void&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. |
-| 1009104003 | Illegal command. Called when workout in ready, sporting or stoped state. |
+| 1009104003 | Illegal command. Called when workout in ready, sporting or stopped state. |
 | 1009104999 | System internal error. |
  
  
@@ -516,7 +548,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   await healthService.workout.resume();
-  hilog.info(0x0000, 'testTag', 'Succeed in resuming workout');
+  hilog.info(0x0000, 'testTag', 'Succeeded in resuming workout');
 } catch (err) {
   hilog.error(0x0000, 'testTag', `Failed to resume workout. Code: ${err.code}, message: ${err.message}`);
 }
@@ -530,7 +562,7 @@ try {
 
 stop(): Promise&lt;void&gt;
  
-停止联动，使用Promise异步方式。
+停止联动，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
@@ -538,11 +570,13 @@ stop(): Promise&lt;void&gt;
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -568,7 +602,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   await healthService.workout.stop();
-  hilog.info(0x0000, 'testTag', 'Succeed in stopping workout');
+  hilog.info(0x0000, 'testTag', 'Succeeded in stopping workout');
 } catch (err) {
   hilog.error(0x0000, 'testTag', `Failed to stop workout. Code: ${err.code}, message: ${err.message}`);
 }
@@ -582,7 +616,7 @@ try {
 
 onData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise&lt;void&gt;
  
-注册指定联动运动数据监听，使用Promise异步方式。
+注册指定联动运动数据监听，建议最多订阅三种类型的数据，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
@@ -590,19 +624,21 @@ onData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promis
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dataType | healthStore.DataType | 是 | 联动运动数据类型。 |
-| listener | Callback<SampleReal[]> | 是 | 联动运动数据监听回调。 |
+| listener | Callback<SampleReal[]> | 是 | 回调函数，返回联动运动数据。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -627,7 +663,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   const callback: Callback<healthService.SampleReal[]> = (sampleReals) => {
-    hilog.info(0x0000, 'testTag', `Workout onData receive data. The sampleReals size is ${sampleReals.length}`);
+    hilog.info(0x0000, 'testTag', `Succeeded in receiving data. The sampleReals size is ${sampleReals.length}`);
   };
   const realTimeMotionDataType: healthStore.DataType = {
     id: 50004
@@ -646,7 +682,7 @@ try {
 
 onData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&gt;
  
-注册所有联动运动数据监听，使用Promise异步方式。
+注册所有联动运动数据监听，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
@@ -654,19 +690,21 @@ onData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&g
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dataType | undefined | 是 | 监听所有联动运动数据类型。 |
-| listener | Callback<SampleReal[]> | 是 | 联动运动数据监听回调。 |
+| listener | Callback<SampleReal[]> | 是 | 回调函数，返回联动运动数据。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -691,7 +729,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   const callback: Callback<healthService.SampleReal[]> = (sampleReals) => {
-    hilog.info(0x0000, 'testTag', `Workout onData receive data. The sampleReals size is ${sampleReals.length}`);
+    hilog.info(0x0000, 'testTag', `Succeeded in receiving data. The sampleReals size is ${sampleReals.length}`);
   };
   await healthService.workout.onData(undefined, callback);
 } catch (err) {
@@ -707,7 +745,7 @@ try {
 
 offData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promise&lt;void&gt;
  
-取消指定联动运动数据的监听，使用Promise异步方式。
+取消指定联动运动数据的监听，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
@@ -715,19 +753,21 @@ offData(dataType: healthStore.DataType, listener: Callback<SampleReal[]>): Promi
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dataType | healthStore.DataType | 是 | 联动运动数据类型。 |
-| listener | Callback<SampleReal[]> | 是 | 联动运动数据监听回调。 |
+| listener | Callback<SampleReal[]> | 是 | 回调函数，返回联动运动数据。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -752,7 +792,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   const callback: Callback<healthService.SampleReal[]> = (sampleReals) => {
-    hilog.info(0x0000, 'testTag', `Workout offData receive data. The sampleReals size is ${sampleReals.length}`);
+    hilog.info(0x0000, 'testTag', `Succeeded in receiving data. The sampleReals size is ${sampleReals.length}`);
   };
   await healthService.workout.offData(healthStore.healthDataTypes.WORKOUT, callback);
 } catch (err) {
@@ -768,7 +808,7 @@ try {
 
 offData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&gt;
  
-取消所有联动运动数据的监听，使用Promise异步方式。
+取消所有联动运动数据的监听，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
@@ -776,19 +816,21 @@ offData(dataType: undefined, listener: Callback<SampleReal[]>): Promise&lt;void&
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dataType | undefined | 是 | 监听所有联动运动数据类型。 |
-| listener | Callback<SampleReal[]> | 是 | 联动运动数据监听回调。 |
+| listener | Callback<SampleReal[]> | 是 | 回调函数，返回联动运动数据。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -813,7 +855,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   const callback: Callback<healthService.SampleReal[]> = (sampleReals) => {
-    hilog.info(0x0000, 'testTag', `Workout offData receive data. The sampleReals size is ${sampleReals.length}`);
+    hilog.info(0x0000, 'testTag', `Succeeded in receiving data. The sampleReals size is ${sampleReals.length}`);
   };
   await healthService.workout.offData(undefined, callback);
 } catch (err) {
@@ -829,7 +871,7 @@ try {
 
 onEvent(event: "*", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;
  
-注册联动设备事件监听，使用Promise异步方式。
+注册联动设备事件监听，使用Promise异步回调。
  
 **系统能力：** SystemCapability.Health.HealthService
  
@@ -837,19 +879,21 @@ onEvent(event: "*", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 联动设备事件类型，支持的事件为："*"，当联动设备运动状态改变时，触发该事件。 |
-| listener | Callback&lt;SampleEvent&gt; | 是 | 联动设备事件监听回调。 |
+| listener | Callback&lt;SampleEvent&gt; | 是 | 回调函数，返回联动设备事件。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -874,7 +918,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   const callback: Callback<healthService.SampleEvent> = (event) => {
-    hilog.info(0x0000, 'testTag', `Workout onEvent receive event. Event data: ${event.eventData}, event id: ${event.eventId}`);
+    hilog.info(0x0000, 'testTag', `Succeeded in receiving event. Event data: ${event.eventData}, event id: ${event.eventId}`);
   };
   await healthService.workout.onEvent('*', callback);
 } catch (err) {
@@ -890,7 +934,7 @@ try {
 
 offEvent(event: "*", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;
  
-取消联动设备事件的监听，使用Promise异步方式。
+取消联动设备事件的监听，使用Promise异步回调。
  
 **系统能力：** SystemCapability.Health.HealthService
  
@@ -898,19 +942,21 @@ offEvent(event: "*", listener: Callback&lt;SampleEvent&gt;): Promise&lt;void&gt;
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **参数：**
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 联动设备事件类型，支持的事件为："*"，当联动设备运动状态改变时，触发该事件。 |
-| listener | Callback&lt;SampleEvent&gt; | 是 | 联动设备事件监听回调。 |
+| listener | Callback&lt;SampleEvent&gt; | 是 | 回调函数，返回联动设备事件。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -935,7 +981,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   const callback: Callback<healthService.SampleEvent> = (event) => {
-    hilog.info(0x0000, 'testTag', `Workout offEvent receive event. Event data: ${event.eventData}, event id: ${event.eventId}`);
+    hilog.info(0x0000, 'testTag', `Succeeded in receiving event. Event data: ${event.eventData}, event id: ${event.eventId}`);
   };
   await healthService.workout.offEvent('*', callback);
 } catch (err) {
@@ -951,7 +997,7 @@ try {
 
 readActivityReport(): Promise&lt;ActivityReport&gt;
  
-读取实时三环数据，使用Promise异步方式。
+读取实时三环数据，需要DAILY_ACTIVITIES数据类型权限，使用Promise异步回调。
  
 该接口从API 19 Release开始，支持Wearable设备开发。
  
@@ -960,6 +1006,8 @@ readActivityReport(): Promise&lt;ActivityReport&gt;
 **系统能力：** SystemCapability.Health.HealthService
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **返回值：**
   
@@ -1008,13 +1056,15 @@ try {
 
 sendData(sampleReal: SampleReal[]): Promise&lt;void&gt;
  
-下发融合运动数据到联动设备，使用Promise异步方式。
+下发融合运动数据到联动设备，使用Promise异步回调。
  
 **系统能力：** SystemCapability.Health.HealthService
  
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回401错误码。
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **参数：**
   
@@ -1027,7 +1077,7 @@ sendData(sampleReal: SampleReal[]): Promise&lt;void&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -1059,7 +1109,7 @@ try {
     }
   };
   await healthService.workout.sendData([sampleReal]);
-  hilog.info(0x0000, 'testTag', 'Succeed in sending data.');
+  hilog.info(0x0000, 'testTag', 'Succeeded in sending data.');
 } catch (err) {
   hilog.error(0x0000, 'testTag', `Failed to send data. Code: ${err.code}, message: ${err.message}`);
 }
@@ -1073,13 +1123,15 @@ try {
 
 sendEvent(event: SampleEvent): Promise&lt;void&gt;
  
-下发控制事件到联动设备，使用Promise异步方式。
+下发控制事件到联动设备，使用Promise异步回调。
  
 **系统能力：** SystemCapability.Health.HealthService
  
 **设备行为差异：** 该接口在Phone、Tablet中可正常调用，在Wearable中返回401错误码。
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **参数：**
   
@@ -1092,7 +1144,7 @@ sendEvent(event: SampleEvent): Promise&lt;void&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无结果返回的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
@@ -1122,7 +1174,7 @@ try {
     eventData: 'start'
   };
   await healthService.workout.sendEvent(sampleEvent);
-  hilog.info(0x0000, 'testTag', 'Succeed in sending event.');
+  hilog.info(0x0000, 'testTag', 'Succeeded in sending event.');
 } catch (err) {
   hilog.error(0x0000, 'testTag', `Failed to send event. Code: ${err.code}, message: ${err.message}`);
 }
@@ -1136,7 +1188,7 @@ try {
 
 getCurrentSportInfo(): Promise&lt;SportInfo&gt;
  
-获取运动状态，使用Promise异步方式。
+获取运动状态，使用Promise异步回调。
  
 **系统能力：** SystemCapability.Health.HealthService
  
@@ -1172,7 +1224,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 try {
   await healthService.workout.getCurrentSportInfo();
-  hilog.info(0x0000, 'testTag', 'Succeed in getting current sportInfo');
+  hilog.info(0x0000, 'testTag', 'Succeeded in getting current sportInfo');
 } catch (err) {
   hilog.error(0x0000, 'testTag', `Failed to getting current sportInfo'. Code: ${err.code}, message: ${err.message}`);
 }

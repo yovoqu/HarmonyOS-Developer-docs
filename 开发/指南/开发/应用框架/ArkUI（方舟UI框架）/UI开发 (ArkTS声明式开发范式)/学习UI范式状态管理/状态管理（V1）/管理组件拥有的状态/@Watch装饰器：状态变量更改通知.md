@@ -1,6 +1,6 @@
 # @Watch装饰器：状态变量更改通知
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-watch
 
@@ -228,7 +228,7 @@ struct BasketModifier {
 效果图如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/21/v3/EN4E815IRaq0MrI9mZzXeQ/zh-cn_image_0000002611833495.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030449Z&HW-CC-Expire=86400&HW-CC-Sign=599409B29F6605AFB49B6A6CD611856B15DF66F646642E45ED6891137D3EF985)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/VU2tilj0THyg8gBO8PGXTw/zh-cn_image_0000002626068164.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020743Z&HW-CC-Expire=86400&HW-CC-Sign=D01F2E7D9C7D0B2FEE6D170B5F7AB08B00E8580882F48CB8BD3EA6054BA8400D)
 
  
   

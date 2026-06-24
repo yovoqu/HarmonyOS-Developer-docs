@@ -1,6 +1,6 @@
 # @ohos.net.networkSecurity (网络安全校验)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-networksecurity
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,7 +51,7 @@ networkSecurity.certVerification(cert, caCert)
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/Vf8ui1P0Ro-oHyQhcVDtXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=D7152C0AEF3CD3939791372E43AEA45E83461F408BF023004A6BCCF14F540666)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/hk5yNQTQQOaoRiSwURejxg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020117Z&HW-CC-Expire=86400&HW-CC-Sign=38070F51512939F0B3E2E9DA5E20CD843122BF271138B8697A074858C27A2764)
 
 
 请务必将示例中的证书数据替换为实际的证书内容。
@@ -174,7 +174,7 @@ networkSecurity.certVerification(cert, caCert)
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/GBU5UxlES_m6NyTXpl3pww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=11259983F154888FB1C3EE175064C30E058FF9D46667911FA8C5CE68E1B9855F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/OlrW2P0oROuLVK8rUDy9Tw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020117Z&HW-CC-Expire=86400&HW-CC-Sign=B43312428760899127E3165B4C8C25481985418E2BB02E2E441D9419CCC98D5E)
 
 
 请务必将示例中的证书数据替换为实际的证书内容。
@@ -269,7 +269,7 @@ console.info('Synchronous Verification Result:', resultSync);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7/v3/JFcuPj8PQ0e3DFUW9SRO2Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=45F4C040C61ADBB2AD1A440B64069AB1ABAF781142DA41DD9775F7666774C0A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/k_QzaS4HRuu52fYBamCYuQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020117Z&HW-CC-Expire=86400&HW-CC-Sign=D7FB6AAC2885A6A92887287F8E2806F63B21A57225F8551D7CD95236BF053124)
 
 
 请务必将示例中的证书数据替换为实际的证书内容。

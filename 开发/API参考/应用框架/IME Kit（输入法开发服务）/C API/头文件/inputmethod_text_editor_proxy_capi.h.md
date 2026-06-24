@@ -1,6 +1,6 @@
 # inputmethod_text_editor_proxy_capi.h
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-text-editor-proxy-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,7 +35,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| InputMethod_TextEditorProxy | InputMethod_TextEditorProxy | 输入框代理。提供了获取来自输入法应用的通知和请求的方法。当输入法向编辑器发送请求或通知时，这些方法将被调用。 |
+| InputMethod_TextEditorProxy | InputMethod_TextEditorProxy | 输入法文本编辑器代理类。提供了获取来自输入法应用的通知和请求的方法。当输入法向编辑器发送请求或通知时，这些方法将被调用。 |
  
  
   

@@ -1,13 +1,13 @@
 # Class (TextBlob)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-textblob
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 由一个或多个具有相同字体的字符组成的字块。
 
-> [!TIP]
+> [!NOTE]
 > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块使用屏幕物理像素单位px。 本模块为单线程模型策略，需要调用方自行管理线程安全和上下文状态的切换。
 
 

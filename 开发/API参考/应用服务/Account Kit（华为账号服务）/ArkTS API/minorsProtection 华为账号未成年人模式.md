@@ -1,13 +1,89 @@
-# minorsProtection (华为账号未成年人模式)
+# @hms.core.account.minorsProtection (华为账号未成年人模式)
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-minorsprotection
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-当前模块提供Account Kit未成年人模式的相关能力，包括开启/关闭系统未成年人模式、获取系统未成年人模式的开启状态、年龄段信息等。开发者可调用本模块的能力，与系统未成年人模式联动，快速实现应用的未成年人模式的切换。
+#### 模块概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+@hms.core.account.minorsProtection模块提供华为账号未成年人模式能力，用于帮助应用与系统的未成年人模式联动，提供未成年人网络保护。开发者可通过该能力，快速实现自动切换未成年人模式状态，从而简化家长用户的操作步骤，为未成年人提供安全、健康的网络环境。
+ 
+该模块提供的未成年人模式能力如下：
+ 
+- [查询是否支持系统未成年人模式](#查询是否支持系统未成年人模式)：查询当前华为账号、系统用户空间是否支持系统未成年人模式。
+- [获取系统未成年人模式开启状态和年龄段信息](#获取系统未成年人模式开启状态和年龄段信息)：获取当前系统未成年人模式的开启状态和年龄段信息，用于开启/关闭应用的未成年人模式，并展示适龄内容。
+- [开启/关闭系统未成年人模式](#开启关闭系统未成年人模式)：拉起开启/关闭系统未成年人模式的引导页，引导用户开启系统的未成年人模式。
+- [验证系统未成年人模式密码能力](#验证系统未成年人模式密码能力)：在系统未成年人模式开启状态下，拉起未成年人模式密码验证页面，用于验证家长身份。在开启过程中，需要家长设置六位数字密码作为系统未成年人模式状态的指令依据。在系统未成年人模式开启时，开发者可按需调用系统家长身份验证接口，以验证家长身份。
+
+ 
+  
+
+#### 基本概念
+
+- 未成年人
+
+  本章节中所指未成年人，即中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）未满十八周岁的公民。
+- 适龄应用
+
+  适龄应用指在华为应用市场中的应用分级小于或等于未成年使用者的年龄的应用。例如：
+
+1. 某应用在华为应用市场的年龄分级为年满12周岁（12+），未成年使用者为13周岁，则该应用为适龄应用。
+
+2. 某应用在华为应用市场的年龄分级为年满18周岁（18+），未成年使用者为7周岁，则该应用为非适龄应用。
+- 开启系统未成年人模式后的限制项目
+
+1. 使用时长限制：针对16周岁及以上不满18周岁的未成年人使用者，默认每日可使用时长2小时，其他年龄的未成年人使用者，默认每日可使用时长为1小时。
+
+2. 应用安装限制：默认仅允许安装适龄应用。
+
+3. 应用打开限制：默认仅允许打开已[接入未成年人模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-overview-minorsprotection#接入规范)且配置minors_mode值为"1"的应用（游戏类应用要求额外满足“适龄应用”条件），家长可对应用进行豁免，允许本次使用。
+
+4. 内容访问限制：接入未成年人模式的应用默认随系统切换至未成年人模式，在应用内展示适龄内容。
+
+5. 其他系统功能限制：部分系统功能将受限使用，包括部分应用的卸载更新，退出系统华为账号登录，USB调试功能等，更多限制请进入“设置 > 健康使用设备”查看。
+- 远程守护
+
+  可在“设置 > 华为账号 > 家人共享 > 远程守护”开启远程守护。开启远程守护后，未成年人的设备上的系统未成年人模式会自动关闭。
+
+ 
+  
+
+#### 查询是否支持系统未成年人模式
+
+@hms.core.account.minorsProtection模块提供查询是否支持系统未成年人模式能力。开发者可通过接口[supportMinorsMode](#supportminorsmode)查询。如果当前系统登录的华为账号注册地为中国境外、香港特别行政区、澳门特别行政区或中国台湾，或系统处于隐私空间，则不支持系统未成年人模式。
+ 
+  
+
+#### 获取系统未成年人模式开启状态和年龄段信息
+
+@hms.core.account.minorsProtection模块提供获取系统未成年人模式开启状态、年龄段信息能力。开发者可通过接口[getMinorsProtectionInfo](#getminorsprotectioninfo)或[getMinorsProtectionInfoSync](#getminorsprotectioninfosync)主动查询系统未成年人模式的开启状态，从而判断是否需要开启应用的未成年人模式。
+ 
+在系统未成年人模式开启时，开发者可读取当前系统未成年人模式下的未成年人使用者的年龄段，并向未成年人使用者提供符合该年龄段的内容和服务。当前可获取的年龄段划分如下：
+ 
+- 不满3周岁；
+- 3周岁及以上不满8周岁；
+- 8周岁及以上不满12周岁；
+- 12周岁及以上不满16周岁；
+- 16周岁及以上不满18周岁。
+
+ 
+  
+
+#### 开启/关闭系统未成年人模式
+
+@hms.core.account.minorsProtection模块提供开启/关闭系统未成年人模式能力。开发者可通过接口[leadToTurnOnMinorsMode](#leadtoturnonminorsmode)/[leadToTurnOffMinorsMode](#leadtoturnoffminorsmode)拉起开启/关闭系统未成年人模式的引导页，引导用户开启/关闭系统的未成年人模式。
+ 
+  
+
+#### 验证系统未成年人模式密码能力
+
+@hms.core.account.minorsProtection模块提供家长身份验证能力。在用户开启系统未成年人模式过程中，系统会引导家长用户设置六位数字密码作为系统未成年人模式状态的指令依据。在系统未成年人模式开启时，开发者可通过接口[verifyMinorsProtectionCredential](#verifyminorsprotectioncredential)拉起系统未成年人模式密码验证页面，当用户输入正确的六位数字密码后，会返回成功结果从而验证家长身份，用于调整应用使用时长限制、内容偏好等设置。
  
 **起始版本：** 5.0.0(12)
+ 
   
 
 #### 导入模块
@@ -24,7 +100,7 @@ import { minorsProtection } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-该类提供未成年人模式的开启状态，以及年龄段信息。应用可跟随未成年人模式开启状态，进行开启/关闭应用的未成年人模式，使用年龄段信息，展示适龄内容。
+未成年人模式信息。[getMinorsProtectionInfo](#getminorsprotectioninfo)和[getMinorsProtectionInfoSync](#getminorsprotectioninfosync)方法返回值，包含系统未成年人模式的开启状态以及年龄段信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -36,7 +112,7 @@ import { minorsProtection } from '@kit.AccountKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| minorsProtectionMode | boolean | 否 | 否 | 是否开启未成年人模式。 返回true表示未成年人模式为开启状态。 返回false表示未成年人模式为关闭状态。 |
+| minorsProtectionMode | boolean | 否 | 否 | 系统未成年人模式开启状态。 true：表示系统未成年人模式为开启状态。 false：表示系统未成年人模式为关闭状态。 |
 | ageGroup | AgeGroup | 否 | 是 | 年龄段信息。 说明： 1. 仅当未成年人模式开启时才返回此字段。 2. 当登录中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）儿童账号（14周岁以下）开启未成年人模式，则可能返回年龄段信息为[0,3)、[3,8)、[8,12)或[12,16)。 例如用户登录4周岁儿童账号，则返回年龄段信息为[3,8)；用户登录9周岁儿童账号，则返回年龄段信息为[8,12)。 3. 当登录中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）非儿童账号开启未成年人模式，则可能返回年龄段信息为[0,3)、[3,8)、[8,12)、[12,16)或[16,18)。 例如用户创建13周岁临时使用者，则返回年龄段信息为[12,16)；用户创建17周岁临时使用者，则返回年龄段信息为[16,18)。 |
  
  
@@ -46,7 +122,7 @@ import { minorsProtection } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-该类为年龄段信息对象。开发者可根据当前年龄段信息，展示适龄内容。
+年龄段，包含年龄段上、下限。开发者可根据当前年龄段信息，展示适龄内容。年龄段划分范围包括：[0,3)、[3,8)、[8,12)、[12,16)、[16,18)，单位：周岁。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -58,8 +134,8 @@ import { minorsProtection } from '@kit.AccountKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| lowerAge | number | 否 | 否 | 年龄段下限，包含下限值。 说明： 该字段取值范围：0、3、8、12或16。 |
-| upperAge | number | 否 | 否 | 年龄段上限，不包含上限值。 说明： 该字段取值范围：3、8、12、16或18。 |
+| lowerAge | number | 否 | 否 | 年龄段下限，包含下限值。单位：周岁。 说明： 该字段取值范围：0、3、8、12或16。 |
+| upperAge | number | 否 | 否 | 年龄段上限，不包含上限值。单位：周岁。 说明： 该字段取值范围：3、8、12、16或18。 |
  
  
   
@@ -68,7 +144,7 @@ import { minorsProtection } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-该枚举为未成年人模式模块的错误码。
+华为账号未成年人模式接口错误码枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -96,7 +172,9 @@ import { minorsProtection } from '@kit.AccountKit';
 
 supportMinorsMode(): boolean
  
-该方法为同步方法，调用该方法判断当前设备环境是否支持未成年人模式。
+查询是否支持系统未成年人模式方法。开发者可通过该方法判断当前设备环境是否支持系统未成年人模式能力。该方法为同步方法。
+ 
+不支持的场景：当前系统登录的华为账号注册地为中国境外、香港特别行政区、澳门特别行政区或中国台湾，或系统处于隐私空间。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -110,12 +188,12 @@ supportMinorsMode(): boolean
   
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 返回boolean值。 返回true表示支持未成年人模式。 返回false表示不支持未成年人模式。 说明： 当登录海外华为账号、隐私空间均会返回false，其他场景均为true。 |
+| boolean | 是否支持系统未成年人模式。 true：支持系统未成年人模式。 false：不支持系统未成年人模式。 说明： 当登录海外华为账号、系统处于隐私空间均会返回false，其他场景均为true。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -128,17 +206,12 @@ supportMinorsMode(): boolean
 import { minorsProtection } from '@kit.AccountKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')) {
-  try {
-    const supportMinorsMode: boolean = minorsProtection.supportMinorsMode();
-    hilog.info(0x0000, 'testTag', `Succeeded in getting supportMinorsMode is: ${supportMinorsMode.valueOf()}`);
-  } catch (error) {
-    hilog.error(0x0000, 'testTag',
-      `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
-  }
-} else {
-  hilog.info(0x0000, 'testTag',
-    'The current device does not support the invoking of the supportMinorsMode interface.');
+try {
+  const supportMinorsMode: boolean = minorsProtection.supportMinorsMode();
+  hilog.info(0x0000, 'testTag', `Succeeded in getting supportMinorsMode is: ${supportMinorsMode}`);
+} catch (error) {
+  hilog.error(0x0000, 'testTag',
+    `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
 }
 ```
  
@@ -150,7 +223,7 @@ if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')
 
 getMinorsProtectionInfoSync(): MinorsProtectionInfo
  
-该方法为同步方法，调用该方法获取未成年人模式的开启状态，以及年龄段信息。应用可跟随未成年人模式开启状态，进行开启/关闭应用的未成年人模式，使用年龄段信息，展示适龄内容。
+获取系统未成年人模式信息方法，用于获取系统未成年人模式开启状态和年龄段信息。应用可跟随系统未成年人模式开启状态，开启/关闭应用的未成年人模式，使用年龄段信息，展示适龄内容。该方法为同步方法。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -164,12 +237,12 @@ getMinorsProtectionInfoSync(): MinorsProtectionInfo
   
 | 类型 | 说明 |
 | --- | --- |
-| MinorsProtectionInfo | 返回MinorsProtectionInfo对象。用于获取未成年人模式开启状态、年龄段信息。 |
+| MinorsProtectionInfo | 返回MinorsProtectionInfo对象。用于获取系统未成年人模式开启状态、年龄段信息。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -182,40 +255,35 @@ getMinorsProtectionInfoSync(): MinorsProtectionInfo
 import { minorsProtection } from '@kit.AccountKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')) {
-  try {
-    // 查询是否支持系统未成年人模式
-    if (minorsProtection.supportMinorsMode()) {
-      const minorsProtectionInfo: minorsProtection.MinorsProtectionInfo =
-        minorsProtection.getMinorsProtectionInfoSync();
-      // 获取未成年人模式开启状态
-      const minorsProtectionMode: boolean = minorsProtectionInfo.minorsProtectionMode;
-      // 如开发者有频繁使用到未成年人模式开启状态，这里则需缓存未成年人模式开启状态
-      hilog.info(0x0000, 'testTag',
-        `Succeeded in getting minorsProtectionMode is: ${minorsProtectionMode.valueOf()}`);
-      // 未成年人模式已开启，获取年龄段信息
-      if (minorsProtectionMode) {
-        const ageGroup: minorsProtection.AgeGroup | undefined = minorsProtectionInfo.ageGroup;
-        if (ageGroup) {
-          hilog.info(0x0000, 'testTag', `Succeeded in getting lowerAge is: ${ageGroup.lowerAge}`);
-          hilog.info(0x0000, 'testTag', `Succeeded in getting upperAge is: ${ageGroup.upperAge}`);
-          // 根据年龄段刷新内容展示。如开发者有频繁使用到年龄段信息，这里则需缓存年龄段信息
-        }
-      } else {
-        // 未成年人模式未开启，应用需跟随系统未成年人模式，展示内容不做限制
+try {
+  // 查询是否支持系统未成年人模式
+  if (minorsProtection.supportMinorsMode()) {
+    const minorsProtectionInfo: minorsProtection.MinorsProtectionInfo =
+      minorsProtection.getMinorsProtectionInfoSync();
+    // 获取未成年人模式开启状态
+    const minorsProtectionMode: boolean = minorsProtectionInfo.minorsProtectionMode;
+    // 如开发者有频繁使用到未成年人模式开启状态，这里则需缓存未成年人模式开启状态
+    hilog.info(0x0000, 'testTag',
+      `Succeeded in getting minorsProtectionMode is: ${minorsProtectionMode}`);
+    // 未成年人模式已开启，获取年龄段信息
+    if (minorsProtectionMode) {
+      const ageGroup: minorsProtection.AgeGroup | undefined = minorsProtectionInfo.ageGroup;
+      if (ageGroup) {
+        hilog.info(0x0000, 'testTag', `Succeeded in getting lowerAge is: ${ageGroup.lowerAge}`);
+        hilog.info(0x0000, 'testTag', `Succeeded in getting upperAge is: ${ageGroup.upperAge}`);
+        // 根据年龄段刷新内容展示。如开发者有频繁使用到年龄段信息，这里则需缓存年龄段信息
       }
     } else {
-      hilog.info(0x0000, 'testTag',
-        'The current device environment does not support the youth mode, please check the current device environment.');
+      // 未成年人模式未开启，应用需跟随系统未成年人模式，展示内容不做限制
     }
-  } catch (error) {
-    hilog.error(0x0000, 'testTag',
-      `Failed to invoke supportMinorsMode or getMinorsProtectionInfoSync. errCode: ${error.code},
-      errMessage: ${error.message}`);
+  } else {
+    hilog.info(0x0000, 'testTag',
+      'The current device environment does not support the youth mode, please check the current device environment.');
   }
-} else {
-  hilog.info(0x0000, 'testTag',
-    'The current device does not support the invoking of the getMinorsProtectionInfoSync interface.');
+} catch (error) {
+  hilog.error(0x0000, 'testTag',
+    `Failed to invoke supportMinorsMode or getMinorsProtectionInfoSync. errCode: ${error.code},
+      errMessage: ${error.message}`);
 }
 ```
  
@@ -227,7 +295,7 @@ if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')
 
 getMinorsProtectionInfo(): Promise&lt;MinorsProtectionInfo&gt;
  
-调用该方法获取未成年人模式的开启状态，以及年龄段信息。应用可跟随未成年人模式开启状态，进行开启/关闭应用的未成年人模式，使用年龄段信息，展示适龄内容。使用Promise异步回调。
+获取系统未成年人模式信息方法，用于获取系统未成年人模式开启状态和年龄段信息。应用可跟随系统未成年人模式开启状态，开启/关闭应用的未成年人模式，使用年龄段信息，展示适龄内容。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -241,12 +309,12 @@ getMinorsProtectionInfo(): Promise&lt;MinorsProtectionInfo&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;MinorsProtectionInfo&gt; | Promise对象，返回MinorsProtectionInfo对象。用于获取未成年人模式开启状态、年龄段信息。 |
+| Promise&lt;MinorsProtectionInfo&gt; | Promise对象，返回MinorsProtectionInfo对象。用于获取系统未成年人模式开启状态、年龄段信息。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -260,43 +328,38 @@ import { minorsProtection } from '@kit.AccountKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')) {
-  try {
-    // 查询是否支持系统未成年人模式
-    if (minorsProtection.supportMinorsMode()) {
-      minorsProtection.getMinorsProtectionInfo()
-        .then((minorsProtectionInfo: minorsProtection.MinorsProtectionInfo) => {
-          // 获取未成年人模式开启状态
-          const minorsProtectionMode: boolean = minorsProtectionInfo.minorsProtectionMode;
-          // 如开发者有频繁使用到未成年人模式开启状态，这里则需缓存未成年人模式开启状态
-          hilog.info(0x0000, 'testTag',
-            `Succeeded in getting minorsProtectionMode is: ${minorsProtectionMode.valueOf()}`);
-          // 未成年人模式已开启，获取年龄段信息
-          if (minorsProtectionMode) {
-            const ageGroup: minorsProtection.AgeGroup | undefined = minorsProtectionInfo.ageGroup;
-            if (ageGroup) {
-              hilog.info(0x0000, 'testTag', `Succeeded in getting lowerAge is: ${ageGroup.lowerAge}`);
-              hilog.info(0x0000, 'testTag', `Succeeded in getting upperAge is: ${ageGroup.upperAge}`);
-              // 根据年龄段刷新内容展示。如开发者有频繁使用到年龄段信息，这里则需缓存年龄段信息
-            }
-          } else {
-            // 未成年人模式未开启，应用需跟随系统未成年人模式，展示内容不做限制
+try {
+  // 查询是否支持系统未成年人模式
+  if (minorsProtection.supportMinorsMode()) {
+    minorsProtection.getMinorsProtectionInfo()
+      .then((minorsProtectionInfo: minorsProtection.MinorsProtectionInfo) => {
+        // 获取未成年人模式开启状态
+        const minorsProtectionMode: boolean = minorsProtectionInfo.minorsProtectionMode;
+        // 如开发者有频繁使用到未成年人模式开启状态，这里则需缓存未成年人模式开启状态
+        hilog.info(0x0000, 'testTag',
+          `Succeeded in getting minorsProtectionMode is: ${minorsProtectionMode}`);
+        // 未成年人模式已开启，获取年龄段信息
+        if (minorsProtectionMode) {
+          const ageGroup: minorsProtection.AgeGroup | undefined = minorsProtectionInfo.ageGroup;
+          if (ageGroup) {
+            hilog.info(0x0000, 'testTag', `Succeeded in getting lowerAge is: ${ageGroup.lowerAge}`);
+            hilog.info(0x0000, 'testTag', `Succeeded in getting upperAge is: ${ageGroup.upperAge}`);
+            // 根据年龄段刷新内容展示。如开发者有频繁使用到年龄段信息，这里则需缓存年龄段信息
           }
-        })
-        .catch((error: BusinessError<Object>) => {
-          dealGetMinorsInfoAllError(error);
-        });
-    } else {
-      hilog.info(0x0000, 'testTag',
-        'The current device environment does not support the youth mode, please check the current device environment.');
-    }
-  } catch (error) {
-    hilog.error(0x0000, 'testTag',
-      `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
+        } else {
+          // 未成年人模式未开启，应用需跟随系统未成年人模式，展示内容不做限制
+        }
+      })
+      .catch((error: BusinessError<Object>) => {
+        dealGetMinorsInfoAllError(error);
+      });
+  } else {
+    hilog.info(0x0000, 'testTag',
+      'The current device environment does not support the youth mode, please check the current device environment.');
   }
-} else {
-  hilog.info(0x0000, 'testTag',
-    'The current device does not support the invoking of the getMinorsProtectionInfo interface.');
+} catch (error) {
+  hilog.error(0x0000, 'testTag',
+    `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
 }
 
 function dealGetMinorsInfoAllError(error: BusinessError<Object>): void {
@@ -312,7 +375,7 @@ function dealGetMinorsInfoAllError(error: BusinessError<Object>): void {
 
 verifyMinorsProtectionCredential(context: common.Context): Promise&lt;boolean&gt;
  
-当用户需要调整应用的未成年人模式相关设置时，调用该方法拉起未成年人模式密码验证页面，验证身份。使用Promise异步回调。
+验证系统未成年人模式密码方法。当用户开启系统未成年人模式时，系统会引导家长用户设置六位数字密码作为系统未成年人模式状态的指令依据。当用户需要调整应用的未成年人模式相关设置时，开发者可通过该方法拉起系统未成年人模式密码验证页面，验证六位数字密码，密码输入正确验证成功后，会返回true，否则返回false。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -338,7 +401,7 @@ verifyMinorsProtectionCredential(context: common.Context): Promise&lt;boolean&gt
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -354,30 +417,25 @@ import { minorsProtection } from '@kit.AccountKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')) {
-  try {
-    // 查询是否支持系统未成年人模式
-    if (minorsProtection.supportMinorsMode()) {
-      // 此示例为代码片段，实际需在自定义组件实例中使用，并传入有效的Context上下文对象
-      minorsProtection.verifyMinorsProtectionCredential(this.getUIContext().getHostContext())
-        .then((result: boolean) => {
-          hilog.info(0x0000, 'testTag', `Succeeded in getting verify result is: ${result.valueOf()}`);
-          // 使用结果判断验密是否通过，执行后续流程
-        })
-        .catch((error: BusinessError<Object>) => {
-          dealVerifyAllError(error);
-        });
-    } else {
-      hilog.info(0x0000, 'testTag',
-        'The current device environment does not support the youth mode, please check the current device environment.');
-    }
-  } catch (error) {
-    hilog.error(0x0000, 'testTag',
-      `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
+try {
+  // 查询是否支持系统未成年人模式
+  if (minorsProtection.supportMinorsMode()) {
+    // 此示例为代码片段，实际需在自定义组件实例中使用，并传入有效的Context上下文对象
+    minorsProtection.verifyMinorsProtectionCredential(this.getUIContext().getHostContext())
+      .then((result: boolean) => {
+        hilog.info(0x0000, 'testTag', `Succeeded in getting verify result is: ${result}`);
+        // 使用结果判断验密是否通过，执行后续流程
+      })
+      .catch((error: BusinessError<Object>) => {
+        dealVerifyAllError(error);
+      });
+  } else {
+    hilog.info(0x0000, 'testTag',
+      'The current device environment does not support the youth mode, please check the current device environment.');
   }
-} else {
-  hilog.info(0x0000, 'testTag',
-    'The current device does not support the invoking of the verifyMinorsProtectionCredential interface.');
+} catch (error) {
+  hilog.error(0x0000, 'testTag',
+    `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
 }
 
 function dealVerifyAllError(error: BusinessError<Object>): void {
@@ -393,7 +451,7 @@ function dealVerifyAllError(error: BusinessError<Object>): void {
 
 leadToTurnOnMinorsMode(context: common.Context): Promise&lt;void&gt;
  
-应用提供开启未成年人模式入口，调用该方法拉起开启未成年人模式页面，引导用户开启未成年人模式。使用Promise异步回调。
+引导开启系统未成年人模式方法。开发者可调用该方法拉起开启系统未成年人模式引导页面，页面支持用户选择开启或取消，当选择开启后返回无结果的Promise对象，否则返回错误码。系统未成年人模式相关限制可参考[基本概念](#基本概念)。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -419,7 +477,7 @@ leadToTurnOnMinorsMode(context: common.Context): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -438,29 +496,24 @@ import { minorsProtection } from '@kit.AccountKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')) {
-  try {
-    // 查询是否支持系统未成年人模式
-    if (minorsProtection.supportMinorsMode()) {
-      // 此示例为代码片段，实际需在自定义组件实例中使用，并传入有效的Context上下文对象
-      minorsProtection.leadToTurnOnMinorsMode(this.getUIContext().getHostContext())
-        .then(() => {
-          // 接口调用完成，如需显示弹窗，请在此处处理
-        })
-        .catch((error: BusinessError<Object>) => {
-          dealTurnOnAllError(error);
-        });
-    } else {
-      hilog.info(0x0000, 'testTag',
-        'The current device environment does not support the youth mode, please check the current device environment.');
-    }
-  } catch (error) {
-    hilog.error(0x0000, 'testTag',
-      `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
+try {
+  // 查询是否支持系统未成年人模式
+  if (minorsProtection.supportMinorsMode()) {
+    // 此示例为代码片段，实际需在自定义组件实例中使用，并传入有效的Context上下文对象
+    minorsProtection.leadToTurnOnMinorsMode(this.getUIContext().getHostContext())
+      .then(() => {
+        // 接口调用完成，如需显示弹窗，请在此处处理
+      })
+      .catch((error: BusinessError<Object>) => {
+        dealTurnOnAllError(error);
+      });
+  } else {
+    hilog.info(0x0000, 'testTag',
+      'The current device environment does not support the youth mode, please check the current device environment.');
   }
-} else {
-  hilog.info(0x0000, 'testTag',
-    'The current device does not support the invoking of the leadToTurnOnMinorsMode interface.');
+} catch (error) {
+  hilog.error(0x0000, 'testTag',
+    `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
 }
 
 function dealTurnOnAllError(error: BusinessError<Object>): void {
@@ -476,7 +529,7 @@ function dealTurnOnAllError(error: BusinessError<Object>): void {
 
 leadToTurnOffMinorsMode(context: common.Context): Promise&lt;void&gt;
  
-应用提供关闭未成年人模式入口，调用该方法拉起关闭未成年人模式页面，引导用户关闭未成年人模式。使用Promise异步回调。
+引导关闭系统未成年人模式方法。开发者可调用该方法拉起是否关闭系统未成年人模式引导页面，用户点击关闭后，会验证开启系统未成年人模式时设置的六位数字密码，验证成功后返回无结果的Promise对象，否则返回错误码。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -502,7 +555,7 @@ leadToTurnOffMinorsMode(context: common.Context): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -520,29 +573,24 @@ import { minorsProtection } from '@kit.AccountKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
-if (canIUse('SystemCapability.AuthenticationServices.HuaweiID.MinorsProtection')) {
-  try {
-    // 查询是否支持系统未成年人模式
-    if (minorsProtection.supportMinorsMode()) {
-      // 此示例为代码片段，实际需在自定义组件实例中使用，并传入有效的Context上下文对象
-      minorsProtection.leadToTurnOffMinorsMode(this.getUIContext().getHostContext())
-        .then(() => {
-          // 接口调用完成，如需显示弹窗，请在此处处理
-        })
-        .catch((error: BusinessError<Object>) => {
-          dealTurnOffAllError(error);
-        });
-    } else {
-      hilog.info(0x0000, 'testTag',
-        'The current device environment does not support the youth mode, please check the current device environment.');
-    }
-  } catch (error) {
-    hilog.error(0x0000, 'testTag',
-      `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
+try {
+  // 查询是否支持系统未成年人模式
+  if (minorsProtection.supportMinorsMode()) {
+    // 此示例为代码片段，实际需在自定义组件实例中使用，并传入有效的Context上下文对象
+    minorsProtection.leadToTurnOffMinorsMode(this.getUIContext().getHostContext())
+      .then(() => {
+        // 接口调用完成，如需显示弹窗，请在此处处理
+      })
+      .catch((error: BusinessError<Object>) => {
+        dealTurnOffAllError(error);
+      });
+  } else {
+    hilog.info(0x0000, 'testTag',
+      'The current device environment does not support the youth mode, please check the current device environment.');
   }
-} else {
-  hilog.info(0x0000, 'testTag',
-    'The current device does not support the invoking of the leadToTurnOffMinorsMode interface.');
+} catch (error) {
+  hilog.error(0x0000, 'testTag',
+    `Failed to invoke supportMinorsMode. errCode: ${error.code}, errMessage: ${error.message}`);
 }
 
 function dealTurnOffAllError(error: BusinessError<Object>): void {

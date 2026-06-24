@@ -1,12 +1,12 @@
 # MDM Kit开发指南
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-guide
 
 #### 功能介绍
 
-MDM Kit为[MDM应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#mdm应用设备管理应用)提供设备管理能力，包括企业设备管理与事件监听、应用管理、禁用管理、安全管理、设备设置、设备控制、设备信息获取、硬件外设管理、系统管理、网络通信管理等，具体API接口说明详见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/mdm-arkts)。
+MDM Kit为[MDM应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#mdm应用)提供设备管理能力，包括企业设备管理与事件监听、应用管理、禁用管理、安全管理、设备设置、设备控制、设备信息获取、硬件外设管理、系统管理、网络通信管理等，具体API接口说明详见[API参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/mdm-arkts)。
 
 设备管理应用：具备[企业设备管理扩展能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-admin)的应用。
 
@@ -55,7 +55,7 @@ MDM Kit为[MDM应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-gui
 ```
 
 > [!NOTE]
-> 所需要申请的权限请参考具体接口，这里提供了 企业设备管理 的链接，可基于该文档查看MDM Kit内其他API文档。 声明的MDM权限必须在申请MDM应用的证书和Profile时完成申请，否则后面应用还是无法获取到该权限。
+> 所需要申请的权限请参考具体接口，这里提供了 admin权限管理 的链接，可基于该文档查看MDM Kit内其他API文档。 声明的MDM权限必须在申请MDM应用的证书和Profile时完成申请，否则后面应用还是无法获取到该权限。
 
 
 

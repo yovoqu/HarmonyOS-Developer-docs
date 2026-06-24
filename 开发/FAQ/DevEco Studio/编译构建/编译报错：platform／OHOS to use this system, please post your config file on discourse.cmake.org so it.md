@@ -1,6 +1,6 @@
 # 编译报错：platform/OHOS to use this system, please post your config file on discourse.cmake.org so it
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-87
 

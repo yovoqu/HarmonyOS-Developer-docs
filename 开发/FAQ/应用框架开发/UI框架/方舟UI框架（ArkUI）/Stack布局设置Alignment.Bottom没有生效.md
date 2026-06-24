@@ -1,6 +1,6 @@
 # Stack布局设置Alignment.Bottom没有生效
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-160
 
@@ -9,7 +9,7 @@
 在build()中使用Stack作为容器，设置alignContent为Alignment.Bottom，同时设置align为Alignment.Center。但alignContent为Alignment.Bottom未生效。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/WnQvOBGITZKJEa8rZ7K2hg/zh-cn_image_0000002229604149.png?HW-CC-KV=V1&HW-CC-Date=20260528T024950Z&HW-CC-Expire=86400&HW-CC-Sign=C170640A6D4B80C1BF662FE710A4CEA5A409927278F12DB995D32E6CAE3C4DDE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/H4fSfkQQRaKl9rEqDFvpeA/zh-cn_image_0000002229604149.png?HW-CC-KV=V1&HW-CC-Date=20260624T020557Z&HW-CC-Expire=86400&HW-CC-Sign=01DEBC4D1D48BB6B054BF92AA1749F941F9AEA3ECFE4A1D326E5BDC3BB844AF0)
 
  
 **解决措施**

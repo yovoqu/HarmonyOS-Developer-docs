@@ -1,6 +1,6 @@
 # VPN错误码
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-vpn
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -12,7 +12,7 @@
 
 #### 2200001 非法参数值
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -46,17 +46,17 @@ Failed to connect to the service.
 
 **可能原因**
 
-服务发生异常。
+服务发生异常。包括但不限于：连接数据库服务异常，连接应用状态管理服务异常等。
 
 **处理步骤**
 
-检查系统服务运行状态是否正常。
+请检查系统服务运行状态并重试。如果问题仍然存在，收集完整日志后联系技术支持获取帮助。
 
 
 
 #### 2200003 系统内部错误
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -76,13 +76,13 @@ System internal error.
 
 1.检查内存空间是否充足，清理内存后重试。
 
-2.系统异常，请稍后重试或重启设备。
+2.系统异常，请稍后重试或重启设备。如果问题仍然存在，收集完整日志后联系技术支持获取帮助。
 
 
 
 #### 2203001 VPN创建失败
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -104,7 +104,7 @@ VPN creation denied, please check the user type.
 
 #### 2203002 VPN已存在
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -126,7 +126,7 @@ VPN已经被创建。
 
 #### 2203004 无效描述符
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -148,7 +148,7 @@ tcp链路建立失败。
 
 #### 19900001 无效参数
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 
@@ -170,7 +170,7 @@ Invalid parameter value.
 
 #### 19900002 系统内部错误
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 **错误信息**
 

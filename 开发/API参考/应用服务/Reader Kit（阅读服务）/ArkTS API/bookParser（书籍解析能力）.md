@@ -1,6 +1,6 @@
 # bookParser（书籍解析能力）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-book-parser
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -25,6 +25,8 @@ import { bookParser } from '@kit.ReaderKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 书籍基本信息。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
@@ -55,6 +57,8 @@ import { bookParser } from '@kit.ReaderKit';
 
 书脊（spine）内容节点，标识着可阅读的一个内容资源（例如：chapter1.xhtml)。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Reader.ReaderService.BookParser
@@ -76,6 +80,8 @@ import { bookParser } from '@kit.ReaderKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 书籍目录节点，可用于目录列表的展示。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
@@ -107,6 +113,8 @@ import { bookParser } from '@kit.ReaderKit';
 type CallbackRes<T, V> = (data: T) => V
 
 书籍资源请求回调接口，在排版引擎渲染界面时调用，需配合ReaderComponentController的注册接口[on('resourceRequest')](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core#onresourcerequest)使用。如果有自定义背景及字体资源，需要在此返回对应资源。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
@@ -197,6 +205,8 @@ getDefaultHandler(path: string): Promise&lt;BookParserHandler&gt;
 
 获取书籍默认解析器。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Reader.ReaderService.BookParser
@@ -264,6 +274,8 @@ struct Reader {
 
 书籍解析接口类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Reader.ReaderService.BookParser
@@ -279,6 +291,8 @@ struct Reader {
 getBookInfo(): BookInfo
 
 获取书籍信息。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
@@ -341,6 +355,8 @@ getCatalogList(): CatalogItem[]
 
 获取书籍目录列表。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Reader.ReaderService.BookParser
@@ -402,6 +418,8 @@ getSpineList(): SpineItem[]
 
 获取书脊内容列表。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Reader.ReaderService.BookParser
@@ -462,6 +480,8 @@ struct Reader {
 getSpineItemContent(spineIndex: number): Promise&lt;string&gt;
 
 获取单个书脊资源里的内容，当排版引擎获取资源文件对应内容时会调用。如果不需要自定义排版引擎，开发者不需要关注。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
@@ -538,6 +558,8 @@ getResourceContent(spineIndex: number, filePath: string): ArrayBuffer
 > 开发者通过此接口可获取书封资源。同时排版引擎获取书籍里的图片等资源时，会优先调用该方法，如果获取不到资源会继续调用 on('resourceRequest') 获取资源。
 
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Reader.ReaderService.BookParser
@@ -611,6 +633,8 @@ struct Reader {
 getDomPosByCatalogHref(href: string): string
 
 获取阅读起始位置domPos，可用于阅读进度标识（例如：跳转到指定阅读位置）。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 
@@ -686,6 +710,8 @@ getAbsoluteResourcePath(spineIndex: number): string
 > [!NOTE]
 > 此方法一般为排版引擎渲染资源时调用，如果不需要自定义排版引擎，开发者不需要关注。
 
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
 

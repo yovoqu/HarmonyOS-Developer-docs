@@ -1,6 +1,6 @@
 # @ohos.graphics.uiEffect (效果级联)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-uieffect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -100,7 +100,7 @@ blur(blurRadius: number): Filter
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| blurRadius | number | 是 | 模糊半径。 取值需大于等于0，模糊半径越大，模糊效果越强。 模糊半径为0时无模糊效果。 |
+| blurRadius | number | 是 | 模糊半径，单位为px。 取值需大于等于0，模糊半径越大，模糊效果越强。 模糊半径为0时无模糊效果。 |
 
 
 **返回值：**
@@ -140,7 +140,7 @@ struct UIEffectFilterExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/_T8awJ-lQKCWsNit16TJ_g/zh-cn_image_0000002581437038.png?HW-CC-KV=V1&HW-CC-Date=20260528T025705Z&HW-CC-Expire=86400&HW-CC-Sign=65C0C3E60C3DA27BF6EE72828A73F2624E5DCCC9003B0AFECA1609F76AFC4834)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/pm9QGVuARkah01zpFN17aw/zh-cn_image_0000002656470963.png?HW-CC-KV=V1&HW-CC-Date=20260624T020310Z&HW-CC-Expire=86400&HW-CC-Sign=5FEF6E3FB3FF841BCEC7115E6D5EE9C26E31E5612F10368D8584A3E732DCADF8)
 
 
 

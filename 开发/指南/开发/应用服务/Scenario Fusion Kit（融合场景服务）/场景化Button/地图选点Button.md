@@ -1,6 +1,6 @@
 # 地图选点Button
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-selecting-point
 
@@ -68,11 +68,11 @@ struct Index {
             .onChooseLocation((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to choose location, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in choosing location");
+              hilog.info(0x0000, 'testTag', 'succeeded in choosing location');
               let name: string = data.name;
               let address: string = data.address;
               let longitude: number = data.longitude;

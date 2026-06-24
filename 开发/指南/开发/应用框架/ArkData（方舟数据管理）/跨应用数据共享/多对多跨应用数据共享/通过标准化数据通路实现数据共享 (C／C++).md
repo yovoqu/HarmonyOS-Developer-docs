@@ -1,6 +1,6 @@
 # 通过标准化数据通路实现数据共享 (C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/unified-data-channels-c
 

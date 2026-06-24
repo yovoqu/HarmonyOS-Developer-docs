@@ -1,6 +1,6 @@
 # @ohos.enterprise.systemManager （系统管理）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -156,7 +156,7 @@ setOtaUpdatePolicy(admin: Want, policy: OtaUpdatePolicy): void
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
+**冲突规则：** [独占](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则2独占)。
 
 **参数：**
 
@@ -1344,30 +1344,13 @@ try {
 
 
 
-#### SystemUpdateInfo
-
-**支持设备：** Phone | PC/2in1 | Tablet
-
-待更新的系统版本信息。
-
-**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
-
-| 名称 | 类型 | 只读 | 可选 | 说明 |
-| --- | --- | --- | --- | --- |
-| versionName | string | 否 | 否 | 待更新的系统版本名称。 |
-| firstReceivedTime | number | 否 | 否 | 第一次收到系统更新包的时间（单位：秒）。 |
-| packageType | string | 否 | 否 | 待更新的系统更新包类型，类型分为normal和patch类型。 |
-
-
-
-
 #### systemManager.setActivationLockDisabled24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 setActivationLockDisabled(admin: Want, isDisabled: boolean, credential?: string): Promise&lt;void&gt;
 
-禁用或启用设备激活锁。设备激活锁被禁用后，将无法使用查找设备功能。该功能只适用于特定设备（只支持PC/2in1企业设备）。。
+禁用/启用设备激活锁。设备激活锁被禁用后，将无法使用查找设备功能。该功能只适用于特定设备（只支持PC/2in1企业设备）。。
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_SYSTEM
 
@@ -1376,6 +1359,8 @@ setActivationLockDisabled(admin: Want, isDisabled: boolean, credential?: string)
 **设备行为差异：** 该接口在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
 
 **参数：**
 
@@ -1490,7 +1475,7 @@ let wantTemp: Want = {
 systemManager.isActivationLockDisabled(wantTemp).then(result => {
   console.info(`Succeeded in getting activation lock status: ${JSON.stringify(result)}`);
 }).catch((err: BusinessError) => {
-  console.error(`Failed to get activation lock status. Code: ${err.code}, message: ${err.message}`);
+  console.error(`Failed to set activation lock status. Code: ${err.code}, message: ${err.message}`);
 });
 ```
 
@@ -1558,7 +1543,7 @@ let isEnable: boolean = true;
 let accountId: number = 100;
 try {
   systemManager.setInstallLocalEnterpriseAppEnabledForAccount(wantTemp, isEnable, accountId);
-  console.info('Succeeded in setting installLocalEnterpriseAppEnabledForAccount.');
+  console.info('Succeeded in setting InstallLocalEnterpriseAppEnabledForAccount.');
 } catch (err) {
   console.error(`Failed to set installLocalEnterpriseAppEnabledForAccount. Code is ${err.code}, message is ${err.message}`);
 }
@@ -1625,11 +1610,28 @@ let wantTemp: Want = {
 let accountId: number = 100;
 try {
   let isEnable: boolean = systemManager.getInstallLocalEnterpriseAppEnabledForAccount(wantTemp, accountId);
-  console.info('Succeeded in getting installLocalEnterpriseAppEnabledForAccount.');
+  console.info('Succeeded in getting installLocalEnterpriseAppEnabled.');
 } catch (err) {
-  console.error(`Failed to get installLocalEnterpriseAppEnabledForAccount. Code is ${err.code}, message is ${err.message}`);
+  console.error(`Failed to get installLocalEnterpriseAppEnabled. Code is ${err.code}, message is ${err.message}`);
 }
 ```
+
+
+
+#### SystemUpdateInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+待更新的系统版本信息。
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| versionName | string | 否 | 否 | 待更新的系统版本名称。 |
+| firstReceivedTime | number | 否 | 否 | 第一次收到系统更新包的时间（单位：秒）。 |
+| packageType | string | 否 | 否 | 待更新的系统更新包类型，类型分为normal和patch类型。 |
+
 
 
 
@@ -1846,7 +1848,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-按键编码。添加按键事件策略[addKeyEventPolicies](#systemmanageraddkeyeventpolicies23)、删除按键事件策略[removeKeyEventPolicies](#systemmanagerremovekeyeventpolicies23)、获取按键事件策略[getKeyEventPolicies](#systemmanagergetkeyeventpolicies23)和按键事件回调[onKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onkeyevent23)接口通过按键编码映射到设备对应实际按键。
+按键编码。添加按键事件处理策略[addKeyEventPolicies](#systemmanageraddkeyeventpolicies23)、删除按键事件处理策略[removeKeyEventPolicies](#systemmanagerremovekeyeventpolicies23)、获取按键事件处理策略[getKeyEventPolicies](#systemmanagergetkeyeventpolicies23)和按键事件回调[onKeyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability#onkeyevent23)接口通过按键编码映射到设备对应实际按键。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 

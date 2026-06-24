@@ -1,6 +1,6 @@
 # samplePointHelper (采样数据类型常量)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-samplepointhelper
 **支持设备：** Phone | Tablet | Wearable
@@ -34,6 +34,8 @@ import { healthStore } from '@kit.HealthServiceKit';
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -43,6 +45,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -62,6 +66,8 @@ type Model = healthModels.BloodOxygenSaturation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -81,6 +87,8 @@ type Fields = healthFields.BloodOxygenSaturation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -100,6 +108,8 @@ type AggregateResult = healthModels.BloodOxygenSaturationAggregateResult
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -119,6 +129,8 @@ type AggregateRequest = healthModels.BloodOxygenSaturationAggregateRequest
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -138,6 +150,8 @@ type AggregateFields = healthFields.BloodOxygenSaturationAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -156,6 +170,8 @@ type AggregateFields = healthFields.BloodOxygenSaturationAggregation
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -165,6 +181,8 @@ type AggregateFields = healthFields.BloodOxygenSaturationAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -184,6 +202,8 @@ type Model = healthModels.BloodPressure
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -203,6 +223,8 @@ type Fields = healthFields.BloodPressure
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -221,6 +243,8 @@ type Fields = healthFields.BloodPressure
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -230,6 +254,8 @@ type Fields = healthFields.BloodPressure
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -249,6 +275,8 @@ type Model = healthModels.BodyTemperature
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -268,6 +296,8 @@ type Fields = healthFields.BodyTemperature
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -287,6 +317,8 @@ type AggregateResult = healthModels.BodyTemperatureAggregateResult
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -306,6 +338,8 @@ type AggregateRequest = healthModels.BodyTemperatureAggregateRequest
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -325,6 +359,8 @@ type AggregateFields = healthFields.BodyTemperatureAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -345,6 +381,8 @@ type AggregateFields = healthFields.BodyTemperatureAggregation
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -356,6 +394,8 @@ type AggregateFields = healthFields.BodyTemperatureAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -375,6 +415,8 @@ type Model = healthModels.DailyActivities
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -394,6 +436,8 @@ type Fields = healthFields.DailyActivities
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -415,6 +459,8 @@ type AggregateResult = healthModels.DailyActivitiesAggregateResult
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -436,6 +482,8 @@ type AggregateRequest = healthModels.DailyActivitiesAggregateRequest
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -457,6 +505,8 @@ type AggregateFields = healthFields.DailyActivitiesAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -475,6 +525,8 @@ type AggregateFields = healthFields.DailyActivitiesAggregation
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -484,6 +536,8 @@ type AggregateFields = healthFields.DailyActivitiesAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -503,6 +557,8 @@ type Model = healthModels.Emotion
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -522,6 +578,8 @@ type Fields = healthFields.Emotion
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -540,6 +598,8 @@ type Fields = healthFields.Emotion
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -549,6 +609,8 @@ type Fields = healthFields.Emotion
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -568,6 +630,8 @@ type Model = healthModels.HeartRate
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -587,6 +651,8 @@ type Fields = healthFields.HeartRate
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -606,6 +672,8 @@ type AggregateResult = healthModels.HeartRateAggregateResult
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -625,6 +693,8 @@ type AggregateRequest = healthModels.HeartRateAggregateRequest
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -644,6 +714,8 @@ type AggregateFields = healthFields.HeartRateAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -662,6 +734,8 @@ type AggregateFields = healthFields.HeartRateAggregation
  
 **起始版本：** 5.1.0(18)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -671,6 +745,8 @@ type AggregateFields = healthFields.HeartRateAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -690,6 +766,8 @@ type Model = healthModels.HeartRateVariability
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -709,6 +787,8 @@ type Fields = healthFields.HeartRateVariability
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.1.0(18)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -727,6 +807,8 @@ type Fields = healthFields.HeartRateVariability
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -736,6 +818,8 @@ type Fields = healthFields.HeartRateVariability
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -755,6 +839,8 @@ type Model = healthModels.Height
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -774,6 +860,8 @@ type Fields = healthFields.Height
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -792,6 +880,8 @@ type Fields = healthFields.Height
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -801,6 +891,8 @@ type Fields = healthFields.Height
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -820,6 +912,8 @@ type Model = healthModels.RestingHeartRate
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -839,6 +933,8 @@ type Fields = healthFields.RestingHeartRate
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -858,6 +954,8 @@ type AggregateResult = healthModels.RestingHeartRateAggregateResult
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -877,6 +975,8 @@ type AggregateRequest = healthModels.RestingHeartRateAggregateRequest
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -896,6 +996,8 @@ type AggregateFields = healthFields.RestingHeartRateAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -914,6 +1016,8 @@ type AggregateFields = healthFields.RestingHeartRateAggregation
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -923,6 +1027,8 @@ type AggregateFields = healthFields.RestingHeartRateAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -942,6 +1048,8 @@ type Model = healthModels.SkinTemperature
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -961,6 +1069,8 @@ type Fields = healthFields.SkinTemperature
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -980,6 +1090,8 @@ type AggregateResult = healthModels.SkinTemperatureAggregateResult
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -999,6 +1111,8 @@ type AggregateRequest = healthModels.SkinTemperatureAggregateRequest
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1018,6 +1132,8 @@ type AggregateFields = healthFields.SkinTemperatureAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1036,6 +1152,8 @@ type AggregateFields = healthFields.SkinTemperatureAggregation
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1045,6 +1163,8 @@ type AggregateFields = healthFields.SkinTemperatureAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1064,6 +1184,8 @@ type Model = healthModels.Stress
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1083,6 +1205,8 @@ type Fields = healthFields.Stress
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1102,6 +1226,8 @@ type AggregateResult = healthModels.StressAggregateResult
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1121,6 +1247,8 @@ type AggregateRequest = healthModels.StressAggregateRequest
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1140,6 +1268,8 @@ type AggregateFields = healthFields.StressAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1158,6 +1288,8 @@ type AggregateFields = healthFields.StressAggregation
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1167,6 +1299,8 @@ type AggregateFields = healthFields.StressAggregation
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1186,6 +1320,8 @@ type Model = healthModels.Weight
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1205,6 +1341,8 @@ type Fields = healthFields.Weight
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |

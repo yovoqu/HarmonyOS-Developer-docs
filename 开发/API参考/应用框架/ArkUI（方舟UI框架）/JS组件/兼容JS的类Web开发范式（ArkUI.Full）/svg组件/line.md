@@ -1,6 +1,6 @@
 # line
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-line
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -68,4 +68,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/I1t465YSSuqpZR-UMnZd5w/zh-cn_image_0000002611836213.png?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=94C5C87643063BD90DAD229C3C124D2C1E2F7C53654D8B9E11B94AA993B9B5AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/U_SLtIVZSBqMiDxbgav51Q/zh-cn_image_0000002656350355.png?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=DBA2F6C8D5D468DC5E728DF9FD04A5080C5B43ADDEC732937685AA2A5020524D)

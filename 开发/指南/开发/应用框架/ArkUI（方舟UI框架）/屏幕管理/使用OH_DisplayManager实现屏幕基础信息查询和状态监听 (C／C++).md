@@ -1,6 +1,6 @@
 # 使用OH_DisplayManager实现屏幕基础信息查询和状态监听 (C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-display-manager
 

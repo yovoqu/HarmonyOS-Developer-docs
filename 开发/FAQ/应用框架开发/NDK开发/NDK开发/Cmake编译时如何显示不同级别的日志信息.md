@@ -1,6 +1,6 @@
 # Cmake编译时如何显示不同级别的日志信息
 
-更新时间：2026-03-25 01:58:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-50
 

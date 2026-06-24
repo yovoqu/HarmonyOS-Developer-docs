@@ -1,6 +1,6 @@
 # Webview的runJavaScript和runJavaScriptExt有什么区别，在页面生命周期（如onPageShow、onPageEnd）的什么时候进行调用
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-21
 

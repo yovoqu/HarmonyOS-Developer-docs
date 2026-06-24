@@ -1,6 +1,6 @@
 # Entry模块的HAP和Feature模块的HAP在使用和功能上的区别是什么
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-18 09:05:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-28
 
@@ -10,4 +10,4 @@
  
 **参考链接**
  
-[应用程序包结构](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-structure)
+[应用程序包结构](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-structure-stage)

@@ -1,6 +1,6 @@
 # FIDO2_TokenBinding
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___token_binding
 
@@ -23,7 +23,7 @@ Token binding协议，用于客户端与依赖方通信。
 | 名称 | 描述 |
 | --- | --- |
 | FIDO2_TokenBindingStatus status | 客户端的绑定状态。 |
-| char * id | 令牌绑定标识符。 |
+| char * id | 令牌绑定标识符。 标识符。长度限制0到512。 |
  
  
   

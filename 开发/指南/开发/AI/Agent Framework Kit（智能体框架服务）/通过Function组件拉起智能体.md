@@ -1,6 +1,6 @@
 # 通过Function组件拉起智能体
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hmaf-function
 
@@ -27,7 +27,7 @@
 
 #### 开发前准备
 
- - 创建智能体，具体请参见[快速创建智能体](https://developer.huawei.com/consumer/cn/doc/service/quick-start-0000002469548009)。
+ - 开发智能体，具体请参见[开发Agent](https://developer.huawei.com/consumer/cn/doc/service/developing-intelligent-agents-0000002435989592)。
  - 关联应用，具体请参见[关联应用](https://developer.huawei.com/consumer/cn/doc/service/related-applications-0000002437785706)。
  - 确保已在终端设备上登录华为账号，并且处于联网状态。
 
@@ -89,7 +89,7 @@ import { common } from '@kit.AbilityKit';
 @Component
 export struct AgentExample {
   private controller: FunctionController = new FunctionController();
-  private agentId: string = 'agentproxy65481da1fa2293a8482d45'; // 智能体对应的agentid，由小艺智能体平台在创建智能体时指定
+  private agentId: string = 'agentproxy65481da1fa2293a8482d45'; // 智能体对应的agentId，由小艺智能体平台在创建智能体时指定
   build() {
     Column() {
       FunctionComponent({

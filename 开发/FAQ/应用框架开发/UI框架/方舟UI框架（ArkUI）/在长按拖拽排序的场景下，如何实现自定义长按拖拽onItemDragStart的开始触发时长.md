@@ -1,6 +1,6 @@
 # 在长按拖拽排序的场景下，如何实现自定义长按拖拽onItemDragStart的开始触发时长
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-310
 

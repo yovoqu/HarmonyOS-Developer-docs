@@ -1,17 +1,22 @@
-# realName (华为账号实名认证服务)
+# @hms.core.account.realName (华为账号实名认证服务)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-realname
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供Account Kit实名认证能力，包括人脸核身功能。当需要验证用户实名信息的场景，为保证用户填写的实名信息的正确性，应用需要对用户的实名信息进行校验。
+#### 模块概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+@hms.core.account.realName模块提供华为账号实名认证能力。该模块包含人脸核身能力，可通过人脸识别方式，验证华为账号用户身份。当开发者需要依据当前华为账号进行高风险操作时，可通过该能力拉起人脸核身页面，华为账号服务会比对当前设备使用人的人脸信息与华为账号用户人脸信息，用于验证当前使用人的身份。
  
 **起始版本：** 5.0.0(12)
  
 > [!NOTE]
 > 该接口目前暂停开放。
 
+ 
   
 
 #### 导入模块
@@ -28,7 +33,7 @@ import { realName } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该类为人脸核身请求对象，定义了人脸核身请求参数。
+人脸核身请求。[startFacialRecognitionVerification](#startfacialrecognitionverification)方法入参，需包含身份验证令牌，与华为账号用户人脸特征比对识别。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -41,7 +46,7 @@ import { realName } from '@kit.AccountKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | verificationToken | string | 否 | 否 | 身份验证令牌，调用华为账号OpenRealName服务实名信息校验接口获取。长度限制1-2048。 |
-| state | string | 否 | 是 | 请求体中的state参数，开发者可自定义，字符包含0-9、a-z、A-Z、英文点号、英文冒号、斜杠、下划线等，长度限制1-255，校验规则^[0-9a-zA-Z:/\.\-_]{1,255}$。该参数与响应体中返回的state比较，校验是否是当前请求，可防止跨站攻击。 默认值：undefined。 推荐开发者用随机数并做一致性校验。建议生成方式：util.generateRandomUUID()。 |
+| state | string | 否 | 是 | 请求体中的state参数，开发者可自定义，字符包含0-9、a-z、A-Z、英文点号、英文冒号、斜杠、下划线等，长度限制1-255，校验规则^[0-9a-zA-Z:/\.\-_]{1,255}$。该参数与响应体中返回的state比较，校验是否是当前请求，可防止跨站攻击。 推荐开发者用随机数并做一致性校验。建议生成方式：util.generateRandomUUID()。 |
  
  
 **示例：**
@@ -62,7 +67,7 @@ const request: realName.FacialRecognitionVerificationRequest = {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该类为人脸核身请求结果对象，定义了人脸核身请求返回结果数据字段。如果成功返回该对象，说明人脸核身验证成功。
+人脸核身请求响应。[startFacialRecognitionVerification](#startfacialrecognitionverification)方法返回值，如果成功返回该对象，说明人脸核身验证成功。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -84,7 +89,7 @@ const request: realName.FacialRecognitionVerificationRequest = {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该枚举为Account Kit实名认证服务的错误码。
+华为账号实名认证服务接口错误码枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -120,7 +125,7 @@ const request: realName.FacialRecognitionVerificationRequest = {
 
 startFacialRecognitionVerification(context: common.Context, request: FacialRecognitionVerificationRequest): Promise&lt;FacialRecognitionVerificationResult&gt;
  
-执行华为账号人脸核身请求，拉起验证人脸页面。使用Promise异步回调。
+华为账号人脸核身方法。开发者可调用该方法拉起验证人脸页面，用户可长时间在此页面停留，在成功完成与华为账号用户的面部特征比对后，通过Promise异步回调返回成功对象。使用该能力需要确保华为账号用户已完成实名认证、人脸验证。
  
 > [!NOTE]
 > 该接口暂不支持儿童账号使用。
@@ -153,12 +158,12 @@ startFacialRecognitionVerification(context: common.Context, request: FacialRecog
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
-| 801 | Capability not supported. Function startFacialRecognitionVerification can not work correctly due to limited device capabilities. |
+| 801 | Capability not supported. Function startFacialRecognitionVerification can not work correctly due to limited device capabilities. 适用版本：5.1.1(19)+ |
 | 1002500001 | The network is unavailable. |
 | 1002500002 | The user has not logged in with HUAWEI ID. |
 | 1002500003 | Failed to check the fingerprint of the application bundle. |
@@ -204,7 +209,7 @@ function dealAllError(error: BusinessError<Object>): void {
   if (error.code === realName.RealNameErrorCode.ACCOUNT_NOT_LOGGED_IN) {
     // 用户未登录华为账号，请登录华为账号并重试
   } else if (error.code === realName.RealNameErrorCode.NETWORK_ERROR) {
-    // 网络异常，请检查当前网络状态并重试
+    // 网络错误，请检查当前网络状态并重试
   } else if (error.code === realName.RealNameErrorCode.USER_CANCELED) {
     // 用户取消人脸核身
   } else {

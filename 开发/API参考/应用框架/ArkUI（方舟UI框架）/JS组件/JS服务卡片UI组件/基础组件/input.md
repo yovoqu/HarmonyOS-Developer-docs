@@ -1,6 +1,6 @@
 # input
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-input
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -87,4 +87,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/YlfC4OL_SleuIXNDVouwuQ/zh-cn_image_0000002611756513.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=93401FB480BB8AE035A6D490A7971D5C5A453515A46D484B05CE0B08F9EA6577)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/l46rcxBpSEa3dKQtXFblMw/zh-cn_image_0000002626071220.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015950Z&HW-CC-Expire=86400&HW-CC-Sign=13743E70ACCABCF3156879D3B07DF3C81378C876590F8E71E07E8FE2C1A72B29)

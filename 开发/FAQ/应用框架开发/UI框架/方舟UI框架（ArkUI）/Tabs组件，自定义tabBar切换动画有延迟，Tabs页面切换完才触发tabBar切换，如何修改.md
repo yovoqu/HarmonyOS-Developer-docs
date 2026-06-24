@@ -1,6 +1,6 @@
 # Tabs组件，自定义tabBar切换动画有延迟，Tabs页面切换完才触发tabBar切换，如何修改
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-451
 

@@ -1,6 +1,6 @@
 # Input_KeyState
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keystate
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct Input_KeyState Input_KeyState
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义按键信息，用于标识按键行为。例如，“Ctrl”按键信息包含键值和键类型。
+定义按键信息，用于标识按键行为。例如，“Ctrl”按键信息包含键值和键状态。适用于快捷键处理、输入事件状态管理、按键状态检测等场景。
  
 **起始版本：** 12
  

@@ -1,16 +1,16 @@
 # @ohos.intl (国际化-Intl)
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-intl
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供基础的应用国际化能力，包括时间日期格式化、数字格式化、排序等，相关接口在ECMA 402标准中定义。
 
-[I18N模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i18n)提供其他非ECMA 402定义的国际化接口，与本模块共同使用可提供完整的国际化支持能力。
+[国际化-I18n](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i18n)提供其他非ECMA 402定义的国际化接口，与本模块共同使用可提供完整的国际化支持能力。
 
 > [!NOTE]
-> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口基于 CLDR 国际化数据库实现，随着CLDR标准的迭代演进，接口处理结果可能会相应调整。例如 数字格式化接口 ，其返回值仅适用于界面展示场景，开发者请勿对返回格式进行硬编码或假设性判断，否则可能导致版本兼容问题。其中，API version 12 对应 CLDR 42 版本，具体数据变更详情可查阅 CLDR官方文档 。 从API version 11开始，本模块部分接口支持在ArkTS卡片中使用。 从API version 12开始，本模块全接口支持在元服务中使用。
+> 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口基于 CLDR 国际化数据库实现，随着CLDR标准的迭代演进，接口处理结果可能会相应调整。例如数字格式化接口，其返回值仅适用于界面展示场景，开发者请勿对返回格式进行硬编码或假设性判断，否则可能导致版本兼容问题。其中，API version 12 对应 CLDR 42 版本，具体数据变更详情可查阅 CLDR官方文档 。 从API version 11开始，本模块部分接口支持在ArkTS卡片中使用。 从API version 12开始，本模块全接口支持在元服务中使用。
 
 
 
@@ -64,7 +64,7 @@ import { intl } from '@kit.LocalizationKit';
 
 constructor()
 
-从API version 8开始支持，从API version 20开始废弃，建议使用[i18n.System.getSystemLocaleInstance](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-i18n#getsystemlocaleinstance20)替代。
+从API version 8开始支持，从API version 20开始废弃，建议使用[Intl.Locale.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale)替代。
 
 创建区域对象。
 

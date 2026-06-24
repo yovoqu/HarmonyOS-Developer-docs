@@ -1,6 +1,6 @@
 # DevEco如何配置不响应raise捕获到的assert信号
 
-更新时间：2026-03-12 12:31:01
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-debugging-57
 

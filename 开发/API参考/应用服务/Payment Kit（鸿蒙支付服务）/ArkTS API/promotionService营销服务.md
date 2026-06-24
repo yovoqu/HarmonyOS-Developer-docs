@@ -1,6 +1,6 @@
 # promotionService(营销服务)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-promotionservice
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -186,7 +186,7 @@ constructor(context: UIContext)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码 | 错误信息 |
 | --- | --- |
@@ -243,7 +243,7 @@ startPromotionEntryDialog(mercNo: string, offset?: number): Promise&lt;UserActio
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码 | 错误信息 |
 | --- | --- |
@@ -317,7 +317,7 @@ startUserChooseCouponsPopup(context: common.Context, orderContext: OrderContext)
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码 | 错误信息 |
 | --- | --- |
@@ -399,7 +399,7 @@ startPromotionDetailPopup(context: common.Context, mercNo: string): Promise&lt;U
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码 | 错误信息 |
 | --- | --- |
@@ -471,7 +471,7 @@ getOrderAvailableCoupons(context: common.Context, orderContext: OrderContext): P
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码 | 错误信息 |
 | --- | --- |

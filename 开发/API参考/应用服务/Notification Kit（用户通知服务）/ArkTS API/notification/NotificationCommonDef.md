@@ -1,6 +1,6 @@
 # NotificationCommonDef
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationcommondef
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,3 +41,23 @@
 | bundleName | string | 否 | 否 | 应用程序的包名。 |
 | appIndex | number | 是 | 否 | 应用包的分身索引标识，仅在分身应用中生效。从ApplicationInfo中appIndex获取。 |
 | appName | string | 是 | 是 | 标识应用的名称。从ApplicationInfo中label获取。 |
+
+
+
+
+#### UserGrantSetting
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+描述用户授权的设置信息。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Notification.Notification
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| userGrantEnabled | boolean | 是 | 否 | “允许获取本机通知”的开关状态。 true：表示功能已启用；false：表示功能未启用。 |
+| grantedBundleInfos | Array&lt;GrantedBundleInfo&gt; | 是 | 是 | “已获取的本机通知”通知开关开启的应用列表。 |

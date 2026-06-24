@@ -1,6 +1,6 @@
 # inputmethod_private_command_capi.h
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-private-command-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,7 +35,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| InputMethod_PrivateCommand | InputMethod_PrivateCommand | 表示私有数据的结构体类型。输入框和输入法应用之间交互的私有数据。 |
+| InputMethod_PrivateCommand | InputMethod_PrivateCommand | 表示私有数据的结构体类型。输入框和输入法应用之间用于通信的私有数据。 |
  
  
   
@@ -266,7 +266,7 @@ InputMethod_ErrorCode OH_PrivateCommand_GetKey(InputMethod_PrivateCommand *comma
 | 参数项 | 描述 |
 | --- | --- |
 | InputMethod_PrivateCommand *command | 指向即将被获取key值的InputMethod_PrivateCommand实例的指针。 |
-| const char **key | key的生命周期和command一致。不要直接保存key地址，或者直接写key。建议拷贝后使用。 |
+| const char **key | key的生命周期和command一致。请勿直接保存key地址，也不应直接操作key内容；推荐先拷贝后再使用。 |
 | size_t *keyLength | key长度。 |
  
  

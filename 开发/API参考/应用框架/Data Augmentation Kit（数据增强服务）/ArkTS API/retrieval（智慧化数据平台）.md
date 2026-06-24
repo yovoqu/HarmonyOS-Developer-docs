@@ -1,6 +1,6 @@
 # retrieval（智慧化数据平台）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-retrieval-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -12,8 +12,8 @@
 - 知识检索：逐步构建语义索引、知识图谱、召回、重排等功能，支持用户知识的语义化检索。
 - 知识生成与整理：基于用户文档、消息、电子邮件、照片、视频、日历事件、屏幕上下文等数据，支持高效数据整理与知识生成，实现数据到知识的转换。
 
-  **起始版本：** 6.0.0(20)
-
+ 
+**起始版本：** 6.0.0(20)
   
 
 #### 导入模块
@@ -33,6 +33,8 @@ import { retrieval } from '@kit.DataAugmentationKit';
 getRetriever(config: RetrievalConfig): Promise&lt;Retriever&gt;
  
 获取检索器，进行多路检索召回。使用promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -122,6 +124,8 @@ struct Page {
 
 管理召回的配置
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -138,6 +142,8 @@ struct Page {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 管理每个检索回路的配置信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -157,6 +163,8 @@ struct Page {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 数据库类型枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -178,6 +186,8 @@ type DbConfig = relationalStore.StoreConfig
  
 数据库配置。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -197,6 +207,8 @@ type DbConfig = relationalStore.StoreConfig
  
 下列接口都需先使用[retrieval.getRetriever](#getretriever)获取到检索器实例，再通过此实例调用对应接口。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -210,6 +222,8 @@ type DbConfig = relationalStore.StoreConfig
 retrieveRdb(query: string, condition: RetrievalCondition): Promise&lt;RdbRecords&gt;
  
 给定检索条件（包含查询词分词、召回条件），从一个关系型数据库检索召回满足条件的数据，使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -232,7 +246,7 @@ retrieveRdb(query: string, condition: RetrievalCondition): Promise&lt;RdbRecords
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dataaugmentation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -500,6 +514,8 @@ async retrieve() {
 
 检索条件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -520,6 +536,8 @@ async retrieve() {
 
 检索解释配置
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -531,13 +549,15 @@ async retrieve() {
  
   
 
-#### Recallcondition
+#### RecallCondition
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
 type RecallCondition = InvertedIndexRecallCondition | VectorRecallCondition
  
 召回操作的条件。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -556,6 +576,8 @@ type RecallCondition = InvertedIndexRecallCondition | VectorRecallCondition
 **支持设备：** Phone | PC/2in1 | Tablet
 
 倒排检索的召回条件。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -583,6 +605,8 @@ type ColumnName = string
  
 数据表的列名，类型为字符串。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -602,6 +626,8 @@ type RecallName = string
  
 召回回路名称，类型为字符串，用于给倒排和向量两路召回取名。例如出现两路向量召回时，给两路向量取名做区分。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -618,6 +644,8 @@ type RecallName = string
 **支持设备：** Phone | PC/2in1 | Tablet
 
 过滤器信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -637,9 +665,11 @@ type RecallName = string
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-type FilterValue = number | string | bigint
+type FilterValue = string | number | bigint
  
 过滤条件中的过滤值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -647,8 +677,8 @@ type FilterValue = number | string | bigint
   
 | 类型 | 说明 |
 | --- | --- |
-| number | FilterValue 收到的类型为number则过滤条件为数字类型 |
 | string | FilterValue 收到的类型为string则过滤条件为字符串类型 |
+| number | FilterValue 收到的类型为number则过滤条件为数字类型 |
 | bigint | FilterValue 收到的类型为bigint则过滤条件为int64类型 |
  
  
@@ -659,6 +689,8 @@ type FilterValue = number | string | bigint
 **支持设备：** Phone | PC/2in1 | Tablet
 
 过滤条件中的过滤值范围。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -678,23 +710,25 @@ type FilterValue = number | string | bigint
 
 过滤条件中的操作算子。column为数据库表中的字段名，filterValue为该字段的取值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
   
-| 操作 | 说明 |
-| --- | --- |
-| OP_EQ = '=' | &lt;column&gt;等于&lt;filterValue&gt;。 |
-| OP_NE = '!=' | &lt;column&gt;不等于&lt;filterValue&gt;。 |
-| OP_LT = '<' | &lt;column&gt;小于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
-| OP_LE = '<=' | &lt;column&gt;小于等于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
-| OP_GT = '>' | &lt;column&gt;大于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
-| OP_GE = '>=' | &lt;column&gt;大于等于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
-| OP_IN = 'IN' | &lt;column&gt; IN &lt;filterValue&gt;，其中&lt;filterValue&gt;为string且通过','组合。 |
-| OP_NOT_IN = 'NOT_IN' | &lt;column&gt; NOT IN &lt;filterValue&gt;，其中&lt;filterValue&gt;为string且通过','拼接。 |
-| OP_BETWEEN = 'BETWEEN' | &lt;column&gt;的值在 <filterRange.min> 和 <filterRange.max>之间。 |
-| OP_LIKE = 'LIKE' | 通过LIKE匹配含有&lt;filterValue&gt;的&lt;column&gt; ,其中&lt;filterValue&gt;为string。 |
-| OP_NOT_LIKE = 'NOT_LIKE' | &lt;column&gt; NOT LIKE &lt;filterValue&gt;，其中&lt;filterValue&gt;为string。 |
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| OP_EQ | '=' | &lt;column&gt;等于&lt;filterValue&gt;。 |
+| OP_NE | '!=' | &lt;column&gt;不等于&lt;filterValue&gt;。 |
+| OP_LT | '<' | &lt;column&gt;小于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
+| OP_LE | '<=' | &lt;column&gt;小于等于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
+| OP_GT | '>' | &lt;column&gt;大于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
+| OP_GE | '>=' | &lt;column&gt;大于等于&lt;filterValue&gt;，其中&lt;filterValue&gt;为数值。 |
+| OP_IN | 'IN' | &lt;column&gt; IN &lt;filterValue&gt;，其中&lt;filterValue&gt;为string且通过','组合。 |
+| OP_NOT_IN | 'NOT_IN' | &lt;column&gt; NOT IN &lt;filterValue&gt;，其中&lt;filterValue&gt;为string且通过','拼接。 |
+| OP_BETWEEN | 'BETWEEN' | &lt;column&gt;的值在 <filterRange.min> 和 <filterRange.max>之间。 |
+| OP_LIKE | 'LIKE' | 通过LIKE匹配含有&lt;filterValue&gt;的&lt;column&gt; ,其中&lt;filterValue&gt;为string。 |
+| OP_NOT_LIKE | 'NOT_LIKE' | &lt;column&gt; NOT LIKE &lt;filterValue&gt;，其中&lt;filterValue&gt;为string。 |
  
  
   
@@ -706,6 +740,8 @@ type FilterValue = number | string | bigint
 type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStrategy
  
 倒排召回策略。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -726,6 +762,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 
 倒排检索所用的bm25策略。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -743,6 +781,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 **支持设备：** Phone | PC/2in1 | Tablet
 
 倒排检索所用的精确场景匹配策略。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -762,6 +802,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 
 倒排检索所用的近似与乱序匹配策略。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -780,6 +822,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 **支持设备：** Phone | PC/2in1 | Tablet
 
 向量检索的召回条件。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -804,6 +848,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 
 根据查询词生成的向量。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -822,6 +868,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 **支持设备：** Phone | PC/2in1 | Tablet
 
 重排策略的参数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -842,11 +890,13 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 
 重排算法的类型。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
   
-| 类型 | 值 | 说明 |
+| 名称 | 值 | 说明 |
 | --- | --- | --- |
 | RRF | 0 | Reciprocal Rank Fusion(RRF)方法。根据各路召回位置信息进行分档排序。 适用场景：对结果多样性要求较高的场景，希望每路结果平等输出。 |
 | FUSION_SCORE | 1 | 基于得分的召回融合方法。根据各路相关性分数进行分档排序。适用场景：对相关性准确性要求高、召回分数可靠且注重结果的排序稳定性的场景。 |
@@ -861,6 +911,8 @@ type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStr
 type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
  
 重排算法的参数配置。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -880,6 +932,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 
 用于倒排索引的重排算法的参数。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -896,6 +950,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 **支持设备：** Phone | PC/2in1 | Tablet
 
 用于向量数据的重排算法的参数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -916,6 +972,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 
 检索结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -933,6 +991,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 **支持设备：** Phone | PC/2in1 | Tablet
 
 检索结果中每条数据的特定内容。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
@@ -956,6 +1016,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 
 召回过程的得分。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  
 **起始版本：** 6.0.0(20)
@@ -963,7 +1025,7 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | score | number | 否 | 否 | 召回得分。 |
-| isReverseQuery | boolean | 否 | 否 | 表示得分是否来自反查过程。true表示来自反查过程，flase表示来自原始召回过程。 |
+| isReverseQuery | boolean | 否 | 否 | 表示得分是否来自反查过程。true表示来自反查过程，false表示来自原始召回过程。 |
  
  
   
@@ -973,6 +1035,8 @@ type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter
 **支持设备：** Phone | PC/2in1 | Tablet
 
 根据语义向量距离以及文本匹配程度，对检索结果按照相关性的高中低分档，方便对结果进行进一步筛选并且过滤。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.DataAugmentation.Retrieval
  

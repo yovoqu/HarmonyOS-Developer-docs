@@ -1,6 +1,6 @@
 # @ohos.net.vpnExtension (VPN增强管理)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-vpnextension
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -251,9 +251,145 @@ struct Index {
 
 
 
+#### vpnExtension.createVpnObserver
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createVpnObserver(): VpnObserver
+
+创建一个VPN观察者对象。用于监听VPN相关事件。
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Communication.NetManager.Vpn
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| VpnObserver | 返回一个VPN观察者对象。 |
+
+
+**示例：**
+
+```text
+import { vpnExtension } from '@kit.NetworkKit';
+
+let vpnObserver: vpnExtension.VpnObserver = vpnExtension.createVpnObserver();
+```
+
+
+
+#### VpnObserver
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+VPN观察者对象。用于监听VPN相关事件。在调用VpnObserver的方法前，需要先通过[vpnExtension.createVpnObserver](#vpnextensioncreatevpnobserver)创建VPN连接对象。
+
+
+
+#### onAuthorizationResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onAuthorizationResult(callback: Callback&lt;boolean&gt;): void
+
+注册用户授权结果监听器。授权结果在调用[startVpnExtensionAbility](#vpnextensionstartvpnextensionability)弹出授权弹窗，用户点击弹窗后通知，仅接收当前VPN的结果。在不需要监听授权结果时可以调用[offAuthorizationResult](#offauthorizationresult)接口取消注册。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/1MXtKzY6QOWlA6EOtJh9mA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020116Z&HW-CC-Expire=86400&HW-CC-Sign=71849BF425EAF59D3402C294F2DD7E250010CDB731347C340D1B942F400E9D39)
+
+
+多次调用该接口时，仅最后一次传入的callback生效。
+
+
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Communication.NetManager.Vpn
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;boolean&gt; | 是 | 回调函数，用于返回用户授权结果。true表示用户同意授权，false表示用户拒绝授权。 |
+
+
+**示例：**
+
+```text
+import { vpnExtension } from '@kit.NetworkKit';
+
+let vpnObserver: vpnExtension.VpnObserver = vpnExtension.createVpnObserver();
+vpnObserver.onAuthorizationResult((result: boolean) => {
+  if (result) {
+    console.info('VPN authorization succeeded');
+  } else {
+    console.error('VPN authorization failed');
+  }
+});
+```
+
+
+
+#### offAuthorizationResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offAuthorizationResult(callback?: Callback&lt;boolean&gt;): void
+
+取消注册用户授权结果监听器。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/yI7LLQR1RNqhNYtmAW6PVg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020116Z&HW-CC-Expire=86400&HW-CC-Sign=2C1BBF77D9C262C3832A64321E6C4E08159B2A693DDD3526E10D564DE6FE1A8F)
+
+
+多次调用[onAuthorizationResult](#onauthorizationresult)注册监听时，若需取消授权结果监听，需要传最后一次调用时传入的callback，或者不传入参数。
+
+
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Communication.NetManager.Vpn
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;boolean&gt; | 否 | 监听器回调函数，用于返回用户授权结果。 传入该参数：取消注册指定的监听器。不传参数：取消注册所有已注册的监听器。 |
+
+
+**示例：**
+
+```text
+import { vpnExtension } from '@kit.NetworkKit';
+
+let vpnObserver: vpnExtension.VpnObserver = vpnExtension.createVpnObserver();
+
+let callback = (result: boolean) => {
+  console.info('Authorization result: ' + result);
+};
+// 注册监听器
+vpnObserver.onAuthorizationResult(callback);
+
+// 取消注册指定监听器
+vpnObserver.offAuthorizationResult(callback);
+
+// 取消注册已注册的监听器
+vpnObserver.offAuthorizationResult();
+```
+
+
+
 #### vpnExtension.createVpnConnection
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 createVpnConnection(context: VpnExtensionContext): VpnConnection
 
@@ -311,7 +447,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 #### VpnConnection
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 VPN连接对象。在调用VpnConnection的方法前，需要先通过vpnExt.createVpnConnection创建VPN连接对象。
 
@@ -319,7 +455,7 @@ VPN连接对象。在调用VpnConnection的方法前，需要先通过vpnExt.cre
 
 #### create
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 create(config: VpnConfig): Promise&lt;number&gt;
 
@@ -442,7 +578,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 #### protect
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 protect(socketFd: number): Promise&lt;void&gt;
 
@@ -513,7 +649,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 #### destroy
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 destroy(): Promise&lt;void&gt;
 
@@ -564,7 +700,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 #### destroy20+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 destroy(vpnId: string): Promise&lt;void&gt;
 
@@ -621,7 +757,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 #### generateVpnId20+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 generateVpnId(): Promise&lt;string&gt;
 
@@ -630,7 +766,7 @@ generateVpnId(): Promise&lt;string&gt;
 如需使用系统多VPN能力，需调用该接口生成vpnId，配置到VpnConfig中。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/0HGkO29lQcG7PSto2dtfUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025211Z&HW-CC-Expire=86400&HW-CC-Sign=52AD86015E09A6625E2013CFB7D136C0B3F934DD23810F9734F0BF88FF27964C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/4IEDkSPoSECzWviBIJX6ww/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020116Z&HW-CC-Expire=86400&HW-CC-Sign=416ACBAFBA0B9ABD96DC1A1187CD295FC500DED00A6ED5A7CDB6573C7A0EC994)
 
 
 当前系统多VPN能力仅支持IPv4。
@@ -680,7 +816,7 @@ export default class MyVpnExtAbility extends VpnExtensionAbility {
 
 #### protectProcessNet22+
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 protectProcessNet(): Promise&lt;void&gt;
 
@@ -728,7 +864,7 @@ export default class MyVpnExtAbility  extends VpnExtensionAbility {
 
 #### VpnConfig
 
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 三方VPN配置参数。
 

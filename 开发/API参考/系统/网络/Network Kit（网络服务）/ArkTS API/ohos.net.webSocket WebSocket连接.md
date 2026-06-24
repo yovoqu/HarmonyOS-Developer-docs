@@ -1,6 +1,6 @@
 # @ohos.net.webSocket (WebSocket连接)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-websocket
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -80,10 +80,10 @@ connect(url: string, callback: AsyncCallback&lt;boolean&gt;): void
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/17cxYTNSTYWGTenMfZVZWQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=A1DD1223D56770987CAE3D018CBFBC3D6F20C8F9445F677CB31883593617D32F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/tnaqw_gITKSgF2I0sKywNA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020117Z&HW-CC-Expire=86400&HW-CC-Sign=6D214F2559C76C676142467FBACAE59F522D0C98E98EB022700D568FB351491F)
 
 
-URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。
+URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。从API version 26开始，URL地址长度限制由2048修改为8196。
 
 
 
@@ -148,10 +148,10 @@ connect(url: string, options: WebSocketRequestOptions, callback: AsyncCallback&l
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/dJi0o9GFRxuiD3m0opnZyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=AA17AAD8FC69538D87123AF98E5543F5A4B320EE70FA7CB48ECE24DCAAC3BE0A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/gX56hRE8Q6OOS9C4hBzCxA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020117Z&HW-CC-Expire=86400&HW-CC-Sign=05419E599E05B7532E71D04C499A1B497E8C81170CE1C51E61FF30B67779F39D)
 
 
-URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。
+URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。从API version 26开始，URL地址长度限制由2048修改为8196。
 
 
 
@@ -185,6 +185,7 @@ URL地址长度不能超过1024个字符，否则会连接失败。从API versio
 import { webSocket } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
+// 示例1：
 let ws = webSocket.createWebSocket();
 let options: webSocket.WebSocketRequestOptions | undefined;
 if (options !=undefined) {
@@ -196,6 +197,20 @@ if (options !=undefined) {
   options.caPath = "";
 }
 let url = "ws://"
+ws.connect(url, options, (err: BusinessError, value: Object) => {
+  if (!err) {
+    console.info("connect success")
+  } else {
+    console.error(`connect fail. Code: ${err.code}, message: ${err.message}`)
+  }
+});
+
+// 示例2：
+let url = "ws://"
+let ws = webSocket.createWebSocket();
+let options: webSocket.WebSocketRequestOptions = {
+  minSupportTlsProtocol: webSocket.TlsProtocol.TLS_V_1_1
+};
 ws.connect(url, options, (err: BusinessError, value: Object) => {
   if (!err) {
     console.info("connect success")
@@ -226,10 +241,10 @@ connect(url: string, options?: WebSocketRequestOptions): Promise&lt;boolean&gt;
 **系统能力**：SystemCapability.Communication.NetStack
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/6gLWXfdGQi2DUw8zlwXE7A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025213Z&HW-CC-Expire=86400&HW-CC-Sign=0FA60760A29B941A41EE99180842D7E59CE3A3F67FCB106010AF6A399020CCF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/ZWolKH6_SKiVquNFrakNQw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020117Z&HW-CC-Expire=86400&HW-CC-Sign=F8763A05FA4CFD9B24C757F9DBE46CCC055648641EBD242A8A2D46CE4181A170)
 
 
-URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。
+URL地址长度不能超过1024个字符，否则会连接失败。从API version 15开始，URL地址长度限制由1024修改为2048。从API version 26开始，URL地址长度限制由2048修改为8196。
 
 
 
@@ -667,6 +682,93 @@ let callback1 = (err: BusinessError, value: Object) => {
 ws.on('open', callback1);
 // 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
 ws.off('open', callback1);
+```
+
+
+
+#### on('openInfo')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+on(type: 'openInfo', callback: AsyncCallback&lt;WebSocketOpenInfo&gt;): void
+
+订阅WebSocket的打开信息事件，使用callback异步回调。该事件用于获取WebSocket连接成功后的详细信息。该接口需要在调用[connect](#connect)发起连接请求前调用。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Communication.NetStack
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| type | string | 是 | 订阅的事件类型。'openInfo'：WebSocket的打开信息事件。 |
+| callback | AsyncCallback&lt;WebSocketOpenInfo&gt; | 是 | 回调函数。返回WebSocket连接的详细信息。 |
+
+
+**示例：**
+
+```text
+import { webSocket } from '@kit.NetworkKit';
+import { BusinessError, Callback } from '@kit.BasicServicesKit';
+
+let ws = webSocket.createWebSocket();
+ws.on('openInfo', (err: BusinessError, value: webSocket.WebSocketOpenInfo) => {
+  if (value?.protocol != undefined) {
+    console.info(`on openInfo exists protocol: status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
+  } else {
+    console.info(`on openInfo, status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
+  }
+});
+```
+
+
+
+#### off('openInfo')
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+off(type: 'openInfo', callback?: AsyncCallback&lt;WebSocketOpenInfo&gt;): void
+
+取消订阅WebSocket的打开信息事件，使用callback异步回调。
+
+> [!NOTE]
+> 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
+
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Communication.NetStack
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| type | string | 是 | 取消订阅的事件类型。'openInfo'：WebSocket的打开信息事件。 |
+| callback | AsyncCallback&lt;WebSocketOpenInfo&gt; | 否 | 回调函数。 |
+
+
+**示例：**
+
+```text
+import { webSocket } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+let ws = webSocket.createWebSocket();
+let callback1 = (err: BusinessError, value: webSocket.WebSocketOpenInfo) => {
+  if (value?.protocol != undefined) {
+    console.info(`on openInfo exists protocol: status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
+  } else {
+    console.info(`on openInfo, status: ${value.status}, message: ${value.message}, protocol: ${value.protocol}`);
+  }
+}
+ws.on('openInfo', callback1);
+// 可以指定传入on中的callback取消一个订阅，也可以不指定callback清空所有订阅。
+ws.off('openInfo', callback1);
 ```
 
 
@@ -1696,6 +1798,7 @@ localServer.off('error');
 | skipServerCertVerification20+ | boolean | 否 | 是 | 是否跳过服务器证书验证。true表示跳过服务器证书验证，false表示不跳过服务器证书验证。默认为false。 |
 | pingInterval21+ | number | 否 | 是 | 自定义心跳检测时间，默认为30s。每pingInterval周期会发起心跳检测，设置为0则表示关闭心跳检测。最大值：30000s，最小值：0s。 |
 | pongTimeout21+ | number | 否 | 是 | 自定义发起心跳检测后，超时断开时间，默认为30s。发起心跳检测后若pongTimeout时间未响应则断开连接。最大值：30000s，最小值：0s。pongTimeout须小于等于pingInterval。 |
+| minSupportTlsProtocol | TlsProtocol | 否 | 是 | 自定义支持的最低TLS协议版本。例如：设置该参数为TLS_V_1_1，则客户端可支持TLS协议版本有TLS 1.1、TLS 1.2、TLS 1.3。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -1909,3 +2012,46 @@ type ClientConnectionCloseCallback = (clientConnection: WebSocketConnection, clo
 | --- | --- | --- | --- |
 | clientConnection | WebSocketConnection | 是 | 客户端信息，包括客户端的ip地址和端口号port。 |
 | closeReason | CloseResult | 是 | 关闭WebSocket连接时，订阅close事件得到的关闭结果。 |
+
+
+
+
+#### TlsProtocol
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+TLS协议类型。
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Communication.NetStack
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| TLS_V_1_0 | 0 | TLS版本号1.0。 |
+| TLS_V_1_1 | 1 | TLS版本号1.1。 |
+| TLS_V_1_2 | 2 | TLS版本号1.2。 |
+| TLS_V_1_3 | 3 | TLS版本号1.3。 |
+
+
+
+
+#### WebSocketOpenInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+WebSocket连接成功后的详细信息。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Communication.NetStack
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| status | number | 否 | 否 | 服务器返回的状态码。例如：101表示建链成功并升级为WebSocket协议。 |
+| message | string | 否 | 否 | 服务器返回的状态信息。与status字段对应，例如：status=101时，该字段返回"Switching Protocols"。 |
+| protocol | string | 否 | 是 | 服务器返回的协商后的协议。 |

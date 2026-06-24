@@ -1,6 +1,6 @@
 # 使用@Watch监听并在回调函数中调用其他异步接口时UI响应慢
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-185
 

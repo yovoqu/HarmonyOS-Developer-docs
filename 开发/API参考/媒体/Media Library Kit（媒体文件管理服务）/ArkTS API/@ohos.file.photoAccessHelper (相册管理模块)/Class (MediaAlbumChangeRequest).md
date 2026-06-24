@@ -1,6 +1,6 @@
 # Class (MediaAlbumChangeRequest)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaalbumchangerequest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -97,7 +97,7 @@ getAlbum(): Album
 获取当前相册变更请求中的相册。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/QYxqr1dVR2W9n-xQo2DS1g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012950Z&HW-CC-Expire=86400&HW-CC-Sign=2A21959A466556BBA0FF0951E5EA280793E9E810A3E5909888A62B6A697602D6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/WCGJJvHgQqGuPse3Vh4l3A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020414Z&HW-CC-Expire=86400&HW-CC-Sign=3948E261641538A4466928E9AC0F17B380BBCE8DABE0566C0163B581AA62D8E7)
 
 
 对于创建相册的变更请求，在调用接口[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)的提交生效之前，该接口会返回null。

@@ -1,6 +1,6 @@
 # Interfaces（其他）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1346,3 +1346,25 @@ Web屏幕捕获的配置。
 | url | string | 否 | 否 | 本次首屏渲染统计所对应的url。 |
 | navigationStartTime | number | 否 | 否 | url所指页面开始导航的时刻。 单位：毫秒。 |
 | firstScreenPaintTime | number | 否 | 否 | url所指页面首屏绘制完成的时刻。 单位：毫秒。 |
+
+
+
+
+#### AISessionEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+自定义AI会话配置对象，用于定义AI会话的生命周期回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| aiSessionType | AISessionType | 否 | 否 | AI会话类型。 |
+| onCreateAISession | OnCreateAISession | 否 | 否 | AI会话创建时触发的回调函数。返回true跳过系统默认行为，返回false继续执行系统默认逻辑。 |
+| onExecuteAIAction | OnExecuteAIAction | 否 | 否 | AI会话执行操作时触发的回调函数。 |
+| onDestroyAISession | OnDestroyAISession | 否 | 否 | AI会话销毁时触发的回调函数，用于清理与自定义AI模型关联的资源。 |

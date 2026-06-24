@@ -1,6 +1,6 @@
 # Sendable对象简介
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sendable
 
@@ -101,7 +101,7 @@ Sendable interface需同时满足以下两个规则：
 
 **Sendable支持const enum类型使用示例：**
 
-```text
+```ArkTS
 export const enum ModelState {
   ACTIVE,
   INACTIVE
@@ -172,7 +172,7 @@ struct enumusage {
 **SharedHeap与LocalHeap关系图**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/BHUt_APNTF2NDc8n2ahd3w/zh-cn_image_0000002611753527.png?HW-CC-KV=V1&HW-CC-Date=20260528T030525Z&HW-CC-Expire=86400&HW-CC-Sign=16F39CCFD341039488CCC4EDBBE84111653F3FFD46D6EFBCE558E69A463DF83E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/f7IwQtn4SeerLAGI24N9Lg/zh-cn_image_0000002656347393.png?HW-CC-KV=V1&HW-CC-Date=20260624T020735Z&HW-CC-Expire=86400&HW-CC-Sign=9C090CE672EB7C1D54A87DE1D8A59BEFC86D7319250370E770DEFF8CAB70BAD1)
 
 
 各个并发实例的LocalHeap是隔离的。SharedHeap是进程级别的堆，可以被所有并发实例共享，但SharedHeap不能引用LocalHeap中的对象。

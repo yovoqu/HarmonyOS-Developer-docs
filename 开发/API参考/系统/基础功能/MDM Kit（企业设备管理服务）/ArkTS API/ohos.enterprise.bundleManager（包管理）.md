@@ -1,6 +1,6 @@
 # @ohos.enterprise.bundleManager（包管理）
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-bundlemanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -1125,6 +1125,90 @@ try {
 
 
 
+#### bundleManager.getInstalledBundleStorageStats
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getInstalledBundleStorageStats(admin: Want, bundleNames: Array&lt;string&gt;, accountId: number): Promise<Array&lt;BundleStorageStats&gt;>
+
+获取设备指定用户下已安装应用的存储占用信息。使用Promise异步回调。
+
+> [!NOTE]
+> 1.仅能获取已安装应用的存储占用信息。 2.bundleNames参数为empty或全部传入未安装的应用包名，会抛出9200012错误码。 3.bundleNames参数传递的包名部分应用已安装，部分应用未安装时，接口返回正常，已安装的应用返回实际的存储占用信息，未安装的应用存储占用信息为0。 4.该接口支持跨用户查询，比如可以在100用户下，查询101用户下的某些应用的存储占用信息。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| bundleNames | Array&lt;string&gt; | 是 | 应用包名列表。取值范围：小于等于200个应用包名。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;BundleStorageStats&gt;> | Promise对象，返回已安装应用的存储占用信息。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { Want } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { bundleManager } from '@kit.MDMKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let bundleNames: Array<string> = ['com.example.app1', 'com.example.app2'];
+let accountId: number = 100;
+bundleManager.getInstalledBundleStorageStats(wantTemp, bundleNames, accountId).then((result) => {
+  console.info('Succeeded in getting installed bundle storage stats.');
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get installed bundle storage stats. Code is ${err.code}, message is ${err.message}`);
+});
+```
+
+```text
+// 返回示例
+[
+  {
+    "bundleName": "com.example.edmtest",
+    "appSize": 38185408,
+    "dataSize": 1216566
+  },
+  // ...
+]
+```
+
+
+
 #### InstallParam
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -1228,7 +1312,7 @@ try {
 | process | string | 是 | 否 | 应用程序的进程名称。 |
 | codePath | string | 是 | 否 | 应用程序的安装目录。 |
 | removable | boolean | 是 | 否 | 应用程序是否可以被移除，取值为true表示可以被移除，取值为false表示不可以被移除。 |
-| accessTokenId | number | 是 | 否 | 应用程序的accessTokenId，应用的身份标识，在程序访问控制校验接口中使用。 |
+| accessTokenId | number | 是 | 否 | 应用程序的accessTokenId，应用的身份标识，在程序访问控制校验接口checkAccessToken中使用。 |
 | uid | number | 是 | 否 | 应用程序的UID。 |
 | iconResource | Resource | 是 | 否 | 应用程序的图标资源信息，包含了该资源的信息的bundleName、moduleName和id。 |
 | labelResource | Resource | 是 | 否 | 应用程序的标签资源信息，包含了该资源的信息的bundleName、moduleName和id。 |
@@ -1277,3 +1361,24 @@ try {
 | WITH_APPLICATION_INFO | 1 << 0 | 用于获取默认包信息和applicationInfo的信息，获取的applicationInfo中不包含iconData的信息。 |
 | WITH_SIGNATURE_INFO | 1 << 1 | 用于获取默认包信息和signatureInfo的信息。 |
 | WITH_APPLICATION_ICON_INFO | 1 << 2 | 用于获取默认包信息和applicationInfo的iconData信息。 |
+
+
+
+
+#### BundleStorageStats
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+应用的存储占用信息。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| bundleName | string | 否 | 否 | 应用的包名。 |
+| appSize | number | 否 | 否 | 应用安装文件大小，单位为Byte。 应用安装文件保存在以下目录： /data/storage/el1/bundle |
+| dataSize | number | 否 | 否 | 应用的本地数据、分布式数据和数据库数据大小，单位为Byte。 本地文件保存在以下目录（注意缓存文件目录为以下目录的子目录）： /data/storage/${el1-el5}/base 分布式文件保存在以下目录： /data/storage/el2/distributedfiles 数据库文件保存在以下目录： /data/storage/${el1-el5}/database 说明：${el1-el5}指的是el1，el2，el3，el4，el5目录。 |

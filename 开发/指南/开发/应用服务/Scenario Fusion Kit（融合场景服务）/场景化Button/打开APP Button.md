@@ -1,6 +1,6 @@
 # 打开APP Button
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-launchapp
 
@@ -18,7 +18,7 @@
 
 #### 约束与限制
 
-打开APP Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备。
+打开APP Button支持Phone、Tablet和PC/2in1设备，并且从5.1.0(18)版本开始，新增支持TV设备，从26.0.0版本开始，新增支持Car设备。
 
 
 
@@ -49,8 +49,8 @@ struct Index {
             label: '打开APP',
             // 当OpenType为functionButtonComponentManager.OpenType.LAUNCH_APP时，appParam为必填项。
             appParam: {
-              bundleName: "xxx",
-              abilityName: "xxx"
+              bundleName: 'xxx',
+              abilityName: 'xxx'
             },
             // 调整按钮样式。
             styleOption: {
@@ -62,11 +62,11 @@ struct Index {
           controller: new functionalButtonComponentManager.FunctionalButtonController().onLaunchApp((err) => {
             if (err) {
               // 错误日志处理。
-              hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+              hilog.error(0x0000, 'testTag', 'Failed to launch app, error: %{public}d %{public}s', err.code, err.message);
               return;
             }
             // 处理成功。成功时不会返回任何值。
-            hilog.info(0x0000, "testTag", "succeeded in launching app");
+            hilog.info(0x0000, 'testTag', 'succeeded in launching app');
           })
         })
       }

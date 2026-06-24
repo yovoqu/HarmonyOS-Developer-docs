@@ -1,6 +1,6 @@
 # Interface (PhotoSession)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photosession
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -668,7 +668,7 @@ function onExposureInfoChange(photoSession: camera.PhotoSession): void {
 
 offExposureInfoChange(callback?: Callback&lt;ExposureInfo&gt;): void
 
-取消订阅曝光信息变化事件回调。如果订阅了曝光信息，请在释放相机前取消订阅。
+取消订阅曝光信息变化事件回调。如果订阅了曝光信息，请在释放相机前取消订阅。使用callback异步回调。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 

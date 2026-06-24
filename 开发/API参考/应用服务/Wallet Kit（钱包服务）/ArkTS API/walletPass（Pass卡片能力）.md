@@ -1,6 +1,6 @@
 # walletPass（Pass卡片能力）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-walletpass
 **支持设备：** Phone
@@ -26,6 +26,8 @@ import { walletPass } from '@kit.WalletKit';
 
 钱包卡券的功能入口类，与钱包卡券有关的所有方法从此处接入。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -41,6 +43,8 @@ import { walletPass } from '@kit.WalletKit';
 constructor(context: common.UIAbilityContext)
 
 构造函数。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
@@ -86,6 +90,8 @@ queryPassDeviceInfo(passStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -108,7 +114,7 @@ queryPassDeviceInfo(passStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -169,6 +175,8 @@ canAddPass(passStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -191,7 +199,7 @@ canAddPass(passStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -258,6 +266,8 @@ initWalletEnvironment(passStr: string): Promise&lt;void&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -280,7 +290,7 @@ initWalletEnvironment(passStr: string): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -337,6 +347,8 @@ addPass(passStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -359,7 +371,7 @@ addPass(passStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -428,6 +440,8 @@ queryPass(passStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -450,7 +464,7 @@ queryPass(passStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -510,6 +524,8 @@ viewPass(passStr: string): Promise&lt;void&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -532,7 +548,7 @@ viewPass(passStr: string): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -586,6 +602,8 @@ updatePass(passStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -608,7 +626,7 @@ updatePass(passStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -671,6 +689,8 @@ deletePass(passStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -693,7 +713,7 @@ deletePass(passStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -757,6 +777,8 @@ queryICCEConnectionState(rkeStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -779,7 +801,7 @@ queryICCEConnectionState(rkeStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -839,6 +861,8 @@ startICCEConnection(rkeStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -861,7 +885,7 @@ startICCEConnection(rkeStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -925,6 +949,8 @@ registerICCEListener(rkeStr: string, eventNotifyListener: rpc.RemoteObject): Pro
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -948,7 +974,7 @@ registerICCEListener(rkeStr: string, eventNotifyListener: rpc.RemoteObject): Pro
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1022,6 +1048,8 @@ unregisterICCEListener(rkeStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -1044,7 +1072,7 @@ unregisterICCEListener(rkeStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1106,6 +1134,8 @@ sendICCERKEMessage(rkeStr: string): Promise&lt;string&gt;
 
 不支持多线程调用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.Wallet
@@ -1128,7 +1158,7 @@ sendICCERKEMessage(rkeStr: string): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
 
 | 错误码ID | 错误信息 |
 | --- | --- |

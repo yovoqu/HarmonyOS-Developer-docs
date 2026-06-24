@@ -1,6 +1,6 @@
 # @ohos.nfc.controller (标准NFC)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfccontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -113,6 +113,10 @@ enableNfc(): void
 | 3100101 | The NFC state is abnormal in the service. |
 
 
+**示例：**
+
+示例参见[off](#nfccontrolleroffnfcstatechange)接口。
+
 
 
 #### nfcController.closeNfc(deprecated)
@@ -163,6 +167,10 @@ disableNfc(): void
 | 3100101 | The NFC state is abnormal in the service. |
 
 
+**示例：**
+
+示例参见[off](#nfccontrolleroffnfcstatechange)接口。
+
 
 
 #### nfcController.isNfcOpen
@@ -183,6 +191,10 @@ isNfcOpen(): boolean
 | --- | --- |
 | boolean | true: NFC是打开的， false: NFC是关闭的。 |
 
+
+**示例：**
+
+示例参见[off](#nfccontrolleroffnfcstatechange)接口。
 
 
 
@@ -205,6 +217,16 @@ getNfcState(): [NfcState](#nfcstate)
 | NfcState | NFC状态值，详细请见NfcState枚举值。 |
 
 
+**示例：**
+
+```text
+import { nfcController } from '@kit.ConnectivityKit';
+
+// 查询nfc状态
+let nfcState: nfcController.NfcState = nfcController.getNfcState();
+console.info("nfcController on callback nfcstate: " + nfcState);
+```
+
 
 
 #### nfcController.on('nfcStateChange')
@@ -226,6 +248,10 @@ on(type: 'nfcStateChange', callback: Callback<[NfcState](#nfcstate)>): void
 | type | string | 是 | 固定填"nfcStateChange"字符串。 |
 | callback | Callback&lt;NfcState&gt; | 是 | 回调函数，返回NFC状态的枚举值。 |
 
+
+**示例：**
+
+示例参见[off](#nfccontrolleroffnfcstatechange)接口。
 
 
 

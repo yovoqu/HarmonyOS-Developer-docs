@@ -1,6 +1,6 @@
 # 使用TSan检测线程错误
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-tsan
 
@@ -65,14 +65,9 @@ TSan（ThreadSanitizer）是一个检测数据竞争的工具。它包含一个�
 2. 当程序出现线程错误时，弹出TSan log信息，点击信息中的链接即可跳转至引起线程错误的代码处。日志中的异常检测类型请参考[TSan异常检测类型](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-tsan-detection#section1180812915516)。
 
   
-> [!NOTE]
-> 当前使用call_once接口会存在TSan误报的现象，开发者可以在调用该接口的函数前添加__attribute__((no_sanitize("thread")))来屏蔽该问题。
-
-
-  
-![](assets/使用TSan检测线程错误/file-20260514133033461-5.png)
+![](assets/使用TSan检测线程错误/file-20260514133033461-4.png)
 
 3. 如果是release应用，本地无工程代码，可以使用AnalyzeStackTrace功能，提供要解析堆栈的so，解析结果为源码地址。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/-bBqELk7Tuep9eHlrI9ekA/zh-cn_image_0000002602186639.png?HW-CC-KV=V1&HW-CC-Date=20260528T030549Z&HW-CC-Expire=86400&HW-CC-Sign=CFB752BF8389072B88E1FC4F4B2B5AD0119BD9A42255FC027C95BC7E59076E27)
+![](assets/使用TSan检测线程错误/file-20260514133033461-5.png)

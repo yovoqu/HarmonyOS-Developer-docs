@@ -1,6 +1,6 @@
 # 设置KIA文件列表
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fileguard-kia-file-list
 
@@ -18,6 +18,7 @@ Enterprise Data Guard Kit为应用提供设置KIA文件列表的能力，Harmony
 | --- | --- |
 | setKiaFilelist(filelist: string, callback: AsyncCallback&lt;void&gt;): void | 使用Callback方式设置KIA文件列表。 |
 | setKiaFilelist(filelist: string): Promise&lt;void&gt; | 使用Promise方式设置KIA文件列表。 |
+| isKia(path: string): boolean | 检查文件或文件夹是否是KIA。 |
 
 
 
@@ -83,5 +84,21 @@ async function setKiaFilelistPromise() {
   }).catch((err: BusinessError) => {
     console.error(`Failed to set the list of KIA file. Code: ${err.code}, message: ${err.message}.`);
   });
+}
+```
+
+4. 初始化[FileGuard](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#fileguard)对象guard，调用接口[isKia](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard#iskia)，检查该文件或文件夹是否是KIA。
+
+  
+```text
+function isKIA() {
+  try {
+    let guard: fileGuard.FileGuard = new fileGuard.FileGuard();
+    let path: string = '/data/service/el2/account_id/hmdfs/account/files/Docs/Documents/1.txt';
+    let isKIA: boolean = guard.isKia(path);
+    console.info(`Succeeded in determining whether the file is a KIA file. isKIA: ${isKIA}`);
+  } catch (e) {
+    console.error(`Failed to determine whether the file is a KIA file. Code: ${e.code}, message: ${e.message}.`);
+  }
 }
 ```

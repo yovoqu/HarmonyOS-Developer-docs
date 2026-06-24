@@ -1,12 +1,10 @@
 # @previewer/no-unallowed-decorator-on-root-component
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_no-unallowed-decorator-on-root-component
 
-不允许直接预览包含@Consume、@Link、@ObjectLink、@Prop等装饰器的子组件；
- 
-建议使用一个定义了完整的、合法的、不依赖运行时的默认值的父组件，并预览此父组件来查看子组件的预览效果。
+不允许直接预览包含@Consume、@Link、@ObjectLink、@Prop等装饰器的子组件；建议使用一个定义了完整的、合法的、不依赖运行时的默认值的父组件，并预览此父组件来查看子组件的预览效果。
  
 
 #### 规则配置

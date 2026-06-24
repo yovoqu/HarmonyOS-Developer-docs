@@ -1,6 +1,6 @@
 # ohpm config
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-config
 
@@ -28,7 +28,7 @@ ohpm config encrypt [options]
 ohpm 从命令行和 .ohpmrc 文件中获取其配置设置。有关更多 .ohpmrc 文件信息和可用配置选项，请参阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc) 章节。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b2/v3/PfCJ3vzTS76dyHOHuz0QiA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=0A3E91F38D6486A107499C93FEE03D10E0DAA48A8D95E01B906BFF9EE1457311)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/YQrPJcS9QzSCU11y0n3LeA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020704Z&HW-CC-Expire=86400&HW-CC-Sign=0AA1521CBB9B5E0031971CD98D6936B1780706CCF117DAAA728FC09F6209609D)
  
 
 ohpm config 仅支持配置项字段（默认项字段请查阅 [ohpmrc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc#zh-cn_topic_0000001792216397_默认配置项) 章节），且仅支持修改**用户级目录**下的 .ohpmrc 文件。
@@ -277,7 +277,7 @@ ohpm config list -j 或 ohpm config list --json
 #### crypto_path
 
 - 默认值：无
-- 类型： string
+- 类型：string
 
  
 指定加密组件路径用于数据加密。针对指定路径的不同情况，说明如下：
@@ -310,7 +310,7 @@ security:01:61AE9D3219664B7B785XXXXX:201f713d625daddafcb12198ea9d5121xxxxxx
 #### log_level
 
 - 默认值：无
-- 类型： string
+- 类型：string
 
  
 从ohpm 6.0.2.636版本开始，可以在命令后配置--log_level &lt;string&gt;参数，指定执行当前命令的日志级别（info、debug、warn、error），如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -320,7 +320,7 @@ security:01:61AE9D3219664B7B785XXXXX:201f713d625daddafcb12198ea9d5121xxxxxx
 #### debug
 
 - 默认值：false
-- 类型： Boolean
+- 类型：Boolean
 
  
 从ohpm 6.0.2.636版本开始，可以在命令后配置--debug参数，指定执行当前命令的日志级别为debug，该配置仅在当前命令行生效，不修改.ohpmrc中的日志级别，如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。

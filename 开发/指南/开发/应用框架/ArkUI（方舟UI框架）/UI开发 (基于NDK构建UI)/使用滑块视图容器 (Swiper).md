@@ -1,6 +1,6 @@
 # 使用滑块视图容器 (Swiper)
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-swiper
 
@@ -70,7 +70,7 @@ nodeApi->setAttribute(swiper, NODE_SWIPER_AUTO_PLAY, &item);
 本示例仅展示核心功能代码，完整示例请参考工程[NDKSwiperSample](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NDKSwiperSample)。
 
 ```cpp
-// 设置导航指示器属性
+// 设置导航导航指示器属性
 ArkUI_SwiperIndicator *swiperIndicatorStyle = OH_ArkUI_SwiperIndicator_Create(ARKUI_SWIPER_INDICATOR_TYPE_DOT);
 OH_ArkUI_SwiperIndicator_SetEndPosition(swiperIndicatorStyle, 0);
 OH_ArkUI_SwiperIndicator_SetSelectedColor(swiperIndicatorStyle, INDICATOR_COLOR_SELECTED);
@@ -86,7 +86,7 @@ OH_ArkUI_SwiperIndicator_Dispose(swiperIndicatorStyle);
 显示效果如下图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/P1uVsMRWS1aKbRuagnNZzQ/zh-cn_image_0000002587108518.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T013001Z&HW-CC-Expire=86400&HW-CC-Sign=D3EF22636C002C474F6F1593C1C6430349659FE32FA82B5610B03E2A3F5141BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8b/v3/t_8DCHSvQ1yFewPSqOy6RA/zh-cn_image_0000002626068684.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020948Z&HW-CC-Expire=86400&HW-CC-Sign=EF6F82F2FD78A13E043E9441B59ACCAB2AC1A35707B24FDA94EBB6DD1C1C46F0)
 
 
 

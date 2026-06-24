@@ -1,6 +1,6 @@
 # Interface (AudioLoopback)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audioloopback
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -106,6 +106,36 @@ audioLoopback.setVolume(0.5).then(() => {
 
 
 
+#### getVolume
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getVolume(): number
+
+获取音频返听输出音量。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Audio.Capturer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| number | 返回当前音频返听输出音量，范围为[0.0, 1.0]。 |
+
+
+**示例：**
+
+```text
+let volume = audioLoopback.getVolume();
+console.info(`Current loopback volume is ${volume}.`);
+```
+
+
+
 #### on('statusChange')20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -200,6 +230,70 @@ let statusChangeCallback = (status: audio.AudioLoopbackStatus) => {
 audioLoopback.on('statusChange', statusChangeCallback);
 
 audioLoopback.off('statusChange', statusChangeCallback);
+```
+
+
+
+#### getSupportedDevicePairs
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getSupportedDevicePairs(): Array&lt;AudioDevicePair&gt;
+
+获取当前设备连接状态下支持返听的音频输入输出设备组合。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Audio.Capturer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;AudioDevicePair&gt; | 返回支持返听的音频输入输出设备数组。 如果没有可用的输入输出设备组合，则返回空数组。 |
+
+
+**示例：**
+
+```text
+let supportedPairs = audioLoopback.getSupportedDevicePairs();
+if (supportedPairs.length === 0) {
+  console.info('No supported loopback device pair found.');
+}
+```
+
+
+
+#### getPreferredDevicePair
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getPreferredDevicePair(): AudioDevicePair | null
+
+获取当前设备连接状态下系统推荐的返听音频输入输出设备组合。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Audio.Capturer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| AudioDevicePair \| null | 返回系统推荐的音频输入输出设备组合。 如果没有可用的输入输出设备组合，则返回null。 |
+
+
+**示例：**
+
+```text
+let preferredPair = audioLoopback.getPreferredDevicePair();
+if (preferredPair === null) {
+  console.info('No preferred loopback device pair found.');
+}
 ```
 
 

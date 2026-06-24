@@ -1,6 +1,6 @@
 # Snapshot模板基本操作
 
-更新时间：2026-05-21 06:15:30
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-snapshot-basic-operations
 
@@ -8,7 +8,7 @@
 
 针对方舟虚拟机，DevEco Profiler提供了内存快照分析能力，结合Memory实时占用情况，分析不同时刻的方舟虚拟机内存对象占用情况及差异。
 
-在DevEco Studio 6.0.2及之前版本，Memory泳道统计时支持选择PSS/RSS/USS中的一个或多个，可以从多维度度量当前进程的物理内存使用情况。从DevEco Studio 6.1.0 Beta1开始，Memory泳道统计时固定为PSS、GL、Graph总和，在会话区不支持选择PSS/GL/Graph。
+Snapshot模板支持的泳道包括：Memory、ArkTS Snapshot。本文介绍ArkTS Snapshot泳道，Memory泳道的详细信息请参考[Allocation分析](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-insight-session-allocations-memory#li6600547121414)。
 
 
 
@@ -16,59 +16,62 @@
 
 由于隐私安全政策，已上架应用市场的应用不支持使用Snapshot分析模板。
 
+> [!NOTE]
+> 任务分析前，需创建Snapshot分析任务并录制相关数据，操作方法可参考 性能问题定位：深度录制 ，或在 会话区 选择 Open File ，导入历史数据。
+
+
 
 
 #### 查看快照详情
-1. 创建Snapshot场景调优分析任务，操作方法可参考[性能问题定位：深度录制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/deep-recording)。
-2. 设置Snapshot泳道。单击任务左上角的
-![](assets/Snapshot模板基本操作/file-20260514133142120-0.png)
-筛选泳道，再次单击此按钮可关闭设置并生效。
-3. 单击ArkTS Snapshot泳道的“options”下拉列表，可以设置是否需要抓取基础类型number的数据。默认不抓取。
+1. 单击**ArkTS Snapshot**泳道的**options**下拉列表，可以设置是否需要抓取基础类型number的数据。默认不抓取。
 
   
 ![](assets/Snapshot模板基本操作/file-20260514133142120-1.png)
 
-4. 开始录制后可观察Memory泳道的内存使用情况，在需要定位的时刻单击任务左上角的
+2. 开始录制后观察**Memory**泳道的内存使用情况，在需要定位的时刻单击任务左上角的
 ![](assets/Snapshot模板基本操作/file-20260514133142120-10.png)
-启动一次快照。
-
-  “ArkTS Snapshot”泳道的紫色区块表示一次快照完成。
+启动一次快照，一次快照完成后会在**ArkTS Snapshot**泳道出现紫色区块。
 
   
-> [!NOTE]
-> 在任务录制过程中，单击分析窗口左上角的 可启动内存回收机制。 当方舟虚拟机的调优对象的某个程序/进程占用的部分内存空间在后续操作中不再被该对象访问时，内存回收机制会自动将这部分空间归还给系统，降低程序错误概率，减少不必要的内存损耗。
+![](assets/Snapshot模板基本操作/file-20260514133142120-11.png)
 
 
-  
-![](assets/Snapshot模板基本操作/file-20260514133142120-13.png)
-
-
-  在“Statistics”页签中显示当前快照的详细信息：
+  点选ArkTS Snapshot泳道的紫色区块，**Statistics**区域显示当前快照的详细信息：
 
   
  - Constructor：构造器。
 
-5. Count：该对象的数量。
+3. Count：该对象的数量。
 
-6. Distance：从GC Root到这个对象的距离。
+4. Distance：从GC Root到这个对象的距离。
 
-7. Shallow Size：该对象的实际大小。
+5. Shallow Size：该对象的实际大小。
 
-8. Retained Size：当前对象释放时，总共可以释放的内存大小。
+6. Retained Size：当前对象释放时，总共可以释放的内存大小。
 
-9. Native Size：该对象所引用的Native内存大小。
+7. Native Size：该对象所引用的Native内存大小。
 
-10. Retained Native Size：当前对象释放时，总共可以释放的Native内存大小。
+8. Retained Native Size：当前对象释放时，总共可以释放的Native内存大小。
 
-11. 带
-![](assets/Snapshot模板基本操作/file-20260514133142120-14.png)
+9. 带
+![](assets/Snapshot模板基本操作/file-20260514133142120-12.png)
 标识的对象，表示其为全局对象，可以通过全局window对象直接访问。
+
+  
+
+  #### 比较快照差异
+
+  在**ArkTS Snapshot**泳道的**Comparison**区域，点击任一快照作为base，在**CompareTo**下拉框选择的快照作为Target，即可得到两次快照信息的比较结果。比较内容包括新增数、删除数、个数增量、分配大小、释放大小、大小增量等等。通过不断对比，可快速分析和定位内存问题的具体位置。
+
+  
+![](assets/Snapshot模板基本操作/file-20260514133142120-15.png)
+
 
   
 
   #### 应用对象名称解析
 
-  方舟系统目前有方舟应用对象、系统内部框架对象、其他JS对象三类对象，从DevEco Studio 6.0.0 Beta1版本开始，支持对应用对象类的名称进行解析，帮助开发者快速定位问题所在的源码位置，从而提升问题定位效率。
+  方舟系统目前有方舟应用对象、系统内部框架对象、其他JS对象三类对象，从DevEco Studio 6.0.0 Beta1版本开始， **ArkTS Snapshot**泳道支持对应用对象类的名称进行解析，帮助开发者快速定位问题所在的源码位置，从而提升问题定位效率。
 
 1. 系统内部框架对象：用于描述HarmonyOS操作系统底层框架的核心对象，提供基础系统能力。为方便开发者查看，当前在Statistics中此类对象均归类到（framework）构造器节点下。此类对象均以_GLOBAL开头。
 
@@ -106,11 +109,9 @@ Module：模块信息。
 
 
 
-#### 节点属性与引用链
+#### 查看节点属性和引用链
 
-在“Snapshot”的“Statistics”页签和“Comparison”页签中，所有实例对象节点展开后会显示"&lt;fields&gt;"以及"&lt;references&gt;"，这两项节点分别代表该实例对象的属性以及该实例对象的引用链信息。
-
-在“Snapshot”的More区域则展示“Fields”和“References”两个页签，分别代表Detail区域所选择对象的属性以及引用链信息，方便快捷查看所选中对象的属性等详细信息，而不需要跳转至对应对象。
+在**ArkTS Snapshot**泳道的**Statistics**区域和**Comparison**区域中，展开所有实例对象节点，可看到**fields**和**references**，分别表示该实例对象的属性和该实例对象的引用链信息，或者点击实例对象，在右侧**More**区域中查找Fields和References。
 
 
 ![](assets/Snapshot模板基本操作/file-20260514133142120-2.png)
@@ -120,7 +121,7 @@ Module：模块信息。
 
 #### 节点跳转
 
-在“Snapshot”的“Comparison”页签中，查看内存对象、对象属性及其引用链时，若要查看某一对象的详细信息，可以单击该对象所在行行尾的跳转图标跳转至该对象所在的“Statistics”页签并定位至该对象所在的位置，以查看该对象的详细信息。
+在“**ArkTS Snapshot**泳道的**Comparison**区域中，查看内存对象、对象属性及其引用链时，若要查看某一对象的详细信息，可以单击该对象所在行行尾的跳转图标跳转至该对象所在的**Statistics**区域并定位至该对象所在的位置，以查看该对象的详细信息。
 
 
 ![](assets/Snapshot模板基本操作/file-20260514133142120-20.png)
@@ -128,9 +129,9 @@ Module：模块信息。
 
 
 
-#### 历史节点前进/后退
+#### 历史节点前进和后退
 
-当在“Comparison”和“Statistics”之间进行节点跳转后，单击详情区域左下角的左右箭头可以前进或者后退至下一个或上一个历史节点，以便快速在多个历史节点之间跳转查看。当箭头为激活状态时，表示前进/后退功能可用，当箭头为灰色状态时则代表无法使用该功能。
+当在ArkTS Snapshot泳道的**Comparison**和**Statistics**之间进行节点跳转后，单击详情区域左下角的左右箭头可以前进或者后退至下一个或上一个历史节点，以便快速在多个历史节点之间跳转查看。当箭头为激活状态时，表示前进/后退功能可用，当箭头为灰色状态时则代表无法使用该功能。
 
 
 ![](assets/Snapshot模板基本操作/file-20260514133142120-21.png)
@@ -138,25 +139,9 @@ Module：模块信息。
 
 
 
-#### 比较快照差异
-
-在“Snapshot”的“Comparison”页签中，以当前选择的快照为base，下拉框选择的快照为Target，即可得到两次快照信息的比较结果。
-
-
-![](assets/Snapshot模板基本操作/file-20260514133142120-22.png)
-
-
-在“Snapshot”的“Comparison”页签中，可进行两次快照的差异比较，比较内容包括新增数、删除数、个数增量、分配大小、释放大小、大小增量等等。通过不断对比，可快速分析和定位内存问题的具体位置。
-
-
-![](assets/Snapshot模板基本操作/file-20260514133142120-23.png)
-
-
-
-
 #### 引用链向最小引用距离展开
 
-Snapshot分析支持一键向引用链最小的引用距离方向展开。系统会计算从GC Roots垃圾收集器根到选定实例对象的最短路径（最短路径是指Distance逐渐-1的路径，最终抵达Distance = 1的节点），通过最短路径，能够清晰地看到该对象的句柄被哪些对象持有，快速定位问题产生的根源。
+**ArkTS ****Snapshot**泳道支持一键向引用链最小的引用距离方向展开。系统会计算从GC Roots垃圾收集器根到选定实例对象的最短路径（最短路径是指Distance逐渐-1的路径，最终抵达Distance = 1的节点），通过最短路径，能够清晰地看到该对象的句柄被哪些对象持有，快速定位问题产生的根源。
 
 
 
@@ -165,7 +150,7 @@ Snapshot分析支持一键向引用链最小的引用距离方向展开。系统
 选择一个实例节点，系统会计算从GC Roots到选定对象的最短路径，并在右侧Shortest Paths页签实时切换和展示。
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-24.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-22.png)
 
 
 
@@ -177,19 +162,19 @@ Snapshot分析支持一键向引用链最小的引用距离方向展开。系统
 选择一个实例节点，底部搜索栏的Path to GC Root按钮呈可点击状态。点击该按钮选择搜索模式并确认，系统会计算从GC Roots到选定对象的最短路径，并在右侧Shortest Paths页签展示。
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-25.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-23.png)
 
 
 目前支持单根路径搜索、指定数量的根路径搜索和展示所有根路径三种搜索模式，默认为单根搜索。
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-26.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-24.png)
 
 
 设置完搜索模式后点击OK，右侧more区域会自动跳转至Shortest Paths页面展示搜索结果。
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-27.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-25.png)
 
 
 
@@ -197,21 +182,21 @@ Snapshot分析支持一键向引用链最小的引用距离方向展开。系统
 #### 合并展示最小引用距离
 
 
-从DevEco Studio 6.1.1 Beta1版本开始，在“Statistics”页签中，选中一个构造器或实例结点，点击底部搜索栏的**References**按钮并确认，在右侧**Merged Incoming References**页签可查看该节点构造器下的所有实例到GC Roots的最短路径。
+从DevEco Studio 6.1.1 Beta1版本开始，在**ArkTS Snapshot**泳道的**Statistics**区域中，选中一个构造器或实例结点，点击底部搜索栏的**References**按钮并确认，在右侧**Merged Incoming References**页签可查看该节点构造器下的所有实例到GC Roots的最短路径。
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-28.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-26.png)
 
 
 
 #### 引用链可视化
 
-从DevEco Studio 6.0.0 Beta1版本开始，Snapshot模板支持将所有引用链以图表形式展示。系统会计算该节点周边的引用节点，并以关系图的形式清晰展示该对象的引用关系，便于定位问题产生的根源。
+从DevEco Studio 6.0.0 Beta1版本开始，**ArkTS ****Snapshot**泳道支持将所有引用链以图表形式展示。系统会计算该节点周边的引用节点，并以关系图的形式清晰展示该对象的引用关系，便于定位问题产生的根源。
 
 选择一个实例结点或reference引用关系节点后，底部搜索栏的**Visualization**按钮呈可点击状态。点击该按钮，配置搜索模式后，系统会计算该节点周边的引用节点，并跳转到Graph页签进行展示。
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-3.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-27.png)
 
 
 目前支持最多展示30个周边节点，默认展示20个。当前支持以下两种优先级的引用链展开方式：
@@ -221,13 +206,13 @@ Snapshot分析支持一键向引用链最小的引用距离方向展开。系统
 
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-4.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-28.png)
 
 
 设置完搜索模式后点击OK，底部页签会自动跳转至Graph页面展示搜索结果，红色标示的是中心节点，线段展示连接的两个节点之间的引用关系。
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-5.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-3.png)
 
 
 支持选中节点，右侧的More区域将展示该节点的详细信息，包括Fields、References和Shortest Paths三个页签。当鼠标悬浮在图形上的节点或线段时，悬浮框将展示对应的详细信息。图形区域支持拖动查看，使用Ctrl+鼠标滚轮可对图形进行缩放。
@@ -242,56 +227,52 @@ Snapshot分析支持一键向引用链最小的引用距离方向展开。系统
 
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-6.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-4.png)
 
 
 点击**Show More References**、**Show Path to GC Root**和**Redraw with this node**选项后，单击详情区域左下角的左右箭头，可以前进或者后退至下一个或上一个历史图形，以便在多个（最多三个）可视化图形之间跳转查看。当箭头为激活状态时，表示可用，当箭头为灰色状态时则代表无法使用该功能。
 
 
-![](assets/Snapshot模板基本操作/file-20260514133142120-7.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-5.png)
 
 
 
 
-#### 离线导入内存快照
+#### 离线导入内存快照文件
 
-DevEco Profiler支持离线导入内存快照功能，可导入一个或多个.heapsnapshot及.rawheap文件。
+DevEco Profiler支持离线导入内存快照文件的功能，可导入一个或多个.heapsnapshot或.rawheap文件。
+1. 在DevEco Profiler主界面的Create Session区域中，单击**Open File**，导入.heapsnapshot或.rawheap文件。
 
-您可以在DevEco Profiler主界面的“Create Session”区域中，单击“Open File”，导入.heapsnapshot或.rawheap文件。
-
+  
 > [!NOTE]
 > 导入的单个文件大小不超过1.5G。 批量导入的文件数量不超过10个。 .rawheap文件是应用发生Out of Memory现象时产生的原始内存文件。
 
+2. 离线导入内存快照成功后，可以导入与.heapsnapshot或.rawheap文件匹配的.jsleaklist文件，展示jsleakwatcher监控采集到的内存泄漏对象。
 
-
-![](assets/Snapshot模板基本操作/file-20260514133142120-9.png)
-
-
-离线导入内存快照成功后，可以导入与.heapsnapshot或.rawheap文件匹配的.jsleaklist文件，展示jsleakwatcher监控采集到的内存泄漏对象。
-
+  
 > [!NOTE]
-> 导入的单个jsleaklist文件大小不超过30M。 导入的jsleaklist文件通过文件中的hash值与已导入的heapsnapshot文件匹配。 可多次导入不同的jsleaklist文件，也可同时导入多个不同的jsleaklist文件，重复导入不会覆盖已导入的匹配上的jsleaklist文件。总的导入匹配成功的文件数量不超过导入的heapsnapshot文件。
+> 导入的单个jsleaklist文件大小不超过30M。 导入的jsleaklist文件通过文件中的hash值与已导入的heapsnapshot文件匹配。 可多次导入不同的jsleaklist文件，也可同时导入多个不同的jsleaklist文件。总的导入匹配成功的文件数量不超过导入的heapsnapshot文件。
 
 
-
-![](assets/Snapshot模板基本操作/file-20260525091726585-002.png)
+  
+![](assets/Snapshot模板基本操作/file-20260514133142120-8.png)
 
 
 
 
 #### 解析内存对象
 
-从DevEco Studio 6.1.0 Beta2开始，DevEco Profiler支持导入[代码混淆产物nameCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section19215122372720)文件和[ArkTS调试产物sourceMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section666114451518)文件，还原文件名称和文件路径。
+从DevEco Studio 6.1.0 Beta2开始，DevEco Profiler支持导入[代码混淆产物nameCache](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section19215122372720)文件和[ArkTS调试产物sourceMap](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-exception-stack-parsing-principle#section666114451518)文件，还原文件名称和文件路径。以nameCache文件为例。
 
-以nameCache文件为例，文件导入前，Class为d8。
+文件导入前，Class为d8。
 
 
-![](assets/Snapshot模板基本操作/file-20260525091726585-003.png)
+![](assets/Snapshot模板基本操作/file-20260514133142120-9.png)
 
 
 点击工具栏
-![](assets/Snapshot模板基本操作/file-20260525091726585-004.png)
+![](assets/Snapshot模板基本操作/file-20260525091726585-001.png)
 按钮，导入nameCache文件，Class显示为文件名称MyAbilityStage。
 
 
-![](assets/Snapshot模板基本操作/file-20260525091726585-005.png)
+![](assets/Snapshot模板基本操作/file-20260525091726585-002.png)

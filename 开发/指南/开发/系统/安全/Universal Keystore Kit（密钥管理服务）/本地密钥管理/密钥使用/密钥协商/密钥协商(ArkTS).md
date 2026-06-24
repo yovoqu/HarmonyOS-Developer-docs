@@ -1,6 +1,6 @@
 # 密钥协商(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-key-agreement-arkts
 
@@ -508,13 +508,13 @@ async function huksDhAgreeInHuks(keyAlias: string, peerPubKey: Uint8Array,
     properties: [...dhAgree, ...onlyUsedInHuks],
     inData: peerPubKey
   };
-  await updateSession(handle, dhAgreeUpdatePubKey);
-  const dhAgreeAliceFinish: huks.HuksOptions = {
+  await huks.updateSession(handle, dhAgreeUpdatePubKey);
+  const dhAgreeAliceFinnish: huks.HuksOptions = {
     properties: [...dhAgreeFinishParams, {
       tag: huks.HuksTag.HUKS_TAG_KEY_ALIAS, value: stringToUint8Array(aliasAgreedKey)
     }], inData: new Uint8Array([])
   };
-  await finishSession(handle, dhAgreeAliceFinish);
+  await finishSession(handle, dhAgreeAliceFinnish);
 }
 
 async function huksDhAgreeInHuksTest(
@@ -523,11 +523,11 @@ async function huksDhAgreeInHuksTest(
   aliasAgreedKeyFromA: string, aliasAgreedKeyFromB: string) {
 
   await huksDhAgreeInHuks(aliasA, pubKeyB, aliasAgreedKeyFromA);
-  const aliceAgreedExist = await isKeyItemExist(aliasAgreedKeyFromA, emptyOptions);
+  const aliceAgreedExist = await huks.isKeyItemExist(aliasAgreedKeyFromA, emptyOptions);
   console.info(`ok! aliceAgreedExist in huks is ${aliceAgreedExist}`);
 
   await huksDhAgreeInHuks(aliasB, pubKeyA, aliasAgreedKeyFromB);
-  const bobAgreedExist = await isKeyItemExist(aliasAgreedKeyFromB, emptyOptions);
+  const bobAgreedExist = await huks.isKeyItemExist(aliasAgreedKeyFromB, emptyOptions);
   console.info(`ok! bobAgreedExist in huks is ${bobAgreedExist}`);
 
   await deleteKeyItem(aliasAgreedKeyFromA, emptyOptions);

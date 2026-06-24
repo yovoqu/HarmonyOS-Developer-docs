@@ -1,6 +1,6 @@
 # xeg_vulkan_adaptive_vrs.h
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-vulkan-adaptive-vrs-8h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-XEngine Adaptive VRS(variable rate shading)特性Vulkan接口。使用此头文件的接口前需要通过[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口查询[XEG_ADAPTIVE_VRS_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_adaptive_vrs_extension_name)扩展可用。
+XEngine自适应VRS（Variable Rate Shading，可变速率着色）特性vulkan接口。使用此头文件的接口前需要通过[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口查询[XEG_ADAPTIVE_VRS_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_adaptive_vrs_extension_name)扩展可用。
  
 **引用文件**：<xengine/xeg_vulkan_adaptive_vrs.h>
  
@@ -51,7 +51,7 @@ XEngine Adaptive VRS(variable rate shading)特性Vulkan接口。使用此头文�
 | typedef struct XEG_AdaptiveVRSCreateInfo XEG_AdaptiveVRSCreateInfo | 此结构体描述创建XEG_AdaptiveVRS对象的参数信息，当结构体中的信息变化时，需要创建新的XEG_AdaptiveVRS对象。 |
 | typedef struct XEG_AdaptiveVRSDescription XEG_AdaptiveVRSDescription | 此结构体描述下发绘制着色率纹理命令需要的参数信息，每一帧都需要进行更新。 |
 | typedef VkResult(VKAPI_PTR * PFN_HMS_XEG_CreateAdaptiveVRS) (VkDevice device, const XEG_AdaptiveVRSCreateInfo *pXegAdaptiveVRSCreateInfo, XEG_AdaptiveVRS *pXegAdaptiveVRS) | 创建XEG_AdaptiveVRS对象的函数指针定义。 |
-| typedef void(VKAPI_PTR * PFN_HMS_XEG_CmdDispatchAdaptiveVRS) (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription *pXegAdaptiveVRSDescription) | 执行计算自适应可变着色率命令的函数指针定义。 |
+| typedef void(VKAPI_PTR * PFN_HMS_XEG_CmdDispatchAdaptiveVRS) (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription *pXegAdaptiveVRSDescription) | 执行计算自适应VRS命令的函数指针定义。 |
 | typedef void(VKAPI_PTR * PFN_HMS_XEG_DestroyAdaptiveVRS) (XEG_AdaptiveVRS xegAdaptiveVRS) | 销毁XEG_AdaptiveVRS对象的函数指针定义。 |
  
  
@@ -64,5 +64,5 @@ XEngine Adaptive VRS(variable rate shading)特性Vulkan接口。使用此头文�
 | 名称 | 描述 |
 | --- | --- |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateAdaptiveVRS (VkDevice device, XEG_AdaptiveVRSCreateInfo *pXegAdaptiveVRSCreateInfo, XEG_AdaptiveVRS *pXegAdaptiveVRS) | 创建XEG_AdaptiveVRS对象。 |
-| VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdDispatchAdaptiveVRS (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription *pXegAdaptiveVRSDescription) | 执行计算自适应可变着色率命令。 |
+| VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdDispatchAdaptiveVRS (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription *pXegAdaptiveVRSDescription) | 执行计算自适应VRS命令。 |
 | VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyAdaptiveVRS (XEG_AdaptiveVRS xegAdaptiveVRS) | 销毁XEG_AdaptiveVRS对象。 |

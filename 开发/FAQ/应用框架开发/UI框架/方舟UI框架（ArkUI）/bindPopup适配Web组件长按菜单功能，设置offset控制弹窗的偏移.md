@@ -1,6 +1,6 @@
 # bindPopup适配Web组件长按菜单功能，设置offset控制弹窗的偏移
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-350
 

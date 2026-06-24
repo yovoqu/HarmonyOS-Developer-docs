@@ -1,6 +1,6 @@
 # 使用RSA非对称密钥分段加解密(ArkTS)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-asym-encrypt-decrypt-by-segment
 
@@ -114,7 +114,7 @@ function rsaEncryptBySegment(pubKey: cryptoFramework.PubKey, plainText: cryptoFr
   for (let i = 0; i < plainText.data.length; i += plainTextSplitLen) {
     let updateMessage = plainText.data.subarray(i, i + plainTextSplitLen);
     let updateMessageBlob: cryptoFramework.DataBlob = { data: updateMessage };
-    // 将原文按64字符进行拆分，循环调用doFinal进行加密，使用1024bit密钥时，每次加密生成128字节长度的密文
+    // 将原文按64字节进行拆分，循环调用doFinal进行加密，使用1024bit密钥时，每次加密生成128字节长度的密文
     let updateOutput = cipher.doFinalSync(updateMessageBlob);
     let mergeText = new Uint8Array(cipherText.length + updateOutput.data.length);
     mergeText.set(cipherText);

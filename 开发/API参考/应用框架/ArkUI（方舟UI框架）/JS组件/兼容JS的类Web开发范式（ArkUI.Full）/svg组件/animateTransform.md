@@ -1,6 +1,6 @@
 # animateTransform
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animatetransform
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -234,4 +234,4 @@ transform动效，支持的组件范围：
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/MJy4-V2EQc-rK-ZbDovxtA/zh-cn_image_0000002611756335.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025439Z&HW-CC-Expire=86400&HW-CC-Sign=1DB8B1329C7ED402C0670B57376D247536E02DCBDBB6896583EB7B00B5C20490)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/vIrGsvVoSCicnF13sXsG6w/zh-cn_image_0000002626071044.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015943Z&HW-CC-Expire=86400&HW-CC-Sign=DD1F942DED93419DC9F37A01D0588146284331AF4CFC7E7DDA23AEB4E60EA138)

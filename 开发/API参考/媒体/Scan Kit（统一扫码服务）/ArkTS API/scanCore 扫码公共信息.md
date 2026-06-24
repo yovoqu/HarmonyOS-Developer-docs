@@ -1,6 +1,6 @@
 # scanCore (扫码公共信息)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-scancore
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -25,6 +25,8 @@ import { scanCore } from '@kit.ScanKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 枚举，码类型。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -62,6 +64,8 @@ import { scanCore } from '@kit.ScanKit';
 
 枚举，扫码错误码类型。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.Core
  
 **起始版本：** 4.1.0(11)
@@ -92,3 +96,86 @@ import { scanCore } from '@kit.ScanKit';
 | --- | --- | --- |
 | CAMERA | 0 | 表示相机流扫码。 |
 | PHOTO | 1 | 表示照片扫码。 |
+ 
+ 
+  
+
+#### isDefaultScanSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isDefaultScanSupported(): boolean
+ 
+查询当前设备是否支持默认界面扫码。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Multimedia.Scan.Core
+ 
+**起始版本：** 26.0.0
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 返回查询结果。true代表支持默认界面扫码，false代表不支持默认界面扫码。 |
+ 
+ 
+**示例：**
+ 
+```text
+import { scanCore } from '@kit.ScanKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+let isSupported: boolean = scanCore.isDefaultScanSupported();
+if (isSupported) {
+  hilog.info(0x0001, '[Scan Sample]', 'Default scan is supported on this device.');
+  // 当前设备支持默认界面扫码，可以调用接口拉起扫码页面或进行下一步处理
+  // ...
+} else {
+  // 当前设备不支持默认界面扫码
+  hilog.info(0x0001, '[Scan Sample]', 'Default scan is not supported on this device.');
+}
+```
+ 
+  
+
+#### isCustomScanSupported
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+isCustomScanSupported(): boolean
+ 
+查询当前设备是否支持自定义界面扫码。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Multimedia.Scan.Core
+ 
+**起始版本：** 26.0.0
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 返回查询结果。true代表支持自定义界面扫码，false代表不支持自定义界面扫码。 |
+ 
+ 
+**示例：**
+ 
+```text
+import { scanCore } from '@kit.ScanKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+let isSupported: boolean = scanCore.isCustomScanSupported();
+if (isSupported) {
+  hilog.info(0x0001, '[Scan Sample]', 'Custom scan is supported on this device.');
+  // 当前设备支持自定义界面扫码，可以拉起扫码页面或进行下一步处理
+  // ...
+} else {
+  // 当前设备不支持自定义界面扫码
+  hilog.info(0x0001, '[Scan Sample]', 'Custom scan is not supported on this device.');
+}
+```

@@ -1,6 +1,6 @@
 # Sendable使用场景
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sendable-guide
 
@@ -17,7 +17,7 @@ Sendable对象在不同并发实例间默认采用引用传递，这种方式比
  
 **示例：**
  
-```text
+```ArkTS
 import { taskpool } from '@kit.ArkTS';
 import { TestTypeA, TestTypeB, Test } from './sendable';
 import { BusinessError, emitter } from '@kit.BasicServicesKit';
@@ -84,7 +84,7 @@ struct Index {
 }
 ```
  
-```text
+```ArkTS
 // 将数据量较大的数据在Sendable class中组装
 @Sendable
 export class TestTypeA {

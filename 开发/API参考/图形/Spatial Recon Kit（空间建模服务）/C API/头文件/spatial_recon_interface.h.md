@@ -1,6 +1,6 @@
 # spatial_recon_interface.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-spatial-recon-interface-h
 
@@ -311,7 +311,7 @@ HMS_SpatialReconStatus HMS_SpatialRecon_DestroySession(HMS_SpatialRecon_Session 
 销毁一个空间重建会话并释放其资源。该函数终止空间重建会话并释放与其关联的所有内存和系统资源。调用此函数后，提供的会话指针将失效，不应再次使用。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/7j6bEk08TUu8eFBGB9UTfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025734Z&HW-CC-Expire=86400&HW-CC-Sign=9D47CF93E79960B54F55C3385A038A7368A301C159DC33FC659E021DD878A027)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/ehQPWrHuS8mHwMYh77mDkQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020329Z&HW-CC-Expire=86400&HW-CC-Sign=C2A1551C32FFFBDEFE89D0FF092211BE756FA83FE662384F34903053AB47FBC5)
  
  
 一旦销毁会话，将无法恢复。所有未保存的重建数据将会丢失。如果需要数据持久化，请在销毁前调用HMS_SpatialRecon_SaveResultToFile()进行保存。
@@ -620,3 +620,59 @@ HMS_SpatialReconStatus HMS_SpatialRecon_SaveResultToFile(HMS_SpatialRecon_Sessio
 | 类型 | 说明 |
 | --- | --- |
 | HMS_SpatialReconStatus | 返回HMS_SpatialReconStatus表示初始验证状态或即时错误（例如无效参数）。文件导出的实际结果通过回调函数传递。 |
+ 
+ 
+  
+
+#### HMS_SpatialReconNGCallbackFunc()
+
+```text
+typedef void (*HMS_SpatialReconCallbackFunc)(HMS_SpatialReconStatus status, void* data);
+```
+ 
+**描述**
+ 
+支持自定义入参的回调函数
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| HMS_SpatialReconStatus status | 空间重建过程的当前状态。HMS_SpatialReconStatus用于标识重建结果的状态。 |
+| void* data | 需要传递给回调函数的自定义入参。开发者必须自行保证数据处理过程中的安全性和正确性。 |
+ 
+ 
+  
+
+#### HMS_SpatialRecon_RegisterNGCallbackFunc()
+
+```text
+HMS_SpatialReconStatus HMS_SpatialRecon_RegisterNGCallbackFunc(HMS_SpatialRecon_Session* spatialReconSession, HMS_SpatialReconNGCallbackFunc onTaskFinished, void* data);
+```
+ 
+**描述**
+ 
+注册支持自定义入参的回调函数。
+ 
+> [!NOTE]
+> 和业界其他类似的void*入参回调函数类似，开发者需要自行保证data指针得到安全、正确的处理。Spatial Recon Kit不对data入参的解析、使用做任何安全性检查。
+
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| HMS_SpatialRecon_Session *spatialReconSession | 指向空间重建会话对象的指针。必须不为 NULL，并且应为有效且活跃的会话。 |
+| HMS_SpatialReconNGCallbackFunc *onTaskFinished | 带有自定义入参的回调函数地址。 |
+| void* data | 需要传递给回调函数的数据。开发者须保证数据读取、处理过程的安全性和正确性。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| HMS_SpatialReconStatus | 返回HMS_SpatialReconStatus表示初始验证状态或即时错误（例如无效参数）。 |

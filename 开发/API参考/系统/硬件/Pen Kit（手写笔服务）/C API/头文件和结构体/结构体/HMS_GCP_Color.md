@@ -1,6 +1,6 @@
 # HMS_GCP_Color
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-imagefeaturepicker-struct-color
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-定义颜色值的结构体。
+定义颜色值的结构体，用于显示全局取色提取的颜色值。
  
 **系统能力：** SystemCapability.Stylus.ColorPicker
  

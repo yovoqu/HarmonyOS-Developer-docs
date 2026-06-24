@@ -1,6 +1,6 @@
 # param工具
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/param-tool
 
@@ -139,4 +139,4 @@ param save
 
 **错误码说明**
  
-错误码详情参考[系统参数](https://gitcode.com/openharmony/docs/blob/weekly_20260309/zh-cn/device-dev/subsystems/subsys-boot-init-sysparam.md#系统参数错误码说明)文档描述
+错误码详情参考[系统参数](https://gitcode.com/openharmony/docs/blob/master/zh-cn/device-dev/subsystems/subsys-boot-init-sysparam.md#系统参数错误码说明)文档描述

@@ -1,6 +1,6 @@
 # @ohos.vibrator (振动)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1118,7 +1118,7 @@ on(type: 'vibratorStateChange', callback: Callback&lt;VibratorStatusEvent&gt;): 
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | 'vibratorStateChange' | 是 | 监听类型，该值固定为vibratorStateChange。 |
+| type | string | 是 | 监听类型，该值固定为vibratorStateChange。 |
 | callback | Callback&lt;VibratorStatusEvent&gt; | 是 | 回调函数，回调参数数据为VibratorStatusEvent。 |
 
 
@@ -1168,7 +1168,7 @@ off(type: 'vibratorStateChange', callback?: Callback&lt;VibratorStatusEvent&gt;)
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | 'vibratorStateChange' | 是 | 监听类型，该值固定为vibratorStateChange。 |
+| type | string | 是 | 监听类型，该值固定为vibratorStateChange。 |
 | callback | Callback&lt;VibratorStatusEvent&gt; | 否 | 回调函数，回调参数数据为VibratorStatusEvent，不填此参数则为注销所有callback |
 
 
@@ -1287,7 +1287,7 @@ isHdHapticSupported(): boolean
 
 | 类型 | 说明 |
 | --- | --- |
-| boolean | 返回对象，当返回true表示支持高清振动，返回false不支持。 |
+| boolean | 是否支持高清振动，true为支持，false为不支持。 |
 
 
 **错误码**：
@@ -1322,15 +1322,19 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
+提供添加长振、短振事件和生成VibratorPattern对象的方法。
+
+**系统能力**：SystemCapability.Sensors.MiscDevice
 
 
-#### vibrator('addContinuousEvent')18+
+
+#### addContinuousEvent18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addContinuousEvent(time: number, duration: number, options?: ContinuousParam): VibratorPatternBuilder;
 
-添加长振事件的方法成VibratorPattern对象。
+添加长振事件的方法，添加后使用[build](#build18)方法生成[VibratorPattern](#vibratorpattern18)对象。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
 
@@ -1397,13 +1401,13 @@ try {
 
 
 
-#### vibrator('addTransientEvent')18+
+#### addTransientEvent18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 addTransientEvent(time: number, options?: TransientParam): VibratorPatternBuilder;
 
-添加短振事件的方法成VibratorPattern对象。
+添加短振事件的方法, 添加后使用[build](#build18)方法生成[VibratorPattern](#vibratorpattern18)对象。
 
 **系统能力**：SystemCapability.Sensors.MiscDevice
 
@@ -1455,7 +1459,7 @@ try {
 
 
 
-#### vibrator('build')18+
+#### build18+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1722,7 +1726,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | time | number | 否 | 否 | 振动绝对起始时间，单位ms。 |
-| events | Array&lt;VibratorEvent&gt; | 否 | 否 | 振动事件数组，build()方法返回的VibratorPattern对象。 |
+| events | Array&lt;VibratorEvent&gt; | 否 | 否 | 振动事件数组。 |
 
 
 
@@ -1773,7 +1777,7 @@ type VibrateEffect = VibrateTime | VibratePreset | VibrateFromFile | VibrateFrom
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type | 'pattern' | 否 | 否 | 值为“pattern”，根据组合模式触发电机振动。 |
-| pattern | VibratorPattern | 否 | 否 | 振动事件数组，build()方法返回的VibratorPattern对象。 |
+| pattern | VibratorPattern | 否 | 否 | build方法返回的VibratorPattern对象。 |
 
 
 
@@ -1875,7 +1879,9 @@ vibrate(duration: number, callback?: AsyncCallback&lt;void&gt;): void
 
 按照指定持续时间触发马达振动。
 
-从API version 8 开始支持，从API version 9 开始废弃，建议使用 [vibrator.startVibration](#vibratorstartvibration9)9+代替。
+> [!NOTE]
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 vibrator.startVibration 替代。
+
 
 **需要权限**：ohos.permission.VIBRATE
 
@@ -1914,7 +1920,9 @@ vibrate(effectId: EffectId): Promise&lt;void&gt;
 
 按照预置振动效果触发马达振动。
 
-从API version 8 开始支持，从API version 9 开始废弃，建议使用 [vibrator.startVibration](#vibratorstartvibration9-1)9+代替。
+> [!NOTE]
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 vibrator.startVibration 替代。
+
 
 **需要权限**：ohos.permission.VIBRATE
 
@@ -1996,7 +2004,9 @@ stop(stopMode: VibratorStopMode): Promise&lt;void&gt;
 
 按照指定模式停止马达的振动。
 
-从API version 8 开始支持，从API version 9 开始废弃，建议使用 [vibrator.stopVibration](#vibratorstopvibration9-1)9+代替。
+> [!NOTE]
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 vibrator.stopVibration 9+ 代替。
+
 
 **需要权限**：ohos.permission.VIBRATE
 
@@ -2048,7 +2058,9 @@ stop(stopMode: VibratorStopMode, callback?: AsyncCallback&lt;void&gt;): void
 
 按照指定模式停止马达的振动。
 
-从API version 8 开始支持，从API version 9 开始废弃，建议使用 [vibrator.stopVibration](#vibratorstopvibration9)9+代替。
+> [!NOTE]
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 vibrator.stopVibration 9+ 代替。
+
 
 **需要权限**：ohos.permission.VIBRATE
 

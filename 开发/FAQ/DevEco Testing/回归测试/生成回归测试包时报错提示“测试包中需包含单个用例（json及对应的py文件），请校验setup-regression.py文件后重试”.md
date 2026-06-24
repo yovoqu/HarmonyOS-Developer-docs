@@ -1,6 +1,6 @@
 # 生成回归测试包时报错提示“测试包中需包含单个用例（json及对应的py文件），请校验setup-regression.py文件后重试”
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-regression-test-6
 

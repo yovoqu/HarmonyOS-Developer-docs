@@ -1,6 +1,6 @@
 # native_gesture.h
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-gesture-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -65,6 +65,7 @@
 | ArkUI_GestureRecognizerType | ArkUI_GestureRecognizerType | 定义手势类型。 |
 | ArkUI_GestureInterruptResult | ArkUI_GestureInterruptResult | 定义手势打断结果。 |
 | ArkUI_GestureRecognizerState | ArkUI_GestureRecognizerState | 定义手势识别器状态。 |
+| OH_ArkUI_GestureCollectIntervention | OH_ArkUI_GestureCollectIntervention | 定义手势和事件收集的干预操作类型。 起始版本： 26.0.0 |
  
  
   
@@ -131,6 +132,12 @@
 | ArkUI_ErrorCode OH_ArkUI_PreventGestureRecognizerBegin(ArkUI_GestureRecognizer* recognizer) | - | 在手指全部抬起前阻止手势识别器参与当前手势识别。如果系统已确定该手势识别器的结果（无论成功与否），调用此接口将无效。 |
 | ArkUI_ErrorCode OH_ArkUI_LongPressGesture_SetAllowableMovement(ArkUI_GestureRecognizer* recognizer, double allowableMovement) | - | 设置长按手势识别器识别的手势的最大移动距离。 |
 | ArkUI_ErrorCode OH_ArkUI_LongPressGesture_GetAllowableMovement(ArkUI_GestureRecognizer* recognizer, double* allowableMovement) | - | 获取长按手势识别器识别的手势的最大移动距离。 |
+| ArkUI_ErrorCode OH_ArkUI_GestureCollectInterceptInfo_GetResponseRecognizers(const ArkUI_GestureCollectInterceptInfo* info, ArkUI_GestureRecognizerHandleArray* array, int32_t* size) | - | 从手势收集拦截信息中获取手势识别器。 起始版本： 26.0.0 |
+| ArkUI_ErrorCode OH_ArkUI_GestureCollectInterceptInfo_GetTouchRecognizers(const ArkUI_GestureCollectInterceptInfo* info, ArkUI_TouchRecognizerHandleArray* recognizers, int32_t* size) | - | 从手势收集拦截信息中获取触摸识别器句柄。 起始版本： 26.0.0 |
+| ArkUI_ErrorCode OH_ArkUI_GestureCollectInterceptInfo_SetGestureCollectIntervention(ArkUI_GestureCollectInterceptInfo* info, OH_ArkUI_GestureCollectIntervention intervention) | - | 设置手势收集干预模式。 起始版本： 26.0.0 |
+| ArkUI_ErrorCode OH_ArkUI_GetGestureBindNodeUniqueId(const ArkUI_GestureRecognizer* recognizer, int32_t* uniqueId) | - | 获取与手势识别器绑定的组件唯一ID。 起始版本： 26.0.0 |
+| bool OH_ArkUI_TouchRecognizer_IsHostBelongsTo(const ArkUI_TouchRecognizerHandle recognizer, int32_t uniqueId) | - | 检查当前触摸识别器绑定节点是否为传入组件的后代节点。 起始版本： 26.0.0 |
+| bool OH_ArkUI_GestureRecognizer_IsHostBelongsTo(const ArkUI_GestureRecognizer* recognizer, int32_t uniqueId) | - | 检查当前手势识别器绑定节点是否为传入组件的后代节点。 起始版本： 26.0.0 |
  
  
   
@@ -311,6 +318,31 @@ enum ArkUI_GestureRecognizerType
 | GROUP_GESTURE = 6 | 手势组合。 |
 | CLICK_GESTURE = 7 | 通过onClick注册的点击手势。 起始版本： 20 |
 | DRAG_DROP = 8 | 用于拖放的拖拽手势。 起始版本： 20 |
+ 
+ 
+  
+
+#### OH_ArkUI_GestureCollectIntervention
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum OH_ArkUI_GestureCollectIntervention
+```
+ 
+**描述：**
+ 
+定义手势和事件收集的干预操作类型。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举项 | 描述 |
+| --- | --- |
+| OH_ARKUI_GESTURE_COLLECT_INTERVENTION_CONTINUE = 0 | 继续正常的手势和事件收集流程。不进行任何干预。 |
+| OH_ARKUI_GESTURE_COLLECT_INTERVENTION_DISCARD_LOWER = 1 | 丢弃所有待收集的低优先级手势和事件。 丢弃的部分包括左侧兄弟节点以及祖先节点（父节点及以上）的手势。 仅保留当前节点和更高优先级节点中已收集的手势。 |
+| OH_ARKUI_GESTURE_COLLECT_INTERVENTION_DISCARD_HIGHER = 2 | 丢弃已经收集到的高优先级手势和事件。 会丢弃已收集的右侧兄弟节点和当前节点上的手势。 将继续处理低优先级手势的收集流程（左侧兄弟节点和祖先节点）。 |
+| OH_ARKUI_GESTURE_COLLECT_INTERVENTION_DISCARD_SELF = 3 | 丢弃当前节点自身的手势和事件。 当前节点的手势和事件将从手势树中排除。 兄弟节点（左侧和右侧）以及祖先节点的手势仍会继续收集。 |
+| OH_ARKUI_GESTURE_COLLECT_INTERVENTION_DISCARD_LOWER_PRIORITY_SIBLINGS = 4 | 丢弃左侧兄弟节点中待收集的手势和事件。 当前节点以及已收集的右侧兄弟节点的手势和事件将被保留。 将继续处理父节点以及祖先节点的收集流程。 |
  
  
   
@@ -2079,3 +2111,191 @@ ArkUI_ErrorCode OH_ArkUI_LongPressGesture_GetAllowableMovement(ArkUI_GestureReco
 | 类型 | 说明 |
 | --- | --- |
 | ArkUI_ErrorCode | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 参数错误。 ARKUI_ERROR_CODE_RECOGNIZER_TYPE_NOT_SUPPORTED 不支持手势识别器类型。 |
+ 
+ 
+  
+
+#### OH_ArkUI_GestureCollectInterceptInfo_GetResponseRecognizers()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_GestureCollectInterceptInfo_GetResponseRecognizers(const ArkUI_GestureCollectInterceptInfo* info, ArkUI_GestureRecognizerHandleArray* array, int32_t* size)
+```
+ 
+**描述：**
+ 
+从手势收集拦截信息中获取手势识别器。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const ArkUI_GestureCollectInterceptInfo* info | 表示指向手势收集拦截信息的指针。 |
+| ArkUI_GestureRecognizerHandleArray* array | 表示响应手势识别器数组的指针。 |
+| int32_t* size | 表示响应手势识别器数组的大小。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回ARKUI_ERROR_CODE_NO_ERROR表示成功。 返回ARKUI_ERROR_CODE_PARAM_INVALID表示发生参数异常。 |
+ 
+ 
+  
+
+#### OH_ArkUI_GestureCollectInterceptInfo_GetTouchRecognizers()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_GestureCollectInterceptInfo_GetTouchRecognizers(const ArkUI_GestureCollectInterceptInfo* info, ArkUI_TouchRecognizerHandleArray* recognizers, int32_t* size)
+```
+ 
+**描述：**
+ 
+从手势收集拦截信息中获取触摸识别器句柄。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const ArkUI_GestureCollectInterceptInfo* info | 表示指向手势收集拦截信息的指针。 |
+| ArkUI_TouchRecognizerHandleArray* recognizers | 表示触摸识别器句柄数组的指针。 |
+| int32_t* size | 表示recognizers数组的大小。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回ARKUI_ERROR_CODE_NO_ERROR表示成功。 返回ARKUI_ERROR_CODE_PARAM_INVALID表示发生参数异常。 |
+ 
+ 
+  
+
+#### OH_ArkUI_GestureCollectInterceptInfo_SetGestureCollectIntervention()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_GestureCollectInterceptInfo_SetGestureCollectIntervention(ArkUI_GestureCollectInterceptInfo* info, OH_ArkUI_GestureCollectIntervention intervention)
+```
+ 
+**描述：**
+ 
+设置手势收集干预模式。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| ArkUI_GestureCollectInterceptInfo* info | 手势收集拦截信息指针。 |
+| OH_ArkUI_GestureCollectIntervention intervention | 手势收集干预模式，类型为OH_ArkUI_GestureCollectIntervention。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 如果成功，则返回ARKUI_ERROR_CODE_NO_ERROR。 参数异常返回ARKUI_ERROR_CODE_PARAM_INVALID。 |
+ 
+ 
+  
+
+#### OH_ArkUI_GetGestureBindNodeUniqueId()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_GetGestureBindNodeUniqueId(const ArkUI_GestureRecognizer* recognizer, int32_t* uniqueId)
+```
+ 
+**描述：**
+ 
+获取与手势识别器绑定的组件唯一ID。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const ArkUI_GestureRecognizer* recognizer | 表示指向手势识别器的指针。 |
+| int32_t* uniqueId | 表示与手势识别器绑定的组件唯一ID。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回ARKUI_ERROR_CODE_NO_ERROR表示成功。 返回ARKUI_ERROR_CODE_PARAM_INVALID表示发生参数异常。 |
+ 
+ 
+  
+
+#### OH_ArkUI_TouchRecognizer_IsHostBelongsTo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+bool OH_ArkUI_TouchRecognizer_IsHostBelongsTo(const ArkUI_TouchRecognizerHandle recognizer, int32_t uniqueId)
+```
+ 
+**描述：**
+ 
+检查当前触摸识别器绑定节点是否为传入组件的后代节点。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const ArkUI_TouchRecognizerHandle recognizer | 表示触摸识别器句柄。 |
+| int32_t uniqueId | 表示组件的唯一ID。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| bool | 如果当前触摸识别器绑定节点是传入组件的后代，则返回true，否则返回false。 |
+ 
+ 
+  
+
+#### OH_ArkUI_GestureRecognizer_IsHostBelongsTo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+bool OH_ArkUI_GestureRecognizer_IsHostBelongsTo(const ArkUI_GestureRecognizer* recognizer, int32_t uniqueId)
+```
+ 
+**描述：**
+ 
+检查当前手势识别器绑定节点是否为传入组件的后代节点。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const ArkUI_GestureRecognizer* recognizer | 表示指向手势识别器的指针。 |
+| int32_t uniqueId | 表示组件的唯一ID。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| bool | 如果当前手势绑定节点是传入组件的后代，则返回true，否则返回false。 |

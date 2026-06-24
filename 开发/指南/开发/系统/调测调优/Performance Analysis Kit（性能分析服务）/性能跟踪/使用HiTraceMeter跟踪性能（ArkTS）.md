@@ -1,6 +1,6 @@
 # 使用HiTraceMeter跟踪性能（ArkTS）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracemeter-guidelines-arkts
 
@@ -109,13 +109,13 @@ HiTraceMeter打点接口分为三类：同步时间片跟踪、异步时间片�
   导入所需依赖：
 
   
-```text
+```ArkTS
 import { hiTraceMeter, hilog} from '@kit.PerformanceAnalysisKit';
 ```
 定义测试方法：
 
   
-```text
+```ArkTS
 function testHiTraceMeterASync() {
   const COMMERCIAL = hiTraceMeter.HiTraceOutputLevel.COMMERCIAL;
   hiTraceMeter.startAsyncTrace(COMMERCIAL, 'myTestAsyncTrace', 1001, 'categoryTest', 'key=value');
@@ -166,7 +166,7 @@ function testHiTraceMeter() {
 添加按钮以触发接口调用：
 
   
-```text
+```ArkTS
 Button("testHiTraceMeter").backgroundColor('#FFFF00FF')
   .onClick(testHiTraceMeter)
 ```

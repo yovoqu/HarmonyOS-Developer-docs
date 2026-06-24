@@ -1,6 +1,6 @@
 # 使用画布绘制自定义图形 (Canvas)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-drawing-customization-on-canvas
 
@@ -100,7 +100,7 @@ struct CanvasExample2 {
 import lottie from '@ohos/lottie'
 ```
 
-具体接口请参考[lottie](https://gitcode.com/openharmony-tpc/lottieArkTS)。
+具体接口请参考[lottie](https://gitcode.com/CPF-ApplicationTPC/lottieArkTS)。
 
 
 

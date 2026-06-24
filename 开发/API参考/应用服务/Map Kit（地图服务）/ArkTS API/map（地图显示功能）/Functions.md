@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-functions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -613,7 +613,7 @@ let wgs84Position: mapCommon.LatLng = {
   latitude: 30,
   longitude: 118
 };
-let gcj02Position: mapCommon.LatLng = await map.convertCoordinate(mapCommon.CoordinateType.WGS84, mapCommon.CoordinateType.GCJ02,wgs84Position);
+let gcj02Position: mapCommon.LatLng = await map.convertCoordinate(mapCommon.CoordinateType.WGS84, mapCommon.CoordinateType.GCJ02, wgs84Position);
 ```
  
   

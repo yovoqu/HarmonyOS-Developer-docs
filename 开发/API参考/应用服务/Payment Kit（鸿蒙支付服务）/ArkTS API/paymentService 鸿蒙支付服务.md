@@ -1,11 +1,13 @@
 # paymentService (鸿蒙支付服务)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-paymentservice
 **支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供支付、签约服务能力，包括基础支付、支付并签约、合单支付、签约代扣等。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
@@ -41,9 +43,9 @@ import { paymentService } from '@kit.PaymentKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | selectedPaymentType | string | 否 | 是 | 用户选择的支付方式。 基于URL跳转三方支付收银台： - wechat_pay：微信支付 - ali_pay：支付宝支付 - 其他（其他为商户申请配置三方支付方式时所申请的相关配置） 基于接口拉起三方支付收银台： - wechat_pay_sdk：微信支付 - ali_pay_sdk：支付宝支付 - 其他（其他为商户申请配置三方支付方式时所申请的相关配置） |
-| clientToken | string | 否 | 是 | 客户端凭证。 |
+| clientToken | string | 否 | 是 | 客户端凭证。用于校验调用方信息。 |
 | nextStep | string | 否 | 是 | 下一步支付流程。 |
-| extraInfo | string | 否 | 是 | 保留字段。json string格式。示例为{"selectedPaymentType":"wechat_pay"}。 |
+| extraInfo | string | 否 | 是 | 保留字段。json string格式。示例为{"selectPayType":"wechat_pay"}。 |
 | payload | string | 否 | 是 | 预留信息，在请求接口时，入参如果传递，接口响应中则会原样返回。 说明： 拉起H5支付场景下需要固定传递“AP”。 |
 
 
@@ -90,7 +92,7 @@ import { paymentService } from '@kit.PaymentKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | selectedPaymentType | string | 否 | 是 | 用户选择的支付方式。 基于URL跳转三方支付收银台： - wechat_pay：微信支付 - ali_pay：支付宝支付 - 其他（其他为商户申请配置三方支付方式时所申请的相关配置） 基于接口拉起三方支付收银台： - wechat_pay_sdk：微信支付 - ali_pay_sdk：支付宝支付 - 其他（其他为商户申请配置三方支付方式时所申请的相关配置） |
-| clientToken | string | 否 | 是 | 客户端凭证。 |
+| clientToken | string | 否 | 是 | 客户端凭证。用于校验调用方信息。 |
 
 
 
@@ -125,6 +127,8 @@ requestPayment(context: common.UIAbilityContext, orderStr: string): Promise&lt;v
 
 该方法提供基础支付、支付并签约等功能，调用方法前请确保网络已连接，调用该方法后会拉起Payment Kit收银台，支付完成后使用Promise异步返回。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.PaymentService
@@ -148,7 +152,7 @@ requestPayment(context: common.UIAbilityContext, orderStr: string): Promise&lt;v
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -208,6 +212,8 @@ requestPayment(context: common.UIAbilityContext, orderStr: string, callback: Asy
 
 该方法提供基础支付、支付并签约等功能，调用该方法前请确保网络已连接，调用该方法后会拉起Payment Kit收银台，支付完成后通过AsyncCallback回调结果。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.PaymentService
@@ -225,7 +231,7 @@ requestPayment(context: common.UIAbilityContext, orderStr: string, callback: Asy
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -290,6 +296,8 @@ requestContract(context: common.UIAbilityContext, contractStr: string): Promise&
 
 该方法提供签约功能，调用方法前请确保网络已连接，调用该方法后会拉起Payment Kit签约收银台，签约完成后使用Promise异步返回。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.PaymentService
@@ -313,7 +321,7 @@ requestContract(context: common.UIAbilityContext, contractStr: string): Promise&
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -373,6 +381,8 @@ requestContract(context: common.UIAbilityContext, contractStr: string, callback:
 
 该方法提供签约功能，调用该方法前请确保网络已连接，调用该方法后会拉起Payment Kit签约收银台，签约完成后通过AsyncCallback回调结果。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.PaymentService
@@ -390,7 +400,7 @@ requestContract(context: common.UIAbilityContext, contractStr: string, callback:
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -455,6 +465,8 @@ requestPayment(context: common.UIAbilityContext, orderStr: string, payload: stri
 
 该方法提供拉起通用收银台、跳转三方支付功能，调用方法前请确保网络已连接，用户在通用收银台选择支付方式并确认支付后，使用Promise异步返回。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.PaymentService
@@ -479,7 +491,7 @@ requestPayment(context: common.UIAbilityContext, orderStr: string, payload: stri
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -507,7 +519,7 @@ struct Index {
     // 请使用开发者真实的订单信息（orderStr）支付订单。
     // 订单信息示例参考'{"app_id":"***","merc_no":"***","prepay_id":"xxx","timestamp":"1680259863114","noncestr":"1487b8a60ed9f9ecc0ba759fbec23f4f","sign":"****","auth_id":"***"}'
     // 请使用开发者真实的订单信息（orderStr）跳转到第三方支付。
-    const orderStr = '{"nextAction":"L","linkUrl":"';
+    const orderStr = '{"nextAction":"L","linkUrl":"","scheme":"","clientToken":"***"}';
     paymentService.requestPayment(this.context, orderStr, 'AP')
       .then((payResult: paymentService.PayResult) => {
         // 支付成功
@@ -541,6 +553,8 @@ cashierPicker(context: common.UIAbilityContext, paymentInfo: PaymentInfo): Promi
 
 该方法提供拉起通用收银台功能，调用方法前请确保网络已连接，用户在通用收银台选择支付方式并确认支付后，使用Promise异步返回。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.PaymentService
@@ -564,7 +578,7 @@ cashierPicker(context: common.UIAbilityContext, paymentInfo: PaymentInfo): Promi
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -629,6 +643,8 @@ requestBindCard(context: common.UIAbilityContext | common.UIExtensionContext): P
 
 该方法提供用户绑卡功能，调用该方法后会拉起Payment Kit用户绑卡页面，绑卡完成后使用Promise异步返回。调用方法前请确保网络已连接。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **元服务API：** 从版本5.0.5(17)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Payment.PaymentService
@@ -651,7 +667,7 @@ requestBindCard(context: common.UIAbilityContext | common.UIExtensionContext): P
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/payment-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-payment)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

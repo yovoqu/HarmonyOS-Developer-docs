@@ -1,6 +1,6 @@
 # Uint8Buff
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_uint8_buff
 
@@ -23,7 +23,7 @@
 | 名称 | 描述 |
 | --- | --- |
 | uint32_t length | 字节流的长度。 |
-| uint8_t * val | 字节流的值。 |
+| uint8_t* val | 字节流的值。 |
  
  
   

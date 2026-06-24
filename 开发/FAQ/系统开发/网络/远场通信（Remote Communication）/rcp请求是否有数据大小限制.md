@@ -1,6 +1,6 @@
 # rcp请求是否有数据大小限制
 
-更新时间：2026-06-05 09:11:02
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-remote-communication-2
 

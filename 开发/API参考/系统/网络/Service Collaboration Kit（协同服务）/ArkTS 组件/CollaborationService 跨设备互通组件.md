@@ -1,6 +1,6 @@
 # CollaborationService (跨设备互通组件)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-collaborationservice
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -31,6 +31,8 @@ createCollaborationServiceMenuItems(businessFilter?: Array&lt;CollaborationServi
 设备列表选择器，需要在[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件内调用。用于显示组网内具有对应能力的设备列表。
 
 该方法为自定义构建函数，开发者在使用前需要先了解[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)。
+
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
 
 **装饰器类型：** @Builder
 
@@ -69,6 +71,8 @@ createCollaborationServiceMenuItems(businessFilter: Array&lt;CollaborationServic
 设备列表选择器，需要在[Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu)组件内调用。用于显示组网内具有对应能力的设备列表，此接口支持自定义对端图库能力图片选择的数量。
 
 该方法为自定义构建函数，开发者在使用前需要先了解[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)。
+
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
 
 **装饰器类型：** @Builder
 
@@ -147,6 +151,8 @@ myTestMenu() {
 
 能力类型枚举值。
 
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Collaboration.Service
 
 **起始版本：** 5.0.0(12)
@@ -216,6 +222,8 @@ myTestMenu() {
 
 该组件为自定义组件，开发者在使用前需要先了解[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#component)。
 
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+
 **装饰器类型：** @Component
 
 **系统能力：** SystemCapability.Collaboration.Service
@@ -232,6 +240,8 @@ onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 
 接收数据的回调函数，其中传入的stateCode是完成状态，bufferType是回传的数据类型，buffer是回传的数据内容，开发者可通过状态和数据结合自身的业务逻辑实现onState方法。
 
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Collaboration.Service
 
 **起始版本：** 5.0.0(12)
@@ -247,7 +257,7 @@ onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 
 **状态码：**
 
-以下部分错误状态的详细介绍请参见[ArkTS 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/servicecollaboration-error-code)。
+以下部分错误状态的详细介绍请参见[ArkTS 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-servicecollaboration)。
 
 | 状态码ID | 错误信息 |
 | --- | --- |
@@ -273,6 +283,8 @@ onState: (stateCode: number, bufferType: string, buffer: ArrayBuffer) => void
 build(): void
 
 struct的默认构造函数，开发者无法直接调用此方法。
+
+**模型约束：** 此模块的接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Collaboration.Service
 

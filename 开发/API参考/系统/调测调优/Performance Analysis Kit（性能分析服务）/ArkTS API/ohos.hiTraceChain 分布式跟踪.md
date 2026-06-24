@@ -1,6 +1,6 @@
 # @ohos.hiTraceChain (分布式跟踪)
 
-更新时间：2026-04-08 07:25:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hitracechain
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -319,7 +319,7 @@ type为客户端发送CS和客户端接收CR的信息埋点需配套使用；typ
 | mode | HiTraceCommunicationMode | 是 | 信息埋点需要指定的跟踪通信模式。 |
 | type | HiTraceTracepointType | 是 | 信息埋点需要指定的跟踪埋点类型。 |
 | id | HiTraceId | 是 | 实施信息埋点操作的HiTraceId实例。 |
-| msg | string | 否 | HiTraceMeter打点操作传入的trace说明信息，默认值为""。 |
+| msg | string | 否 | HiTraceMeter打点操作传入的trace说明信息，默认值为""。 建议该参数的长度不要超过63Byte，超出部分将被截断。 |
  
  
 **示例：**

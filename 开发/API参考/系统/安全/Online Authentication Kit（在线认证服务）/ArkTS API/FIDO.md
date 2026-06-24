@@ -1,6 +1,6 @@
 # FIDO
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-fido-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -12,8 +12,6 @@
 2、使用FIDO免密身份认证功能。
  
 3、关闭FIDO免密身份认证功能。
- 
-支持的设备类型为：Phone, PC/2in1, Tablet
  
 **起始版本：** 4.1.0(11)
   
@@ -39,17 +37,19 @@ import { fido } from '@kit.OnlineAuthenticationKit';
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.FIDO
  
 **起始版本：** 4.1.0(11)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| serverEndPoint | string | 否 | 是 | TLS服务器证书的base64url编码哈希值。长度由不同三方服务器限制，默认值为空。 |
+| serverEndPoint | string | 否 | 是 | TLS服务器证书的base64url编码哈希值。长度由不同三方服务器限制，默认值为空。长度限制0到128。 |
 | tlsServerCertificate | string | 否 | 是 | 如果FIDO UAF客户端使用了TLS服务器证书，则该证书必须设置为base64url、DER编码的格式。若不涉及，不可设置该字段。长度由不同三方服务器限制，默认值为空。 |
-| tlsUnique | string | 否 | 是 | TLS通道Finished结构的base64url编码。若不涉及，不可设置该字段。长度由不同三方服务器限制，默认值为空。 |
-| cidPubkey | string | 否 | 是 | base64url编码的序列化使用UTF-8编码的JwkKey结构。如果客户端TLS堆栈不向处理实体提供TLS ChannelID信息，则不可设置该字段。如果客户端TLS堆栈支持TLS ChannelID信息，但TLS (web)服务器尚未发出信号，则必须设置为“未使用”。长度由不同三方服务器限制，默认值为空。 |
-| tokenBinding | string | 否 | 是 | base64url编码的序列化使用UTF-8编码的TokenBindingID结构。如果客户端TLS堆栈不向处理实体提供令牌绑定ID信息，则不可设置该字段。如果客户端TLS堆栈支持令牌绑定ID信息，但TLS (web)服务器尚未发出信号，则必须设置为“未使用”。长度由不同三方服务器限制，默认值为空。 |
+| tlsUnique | string | 否 | 是 | TLS通道Finished结构的base64url编码。若不涉及，不可设置该字段。长度由不同三方服务器限制，默认值为空。长度限制0到128。 |
+| cidPubkey | string | 否 | 是 | base64url编码的序列化使用UTF-8编码的JwkKey结构。如果客户端TLS堆栈不向处理实体提供TLS ChannelID信息，则不可设置该字段。如果客户端TLS堆栈支持TLS ChannelID信息，但TLS (web)服务器尚未发出信号，则必须设置为“未使用”。长度由不同三方服务器限制，默认值为空。长度限制0到128。 |
+| tokenBinding | string | 否 | 是 | base64url编码的序列化使用UTF-8编码的TokenBindingID结构。如果客户端TLS堆栈不向处理实体提供令牌绑定ID信息，则不可设置该字段。如果客户端TLS堆栈支持令牌绑定ID信息，但TLS (web)服务器尚未发出信号，则必须设置为“未使用”。长度由不同三方服务器限制，默认值为空。长度限制0到128。 |
  
  
   
@@ -62,6 +62,8 @@ UAF字典对象，包含原始的UAF协议消息和附加数据。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.FIDO
  
 **起始版本：** 4.1.0(11)
@@ -72,7 +74,7 @@ UAF字典对象，包含原始的UAF协议消息和附加数据。
 | additionalData | string | 否 | 是 | UAF附加数据。长度由不同三方服务器限制，默认值为空。该字段格式为json string，具体格式{"key": value}。 - 当key为isGuideToSetBiometrics，表示用户未设置生物特征的情况下，使用系统跳转能力引导用户去设置生物特征。value取值为true、false。 - true：使用系统跳转能力。 - false：不使用系统跳转能力。 当不传入isGuideToSetBiometrics，则表示不使用系统跳转能力。 起始版本： 6.0.0(20) - 当key为navigationButtonText，表示支持开发者自定义认证方式，在用户生物认证失败并点击切换认证方式按钮时，提示用户拉起自定义的认证界面。 - 当value为任意文本时，表示开启自定义认证功能，此时传入的文本为切换认证方式按钮显示的文本。 当不传入navigationButtonText，则表示不使用自定义认证功能。 起始版本： 6.0.1(21) - 当key为algorithmMode，表示支持开发者选择密码算法模式。 - 当前value取值支持传入'default'、'SM'。 - 'default'：使用FIDO标准默认支持的国际通用算法。 - 'SM'：FIDO已支持国密化，传入此值表示使用中国国密算法。 当不传入algorithmMode，则使用FIDO协议默认支持的国际通用算法。 起始版本： 6.1.0(23) |
  
  
-**调用示例：**
+**示例：**
  
 ```json
 // ...
@@ -98,6 +100,8 @@ UAF协议版本信息。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.FIDO
  
 **起始版本：** 4.1.0(11)
@@ -117,6 +121,8 @@ UAF协议版本信息。
 RGB三元调色板。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.FIDO
  
@@ -138,6 +144,8 @@ RGB三元调色板。
 PNG图片特征对象。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.FIDO
  
@@ -164,6 +172,8 @@ PNG图片特征对象。
 认证器对象，描述了一个可用认证器的相关信息。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.FIDO
  
@@ -200,6 +210,8 @@ FIDO UAF客户端软件状态和可用的认证器数据。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.FIDO
  
 **起始版本：** 4.1.0(11)
@@ -224,6 +236,8 @@ discover(context: common.Context): Promise&lt;DiscoveryData&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.FIDO
  
 **起始版本：** 4.1.0(11)
@@ -244,7 +258,7 @@ discover(context: common.Context): Promise&lt;DiscoveryData&gt;
  
 **错误码:**
  
-以下错误码的详细介绍请参见[FIDO免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-fido)。
+以下错误码的详细介绍请参见[FIDO免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-fido)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -254,7 +268,7 @@ discover(context: common.Context): Promise&lt;DiscoveryData&gt;
 | 1005900016 | Unknown error. |
  
  
-**调用示例：**
+**示例：**
  
 ```text
 // ...
@@ -285,6 +299,8 @@ checkPolicy(context: common.Context, uafRequest: UAFMessage): Promise&lt;void&gt
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.FIDO
  
 **起始版本：** 4.1.0(11)
@@ -306,7 +322,7 @@ checkPolicy(context: common.Context, uafRequest: UAFMessage): Promise&lt;void&gt
  
 **错误码：**
  
-以下错误码的详细介绍请参见[FIDO免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-fido)。
+以下错误码的详细介绍请参见[FIDO免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-fido)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -318,7 +334,7 @@ checkPolicy(context: common.Context, uafRequest: UAFMessage): Promise&lt;void&gt
 | 1005900016 | Unknown error. |
  
  
-**调用示例：**
+**示例：**
  
 ```text
 // ...
@@ -354,6 +370,8 @@ processUAFOperation(context: common.Context, uafRequest: UAFMessage, channelBind
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.FIDO
  
 **起始版本：** 4.1.0(11)
@@ -376,7 +394,7 @@ processUAFOperation(context: common.Context, uafRequest: UAFMessage, channelBind
  
 **错误码：**
  
-以下错误码的详细介绍请参见[FIDO免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-fido)。
+以下错误码的详细介绍请参见[FIDO免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-fido)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -393,7 +411,7 @@ processUAFOperation(context: common.Context, uafRequest: UAFMessage, channelBind
 | 1005900017 | Switched to the custom authentication process. |
  
  
-**调用示例：**
+**示例：**
  
 ```json
 // ...
@@ -430,6 +448,8 @@ notifyUAFResult(context: common.Context, uafResponse: UAFMessage): Promise&lt;vo
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.FIDO
  
 **起始版本：** 4.1.0(11)
@@ -451,7 +471,7 @@ notifyUAFResult(context: common.Context, uafResponse: UAFMessage): Promise&lt;vo
  
 **错误码：**
  
-以下错误码的详细介绍请参见[FIDO免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-fido)。
+以下错误码的详细介绍请参见[FIDO免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-fido)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -462,7 +482,7 @@ notifyUAFResult(context: common.Context, uafResponse: UAFMessage): Promise&lt;vo
 | 1005900016 | Unknown error. |
  
  
-**调用示例：**
+**示例：**
  
 ```text
 // ...

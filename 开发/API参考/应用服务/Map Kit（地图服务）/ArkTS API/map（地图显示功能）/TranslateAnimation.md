@@ -1,6 +1,6 @@
 # Class (TranslateAnimation)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-translateanimation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable

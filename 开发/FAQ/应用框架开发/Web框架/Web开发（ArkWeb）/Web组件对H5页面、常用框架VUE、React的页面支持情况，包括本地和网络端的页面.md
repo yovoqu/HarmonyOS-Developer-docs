@@ -1,6 +1,6 @@
 # Web组件对H5页面、常用框架VUE、React的页面支持情况，包括本地和网络端的页面
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-38
 

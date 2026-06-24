@@ -1,6 +1,6 @@
 # AI辅助图文内容编创
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-06-23 06:26:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-content-creation
 
@@ -271,10 +271,13 @@ import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } 
 @StorageLink(CommonConstants.KEY_MOVING_DATA) src: photoAccessHelper.MovingPhoto | undefined = undefined;
   @StorageLink(CommonConstants.KEY_IMAGE_INFO) imageInfoArr: Array<ImageInfo> = [];
   @State isMuted: boolean = false;
+
   async aboutToAppear(): Promise<void> {
     // ...
-    this.requestMovingPhoto();
+      this.requestMovingPhoto();
+      // ...
   }
+
 
   private requestMovingPhoto() {
     let photoAsset: photoAccessHelper.PhotoAsset =
@@ -290,6 +293,7 @@ import { MovingPhotoView, MovingPhotoViewController, MovingPhotoViewAttribute } 
       Logger.error(this.tag, `requestMovingPhoto fail!`);
     });
   }
+
 
 class MediaDataHandlerMovingPhoto implements photoAccessHelper.MediaAssetDataHandler<photoAccessHelper.MovingPhoto> {
   async onDataPrepared(movingPhoto: photoAccessHelper.MovingPhoto): Promise<void> {
@@ -316,20 +320,33 @@ build() {
     alignContent: FlexAlign.Start
   }) {
     this.setActions();
-    MovingPhotoView({
-      movingPhoto: this.src,
-      controller: this.controller
-    })
+    if (this.isPreviewMovingLoading) {
+      Column() {
+        LoadingProgress()
+          .color(Color.White)
+          .width($r('app.float.size_80'))
+          .height($r('app.float.size_80'))
+      }
       .width($r('app.string.full_screen'))
-      .objectFit(ImageFit.Contain)
-      .muted(this.isMuted)
-      .margin(new BreakpointType(
-        {
-          sm: { bottom: $r('app.float.margin_190') } as Padding,
-          md: { bottom: $r('app.float.margin_190') } as Padding,
-          lg: { right: $r('app.float.margin_24') } as Padding,
-        }
-      ).getValue(this.currentBreakpoint))
+      .height($r('app.string.full_screen'))
+      .justifyContent(FlexAlign.Center)
+      .backgroundColor('rgba(0,0,0,0.25)')
+    } else {
+      MovingPhotoView({
+        movingPhoto: this.src,
+        controller: this.controller
+      })
+        .width($r('app.string.full_screen'))
+        .objectFit(ImageFit.Contain)
+        .muted(this.isMuted)
+        .margin(new BreakpointType(
+          {
+            sm: { bottom: $r('app.float.margin_190') } as Padding,
+            md: { bottom: $r('app.float.margin_190') } as Padding,
+            lg: { right: $r('app.float.margin_24') } as Padding,
+          }
+        ).getValue(this.currentBreakpoint))
+    }
   }
   .backgroundColor(Color.Black)
   .width($r('app.string.full_screen'))

@@ -1,6 +1,6 @@
 # 开发Hvigor插件
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-plugin
 
@@ -9,6 +9,10 @@ Hvigor允许开发者实现自己的插件，开发者可以定义自己的构�
 Hvigor主要提供了两种方式来实现插件：基于hvigorfile脚本开发插件、基于typescript项目开发。
 
 关于插件开发的具体实践请参考[定制hvigor插件开发实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-custom-hvigor-plugin)。
+
+> [!NOTE]
+> 建议使用DevEco Studio内置的Node.js，如需另行安装，推荐使用DevEco Studio配套的Node.js版本，具体配套关系请参考 DevEco Studio兼容性配套关系 。
+
 
 
 #### 基于hvigorfile脚本开发
@@ -20,7 +24,7 @@ Hvigor主要提供了两种方式来实现插件：基于hvigorfile脚本开发�
 若开发者需要创建新的构建脚本，推荐将这些脚本统一放在工程或模块的scripts目录下，以便与应用代码进行隔离，示例如下。
 
 
-![](assets/开发Hvigor插件/file-20260514133113148-0.png)
+![](assets/开发Hvigor插件/file-20260514133113148-1.png)
 
 
 以工程级hvigorfile.ts脚本为例，开发步骤如下。
@@ -67,7 +71,7 @@ export default <span style="color: rgb(255,0,170);">{</span>
   执行Hvigor命令时，在Hvigor生命周期配置阶段执行插件中的apply方法。
 
   
-![](assets/开发Hvigor插件/file-20260514133113148-1.png)
+![](assets/开发Hvigor插件/file-20260514133113148-2.png)
 
 
 
@@ -108,7 +112,7 @@ tsc --init
 
 
   
-![](assets/开发Hvigor插件/file-20260514133113148-2.png)
+![](assets/开发Hvigor插件/file-20260514133113148-3.png)
 
 5. 删除verbatimModuleSyntax字段。
 
@@ -210,7 +214,7 @@ tsc
 如果编译时报以下错误，请检查初始化项目时是否[删除了verbatimModuleSyntax](#li88369101451)。
 
   
-![](assets/开发Hvigor插件/file-20260514133113148-3.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/-zVJtudeTnS_LgBWgzP_yw/zh-cn_image_0000002625074039.png?HW-CC-KV=V1&HW-CC-Date=20260624T020718Z&HW-CC-Expire=86400&HW-CC-Sign=3046DDACFE3BFDC57072D91D8596712760407702F830CC1A66C9900297BE70B9)
 
 4. 发布npm包。
 

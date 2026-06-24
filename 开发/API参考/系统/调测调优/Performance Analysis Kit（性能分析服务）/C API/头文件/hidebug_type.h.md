@@ -1,6 +1,6 @@
 # hidebug_type.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hidebug-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -65,6 +65,7 @@ HiDebug模块代码结构体定义。
 | HiDebug_StackFrameType | HiDebug_StackFrameType | 栈帧类型的枚举值定义。 |
 | HiDebug_CrashObjType | HiDebug_CrashObjType | 维测信息数据类型的枚举。 |
 | OH_HiDebug_ResourceType | OH_HiDebug_ResourceType | 定义资源采集类型的枚举。 |
+| OH_HiDebug_MemListenerType | OH_HiDebug_MemListenerType | 内存监听回调的类型。开发者根据回调类型处理相关逻辑。 |
  
  
   
@@ -270,6 +271,29 @@ enum OH_HiDebug_ResourceType
 | OH_RES_TYPE_NATIVE | Native 内存 起始版本： 24 |
 | OH_RES_TYPE_GPU | GPU 内存 起始版本： 24 |
 | OH_RES_TYPE_GLOBAL_HANDLE | 全局句柄 起始版本： 24 |
+ 
+ 
+  
+
+#### OH_HiDebug_MemListenerType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum OH_HiDebug_MemListenerType
+```
+ 
+**描述**
+ 
+内存监听回调的类型。开发者根据回调类型处理相关逻辑。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举项 | 描述 |
+| --- | --- |
+| OH_HIDEBUG_DO_NOTHING = 0 | 无特定操作，仅通知回调。 起始版本： 26.0.0 |
+| OH_HIDEBUG_RUNNING_GC = 1 | 垃圾回收（GC）操作。 起始版本： 26.0.0 |
+| OH_HIDEBUG_DUMP_SNAPSHOT = 2 | 导出内存快照。 起始版本： 26.0.0 |
  
  
   

@@ -1,6 +1,6 @@
 # 复杂绘制效果（ArkTS）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-arkts
 
@@ -35,7 +35,7 @@ function drawRenderNode(canvas: drawing.Canvas) {
   canvas.attachBrush(brushCircle);
   canvas.drawCircle(500, 500, 200);
   const brush = new drawing.Brush();
-  //  设置混合模式
+  // 设置混合模式
   brush.setBlendMode(drawing.BlendMode.SRC_IN);
   canvas.saveLayer(null, brush);
 
@@ -193,7 +193,7 @@ canvas.detachBrush();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/HbJ0R2ntTMyy2ZwN2twdgQ/zh-cn_image_0000002581434738.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=83CE3850B01DA489CBF5A53E2C00CCCF598DB24643867E9481AA9064B82DDDE1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/3rltnob3RUyG4Pf8U3EU3w/zh-cn_image_0000002656348665.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020913Z&HW-CC-Expire=86400&HW-CC-Sign=B56C4D542A7F51A27E96F5626094DD0A28AC317FD1882B56C5F0BB4A9BF756D8)
 
 
 
@@ -230,7 +230,7 @@ canvas.detachBrush();
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/07/v3/JqG_q2iDSainlI1L43MASA/zh-cn_image_0000002611834569.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=CDA5D7D0A809002B72FE40EEED66AFD2E1F35D79331124BD12F119ED5E41457A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/ps_UAUFzS1GvfgTA469L-A/zh-cn_image_0000002626229252.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020913Z&HW-CC-Expire=86400&HW-CC-Sign=A048FB04A729160B2187A07B08A2682D3F4A6A9354F23322002259BC1E36A1C2)
 
 
 

@@ -1,6 +1,6 @@
 # 使用Swiper组件实现轮播图
 
-更新时间：2026-03-12 08:45:02
+更新时间：2026-06-23 06:26:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-carousel-graphic-works
 
@@ -63,9 +63,9 @@ Swiper(this.swiperController) {
       .height('100%')
   }, (item: PhotoData) => JSON.stringify(item))
 }
-.loop(true)
 .autoPlay(true)
 //.autoPlay(this.slide ? false : true)
+.loop(this.slide ? false : true)
 .interval(3000)
 .indicator(false)
 ```
@@ -112,7 +112,7 @@ progressComponent() {
   
 ![](assets/使用Swiper组件实现轮播图/file-20260515114436277-2.gif)
 
-3. 滑动切换图片后，关闭自动轮播与循环轮播。此时，开发者需要给Swiper组件添加[onGestureSwipe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#ongestureswipe10)事件，来判断页面是否跟手滑动。其中slide为布尔值，用来判断页面是否跟手滑动。默认值为false，当页面跟手滑动时，slide的值为true。当进行滑动切换时，autoPlay、loop属性的取值为false，即关闭自动轮播与循环播放功能。若想实现滑动图片后仍自动循环轮播，直接去掉slide相关代码片段即可。
+3. 将.autoPlay(this.slide ? false : true)解开注释，并将.autoPlay(true)注释。滑动切换图片后，关闭自动轮播与循环轮播。此时，开发者需要给Swiper组件添加[onGestureSwipe](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-swiper#ongestureswipe10)事件，来判断页面是否跟手滑动。其中slide为布尔值，用来判断页面是否跟手滑动。默认值为false，当页面跟手滑动时，slide的值为true。当进行滑动切换时，autoPlay、loop属性的取值为false，即关闭自动轮播与循环播放功能。若想实现滑动图片后仍自动循环轮播，直接去掉slide相关代码片段即可。
 
   
 ```ArkTS

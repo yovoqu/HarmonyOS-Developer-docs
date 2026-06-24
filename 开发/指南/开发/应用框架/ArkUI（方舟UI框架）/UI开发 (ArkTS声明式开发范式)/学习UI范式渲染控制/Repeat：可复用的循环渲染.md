@@ -1,6 +1,6 @@
 # Repeat：可复用的循环渲染
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-rendering-control-repeat
 
@@ -704,7 +704,7 @@ struct PreInsertDemo {
 运行效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/efwInku9QC-l_AdOIjSf-g/zh-cn_image_0000002617707675.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=C2AC608C032644DC0127E6E63A987C6BEF0F275901B83193F105EBA9F118549A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/aqkOsq6_Q1WL894bUlHg5g/zh-cn_image_0000002656467499.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=09B59B25DCBB2BCEAE5FA88B2C787D35D5D89258DD73029D9E4584385C52C749)
 
 
 
@@ -812,7 +812,7 @@ class ItemInfo {
 运行效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/xLysk6bgTpqbpDxeMl2ydQ/zh-cn_image_0000002587108100.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=EB632ECF990D1BC9053C842FBBF0868CDAB478C4EC39AD77720CDACB1ECAB9C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/_9yUnwpCSsuj4QD7Uv2iJw/zh-cn_image_0000002656347549.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=163B2FE1384F92B854752CA42C33BD3FDA4504A62DDFE1D95D92A971F76EE21C)
 
 
 
@@ -966,7 +966,7 @@ struct RepeatVirtualScroll {
 该示例代码展示了100项自定义类RepeatClazz的message字符串属性，[List](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list)组件的[cachedCount](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-list#cachedcount)属性设为2，模板'odd'和'even'的空闲节点缓存池大小分别设为3和1。运行后界面如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b9/v3/KnMEVMvCRrmB_9yjvJeHnQ/zh-cn_image_0000002617667779.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=ED7080458A4224D28BE13FD88817A23B3F4690C4D562B53F446C13449D4B739D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/fsOXAxVHTbSa68Rw7yrFsw/zh-cn_image_0000002626228134.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=D91B8E7C2BE5DAC88F5078D5205D77D22131D745ABF7A495998CC1102E1C1960)
 
 
 
@@ -1038,7 +1038,7 @@ struct NestedRepeat {
 运行效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/cZwSzAzRRyusdcP4VFnIlg/zh-cn_image_0000002587268002.png?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=8F20D3218DB8AC7A84EA180CFE34B4DE8C90A15FB487030183D5D05A1ECC9E83)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/9S0OXJsVTvu9cQbcN2fasg/zh-cn_image_0000002626068226.png?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=26799038BD11905F83D99782AB3F13411D041AE5BA8F2E8217DE63DDEBB471B4)
 
 
 
@@ -1149,7 +1149,7 @@ struct DemoList {
 右滑并点击按钮，或点击底部按钮，可删除视频卡片：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/hHkvzBqvR-KFbuKDJ2OJ2Q/zh-cn_image_0000002617707677.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=74F0886EB48911951992259C2CF2F6646E1F2114928549170624C9DED6B09643)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/5XYxAYZcRzeyzZe-LPQNog/zh-cn_image_0000002656467501.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=21DA6B075C99549E3BDD4C323382B3CFD2589679C868EF12E24E1FE69ABC35D1)
 
 
 **与Grid组合使用**
@@ -1283,7 +1283,7 @@ struct DemoGrid {
 下拉屏幕，或点击刷新按钮，或点击“先前浏览至此，点击刷新”，可加载新的视频内容：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/lsDkoM8hSy6FsOGJ0Vb9Jg/zh-cn_image_0000002587108102.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=2D5F3FBF02307C2F7650E8CC72E556007511A680811A3C8553D0CEDA2F4C8F78)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/YjW7NdOEQz-CWte5bdNkbQ/zh-cn_image_0000002656347551.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=398B32F7225FCE7D47AFC149285E1AF39A76F990A8130B63980B2B835A8A23FE)
 
 
 **与Swiper组合使用**
@@ -1362,7 +1362,7 @@ struct DemoSwiper {
 定时1秒后加载图片，模拟网络延迟：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/n6jttFcQTsCrU2M2E2LdWw/zh-cn_image_0000002617667781.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=8B25EBD1E5E9EF99D34A73C3ED9132BACC397C4EEE4B21891781BB3BE46A893E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/2OjzMEu3Rn-heOVB9K3SsQ/zh-cn_image_0000002626228136.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=9D9D4C03B60295EC63EAEBE1D1B31BFC1B3FFA3B4A9C23F0B8E4264ADE93E758)
 
 
 
@@ -1437,7 +1437,7 @@ struct RepeatTemplateSingle {
 运行效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/mJfI9DsoSYW1-X3Ij9fzWA/zh-cn_image_0000002587268004.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=BBB2521BC76F6F44CD1AE352A49F0C669C18698175CE25083A7D9366BBFB8509)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b/v3/_KjcZByuTnav39kOzpcWBA/zh-cn_image_0000002626068228.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=41C49689582D0738E7A234D055DB0FE7C5B28FA0FE43208110355FC0BEF6CBF9)
 
 
 以下为修正后的示例：
@@ -1519,7 +1519,7 @@ struct RepeatSingle {
 运行效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/wfdniKc6R8md50_N7FiLPg/zh-cn_image_0000002617707679.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=8BC331A7D3A860EC4365B2925F31E7131B433CEDF756539F2EB777A553F20826)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/ecTZecHYS0iXLsEOJdk7zg/zh-cn_image_0000002656467503.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=294DDC7726D6652C21D4F783B4B703DED9CD38891EBA9A9735E6C33A67BA706F)
 
 
 
@@ -1622,14 +1622,14 @@ struct EntryCompSucc {
 示例代码运行效果：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/16/v3/rriOD2HHQoKp9t9xPL-cnA/zh-cn_image_0000002587108104.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=C8AEC082117CCC3D0EE70C260844226E797050D5E6D3431910DAE569DF469B62)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/walQQbTZQamaMPvXSAUaEA/zh-cn_image_0000002656347553.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=040F03E75114B34D35BE75053E47EFBE2922C1473B8B5BBBF26DE291B16B7167)
 
 
 
 
 #### 与@Builder混用时状态变量未刷新
 
-当Repeat与[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)混用时，如果只传递RepeatItem.item或RepeatItem.index，参数值的改变不会引起@Builder函数内的UI刷新。推荐使用[按引用传递](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#按引用传递参数)，即将RepeatItem类型整体进行传参，组件才能监听到数据变化。除此之外，从API version 20开始，开发者可以通过使用[UIUtils.makeBinding()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makebinding20)函数、[Binding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#bindingt20) 类和[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20) 类实现@Builder函数中状态变量的刷新。
+当Repeat与[@Builder](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder)混用时，如果只传递RepeatItem.item或RepeatItem.index，参数值的改变不会引起@Builder函数内的UI刷新。推荐使用[按引用传递](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#按引用传递参数)，即将RepeatItem类型整体进行传参，组件才能监听到数据变化。除此之外，从API version 20开始，开发者可以通过使用[UIUtils.makeBinding()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#makebinding20)函数、[Binding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#bindingt20)类和[MutableBinding](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-statemanagement#mutablebindingt20)类实现@Builder函数中状态变量的刷新。
 
 示例代码如下：
 
@@ -1698,7 +1698,7 @@ struct RepeatBuilderPage {
 @Builder传参方式依次为makeBinding()、地址传递和值传递，界面展示如下图，进入页面后点击按钮改变数据。在@Builder构造函数中使用值传递传参不会引起函数内的UI刷新。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/U1tDhArcSOSl_9Lm_JyzWg/zh-cn_image_0000002617667783.png?HW-CC-KV=V1&HW-CC-Date=20260604T012630Z&HW-CC-Expire=86400&HW-CC-Sign=F3406857B38E9FCC915E330E89AF2EAF8DBCC06851697DEB7BDB26AEAEAA0422)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d4/v3/AC0yg5BjRkKR3bgLOh82eQ/zh-cn_image_0000002626228138.png?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=13E5093DAAD3EC29B5ACEBB3A9A68E5C23FD750B136BA896260F195B2C44C2D0)
 
 
 

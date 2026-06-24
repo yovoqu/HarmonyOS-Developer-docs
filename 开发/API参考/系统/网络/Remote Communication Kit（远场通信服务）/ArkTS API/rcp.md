@@ -1,6 +1,6 @@
 # rcp（数据请求）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-rcp
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -52,7 +52,7 @@ createSession(sessionConfiguration?: SessionConfiguration): Session
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -124,7 +124,7 @@ fetch(request: Request): Promise&lt;Response&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -149,7 +149,7 @@ session.fetch(req).then((response) => {
 
 fetchForSendable(request: Request): Promise&lt;ResponseSendable&gt;
  
-发送一个HTTP请求，并返回服务器的HTTP响应，该响应消息支持Sendable。使用Promise异步回调。
+发送一个HTTP请求，并返回服务器的HTTP响应，该响应消息支持[Sendable](https://developer.huawei.com/consumer/cn/doc/HarmonyOS-Guides/arkts-sendable)。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -175,7 +175,7 @@ fetchForSendable(request: Request): Promise&lt;ResponseSendable&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -249,7 +249,7 @@ get(url: URLOrString, destination?: ResponseBodyDestination): Promise&lt;Respons
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -301,7 +301,7 @@ post(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDesti
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -353,7 +353,7 @@ put(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestin
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -404,7 +404,7 @@ downloadToFile(url: URLOrString, downloadTo: DownloadToFile): Promise&lt;Respons
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -459,7 +459,7 @@ uploadFromFile(url: URLOrString, uploadFrom: UploadFromFile): Promise&lt;Respons
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -514,7 +514,7 @@ downloadToStream(url: URLOrString, downloadTo: DownloadToStream): Promise&lt;Res
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -575,7 +575,7 @@ uploadFromStream(url: URLOrString, uploadFrom: UploadFromStream): Promise&lt;Res
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -628,7 +628,7 @@ head(url: URLOrString): Promise&lt;Response&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -678,7 +678,7 @@ delete(url: URLOrString): Promise&lt;Response&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -719,7 +719,7 @@ cancel(requestToCancel?: Request | Request[]): void
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -854,7 +854,7 @@ fetch(request: Request): Promise&lt;Response&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -879,7 +879,7 @@ defaultSession.fetch(req).then((response) => {
 
 fetchForSendable(request: Request): Promise&lt;ResponseSendable&gt;
  
-发送一个HTTP请求，并返回服务器的HTTP响应，该响应消息支持Sendable。使用Promise异步回调。
+发送一个HTTP请求，并返回服务器的HTTP响应，该响应消息支持[Sendable](https://developer.huawei.com/consumer/cn/doc/HarmonyOS-Guides/arkts-sendable)。使用Promise异步回调。
  
 **需要权限：** ohos.permission.INTERNET（如果使用[PathPreference](#pathpreference)的'cellular'模式，则额外需要ohos.permission.GET_NETWORK_INFO）
  
@@ -905,7 +905,7 @@ fetchForSendable(request: Request): Promise&lt;ResponseSendable&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -979,7 +979,7 @@ get(url: URLOrString, destination?: ResponseBodyDestination): Promise&lt;Respons
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1031,7 +1031,7 @@ post(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDesti
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1083,7 +1083,7 @@ put(url: URLOrString, content?: RequestContent, destination?: ResponseBodyDestin
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1134,7 +1134,7 @@ downloadToFile(url: URLOrString, downloadTo: DownloadToFile): Promise&lt;Respons
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1189,7 +1189,7 @@ uploadFromFile(url: URLOrString, uploadFrom: UploadFromFile): Promise&lt;Respons
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1244,7 +1244,7 @@ downloadToStream(url: URLOrString, downloadTo: DownloadToStream): Promise&lt;Res
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1305,7 +1305,7 @@ uploadFromStream(url: URLOrString, uploadFrom: UploadFromStream): Promise&lt;Res
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1358,7 +1358,7 @@ head(url: URLOrString): Promise&lt;Response&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1408,7 +1408,7 @@ delete(url: URLOrString): Promise&lt;Response&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1449,7 +1449,7 @@ cancel(requestToCancel?: Request | Request[]): void
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -1489,11 +1489,9 @@ defaultSession.fetch(req).then((response) => {
 
 handle(context: RequestContext): Promise&lt;Response&gt;
  
-远场通信框架会预置两种处理器，一种会调用拦截器的[intercept](#intercept)函数，一种会调用系统的fetchInternal使用系统能力发起请求，使用promise异步回调。
+请求处理器的入口函数。每一层拦截器通过调用下一层[RequestHandler](#requesthandler)的[handle](#handle)方法，触发下一层拦截器的[intercept](#intercept)函数，最终触发向服务器发起请求。使用promise异步回调。
  
-比如，拦截器：[A, B, C, D]会被构造成：
- 
-A {handler->B{handler->C{handler-D{handler->系统能力}}}}
+比如，拦截器[A, B, C, D]会被构造成：A {handler->B{handler->C{handler-D{handler->系统能力}}}}。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -1517,25 +1515,7 @@ A {handler->B{handler->C{handler-D{handler->系统能力}}}}
  
 **示例：**
  
-```text
-import { rcp } from '@kit.RemoteCommunicationKit';
-
-class RequestHandler implements rcp.RequestHandler {
-  handle(context: rcp.RequestContext): Promise<rcp.Response> {
-    let handlerRequest = new rcp.Request("https://www.example.com", 'GET');
-    let handlerSession = rcp.createSession();
-    context.request = handlerRequest;
-    context.session = handlerSession;
-    return new Promise<rcp.Response>((resolve, reject) => {
-      handlerSession.get("https://www.example.com").then((response: rcp.Response) => {
-        resolve(response);
-      }).catch((error: Error) => {
-        reject(error);
-      })
-    });
-  }
-}
-```
+请参考[Interceptor](#interceptor)的代码示例。
  
   
 
@@ -1650,16 +1630,16 @@ function testInterceptor() {
   });
 
   session.get('https://www.example.com').then((response: rcp.Response) => {
-    console.info(`Response succeeded. The statusCode of the response is ${response.statusCode}`);
+    console.info(`Succeeded in getting the response. The statusCode of the response is ${response.statusCode}`);
   }).catch((err: BusinessError) => {
-    console.error(`Response failed: error code is ${err.code}, error data is ${err.data}`);
+    console.error(`Error: error code is ${err.code}, error data is ${err.data}`);
   });
 
   let request = new rcp.Request("https://www.example.com", 'GET');
   session.fetch(request).then((response: rcp.Response) => {
-    console.info(`Response succeeded. The statusCode of the response is ${response.statusCode}`);
+    console.info(`Succeeded in fetching the response. The statusCode of the response is ${response.statusCode}`);
   }).catch((err: BusinessError) => {
-    console.error(`Response failed: error code is ${err.code}, error data is ${err.data}`);
+    console.error(`Error: error code is ${err.code}, error data is ${err.data}`);
   });
 }
 ```
@@ -1777,16 +1757,16 @@ function testInterceptor() {
   });
 
   session.get('https://www.example.com').then((response: rcp.Response) => {
-    console.info(`Response succeeded. The statusCode of the response is ${response.statusCode}`);
+    console.info(`Succeeded in getting the response. The statusCode of the response is ${response.statusCode}`);
   }).catch((err: BusinessError) => {
-    console.error(`Response failed: error code is ${err.code}, error data is ${err.data}`);
+    console.error(`Error: error code is ${err.code}, error data is ${err.data}`);
   });
 
   let request = new rcp.Request("https://www.example.com", 'GET');
   session.fetch(request).then((response: rcp.Response) => {
-    console.info(`Response succeeded. The statusCode of the response is ${response.statusCode}`);
+    console.info(`Succeeded in fetching the response. The statusCode of the response is ${response.statusCode}`);
   }).catch((err: BusinessError) => {
-    console.error(`Response failed: error code is ${err.code}, error data is ${err.data}`);
+    console.error(`Error: error code is ${err.code}, error data is ${err.data}`);
   });
 }
 ```
@@ -1999,7 +1979,7 @@ static create(identifier?: string): CookieRepository
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2014,7 +1994,7 @@ import { rcp } from '@kit.RemoteCommunicationKit';
 try {
   rcp.CookieRepository.create('myRepo');
 } catch (err) {
-  console.error(`create error, error code is ${err.code}, error data is ${err.data}`);
+  console.error(`Error: error code is ${err.code}, error data is ${err.data}`);
 }
 ```
  
@@ -2050,7 +2030,7 @@ setCookies(cookies: ResponseCookie | ResponseCookie[]): Promise&lt;void&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2073,7 +2053,7 @@ let cookie: rcp.ResponseCookie = {
    isSecure: true
 }
 cookieRepository.setCookies(cookie).then(() => {
-  console.info('setCookies success.');
+  console.info('Succeeded in setting cookies.');
 }).catch((err: BusinessError) => {
   console.error(`setCookies error, error code is ${err.code}, error data is ${err.data}`);
 })
@@ -2104,7 +2084,7 @@ getAllCookies(): Promise<ResponseCookie[]>
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2119,7 +2099,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let cookieRepository = rcp.CookieRepository.create('myRepo');
 cookieRepository.getAllCookies().then((cookies) => {
-  console.info(`cookies num: ${cookies.length}`);
+  console.info(`Succeeded in getting all cookies, cookies num: ${cookies.length}`);
 }).catch((err: BusinessError) => {
   console.error(`getAllCookies error, error code is ${err.code}, error data is ${err.data}`);
 })
@@ -2157,7 +2137,7 @@ getCookiesByUrl(url: URL): Promise<ResponseCookie[]>
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2173,7 +2153,7 @@ import { url } from '@kit.ArkTS';
 
 let cookieRepository = rcp.CookieRepository.create('myRepo');
 cookieRepository.getCookiesByUrl(url.URL.parseURL('https://www.example.com')).then((cookies) => {
-  console.info(`cookies num: ${cookies.length}`);
+  console.info(`Succeeded in getting cookies by URL, cookies num: ${cookies.length}`);
 }).catch((err: BusinessError) => {
   console.error(`getCookiesByUrl error, error code is ${err.code}, error data is ${err.data}`);
 })
@@ -2211,7 +2191,7 @@ deleteCookies(cookies?: ResponseCookie | ResponseCookie[]): Promise&lt;void&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2234,7 +2214,7 @@ let cookie: rcp.ResponseCookie = {
    isSecure: true
 }
 cookieRepository.deleteCookies(cookie).then(() => {
-  console.info('deleteCookies success.');
+  console.info('Succeeded in deleting cookies.');
 }).catch((err: BusinessError) => {
   console.error(`deleteCookies error, error code is ${err.code}, error data is ${err.data}`);
 })
@@ -2272,7 +2252,7 @@ deleteCookiesByUrl(url: URL): Promise&lt;void&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2288,7 +2268,7 @@ import { url } from '@kit.ArkTS';
 
 let cookieRepository = rcp.CookieRepository.create('myRepo');
 cookieRepository.deleteCookiesByUrl(url.URL.parseURL('https://www.example.com')).then(() => {
-  console.info('deleteCookiesByUrl success.');
+  console.info('Succeeded in deleting cookies by URL.');
 }).catch((err: BusinessError) => {
   console.error(`deleteCookiesByUrl error, error code is ${err.code}, error data is ${err.data}`);
 })
@@ -2352,7 +2332,8 @@ TransferConfiguration接口为开发者提供了一组选项，用于调整会�
 | pausePolicy | PausePolicy | 否 | 是 | 请求暂停策略。 起始版本： 5.0.0(12) |
 | tcp | TcpConfiguration | 否 | 是 | TCP连接的相关配置。 起始版本： 6.0.0(20) |
 | connectionReusePolicy | ConnectionReusePolicy | 否 | 是 | HTTP连接复用方式。默认是'naive'。 起始版本： 6.1.0(23) |
-| throwErrorWhenEnableCellularFailed | boolean | 否 | 是 | 配置当请求的pathPreference为'cellular'且蜂窝网络启用失败时是否抛出错误码。设置为true，表示抛出蜂窝连接超时错误码1007900986；false表示不抛错误码，使用其他可用网络（如Wi-Fi）发送请求。默认值为false。 起始版本： 6.1.1(24) |
+| throwErrorWhenEnableCellularFailed | boolean | 否 | 是 | 配置当请求的pathPreference为'cellular'且蜂窝网络启用失败时是否抛出错误码。true表示抛出蜂窝连接超时错误码1007900986，false表示不抛错误码，使用其他可用网络（如Wi-Fi）发送请求。默认值为false。 起始版本： 6.1.1(24) |
+| httpVersionSelectCallback | HttpVersionSelectCallback | 否 | 是 | 选择HTTP版本的回调函数，返回值HttpVersion。 起始版本： 26.0.0 |
  
  
 **示例：**
@@ -2368,7 +2349,10 @@ const transferConfig: rcp.TransferConfiguration = {
   },
   assumesHTTP3Capable: true,
   pathPreference: "cellular",
-  connectionReusePolicy: "balanced"
+  connectionReusePolicy: "balanced",
+  httpVersionSelectCallback: (url: rcp.URL): rcp.HttpVersion => {
+    return '2';
+  },
 };
 
 // 使用配置创建Session
@@ -2549,13 +2533,13 @@ console.info(`sessionWithNoProxy id: ${sessionWithNoProxy.id}`);
 ```text
 import { rcp } from '@kit.RemoteCommunicationKit';
 
-// 配置自定义DNS服务器
+// 配置自定义DNS服务器，下面IP地址仅作为示意。
 const customDnsServers: rcp.DnsServers = [
-  { ip: "8.8.8.8" },
-  { ip: "8.8.4.4", port: 53 }
+  { ip: "192.168.1.1" },
+  { ip: "192.168.1.2", port: 53 }
 ];
 
-// 配置静态DNS规则
+// 配置静态DNS规则，下面IP地址仅作为示意。
 const staticDnsRules: rcp.StaticDnsRules = [
   { host: "example.com", port: 80, ipAddresses: ["192.168.1.1", "192.168.1.2"] },
   { host: "sub.example.com", port: 443, ipAddresses: ["192.168.2.1"] }
@@ -3812,7 +3796,7 @@ read(maxBytesToRead: number): ArrayBuffer
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3851,7 +3835,7 @@ readInto(buffer: ArrayBuffer): number
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3971,6 +3955,36 @@ HTTP连接复用方式。
 | 'balanced' | 表示均衡地使用HTTP连接。系统会选择当前负载最低的HTTP连接。 |
 | 'forbidden' | 表示禁止连接复用。每次请求都会创建新的HTTP连接。 |
 | 'naive' | 表示使用简易的连接复用方式。系统会选择找到的第一个可用的HTTP连接。 |
+ 
+ 
+  
+
+#### HttpVersionSelectCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+type HttpVersionSelectCallback = (url: URL) => HttpVersion
+ 
+选择HTTP版本的回调函数。在请求发起前执行这个函数，如果回调函数返回的不是'unknown'，则使用返回的HTTP版本，且assumesHTTP3Capable不生效。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Collaboration.RemoteCommunication
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| url | Url | 是 | HTTP 请求资源的URL。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| HttpVersion | 选择的HTTP版本。 |
  
  
   
@@ -4291,7 +4305,7 @@ write(buffer: string | ArrayBuffer): void
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4463,7 +4477,7 @@ HTTP多部分表格数据。
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4899,7 +4913,7 @@ const session = rcp.createSession();
 const request = new rcp.Request("https://www.example.com");
 session.fetch(request).then((response: rcp.Response) => {
   if (response) {
-    console.info(`response: ${response.toString()}`);
+    console.info(`Succeeded in fetching the response, response: ${response.toString()}`);
   }
 }).catch((err: BusinessError) => {
   console.error(`err: error code is ${err.code}, error data is ${err.data}`);
@@ -4940,7 +4954,7 @@ const request = new rcp.Request("https://www.example.com");
 session.fetch(request).then((response: rcp.Response) => {
   if (response) {
     let resJson = response.toJSON();
-    console.info(`response: ${JSON.stringify(resJson)}`);
+    console.info(`Succeeded in fetching the response, response: ${JSON.stringify(resJson)}`);
   }
 }).catch((err: BusinessError) => {
   console.error(`err: error code is ${err.code}, error data is ${err.data}`);
@@ -4989,7 +5003,7 @@ const request = new rcp.Request("https://www.example.com");
 session.fetch(request).then((response: rcp.Response) => {
   if (response) {
     const obj = response.toJSON({ bigIntMode: JSON.BigIntMode.PARSE_AS_BIGINT }); // 此处仅为示意，实际response的body应为JSON格式，且可能包含大整型数据
-    console.info(`response json result: ${JSON.stringify(obj)}`);
+    console.info(`Succeeded in fetching the response, response json result: ${JSON.stringify(obj)}`);
   }
 }).catch((err: BusinessError) => {
   console.error(`err: error code is ${err.code}, error data is ${err.data}`);
@@ -5002,7 +5016,7 @@ session.fetch(request).then((response: rcp.Response) => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-HTTP请求的响应数据，该响应数据支持Sendable。
+HTTP请求的响应数据，该响应数据支持[Sendable](https://developer.huawei.com/consumer/cn/doc/HarmonyOS-Guides/arkts-sendable)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -5186,7 +5200,7 @@ session.fetch(request).then((response: rcp.Response) => {
   console.info(`TLS握手（不包含建连时间）耗时${TLSTime}`);
   console.info(`接收剩余数据的耗时${remainderDataTime}`);
 }).catch((err: BusinessError) => {
-  console.error(`Response err, the error code is ${err.code}, error data is ${err.data}`);
+  console.error(`Error: error code is ${err.code}, error data is ${err.data}`);
 })
 ```
  
@@ -6080,7 +6094,7 @@ type OnDataReceive = (incomingData: ArrayBuffer, request?: Request) => number | 
 
 type OnUploadProgress = (totalSize: number, transferredSize: number, request?: Request) => void
  
-此类型表示上传进度时的回调。
+此类型表示上传进度时的回调。如果无法获知总大小，此回调可能无法触发。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -6105,7 +6119,7 @@ type OnUploadProgress = (totalSize: number, transferredSize: number, request?: R
 
 type OnDownloadProgress = (totalSize: number, transferredSize: number, request?: Request) => void
  
-此类型表示显示下载进度的回调。
+此类型表示显示下载进度的回调。如果无法获知总大小，此回调可能无法触发。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -6223,11 +6237,11 @@ request.configuration = {
 // 3. 使用 fetch 发起网络请求，请求中携带上述配置好的 configuration。
 session.fetch(request).then((response) => {
   if (response) {
-    console.info(`The request was successful. The statusCode of the response is ${response.statusCode}`);
+    console.info(`Succeeded in fetching the response. The statusCode of the response is ${response.statusCode}`);
     session.close();
   }
 }).catch((err: BusinessError) => {
-  console.error(`Response err, the error code is ${err.code}, error data is ${err.data}`);
+  console.error(`Error: error code is ${err.code}, error data is ${err.data}`);
 })
 ```
  
@@ -6683,7 +6697,7 @@ constructor(configuration: CacheConfiguration)
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -6723,7 +6737,7 @@ close(): Promise&lt;void&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6744,7 +6758,7 @@ try {
   });
   await cache.close();
 } catch (err) {
-  console.error(`Error: error code is ${err.code}, error message is ${err.data}`);
+  console.error(`Error: error code is ${err.code}, error data is ${err.data}`);
 }
 ```
  
@@ -6782,7 +6796,7 @@ set(key: ResponseCacheKey, response: CachedResponse, expirationPolicy?: Expirati
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6858,7 +6872,7 @@ get(key: ResponseCacheKey): Promise&lt;ResponseCacheRecord&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6912,7 +6926,7 @@ clear(): Promise&lt;void&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -6962,7 +6976,7 @@ getState(): Promise&lt;CacheState&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7019,7 +7033,7 @@ remove(key: ResponseCacheKey): Promise&lt;boolean&gt;
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7083,7 +7097,7 @@ removeMultiple(url: URLOrString, matchKind: URLMatchKind, method?: HttpMethod): 
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -7165,7 +7179,7 @@ createResponse(request: Request, cachedResponse: CachedResponse, currentTime: Da
  
 **错误码：**
  
-错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code)。
+错误码的详细介绍请参见[API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication)。
  
 **示例：**
  
@@ -7237,7 +7251,7 @@ try {
   const response = await session.get('https://www.example.com');
   // 根据HTTP响应创建HTTP响应缓存。
   const cachedRecord = rcp.createCachedResponse(response);
-  console.info(`createCachedResponse result is ${JSON.stringify(cachedRecord)}`);
+  console.info(`Succeeded in creating CachedResponse, result is ${JSON.stringify(cachedRecord)}`);
 } catch (err) {
   console.error(`Error: error code is ${err.code}, error data is ${err.data}`);
 }

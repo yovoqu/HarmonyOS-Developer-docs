@@ -1,6 +1,6 @@
 # 菜单控制（Menu）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-popup-and-menu-components-menu
 
@@ -377,4 +377,4 @@ export struct BindComponentMenuExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/8yH4gU2MRHWKZ-4FrNR-SA/zh-cn_image_0000002581274062.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030442Z&HW-CC-Expire=86400&HW-CC-Sign=D87BC839AFE11CFB7C7992A09E3D4926B5051159FC7CF5A21971568041D827B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/Rh8TNOTlRnu_RLOYlWIQ0Q/zh-cn_image_0000002656347829.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020753Z&HW-CC-Expire=86400&HW-CC-Sign=3806FE5344E9CFF7076C30AEB2BEDDD3FC721E60C408D3BCD85B232CDF23E156)

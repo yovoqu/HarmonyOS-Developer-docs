@@ -1,6 +1,6 @@
 # AppStorage：应用全局的UI状态存储
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-appstorage
 
@@ -120,7 +120,7 @@ AppStorage中的属性可以被双向同步，并具有不同的功能，比如�
 **图2** @StorageLink初始化规则图示
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/62/v3/Vw_1ADijRrORdWE8cVCx-g/zh-cn_image_0000002611753605.png?HW-CC-KV=V1&HW-CC-Date=20260528T030450Z&HW-CC-Expire=86400&HW-CC-Sign=147B107C610C0E6DCFF8E8F2AF9E4DDAF66F40D157F8FA67008522A6222B6442)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e2/v3/mkwDF54lTZeIlKiX3fbDdg/zh-cn_image_0000002656347491.png?HW-CC-KV=V1&HW-CC-Date=20260624T020744Z&HW-CC-Expire=86400&HW-CC-Sign=CDF18E65D6308FBA0F13CF34EA3C0BE68CF129524C023961E55A67E6DCC9EB89)
 
 
 
@@ -154,15 +154,15 @@ AppStorage.setOrCreate('propA', 47);
 // 错误写法，编译报错
 @StorageProp() storageProp: number = 1;
 @StorageLink() storageLink: number = 2;
- 
+
 // 正确写法
 @StorageProp('propA') storageProp: number = 1;
 @StorageLink('propA') storageLink: number = 2;
 ```
 
-2. @StorageProp与@StorageLink不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
+2. @StorageProp与@StorageLink不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。
 
-  从API version 23开始，在应用编译时添加了相关校验，@StorageProp与@StorageLink装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@StorageProp或@StorageLink装饰器。
+  从API version 23开始，添加对@StorageProp与@StorageLink装饰Function类型变量的校验，编译期会报错。
 3. AppStorage与[PersistentStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage)以及[Environment](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-environment)配合使用时，需要注意以下几点：
 
   (1) 在AppStorage中创建属性后，调用PersistentStorage.[persistProp](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-state-management#persistprop10)接口时，会使用AppStorage中已存在的值，并覆盖PersistentStorage中的同名属性。因此，建议使用相反的调用顺序。反例可见[在PersistentStorage之前访问AppStorage中的属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-persiststorage#在persistentstorage之前访问appstorage中的属性)。

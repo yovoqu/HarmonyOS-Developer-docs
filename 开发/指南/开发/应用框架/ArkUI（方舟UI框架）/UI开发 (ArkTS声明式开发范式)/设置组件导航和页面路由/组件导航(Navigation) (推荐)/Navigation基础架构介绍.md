@@ -1,6 +1,6 @@
 # Navigation基础架构介绍
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-architecture
 
@@ -312,7 +312,7 @@ let menuItem: NavigationMenuItem  = {
 **图8** 工具栏
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b7/v3/jxx0p6fpQjm8PdCFCl2iQw/zh-cn_image_0000002611753675.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=B0AF0466C69E18E922C034F6DF7D21B6F344B6F793BA1E87DBADFEAECCF43E10)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/pP2aX4v7TIC4flk_u8ZBsw/zh-cn_image_0000002656347561.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020748Z&HW-CC-Expire=86400&HW-CC-Sign=72CA55DB82932102C2B2D8AFCED195AF08A032B72238909271291B8D0B70BE49)
 
 
 ```ArkTS

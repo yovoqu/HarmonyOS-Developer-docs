@@ -1,6 +1,6 @@
 # HdsNavDestination
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavdestination
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -848,7 +848,7 @@ struct PageOne {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/QZv3RUe1Q3STblypWGu-nw/zh-cn_image_0000002587111144.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012559Z&HW-CC-Expire=86400&HW-CC-Sign=E412DFAA1994805A9B15B0251864EC5EEE542046CD919C0ECD749900E0F473C8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/jnEukWCdTwiqTYgygKbozg/zh-cn_image_0000002656470591.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=FB570ED7DBE3A0DAAF6D73BC80C21157B8ACE2FBF2566DE9314D7465228CE932)
 
  
 HdsNavDestination更多示例可以参考HdsNavigation[示例](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation#示例)。

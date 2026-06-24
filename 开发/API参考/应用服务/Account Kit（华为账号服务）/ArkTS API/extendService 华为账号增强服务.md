@@ -1,16 +1,27 @@
-# extendService (华为账号增强服务)
+# @hms.core.account.extendService (华为账号增强服务)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-extendservice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供Account Kit的增强能力，包括身份验证、跳转账号中心等功能。
+#### 模块概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+@hms.core.account.extendService模块提供华为账号增强能力，在基础的登录、授权功能之上，为应用提供更丰富的账号管理与安全校验能力。包含两大核心功能：身份验证、打开账号中心。
+
+ - 身份验证：拉起身份验证页面，对当前系统登录的华为账号用户的身份进行校验，以保护用户的个人信息和隐私安全。
+ - 打开账号中心：直接拉起华为账号中心页面，供用户查看并管理当前登录的华为账号信息。
+
+
+开发者可通过@hms.core.account.extendService模块提供的方法[verifyAccount](#verifyaccount-1)、[startAccountCenter](#startaccountcenter-1)实现上述能力。
 
 **起始版本：** 4.0.0(10)
 
 > [!NOTE]
 > 该服务目前仅对系统应用开放。
+
 
 
 
@@ -28,7 +39,7 @@ import { extendService } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该枚举为ID类型枚举对象。
+华为账号身份标识类型枚举。当前支持设置：IdType.UNION_ID或IdType.OPEN_ID。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -51,7 +62,7 @@ import { extendService } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该枚举为风险值枚举对象。
+风险等级枚举。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -63,8 +74,8 @@ import { extendService } from '@kit.AccountKit';
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| LOW | 1 | 低风险 |
-| HIGH | 2 | 高风险 |
+| LOW | 1 | 低风险。 |
+| HIGH | 2 | 高风险。 |
 
 
 
@@ -73,7 +84,7 @@ import { extendService } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该类为身份验证请求对象。
+身份验证请求。[verifyAccount](#verifyaccount-1)方法入参，接口需包含用户的基础身份标识，与系统华为账号用户进行身份比对。开发者可通过设置身份验证的场景值、风险等级等属性，控制身份验证的次数和方式，华为账号服务会根据这些属性拉起对应的身份验证页面。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -85,11 +96,11 @@ import { extendService } from '@kit.AccountKit';
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| idType | IdType | 否 | 否 | 属性idValue的ID类型。 |
-| idValue | string | 否 | 否 | 用户获取的UnionID、OpenID值，传递的类型通过idType属性定义。长度限制1-256。 UnionID、OpenID值可以通过使用LoginWithHuaweiIDResponse、AuthorizationWithHuaweiIDResponse、LoginPanel或LoginWithHuaweiIDButton接口获取，具体方法参考其示例代码。 |
+| idType | IdType | 否 | 否 | 华为账号身份标识类型。当前非系统应用仅支持设置：IdType.UNION_ID或IdType.OPEN_ID。 |
+| idValue | string | 否 | 否 | 华为账号身份标识UnionID/OpenID值。身份标识类型通过idType属性定义。长度限制1-256。 UnionID、OpenID值可以通过华为账号登录、获取华为账号用户信息、华为账号Panel登录组件或华为账号Button登录组件获取。 |
 | sceneId | string | 否 | 否 | 身份验证的场景值，该值与riskLevel属性一起代表了应用在华为账号服务器上的一组配置，包括验证次数、首次验证方式、二次验证方式等。长度限制1-10。 |
 | riskLevel | RiskLevel | 否 | 否 | 风险等级，该值与sceneId一起代表了应用在华为账号服务器上的一组配置，一般风险等级高的场景，需要进行二次验证。 |
-| nonce | string | 否 | 否 | 请求体中的nonce参数，长度限制1-64。该参数会包含在返回的verifyToken中，通过校验一致性，可用于防止重放攻击。 推荐开发者用随机数并做一致性校验。建议生成方式：util.generateRandomUUID()。 |
+| nonce | string | 否 | 否 | 请求体中的nonce属性，长度限制1-64。该属性会包含在返回的verifyToken中，通过校验一致性，可用于防止重放攻击。 推荐开发者用随机数并做一致性校验。建议生成方式：util.generateRandomUUID()。 |
 
 
 **示例：**
@@ -114,7 +125,7 @@ const request: extendService.VerifyRequest = {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该类为身份验证请求结果对象。
+身份验证请求响应。[verifyAccount](#verifyaccount-1)方法返回值，当用户验证身份成功时返回。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -175,7 +186,7 @@ function dealAllError(error: BusinessError): void {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-该枚举定义了Account Kit扩展模块错误码。
+华为账号增强服务接口错误码枚举。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -193,7 +204,7 @@ function dealAllError(error: BusinessError): void {
 | USER_CANCELED | 1001600005 | 用户取消当前操作。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
 | VERIFICATION_FACTOR_UNAVAILABLE | 1001600006 | 当前设备不支持此验证要素。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
 | INTERNAL_ERROR | 1001600007 | 内部错误。 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 |
-| DEVICE_NOT_SUPPORTED | 1001600011 | 该设备不支持此API。 起始版本：6.1.0(23) 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 |
+| DEVICE_NOT_SUPPORTED | 1001600011 | 该设备不支持此API。 起始版本： 6.1.0(23) 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 |
 
 
 
@@ -204,7 +215,7 @@ function dealAllError(error: BusinessError): void {
 
 verifyAccount(context: common.Context, request: VerifyRequest, callback: AsyncCallback&lt;VerifyResult&gt;): void
 
-执行Account Kit身份验证请求，使用Callback异步回调。
+身份验证方法，使用Callback异步回调返回验证成功凭证。调用该方法会拉起身份验证页面，需要用户进行密码、短信等方式验证身份。身份页面可长时间停留，当用户验证成功后，会返回验证凭证给应用，其他场景如用户点击关闭则会抛出错误码。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -225,7 +236,7 @@ verifyAccount(context: common.Context, request: VerifyRequest, callback: AsyncCa
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -287,7 +298,7 @@ function dealAllError(error: BusinessError): void {
 
 verifyAccount(context: common.Context, request: VerifyRequest): Promise&lt;VerifyResult&gt;
 
-执行Account Kit身份验证请求，使用Promise异步回调。
+身份验证方法，使用Promise异步回调返回验证成功凭证。调用该方法会拉起身份验证页面，需要用户进行密码、短信等方式验证身份。身份页面可长时间停留，当用户验证成功后，会返回验证凭证给应用，其他场景如用户点击关闭则会抛出错误码。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -314,7 +325,7 @@ verifyAccount(context: common.Context, request: VerifyRequest): Promise&lt;Verif
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -370,7 +381,7 @@ function dealAllError(error: BusinessError): void {
 
 startAccountCenter(context: common.Context, callback: AsyncCallback&lt;void&gt;): void
 
-当开发者需要实现查看当前登录的华为账号的基本信息时，执行打开账号中心请求，会拉起账号中心页面，使用Callback异步回调。
+打开华为账号中心方法，使用Callback异步回调。开发者可调用该方法拉起账号中心页面，供用户查看并管理头像、昵称、手机号等个人信息。账号中心页面会长时间停留，当用户关闭该页面后，会触发Callback回调函数。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -390,17 +401,17 @@ startAccountCenter(context: common.Context, callback: AsyncCallback&lt;void&gt;)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
-| 1001600001 | The network is unavailable. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. 适用版本：4.1.0(11)+ |
+| 1001600001 | The network is unavailable. 适用版本：4.1.0(11)+ |
 | 1001600002 | The user has not logged in with HUAWEI ID. |
 | 1001600003 | Failed to check the fingerprint of the application bundle. |
 | 1001600004 | The application does not have the required permissions. |
 | 1001600007 | Internal error. |
-| 1001600011 | This device does not support this API. |
+| 1001600011 | This device does not support this API. 适用版本：6.1.0(23)+ |
 
 
 **示例：**
@@ -438,7 +449,7 @@ function dealAllError(error: BusinessError): void {
 
 startAccountCenter(context: common.Context): Promise&lt;void&gt;
 
-当开发者需要实现查看当前登录的华为账号的基本信息时，执行打开账号中心请求，会拉起账号中心页面，使用Promise异步回调。
+打开华为账号中心方法，使用Promise异步回调。开发者可调用该方法拉起账号中心页面，供用户查看并管理头像、昵称、手机号等个人信息。账号中心页面会长时间停留，当用户关闭该页面后，会返回无结果的Promise对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -464,17 +475,17 @@ startAccountCenter(context: common.Context): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. |
-| 1001600001 | The network is unavailable. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types. 适用版本：4.1.0(11)+ |
+| 1001600001 | The network is unavailable. 适用版本：4.1.0(11)+ |
 | 1001600002 | The user has not logged in with HUAWEI ID. |
 | 1001600003 | Failed to check the fingerprint of the application bundle. |
 | 1001600004 | The application does not have the required permissions. |
 | 1001600007 | Internal error. |
-| 1001600011 | This device does not support this API. |
+| 1001600011 | This device does not support this API. 适用版本：6.1.0(23)+ |
 
 
 **示例：**

@@ -1,6 +1,6 @@
 # graphic_error_code.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-graphic-error-code-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -67,6 +67,7 @@ enum OHNativeErrorCode
 | NATIVE_ERROR_INVALID_ARGUMENTS = 40001000 | 入参无效。 |
 | NATIVE_ERROR_NO_PERMISSION = 40301000 | 无权限操作。 |
 | NATIVE_ERROR_NO_BUFFER = 40601000 | 无空闲可用的buffer。 |
+| NATIVE_ERROR_INVALID_OPERATION = 41201000 | 无效操作。 起始版本： 26.0.0 |
 | NATIVE_ERROR_NO_CONSUMER = 41202000 | 消费端不存在。 |
 | NATIVE_ERROR_NOT_INIT = 41203000 | 未初始化。 |
 | NATIVE_ERROR_CONSUMER_CONNECTED = 41206000 | 消费端已经被连接。 |

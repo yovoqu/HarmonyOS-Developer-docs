@@ -1,6 +1,6 @@
 # Performance Analysis Kit简介
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-overview
 
@@ -14,6 +14,7 @@ Performance Analysis Kit承载着HarmonyOS DFX子系统面向应用开发者提�
 - 应用调试：提供流水日志功能，帮助开发者记录和获取日志，以便进行问题分析。
 - 问题定位：提供各类场景的故障现场，包含可靠性、性能、功耗、分布式故障相关的日志、事件、跟踪。
 - 线上监控：提供应用构建线上观测所需的日志、事件、跟踪接口，方便开发者记录和分析应用的线上运行情况。
+- 灰度采集：与云侧配合，选取少量设备开启全量故障日志采集并上传云侧，提供更详细的故障信息帮助开发者更好的定位故障。
 
  
   
@@ -30,6 +31,7 @@ Performance Analysis Kit承载着HarmonyOS DFX子系统面向应用开发者提�
 - [系统调试信息获取](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidebug-guidelines)，提供开发者获取应用和系统资源使用情况的能力。
 - [业务线程超时检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hicollie-guidelines-ndk)，提供开发者检测业务线程任务执行超时并上报超时事件的能力。
 - [错误管理](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/errormanager-guidelines)与[应用恢复](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/apprecovery-guidelines)，提供开发者捕获应用运行时异常能力，以及应用非预期退出后启动状态和数据的自恢复能力。
+- [应用灰度采集](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiretrieval-intro)，提供开发者应用灰度采集能力，可以选取少量设备打开全量日志采集获取更详细的故障日志，帮助开发者更好的定位故障。
 - 调试命令提供包含[hdc](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc)、[hilog](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog)、[hidumper](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hidumper)、[hitrace](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitrace)、[hiperf](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiperf)等工具用于调试系统和应用。
 
  
@@ -48,6 +50,7 @@ Performance Analysis Kit承载着HarmonyOS DFX子系统面向应用开发者提�
 - 提供全方位的应用质量检测能力，涵盖[故障检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fault-detection-overview)、[性能检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/perf-detection)与[功耗检测](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/power-detection)。
 - 提供精简、标准且完备的异常日志，支持精准记录异常传播路径。
 - 全面的异常检测机制，实时感知异常，通知应用，自动拉起恢复。
+- 提供灰度采集能力，选取少量设备针对特定故障精准采集全量故障日志，兼顾应用性能表现和故障定位需求。
 
  
 **全面的基础维测能力**

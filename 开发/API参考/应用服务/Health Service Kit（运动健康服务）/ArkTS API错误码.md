@@ -1,11 +1,11 @@
 # ArkTS API错误码
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-healthservice
 **支持设备：** Phone | Tablet | Wearable | lite_wearable
 
-以下授权相关错误码的详细介绍请参见[华为账号服务ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下授权相关错误码的详细介绍请参见[华为账号服务ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |

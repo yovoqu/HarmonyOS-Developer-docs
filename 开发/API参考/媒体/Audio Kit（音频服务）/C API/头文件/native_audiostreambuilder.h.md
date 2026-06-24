@@ -1,6 +1,6 @@
 # native_audiostreambuilder.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-audiostreambuilder-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -674,7 +674,7 @@ OH_AudioStream_Result OH_AudioStreamBuilder_SetFrameSizeInCallback(OH_AudioStrea
  
 低时延播放：frameSize可设置为5ms、10ms、15ms、20ms音频数据对应的帧长。
  
-普通通路播放：frameSize可设置为20ms-100ms音频数据对应的帧长。例如，当采样率48000Hz时，20ms音频数据对应的帧长计算方式为：frameSize = 48000 * 0.02，即960个采样点数。
+普通通路播放：frameSize可设置为20ms-100ms音频数据对应的帧长。例如，当采样率48000Hz时，20ms音频数据对应的帧长计算方式为：frameSize = 48000 * 0.02，即960个采样点数。当frameSize为960时，对应的数据回调的长度为960 * 声道数 * 采样位宽（字节数）。比如双声道16bit时，length为960 * 2 * 2 = 3840。
  
 **起始版本：** 11
  

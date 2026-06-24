@@ -1,6 +1,6 @@
 # 案例：Native内存泄漏分析
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-native-allocation-case
 
@@ -114,7 +114,7 @@ All Allocations：框选的时间段的所有分配内存信息。
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2d/v3/X9TH2FQnSiiYOTzfbMaBmQ/zh-cn_image_0000002602065937.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=E7FAE79CB26DB90E1A4098D44214E464A90CC41D9F0D0B50D4A631615143CF25)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/SPYOqUb-R6W8I5tY9WTjDQ/zh-cn_image_0000002625073779.png?HW-CC-KV=V1&HW-CC-Date=20260624T020721Z&HW-CC-Expire=86400&HW-CC-Sign=1706CAF2E494FB960D26AEACF7BB926B006C442EA29825A5DD477A287C1E6B09)
 
 3. 操作应用复现问题场景，并在问题复现完成后，点击下图中方块按钮或者左侧停止按钮结束录制。
 
@@ -124,7 +124,7 @@ All Allocations：框选的时间段的所有分配内存信息。
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/-clvfD5ZSVCsKP-rDKDSxw/zh-cn_image_0000002571386820.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=A885B42D0E50571BB1E6E93998230D84C93273B66E42CA2F76B2FFB5480FDDBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/a1Ykwt7cRoOrmDvzIcXnCQ/zh-cn_image_0000002625073777.png?HW-CC-KV=V1&HW-CC-Date=20260624T020721Z&HW-CC-Expire=86400&HW-CC-Sign=300C61FDC995787A7882E10AE7D5845EFAD602A62564E001BC4C7050F9B097A7)
 
  
  
@@ -140,7 +140,7 @@ All Allocations：框选的时间段的所有分配内存信息。
 4. 切换到“Call Trees”页签，该部分数据展示了详细的内存分配栈信息，同样需要选择Created & Existing。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/Yd33YR3SS3qHRdg56S9fzA/zh-cn_image_0000002602065939.png?HW-CC-KV=V1&HW-CC-Date=20260611T074917Z&HW-CC-Expire=86400&HW-CC-Sign=8773507B41335918C2981C16C2E47C7DE7757440B91A2A1577955538C8BB7DD7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/4I3y1bl9QqeUHoljYMcT2A/zh-cn_image_0000002625073783.png?HW-CC-KV=V1&HW-CC-Date=20260624T020721Z&HW-CC-Expire=86400&HW-CC-Sign=0137149BA3DD569436B0B9E7B06B925FCF5C82B3DE1958E7C6A98082DE263814)
 
 5. 优先在内存分配栈信息中寻找与业务代码强相关的Symbol Name，即Category中为亮色。从上图中看，主要泄漏点在业务代码侧，需要结合业务代码进行分析。
 

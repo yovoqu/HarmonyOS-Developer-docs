@@ -1,6 +1,6 @@
 # moduleInstallManager (产品特性按需分发)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-moduleinstallmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -203,7 +203,7 @@ getInstalledModule(moduleName: string): InstalledModule
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -489,7 +489,7 @@ fetchModules(moduleInstallRequest: ModuleInstallRequest): Promise&lt;ModuleInsta
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -577,7 +577,7 @@ cancelTask(taskId: string): ReturnCode
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -637,7 +637,7 @@ showCellularDataConfirmation(context: common.UIAbilityContext | common.Extension
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -712,7 +712,7 @@ on(type: 'moduleInstallStatus', callback: Callback&lt;ModuleInstallSessionState&
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -764,7 +764,7 @@ off(type: 'moduleInstallStatus', callback?: Callback&lt;ModuleInstallSessionStat
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

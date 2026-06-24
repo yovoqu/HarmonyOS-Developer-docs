@@ -1,6 +1,6 @@
 # marquee
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-marquee
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -139,4 +139,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2f/v3/-_YnG7hzQ6uh74pXPSaOog/zh-cn_image_0000002611836381.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025432Z&HW-CC-Expire=86400&HW-CC-Sign=514E90A46F5375967A6BA67FFCBED10665F6F7AB34D3E4CCEA800C025678B314)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/2q9TRwF6RI2ad8XrvItt8g/zh-cn_image_0000002656350523.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015946Z&HW-CC-Expire=86400&HW-CC-Sign=AB2BFFA170E14D8225BB9378F84679FF304817E3BDFD3AA66B3916764C954F5F)

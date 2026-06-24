@@ -1,6 +1,6 @@
 # Interface (PointAnnotation)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-pointannotation
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -177,10 +177,10 @@ setTitleAnimation(animation: FontSizeAnimation): void
 ```text
 let animation: map.FontSizeAnimation = new map.FontSizeAnimation(5, 25);
 animation.setDuration(3000);
-animation.on("start",() => {
+animation.on("start", () => {
   console.info('start Font Animation');
 });
-animation.on("end",() => {
+animation.on("end", () => {
   console.info('end Font Animation');
 });
 // 设置动画完成的状态

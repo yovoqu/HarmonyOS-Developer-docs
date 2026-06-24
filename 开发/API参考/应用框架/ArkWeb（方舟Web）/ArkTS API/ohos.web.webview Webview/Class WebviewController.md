@@ -1,6 +1,6 @@
 # Class (WebviewController)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webviewcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -5319,7 +5319,9 @@ struct WebComponent {
 
 static prefetchResource(request: RequestInfo, additionalHeaders?: Array&lt;WebHeader&gt;, cacheKey?: string, cacheValidTime?: number): void
 
-根据指定的请求信息和附加的http请求头去预获取资源请求，存入内存缓存，并指定其缓存key和有效期，以加快加载速度。目前仅支持Content-Type为application/x-www-form-urlencoded的post请求。最多可以预获取6个post请求。如果要预获取第7个，请通过[clearPrefetchedResource](#clearprefetchedresource12)清除不需要的post请求缓存，否则会自动清除最早预获取的post缓存。如果要使用预获取的资源缓存，开发者需要在正式发起的post请求的请求头中增加键值“ArkWebPostCacheKey”，其内容为对应缓存的cacheKey。
+根据指定的请求信息和附加的HTTP请求头去预获取资源请求，存入内存缓存，并指定其缓存key和有效期，以加快加载速度。目前仅支持Content-Type为application/x-www-form-urlencoded的POST请求。最多可以预获取6个POST请求。如果要预获取第7个，请通过[clearPrefetchedResource](#clearprefetchedresource12)清除不需要的POST请求缓存，否则会自动清除最早预获取的POST缓存。如果要使用预获取的资源缓存，开发者需要在正式发起的POST请求的请求头中增加键值“ArkWebPostCacheKey”，其内容为对应缓存的cacheKey。
+
+内存缓存中的资源由内核自动管理。当注入的资源过多，导致内存压力过大时，内核会自动释放未使用的资源，但仍应避免向内存缓存中注入大量资源。
 
 **系统能力：** SystemCapability.Web.Webview.Core
 
@@ -5339,7 +5341,9 @@ static prefetchResource(request: RequestInfo, additionalHeaders?: Array&lt;WebHe
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 17100002 | URL error. The webpage corresponding to the URL is invalid, or the URL length exceeds 2*1024*1024. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
+| 17100002 | URL error. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048. 适用版本：12-21 |
+| 17100002 | URL error. The webpage corresponding to the URL is invalid, or the URL length exceeds 2*1024*1024. 适用版本：22+ |
 
 
 **示例：**
@@ -8771,8 +8775,10 @@ injectOfflineResources(resourceMaps: Array<[OfflineResourceMap](https://develope
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 17100001 | Init error. The WebviewController must be associated with a Web component. |
-| 17100002 | URL error. The webpage corresponding to the URL is invalid, or the URL length exceeds 2*1024*1024. |
+| 17100002 | URL error. The webpage corresponding to the URL is invalid, or the URL length exceeds 2048. 适用版本：12-21 |
+| 17100002 | URL error. The webpage corresponding to the URL is invalid, or the URL length exceeds 2*1024*1024. 适用版本：22+ |
 
 
 **示例：**
@@ -10792,7 +10798,7 @@ getBlanklessInfoWithKey(key: string): BlanklessInfo
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported. |
+| 801 | This functionality is not supported. |
 
 
 **示例：**
@@ -10869,7 +10875,7 @@ setBlanklessLoadingWithKey(key: string, is_start: boolean): WebBlanklessErrorCod
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported. |
+| 801 | This functionality is not supported. |
 
 
 **示例：**
@@ -11024,7 +11030,7 @@ static clearBlanklessLoadingCache(keys?: Array&lt;string&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported. |
+| 801 | This functionality is not supported. |
 
 
 **示例：**
@@ -11088,7 +11094,7 @@ static setBlanklessLoadingCacheCapacity(capacity: number): number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 801 | Capability not supported. |
+| 801 | This functionality is not supported. |
 
 
 **示例：**
@@ -11233,11 +11239,13 @@ Scroll Test
 
 static setActiveWebEngineVersion(engineVersion: ArkWebEngineVersion): void
 
-设置ArkWeb内核版本。若系统不支持指定版本，则设置无效。该接口为全局静态API，须在调用initializeWebEngine前执行，若已加载任何Web组件，则该设置无效。
+设置ArkWeb内核版本。若系统不支持指定版本，则设置无效，使用系统默认内核（可参考[约束与限制](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-component-overview#约束与限制)）。该接口为全局静态API，须在调用initializeWebEngine前执行，若已加载任何Web组件，则该设置无效。
 
 **遗留内核适配：**
 
-在HarmonyOS 6.0及以后，使用遗留内核时，部分ArkWeb接口不会生效，参考[M114内核在HarmonyOS6.0系统上的适配指导](https://gitcode.com/openharmony-tpc/chromium_src/blob/132_trunk/web/ReleaseNote/CompatibleWithLegacyWebEngine.md)。
+在HarmonyOS 6.0及以后，使用遗留内核（M114）时，部分ArkWeb接口不会生效，参考[M114内核在HarmonyOS 6.0系统上的适配指导](https://gitcode.com/openharmony-tpc/chromium_src/blob/master/web/ReleaseNote/CompatibleWithLegacyWebEngine_6.0.md)。
+
+在HarmonyOS 7.0及以后，使用遗留内核（M132）时，部分ArkWeb接口不会生效，参考[M132内核在HarmonyOS 7.0系统上的适配指导](https://gitcode.com/openharmony-tpc/chromium_src/blob/master/web/ReleaseNote/CompatibleWithLegacyWebEngine_7.0.md)。
 
 > [!NOTE]
 > setActiveWebEngineVersion不支持在异步线程中调用。 setActiveWebEngineVersion全局生效，在整个APP生命周期中调用一次即可，不需要重复调用。
@@ -11264,9 +11272,9 @@ import { webview } from '@kit.ArkWeb';
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
     console.info("EntryAbility onCreate")
-    webview.WebviewController.setActiveWebEngineVersion(webview.ArkWebEngineVersion.M114)
-    if (webview.WebviewController.getActiveWebEngineVersion() == webview.ArkWebEngineVersion.M114) {
-      console.info("Active Web Engine Version set to M114")
+    webview.WebviewController.setActiveWebEngineVersion(webview.ArkWebEngineVersion.M132)
+    if (webview.WebviewController.getActiveWebEngineVersion() == webview.ArkWebEngineVersion.M132) {
+      console.info("Active Web Engine Version set to M132")
     }
     console.info("EntryAbility onCreate done")
   }
@@ -12094,6 +12102,64 @@ struct WebComponent {
           console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
         }
       })
+    }
+  }
+}
+```
+
+
+
+#### enableAdvancedSecurityMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+static enableAdvancedSecurityMode(securityParams: SecurityParams): void
+
+通过配置安全特性选项禁用特定的Web引擎能力，以降低攻击面。
+
+> [!NOTE]
+> 该接口为全局静态API，在整个APP生命周期中调用一次即可，不需要重复调用。 必须在 initializeWebEngine() 之前调用，否则设置无效。
+
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Web.Webview.Core
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| securityParams | SecurityParams | 是 | 安全特性选项配置。 |
+
+
+**示例：**
+
+```text
+import { webview } from '@kit.ArkWeb';
+
+@Entry
+@Component
+struct WebComponent {
+  controller: webview.WebviewController = new webview.WebviewController();
+
+  aboutToAppear() {
+    webview.WebviewController.enableAdvancedSecurityMode({
+      disableJITCompilation: true,
+      disableWebAssembly: true,
+      disableWebGL: true,
+      disablePDFViewer: true,
+      disableMathML: true,
+      disableServiceWorker: true,
+      disableNonProxyUDP: true
+    });
+    webview.WebviewController.initializeWebEngine();
+  }
+
+  build() {
+    Column() {
+      Web({ src: 'https://www.example.com', controller: this.controller })
     }
   }
 }

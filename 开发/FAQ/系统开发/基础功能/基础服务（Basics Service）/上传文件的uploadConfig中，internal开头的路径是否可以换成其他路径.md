@@ -1,6 +1,6 @@
 # 上传文件的uploadConfig中，internal开头的路径是否可以换成其他路径
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-12
 

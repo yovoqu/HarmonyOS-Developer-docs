@@ -1,6 +1,6 @@
 # @ohos.file.picker (选择器)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -865,7 +865,7 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 | --- | --- | --- |
 | FILE | 0 | 文件类型（默认类型）。 |
 | FOLDER | 1 | 文件夹类型。 |
-| MIXED | 2 | 文件和文件夹混合类型。 |
+| MIXED | 2 | 文件和文件夹混合类型。 设备行为差异：该参数在2in1设备中可正常使用，在其他设备中无效果。 |
 
 
 
@@ -878,15 +878,16 @@ async function example18(context: common.UIAbilityContext) { // 需确保 contex
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| maxSelectNumber10+ | number | 否 | 是 | 选择文件最大个数。 API version 20及之前的版本，单次文件选择的最大数量上限为500个，默认值也为500。目录选择功能仅对具备该系统能力的设备开放，且单次最多可选择1个目录。 API version 21及之后的版本取消文件选择数量的限制。受系统能力限制，选择文件数量过大可能会出现功能异常或处理性能较差等情况，建议单次选择文件个数不超过1万个。 API version 23及之后的版本取消目录选择数量的限制。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
+| maxSelectNumber10+ | number | 否 | 是 | 选择文件最大个数。 API version 20及之前的版本，单次文件选择的最大数量上限为500个，默认值也为500。目录选择功能仅对具备该系统能力的设备开放，且单次最多可选择1个目录。 API version 21及之后的版本取消文件选择数量的限制。受系统能力限制，选择文件数量过大可能会出现功能异常或处理性能较差等情况，建议单次选择文件个数不超过1万个。 API version 23及之后的版本取消目录选择数量的限制。 设备行为差异：该参数在Phone设备上不支持目录多选。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
 | defaultFilePathUri10+ | string | 否 | 是 | 指定所选文件或目录的URI，默认值为空（此时打开最近访问的页面）。PC的文件选择器为提升用户体验，会记住用户上次导航到的位置并优先选择此路径作为起始路径，而不会始终使用defaultFilePathUri指定的路径。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
 | fileSuffixFilters10+ | Array&lt;string&gt; | 否 | 是 | 选择文件的后缀类型。传入字符串数组，每一项代表一个后缀选项，每一项内部用"\|"分为两部分，第一部分为描述，第二部分为过滤后缀。没有"\|"则没有描述，该项整体是一个过滤后缀。每项过滤后缀可以存在多个后缀名，则每一个后缀名之间用英文逗号进行分隔，传入数组长度不能超过100，例如：['图片(.png, .jpg)\|.png,.jpg', '文档\|.txt', '视频\|.mp4', '.pdf']。 默认不过滤，即显示所有文件。此外2in1设备支持通配符方式['所有文件(*.*)\|.*']（说明：从API version 17开始，手机支持该配置），表示为显示所有文件。 仅对具有该系统能力的设备开放。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
 | selectMode11+ | DocumentSelectMode | 否 | 是 | Picker选择的文档类型，默认值是FILE(文件类型)。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService.FolderSelection |
 | authMode12+ | boolean | 否 | 是 | 拉起授权Picker，默认为false（非授权模式）。当authMode为true时为授权模式，defaultFilePathUri必填，表明待授权URI。 设备行为差异：该参数在2in1设备中可正常使用，在其他设备中无效果。 元服务API：从API version 12开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService.FolderSelection |
 | multiAuthMode15+ | boolean | 否 | 是 | 支持批量授权模式，默认为false（非批量授权模式）。当multiAuthMode为true时为批量授权模式。当multiAuthMode为true时，只有multiUriArray参数生效，其他参数不生效。 设备行为差异：该参数在Phone设备中可正常使用，在其他设备中无效果。 元服务API：从API version 15开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
 | multiUriArray15+ | Array&lt;string&gt; | 否 | 是 | 传入需要批量授权的URI数组（仅支持文件，文件夹不生效）。配合multiAuthMode使用。当multiAuthMode为false时，配置该参数不生效。默认为空（效果为拉起批量授权页面后展示的文件为空）。 设备行为差异：该参数在Phone设备中可正常使用，在其他设备中无效果。 元服务API：从API version 15开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
-| mergeMode15+ | MergeTypeMode | 否 | 是 | 开启聚合视图模式，支持拉起文件管理应用的聚合视图。默认为DEFAULT，表示该参数不生效，非聚合视图。当该参数置为非DEFAULT时，其他参数不生效。 设备行为差异：该参数在Phone设备中可正常使用，在其他设备中无效果。 元服务API：从API version 15开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
+| mergeMode15+ | MergeTypeMode | 否 | 是 | 开启聚合视图模式，支持拉起文件管理应用的聚合视图。默认为DEFAULT，表示该参数不生效，非聚合视图。当该参数置为非DEFAULT时，其他参数不生效。 API版本26.0.0及之后的版本当该参数置为非DEFAULT时，仅fileSuffixFilters参数生效，其他参数不生效。该参数不推荐与multiAuthMode一起使用。 设备行为差异：该参数在Phone设备中可正常使用，在其他设备中无效果。 元服务API：从API version 15开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
 | isEncryptionSupported19+ | boolean | 否 | 是 | 是否支持加密（仅支持文件，文件夹不生效），默认为false。该参数为true时，在Picker界面可以选择对文件进行加密。 元服务API：从API version 19开始，该接口支持在元服务中使用。 系统能力：SystemCapability.FileManagement.UserFileService |
+| allowsMulFolderSelection | boolean | 否 | 是 | 是否支持多选文件夹。true表示支持，false表示不支持，默认值为false。 该参数需要与selectMode配合使用，当selectMode为FOLDER或者MIXED，并且allowsMulFolderSelection为true，多选文件夹功能生效。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束：此接口仅可在Stage模型下使用。 系统能力：SystemCapability.FileManagement.UserFileService.FolderSelection |
 
 
 

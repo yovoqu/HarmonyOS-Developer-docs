@@ -1,6 +1,6 @@
 # Class (Font)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-font
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -370,7 +370,7 @@ setSize(textSize: number): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| textSize | number | 是 | 字型大小，该参数为浮点数，为负数时字型大小会被置为0。字型大小为0时，绘制的文字不会显示。 |
+| textSize | number | 是 | 字型大小，该参数为浮点数，为负数时字型大小会被置为0。字型大小为0时，绘制的文字不会显示。单位为物理像素px。 |
 
 
 **错误码：**
@@ -409,7 +409,7 @@ getSize(): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 字型大小，浮点数。 |
+| number | 字型大小，浮点数。单位为物理像素px。 |
 
 
 **示例：**
@@ -551,7 +551,7 @@ measureText(text: string, encoding: TextEncoding): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 文本的宽度，浮点数。 |
+| number | 文本的宽度，浮点数。单位为物理像素px。 |
 
 
 **错误码：**
@@ -597,7 +597,7 @@ measureSingleCharacter(text: string): number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 字符的宽度，浮点数。 |
+| number | 字符的宽度，浮点数。单位为物理像素px。 |
 
 
 **错误码：**
@@ -651,7 +651,7 @@ measureSingleCharacterWithFeatures(text: string, features: Array&lt;FontFeature&
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 字符的宽度，浮点数，单位为px。 |
+| number | 字符的宽度，浮点数。单位为物理像素px。 |
 
 
 **错误码：**
@@ -1290,8 +1290,8 @@ getTextPath(text: string, byteLength: number, x: number, y: number): Path
 | --- | --- | --- | --- |
 | text | string | 是 | 表示存储UTF-8 文本编码的字符。 |
 | byteLength | number | 是 | 表示要获取对应文本路径的字节长度，按传入的字节长度和实际的文本字节大小之间的最小值来获取对应的文本路径。 |
-| x | number | 是 | 表示文本在绘图区域内以原点为起始位置的X坐标。 |
-| y | number | 是 | 表示文本在绘图区域内以原点为起始位置的Y坐标。 |
+| x | number | 是 | 表示文本在绘图区域内以原点为起始位置的X坐标。单位为物理像素px。 |
+| y | number | 是 | 表示文本在绘图区域内以原点为起始位置的Y坐标。单位为物理像素px。 |
 
 
 **返回值：**

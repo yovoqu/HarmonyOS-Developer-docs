@@ -1,6 +1,6 @@
 # ohpm list
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-list
 
@@ -62,7 +62,7 @@ alias: ls
 #### prefix
 
 - 默认值：""
-- 类型： string
+- 类型：string
 
  
 可以在 list 命令后面配置 --prefix &lt;string&gt; 参数，用来指定包的根目录，该目录下必须存在 oh-package.json5 文件。
@@ -72,7 +72,7 @@ alias: ls
 #### parameterFile
 
 - 默认值：无
-- 类型： string
+- 类型：string
 - 别名：pf
 
  
@@ -103,7 +103,7 @@ OHPM客户端从5.2.0版本开始，可以在 list 命令后面配置 -r 或者 
 #### log_level
 
 - 默认值：无
-- 类型： String
+- 类型：String
 
  
 从ohpm 6.0.2.636版本开始，可以在 list 命令后配置--log_level &lt;string&gt;参数，指定执行当前命令的日志级别（info、debug、warn、error），如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -113,7 +113,7 @@ OHPM客户端从5.2.0版本开始，可以在 list 命令后面配置 -r 或者 
 #### debug
 
 - 默认值：false
-- 类型： Boolean
+- 类型：Boolean
 
  
 从ohpm 6.0.2.636版本开始，可以在命令后配置--debug参数，指定执行当前命令的日志级别为debug，该命令仅在当前命令行生效，不修改.ohpmrc中的日志级别，如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -133,7 +133,7 @@ ohpm list
  结果示例：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/Xc9fpSQES-KanAgDfmZ1tg/zh-cn_image_0000002602186513.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=1FC0F08F30FC02AE89BA2E116541A8DD7068ABDAFDC67E828DAE53892F76C8F0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/cdQyrKWKSUaVEBSut71KIA/zh-cn_image_0000002594475080.png?HW-CC-KV=V1&HW-CC-Date=20260624T020704Z&HW-CC-Expire=86400&HW-CC-Sign=89C8F4847F6AF8E68790040CFC01CD3276E9A837B3158F6593FD0FB95ECE226C)
 
 - 查看当前项目安装的**某个**三方库的依赖关系
 
@@ -146,7 +146,7 @@ ohpm list universalify
  结果示例：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ec/v3/nPuB8PUnRu6KfyqLpBJWjQ/zh-cn_image_0000002571387344.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=42E5A3B3B60DE1F8046837165C50121C68A985BA24F874F28F36AC5A0B255389)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/aQa4-CFiS4uQZ2xlpr_EfA/zh-cn_image_0000002594635002.png?HW-CC-KV=V1&HW-CC-Date=20260624T020704Z&HW-CC-Expire=86400&HW-CC-Sign=12BCCFB543C1C0B281BC16506FBAB24BD1349B6C0BB7596EE98CFB41640DFB29)
 
 - 查看当前项目所有module安装的**所有**三方库及依赖关系。执行以下命令：
 

@@ -1,6 +1,6 @@
-# Stage模型应用配置文件
+# 应用配置文件
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/config-file-stage
 

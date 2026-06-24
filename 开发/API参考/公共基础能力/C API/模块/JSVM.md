@@ -1,6 +1,6 @@
 # JSVM
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-jsvm
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -24,8 +24,6 @@
 **系统能力：** SystemCapability.ArkCompiler.JSVM
 
 **起始版本：** 11
-
-**支持设备类型：** Phone | PC/2in1 | Tablet | Wearable。具体支持情况可通过对应的API接口进行判断。
 
 
 

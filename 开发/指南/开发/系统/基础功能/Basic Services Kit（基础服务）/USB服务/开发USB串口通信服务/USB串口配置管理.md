@@ -1,6 +1,6 @@
 # USB串口配置管理
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usbserial-configuration
 
@@ -61,7 +61,7 @@ USB串口配置管理中，波特率、数据位、校验位和停止位是串�
 
   
 ```ArkTS
-// 导入usbManager模块
+// 导入serialManager模块
 import { serialManager } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit'
 import { buffer } from '@kit.ArkTS';

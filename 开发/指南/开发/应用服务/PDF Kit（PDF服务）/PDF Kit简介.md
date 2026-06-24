@@ -1,6 +1,6 @@
 # PDF Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-introduction
 
@@ -47,7 +47,7 @@ PDF Kit更多的示例代码请参考[CodeLab](https://developer.huawei.com/cons
 
 #### 支持的设备
 
-PDF Kit相关能力支持在Phone、Tablet和PC/2in1设备上运行。
+PDF Kit相关能力支持在Phone、Tablet、PC/2in1、Car设备上运行。
  
   
 

@@ -1,6 +1,6 @@
 # ohpm publish
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-publish
 
@@ -112,7 +112,7 @@ ohpm publish [options] <har_or_tgz_file>
 #### source_type
 
  - 默认值：无
- - 类型： String
+ - 类型：String
 
 
 从ohpm 6.1.1.816版本开始，可以在 publish 命令后配置--source_type &lt;string&gt;参数，指定将要发布的三方库的开闭源类型。如果值为closed，则不校验发布的三方包是否包含 LICENSE 文件，发布的三方库是闭源类型；如果值为open，则校验发布的三方包必须包含 LICENSE 文件，发布的三方库是开源类型。
@@ -122,7 +122,7 @@ ohpm publish [options] <har_or_tgz_file>
 #### fetch_timeout
 
  - 默认值：60000
- - 类型： Number
+ - 类型：Number
  - 别名：ft
 
 
@@ -133,7 +133,7 @@ ohpm publish [options] <har_or_tgz_file>
 #### strict_ssl
 
  - 默认值：true
- - 类型： Boolean
+ - 类型：Boolean
 
 
 可以在 publish 命令后面配置 --strict_ssl true 参数，校验 https 证书；配置 --strict_ssl false 参数，不校验 https 证书。
@@ -143,7 +143,7 @@ ohpm publish [options] <har_or_tgz_file>
 #### log_level
 
  - 默认值：无
- - 类型： String
+ - 类型：String
 
 
 从ohpm 6.0.2.636版本开始，可以在 publish 命令后配置--log_level &lt;string&gt;参数，指定执行当前命令的日志级别（info、debug、warn、error），如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -153,7 +153,7 @@ ohpm publish [options] <har_or_tgz_file>
 #### debug
 
  - 默认值：false
- - 类型： Boolean
+ - 类型：Boolean
 
 
 从ohpm 6.0.2.636版本开始，可以在命令后配置--debug参数，指定执行当前命令的日志级别为debug，该配置仅在当前命令行生效，不修改.ohpmrc中的日志级别，如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -163,7 +163,7 @@ ohpm publish [options] <har_or_tgz_file>
 #### use_stream_threshold_size
 
  - 默认值：无
- - 类型： Number
+ - 类型：Number
 
 
 从ohpm 6.0.2.636版本开始，可以在 publish 命令后配置--use_stream_threshold_size &lt;number&gt;参数，指定流式上传阈值，取值范围：[0, 300]，单位mb。当publish三方库的文件体积超过阈值时，将使用流式方式上传；如果仓库不存在流式上传接口，则转为Base64方式上传。
@@ -221,4 +221,4 @@ ohpm publish publish_test.har
 结果示例：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c/v3/RTNnTaC_Qbmw37-HFKsv8w/zh-cn_image_0000002602186007.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=33153513029C9FD8B8C11262E857073BBB088B7C16F873C806EABB79ECF7C8D0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/6vi5zeg_T-yPr8bwVqK_Rg/zh-cn_image_0000002625073811.png?HW-CC-KV=V1&HW-CC-Date=20260624T020704Z&HW-CC-Expire=86400&HW-CC-Sign=6148ABBE25FA5C2F318AAB41A14A789A073B0B95CE992F1CD5C8AC3226B8CE20)

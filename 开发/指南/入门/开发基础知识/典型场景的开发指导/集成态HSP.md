@@ -1,6 +1,6 @@
 # 集成态HSP
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/integrated-hsp
 
@@ -13,9 +13,7 @@
 
 #### 使用场景
 
-如果存在多个应用包含相同的基础能力，例如日志打印模块，为节约开发成本并实现代码和资源的共享，多个应用可以共用一个日志模块。此时，可以通过应用内HSP方式提供能力。由于应用内HSP的限制，每个应用在使用前都需要调整其bundleName，并使用当前应用的签名重新签名，构建一个新的HSP提供给当前应用使用。这意味着，每增加一个应用，就需要进行一次调整bundleName和重新签名的操作，导致签名和打包过程繁琐。
- 
-而集成态HSP在DevEco Studio编译过程中，bundleName和重签名的动作会自动完成，开发者无需关注重复签名的操作，可以专注于功能业务的开发。
+如果存在多个应用包含相同的基础能力，例如日志打印模块，为节约开发成本并实现代码和资源的共享，多个应用可以共用一个日志模块。此时，可以通过应用内HSP方式提供能力。由于应用内HSP的限制，每个应用在使用前都需要调整其bundleName，并使用当前应用的签名重新签名，构建一个新的HSP提供给当前应用使用。这意味着，每增加一个应用，就需要进行一次调整bundleName和重新签名的操作，导致签名和打包过程繁琐。而集成态HSP在DevEco Studio编译过程中，bundleName和重签名的动作会自动完成，开发者无需关注重复签名的操作，可以专注于功能业务的开发。
  
   
 
@@ -45,8 +43,9 @@
       {
         "name": "default",
         "signingConfig": "default",
-        "targetSdkVersion": "5.1.1(19)",
-        "compatibleSdkVersion": "5.1.1(19)",
+        "targetSdkVersion": 19,
+        "compatibleSdkVersion": 19,
+        "compileSdkVersion": 19,
         "runtimeOS": "HarmonyOS",
         "buildOption": {
           "strictMode": {
@@ -85,12 +84,12 @@
 
 3. 打包配置（tgz包）。
 
-  (1) 配置项目签名信息，详情请参见[应用/元服务签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
+  (1) 配置项目签名信息，详情请参见[配置调试签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
 
   (2) 配置release模式。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/_tv9pmm2QYqkqXVXXBJLoA/zh-cn_image_0000002581273604.png?HW-CC-KV=V1&HW-CC-Date=20260528T025920Z&HW-CC-Expire=86400&HW-CC-Sign=BFAF1BFA5D8ED97FF16148A5B5263DF39F788D4D64AEC8DCB9F80A7967F493FA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/EWO2BjreSwC5gXIlhsoxIA/zh-cn_image_0000002626068002.png?HW-CC-KV=V1&HW-CC-Date=20260624T020655Z&HW-CC-Expire=86400&HW-CC-Sign=2D3B49767C9A463A632683B00E0C06F954FBC9BC291E5B34D310CE68658F7031)
 
 
   (3) 选择library目录，执行Build -> Make Module 'library'。
@@ -120,8 +119,9 @@
       {
         "name": "default",
         "signingConfig": "default",
-        "targetSdkVersion": "5.1.1(19)",
-        "compatibleSdkVersion": "5.1.1(19)",
+        "targetSdkVersion": 19,
+        "compatibleSdkVersion": 19,
+        "compileSdkVersion": 19,
         "runtimeOS": "HarmonyOS",
         "buildOption": {
           "strictMode": {
@@ -139,5 +139,5 @@
 
 4. 配置签名。
 
-  安装和运行应用前，必须配置项目签名信息，详见[应用/元服务签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
+  安装和运行应用前，必须配置项目签名信息，详见[配置调试签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing)。
 5. [安装和运行](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-run-device)。

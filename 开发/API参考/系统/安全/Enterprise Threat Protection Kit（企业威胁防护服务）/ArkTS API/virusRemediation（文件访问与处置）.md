@@ -1,11 +1,11 @@
-# virusRemediation（文件访问与处置）
+# virusRemediation（病毒检测与处置）
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/enterprisethreatprotection-virusremediation-interface
 **支持设备：** PC/2in1
 
-文件访问与处置功能旨在保障数据安全，为安全防护类应用提供威胁文件的扫描与处置能力。其主要功能包括文件打开、应用目录扫描，以及文件隔离、已隔离文件恢复、已隔离文件删除和隔离查询等处置操作。本服务需由安全防护类应用申请相应[权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-enterprise-apps#ohospermissionscan_remediate_virus)后使用。
+病毒检测与处置功能旨在保障数据安全，为安全防护类应用提供威胁文件的扫描与处置、威胁进程终止能力。其主要功能包括文件打开、应用目录扫描，以及文件隔离、已隔离文件恢复、已隔离文件删除、隔离文件查询和终止进程等处置操作。本服务需由安全防护类应用申请相应[权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-enterprise-apps#ohospermissionscan_remediate_virus)后使用。
 
 **起始版本：** 6.1.1(24)
 
@@ -645,6 +645,73 @@ function removeIsolatedFilePromise() {
     console.info(`Succeeded in removing file.`);
   }).catch((err: BusinessError) => {
     console.error(`Failed to remove file. Code: ${err.code}, message: ${err.message}.`);
+  });
+}
+```
+
+
+
+#### terminateProcess
+
+**支持设备：** PC/2in1
+
+terminateProcess(pid: number): Promise&lt;void&gt;
+
+终止正在运行的指定进程。使用Promise异步回调。
+
+**需要权限：** ohos.permission.SCAN_REMEDIATE_VIRUS
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.PCService.VirusRemediation
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| pid | number | 是 | 待终止的威胁进程号。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-threat-protection)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 401 | The parameter check failed. |
+| 1023801001 | System service exception. |
+| 1023807001 | Process not found. |
+| 1023807002 | Access and disposal are denied for this process. |
+| 1023807003 | Access to other users' processes is not allowed. |
+
+
+**示例：**
+
+```text
+function terminateProcessPromise() {
+  let pid: number = 0;
+  virusRemediation.terminateProcess(pid).then(() => {
+    console.info(`Succeeded in terminating process.`);
+  }).catch((err: BusinessError) => {
+    if (err.code === 1023807001) {
+      console.error('Process not found.');
+    } else if (err.code === 1023807002) {
+      console.error('Access and disposal are denied for this process.');
+    } else if (err.code === 1023807003) {
+      console.error(`Access to other users' processes is not allowed.`);
+    } else {
+      console.error(`Failed to terminate process. Code: ${err.code}, message: ${err.message}.`);
+    }
   });
 }
 ```

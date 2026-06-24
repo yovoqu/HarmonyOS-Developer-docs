@@ -1,6 +1,6 @@
 # list
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-container-list
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -133,4 +133,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/ptSmX0MNR6KTQQFrTe79jQ/zh-cn_image_0000002611756507.png?HW-CC-KV=V1&HW-CC-Date=20260528T025430Z&HW-CC-Expire=86400&HW-CC-Sign=8C261347D0BFB719CB2B32541C79278EE62D21E97B8B8C505E50CA5F1205E360)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/d35AiGhoSlej003XW0EyFA/zh-cn_image_0000002626071214.png?HW-CC-KV=V1&HW-CC-Date=20260624T015949Z&HW-CC-Expire=86400&HW-CC-Sign=34F88C0EBC34755BB0CA5572D1D189F90CCF0E1C5BE2F258B23C8296AFEBA54C)

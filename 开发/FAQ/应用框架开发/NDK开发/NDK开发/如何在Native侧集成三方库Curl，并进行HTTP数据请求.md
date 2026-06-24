@@ -1,6 +1,6 @@
 # 如何在Native侧集成三方库Curl，并进行HTTP数据请求
 
-更新时间：2026-06-05 09:11:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-31
 
@@ -95,4 +95,4 @@ static napi_value NatReq(napi_env env, napi_callback_info info) {
  
 [使用命令行CMake构建NDK工程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/build-with-ndk-cmake)
  
-[使用lycium工具快速编译三方库](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-lycium-adapts-to-harmonyos)
+[使用lycium工具快速编译三方库](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/toolchain-lycium-build-project)

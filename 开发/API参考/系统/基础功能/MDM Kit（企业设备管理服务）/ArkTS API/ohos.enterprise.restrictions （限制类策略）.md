@@ -1,6 +1,6 @@
 # @ohos.enterprise.restrictions （限制类策略）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-restrictions
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -43,7 +43,7 @@ setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| feature | string | 是 | 支持设置的特性清单参考表1。 说明： 从API version 15开始，应用申请权限ohos.permission.PERSONAL_MANAGE_RESTRICTIONS并通过接口startAdminProvision激活为自带设备管理应用，可以使用此接口设置以下特性：bluetooth、hdc、microphone、usb、wifi、tethering、camera、screenshot、screenRecord、nearLink、resetFactory。 |
+| feature | string | 是 | 支持设置的特性清单参考表1。 说明： 从API version 15开始，应用申请权限ohos.permission.PERSONAL_MANAGE_RESTRICTIONS并通过startAdminProvision激活为BDA，可以使用此接口设置以下特性：bluetooth、hdc、microphone、usb、wifi、tethering、camera、screenshot、screenRecord、nearLink、resetFactory，从API版本26.0.0开始，新增支持使用此接口设置mtpServer特性。 |
 | disallow | boolean | 是 | true表示禁止使用，false表示允许使用。 |
 
 
@@ -63,7 +63,7 @@ setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void
 | inactiveUserFreeze14+ | 非活跃用户运行能力。禁用后，非UIAbility进程一般不会被冻结，UIAbility申请短时任务、长时任务、延迟任务或能效资源等后台运行任务也不会被冻结。当前仅支持PC/2in1设备使用。企业空间场景下，系统切换到企业空间用户，个人空间用户属于非活跃用户。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
 | camera14+ | 设备相机能力。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS |
 | mtpClient18+ | MTP客户端能力(包含读取和写入)，当前仅支持PC/2in1设备使用。MTP（MediaTransferProtocol，媒体传输协议），该协议允许用户在移动设备上线性访问媒体文件。当已经通过setDisallowedPolicyForAccount设置了某用户禁用MTP客户端写入能力时，再通过本接口禁用MTP客户端能力，会报策略冲突。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
-| mtpServer18+ | MTP服务端能力，当前仅支持手机、平板设备使用。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
+| mtpServer18+ | MTP服务端能力，当前仅支持手机、平板设备使用。 | API version 26.0.0之前：ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS，API version 26.0.0开始：ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS |
 | sambaClient20+ | samba客户端能力，当前仅支持PC/2in1设备使用。samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
 | sambaServer20+ | samba服务端能力，当前仅支持PC/2in1设备使用。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
 | backupAndRestore20+ | 备份和恢复能力，禁用后设备的"设置--系统--备份和恢复"、"设置--云空间"置灰，当前仅支持手机、平板使用。如果要完全禁用设备的备份和恢复能力，建议同时调用applicationManager.addDisallowedRunningBundlesSync接口禁止具备备份和恢复能力的应用运行，如备份和恢复、手机助手、云空间应用。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
@@ -73,7 +73,7 @@ setDisallowedPolicy(admin: Want, feature: string, disallow: boolean): void
 | mobileData20+ | 蜂窝数据能力，当前仅支持手机、平板设备使用。 | ohos.permission.ENTERPRISE_MANAGE_NETWORK |
 | airplaneMode20+ | 飞行模式能力，当前仅支持手机、平板设备使用。 | ohos.permission.ENTERPRISE_MANAGE_NETWORK |
 | vpn20+ | Virtual Private Network（虚拟专用网络），VPN能力。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
-| notification20+ | 设备通知能力。禁用后，由系统应用和三方应用发出的通知将不会显示，而系统服务通知能力不受影响。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
+| notification20+ | 设备通知能力。禁用后，由系统应用和三方应用发出的通知将不会显示，而系统服务通知能力不受影响。当此设备已经通过addAllowedNotificationBundles设置了应用通知白名单之后，再通过此接口禁用设备通知能力，会抛出错误码9200010。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
 | nfc20+ | Near Field Communication（近距离无线通信），NFC能力，当前仅支持手机、平板设备使用。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
 | privateSpace20+ | 创建隐私空间能力，当前仅支持手机、平板使用。对已创建的隐私空间无效。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
 | telephoneCall20+ | 设备通话能力，禁用后电话无法呼入和呼出。当前仅支持手机、平板设备使用。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
@@ -149,7 +149,7 @@ getDisallowedPolicy(admin: Want | null, feature: string): boolean
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| feature | string | 是 | 支持查询的特性清单参考下表2。 说明： 从API version 15开始，应用申请权限ohos.permission.PERSONAL_MANAGE_RESTRICTIONS并通过接口startAdminProvision激活为自带设备管理应用，可以使用此接口获取以下特性状态：bluetooth、hdc、microphone、usb、wifi、tethering、camera、screenshot、screenRecord、nearLink、resetFactory。 |
+| feature | string | 是 | 支持查询的特性清单参考下表2。 说明： 从API version 15开始，应用申请权限ohos.permission.PERSONAL_MANAGE_RESTRICTIONS并通过startAdminProvision激活为BDA，可以使用此接口获取以下特性状态：bluetooth、hdc、microphone、usb、wifi、tethering、camera、screenshot、screenRecord、nearLink、resetFactory，从API版本26.0.0开始，新增支持使用此接口获取mtpServer特性状态。 |
 
 
 **表2 支持查询的特性清单：**
@@ -168,7 +168,7 @@ getDisallowedPolicy(admin: Want | null, feature: string): boolean
 | inactiveUserFreeze14+ | 非活跃用户运行能力。禁用后，非UIAbility进程一般不会被冻结，UIAbility申请短时任务、长时任务、延迟任务或能效资源等后台运行任务也不会被冻结。当前仅支持PC/2in1设备使用。企业空间场景下，系统切换到企业空间用户，个人空间用户属于非活跃用户。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
 | camera14+ | 设备相机能力。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS |
 | mtpClient18+ | MTP客户端能力（包含读取和写入），当前仅支持PC/2in1设备使用。MTP（MediaTransferProtocol，媒体传输协议），该协议允许用户在移动设备上线性访问媒体文件。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
-| mtpServer18+ | MTP服务端能力，当前仅支持手机、平板设备使用。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
+| mtpServer18+ | MTP服务端能力，当前仅支持手机、平板设备使用。 | API version 26.0.0之前：ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS，API version 26.0.0开始：ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS 或 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS |
 | sambaClient20+ | samba客户端能力，当前仅支持PC/2in1设备使用。samba是在Linux和UNIX系统上实现SMB协议的一个免费软件，由服务器及客户端程序构成。SMB（Server Messages Block，信息服务块）是一种在局域网上共享文件和打印机的一种通信协议，它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。SMB协议是客户机/服务器型协议，客户机通过该协议可以访问服务器上的共享文件系统、打印机及其他资源。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
 | sambaServer20+ | samba服务端能力，当前仅支持PC/2in1设备使用。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
 | backupAndRestore20+ | 备份和恢复能力，禁用后设备的"设置--系统--备份和恢复"、"设置--云空间"置灰，当前仅支持手机、平板使用。 | ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS |
@@ -827,7 +827,7 @@ setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean): 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| feature | FeatureForDevice | 是 | 指定要禁用或允许的设备特性。 说明： 应用申请权限ohos.permission.PERSONAL_MANAGE_RESTRICTIONS并通过接口startAdminProvision激活为自带设备管理应用，可以使用此接口设置以下特性：FeatureForDevice.WIFI_P2P。 |
+| feature | FeatureForDevice | 是 | 指定要禁用或允许的设备特性。 说明： 应用申请权限ohos.permission.PERSONAL_MANAGE_RESTRICTIONS并通过startAdminProvision激活为BDA，可以使用此接口设置以下特性：FeatureForDevice.WIFI_P2P。 |
 | disallow | boolean | 是 | true表示禁止使用，false表示允许使用。 |
 
 
@@ -930,6 +930,139 @@ try {
 
 
 
+#### restrictions.setDisallowedPolicyForAccount
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+setDisallowedPolicyForAccount(admin: Want, feature: FeatureForAccount, disallow: boolean, accountId: number): void
+
+设置禁用/启用指定用户的某特性。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [从严管控](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则1从严管控)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| feature | FeatureForAccount | 是 | 要禁用或允许的用户特性。 当feature值为SUPER_HUB时，如果已经通过addUserNonStopApps接口将中转站添加到当前用户下不可关停的应用列表中，再调用本接口禁用中转站，会发生策略冲突，抛出9200010错误码。可以通过removeUserNonStopApps接口将中转站从当前用户下不可关停的应用列表中移除来解决冲突。 |
+| disallow | boolean | 是 | true表示禁用，false表示启用。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过getOsAccountLocalId等接口来获取。 当feature值为SUPER_HUB时，accountId仅支持传入当前用户的用户ID，不支持跨用户设置。否则会抛出9200012错误码。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200010 | A conflict policy has been configured. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { restrictions } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+try {
+  // 参数需根据实际情况进行替换
+  restrictions.setDisallowedPolicyForAccount(wantTemp, restrictions.FeatureForAccount.SUPER_HUB, true, 100);
+  console.info('Succeeded in setting super hub disabled');
+} catch (err) {
+  console.error(`Failed to set super hub disabled. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
+#### restrictions.getDisallowedPolicyForAccount
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getDisallowedPolicyForAccount(admin: Want | null, feature: FeatureForAccount, accountId: number): boolean
+
+获取指定用户的某特性状态。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| feature | FeatureForAccount | 是 | 指定要查询的用户特性。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过getOsAccountLocalId等接口来获取。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 返回true表示参数feature对应的特性被禁用，false表示参数feature对应的特性未被禁用。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { restrictions } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+try {
+  // 参数需根据实际情况进行替换
+  let result: boolean = restrictions.getDisallowedPolicyForAccount(wantTemp, restrictions.FeatureForAccount.SUPER_HUB, 100);
+  console.info(`Succeeded in querying whether the super hub is disabled: ${result}`);
+} catch (err) {
+  console.error(`Failed to get whether super hub is disabled. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
 #### FeatureForDevice24+
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -943,3 +1076,26 @@ try {
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | WIFI_P2P | 0 | Wi-Fi P2P（点对点连接），允许设备在没有接入点的情况下直接相互连接。禁用后，设备无法通过Wi-Fi P2P进行点对点连接，影响文件传输、游戏联机、屏幕共享等需要直接Wi-Fi连接的应用功能。 |
+| LOCAL_INPUT | 2 | 本地输入（包含键盘、鼠标、触控板、触摸屏等）被禁用后，无法通过本地输入进行操作。重启设备可解除禁用。在息屏状态下禁用会导致屏幕无法唤醒，若禁用后屏幕自动息屏，同样会导致无法唤醒屏幕。 起始版本： 26.0.0 |
+| CORE_DUMP | 6 | 创建文件转储。禁用后，无法通过任务管理器创建文件转储。 起始版本： 26.0.0 |
+| DISK_ERASURE | 8 | 磁盘擦除能力。禁用后，"磁盘擦除"入口将被置灰。当前仅支持PC/2in1设备使用。 起始版本： 26.0.0 |
+
+
+
+
+#### FeatureForAccount
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+可为指定用户设置禁用/启用的特性的枚举。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| MULTI_WINDOW | 0 | 系统多窗口。当前仅支持手机、平板设备使用，禁用后无法使用系统多窗口功能（分屏、一键分屏、智慧多窗、悬浮窗口）。若系统多窗口功能已开启，本次使用不受影响，但关闭后将无法再次使用。 |
+| SUPER_HUB | 2 | 中转站。当前仅支持手机、平板设备使用，禁用后无法使用中转站功能。若中转站已开启，本次使用不受影响，但关闭后将无法再次使用。 |

@@ -1,6 +1,6 @@
 # Map Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-introduction
 
@@ -42,7 +42,7 @@ Map Kit提供以下功能，满足绝大多数地图开发的需求：
 
 #### 支持的设备
 
-本kit仅适用于Phone、Tablet、PC/2in1和Wearable。
+本Kit仅适用于Phone、Tablet、PC/2in1、Wearable、TV和Car。
  
   
 

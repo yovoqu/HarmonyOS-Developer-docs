@@ -1,6 +1,6 @@
 # oh_pasteboard.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-pasteboard-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1092,7 +1092,7 @@ void OH_Pasteboard_SyncDelayedDataAsync(OH_Pasteboard* pasteboard, void (*callba
 通知剪贴板从应用同步所有延迟数据，与延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)搭配使用。当应用使用延迟复制功能复制时，仅将应用支持的数据类型写入剪贴板。应用应在退出时，重新调用[OH_Pasteboard_SetData](#oh_pasteboard_setdata)接口主动提交所有复制数据或调用此接口通知剪贴板获取全量数据，等待数据同步完成再继续退出，否则可能导致其他应用粘贴获取不到数据。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/2_SGZWGpRnSnhYuN_B55_w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025156Z&HW-CC-Expire=86400&HW-CC-Sign=41473CEB6C401E70B3F63DA175826BFE976CB380FC8F417194B8DCB29FC8E747)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/ui0xuOVFQ62rFEtXMlcLMw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020140Z&HW-CC-Expire=86400&HW-CC-Sign=C1B762731C29D5DE0F8BA8EC4A178C58624454CC88AF657C0B97D32F94D1800E)
 
 
  - 调用此接口会延长退出过程，建议应用直接设置数据到剪贴板，而不是调用延迟复制接口[OH_UdmfRecordProvider_SetData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-udmf-h#oh_udmfrecordprovider_setdata)和此接口。

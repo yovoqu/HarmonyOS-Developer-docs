@@ -1,6 +1,6 @@
 # 动态布局 (DynamicLayout)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-dynamiclayout
 
@@ -1154,7 +1154,7 @@ DynamicLayout支持以下几种方式触发重新布局：
 
  - 通过状态变量切换布局算法。
 
-  开发者使用@Local装饰器修饰布局算法变量，可以实现运行时动态切换布局。
+  开发者使用[@Local](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-local)装饰器修饰布局算法变量，可以实现运行时动态切换布局。
 
   
 ```ArkTS
@@ -1395,6 +1395,8 @@ struct PropertyChangeExample {
  - 响应式布局算法切换。
 
   开发者可以结合[mediaquery](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-mediaquery)接口监听屏幕方向变化，自动切换商品列表的布局方式。竖屏时使用列表视图（每行一个商品），横屏时使用网格视图（2x2网格布局）。
+
+  此示例在运行前需要在工程配置文件[module.json5](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)中的abilities字段里配置"orientation": "auto_rotation"。
 
   
 ```ArkTS

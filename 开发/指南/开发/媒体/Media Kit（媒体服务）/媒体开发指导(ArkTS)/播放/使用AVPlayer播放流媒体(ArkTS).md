@@ -1,6 +1,6 @@
 # 使用AVPlayer播放流媒体(ArkTS)
 
-更新时间：2026-03-17 02:21:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/streaming-media-playback-development-guide
 
@@ -72,7 +72,7 @@
 
 #### 流媒体缓冲状态
 
-当下载速率低于片源的码率时，会出现卡顿。此时，播放器检测到缓冲区数据不足，会先缓冲一些数据再播放，避免连续卡顿。一次卡顿对应的缓冲事件上报过程为：BUFFERING_START-> BUFFERING_PERCENT 0 -> ... -> BUFFERING_PERCENT 100 -> BUFFERING_END。CACHED_DURATION在卡顿过程和播放过程中都会持续上报，直至下载至资源末尾。详见[BufferingInfoType缓冲事件类型枚举](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#bufferinginfotype8)。
+当下载速率低于片源的码率时，会出现卡顿。此时，播放器检测到缓冲区数据不足，会先缓冲一些数据再播放，避免连续卡顿。一次卡顿对应的缓冲事件上报过程为：BUFFERING_START-> BUFFERING_PERCENT 0 -> ... -> BUFFERING_PERCENT 100 -> BUFFERING_END。CACHED_DURATION在卡顿过程和播放过程中都会持续上报，直至下载至资源末尾。详见[BufferingInfoType](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-e#bufferinginfotype8)缓冲事件类型枚举。
 
 监听当前bufferingUpdate缓冲状态示例代码：
 

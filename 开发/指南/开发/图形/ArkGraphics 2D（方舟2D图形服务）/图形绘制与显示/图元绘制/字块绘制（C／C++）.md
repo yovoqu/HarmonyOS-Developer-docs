@@ -1,6 +1,6 @@
 # 字块绘制（C/C++）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/textblock-drawing-c
 
@@ -25,7 +25,7 @@
 此处以使用OH_Drawing_TextBlobCreateFromString()接口创建字块为例，接口接受3个参数，分别为：
 
  - 需要显示的文本字符串内容。
- - 指向OH_Drawing_Font字体对象的指针。OH_Drawing_Font用于设置和获取字体的各种属性，如字体大小、文本样式、字体对齐方式、字体渲染方式、字体描边方式等，详细的API介绍请参考[draw_font](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-font-h)。
+ - 指向OH_Drawing_Font字体对象的指针。OH_Drawing_Font用于设置和获取字体的各种属性，如字体大小、文本样式、字体对齐方式、字体渲染方式、字体描边方式等，详细的API介绍请参考[drawing_font.h](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-font-h)。
  - 文本编码方式。
 
 
@@ -269,7 +269,7 @@ OH_Drawing_FontDestroy(font);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/VKSTH9xWTy2ifZ8ZatiEBw/zh-cn_image_0000002611754693.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=A21ED490D69947537B15ED234B41721B3D4F68D3A668766B8303DDB96032F2B1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/rSYY2O-cRU62FtjJ0DGngg/zh-cn_image_0000002656468635.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020914Z&HW-CC-Expire=86400&HW-CC-Sign=CB0FC82E1B15C04EEE8A17F53D84E81C75E4D9F6564F9FCB3BF7EFB70D5AF013)
 
 
 进阶场景：绘制带字体特征的字符。
@@ -303,7 +303,7 @@ OH_Drawing_FontDestroy(font);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/PgmR698ATKSi_Wonw0tW_A/zh-cn_image_0000002581434756.png?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=03911DE5CDDE66BD0CE020D803D22E13ACFE4F26333D66B0C7A3537283A68B3C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/YQkfIwBjRvCX5XC0ay_aOg/zh-cn_image_0000002656348683.png?HW-CC-KV=V1&HW-CC-Date=20260624T020914Z&HW-CC-Expire=86400&HW-CC-Sign=F246942AB4118D09F21DFBBA8A11F45C5166D41150B3B46F8A7495C7B9129FAB)
 
 
 > [!NOTE]

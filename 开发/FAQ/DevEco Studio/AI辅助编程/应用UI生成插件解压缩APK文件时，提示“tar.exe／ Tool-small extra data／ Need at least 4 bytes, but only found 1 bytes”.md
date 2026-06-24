@@ -1,6 +1,6 @@
 # 应用UI生成插件解压缩APK文件时，提示“tar.exe: Tool-small extra data: Need at least 4 bytes, but only found 1 bytes”
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-codegenie-1
 

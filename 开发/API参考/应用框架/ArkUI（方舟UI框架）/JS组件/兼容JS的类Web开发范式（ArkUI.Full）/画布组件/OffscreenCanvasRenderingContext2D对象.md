@@ -1,6 +1,6 @@
 # OffscreenCanvasRenderingContext2D对象
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-offscreencanvasrenderingcontext2d
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -333,4 +333,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/FHmjd6AuTAencSMcTmOSfQ/zh-cn_image_0000002611836209.png?HW-CC-KV=V1&HW-CC-Date=20260528T025436Z&HW-CC-Expire=86400&HW-CC-Sign=478FD54F1AD83109F2DED6F2676B9D620964C263C69AB6AEE840DF5BEDC7B666)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/1fgFAQcoQTyBHo4wIJnzag/zh-cn_image_0000002656350351.png?HW-CC-KV=V1&HW-CC-Date=20260624T015941Z&HW-CC-Expire=86400&HW-CC-Sign=0D8C03CDFF5D2C1D653C5BC0A5367EC25BA613F4D854A5FF20A89A717B8E51E5)

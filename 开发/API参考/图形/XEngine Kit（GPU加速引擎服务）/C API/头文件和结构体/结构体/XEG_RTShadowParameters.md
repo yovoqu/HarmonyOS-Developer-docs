@@ -1,6 +1,6 @@
 # XEG_RTShadowParameters
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-rtshadowparameters
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -31,8 +31,8 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| float rayTMax | 阴影光线的tMax值。 |
-| float rayTMin | 阴影光线的tMin值。 |
+| float rayTMax | 阴影光线的tMax值，必须为非负数。 |
+| float rayTMin | 阴影光线的tMin值，必须为非负数。 |
 | float sunDirection [3] | 方向光的方向。 |
 | float raySourceAngleInDegree = 0.0f | 沿光源方向进行阴影采样的角度范围，值越大，半影区域越大。此参数的值将被限制在[0.0, 90.0]范围内。默认值为0.0。 |
 | uint32_t shadowCullMask = 0x5FF | 配置光线查询rayQueryInitializeEXT函数中的rayFlags和cullMask参数，高24bit表示rayFlags，低8bit表示cullMask。 默认值为0x5FF，即 ((gl_RayFlagsOpaqueEXT \| gl_RayFlagsTerminateOnFirstHitEXT) << 8) \| 0xFF。 |
@@ -86,7 +86,7 @@ float XEG_RTShadowParameters::rayTMax
  
 **描述**
  
-阴影光线的tMax值。
+阴影光线的tMax值，必须为非负数。
  
   
 
@@ -100,7 +100,7 @@ float XEG_RTShadowParameters::rayTMin
  
 **描述**
  
-阴影光线的tMin值。
+阴影光线的tMin值，必须为非负数。
  
   
 

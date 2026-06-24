@@ -1,6 +1,6 @@
 # 使用Web组件管理网页缩放
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-scale-zoom
 
@@ -106,7 +106,7 @@ struct WebComponent {
 
 #### 监听页面缩放比例变化
 
-应用可以通过[onScaleChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onscalechange9)接口监听页面缩放比例的变化。该接口事件对应手势事件(双指缩放)，event.newScale对应网页属性visualViewport.scale。
+应用可以通过[onScaleChange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#onscalechange9)接口监听页面缩放比例的变化。该接口事件对应手势事件（双指缩放），event.newScale对应网页属性visualViewport.scale。
 
 ```ArkTS
 import { webview } from '@kit.ArkWeb';
@@ -217,7 +217,7 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/3z13iymIQhKGIgiKkovCDQ/zh-cn_image_0000002611834117.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030413Z&HW-CC-Expire=86400&HW-CC-Sign=BAC04A4B636F57449505C787719C9ABE4D250DB5BAC788EAC6AACC71B0655BB5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/zohZBrNNSoOMIRjiZnU9EQ/zh-cn_image_0000002626228760.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020808Z&HW-CC-Expire=86400&HW-CC-Sign=8903EA1E21D68456CC7A68EC93713471CB59B1415B34DD33A94E7F266A03087D)
 
 
 
@@ -272,4 +272,4 @@ struct WebComponent {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/tUN1GP1XT8mG-o7b1WjMlA/zh-cn_image_0000002581274372.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030413Z&HW-CC-Expire=86400&HW-CC-Sign=38B8A5851C0D9A7EC184F37F7F9A6BE6F7D6875E47E047BC4E21D1E943D25F09)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d6/v3/tgLSvcTPSIm8Wojf037Qvw/zh-cn_image_0000002626068850.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020808Z&HW-CC-Expire=86400&HW-CC-Sign=DCF7D89134D158ED6C707CF258E604E1F73E7E5188BBE6A4807894D5DFB8544F)

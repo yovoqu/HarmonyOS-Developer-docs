@@ -1,6 +1,6 @@
 # ohpm install
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-install
 
@@ -119,7 +119,7 @@ ohpm install ./package.har
 #### prefix
 
 - 默认值：""
-- 类型： string
+- 类型：string
 
  
 可以在 install 命令后面配置 --prefix &lt;string&gt; 参数，用来指定包的根目录，该目录下必须存在 oh-package.json5 文件。
@@ -129,7 +129,7 @@ ohpm install ./package.har
 #### parameterFile
 
 - 默认值：无
-- 类型： string
+- 类型：string
 - 别名：pf
 
  
@@ -150,7 +150,7 @@ ohpm install ./package.har
 #### fetch_timeout
 
 - 默认值：60000
-- 类型： Number
+- 类型：Number
 - 别名：ft
 
  
@@ -161,7 +161,7 @@ ohpm install ./package.har
 #### strict_ssl
 
 - 默认值：true
-- 类型： Boolean
+- 类型：Boolean
 
  
 可以在 install 命令后面配置 --strict_ssl true 参数，校验 https 证书；配置 --strict_ssl false 参数，不校验 https 证书。
@@ -171,7 +171,7 @@ ohpm install ./package.har
 #### max_concurrent
 
 - 默认值：50
-- 类型： Number
+- 类型：Number
 - 别名：mc
 
  
@@ -182,7 +182,7 @@ ohpm install ./package.har
 #### retry_times
 
 - 默认值：1
-- 类型： Number
+- 类型：Number
 - 别名：rt
 
  
@@ -193,7 +193,7 @@ ohpm install ./package.har
 #### retry_interval
 
 - 默认值：1000
-- 类型： Number
+- 类型：Number
 - 别名：ri
 
  
@@ -224,7 +224,7 @@ ohpm install ./package.har
 #### log_level
 
 - 默认值：无
-- 类型： String
+- 类型：String
 
  
 从ohpm 6.0.2.636版本开始，可以在 install 命令后配置--log_level &lt;string&gt;参数，指定执行当前命令的日志级别（info、debug、warn、error），如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -234,7 +234,7 @@ ohpm install ./package.har
 #### debug
 
 - 默认值：false
-- 类型： Boolean
+- 类型：Boolean
 
  
 从ohpm 6.0.2.636版本开始，可以在命令后配置--debug参数，指定执行当前命令的日志级别为debug，该配置仅在当前命令行生效，不修改.ohpmrc中的日志级别，如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -298,6 +298,26 @@ ohpm install ./package.har
 
  
 从ohpm 6.0.2.636版本开始，可以在 install 命令后面配置 --cache &lt;string&gt; 参数，设置缓存路径。
+ 
+ 
+
+#### auto_skip_install
+
+- 默认值：false
+- 类型：Boolean
+
+ 
+从ohpm 26.0.0.410版本开始，可以在 install 命令后面配置 --auto_skip_install参数，设置是否需要校验跳过本次安装，详情参见[auto_skip_install](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc#section10908614105919)。
+ 
+ 
+
+#### metadata_cache
+
+- 默认值：false
+- 类型：Boolean
+
+ 
+从ohpm 26.0.0.410版本开始，可以在 install 命令后面配置 --metadata_cache 参数，设置是否读取oh-install-meta.json5文件内的缓存元数据和~/.ohpm/cache/metadata下的元数据缓存文件，详情参见[metadata_cache](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpmrc#section184761329339)。
  
  
 
@@ -381,7 +401,7 @@ dependencyMap.json5内容示例：
 4、overrides中的依赖版本优先级高于&lt;target_path&gt;/moduleName/oh-package.json5中对应的依赖版本。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/ShY3jOk8R8ip8oHysJk32g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=A4EE18B40453C609F8C301AD63CB3DA0D5C0A3C48B38FC838F90A89769828481)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/43/v3/c2V1PrzgQLyrsFkAjTFTlA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020704Z&HW-CC-Expire=86400&HW-CC-Sign=45943E9B1C9B8BB5B06EF307518D1E0977D7A13E56BBC2D27916E6BDA6FB9073)
  
 
 仅当&lt;target_path&gt;/dependencyMap.json5中targetName的值不为空且不等于'default'时，&lt;project_root&gt;/moduleName目录下生成的lock文件名才会变更为：oh-package-targetName-lock.json5。

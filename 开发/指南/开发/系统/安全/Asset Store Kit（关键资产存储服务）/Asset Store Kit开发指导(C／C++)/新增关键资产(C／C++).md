@@ -1,6 +1,6 @@
 # 新增关键资产(C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-native-add
 
@@ -27,14 +27,14 @@
 | ASSET_TAG_AUTH_TYPE | 类型为uint32_t，取值范围详见Asset_AuthType。 | 可选 | 访问关键资产所需的用户认证类型，默认值为ASSET_AUTH_TYPE_NONE，即访问关键资产前无需用户认证。 |
 | ASSET_TAG_SYNC_TYPE | 类型为uint32_t，取值范围详见Asset_SyncType。 | 可选 | 关键资产支持的同步类型，默认值为ASSET_SYNC_TYPE_NEVER，即不允许同步该关键资产。 |
 | ASSET_TAG_IS_PERSISTENT | 类型为bool。 | 可选 | 在应用卸载时是否需要保留关键资产。为true时表示应用卸载后，应用存储的关键资产将被保留；为false时表示应用卸载后，应用存储的关键资产将被删除。默认值为false。 注意： 设置此属性时，需申请权限ohos.permission.STORE_PERSISTENT_DATA。 |
-| ASSET_TAG_DATA_LABEL_CRITICAL_1 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
-| ASSET_TAG_DATA_LABEL_CRITICAL_2 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
-| ASSET_TAG_DATA_LABEL_CRITICAL_3 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
-| ASSET_TAG_DATA_LABEL_CRITICAL_4 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
-| ASSET_TAG_DATA_LABEL_NORMAL_1 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
-| ASSET_TAG_DATA_LABEL_NORMAL_2 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
-| ASSET_TAG_DATA_LABEL_NORMAL_3 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
-| ASSET_TAG_DATA_LABEL_NORMAL_4 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+| ASSET_TAG_DATA_LABEL_CRITICAL_1 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| ASSET_TAG_DATA_LABEL_CRITICAL_2 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| ASSET_TAG_DATA_LABEL_CRITICAL_3 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| ASSET_TAG_DATA_LABEL_CRITICAL_4 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| ASSET_TAG_DATA_LABEL_NORMAL_1 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| ASSET_TAG_DATA_LABEL_NORMAL_2 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| ASSET_TAG_DATA_LABEL_NORMAL_3 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
+| ASSET_TAG_DATA_LABEL_NORMAL_4 | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 | ASSET_TAG_DATA_LABEL_NORMAL_LOCAL_112+ | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
 | ASSET_TAG_DATA_LABEL_NORMAL_LOCAL_212+ | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
 | ASSET_TAG_DATA_LABEL_NORMAL_LOCAL_312+ | 类型为uint8[]，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
@@ -49,14 +49,14 @@
 
 #### 约束和限制
 
- - 基于别名的访问
+ - 基于别名的访问。
 
   关键资产以密文的形式存储在ASSET数据库中，以业务身份和别名作为索引。业务需保证每条关键资产的别名唯一。
- - 业务自定义数据存储
+ - 业务自定义数据存储。
 
   
-ASSET为业务预留了12个关键资产自定义属性，名称以"ASSET_TAG_DATA_LABEL"开头。对于超过12个自定义属性的情况，业务可以将多段数据按照一定的格式（如JSON）拼接到同一个ASSET属性中。
- - ASSET对部分属性会进行完整性保护，这部分属性名称以"ASSET_TAG_DATA_LABEL_CRITICAL"开头，且写入后不支持更新。
+ASSET为业务预留了12个关键资产自定义属性，名称以“ASSET_TAG_DATA_LABEL”开头。对于超过12个自定义属性的情况，业务可以将多段数据按照一定的格式（如JSON）拼接到同一个ASSET属性中。
+ - ASSET对部分属性会进行完整性保护，这部分属性名称以“ASSET_TAG_DATA_LABEL_CRITICAL”开头，且写入后不支持更新。
 
 
 

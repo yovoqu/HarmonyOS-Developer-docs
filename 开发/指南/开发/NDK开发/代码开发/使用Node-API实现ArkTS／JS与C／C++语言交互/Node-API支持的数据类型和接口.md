@@ -1,6 +1,6 @@
 # Node-API支持的数据类型和接口
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-data-types-interfaces
 
@@ -176,6 +176,10 @@ napi_critical_scope是Node-API中，用于创建临界接口执行环境的机�
 指向napi_value，允许用户管理ArkTS对象的生命周期。
 
 **提示：** napi_strong_ref与napi_ref相比，具有更高的创建效率，但支持的功能受限（如：不支持强弱引用转换等）。
+
+**napi_callsite_info（扩展能力）**
+
+调用点信息句柄，用于缓存属性访问的对象结构信息以加速后续属性读写。每个不同的调用点应创建独立的napi_callsite_info句柄，同一句柄可跨多次调用复用，但不可跨线程使用。
 
 **napi_sendable_ref（扩展能力）**
 
@@ -624,7 +628,7 @@ Node-API接口在Node.js提供的原生模块基础上扩展，目前支持部�
 
 #### 扩展能力
 
-[Node-API组件扩展的符号列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#node-api组件扩展的符号列表)
+[Node-API组件扩展的接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/napi#node-api组件扩展的接口)
 
 | 接口 | 功能说明 |
 | --- | --- |
@@ -668,6 +672,10 @@ Node-API接口在Node.js提供的原生模块基础上扩展，目前支持部�
 | napi_delete_strong_sendable_reference | 删除Sendable强引用。 |
 | napi_get_strong_sendable_reference_value | 根据Sendable强引用获取其关联的ArkTS对象值。 |
 | napi_throw_business_error | 抛出一个带文本信息的ArkTS Error, 其错误对象的code属性类型为number。 |
+| napi_create_callsite_info | 创建调用点信息句柄，用于缓存属性访问信息。 |
+| napi_delete_callsite_info | 删除调用点信息句柄，释放关联的缓存资源。 |
+| napi_get_property_with_callsite_info | 使用调用点信息快速获取对象属性值。 |
+| napi_set_property_with_callsite_info | 使用调用点信息快速设置对象属性值。 |
 
 
 **napi_queue_async_work_with_qos**
@@ -999,6 +1007,40 @@ napi_status napi_get_strong_sendable_reference_value(napi_env env,
 napi_status napi_throw_business_error(napi_env env,
                                       int32_t errorCode,
                                       const char* msg);
+```
+
+**napi_create_callsite_info**
+
+```text
+napi_status napi_create_callsite_info(napi_env env, napi_callsite_info* result);
+```
+
+**napi_delete_callsite_info**
+
+```text
+napi_status napi_delete_callsite_info(napi_env env, napi_callsite_info info);
+```
+
+**napi_get_property_with_callsite_info**
+
+```text
+napi_status napi_get_property_with_callsite_info(napi_env env,
+                                                 napi_value object,
+                                                 napi_value key,
+                                                 napi_callsite_info info,
+                                                 napi_value* result,
+                                                 bool* hit);
+```
+
+**napi_set_property_with_callsite_info**
+
+```text
+napi_status napi_set_property_with_callsite_info(napi_env env,
+                                                 napi_value object,
+                                                 napi_value key,
+                                                 napi_value value,
+                                                 napi_callsite_info info,
+                                                 bool* hit);
 ```
 
 

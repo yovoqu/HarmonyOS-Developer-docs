@@ -1,6 +1,6 @@
 # hicollie.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hicollie-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -532,7 +532,7 @@ typedef size_t (*OH_HiCollie_FreezeCallback)(OH_HiCollie_Freeze_Type type, void*
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f/v3/mr8LiVnYTU2Z-P8A1oJdvg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025208Z&HW-CC-Expire=86400&HW-CC-Sign=BE44F7792877578A7453C69742F88CA68145780AC9D52CBD0EF8FFB233B9D488)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/rN0Oj1r3TGO1d_wL-SC3fQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020203Z&HW-CC-Expire=86400&HW-CC-Sign=11722DC08FFFEAFEE64F76108AFA5F5419255D361E546968D29F65FD08015526)
 
 
 返回值超过64KB时，日志内容可能为空。

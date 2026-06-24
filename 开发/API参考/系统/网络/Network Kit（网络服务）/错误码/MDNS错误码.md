@@ -1,6 +1,6 @@
 # MDNS错误码
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-mdns
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@ Failed to connect to the service.
 
 **处理步骤**
 
-检查系统服务运行状态是否正常。
+请检查系统服务运行状态并重试。如果问题仍然存在，收集完整日志后联系技术支持获取帮助。
 
 
 
@@ -54,7 +54,29 @@ System internal error.
 
 1.检查内存空间是否充足，清理内存后重试。
 
-2.系统异常，请稍后重试或重启设备。
+2.系统异常，请稍后重试或重启设备。如果问题仍然存在，收集完整日志后联系技术支持获取帮助。
+
+
+
+#### 2204002 未找到目标服务
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+Callback not found.
+
+**错误描述**
+
+未找到目标服务。
+
+**可能原因**
+
+取消注册未注册的mDNS服务或者取消搜索未在搜索的mDNS服务。
+
+**处理步骤**
+
+检查调用取消注册mDNS和取消搜索mDNS接口的入参是否正确。
 
 
 

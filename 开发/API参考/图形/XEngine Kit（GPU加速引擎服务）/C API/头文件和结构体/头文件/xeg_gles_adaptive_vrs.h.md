@@ -1,6 +1,6 @@
 # xeg_gles_adaptive_vrs.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-gles-adaptive-vrs-8h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-XEngine VRS(variable rate shading)特性接口。使用此头文件的接口前需要通过[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)接口查询[XEG_ADAPTIVE_VRS_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_adaptive_vrs_extension_name)扩展可用。
+XEngine自适应VRS（Variable Rate Shading，可变速率着色）特性GLES接口。使用此头文件的接口前需要通过[HMS_XEG_GetString](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_getstring)接口查询[XEG_ADAPTIVE_VRS_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_adaptive_vrs_extension_name)扩展可用。
  
 **引用文件**：<xengine/xeg_gles_adaptive_vrs.h>
  
@@ -50,7 +50,7 @@ XEngine VRS(variable rate shading)特性接口。使用此头文件的接口前�
  
 | 名称 | 描述 |
 | --- | --- |
-| typedef void(GL_APIENTRYP PFN_HMS_XEG_ADAPTIVEVRSPARAMETER) (GLenum pname, GLvoid *param) | 设置自适应VRS(variable rate shading)输入参数的函数指针定义。 |
+| typedef void(GL_APIENTRYP PFN_HMS_XEG_ADAPTIVEVRSPARAMETER) (GLenum pname, GLvoid *param) | 设置自适应VRS(Variable Rate Shading)输入参数的函数指针定义。 |
 | typedef void(GL_APIENTRYP PFN_HMS_XEG_DISPATCHADAPTIVEVRS) (GLfloat *reprojectionMatrix, GLuint inputColorImage, GLuint inputDepthImage, GLuint shadingRateImage) | 计算着色率图像的函数指针定义。 |
 | typedef void(GL_APIENTRYP PFN_HMS_XEG_APPLYADAPTIVEVRS) (GLuint shadingRateImage) | 将着色率图像应用到渲染目标中的函数指针定义。 |
  
@@ -63,6 +63,6 @@ XEngine VRS(variable rate shading)特性接口。使用此头文件的接口前�
  
 | 名称 | 描述 |
 | --- | --- |
-| GL_APICALL void GL_APIENTRY HMS_XEG_AdaptiveVRSParameter (GLenum pname, GLvoid *param) | 设置自适应VRS(variable rate shading)的参数。 |
+| GL_APICALL void GL_APIENTRY HMS_XEG_AdaptiveVRSParameter (GLenum pname, GLvoid *param) | 设置自适应VRS(Variable Rate Shading)的参数。 |
 | GL_APICALL void GL_APIENTRY HMS_XEG_DispatchAdaptiveVRS (GLfloat *reprojectionMatrix, GLuint inputColorImage, GLuint inputDepthImage, GLuint shadingRateImage) | 计算着色率图像。 |
 | GL_APICALL void GL_APIENTRY HMS_XEG_ApplyAdaptiveVRS (GLuint shadingRateImage) | 将着色率图像应用到渲染目标中。 |

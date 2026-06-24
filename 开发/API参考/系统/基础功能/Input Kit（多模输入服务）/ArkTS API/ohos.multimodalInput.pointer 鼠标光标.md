@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.pointer (鼠标光标)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pointer
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -37,7 +37,7 @@ setPointerVisible(visible: boolean, callback: AsyncCallback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | visible | boolean | 是 | 当前窗口鼠标光标是否显示。true表示显示，false表示不显示。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置鼠标光标显示状态成功，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
@@ -46,13 +46,13 @@ setPointerVisible(visible: boolean, callback: AsyncCallback&lt;void&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 
 
 **示例**：
 
-```json
+```text
 import { pointer } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -64,15 +64,16 @@ struct Index {
       Text()
         .onClick(() => {
           try {
+            // 设置鼠标指针可见性
             pointer.setPointerVisible(true, (error: BusinessError) => {
               if (error) {
-                console.error(`Set pointer visible failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                console.error(`Failed to set pointer cursor visible, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
                 return;
               }
-              console.info(`Set pointer visible success`);
+              console.info(`Succeeded in setting pointer cursor visible.`);
             });
           } catch (error) {
-            console.error(`Set pointer visible failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            console.error(`Failed to set pointer cursor visible, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
           }
         })
     }
@@ -103,7 +104,7 @@ setPointerVisible(visible: boolean): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码**：
@@ -112,13 +113,13 @@ setPointerVisible(visible: boolean): Promise&lt;void&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 | 801 | Capability not supported. |
 
 
 **示例**：
 
-```json
+```text
 import { pointer } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -130,13 +131,14 @@ struct Index {
       Text()
         .onClick(() => {
           try {
+            // 设置鼠标指针可见性
             pointer.setPointerVisible(false).then(() => {
-              console.info(`Set pointer visible success`);
+              console.info(`Succeeded in setting pointer cursor visible.`);
             }).catch((error: BusinessError) => {
-              console.error(`Set pointer failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+              console.error(`Failed to set pointer cursor, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
             })
           } catch (error) {
-            console.error(`Set pointer visible failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            console.error(`Failed to set pointer cursor, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
           }
         })
     }
@@ -169,13 +171,14 @@ setPointerVisibleSync(visible: boolean): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
 
-```json
+```text
 import { pointer } from '@kit.InputKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
@@ -185,10 +188,11 @@ struct Index {
       Text()
         .onClick(() => {
           try {
+            // 同步设置鼠标指针可见性
             pointer.setPointerVisibleSync(false);
-            console.info(`Set pointer visible success`);
+            console.info(`Succeeded in setting pointer cursor visible.`);
           } catch (error) {
-            console.error(`Set pointer visible failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            console.error(`Failed to set pointer cursor visible, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
           }
         })
     }
@@ -212,7 +216,7 @@ isPointerVisible(callback: AsyncCallback&lt;boolean&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数，返回鼠标光标状态，true为显示，false为隐藏。 |
+| callback | AsyncCallback&lt;boolean&gt; | 是 | 回调函数。当获取鼠标光标显示状态成功，err为undefined，data为鼠标光标状态（true为显示，false为隐藏）；否则为错误对象。 |
 
 
 **错误码**：
@@ -221,7 +225,7 @@ isPointerVisible(callback: AsyncCallback&lt;boolean&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
@@ -238,15 +242,16 @@ struct Index {
       Text()
         .onClick(() => {
           try {
+            // 查询鼠标指针是否可见
             pointer.isPointerVisible((error: BusinessError, visible: boolean) => {
               if (error) {
-                console.error(`Get pointer visible failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                console.error(`Failed to get pointer visible, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
                 return;
               }
-              console.info(`Get pointer visible success, visible: ${JSON.stringify(visible)}`);
+              console.info(`Succeeded in getting pointer visible, visible: ${JSON.stringify(visible)}.`);
             });
           } catch (error) {
-            console.error(`Get pointer visible failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            console.error(`Failed to get pointer visible, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
           }
         })
     }
@@ -270,7 +275,7 @@ isPointerVisible(): Promise&lt;boolean&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，返回鼠标光标状态查询结果。true代表显示状态，false代表隐藏状态。 |
+| Promise&lt;boolean&gt; | Promise对象。返回true表示鼠标光标为显示状态；返回false表示鼠标光标为隐藏状态。 |
 
 
 **示例**：
@@ -287,13 +292,14 @@ struct Index {
       Text()
         .onClick(() => {
           try {
+            // 查询鼠标指针是否可见
             pointer.isPointerVisible().then((visible: boolean) => {
-              console.info(`Get pointer visible success, visible: ${JSON.stringify(visible)}`);
+              console.info(`Succeeded in getting pointer visible, visible: ${JSON.stringify(visible)}.`);
             }).catch((error: BusinessError) => {
-              console.error(`Get pointer failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+              console.error(`Failed to get pointer, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
             })
           } catch (error) {
-            console.error(`Get pointer visible failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            console.error(`Failed to get pointer visible, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
           }
         })
     }
@@ -324,6 +330,7 @@ isPointerVisibleSync(): boolean
 
 ```json
 import { pointer } from '@kit.InputKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
@@ -334,9 +341,9 @@ struct Index {
         .onClick(() => {
           try {
             let visible: boolean = pointer.isPointerVisibleSync();
-            console.info(`Get pointer visible success, visible: ${JSON.stringify(visible)}`);
+            console.info(`Succeeded in getting pointer visible, visible: ${JSON.stringify(visible)}.`);
           } catch (error) {
-            console.error(`Get pointer visible failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            console.error(`Failed to get pointer visible, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
           }
         })
     }
@@ -352,7 +359,7 @@ struct Index {
 
 getPointerStyle(windowId: number, callback: AsyncCallback&lt;PointerStyle&gt;): void
 
-获取指定窗口的鼠标样式类型，使用callback异步回调。
+获取指定窗口的鼠标样式类型，此接口仅支持获取本应用进程内窗口的鼠标样式类型，使用callback异步回调。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
 
@@ -361,7 +368,7 @@ getPointerStyle(windowId: number, callback: AsyncCallback&lt;PointerStyle&gt;): 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | windowId | number | 是 | 窗口ID。取值范围为大于等于-1的整数，取值为-1时表示全局窗口。 窗口ID合法并且对应窗口存在时，返回窗口的鼠标光标样式。 窗口ID合法但窗口不存在时，默认返回全局鼠标光标样式。 如果通过setPointerStyle接口为不存在的窗口设置了鼠标光标样式，使用本接口可以正常获取到该光标样式。 |
-| callback | AsyncCallback&lt;PointerStyle&gt; | 是 | 回调函数，返回鼠标样式类型。 |
+| callback | AsyncCallback&lt;PointerStyle&gt; | 是 | 回调函数。当获取鼠标样式类型成功时，err为undefined，data为鼠标样式类型；否则为错误对象。在特定场景（在设置自定义光标样式的窗口上获取样式）下返回DEVELOPER_DEFINED_ICON。 |
 
 
 **错误码**：
@@ -370,7 +377,7 @@ getPointerStyle(windowId: number, callback: AsyncCallback&lt;PointerStyle&gt;): 
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
@@ -387,22 +394,28 @@ struct Index {
     RelativeContainer() {
       Text()
         .onClick(() => {
+          // 获取应用内最近一个窗口
           window.getLastWindow(this.getUIContext().getHostContext(), (error: BusinessError, win: window.Window) => {
             if (error.code) {
-              console.error('Failed to obtain the top window. Cause: ' + JSON.stringify(error));
+              console.error(`Failed to obtain the top window, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               return;
             }
             let windowId = win.getWindowProperties().id;
             if (windowId < 0) {
-              console.info(`Invalid windowId`);
+              console.info(`Invalid windowId.`);
               return;
             }
             try {
+              // 获取鼠标指针样式
               pointer.getPointerStyle(windowId, (error: BusinessError, style: pointer.PointerStyle) => {
-                console.info(`Get pointer style success, style: ${JSON.stringify(style)}`);
+                if (error) {
+                  console.error(`Failed to get pointer style, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
+                  return;
+                }
+                console.info(`Succeeded in getting pointer style, style: ${JSON.stringify(style)}.`);
               });
             } catch (error) {
-              console.error(`Get pointer style failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+              console.error(`Failed to get pointer style, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
             }
           });
         })
@@ -419,7 +432,7 @@ struct Index {
 
 getPointerStyle(windowId: number): Promise&lt;PointerStyle&gt;
 
-获取鼠标样式类型，使用Promise异步回调。
+获取鼠标样式类型，此接口仅支持获取本应用进程内窗口的鼠标样式类型，使用Promise异步回调。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
 
@@ -443,7 +456,7 @@ getPointerStyle(windowId: number): Promise&lt;PointerStyle&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
@@ -460,24 +473,26 @@ struct Index {
     RelativeContainer() {
       Text()
         .onClick(() => {
+          // 获取应用内最近一个窗口
           window.getLastWindow(this.getUIContext().getHostContext(), (error: BusinessError, win: window.Window) => {
             if (error.code) {
-              console.error('Failed to obtain the top window. Cause: ' + JSON.stringify(error));
+              console.error(`Failed to obtain the top window, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               return;
             }
             let windowId = win.getWindowProperties().id;
             if (windowId < 0) {
-              console.info(`Invalid windowId`);
+              console.info(`Invalid windowId.`);
               return;
             }
             try {
+              // 获取鼠标指针样式
               pointer.getPointerStyle(windowId).then((style: pointer.PointerStyle) => {
-                console.info(`Get pointer style success, style: ${JSON.stringify(style)}`);
+                console.info(`Succeeded in getting pointer style, style: ${JSON.stringify(style)}.`);
               }).catch((error: BusinessError) => {
-                console.error(`Get pointer style failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                console.error(`Failed to get pointer style, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               });
             } catch (error) {
-              console.error(`Get pointer style failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+              console.error(`Failed to get pointer style, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
             }
           });
         })
@@ -518,13 +533,14 @@ getPointerStyleSync(windowId: number): PointerStyle
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
 
 ```json
 import { pointer } from '@kit.InputKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 @Entry
 @Component
@@ -536,9 +552,9 @@ struct Index {
           let windowId = -1;
           try {
             let style: pointer.PointerStyle = pointer.getPointerStyleSync(windowId);
-            console.info(`Get pointer style success, style: ${JSON.stringify(style)}`);
+            console.info(`Succeeded in getting pointer style, style: ${JSON.stringify(style)}.`);
           } catch (error) {
-            console.error(`Get pointer style failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+            console.error(`Failed to get pointer style, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
           }
         })
     }
@@ -554,7 +570,7 @@ struct Index {
 
 setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCallback&lt;void&gt;): void
 
-设置指定窗口的鼠标样式类型，使用callback异步回调。
+设置指定窗口的鼠标样式类型，此接口仅支持设置本应用进程内窗口的鼠标样式类型，如需通过UIExtensionAbility进程设置宿主窗口的鼠标样式类型，请参阅[setCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-cursorcontroller#setcursor12)，使用callback异步回调。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
 
@@ -563,8 +579,8 @@ setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCal
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | windowId | number | 是 | 窗口ID。取值范围为大于等于0的整数。 窗口ID合法并且对应窗口存在时，可以设置窗口的鼠标光标样式。 窗口ID合法但窗口不存在时，也可以设置鼠标光标样式。 设置结果可通过getPointerStyle获取。 |
-| pointerStyle | PointerStyle | 是 | 鼠标样式。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。 |
+| pointerStyle | PointerStyle | 是 | 鼠标样式。 不能传入DEVELOPER_DEFINED_ICON作为参数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当设置鼠标样式类型成功，err为undefined，否则为错误对象。 |
 
 
 **错误码**：
@@ -573,12 +589,12 @@ setPointerStyle(windowId: number, pointerStyle: PointerStyle, callback: AsyncCal
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
 
-```json
+```text
 import { pointer } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
@@ -590,22 +606,24 @@ struct Index {
     RelativeContainer() {
       Text()
         .onClick(() => {
+          // 获取应用内最近一个窗口
           window.getLastWindow(this.getUIContext().getHostContext(), (error: BusinessError, win: window.Window) => {
             if (error.code) {
-              console.error('Failed to obtain the top window. Cause: ' + JSON.stringify(error));
+              console.error(`Failed to obtain the top window, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               return;
             }
             let windowId = win.getWindowProperties().id;
             if (windowId < 0) {
-              console.info(`Invalid windowId`);
+              console.info(`Invalid windowId.`);
               return;
             }
             try {
+              // 设置鼠标指针样式
               pointer.setPointerStyle(windowId, pointer.PointerStyle.CROSS, error => {
-                console.info(`Set pointer style success`);
+                console.info(`Succeeded in setting pointer style.`);
               });
             } catch (error) {
-              console.error(`Set pointer style failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+              console.error(`Failed to set pointer style, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
             }
           });
         })
@@ -622,7 +640,7 @@ struct Index {
 
 setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise&lt;void&gt;
 
-设置指定窗口的鼠标样式类型，使用Promise异步回调。
+设置指定窗口的鼠标样式类型，此接口仅支持设置本应用进程内窗口的鼠标样式类型，如需通过UIExtensionAbility进程设置宿主窗口的鼠标样式类型，请参阅[setCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-cursorcontroller#setcursor12)，使用Promise异步回调。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
 
@@ -638,7 +656,7 @@ setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise&lt;void&g
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码**：
@@ -647,12 +665,12 @@ setPointerStyle(windowId: number, pointerStyle: PointerStyle): Promise&lt;void&g
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
 
-```json
+```text
 import { pointer } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
@@ -664,24 +682,26 @@ struct Index {
     RelativeContainer() {
       Text()
         .onClick(() => {
+          // 获取应用内最近一个窗口
           window.getLastWindow(this.getUIContext().getHostContext(), (error: BusinessError, win: window.Window) => {
             if (error.code) {
-              console.error('Failed to obtain the top window. Cause: ' + JSON.stringify(error));
+              console.error(`Failed to obtain the top window, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               return;
             }
             let windowId = win.getWindowProperties().id;
             if (windowId < 0) {
-              console.info(`Invalid windowId`);
+              console.info(`Invalid windowId.`);
               return;
             }
             try {
+              // 设置鼠标指针样式
               pointer.setPointerStyle(windowId, pointer.PointerStyle.CROSS).then(() => {
-                console.info(`Set pointer style success`);
+                console.info(`Succeeded in setting pointer style.`);
               }).catch((error: BusinessError) => {
-               console.error(`Set pointer style failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                console.error(`Failed to set pointer style, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               });
             } catch (error) {
-              console.error(`Set pointer style failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+              console.error(`Failed to set pointer style, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
             }
           });
         })
@@ -716,12 +736,12 @@ setPointerStyleSync(windowId: number, pointerStyle: PointerStyle): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
 
-```json
+```text
 import { pointer } from '@kit.InputKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { window } from '@kit.ArkUI';
@@ -733,21 +753,23 @@ struct Index {
     RelativeContainer() {
       Text()
         .onClick(() => {
+          // 获取应用内最近一个窗口
           window.getLastWindow(this.getUIContext().getHostContext(), (error: BusinessError, win: window.Window) => {
             if (error.code) {
-              console.error('Failed to obtain the top window. Cause: ' + JSON.stringify(error));
+              console.error(`Failed to obtain the top window, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               return;
             }
             let windowId = win.getWindowProperties().id;
             if (windowId < 0) {
-              console.info(`Invalid windowId`);
+              console.info(`Invalid windowId.`);
               return;
             }
             try {
+              // 同步设置鼠标指针样式
               pointer.setPointerStyleSync(windowId, pointer.PointerStyle.CROSS);
-              console.info(`Set pointer style success`);
+              console.info(`Succeeded in setting pointer style.`);
             } catch (error) {
-              console.error(`getPointerSize failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+              console.error(`Failed to get pointer size, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
             }
           });
         })
@@ -817,9 +839,9 @@ struct Index {
 | NORTH_EAST_SOUTH_WEST | 11 | 东北西南调整 |  |
 | NORTH_WEST_SOUTH_EAST | 12 | 西北东南调整 |  |
 | CROSS | 13 | 准确选择 |  |
-| CURSOR_COPY | 14 | 拷贝 |  |
+| CURSOR_COPY | 14 | 复制 |  |
 | CURSOR_FORBID | 15 | 不可用 |  |
-| COLOR_SUCKER | 16 | 滴管 |  |
+| COLOR_SUCKER | 16 | 取色器 |  |
 | HAND_GRABBING | 17 | 并拢的手 |  |
 | HAND_OPEN | 18 | 张开的手 |  |
 | HAND_POINTING | 19 | 手形指针 |  |
@@ -852,10 +874,10 @@ struct Index {
 | RUNNING_RIGHT22+ | 46 | 后台运行中动画光标(拓展2) |  |
 | AECH_DEVELOPER_DEFINED_ICON22+ | 47 | 圆形自定义光标 |  |
 | SCREENRECORDER_CURSOR20+ | 48 | 录屏光标 |  |
-| LASER_CURSOR22+ | 49 | 悬浮光标。手写笔进入空鼠模式时使用该光标，无法直接使用 。 空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。 |  |
-| LASER_CURSOR_DOT22+ | 50 | 点击光标。手写笔进入空鼠模式时使用该光标，无法直接使用 。 空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。 |  |
-| LASER_CURSOR_DOT_RED22+ | 51 | 激光笔光标。手写笔进入空鼠模式时使用该光标，无法直接使用 。 空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。 |  |
-| DEVELOPER_DEFINED_ICON22+ | -100 | 自定义光标，开发者可使用setCustomCursor设置自定义光标，不支持使用setPointerStyle直接设置。 | 自定义光标样式，通过接口设置。 |
+| LASER_CURSOR22+ | 49 | 悬浮光标。手写笔进入空鼠模式时使用该光标，无法直接设置 。 空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。 |  |
+| LASER_CURSOR_DOT22+ | 50 | 点击光标。手写笔进入空鼠模式时使用该光标，无法直接设置 。 空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。 |  |
+| LASER_CURSOR_DOT_RED22+ | 51 | 激光笔光标。手写笔进入空鼠模式时使用该光标，无法直接设置 。 空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。 |  |
+| DEVELOPER_DEFINED_ICON22+ | -100 | 自定义光标，开发者可使用setCustomCursor设置自定义光标，不支持使用setPointerStyle直接设置。 | 自定义光标样式，通过接口设置。该参数用于getPointerStyle在特定场景（在设置自定义光标样式的窗口上获取样式）下返回数据，不能作为setCustomCursor、setPointerStyle接口入参使用。 |
 
 
 
@@ -866,7 +888,9 @@ struct Index {
 
 setCustomCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, focusY?: number): Promise&lt;void&gt;
 
-设置指定窗口的自定义光标样式，使用Promise异步回调。
+设置指定窗口的自定义光标样式，此接口仅支持设置本应用进程内窗口的自定义光标样式，如需通过UIExtensionAbility进程设置宿主窗口的自定义光标样式，请参阅[setCustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-cursorcontroller#setcustomcursor)，使用Promise异步回调。
+
+应用窗口布局改变、热区切换、页面跳转、光标移出再回到窗口、光标在窗口不同区域移动，以上场景可能导致光标切换回系统样式，需要开发者重新设置光标样式。
 
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
 
@@ -874,17 +898,17 @@ setCustomCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, foc
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| windowId | number | 是 | 窗口ID。 |
+| windowId | number | 是 | 窗口ID。取值为大于0的整数。 |
 | pixelMap | image.PixelMap | 是 | 自定义光标资源。 |
-| focusX | number | 否 | 自定义光标焦点x，取值范围：大于等于0，默认为0。 |
-| focusY | number | 否 | 自定义光标焦点y，取值范围：大于等于0，默认为0。 |
+| focusX | number | 否 | 自定义光标焦点x，取值范围：大于等于0，默认为0，单位为像素（px）。 |
+| focusY | number | 否 | 自定义光标焦点y，取值范围：大于等于0，默认为0，单位为像素（px）。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码**：
@@ -893,12 +917,12 @@ setCustomCursor(windowId: number, pixelMap: image.PixelMap, focusX?: number, foc
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
 
-```json
+```text
 import { pointer } from '@kit.InputKit';
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -917,19 +941,20 @@ struct Index {
             const svgBuffer: ArrayBuffer = svgFileData.buffer.slice(0);
             let svgImageSource: image.ImageSource = image.createImageSource(svgBuffer);
             let svgDecodingOptions: image.DecodingOptions = { desiredSize: { width: 50, height: 50 } };
+            // 创建PixelMap
             svgImageSource.createPixelMap(svgDecodingOptions).then((pixelMap) => {
               window.getLastWindow(this.getUIContext().getHostContext(), (error: BusinessError, win: window.Window) => {
                 let windowId = win.getWindowProperties().id;
                 try {
                   pointer.setCustomCursor(windowId, pixelMap).then(() => {
-                    console.info(`setCustomCursor success`);
+                    console.info(`Succeeded in setting custom cursor.`);
                   });
                 } catch (error) {
-                  console.error(`setCustomCursor failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                  console.error(`Failed to set custom cursor, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
                 }
               });
             }).catch((error: BusinessError) => {
-                console.error(`createPixelMap promise error: ${JSON.stringify(error, [`code`, `message`])}`);
+                console.error(`Failed to create pixel map promise, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               });
           });
         })
@@ -951,8 +976,8 @@ struct Index {
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | pixelMap | image.PixelMap | 否 | 否 | 自定义光标。最小限制为资源图本身的最小限制。最大限制为256 x 256px。 |
-| focusX | number | 否 | 是 | 自定义光标焦点的水平坐标。该坐标受自定义光标大小的限制。最小值为0，最大值为资源图的宽度最大值，该参数缺省时默认为0。 |
-| focusY | number | 否 | 是 | 自定义光标焦点的垂直坐标。该坐标受自定义光标大小的限制。最小值为0，最大值为资源图的高度最大值，该参数缺省时默认为0。 |
+| focusX | number | 否 | 是 | 自定义光标焦点的水平坐标。该坐标受自定义光标大小的限制。最小值为0，最大值为资源图的宽度最大值，该参数缺省时默认为0，单位为像素（px）。 |
+| focusY | number | 否 | 是 | 自定义光标焦点的垂直坐标。该坐标受自定义光标大小的限制。最小值为0，最大值为资源图的高度最大值，该参数缺省时默认为0，单位为像素（px）。 |
 
 
 
@@ -978,7 +1003,7 @@ struct Index {
 
 setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): Promise&lt;void&gt;
 
-设置指定窗口的自定义光标样式，使用Promise异步回调。
+设置指定窗口的自定义光标样式，此接口仅支持设置本应用进程内窗口的自定义光标样式，如需通过UIExtensionAbility进程设置宿主窗口的自定义光标样式，请参阅[setCustomCursor](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-cursorcontroller#setcustomcursor)，使用Promise异步回调。
 
 应用窗口布局改变、热区切换、页面跳转、光标移出再回到窗口、光标在窗口不同区域移动，以上场景可能导致光标切换回系统样式，需要开发者重新设置光标样式。
 
@@ -988,7 +1013,7 @@ setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): P
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| windowId | number | 是 | 窗口ID。 |
+| windowId | number | 是 | 窗口ID。取值为大于0的整数。 |
 | cursor | CustomCursor | 是 | 自定义光标资源。 |
 | config | CursorConfig | 是 | 自定义光标配置，用于配置是否根据系统设置调整光标大小。如果CursorConfig中followSystem设置为true，则光标大小的可调整范围为：[光标资源图大小，256×256]。 |
 
@@ -997,7 +1022,7 @@ setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): P
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码**：
@@ -1012,7 +1037,7 @@ setCustomCursor(windowId: number, cursor: CustomCursor, config: CursorConfig): P
 
 **示例**：
 
-```json
+```text
 import { pointer } from '@kit.InputKit';
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1031,20 +1056,23 @@ struct Index {
             const svgBuffer: ArrayBuffer = svgFileData.buffer.slice(0);
             let svgImageSource: image.ImageSource = image.createImageSource(svgBuffer);
             let svgDecodingOptions: image.DecodingOptions = { desiredSize: { width: 50, height: 50 } };
+            // 创建PixelMap
             svgImageSource.createPixelMap(svgDecodingOptions).then((pixelMap) => {
+              // 获取应用内最近一个窗口
               window.getLastWindow(this.getUIContext().getHostContext(), (error: BusinessError, win: window.Window) => {
                 let windowId = win.getWindowProperties().id;
                 try {
+                  // 设置自定义光标
                   pointer.setCustomCursor(windowId, { pixelMap: pixelMap, focusX: 25, focusY: 25 },
                     { followSystem: false }).then(() => {
-                    console.info(`setCustomCursor success`);
+                    console.info(`Succeeded in setting custom cursor.`);
                   });
                 } catch (error) {
-                  console.error(`setCustomCursor failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                  console.error(`Failed to set custom cursor, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
                 }
               });
             }).catch((error: BusinessError) => {
-                console.error(`createPixelMap promise error: ${JSON.stringify(error, [`code`, `message`])}`);
+                console.error(`Failed to create pixel map promise, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
               });
           });
         })
@@ -1063,6 +1091,8 @@ setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number,
 
 设置指定窗口的自定义光标样式，使用同步方式进行设置。
 
+应用窗口布局改变、热区切换、页面跳转、光标移出再回到窗口、光标在窗口不同区域移动，以上场景可能导致光标切换回系统样式，需要开发者重新设置光标样式。
+
 **系统能力**：SystemCapability.MultimodalInput.Input.Pointer
 
 **参数**：
@@ -1071,8 +1101,8 @@ setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number,
 | --- | --- | --- | --- |
 | windowId | number | 是 | 窗口ID。取值为大于0的整数。 |
 | pixelMap | image.PixelMap | 是 | 自定义光标资源。 |
-| focusX | number | 否 | 自定义光标焦点x，取值范围：大于等于0，默认为0。 |
-| focusY | number | 否 | 自定义光标焦点y，取值范围：大于等于0，默认为0。 |
+| focusX | number | 否 | 自定义光标焦点x，取值范围：大于等于0，默认为0，单位为像素（px）。 |
+| focusY | number | 否 | 自定义光标焦点y，取值范围：大于等于0，默认为0，单位为像素（px）。 |
 
 
 **错误码**：
@@ -1081,12 +1111,12 @@ setCustomCursorSync(windowId: number, pixelMap: image.PixelMap, focusX?: number,
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;2. Incorrect parameter types; 3. Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
 
 
 **示例**：
 
-```json
+```text
 import { pointer } from '@kit.InputKit';
 import { image } from '@kit.ImageKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -1104,19 +1134,23 @@ struct Index {
             $r("app.media.app_icon").id, (error: BusinessError, svgFileData: Uint8Array) => {
             const svgBuffer = svgFileData.buffer;
             let svgImageSource: image.ImageSource = image.createImageSource(svgBuffer);
+            // 光标图片宽高
             let svgDecodingOptions: image.DecodingOptions = { desiredSize: { width: 50, height: 50 } };
+            // 创建PixelMap
             svgImageSource.createPixelMap(svgDecodingOptions).then((pixelMap) => {
+              // 获取应用内最近一个窗口
               window.getLastWindow(this.getUIContext().getHostContext(), (error: BusinessError, win: window.Window) => {
                 let windowId = win.getWindowProperties().id;
                 try {
+                  // 同步设置自定义光标
                   pointer.setCustomCursorSync(windowId, pixelMap, 25, 25);
-                  console.info(`setCustomCursorSync success`);
+                  console.info(`Succeeded in setting custom cursor sync.`);
                 } catch (error) {
-                  console.error(`setCustomCursorSync failed, error: ${JSON.stringify(error, [`code`, `message`])}`);
+                  console.error(`Failed to set custom cursor sync, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
                 }
               });
             }).catch((error: BusinessError) => {
-              console.error(`createPixelMap promise error: ${JSON.stringify(error, [`code`, `message`])}`);
+              console.error(`Failed to create pixel map promise, Code: ${(error as BusinessError).code}, message: ${(error as BusinessError).message}.`);
             });
           });
         }

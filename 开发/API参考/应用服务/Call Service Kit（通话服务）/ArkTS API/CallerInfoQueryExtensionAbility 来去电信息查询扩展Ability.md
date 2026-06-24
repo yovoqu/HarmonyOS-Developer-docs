@@ -1,6 +1,6 @@
 # CallerInfoQueryExtensionAbility (来去电信息查询扩展Ability)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/callservicekit-callerinfoquery-extension-ability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -50,9 +50,9 @@ import { CallerInfoQueryExtensionAbility, CallerInfo, numberIdentify } from '@ki
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-onQueryCallerInfo(phoneNumber: string):Promise<[CallerInfo](#callerinfo)>
+onQueryCallerInfo(phoneNumber: string):Promise&lt;CallerInfo&gt;
  
-查询企业联系人接口，利用Promise返回查询结果，供来电和去电页面展示。企业应用需继承CallerInfoQueryExtensionAbility实现该接口，接口查询时间建议小于1s。由于通话应用会对已查询过的联系人进行缓存，若需清除该联系人缓存信息请使用resolve({ contactName: '' })。
+查询企业联系人接口，利用Promise返回查询结果，供来电和去电页面展示。企业应用需继承CallerInfoQueryExtensionAbility实现该接口，接口查询时间建议小于1s。由于通话应用会对已查询过的联系人进行缓存，若需清除该联系人缓存信息请使用resolve({ contactName: '' })。使用Promise异步回调。
  
 **模型约束：** 属性仅可在Stage模型下使用。
  
@@ -220,6 +220,6 @@ export default class EntryCallerInfoQueryExtAbility extends CallerInfoQueryExten
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | contactName | string | 否 | 否 | 联系人姓名：为保证页面最佳显示效果，字数建议限制在20字以内。 |
-| employeeId | string | 否 | 是 | 工号：为保证页面最佳显示效果，字数建议限制在20字以内。 |
-| department | string | 否 | 是 | 部门：为保证页面最佳显示效果，字数建议限制在20字以内。 |
-| position | string | 否 | 是 | 职位：为保证页面最佳显示效果，字数建议限制在20字以内。 |
+| employeeId | string | 否 | 是 | 工号：为保证页面最佳显示效果，字数建议限制在20字以内。不填该参数则不显示工号。 |
+| department | string | 否 | 是 | 部门：为保证页面最佳显示效果，字数建议限制在20字以内。不填该参数则不显示部门。 |
+| position | string | 否 | 是 | 职位：为保证页面最佳显示效果，字数建议限制在20字以内。不填该参数则不显示职位。 |

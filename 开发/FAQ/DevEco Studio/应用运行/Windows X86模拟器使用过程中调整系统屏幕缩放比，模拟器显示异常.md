@@ -1,6 +1,6 @@
 # Windows X86模拟器使用过程中调整系统屏幕缩放比，模拟器显示异常
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-app-running-38
 

@@ -1,6 +1,6 @@
 # USB串口通信管理
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/usbserial-communication
 
@@ -48,7 +48,7 @@ USB串口通信服务中通过Host设备的USB接口连接串口设备的串口�
 
   
 ```ArkTS
-// 导入usbManager模块
+// 导入serialManager模块
 import { serialManager } from '@kit.BasicServicesKit';
 import { BusinessError } from '@kit.BasicServicesKit'
 import { buffer } from '@kit.ArkTS';

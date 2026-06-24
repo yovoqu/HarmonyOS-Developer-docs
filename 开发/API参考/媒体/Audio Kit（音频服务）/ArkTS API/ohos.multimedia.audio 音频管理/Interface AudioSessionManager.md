@@ -1,6 +1,6 @@
 # Interface (AudioSessionManager)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-audiosessionmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -31,6 +31,8 @@ import { audio } from '@kit.AudioKit';
 activateAudioSession(strategy: AudioSessionStrategy): Promise&lt;void&gt;
 
 激活音频会话。使用Promise异步回调。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
@@ -85,6 +87,8 @@ deactivateAudioSession(): Promise&lt;void&gt;
 
 停用音频会话。使用Promise异步回调。
 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
 **返回值：**
@@ -125,6 +129,8 @@ isAudioSessionActivated(): boolean
 
 检查音频会话是否已激活。
 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
 **返回值：**
@@ -149,6 +155,8 @@ let isActivated = audioSessionManager.isAudioSessionActivated();
 on(type: 'audioSessionDeactivated', callback: Callback&lt;AudioSessionDeactivatedEvent&gt;): void
 
 监听音频会话停用事件（当音频会话停用时触发）。使用callback异步回调。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
@@ -188,6 +196,8 @@ audioSessionManager.on('audioSessionDeactivated',
 off(type: 'audioSessionDeactivated', callback?: Callback&lt;AudioSessionDeactivatedEvent&gt;): void
 
 取消监听音频会话停用事件。使用callback异步回调。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Multimedia.Audio.Core
 
@@ -434,6 +444,64 @@ getDefaultOutputDevice(): DeviceType
 
 ```text
 let deviceType = audioSessionManager.getDefaultOutputDevice();
+```
+
+
+
+#### setMediaOutputDevice
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setMediaOutputDevice(deviceType: DeviceType): Promise&lt;void&gt;
+
+当连接其他音频外设（如蓝牙耳机或有线耳机）时，将媒体输出设备切换为内置扬声器。使用Promise异步回调。
+
+> [!NOTE]
+> 本接口仅适用于媒体播放场景，并且会作用于应用内发起的所有媒体流。 若存在更高优先级的并发播放流或用户手动选择输出设备，则应用程序实际使用的输出设备将与本接口设置的设备不同。应用程序可通过监听 CurrentOutputDeviceChangedEvent 事件获取当前活跃的输出设备。 当应用程序需要清除之前通过接口设置的扬声器输出配置时，可通过调用接口将媒体输出设备设置为DEFAULT（系统默认设备）来实现。该设置仅在应用程序运行期间有效，当应用程序退出时，此接口的设置将自动清除。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Audio.Device
+
+**设备行为差异：** 当该接口在无扬声器的设备上设置输出设备为扬声器时，该设置不会生效。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| deviceType | DeviceType | 是 | 设备类型。 仅支持以下设备：SPEAKER（扬声器）和DEFAULT（系统默认设备）。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Audio错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-audio)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 6800101 | Parameter verification failed, for example, the selected device type is not supported. |
+| 6800301 | Audio client call audio service error, System error. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+audioSessionManager.setMediaOutputDevice(audio.DeviceType.SPEAKER).then(() => {
+  console.info('setMediaOutputDevice Success!');
+}).catch((err: BusinessError) => {
+  console.error(`setMediaOutputDevice Fail: ${err}`);
+});
 ```
 
 

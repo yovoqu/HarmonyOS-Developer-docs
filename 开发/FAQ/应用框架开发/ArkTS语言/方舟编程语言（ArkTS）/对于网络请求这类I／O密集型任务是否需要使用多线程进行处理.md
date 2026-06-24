@@ -1,6 +1,6 @@
 # 对于网络请求这类I/O密集型任务是否需要使用多线程进行处理
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkts-133
 

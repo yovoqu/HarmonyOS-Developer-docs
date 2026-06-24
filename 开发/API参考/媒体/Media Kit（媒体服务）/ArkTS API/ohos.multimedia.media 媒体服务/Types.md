@@ -1,6 +1,6 @@
 # Types
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -307,7 +307,7 @@ type SourceOpenCallback = (request: MediaSourceLoadingRequest) => number
 由应用实现此回调函数，应用需处理传入的资源打开请求，并返回所打开资源对应的唯一句柄。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/Qlg0JyQ_SEaDMYzyje_cLw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025350Z&HW-CC-Expire=86400&HW-CC-Sign=8212EDA8E3E9B112011761DB3D843B5F0760D6BBD33BC9B0F68DC30FF4B2D651)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/jLHHSnagTf2xkHdv4zpkGg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020252Z&HW-CC-Expire=86400&HW-CC-Sign=5B5519517868E518036BDC1DD73A1C9EA874F11F2164AB3CD9923C54CE6FF9D5)
 
 
 客户端在处理完请求后应立刻返回。
@@ -361,7 +361,7 @@ type SourceReadCallback = (uuid: number, requestedOffset: number, requestedLengt
 由应用实现此回调函数，应用需记录读取请求，并在数据充足时通过对应的MediaSourceLoadingRequest对象的[respondData](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-mediasourceloadingrequest#responddata18)方法推送数据。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/26/v3/ctLTIprgRhGRtd0_biPDAw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025350Z&HW-CC-Expire=86400&HW-CC-Sign=67CDBF98AD00F96586BE9F0E785D381D295AB2E377F84D31AC7356D70AE2E6C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/rehKmo44STS9Guflj4TmEg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020252Z&HW-CC-Expire=86400&HW-CC-Sign=EAA705EB51C3C018A46DF56961031AD8E2DF023E072630A472356B118D49CB7D)
 
 
 客户端在处理完请求后应立刻返回。
@@ -401,7 +401,7 @@ type SourceCloseCallback = (uuid: number) => void
 由应用实现此回调函数，应用应释放相关资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/Ok7VsTd4SSGWqNRr_Xf9dg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025350Z&HW-CC-Expire=86400&HW-CC-Sign=C25A8F384D9FF5AC0C1776EDC141886B5B01DB0C8FDCAB762FFFBEB2C9520F80)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/lXSExXfTRm-qYwqPOA2HoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020252Z&HW-CC-Expire=86400&HW-CC-Sign=340CD947057BF0F61FBBDD803FCAFCD0FA29AA1A716B6562CB0FDA36B2500110)
 
 
 客户端在处理完请求后应立刻返回。

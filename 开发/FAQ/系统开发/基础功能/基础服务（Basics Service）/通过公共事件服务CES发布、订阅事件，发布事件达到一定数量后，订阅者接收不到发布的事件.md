@@ -1,6 +1,6 @@
 # 通过公共事件服务CES发布、订阅事件，发布事件达到一定数量后，订阅者接收不到发布的事件
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-15
 

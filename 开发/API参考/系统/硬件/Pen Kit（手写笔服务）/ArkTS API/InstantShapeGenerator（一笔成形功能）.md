@@ -1,6 +1,6 @@
 # InstantShapeGenerator（一笔成形功能）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-instantsshapegenerator
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -82,7 +82,7 @@ shapeType: 0
 
 processTouchEvent(event: TouchEvent): void
  
-传递触摸事件。
+传递触摸事件，此接口必须在组件onTouch回调函数中执行。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -99,7 +99,7 @@ processTouchEvent(event: TouchEvent): void
  
 **错误码**：
  
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -155,7 +155,7 @@ getPathFromString(shapeString: string, penSize: number): Path2D
  
 **错误码**：
  
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -197,7 +197,7 @@ notifyAreaChange(width: number, height: number): void
  
 **错误码**：
  
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -243,7 +243,7 @@ setPauseTime(time: number): void
  
 **错误码**：
  
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

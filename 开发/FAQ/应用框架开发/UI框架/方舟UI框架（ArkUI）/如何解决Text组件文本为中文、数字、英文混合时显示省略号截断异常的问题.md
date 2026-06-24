@@ -1,6 +1,6 @@
 # 如何解决Text组件文本为中文、数字、英文混合时显示省略号截断异常的问题
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-347
 

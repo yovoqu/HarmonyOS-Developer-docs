@@ -1,13 +1,20 @@
 # localChatModel（端侧问答模型）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-localchatmodel-api
 **支持设备：** PC/2in1
 
-本模块提供接入端侧问答模型问答的方法，实现数据不出端的智能问答能力。
+#### 模块概述
+
+**支持设备：** PC/2in1
+
+localChatModel模块是Data Augmentation Kit中的端侧问答组件，提供接入端侧问答模型的方法，适用于需要在设备本地进行智能问答的应用场景，实现数据本地化处理。
+ 
+开发者可通过localChatModel模块提供的方法[init](#init)、[chat](#chat)实现上述能力。
  
 **起始版本：** 6.0.0(20)
+ 
   
 
 #### 导入模块
@@ -34,7 +41,7 @@ import { localChatModel } from '@kit.DataAugmentationKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| isStream | boolean | 否 | 否 | 表示是否支持流式问答。true表示支持，false表示不支持。 |
+| isStream | boolean | 否 | 否 | 表示是否支持流式问答。 设置为true时，支持流式返回结果，适用于需要实时响应的场景； 设置为false时，一次性返回完整结果，适用于对结果完整性要求较高且可接受延迟的场景。 |
  
  
 **示例：**
@@ -63,8 +70,8 @@ let localConfig: localChatModel.Config = {
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| questionId | number | 否 | 否 | 表示与端侧问答模型交互的问题ID，ID取值范围为[0,65535]，在同一应用运行时，questionId应保持唯一性。 |
-| content | string | 否 | 否 | 表示与端侧问答模型交互的问题内容，由于受到端侧性能的限制，建议content长度不超过4500字节。 |
+| questionId | number | 否 | 否 | 表示与端侧问答模型交互的问题ID，ID取值范围为[0,65535]，若超过范围，则上报某些参数不符合指定约束条件的错误码1021900005。在同一应用运行时，questionId应保持唯一性。建议使用递增序列生成唯一ID，以防止在并发请求中出现重复ID导致的问题。 |
+| content | string | 否 | 否 | 表示与端侧问答模型交互的问题内容，由于受到端侧性能的限制，为保证模型处理效率，建议控制问题内容在4500字节以内，并尽量精简表达，避免冗余信息。若问题过长，部分设备可能面临性能下降，甚至导致模型异常。 |
  
  
 **示例：**
@@ -94,9 +101,9 @@ let questionInfo: localChatModel.QuestionInfo = {
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| questionId | number | 否 | 否 | 表示问答模型返回结果对应的问题ID，与请求的questionId一致。 |
+| questionId | number | 否 | 否 | 表示问答模型返回结果对应的问题ID，与请求中的questionId保持一致。 |
 | content | string | 否 | 否 | 表示问答模型对于questionId对应的问题的问答结果。 |
-| isFinished | boolean | 否 | 否 | 表示问答结果是否完整，true表示所有结果已完整返回，false表示结果未完整返回。 |
+| isFinished | boolean | 否 | 否 | 表示问答结果是否完整，true表示所有结果已完整返回，本轮问答结束；false表示还有后续结果，当前回调返回的是增量内容。 |
  
  
 **示例：**
@@ -119,7 +126,7 @@ let answer: localChatModel.Answer = {
 
 init(): Promise&lt;boolean&gt;
  
-初始化端侧问答模型，使用promise异步回调。
+初始化端侧问答模型，负责拉起模型管理应用，使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -131,7 +138,7 @@ init(): Promise&lt;boolean&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;boolean&gt; | Promise对象，返回模型初始化结果，true表示成功，false表示失败。 |
+| Promise&lt;boolean&gt; | Promise对象，返回模型初始化结果，true表示初始化成功，模型已就绪；false表示初始化失败，模型不可用。 |
  
  
 **示例：**
@@ -157,10 +164,10 @@ async function init() {
 
 chat(info: QuestionInfo, config: Config, callback: AsyncCallback&lt;Answer&gt;): Promise&lt;void&gt;
  
-对端侧问答模型进行问答，使用Promise异步回调。
+chat方法用于向端侧问答模型发送问题并获取回答，适用于本地智能问答场景，使用Promise异步回调。
  
 > [!NOTE]
-> 调用chat方法前需要先调用init方法初始化端侧问答模型。
+> 在调用chat方法前，必须先调用 init 方法完成模型初始化，以确保端侧问答模型处于可用状态。若未初始化模型，则chat方法将因模型未就绪而抛出端侧问答模型加载失败错误码 1021900002 。
 
  
 **模型约束：** 此接口仅可在Stage模型下使用。
@@ -175,7 +182,7 @@ chat(info: QuestionInfo, config: Config, callback: AsyncCallback&lt;Answer&gt;):
 | --- | --- | --- | --- |
 | info | QuestionInfo | 是 | 表示与端侧问答模型问答的问题信息。 |
 | config | Config | 是 | 表示问题的配置选项。 |
-| callback | AsyncCallback&lt;Answer&gt; | 是 | 表示将问答的结果返回给调用方的回调。 |
+| callback | AsyncCallback&lt;Answer&gt; | 是 | 回调函数，返回问答的结果。 |
  
  
 **返回值：**
@@ -187,7 +194,7 @@ chat(info: QuestionInfo, config: Config, callback: AsyncCallback&lt;Answer&gt;):
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-dataaugmentation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -205,10 +212,12 @@ import { BusinessError } from "@kit.BasicServicesKit";
 import { localChatModel } from '@kit.DataAugmentationKit';
 
 async function chat() {
+  // `questionId`用于标识问题ID，`content`用于设置问题内容。
   let questionInfo: localChatModel.QuestionInfo = {
-    questionId: 100,
+    questionId: 1,
     content: "你是一个翻译助手，可以翻译多国语言，请将以下内容翻译成36国语言：PC模型管家"
   }
+  // `isStream: true`表示启用流式返回结果，适用于实时响应场景。
   let localConfig: localChatModel.Config = {
     isStream: true
   }
@@ -218,6 +227,11 @@ async function chat() {
       console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
       return;
     }
+    if (!ans) {
+      console.error('Received null or undefined answer. Skipping processing.');
+      return;
+    }
+    // `questionId`用于标识问题ID，`content`问题回答内容，`isFinished`表示问答结果是否完整，true表示所有结果已完整返回。
     console.info('questionId: ' + ans.questionId + ', content: ' + ans.content + ', isFinished: ' + ans.isFinished);
   };
   try {

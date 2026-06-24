@@ -1,6 +1,6 @@
 # oh_commonevent.h
 
-更新时间：2026-03-17 02:21:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-commonevent-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -48,8 +48,8 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| void | CommonEvent_Subscriber | 提供CommonEvent_Subscriber订阅者结构体声明。 |
-| void | CommonEvent_Parameters | 提供CommonEvent_RcvData公共事件附加信息结构体声明。 |
+| void | CommonEvent_Subscriber | 提供CommonEvent_Subscriber订阅者声明。 |
+| void | CommonEvent_Parameters | 提供CommonEvent_RcvData公共事件附加信息声明。 |
  
  
   
@@ -73,8 +73,8 @@
 | --- | --- | --- |
 | typedef void (*CommonEvent_ReceiveCallback)(const CommonEvent_RcvData *data) | CommonEvent_ReceiveCallback | 提供CommonEvent_ReceiveCallback回调函数声明。 |
 | CommonEvent_SubscribeInfo* OH_CommonEvent_CreateSubscribeInfo(const char* events[], int32_t eventsNum) | - | 创建订阅者信息。 |
-| CommonEvent_ErrCode OH_CommonEvent_SetPublisherPermission(CommonEvent_SubscribeInfo* info, const char* permission) | - | 设置订阅者权限。 |
-| CommonEvent_ErrCode OH_CommonEvent_SetPublisherBundleName(CommonEvent_SubscribeInfo* info, const char* bundleName) | - | 设置订阅者包名称。 |
+| CommonEvent_ErrCode OH_CommonEvent_SetPublisherPermission(CommonEvent_SubscribeInfo* info, const char* permission) | - | 设置发布方权限。 |
+| CommonEvent_ErrCode OH_CommonEvent_SetPublisherBundleName(CommonEvent_SubscribeInfo* info, const char* bundleName) | - | 设置发布方包名称。 |
 | void OH_CommonEvent_DestroySubscribeInfo(CommonEvent_SubscribeInfo* info) | - | 释放订阅者信息。 |
 | CommonEvent_Subscriber* OH_CommonEvent_CreateSubscriber(const CommonEvent_SubscribeInfo* info,CommonEvent_ReceiveCallback callback) | - | 创建订阅者。 |
 | void OH_CommonEvent_DestroySubscriber(CommonEvent_Subscriber* subscriber) | - | 释放订阅者。 |
@@ -84,14 +84,14 @@
 | int32_t OH_CommonEvent_GetCodeFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取接收到的公共事件数据，整数类型。 |
 | const char* OH_CommonEvent_GetDataStrFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取接收到的公共事件数据，字符串类型。 |
 | const char* OH_CommonEvent_GetBundleNameFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取接收到的公共事件的包名称信息。 |
-| const CommonEvent_Parameters* OH_CommonEvent_GetParametersFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取接收到的公共事件的附加信息。 |
+| const CommonEvent_Parameters* OH_CommonEvent_GetParametersFromRcvData(const CommonEvent_RcvData* rcvData) | - | 获取公共事件附加信息。 |
 | CommonEvent_PublishInfo* OH_CommonEvent_CreatePublishInfo(bool ordered) | - | 创建公共事件属性对象。 |
 | void OH_CommonEvent_DestroyPublishInfo(CommonEvent_PublishInfo* info) | - | 销毁公共事件属性对象。 |
 | CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoBundleName(CommonEvent_PublishInfo* info, const char* bundleName) | - | 设置公共事件订阅者包名称。 |
 | CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoPermissions(CommonEvent_PublishInfo* info,const char* permissions[], int32_t num) | - | 设置公共事件订阅者权限。 |
 | CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoCode(CommonEvent_PublishInfo* info, int32_t code) | - | 设置公共事件传递的数据，整数类型。 |
 | CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoData(CommonEvent_PublishInfo* info,const char* data, size_t length) | - | 设置公共事件传递的数据，字符串类型。 |
-| CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoParameters(CommonEvent_PublishInfo* info,CommonEvent_Parameters* param) | - | 设置公共事件传递的附加信息。 |
+| CommonEvent_ErrCode OH_CommonEvent_SetPublishInfoParameters(CommonEvent_PublishInfo* info,CommonEvent_Parameters* param) | - | 设置公共事件附加信息。 |
 | CommonEvent_Parameters* OH_CommonEvent_CreateParameters() | - | 创建公共事件附加信息对象。 |
 | void OH_CommonEvent_DestroyParameters(CommonEvent_Parameters* param) | - | 销毁公共事件附加信息对象。 |
 | bool OH_CommonEvent_HasKeyInParameters(const CommonEvent_Parameters* para, const char* key) | - | 检查附加信息中是否包含键值对信息。 |
@@ -236,7 +236,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublisherPermission(CommonEvent_SubscribeI
  
 **描述**
  
-设置订阅者权限。
+设置发布方权限。
  
 **起始版本：** 12
  
@@ -267,7 +267,7 @@ CommonEvent_ErrCode OH_CommonEvent_SetPublisherBundleName(CommonEvent_SubscribeI
  
 **描述**
  
-设置订阅者包名称。
+设置发布方包名称。
  
 **起始版本：** 12
  

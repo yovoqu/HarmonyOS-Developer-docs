@@ -1,6 +1,6 @@
 # 执行python.exe -m pip install --upgrade pip命令更新pip库时报错ValueError: Unable to find resource t64.exe in package pip._vendor.distlib
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-scenario-based-performance-test-3
 

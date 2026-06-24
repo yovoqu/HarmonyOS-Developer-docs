@@ -1,6 +1,6 @@
 # HiAppEvent_AppEventGroup
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-hiappevent-appeventgroup
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct HiAppEvent_AppEventGroup {...} HiAppEvent_AppEventGroup
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-一组事件信息，包含事件组的名称，按名称分组的单个事件信息数组，事件数组的长度。
+一组事件信息，用于管理和组织具有相同名称的事件信息。该结构体包含事件组的名称，按名称分组的单个事件信息数组，事件数组的长度。
  
 **起始版本：** 12
  

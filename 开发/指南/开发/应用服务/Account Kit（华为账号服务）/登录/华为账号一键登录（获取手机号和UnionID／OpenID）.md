@@ -1,6 +1,6 @@
 # 华为账号一键登录（获取手机号和UnionID/OpenID）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-phone-unionid-login
 
@@ -12,7 +12,7 @@
 
  - 利用系统账号的安全性和便利性，用户无需输入账号名和密码，无需复杂的安全验证，简化登录步骤，提高用户转化率。
  - 提供系统验证过的手机号，关联应用已有用户。
- - 实现Phone、Tablet、PC/2in1、TV设备一致的登录体验。
+ - 实现Phone、Tablet、PC/2in1、TV、Car设备一致的登录体验。
 
 
 
@@ -22,17 +22,17 @@
 若应用需同时获取手机号和UnionID完成用户登录，Account Kit提供了同时获取手机号和UnionID的华为账号一键登录按钮。应用可以将华为账号一键登录按钮嵌入自有的登录页，使用登录按钮获取手机号和UnionID，实现用户登录。设备登录华为账号（该账号已绑定手机号）后，一键登录获取手机号可不依赖设备插SIM卡。
 
 > [!TIP]
-> 儿童账号一键登录场景： 用户使用儿童账号进行登录，点击一键登录会触发Account Kit默认提供的家长验密流程（Account Kit提供的验证页，暂不可自定义），家长验密完成后可获取用户的身份标识和手机号。并且TV设备暂不支持儿童账号。 手机号验证机制说明： Account Kit调用系统能力获取华为账号登录设备上的SIM卡手机号码，与华为账号绑定的手机号进行校验（有网络即可，无需使用SIM卡移动数据）。用户点击一键登录按钮后，结合华为账号使用过程中账号所绑定的手机号短信验证记录，90天内有验证通过的记录，则返回该华为账号绑定的手机号；若90天内没有验证通过的记录，则触发Account Kit默认提供的短信验证流程（Account Kit提供的验证页，暂不可自定义），确保返回的手机号经过验证。
+> 儿童账号一键登录场景： 用户使用儿童账号进行登录，点击一键登录会触发Account Kit默认提供的家长验密流程（Account Kit提供的验证页，暂不可自定义），家长验密完成后可获取用户的身份标识和手机号。并且TV设备、Car设备暂不支持儿童账号。 手机号验证机制说明： Account Kit调用系统能力获取华为账号登录设备上的SIM卡手机号码，与华为账号绑定的手机号进行校验（有网络即可，无需使用SIM卡移动数据）。用户点击一键登录按钮后，结合华为账号使用过程中账号所绑定的手机号短信验证记录，90天内有验证通过的记录，则返回该华为账号绑定的手机号；若90天内没有验证通过的记录，则触发Account Kit默认提供的短信验证流程（Account Kit提供的验证页，暂不可自定义），确保返回的手机号经过验证。
 
 
 
 
 #### 约束与限制
 1. 应用满足《[常见类型移动互联网应用程序必要个人信息范围规定](http://www.cac.gov.cn/2021-03/22/c_1617990997054277.htm)》中使用手机号的必要业务场景。
-2. 使用华为账号一键登录功能用户必须同意[《华为账号用户认证协议》](https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN)，当用户点击[《华为账号用户认证协议》](https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN)，系统浅色模式下应用需跳转到如下链接[https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN](https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN)，系统深色模式下跳转到[https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN&bgmode=black](https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN&bgmode=black)。
+2. 使用华为账号一键登录功能用户必须同意[《华为账号用户认证协议》](https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN)，当用户点击[《华为账号用户认证协议》](https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN)，系统浅色模式下应用需跳转到如下链接https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN，系统深色模式下跳转到https://privacy.consumer.huawei.com/legal/id/authentication-terms.htm?code=CN&language=zh-CN&bgmode=black。
 3. 应用在用户同意后获取到手机号，需要根据自身业务场景判断使用的方式，必要时增加其他安全验证手段，比如对二次放号的判断。
 4. 华为账号一键登录服务当前仅限中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）用户可用。
-5. 华为账号一键登录支持Phone、Tablet、PC/2in1设备。并且从5.1.1(19)版本开始，新增支持TV设备。
+5. 华为账号一键登录支持Phone、Tablet、PC/2in1设备。并且从5.1.1(19)版本开始，新增支持TV设备；从26.0.0版本开始，新增支持Car设备。
 6. 仅支持企业开发者使用一键登录，个人开发者请使用[华为账号登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-unionid-login-button)或[静默登录](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-silent-login)实现登录。
 
 
@@ -93,13 +93,13 @@
   
  - 用户打开应用后，应用scope传quickLoginAnonymousPhone调用[AuthorizationWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#authorizationwithhuaweiidrequest)授权请求获取匿名手机号。如果获取到匿名手机号为空，应用需要展示其他登录方式。         
 > [!NOTE]
-> 获取匿名手机号需要进行超时处理，应用可根据实际场景设置超时时间，推荐设置5秒保证用户体验。
+> 获取匿名手机号时建议设置超时处理，推荐设置5秒以保证用户体验。
 
 
-2. 若华为账号未登录，调用[AuthorizationWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#authorizationwithhuaweiidrequest)授权请求会返回[1001502001 用户未登录华为账号](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code#section1001502001-用户未登录华为账号)错误码，此时应用需要展示其他登录方式进行应用登录。
+2. 若华为账号未登录，调用[AuthorizationWithHuaweiIDRequest](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-authentication#authorizationwithhuaweiidrequest)授权请求会返回[1001502001 用户未登录华为账号](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit#section1001502001-用户未登录华为账号)错误码，此时应用需要展示其他登录方式进行应用登录。
  - 展示一键登录页面阶段（序号5）：
 
-1. 获取到的匿名手机号需要展示在页面上并设置好隐私协议，设置登录按钮类型为LoginType.QUICK_LOGIN，展示包含[LoginWithHuaweiIDButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-huawei-id-button#loginwithhuaweiidbutton)组件的一键登录页面。应用可结合实际登录风控场景，通过组件参数传入风险等级标识[获取华为账号风险等级](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-risklevel-byquicklogin)，通过华为账号一键登录获取用户风险等级，对恶意账号进行风控，提升应用的安全等级。
+1. 获取到的匿名手机号需要展示在页面上并设置好隐私协议，设置登录按钮类型为LoginType.QUICK_LOGIN，展示包含[LoginWithHuaweiIDButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-huawei-id-button#loginwithhuaweiidbutton)组件的一键登录页面。应用可结合实际登录风控场景，通过组件参数传入风险等级标识以[获取华为账号风险等级](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-risklevel-byquicklogin)，从而对恶意账号进行风控，提升应用的安全等级。
  - 点击一键登录关联用户账号阶段（序号6-16）：
 
 1. 用户同意协议后，点击华为账号一键登录按钮，应用可以通过[HuaweiIDCredential](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#huaweiidcredential)获取到Authorization Code等数据。
@@ -214,7 +214,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 | 1001502001 | 用户未登录华为账号 | 应用展示其他登录方式 |
 
-| 1001502005 | 网络异常 | 提示用户检查当前网络状态后重试 |
+| 1001502005 | 网络错误 | 提示用户检查当前网络状态后重试 |
 
 | 1001502009 | 内部错误 | 应用展示其他登录方式 |
 
@@ -224,7 +224,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 | 1001500002 | 重复请求 | 重复请求，应用无需处理 |
 
-| 1001500003 | 不支持该scopes或permissions | 1、华为账号用户注册地可能为中国境外、香港特别行政区、澳门特别行政区或中国台湾，应用展示其他登录方式 2、仅在5.1.1(19)支持TV设备，其他版本应用可以通过华为账号登录进行登录 |
+| 1001500003 | 不支持该scopes或permissions | 1、华为账号用户注册地可能为中国境外、香港特别行政区、澳门特别行政区或中国台湾，应用展示其他登录方式 2、5.1.1(19)起支持TV设备，26.0.0起支持Car设备，其他版本应用可以通过华为账号登录进行登录 |
 
 | 12300001 | 系统服务异常 | 应用展示其他登录方式 |
 
@@ -234,7 +234,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
   
 ```text
-getQuickLoginAnonymousPhone() {
+async getQuickLoginAnonymousPhone(): Promise<string> {
     // 创建授权请求，并设置参数
     const authRequest = new authentication.HuaweiIDProvider().createAuthorizationWithHuaweiIDRequest();
     // 获取匿名手机号需传quickLoginAnonymousPhone这个scope，传参之前需要先申请“华为账号一键登录”权限，否则会返回1001502014错误码
@@ -244,22 +244,31 @@ getQuickLoginAnonymousPhone() {
     // 一键登录场景该参数必须设置为false
     authRequest.forceAuthorization = false;
     const controller = new authentication.AuthenticationController();
+    let quickLoginAnonymousPhone: string = '';
+    // ...
     try {
-      controller.executeRequest(authRequest).then((response: authentication.AuthorizationWithHuaweiIDResponse) => {
-        // 获取到匿名手机号
-        const anonymousPhone = response.data?.extraInfo?.quickLoginAnonymousPhone as string;
-        if (anonymousPhone) {
-          hilog.info(0x0000, 'testTag', 'Succeeded in authentication.');
-          const quickLoginAnonymousPhone: string = anonymousPhone;
-          return;
-        }
-        hilog.info(0x0000, 'testTag', 'Succeeded in authentication. AnonymousPhone is empty.');
-        // 未获取到匿名手机号，应用需要跳转到其他方式登录页面
-      }).catch((error: BusinessError) => {
-        this.dealAllError(error);
-      })
+      await controller.executeRequest(authRequest)
+        .then((response: authentication.AuthorizationWithHuaweiIDResponse) => {
+          // 获取到匿名手机号
+          quickLoginAnonymousPhone = response.data?.extraInfo?.quickLoginAnonymousPhone as string;
+          // ...
+          if (quickLoginAnonymousPhone) {
+            hilog.info(0x0000, 'testTag', 'Succeeded in authentication.');
+            // ...
+            return quickLoginAnonymousPhone;
+          }
+          hilog.info(0x0000, 'testTag', 'Succeeded in authentication. AnonymousPhone is empty.');
+          // ...
+          // 未获取到匿名手机号，应用需要跳转到其他方式登录页面
+          return quickLoginAnonymousPhone;
+        })
+        .catch((error: BusinessError) => {
+          this.dealAllError(error);
+        })
+      return quickLoginAnonymousPhone;
     } catch (error) {
       this.dealAllError(error);
+      return quickLoginAnonymousPhone;
     }
   }
 
@@ -271,7 +280,7 @@ getQuickLoginAnonymousPhone() {
     if (error.code === ErrorCode.ERROR_CODE_LOGIN_OUT) {
       // 华为账号未登录，应用需要展示其他登录方式
     } else if (error.code === ErrorCode.ERROR_CODE_NETWORK_ERROR) {
-      // 网络异常，请检查当前网络状态并重试或展示其他登录方式
+      // 网络错误，请检查当前网络状态并重试
     } else if (error.code === ErrorCode.ERROR_CODE_INTERNAL_ERROR) {
       // 登录失败，应用需要展示其他登录方式
     } else if (error.code === ErrorCode.ERROR_CODE_SYSTEM_SERVICE) {
@@ -282,7 +291,7 @@ getQuickLoginAnonymousPhone() {
       // 应用登录失败，应用需要展示其他登录方式
     }
   }
-
+  // ...
   export enum ErrorCode {
     // 账号未登录
     ERROR_CODE_LOGIN_OUT = 1001502001,
@@ -299,7 +308,7 @@ getQuickLoginAnonymousPhone() {
 
 3. 展示一键登录页面并获取Authorization Code
 
-  将获取到的匿名手机号设置给下面QuickLoginButtonComponent组件示例代码中的**quickLoginAnonymousPhone**变量，调用[LoginWithHuaweiIDButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-huawei-id-button)组件，实现应用自己的登录页面，并展示华为账号一键登录按钮和华为账号用户认证协议（Account Kit提供跳转链接，应用需实现协议跳转，参见[约束与限制](#约束与限制)第2点），用户同意协议并点击一键登录按钮后，可获取到Authorization Code，将该值传给应用服务端用于获取用户信息（完整手机号、UnionID、OpenID）。通过code凭证获取用户信息可以有效避免因数据遍历、身份伪造、重放攻击导致的安全风险。
+  将获取到的匿名手机号设置给下面QuickLoginButtonComponent组件示例代码中的**quickLoginAnonymousPhone**变量，调用[LoginWithHuaweiIDButton](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-huawei-id-button#loginwithhuaweiidbutton)组件，实现应用自己的登录页面，并展示华为账号一键登录按钮和华为账号用户认证协议（Account Kit提供跳转链接，应用需实现协议跳转，参见[约束与限制](#约束与限制)第2点），用户同意协议并点击一键登录按钮后，可获取到Authorization Code，将该值传给应用服务端用于获取用户信息（完整手机号、UnionID、OpenID）。通过code凭证获取用户信息可以有效避免因数据遍历、身份伪造、重放攻击导致的安全风险。
 
   
 ```json
@@ -937,7 +946,7 @@ struct WebPage {
         })
         .darkMode(WebDarkMode.Auto)
         .forceDarkAccess(true)
-        .onLoadIntercept((event) => {
+        .onLoadIntercept(() => {
           hilog.info(this.domainId, this.logTag, 'onLoadIntercept');
           return false;
         })
@@ -1012,9 +1021,9 @@ struct WebPage {
 
 5. 存在如下异常场景：
 
-  1）返回[1001502001 用户未登录华为账号](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code#section1001502001-用户未登录华为账号)错误码，说明华为账号未登录。
+  1）返回[1001502001 用户未登录华为账号](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit#section1001502001-用户未登录华为账号)错误码，说明华为账号未登录。
 
-  2）返回[1001500003 不支持该scopes或permissions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code#section1001500003-不支持该scopes或permissions)错误码，说明华为账号用户注册地为中国境外、香港特别行政区、澳门特别行政区或中国台湾。
+  2）返回[1001500003 不支持该scopes或permissions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit#section1001500003-不支持该scopes或permissions)错误码，说明华为账号用户注册地为中国境外、香港特别行政区、澳门特别行政区或中国台湾。
 
   3）获取到的匿名手机号为空，说明华为账号没有绑定手机号、权限未申请或未生效。
 
@@ -1054,7 +1063,7 @@ struct WebPage {
  - 在应用客户端调用应用服务端提供的接口，将Authorization Code传输给应用的服务端；
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7d/v3/ZHg-84GtR3-LiIXqrFOeJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074931Z&HW-CC-Expire=86400&HW-CC-Sign=D55BC54CD93D06894266B1E9D283CF0F5959398256B0AC74AF738DA6DF6FC609)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/yycA9iyoQ3SrLhitH6bR2g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020919Z&HW-CC-Expire=86400&HW-CC-Sign=98EB96910BBD5FD09FD31A6A980319B3B3CA22F133768A5AB7F8C9FFB8EBDF67)
  
 
   应用客户端与应用服务端的交互安全需要应用自行保证。
@@ -1638,13 +1647,13 @@ class LoginService {
 1. 在客户端获取到Authorization Code之后，传送给服务端接口；在服务端使用Authorization Code获取华为账号绑定的手机号、UnionID、OpenID。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/t2sgYB9kSzCzAFUJpDYCQA/zh-cn_image_0000002622698743.png?HW-CC-KV=V1&HW-CC-Date=20260611T074931Z&HW-CC-Expire=86400&HW-CC-Sign=98BB90035BBEB65D666880610AAEFF48A82790A7087CE79643541272C0F652E5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/UmDtMyJhSWeN712Wr0weFQ/zh-cn_image_0000002626069460.png?HW-CC-KV=V1&HW-CC-Date=20260624T020919Z&HW-CC-Expire=86400&HW-CC-Sign=88596A9E6E6F4527A88967FBF5CA40990031AB48482CCB0944CE9B322169749F)
 
 2. 根据应用登录方案使用华为账号绑定的手机号、UnionID、OpenID登录成功后，应用服务端返回用户信息给应用客户端，应用客户端可根据需要进行本地持久化存储，例如：登录状态、用户账号名、手机号、用户身份标识等。
 3. 在应用客户端首页或个人信息页等位置，对当前登录用户信息进行展示，举例如下图：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/iFQdtxQdTYWYkyDfhefwrg/zh-cn_image_0000002592219182.png?HW-CC-KV=V1&HW-CC-Date=20260611T074931Z&HW-CC-Expire=86400&HW-CC-Sign=8A995D19326F2DFC2B473179A5383870E6ED39593ED2B95EB8B90486AE531360)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/-Qqvl1tLSj6-cyRMMCkNDw/zh-cn_image_0000002656468737.png?HW-CC-KV=V1&HW-CC-Date=20260624T020919Z&HW-CC-Expire=86400&HW-CC-Sign=10700163723DE5173B8918A1C980DBF4DDD044EFC90117575942990DCBEC5B2B)
 
 
 

@@ -1,6 +1,6 @@
 # 证书CMS签名
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/create-cms-sign-object
 
@@ -8,7 +8,7 @@
 
 从API version 22开始，支持证书CMS封装。
 
-PKCS#7是用于存储签名或加密数据的标准语法。CMS作为PKCS#7的扩展，支持的数据类型包括数据、签名数据、封装数据、签名和封装数据、摘要数据以及加密数据。该标准常用于保护数据的完整性和机密性。
+PKCS #7是用于存储签名或加密数据的标准语法。CMS（Cryptographic Message Syntax，加密消息语法）作为PKCS #7的扩展，支持的数据类型包括数据、签名数据、封装数据、签名和封装数据、摘要数据以及加密数据。该标准常用于保护数据的完整性和机密性。
 
 目前仅支持CMS签名数据和封装数据。
 

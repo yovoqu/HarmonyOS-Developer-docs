@@ -1,6 +1,6 @@
 # cdsm（星闪合作设备集合能力）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-cdsm
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,7 +40,7 @@ createCdsmClient(address: string): CdsmClient
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| address | string | 是 | 已配对连接的合作设备集合的成员设备地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 是 | 已配对连接的合作设备集合的成员设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
  
  
 **返回值：**
@@ -52,7 +52,7 @@ createCdsmClient(address: string): CdsmClient
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -122,7 +122,7 @@ getCdsmInfo(): CdsmInfo
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -156,7 +156,7 @@ let cdsmInformation: cdsm.CdsmInfo = client.getCdsmInfo();
 
 onCdsmInfoChange(callback: Callback&lt;CdsmInfo&gt;): void
  
-订阅远端设备合作设备集合信息变化事件。
+订阅远端设备合作设备集合信息变化事件。使用callback异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -170,12 +170,12 @@ onCdsmInfoChange(callback: Callback&lt;CdsmInfo&gt;): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;CdsmInfo&gt; | 是 | 表示远端设备合作设备集合信息变化回调函数的入参。回调函数由用户创建，通过该接口注册。 |
+| callback | Callback&lt;CdsmInfo&gt; | 是 | 事件回调类型，返回远端设备合作设备集合信息。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -186,8 +186,7 @@ onCdsmInfoChange(callback: Callback&lt;CdsmInfo&gt;): void
  
 ```json
 import { cdsm } from '@kit.NearLinkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Callback } from '@kit.BasicServicesKit';
+import { BusinessError, Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<cdsm.CdsmInfo> = (data: cdsm.CdsmInfo) => {
   console.info('CdsmInfo:' + JSON.stringify(data));
@@ -211,7 +210,7 @@ try {
 
 offCdsmInfoChange(callback?: Callback&lt;CdsmInfo&gt;): void
  
-取消订阅远端设备合作设备集合信息变化事件。
+取消订阅远端设备合作设备集合信息变化事件。使用callback异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -225,12 +224,12 @@ offCdsmInfoChange(callback?: Callback&lt;CdsmInfo&gt;): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | Callback&lt;CdsmInfo&gt; | 否 | 回调函数，返回合作设备集合信息。 填写该参数则取消当前callback订阅。不填写该参数则取消该type对应的所有回调。 |
+| callback | Callback&lt;CdsmInfo&gt; | 否 | 事件回调类型，返回远端设备合作设备集合信息。 填写该参数则取消当前callback订阅。不填写该参数则取消远端设备合作设备集合信息变化事件对应的所有回调。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

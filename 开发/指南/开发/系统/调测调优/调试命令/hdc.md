@@ -1,6 +1,6 @@
 # hdc
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hdc
 
@@ -579,7 +579,7 @@ Set device run mode successful.
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/e6bwcs9gTduWPe-hDophAA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030228Z&HW-CC-Expire=86400&HW-CC-Sign=06086D1C0FBC70BA71FDB7A6328EE72AC1089AA9EFCB1B5F40D4AA04C158D497)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/uvXYBTnoTGuA1czOxMf1Iw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=C14FABCD502FAE2E893B4D8D4F8639BD9914D65188FD2C6B02F8744FA1F2697A)
 
 
 切换前，请确保条件满足：远端设备与近端电脑处于同一网络，可通过ping命令检查：
@@ -668,12 +668,12 @@ hdc shell [-b bundlename] [command]
 
 | 参数 | 说明 |
 | --- | --- |
-| -b bundlename | 3.1.0e版本新增参数。指定可调试应用包名，在可调试应用数据目录内，以非交互式模式执行命令。 命令行方式访问应用沙箱。 此参数当前仅支持以非交互式模式执行命令，不支持缺省command参数执行命令进入交互式shell会话。 未配置此参数时，默认执行路径为系统根目录。 |
+| -b bundlename | 3.1.0e版本新增参数。指定可调试应用包名。 - 指定command参数时：在该可调试应用数据目录内以非交互式模式执行命令。命令行方式访问应用沙箱。 自3.2.0e版本起，参数新增以下特性： - 缺省command参数时，支持进入可调试应用数据目录的交互式shell会话，默认工作目录即为可调试应用数据目录根路径。 - 缺省[-b bundlename]参数时，默认执行路径为系统根目录。 |
 | command | 需要在设备上执行的单次命令，不同类型或版本的系统支持的command命令有所差异，可以通过hdc shell ls /system/bin查阅支持的命令列表。当前大多数命令都是由toybox提供，可通过 hdc shell toybox --help 获取命令帮助。 缺省该参数，hdc将会启动一个交互式的shell会话，开发者可以在命令提示符下输入命令，比如 ls、cd、pwd 等。 |
 
 
 > [!NOTE]
-> 使用参数[-b bundlename]指定包名，该包名对应的已安装应用必须满足以下条件：使用调试证书签名，并且已在设备上启动。有关如何申请调试证书及签名可参考： 申请调试证书 。
+> 使用参数[-b bundlename]指定包名，该包名对应的已安装应用必须满足以下条件：使用调试证书签名，并且已在设备上启动。有关如何申请调试证书及签名可参考： 申请调试证书 。 当设备系统版本和hdc版本均低于3.2.0e时，缺省command参数进入的交互式shell会话默认工作目录仍为系统根目录。建议升级设备系统版本并参考 hdc版本配套表 确认版本兼容性，可通过hdc shell hdcd -v命令查询设备系统版本号。
 
 
 **返回信息**：
@@ -710,6 +710,11 @@ name of a command to run, followed by any arguments to that command.
 
 # 在指定包名的应用数据目录内以非交互式模式执行命令，支持touch、rm、ls、stat、cat、mkdir等命令。
 $ hdc shell -b com.example.myapplication ls data/storage/el2/base/
+
+# 进入指定包名的可调试应用数据目录交互式shell会话。
+$ hdc shell -b com.example.myapplication
+$ pwd
+...（以设备实际输出为准）
 ```
 
 
@@ -736,7 +741,7 @@ hdc install [-cwd path|-r|-s|-w waitingTime|-u userId|-p|-g|-h] src
 
 | 参数名 | 说明 |
 | --- | --- |
-| src | 应用安装包的文件路径。支持安装HAP、应用内HSP。从API version 22开始，支持安装APP包。 |
+| src | 应用安装包的文件路径。支持安装HAP、应用内HSP。从API version 22开始，支持安装APP应用包。 |
 | -cwd | 修改工作目录。 用于在应用安装时，切换src到指定path。例如，初始安装应用为test.hap，所在目录为C:\，实际安装应用文件路径为C:\test.hap；如果使用-cwd "D:\"，实际安装应用文件路径为D:\test.hap。 |
 | -r | 可选参数，覆盖安装一个HAP/HSP。默认缺省，缺省时表示覆盖安装。 |
 | -s | 安装应用HSP时为必选参数，其他场景为可选参数。用于指定待安装应用间HSP的路径。指定目录的时候，每个路径目录下只能存在一个HSP。 |
@@ -758,7 +763,7 @@ hdc install [-cwd path|-r|-s|-w waitingTime|-u userId|-p|-g|-h] src
 **使用方法**：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/Qhb9BayLS5iFdzYqwxX7dQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030228Z&HW-CC-Expire=86400&HW-CC-Sign=218CD955A007A2ADF981DB122767444E96344A537B1512039198B69F4E4A55A2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a1/v3/A3jG1unfTJuY5xZiNEGX_A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=65A4BD85FDD261B501A9CCCFF0053D4CCE1463130F4CB09F3660A900A945439F)
 
 
 执行install命令使用bm模块命令参数，对-w和-u参数需参数值组合使用的情况，需将参数变量和参数值放在引号内使用，如"-w 180"，"-u 100"，防止参数解析异常导致命令执行失败。
@@ -1350,7 +1355,7 @@ hdc track-jpid [-a|-p]
 | 返回信息 | 说明 |
 | --- | --- |
 | 进程号和包名/进程名列表。 | 不加参数时仅显示已打开应用的进程pid，使用-p参数额外显示应用包名，使用-a参数同时显示debug和release标签。 |
-| [Empty] | 无开启JDWP调试协议的应用进程。 |
+| [Empty] | 无已打开的应用进程。 |
 
 
 **使用方法**：
@@ -1742,10 +1747,11 @@ hdc file recv /data/log/hilog {local_path}            # 获取hilog已落盘日�
 | 3.1.0a | 12 | wait命令支持-t参数：详细说明参见等待设备正常连接。 |
 | 3.1.0e | 15及以上版本 | - file send命令支持-b参数：详细说明参见文件传输。 - file recv命令支持-b参数：详细说明参见文件传输。 - shell命令支持-b参数：详细说明参见执行交互命令。 |
 | 3.2.0b | 20 | - 端口转发任务支持监听远端主机IP：详细说明参见创建正向端口转发任务。 |
+| 3.2.0e | 26.0.0及以上版本 | - shell命令支持-b参数缺省command参数进入交互式shell会话：详细说明参见执行交互命令。 |
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/ndVjt3S2Qy-5x3LjvFspbw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030228Z&HW-CC-Expire=86400&HW-CC-Sign=CE0400565D07092A10DD2F34B3FA26AB8D0B00E47CC7F3C34F417A7C83F5858E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/wGtHMcbiQ62RCmPADGDe6Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=CBD2E518E8641A6AA156A54E3C40CD3AFEAD05E1E976D536E9F081A12FF1B3E1)
 
 
 如果开发者当前运行的hdc版本较低，某些功能存在兼容性问题，需要根据功能特性提升版本时，可参考对应API版本说明下载最新版本。
@@ -1928,7 +1934,7 @@ sudo udevadm control --reload
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/NTVBjDofSAGFrunFmNoA-g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030228Z&HW-CC-Expire=86400&HW-CC-Sign=E9205D8EA53210F06C656F75D2ED50BF75D29293C4110856782772EAE7F30A55)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/llfAxUuOQP2BhstmAJVyNw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=F9B30CD1934266EF3D8657BE5090D04B2866B83FA53FCA8ADE5DFF8E3FA342E6)
 
 
 开启非管理员角色的USB设备操作权限可以解决在Linux环境在非管理员权限下使用hdc因权限不足无法找到设备的情况。但权限最大化可能存在潜在安全问题，请开发者根据使用场景自行评估是否开启此权限。
@@ -1962,7 +1968,7 @@ sudo udevadm control --reload
 hdc文件传输命令执行出现乱码，如使用file recv从设备端发送带有中文名称的文件到本地，报错提示[Fail]Error opening file: no such file or directory, path:XXXXX，其中path显示中文乱码。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/W5WGeJEkTd2MlVPSS-GOUg/zh-cn_image_0000002611834423.png?HW-CC-KV=V1&HW-CC-Date=20260528T030228Z&HW-CC-Expire=86400&HW-CC-Sign=268BC981CEEA3A4DDD058E955E1652908084B835B42F2E8D7C81A55DAADBE14C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1b/v3/zmLbJw8OSKmjWN8lCiLsFg/zh-cn_image_0000002626069172.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=056C7CDFC338D2079376238205CAD8784F07DA6481ADC3BD496AF9554C34DC7B)
 
 
 **可能原因&解决方法**
@@ -1980,7 +1986,7 @@ hdc文件传输命令执行出现乱码，如使用file recv从设备端发送�
 使用hdc list targets命令查询已连接设备，连接设备标识后显示Unauthorized。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/MC9LFX4IQwSoXbKoImYNBA/zh-cn_image_0000002581274676.png?HW-CC-KV=V1&HW-CC-Date=20260528T030228Z&HW-CC-Expire=86400&HW-CC-Sign=A960A05C0F45A8B5F2EC4EBBD6299B40DAE536F77B5ECBD98B511BA611B7D746)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/EL_FjFNISC-IuQkkkwxyEw/zh-cn_image_0000002656468449.png?HW-CC-KV=V1&HW-CC-Date=20260624T020900Z&HW-CC-Expire=86400&HW-CC-Sign=B87E0B10A80BB0244915A1C2F4575EACB72D8BF56350D632A0B30256B24E946B)
 
 
 **可能原因&解决方法**

@@ -1,6 +1,6 @@
 # native_type.h
 
-更新时间：2026-06-09 09:36:32
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -45,7 +45,7 @@
 | ArkUI_ColorStop | ArkUI_ColorStop | 定义渐变色结构。 |
 | ArkUI_Rect | ArkUI_Rect | 定义遮罩屏蔽区域的范围结构体。 |
 | ArkUI_IntSize | ArkUI_IntSize | 尺寸类型，用于描述组件的宽高。 |
-| ArkUI_IntOffset | ArkUI_IntOffset | 位置，用于描述组件的位置。 |
+| ArkUI_IntOffset | ArkUI_IntOffset | 偏移量，用于描述当前组件相对于父组件的偏移量。 |
 | ArkUI_Margin | ArkUI_Margin | 外边距属性，用于描述组件的外边距属性。 |
 | ArkUI_TranslationOptions | ArkUI_TranslationOptions | 定义组件转场时的平移效果对象。 |
 | ArkUI_ScaleOptions | ArkUI_ScaleOptions | 定义组件转场时的缩放效果对象。 |
@@ -55,6 +55,7 @@
 | ArkUI_DrawContext | ArkUI_DrawContext | 定义组件绘制上下文类型结构。 |
 | ArkUI_Node* | ArkUI_NodeHandle | 定义ArkUI native组件实例对象指针定义。 |
 | ArkUI_NativeDialog* | ArkUI_NativeDialogHandle | 定义ArkUI在Native侧的自定义弹窗控制器对象指针。 |
+| ArkUI_GestureCollectInterceptInfo | ArkUI_GestureCollectInterceptInfo | 定义手势收集拦截信息。 |
 | ArkUI_GridItemSize | ArkUI_GridItemSize | 定义Grid布局选项onGetIrregularSizeByIndex回调返回值结构体。 |
 | ArkUI_GridItemRect | ArkUI_GridItemRect | 定义Grid布局选项onGetRectByIndex回调返回值结构体。 |
 | ArkUI_GridLayoutOptions | ArkUI_GridLayoutOptions | 定义Grid布局选项。 |
@@ -65,8 +66,8 @@
 | ArkUI_Context* | ArkUI_ContextHandle | 定义ArkUI native UI的上下文实例对象指针定义。 |
 | ArkUI_NodeContent* | ArkUI_NodeContentHandle | 定义ArkUI NodeContent实例在Native侧的实例对象指针定义。 |
 | ArkUI_AlignmentRuleOption | ArkUI_AlignmentRuleOption | 指定设置在相对容器中子组件的对齐规则。 |
-| ArkUI_GuidelineOption | ArkUI_GuidelineOption | guideLine参数，用于定义guideline的id、方向和位置。 |
-| ArkUI_BarrierOption | ArkUI_BarrierOption | barrier参数，用于定义barrier的id、方向和生成时所依赖的组件。 |
+| ArkUI_GuidelineOption | ArkUI_GuidelineOption | Guideline参数，用于定义Guideline（RelativeContainer容器内的辅助线）的id、方向和位置。 |
+| ArkUI_BarrierOption | ArkUI_BarrierOption | barrier选项，用于定义barrier的id、方向和生成时所依赖的组件。 |
 | ArkUI_ImageAnimatorFrameInfo | ArkUI_ImageAnimatorFrameInfo | 定义图片帧信息。 |
 | ArkUI_ListChildrenMainSize | ArkUI_ListChildrenMainSize | 定义List的ChildrenMainSize类信息。 |
 | ArkUI_ProgressLinearStyleOption | ArkUI_ProgressLinearStyleOption | 定义线性进度条样式。 |
@@ -121,6 +122,7 @@
 | OH_ArkUI_TextEditorTextStyle | OH_ArkUI_TextEditorTextStyle | 定义文本编辑器的文本样式。 |
 | OH_ArkUI_FontWeightConfigs | OH_ArkUI_FontWeightConfigs | 定义文本的字体粗细配置。可以通过OH_ArkUI_FontWeightConfigs_Create 接口创建对应的文本字体粗细配置对象。可以通过OH_ArkUI_FontWeightConfigs_Destroy 接口销毁文本字体粗细配置对象。配置创建后通过OH_ArkUI_FontWeightConfigs_SetEnableVariableFontWeight 接口设置是否启用可变字体粗细调节。配置创建后通过OH_ArkUI_FontWeightConfigs_GetEnableVariableFontWeight 接口查看是否启用了可变字体粗细调节。配置创建后通过OH_ArkUI_FontWeightConfigs_SetEnableDeviceFontWeightCategory 接口设置文本字体粗细是否跟随设备的字体粗细级别更新。配置创建后通过OH_ArkUI_FontWeightConfigs_GetEnableDeviceFontWeightCategory 接口查看文本字体粗细是否跟随设备的字体粗细级别更新。 |
 | OH_ArkUI_FontConfigs | OH_ArkUI_FontConfigs | 定义文本的字体配置。可以通过OH_ArkUI_FontConfigs_Create 接口创建文本字体配置对象。可以通过OH_ArkUI_FontConfigs_Destroy 接口销毁文本字体配置对象。配置创建后通过OH_ArkUI_FontConfigs_SetFontWeightConfigs 接口设置文本的字体粗细配置。配置创建后通过OH_ArkUI_FontConfigs_GetFontWeightConfigs 接口查看文本的字体粗细配置。 |
+| OH_ArkUI_TextController | OH_ArkUI_TextController | 定义文本组件的控制器。可以通过OH_ArkUI_TextController_Create创建文本组件控制器对象。可以通过OH_ArkUI_TextController_Destroy接口销毁文本组件控制器对象。控制器创建后通过OH_ArkUI_TextController_SetStyledString 接口设置文本组件的属性字符串。 |
 
 
 
@@ -270,6 +272,8 @@
 | OH_ArkUI_TextEditorResponseType | OH_ArkUI_TextEditorResponseType | 自定义文本选择菜单响应类型枚举。 |
 | OH_ArkUI_TextMenuType | OH_ArkUI_TextMenuType | 文本菜单类型枚举。 |
 | OH_ArkUI_LineBreakStrategy | OH_ArkUI_LineBreakStrategy | 换行策略类型枚举。 |
+| ArkUI_RawInputEventType | ArkUI_RawInputEventType | 原始输入事件类型枚举。 |
+| OH_ArkUI_CrossLanguageOperatingStatus | OH_ArkUI_CrossLanguageOperatingStatus | 跨语言配置项的节点树操作状态。 |
 
 
 
@@ -531,6 +535,8 @@
 | void OH_ArkUI_CrossLanguageOption_Destroy(ArkUI_CrossLanguageOption* option) | - | 销毁跨语言配置项实例。 |
 | void OH_ArkUI_CrossLanguageOption_SetAttributeSettingStatus(ArkUI_CrossLanguageOption* option, bool enabled) | - | 设置配置项中是否允许跨语言修改属性。 |
 | bool OH_ArkUI_CrossLanguageOption_GetAttributeSettingStatus(ArkUI_CrossLanguageOption* option) | - | 获取配置项中是否允许跨语言修改属性。 |
+| void OH_ArkUI_CrossLanguageOption_SetTreeOperatingStatus(ArkUI_CrossLanguageOption* option, OH_ArkUI_CrossLanguageOperatingStatus status) | - | 设置跨语言配置项的节点树操作状态。 |
+| OH_ArkUI_CrossLanguageOperatingStatus OH_ArkUI_CrossLanguageOption_GetTreeOperatingStatus(ArkUI_CrossLanguageOption* option) | - | 获取跨语言配置项的节点树操作状态。 |
 | ArkUI_VisibleAreaEventOptions* OH_ArkUI_VisibleAreaEventOptions_Create() | - | 创建可见区域变化监听的参数。 |
 | void OH_ArkUI_VisibleAreaEventOptions_Dispose(ArkUI_VisibleAreaEventOptions* option) | - | 销毁可见区域变化监听的参数。 |
 | int32_t OH_ArkUI_VisibleAreaEventOptions_SetRatios(ArkUI_VisibleAreaEventOptions* option, float* value, int32_t size) | - | 设置阈值数组。 |
@@ -832,6 +838,9 @@
 | void OH_ArkUI_FontConfigs_Destroy(OH_ArkUI_FontConfigs* option) | - | 销毁文本字体配置对象。 |
 | void OH_ArkUI_FontConfigs_SetFontWeightConfigs(OH_ArkUI_FontConfigs* option, OH_ArkUI_FontWeightConfigs* fontWeightConfigs) | - | 设置文本字体配置对象的文本字体粗细配置。 |
 | OH_ArkUI_FontWeightConfigs* OH_ArkUI_FontConfigs_GetFontWeightConfigs(OH_ArkUI_FontConfigs* option) | - | 获取文本字体配置对象的文本字体粗细配置。 |
+| OH_ArkUI_TextController* OH_ArkUI_TextController_Create() | - | 创建文本组件控制器对象。 |
+| void OH_ArkUI_TextController_Destroy(OH_ArkUI_TextController* controller) | - | 销毁文本组件控制器对象。 |
+| ArkUI_ErrorCode OH_ArkUI_TextController_SetStyledString(OH_ArkUI_TextController* controller, ArkUI_StyledString_Descriptor* descriptor) | - | 设置文本组件的属性字符串。 |
 
 
 
@@ -4411,6 +4420,51 @@ enum OH_ArkUI_LineBreakStrategy
 
 
 
+#### ArkUI_RawInputEventType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum ArkUI_RawInputEventType
+```
+
+**描述**
+
+原始输入事件类型枚举。
+
+**起始版本：** 26.0.0
+
+| 枚举项 | 描述 |
+| --- | --- |
+| ARKUI_RAW_INPUT_EVENT_TYPE_TOUCH = 0 | 触摸事件类型。 |
+| ARKUI_RAW_INPUT_EVENT_TYPE_MOUSE = 1 | 鼠标事件类型。 |
+
+
+
+
+#### OH_ArkUI_CrossLanguageOperatingStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum OH_ArkUI_CrossLanguageOperatingStatus
+```
+
+**描述**
+
+跨语言配置项的节点树操作状态。
+
+**起始版本：** 26.0.0
+
+| 枚举项 | 描述 |
+| --- | --- |
+| OH_ARKUI_TREE_OPERATING_STATUS_UNDEFINED = 0 | 未定义，节点树操作状态的初始值。处于此状态的节点不支持跨语言节点树操作。 |
+| OH_ARKUI_TREE_OPERATING_STATUS_ENABLE = 1 | 启用，表示当该配置项应用到节点时，节点的节点树操作状态将被启用。 |
+| OH_ARKUI_TREE_OPERATING_STATUS_DISABLE = 2 | 禁用，表示当该配置项应用到节点时，节点的节点树操作状态将被禁用。 |
+
+
+
+
 #### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -5277,7 +5331,7 @@ void OH_ArkUI_WaterFlowSectionOption_RegisterGetItemMainSizeCallbackByIndex(ArkU
 
 **描述：**
 
-通过[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)分组配置信息根据itemIndex获取指定FlowItem的主轴大小。如需在回调中使用自定义数据，可使用[OH_ArkUI_WaterFlowSectionOption_RegisterGetItemMainSizeCallbackByIndexWithUserData](#sectionoption_registergetitemmainsizecallbackbyindexwithuserdata)。
+通过[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)分组配置信息根据itemIndex获取指定FlowItem的主轴大小。如需在回调中使用自定义数据，可使用[OH_ArkUI_WaterFlowSectionOption_RegisterGetItemMainSizeCallbackByIndexWithUserData](#oh_arkui_waterflowsectionoption_registergetitemmainsizecallbackbyindexwithuserdata)。
 
 **起始版本：** 12
 
@@ -5302,7 +5356,7 @@ void OH_ArkUI_WaterFlowSectionOption_RegisterGetItemMainSizeCallbackByIndexWithU
 
 **描述：**
 
-通过[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)分组配置信息根据itemIndex获取指定Item的主轴大小。与[OH_ArkUI_WaterFlowSectionOption_RegisterGetItemMainSizeCallbackByIndex](#sectionoption_registergetitemmainsizecallbackbyindex)的区别在于，该接口支持传入自定义数据userData，并在回调函数中接收该数据。
+通过[FlowItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-flowitem)分组配置信息根据itemIndex获取指定Item的主轴大小。与[OH_ArkUI_WaterFlowSectionOption_RegisterGetItemMainSizeCallbackByIndex](#oh_arkui_waterflowsectionoption_registergetitemmainsizecallbackbyindex)的区别在于，该接口支持传入自定义数据userData，并在回调函数中接收该数据。
 
 **起始版本：** 12
 
@@ -8881,7 +8935,7 @@ int32_t OH_ArkUI_ListItemSwipeAction_Expand(ArkUI_NodeHandle node, ArkUI_ListIte
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_ERROR 传入的节点对象类型错误。 ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE 传入的节点未挂载到组件树上。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_PARAM_ERROR 传入的节点对象类型错误。 ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE 传入的节点未挂载到组件树上。 |
 
 
 > [!NOTE]
@@ -8915,7 +8969,7 @@ int32_t OH_ArkUI_ListItemSwipeAction_Collapse(ArkUI_NodeHandle node)
 
 | 类型 | 说明 |
 | --- | --- |
-| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_ERROR 传入的节点对象类型错误。 ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE 传入的节点未挂载到组件树上。 |
+| int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_PARAM_ERROR 传入的节点对象类型错误。 ARKUI_ERROR_CODE_NODE_NOT_ON_MAIN_TREE 传入的节点未挂载到组件树上。 |
 
 
 
@@ -11171,6 +11225,60 @@ bool OH_ArkUI_CrossLanguageOption_GetAttributeSettingStatus(ArkUI_CrossLanguageO
 | 类型 | 说明 |
 | --- | --- |
 | bool | 是否允许跨语言修改属性。true表示允许跨语言修改属性，false表示不允许跨语言修改属性。 |
+
+
+
+
+#### OH_ArkUI_CrossLanguageOption_SetTreeOperatingStatus()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void OH_ArkUI_CrossLanguageOption_SetTreeOperatingStatus(ArkUI_CrossLanguageOption* option, OH_ArkUI_CrossLanguageOperatingStatus status)
+```
+
+**描述：**
+
+设置跨语言配置项的节点树操作状态。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| ArkUI_CrossLanguageOption* option | 跨语言配置项实例。 |
+| OH_ArkUI_CrossLanguageOperatingStatus status | 需要设置的节点树操作状态。 默认值：OH_ARKUI_TREE_OPERATING_STATUS_UNDEFINED。 |
+
+
+
+
+#### OH_ArkUI_CrossLanguageOption_GetTreeOperatingStatus()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_ArkUI_CrossLanguageOperatingStatus OH_ArkUI_CrossLanguageOption_GetTreeOperatingStatus(ArkUI_CrossLanguageOption* option)
+```
+
+**描述：**
+
+获取跨语言配置项的节点树操作状态。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| ArkUI_CrossLanguageOption* option | 跨语言配置项实例。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_ArkUI_CrossLanguageOperatingStatus | 跨语言配置项的节点树操作状态。 |
 
 
 
@@ -20303,7 +20411,7 @@ void OH_ArkUI_FontWeightConfigs_SetEnableDeviceFontWeightCategory(OH_ArkUI_FontW
 
 | 参数项 | 描述 |
 | --- | --- |
-| OH_ArkUI_FontWeightConfigs* option | 指向待修改的文本文本字体粗配置对象的指针。 |
+| OH_ArkUI_FontWeightConfigs* option | 指向待修改的文本字体粗配置对象的指针。 |
 | bool enable | 是否启用文本字体粗细跟随设备的字体粗细级别更新。true表示当设备的字体粗细级别改变时，文本字体粗细将自动更新。false表示当设备的字体粗细级别改变时，文本字体粗不会自动更新。默认值为true。 |
 
 
@@ -20435,3 +20543,80 @@ OH_ArkUI_FontWeightConfigs* OH_ArkUI_FontConfigs_GetFontWeightConfigs(OH_ArkUI_F
 | 类型 | 说明 |
 | --- | --- |
 | OH_ArkUI_FontWeightConfigs* | 返回文本字体粗细配置。 |
+
+
+
+
+#### OH_ArkUI_TextController_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_ArkUI_TextController* OH_ArkUI_TextController_Create()
+```
+
+**描述**
+
+创建文本组件控制器对象。
+
+**起始版本：** 26.0.0
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_ArkUI_TextController* | 返回指向文本组件控制器对象的指针。如果创建失败，返回空指针。 |
+
+
+
+
+#### OH_ArkUI_TextController_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void OH_ArkUI_TextController_Destroy(OH_ArkUI_TextController* controller)
+```
+
+**描述**
+
+销毁文本组件控制器对象。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ArkUI_TextController* controller | 指向文本组件控制器对象的指针。 |
+
+
+
+
+#### OH_ArkUI_TextController_SetStyledString()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+ArkUI_ErrorCode OH_ArkUI_TextController_SetStyledString(OH_ArkUI_TextController* controller, ArkUI_StyledString_Descriptor* descriptor)
+```
+
+**描述**
+
+设置文本组件的属性字符串。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_ArkUI_TextController* controller | 指向OH_ArkUI_TextController对象的指针。 |
+| ArkUI_StyledString_Descriptor* descriptor | 指向ArkUI_StyledString_Descriptor对象的指针。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ArkUI_ErrorCode | 返回结果。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 |

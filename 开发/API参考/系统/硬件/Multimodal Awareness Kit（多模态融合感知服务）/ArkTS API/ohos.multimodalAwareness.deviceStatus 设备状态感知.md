@@ -1,6 +1,6 @@
 # @ohos.multimodalAwareness.deviceStatus (设备状态感知)
 
-更新时间：2026-04-08 07:25:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-awareness-devicestatus
 **支持设备：** Phone
@@ -98,7 +98,7 @@ off(type: 'steadyStandingDetect', callback?: Callback&lt;SteadyStandingStatus&gt
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 事件类型。type为“steadyStandingDetect”，表示设备静止姿态（支架态）感知。 |
-| callback | Callback&lt;SteadyStandingStatus&gt; | 否 | 回调函数，返回设备静止姿态感知（支架态）状态信息。 |
+| callback | Callback&lt;SteadyStandingStatus&gt; | 否 | 回调函数，返回设备静止姿态感知（支架态）状态信息。需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。 |
 
 
 **错误码**：

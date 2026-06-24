@@ -1,6 +1,6 @@
 # @ohos.userIAM.userAuthIcon (嵌入式用户身份认证控件)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ohos-useriam-userauthicon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -139,4 +139,4 @@ struct Index {
 **指纹认证图例：**
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/uatYieYaRxuyXPcl1klBkw/zh-cn_image_0000002611756615.png?HW-CC-KV=V1&HW-CC-Date=20260528T025259Z&HW-CC-Expire=86400&HW-CC-Sign=2F0CCF4BEBC39083FE8B73FD880DFF4EDB4AA995328ACBDECFB7E64568693E3E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/35/v3/MeFz0D-1Q22D4fZKDbrbDQ/zh-cn_image_0000002626231236.png?HW-CC-KV=V1&HW-CC-Date=20260624T020108Z&HW-CC-Expire=86400&HW-CC-Sign=F6D9DDB05981616F8E555CDA2835AA78E5463C45A5563F68EE0435BF202EA13C)

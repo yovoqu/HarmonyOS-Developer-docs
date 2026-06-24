@@ -1,6 +1,6 @@
 # @ohos.enterprise.usbManager（USB管理）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-usbmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -235,7 +235,7 @@ setUsbStorageDeviceAccessPolicy(admin: Want, usbPolicy: UsbPolicy): void
 
 通过本接口设置，或者通过[addDisallowedUsbDevices](#usbmanageradddisallowedusbdevices14)接口添加存储类型的USB设备，均可禁用USB存储设备。推荐使用后者。
 
-**需要权限：** ohos.permission.ENTERPRISE_MANAGE_USB
+**需要权限：** API版本26.0.0之前：ohos.permission.ENTERPRISE_MANAGE_USB，API版本26.0.0开始：ohos.permission.ENTERPRISE_MANAGE_USB 或者 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS（应用[激活为自带设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagerstartadminprovision15)）。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
@@ -294,7 +294,7 @@ getUsbStorageDeviceAccessPolicy(admin: Want): UsbPolicy
 
 获取USB存储设备访问策略。
 
-**需要权限：** ohos.permission.ENTERPRISE_MANAGE_USB
+**需要权限：** API版本26.0.0之前：ohos.permission.ENTERPRISE_MANAGE_USB，API版本26.0.0开始：ohos.permission.ENTERPRISE_MANAGE_USB 或者 ohos.permission.PERSONAL_MANAGE_RESTRICTIONS（应用[激活为自带设备管理应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagerstartadminprovision15)）。
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 

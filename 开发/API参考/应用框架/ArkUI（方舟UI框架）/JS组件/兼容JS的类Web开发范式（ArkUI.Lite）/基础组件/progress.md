@@ -1,6 +1,6 @@
 # progress
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-progress
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -164,4 +164,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/8SSNxGPjR22XPVSvkQ4W7Q/zh-cn_image_0000002611756493.png?HW-CC-KV=V1&HW-CC-Date=20260528T025433Z&HW-CC-Expire=86400&HW-CC-Sign=54438300771ACA9DCF744192CC21FA3A0253FB9407E9B0D56E0C6966418EC334)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/99/v3/d_FPEXkCRqWR6U4ZqdS6sg/zh-cn_image_0000002626071200.png?HW-CC-KV=V1&HW-CC-Date=20260624T015946Z&HW-CC-Expire=86400&HW-CC-Sign=73FECF0FED4829D084F2C4000D0B5B11806C30C854728658986BEFA7EE84A1AE)

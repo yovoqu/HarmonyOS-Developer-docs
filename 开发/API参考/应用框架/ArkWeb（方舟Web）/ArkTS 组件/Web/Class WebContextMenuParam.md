@@ -1,11 +1,17 @@
 # Class (WebContextMenuParam)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-webcontextmenuparam
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-实现长按页面元素或鼠标右键弹出的菜单信息。示例代码参考[onContextMenuShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oncontextmenushow9)。
+WebContextMenuParam是ArkWeb组件中用于承载长按页面元素或鼠标右键弹出的上下文菜单信息的参数类，作为onContextMenuShow事件回调的数据载体，封装了菜单弹出位置、链接地址、媒体类型、选中文本、编辑状态等关键信息。
+ 
+开发者在自定义Web组件的上下文菜单时，通过WebContextMenuParam获取用户长按/右击位置处的网页元素详细信息（如链接URL、图片内容、媒体类型、输入框类型、编辑状态等），据此判断用户操作场景，进而决定是否拦截默认菜单并构建自定义菜单项。
+ 
+当需要在Web组件中自定义长按或右键弹出菜单的行为时（如替换默认菜单、根据不同元素类型提供差异化菜单项、预览图片等），在onContextMenuShow事件回调中使用WebContextMenuParam获取上下文信息。
+ 
+示例代码参考[onContextMenuShow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-events#oncontextmenushow9)。
  
 > [!NOTE]
 > 该组件首批接口从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 9开始支持。 示例效果请以真机运行为准。
@@ -30,7 +36,7 @@ WebContextMenuParam的构造函数。
 
 x(): number
  
-弹出菜单的x坐标。
+弹出菜单的x坐标，相对于Web组件左上角的水平距离。
  
 **系统能力：** SystemCapability.Web.Webview.Core
  
@@ -49,7 +55,7 @@ x(): number
 
 y(): number
  
-弹出菜单的y坐标。
+弹出菜单的y坐标，相对于Web组件左上角的垂直距离。
  
 **系统能力：** SystemCapability.Web.Webview.Core
  

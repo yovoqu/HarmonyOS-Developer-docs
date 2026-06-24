@@ -1,6 +1,6 @@
 # 如何把ImageReceiver收到的视频帧数据保存到本地
 
-更新时间：2026-05-15 02:49:31
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-11
 

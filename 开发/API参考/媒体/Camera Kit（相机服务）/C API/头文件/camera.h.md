@@ -1,6 +1,6 @@
 # camera.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -61,6 +61,7 @@
 | Camera_OcclusionDetectionResult | Camera_OcclusionDetectionResult | 相机镜头遮挡、脏污检测结果。 |
 | OH_Camera_ZoomRange | OH_Camera_ZoomRange | 变焦范围配置。 |
 | OH_Camera_PhysicalAperture | OH_Camera_PhysicalAperture | 物理光圈配置。 |
+| OH_Camera_ZoomPointInfo | OH_Camera_ZoomPointInfo | 描述变焦点信息。 |
 | Camera_Manager | Camera_Manager | 相机管理器对象。 可以使用OH_Camera_GetCameraManager方法创建指针。 |
 
 
@@ -104,6 +105,7 @@
 | Camera_PhotoQualityPrioritization | Camera_PhotoQualityPrioritization | 拍照画质优先策略枚举。 |
 | OH_Camera_OISMode | OH_Camera_OISMode | 光学防抖（Optical Image Stabilization）模式枚举。 |
 | OH_Camera_OISAxes | OH_Camera_OISAxes | 光学防抖（OIS）轴枚举。 |
+| OH_Camera_ExposureState | OH_Camera_ExposureState | 枚举相机曝光状态。 |
 
 
 
@@ -318,11 +320,12 @@ enum Camera_Format
 | --- | --- |
 | CAMERA_FORMAT_RGBA_8888 = 3 | RGBA 8888格式。 |
 | CAMERA_FORMAT_DNG = 4 | DNG格式。 起始版本： 24 |
+| CAMERA_FORMAT_DNG_XDRAW = 5 | 增强型DNG格式。 起始版本： 26.0.0 |
 | CAMERA_FORMAT_YUV_420_SP = 1003 | YUV 420格式。 |
 | CAMERA_FORMAT_JPEG = 2000 | JPEG格式。 |
 | CAMERA_FORMAT_YCBCR_P010 = 2001 | YCBCR P010 格式。 起始版本： 12 |
 | CAMERA_FORMAT_YCRCB_P010 = 2002 | YCRCB P010 格式。 起始版本： 12 |
-| CAMERA_FORMAT_HEIC = 2003 | HEIC格式。 起始版本： 13 |
+| CAMERA_FORMAT_HEIC = 2003 | HEIC格式。 起始版本： 23 |
 
 
 
@@ -828,6 +831,7 @@ enum Camera_ControlCenterEffectType
 | CONTROL_CENTER_EFFECT_TYPE_BEAUTY = 0 | 控制器效果类型：美颜。 |
 | CONTROL_CENTER_EFFECT_TYPE_PORTRAIT = 1 | 控制器效果类型：人像虚化。 |
 | CONTROL_CENTER_EFFECT_TYPE_AUTO_FRAMING = 2 | 控制器效果类型：自动对焦。 起始版本： 24 |
+| CONTROL_CENTER_EFFECT_TYPE_COLOR_EFFECT = 3 | 控制器效果类型：XMAGE风格。 起始版本： 26.0.0 |
 
 
 
@@ -895,6 +899,28 @@ enum OH_Camera_OISAxes
 | --- | --- |
 | OH_CAMERA_OIS_AXES_PITCH = 0 | 俯仰轴：控制相机机身上下旋转，即机身围绕与镜头水平方向的轴旋转。 |
 | OH_CAMERA_OIS_AXES_YAW = 1 | 偏航轴：控制相机机身左右旋转，即机身围绕与镜头垂直方向的轴旋转。 |
+
+
+
+
+#### OH_Camera_ExposureState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum OH_Camera_ExposureState
+```
+
+**描述**
+
+枚举相机曝光状态。
+
+**起始版本：** 26.0.0
+
+| 枚举项 | 描述 |
+| --- | --- |
+| OH_CAMERA_EXPOSURE_STATE_SCAN = 0 | 表示曝光处于扫描状态。 起始版本： 26.0.0 |
+| OH_CAMERA_EXPOSURE_STATE_CONVERGED = 1 | 表示曝光已经收敛。 起始版本： 26.0.0 |
 
 
 

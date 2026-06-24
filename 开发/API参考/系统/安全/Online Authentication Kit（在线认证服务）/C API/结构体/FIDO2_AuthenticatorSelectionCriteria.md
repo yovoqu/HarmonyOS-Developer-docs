@@ -1,6 +1,6 @@
 # FIDO2_AuthenticatorSelectionCriteria
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___authenticator_selection_criteria
 
@@ -22,7 +22,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| FIDO2_AuthenticatorAttachment authenticatorAttachment | 认证器信息（平台、漫游）。默认值为FIDO2_PLATFORM。可选。 |
+| FIDO2_AuthenticatorAttachment authenticatorAttachment | 认证器信息（FIDO2_PLATFORM表示平台，FIDO2_ROAMING表示漫游）。默认值为FIDO2_PLATFORM。可选。 |
 | const char * residentKey | 常驻键。默认空。可选。 |
 | bool requireResidentKey | 是否需要常驻键，true代表需要常驻键，false代表不需要。默认值为false。可选。 |
 | FIDO2_UserVerificationRequirement userVerification | 用户认证需求枚举。默认值为FIDO2_PREFERRED。可选。 |
@@ -54,7 +54,7 @@ bool FIDO2_AuthenticatorSelectionCriteria::requireResidentKey
  
 **描述**
  
-是否需要常驻键，true代表需要常驻键，false代表不需要。默认值为false。可选。
+是否需要常驻键，true代表需要常驻键，false代表不需要。默认值为false。可选。当不需要常驻键时，默认设置为false以提高兼容性。
  
   
 
@@ -66,7 +66,7 @@ const char* FIDO2_AuthenticatorSelectionCriteria::residentKey
  
 **描述**
  
-常驻键。可选。
+常驻键。可选。默认为空。
  
   
 

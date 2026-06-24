@@ -1,13 +1,11 @@
 # SOTER
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-soter-api
 **支持设备：** Phone | PC/2in1 | Tablet
 
 SOTER提供移动端免密身份认证能力，支持使用SOTER协议的应用实现免密登录，免密支付等业务场景。
- 
-支持的设备类型为：Phone, PC/2in1, Tablet
  
 **起始版本：** 5.0.0(12)
   
@@ -30,6 +28,8 @@ import { soter } from '@kit.OnlineAuthenticationKit';
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -48,6 +48,8 @@ import { soter } from '@kit.OnlineAuthenticationKit';
 表示签名结果。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Security.SOTER
  
@@ -72,6 +74,8 @@ getVersionSync(): string
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -85,7 +89,7 @@ getVersionSync(): string
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -111,6 +115,8 @@ getVersion(): Promise&lt;string&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -124,7 +130,7 @@ getVersion(): Promise&lt;string&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -158,6 +164,8 @@ hasAppSecureKeySync(keyType: KeyType): boolean
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -178,7 +186,7 @@ hasAppSecureKeySync(keyType: KeyType): boolean
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -209,6 +217,8 @@ hasAppSecureKey(keyType: KeyType): Promise&lt;boolean&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -229,7 +239,7 @@ hasAppSecureKey(keyType: KeyType): Promise&lt;boolean&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -267,6 +277,8 @@ generateAppSecureKeySync(keyType: KeyType): Uint8Array
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -287,7 +299,7 @@ generateAppSecureKeySync(keyType: KeyType): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -318,6 +330,8 @@ generateAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -338,7 +352,7 @@ generateAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -376,6 +390,8 @@ getAppSecureKeySync(keyType: KeyType): Uint8Array
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -396,7 +412,7 @@ getAppSecureKeySync(keyType: KeyType): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -427,6 +443,8 @@ getAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -447,7 +465,7 @@ getAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -485,6 +503,8 @@ hasAuthKeySync(keyAlias: string, keyType: KeyType): boolean
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -506,7 +526,7 @@ hasAuthKeySync(keyAlias: string, keyType: KeyType): boolean
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -538,6 +558,8 @@ hasAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;boolean&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -559,7 +581,7 @@ hasAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;boolean&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -598,6 +620,8 @@ generateAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -619,7 +643,7 @@ generateAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -652,6 +676,8 @@ generateAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -673,7 +699,7 @@ generateAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -712,6 +738,8 @@ getAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -733,7 +761,7 @@ getAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -766,6 +794,8 @@ getAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -787,7 +817,7 @@ getAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -826,6 +856,8 @@ generateChallengeSync(keyAlias: string): Uint8Array
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -846,7 +878,7 @@ generateChallengeSync(keyAlias: string): Uint8Array
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -877,6 +909,8 @@ generateChallenge(keyAlias: string): Promise&lt;Uint8Array&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -897,7 +931,7 @@ generateChallenge(keyAlias: string): Promise&lt;Uint8Array&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -935,6 +969,8 @@ SOTER免密认证，同步返回签名的报文。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -957,7 +993,7 @@ SOTER免密认证，同步返回签名的报文。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -989,6 +1025,8 @@ SOTER免密认证，使用Promise异步回调返回签名的报文。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -1011,7 +1049,7 @@ SOTER免密认证，使用Promise异步回调返回签名的报文。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1050,6 +1088,8 @@ deleteAuthKeySync(keyAlias: string): void
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -1063,7 +1103,7 @@ deleteAuthKeySync(keyAlias: string): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1092,6 +1132,8 @@ deleteAuthKey(keyAlias: string): Promise&lt;void&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -1112,7 +1154,7 @@ deleteAuthKey(keyAlias: string): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1148,13 +1190,15 @@ deleteAppSecureKeySync(): void
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1181,6 +1225,8 @@ deleteAppSecureKey(): Promise&lt;void&gt;
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SOTER
  
 **起始版本：** 5.0.0(12)
@@ -1194,7 +1240,7 @@ deleteAppSecureKey(): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication-error-code-soter)。
+以下错误码的详细介绍请参见[SOTER免密认证错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-onlineauthentication-soter)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

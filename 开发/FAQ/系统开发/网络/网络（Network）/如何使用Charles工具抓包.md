@@ -1,6 +1,6 @@
 # 如何使用Charles工具抓包
 
-更新时间：2026-06-05 09:11:02
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-55
 
@@ -72,8 +72,8 @@ Charles的IP地址查看方式：点击Help -> Local IP Address查看。
 - 过滤网络请求。需要对网络请求进行过滤，只监控指定目录服务器上发送的请求。对于这种需求，有两种方法：
 
 1. 在主界面中部点击Ctrl+F打开搜索栏，填入过滤关键字。例如监听www.charlesproxy.com，填入或勾选信息后点击Find。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/ctP7mMTJTRivvneOP-_dYw/zh-cn_image_0000002229604209.png?HW-CC-KV=V1&HW-CC-Date=20260611T074905Z&HW-CC-Expire=86400&HW-CC-Sign=36262DAA9352815F35164FCC028CB131F7AE3EE20517B3FEE7602240923191F8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/JprJ5-wvR06iUXZMRibYCA/zh-cn_image_0000002229604209.png?HW-CC-KV=V1&HW-CC-Date=20260624T020649Z&HW-CC-Expire=86400&HW-CC-Sign=9FA681B2EF0A1B42B77DB19AE12B59EEBD4E231B0CDDAF281E0FA2B909D7F529)
 
 
 2. 在Charles的菜单栏中选择“Proxy” -> “Recording Settings” -> 选择“Include”栏 -> 点击“Add”添加一个项目 -> 按需填入需要监控的协议，重新监听即可只截取目标网站。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b6/v3/bibi_0R4SIqtHz0149E6Tg/zh-cn_image_0000002194318436.png?HW-CC-KV=V1&HW-CC-Date=20260611T074905Z&HW-CC-Expire=86400&HW-CC-Sign=3AC4DF2F1987F878A1E75D001400357DB9A592C787EB0A2127CD2F0911AD784C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/K7ZwsCGKT-mo8PGKopvPKA/zh-cn_image_0000002194318436.png?HW-CC-KV=V1&HW-CC-Date=20260624T020649Z&HW-CC-Expire=86400&HW-CC-Sign=D77A13D4ED9CCA9CBB89086FF1D4B1E1764085F511900A420F4181442989677A)

@@ -1,6 +1,6 @@
 # ohpm-repo deploy
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-deploy
 
@@ -49,7 +49,7 @@ ohpm-repo deploy <file_path> [options]
 
 - windows系统默认值："~/AppData/Roaming/Huawei/ohpm-repo"
 - 其他系统默认值："~/ohpm-repo"
-- 类型： String
+- 类型：String
 
  
 可以在deploy命令后面配置--deploy_root &lt;string&gt;参数，未配置将使用默认值。支持相对和绝对路径配置，当配置为相对路径时，以当前命令行工作路径为根目录。
@@ -58,7 +58,7 @@ ohpm-repo deploy <file_path> [options]
 
 #### logs
 
-- 类型： String
+- 类型：String
 
  
 可以在deploy命令后面配置--logs &lt;string&gt;参数，指定log目录，优先级高于config.yaml中的配置，支持相对和绝对路径配置，当配置为相对路径时，以当前命令行工作路径为根目录。
@@ -67,7 +67,7 @@ ohpm-repo deploy <file_path> [options]
 
 #### uplinkCachePath
 
-- 类型： String
+- 类型：String
 
  
 可以在deploy命令后面配置--uplinkCachePath &lt;string&gt;参数，指定远程包缓存路径，优先级高于config.yaml中的配置，支持相对和绝对路径配置，当配置为相对路径时，以当前命令行工作路径为根目录。
@@ -104,4 +104,4 @@ ohpm-repo deploy D:\ohpm-repo\bin\pack_1695805599689.zip --deploy_root D:\new-oh
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/T4xf__-aRMCb-J2PcR0lwA/zh-cn_image_0000002571545446.png?HW-CC-KV=V1&HW-CC-Date=20260528T030649Z&HW-CC-Expire=86400&HW-CC-Sign=E299F2B2D755D26EC966A50E4B921596C28A5D5D90C5957BF8362727AE41157F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/godGI4ffTP-eMweSpRO_TQ/zh-cn_image_0000002594632056.png?HW-CC-KV=V1&HW-CC-Date=20260624T020658Z&HW-CC-Expire=86400&HW-CC-Sign=C4251BCE56E742112B6C1DD104571119C736DD4323EE44F3E0C44C461DEABE02)

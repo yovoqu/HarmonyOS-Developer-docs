@@ -1,6 +1,6 @@
 # 如何持有wakelock锁，防止系统休眠
 
-更新时间：2026-03-12 12:31:01
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faq-basics-service-kit-16
 

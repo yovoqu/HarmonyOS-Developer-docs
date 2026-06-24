@@ -1,6 +1,6 @@
 # FIDO2_PublicKeyAssertionCredential
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_assertion_credential
 
@@ -26,7 +26,7 @@
 | const char * id | 凭据的标识符。对于每种类型的凭据，标识符的要求都是不同的。 |
 | const char * type | 该属性以JSON字符串形式返回接口对象中用于指定凭据类型的插槽。该插槽用于指定此对象所表示的凭据类型。 |
 | FIDO2_AuthenticatorResponse response | 认证器断言响应。 |
-| FIDO2_AuthenticatorAttachment authenticatorAttachment | 认证器信息（平台、漫游）。默认值为FIDO2_PLATFORM。可选。 |
+| FIDO2_AuthenticatorAttachment authenticatorAttachment | 认证器信息（FIDO2_PLATFORM表示平台，FIDO2_ROAMING表示漫游）。默认值为FIDO2_PLATFORM。可选。 |
 | AuthenticationExtensionsClientOutputs clientExtensionResults | 客户端扩展结果。当前版本不支持扩展，因此占位符始终为NULL，必须将clientExtensionResults键对应的值解析为{}。 |
  
  

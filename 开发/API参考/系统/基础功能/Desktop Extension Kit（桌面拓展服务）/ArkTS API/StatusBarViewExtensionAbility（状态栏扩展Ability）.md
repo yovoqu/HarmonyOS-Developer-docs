@@ -1,6 +1,6 @@
 # StatusBarViewExtensionAbility（状态栏扩展Ability）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-ability
 **支持设备：** PC/2in1
@@ -26,34 +26,40 @@ import { StatusBarViewExtensionAbility } from '@kit.DeskTopExtensionKit';
  
 **示例：**
  
-```text
+```json
 import { StatusBarViewExtensionAbility } from '@kit.DeskTopExtensionKit';
 import { UIExtensionContentSession, Want } from '@kit.AbilityKit';
 
 let TAG = "MyStatusBarViewAbility";
 
 export default class MyStatusBarViewAbility extends StatusBarViewExtensionAbility {
+  // 当StatusBarViewExtensionAbility组件实例完成创建时，系统会触发该回调。
   onCreate() {
     console.info(TAG, `onCreate`);
   }
 
+  // 当UIExtensionContentSession实例创建完成后，系统会触发该回调。
   onSessionCreate(want: Want, session: UIExtensionContentSession) {
-    console.info(TAG, `onSessionCreate, want: ${want.abilityName}`);
-    session.loadContent('pages/Index');
+    console.info(TAG, `onSessionCreate, want: ${JSON.stringify(want)}`);
+    session.loadContent('pages/StatusBarPage');
   }
 
+  // 当StatusBarViewExtensionAbility组件首次启动到前台或者从后台转入到前台时，系统触发该回调。
   onForeground() {
     console.info(TAG, `onForeground`);
   }
 
+  // 当StatusBarViewExtensionAbility组件从前台转入到后台时，系统触发该回调。
   onBackground() {
     console.info(TAG, `onBackground`);
   }
 
+  // 当UIExtensionContentSession实例销毁后，系统触发该回调。
   onSessionDestroy(session: UIExtensionContentSession) {
     console.info(TAG, `onSessionDestroy`);
   }
 
+  // 当StatusBarViewExtensionAbility组件被销毁时，系统触发该回调。
   onDestroy() {
     console.info(TAG, `onDestroy`);
   }

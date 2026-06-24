@@ -1,6 +1,6 @@
 # Network Boost Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/networkboost-introduction
 
@@ -13,7 +13,7 @@ Network Boost Kit（网络加速服务）提供网络加速能力以及网络感
 
 #### 支持的设备
 
-本Kit仅适用于Phone、Tablet和PC/2in1设备。
+本Kit仅适用于Phone、Tablet、PC/2in1和Car设备。
  
   
 

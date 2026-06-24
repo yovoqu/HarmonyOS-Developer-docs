@@ -1,6 +1,6 @@
 # HTTP已有连接复用，如何使自定义DNS立即生效
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-78
 

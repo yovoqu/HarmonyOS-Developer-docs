@@ -1,6 +1,6 @@
 # 使用Node-API进行扩展能力功能开发
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-extension
 
@@ -1526,3 +1526,27 @@ testNapi.testNapiWrapEnhance();
 **napi_throw_business_error**
  
 [使用扩展的Node-API接口抛出ArkTS异常](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-error)
+ 
+  
+
+#### napi支持基于调用点内联缓存的快速属性访问
+
+  
+
+#### 接口描述
+ 
+| 接口 | 描述 |
+| --- | --- |
+| napi_create_callsite_info | 创建调用点信息句柄，用于缓存属性访问的内联缓存信息。 |
+| napi_delete_callsite_info | 删除调用点信息句柄，释放关联的缓存资源。 |
+| napi_get_property_with_callsite_info | 使用调用点信息快速获取对象属性值，在缓存命中时跳过常规属性查找流程。 |
+| napi_set_property_with_callsite_info | 使用调用点信息快速设置对象属性值，在缓存命中时跳过常规属性设置流程。 |
+ 
+ 
+  
+
+#### 使用示例
+
+**napi_create_callsite_info、napi_delete_callsite_info、napi_get_property_with_callsite_info、napi_set_property_with_callsite_info**
+ 
+[使用扩展的Node-API接口加速属性访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-fast-property-access)

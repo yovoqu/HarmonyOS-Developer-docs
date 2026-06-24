@@ -1,6 +1,6 @@
 # @ohos.runningLock (RunningLock锁)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-runninglock
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,7 +28,7 @@ import {runningLock} from '@kit.BasicServicesKit';
 
 isSupported(type: RunningLockType): boolean
 
-**方法介绍：** 查询系统是否支持该类型的锁。
+查询系统是否支持该类型的锁。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -74,7 +74,7 @@ try {
 
 create(name: string, type: RunningLockType, callback: AsyncCallback&lt;RunningLock&gt;): void
 
-**方法介绍：** 创建RunningLock锁。使用callback异步回调。
+创建RunningLock锁。使用callback异步回调。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -119,7 +119,7 @@ runningLock.create('running_lock_test', runningLock.RunningLockType.PROXIMITY_SC
 
 create(name: string, type: RunningLockType): Promise&lt;RunningLock&gt;
 
-**方法介绍：** 创建RunningLock锁。使用Promise异步回调。
+创建RunningLock锁。使用Promise异步回调。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -174,7 +174,7 @@ isRunningLockTypeSupported(type: RunningLockType, callback: AsyncCallback&lt;boo
 > 从API version 7开始支持，从API version 9开始不再维护，建议使用 runningLock.isSupported 替代。
 
 
-**方法介绍：** 查询系统是否支持该类型的锁。使用callback异步回调。
+查询系统是否支持该类型的锁。使用callback异步回调。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -210,7 +210,7 @@ isRunningLockTypeSupported(type: RunningLockType): Promise&lt;boolean&gt;
 > 从API version 7开始支持，从API version 9开始不再维护，建议使用 runningLock.isSupported 替代。
 
 
-**方法介绍：** 查询系统是否支持该类型的锁。使用Promise异步回调。
+查询系统是否支持该类型的锁。使用Promise异步回调。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -252,7 +252,7 @@ createRunningLock(name: string, type: RunningLockType, callback: AsyncCallback&l
 > 从API version 7开始支持，从API version 9开始不再维护，建议使用 runningLock.create 替代。
 
 
-**方法介绍：** 创建RunningLock锁。使用callback异步回调。
+创建RunningLock锁。使用callback异步回调。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -291,7 +291,7 @@ createRunningLock(name: string, type: RunningLockType): Promise&lt;RunningLock&g
 > 从API version 7开始支持，从API version 9开始不再维护，建议使用 runningLock.create 替代。
 
 
-**方法介绍：** 创建RunningLock锁。使用Promise异步回调。
+创建RunningLock锁。使用Promise异步回调。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -340,7 +340,7 @@ runningLock.createRunningLock('running_lock_test', runningLock.RunningLockType.B
 
 hold(timeout: number): void
 
-**方法介绍：** 锁定和持有RunningLock。
+锁定和持有RunningLock。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -402,7 +402,7 @@ class RunningLockTest {
 
 unhold(): void
 
-**方法介绍：** 释放RunningLock锁。
+释放RunningLock锁。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -456,7 +456,7 @@ class RunningLockTest {
 
 isHolding(): boolean
 
-**方法介绍：** 查询当前RunningLock是持有状态还是释放状态。
+查询当前RunningLock是持有状态还是释放状态。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -506,7 +506,7 @@ lock(timeout: number): void
 > 从API version 7开始支持，从API version 9开始不再维护，建议使用 RunningLock.hold 替代。
 
 
-**方法介绍：** 锁定和持有RunningLock。
+锁定和持有RunningLock。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -544,7 +544,7 @@ unlock(): void
 > 从API version 7开始支持，从API version 9开始不再维护，建议使用 RunningLock.unhold 替代。
 
 
-**方法介绍：** 释放RunningLock锁。
+释放RunningLock锁。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 
@@ -575,7 +575,7 @@ isUsed(): boolean
 > 从API version 7开始支持，从API version 9开始不再维护，建议使用 RunningLock.isHolding 替代。
 
 
-**方法介绍：** 查询当前RunningLock是持有状态还是释放状态。
+查询当前RunningLock是持有状态还是释放状态。
 
 **系统能力：** SystemCapability.PowerManager.PowerManager.Core
 

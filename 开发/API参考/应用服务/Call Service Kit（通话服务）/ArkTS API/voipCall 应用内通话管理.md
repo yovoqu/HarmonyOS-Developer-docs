@@ -1,6 +1,6 @@
 # voipCall (应用内通话管理)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/call-voipcall
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -28,6 +28,8 @@ import { voipCall } from '@kit.CallServiceKit';
 
 表示通话类型的枚举。
  
+**模型约束**: 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
 **起始版本：** 4.1.0(11)
@@ -45,6 +47,8 @@ import { voipCall } from '@kit.CallServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示通话状态的枚举。
+ 
+**模型约束**: 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
@@ -69,6 +73,8 @@ import { voipCall } from '@kit.CallServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示通话事件的枚举。
+ 
+**模型约束**: 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
@@ -96,6 +102,8 @@ import { voipCall } from '@kit.CallServiceKit';
 
 表示错误码类型的枚举。
  
+**模型约束**: 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
 **起始版本：** 4.1.0(11)
@@ -117,6 +125,8 @@ import { voipCall } from '@kit.CallServiceKit';
 
 通话事件详细信息。
  
+**模型约束**: 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
 **起始版本：** 4.1.0(11)
@@ -135,6 +145,8 @@ import { voipCall } from '@kit.CallServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
 表示来电消息建立失败原因的枚举。
+ 
+**模型约束**: 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
@@ -155,6 +167,8 @@ import { voipCall } from '@kit.CallServiceKit';
 
 通话属性选项。
  
+**模型约束**: 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
 **起始版本：** 4.1.0(11)
@@ -164,7 +178,7 @@ import { voipCall } from '@kit.CallServiceKit';
 | callId | string | 否 | 否 | 应用内通话唯一ID。 |
 | voipCallType | VoipCallType | 否 | 否 | 应用内通话类型。 |
 | userName | string | 否 | 否 | 应用内通话用户昵称。 |
-| userProfile | image.PixelMap | 否 | 否 | 用户头像图片，需导入图像处理模块，详情见PixelMap。 支持传入的最大图片大小为221x221像素，推荐传入的图片大小为112x112像素。通过 PixelMap的getPixelBytesNumber接口获取到的图片大小要小于196608bit。 |
+| userProfile | image.PixelMap | 否 | 否 | 用户头像图片，需导入图像处理模块，详情见PixelMap。 支持传入的最大图片大小为221x221px，推荐传入的图片大小为112x112px。通过 PixelMap的getPixelBytesNumber接口获取到的图片大小要小于196608bit。 |
 | abilityName | string | 否 | 否 | 接听后需加载的应用界面ability名称。 |
 | voipCallState | VoipCallState | 否 | 否 | 应用内通话状态。 |
 | showBannerForIncomingCall | boolean | 否 | 是 | 支持应用上报来电/去电是否显示横幅通知。 true：应用设置来电显示横幅通知。 false：应用设置来电不显示横幅通知。 默认值为true。 起始版本: 5.0.0(12) |
@@ -192,7 +206,7 @@ import { voipCall } from '@kit.CallServiceKit';
 | AUDIO_EVENT_UNMUTED | 1 | 取消静音。 |
 | AUDIO_EVENT_SPEAKER_ON | 2 | 开启扬声器。 |
 | AUDIO_EVENT_SPEAKER_OFF | 3 | 关闭扬声器。 |
-| AUDIO_EVENT_MIC_DISABLE | 5 | 静音且不允许操作麦克风。 起始版本: 6.1.1(24) 模型约束: 该接口可在FA与Stage模型下使用。 |
+| AUDIO_EVENT_MIC_DISABLE | 5 | 静音且不允许操作麦克风。 起始版本: 6.1.1(24) 模型约束: 此接口仅可在Stage模型下使用。 |
  
  
   
@@ -204,6 +218,8 @@ import { voipCall } from '@kit.CallServiceKit';
 on(type: 'voipCallUiEvent', callback: Callback&lt;VoipCallUiEventInfo&gt;): void
  
 订阅voipCallUiEvent事件。使用Callback异步回调。
+ 
+**模型约束**: 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
@@ -251,6 +267,8 @@ off(type: 'voipCallUiEvent', callback?: Callback&lt;VoipCallUiEventInfo&gt;): vo
  
 取消订阅voipCallUiEvent事件。使用Callback异步回调。
  
+**模型约束**: 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
 **起始版本：** 4.1.0(11)
@@ -296,6 +314,8 @@ voipCall.off('voipCallUiEvent', (data: voipCall.VoipCallUiEventInfo) => {
 reportIncomingCall(voipCallAttribute: VoipCallAttribute): Promise&lt;ErrorReason&gt;
  
 通知来电消息，如果应用来电消息建立失败，需调用[reportIncomingCallError](#voipcallreportincomingcallerror)通知来电建立失败。需设置通话详细信息，见[VoipCallAttribute](#voipcallattribute)。使用Promise异步回调。
+ 
+**模型约束**: 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
@@ -346,45 +366,51 @@ interface Content {
 export default class VoipAbility extends UIAbility {
   onCreate(): void {
     hilog.info(0x0000, 'testTag', 'VoipExtAbility onCreate.');
-    pushService.receiveMessage('VoIP', this, async (data) => {
-      let content: Content = JSON.parse(data.data);
-      let callId: string = content.callId;
+    try {
+      pushService.receiveMessage('VoIP', this, async (data) => {
+        let content: Content = JSON.parse(data.data);
+        let callId: string = content.callId;
 
-      hilog.info(0x0000, 'testTag', 'Get voip message successfully: %{public}s', callId);
+        hilog.info(0x0000, 'testTag', 'Get voip message successfully: %{public}s', callId);
 
-      // 此处为用户头像，需要创建PixelMap类型
-      const resourceMgr : resourceManager.ResourceManager = this.context.resourceManager;
-      const fileData : Uint8Array = await resourceMgr.getRawFileContent('example.png');
-      const buffer = fileData.buffer;
-      const imageSource : image.ImageSource = image.createImageSource(buffer);
-      const pixelMap : image.PixelMap = await imageSource.createPixelMap();
-      if (pixelMap) {
-        pixelMap.getImageInfo((err, imageInfo) => {
-          if (imageInfo) {
-            hilog.info(0x0000, 'testTag', `DemoPushMessageAbility imageInfo: ${imageInfo.size.width} * ${imageInfo.size.height}.`);
-          }
-        });
-      }
+        // 此处为用户头像，需要创建PixelMap类型
+        const resourceMgr : resourceManager.ResourceManager = this.context.resourceManager;
+        const fileData : Uint8Array = await resourceMgr.getRawFileContent('example.png');
+        const buffer = fileData.buffer;
+        const imageSource : image.ImageSource = image.createImageSource(buffer);
+        const pixelMap : image.PixelMap = await imageSource.createPixelMap();
+        if (pixelMap) {
+          pixelMap.getImageInfo((err, imageInfo) => {
+            if (imageInfo) {
+              hilog.info(0x0000, 'testTag', `DemoPushMessageAbility imageInfo: ${imageInfo.size.width} * ${imageInfo.size.height}.`);
+            }
+          });
+        }
 
-      // 构建通话详细信息的对象
-      let callInfo: voipCall.VoipCallAttribute = {
-        callId: callId,
-        voipCallType: voipCall.VoipCallType.VOIP_CALL_VOICE,
-        userName: "name",
-        userProfile: pixelMap,
-        abilityName: 'ability',
-        voipCallState: voipCall.VoipCallState.VOIP_CALL_STATE_RINGING
-      };
+        // 构建通话详细信息的对象
+        let callInfo: voipCall.VoipCallAttribute = {
+          callId: callId,
+          voipCallType: voipCall.VoipCallType.VOIP_CALL_VOICE,
+          userName: "name",
+          userProfile: pixelMap,
+          abilityName: 'ability',
+          voipCallState: voipCall.VoipCallState.VOIP_CALL_STATE_RINGING
+        };
 
-      // 通知来电消息
-      let error = await voipCall.reportIncomingCall(callInfo);
-      if (error != voipCall.ErrorReason.ERROR_NONE) {
-        hilog.error(0x0000, 'testTag', 'Failed to report incoming call: %{public}d', error);
-        return;
-      }
+        // 通知来电消息
+        let error = await voipCall.reportIncomingCall(callInfo);
+        if (error != voipCall.ErrorReason.ERROR_NONE) {
+          hilog.error(0x0000, 'testTag', 'Failed to report incoming call: %{public}d', error);
+          return;
+        }
 
-      hilog.info(0x0000, 'testTag', 'Get voip message end.');
-    });
+        hilog.info(0x0000, 'testTag', 'Get voip message end.');
+      });
+    } catch (err) {
+      let e: BusinessError = err as BusinessError;
+      hilog.error(0x0000, 'testTag', 'Failed to receive message: %{public}d %{public}s', e.code, e.message);
+    }
+
     hilog.info(0x0000, 'testTag', 'Succeeded in registering VoIP.');
   }
 }
@@ -399,6 +425,8 @@ export default class VoipAbility extends UIAbility {
 reportOutgoingCall(voipCallAttribute: VoipCallAttribute): Promise&lt;ErrorReason&gt;
  
 应用上报去电。需设置通话详细信息，见[VoipCallAttribute](#voipcallattribute)。使用Promise异步回调。
+ 
+**模型约束**: 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
@@ -449,44 +477,50 @@ interface Content {
 export default class VoipExtAbility extends UIAbility {
   onCreate(): void {
     hilog.info(0x0000, 'testTag', 'VoipExtAbility onCreate.');
-    pushService.receiveMessage('VoIP', this, async (data) => {
-      let content: Content = JSON.parse(data.data);
-      let callId: string = content.callId;
+    try {
+      pushService.receiveMessage('VoIP', this, async (data) => {
+        let content: Content = JSON.parse(data.data);
+        let callId: string = content.callId;
 
-      hilog.info(0x0000, 'testTag', 'Get voip message successfully: %{public}s', callId);
+        hilog.info(0x0000, 'testTag', 'Get voip message successfully: %{public}s', callId);
 
-      // 此处为用户头像，需要创建PixelMap类型
-      const resourceMgr : resourceManager.ResourceManager = this.context.resourceManager;
-      const fileData : Uint8Array = await resourceMgr.getRawFileContent('example.png');
-      const buffer = fileData.buffer;
-      const imageSource : image.ImageSource = image.createImageSource(buffer);
-      const pixelMap : image.PixelMap = await imageSource.createPixelMap();
-      if (pixelMap) {
-        pixelMap.getImageInfo((err, imageInfo) => {
-          if (imageInfo) {
-            hilog.info(0x0000, 'testTag', `DemoPushMessageAbility imageInfo: ${imageInfo.size.width} * ${imageInfo.size.height}.`);
-          }
-        });
-      }
+        // 此处为用户头像，需要创建PixelMap类型
+        const resourceMgr : resourceManager.ResourceManager = this.context.resourceManager;
+        const fileData : Uint8Array = await resourceMgr.getRawFileContent('example.png');
+        const buffer = fileData.buffer;
+        const imageSource : image.ImageSource = image.createImageSource(buffer);
+        const pixelMap : image.PixelMap = await imageSource.createPixelMap();
+        if (pixelMap) {
+          pixelMap.getImageInfo((err, imageInfo) => {
+            if (imageInfo) {
+              hilog.info(0x0000, 'testTag', `DemoPushMessageAbility imageInfo: ${imageInfo.size.width} * ${imageInfo.size.height}.`);
+            }
+          });
+        }
 
-      // 构建通话详细信息的对象
-      let callInfo: voipCall.VoipCallAttribute = {
-        callId: callId,
-        voipCallType: voipCall.VoipCallType.VOIP_CALL_VOICE,
-        userName: "name",
-        userProfile: pixelMap,
-        abilityName: 'ability',
-        voipCallState: voipCall.VoipCallState.VOIP_CALL_STATE_DIALING
-      };
+        // 构建通话详细信息的对象
+        let callInfo: voipCall.VoipCallAttribute = {
+          callId: callId,
+          voipCallType: voipCall.VoipCallType.VOIP_CALL_VOICE,
+          userName: "name",
+          userProfile: pixelMap,
+          abilityName: 'ability',
+          voipCallState: voipCall.VoipCallState.VOIP_CALL_STATE_DIALING
+        };
 
-      // 通知去电消息
-      let error = await voipCall.reportOutgoingCall(callInfo);
-      if (error != voipCall.ErrorReason.ERROR_NONE) {
-        hilog.error(0x0000, 'testTag', 'Failed to report outgoing call: %{public}d', error);
-        return;
-      }
-      hilog.info(0x0000, 'testTag', 'Get voip message end.');
-    });
+        // 通知去电消息
+        let error = await voipCall.reportOutgoingCall(callInfo);
+        if (error != voipCall.ErrorReason.ERROR_NONE) {
+          hilog.error(0x0000, 'testTag', 'Failed to report outgoing call: %{public}d', error);
+          return;
+        }
+        hilog.info(0x0000, 'testTag', 'Get voip message end.');
+      });
+    } catch (err) {
+      let e: BusinessError = err as BusinessError;
+      hilog.error(0x0000, 'testTag', 'Failed to receive message: %{public}d %{public}s', e.code, e.message);
+    }
+    
     hilog.info(0x0000, 'testTag', 'Succeeded in registering VoIP.');
   }
 }
@@ -501,6 +535,8 @@ export default class VoipExtAbility extends UIAbility {
 reportCallAudioEventChange(callId: string, callAudioEvent: CallAudioEvent): Promise&lt;void&gt;
  
 应用上报通话中的静音、扬声器事件。使用Promise异步回调。
+ 
+**模型约束**: 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
@@ -550,17 +586,23 @@ interface Content {
 export default class VoipExtAbility extends UIAbility {
   onCreate(): void {
     hilog.info(0x0000, 'testTag', 'VoipExtAbility onCreate.');
-    pushService.receiveMessage('VoIP', this, async (data) => {
-      let content: Content = JSON.parse(data.data);
-      let callId: string = content.callId;
+    try {
+      pushService.receiveMessage('VoIP', this, async (data) => {
+        let content: Content = JSON.parse(data.data);
+        let callId: string = content.callId;
 
-      let callAudioEvent : voipCall.CallAudioEvent = voipCall.CallAudioEvent.AUDIO_EVENT_MUTED;
+        let callAudioEvent : voipCall.CallAudioEvent = voipCall.CallAudioEvent.AUDIO_EVENT_MUTED;
 
-      // 上报通话中静音、扬声器事件
-      voipCall.reportCallAudioEventChange(callId, callAudioEvent).then(() => {
-        hilog.info(0x0000, 'testTag', `Succeeded in reporting call audio event change.`);
+        // 上报通话中静音、扬声器事件
+        voipCall.reportCallAudioEventChange(callId, callAudioEvent).then(() => {
+          hilog.info(0x0000, 'testTag', `Succeeded in reporting call audio event change.`);
+        });
       });
-    });
+    } catch (err) {
+      let e: BusinessError = err as BusinessError;
+      hilog.error(0x0000, 'testTag', 'Failed to receive message: %{public}d %{public}s', e.code, e.message);
+    }
+    
     hilog.info(0x0000, 'testTag', 'Succeeded in registering VoIP.');
   }
 }
@@ -577,6 +619,8 @@ reportCallStateChange(callId: string, callState: VoipCallState): Promise&lt;void
 通知应用内通话状态变化，使用Promise异步回调。
  
 该接口不能改变通话类型，例如，语音通话不能升级为视频通话，视频通话也不能降级为语音通话，如需上述升降级操作，请调用[voipCall.reportCallStateChange](#voipcallreportcallstatechange-1)。
+ 
+**模型约束**: 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
@@ -633,6 +677,8 @@ reportCallStateChange(callId: string, callState: VoipCallState, callType: VoipCa
  
 对于视频来电语音接听、通话中视频降语音或者语音升视频，需要调用该接口，并传入正确的callType。
  
+**模型约束**: 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  
 **起始版本：** 5.0.0(12)
@@ -686,6 +732,8 @@ voipCall.reportCallStateChange("callId123", voipCall.VoipCallState.VOIP_CALL_STA
 reportIncomingCallError(callId: string, voipCallFailureCause: VoipCallFailureCause): Promise&lt;void&gt;
  
 通知来电消息建立失败的原因，使用Promise异步回调。
+ 
+**模型约束**: 此接口仅可在Stage模型下使用。
  
 **系统能力**：SystemCapability.Telephony.VoipCallManager
  

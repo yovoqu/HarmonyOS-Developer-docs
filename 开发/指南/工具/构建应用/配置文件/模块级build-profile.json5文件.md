@@ -1,6 +1,6 @@
 # 模块级build-profile.json5文件
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile
 
@@ -120,6 +120,7 @@
 <span style="color: rgb(48,48,48);">    └── </span>librariesInfo
 <span style="color: rgb(48,48,48);">        └── </span>name
 <span style="color: rgb(48,48,48);">        └── </span>linkLibraries
+<span style="color: rgb(48,48,48);">    └── </span>enableSoDirCollection
 <span style="color: rgb(48,48,48);">└── napiLibFilterOption</span>
 <span style="color: rgb(48,48,48);">    └── excludes</span>
 <span style="color: rgb(48,48,48);">    └── pickFirsts</span>
@@ -715,15 +716,6 @@ if (VERSION_CODE === 100){XXX} // 若需要裁剪代码，使用该方式，显�
 
             | 字段名称 | 类型 | 可选/必选 | 含义 |
 | --- | --- | --- | --- |
-| enable | 布尔值 | 可选 | 是否启用import路径展开，启用后可以提升应用的运行时性能。关于import路径展开的原理及开启后的副作用请参考通过import路径展开优化性能。 true：启用。 false（缺省默认值）：不启用。 
-> [!TIP]
-> import XXX from 'A'，A必须为本地HAR模块，并且仅当A为包名时支持进行展开，A为相对路径或包名+路径都不支持展开。
- |
-| exclude | 字符串数组 | 可选 | 配置oh-package.json5中的依赖别名，用于指定不展开import语句的依赖，仅支持本地HAR模块。 |
-
-
-            | 字段名称 | 类型 | 可选/必选 | 含义 |
-| --- | --- | --- | --- |
 | include | 字符串数组 | 可选 | 当autoLazyImport为true时，指定自动添加"lazy"关键字的包名（即oh-package.json5中的name），其他包不会添加"lazy"关键字，支持正则语法。 当autoLazyImport为false时，include不生效。 
 > [!TIP]
 > include和exclude互斥，只能配置一个。 include不支持配置空数组或空字符串，至少配置一个包名，并且包名不能重复。
@@ -732,6 +724,15 @@ if (VERSION_CODE === 100){XXX} // 若需要裁剪代码，使用该方式，显�
 > [!TIP]
 > include和exclude互斥，只能配置一个。 exclude不支持配置空数组或空字符串，至少配置一个包名，并且包名不能重复。
  |
+
+
+            | 字段名称 | 类型 | 可选/必选 | 含义 |
+| --- | --- | --- | --- |
+| enable | 布尔值 | 可选 | 是否启用import路径展开，启用后可以提升应用的运行时性能。关于import路径展开的原理及开启后的副作用请参考通过import路径展开优化性能。 true：启用。 false（缺省默认值）：不启用。 
+> [!TIP]
+> import XXX from 'A'，A必须为本地HAR模块，并且仅当A为包名时支持进行展开，A为相对路径或包名+路径都不支持展开。
+ |
+| exclude | 字符串数组 | 可选 | 配置oh-package.json5中的依赖别名，用于指定不展开import语句的依赖，仅支持本地HAR模块。 |
 
 
 arkOptions字段示例：

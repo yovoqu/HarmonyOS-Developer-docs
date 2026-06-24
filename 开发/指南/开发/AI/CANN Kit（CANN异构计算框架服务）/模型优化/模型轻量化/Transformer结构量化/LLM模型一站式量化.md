@@ -1,6 +1,6 @@
 # LLM模型一站式量化
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-large-language-one-stop
 
@@ -99,7 +99,7 @@ lm_head_size:
 | dataset | cutoff_len | 128 | 激活量化样本序列长度。 |
 | dataset | num_samples | 256 | 激活量化校准样本数 |
 | dataset | quant_param_2 | False | - True：Kirin9020 - False：KirinX90 |
-| dataset | embedding_separate | True | - True：单独保存为bin文件 - False：导出embedding的量化参数到量化文件。 |
+| dataset | embedding_separate | True | - True：单独保存为bin文件 - False: 导出embedding的量化参数到量化文件，合并形态。 |
 | dataset | lm_head_size: | - | 可指定lmhead长度，硬件对齐。 |
  
  
@@ -235,7 +235,7 @@ trained_quant_weight.pth ### 阶段一的输出，阶段二的输入
 量化完成后，开发者可进行量化仿真推理，通过对比量化模型与原始浮点模型的输出结果，来评估量化模型精度是否满足要求。量化仿真推理工程可参考[qwen2模型量化仿真推理demo](#qwen2模型量化仿真推理demo)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/05/v3/m_M6OXmpTOOCTsFyc98wiQ/zh-cn_image_0000002592219644.jpg?HW-CC-KV=V1&HW-CC-Date=20260611T074933Z&HW-CC-Expire=86400&HW-CC-Sign=9E5986EBB375F44FF168C815590552963C33EB49667946C5930BDF1FFC9877DF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/7YxwaNt-T0y2yrwQCNjIIg/zh-cn_image_0000002656349253.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020941Z&HW-CC-Expire=86400&HW-CC-Sign=E5C2B1165FCBB43F7120DB1C83110A8FD6FB07F049DC18227FCA82BF90679D68)
 
  
   

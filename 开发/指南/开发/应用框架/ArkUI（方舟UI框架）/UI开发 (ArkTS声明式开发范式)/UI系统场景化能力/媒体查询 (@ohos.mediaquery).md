@@ -1,6 +1,6 @@
 # 媒体查询 (@ohos.mediaquery)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-media-query
 
@@ -334,4 +334,4 @@ struct MediaQueryExample {
 **图4** 横屏
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/sTQpqEp1RjG0JxWNFq4weg/zh-cn_image_0000002581434126.png?HW-CC-KV=V1&HW-CC-Date=20260528T030439Z&HW-CC-Expire=86400&HW-CC-Sign=92B8EA542455D9F2896481D0C638BED6ED8063F840AE68DE27016C510DBBC0F6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/bqebOX6vSjKOEuwqwJrDTA/zh-cn_image_0000002626068672.png?HW-CC-KV=V1&HW-CC-Date=20260624T020800Z&HW-CC-Expire=86400&HW-CC-Sign=F1F9986DC1A297E28D15DB1BFEA04144F5B93FA6D117AFB78146F681F863287E)

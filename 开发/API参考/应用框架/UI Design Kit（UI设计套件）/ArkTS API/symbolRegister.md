@@ -1,6 +1,6 @@
 # symbolRegister
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-symbolregister
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -51,7 +51,7 @@ registerSymbol(ttfSrc: resourceManager.Resource, jsonSrc: resourceManager.Resour
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ui-design)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

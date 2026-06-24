@@ -1,6 +1,6 @@
 # AR Engine
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-capi-arengine
 **支持设备：** Phone | Tablet | TV
@@ -107,6 +107,7 @@
 | AREngine_ARAddAugmentedImageReason { ARENGINE_ADD_AUGMENTED_IMAGE_REASON_NONE = 0, ARENGINE_ADD_AUGMENTED_IMAGE_REASON_SIZE_NOT_MATCH = 1, ARENGINE_ADD_AUGMENTED_IMAGE_REASON_LIGHT_ANOMALY = 2, ARENGINE_ADD_AUGMENTED_IMAGE_REASON_FEATURE_LIMIT = 3, ARENGINE_ADD_AUGMENTED_IMAGE_REASON_OTHER = 4 } | 跟踪失败的可能原因。 |
 | AREngine_ARAnimojiBlendShape { ARENGINE_ARANIMOJI_EYE_BLINK_LEFT = 0, ARENGINE_ARANIMOJI_EYE_LOOK_DOWN_LEFT = 1, ARENGINE_ARANIMOJI_EYE_LOOK_IN_LEFT = 2, ARENGINE_ARANIMOJI_EYE_LOOK_OUT_LEFT = 3, ARENGINE_ARANIMOJI_EYE_LOOK_UP_LEFT = 4, ARENGINE_ARANIMOJI_EYE_SQUINT_LEFT = 5, ARENGINE_ARANIMOJI_EYE_WIDE_LEFT = 6, ARENGINE_ARANIMOJI_EYE_BLINK_RIGHT = 7, ARENGINE_ARANIMOJI_EYE_LOOK_DOWN_RIGHT = 8, ARENGINE_ARANIMOJI_EYE_LOOK_IN_RIGHT = 9, ARENGINE_ARANIMOJI_EYE_LOOK_OUT_RIGHT = 10, ARENGINE_ARANIMOJI_EYE_LOOK_UP_RIGHT = 11, ARENGINE_ARANIMOJI_EYE_SQUINT_RIGHT = 12, ARENGINE_ARANIMOJI_EYE_WIDE_RIGHT = 13, ARENGINE_ARANIMOJI_JAW_FORWARD = 14, ARENGINE_ARANIMOJI_JAW_LEFT = 15, ARENGINE_ARANIMOJI_JAW_RIGHT = 16, ARENGINE_ARANIMOJI_JAW_OPEN = 17, ARENGINE_ARANIMOJI_MOUTH_FUNNEL = 18, ARENGINE_ARANIMOJI_MOUTH_PUCKER = 19, ARENGINE_ARANIMOJI_MOUTH_LEFT = 20, ARENGINE_ARANIMOJI_MOUTH_RIGHT = 21, ARENGINE_ARANIMOJI_MOUTH_SMILE_LEFT = 22, ARENGINE_ARANIMOJI_MOUTH_SMILE_RIGHT = 23, ARENGINE_ARANIMOJI_MOUTH_FROWN_LEFT = 24, ARENGINE_ARANIMOJI_MOUTH_FROWN_RIGHT = 25, ARENGINE_ARANIMOJI_MOUTH_DIMPLE_LEFT = 26, ARENGINE_ARANIMOJI_MOUTH_DIMPLE_RIGHT = 27, ARENGINE_ARANIMOJI_MOUTH_STRETCH_LEFT = 28, ARENGINE_ARANIMOJI_MOUTH_STRETCH_RIGHT = 29, ARENGINE_ARANIMOJI_MOUTH_ROLL_LOWER = 30, ARENGINE_ARANIMOJI_MOUTH_ROLL_UPPER = 31, ARENGINE_ARANIMOJI_MOUTH_SHRUG_LOWER = 32, ARENGINE_ARANIMOJI_MOUTH_SHRUG_UPPER = 33, ARENGINE_ARANIMOJI_MOUTH_UPPER_UP = 34, ARENGINE_ARANIMOJI_MOUTH_LOWER_DOWN = 35, ARENGINE_ARANIMOJI_MOUTH_LOWER_OUT = 36, ARENGINE_ARANIMOJI_BROW_DOWN_LEFT = 37, ARENGINE_ARANIMOJI_BROW_DOWN_RIGHT = 38, ARENGINE_ARANIMOJI_BROW_INNER_UP = 39, ARENGINE_ARANIMOJI_BROW_OUTER_UP_LEFT = 40, ARENGINE_ARANIMOJI_BROW_OUTER_UP_RIGHT = 41, ARENGINE_ARANIMOJI_CHEEK_PUFF = 42, ARENGINE_ARANIMOJI_CHEEK_SQUINT_LEFT = 43, ARENGINE_ARANIMOJI_CHEEK_SQUINT_RIGHT = 44, ARENGINE_ARANIMOJI_FROWN_NOSE_MOUTH_UP = 45, ARENGINE_ARANIMOJI_TONGUE_IN = 46, ARENGINE_ARANIMOJI_TONGUE_OUT_SLIGHT = 47, ARENGINE_ARANIMOJI_TONGUE_LEFT = 48, ARENGINE_ARANIMOJI_TONGUE_RIGHT = 49, ARENGINE_ARANIMOJI_TONGUE_UP = 50, ARENGINE_ARANIMOJI_TONGUE_DOWN = 51, ARENGINE_ARANIMOJI_TONGUE_LEFT_UP = 52, ARENGINE_ARANIMOJI_TONGUE_LEFT_DOWN = 53, ARENGINE_ARANIMOJI_TONGUE_RIGHT_UP = 54, ARENGINE_ARANIMOJI_TONGUE_RIGHT_DOWN = 55, ARENGINE_ARANIMOJI_LEFT_EYEBALL_LEFT = 56, ARENGINE_ARANIMOJI_LEFT_EYEBALL_RIGHT = 57, ARENGINE_ARANIMOJI_LEFT_EYEBALL_UP = 58, ARENGINE_ARANIMOJI_LEFT_EYEBALL_DOWN = 59, ARENGINE_ARANIMOJI_RIGHT_EYEBALL_LEFT = 60, ARENGINE_ARANIMOJI_RIGHT_EYEBALL_RIGHT = 61, ARENGINE_ARANIMOJI_RIGHT_EYEBALL_UP = 62, ARENGINE_ARANIMOJI_RIGHT_EYEBALL_DOWN = 63 } | 微表情类型。 |
 | AREngine_ARAnimojiTriangleLabel { ARENGINE_TRIANGLE_LABEL_NON_FACE = -1, ARENGINE_TRIANGLE_LABEL_FACE_OTHER = 0, ARENGINE_TRIANGLE_LABEL_LOWER_LIP = 1, ARENGINE_TRIANGLE_LABEL_UPPER_LIP = 2, ARENGINE_TRIANGLE_LABEL_LEFT_EYE = 3, ARENGINE_TRIANGLE_LABEL_RIGHT_EYE = 4, ARENGINE_TRIANGLE_LABEL_LEFT_BROW = 5, ARENGINE_TRIANGLE_LABEL_RIGHT_BROW = 6, ARENGINE_TRIANGLE_LABEL_BROW_CENTER = 7, ARENGINE_TRIANGLE_LABEL_NOSE = 8 } | 人脸三角形面片标签。 |
+| AREngine_RemoteSensorMode { ARENGINE_LOCAL_SENSOR = 0, ARENGINE_REMOTE_SENSOR_AI_GLASS = 1 } | 远程传感器模式 |
 | AREngine_ARCameraLensFacing { ARENGINE_CAMERA_FACING_REAR = 0, ARENGINE_CAMERA_FACING_FRONT = 1 } | 配置摄像机镜头的朝向。 |
 | AREngine_ARConfidenceLevel { ARENGINE_DEPTH_CONFIDENCE_LOW = 0, ARENGINE_DEPTH_CONFIDENCE_MEDIUM = 1, ARENGINE_DEPTH_CONFIDENCE_HIGH = 2 } | 深度置信度。 |
 | AREngine_ARDepthMode { ARENGINE_DEPTH_MODE_DISABLED = 0, ARENGINE_DEPTH_MODE_AUTOMATIC = 1 } | 深度模式。 |
@@ -216,6 +217,8 @@
 | AREngine_ARStatus HMS_AREngine_ARConfig_SetSemanticMode(const AREngine_ARSession *session, AREngine_ARConfig *config, AREngine_ARSemanticMode mode) | 设置当前所需的语义识别模式。 |
 | AREngine_ARStatus HMS_AREngine_ARConfig_GetUpdateMode(const AREngine_ARSession *session, const AREngine_ARConfig *config, AREngine_ARUpdateMode *updateMode) | 获取当前配置的预览更新模式。 |
 | AREngine_ARStatus HMS_AREngine_ARConfig_SetUpdateMode(const AREngine_ARSession *session, AREngine_ARConfig *config, AREngine_ARUpdateMode updateMode) | 设置预览更新模式。 |
+| AREngine_ARStatus HMS_AREngine_ARConfig_GetRemoteSensorMode(const AREngine_ARSession *session, const AREngine_ARConfig *config, AREngine_RemoteSensorMode *remoteSensorMode) | 获取当前配置的远程传感器模式。 |
+| AREngine_ARStatus HMS_AREngine_ARConfig_SetRemoteSensorMode(const AREngine_ARSession *session, AREngine_ARConfig *config, AREngine_RemoteSensorMode remoteSensorMode) | 设置远程传感器模式。 |
 | AREngine_ARStatus HMS_AREngine_ARConfig_SetPhotoStreamSize(const AREngine_ARSession *session, AREngine_ARConfig *config, uint32_t width, uint32_t height) | 当AREngine_ARImageStreamMode为ARENGINE_IMAGE_STREAM_MODE_PREVIEW_AND_PHOTO时，设置从拍照流获取图像的分辨率。仅支持4:3大小分辨率。如果超出这个范围，系统会自动设置图像分辨率为该设备在4:3宽高比下的最高分辨率。 |
 | AREngine_ARStatus HMS_AREngine_ARConfig_SetImageStreamMode(const AREngine_ARSession *session, AREngine_ARConfig *config, AREngine_ARImageStreamMode mode) | 设置图像流模式。 |
 | AREngine_ARStatus HMS_AREngine_ARConfig_GetImageStreamMode(const AREngine_ARSession *session, const AREngine_ARConfig *config, AREngine_ARImageStreamMode outMode) | 获取图像流模式。 |
@@ -317,6 +320,8 @@
 | AREngine_ARStatus HMS_AREngine_ARSession_SetDisplayGeometry(AREngine_ARSession *session, AREngine_ARPoseType rotation, int32_t width, int32_t height) | 设置显示的高和宽，以Pixel为单位。 |
 | AREngine_ARStatus HMS_AREngine_ARSession_Stop(AREngine_ARSession *session) | 停止AR Engine，停止相机预览流，清除平面和锚点数据，并释放相机，终止本次会话。 |
 | AREngine_ARStatus HMS_AREngine_ARSession_Update(AREngine_ARSession *session, AREngine_ARFrame *outFrame) | 更新AR Engine的计算结果。 |
+| AREngine_ARStatus HMS_AREngine_ARSession_OpenFlash(const AREngine_ARSession *session) | 打开设备的闪光灯。 |
+| AREngine_ARStatus HMS_AREngine_ARSession_CloseFlash(const AREngine_ARSession *session) | 关闭设备的闪光灯。 |
 | AREngine_ARStatus HMS_AREngine_ARTarget_GetAxisAlignedBoundingBox(const AREngine_ARSession *session, const AREngine_ARTarget *target, float *outAabb, int32_t aabbSize) | 获取语义物体最小外接包围盒坐标，坐标格式为（xmin，ymin，zmin，xmax，ymax，zmax)。 |
 | AREngine_ARStatus HMS_AREngine_ARTarget_GetCenterPose(const AREngine_ARSession *session, const AREngine_ARTarget *target, AREngine_ARPose *outARPose) | 获取从目标语义对象的局部坐标系到世界坐标系转换的位姿对象。 |
 | AREngine_ARStatus HMS_AREngine_ARTarget_GetRadius(const AREngine_ARSession *session, const AREngine_ARTarget *target, float *radius) | 获取语义物体的球体半径。 |
@@ -1101,6 +1106,28 @@ enum AREngine_ARAnimojiTriangleLabel
 | ARENGINE_TRIANGLE_LABEL_RIGHT_BROW | 右眉毛。 |
 | ARENGINE_TRIANGLE_LABEL_BROW_CENTER | 眉心。 |
 | ARENGINE_TRIANGLE_LABEL_NOSE | 鼻子。 |
+
+
+
+
+#### AREngine_RemoteSensorMode
+
+**支持设备：** Phone | Tablet | TV
+
+```text
+enum AREngine_RemoteSensorMode
+```
+
+**描述**
+
+远程传感器模式。
+
+**起始版本：** 26.0.0
+
+| 枚举值 | 描述 |
+| --- | --- |
+| ARENGINE_LOCAL_SENSOR | 使用本地相机和传感器。 |
+| ARENGINE_REMOTE_SENSOR_AI_GLASS | 使用AI眼镜相机和传感器。 |
 
 
 
@@ -3925,6 +3952,43 @@ AREngine_ARStatus HMS_AREngine_ARConfig_GetUpdateMode(const AREngine_ARSession *
 
 
 
+#### HMS_AREngine_ARConfig_GetRemoteSensorMode
+
+**支持设备：** Phone | Tablet | TV
+
+```text
+AREngine_ARStatus HMS_AREngine_ARConfig_GetRemoteSensorMode(const AREngine_ARSession *session, const AREngine_ARConfig *config, AREngine_RemoteSensorMode *remoteSensorMode)
+```
+
+**描述**
+
+获取当前配置的远程传感器模式。
+
+**设备行为差异：** 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用[HMS_AREngine_CheckSupported](#hms_arengine_checksupported)接口查询能力是否支持。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 名称 | 描述 |
+| --- | --- |
+| session | 与AR Engine服务交互的AREngine_ARSession对象。 |
+| config | 指向待获取配置信息的配置对象，参见AREngine_ARConfig。 |
+| remoteSensorMode | 返回当前远程传感器模式，参见AREngine_RemoteSensorMode。 |
+
+
+**返回：**
+
+接口执行状态，参见[AREngine_ARStatus](#arengine_arstatus)。
+
+| 状态码 | 状态信息 |
+| --- | --- |
+| ARENGINE_SUCCESS | 成功状态。 |
+| ARENGINE_ERROR_INVALID_ARGUMENT | 无效参数状态。如方法入参为空或非法。 |
+
+
+
+
 #### HMS_AREngine_ARConfig_SetARType
 
 **支持设备：** Phone | Tablet | TV
@@ -4410,6 +4474,43 @@ AREngine_ARStatus HMS_AREngine_ARConfig_SetUpdateMode(const AREngine_ARSession *
 
 
 
+#### HMS_AREngine_ARConfig_SetRemoteSensorMode
+
+**支持设备：** Phone | Tablet | TV
+
+```text
+AREngine_ARStatus HMS_AREngine_ARConfig_SetRemoteSensorMode(const AREngine_ARSession *session, AREngine_ARConfig *config, AREngine_RemoteSensorMode remoteSensorMode)
+```
+
+**描述**
+
+设置预览更新模式。
+
+**设备行为差异：** 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用[HMS_AREngine_CheckSupported](#hms_arengine_checksupported)接口查询能力是否支持。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 名称 | 描述 |
+| --- | --- |
+| session | 与AR Engine服务交互的AREngine_ARSession对象。 |
+| config | 指向待获取配置信息的配置对象，参见AREngine_ARConfig。 |
+| remoteSensorMode | 预览更新模式，参见AREngine_RemoteSensorMode。 |
+
+
+**返回：**
+
+接口执行状态，参见[AREngine_ARStatus](#arengine_arstatus)。
+
+| 状态码 | 状态信息 |
+| --- | --- |
+| ARENGINE_SUCCESS | 成功状态。 |
+| ARENGINE_ERROR_INVALID_ARGUMENT | 无效参数状态。如方法入参为空或非法。 |
+
+
+
+
 #### HMS_AREngine_ARConfig_SetPhotoStreamSize
 
 **支持设备：** Phone | Tablet | TV
@@ -4721,7 +4822,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceBlendShapes_AcquireData(const AREngine_ARSe
 
 **描述**
 
-获取微表情数据的集合。
+获取所有的微表情参数。
 
 **起始版本：** 6.1.0(23)
 
@@ -4758,7 +4859,7 @@ AREngine_ARStatus HMS_AREngine_ARFaceBlendShapes_AcquireTypes(const AREngine_ARS
 
 **描述**
 
-获取所有微表情参数类型数组。
+获取所有微表情参数类型。
 
 **设备行为差异：** 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用[HMS_AREngine_CheckSupported](#hms_arengine_checksupported)接口查询能力是否支持。
 
@@ -8290,6 +8391,76 @@ AREngine_ARStatus HMS_AREngine_ARSession_Update(AREngine_ARSession *session, ARE
 | ARENGINE_ERROR_MISSING_GL_CONTEXT | 缺少GL上下文状态。 |
 | ARENGINE_ERROR_CAMERA_NOT_AVAILABLE | 相机不可用状态。 |
 | ARENGINE_ERROR_IMAGE_INVALID_DATABASE | 没有有效的图像数据库。 起始版本： 5.1.0(18) |
+
+
+
+
+#### HMS_AREngine_ARSession_OpenFlash
+
+**支持设备：** Phone | Tablet | TV
+
+```text
+AREngine_ARStatus HMS_AREngine_ARSession_OpenFlash(const AREngine_ARSession *session)
+```
+
+**描述**
+
+打开设备的闪光灯。
+
+**设备行为差异：** 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用[HMS_AREngine_CheckSupported](#hms_arengine_checksupported)接口查询能力是否支持。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 名称 | 描述 |
+| --- | --- |
+| session | 与AR Engine服务交互的AREngine_ARSession对象。 |
+
+
+**返回：**
+
+接口执行状态，参见[AREngine_ARStatus](#arengine_arstatus)。
+
+| 状态码 | 状态信息 |
+| --- | --- |
+| ARENGINE_SUCCESS | 成功状态。 |
+| ARENGINE_ERROR_INVALID_ARGUMENT | 无效参数状态。如方法入参为空或非法。 |
+
+
+
+
+#### HMS_AREngine_ARSession_CloseFlash
+
+**支持设备：** Phone | Tablet | TV
+
+```text
+AREngine_ARStatus HMS_AREngine_ARSession_CloseFlash(const AREngine_ARSession *session)
+```
+
+**描述**
+
+关闭设备的闪光灯。
+
+**设备行为差异：** 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用[HMS_AREngine_CheckSupported](#hms_arengine_checksupported)接口查询能力是否支持。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 名称 | 描述 |
+| --- | --- |
+| session | 与AR Engine服务交互的AREngine_ARSession对象。 |
+
+
+**返回：**
+
+接口执行状态，参见[AREngine_ARStatus](#arengine_arstatus)。
+
+| 状态码 | 状态信息 |
+| --- | --- |
+| ARENGINE_SUCCESS | 成功状态。 |
+| ARENGINE_ERROR_INVALID_ARGUMENT | 无效参数状态。如方法入参为空或非法。 |
 
 
 

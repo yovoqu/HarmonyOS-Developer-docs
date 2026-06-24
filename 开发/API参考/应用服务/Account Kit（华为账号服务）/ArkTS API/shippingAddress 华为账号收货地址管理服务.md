@@ -1,18 +1,23 @@
-# shippingAddress (华为账号收货地址管理服务)
+# @hms.core.account.shippingAddress (华为账号收货地址管理服务)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-choose-address
-**支持设备：** Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-本模块提供Account Kit的收货地址管理能力。应用可通过该能力获取到用户华为账号收货地址信息，包括详细地址、手机号等。
+#### 模块概述
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+@hms.core.account.shippingAddress模块提供华为账号收货地址管理能力。开发者可通过该能力拉起收货地址选择页面，帮助用户快速管理、选择收货地址。收货地址选择页面支持用户新建、管理、删除收货地址，在用户选择收货地址后，会将用户编辑的用户名、手机号、详细地址等信息返回给应用，可用于完善相关业务场景。
  
 **起始版本：** 5.0.0(12)
+ 
   
 
 #### 导入模块
 
-**支持设备：** Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 import { shippingAddress } from '@kit.AccountKit';
@@ -22,9 +27,9 @@ import { shippingAddress } from '@kit.AccountKit';
 
 #### ShippingAddressErrorCode
 
-**支持设备：** Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-该枚举定义了Account Kit收货地址管理服务错误码。
+华为账号收货地址管理服务接口错误码枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -49,9 +54,9 @@ import { shippingAddress } from '@kit.AccountKit';
 
 #### AddressInfo
 
-**支持设备：** Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
-该类为收货地址管理服务响应的收货地址数据对象。应用可根据实际场景获取相关收货地址信息。
+收货地址数据结构。[chooseAddress](#chooseaddress)接口响应类型，包含用户名、手机号码、详细地址等数据。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -79,11 +84,11 @@ import { shippingAddress } from '@kit.AccountKit';
 
 #### chooseAddress
 
-**支持设备：** Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 chooseAddress(context: common.Context): Promise&lt;AddressInfo&gt;
  
-调用该方法打开收货地址管理页面，使用Promise异步回调用户选择的收货地址。用于应用向Account Kit获取用户绑定的华为账号收货地址。
+选择收货地址方法，使用Promise异步回调返回用户选择的收货地址。开发者可通过该方法获取用户收货地址，完善个人信息。调用该方法会拉起收货地址选择页，支持用户添加、管理、删除收货地址，收货地址信息参考[AddressInfo](#addressinfo)。收货地址选择页面可长时间停留，当用户点击选择后会返回收货地址信息，其他场景如用户点击关闭则会抛出错误码。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -104,12 +109,12 @@ chooseAddress(context: common.Context): Promise&lt;AddressInfo&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;AddressInfo&gt; | Promise对象，返回AddressInfo对象可以获取收货地址的详细信息。 |
+| Promise&lt;AddressInfo&gt; | Promise对象，返回AddressInfo对象，包含收货地址的详细信息。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -158,7 +163,7 @@ function dealAllError(error: BusinessError): void {
   if (error.code === shippingAddress.ShippingAddressErrorCode.ACCOUNT_NOT_LOGGED_IN) {
     // 用户未登录华为账号，请登录华为账号并重试
   } else if (error.code === shippingAddress.ShippingAddressErrorCode.NETWORK_ERROR) {
-    // 网络异常，请检查当前网络状态并重试
+    // 网络错误，请检查当前网络状态并重试
   } else if (error.code === shippingAddress.ShippingAddressErrorCode.USER_CANCELED) {
     // 用户取消选择收货地址
   } else {

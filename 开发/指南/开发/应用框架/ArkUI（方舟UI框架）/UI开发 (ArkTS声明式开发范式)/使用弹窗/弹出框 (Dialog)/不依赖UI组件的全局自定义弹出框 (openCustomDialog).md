@@ -1,6 +1,6 @@
 # 不依赖UI组件的全局自定义弹出框 (openCustomDialog)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-uicontext-custom-dialog
 
@@ -194,7 +194,7 @@ export struct CustomDialogComponentWithTransition {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/JzlRXFrlSxOkUbZQTMrVEQ/zh-cn_image_0000002611833791.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030442Z&HW-CC-Expire=86400&HW-CC-Sign=785B3FF9D0F4B2882FCF216874841703F318E339A9D6D61B91CE95B59907D771)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/5QVdPDFxSjao8JgMdXVmBw/zh-cn_image_0000002656467763.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=20F3AF5B7E7C72F38D2569562854B13AB5E3274CD67BE056EFE6E5E42E8C73BB)
 
 
 
@@ -255,7 +255,7 @@ export struct CustomDialogWithKeyboardAvoidDistance {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/95/v3/pQ-IdEfWRk2MbdasSr56SQ/zh-cn_image_0000002581274044.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030442Z&HW-CC-Expire=86400&HW-CC-Sign=CB2A0C7380C3A187DBB0DC8BD82CDE032C56E8F46BF594154BACC3267E08A647)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/gzvI4cVmSReSsLebg7HOgw/zh-cn_image_0000002656347811.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=C91AAC7E33914B45773F765F63551ADD9E3E68F3EE4041D38BAB8AD72EF2F1E6)
 
 
 
@@ -411,4 +411,4 @@ export struct OpenDialogAndUpdate {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/7mxETJ2lTEqhgU48o6rzlQ/zh-cn_image_0000002611753899.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030442Z&HW-CC-Expire=86400&HW-CC-Sign=BC6447D8764B97D569D0A9AE26EF7E306AF5B9A7145A3E2EC2318C01A5490001)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/k6-1A8iVShWIz6zyPSfr_w/zh-cn_image_0000002626228396.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=B86041D5F9D7A297766B779A328AA914E821496E7667003E3213F30288C623FA)

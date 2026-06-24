@@ -1,6 +1,6 @@
 # @ohos.connectedTag (有源标签)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-connectedtag
 **支持设备：** PC/2in1
@@ -53,7 +53,7 @@ init(): boolean
 
 initialize(): void
 
-初始化有源标签芯片。
+初始化有源标签芯片。对有源标签进行读写操作前需调用本接口初始化一次，若想再次初始化需先调用[uninitialize](#connectedtaguninitialize9)。
 
 **需要权限：** ohos.permission.NFC_TAG
 
@@ -69,6 +69,19 @@ initialize(): void
 | 801 | Capability not supported. |
 | 3200101 | Connected NFC tag running state is abnormal in service. |
 
+
+**示例：**
+
+```text
+import { connectedTag } from '@kit.ConnectivityKit';
+
+try {
+    console.info("connectedTag initialize");
+    connectedTag.initialize();
+} catch (error) {
+    console.error("initialize error:" + error);
+}
+```
 
 
 
@@ -120,6 +133,19 @@ uninitialize(): void
 | 3200101 | Connected NFC tag running state is abnormal in service. |
 
 
+**示例：**
+
+```text
+import { connectedTag } from '@kit.ConnectivityKit';
+
+try {
+    console.info("connectedTag uninitialize");
+    connectedTag.uninitialize();
+} catch (error) {
+    console.error("connectedTag error: " + error);
+}
+```
+
 
 
 #### connectedTag.readNdefTag(deprecated)
@@ -128,7 +154,7 @@ uninitialize(): void
 
 readNdefTag(): Promise&lt;string&gt;
 
-读取有源标签内容，使用promise方式作为异步方法。
+读取有源标签内容。使用Promise异步回调。
 
 > [!NOTE]
 > 从 API version 8 开始支持，从 API version 9 开始废弃，建议使用 connectedTag.read 替代。
@@ -142,7 +168,7 @@ readNdefTag(): Promise&lt;string&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | 返回读取有源标签内容。 |
+| Promise&lt;string&gt; | Promise对象，返回读取有源标签内容的列表。 |
 
 
 **示例：**
@@ -166,7 +192,7 @@ connectedTag.readNdefTag().then((data) => {
 
 read(): Promise<number[]>
 
-读取有源标签内容，使用promise方式作为异步方法。
+读取有源标签内容。使用Promise异步回调。
 
 **需要权限：** ohos.permission.NFC_TAG
 
@@ -176,7 +202,7 @@ read(): Promise<number[]>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<number[]> | 返回读取有源标签内容。 |
+| Promise<number[]> | Promise对象，返回读取有源标签内容的列表。 |
 
 
 **错误码：**
@@ -225,7 +251,7 @@ readNdefTag(callback: AsyncCallback&lt;string&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;string&gt; | 是 | 读取有源标签内容回调函数。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当读取成功时data为读取到有源标签的内容；否则为err错误对象。 |
 
 
 **示例：**
@@ -260,7 +286,7 @@ read(callback: AsyncCallback<number[]>): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<number[]> | 是 | 读取有源标签内容回调函数。 |
+| callback | AsyncCallback<number[]> | 是 | 回调函数。当读取成功时data为读取到有源标签的内容；否则为err错误对象。 |
 
 
 **错误码：**
@@ -296,7 +322,7 @@ connectedTag.read((err, data)=> {
 
 writeNdefTag(data: string): Promise&lt;void&gt;
 
-写入内容到有源标签，使用promise方式作为异步方法。
+写入内容到有源标签。使用Promise异步回调。
 
 > [!NOTE]
 > 从 API version 8 开始支持，从 API version 9 开始废弃，建议使用 connectedTag.write 替代。
@@ -317,7 +343,7 @@ writeNdefTag(data: string): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回值。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **示例：**
@@ -342,7 +368,7 @@ connectedTag.writeNdefTag(rawData).then(() => {
 
 write(data: number[]): Promise&lt;void&gt;
 
-写入内容到有源标签，使用promise方式作为异步方法。
+写入内容到有源标签。使用Promise异步回调。
 
 **需要权限：** ohos.permission.NFC_TAG
 
@@ -359,7 +385,7 @@ write(data: number[]): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回值。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -411,7 +437,7 @@ writeNdefTag(data: string, callback: AsyncCallback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | data | string | 是 | 有源标签内容, 最大长度为1024个字节。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 读取有源标签内容回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当写入标签成功，err为undefined，否则为错误对象。 |
 
 
 **示例：**
@@ -448,7 +474,7 @@ write(data: number[], callback: AsyncCallback&lt;void&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | data | number[] | 是 | 有源标签内容, 由十六进制数字组成。范围：0x00至0xFF。 |
-| callback | AsyncCallback&lt;void&gt; | 是 | 读取有源标签内容回调函数。 |
+| callback | AsyncCallback&lt;void&gt; | 是 | 回调函数。当写入标签成功，err为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -497,7 +523,7 @@ on(type: "notify", callback: Callback&lt;number&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填"notify"字符串。 |
-| callback | Callback&lt;number&gt; | 是 | 状态改变回调函数，返回值参见NfcRfType。 |
+| callback | Callback&lt;number&gt; | 是 | 回调函数。注册成功的返回值参见NfcRfType。 |
 
 
 
@@ -563,8 +589,6 @@ async function nfcTagTestOff(): Promise<void> {
         console.error("connectedTag error: " + error);
     }
 }
-
-export { nfcTagTestOn, nfcTagTestOff }
 ```
 
 

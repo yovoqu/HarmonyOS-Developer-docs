@@ -1,6 +1,6 @@
 # @ohos.wifiManager (WLAN)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifimanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -715,6 +715,25 @@ preSharedKey传参为路由器上设置的密码;
 
 
 
+#### WifiCapability
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+Wi-Fi功能。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Communication.WiFi.Core
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| WIFI_AUTO_ENABLE | 0 | Wi-Fi自动启用功能。 |
+
+
+
+
 #### WapiPskType12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -791,6 +810,30 @@ WAPI认证方式的枚举。
 | WIFI6_PLUS | 3 | Wifi6+。 |
 | WIFI715+ | 4 | Wifi7。 |
 | WIFI7_PLUS15+ | 5 | Wifi7+。 |
+
+
+
+
+#### ConnectSettings
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+连接WLAN设置信息。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Communication.WiFi.STA
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| networkId | number | 否 | 否 | 候选网络配置的ID。 |
+| withUserAction | boolean | 否 | 是 | 连接时是否提示用户进行信任确认，true表示与connectToCandidateConfigWithUserAction接口功能一致，false表示不提示用户进行信任确认，默认false 。 |
+| userActionTimeout | number | 否 | 是 | 提示用户进行信任确认弹框显示时间（单位秒）有效值范围1-30秒，默认10秒 。 |
+| addNetworkToSystem | boolean | 否 | 是 | 是否添加网络到系统，true表示将建议网络添加到系统网络中，false表示保持建议网络，默认false 。 |
 
 
 
@@ -950,7 +993,7 @@ removeCandidateConfig(networkId: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -1203,6 +1246,68 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
 
 
+#### wifiManager.connectToCandidateConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+connectToCandidateConfig(settings: ConnectSettings): Promise&lt;void&gt;
+
+应用使用该接口连接到自己添加的候选网络，支持设置自定义参数。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.SET_WIFI_INFO
+
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Communication.WiFi.STA
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| settings | ConnectSettings | 是 | 连接WLAN设置信息。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[WIFI错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wifi)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 801 | Capability not supported. |
+| 2501000 | Operation failed. |
+| 2501001 | Wi-Fi STA disabled. |
+| 2501005 | The user does not respond. |
+| 2501006 | The user refused the action. |
+| 2501007 | Parameter validation failed. |
+
+
+**示例：**
+
+```json
+import { wifiManager } from '@kit.ConnectivityKit';
+
+  try {
+    let setting:wifiManager.ConnectSettings = { networkId: 0 }; // 候选网络ID，在添加候选网络时生成
+    wifiManager.connectToCandidateConfig(setting);
+  }catch(error){
+    console.error("failed:" + JSON.stringify(error));
+  }
+```
+
+
+
 #### wifiManager.connectToCandidateConfigWithUserAction20+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1237,7 +1342,7 @@ connectToCandidateConfigWithUserAction(networkId: number): Promise&lt;void&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
 
 
 **错误码：**
@@ -3508,7 +3613,7 @@ on(type: 'hotspotStateChange', callback: Callback&lt;number&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填"hotspotStateChange"字符串。 |
-| callback | Callback&lt;number&gt; | 是 | 状态改变回调函数。 |
+| callback | Callback&lt;number&gt; | 是 | 状态改变回调函数。返回0:未激活, 1:已激活，2:正在激活，3:正在去激活。 |
 
 
 **热点状态改变事件的枚举：**
@@ -3602,7 +3707,7 @@ on(type: 'p2pStateChange', callback: Callback&lt;number&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填"p2pStateChange"字符串。 |
-| callback | Callback&lt;number&gt; | 是 | 状态改变回调函数。返回1：空闲， 2：启动中， 3：已启动， 4：正在关闭， 5：已关闭。 |
+| callback | Callback&lt;number&gt; | 是 | 状态改变回调函数。返回1：空闲，2：启动中，3：已启动，4：正在关闭，5:已关闭。 |
 
 
 **P2P状态改变事件的枚举：**
@@ -4033,7 +4138,7 @@ on(type: 'p2pDiscoveryChange', callback: Callback&lt;number&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 固定填"p2pDiscoveryChange"字符串。 |
-| callback | Callback&lt;number&gt; | 是 | 状态改变回调函数。返回0：状态无变化，1:状态有变化。 |
+| callback | Callback&lt;number&gt; | 是 | 状态改变回调函数。返回0：状态无变化，1：状态有变化。 |
 
 
 **发现设备状态改变事件的枚举：**

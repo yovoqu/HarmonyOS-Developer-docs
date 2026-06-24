@@ -1,6 +1,6 @@
 # @ohos.hiAppEvent (应用打点)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiappevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -201,7 +201,7 @@ hiAppEvent.configure(config2);
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| disable | boolean | 否 | 是 | 应用打点功能开关。配置值为true表示关闭打点功能，false表示不关闭打点功能。 |
+| disable | boolean | 否 | 是 | 应用打点功能开关，默认值为false。配置值为true表示关闭打点功能，false表示不关闭打点功能。 |
 | maxStorage | string | 否 | 是 | 打点数据本地存储文件所在目录的配额大小，默认限额为“10M”。所在目录大小超出限额后会对目录进行清理操作，会按从旧到新的顺序逐个删除打点数据文件，直到目录大小不超出限额时停止。 |
  
  

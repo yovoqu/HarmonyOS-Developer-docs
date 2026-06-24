@@ -1,6 +1,6 @@
 # Interface (ImagePacker)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagepacker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -932,7 +932,7 @@ packing(source: PixelMap, option: PackingOption, callback: AsyncCallback&lt;Arra
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/uQnB4kYhT5ebqdC9hXaszg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025326Z&HW-CC-Expire=86400&HW-CC-Sign=4C67CFDFF087F4BD74666F458D793448D74AD49A4A7BE283787A8057D7364B05)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/tbYHR6_0QbyBoo1K7lfXRw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020239Z&HW-CC-Expire=86400&HW-CC-Sign=4FE05B4EB487098A0D36855B88CCBDE1C868A5D26BBE64BF2761F2EF1A948DCB)
 
 
 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。
@@ -991,7 +991,7 @@ packing(source: PixelMap, option: PackingOption): Promise&lt;ArrayBuffer&gt;
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/zS5pVm0RQA655-8ER39DtA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025326Z&HW-CC-Expire=86400&HW-CC-Sign=9B88BEA57A4F4E851D5FBC8EC4A3B3382BF0F4B58881CB4E0D5D74DC3443F4A1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ca/v3/NXb3WRobT26ZWg4UN8TluA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020239Z&HW-CC-Expire=86400&HW-CC-Sign=D81C525EDD281444CFFFAC79534318E520B5A87A279BA6A94459FF1A3887B085)
 
 
 接口如果返回"PixelMap mismatch"，表明参数异常，可能是PixelMap对象被提前释放了。需要调用方排查，在该方法调用结束后再释放PixelMap对象。

@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（布局类组件相关属性）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-layoutcomponent
 
@@ -149,7 +149,7 @@ NODE_LINEAR_LAYOUT_REVERSE = 1006003
   
 | 参数项 | 描述 |
 | --- | --- |
-| .value[0].i32 | 主轴方向的子组件排列是否反向，默认值：false。值为true时，子组件在垂直方向上反转排列。值为false时，子组件在垂直方向上正序排列。 设置异常值时，按默认值显示。 |
+| .value[0].i32 | 主轴方向的子组件排列是否反向，默认值：false。值为true时，子组件在主轴方向上反转排列。值为false时，子组件在主轴方向上正序排列。 设置异常值时，按默认值显示。 |
  
  
 **返回：**

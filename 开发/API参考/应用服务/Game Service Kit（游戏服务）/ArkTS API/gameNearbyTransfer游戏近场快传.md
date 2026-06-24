@@ -1,11 +1,13 @@
-# gameNearbyTransfer(游戏近场快传)
+# gameNearbyTransfer（游戏近场快传）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-nearbytransfer
 **支持设备：** Phone | PC/2in1 | Tablet
 
-本模块提供接入Game Service Kit的游戏近场快传能力。
+本模块提供接入Game Service Kit的游戏近场快传能力，包括游戏资源包传输和游戏安装包传输功能。游戏可以使用该能力实现游戏资源包和安装包在设备间的高速传输与共享。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -26,6 +28,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 创建参数类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -36,9 +40,9 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 | abilityName | string | 否 | 否 | Ability名称。字符长度范围：[1, 1024]。 |
 | needShowSystemUI | boolean | 否 | 是 | 是否展示系统UI。 - true：展示 - false：不展示 默认为false。 |
 | context | common.UIAbilityContext | 否 | 是 | UIAbility上下文，当needShowSystemUI为true时，该参数必传。 |
-| mode | Mode | 否 | 是 | 接入模式。默认为API模式。 起始版本： 6.0.0(20)。 |
-| contentType | ContentType | 否 | 是 | 内容类型。 默认值为RESOURCE_PACKAGE。 模型约束： 此接口仅可在Stage模型下使用。 起始版本： 6.1.0(23)。 |
-| gameLinking | string | 否 | 是 | 游戏链接，即App Linking或Deep Linking，仅当contentType为“INSTALLATION_PACKAGE”类型时生效。如果接收端已安装该游戏，则将通过gameLinking启动该游戏。使用方式请参见使用App Linking实现应用间跳转和使用Deep Linking实现应用间跳转。 字符长度范围：[0, 2048]。 模型约束： 此接口仅可在Stage模型下使用。 起始版本： 6.1.0(23)。 |
+| mode | Mode | 否 | 是 | 文件包传输模式。 默认值为1，即API模式。 起始版本： 6.0.0(20)。 |
+| contentType | ContentType | 否 | 是 | 内容类型。 默认值为RESOURCE_PACKAGE。 起始版本： 6.1.0(23)。 |
+| gameLinking | string | 否 | 是 | 游戏链接，即App Linking或Deep Linking，仅当contentType为“INSTALLATION_PACKAGE”类型并且接收端已安装该游戏时，该游戏将通过gameLinking启动。使用方式请参见使用App Linking实现应用间跳转和使用Deep Linking实现应用间跳转。 字符长度范围：[0, 2048]。 起始版本： 6.1.0(23)。 |
 
 
 
@@ -48,6 +52,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 连接通知类。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -68,6 +74,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 绑定参数类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 6.0.0(20)
@@ -85,6 +93,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 近场快传设备类。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -105,6 +115,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 发现结果类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 6.0.0(20)
@@ -122,6 +134,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 创建结果类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -129,7 +143,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | localDeviceName | string | 否 | 否 | 本端设备名。 |
-| linkingForInstallation | string | 否 | 是 | 安装包的传输链接，仅当传输类型为安装包传输时返回。字符长度范围：[0, 2048]。 模型约束： 此接口仅可在Stage模型下使用。 起始版本： 6.1.0(23)。 |
+| linkingForInstallation | string | 否 | 是 | 安装包的传输链接，仅当传输类型为安装包传输时返回。字符长度范围：[0, 2048]。 起始版本： 6.1.0(23)。 |
 
 
 
@@ -139,6 +153,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 传输通知类。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -159,6 +175,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 文件信息类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -176,6 +194,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 包信息类。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -197,6 +217,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 传输包文件类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -214,6 +236,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 传输包数据类。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -234,6 +258,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 返回结果类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -251,6 +277,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 包信息对比结果类。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -270,6 +298,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 传输信息类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -279,7 +309,7 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 | expectedTime | number | 否 | 否 | 传输剩余时间，单位：s。 |
 | transferredPackageSize | number | 否 | 否 | 已传输包大小，单位：Byte。 |
 | totalPackageSize | number | 否 | 否 | 整包总大小，单位：Byte。 |
-| rate | number | 否 | 否 | 传输速率，单位：Byte/s。 |
+| rate | number | 否 | 否 | 传输速率，单位：B/s。 |
 
 
 
@@ -307,7 +337,9 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-接入模式枚举对象。
+文件包传输模式枚举对象。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -315,9 +347,9 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| API | 1 | API模式，即使用游戏近场快传服务接口接入。 |
+| API | 1 | API模式，即调用游戏近场快传API接口进行传输。 |
 | KNOCK | 2 | 碰一碰模式。详情请参考碰一碰分享。 |
-| GESTURES | 3 | 隔空传送模式。详情请参考隔空传送。 模型约束： 此接口仅可在Stage模型下使用。 起始版本： 6.1.0(23)。 |
+| GESTURES | 3 | 隔空传送模式。详情请参考隔空传送。 起始版本： 6.1.0(23)。 |
 
 
 
@@ -327,6 +359,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 连接状态枚举对象。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -345,6 +379,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 传输状态枚举对象。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -369,6 +405,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 包信息对比结果码值枚举对象。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -409,11 +447,13 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 
 错误码类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -436,6 +476,8 @@ import { gameNearbyTransfer } from '@kit.GameServiceKit';
 on(type: 'connectNotify', callback: Callback&lt;ConnectNotification&gt;): void
 
 订阅连接通知事件。使用callback回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -490,6 +532,8 @@ off(type: 'connectNotify', callback?: Callback&lt;ConnectNotification&gt;): void
 
 取消订阅连接通知事件。使用callback回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -543,6 +587,8 @@ on(type: 'discovery', callback: Callback&lt;DiscoveryResult&gt;): void
 
 订阅发现结果事件。使用callback回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 6.0.0(20)
@@ -557,7 +603,7 @@ on(type: 'discovery', callback: Callback&lt;DiscoveryResult&gt;): void
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -598,6 +644,8 @@ off(type: 'discovery', callback?: Callback&lt;DiscoveryResult&gt;): void
 
 取消订阅发现结果事件。使用callback回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 6.0.0(20)
@@ -612,7 +660,7 @@ off(type: 'discovery', callback?: Callback&lt;DiscoveryResult&gt;): void
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -652,6 +700,8 @@ function discoveryCallBack(callback: gameNearbyTransfer.DiscoveryResult) {
 on(type: 'receivePackageInfo', callback: Callback&lt;PackageInfo&gt;): void
 
 订阅收到包信息事件。使用callback回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -704,6 +754,8 @@ function receivePackageInfoCallBack(callback: gameNearbyTransfer.PackageInfo) {
 off(type: 'receivePackageInfo', callback?: Callback&lt;PackageInfo&gt;): void
 
 取消订阅收到包信息事件。使用callback回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -758,6 +810,8 @@ on(type: 'transferNotify', callback: Callback&lt;TransferNotification&gt;): void
 
 订阅传输通知事件。使用callback回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -810,6 +864,8 @@ function transferNotifyCallBack(callback: gameNearbyTransfer.TransferNotificatio
 off(type: 'transferNotify', callback?: Callback&lt;TransferNotification&gt;): void
 
 取消订阅传输通知事件。使用callback回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -864,6 +920,8 @@ on(type: 'error', callback: Callback&lt;ReturnResult&gt;): void
 
 订阅错误事件。使用callback回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -913,6 +971,10 @@ function errorCallBack(callback: gameNearbyTransfer.ReturnResult) {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 off(type: 'error', callback?: Callback&lt;ReturnResult&gt;): void
+
+取消订阅错误事件。使用callback回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 
@@ -981,7 +1043,7 @@ onRemoteInstallationInfoNotify(callback: Callback&lt;RemoteInstallationInfo&gt;)
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1033,7 +1095,7 @@ offRemoteInstallationInfoNotify(callback?: Callback&lt;RemoteInstallationInfo&gt
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1070,6 +1132,8 @@ create(createParameters: CreateParameters): Promise&lt;CreateResult&gt;
 
 创建游戏近场快传服务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -1090,7 +1154,7 @@ create(createParameters: CreateParameters): Promise&lt;CreateResult&gt;
 
 **错误码：**
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1099,7 +1163,9 @@ create(createParameters: CreateParameters): Promise&lt;CreateResult&gt;
 | 1018300002 | Authentication failed. |
 
 
-**资源包传输示例**：
+**示例**：
+
+资源包传输示例：
 
 ```text
 import { common } from '@kit.AbilityKit';
@@ -1145,7 +1211,7 @@ struct Create {
 }
 ```
 
-**安装包传输示例：**
+安装包传输示例：
 
 ```text
 import { common } from '@kit.AbilityKit';
@@ -1199,6 +1265,8 @@ publishNearbyGame(): Promise&lt;void&gt;
 
 发布近场快传服务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 5.1.0(18)
@@ -1212,7 +1280,7 @@ publishNearbyGame(): Promise&lt;void&gt;
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1251,6 +1319,8 @@ discoveryNearbyGame(): Promise&lt;void&gt;
 
 发送端执行发现附近设备。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.GameService.GameNearby
 
 **起始版本：** 6.0.0(20)
@@ -1264,7 +1334,7 @@ discoveryNearbyGame(): Promise&lt;void&gt;
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1303,6 +1373,8 @@ bindNearbyGame(bindParameters: BindParameters): Promise&lt;void&gt;
 
 发送端绑定指定近场快传服务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -1325,7 +1397,7 @@ bindNearbyGame(bindParameters: BindParameters): Promise&lt;void&gt;
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1369,6 +1441,8 @@ autoBindNearbyGame(): Promise&lt;void&gt;
 
 自动绑定近场快传服务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -1384,7 +1458,7 @@ autoBindNearbyGame(): Promise&lt;void&gt;
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1424,6 +1498,8 @@ acceptCollaboration(acceptParameters: Record<string, object>): Promise&lt;void&g
 
 接受协同。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -1446,7 +1522,7 @@ acceptCollaboration(acceptParameters: Record<string, object>): Promise&lt;void&g
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1490,6 +1566,8 @@ sendPackageInfo(packageInfo: PackageInfo): Promise&lt;void&gt;
 
 接收端发送自身文件信息。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -1512,7 +1590,7 @@ sendPackageInfo(packageInfo: PackageInfo): Promise&lt;void&gt;
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1562,6 +1640,8 @@ replyPackageInfoResult(packageInfoResult: PackageInfoResult): Promise&lt;void&gt
 
 发送端向近场快传服务上报包信息对比结果。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -1584,7 +1664,7 @@ replyPackageInfoResult(packageInfoResult: PackageInfoResult): Promise&lt;void&gt
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1627,6 +1707,8 @@ transferPackageData(packageData: PackageData): Promise&lt;void&gt;
 
 开始传输包数据。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力：** SystemCapability.GameService.GameNearby
@@ -1649,7 +1731,7 @@ transferPackageData(packageData: PackageData): Promise&lt;void&gt;
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1694,6 +1776,8 @@ try {
 destroy(): Promise&lt;void&gt;
 
 不再使用时，销毁游戏近场快传服务。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.GameService.GameNearby
 

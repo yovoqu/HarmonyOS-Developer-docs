@@ -1,6 +1,6 @@
 # 使用离线Web组件
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-offline-mode
 
@@ -635,7 +635,7 @@ onBackground(): void {
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/FJ97k1_6SOS4krjrs_9VIg/zh-cn_image_0000002611834143.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030411Z&HW-CC-Expire=86400&HW-CC-Sign=36B4A678866B177B33CBBD556BF6AE594FA469C0D8607DCDB152014F1D209D7D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/mkaLvasxT4e5mgUJDghjEQ/zh-cn_image_0000002626228786.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020811Z&HW-CC-Expire=86400&HW-CC-Sign=24D38D53365325572EA995F53190E3B3EABAA306EC8855A5194991D5C48BC7FF)
 
       - Page2页面显示单个Web页面，使用复用空闲离线Web组件的方式加载指定url。
 
@@ -647,7 +647,7 @@ Page2页面可以通过传入参数加载指定url，并允许用户在加载后
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/HcUxPwsDSDCUUygTNj7eAg/zh-cn_image_0000002581274398.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030411Z&HW-CC-Expire=86400&HW-CC-Sign=846F190754512EFE10CFD4884A8A9BDFAAB8910E59002485B4BECF5AC76CEC6F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/RxoVZcH7T5OID07QoU15rw/zh-cn_image_0000002626068876.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020811Z&HW-CC-Expire=86400&HW-CC-Sign=5B2B19B9CB2A77EE28159411772B85E012D885E9CDAFCC0B44FC0ACAB3AF3C3C)
 
 
 **完整示例**

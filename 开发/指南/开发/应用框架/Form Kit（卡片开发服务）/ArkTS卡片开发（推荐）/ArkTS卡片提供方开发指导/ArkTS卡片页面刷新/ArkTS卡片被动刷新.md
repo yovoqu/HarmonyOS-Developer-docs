@@ -1,6 +1,6 @@
 # ArkTS卡片被动刷新
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-passive-refresh
 
@@ -101,7 +101,7 @@ export default class UpdateByTimeFormAbility extends FormExtensionAbility {
 1. 定时刷新有配额限制，每张卡片每天最多通过定时方式触发刷新50次，定时刷新次数可以通过修改[卡片配置项updateDuration字段](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration#配置文件字段说明)、或调用[setFormNextRefreshTime](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formprovider#formprovidersetformnextrefreshtime)接口两种方式进行设置，当达到50次配额后，无法通过定时方式再次触发刷新，刷新次数会在每天的0点重置。
 2. 当前定时刷新使用同一个计时器进行计时，因此卡片定时刷新的第一次刷新会有最多30分钟的偏差。比如第一张卡片A（每隔半小时刷新一次）在3点20分添加成功，定时器启动并每隔半小时触发一次事件，第二张卡片B(每隔半小时刷新一次)在3点40分添加成功，在3点50分定时器事件触发时，卡片A触发定时刷新，卡片B会在下次事件（4点20分）中才会触发。
 3. 定时刷新在卡片可见情况下才会触发，在卡片不可见时仅会记录刷新动作和刷新数据，待可见时统一刷新布局。
-4. 如果使能了卡片代理刷新，定时刷新和下次刷新不生效。
+4. 在API版本26.0.0之前，使能卡片代理刷新时，定时刷新和下次刷新不生效。从API版本26.0.0开始，卡片代理刷新、定时刷新和下次刷新可以同时生效。
 
 
 
@@ -176,3 +176,44 @@ export default class UpdateByTimeFormAbility extends FormExtensionAbility {
 
 **约束限制：**
 1. 定点刷新在卡片可见情况下才会触发，在卡片不可见时仅会记录刷新动作和刷新数据，待可见时统一刷新布局。
+
+
+
+#### 卡片条件刷新
+
+当前卡片框架提供了如下按条件刷新卡片的方式：
+
+ - 网络刷新：API版本26.0.0开始支持在网络变化的场景下调用[onUpdateForm](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-formextensionability#formextensionabilityonupdateform)的生命周期回调函数自动刷新卡片内容。可以在[form_config.json](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-ui-widget-configuration)配置文件的conditionUpdate字段中进行设置，设置字段为network。
+
+
+> [!NOTE]
+> 当从无网络到有网络连接时会触发刷新。而网络间切换（例如：WiFi间切换，WiFi到流量，流量到WiFi），或从有网络连接到无网络连接时不会触发刷新。 为减少卡片在频繁开关网络场景进程启动次数，无网判定需要网络连续断开十分钟后，才会认为无网，下次联网后触发网络刷新。
+
+
+```ArkTS
+{
+  "forms": [
+    {
+      "name": "UpdateDuration",
+      "description": "$string:widget_updateduration_desc",
+      "src": "./ets/updateduration/pages/UpdateDurationCard.ets",
+      "uiSyntax": "arkts",
+      "window": {
+        "designWidth": 720,
+        "autoDesignWidth": true
+      },
+      "isDefault": true,
+      "updateEnabled": true,
+      "scheduledUpdateTime": "10:30",
+      "updateDuration": 2,
+      "defaultDimension": "2*2",
+      "supportDimensions": [
+        "2*2"
+      ],
+      "conditionUpdate": [
+        "network"
+      ]
+    }
+  ]
+}
+```

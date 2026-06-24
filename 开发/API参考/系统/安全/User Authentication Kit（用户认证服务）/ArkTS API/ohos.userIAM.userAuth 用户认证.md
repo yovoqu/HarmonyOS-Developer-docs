@@ -1,6 +1,6 @@
 # @ohos.userIAM.userAuth (用户认证)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-useriam-userauth
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -1730,7 +1730,7 @@ getAvailableStatus(authType : UserAuthType, authTrustLevel : AuthTrustLevel): vo
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/A-oGPOjxTjm096Hyl4aUhA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025258Z&HW-CC-Expire=86400&HW-CC-Sign=5E08CF9DC814BCE17839DE04EEB972F486BA9D195C0F86D2914CF6000BCF80C0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4d/v3/alzJUN5dSkmOQdEBSYZvyw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020107Z&HW-CC-Expire=86400&HW-CC-Sign=DFE9AEB5A69CB79E11F14200E96D5AA13514D69D5C1A1327C38B02B280E053CF)
 
 
 若用户注册的锁屏口令是4位PIN时，其认证可信等级为ATL3，调用该接口查询是否支持ATL4级别的密码认证时，需返回12500010。

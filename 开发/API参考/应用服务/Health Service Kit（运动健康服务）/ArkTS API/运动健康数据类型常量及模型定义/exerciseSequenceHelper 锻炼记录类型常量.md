@@ -1,6 +1,6 @@
 # exerciseSequenceHelper (锻炼记录类型常量)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-exercisedequencehelper
 **支持设备：** Phone | Tablet | Wearable
@@ -31,6 +31,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -49,6 +51,8 @@ import { healthStore } from '@kit.HealthServiceKit';
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -58,6 +62,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -77,6 +83,8 @@ type Model = healthModels.Adventures
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -96,6 +104,8 @@ type SummaryFields = healthFields.AdventuresSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -115,6 +125,8 @@ type DetailFields = healthFields.AdventuresDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -133,6 +145,8 @@ type DetailFields = healthFields.AdventuresDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -142,6 +156,8 @@ type DetailFields = healthFields.AdventuresDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -161,6 +177,8 @@ type Model = healthModels.Basketball
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -180,6 +198,8 @@ type SummaryFields = healthFields.BasketballSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -199,6 +219,8 @@ type DetailFields = healthFields.BasketballDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -217,6 +239,8 @@ type DetailFields = healthFields.BasketballDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -226,6 +250,8 @@ type DetailFields = healthFields.BasketballDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -245,6 +271,8 @@ type Model = healthModels.Biathlon
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -264,6 +292,8 @@ type SummaryFields = healthFields.BiathlonSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -283,6 +313,8 @@ type DetailFields = healthFields.BiathlonDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -301,6 +333,8 @@ BMX自行车数据类型常量及数据模型。
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -310,6 +344,8 @@ BMX自行车数据类型常量及数据模型。
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -329,6 +365,8 @@ BMX自行车锻炼记录数据模型。
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -348,6 +386,8 @@ BMX自行车统计数据字段列表。
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -367,6 +407,8 @@ BMX自行车详情数据字段列表。
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -385,6 +427,8 @@ BMX自行车详情数据字段列表。
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -394,6 +438,8 @@ BMX自行车详情数据字段列表。
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -413,6 +459,8 @@ type Model = healthModels.BreathHoldingTest
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -432,6 +480,8 @@ type SummaryFields = healthFields.BreathHoldingTestSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -451,6 +501,8 @@ type DetailFields = healthFields.BreathHoldingTestDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -469,6 +521,8 @@ type DetailFields = healthFields.BreathHoldingTestDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -478,6 +532,8 @@ type DetailFields = healthFields.BreathHoldingTestDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -497,6 +553,8 @@ type Model = healthModels.BreathHoldingTrain
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -516,6 +574,8 @@ type SummaryFields = healthFields.BreathHoldingTrainSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -535,6 +595,8 @@ type DetailFields = healthFields.BreathHoldingTrainDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -553,6 +615,8 @@ type DetailFields = healthFields.BreathHoldingTrainDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -562,6 +626,8 @@ type DetailFields = healthFields.BreathHoldingTrainDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -581,6 +647,8 @@ type Model = healthModels.Cycling
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -600,6 +668,8 @@ type SummaryFields = healthFields.CyclingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -619,6 +689,8 @@ type DetailFields = healthFields.CyclingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -637,6 +709,8 @@ type DetailFields = healthFields.CyclingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -646,6 +720,8 @@ type DetailFields = healthFields.CyclingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -665,6 +741,8 @@ type Model = healthModels.Diving
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -684,6 +762,8 @@ type SummaryFields = healthFields.DivingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -703,6 +783,8 @@ type DetailFields = healthFields.DivingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -721,6 +803,8 @@ type DetailFields = healthFields.DivingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -730,6 +814,8 @@ type DetailFields = healthFields.DivingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -749,6 +835,8 @@ type Model = healthModels.Elliptical
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -768,6 +856,8 @@ type SummaryFields = healthFields.EllipticalSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -787,6 +877,8 @@ type DetailFields = healthFields.EllipticalDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -805,6 +897,8 @@ type DetailFields = healthFields.EllipticalDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -814,6 +908,8 @@ type DetailFields = healthFields.EllipticalDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -833,6 +929,8 @@ type Model = healthModels.GolfCourseModel
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -852,6 +950,8 @@ type SummaryFields = healthFields.GolfCourseModelSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -871,6 +971,8 @@ type DetailFields = healthFields.GolfCourseModelDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -889,6 +991,8 @@ type DetailFields = healthFields.GolfCourseModelDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -898,6 +1002,8 @@ type DetailFields = healthFields.GolfCourseModelDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -917,6 +1023,8 @@ type Model = healthModels.GolfPractice
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -936,6 +1044,8 @@ type SummaryFields = healthFields.GolfPracticeSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -955,6 +1065,8 @@ type DetailFields = healthFields.GolfPracticeDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -973,6 +1085,8 @@ type DetailFields = healthFields.GolfPracticeDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -982,6 +1096,8 @@ type DetailFields = healthFields.GolfPracticeDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1001,6 +1117,8 @@ type Model = healthModels.Hiking
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1020,6 +1138,8 @@ type SummaryFields = healthFields.WalkingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1039,6 +1159,8 @@ type DetailFields = healthFields.WalkingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1057,6 +1179,8 @@ type DetailFields = healthFields.WalkingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1066,6 +1190,8 @@ type DetailFields = healthFields.WalkingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1085,6 +1211,8 @@ type Model = healthModels.IndoorCycling
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1104,6 +1232,8 @@ type SummaryFields = healthFields.CyclingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1123,6 +1253,8 @@ type DetailFields = healthFields.CyclingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1141,6 +1273,8 @@ type DetailFields = healthFields.CyclingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1150,6 +1284,8 @@ type DetailFields = healthFields.CyclingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1169,6 +1305,8 @@ type Model = healthModels.IndoorRunning
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1188,6 +1326,8 @@ type SummaryFields = healthFields.RunningSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1207,6 +1347,8 @@ type DetailFields = healthFields.RunningDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1225,6 +1367,8 @@ type DetailFields = healthFields.RunningDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1234,6 +1378,8 @@ type DetailFields = healthFields.RunningDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1253,6 +1399,8 @@ type Model = healthModels.IndoorWalking
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1272,6 +1420,8 @@ type SummaryFields = healthFields.WalkingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1291,6 +1441,8 @@ type DetailFields = healthFields.WalkingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1309,6 +1461,8 @@ type DetailFields = healthFields.WalkingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1318,6 +1472,8 @@ type DetailFields = healthFields.WalkingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1337,6 +1493,8 @@ type Model = healthModels.JumpingRope
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1356,6 +1514,8 @@ type SummaryFields = healthFields.JumpingRopeSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1375,6 +1535,8 @@ type DetailFields = healthFields.JumpingRopeDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1393,6 +1555,8 @@ type DetailFields = healthFields.JumpingRopeDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1402,6 +1566,8 @@ type DetailFields = healthFields.JumpingRopeDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1421,6 +1587,8 @@ type Model = healthModels.MountainHike
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1440,6 +1608,8 @@ type SummaryFields = healthFields.MountainHikeSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1459,6 +1629,8 @@ type DetailFields = healthFields.MountainHikeDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1477,6 +1649,8 @@ type DetailFields = healthFields.MountainHikeDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1486,6 +1660,8 @@ type DetailFields = healthFields.MountainHikeDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1505,6 +1681,8 @@ type Model = healthModels.OpenWaterSwim
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1524,6 +1702,8 @@ type SummaryFields = healthFields.OpenWaterSwimSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1543,6 +1723,8 @@ type DetailFields = healthFields.OpenWaterSwimDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1561,6 +1743,8 @@ type DetailFields = healthFields.OpenWaterSwimDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1570,6 +1754,8 @@ type DetailFields = healthFields.OpenWaterSwimDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1589,6 +1775,8 @@ type Model = healthModels.PoolSwim
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1608,6 +1796,8 @@ type SummaryFields = healthFields.PoolSwimSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1627,6 +1817,8 @@ type DetailFields = healthFields.PoolSwimDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1645,6 +1837,8 @@ type DetailFields = healthFields.PoolSwimDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1654,6 +1848,8 @@ type DetailFields = healthFields.PoolSwimDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1673,6 +1869,8 @@ type Model = healthModels.Rower
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1692,6 +1890,8 @@ type SummaryFields = healthFields.RowerSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1711,6 +1911,8 @@ type DetailFields = healthFields.RowerDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1729,6 +1931,8 @@ type DetailFields = healthFields.RowerDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1738,6 +1942,8 @@ type DetailFields = healthFields.RowerDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1757,6 +1963,8 @@ type Model = healthModels.Rowing
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1776,6 +1984,8 @@ type SummaryFields = healthFields.RowingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1795,6 +2005,8 @@ type DetailFields = healthFields.RowingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1813,6 +2025,8 @@ type DetailFields = healthFields.RowingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1822,6 +2036,8 @@ type DetailFields = healthFields.RowingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1841,6 +2057,8 @@ type Model = healthModels.Running
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1860,6 +2078,8 @@ type SummaryFields = healthFields.RunningSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1879,6 +2099,8 @@ type DetailFields = healthFields.RunningDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1897,6 +2119,8 @@ type DetailFields = healthFields.RunningDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1906,6 +2130,8 @@ type DetailFields = healthFields.RunningDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -1925,6 +2151,8 @@ type Model = healthModels.ScubaDiving
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1944,6 +2172,8 @@ type SummaryFields = healthFields.ScubaDivingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1963,6 +2193,8 @@ type DetailFields = healthFields.ScubaDivingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -1981,6 +2213,8 @@ type DetailFields = healthFields.ScubaDivingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -1990,6 +2224,8 @@ type DetailFields = healthFields.ScubaDivingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -2009,6 +2245,8 @@ type Model = healthModels.Skiing
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2028,6 +2266,8 @@ type SummaryFields = healthFields.SkiingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2047,6 +2287,8 @@ type DetailFields = healthFields.SkiingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2065,6 +2307,8 @@ type DetailFields = healthFields.SkiingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -2074,6 +2318,8 @@ type DetailFields = healthFields.SkiingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -2093,6 +2339,8 @@ type Model = healthModels.Sled
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2112,6 +2360,8 @@ type SummaryFields = healthFields.SledSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2131,6 +2381,8 @@ type DetailFields = healthFields.SledDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2149,6 +2401,8 @@ type DetailFields = healthFields.SledDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -2158,6 +2412,8 @@ type DetailFields = healthFields.SledDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -2177,6 +2433,8 @@ type Model = healthModels.Snowboarding
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2196,6 +2454,8 @@ type SummaryFields = healthFields.SnowboardingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2215,6 +2475,8 @@ type DetailFields = healthFields.SnowboardingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2233,6 +2495,8 @@ type DetailFields = healthFields.SnowboardingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -2242,6 +2506,8 @@ type DetailFields = healthFields.SnowboardingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -2261,6 +2527,8 @@ type Model = healthModels.Spinning
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2280,6 +2548,8 @@ type SummaryFields = healthFields.CyclingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2299,6 +2569,8 @@ type DetailFields = healthFields.CyclingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2317,6 +2589,8 @@ type DetailFields = healthFields.CyclingDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -2326,6 +2600,8 @@ type DetailFields = healthFields.CyclingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -2431,6 +2707,8 @@ type Model = healthModels.Sports
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2450,6 +2728,8 @@ type SummaryFields = healthFields.SportsSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2469,6 +2749,8 @@ type DetailFields = healthFields.SportsDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2487,6 +2769,8 @@ type DetailFields = healthFields.SportsDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -2496,6 +2780,8 @@ type DetailFields = healthFields.SportsDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -2515,6 +2801,8 @@ type Model = healthModels.TrailRunning
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2534,6 +2822,8 @@ type SummaryFields = healthFields.RunningSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2553,6 +2843,8 @@ type DetailFields = healthFields.RunningDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2571,6 +2863,8 @@ type DetailFields = healthFields.RunningDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -2580,6 +2874,8 @@ type DetailFields = healthFields.RunningDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -2599,6 +2895,8 @@ type Model = healthModels.Walking
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2618,6 +2916,8 @@ type SummaryFields = healthFields.WalkingSummary
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -2637,6 +2937,8 @@ type DetailFields = healthFields.WalkingDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |

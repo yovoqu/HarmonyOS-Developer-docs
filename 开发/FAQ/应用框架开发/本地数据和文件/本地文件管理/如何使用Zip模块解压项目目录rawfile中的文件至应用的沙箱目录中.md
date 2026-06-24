@@ -1,6 +1,6 @@
 # 如何使用Zip模块解压项目目录rawfile中的文件至应用的沙箱目录中
 
-更新时间：2026-04-27 09:10:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-1
 

@@ -1,6 +1,6 @@
 # Interface (Aperture)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-aperture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -79,7 +79,9 @@ function getPhysicalAperture(photoSession: camera.PhotoSession): number {
 
 setPhysicalAperture(aperture: number): void
  
-设置物理光圈值。
+设置物理光圈值。需要先通过[getSupportedPhysicalApertures](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-aperturequery#getsupportedphysicalapertures24)接口获取不同焦段支持的可设置光圈值，再通过调整焦段范围，设置支持的物理光圈值。
+ 
+例如，"zoomRange":[1, 4]支持可设置物理光圈列表为2.6，需要通过[setZoomRatio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoom#setzoomratio11)设置焦段在[1, 4]之间，才可成功设置物理光圈值2.6。
  
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
  

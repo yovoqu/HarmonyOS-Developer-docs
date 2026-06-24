@@ -1,6 +1,6 @@
 # 如何解决Finalizer方法中执行JS代码崩溃问题
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-jsvm-6
 

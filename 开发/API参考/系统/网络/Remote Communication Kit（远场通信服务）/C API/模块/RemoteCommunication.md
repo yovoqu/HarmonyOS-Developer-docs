@@ -1,6 +1,6 @@
 # RemoteCommunication
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-overview
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,6 +14,10 @@
 支持http会话功能。
  
 **起始版本：** 5.0.0(12)
+ 
+支持quic功能。
+ 
+**起始版本：** 26.0.0
  
   
 
@@ -30,6 +34,7 @@
 | 名称 | 描述 |
 | --- | --- |
 | rcp.h | 声明用于访问远程通信的API。提供基本的函数，结构体和const定义。 |
+| rcp_quic.h | 声明quic协议相关的API。提供基本的函数，结构体和常量定义。 |
  
  
   
@@ -45,6 +50,7 @@
 | struct Rcp_FormFieldFileValue | 表单字段文件值。 |
 | struct Rcp_FormFieldValue | 简单表单数据字段值，参见Rcp_Form和Rcp_MultipartFormFieldValue。 |
 | struct Rcp_MultipartFormFieldValue | 多部分表单域值，在Rcp_MultipartForm中使用。 |
+| struct Rcp_FormOrder | 表单键值对发送顺序。 |
 | struct Rcp_RequestContent | 请求的内容。 |
 | struct Rcp_HeaderValue | 请求或响应的标头映射的值类型。 |
 | struct Rcp_HeaderEntry | 请求或响应的标头的所有键值对。 |
@@ -93,6 +99,11 @@
 | struct Rcp_SessionConfiguration | 会话配置。 |
 | struct Rcp_OnBinaryReceiveCallback | 接收到响应的二进制数据时的回调。 |
 | struct Rcp_OnStatusCodeReceiveCallback | 接收到响应的状态码时的回调。 |
+| struct Rcp_OnGetDataCallback | 获取数据的回调。 |
+| struct Rcp_QuicSlist | 链表数据结构。 |
+| struct Rcp_QuicIpAddress | 用于存储IP地址的数据结构。 |
+| struct Rcp_QuicIoVec | 用于存储二进制内容的数据结构。 |
+| struct Rcp_QuicStreamData | quic连接中用于接收流式数据的存储结构。 |
  
  
   
@@ -117,6 +128,7 @@
 | RCP_METHOD_PATCH "PATCH" | HTTP patch方法。 |
 | RCP_IP_MAX_LEN 40 | IP地址的最大长度。 |
 | RCP_HOST_MAX_LEN 256 | 主机名的最大长度。 |
+| RCP_QUIC_IP_MAX_LEN 40 | quic连接的IP地址的最大长度。 |
  
  
   
@@ -139,6 +151,7 @@
 | typedef enum Rcp_ContentType Rcp_ContentType | 内容类型。用于区分Rcp_RequestContent中使用的数据。 |
 | typedef struct Rcp_Form Rcp_Form | 简单表单。 |
 | typedef struct Rcp_MultipartForm Rcp_MultipartForm | 多部分表单。 |
+| typedef struct Rcp_FormOrder Rcp_FormOrder | 表单键值对发送顺序。 |
 | typedef struct Rcp_RequestContent Rcp_RequestContent | 请求的内容。 |
 | typedef struct Rcp_Headers Rcp_Headers | 请求或响应的标头。 |
 | typedef struct Rcp_HeaderValue Rcp_HeaderValue | 请求或响应的标头映射的值类型。 |
@@ -213,6 +226,31 @@
 | typedef struct Rcp_SessionConfiguration Rcp_SessionConfiguration | 会话配置。 |
 | typedef struct Rcp_OnBinaryReceiveCallback Rcp_OnBinaryReceiveCallback | 接收到响应的二进制数据时的回调。 |
 | typedef struct Rcp_OnStatusCodeReceiveCallback Rcp_OnStatusCodeReceiveCallback | 接收到响应的状态码时的回调。 |
+| typedef struct Rcp_OnGetDataCallback Rcp_OnGetDataCallback | 获取数据的回调。 |
+| typedef size_t(* Rcp_GetDataCallbackFunc) (void *userObject, uint8_t *outData, size_t size) | 获取数据的回调函数。 |
+| typedef void Rcp_QuicConn | quic连接实例的类型。 |
+| typedef void Rcp_QuicSession | quic会话的类型，可以管理多个连接实例。 |
+| typedef struct Rcp_QuicSlist Rcp_QuicSlist | 链表数据结构。 |
+| typedef enum RCP_QuicIpResolve RCP_QuicIpResolve | 请求DNS解析时使用的IP解析类型。 |
+| typedef struct Rcp_QuicIpAddress Rcp_QuicIpAddress | 用于存储IP地址的数据结构。 |
+| typedef Rcp_QuicIpAddress (*Rcp_QuicDynamicDnsRuleFunction) (Rcp_QuicConn *conn, void *userObject, const char *host, uint16_t port) | 自定义DNS解析回调函数，根据主机名和端口返回IP地址。 |
+| typedef enum Rcp_QuicConnOpt | quic连接选项类型，用于配置连接的各种参数和回调函数。 |
+| typedef enum Rcp_QuicStreamOpt | quic流选项类型，用于配置流的各种参数和回调函数。 |
+| typedef enum Rcp_QuicConnInfo | quic连接信息类型。用于查询连接的各种信息。 |
+| typedef enum Rcp_QuicStreamInfo | quic流信息类型。用于查询流的各种信息。 |
+| typedef enum Rcp_QuicErrorCode | quic请求中可能出现的错误码。 |
+| typedef enum Rcp_QuicStreamDirection | quic流的方向类型。 |
+| typedef enum Rcp_QuicStreamShutdown | quic流的关闭操作的类型。用于指定关闭流的读或写方向。 |
+| typedef struct Rcp_QuicIoVec Rcp_QuicIoVec | 用于存储二进制内容的数据结构。 |
+| typedef struct Rcp_QuicStreamData Rcp_QuicStreamData | quic连接中用于接收流式数据的存储结构。 |
+| typedef Rcp_QuicErrorCode (*Rcp_QuicConnectionOnCertAuthority) (Rcp_QuicConn *conn, void *userObject, const unsigned char *const *certs, const size_t *certLens, size_t certsCount) | 证书校验的回调函数。在quic建链时，用于自定义校验对端证书。 |
+| typedef void (*Rcp_QuicConnectionOnSessionTicketUpdate) (Rcp_QuicConn *conn, void *userObject, const char *sessionTicket, size_t length) | quic会话票据更新回调函数。在quic会话中票据更新时触发，返回新的票据。 |
+| typedef void (*Rcp_QuicConnectionOnConnected) (Rcp_QuicConn *conn, void *userObject) | quic连接成功回调函数。quic连接成功建立时触发该函数。 |
+| typedef void (*Rcp_QuicConnectionOnError) (Rcp_QuicConn *conn, void *userObject, Rcp_QuicErrorCode errCode, const char *errDetail) | quic连接失败回调函数。quic连接建立失败时触发该函数，返回失败原因。 |
+| typedef void (*Rcp_QuicConnectionOnClosed) (Rcp_QuicConn *conn, void *userObject) | quic连接关闭回调函数。quic连接关闭时触发，通知连接已关闭。 |
+| typedef void (*Rcp_QuicConnectionOnStreamInbound) (Rcp_QuicConn *conn, void *userObject, uint64_t streamId) | quic连接中入站流回调函数。当quic连接中对端创建流时触发，处理对端发起的流，设置流的选项和回调。 |
+| typedef void (*Rcp_QuicStreamOnEvent) (Rcp_QuicConn *conn, void *userObject, uint64_t streamId, Rcp_QuicErrorCode errCode, const char *errDetail) | quic连接中流事件回调函数。当quic连接中的流发生事件时触发，用于处理流的状态变化和错误。 |
+| typedef uint64_t (*Rcp_QuicStreamOnReceiveData) (Rcp_QuicConn *conn, void *userObject, uint64_t streamId, const Rcp_QuicStreamData *streamData) | quic连接中流数据接收回调函数。当quic连接中接收到流数据时触发，用于处理接收到的数据。 |
  
  
   
@@ -238,6 +276,14 @@
 | Rcp_StatusCode { RCP_NONE = 0, RCP_OK = 200, RCP_CREATED, RCP_ACCEPTED, RCP_NOT_AUTHORITATIVE, RCP_NO_CONTENT, RCP_RESET, RCP_PARTIAL, RCP_MULTI_CHOICE = 300, RCP_MOVED_PERMANENTLY, RCP_MOVED_TEMPORARILY, RCP_SEE_OTHER, RCP_NOT_MODIFIED, RCP_USE_PROXY, RCP_BAD_REQUEST = 400, RCP_UNAUTHORIZED, RCP_PAYMENT_REQUIRED, RCP_FORBIDDEN, RCP_NOT_FOUND, RCP_BAD_METHOD, RCP_NOT_ACCEPTABLE, RCP_PROXY_AUTH, RCP_CLIENT_TIMEOUT, RCP_CONFLICT, RCP_GONE, RCP_LENGTH_REQUIRED, RCP_PRECON_FAILED, RCP_ENTITY_TOO_LARGE, RCP_REQ_TOO_LONG, RCP_UNSUPPORTED_TYPE, RCP_INTERNAL_ERROR = 500, RCP_NOT_IMPLEMENTED, RCP_BAD_GATEWAY, RCP_UNAVAILABLE, RCP_GATEWAY_TIMEOUT, RCP_VERSION } | 请求响应的状态码。 |
 | Rcp_DebugEvent { RCP_DEBUG_EVENT_TEXT, RCP_DEBUG_EVENT_HEADER_IN, RCP_DEBUG_EVENT_HEADER_OUT, RCP_DEBUG_EVENT_DATA_IN, RCP_DEBUG_EVENT_DATA_OUT, RCP_DEBUG_EVENT_SSL_DATA_IN, RCP_DEBUG_EVENT_SSL_DATA_OUT } | 描述调试信息的事件类型。 |
 | Rcp_SessionType { RCP_SESSION_TYPE_HTTP = 0, RCP_SESSION_TYPE_MAX = 100 } | 会话类型。 |
+| RCP_QuicIpResolve {RCP_QUIC_IP_RESOLVE_WHATEVER = 0, RCP_QUIC_IP_RESOLVE_V4, RCP_QUIC_IP_RESOLVE_V6} | 请求DNS解析时使用的IP解析类型。 |
+| Rcp_QuicConnOpt { RCP_QUIC_CONN_IP_ADDRESS = 0, RCP_QUIC_CONN_IP_RESOLVE, RCP_QUIC_CONN_DNS_FUNCTION, RCP_QUIC_CONN_ON_CONNECTED_FUNCTION, RCP_QUIC_CONN_ON_ERROR_FUNCTION, RCP_QUIC_CONN_ON_CLOSED_FUNCTION, RCP_QUIC_CONN_STREAM_INBOUND_FUNCTION, RCP_QUIC_CONN_CONNECT_TIMEOUT_MS, RCP_QUIC_CONN_IDLE_TIMEOUT_MS, RCP_QUIC_TLS_CERT_AUTHORITY_FUNCTION = 1000, RCP_QUIC_TLS_CERT_AUTHORITY_CONTENT, RCP_QUIC_TLS_SESSION_TICKET_UPDATE_FUNCTION, RCP_QUIC_TLS_SESSION_TICKET_CONTENT, RCP_QUIC_TP_INITIAL_MAX_BIDIRECTIONAL_STREAMS = 2000, RCP_QUIC_TP_INITIAL_MAX_DATA, RCP_QUIC_TP_INITIAL_MAX_STREAMDATA_BIDIRECTIONAL_LOCAL, RCP_QUIC_TP_INITIAL_MAX_STREAMDATA_BIDIRECTIONAL_REMOTE, RCP_QUIC_TP_INITIAL_MAX_STREAMDATA_UNIDIRECTIONAL, RCP_QUIC_TP_INITIAL_MAX_UNIDIRECTIONAL_STREAMS} | quic连接选项类型。 |
+| Rcp_QuicStreamOpt { RCP_QUIC_STREAM_EVENT_FUNCTION = 0, RCP_QUIC_STREAM_DATA_FUNCTION, RCP_QUIC_INBOUND_STREAM_USER_OBJECT, RCP_QUIC_STREAM_SND_BUFFER_SIZE_KB} | quic连接中配置流选项。 |
+| Rcp_QuicConnInfo { RCP_INFO_CONN_GET_LOCALADDR = 0, RCP_INFO_CONN_GET_PEERADDR, RCP_INFO_CONN_DNS_TIME_MS, RCP_INFO_CONN_CONNECT_TIME_MS, RCP_INFO_CONN_SCID, RCP_INFO_CONN_DCID } | quic连接中的信息类型。 |
+| Rcp_QuicStreamInfo { RCP_INFO_STREAM_SND_BUFFER_SIZE_KB = 0 } | quic流中的信息类型。 |
+| Rcp_QuicErrorCode { RCP_QUIC_ERROR_CODE_SUCCESS, RCP_QUIC_PERMISSION_DENIED, RCP_QUIC_ERROR_CODE_FAILED, RCP_QUIC_ERROR_CODE_INVALID_PARAM, RCP_QUIC_ERROR_CODE_INVALID_STATE, RCP_QUIC_ERROR_CODE_OUT_OF_MEM, RCP_QUIC_ERROR_CODE_CLOSE_FROM_PEER, RCP_QUIC_ERROR_CODE_HANDSHAKE_TIMEOUT, RCP_QUIC_ERROR_CODE_NETWORK_IDLE_TIMEOUT, RCP_QUIC_ERROR_INVALID_FRAME, RCP_QUIC_ERROR_CODE_SEND_PENDING, RCP_QUIC_ERROR_CODE_FINALIZE_PENDING, RCP_QUIC_ERROR_CODE_NETWORK_UNREACHABLE, RCP_QUIC_ERROR_CODE_ENCRYPT_ERROR, RCP_QUIC_ERROR_CODE_BUFFER_TOO_SMALL, RCP_QUIC_ERROR_CODE_EAGAIN, RCP_QUIC_ERROR_CODE_STREAM_CLOSED, RCP_QUIC_ERROR_CODE_STREAM_RESET_RECEIVED, RCP_QUIC_ERROR_CODE_STREAM_STOP_SENDING_RECEIVED } | quic请求中可能出现的错误码。 |
+| Rcp_QuicStreamDirection { RCP_QUIC_STREAM_BIDI = 0, RCP_QUIC_STREAM_UNI } | quic流的方向类型。 |
+| Rcp_QuicStreamShutdown { RCP_QUIC_STREAM_SHUTDOWN_READ = 1, RCP_QUIC_STREAM_SHUTDOWN_WRITE = 2 } | quic流的关闭操作的类型。用于指定关闭流的读或写方向。 |
  
  
   
@@ -256,6 +302,8 @@
 | void HMS_Rcp_DestroyMultipartForm (Rcp_MultipartForm *multipartForm) | 销毁一个多部分表单。 |
 | uint32_t HMS_Rcp_SetMultipartFormValue (Rcp_MultipartForm *multipartForm, const char *key, const Rcp_MultipartFormFieldValue *value) | 设置多部分表单的键值对。 |
 | Rcp_MultipartFormFieldValue * HMS_Rcp_GetMultipartFormValue (Rcp_MultipartForm *multipartForm, const char *key) | 通过键获取多部分表单的值。 |
+| uint32_t HMS_Rcp_SetFormOrder (Rcp_Form *form, Rcp_FormOrder order) | 设置Form表单的键值对发送顺序。 |
+| uint32_t HMS_Rcp_SetMultipartFormOrder (Rcp_MultipartForm *multipartForm, Rcp_FormOrder order) | 设置MultipartForm表单的键值对发送顺序。 |
 | Rcp_Headers * HMS_Rcp_CreateHeaders (void) | 为请求或响应创建标头。 |
 | void HMS_Rcp_DestroyHeaders (Rcp_Headers *headers) | 销毁请求或响应的标头。 |
 | uint32_t HMS_Rcp_SetHeaderValue (Rcp_Headers *headers, const char *name, const char *value) | 设置请求或响应头的键值对。 |
@@ -287,6 +335,23 @@
 | uint32_t HMS_Rcp_SetRequestOnStatusCodeReceiveCallback (Rcp_Request *request, Rcp_OnStatusCodeReceiveCallback onStatusCodeReceiveCallback) | 为请求设置响应状态码接收回调函数。 |
 | uint32_t HMS_Rcp_GetDefaultSession (Rcp_Session **session) | 获取默认会话。 |
 | uint32_t HMS_Rcp_SetRequestConnectOnly (Rcp_Request *request, bool connectOnly) | 设置请求仅用于建立连接，而不进行数据传输。 |
+| uint32_t HMS_Rcp_SetRequestGetDataCallback (Rcp_Request *request, Rcp_OnGetDataCallback getDataCallback) | 设置获取数据的回调函数。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicConnSetOpt (Rcp_QuicConn *conn, Rcp_QuicConnOpt opt, const void *optVal, uint32_t optLen) | 设置quic连接选项。用于设置连接的各种参数和回调函数。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicConnGetInfo (Rcp_QuicConn *conn, Rcp_QuicConnInfo info, void *infoVal, uint32_t *infoLen) | 获取quic连接信息。用于建立quic连接成功后，获取相关quic连接信息。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicStreamSetOpt (Rcp_QuicConn *conn, uint64_t streamId, Rcp_QuicStreamOpt opt, const void *optVal, uint32_t optLen) | 设置quic连接中流的参数。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicStreamGetInfo (Rcp_QuicConn *conn, uint64_t streamId, Rcp_QuicStreamInfo info, void *infoVal, uint32_t *infoLen) | 获取quic连接中streamId对应流的信息。 |
+| Rcp_QuicSession * HMS_Rcp_QuicCreateSession () | 创建quic会话对象。一个quic会话中可以管理多个quic连接。 |
+| void HMS_Rcp_QuicDestroySession (Rcp_QuicSession *session) | 销毁quic会话对象。释放quic会话资源。 |
+| Rcp_QuicConn * HMS_Rcp_QuicConnCreate (char *alpn, void *userObject) | 创建quic连接对象。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicConnConnect (Rcp_QuicSession *session, Rcp_QuicConn *conn, const char *serverName, uint16_t port) | 发起quic连接握手。握手结果通过连接回调通知。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicConnDestroy (Rcp_QuicConn *conn) | 销毁quic连接对象。释放quic连接资源。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamOpen (Rcp_QuicConn *conn, Rcp_QuicStreamDirection direction, uint64_t *streamId, void *userObject) | 在quic连接中打开一个quic流。quic连接建立成功后才能打开quic流。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamSend (Rcp_QuicConn *conn, uint64_t streamId, const Rcp_QuicIoVec *ioVec, uint32_t ioVecCount, bool fin) | 通过quic流发送数据。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamWantRead (Rcp_QuicConn *conn, uint64_t streamId) | 触发quic流数据读取回调。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamReset (Rcp_QuicConn *conn, uint64_t streamId, uint64_t appErr) | 重置quic流。立即终止流，丢弃所有未发送和已接收的数据。 |
+| Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamShutdown (Rcp_QuicConn *conn, uint64_t streamId, Rcp_QuicStreamShutdown flag, uint64_t appErr) | 关闭连接中streamId对应流的读或写。 |
+| Rcp_QuicStreamDirection HMS_Rcp_QuicStreamGetDirection (uint64_t streamId) | 获取quic流的方向类型。 |
+| void HMS_Rcp_QuicFreeSlist (Rcp_QuicSlist *list) | 释放Rcp_QuicSlist链表，释放链表中的所有节点和数据。 |
  
  
   
@@ -518,6 +583,22 @@ HTTP put方法。
 HTTP trace方法。
  
 **起始版本：** 5.0.0(12)
+ 
+  
+
+#### RCP_QUIC_IP_MAX_LEN
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+#define RCP_QUIC_IP_MAX_LEN   40
+```
+ 
+**描述**
+ 
+quic连接的IP地址的最大长度。
+ 
+**起始版本：** 26.0.0
  
   
 
@@ -1570,6 +1651,22 @@ typedef struct Rcp_Request Rcp_Request
  
   
 
+#### Rcp_FormOrder
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef struct Rcp_FormOrder Rcp_FormOrder
+```
+ 
+**描述**
+ 
+表单键值对发送顺序。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
 #### Rcp_RequestContent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2015,6 +2112,390 @@ typedef struct Rcp_WebProxy Rcp_WebProxy
  
   
 
+#### Rcp_OnGetDataCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef struct Rcp_OnGetDataCallback  Rcp_OnGetDataCallback
+```
+ 
+**描述**
+ 
+获取数据的回调。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### Rcp_GetDataCallbackFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef size_t(* Rcp_GetDataCallbackFunc) (void *userObject, uint8_t *outData, size_t size)
+```
+ 
+**描述**
+ 
+获取数据的回调函数。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| userObject | 用户定义的对象。 |
+| outData | 输出数据的缓冲区。 |
+| size | 缓冲区长度。 |
+ 
+ 
+**返回：**
+ 
+size_t 发送的数据长度。
+ 
+  
+
+#### Rcp_QuicConn
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void Rcp_QuicConn
+```
+ 
+**描述**
+ 
+quic连接实例的类型。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### Rcp_QuicSession
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void Rcp_QuicSession
+```
+ 
+**描述**
+ 
+quic会话的类型，可以管理多个连接实例。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### Rcp_QuicSlist
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef struct Rcp_QuicSlist Rcp_QuicSlist
+```
+ 
+**描述**
+ 
+链表数据结构。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### Rcp_QuicIpAddress
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef struct Rcp_QuicIpAddress Rcp_QuicIpAddress
+```
+ 
+**描述**
+ 
+用于存储IP地址的数据结构。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### Rcp_QuicDynamicDnsRuleFunction
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef Rcp_QuicIpAddress (*Rcp_QuicDynamicDnsRuleFunction)(Rcp_QuicConn *conn, void *userObject, const char *host, uint16_t port)
+```
+ 
+**描述**
+ 
+自定义DNS解析回调函数，根据主机名和端口返回IP地址。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| userObject | 用户定义的对象。 |
+| host | 请求的主机名。 |
+| port | 请求的端口号。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicIpAddress](#rcp_quicipaddress) 根据主机名和端口解析的IP地址。
+ 
+  
+
+#### Rcp_QuicIoVec
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef struct Rcp_QuicIoVec Rcp_QuicIoVec
+```
+ 
+**描述**
+ 
+用于存储二进制内容的数据结构。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### Rcp_QuicStreamData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef struct Rcp_QuicStreamData Rcp_QuicStreamData
+```
+ 
+**描述**
+ 
+quic连接中用于接收流式数据的存储结构。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### Rcp_QuicConnectionOnCertAuthority
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef Rcp_QuicErrorCode (*Rcp_QuicConnectionOnCertAuthority)(Rcp_QuicConn *conn, void *userObject, const unsigned char *const *certs, const size_t *certLens, size_t certsCount)
+```
+ 
+**描述**
+ 
+证书校验的回调函数。在quic建链时，用于自定义校验对端证书。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| userObject | 用户定义的对象。 |
+| certs | X509证书数组（DER格式）。 |
+| certLens | 每个证书的长度数组。 |
+| certsCount | 证书数量。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode) ：自定义证书验证结果，RCP_QUIC_ERROR_CODE_SUCCESS为验证通过，其余返回值均为验证失败。
+ 
+  
+
+#### Rcp_QuicConnectionOnSessionTicketUpdate
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void (*Rcp_QuicConnectionOnSessionTicketUpdate)(Rcp_QuicConn *conn, void *userObject, const char *sessionTicket, size_t length)
+```
+ 
+**描述**
+ 
+quic会话票据更新回调函数。在quic会话中票据更新时触发，返回新的票据。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| userObject | 用户定义的对象。 |
+| sessionTicket | quic会话票据内容。 |
+| length | 会话票据长度。 |
+ 
+ 
+  
+
+#### Rcp_QuicConnectionOnConnected
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void (*Rcp_QuicConnectionOnConnected)(Rcp_QuicConn *conn, void *userObject)
+```
+ 
+**描述**
+ 
+quic连接成功回调函数。quic连接成功建立时触发该函数。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| userObject | 用户定义的对象。 |
+ 
+ 
+  
+
+#### Rcp_QuicConnectionOnError
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void (*Rcp_QuicConnectionOnError)(Rcp_QuicConn *conn, void *userObject, Rcp_QuicErrorCode errCode, const char *errDetail)
+```
+ 
+**描述**
+ 
+quic连接失败回调函数。quic连接建立失败时触发该函数，返回失败原因。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| userObject | 用户定义的对象。 |
+| errCode | 建立quic连接失败错误码。 |
+| errDetail | 错误详细信息。 |
+ 
+ 
+  
+
+#### Rcp_QuicConnectionOnClosed
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void (*Rcp_QuicConnectionOnClosed)(Rcp_QuicConn *conn, void *userObject)
+```
+ 
+**描述**
+ 
+quic连接关闭回调函数。quic连接关闭时触发，通知连接已关闭。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| userObject | 用户定义的对象。 |
+ 
+ 
+  
+
+#### Rcp_QuicConnectionOnStreamInbound
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void (*Rcp_QuicConnectionOnStreamInbound)(Rcp_QuicConn *conn, void *userObject, uint64_t streamId)
+```
+ 
+**描述**
+ 
+quic连接中入站流回调函数。当quic连接中对端创建流时触发，处理对端发起的流，设置流的选项和回调。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| userObject | 用户定义的对象。 |
+| streamId | 入站流的ID。 |
+ 
+ 
+  
+
+#### Rcp_QuicStreamOnEvent
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef void (*Rcp_QuicStreamOnEvent)(Rcp_QuicConn *conn, void *userObject, uint64_t streamId, Rcp_QuicErrorCode errCode, const char *errDetail)
+```
+ 
+**描述**
+ 
+quic连接中流事件回调函数。当quic连接中的流发生事件时触发，用于处理流的状态变化和错误。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| userObject | 用户定义的对象。 |
+| streamId | 入站流的ID。 |
+| errCode | 建立quic连接失败错误码。 |
+| errDetail | 错误详细信息。 |
+ 
+ 
+  
+
+#### Rcp_QuicStreamOnReceiveData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+typedef uint64_t (*Rcp_QuicStreamOnReceiveData)(Rcp_QuicConn *conn, void *userObject, uint64_t streamId, const Rcp_QuicStreamData *streamData)
+```
+ 
+**描述**
+ 
+quic连接中流数据接收回调函数。当quic连接中接收到流数据时触发，用于处理接收到的数据。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| userObject | 用户定义的对象。 |
+| streamId | quic流的ID。 |
+| streamData | quic流数据。 |
+ 
+ 
+**返回：**
+ 
+uint64_t ：quic流接收数据的字节数。
+ 
+  
+
 #### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2407,6 +2888,222 @@ enum Rcp_StatusCode
  
   
 
+#### RCP_QuicIpResolve
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum RCP_QuicIpResolve
+```
+ 
+**描述**
+ 
+请求DNS解析时使用的IP解析类型。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| RCP_QUIC_IP_RESOLVE_WHATEVER = 0 | 使用IPv4地址或者IPv6地址。默认值。 |
+| RCP_QUIC_IP_RESOLVE_V4 | 仅使用IPv4地址。 |
+| RCP_QUIC_IP_RESOLVE_V6 | 仅使用IPv6地址。 |
+ 
+ 
+  
+
+#### Rcp_QuicConnOpt
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum Rcp_QuicConnOpt
+```
+ 
+**描述**
+ 
+quic连接选项类型，用于配置连接的各种参数和回调函数。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| RCP_QUIC_CONN_IP_ADDRESS = 0 | 配置quic建立连接时使用的IP地址。 |
+| RCP_QUIC_CONN_IP_RESOLVE = 1 | 配置quic建立连接时使用的IP地址类型。 |
+| RCP_QUIC_CONN_DNS_FUNCTION = 2 | 配置自定义DNS解析函数。 |
+| RCP_QUIC_CONN_ON_CONNECTED_FUNCTION = 3 | 配置quic连接成功建立时的回调函数。 |
+| RCP_QUIC_CONN_ON_ERROR_FUNCTION = 4 | 配置quic连接发生错误时的回调函数。 |
+| RCP_QUIC_CONN_ON_CLOSED_FUNCTION = 5 | 配置quic连接关闭时的回调函数。 |
+| RCP_QUIC_CONN_STREAM_INBOUND_FUNCTION = 6 | 配置quic连接接收到入站流时的回调函数。 |
+| RCP_QUIC_CONN_CONNECT_TIMEOUT_MS = 7 | 配置quic连接连接超时时间（ms）参数。 |
+| RCP_QUIC_CONN_IDLE_TIMEOUT_MS = 8 | 配置quic连接空闲超时时间（ms）参数。 |
+| RCP_QUIC_TLS_CERT_AUTHORITY_FUNCTION = 1000 | 配置quic连接证书验证时的回调函数。 |
+| RCP_QUIC_TLS_CERT_AUTHORITY_CONTENT = 1001 | 配置quic连接用于验证对端的CA证书。 |
+| RCP_QUIC_TLS_SESSION_TICKET_UPDATE_FUNCTION = 1002 | 配置quic会话票据更新时的回调函数。 |
+| RCP_QUIC_TLS_SESSION_TICKET_CONTENT = 1003 | 配置quic会话票据内容参数。 |
+| RCP_QUIC_TP_INITIAL_MAX_BIDIRECTIONAL_STREAMS = 2000 | 配置quic连接的初始最大双向流数传输参数。 |
+| RCP_QUIC_TP_INITIAL_MAX_DATA = 2001 | 配置quic连接的初始最大数据量传输参数。 |
+| RCP_QUIC_TP_INITIAL_MAX_STREAMDATA_BIDIRECTIONAL_LOCAL = 2002 | 配置quic连接的初始最大双向流本地数据量传输参数。 |
+| RCP_QUIC_TP_INITIAL_MAX_STREAMDATA_BIDIRECTIONAL_REMOTE = 2003 | 配置quic连接的初始最大双向流远程数据量传输参数。 |
+| RCP_QUIC_TP_INITIAL_MAX_STREAMDATA_UNIDIRECTIONAL = 2004 | 配置quic连接的初始最大单向流数据量传输参数。 |
+| RCP_QUIC_TP_INITIAL_MAX_UNIDIRECTIONAL_STREAMS = 2005 | 配置quic连接的初始最大单向流数传输参数。 |
+ 
+ 
+  
+
+#### Rcp_QuicStreamOpt
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum Rcp_QuicStreamOpt
+```
+ 
+**描述**
+ 
+quic流选项类型，用于配置流的各种参数和回调函数。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| RCP_QUIC_STREAM_EVENT_FUNCTION = 0 | 配置quic流事件发生时的回调函数。 |
+| RCP_QUIC_STREAM_DATA_FUNCTION = 1 | 配置quic流数据接收时的回调函数。 |
+| RCP_QUIC_INBOUND_STREAM_USER_OBJECT = 2 | 配置入站QUIC流的用户对象。 |
+| RCP_QUIC_STREAM_SND_BUFFER_SIZE_KB = 3 | 设置quic流发送缓冲区大小（KB）参数。 |
+ 
+ 
+  
+
+#### Rcp_QuicConnInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum Rcp_QuicConnInfo
+```
+ 
+**描述**
+ 
+quic连接信息类型。用于查询连接的各种信息。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| RCP_INFO_CONN_GET_LOCALADDR = 0 | 获取quic连接的本地IP地址。 |
+| RCP_INFO_CONN_GET_PEERADDR = 1 | 获取quic连接的对端IP地址。 |
+| RCP_INFO_CONN_DNS_TIME_MS = 2 | 获取quic连接的DNS解析时间（ms）。 |
+| RCP_INFO_CONN_CONNECT_TIME_MS = 3 | 获取quic连接的连接时间（ms）。 |
+| RCP_INFO_CONN_SCID = 4 | 获取quic连接的源CID（Source Connection ID）。 |
+| RCP_INFO_CONN_DCID = 5 | 获取quic连接的目标CID（Destination Connection ID）。 |
+ 
+ 
+  
+
+#### Rcp_QuicStreamInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum Rcp_QuicStreamInfo
+```
+ 
+**描述**
+ 
+quic流信息类型。用于查询流的各种信息。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| RCP_INFO_STREAM_SND_BUFFER_SIZE_KB = 0 | 获取quic流的发送缓冲区大小（KB）。 |
+ 
+ 
+  
+
+#### Rcp_QuicErrorCode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum Rcp_QuicErrorCode
+```
+ 
+**描述**
+ 
+quic请求中可能出现的错误码。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| RCP_QUIC_ERROR_CODE_SUCCESS = 0 | 操作成功。 |
+| RCP_QUIC_PERMISSION_DENIED = 201 | 权限被拒绝，需要ohos.permission.INTERNET权限。 |
+| RCP_QUIC_ERROR_CODE_FAILED = 1007920001 | quic相关操作失败。 |
+| RCP_QUIC_ERROR_CODE_INVALID_PARAM = 1007920002 | 无效参数，传入的参数不符合要求。 |
+| RCP_QUIC_ERROR_CODE_INVALID_STATE = 1007920003 | 无效连接状态，当前状态下不允许执行该操作。 |
+| RCP_QUIC_ERROR_CODE_OUT_OF_MEM = 1007920004 | 内存不足，无法分配所需内存。 |
+| RCP_QUIC_ERROR_CODE_CLOSE_FROM_PEER = 1007920005 | quic连接被对端关闭。 |
+| RCP_QUIC_ERROR_CODE_HANDSHAKE_TIMEOUT = 1007920006 | quic连接握手超时。 |
+| RCP_QUIC_ERROR_CODE_NETWORK_IDLE_TIMEOUT = 1007920007 | quic连接网络空闲超时。 |
+| RCP_QUIC_ERROR_INVALID_FRAME = 1007920008 | quic连接接收到无效帧。 |
+| RCP_QUIC_ERROR_CODE_SEND_PENDING = 1007920009 | quic连接发送挂起，缓冲区已满。 |
+| RCP_QUIC_ERROR_CODE_FINALIZE_PENDING = 1007920010 | quic连接关闭挂起。 |
+| RCP_QUIC_ERROR_CODE_NETWORK_UNREACHABLE = 1007920011 | 网络不可达。 |
+| RCP_QUIC_ERROR_CODE_ENCRYPT_ERROR = 1007920012 | 加密错误，TLS握手或数据加密失败。 |
+| RCP_QUIC_ERROR_CODE_BUFFER_TOO_SMALL = 1007920013 | 内部缓冲区过小。 |
+| RCP_QUIC_ERROR_CODE_EAGAIN = 1007920015 | 非阻塞I/O操作资源暂时不可用，应稍后重试。 |
+| RCP_QUIC_ERROR_CODE_STREAM_CLOSED = 1007920018 | quic流已关闭。 |
+| RCP_QUIC_ERROR_CODE_STREAM_RESET_RECEIVED = 1007920019 | quic流被对端重置。 |
+| RCP_QUIC_ERROR_CODE_STREAM_STOP_SENDING_RECEIVED = 1007920020 | quic流接收到停止发送请求。 |
+ 
+ 
+  
+
+#### Rcp_QuicStreamDirection
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum Rcp_QuicStreamDirection
+```
+ 
+**描述**
+ 
+quic流的方向类型。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| RCP_QUIC_STREAM_BIDI = 0 | 双向流，流的两端都可以发送和接收数据。 |
+| RCP_QUIC_STREAM_UNI = 1 | 单向流，流只能由创建端发送数据，接收端只能接收。 |
+ 
+ 
+  
+
+#### Rcp_QuicStreamShutdown
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum Rcp_QuicStreamShutdown
+```
+ 
+**描述**
+ 
+quic流的关闭操作的类型。用于指定关闭流的读或写方向。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| RCP_QUIC_STREAM_SHUTDOWN_READ = 1 | 关闭流的读方向，不再接收数据。 |
+| RCP_QUIC_STREAM_SHUTDOWN_WRITE = 2 | 关闭流的写方向，不再发送数据。 |
+ 
+ 
+  
+
 #### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2497,7 +3194,7 @@ uint32_t HMS_Rcp_CancelRequest (Rcp_Session * session, const Rcp_Request * reque
  
 **返回：**
  
-取消成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，会话已关闭或无效时返回[1007900993](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900993-会话已关闭)。
+取消成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，会话已关闭或无效时返回[1007900993](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900993-会话已关闭)。
  
   
 
@@ -2526,7 +3223,7 @@ uint32_t HMS_Rcp_CancelSession (Rcp_Session * session)
  
 **返回：**
  
-取消成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，会话已关闭或无效时返回[1007900993](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900993-会话已关闭)。
+取消成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，会话已关闭或无效时返回[1007900993](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900993-会话已关闭)。
  
   
 
@@ -2555,7 +3252,7 @@ uint32_t HMS_Rcp_CloseSession (Rcp_Session ** session)
  
 **返回：**
  
-关闭成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，会话已关闭或无效时返回[1007900993](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900993-会话已关闭)。
+关闭成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，会话已关闭或无效时返回[1007900993](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900993-会话已关闭)。
  
   
 
@@ -2723,7 +3420,7 @@ uint32_t HMS_Rcp_GetDefaultSession (Rcp_Session ** session)
  
 **返回：**
  
-设置成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[1007900401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900401-接口参数错误)，遇到内存问题时返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900027-内存不足)。
+设置成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[1007900401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900401-接口参数错误)，遇到内存问题时返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900027-内存不足)。
  
   
 
@@ -2938,7 +3635,7 @@ uint32_t HMS_Rcp_Fetch (Rcp_Session * session, Rcp_Request * request, const Rcp_
  
 **返回：**
  
-执行成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，会话已关闭或无效时返回[1007900993](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900993-会话已关闭)。
+执行成功时返回0，权限不足时返回[201](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section201-权限校验失败)，输入参数为空指针时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，会话已关闭或无效时返回[1007900993](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900993-会话已关闭)。
  
 **权限：**
  
@@ -3041,7 +3738,7 @@ Rcp_HeaderEntry* 指向所有获取到的键值对[Rcp_HeaderEntry](https://deve
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-Rcp_HeaderValue* HMS_Rcp_GetHeaderValue (Rcp_Headers * headers, const char * name )
+Rcp_HeaderValue* HMS_Rcp_GetHeaderValue (Rcp_Headers * headers, const char * name)
 ```
  
 **描述**
@@ -3069,7 +3766,7 @@ Rcp_HeaderValue* 指向获得的[Rcp_HeaderValue](https://developer.huawei.com/c
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-Rcp_MultipartFormFieldValue* HMS_Rcp_GetMultipartFormValue (Rcp_MultipartForm * multipartForm, const char * key )
+Rcp_MultipartFormFieldValue* HMS_Rcp_GetMultipartFormValue (Rcp_MultipartForm * multipartForm, const char * key)
 ```
  
 **描述**
@@ -3089,6 +3786,62 @@ Rcp_MultipartFormFieldValue* HMS_Rcp_GetMultipartFormValue (Rcp_MultipartForm * 
 **返回：**
  
 Rcp_MultipartFormFieldValue* 多部分表单的值。指向[Rcp_MultipartFormFieldValue](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___multipart_form_field_value)的指针。
+ 
+  
+
+#### HMS_Rcp_SetFormOrder()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+uint32_t HMS_Rcp_SetFormOrder (Rcp_Form * form, Rcp_FormOrder order)
+```
+ 
+**描述**
+ 
+设置Form表单的键值对发送顺序。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| form | 需要设置的表单。指向Rcp_Form的指针。 |
+| order | 指定的keys顺序。 |
+ 
+ 
+**返回：**
+ 
+设置成功返回0，入参有空指针或者size大小为0时返回[1007900401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900401-接口参数错误)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900027-内存不足)。
+ 
+  
+
+#### HMS_Rcp_SetMultipartFormOrder()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+uint32_t HMS_Rcp_SetMultipartFormOrder (Rcp_MultipartForm * multipartForm, Rcp_FormOrder order)
+```
+ 
+**描述**
+ 
+设置MultipartForm表单的键值对发送顺序。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| multipartForm | 需要设置的表单。指向Rcp_MultipartForm的指针。 |
+| order | 指定的keys顺序。 |
+ 
+ 
+**返回：**
+ 
+设置成功返回0，入参有空指针或者size大小为0时返回[1007900401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900401-接口参数错误)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900027-内存不足)。
  
   
 
@@ -3124,7 +3877,7 @@ Rcp_RequestCookieEntry* 返回请求Cookie中的所有键值对。指向[Rcp_Req
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-char* HMS_Rcp_GetRequestCookieValue (Rcp_RequestCookies * cookies, const char * name )
+char* HMS_Rcp_GetRequestCookieValue (Rcp_RequestCookies * cookies, const char * name)
 ```
  
 **描述**
@@ -3179,7 +3932,7 @@ Rcp_CookieAttributeEntry* HMS_Rcp_GetResponseCookieAttrEntries (Rcp_CookieAttrib
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-const char* HMS_Rcp_GetResponseCookieAttrValue (Rcp_CookieAttributes * cookieAttributes, const char * name )
+const char* HMS_Rcp_GetResponseCookieAttrValue (Rcp_CookieAttributes * cookieAttributes, const char * name)
 ```
  
 **描述**
@@ -3265,7 +4018,7 @@ char* 返回的会话ID。
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-uint32_t HMS_Rcp_SetFormValue (Rcp_Form * form, const char * key, const Rcp_FormFieldValue * value )
+uint32_t HMS_Rcp_SetFormValue (Rcp_Form * form, const char * key, const Rcp_FormFieldValue * value)
 ```
  
 **描述**
@@ -3285,7 +4038,7 @@ uint32_t HMS_Rcp_SetFormValue (Rcp_Form * form, const char * key, const Rcp_Form
  
 **返回：**
  
-设置成功返回0，入参有空指针或者size大小为0时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900027-内存不足)。
+设置成功返回0，入参有空指针或者size大小为0时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900027-内存不足)。
  
   
 
@@ -3294,7 +4047,7 @@ uint32_t HMS_Rcp_SetFormValue (Rcp_Form * form, const char * key, const Rcp_Form
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-uint32_t HMS_Rcp_SetHeaderValue (Rcp_Headers * headers, const char * name, const char * value )
+uint32_t HMS_Rcp_SetHeaderValue (Rcp_Headers * headers, const char * name, const char * value)
 ```
  
 **描述**
@@ -3314,7 +4067,7 @@ uint32_t HMS_Rcp_SetHeaderValue (Rcp_Headers * headers, const char * name, const
  
 **返回：**
  
-设置成功返回0，入参有空指针或者size大小为0时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900027-内存不足)。
+设置成功返回0，入参有空指针或者size大小为0时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900027-内存不足)。
  
   
 
@@ -3323,7 +4076,7 @@ uint32_t HMS_Rcp_SetHeaderValue (Rcp_Headers * headers, const char * name, const
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-uint32_t HMS_Rcp_SetMultipartFormValue (Rcp_MultipartForm * multipartForm, const char * key, const Rcp_MultipartFormFieldValue * value )
+uint32_t HMS_Rcp_SetMultipartFormValue (Rcp_MultipartForm * multipartForm, const char * key, const Rcp_MultipartFormFieldValue * value)
 ```
  
 **描述**
@@ -3343,7 +4096,7 @@ uint32_t HMS_Rcp_SetMultipartFormValue (Rcp_MultipartForm * multipartForm, const
  
 **返回：**
  
-设置成功返回0，入参有空指针或者size大小为0时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900027-内存不足)。
+设置成功返回0，入参有空指针或者size大小为0时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900027-内存不足)。
  
   
 
@@ -3352,7 +4105,7 @@ uint32_t HMS_Rcp_SetMultipartFormValue (Rcp_MultipartForm * multipartForm, const
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-uint32_t HMS_Rcp_SetRequestCookieValue (Rcp_RequestCookies * cookies, const char * name, const char * value )
+uint32_t HMS_Rcp_SetRequestCookieValue (Rcp_RequestCookies * cookies, const char * name, const char * value)
 ```
  
 **描述**
@@ -3372,7 +4125,7 @@ uint32_t HMS_Rcp_SetRequestCookieValue (Rcp_RequestCookies * cookies, const char
  
 **返回：**
  
-设置成功返回0，入参有空指针或者size大小为0时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900027-内存不足)。
+设置成功返回0，入参有空指针或者size大小为0时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)，内存问题返回[1007900027](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900027-内存不足)。
  
   
 
@@ -3381,7 +4134,7 @@ uint32_t HMS_Rcp_SetRequestCookieValue (Rcp_RequestCookies * cookies, const char
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-uint32_t HMS_Rcp_SetRequestOnBinaryDataRecvCallback (Rcp_Request * request, Rcp_OnBinaryReceiveCallback onBinaryReceiveCallback);
+uint32_t HMS_Rcp_SetRequestOnBinaryDataRecvCallback (Rcp_Request * request, Rcp_OnBinaryReceiveCallback onBinaryReceiveCallback)
 ```
  
 **描述**
@@ -3409,7 +4162,7 @@ uint32_t HMS_Rcp_SetRequestOnBinaryDataRecvCallback (Rcp_Request * request, Rcp_
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-uint32_t HMS_Rcp_SetRequestConnectOnly (Rcp_Request * request, bool connectOnly);
+uint32_t HMS_Rcp_SetRequestConnectOnly (Rcp_Request * request, bool connectOnly)
 ```
  
 **描述**
@@ -3428,7 +4181,7 @@ uint32_t HMS_Rcp_SetRequestConnectOnly (Rcp_Request * request, bool connectOnly)
  
 **返回：**
  
-设置成功时返回0，输入参数为空指针时返回[1007900401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/remote-communication-error-code#section1007900401-接口参数错误)。
+设置成功时返回0，输入参数为空指针时返回[1007900401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900401-接口参数错误)。
  
   
 
@@ -3437,7 +4190,7 @@ uint32_t HMS_Rcp_SetRequestConnectOnly (Rcp_Request * request, bool connectOnly)
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 ```text
-uint32_t HMS_Rcp_SetRequestOnStatusCodeReceiveCallback (Rcp_Request * request, Rcp_OnStatusCodeReceiveCallback onStatusCodeReceiveCallback);
+uint32_t HMS_Rcp_SetRequestOnStatusCodeReceiveCallback (Rcp_Request * request, Rcp_OnStatusCodeReceiveCallback onStatusCodeReceiveCallback)
 ```
  
 **描述**
@@ -3457,3 +4210,498 @@ uint32_t HMS_Rcp_SetRequestOnStatusCodeReceiveCallback (Rcp_Request * request, R
 **返回：**
  
 设置成功返回0，参数错误时返回[401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal#section401-参数检查失败)。
+ 
+  
+
+#### HMS_Rcp_SetRequestGetDataCallback()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+uint32_t HMS_Rcp_SetRequestGetDataCallback (Rcp_Request * request, Rcp_OnGetDataCallback  getDataCallback)
+```
+ 
+**描述**
+ 
+设置获取数据的回调函数。不可通过重新设置[Rcp_GetDataCallbackFunc](#rcp_getdatacallbackfunc)为NULL实现取消监听。调用此函数设置非空的[Rcp_GetDataCallbackFunc](#rcp_getdatacallbackfunc)后，[Rcp_Request](#rcp_request)的[content](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___request#content)失效。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| request | 需要设置响应回调的请求。指向Rcp_Request的指针。 |
+| getDataCallback | 需要设置获取数据的回调函数。 |
+ 
+ 
+**返回：**
+ 
+设置成功时返回0，输入request参数为空指针时返回[1007900401](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-remote-communication#section1007900401-接口参数错误)。
+ 
+  
+
+#### HMS_Rcp_QuicConnSetOpt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicConnSetOpt (Rcp_QuicConn *conn, Rcp_QuicConnOpt opt, const void *optVal, uint32_t optLen)
+```
+ 
+**描述**
+ 
+设置quic连接选项。用于设置连接的各种参数和回调函数。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| opt | quic连接选项类型，可配置Rcp_QuicConnOpt类型参数。 |
+| optVal | quic连接选项的值。 |
+| optLen | quic连接选项的长度。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic连接选项配置结果，RCP_QUIC_ERROR_CODE_SUCCESS为配置quic连接选项成功，其余返回值均为配置失败。
+ 
+  
+
+#### HMS_Rcp_QuicConnGetInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicConnGetInfo (Rcp_QuicConn *conn, Rcp_QuicConnInfo info, void *infoVal, uint32_t *infoLen)
+```
+ 
+**描述**
+ 
+获取quic连接信息。用于建立quic连接成功后，获取相关quic连接信息。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| info | quic连接信息类型，可获得Rcp_QuicConnInfo相关参数。 |
+| infoVal | quic连接信息的值。 |
+| infoLen | quic连接信息的长度。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic连接信息获取结果，RCP_QUIC_ERROR_CODE_SUCCESS表示获取quic连接相关参数成功，其余返回值均为获取失败。
+ 
+  
+
+#### HMS_Rcp_QuicStreamSetOpt()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicStreamSetOpt (Rcp_QuicConn *conn, uint64_t streamId, Rcp_QuicStreamOpt opt, const void *optVal, uint32_t optLen)
+```
+ 
+**描述**
+ 
+设置quic连接中流的参数。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| streamId | quic流ID。 |
+| opt | quic流选项类型，可配置Rcp_QuicStreamOpt类型相关选项。 |
+| optVal | quic流选项的值。 |
+| optLen | quic流选项的长度。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic流选项配置结果，RCP_QUIC_ERROR_CODE_SUCCESS表示配置quic相关选项成功，其余返回值均为配置失败。
+ 
+  
+
+#### HMS_Rcp_QuicStreamGetInfo()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicStreamGetInfo (Rcp_QuicConn *conn, uint64_t streamId, Rcp_QuicStreamInfo info, void *infoVal, uint32_t *infoLen)
+```
+ 
+**描述**
+ 
+获取quic连接中streamId对应流的信息。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| streamId | quic流ID。 |
+| info | quic流信息类型，可获取Rcp_QuicStreamInfo类型相关信息。 |
+| infoVal | quic流信息的值。 |
+| infoLen | quic流信息的长度。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic流信息获取结果，RCP_QUIC_ERROR_CODE_SUCCESS表示获取quic流相关参数成功，其余返回值均为获取失败。
+ 
+  
+
+#### HMS_Rcp_QuicCreateSession()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicSession *HMS_Rcp_QuicCreateSession ()
+```
+ 
+**描述**
+ 
+创建quic会话对象。一个quic会话中可以管理多个quic连接。
+ 
+**起始版本：** 26.0.0
+ 
+**返回：**
+ 
+[Rcp_QuicSession](#rcp_quicsession)*: quic会话对象指针，失败返回NULL。
+ 
+  
+
+#### HMS_Rcp_QuicDestroySession()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void HMS_Rcp_QuicDestroySession (Rcp_QuicSession *session)
+```
+ 
+**描述**
+ 
+销毁quic会话对象。释放quic会话资源。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| session | quic会话对象。 |
+ 
+ 
+  
+
+#### HMS_Rcp_QuicConnCreate()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicConn *HMS_Rcp_QuicConnCreate (char *alpn, void *userObject)
+```
+ 
+**描述**
+ 
+创建quic连接对象。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| alpn | 应用层协议协商（ALPN）字符串。 |
+| userObject | 用户定义的对象。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicConn](#rcp_quicconn)*: quic连接对象指针，失败返回NULL。
+ 
+  
+
+#### HMS_Rcp_QuicConnConnect()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicConnConnect (Rcp_QuicSession *session, Rcp_QuicConn *conn, const char *serverName, uint16_t port)
+```
+ 
+**描述**
+ 
+发起quic连接握手。握手结果通过连接回调通知。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| session | quic会话对象。 |
+| conn | quic连接对象。 |
+| serverName | 服务器名称（域名或IP地址）。 |
+| port | 服务器端口号。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic连接发起结果，RCP_QUIC_ERROR_CODE_SUCCESS表示quic连接发起成功，其余返回值均为发起失败。
+ 
+**权限：**
+ 
+ohos.permission.INTERNET
+ 
+  
+
+#### HMS_Rcp_QuicConnDestroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicConnDestroy (Rcp_QuicConn *conn)
+```
+ 
+**描述**
+ 
+销毁quic连接对象。释放quic连接资源。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic连接对象销毁结果，RCP_QUIC_ERROR_CODE_SUCCESS表示quic连接对象销毁成功，其余返回值均为销毁失败。
+ 
+  
+
+#### HMS_Rcp_QuicConnStreamOpen()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamOpen (Rcp_QuicConn *conn, Rcp_QuicStreamDirection direction, uint64_t *streamId, void *userObject)
+```
+ 
+**描述**
+ 
+在quic连接中打开一个quic流。quic连接建立成功后才能打开quic流。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| direction | quic流方向，配置quic方向Rcp_QuicStreamDirection枚举类型。 |
+| streamId | 创建的quic流ID指针。 |
+| userObject | 流回调的用户对象。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic流创建结果，RCP_QUIC_ERROR_CODE_SUCCESS表示quic流创建成功，其余返回值均为创建失败。
+ 
+**权限：**
+ 
+ohos.permission.INTERNET
+ 
+  
+
+#### HMS_Rcp_QuicConnStreamSend()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamSend (Rcp_QuicConn *conn, uint64_t streamId, const Rcp_QuicIoVec *ioVec, uint32_t ioVecCount, bool fin)
+```
+ 
+**描述**
+ 
+通过quic流发送数据。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| streamId | quic流ID。 |
+| ioVec | 发送的内容数据向量数组。 |
+| ioVecCount | 发送的内容数据向量数量。 |
+| fin | true表示发送内容是最后一段数据，false表示发送的内容不是最后一段数据。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic流发送数据结果，RCP_QUIC_ERROR_CODE_SUCCESS表示quic流发送数据成功，其余返回值均为发送失败。
+ 
+**权限：**
+ 
+ohos.permission.INTERNET
+ 
+  
+
+#### HMS_Rcp_QuicConnStreamWantRead()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamWantRead (Rcp_QuicConn *conn, uint64_t streamId)
+```
+ 
+**描述**
+ 
+触发quic流数据读取回调。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| streamId | quic流ID。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic流数据读取回调开启结果，RCP_QUIC_ERROR_CODE_SUCCESS表示quic流数据读取回调开启成功，其余返回值均为开启失败。
+ 
+  
+
+#### HMS_Rcp_QuicConnStreamReset()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamReset (Rcp_QuicConn *conn, uint64_t streamId, uint64_t appErr)
+```
+ 
+**描述**
+ 
+重置quic流。立即终止流，丢弃所有未发送和已接收的数据。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| streamId | quic流ID。 |
+| appErr | 应用错误码。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic流重置结果，RCP_QUIC_ERROR_CODE_SUCCESS表示quic流重置成功，其余返回值均为重置失败。
+ 
+**权限：**
+ 
+ohos.permission.INTERNET
+ 
+  
+
+#### HMS_Rcp_QuicConnStreamShutdown()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicErrorCode HMS_Rcp_QuicConnStreamShutdown (Rcp_QuicConn *conn, uint64_t streamId, Rcp_QuicStreamShutdown flag, uint64_t appErr)
+```
+ 
+**描述**
+ 
+关闭连接中streamId对应流的读或写。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| conn | quic连接对象。 |
+| streamId | quic流ID。 |
+| flag | quic流关闭标志，可选Rcp_QuicStreamShutdown类型。 |
+| appErr | 应用错误码。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicErrorCode](#rcp_quicerrorcode): quic流关闭结果，RCP_QUIC_ERROR_CODE_SUCCESS表示quic流关闭成功，其余返回值均为关闭失败。
+ 
+**权限：**
+ 
+ohos.permission.INTERNET
+ 
+  
+
+#### HMS_Rcp_QuicStreamGetDirection()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Rcp_QuicStreamDirection HMS_Rcp_QuicStreamGetDirection (uint64_t streamId)
+```
+ 
+**描述**
+ 
+获取quic流的方向类型。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| streamId | quic流ID。 |
+ 
+ 
+**返回：**
+ 
+[Rcp_QuicStreamDirection](#rcp_quicstreamdirection): quic流的方向，RCP_QUIC_STREAM_BIDI表示双向流，RCP_QUIC_STREAM_UNI表示单向流。
+ 
+  
+
+#### HMS_Rcp_QuicFreeSlist()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void HMS_Rcp_QuicFreeSlist (Rcp_QuicSlist *list)
+```
+ 
+**描述**
+ 
+释放[Rcp_QuicSlist](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___quic_slist)链表，释放链表中的所有节点和数据。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| list | Rcp_QuicSlist链表指针。 |

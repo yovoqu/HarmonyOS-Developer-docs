@@ -1,12 +1,12 @@
 # @Provider装饰器和@Consumer装饰器：跨组件层级双向同步
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-provider-and-consumer
 
 @Provider和@Consumer用于跨组件层级数据双向同步，可以使得开发者不用拘泥于组件层级。
 
-@Provider和@Consumer属于状态管理V2装饰器，所以只能在@ComponentV2中才能使用，在@Component中使用会编译报错。
+@Provider和@Consumer属于状态管理V2装饰器，所以只能在[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)中才能使用，在[@Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components)中使用会编译报错。
 
 @Provider和@Consumer提供了跨组件层级数据双向同步的能力。在阅读本文档前，建议提前阅读：[@ComponentV2](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#componentv2)。常见问题请参考[组件内状态变量常见问题](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state-management-faq-inner-component)。
 
@@ -22,7 +22,7 @@
 @Consumer，即数据消费方，可以通过绑定同样的key获取其最近父节点的@Provider的数据，当查找不到@Provider的数据时，使用本地默认值。图示如下。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/19/v3/vwH_84F6SOqI8P1BpCpTvw/zh-cn_image_0000002611833503.png?HW-CC-KV=V1&HW-CC-Date=20260528T030447Z&HW-CC-Expire=86400&HW-CC-Sign=9E7BBEC49B06249F950BE3781ABCB54DFAF9EEA61E5BA1CF13EE1A833DCAC5BD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/qhhtA23pTE6nKbokz0-4WQ/zh-cn_image_0000002626068172.png?HW-CC-KV=V1&HW-CC-Date=20260624T020744Z&HW-CC-Expire=86400&HW-CC-Sign=C2337BB105BC304AF25130EDD6E6CE614B87D24CD3BE8A8BD2F2FB6BAC87824F)
 
 
 @Provider和@Consumer装饰的数据类型需要一致。
@@ -768,7 +768,7 @@ struct Child {
 下面给出一个示例，实现如下功能：
 1. BuilderNode通过[全局自定义构建函数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-builder#全局自定义构建函数)构建组件树，组件树的根[FrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode)节点可通过[getFrameNode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-buildernode#getframenode)获取，该节点可直接由[NodeController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-nodecontroller)返回并挂载于[NodeContainer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-nodecontainer)节点下。
 2. 挂载到自定义组件节点树时，BuilderNode会通过addBuilderNode方法挂载在自定义组件下，此时BuilderNode节点下的@Consumer会向上查找@Provider，根据key的匹配规则找到最近的@Provider后，会和@Provider建立双向同步关系。如果找不到配对的@Provider，则@Consumer仍使用默认值。
-3. 建立双向同步的关系后，如果@Provider装饰变量的值和@Consumer的默认值不同，则会回调@Consumer的@Monitor方法，以及与@Consumer有同步关系的变量的@Monitor方法，例如：@Consumer通知其子组件中的@Param触发@Monitor方法。
+3. 建立双向同步的关系后，如果@Provider装饰变量的值和@Consumer的默认值不同，则会回调@Consumer的@Monitor方法，以及与@Consumer有同步关系的变量的[@Monitor](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-monitor)方法，例如：@Consumer通知其子组件中的@Param触发@Monitor方法。
 4. BuilderNode从组件树卸载后，@Consumer会再次试图查找对应的@Provider，如果发现从组件树卸载后无法再找到之前配对的@Provider，则断开和@Provider的双向同步关系，@Consumer装饰的变量恢复成默认值。
 5. @Consumer断开和@Provider的连接，恢复成默认值时，会判断@Consumer装饰变量的值相对于从@Provider变为@Consumer的默认值是否有变化，如果有变化，则会回调@Consumer的@Monitor方法以及与该@Consumer存在同步关系的变量的@Monitor方法。
 

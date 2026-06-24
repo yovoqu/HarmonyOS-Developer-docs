@@ -1,6 +1,6 @@
 # Interface (AutoExposure)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autoexposure
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -101,7 +101,7 @@ setExposureMode(aeMode: ExposureMode): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7400102 | Operation not allowed. |
+| 7400102 | Operation not allowed. 适用版本：19+ |
 | 7400103 | Session not config. |
  
  
@@ -247,7 +247,7 @@ setExposureBias(exposureBias: number): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7400102 | Operation not allowed. |
+| 7400102 | Operation not allowed. 适用版本：12+ |
 | 7400103 | Session not config. |
  
  
@@ -412,5 +412,87 @@ function setExposureMeteringMode(photoSession: camera.PhotoSession, aeMeteringMo
     let err = error as BusinessError;
     console.error(`The setExposureMeteringMode call failed. error code: ${err.code}`);
   }
+}
+```
+ 
+  
+
+#### onExposureStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onExposureStateChange(callback: Callback&lt;ExposureState&gt;): void
+ 
+监听曝光状态事件变更。使用callback异步回调。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;ExposureState&gt; | 是 | 回调函数，返回当前曝光状态。 |
+ 
+ 
+**示例：**
+ 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function callback(exposureState: camera.ExposureState): void {
+  console.info(`exposureState: ${exposureState}`);
+}
+
+function registerPhotoOutputCaptureStart(captureSession: camera.PhotoSession): void {
+  captureSession.onExposureStateChange(callback);
+}
+```
+ 
+  
+
+#### offExposureStateChange
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offExposureStateChange(callback?: Callback&lt;ExposureState&gt;): void
+ 
+注销监听曝光状态事件变更。使用callback异步回调。
+ 
+**起始版本：** 26.0.0
+ 
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;ExposureState&gt; | 否 | 回调函数，如果指定参数则取消对应callback，callback对象如果为空或为匿名函数，则取消所有callback。 |
+ 
+ 
+**示例：**
+ 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function callback(exposureState: camera.ExposureState): void {
+  console.info(`exposureState: ${exposureState}`);
+}
+
+function unregisterPhotoOutputCaptureStart(captureSession: camera.PhotoSession): void {
+  captureSession.offExposureStateChange(callback);
+}
+
+function unregisterPhotoOutputCaptureStartWithoutParam(captureSession: camera.PhotoSession): void {
+  captureSession.offExposureStateChange();
 }
 ```

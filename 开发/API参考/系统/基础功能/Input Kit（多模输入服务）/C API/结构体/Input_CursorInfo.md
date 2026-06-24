@@ -1,6 +1,6 @@
 # Input_CursorInfo
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-cursorinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct Input_CursorInfo Input_CursorInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-定义鼠标光标信息，包括光标显示状态、光标样式、光标大小档位、光标颜色。
+定义鼠标光标信息，用于在输入系统中管理和控制鼠标光标的显示行为和外观属性。包括光标显示状态、光标样式、光标大小档位、光标颜色。
  
 **起始版本：** 22
  

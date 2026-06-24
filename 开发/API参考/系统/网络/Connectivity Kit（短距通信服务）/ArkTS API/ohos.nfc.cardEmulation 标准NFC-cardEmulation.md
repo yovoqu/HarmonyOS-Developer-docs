@@ -1,6 +1,6 @@
 # @ohos.nfc.cardEmulation (标准NFC-cardEmulation)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cardemulation
 **支持设备：** Phone | Wearable | lite_wearable
@@ -59,7 +59,7 @@ HCE(Host Card Emulation)，称为基于主机的卡模拟，表示不依赖安�
 ```
 
 ```json
-// 轻量级智能穿戴设备
+// 适用于轻量级智能穿戴设备
 {
   "module": {
     // 其他已声明的属性
@@ -119,7 +119,7 @@ HCE(Host Card Emulation)，称为基于主机的卡模拟，表示不依赖安�
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/34ysABU9RW2GQjAALrKelw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025225Z&HW-CC-Expire=86400&HW-CC-Sign=25DCBDB8A40A4C66C6A3EF537B63D5FA122A8B5300BB6158B183DBFF03C3D1A3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/6d0dzLN7SCytwq-wqijnUQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020110Z&HW-CC-Expire=86400&HW-CC-Sign=004A9EBA72173B7232A1E7D6148F93F5576E5298C94334021740920E64F3B3CC)
 
 1. 声明"actions"字段的内容填写，必须包含"ohos.nfc.cardemulation.action.HOST_APDU_SERVICE"，不能更改。
 2. 声明aid（参考ISO/IEC 7816-4规范）时，name必须为payment-aid或者other-aid。填写错误会造成解析失败。
@@ -140,7 +140,7 @@ import { cardEmulation } from '@kit.ConnectivityKit';
 ```
 
 ```text
-// 轻量级智能穿戴设备
+// 适用于轻量级智能穿戴设备
 import cardEmulation from '@ohos.nfc.cardEmulation';
 ```
 
@@ -397,6 +397,68 @@ startHCE(aidList: string[]): boolean
 | boolean | true: 启动HCE功能或HCE已启动， false: 启动失败。 |
 
 
+**ArkTS示例：**
+
+示例请参见[on](#on8)接口的示例。
+
+**JS示例：**
+
+```xml
+<!-- 适用于轻量级智能穿戴设备 -->
+<!-- xxx.hml -->
+<div class="container">
+    <text class="title" style="font-size: {{fontSize}}; color: {{fontColor}};">
+        测试
+    </text>
+    <input type="button" value="startHCE" style="width: 240px; height: 50px; margin: 5px;" onclick="onClick"></input>
+</div>
+```
+
+```text
+/* 适用于轻量级智能穿戴设备 */
+/* xxx.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0px;
+  top: 0px;
+  width: 454px;
+  height: 454px;
+}
+.title {
+  font-size: 100px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+.button {
+  font-size: 30px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+```
+
+```text
+// 适用于轻量级智能穿戴设备
+// xxx.js
+import cardEmulation from '@ohos.nfc.cardEmulation';
+
+export default  {
+    data: {
+        fontSize: '30px',
+        fontColor: '#FF1AFF00',
+    },
+    onClick() {
+        var hceService = new cardEmulation.HceService();
+        hceService.startHCE([
+            "F0010203040506", "A0000000041010"
+        ])
+    }
+}
+```
+
 
 
 #### start9+
@@ -458,9 +520,65 @@ stopHCE(): boolean
 | boolean | true: 禁用HCE功能或HCE已禁用，false: 禁用失败。 |
 
 
-**示例：**
+**ArkTS示例：**
 
 示例请参见[on](#on8)接口的示例。
+
+**JS示例：**
+
+```xml
+<!-- 适用于轻量级智能穿戴设备 -->
+<!-- xxx.hml -->
+<div class="container">
+    <text class="title" style="font-size: {{fontSize}}; color: {{fontColor}};">
+        测试
+    </text>
+    <input type="button" value="stopHCE" style="width: 240px; height: 50px; margin: 5px;" onclick="onClick"></input>
+</div>
+```
+
+```text
+/* 适用于轻量级智能穿戴设备 */
+/* xxx.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0px;
+  top: 0px;
+  width: 454px;
+  height: 454px;
+}
+.title {
+  font-size: 100px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+.button {
+  font-size: 30px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+```
+
+```text
+// 适用于轻量级智能穿戴设备
+// xxx.js
+import cardEmulation from '@ohos.nfc.cardEmulation';
+
+export default  {
+    data: {
+        fontSize: '30px',
+        fontColor: '#FF1AFF00',
+    },
+    onClick() {
+        var hceService = new cardEmulation.HceService();
+        hceService.stopHCE();
+    }
+}
+```
 
 
 
@@ -532,18 +650,17 @@ on(type: 'hceCmd', callback: AsyncCallback<number[]>): void
 | 801 | Capability not supported. |
 
 
-**示例：**
+**ArkTS示例：**
 
 ```text
 // 适用于除轻量级智能穿戴产品之外其他设备
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { cardEmulation } from '@kit.ConnectivityKit';
 import { AsyncCallback } from '@kit.BasicServicesKit';
-import { ElementName } from './bundleManager/ElementName'
-import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { bundleManager, AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 
 let hceService: cardEmulation.HceService = new cardEmulation.HceService();
-let element: ElementName;
+let element: bundleManager.ElementName;
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, param: AbilityConstant.LaunchParam) {
@@ -567,7 +684,7 @@ export default class EntryAbility extends UIAbility {
 }
 ```
 
-**示例：**
+**JS示例：**
 
 ```text
 // 适用于轻量级智能穿戴设备
@@ -630,7 +747,7 @@ off(type: 'hceCmd', callback?: AsyncCallback<number[]>): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 要取消订阅的事件类型，固定填"hceCmd"字符串。 |
-| callback | AsyncCallback<number[]> | 否 | 回调函数，返回的每个number十六进制表示，范围是0x00~0xFF。 |
+| callback | AsyncCallback<number[]> | 否 | 回调函数，返回的每个number十六进制表示，范围是0x00~0xFF。不填该参数则取消订阅该type对应的回调。 |
 
 
 **错误码：**
@@ -650,11 +767,10 @@ off(type: 'hceCmd', callback?: AsyncCallback<number[]>): void
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { cardEmulation } from '@kit.ConnectivityKit';
 import { AsyncCallback } from '@kit.BasicServicesKit';
-import { ElementName } from './bundleManager/ElementName'
-import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { bundleManager, AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 
 let hceService: cardEmulation.HceService = new cardEmulation.HceService();
-let element: ElementName;
+let element: bundleManager.ElementName;
 const apduCallback: AsyncCallback<number[]> = (err, data) => {
   // 处理数据和异常
   console.info("AsyncCallback got apdu data");
@@ -703,6 +819,75 @@ sendResponse(responseApdu: number[]): void
 | --- | --- | --- | --- |
 | responseApdu | number[] | 是 | 发送到对端读卡设备的符合APDU协议的数据，每个number十六进制表示，范围是0x00~0xFF。 |
 
+
+**ArkTS示例：**
+
+示例请参见[transmit](#transmit9)接口的示例。
+
+**JS示例：**
+
+```xml
+<!-- 适用于轻量级智能穿戴设备 -->
+<!-- xxx.hml -->
+<div class="container">
+    <text class="title" style="font-size: {{fontSize}}; color: {{fontColor}};">
+        测试
+    </text>
+    <input type="button" value="sendResponse" style="width: 240px; height: 50px; margin: 5px;" onclick="onClick"></input>
+</div>
+```
+
+```text
+/* 适用于轻量级智能穿戴设备 */
+/* xxx.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0px;
+  top: 0px;
+  width: 454px;
+  height: 454px;
+}
+.title {
+  font-size: 100px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+.button {
+  font-size: 30px;
+  text-align: center;
+  width: 200px;
+  height: 100px;
+}
+```
+
+```json
+// 适用于轻量级智能穿戴设备
+// xxx.js
+import cardEmulation from '@ohos.nfc.cardEmulation';
+
+export default  {
+    data: {
+        fontSize: '30px',
+        fontColor: '#FF1AFF00',
+    },
+    onClick() {
+        var hceService = new cardEmulation.HceService();
+        hceService.on("hceCmd", (err, res) => {
+            if(err.data === 0) {
+                console.info('callback => Operation hceCmd succeeded. Data: ${JSON.stringify(res)}');
+                hceService.sendResponse([0x00,0xa4,0x04,0x00,
+                    0x0e,0x32,0x50,0x41,0x59,0x2e,0x53,0x59,0x53,0x2e,0x44,0x44,
+                    0x46,0x30,0x31,0x00]);
+            } else {
+                console.info('callback => Operation hceCmd failed. Cause: ${JSON.stringify(err.data)}');
+            }
+        })
+    }
+}
+```
 
 
 

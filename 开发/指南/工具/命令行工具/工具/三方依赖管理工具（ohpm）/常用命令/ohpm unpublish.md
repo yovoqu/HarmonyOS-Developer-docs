@@ -1,6 +1,6 @@
 # ohpm unpublish
 
-更新时间：2026-04-24 09:16:30
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-unpublish
 
@@ -77,7 +77,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
 #### fetch_timeout
 
 - 默认值：60000
-- 类型： Number
+- 类型：Number
 - 别名：ft
 
  
@@ -88,7 +88,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
 #### strict_ssl
 
 - 默认值：true
-- 类型： Boolean
+- 类型：Boolean
 
  
 可以在 unpublish 命令后面配置 --strict_ssl true 参数，校验 https 证书；配置 --strict_ssl false 参数，不校验 https 证书。
@@ -98,7 +98,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
 #### log_level
 
 - 默认值：无
-- 类型： String
+- 类型：String
 
  
 从ohpm 6.0.2.636版本开始，可以在 unpublish 命令后配置--log_level &lt;string&gt;参数，指定执行当前命令的日志级别（info、debug、warn、error），如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -108,7 +108,7 @@ ohpm unpublish [options] [<@group>]<pkg>[@<version>]
 #### debug
 
 - 默认值：false
-- 类型： Boolean
+- 类型：Boolean
 
  
 从ohpm 6.0.2.636版本开始，可以在命令后配置--debug参数，指定执行当前命令的日志级别为debug，该配置仅在当前命令行生效，不修改.ohpmrc中的日志级别，如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -126,4 +126,4 @@ ohpm unpublish demo@1.0.0 -f
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/bei7TpZIQ4mDpfTBU_w9cw/zh-cn_image_0000002602186783.png?HW-CC-KV=V1&HW-CC-Date=20260528T030632Z&HW-CC-Expire=86400&HW-CC-Sign=6C8DA2D7E85DEA523C3278A510E565ADAEEBB4458DC2B39349268E513955AFFB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/E7bmEr2CRKK9bBDrIRlmnw/zh-cn_image_0000002624994483.png?HW-CC-KV=V1&HW-CC-Date=20260624T020704Z&HW-CC-Expire=86400&HW-CC-Sign=BB93E2336DB9DC945B1BFE62158D08D4948832E931D7738BEE5BFA106DF40E43)

@@ -1,6 +1,6 @@
 # ffrt_task_attr_t
 
-更新时间：2026-03-12 09:39:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ffrt-ffrt-task-attr-t
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

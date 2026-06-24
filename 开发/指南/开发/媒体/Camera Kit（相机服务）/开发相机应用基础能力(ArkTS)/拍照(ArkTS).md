@@ -1,6 +1,6 @@
 # 拍照(ArkTS)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-shooting
 
@@ -209,7 +209,7 @@ function capture(captureLocation: camera.Location, photoOutput: camera.PhotoOutp
 单段式拍照的体验主要由出图速度和最终图片质量衡量。因此，为满足开发者在不同场景下的差异化需求，对这两项指标的侧重也不同。例如，街头抓拍要求快速捕捉瞬间，而风景或人像拍摄则更追求极致的画质。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/l3zb2ZRySvq_CrURiehd9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074930Z&HW-CC-Expire=86400&HW-CC-Sign=BEC5346B4F86EF40192774E7F489E0C910F6CD6365D4AC354BA8B494DEE31DBA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/LA9JrqgbSPetTiIX954G_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020906Z&HW-CC-Expire=86400&HW-CC-Sign=356D3F37B91388DEA82E2683496FC2ACCC7B5084089AFE2D63530311FB18744F)
 
 
 仅单段式拍照支持设置画质优先策略。若在分段式拍照中设置画质优先策略，该设置将无效。

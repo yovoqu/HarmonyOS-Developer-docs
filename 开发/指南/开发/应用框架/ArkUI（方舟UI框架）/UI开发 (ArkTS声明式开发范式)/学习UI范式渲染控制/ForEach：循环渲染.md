@@ -1,6 +1,6 @@
 # ForEach：循环渲染
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-rendering-control-foreach
 
@@ -966,7 +966,7 @@ struct NonNecessaryMemory {
 **图15** 自定义键值生成函数下的内存占用
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/K8sxJuGaSgWrkD5UnCODvQ/zh-cn_image_0000002611833537.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=0D7D6DCBEE969AC54CA5D91363775A1D8F4AF5C650D66A1E6293CF9E4CD51299)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/38L0M7uVQSKvKerlVjU5lA/zh-cn_image_0000002626068206.png?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=DB67A3F08F615DADD9B9E9D92F8ABA0E8429D81CBE24809338DDC960CBE57D9E)
 
 
 
@@ -1022,7 +1022,7 @@ struct GenerationKeyChildItem {
 开发者定义keyGenerator函数，应用正常启动：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/NSXMc7cDSXCGkWIBsSO_0A/zh-cn_image_0000002581273790.png?HW-CC-KV=V1&HW-CC-Date=20260528T030455Z&HW-CC-Expire=86400&HW-CC-Sign=AEF893693D2D5544C6AA59C5049E0C9F143FC793EA8504F6EA4219DCDDD22117)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d1/v3/ivTXIQoYQ9iAzyunvwddbw/zh-cn_image_0000002656467481.png?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=87F838A6E221CFA27418C8A1B6C4AF77B1D3606AD51BE5AD47F88F705F4F7FE5)
 
 
 使用默认的键值生成函数，应用发生jscrash：

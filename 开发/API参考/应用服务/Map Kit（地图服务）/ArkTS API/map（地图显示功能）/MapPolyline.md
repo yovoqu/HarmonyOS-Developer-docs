@@ -1,6 +1,6 @@
 # Interface (MapPolyline)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mappolyline
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -872,4 +872,68 @@ setCustomTextureIndexes(customTextureIndexes: number[]): Promise&lt;void&gt;
  
 ```text
 await mapPolyline.setCustomTextureIndexes([0,1,0]);
+```
+ 
+  
+
+#### addLineText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+addLineText(lineText: mapCommon.LineText): void
+ 
+添加折线文本。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Map.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| lineText | mapCommon.LineText | 是 | 折线的文本，异常值不处理。 |
+ 
+ 
+**示例：**
+ 
+```text
+let textLine: mapCommon.LineText = {
+  lineNames: ['第一段文字', '第二段文字'],
+  lineNameIndexes: [0, 1, 1, 2],
+  nameOnRight: false,
+  color: 0xFF000000,
+  fontSize: 15,
+  strokeColor: 0xFFFFFFFF,
+  fontStyle: 0
+};
+mapPolyline.addLineText(textLine);
+```
+ 
+  
+
+#### removeLineText
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+removeLineText(): void
+ 
+删除折线的文本。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Map.Core
+ 
+**起始版本：** 26.0.0
+ 
+**示例：**
+ 
+```text
+mapPolyline.removeLineText();
 ```

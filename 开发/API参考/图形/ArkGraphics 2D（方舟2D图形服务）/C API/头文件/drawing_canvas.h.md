@@ -1,6 +1,6 @@
 # drawing_canvas.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-canvas-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -91,6 +91,7 @@
 | void OH_Drawing_CanvasClipRoundRect(OH_Drawing_Canvas* canvas, const OH_Drawing_RoundRect* roundRect,OH_Drawing_CanvasClipOp clipOp, bool doAntiAlias) | 用于裁剪一个圆角矩形。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 canvas、roundRect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER； clipOp不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。 |
 | void OH_Drawing_CanvasClipPath(OH_Drawing_Canvas* canvas, const OH_Drawing_Path* path,OH_Drawing_CanvasClipOp clipOp, bool doAntiAlias) | 用于裁剪一个自定义路径。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 canvas、path任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER； clipOp不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。 |
 | OH_Drawing_ErrorCode OH_Drawing_CanvasClipRegion(OH_Drawing_Canvas* canvas, const OH_Drawing_Region* region,OH_Drawing_CanvasClipOp clipOp) | 用于裁剪一个区域。 |
+| OH_Drawing_ErrorCode OH_Drawing_CanvasResetClip(OH_Drawing_Canvas* canvas) | 将当前画布的裁剪状态重置为初始状态。 |
 | void OH_Drawing_CanvasRotate(OH_Drawing_Canvas* canvas, float degrees, float px, float py) | 用于画布旋转一定的角度，正数表示顺时针旋转，负数反之。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 canvas为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
 | void OH_Drawing_CanvasTranslate(OH_Drawing_Canvas* canvas, float dx, float dy) | 用于平移画布一段距离。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 canvas为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
 | void OH_Drawing_CanvasScale(OH_Drawing_Canvas* canvas, float sx, float sy) | 用于画布缩放。 本接口会产生错误码，可以通过OH_Drawing_ErrorCodeGet查看错误码的取值。 canvas为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
@@ -118,6 +119,7 @@
 | OH_Drawing_ErrorCode OH_Drawing_CanvasDrawPixelMapRectConstraint(OH_Drawing_Canvas* canvas,OH_Drawing_PixelMap* pixelMap, const OH_Drawing_Rect* src, const OH_Drawing_Rect* dst,const OH_Drawing_SamplingOptions* samplingOptions, OH_Drawing_SrcRectConstraint constraint) | 用于将像素图的指定区域绘制到画布的指定区域。 |
 | OH_Drawing_ErrorCode OH_Drawing_CanvasDrawSingleCharacterWithFeatures(OH_Drawing_Canvas* canvas, const char* str,const OH_Drawing_Font* font, float x, float y, OH_Drawing_FontFeatures* fontFeatures) | 绘制单个字符，字符带有字体特征。当前字型中的字体不支持待绘制字符时，退化到使用系统字体绘制字符。 |
 | OH_Drawing_ErrorCode OH_Drawing_CanvasDrawPixelMapMesh(OH_Drawing_Canvas* cCanvas, OH_Drawing_PixelMap* pixelMap, uint32_t meshWidth, uint32_t meshHeight, const float* vertices, uint32_t verticesSize, uint32_t vertOffset, const uint32_t* colors, uint32_t colorsSize, uint32_t colorOffset) | 在网格上绘制像素图，网格均匀分布在像素图上。（只支持brush，使用pen没有绘制效果。） |
+| OH_Drawing_ErrorCode OH_Drawing_CanvasIsOpaque(const OH_Drawing_Canvas* canvas, bool* isOpaque) | 检查当前绘制到设备上的图层是否是不透明的。 |
  
  
   
@@ -1523,6 +1525,36 @@ OH_Drawing_ErrorCode OH_Drawing_CanvasClipRegion(OH_Drawing_Canvas* canvas, cons
  
   
 
+#### OH_Drawing_CanvasResetClip()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_Drawing_ErrorCode OH_Drawing_CanvasResetClip(OH_Drawing_Canvas* canvas)
+```
+ 
+**描述**
+ 
+将当前画布的裁剪状态重置为初始状态。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_Drawing_Canvas* canvas | 指向OH_Drawing_Canvas对象的指针。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| OH_Drawing_ErrorCode | 返回执行结果。 如果操作成功，则返回OH_DRAWING_SUCCESS。 如果canvas为nullptr，则返回OH_DRAWING_ERROR_INVALID_PARAMETER。 |
+ 
+ 
+  
+
 #### OH_Drawing_CanvasRotate()
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2332,3 +2364,36 @@ OH_Drawing_ErrorCode OH_Drawing_CanvasDrawPixelMapMesh(OH_Drawing_Canvas* cCanva
 | 类型 | 说明 |
 | --- | --- |
 | OH_Drawing_ErrorCode | 函数返回执行错误码。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示出现cCanvas、pixelMap、vertices等参数为空或传参不符合取值规则的情况。 |
+ 
+ 
+  
+
+#### OH_Drawing_CanvasIsOpaque()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_Drawing_ErrorCode OH_Drawing_CanvasIsOpaque(const OH_Drawing_Canvas* canvas, bool* isOpaque)
+```
+ 
+**描述**
+ 
+检查当前绘制到设备上的图层是否是不透明的。
+ 
+**系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_Drawing_Canvas* canvas | 指向画布对象OH_Drawing_Canvas的指针。 |
+| bool* isOpaque | 输出参数，表示画布是否不透明，true表示不透明，false表示透明。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| OH_Drawing_ErrorCode | 函数返回执行错误码。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示参数canvas或者isOpaque为空。 |

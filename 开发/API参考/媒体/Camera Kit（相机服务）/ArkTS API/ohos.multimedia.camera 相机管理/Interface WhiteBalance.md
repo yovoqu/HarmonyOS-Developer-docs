@@ -1,6 +1,6 @@
 # Interface (WhiteBalance)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-whitebalance
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -135,7 +135,7 @@ setWhiteBalance(whiteBalance: number): void
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| whiteBalance | number | 是 | 设置手动白平衡值。 |
+| whiteBalance | number | 是 | 设置手动白平衡值，单位为K（Kelvin，温度单位）。 |
  
  
 **错误码：**
@@ -182,7 +182,7 @@ getWhiteBalance(): number
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回当前白平衡值。 |
+| number | 返回当前白平衡值，单位为K（Kelvin，温度单位）。 |
  
  
 **错误码：**
@@ -208,5 +208,108 @@ function getWhiteBalance(session: camera.PhotoSession | camera.VideoSession): nu
     console.error(`The getWhiteBalance call failed. error code: ${err.code}`);
   }
   return whiteBalance;
+}
+```
+ 
+  
+
+#### setColorTint
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setColorTint(colorTint: number): void
+ 
+设置白平衡的色调调节值。
+ 
+设置之前需要先检查设备支持配置的白平衡色调调节范围，具体方法请参考[getColorTintRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-whitebalancequery#getcolortintrange)。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| colorTint | number | 是 | 设置手动白平衡色调调节值。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7400103 | Session not config. |
+ 
+ 
+**示例：**
+ 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function setColorTint(session: camera.PhotoSession | camera.VideoSession): void {
+  let colorTint: number = 0;
+  try {
+    session.setColorTint(colorTint);
+  } catch (error) {
+    let err = error as BusinessError;
+    console.error(`The setColorTint call failed. error code: ${err.code}`);
+  }
+}
+```
+ 
+  
+
+#### getColorTint
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getColorTint(): number
+ 
+获取当前白平衡的色调调节值。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**系统能力：** SystemCapability.Multimedia.Camera.Core
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| number | 返回当前白平衡色调调节值。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7400103 | Session not config. |
+ 
+ 
+**示例：**
+ 
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function getColorTint(session: camera.PhotoSession | camera.VideoSession): number {
+  let colorTint: number = 0;
+  try {
+    colorTint = session.getColorTint();
+  } catch (error) {
+    let err = error as BusinessError;
+    console.error(`The getColorTint call failed. error code: ${err.code}`);
+  }
+  return colorTint;
 }
 ```

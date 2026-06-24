@@ -1,6 +1,6 @@
 # Stationary开发指导
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/stationary-guidelines
 
@@ -89,7 +89,7 @@ if ((algoPara_.resultantAcc > RESULTANT_ACC_LOW_THRHD) && (algoPara_.resultantAc
 1. 订阅绝对静止的进入事件，1秒上报一次。
 
   
-```json
+```ArkTS
 import { stationary } from '@kit.MultimodalAwarenessKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -107,7 +107,7 @@ try {
 2. 查询绝对静止状态的进入事件。
 
   
-```json
+```ArkTS
 import { stationary } from '@kit.MultimodalAwarenessKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
@@ -124,7 +124,7 @@ try {
 3. 取消订阅绝对静止状态的进入事件。
 
   
-```json
+```ArkTS
 import { stationary } from '@kit.MultimodalAwarenessKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 

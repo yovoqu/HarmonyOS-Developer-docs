@@ -1,6 +1,6 @@
 # 模型（Model）配置
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-agent-model
 
@@ -28,7 +28,9 @@ CodeGenie支持通过Anthropic-API、Gemini-API和OpenAI-API协议接入第三�
 按钮添加模型，当前支持通过Service Provider（服务提供商）和URL两种方式添加，推荐使用Service Provider方式。
 
   
- - 通过服务提供商添加。填写**Name**、**Provider**、**API Key**、**Model**字段后，点击**Add**，校验成功后模型将被添加到列表中。CodeGenie已预置主流模型服务商的配置信息，填写API Key即可快速接入。         
+ - 通过服务提供商添加。CodeGenie已预置主流模型服务商的配置信息，填写API Key即可快速接入。
+
+  填写**Name**、**Provider**、**API Key**、**Model**字段后，点击**Add**，校验成功后模型将被添加到列表中。          
 **Name**：模型名称。
 
 3. **Provider**：模型的提供商，可选项包括OpenAI、Gemini、Anthropic、DeepSeek、Alibaba Cloud、Z.ai。
@@ -37,7 +39,9 @@ CodeGenie支持通过Anthropic-API、Gemini-API和OpenAI-API协议接入第三�
 
 5. **Model**：模型的标识。
 
-6. 通过URL添加。填写**Name**、**Protocol**、**Url**、**API Key**、**Model**字段后，点击**Add**，校验成功后模型将被添加到列表中。         
+6. 通过URL添加。
+
+  填写**Name**、**Protocol**、**Url**、**API Key**、**Model**字段后，点击**Add**，校验成功后模型将被添加到列表中。          
 **Name**：模型名称。
 
 7. **Url**：模型的访问地址。
@@ -92,4 +96,4 @@ CodeGenie支持通过Anthropic-API、Gemini-API和OpenAI-API协议接入第三�
 ![](assets/模型（Model）配置/file-20260525091725482-003.png)
 
  - 添加DeepSeek模型（Anthropic协议）       
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/SmDZfnPIQpKSTOF0_cqSWw/zh-cn_image_0000002613894047.png?HW-CC-KV=V1&HW-CC-Date=20260611T074912Z&HW-CC-Expire=86400&HW-CC-Sign=BC8A834B4BB58B4E146B29ADABA6C3AFCA74499918D27712F47FB7F51C64E4A8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/RgfZfegHRDePlwpQ0h0cJQ/zh-cn_image_0000002594634610.png?HW-CC-KV=V1&HW-CC-Date=20260624T020708Z&HW-CC-Expire=86400&HW-CC-Sign=EBD7FE10F5DF6597996642B175E5CA4DFEA958D5F6D167C51B98264654C882EA)

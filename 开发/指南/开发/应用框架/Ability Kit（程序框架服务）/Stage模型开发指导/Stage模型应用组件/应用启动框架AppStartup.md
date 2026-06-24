@@ -1,6 +1,6 @@
 # 应用启动框架AppStartup
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-startup
 
@@ -242,7 +242,7 @@ AppStartup提供了一种简单高效的应用启动方式，可以支持任务�
 **图5** so预加载任务依赖关系图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/_ZeOfxY4TTGVSUu6bxgjOw/zh-cn_image_0000002581433544.png?HW-CC-KV=V1&HW-CC-Date=20260528T030511Z&HW-CC-Expire=86400&HW-CC-Sign=9FF2A44B27CE485A85A61B22E40784945B9C78F5375AA66A6AC8D54002576577)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/OE5TonwIQPiOmOjw13IVvQ/zh-cn_image_0000002656467299.png?HW-CC-KV=V1&HW-CC-Date=20260624T020725Z&HW-CC-Expire=86400&HW-CC-Sign=00EBF6A105809F59B497E30D34F68BD900FD97F52FC39B17DCB943E8075FD5EC)
 
 1. 参考[Node-API](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-process)创建so文件。本例中的6个so文件名称分别为libentry_001.so~libentry_006.so。
 2. 在启动框架配置文件startup_config.json中，添加预加载so任务配置。
@@ -423,7 +423,7 @@ export default class StartupTask_001 extends StartupTask {
 **图6** 启动任务与so预加载依赖关系图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/DU3CaluzS4u6XKKzmP3eVQ/zh-cn_image_0000002611833373.png?HW-CC-KV=V1&HW-CC-Date=20260528T030511Z&HW-CC-Expire=86400&HW-CC-Sign=9E154C873D09C8879A297B8946D57782E93D295497010FA105D5E85A59ABA1A0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/37/v3/t3MvV1IERhiwAxyhxQKtuA/zh-cn_image_0000002656347349.png?HW-CC-KV=V1&HW-CC-Date=20260624T020725Z&HW-CC-Expire=86400&HW-CC-Sign=2144DC0891B56FA0A6BB4929D762A307C1EA38987AE46A8338051C10B4EEA047)
 
 
 开发步骤如下：
@@ -594,7 +594,7 @@ struct Index {
 **图7** 启动任务设置匹配规则
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/tJr8uXeETIalnwNfZkAlNw/zh-cn_image_0000002581273626.png?HW-CC-KV=V1&HW-CC-Date=20260528T030511Z&HW-CC-Expire=86400&HW-CC-Sign=BC2B7376BA76D811EA0B5D41F94AD8D5971AAB6CAF94147BB7B846F262C92B62)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e0/v3/YyUu7BnqRsmsgYhqXlxsPQ/zh-cn_image_0000002626227934.png?HW-CC-KV=V1&HW-CC-Date=20260624T020725Z&HW-CC-Expire=86400&HW-CC-Sign=E4BD42FFEABDA409607EB2900055F83F6566EF2406C88BB81607CD3E22E732EF)
 
 
 可以通过以下两种方式添加匹配规则：
@@ -722,7 +722,7 @@ export default class MyStartupConfigEntry extends StartupConfigEntry {
 **图8** 设置启动任务提前调度
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/FW39CeGyRfeG2ztJq7RYPw/zh-cn_image_0000002611753481.png?HW-CC-KV=V1&HW-CC-Date=20260528T030511Z&HW-CC-Expire=86400&HW-CC-Sign=DEDF0F4FA8F3A560A62901222433B7589CE7A80094DD4305F00A1930BD7A6D8F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/PbyxhR74QgOD38vlUnNLJQ/zh-cn_image_0000002626068026.png?HW-CC-KV=V1&HW-CC-Date=20260624T020725Z&HW-CC-Expire=86400&HW-CC-Sign=999CDD6603C88B8FC07B29E6476938118B98769C9936D6FE42BF32ACD6CD8E5C)
 
 
 例如，应用首页需要通过网络请求获取Feed流数据，且希望该任务能在异步线程中与AbilityStage模块加载并发执行。假设网络请求任务为[定义启动任务配置](#定义启动任务配置)步骤中的StartupTask_004，开发步骤如下：

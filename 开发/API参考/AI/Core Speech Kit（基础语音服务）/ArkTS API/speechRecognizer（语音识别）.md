@@ -1,6 +1,6 @@
 # speechRecognizer（语音识别）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hms-ai-speechrecognizer
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -31,6 +31,8 @@ createEngine(createEngineParams: CreateEngineParams, callback: AsyncCallback&lt;
 创建SpeechRecognitionEngine实例，并初始化引擎。使用callback异步回调。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -106,6 +108,8 @@ createEngine(createEngineParams: CreateEngineParams): Promise&lt;SpeechRecogniti
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -179,6 +183,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 
@@ -192,6 +198,8 @@ listLanguages(params: LanguageQuery, callback: AsyncCallback<Array&lt;string&gt;
 查询支持的语种信息，使用callback异步回调。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -259,6 +267,8 @@ listLanguages(params: LanguageQuery): Promise<Array&lt;string&gt;>
 查询支持的语种信息，使用Promise异步回调。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -330,6 +340,8 @@ setListener(listener: RecognitionListener): void
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -395,6 +407,8 @@ startListening(params: StartParams): void
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -455,6 +469,8 @@ writeAudio(sessionId: string, audio: Uint8Array): void
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -513,6 +529,8 @@ finish(sessionId: string): void
 结束识别。为了确保事件回调，请优先调用[setListener](#setlistener)。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -588,6 +606,8 @@ cancel(sessionId: string): void
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -662,6 +682,8 @@ isBusy(): boolean
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **返回值：**
@@ -735,6 +757,8 @@ shutdown(): void
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **示例：**
@@ -789,6 +813,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 
@@ -802,6 +828,8 @@ onStart(sessionId: string, eventMessage: string): void
 开始识别时，回调此方法。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -868,6 +896,8 @@ onEvent(sessionId: string, eventCode: number, eventMessage: string): void
 识别过程中的事件都通过此方法回调，例如音频开始、音频结束。vadBegin或vadEnd时触发。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -936,6 +966,8 @@ onResult(sessionId: string, result: SpeechRecognitionResult): void
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -1001,6 +1033,8 @@ onComplete(sessionId: string, eventMessage: string): void
 识别结束或者调用[finish](#finish)方法主动结束识别时回调此方法，返回会话ID、识别完成的相关描述信息。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -1068,6 +1102,8 @@ onError(sessionId: string, errorCode: number, errorMessage: string): void
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 **参数：**
@@ -1133,6 +1169,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1152,6 +1190,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1169,6 +1209,8 @@ struct Page {
 启动语音识别的相关参数，用于设置会话ID、音频配置信息等。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 
@@ -1228,6 +1270,8 @@ struct Page {
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -1248,6 +1292,8 @@ struct Page {
 音频识别结果信息。
 
 **系统能力：** SystemCapability.AI.SpeechRecognizer
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 4.1.0(11)
 

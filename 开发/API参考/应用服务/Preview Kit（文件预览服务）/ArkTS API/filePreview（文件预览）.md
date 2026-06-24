@@ -1,6 +1,6 @@
 # filePreview（文件预览）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/preview-arkts
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -15,7 +15,7 @@
 | --- | --- | --- |
 | 文本 | txt、cpp、c、h、java、xhtml、xml | text/plain、text/x-c++src、text/x-csrc、text/x-chdr、text/x-java、application/xhtml+xml、text/xml |
 | 网页 | html、htm | text/html |
-| 图片 | jpg、png、gif、webp、bmp、svg | image/jpeg、image/png、image/gif、image/webp，image/bmp、image/svg+xml |
+| 图片 | jpg、png、gif、webp、bmp、svg | image/jpeg、image/png、image/gif、image/webp、image/bmp、image/svg+xml |
 | 音频 | m4a、aac、mp3、ogg、wav | audio/mp4a-latm、audio/aac、audio/mpeg、audio/ogg、audio/x-wav |
 | 视频 | mp4、mkv、ts | video/mp4、video/x-matroska、video/mp2ts |
 | 文件夹 | 无 | 无 |
@@ -42,6 +42,8 @@ import { filePreview } from '@kit.PreviewKit';
 
 文件预览信息，包含了文件标题名、uri以及文件类型（mimeType）。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.FileManagement.FilePreview.Core
@@ -62,6 +64,8 @@ import { filePreview } from '@kit.PreviewKit';
 **支持设备：** Phone | PC/2in1 | Tablet
 
 悬浮窗口的属性值，包含了悬浮窗大小以及位置信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -89,6 +93,8 @@ openPreview(context: Context, file: PreviewInfo, info?: DisplayInfo): Promise&lt
  
 该接口需要调用方确认传入的uri可进行转授权。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.FileManagement.FilePreview.Core
@@ -101,14 +107,14 @@ openPreview(context: Context, file: PreviewInfo, info?: DisplayInfo): Promise&lt
 | --- | --- | --- | --- |
 | context | Context | 是 | 上下文common.UIAbilityContext。 注意： 当前context仅支持传入UIAbilityContext。 |
 | file | PreviewInfo | 是 | 文件的预览信息，title为可选，不填会通过uri解析，无法解析则显示未知文件。 |
-| info | DisplayInfo | 否 | 模态窗口的窗口展示信息，2in1端不填写则展示默认大小窗口，Phone、Tablet填写无效。 |
+| info | DisplayInfo | 否 | 模态窗口的窗口展示信息，PC/2in1端不填写则展示默认大小窗口，Phone、Tablet填写无效。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：** 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)
@@ -125,12 +131,14 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { filePreview } from '@kit.PreviewKit';
 
 let uiContext = this.getUIContext().getHostContext() as Context;
+// 设置窗口展示信息
 let displayInfo: filePreview.DisplayInfo = {
   x: 100,
   y: 100,
   width: 800,
   height: 800
 };
+// 设置文件预览信息
 let fileInfo: filePreview.PreviewInfo = {
   title: '1.txt',
   uri: 'file://docs/storage/Users/currentUser/Documents/1.txt',
@@ -154,6 +162,8 @@ openPreview(context: Context, file: PreviewInfo, info: DisplayInfo, callback: As
 通过传入文件预览信息以及悬浮窗口属性信息，打开预览窗口。1秒内重复调用无效。使用Callback回调异步返回结果。
  
 该接口需要调用方确认传入的uri可进行转授权。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -184,12 +194,14 @@ openPreview(context: Context, file: PreviewInfo, info: DisplayInfo, callback: As
 import { filePreview } from '@kit.PreviewKit';
 
 let uiContext = this.getUIContext().getHostContext() as Context;
+// 设置窗口展示信息
 let displayInfo: filePreview.DisplayInfo = {
   x: 100,
   y: 100,
   width: 800,
   height: 800
 };
+// 设置文件预览信息
 let fileInfo: filePreview.PreviewInfo = {
   title: '1.txt',
   uri: 'file://docs/storage/Users/currentUser/Documents/1.txt',
@@ -216,7 +228,9 @@ openPreview(context: Context, files: Array&lt;PreviewInfo&gt;, index?: number): 
  
 该接口需要调用方确认传入的uri可进行转授权。
  
-该接口不支持2in1设备。
+该接口不支持PC/2in1设备。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -237,7 +251,7 @@ openPreview(context: Context, files: Array&lt;PreviewInfo&gt;, index?: number): 
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：** 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)
@@ -255,11 +269,13 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { filePreview } from '@kit.PreviewKit';
 
 let uiContext = this.getUIContext().getHostContext() as Context;
+// 创建单个文件的预览信息
 let fileInfo: filePreview.PreviewInfo = {
   title: '1.txt',
   uri: 'file://docs/storage/Users/currentUser/Documents/1.txt',
   mimeType: 'text/plain'
 };
+// 创建多文件查看数组
 let files: Array<filePreview.PreviewInfo> = new Array();
 files.push(fileInfo);
 filePreview.openPreview(uiContext, files, 0).then(() => {
@@ -279,7 +295,9 @@ canPreview(context: Context, uri: string): Promise&lt;boolean&gt;
  
 根据文件的uri判断文件是否可预览，当传入支持的文件uri时，会返回true；传入不可预览的文件uri时，返回false。使用Promise方式异步回调。
  
-当前接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权。
+当前接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续[openPreview](#openpreview)进行文件查看时需要调用方保证文件可以被转授权。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -318,7 +336,7 @@ import { filePreview } from '@kit.PreviewKit';
  // e.g 文件存在且类型符合时
 let uri = 'file://docs/storage/Users/currentUser/Documents/1.txt';
 let uiContext = this.getUIContext().getHostContext() as Context;
-filePreview.canPreview(uiContext, uri).then((result) => {    // 此处返回true
+filePreview.canPreview(uiContext, uri).then((result) => { // 此处返回true
   console.info(`Succeeded in obtaining the result of whether it can be previewed. result = ${result}`);
 }).catch((err: BusinessError) => {
   console.error(`Failed to obtain the result of whether it can be previewed, err.code = ${err.code}, err.message = ${err.message}`);
@@ -332,7 +350,7 @@ import { filePreview } from '@kit.PreviewKit';
 // e.g 文件不存在或文件类型不符合时
 let uri = 'file://docs/storage/Users/currentUser/Documents/1.txt';
 let uiContext = this.getUIContext().getHostContext() as Context;
-filePreview.canPreview(uiContext, uri).then((result) => {    // 此处返回false
+filePreview.canPreview(uiContext, uri).then((result) => { // 此处返回false
   console.info(`Succeeded in obtaining the result of whether it can be previewed. result = ${result}`);
 }).catch((err: BusinessError) => {
   console.error(`Failed to obtain the result of whether it can be previewed, err.code = ${err.code}, err.message = ${err.message}`);
@@ -349,7 +367,9 @@ canPreview(context: Context, uri: string, callback: AsyncCallback&lt;boolean&gt;
  
 根据文件的uri判断文件是否可预览，当传入支持的文件uri时，会返回true；传入不可预览的文件uri时，返回false。使用Callback回调异步返回结果。
  
-当前接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续openPreview进行文件查看时需要调用方保证文件可以被转授权。
+当前接口仅针对文件是否存在以及文件格式是否为支持的文件类型进行检验，后续[openPreview](#openpreview)进行文件查看时需要调用方保证文件可以被转授权。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -386,7 +406,7 @@ filePreview.canPreview(uiContext, uri, (err, result) => {
     console.error(`Failed to obtain the result of whether it can be previewed, err.code = ${err.code}, err.message = ${err.message}`);
     return;
   }
-  console.info(`Succeeded in obtaining the result of whether it can be previewed. result = ${result}`);     // 此处返回true
+  console.info(`Succeeded in obtaining the result of whether it can be previewed. result = ${result}`); // 此处返回true
 });
 ```
  
@@ -401,7 +421,7 @@ filePreview.canPreview(uiContext, uri, (err, result) => {
     console.error(`Failed to obtain the result of whether it can be previewed, err.code = ${err.code}, err.message = ${err.message}`);
     return;
   }
-  console.info(`Succeeded in obtaining the result of whether it can be previewed. result = ${result}`);     // 此处返回false
+  console.info(`Succeeded in obtaining the result of whether it can be previewed. result = ${result}`); // 此处返回false
 });
 ```
  
@@ -414,6 +434,8 @@ filePreview.canPreview(uiContext, uri, (err, result) => {
 hasDisplayed(context: Context): Promise&lt;boolean&gt;
  
 判断预览窗口是否已经存在。预览窗口是单例的形式，如果预览窗口已经打开过并且没关闭，那会返回true。如果没打开或者打开后已关闭，那将返回false。使用Promise方式异步回调。判断是否已打开预览需要等待窗口创建完成才能产生效果，窗口还没创建完成就调用hasDisplayed接口会导致结果返回false。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -450,7 +472,7 @@ import { filePreview } from '@kit.PreviewKit';
 
 // e.g 预览窗口已存在
 let uiContext = this.getUIContext().getHostContext() as Context;
-filePreview.hasDisplayed(uiContext).then((result) => {    // 此处返回true
+filePreview.hasDisplayed(uiContext).then((result) => { // 此处返回true
   console.info(`Succeeded in obtaining the result of whether the preview has displayed. result = ${result}`);
 }).catch((err: BusinessError) => {
   console.error(`Failed to obtain the result of whether the preview has displayed, err.code = ${err.code}, err.message = ${err.message}`);
@@ -463,7 +485,7 @@ import { filePreview } from '@kit.PreviewKit';
 
  // e.g 预览窗口不存在
 let uiContext = this.getUIContext().getHostContext() as Context;
-filePreview.hasDisplayed(uiContext).then((result) => {    // 此处返回false
+filePreview.hasDisplayed(uiContext).then((result) => { // 此处返回false
   console.info(`Succeeded in obtaining the result of whether the preview has displayed. result = ${result}`);
 }).catch((err: BusinessError) => {
   console.error(`Failed to obtain the result of whether the preview has displayed, err.code = ${err.code}, err.message = ${err.message}`);
@@ -479,6 +501,8 @@ filePreview.hasDisplayed(uiContext).then((result) => {    // 此处返回false
 hasDisplayed(context: Context, callback: AsyncCallback&lt;boolean&gt;): void
  
 判断预览窗口是否已经存在。预览窗口是单例的形式，如果预览窗口已经打开过并且没关闭，那会返回true。如果没打开或者打开后已关闭，那将返回false。使用Callback回调异步返回结果。判断是否已打开预览需要等待窗口创建完成才能产生效果，窗口还没创建完成就调用hasDisplayed接口会导致结果返回false。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -513,7 +537,7 @@ filePreview.hasDisplayed(uiContext, (err, result) => {
     console.error(`Failed to obtain the result of whether the preview has displayed, err.code = ${err.code}, err.message = ${err.message}`);
     return;
   }
-  console.info(`Succeeded in obtaining the result of whether the preview has displayed. result = ${result}`);     // 此处返回true
+  console.info(`Succeeded in obtaining the result of whether the preview has displayed. result = ${result}`); // 此处返回true
 });
 ```
  
@@ -527,7 +551,7 @@ filePreview.hasDisplayed(uiContext, (err, result) => {
     console.error(`Failed to obtain the result of whether the preview has displayed, err.code = ${err.code}, err.message = ${err.message}`);
     return;
   }
-  console.info(`Succeeded in obtaining the result of whether the preview has displayed. result = ${result}`);     // 此处返回false
+  console.info(`Succeeded in obtaining the result of whether the preview has displayed. result = ${result}`); // 此处返回false
 });
 ```
  
@@ -540,6 +564,8 @@ filePreview.hasDisplayed(uiContext, (err, result) => {
 closePreview(context: Context): Promise&lt;void&gt;
  
 关闭预览窗口，仅当预览窗口存在时起效。使用Promise方式异步回调。关闭预览窗口需要等待窗口创建完成才能产生效果，窗口还没创建完成就调用closePreview接口会无效。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -558,7 +584,7 @@ closePreview(context: Context): Promise&lt;void&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：** 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)
@@ -575,7 +601,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { filePreview } from '@kit.PreviewKit';
 
 let uiContext = this.getUIContext().getHostContext() as Context;
-filePreview.closePreview(uiContext).then(() => {   // 仅当预览窗口存在时起效
+filePreview.closePreview(uiContext).then(() => { // 仅当预览窗口存在时起效
   console.info('Succeeded in closing preview');
 }).catch((err: BusinessError) => {
   console.error(`Failed to close preview, err.code = ${err.code}, err.message = ${err.message}`);
@@ -591,6 +617,8 @@ filePreview.closePreview(uiContext).then(() => {   // 仅当预览窗口存在�
 closePreview(context: Context, callback: AsyncCallback&lt;void&gt;): void
  
 关闭预览窗口，仅当预览窗口存在时起效。使用Callback回调异步返回结果。关闭预览窗口需要等待窗口创建完成才能产生效果，窗口还没创建完成就调用closePreview接口会无效。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -619,7 +647,7 @@ closePreview(context: Context, callback: AsyncCallback&lt;void&gt;): void
 import { filePreview } from '@kit.PreviewKit';
 
 let uiContext = this.getUIContext().getHostContext() as Context;
-filePreview.closePreview(uiContext, (err) => {  // 仅当预览窗口存在时起效
+filePreview.closePreview(uiContext, (err) => { // 仅当预览窗口存在时起效
   if (err && err.code) {
     console.error(`Failed to close preview, err.code = ${err.code}, err.message = ${err.message}`);
     return;
@@ -637,6 +665,8 @@ filePreview.closePreview(uiContext, (err) => {  // 仅当预览窗口存在时�
 loadData(context: Context, file: PreviewInfo): Promise&lt;void&gt;
  
 加载预览文件信息。仅当预览窗口存在时起效。传入可预览文件时展示对应预览界面，传入不可预览文件显示不支持预览界面。100毫秒内重复调用无效。使用Promise方式异步回调。加载预览文件需要等待窗口创建完成才能产生效果，窗口还没创建完成就调用loadData接口会无效。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -656,7 +686,7 @@ loadData(context: Context, file: PreviewInfo): Promise&lt;void&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：** 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)
@@ -678,7 +708,7 @@ let fileInfo: filePreview.PreviewInfo = {
   uri: 'file://docs/storage/Users/currentUser/Documents/1.txt',
   mimeType: 'text/plain'
 };
-filePreview.loadData(uiContext, fileInfo).then(() => {   // 仅当预览窗口存在时起效
+filePreview.loadData(uiContext, fileInfo).then(() => { // 仅当预览窗口存在时起效
   console.info('Succeeded in loading data.');
 }).catch((err: BusinessError) => {
   console.error(`Failed to load data, err.code = ${err.code}, err.message = ${err.message}`);
@@ -694,6 +724,8 @@ filePreview.loadData(uiContext, fileInfo).then(() => {   // 仅当预览窗口�
 loadData(context: Context, file: PreviewInfo, callback: AsyncCallback&lt;void&gt;): void
  
 加载预览文件信息。仅当预览窗口存在时起效。传入可预览文件时展示对应预览界面，传入不可预览文件显示不支持预览界面。100毫秒内重复调用无效。使用Callback回调异步返回结果。加载预览文件需要等待窗口创建完成才能产生效果，窗口还没创建完成就调用loadData接口会无效。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
  
@@ -728,7 +760,7 @@ let fileInfo: filePreview.PreviewInfo = {
   uri: 'file://docs/storage/Users/currentUser/Documents/1.txt',
   mimeType: 'text/plain'
 };
-filePreview.loadData(uiContext, fileInfo, (err) => {   // 仅当预览窗口存在时起效
+filePreview.loadData(uiContext, fileInfo, (err) => { // 仅当预览窗口存在时起效
   if (err && err.code) {
     console.error(`Failed to load data, err.code = ${err.code}, err.message = ${err.message}`);
     return;
@@ -747,7 +779,9 @@ loadData(context: Context, files: Array&lt;PreviewInfo&gt;, index?: number): Pro
  
 加载预览文件信息。仅当预览窗口存在时起效。可传入多个文件预览信息以及对应展示的列表下标进行选择预览。使用Promise方式异步回调。
  
-加载预览文件需要等待窗口创建完成才能产生效果，窗口还没创建完成就调用loadData接口会无效。该接口在2in1端无效。100毫秒内重复调用无效。
+加载预览文件需要等待窗口创建完成才能产生效果，窗口还没创建完成就调用loadData接口会无效。该接口在PC/2in1端无效。100毫秒内重复调用无效。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -768,7 +802,7 @@ loadData(context: Context, files: Array&lt;PreviewInfo&gt;, index?: number): Pro
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | 无返回结果的Promise对象。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：** 以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)
@@ -793,7 +827,7 @@ let fileInfo: filePreview.PreviewInfo = {
 };
 let files: Array<filePreview.PreviewInfo> = new Array();
 files.push(fileInfo);
-filePreview.loadData(uiContext, files, 0).then(() => {   // 仅当预览窗口存在时起效
+filePreview.loadData(uiContext, files, 0).then(() => { // 仅当预览窗口存在时起效
   console.info('Succeeded in loading data.');
 }).catch((err: BusinessError) => {
   console.error(`Failed to load data, err.code = ${err.code}, err.message = ${err.message}`);

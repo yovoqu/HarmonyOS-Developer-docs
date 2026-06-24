@@ -1,6 +1,6 @@
 # HiAppEvent介绍
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-intro
 
@@ -67,13 +67,14 @@ HiAppEvent通过事件领域和事件名称关联应用事件，并通过addWatc
 
  - 订阅接口addWatcher是同步接口，涉及IO操作。对于性能有要求的模块，建议将接口的调用放到非主线程。
  - 订阅接口addWatcher传入的名称name是唯一的，相同的name，后一次调用会覆盖前一次的订阅。
- - 目前鸿蒙应用有普通应用、[应用分身](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-clone)、元服务、[输入法应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/inputmethod-application-guide)等多种类型，不同类型应用上，系统事件的订阅规格不同。从API version 22开始，HiAppEvent系统事件订阅能力支持输入法应用。具体规格可参见如下表格：
+ - 目前应用有普通应用、[应用分身](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-clone)、元服务、[输入法应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/inputmethod-application-guide)等多种类型，不同类型应用上，系统事件的订阅规格不同。从API version 22开始，HiAppEvent系统事件订阅能力支持输入法应用。具体规格可参见如下表格：
 
 
 | 系统事件名称 | 是否支持应用分身订阅 | 是否支持元服务订阅 | 是否支持输入法应用订阅 |
 | --- | --- | --- | --- |
 | 崩溃事件 | 支持 | 支持 | 支持 |
 | 应用冻屏事件 | 支持 | 支持 | 支持 |
+| 应用冻屏告警事件 | 支持 | 支持 | 支持 |
 | 资源泄漏事件 | 支持 | 支持 | 支持 |
 | 地址越界事件 | 支持 | 不支持 | 支持 |
 | 主线程超时事件 | 支持 | 支持 | 支持 |

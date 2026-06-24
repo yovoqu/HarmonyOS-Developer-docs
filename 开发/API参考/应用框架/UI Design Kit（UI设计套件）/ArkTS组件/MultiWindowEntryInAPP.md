@@ -1,6 +1,6 @@
 # MultiWindowEntryInAPP
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-multiwindowentryinapp-api
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -227,4 +227,4 @@ struct MultiWindowEntryInAPPTest {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/QVi4HrvTQPiQnnh-1jUTzg/zh-cn_image_0000002581436672.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=AE362E57728BC658CE8BAE7563C9E827EB4D95E07BBC783C6BE3C8CBE87688CC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/dp2RGGzsTrmQh7LviWyY9g/zh-cn_image_0000002626071322.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020050Z&HW-CC-Expire=86400&HW-CC-Sign=F4DE5838865C3EA9FBF97C6C3DAFD7A42D5F4DD935704EB987A5CFF667C32D0F)

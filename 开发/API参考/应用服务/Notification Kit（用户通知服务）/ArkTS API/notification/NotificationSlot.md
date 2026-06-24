@@ -1,6 +1,6 @@
 # NotificationSlot
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationslot
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -24,13 +24,13 @@
 | notificationType11+ | notificationManager.SlotType | 否 | 是 | 通道类型。 |
 | level(deprecated) | notification.SlotLevel | 否 | 是 | 通知级别。 从API version 7开始支持，从API version 20开始废弃，建议使用notificationLevel替代。 |
 | notificationLevel20+ | notificationManager.SlotLevel | 否 | 是 | 通知级别。 |
-| desc | string | 否 | 是 | 通知渠道描述信息。 |
-| badgeFlag | boolean | 否 | 是 | 是否显示角标。 - true：是。 - false：否。 |
-| bypassDnd | boolean | 否 | 是 | 是否在系统中绕过免打扰模式。 - true：是。 - false：否。 |
+| desc | string | 否 | 是 | 通知渠道描述信息。大小不超过243字节，超出部分会被截取。 |
+| badgeFlag | boolean | 否 | 是 | 是否显示角标。 - true：是。 - false：否。默认值为true。 |
+| bypassDnd | boolean | 否 | 是 | 是否在系统中绕过免打扰模式。 - true：是。 - false：否。默认值为false。 |
 | lockscreenVisibility | number | 否 | 是 | 在锁定屏幕上显示通知的模式。预留能力，暂不支持。 |
-| vibrationEnabled | boolean | 否 | 是 | 是否可振动。 - true：是。 - false：否。 |
-| sound | string | 否 | 是 | 该渠道的通知的自定义铃声文件名。该文件放在resources/rawfile目录下，支持m4a、aac、mp3、ogg、wav、flac、amr等格式。 |
-| lightEnabled | boolean | 否 | 是 | 是否闪灯。 - true：是。 - false：否。 |
+| vibrationEnabled | boolean | 否 | 是 | 是否可振动。 - true：是。 - false：否。默认值为false。 |
+| sound | string | 否 | 是 | 该渠道的通知的自定义铃声文件名。该文件放在resources/rawfile目录下，支持m4a、aac、mp3、ogg、wav、flac、amr等格式。大小不超过243字节，超出部分会被截取。 |
+| lightEnabled | boolean | 否 | 是 | 是否闪灯。 - true：是。 - false：否。默认值为false。 |
 | lightColor | number | 否 | 是 | 通知灯颜色。预留能力，暂不支持。 |
 | vibrationValues | Array&lt;number&gt; | 否 | 是 | 通知振动样式。预留能力，暂不支持。 |
 | enabled9+ | boolean | 是 | 是 | 表示是否允许发布此通知渠道的通知。 - true：允许。 - false：禁止。 |

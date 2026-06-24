@@ -1,6 +1,6 @@
 # Navigation页面参数如何管理？如：传递参数、参数返回、参数获取
 
-更新时间：2026-04-27 09:10:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-420
 

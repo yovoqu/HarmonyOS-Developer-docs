@@ -1,6 +1,6 @@
 # interactiveLiveness（人脸活体检测）
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-interactive-liveness
 **支持设备：** Phone | Tablet
@@ -30,6 +30,8 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.AI.Component.LivenessDetect
 
 **起始版本：** 5.0.0(12)
@@ -49,6 +51,8 @@ import { interactiveLiveness } from '@kit.VisionKit';
 人脸活体检测的动作检测个数的枚举值。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.AI.Component.LivenessDetect
 
@@ -72,6 +76,8 @@ import { interactiveLiveness } from '@kit.VisionKit';
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.AI.Component.LivenessDetect
 
 **起始版本：** 5.0.0(12)
@@ -91,6 +97,8 @@ import { interactiveLiveness } from '@kit.VisionKit';
 人脸活体检测的配置项。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.AI.Component.LivenessDetect
 
@@ -139,6 +147,8 @@ startLivenessDetection(config: InteractiveLivenessConfig): Promise&lt;boolean&gt
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.AI.Component.LivenessDetect
 
 **起始版本：** 5.0.0(12)
@@ -159,7 +169,7 @@ startLivenessDetection(config: InteractiveLivenessConfig): Promise&lt;boolean&gt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -204,6 +214,8 @@ startLivenessDetection(config: InteractiveLivenessConfig, callback: AsyncCallbac
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.AI.Component.LivenessDetect
 
 **起始版本：** 5.0.0(12)
@@ -225,7 +237,7 @@ startLivenessDetection(config: InteractiveLivenessConfig, callback: AsyncCallbac
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -274,6 +286,8 @@ void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessErr
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.AI.Component.LivenessDetect
 
 **起始版本：** 5.0.0(12)
@@ -294,6 +308,8 @@ void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessErr
 返回人脸活体检测结果的相关参数。
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.AI.Component.LivenessDetect
 
@@ -319,6 +335,8 @@ getInteractiveLivenessResult(): Promise&lt;InteractiveLivenessResult&gt;
 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.AI.Component.LivenessDetect
 
 **起始版本：** 5.0.0(12)
@@ -332,7 +350,7 @@ getInteractiveLivenessResult(): Promise&lt;InteractiveLivenessResult&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

@@ -1,6 +1,6 @@
 # FAST
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/fast-kit-fast
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -33,7 +33,9 @@
 | fast_ads_concurrent_hashmap.h | 并发哈希表相关数据结构及函数定义。 |
 | fast_common_def.h | FAST Kit错误码等类型的公共定义。 |
 | fast_dsp_common.h | 数字信号处理（DSP）通用数据结构和工具函数定义。 |
+| fast_dsp_transform.h | 数字信号处理（DSP）变换函数定义，包括FFT、IFFT等。 |
 | fast_solver_rect_partition.h | 矩形划分求解器相关数据结构及函数定义。 |
+| fast_collections_hashmap.h | 适用于单线程场景的哈希表相关数据结构及函数定义。 |
  
  
   
@@ -78,12 +80,30 @@
 | typedef struct FAST_BiquadStateD FAST_BiquadStateD | 双精度二阶IIR滤波器状态。 |
 | typedef struct FAST_Biquadm FAST_Biquadm | 单精度多通道多节IIR滤波器组。 |
 | typedef struct FAST_BiquadmD FAST_BiquadmD | 双精度多通道多节IIR滤波器组。 |
+| typedef struct FAST_FFTConfig FAST_FFTConfig | 快速傅里叶变换的不透明配置。 |
+| typedef void* FAST_HashmapHandle | 哈希表的句柄。 |
+| typedef void* FAST_HashmapKeyPtr | 哈希表键指针。 |
+| typedef void* FAST_HashmapValuePtr | 哈希表的值指针。 |
+| typedef uint64_t(* HMS_FAST_Hashmap_HashFunc) (const FAST_HashmapKeyPtr key) | 自定义的哈希值计算函数。 |
+| typedef int32_t(* HMS_FAST_Hashmap_KeyEqualFunc) (const FAST_HashmapKeyPtr leftKey, const FAST_HashmapKeyPtr rightKey) | 自定义的键比较函数。 |
+| typedef int32_t(* HMS_FAST_Hashmap_HookFunc) (const FAST_HashmapKeyPtr key, FAST_HashmapValuePtr value, void* context) | 自定义的通用回调函数形式。 |
 | typedef void* FAST_ConcurrentHashmapHandle | 并发哈希表的句柄。 |
 | typedef void* FAST_ConcurrentHashmapKeyPtr | 并发哈希表键指针。 |
 | typedef void* FAST_ConcurrentHashmapValuePtr | 并发哈希表的值指针。 |
 | typedef uint64_t (*HMS_FAST_ConcurrentHashmap_HashFunc) (const FAST_ConcurrentHashmapKeyPtr key) | 开发者自定义的哈希值计算函数。 |
 | typedef int32_t (*HMS_FAST_ConcurrentHashmap_KeyEqualFunc) (const FAST_ConcurrentHashmapKeyPtr leftKey, const FAST_ConcurrentHashmapKeyPtr rightKey) | 开发者自定义的键比较函数。 |
 | typedef int32_t (*HMS_FAST_ConcurrentHashmap_HookFunc) (const FAST_ConcurrentHashmapKeyPtr key, FAST_ConcurrentHashmapValuePtr value, void* context) | 开发者自定义的通用回调函数形式。 |
+ 
+ 
+  
+
+#### 常量
+
+**支持设备：** Phone | PC/2in1 | Tablet
+ 
+| 名称 | 描述 |
+| --- | --- |
+| const uint32_t FAST_MAX_FFT_LOG2N = 16 | FFT支持的最大点数对应的以2为底的对数值。值为16，即最大点数为65536。 |
  
  
   
@@ -119,18 +139,18 @@
 | FAST_EXPORT void HMS_FAST_RectPartition_DestroyConfig (FAST_RectPartitionConfig *config) | 销毁矩形划分求解器的不透明配置。 |
 | FAST_EXPORT FAST_ErrorCode HMS_FAST_RectPartition_SetAlgo (FAST_RectPartitionConfig *config, const char *name) | 设置矩形划分求解器使用的算法。目前仅支持扫描线算法“SweepLineAlgo”，输出数量尽可能少（不保证最优性）的不相交矩形集合，复杂度为。 |
 | FAST_EXPORT FAST_ErrorCode HMS_FAST_RectPartition_Solve (FAST_RectPartitionConfig *config, size_t size, const FAST_Rect *origin, FAST_Rect *result, size_t *resultSize) | 在指定不透明配置下解决矩形划分问题。函数接收若干个彼此不相交的矩形作为输入，计算出覆盖相同区域的矩形划分方案，并使输出的矩形数量尽可能少。 说明： 1. 输入须保证矩形两两不相交（即任意两个矩形满足： 或 或或 ），否则函数返回FAST_ERROR_CODE_ILLEGAL_INPUT。 2. 函数能保证输出矩形的数量小于等于输入矩形的数量。 |
-| float HMS_FAST_DSP_Maxmgv (const float *input, size_t stride, size_t length) | 计算步长实值向量中的最大幅值（单精度）。 |
-| double HMS_FAST_DSP_MaxmgvD (const double *input, size_t stride, size_t length) | 计算步长实值向量中的最大幅值（双精度）。 |
-| void HMS_FAST_DSP_Maxvi (const float *input, size_t stride, size_t length, float *value, size_t *index) | 查找步长实值向量中的最大值及其索引（单精度）。 |
-| void HMS_FAST_DSP_MaxviD (const double *input, size_t stride, size_t length, double *value, size_t *index) | 查找步长实值向量中的最大值及其索引（双精度）。 |
-| float HMS_FAST_DSP_Sve (const float *input, size_t stride, size_t length) | 计算步长实值向量的和（单精度）。 |
-| double HMS_FAST_DSP_SveD (const double *input, size_t stride, size_t length) | 计算步长实值向量的和（双精度）。 |
+| float HMS_FAST_DSP_Maxmgv (const float *input, size_t stride, size_t length) | 计算步长实数向量中的最大幅值（单精度）。 |
+| double HMS_FAST_DSP_MaxmgvD (const double *input, size_t stride, size_t length) | 计算步长实数向量中的最大幅值（双精度）。 |
+| void HMS_FAST_DSP_Maxvi (const float *input, size_t stride, size_t length, float *value, size_t *index) | 查找步长实数向量中的最大值及其索引（单精度）。 |
+| void HMS_FAST_DSP_MaxviD (const double *input, size_t stride, size_t length, double *value, size_t *index) | 查找步长实数向量中的最大值及其索引（双精度）。 |
+| float HMS_FAST_DSP_Sve (const float *input, size_t stride, size_t length) | 计算步长实数向量的和（单精度）。 |
+| double HMS_FAST_DSP_SveD (const double *input, size_t stride, size_t length) | 计算步长实数向量的和（双精度）。 |
 | float HMS_FAST_DSP_Svemg (const float *input, size_t stride, size_t length) | 计算步长向量的绝对值之和（L1范数）（单精度）。 |
 | double HMS_FAST_DSP_SvemgD (const double *input, size_t stride, size_t length) | 计算步长向量的绝对值之和（L1范数）（双精度）。 |
-| float HMS_FAST_DSP_Meamgv (const float *input, size_t stride, size_t length) | 计算步长实值向量绝对值的均值（单精度）。 |
-| double HMS_FAST_DSP_MeamgvD (const double *input, size_t stride, size_t length) | 计算步长实值向量绝对值的均值（双精度）。 |
-| float HMS_FAST_DSP_Dotpr (const float *inputA, size_t strideA, const float *inputB, size_t strideB, size_t length) | 计算两个步长实值向量的点积（单精度）。 |
-| double HMS_FAST_DSP_DotprD (const double *inputA, size_t strideA, const double *inputB, size_t strideB, size_t length) | 计算两个步长实值向量的点积（双精度）。 |
+| float HMS_FAST_DSP_Meamgv (const float *input, size_t stride, size_t length) | 计算步长实数向量绝对值的均值（单精度）。 |
+| double HMS_FAST_DSP_MeamgvD (const double *input, size_t stride, size_t length) | 计算步长实数向量绝对值的均值（双精度）。 |
+| float HMS_FAST_DSP_Dotpr (const float *inputA, size_t strideA, const float *inputB, size_t strideB, size_t length) | 计算两个步长实数向量的点积（单精度）。 |
+| double HMS_FAST_DSP_DotprD (const double *inputA, size_t strideA, const double *inputB, size_t strideB, size_t length) | 计算两个步长实数向量的点积（双精度）。 |
 | void HMS_FAST_DSP_Vsbsm (const float *inputA, size_t strideA, const float *inputB, size_t strideB, float scalar, float *outputC, size_t strideC, size_t length) | 执行向量减法：outputC[i] = (inputA[i] - inputB[i]) * scalar（单精度）。 |
 | void HMS_FAST_DSP_VsbsmD (const double *inputA, size_t strideA, const double *inputB, size_t strideB, double scalar, double *outputC, size_t strideC, size_t length) | 执行向量减法：outputC[i] = (inputA[i] - inputB[i]) * scalar（双精度）。 |
 | void HMS_FAST_DSP_Ctoz (const float *input, size_t strideInput, FAST_SplitComplex *output, size_t strideOutput, size_t length) | 将交错复数数组转换为分离格式（单精度）。 |
@@ -149,6 +169,13 @@
 | void HMS_FAST_Biquadm_DestroyD (FAST_BiquadmD *filter) | 销毁二阶滤波器实例（双精度）。 |
 | FAST_ErrorCode HMS_FAST_Biquadm (FAST_Biquadm *filter, const float **input, const size_t strideInput, float **output, const size_t strideOutput, size_t length) | 通过二阶滤波器组处理多通道音频（单精度）。 |
 | FAST_ErrorCode HMS_FAST_BiquadmD (FAST_BiquadmD *filter, const double **input, const size_t strideInput, double **output, const size_t strideOutput, size_t length) | 通过二阶滤波器组处理多通道音频（双精度）。 |
+| FAST_ErrorCode HMS_FAST_FFT_CreateConfig (FAST_FFTConfig** config, const uint32_t log2n) | 创建单精度FFT配置对象（log2n为FFT点数对应的以2为底的对数值，必须满足0<log2n<=FAST_MAX_FFT_LOG2N，即1到16）。 |
+| FAST_ErrorCode HMS_FAST_FFT_CreateConfigD (FAST_FFTConfig** config, const uint32_t log2n) | 创建双精度FFT配置对象（log2n为FFT点数对应的以2为底的对数值，必须满足0<log2n<=FAST_MAX_FFT_LOG2N，即1到16）。 |
+| void HMS_FAST_FFT_DestroyConfig (FAST_FFTConfig* config) | 销毁FFT配置对象并释放资源。 |
+| FAST_ErrorCode HMS_FAST_FFT_ForwardTransform (FAST_FFTConfig* config, const uint32_t length, const float input[], float outputRe[], float outputIm[]) | 计算单精度实数信号的FFT。 |
+| FAST_ErrorCode HMS_FAST_FFT_ForwardTransformD (FAST_FFTConfig* config, const uint32_t length, const double input[], double outputRe[], double outputIm[]) | 计算双精度实数信号的FFT。 |
+| FAST_ErrorCode HMS_FAST_FFT_InverseTransform (FAST_FFTConfig* config, const uint32_t length, const float inputRe[], const float inputIm[], float output[]) | 计算单精度复数频域信号的逆FFT。 |
+| FAST_ErrorCode HMS_FAST_FFT_InverseTransformD (FAST_FFTConfig* config, const uint32_t length, const double inputRe[], const double inputIm[], double output[]) | 计算双精度复数频域信号的逆FFT。 |
 | FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Create (FAST_ConcurrentHashmapHandle* handle, HMS_FAST_ConcurrentHashmap_HashFunc hasher, HMS_FAST_ConcurrentHashmap_KeyEqualFunc equaler, float maxLoadFac, size_t numShards) | 使用给定配置创建并发哈希表。 |
 | void HMS_FAST_ConcurrentHashmap_Destroy (FAST_ConcurrentHashmapHandle handle) | 销毁指定并发哈希表。 |
 | FAST_ErrorCode HMS_FAST_ConcurrentHashmap_Insert (FAST_ConcurrentHashmapHandle handle, const FAST_ConcurrentHashmapKeyPtr key, const FAST_ConcurrentHashmapValuePtr value, FAST_ConcurrentHashmapValuePtr* originValue) | 将给定的键值对插入并发哈希表中，如果键已经存在，则使用value覆写原有的值，并将对应值的地址保存在originValue中。 |
@@ -159,6 +186,16 @@
 | void HMS_FAST_ConcurrentHashmap_Clear (FAST_ConcurrentHashmapHandle handle) | 清空给定哈希表中维护的所有元素。 |
 | size_t HMS_FAST_ConcurrentHashmap_EraseIf (FAST_ConcurrentHashmapHandle handle, HMS_FAST_ConcurrentHashmap_HookFunc condFunc, void* condCtx, HMS_FAST_ConcurrentHashmap_HookFunc freeFunc, void* freeCtx) | 删除哈希表中符合开发者定义条件的所有元素，并使用开发者定义的方式释放其内存。 |
 | void HMS_FAST_ConcurrentHashmap_Traverse (FAST_ConcurrentHashmapHandle handle, HMS_FAST_ConcurrentHashmap_HookFunc condFunc, void* condCtx, HMS_FAST_ConcurrentHashmap_HookFunc workFunc, void* workCtx) | 遍历哈希表，将所有符合开发者输入条件的键值对按开发者给定的方式修改。 |
+| FAST_ErrorCode HMS_FAST_Hashmap_Create (FAST_HashmapHandle* handle, HMS_FAST_Hashmap_HashFunc hasher, HMS_FAST_Hashmap_KeyEqualFunc equaler) | 创建哈希表实例。 |
+| void HMS_FAST_Hashmap_Destroy (FAST_HashmapHandle handle) | 销毁哈希表实例。 |
+| FAST_ErrorCode HMS_FAST_Hashmap_Insert (FAST_HashmapHandle handle, const FAST_HashmapKeyPtr key, const FAST_HashmapValuePtr value, FAST_HashmapValuePtr* originValue) | 将给定的键值对插入哈希表中，如果键已经存在，则使用value覆写原有的值，并将原有值的地址保存在originValue中。 |
+| FAST_ErrorCode HMS_FAST_Hashmap_Find (FAST_HashmapHandle handle, const FAST_HashmapKeyPtr key, FAST_HashmapValuePtr* value) | 检索与给定键关联的值，并将对应的值保存在value中。 |
+| FAST_ErrorCode HMS_FAST_Hashmap_Erase (FAST_HashmapHandle handle, const FAST_HashmapKeyPtr key, FAST_HashmapKeyPtr* originKey, FAST_HashmapValuePtr* originValue) | 在给定哈希表中删除输入的键，并将键/值对应的地址保存在originKey和originValue中。 |
+| FAST_ErrorCode HMS_FAST_Hashmap_TryInsert (FAST_HashmapHandle handle, const FAST_HashmapKeyPtr key, const FAST_HashmapValuePtr value) | 将给定的键值对插入哈希表中，如果键已经存在、则不做操作。 |
+| size_t HMS_FAST_Hashmap_Size (FAST_HashmapHandle handle) | 返回哈希表中的元素个数。 |
+| void HMS_FAST_Hashmap_Clear (FAST_HashmapHandle handle) | 从哈希表中删除所有元素。 |
+| size_t HMS_FAST_Hashmap_EraseIf (FAST_HashmapHandle handle, HMS_FAST_Hashmap_HookFunc condFunc, void* condCtx, HMS_FAST_Hashmap_HookFunc freeFunc, void* freeCtx) | 删除哈希表中符合输入条件的所有元素，并使用自定义的方式释放其内存。 |
+| void HMS_FAST_Hashmap_Traverse (FAST_HashmapHandle handle, HMS_FAST_Hashmap_HookFunc condFunc, void* condCtx, HMS_FAST_Hashmap_HookFunc workFunc, void* workCtx) | 遍历哈希表，将所有符合输入条件的键值对按自定义的方式修改。 |
  
  
   
@@ -509,6 +546,182 @@ typedef struct FAST_BiquadmD FAST_BiquadmD
 定义双精度多通道、多节二阶IIR滤波器组的数据结构。
  
 **起始版本：** 6.1.1(24)
+ 
+  
+
+#### FAST_FFTConfig
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+typedef struct FAST_FFTConfig FAST_FFTConfig
+```
+ 
+**描述**
+ 
+快速傅里叶变换的不透明配置（Opaque Configuration）。该对象是非线程安全的，在多线程环境中，严禁多个线程同时操作同一个FAST_FFTConfig配置对象。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### FAST_HashmapHandle
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+typedef void* FAST_HashmapHandle
+```
+ 
+哈希表的句柄。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### FAST_HashmapKeyPtr
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+typedef void* FAST_HashmapKeyPtr
+```
+ 
+**描述**
+ 
+哈希表的键指针。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### FAST_HashmapValuePtr
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+typedef void* FAST_HashmapValuePtr
+```
+ 
+**描述**
+ 
+哈希表的值指针。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### HMS_FAST_Hashmap_HashFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+typedef uint64_t(* HMS_FAST_Hashmap_HashFunc) (const FAST_HashmapKeyPtr key)
+```
+ 
+**描述**
+ 
+哈希表的哈希计算回调函数类型。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| key | 要计算哈希的FAST_HashmapKeyPtr。 |
+ 
+ 
+**返回：**
+ 
+从键派生的64位哈希值。
+ 
+  
+
+#### HMS_FAST_Hashmap_HookFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+typedef int32_t(* HMS_FAST_Hashmap_HookFunc) (const FAST_HashmapKeyPtr key, FAST_HashmapValuePtr value, void* context)
+```
+ 
+**描述**
+ 
+哈希表的通用回调函数形式。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| key | 正在访问的当前元素的键。 |
+| value | 与键关联的值。 |
+| context | 通过遍历API传递的用户定义上下文。 |
+ 
+ 
+**返回：**
+ 
+非零表示条件满足（例如，用于过滤）；否则为零。
+ 
+**注解：**
+ 
+此函数通常用于支持条件处理的API，如选择性删除或转换。返回值的精确解释取决于调用函数：
+ 
+- 在谓词上下文中（例如erase-if），非零返回值通常表示“匹配”。
+- 在操作上下文中，返回值可能被忽略。
+
+ 
+  
+
+#### HMS_FAST_Hashmap_KeyEqualFunc
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+typedef int32_t(* HMS_FAST_Hashmap_KeyEqualFunc) (const FAST_HashmapKeyPtr leftKey, const FAST_HashmapKeyPtr rightKey)
+```
+ 
+**描述**
+ 
+自定义键相等比较函数回调。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| leftKey | 指向哈希表中键的指针，作为相等比较的左操作数传递。 |
+| rightKey | 指向哈希表中另一个键的指针，作为相等比较的右操作数传递。 |
+ 
+ 
+**返回：**
+ 
+如果键被视为相等则非零；否则为零。
+ 
+  
+
+#### 常量说明
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+  
+
+#### FAST_MAX_FFT_LOG2N
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+const uint32_t FAST_MAX_FFT_LOG2N = 16;
+```
+ 
+**描述**
+ 
+FFT支持的最大点数N对应的以2为底的对数值。即FAST_MAX_FFT_LOG2N=$\log_2$(N)，其中N为FFT支持的最大点数，例如该值为16时，最大点数为65536。
+ 
+**起始版本**：26.0.0
  
   
 
@@ -1362,7 +1575,7 @@ float HMS_FAST_DSP_Maxmgv (const float * input, size_t stride, size_t length)
  
 **描述**
  
-计算步长实值向量中的最大幅值（单精度）。
+计算步长实数向量中的最大幅值（单精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1391,7 +1604,7 @@ double HMS_FAST_DSP_MaxmgvD (const double * input, size_t stride, size_t length)
  
 **描述**
  
-计算步长实值向量中的最大幅值（双精度）。
+计算步长实数向量中的最大幅值（双精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1420,7 +1633,7 @@ void HMS_FAST_DSP_Maxvi (const float * input, size_t stride, size_t length, floa
  
 **描述**
  
-查找步长实值向量中的最大值及其索引（单精度）。
+查找步长实数向量中的最大值及其索引（单精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1451,7 +1664,7 @@ void HMS_FAST_DSP_MaxviD (const double * input, size_t stride, size_t length, do
  
 **描述**
  
-查找步长实值向量中的最大值及其索引（双精度）。
+查找步长实数向量中的最大值及其索引（双精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1482,7 +1695,7 @@ float HMS_FAST_DSP_Sve (const float * input, size_t stride, size_t length)
  
 **描述**
  
-计算步长实值向量的和（单精度）。
+计算步长实数向量的和（单精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1511,7 +1724,7 @@ double HMS_FAST_DSP_SveD (const double * input, size_t stride, size_t length)
  
 **描述**
  
-计算步长实值向量的和（双精度）。
+计算步长实数向量的和（双精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1598,7 +1811,7 @@ float HMS_FAST_DSP_Meamgv (const float * input, size_t stride, size_t length)
  
 **描述**
  
-计算步长实值向量绝对值的均值（单精度）。
+计算步长实数向量绝对值的均值（单精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1627,7 +1840,7 @@ double HMS_FAST_DSP_MeamgvD (const double * input, size_t stride, size_t length)
  
 **描述**
  
-计算步长实值向量绝对值的均值（双精度）。
+计算步长实数向量绝对值的均值（双精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1656,7 +1869,7 @@ float HMS_FAST_DSP_Dotpr (const float * inputA, size_t strideA, const float * in
  
 **描述**
  
-计算两个步长实值向量的点积（单精度）。
+计算两个步长实数向量的点积（单精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1687,7 +1900,7 @@ double HMS_FAST_DSP_DotprD (const double * inputA, size_t strideA, const double 
  
 **描述**
  
-计算两个步长实值向量的点积（双精度）。
+计算两个步长实数向量的点积（双精度）。
  
 **起始版本：** 6.1.1(24)
  
@@ -1897,6 +2110,243 @@ void HMS_FAST_DSP_ZtocD (const FAST_SplitComplexD * input, size_t strideInput, d
 **返回：**
  
 无。
+ 
+  
+
+#### HMS_FAST_FFT_CreateConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_FFT_CreateConfig (FAST_FFTConfig** config, const uint32_t log2n)
+```
+ 
+**描述**
+ 
+创建单精度FFT的不透明配置（log2n为FFT点数对应的以2为底的对数值，必须满足0<log2n<=[FAST_MAX_FFT_LOG2N](#fast_max_fft_log2n)（即1到16）。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| config | 指向快速傅里叶变换的不透明配置FAST_FFTConfig的指针。 |
+| log2n | FFT点数对应的以2为底的对数值（即变换长度N=1<<log2n）。必须满足0<log2n<=FAST_MAX_FFT_LOG2N（即1到16）。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当config为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当log2n超出范围时，返回[FAST_ERROR_CODE_ILLEGAL_INPUT](#fast_errorcode-1)。
+ 
+当内存耗尽时，返回[FAST_ERROR_CODE_OOM](#fast_errorcode-1)。
+ 
+  
+
+#### HMS_FAST_FFT_CreateConfigD()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_FFT_CreateConfigD (FAST_FFTConfig** config, const uint32_t log2n)
+```
+ 
+**描述**
+ 
+创建双精度FFT的不透明配置（log2n为FFT点数对应的以2为底的对数值，必须满足0<log2n<=[FAST_MAX_FFT_LOG2N](#fast_max_fft_log2n)，即1到16）。与[HMS_FAST_FFT_CreateConfig](#hms_fast_fft_createconfig)功能相同，但用于双精度（double）计算，提供更高的数值精度。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| config | 指向快速傅里叶变换的不透明配置FAST_FFTConfig的指针。 |
+| log2n | FFT点数对应的以2为底的对数值（即变换长度N=1<<log2n）。必须满足0<log2n<=FAST_MAX_FFT_LOG2N（即1到16）。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当config为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当log2n超出范围时，返回[FAST_ERROR_CODE_ILLEGAL_INPUT](#fast_errorcode-1)。
+ 
+当内存耗尽时，返回[FAST_ERROR_CODE_OOM](#fast_errorcode-1)。
+ 
+  
+
+#### HMS_FAST_FFT_DestroyConfig()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+void HMS_FAST_FFT_DestroyConfig (FAST_FFTConfig* config)
+```
+ 
+**描述**
+ 
+销毁FFT的不透明配置，并释放内存，再次访问该不透明配置时为未定义行为。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| config | 待销毁的FFT的不透明配置FAST_FFTConfig。 |
+ 
+ 
+**返回：**
+ 
+无。
+ 
+  
+
+#### HMS_FAST_FFT_ForwardTransform()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_FFT_ForwardTransform (FAST_FFTConfig* config, const uint32_t length, const float input[], float outputRe[], float outputIm[])
+```
+ 
+**描述**
+ 
+计算单精度实数时域信号的离散傅里叶变换（DFT）。该变换将实数时域信号转换为复数频域信号，最终输出复数频谱。
+ 
+对于长度为N的实数输入，输出包含N/2+1个复数频率分量（由于实信号的频谱共轭对称性，只需存储前半部分）。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| config | 有效的FFT配置，由HMS_FAST_FFT_CreateConfig创建。 |
+| length | 输入信号长度。必须等于创建配置时指定的2^log2n。 |
+| input | 实数时域输入数组，大小为length。 |
+| outputRe | 复数频域输出的实部数组，大小为length/2+1。 |
+| outputIm | 复数频域输出的虚部数组，大小为length/2+1。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当input、outputRe或outputIm为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当length不等于2^log2n时，返回[FAST_ERROR_CODE_ILLEGAL_INPUT](#fast_errorcode-1)。
+ 
+  
+
+#### HMS_FAST_FFT_ForwardTransformD()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_FFT_ForwardTransformD (FAST_FFTConfig* config, const uint32_t length, const double input[], double outputRe[], double outputIm[])
+```
+ 
+**描述**
+ 
+计算双精度实数时域信号的离散傅里叶变换（DFT）。与[HMS_FAST_FFT_ForwardTransform](#hms_fast_fft_forwardtransform) 功能相同，但使用双精度（double）计算。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| config | 有效的FFT配置，由HMS_FAST_FFT_CreateConfigD创建。 |
+| length | 输入信号长度。必须等于2^log2n。 |
+| input | 实数时域输入数组，大小为length。 |
+| outputRe | 复数频域输出的实部数组，大小为length/2+1。 |
+| outputIm | 复数频域输出的虚部数组，大小为length/2+1。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当input、outputRe或outputIm为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当length不等于2^log2n时，返回[FAST_ERROR_CODE_ILLEGAL_INPUT](#fast_errorcode-1)。
+ 
+  
+
+#### HMS_FAST_FFT_InverseTransform()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_FFT_InverseTransform (FAST_FFTConfig* config, const uint32_t length, const float inputRe[], const float inputIm[], float output[])
+```
+ 
+**描述**
+ 
+计算单精度复数频域序列的逆离散傅里叶变换（IDFT）。将频域信号转换回时域表示。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| config | 有效的FFT配置，由HMS_FAST_FFT_CreateConfig 创建。 |
+| length | 输出信号长度。必须等于2^log2n。 |
+| inputRe | 复数频域输入的实部数组，大小为length/2+1。 |
+| inputIm | 复数频域输入的虚部数组，大小为length/2+1。 |
+| output | 实数时域输出数组，大小为length。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当inputRe、inputIm或output为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当length不等于2^log2n时，返回[FAST_ERROR_CODE_ILLEGAL_INPUT](#fast_errorcode-1)。
+ 
+  
+
+#### HMS_FAST_FFT_InverseTransformD()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_FFT_InverseTransformD (FAST_FFTConfig* config, const uint32_t length, const double inputRe[], const double inputIm[], double output[])
+```
+ 
+**描述**
+ 
+计算双精度复数频域序列的逆离散傅里叶变换（IDFT）。与[HMS_FAST_FFT_InverseTransform](#hms_fast_fft_inversetransform)功能相同，但使用双精度（double）计算。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 名称 | 描述 |
+| --- | --- |
+| config | 有效的FFT配置，由HMS_FAST_FFT_CreateConfigD创建。 |
+| length | 输出信号长度。必须等于2^log2n。 |
+| inputRe | 复数频域输入的实部数组，大小为length/2+1。 |
+| inputIm | 复数频域输入的虚部数组，大小为length/2+1。 |
+| output | 实数时域输出数组，大小为length。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当inputRe、inputIm或output为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+length不等于2^log2n时，返回[FAST_ERROR_CODE_ILLEGAL_INPUT](#fast_errorcode-1)。
  
   
 
@@ -2233,3 +2683,340 @@ void HMS_FAST_ConcurrentHashmap_Traverse(
 | condCtx | 回调函数的上下文。 |
 | workFunc | 开发者定义的修改回调函数。 |
 | workCtx | 修改函数的上下文。 |
+ 
+ 
+  
+
+#### HMS_FAST_Hashmap_Clear()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+void HMS_FAST_Hashmap_Clear (FAST_HashmapHandle handle)
+```
+ 
+**描述**
+ 
+从哈希表中删除所有元素。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 哈希表句柄。 |
+ 
+ 
+**返回：**
+ 
+无
+ 
+  
+
+#### HMS_FAST_Hashmap_Create()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_Hashmap_Create (FAST_HashmapHandle* handle, HMS_FAST_Hashmap_HashFunc hasher, HMS_FAST_Hashmap_KeyEqualFunc equaler)
+```
+ 
+**描述**
+ 
+根据输入配置创建哈希表。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 存储创建的哈希表句柄指针。 |
+| hasher | 自定义哈希计算回调函数。 |
+| equaler | 自定义的键比较回调函数。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当handle或相关回调函数为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当内存耗尽构造失败时，返回[FAST_ERROR_CODE_OOM](#fast_errorcode-1)。
+ 
+  
+
+#### HMS_FAST_Hashmap_Destroy()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+void HMS_FAST_Hashmap_Destroy (FAST_HashmapHandle handle)
+```
+ 
+**描述**
+ 
+销毁给定哈希表。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 要销毁的哈希表句柄。 |
+ 
+ 
+**返回：**
+ 
+无
+ 
+**注解：**
+ 
+此函数不释放与键或值相关的内存。调用者保留所有键和值资源的所有权，必须显式释放它们以避免内存泄漏。
+ 
+  
+
+#### HMS_FAST_Hashmap_Erase()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_Hashmap_Erase (FAST_HashmapHandle handle, const FAST_HashmapKeyPtr key, FAST_HashmapKeyPtr* originKey, FAST_HashmapValuePtr* originValue)
+```
+ 
+**描述**
+ 
+从哈希表中按键删除条目。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 哈希表句柄。 |
+| key | 要删除的条目的键。 |
+| originKey | 将被删除的键的指针，仅在成功时有效，如果不需要请传入NULL。 |
+| originValue | 将被删除的值的指针，仅在成功时有效，如果不需要请传入NULL。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当handle或key为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当哈希表中不存在匹配的键时，返回[FAST_ERROR_CODE_KEY_NOT_EXISTS](#fast_errorcode-1)。
+ 
+**注解：**
+ 
+内存不会自动释放，用户必须使用**originKey**和**originValue**手动释放。
+ 
+  
+
+#### HMS_FAST_Hashmap_EraseIf()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+size_t HMS_FAST_Hashmap_EraseIf (FAST_HashmapHandle handle, HMS_FAST_Hashmap_HookFunc condFunc, void* condCtx, HMS_FAST_Hashmap_HookFunc freeFunc, void* freeCtx)
+```
+ 
+**描述**
+ 
+删除满足给定条件的所有元素。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 哈希表句柄。 |
+| condFunc | 自定义的删除条件回调函数。 |
+| condCtx | 条件回调函数的上下文。 |
+| freeFunc | 开发者定义的内存释放回调函数，可为NULL。 |
+| freeCtx | 内存释放回调函数的上下文。 |
+ 
+ 
+**返回：**
+ 
+成功删除的元素数量。
+ 
+  
+
+#### HMS_FAST_Hashmap_Find()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_Hashmap_Find (FAST_HashmapHandle handle, const FAST_HashmapKeyPtr key, FAST_HashmapValuePtr* value)
+```
+ 
+**描述**
+ 
+检索与给定键关联的值。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 哈希表句柄。 |
+| key | 要查找的键。 |
+| value | 存储检索值的指针。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当handle、key或value为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当哈希表中不存在匹配的键时，返回[FAST_ERROR_CODE_KEY_NOT_EXISTS](#fast_errorcode-1)。
+ 
+  
+
+#### HMS_FAST_Hashmap_Insert()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_Hashmap_Insert (FAST_HashmapHandle handle, const FAST_HashmapKeyPtr key, const FAST_HashmapValuePtr value, FAST_HashmapValuePtr* originValue)
+```
+ 
+**描述**
+ 
+在哈希表中插入或更新键值对。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 哈希表句柄。 |
+| key | 要插入或更新的键。 |
+| value | 与键关联的值。 |
+| originValue | 将被覆盖的值的指针，仅在返回FAST_ERROR_CODE_KEY_EXISTS时有效，如果不需要请传入NULL。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当handle为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当哈希表中存在相同的键时，使用value覆盖已有的值并返回[FAST_ERROR_CODE_KEY_EXISTS](#fast_errorcode-1)。
+ 
+当内存耗尽时，返回[FAST_ERROR_CODE_OOM](#fast_errorcode-1)。
+ 
+**注解：**
+ 
+- 如果键已存在，返回值将为[FAST_ERROR_CODE_KEY_EXISTS](#fast_errorcode-1)，其值将被覆盖。
+- 调用者保留键和值内存的所有权。哈希表仅存储指针；不复制或管理内存。
+
+ 
+  
+
+#### HMS_FAST_Hashmap_Size()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+size_t HMS_FAST_Hashmap_Size (FAST_HashmapHandle handle)
+```
+ 
+**描述**
+ 
+返回哈希表中当前存储的键值对数量。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 哈希表句柄。 |
+ 
+ 
+**返回：**
+ 
+哈希表中的元素数量。
+ 
+  
+
+#### HMS_FAST_Hashmap_Traverse()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+void HMS_FAST_Hashmap_Traverse (FAST_HashmapHandle handle, HMS_FAST_Hashmap_HookFunc condFunc, void* condCtx, HMS_FAST_Hashmap_HookFunc workFunc, void* workCtx)
+```
+ 
+**描述**
+ 
+遍历哈希表，可选择过滤元素并应用工作函数。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 哈希表句柄。 |
+| condFunc | 可选的条件函数；如果提供，仅当 condFunc 返回非零时才对条目调用 workFunc。传入 NULL 以对所有条目应用 workFunc。 |
+| condCtx | 用户定义的上下文，允许用户供应 condFunc 在执行期间可能需要的自定义数据。 |
+| workFunc | 对选定条目应用的函数。 |
+| workCtx | 用户定义的上下文，允许用户供应 workFunc 在执行期间可能需要的自定义数据。 |
+ 
+ 
+**返回：**
+ 
+无
+ 
+**注解：**
+ 
+condFunc和workFunc都在内部锁下调用；避免在这些回调中阻塞或重新进入哈希表API。
+ 
+  
+
+#### HMS_FAST_Hashmap_TryInsert()
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+```text
+FAST_ErrorCode HMS_FAST_Hashmap_TryInsert (FAST_HashmapHandle handle, const FAST_HashmapKeyPtr key, const FAST_HashmapValuePtr value)
+```
+ 
+**描述**
+ 
+仅当键不存在时插入键值对。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| handle | 哈希表句柄。 |
+| key | 要插入的键。 |
+| value | 与键关联的值。 |
+ 
+ 
+**返回：**
+ 
+当成功时，返回[FAST_ERROR_CODE_SUCCESS](#fast_errorcode-1)。
+ 
+当handle、key或value为NULL时，返回[FAST_ERROR_CODE_INVALID_PTR](#fast_errorcode-1)。
+ 
+当哈希表中存在相同的键时，不执行任何操作并返回[FAST_ERROR_CODE_KEY_EXISTS](#fast_errorcode-1)。
+ 
+当内存耗尽时，返回[FAST_ERROR_CODE_OOM](#fast_errorcode-1)。
+ 
+**注解：**
+ 
+调用者管理键和值内存的生命周期。

@@ -1,6 +1,6 @@
 # hdc工具导出/导入文件等常用hdc命令有哪些
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:32:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-31
 

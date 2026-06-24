@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-error-code
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -132,8 +132,8 @@ Failed to connect to the AAID service.
 PushService运行异常。
 
 **处理步骤**
-1. 请进行重试操作。
-2. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+
+请进行重试操作。
 
 
 
@@ -154,8 +154,8 @@ PushService内部处理任务时发生异常，将返回该错误码。
 PushService内部处理超时或异常。
 
 **处理步骤**
-1. 请进行重试操作。
-2. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+
+请进行重试操作。
 
 
 
@@ -176,8 +176,8 @@ Failed to connect to the push service.
 PushService运行异常。
 
 **处理步骤**
-1. 请进行重试操作。
-2. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+
+请进行重试操作。
 
 
 
@@ -200,8 +200,7 @@ PushService内部处理任务时发生异常，将返回该错误码。
 
 **处理步骤**
 1. 请尝试重启设备。
-2. 切换到新网络或您的热点网络重试。
-3. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+2. 切换到新网络重试。
 
 
 
@@ -234,7 +233,6 @@ Illegal application identity.
 **处理步骤**
 1. 请确认应用配置是否正确。
 2. 请检查您的网络，确保网络正常可用。
-3. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
 
@@ -257,7 +255,6 @@ The network is unavailable.
 **处理步骤**
 1. 网络异常，请稍后重试，或重连网络。
 2. 终端设备连接的推送服务器的IP是动态分配的，无法通过配置IP白名单方式放行。建议连接不受限的网络或放通5223、443端口重试。
-3. 若您的问题仍无法解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 
 
 
@@ -411,7 +408,7 @@ Number of calls exceeded.
 
 **处理步骤**
 
-请调整接口调用频次。
+请降低接口调用频率，确保调用间隔大于1秒。
 
 
 
@@ -473,11 +470,11 @@ App is not available or not registered.
 
 **可能原因**
 1. 应用或元服务未在AGC上注册。
-2. 订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#servicenotificationrequestsubscribenotification-1)与应用类型不匹配。
+2. 订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#requestsubscribenotification)与应用类型不匹配。
 
 **处理步骤**
 1. 检查应用或元服务是否在AGC上完成注册，详情请参见[应用开发准备](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-overview)。
-2. 检查订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#servicenotificationrequestsubscribenotification-1)与应用类型是否匹配，仅元服务支持通过华为账号订阅。
+2. 检查订阅类型[type](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-servicenotification#requestsubscribenotification)与应用类型是否匹配，仅元服务支持通过华为账号订阅。
 
 
 

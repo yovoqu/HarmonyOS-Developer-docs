@@ -1,6 +1,6 @@
 # ohpm publish错误码
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-publish-errorcode
 
@@ -16,7 +16,7 @@ Dep Statements Missing.
  
 **可能原因**
  
-在oh-package.json5的dependencies/dynamicDependencies未声明。
+oh-package.json5的dependencies/dynamicDependencies未声明。
  
 **处理步骤**
  
@@ -76,7 +76,7 @@ Key Path Is DirError.
  
 **可能原因**
  
-私钥路径文件错误。
+私钥文件路径错误。
  
 **处理步骤**
  

@@ -1,17 +1,26 @@
-# AppPicker（应用选择页）
+# @hms.utilityApplication.screenTimeGuard.appPicker.d.ts（应用选择）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-app-picker
 **支持设备：** Phone | Tablet
 
-AppPicker模块支持拉起具有不同功能的应用页，目前包括应用选择页和许可应用跳转页。
+#### 模块概述
+
+**支持设备：** Phone | Tablet
+
+已安装应用列表属于用户隐私，若管控应用获取到相关数据，则可能通过其来构造用户画像，造成隐私泄漏问题。针对上述问题，Screen Time Guard Kit为管控应用提供匿名化的应用token来代替具体应用。
  
-**模型约束：** 此接口仅可在Stage模型下使用。
+应用选择模块在保护用户隐私的前提下，为管控应用提供将token与具体应用信息相互转换的能力。该模块通过半模态页面展示具体的应用信息，而管控应用只能通过token与页面交互。
  
-**系统能力：** SystemCapability.ScreenTimeGuard.GuardService
+应用选择模块目前支持拉起两种页面：
+ 
+- 应用选择页：用于将具体应用转换为token。页面展示系统中已安装的应用并提供选择功能，完成相应的操作后返回将已选择应用对应的token。
+- 许可应用跳转页：用于将token转换为具体应用，并提供跳转功能。页面将输入的token转换为对应的应用图标和名称并进行展示，点击页面中相应的图标后可以启动并跳转到该应用。
+
  
 **起始版本：** 6.0.0(20)
+ 
   
 
 #### 导入模块
@@ -38,8 +47,6 @@ startAppPicker(context: common.Context, appSelection: guardService.AppInfo): Pro
  
 **系统能力：** SystemCapability.ScreenTimeGuard.GuardService
  
-**设备行为差异：** 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。
- 
 **起始版本：** 6.0.0(20)
  
 **参数：**
@@ -47,19 +54,19 @@ startAppPicker(context: common.Context, appSelection: guardService.AppInfo): Pro
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | common.Context | 是 | 应用上下文（仅支持UIAbilityContext）。 |
-| appSelection | guardService.AppInfo | 是 | 已被选择的应用，在picker页呈现勾选状态。 |
+| appSelection | guardService.AppInfo | 是 | 已被用户选择的应用，在picker页呈现勾选状态，最多可选中100个应用。 说明： 若Token数组包含无效token，将自动过滤并仅使用有效的Token进行显示和应用。 支持空数组，表示用户未配置任何应用至禁止/允许清单中。 |
  
  
 **返回值：**
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise<string[]> | Promise对象，返回用户已勾选应用的token数组。 |
+| Promise<string[]> | Promise对象，返回用户已勾选应用的token数组。当用户未选择任何应用时返回空数组。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-screentimeguard)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -80,18 +87,22 @@ import { appPicker } from '@kit.ScreenTimeGuardKit';
 @Entry
 @Component
 struct TestPage {
-   build() {
-      Column() {
+  build() {
+    Column() {
       Button('TestStartAppPicker')
-         .onClick(() => {
+        .onClick(() => {
+            // 获取UIAbilityContext上下文
             const context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+            // 调用startAppPicker接口，展示应用选择页并返回用户选择的应用token数组
+            // 首次拉起AppPicker，没有已勾选的应用tokens传入，则appSelection为空数组
             appPicker.startAppPicker(context, { appTokens: [] })
                .then((tokens) => {
+                  // 处理调用成功后的回调，打印用户已勾选应用的tokens数组
                   console.info('startAppPicker invoke success' + tokens);
                });
-         })
-      }
-   }
+        })
+    }
+  }
 }
 ```
  
@@ -111,8 +122,6 @@ startAppForm(context: common.Context, appSelection: guardService.AppInfo, appSub
  
 **系统能力：** SystemCapability.ScreenTimeGuard.GuardService
  
-**设备行为差异：** 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。
- 
 **起始版本：** 6.0.2(22)
  
 **参数：**
@@ -120,8 +129,8 @@ startAppForm(context: common.Context, appSelection: guardService.AppInfo, appSub
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | common.Context | 是 | 应用上下文（仅支持UIAbilityContext）。 |
-| appSelection | guardService.AppInfo | 是 | 在许可应用跳转页中展示的应用。 |
-| appSubTitle | string | 是 | 许可应用跳转页的子标题。该参数支持的最大长度为200个字符，超出范围时返回1019000009错误码。 |
+| appSelection | guardService.AppInfo | 是 | 在许可应用跳转页中展示的应用，最多可展示100个应用。 说明： 若Token数组包含无效token，将自动过滤并仅使用有效的Token进行显示和应用。 支持空数组，即用户不设置自定义的许可应用，只显示系统默认的许可应用，是正常场景。 |
+| appSubTitle | string | 是 | 许可应用跳转页的子标题。该参数支持的最大长度为200个字符，超出范围时返回1019000009错误码。若传入参数为空字符串，则子标题显示为空。 |
 | displayTrustApp | boolean | 是 | 是否在拉起的跳转页中展示默认的访问不受限应用，true表示展示，false表示不展示。目前支持的默认访问不受限应用仅包括"联系人"。 |
  
  
@@ -134,7 +143,7 @@ startAppForm(context: common.Context, appSelection: guardService.AppInfo, appSub
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-screentimeguard)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -155,18 +164,24 @@ import { appPicker } from '@kit.ScreenTimeGuardKit';
 @Entry
 @Component
 struct TestPage {
-   build() {
-      Column() {
+  build() {
+    Column() {
       Button('TestStartAppForm')
-         .onClick(() => {
-            let selectedTokens: string[] = []; // 可以通过调用startAppPicker接口获取相应的应用token
+        .onClick(() => {
+             // 定义已选择的应用token数组
+             // 可以通过调用startAppPicker接口获取相应的应用token并填充，本次初始化为空数组，表示没有用户选择的许可应用
+            let selectedTokens: string[] = [];
+            // 获取UIAbilityContext上下文
             const context = this.getUIContext().getHostContext() as common.UIAbilityContext;
+            // 调用startAppForm接口，展示许可应用跳转页
+            // 传入的selectedTokens为空数组，则许可应用跳转页只展示系统默认的许可应用
             appPicker.startAppForm(context, { appTokens: selectedTokens }, 'TestStartAppForm', false)
                .then(() => {
+                  // 处理调用成功后的回调
                   console.info('startAppForm invoke success');
                });
-         })
-      }
-   }
+        })
+    }
+  }
 }
 ```

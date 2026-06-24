@@ -1,6 +1,6 @@
 # 如何实现使用AVPlayer播放音频的过程中打断当前播放去播放另一个音频
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-3
 

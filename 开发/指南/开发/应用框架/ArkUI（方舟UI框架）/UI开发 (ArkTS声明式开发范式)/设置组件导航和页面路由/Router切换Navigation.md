@@ -1,6 +1,6 @@
 # Router切换Navigation
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-router-to-navigation
 
@@ -409,7 +409,7 @@ onPageHide(): void {
 其生命周期时序如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/ekA5BomHS-mIqXhz5lxEpQ/zh-cn_image_0000002611833579.png?HW-CC-KV=V1&HW-CC-Date=20260528T030444Z&HW-CC-Expire=86400&HW-CC-Sign=F9DD4B325B1D90AECB37A806ABAE353AE2D6B54104A0FCDE2E6AB4508A08C254)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/02/v3/F0Vrpq8WSSansjBmc8EYcg/zh-cn_image_0000002626068248.png?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=35C15C51A08D73B83DC750AB75BF9BD8A92B6464CAC81BAED90CFB5124AEA3C7)
 
 
 Navigation作为路由容器，其生命周期承载在NavDestination组件上，以组件事件的形式开放。

@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（文本输入类组件相关属性）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-textinputcategory
 
@@ -1216,6 +1216,34 @@ NODE_TEXT_INPUT_ELLIPSIS_MODE = 7042
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 参数类型ArkUI_EllipsisMode。 |
+ 
+ 
+  
+
+#### NODE_TEXT_INPUT_ORPHAN_CHAR_OPTIMIZATION
+
+```text
+NODE_TEXT_INPUT_ORPHAN_CHAR_OPTIMIZATION = 7043
+```
+ 
+设置TextInput文本排版时是否使能孤字优化，设置后通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[ArkUI_WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_wordbreak)属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 是否使能，true表示使能，false表示不使能。默认值false。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 是否使能孤字优化。 |
  
  
   
@@ -2487,6 +2515,34 @@ NODE_TEXT_AREA_ELLIPSIS_MODE = 8038
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 参数类型ArkUI_EllipsisMode。 |
+ 
+ 
+  
+
+#### NODE_TEXT_AREA_ORPHAN_CHAR_OPTIMIZATION
+
+```text
+NODE_TEXT_AREA_ORPHAN_CHAR_OPTIMIZATION = 8039
+```
+ 
+设置TextArea文本排版时是否使能孤字优化，设置后通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[ArkUI_WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_wordbreak)属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 是否使能，true表示使能，false表示不使能。默认值false。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 是否使能孤字优化。 |
  
  
   

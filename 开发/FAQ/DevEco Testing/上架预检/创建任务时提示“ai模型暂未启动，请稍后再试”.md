@@ -1,6 +1,6 @@
 # 创建任务时提示“ai模型暂未启动，请稍后再试”
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-publish-test-1
 

@@ -1,6 +1,6 @@
 # ArkUI_AccessibleRect
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-accessibility-arkui-accessiblerect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,6 +37,6 @@ typedef struct {...} ArkUI_AccessibleRect
 | 名称 | 描述 |
 | --- | --- |
 | int32_t leftTopX | 左上角X轴坐标位置。 |
-| int32_t leftTopY | 左上角y轴坐标位置。 |
+| int32_t leftTopY | 左上角Y轴坐标位置。 |
 | int32_t rightBottomX | 右下角X轴坐标位置。 |
-| int32_t rightBottomY | 右下角y轴坐标位置。 |
+| int32_t rightBottomY | 右下角Y轴坐标位置。 |

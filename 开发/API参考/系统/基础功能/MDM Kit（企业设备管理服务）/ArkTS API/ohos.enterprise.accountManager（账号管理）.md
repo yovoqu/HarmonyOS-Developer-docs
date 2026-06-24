@@ -1,6 +1,6 @@
 # @ohos.enterprise.accountManager（账号管理）
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-accountmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -234,7 +234,7 @@ setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountIn
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**冲突规则：** [从严管控](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则1从严管控)。
+**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
 
 **参数：**
 

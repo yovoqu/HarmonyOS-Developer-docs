@@ -1,6 +1,6 @@
 # switch
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-switch
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -120,4 +120,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/tMTL7O_MQEGt7kXOTxjafA/zh-cn_image_0000002581276638.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025433Z&HW-CC-Expire=86400&HW-CC-Sign=31CD778B89A5302F25EE3F5FF05DE87C1D4E11F98B0B275921886349D3AE6A61)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2e/v3/ZN3sk1w7QbGsaNwJ7kI_DQ/zh-cn_image_0000002626231112.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015947Z&HW-CC-Expire=86400&HW-CC-Sign=F345C1C415F6B774EEB6A16680D22E45D9B698F677C126AB608E4859186A38FA)

@@ -1,6 +1,6 @@
 # badge
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-container-badge
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -122,4 +122,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/SVvNHP68TZ6JESTLLWWrtQ/zh-cn_image_0000002581436564.png?HW-CC-KV=V1&HW-CC-Date=20260528T025431Z&HW-CC-Expire=86400&HW-CC-Sign=4463A0DDEF282DF817150CFB3AD88C617C53EACD15721BE943AB43D03B5D79AD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/5Y4qg9KdQlq3rEHkJfCkVw/zh-cn_image_0000002656470489.png?HW-CC-KV=V1&HW-CC-Date=20260624T015949Z&HW-CC-Expire=86400&HW-CC-Sign=3736B0904D129270181EABC0320DE2E297D853F9244BEFB4C32F5F006EEDD439)

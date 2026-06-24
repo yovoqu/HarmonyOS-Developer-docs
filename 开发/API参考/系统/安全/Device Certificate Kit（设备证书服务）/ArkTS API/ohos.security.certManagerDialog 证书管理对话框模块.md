@@ -1,6 +1,6 @@
 # @ohos.security.certManagerDialog (证书管理对话框模块)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-certmanagerdialog
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -171,6 +171,9 @@ USB Key PIN码认证请求。
 | --- | --- | --- | --- | --- |
 | certTypes | Array&lt;CertificateType&gt; | 否 | 否 | 表示证书类型的列表。 |
 | certPurpose | certificateManager.CertificatePurpose | 否 | 是 | 表示证书用途。 若certTypes参数中存在CertificateType.CREDENTIAL_UKEY类型，则certPurpose参数生效，表示根据指定的证书用途筛选USB Key的证书凭据。 |
+| keyAlgIDs | Array&lt;string&gt; | 否 | 是 | 表示证书公钥的算法类型，用于筛选凭据授权对话框中的证书列表，仅显示匹配的证书。支持的取值为RSA、EC或ECDSA（区分大小写）。若不传此参数，则不按算法类型筛选证书。 若 keyAlgIDs包含不支持的算法，则该筛选器无效。 数组最大长度为20。 起始版本： 26.0.0 |
+| issuers | Array&lt;Uint8Array&gt; | 否 | 是 | 表示以DER格式编码的证书颁发者，用于筛选凭据授权对话框中的证书列表，仅显示匹配的证书。 如果issuers数组中存在长度为0的元素，则issuers筛选器不会生效。 数组最大长度为20。 起始版本： 26.0.0 |
+| uri | string | 否 | 是 | 该URI在授权对话框中进行显示，用于为用户提供更多有关申请授权使用证书凭据的上下文。 起始版本： 26.0.0 |
 
 
 
@@ -206,7 +209,7 @@ openCertificateManagerDialog(context: common.Context, pageType: CertificateDialo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -230,7 +233,8 @@ let pageType: certificateManagerDialog.CertificateDialogPageType = certificateMa
 try {
   certificateManagerDialog.openCertificateManagerDialog(context, pageType).then(() => {
     console.info('Succeeded in opening certificate manager dialog.');
-  }).catch((err: BusinessError) => {
+  }).catch((error: Error) => {
+    let err = error as BusinessError;
     console.error(`Failed to open certificate manager dialog. Code: ${err.code}, message: ${err.message}`);
   })
 } catch (error) {
@@ -252,7 +256,9 @@ openInstallCertificateDialog(context: common.Context, certType: CertificateType,
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
 
-**设备行为差异：** 该接口在PC/2in1设备可正常调用，在其他设备中certType传入CA_CERT时返回29700004错误码。
+**设备行为差异：**
+1. 入参certType为CA_CERT时，该接口在PC/2in1设备中可以正常调用，在其他设备中会返回29700004错误码。从版本26.0.0开始，可以通过[supportsCACertDialog](#certificatemanagerdialogsupportscacertdialog)来判断本设备是否支持打开CA证书安装对话框。
+2. 入参certType为CREDENTIAL_USER或CREDENTIAL_SYSTEM时，在PC/2in1、phone和tablet设备中可以正常调用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -275,17 +281,18 @@ openInstallCertificateDialog(context: common.Context, certType: CertificateType,
 
 **错误码：**
 
-以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
 | 401 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed. |
+| 801 | The certificate management application Hap is not preinstalled in the system, and the capability is not supported. 适用版本：26.0.0+ |
 | 29700001 | Internal error. Possible causes: 1. IPC communication failed; 2. Memory operation error; 3. File operation error. Please try again. |
 | 29700002 | The user cancels the installation operation. |
 | 29700003 | The user install certificate failed in the certificate manager dialog, such as the certificate is in an invalid format. |
-| 29700004 | The API is not supported on this device. |
-| 29700005 | The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user. |
+| 29700004 | To ensure user security, the current device does not support this API. When certType is set to CA_CERT, this API can be invoked only on 2in1 devices. This error code is returned on other devices. |
+| 29700005 | The operation does not comply with the device security policy, such as the device does not allow users to manage the ca certificate of the global user. 适用版本：18+ |
 
 
 **示例**：
@@ -309,7 +316,8 @@ let caCert: Uint8Array = new Uint8Array([
 try {
   certificateManagerDialog.openInstallCertificateDialog(context, certificateType, certificateScope, caCert).then((uri: string) => {
     console.info('Succeeded in opening install certificate');
-  }).catch((err: BusinessError) => {
+  }).catch((error: Error) => {
+    let err = error as BusinessError;
     console.error(`Failed to open install certificate dialog. Code: ${err.code}, message: ${err.message}`);
   })
 } catch (error) {
@@ -331,7 +339,7 @@ openUninstallCertificateDialog(context: common.Context, certType: CertificateTyp
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
 
-**设备行为差异：** 该接口在PC/2in1设备可正常调用，在其他设备中返回29700004错误码。
+**设备行为差异：** 该接口在PC/2in1设备可正常调用，在其他设备中返回29700004错误码。从版本26.0.0开始，可以通过[supportsCACertDialog](#certificatemanagerdialogsupportscacertdialog)来判断是否支持打开CA证书卸载对话框。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -353,7 +361,7 @@ openUninstallCertificateDialog(context: common.Context, certType: CertificateTyp
 
 **错误码：**
 
-以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -383,7 +391,8 @@ let certUri: string = "test";
 try {
   certificateManagerDialog.openUninstallCertificateDialog(context, certificateType, certUri).then(() => {
     console.info('Succeeded in opening uninstall certificate');
-  }).catch((err: BusinessError) => {
+  }).catch((error: Error) => {
+    let err = error as BusinessError;
     console.error(`Failed to open uninstall certificate dialog. Code: ${err.code}, message: ${err.message}`);
   })
 } catch (error) {
@@ -405,7 +414,7 @@ openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property:
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
 
-**设备行为差异：** 该接口在PC/2in1设备可正常调用，在其他设备中返回29700004错误码。
+**设备行为差异：** 该接口在PC/2in1设备可正常调用，在其他设备中返回29700004错误码。从版本26.0.0开始，可以通过[supportsCACertDialog](#certificatemanagerdialogsupportscacertdialog)来判断是否支持打开CA证书详情对话框。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -427,7 +436,7 @@ openCertificateDetailDialog(context: common.Context, cert: Uint8Array, property:
 
 **错误码：**
 
-以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -457,8 +466,9 @@ let property: certificateManagerDialog.CertificateDialogProperty = {
 };
 try {
   certificateManagerDialog.openCertificateDetailDialog(context, caCert, property).then(() => {
-    console.info('Succeeded in opening certificate detail dialog.');
-  }).catch((err: BusinessError) => {
+    console.info('Succeeded opening certificate detail dialog.');
+  }).catch((error: Error) => {
+    let err = error as BusinessError;
     console.error(`Failed to open certificate detail dialog. Code: ${err.code}, message: ${err.message}`);
   })
 } catch (error) {
@@ -498,12 +508,13 @@ openAuthorizeDialog(context: common.Context): Promise&lt;string&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission verification failed. The application does not have the permission required to call the API. |
 | 401 | Invalid parameter. Possible causes: 1. A mandatory parameter is left unspecified. 2. Incorrect parameter type. 3. Parameter verification failed. |
+| 801 | The certificate management application Hap is not preinstalled in the system, and the capability is not supported. 适用版本：26.0.0+ |
 | 29700001 | Internal error. Possible causes: 1. IPC communication failed; 2. Memory operation error; 3. File operation error. Please try again. |
 | 29700002 | The user cancels the authorization. |
 
@@ -519,14 +530,15 @@ import { UIContext } from '@kit.ArkUI';
 /* context为应用的上下文信息，调用方自行获取，此处仅为示例 */
 let context: common.Context = new UIContext().getHostContext() as common.Context;
 try {
-    certificateManagerDialog.openAuthorizeDialog(context).then((uri: string) => {
-        console.info(`Succeeded in authorizing certificate, uri: ${uri}`)
-    }).catch((err: BusinessError) => {
-        console.error(`Failed to authorize certificate. Code: ${err.code}, message: ${err.message}`);
-    });
+  certificateManagerDialog.openAuthorizeDialog(context).then((uri: string) => {
+    console.info(`Succeeded in authorizing certificate, uri: ${uri}`)
+  }).catch((error: Error) => {
+    let err = error as BusinessError;
+    console.error(`Failed to authorize certificate. Code: ${err.code}, message: ${err.message}`);
+  });
 } catch (err) {
-    let error = err as BusinessError;
-    console.error(`Failed to authorize certificate. Code: ${error.code}, message: ${error.message}`);
+  let error = err as BusinessError;
+  console.error(`Failed to authorize certificate. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
@@ -572,7 +584,7 @@ openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest)
 | 29700001 | Internal error. Possible causes: 1. IPC communication failed; 2. Memory operation error; 3. File operation error; 4. Call other service failed. Please try again. |
 | 29700002 | The user cancels the authorization. |
 | 29700006 | Indicates that the input parameters validation failed. for example, the parameter format is incorrect or the value range is invalid. |
-| 29700007 | No available certificate for authorization. Possible causes: 1. No certificate matches the filter criteria; 2. All certificates have been deleted. |
+| 29700007 | No available certificate for authorization. |
 
 
 **示例**：
@@ -593,15 +605,16 @@ let certTypes: Array<certificateManagerDialog.CertificateType> = [
 let certPurpose: certificateManager.CertificatePurpose = certificateManager.CertificatePurpose.PURPOSE_DEFAULT;
 let authorizeRequest: certificateManagerDialog.AuthorizeRequest = { certTypes: certTypes, certPurpose: certPurpose };
 try {
-    certificateManagerDialog.openAuthorizeDialog(context, authorizeRequest).then((certReference: certificateManagerDialog.CertReference) => {
-      let reference = certReference;
-      console.info(`Succeeded in opening authorize dialog.`)
-    }).catch((err: BusinessError) => {
-        console.error(`Failed to open authorize dialog. Code: ${err.code}, message: ${err.message}`);
-    });
+  certificateManagerDialog.openAuthorizeDialog(context, authorizeRequest).then((certReference: certificateManagerDialog.CertReference) => {
+    let reference = certReference;
+    console.info(`Succeeded in opening authorize dialog.`)
+  }).catch((error: Error) => {
+    let err = error as BusinessError;
+    console.error(`Failed to open authorize dialog. Code: ${err.code}, message: ${err.message}`);
+  });
 } catch (err) {
-    let error = err as BusinessError;
-    console.error(`Failed to open authorize dialog. Code: ${error.code}, message: ${error.message}`);
+  let error = err as BusinessError;
+  console.error(`Failed to open authorize dialog. Code: ${error.code}, message: ${error.message}`);
 }
 ```
 
@@ -619,7 +632,11 @@ openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): P
 
 **系统能力：** SystemCapability.Security.CertificateManagerDialog
 
-**设备行为差异：** 该接口在PC设备可正常调用，在其他设备中返回801错误码。
+**设备行为差异：**
+
+ - 从API版本26.0.0开始，该接口在所有设备上无行为差异。
+ - 在API版本22-24，该接口在PC/2in1设备可正常调用，在其他设备中返回801错误码。
+
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -666,13 +683,61 @@ let context: common.Context = new UIContext().getHostContext() as common.Context
 let keyUri: string = "test"
 let ukeyAuthRequest: certificateManagerDialog.UkeyAuthRequest = { keyUri: keyUri }
 try {
-    certificateManagerDialog.openUkeyAuthDialog(context, ukeyAuthRequest).then(() => {
-        console.info(`Succeeded in opening ukey authorization dialog`)
-    }).catch((err: BusinessError) => {
-        console.error(`Failed to open ukey authorization dialog. Code: ${err.code}, message: ${err.message}`);
-    });
+  certificateManagerDialog.openUkeyAuthDialog(context, ukeyAuthRequest).then(() => {
+    console.info(`Succeeded in opening ukey authorization dialog`)
+  }).catch((error: Error) => {
+    let err = error as BusinessError;
+    console.error(`Failed to open ukey authorization dialog. Code: ${err.code}, message: ${err.message}`);
+  });
 } catch (err) {
-    let error = err as BusinessError;
-    console.error(`Failed to open ukey authorization dialog. Code: ${error.code}, message: ${error.message}`);
+  let error = err as BusinessError;
+  console.error(`Failed to open ukey authorization dialog. Code: ${error.code}, message: ${error.message}`);
+}
+```
+
+
+
+#### certificateManagerDialog.supportsCACertDialog
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+supportsCACertDialog(): boolean
+
+判断设备是否支持打开CA证书管理对话框的特性，包括[openInstallCertificateDialog](#certificatemanagerdialogopeninstallcertificatedialog14)、[openUninstallCertificateDialog](#certificatemanagerdialogopenuninstallcertificatedialog18)、[openCertificateDetailDialog](#certificatemanagerdialogopencertificatedetaildialog18)方法。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Security.CertificateManagerDialog
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**返回值**：
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 设备是否支持打开CA证书管理对话框。true：支持，false：不支持。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[证书管理对话框错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-certmanagerdialog)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 29700001 | Internal error. Possible causes: 1. IPC communication failed; 2. Memory operation error; 3. File operation error. Please try again. |
+
+
+**示例**：
+
+```text
+import { certificateManagerDialog } from '@kit.DeviceCertificateKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+try {
+  let isSupport: boolean = certificateManagerDialog.supportsCACertDialog();
+  console.info(`Succeeded in checking whether the device supports CA dialog.`)
+} catch (err) {
+  let error = err as BusinessError;
+  console.error(`Failed to check whether the device supports CA dialog. Code: ${error.code}, message: ${error.message}`);
 }
 ```

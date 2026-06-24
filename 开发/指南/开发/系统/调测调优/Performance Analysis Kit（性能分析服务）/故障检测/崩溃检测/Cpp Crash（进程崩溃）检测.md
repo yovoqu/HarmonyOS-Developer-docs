@@ -1,6 +1,6 @@
 # Cpp Crash（进程崩溃）检测
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cppcrash-guidelines
 
@@ -223,7 +223,7 @@ HiAppEvent给开发者提供了故障订阅接口，详见[HiAppEvent介绍](htt
 | Process Memory(kB) | 故障进程内存占用 | 20 | 是 | - |
 | Device Memory(kB) | 整机内存状态 | 20 | 否 | 依赖维测服务进程，若发生故障时维测服务进程停止或设备重启则无此字段，详见实现原理。 |
 | Reason | 故障原因 | 8 | 是 | - |
-| LastFatalMessage | Fatal消息 | 8 | 否 | 以下几种情况共用此字段： 解析到不可靠的栈帧地址时输出的提示信息； 因ABORT信号崩溃退出时保存最后一条FATAL级Hilog日志； 系统内部的维测信息； 应用通过OH_HiDebug_SetCrashObj设置的字符串信息。 |
+| LastFatalMessage | Fatal消息 | 8 | 否 | 以下几种情况共用此字段： 解析到不可靠的栈帧地址时输出的提示信息。 因ABORT信号崩溃退出时保存最后一条FATAL级Hilog日志。 系统内部的维测信息。 应用通过OH_HiDebug_SetCrashObj设置的字符串信息。 从API版本26.0.0开始，应用若开启模块加载链路调试开关，则此字段包含模块加载链路。 |
 | Fault thread info | 故障线程信息 | 8 | 是 | - |
 | SubmitterStacktrace | 提交者线程栈 | 12 | 否 | 异步线程栈跟踪维测功能默认仅在ARM 64位系统中开启。 对于API version 22之前版本，三方和系统应用通过libuv和ffrt提交异步任务仅debug版本默认开启。 对于API version 22及之后版本，三方应用通过libuv提交异步任务debug和release版本均默认开启；三方和系统应用通过ffrt提交异步任务仅debug版本默认开启。 |
 | Registers | 故障现场寄存器 | 8 | 是 | - |
@@ -594,10 +594,29 @@ pstate:0000000060001000 esr:0000000000000000
 
 #### 异步线程栈跟踪故障场景日志规格
 
-当异步线程发生崩溃后，把提交该异步任务的线程栈也打印出来，帮助定位由于异步任务提交者造成的崩溃问题。崩溃线程的调用栈和其提交线程的调用栈通过SubmitterStacktrace字符串分隔。以下是一份DevEco Studio归档在FaultLog的进程崩溃日志的核心内容。
+当异步线程发生崩溃后，把提交该异步任务的线程栈也打印出来，帮助定位由于异步任务提交者造成的崩溃问题。崩溃线程的调用栈和其提交线程的调用栈通过SubmitterStacktrace字符串分隔。
+
+**异步线程栈生成原理**
+
+原理示意图如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/RWGxc3xZSpi3q7ShzAy-9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030232Z&HW-CC-Expire=86400&HW-CC-Sign=84932E9C25D3793FEA5AE35BA91F1C279A28FDB7EFEEF633E50353A9D3D00BDB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/OqtmBcrIR5qlHkDcNDXlxA/zh-cn_image_0000002626069158.png?HW-CC-KV=V1&HW-CC-Date=20260624T020855Z&HW-CC-Expire=86400&HW-CC-Sign=7EB35B7A12A06179082CB468E041C5C4721BD68244F469432FACDA0263194E72)
+
+1. 提交线程搜集自身的调用栈信息，保存至进程特定区域内存的异步栈表中。
+2. 记录保存后，异步栈表返回唯一标识stackId。
+3. 提交线程提交异步任务，并传递标识stackId。
+4. 执行线程在执行任务前保存stackId至线程局部存储区中。
+5. 执行线程开始执行异步任务。
+6. 执行线程在执行异步任务过程中发生崩溃，产生崩溃信号。
+7. 信号处理函数通过GetStackId函数获取保存在线程局部存储区中的stackId。
+8. 信号处理函数将stackId传递给回栈进程processdump。
+9. processdump跨进程读取异步栈表，根据stackId值查询获取提交线程的调用栈信息，填充至故障日志对应的SubmitterStacktrace字段。
+
+以下是一份DevEco Studio归档在FaultLog的进程崩溃日志的核心内容。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/32fxAzUZSZmTLhjpwLbPjA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020855Z&HW-CC-Expire=86400&HW-CC-Sign=27C5880448782089FE45E8D386CB3D5CA6071A13DEEC99FC5EA903E69326FCB3)
 
 
 异步线程栈跟踪维测功能默认仅在ARM 64位系统中开启。
@@ -668,7 +687,9 @@ Tid:29192, Name:OS_FFRT_2_0                 <- 故障线程号，线程名
 
 #### 应用通过HiAppEvent设置崩溃日志配置参数场景日志规格
 
-系统提供了通用的崩溃日志生成功能，但一些应用对崩溃日志打印内容有个性化的需求，因此从**API version 20**开始HiAppEvent的[setEventConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#崩溃日志规格自定义参数设置)接口支持设置崩溃日志配置参数。以下是一份DevEco Studio归档在FaultLog的64位系统崩溃日志的核心内容：
+系统提供了通用的崩溃日志生成功能，但部分应用有自定义日志内容的需求。因此从**API version 20**开始，可通过设置[setEventConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#seteventconfig接口说明)接口配置自定义日志内容。
+
+以下是一份DevEco Studio归档在FaultLog的系统崩溃日志的核心内容：
 
 ```text
 ...
@@ -759,7 +780,7 @@ Uid:0
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a3/v3/FrrNChX0TIigKynWnhA4Pw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030232Z&HW-CC-Expire=86400&HW-CC-Sign=8316576AF1DF65CF3BA72FECF0267D19B2E1D49510FEF963D3FF1F9243ACBF81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/Tqv0uTVcRlCr7smAU4BgzA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020855Z&HW-CC-Expire=86400&HW-CC-Sign=0D1DF73805422081FAB88484795EA5F042F72F2A3A30863E36CDE9046D834258)
 
 
 仅在通过Navigation跳转到子页面时才会有页面名，页面名在[系统路由表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#系统路由表)中定义。
@@ -969,7 +990,7 @@ onPageShow (sample|sample|1.0.0|src/main/ets/pages/Index.ts:381:36)
 从**API version 24**开始，当应用发生SIGPIPE异常退出时，可开启SIGPIPE信号打印调用栈功能，重启应用后，开发者复现问题场景，可以抓取调用栈信息并输出到HILOG。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/z7aBfW2TRu6imom-wsDMuw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030232Z&HW-CC-Expire=86400&HW-CC-Sign=3BEC27E626E491C03E7A7F83C4B4DECD223CEC3D2C4BFD93E55CF07EE2A3F5BF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/l4fiWBtwSaWv_9JBy413eA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020855Z&HW-CC-Expire=86400&HW-CC-Sign=F7C38E6AE03620AF3BF647917C79DDE907168C809753BA52AF0E32D6CE9420C6)
 
 
 此功能只能在[debug版本应用](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-analysis-kit-terminology#debug版本应用)开启。

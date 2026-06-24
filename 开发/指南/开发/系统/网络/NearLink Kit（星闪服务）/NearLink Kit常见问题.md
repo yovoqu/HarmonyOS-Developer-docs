@@ -1,6 +1,6 @@
 # NearLink Kit常见问题
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-faq
 
@@ -19,3 +19,11 @@
 星闪目前支持的UUID格式形如：37BEA880-FC70-11EA-B720-00000000FDEE，包含128比特。其中前112比特由基础标识决定，128比特基础标识为固定值：37BEA880-FC70-11EA-B720-000000000000；后16比特通用唯一标识指示标准服务或标准服务成员。
 
 标准服务或标准服务成员使用的 16 比特通用唯一标识由星闪联盟统一进行分配，具有全局的唯一性。通过标识，客户端可以明确条目承载的是某一个服务、属性、方法、事件和引用了某一个服务。详情可查阅“[星闪标准服务标识](https://sparklink.org.cn/trial/identCid/identListSsid)”。
+
+
+
+#### 星闪数据传输方式的选择
+
+星闪提供了基于[SSAP交互](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-ssap-server-connect)和基于[端口数据传输](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-start-data-transfer)两种数据传输方式。
+
+其中，对于低功耗、小数据量场景，建议使用基于SSAP的数据传输；对于高吞吐量、大文件传输场景，建议使用基于端口的数据传输。

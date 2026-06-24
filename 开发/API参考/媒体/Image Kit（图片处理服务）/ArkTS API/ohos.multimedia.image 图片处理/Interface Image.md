@@ -1,6 +1,6 @@
 # Interface (Image)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -210,7 +210,7 @@ getBufferData(): ImageBufferData | null
 从图像中获取ImageBufferData。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/kAZoh1WKQvirk5wb0NpNow/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025324Z&HW-CC-Expire=86400&HW-CC-Sign=8722C525C575D72A38B43B177D66AE2AE5497E80A964EEFA3C38007E55428A17)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/OnqI07VARNiimMqXGxlNkg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020239Z&HW-CC-Expire=86400&HW-CC-Sign=F7BF780885381377C2B5289EC6AE3F0FD8432A021385487E76CC91479409D16B)
 
 
 ImageBufferData中的byteBuffer是对内部缓存的浅拷贝，当Image的生命周期结束时，便不能对byteBuffer做任何操作，否则会导致未定义行为。

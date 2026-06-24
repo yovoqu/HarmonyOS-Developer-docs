@@ -1,6 +1,6 @@
 # 同应用进程嵌入式组件 (EmbeddedComponent)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-embedded-components
 
@@ -30,20 +30,28 @@ EmbeddedComponent组件主要用于实现跨模块、跨进程的嵌入式界面
   EmbeddedComponent组件仅可在支持[EmbeddedUIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-embeddeduiextensionability)的设备上正常运行。
  - 应用范围
 
-  EmbeddedComponent组件只能在UIAbility中使用，且被拉起的EmbeddedUIExtensionAbility需与UIAbility属于同一应用。
+  EmbeddedComponent组件只能在[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)中使用，且被拉起的EmbeddedUIExtensionAbility需与UIAbility属于同一应用。
  - 属性限制
 
   EmbeddedComponent组件支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)，且宽高默认值和最小值均为10vp；
 
   不支持如下与宽高相关的属性：
 
-  "constraintSize"、"aspectRatio"、"layoutWeight"、"flexBasis"、"flexGrow"和"flexShrink"。
+  "[constraintSize](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#constraintsize)"、"[aspectRatio](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-layout-constraints#aspectratio)"、"[layoutWeight](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-size#layoutweight)"、"[flexBasis](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-flex-layout#flexbasis)"、"[flexGrow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-flex-layout#flexgrow)"和"[flexShrink](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-flex-layout#flexshrink)"。
  - 事件调用
 
   与屏幕坐标相关的事件信息会基于EmbeddedComponent的位置宽高进行坐标转换后传递给被拉起的EmbeddedUIExtensionAbility处理。
 
   EmbeddedComponent组件不支持[点击](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-events-click)等通用事件，仅支持[onTerminated](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component#onterminated)事件和[onError](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-embedded-component#onerror)事件。
 
+
+
+
+#### 获焦能力说明
+
+API版本26.0.0之前，EmbeddedComponent组件获焦时，其拉起的EmbeddedUIExtensionAbility进程内焦点直接下发到第一个可获焦子节点。从API版本26.0.0开始，
+1. 如果外部走焦到EmbeddedUIExtensionAbility，焦点正常下发到第一个可获焦子节点。
+2. 如果由于层级页面切换导致焦点转移到EmbeddedUIExtensionAbility，则与UIAbility保持统一规则。两者在拉起一个层级页面且该页面未设置[defaultFocus](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-focus#defaultfocus9)、未[主动请求焦点](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-events-focus-event#主动获焦失焦)时，焦点均停留在根容器，不下发到子节点。
 
 
 
@@ -155,21 +163,21 @@ export default class ExampleEmbeddedAbility extends EmbeddedUIExtensionAbility {
 
  - 生命周期阶段
 
-  onCreate → onForeground：组件初始化到可见的完整流程；
+  [onCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#oncreate) → [onForeground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onforeground)：组件初始化到可见的完整流程；
 
-  onBackground → onForeground：前后台切换时的状态迁移；
+  [onBackground](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onbackground) → onForeground：前后台切换时的状态迁移；
 
-  onDestroy：组件被宿主主动销毁时的资源回收点。
+  [onDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#ondestroy)：组件被宿主主动销毁时的资源回收点。
  - 会话管理
 
-  onSessionCreate：创建独立存储上下文并加载UI界面；
+  [onSessionCreate](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onsessioncreate)：创建独立存储上下文并加载UI界面；
 
-  onSessionDestroy：处理会话结束时（如用户主动关闭）的清理操作。
+  [onSessionDestroy](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability#onsessiondestroy)：处理会话结束时（如用户主动关闭）的清理操作。
  - 上下文传递
 
-  通过LocalStorage实现UIExtensionContentSession的跨组件传递；
+  通过[LocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage)实现[UIExtensionContentSession](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensioncontentsession)的跨组件传递；
 
-  使用loadContent方法绑定ArkTS页面与扩展能力上下文。
+  使用[loadContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#loadcontent9)方法绑定ArkTS页面与扩展能力上下文。
 
 
 **入口页面**

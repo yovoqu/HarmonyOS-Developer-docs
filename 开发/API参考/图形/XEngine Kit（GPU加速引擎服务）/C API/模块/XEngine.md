@@ -1,6 +1,6 @@
 # XEngine
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -30,20 +30,22 @@
 | 名称 | 描述 |
 | --- | --- |
 | xeg_extension_defs.h | 提供XEngine扩展特性宏定义信息。 |
-| xeg_gles_adaptive_vrs.h | XEngine VRS(variable rate shading)特性接口。使用此头文件的接口前需要通过HMS_XEG_GetString接口查询XEG_ADAPTIVE_VRS_EXTENSION_NAME扩展可用。 |
+| xeg_gles_adaptive_vrs.h | XEngine自适应VRS（Variable Rate Shading，可变速率着色）特性GLES接口。使用此头文件的接口前需要通过HMS_XEG_GetString接口查询XEG_ADAPTIVE_VRS_EXTENSION_NAME扩展可用。 |
 | xeg_gles_extension.h | XEngine扩展特性查询接口（OpenGL ES）。 |
-| xeg_gles_neural_upscale.h | XEngine空域AI超分特性OpenGL ES接口，推荐超分倍率为[1.0, 1.5]。使用此头文件中的接口前需要通过HMS_XEG_GetString接口查询XEG_NEURAL_UPSCALE_EXTENSION_NAME扩展可用。 |
+| xeg_gles_neural_upscale.h | XEngine空域AI超分特性OpenGL ES接口。使用此头文件中的接口前需要通过HMS_XEG_GetString接口查询XEG_NEURAL_UPSCALE_EXTENSION_NAME或者XEG_NEURAL_UPSCALE2_EXTENSION_NAME扩展可用。XEG_NEURAL_UPSCALE_EXTENSION_NAME扩展可用时，推荐超分倍率为(1.0, 1.5]。XEG_NEURAL_UPSCALE2_EXTENSION_NAME扩展可用时，推荐超分倍率为(1.0, 2.0]。 |
 | xeg_gles_spatial_upscale.h | XEngine空域GPU超分特性OpenGL ES接口。使用此头文件的接口前需要通过HMS_XEG_GetString接口查询XEG_SPATIAL_UPSCALE_EXTENSION_NAME扩展可用。 |
 | xeg_gles_temporal_upscale.h | XEngine时域AI超分特性OpenGL ES接口。推荐超分倍率为[1.25, 2.0]，使用此头文件中的接口前需要通过HMS_XEG_GetString接口查询XEG_TEMPORAL_UPSCALE_EXTENSION_NAME扩展可用。 |
-| xeg_vulkan_adaptive_vrs.h | XEngine Adaptive VRS(variable rate shading)特性Vulkan接口。使用此头文件的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEG_ADAPTIVE_VRS_EXTENSION_NAME扩展可用。 |
+| xeg_vulkan_adaptive_vrs.h | XEngine自适应VRS（Variable Rate Shading，可变速率着色）特性vulkan接口。使用此头文件的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEG_ADAPTIVE_VRS_EXTENSION_NAME扩展可用。 |
 | xeg_vulkan_common.h | 包含XEngine中Vulkan相关的通用类型定义。 |
 | xeg_vulkan_extension.h | XEngine 扩展特性查询接口（Vulkan）。 |
 | xeg_vulkan_hps.h | XEngine 高性能着色器接口。使用此头文件中的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEG_HPS_RADIX_SORT_EXTENSION_NAME扩展可用。 |
-| xeg_vulkan_rt_reflection.h | XEngine RT Reflection特性接口。使用此头文件中的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询 XEG_RT_REFLECTION_EXTENSION_NAME扩展可用。 |
-| xeg_vulkan_rt_visible_mask.h | XEngine RT VisibleMask特性接口。使用此头文件中的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEG_RT_SHADOW_AO_EXTENSION_NAME扩展可用。 |
+| xeg_vulkan_rt_reflection.h | XEngine Ray-Traced Reflection（光线追踪反射）特性接口。使用此头文件中的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询 XEG_RT_REFLECTION_EXTENSION_NAME扩展可用。 |
+| xeg_vulkan_rt_visible_mask.h | XEngine Ray-Traced VisibleMask（光线追踪阴影和环境光遮蔽）特性接口。使用此头文件中的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEG_RT_SHADOW_AO_EXTENSION_NAME扩展可用。 |
 | xeg_vulkan_rtgi.h | XEngine光线追踪全局光照特性Vulkan接口，提供动态漫反射全局光照（DDGI）及神经网络全局光照（NNGI）两种特性。使用此头文件的接口前，需要先调用HMS_XEG_EnumerateDeviceExtensionProperties接口查询扩展XEG_RTGI_EXTENSION_NAME可用。 |
 | xeg_vulkan_spatial_upscale.h | XEngine空域GPU超分特性Vulkan接口。使用此头文件的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEG_SPATIAL_UPSCALE_EXTENSION_NAME扩展可用。 |
 | xeg_vulkan_temporal_upscale.h | XEngine时域AI超分特性接口，推荐超分倍率为[1.25, 2.0]。使用此头文件中的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEG_TEMPORAL_UPSCALE_EXTENSION_NAME扩展可用。 |
+| xeg_vulkan_neural_upscale.h | XEngine空域AI超分特性Vulkan接口。使用此头文件的接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询XEG_NEURAL_UPSCALE_EXTENSION_NAME扩展可用。 |
+| xeg_control_display_separation.h | XEngine控显分离特性接口。 |
  
  
   
@@ -76,6 +78,8 @@
 | struct XEG_SpatialUpscaleDescription | 此结构体描述下发空域GPU超分渲染命令时需要的图像信息。 |
 | struct XEG_TemporalUpscaleCreateInfo | 此结构体描述创建XEG_TemporalUpscale对象的信息。当结构体中的信息变化时，需要创建新的XEG_TemporalUpscale对象。 |
 | struct XEG_TemporalUpscaleDescription | 此结构体描述下发时域AI超分渲染命令时的输入信息。 |
+| struct XEG_NeuralUpscaleCreateInfo | 此结构体描述创建XEG_NeuralUpscale对象的信息。当结构体中的信息变化时，需要创建新的XEG_NeuralUpscale对象。 |
+| struct XEG_NeuralUpscaleDescription | 此结构体描述下发空域AI超分渲染命令时的输入信息。 |
  
  
   
@@ -92,12 +96,13 @@
 | XEG_neural_upscale 1 | XEngine空域AI超分扩展特性宏定义。 |
 | XEG_NEURAL_UPSCALE_VERSION 1 | XEngine空域AI超分扩展特性版本号。 |
 | XEG_NEURAL_UPSCALE_EXTENSION_NAME "XEG_neural_upscale" | XEngine空域AI超分扩展特性名称。 |
+| XEG_NEURAL_UPSCALE2_EXTENSION_NAME "XEG_neural_upscale2" | XEngine空域AI超分（版本2）扩展特性名称。 |
 | XEG_temporal_upscale 1 | XEngine时域AI超分扩展特性宏定义。 |
 | XEG_TEMPORAL_UPSCALE_VERSION 1 | XEngine时域AI超分扩展特性版本号。 |
 | XEG_TEMPORAL_UPSCALE_EXTENSION_NAME "XEG_temporal_upscale" | XEngine时域AI超分扩展特性名称。 |
-| XEG_adaptive_vrs 1 | XEngine自适应VRS(variable rate shading)扩展特性宏定义。 |
-| XEG_ADAPTIVE_VRS_VERSION 1 | XEngine自适应VRS(variable rate shading)扩展特性版本号。 |
-| XEG_ADAPTIVE_VRS_EXTENSION_NAME "XEG_adaptive_vrs" | XEngine自适应VRS(variable rate shading)扩展特性名称。 |
+| XEG_adaptive_vrs 1 | XEngine自适应VRS(Variable Rate Shading)扩展特性宏定义。 |
+| XEG_ADAPTIVE_VRS_VERSION 1 | XEngine自适应VRS(Variable Rate Shading)扩展特性版本号。 |
+| XEG_ADAPTIVE_VRS_EXTENSION_NAME "XEG_adaptive_vrs" | XEngine自适应VRS(Variable Rate Shading)扩展特性名称。 |
 | XEG_RTGI_EXTENSION_NAME "XEG_rtgi" | XEngine光线追踪全局光照扩展特性名称。 |
 | XEG_RT_SHADOW_AO_EXTENSION_NAME "XEG_rt_shadow_ao" | XEngine光线追踪阴影和环境光遮蔽扩展特性名称。 |
 | XEG_RT_REFLECTION_EXTENSION_NAME "XEG_rt_reflection" | XEngine光线追踪反射扩展特性名称。 |
@@ -129,7 +134,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| typedef void(GL_APIENTRYP PFN_HMS_XEG_ADAPTIVEVRSPARAMETER) (GLenum pname, GLvoid *param) | 设置自适应VRS(variable rate shading)输入参数的函数指针定义。 |
+| typedef void(GL_APIENTRYP PFN_HMS_XEG_ADAPTIVEVRSPARAMETER) (GLenum pname, GLvoid *param) | 设置自适应VRS(Variable Rate Shading)输入参数的函数指针定义。 |
 | typedef void(GL_APIENTRYP PFN_HMS_XEG_DISPATCHADAPTIVEVRS) (GLfloat *reprojectionMatrix, GLuint inputColorImage, GLuint inputDepthImage, GLuint shadingRateImage) | 计算着色率图像的函数指针定义。 |
 | typedef void(GL_APIENTRYP PFN_HMS_XEG_APPLYADAPTIVEVRS) (GLuint shadingRateImage) | 将着色率图像应用到渲染目标中的函数指针定义。 |
 | typedef const GLubyte *(GL_APIENTRYP PFN_HMS_XEG_GETSTRING) (GLenum name) | XEngine OpenGL ES扩展特性查询接口函数指针定义。 |
@@ -143,7 +148,7 @@
 | typedef struct XEG_AdaptiveVRSCreateInfo XEG_AdaptiveVRSCreateInfo | 此结构体描述创建XEG_AdaptiveVRS对象的参数信息，当结构体中的信息变化时，需要创建新的XEG_AdaptiveVRS对象。 |
 | typedef struct XEG_AdaptiveVRSDescription XEG_AdaptiveVRSDescription | 此结构体描述下发绘制着色率纹理命令需要的参数信息，每一帧都需要进行更新。 |
 | typedef VkResult(VKAPI_PTR * PFN_HMS_XEG_CreateAdaptiveVRS) (VkDevice device, const XEG_AdaptiveVRSCreateInfo *pXegAdaptiveVRSCreateInfo, XEG_AdaptiveVRS *pXegAdaptiveVRS) | 创建XEG_AdaptiveVRS对象的函数指针定义。 |
-| typedef void(VKAPI_PTR * PFN_HMS_XEG_CmdDispatchAdaptiveVRS) (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription *pXegAdaptiveVRSDescription) | 执行计算自适应可变着色率命令的函数指针定义。 |
+| typedef void(VKAPI_PTR * PFN_HMS_XEG_CmdDispatchAdaptiveVRS) (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription *pXegAdaptiveVRSDescription) | 执行计算自适应VRS命令的函数指针定义。 |
 | typedef void(VKAPI_PTR * PFN_HMS_XEG_DestroyAdaptiveVRS) (XEG_AdaptiveVRS xegAdaptiveVRS) | 销毁XEG_AdaptiveVRS对象的函数指针定义。 |
 | typedef enum XEG_StructureType XEG_StructureType | XEngine结构体类型的枚举。 |
 | typedef VkResult(VKAPI_PTR * PFN_HMS_XEG_CmdSetSynchronization) (VkCommandBuffer commandBuffer, const void *xegHandle) | 设置同步信号，等待渲染结果写入指定图像的函数指针定义。使用RTGI特性时，为等待GI渲染结果到写入指定图像。 |
@@ -160,8 +165,8 @@
 | typedef struct XEG_RTReflectionCreateInfo XEG_RTReflectionCreateInfo | 此结构体描述创建XEG_RTReflection对象的信息。当结构体中的信息变化时，需要创建新的XEG_RTReflection对象。 |
 | typedef struct XEG_RTReflectionDescription XEG_RTReflectionDescription | 此结构体描述下发光线求交命令时的输入信息。 |
 | typedef VkResult(VKAPI_ATTR * PFN_HMS_XEG_CreateRTReflection) (VkDevice device, const void *pCreateInfo, XEG_RTReflection *pRtReflection) | 创建XEG_RTReflection对象的函数指针定义。 |
-| typedef VkResult (VKAPI_ATTR * PFN_HMS_XEG_CmdRenderRTReflection)(VkCommandBuffer commandBuffer, XEG_RTReflection rtReflection, const void *pDescription) | 录制计算RT反射命中信息命令的函数指针定义。 |
-| typedef void (VKAPI_ATTR * PFN_HMS_XEG_DestroyRTReflection)(XEG_RTReflection rtReflection) | 销毁XEG_RTReflection对象的函数指针定义。 |
+| typedef VkResult(VKAPI_ATTR * PFN_HMS_XEG_CmdRenderRTReflection) (VkCommandBuffer commandBuffer, XEG_RTReflection rtReflection, const void *pDescription) | 录制计算RT反射命中信息命令的函数指针定义。 |
+| typedef void(VKAPI_ATTR * PFN_HMS_XEG_DestroyRTReflection) (XEG_RTReflection rtReflection) | 销毁XEG_RTReflection对象的函数指针定义。 |
 | VK_DEFINE_HANDLE(XEG_RTVisibleMask) | XEG_RTVisibleMask的句柄。表示光线追踪VisibleMask特性实例，支持阴影和环境光遮蔽效果。 |
 | typedef enum XEG_DenoiseQualityMode XEG_DenoiseQualityMode | 去噪质量模式枚举。 |
 | typedef enum XEG_TraversalMode XEG_TraversalMode | 遍历模式枚举。 |
@@ -185,6 +190,17 @@
 | typedef VkResult(VKAPI_ATTR * PFN_HMS_XEG_CreateTemporalUpscale) (VkDevice device, XEG_TemporalUpscaleCreateInfo *pTemporalUpscaleInfo, XEG_TemporalUpscale *pTemporalUpscale) | 创建XEG_TemporalUpscale对象的函数指针定义。 |
 | typedef void(VKAPI_ATTR * PFN_HMS_XEG_CmdRenderTemporalUpscale) (VkCommandBuffer commandBuffer, XEG_TemporalUpscale temporalUpscale, XEG_TemporalUpscaleDescription *pDescription) | 录制时域AI超分渲染命令的函数指针定义。 |
 | typedef void(VKAPI_ATTR * PFN_HMS_XEG_DestroyTemporalUpscale) (XEG_TemporalUpscale temporalUpscale) | 销毁XEG_TemporalUpscale对象的函数指针定义。 |
+| VK_DEFINE_HANDLE(XEG_NeuralUpscale) | XEG_NeuralUpscale的句柄。 |
+| typedef struct XEG_NeuralUpscaleCreateInfo XEG_NeuralUpscaleCreateInfo | 此结构体描述创建XEG_NeuralUpscale对象的信息。当结构体中的信息变化时，需要创建新的XEG_NeuralUpscale对象。 |
+| typedef struct XEG_NeuralUpscaleDescription XEG_NeuralUpscaleDescription | 此结构体描述下发空域AI超分渲染命令时的输入信息。 |
+| typedef VkResult(VKAPI_PTR * PFN_HMS_XEG_CreateNeuralUpscale) (VkDevice device, const XEG_NeuralUpscaleCreateInfo *pCreateInfo, XEG_NeuralUpscale *pNeuralUpscale) | 创建XEG_NeuralUpscale对象的函数指针定义。 |
+| typedef VkResult(VKAPI_PTR * PFN_HMS_XEG_CmdRenderNeuralUpscale) (VkCommandBuffer commandBuffer, XEG_NeuralUpscale neuralUpscale, const XEG_NeuralUpscaleDescription *pDescription) | 录制空域AI超分渲染命令的函数指针定义。 |
+| typedef void(VKAPI_PTR * PFN_HMS_XEG_DestroyNeuralUpscale) (XEG_NeuralUpscale neuralUpscale) | 销毁XEG_NeuralUpscale对象的函数指针定义。 |
+| typedef enum XEG_ControlDisplaySeparationStatus XEG_ControlDisplaySeparationStatus | 此枚举描述控显分离当前的状态信息。 |
+| typedef void(*PFN_HMS_XEG_ControlDisplaySeparationStatusCallback) (XEG_ControlDisplaySeparationStatus status) | 控显分离特性监听函数的函数指针定义。 |
+| typedef bool(*PFN_HMS_XEG_SetControlDisplaySeparationStatusListener) (PFN_HMS_XEG_ControlDisplaySeparationStatusCallback callback) | 设置控显分离特性全局唯一监听函数的函数指针定义。 |
+| typedef void(*PFN_HMS_XEG_RemoveControlDisplaySeparationStatusListener) () | 移除控显分离特性全局唯一监听函数的函数指针定义。 |
+| typedef bool(*PFN_HMS_XEG_SetControlDisplaySeparationActive) (bool flag) | 设置控显分离特性使能开关的函数指针定义。 |
  
  
   
@@ -195,10 +211,11 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| XEG_StructureType { XEG_STRUCTURE_TYPE_RT_SHADOWAO_CREATE_INFO = 0, XEG_STRUCTURE_TYPE_RT_SHADOWAO_DESCRIPTION = 1, XEG_STRUCTURE_TYPE_RT_REFLECTION_CREATE_INFO = 2, XEG_STRUCTURE_TYPE_RT_REFLECTION_DESCRIPTION = 3, XEG_STRUCTURE_TYPE_NNGI_CREATE_INFO = 4, XEG_STRUCTURE_TYPE_NNGI_DESCRIPTION = 5, XEG_STRUCTURE_TYPE_DDGI_CREATE_INFO = 6, XEG_STRUCTURE_TYPE_DDGI_DESCRIPTION = 7, XEG_STRUCTURE_TYPE_HPS_CREATE_INFO = 1001, XEG_STRUCTURE_TYPE_HPS_RADIX_SORT = 1002, XEG_STRUCTURE_TYPE_HPS_RADIX_SORT_DESCRIPTION = 1003 } | XEngine结构体类型的枚举。 |
+| XEG_StructureType { XEG_STRUCTURE_TYPE_RT_SHADOWAO_CREATE_INFO = 0, XEG_STRUCTURE_TYPE_RT_SHADOWAO_DESCRIPTION = 1, XEG_STRUCTURE_TYPE_RT_REFLECTION_CREATE_INFO = 2, XEG_STRUCTURE_TYPE_RT_REFLECTION_DESCRIPTION = 3, XEG_STRUCTURE_TYPE_NNGI_CREATE_INFO = 4, XEG_STRUCTURE_TYPE_NNGI_DESCRIPTION = 5, XEG_STRUCTURE_TYPE_DDGI_CREATE_INFO = 6, XEG_STRUCTURE_TYPE_DDGI_DESCRIPTION = 7, XEG_STRUCTURE_TYPE_NEURAL_UPSCALE_CREATE_INFO = 8, XEG_STRUCTURE_TYPE_NEURAL_UPSCALE_DESCRIPTION = 9, XEG_STRUCTURE_TYPE_HPS_CREATE_INFO = 1001, XEG_STRUCTURE_TYPE_HPS_RADIX_SORT = 1002, XEG_STRUCTURE_TYPE_HPS_RADIX_SORT_DESCRIPTION = 1003 } | XEngine结构体类型的枚举。 |
 | XEG_DenoiseQualityMode { XEG_DENOISE_QUALITY_MODE_NONE = 0, XEG_DENOISE_QUALITY_MODE_QUALITY = 1, XEG_DENOISE_QUALITY_MODE_BALANCED = 2, XEG_DENOISE_QUALITY_MODE_PERFORMANCES = 3 } | 去噪质量模式枚举。 |
 | XEG_TraversalMode { XEG_TRAVERSAL_MODE_DEFAULT = 0, XEG_TRAVERSAL_MODE_PERFORMANCES = 1 } | 遍历模式枚举。 |
 | XEG_RTGIQualityMode { XEG_RTGI_QUALITY_MODE_QUALITY = 0, XEG_RTGI_QUALITY_MODE_BALANCED = 1, XEG_RTGI_QUALITY_MODE_PERFORMANCE = 2 } | 输出图像质量模式的枚举。 |
+| XEG_ControlDisplaySeparationStatus { UNAVAILABLE = 0, AVAILABLE = 1} | 控显分离当前的状态信息的枚举。 |
  
  
   
@@ -209,7 +226,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| GL_APICALL void GL_APIENTRY HMS_XEG_AdaptiveVRSParameter (GLenum pname, GLvoid *param) | 设置自适应VRS(variable rate shading)的参数。 |
+| GL_APICALL void GL_APIENTRY HMS_XEG_AdaptiveVRSParameter (GLenum pname, GLvoid *param) | 设置自适应VRS(Variable Rate Shading)的参数。 |
 | GL_APICALL void GL_APIENTRY HMS_XEG_DispatchAdaptiveVRS (GLfloat *reprojectionMatrix, GLuint inputColorImage, GLuint inputDepthImage, GLuint shadingRateImage) | 计算着色率图像。 |
 | GL_APICALL void GL_APIENTRY HMS_XEG_ApplyAdaptiveVRS (GLuint shadingRateImage) | 将着色率图像应用到渲染目标中。 |
 | const GLubyte * HMS_XEG_GetString (GLenum name) | XEngine OpenGL ES扩展特性查询接口。 |
@@ -220,7 +237,7 @@
 | GL_APICALL void GL_APIENTRY HMS_XEG_TemporalUpscaleParameter (GLenum pname, const GLvoid *param) | 设置时域AI超分输入参数。 |
 | GL_APICALL void GL_APIENTRY HMS_XEG_RenderTemporalUpscale (GLuint inputTexture, GLuint depthTexture, GLuint motionVectorTexture, GLuint dynamicMaskTexture, GLfloat jitterX, GLfloat jitterY) | 执行时域AI超分渲染命令。 |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateAdaptiveVRS (VkDevice device, XEG_AdaptiveVRSCreateInfo *pXegAdaptiveVRSCreateInfo, XEG_AdaptiveVRS *pXegAdaptiveVRS) | 创建XEG_AdaptiveVRS对象。 |
-| VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdDispatchAdaptiveVRS (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription *pXegAdaptiveVRSDescription) | 执行计算自适应可变着色率命令。 |
+| VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdDispatchAdaptiveVRS (VkCommandBuffer commandBuffer, XEG_AdaptiveVRS xegAdaptiveVRS, XEG_AdaptiveVRSDescription *pXegAdaptiveVRSDescription) | 执行计算自适应VRS命令。 |
 | VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyAdaptiveVRS (XEG_AdaptiveVRS xegAdaptiveVRS) | 销毁XEG_AdaptiveVRS对象。 |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdSetSynchronization (VkCommandBuffer commandBuffer, const void *xegHandle) | 设置同步信号，等待渲染结果写入指定图像。使用RTGI特性时，为等待GI渲染结果写入指定图像。 |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_EnumerateDeviceExtensionProperties (VkPhysicalDevice physicalDevice, uint32_t *pPropertyCount, XEG_ExtensionProperties *pProperties) | XEngine Vulkan扩展特性查询接口。 |
@@ -242,6 +259,12 @@
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateTemporalUpscale (VkDevice device, XEG_TemporalUpscaleCreateInfo *pTemporalUpscaleInfo, XEG_TemporalUpscale *pTemporalUpscale) | 创建XEG_TemporalUpscale对象。 |
 | VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdRenderTemporalUpscale (VkCommandBuffer commandBuffer, XEG_TemporalUpscale temporalUpscale, XEG_TemporalUpscaleDescription *pDescription) | 录制时域AI超分渲染命令。 |
 | VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyTemporalUpscale (XEG_TemporalUpscale temporalUpscale) | 销毁XEG_TemporalUpscale对象。 |
+| VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateNeuralUpscale (VkDevice device, const XEG_NeuralUpscaleCreateInfo *pCreateInfo, XEG_NeuralUpscale *pNeuralUpscale) | 创建XEG_NeuralUpscale对象。 |
+| VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRenderNeuralUpscale (VkCommandBuffer commandBuffer, XEG_NeuralUpscale neuralUpscale, const XEG_NeuralUpscaleDescription *pDescription) | 录制空域AI超分渲染命令。 |
+| VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyNeuralUpscale (XEG_NeuralUpscale neuralUpscale) | 销毁XEG_NeuralUpscale对象。 |
+| bool HMS_XEG_SetControlDisplaySeparationStatusListener (PFN_HMS_XEG_ControlDisplaySeparationStatusCallback callback) | 设置控显分离特性全局唯一监听函数。 |
+| void HMS_XEG_RemoveControlDisplaySeparationStatusListener () | 移除控显分离特性全局唯一监听函数。 |
+| bool HMS_XEG_SetControlDisplaySeparationActive (bool flag) | 设置控显分离特性使能开关。 |
  
  
   
@@ -262,7 +285,7 @@
  
 **描述**
  
-XEngine自适应VRS(variable rate shading)扩展特性宏定义。
+XEngine自适应VRS(Variable Rate Shading)扩展特性宏定义。
  
 **起始版本：** 5.0.0(12)
  
@@ -296,7 +319,7 @@ XEngine自适应VRS(variable rate shading)扩展特性宏定义。
  
 **描述**
  
-XEngine自适应VRS(variable rate shading)扩展特性名称。
+XEngine自适应VRS(Variable Rate Shading)扩展特性名称。
  
 **起始版本：** 5.0.0(12)
  
@@ -470,6 +493,22 @@ XEngine空域AI超分扩展特性名称。
  
   
 
+#### XEG_NEURAL_UPSCALE2_EXTENSION_NAME
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+#define XEG_NEURAL_UPSCALE2_EXTENSION_NAME   "XEG_neural_upscale2"
+```
+ 
+**描述**
+ 
+XEngine空域AI超分（版本2）扩展特性名称。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
 #### XEG_NEURAL_UPSCALE_INPUT_HANDLE
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -482,7 +521,11 @@ XEngine空域AI超分扩展特性名称。
  
 用于通过[HMS_XEG_NeuralUpscaleParameter](#hms_xeg_neuralupscaleparameter)接口设置与超分输入纹理关联的[OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer) handle。
  
-使用此宏定义设置超分输入参数时，向接口传递的param值必须是与向[HMS_XEG_RenderNeuralUpscale](#hms_xeg_renderneuralupscale)接口传递的inputTexture纹理参数对应的合法的[OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer) handle，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。 必选参数。
+使用此宏定义设置超分输入参数时，向接口传递的param值必须是与向[HMS_XEG_RenderNeuralUpscale](#hms_xeg_renderneuralupscale)接口传递的inputTexture纹理参数对应的合法的[OH_NativeBuffer](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-nativebuffer) handle，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。
+ 
+[XEG_NEURAL_UPSCALE_EXTENSION_NAME](#xeg_neural_upscale_extension_name)扩展可用时，该参数为必选参数。
+ 
+[XEG_NEURAL_UPSCALE2_EXTENSION_NAME](#xeg_neural_upscale2_extension_name)扩展可用时，不需要设置该参数。
  
 **起始版本：** 5.0.0(12)
  
@@ -500,7 +543,7 @@ XEngine空域AI超分扩展特性名称。
  
 用于通过[HMS_XEG_NeuralUpscaleParameter](#hms_xeg_neuralupscaleparameter)接口设置超分的裁剪窗口参数，裁剪窗口用于确定对输入图像采样的区域。
  
-使用此宏定义设置裁剪窗口参数时，向接口传递的param值必须是长度为4的无符号整数数组，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。数组中的值依次为：x， y， width， height，其中x、y确定裁剪窗口的左下角，width、height分别确定裁剪窗口的宽和高。可选参数，不设置裁剪窗口参数时的默认值为（0， 0， 输入纹理的宽， 输入纹理的高）。
+使用此宏定义设置裁剪窗口参数时，向接口传递的param值必须是长度为4的无符号整数数组，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。数组中的值依次为：x， y， width， height，其中x、y确定裁剪窗口的左下角，width、height分别确定裁剪窗口的宽和高。 可选参数，不设置裁剪窗口参数时的默认值为（0， 0， 输入纹理的宽， 输入纹理的高）。
  
 **起始版本：** 5.0.0(12)
  
@@ -632,7 +675,7 @@ XEngine空域GPU超分扩展特性名称。
  
 用于设置[HMS_XEG_SpatialUpscaleParameter](#hms_xeg_spatialupscaleparameter)接口的SCISSOR参数。
  
-使用此宏定义时通过[HMS_XEG_SpatialUpscaleParameter](#hms_xeg_spatialupscaleparameter)接口设置SCISSOR参数，向接口传递的param值必须是指向长度为4的无符号整数数组的指针，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。SCISSOR四个值依次为裁剪窗口的左下角点的x与y的值和裁剪窗口的宽高。
+使用此宏定义时通过[HMS_XEG_SpatialUpscaleParameter](#hms_xeg_spatialupscaleparameter)接口设置SCISSOR参数，向接口传递的param值必须是指向长度为4的无符号整数数组的指针，否则将产生未定义行为，如渲染效果不正确或者程序崩溃。 SCISSOR四个值依次为裁剪窗口的左下角点的x与y的值和裁剪窗口的宽高。
  
 **起始版本：** 5.0.0(12)
  
@@ -826,7 +869,7 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_ADAPTIVEVRSPARAMETER) (GLenum pname, GLvoi
  
 **描述**
  
-设置自适应VRS(variable rate shading)输入参数的函数指针定义。
+设置自适应VRS(Variable Rate Shading)输入参数的函数指针定义。
  
 **起始版本：** 5.0.0(12)
  
@@ -858,7 +901,7 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_APPLYADAPTIVEVRS) (GLuint shadingRateImage
   
 | 名称 | 描述 |
 | --- | --- |
-| shadingRateImage | 计算得到的着色率图像，传入0表示关闭自适应VRS(variable rate shading)。 |
+| shadingRateImage | 计算得到的着色率图像，传入0表示关闭自适应VRS(Variable Rate Shading)。 |
  
  
   
@@ -873,7 +916,7 @@ typedef void(VKAPI_PTR *PFN_HMS_XEG_CmdDispatchAdaptiveVRS) (VkCommandBuffer com
  
 **描述**
  
-执行计算自适应可变着色率命令的函数指针定义。
+执行计算自适应VRS命令的函数指针定义。
  
 **起始版本：** 5.0.0(12)
  
@@ -1047,6 +1090,35 @@ typedef void(VKAPI_ATTR *PFN_HMS_XEG_CmdRenderTemporalUpscale) (VkCommandBuffer 
 | temporalUpscale | 已创建的XEG_TemporalUpscale对象。 |
 | pDescription | 超分渲染输入信息结构体XEG_TemporalUpscaleDescription的指针，不允许为空。 |
  
+ 
+  
+
+#### PFN_HMS_XEG_CmdRenderNeuralUpscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef VkResult (VKAPI_PTR *PFN_HMS_XEG_CmdRenderNeuralUpscale) (VkCommandBuffer commandBuffer, XEG_NeuralUpscale neuralUpscale, const XEG_NeuralUpscaleDescription *pDescription)
+```
+ 
+**描述**
+ 
+录制空域AI超分渲染命令的函数指针定义。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| commandBuffer | Vulkan命令缓冲对象，需要是Primary类型。 |
+| neuralUpscale | 已创建的XEG_NeuralUpscale对象。 |
+| pDescription | 超分渲染输入信息结构体XEG_NeuralUpscaleDescription的指针，不允许为空。 |
+ 
+ 
+**返回：**
+ 
+返回一个VkResult类型的错误码，返回值为VK_SUCCESS表示执行成功。
  
   
 
@@ -1281,6 +1353,35 @@ typedef VkResult(VKAPI_ATTR *PFN_HMS_XEG_CreateTemporalUpscale) (VkDevice device
  
   
 
+#### PFN_HMS_XEG_CreateNeuralUpscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef VkResult(VKAPI_PTR *PFN_HMS_XEG_CreateNeuralUpscale) (VkDevice device, const XEG_NeuralUpscaleCreateInfo *pCreateInfo, XEG_NeuralUpscale *pNeuralUpscale)
+```
+ 
+**描述**
+ 
+创建[XEG_NeuralUpscale](#xeg_neuralupscale)对象的函数指针定义。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| device | 必须是当前使用的VkDevice。 |
+| pCreateInfo | 超分实例句柄创建信息结构体XEG_NeuralUpscaleCreateInfo的指针，不允许为空。 |
+| pNeuralUpscale | 指向句柄的指针，创建的XEG_NeuralUpscale在此句柄中返回。 |
+ 
+ 
+**返回：**
+ 
+返回一个VkResult类型的错误码，返回值为VK_SUCCESS表示执行成功。
+ 
+  
+
 #### PFN_HMS_XEG_DestroyAdaptiveVRS
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -1355,7 +1456,7 @@ typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyRTGI) (XEG_RTGI rtGI)
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
-typedef void (VKAPI_ATTR *PFN_HMS_XEG_DestroyRTReflection)(XEG_RTReflection rtReflection)
+typedef void(VKAPI_ATTR *PFN_HMS_XEG_DestroyRTReflection) (XEG_RTReflection rtReflection)
 ```
  
 **描述**
@@ -1438,6 +1539,29 @@ typedef void(VKAPI_ATTR *PFN_HMS_XEG_DestroyTemporalUpscale) (XEG_TemporalUpscal
 | 名称 | 描述 |
 | --- | --- |
 | temporalUpscale | 需要销毁的XEG_TemporalUpscale对象。 |
+ 
+ 
+  
+
+#### PFN_HMS_XEG_DestroyNeuralUpscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef void(VKAPI_PTR *PFN_HMS_XEG_DestroyNeuralUpscale)(XEG_NeuralUpscale neuralUpscale)
+```
+ 
+**描述**
+ 
+销毁[XEG_NeuralUpscale](#xeg_neuralupscale)对象的函数指针定义。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| neuralUpscale | 需要销毁的XEG_NeuralUpscale对象。 |
  
  
   
@@ -1570,7 +1694,7 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_RENDERNEURALUPSCALE) (GLuint inputTexture)
   
 | 名称 | 描述 |
 | --- | --- |
-| inputTexture | 超分输入纹理，输入纹理是GL_TEXTURE_2D类型且mipLevels为1，纹理的宽度取值范围是[448, 1728]，否则可能会引起AI推理结果错误。此输入纹理必须是由OH_NativeBuffer创建的，并需要在调用此接口前将OH_NativeBuffer对应的handle设置为超分的输入参数，详见接口HMS_XEG_NeuralUpscaleParameter。 |
+| inputTexture | 超分输入纹理，输入纹理是GL_TEXTURE_2D类型且mipLevels为1。XEG_NEURAL_UPSCALE_EXTENSION_NAME扩展可用时，纹理的宽度取值范围是[448, 1728]，否则可能会引起AI推理结果错误。此输入纹理必须是由OH_NativeBuffer创建的，并需要在调用此接口前将OH_NativeBuffer对应的handle设置为超分的输入参数，详见接口HMS_XEG_NeuralUpscaleParameter。XEG_NEURAL_UPSCALE2_EXTENSION_NAME扩展可用时，纹理的宽度取值范围建议[448, 1792]，此输入纹理不需要由OH_NativeBuffer创建。 |
  
  
   
@@ -1620,8 +1744,8 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_RenderTemporalUpscale) (GLuint inputTextur
 | depthTexture | 深度纹理。 |
 | motionVectorTexture | 运动矢量图像。运动矢量的计算方式为当前渲染像素的NDC坐标的XY值减去上一帧的NDC坐标的XY值。 |
 | dynamicMaskTexture | 物体的动态遮罩图像，格式需要是GL_RED或其兼容格式。R通道的合法值为0.0，0.2或1.0，其中0.0表示静态物体，0.2表示运动物体如人物，1.0表示特效或半透明物体。 |
-| jitterX | 相机在X方向上的抖动。 |
-| jitterY | 相机在Y方向上的抖动。 |
+| jitterX | 相机在x方向的抖动，通常为超分依赖的前序渲染过程中应用的亚像素抖动，包含在相机的投影矩阵中；在ndc坐标系下，其取值范围是 [-1/width, 1/width], width是输入inputTexture纹理的宽度（像素数）。 |
+| jitterY | 相机在y方向的抖动，通常为超分依赖的前序渲染过程中应用的亚像素抖动，包含在相机的投影矩阵中；在ndc坐标系下，其取值范围是 [-1/height, 1/height], height是输入inputTexture纹理的高度（像素数）。 |
  
  
   
@@ -1671,6 +1795,99 @@ typedef void(GL_APIENTRYP PFN_HMS_XEG_TemporalUpscaleParameter) (GLenum pname, G
 | pname | 输入参数的枚举名，取值范围为 XEG_TEMPORAL_UPSCALE_INPUT_SIZE、XEG_TEMPORAL_UPSCALE_JITTER_NUM、XEG_TEMPORAL_UPSCALE_DEPTH_REVERSED、XEG_TEMPORAL_UPSCALE_RESET_HISTORY、XEG_TEMPORAL_UPSCALE_STEADY_LEVEL。 |
 | param | 输入参数的值，取值详见输入参数枚举名的说明。 |
  
+ 
+  
+
+#### PFN_HMS_XEG_ControlDisplaySeparationStatusCallback
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef void(*PFN_HMS_XEG_ControlDisplaySeparationStatusCallback) (XEG_ControlDisplaySeparationStatus status);
+```
+ 
+**描述**
+ 
+控显分离特性监听函数的函数指针定义。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| status | 控显分离状态信息的枚举值 |
+ 
+ 
+  
+
+#### PFN_HMS_XEG_SetControlDisplaySeparationStatusListener
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef bool(*PFN_HMS_XEG_SetControlDisplaySeparationStatusListener) (PFN_HMS_XEG_ControlDisplaySeparationStatusCallback callback);
+```
+ 
+**描述**
+ 
+设置控显分离特性全局唯一监听函数的函数指针定义。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| callback | 待设置的回调函数，不允许为空 |
+ 
+ 
+**返回：**
+ 
+返回设置是否成功，true表示设置成功，false代表设置失败，只有当前设备支持控显分离特性并且应用在module.json中注册了控显分离特性才返回成功。
+ 
+  
+
+#### PFN_HMS_XEG_RemoveControlDisplaySeparationStatusListener
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef void(*PFN_HMS_XEG_RemoveControlDisplaySeparationStatusListener) ();
+```
+ 
+**描述**
+ 
+移除控显分离特性全局唯一监听函数的函数指针定义。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### PFN_HMS_XEG_SetControlDisplaySeparationActive
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef bool(*PFN_HMS_XEG_SetControlDisplaySeparationActive) (bool flag);
+```
+ 
+**描述**
+ 
+设置控显分离特性使能开关的函数指针定义。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| flag | 待设置的特性使能开关状态，true表示开启，false表示关闭。 |
+ 
+ 
+**返回：**
+ 
+返回设置是否成功，true表示设置成功，false代表设置失败，设置控显分离特性使能成功的前提是必须设置控显分离特性监听函数并且监听函数回调的状态为可用。
  
   
 
@@ -2042,6 +2259,70 @@ typedef enum XEG_TraversalMode XEG_TraversalMode
  
   
 
+#### XEG_NeuralUpscale
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+VK_DEFINE_HANDLE(XEG_NeuralUpscale)
+```
+ 
+**描述**
+ 
+[XEG_NeuralUpscale](#xeg_neuralupscale)的句柄。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### XEG_NeuralUpscaleCreateInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef struct XEG_NeuralUpscaleCreateInfo XEG_NeuralUpscaleCreateInfo
+```
+ 
+**描述**
+ 
+此结构体描述创建[XEG_NeuralUpscale](#xeg_neuralupscale)对象的信息。当结构体中的信息变化时，需要创建新的[XEG_NeuralUpscale](#xeg_neuralupscale)对象。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### XEG_NeuralUpscaleDescription
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef struct XEG_NeuralUpscaleDescription XEG_NeuralUpscaleDescription
+```
+ 
+**描述**
+ 
+此结构体描述下发空域AI超分渲染命令时的输入信息。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### XEG_ControlDisplaySeparationStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+typedef enum XEG_ControlDisplaySeparationStatus XEG_ControlDisplaySeparationStatus
+```
+ 
+**描述**
+ 
+控显分离当前的状态信息的枚举
+ 
+**起始版本：** 26.0.0
+ 
+  
+
 #### 枚举类型说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -2119,6 +2400,8 @@ XEngine结构体类型的枚举。
 | XEG_STRUCTURE_TYPE_NNGI_DESCRIPTION | 结构体XEG_NNGIDescription的类型。 |
 | XEG_STRUCTURE_TYPE_DDGI_CREATE_INFO | 结构体XEG_DDGICreateInfo的类型。 |
 | XEG_STRUCTURE_TYPE_DDGI_DESCRIPTION | 结构体XEG_DDGIDescription的类型。 |
+| XEG_STRUCTURE_TYPE_NEURAL_UPSCALE_CREATE_INFO | 结构体XEG_NeuralUpscaleCreateInfo的类型。 |
+| XEG_STRUCTURE_TYPE_NEURAL_UPSCALE_DESCRIPTION | 结构体XEG_NeuralUpscaleDescription的类型。 |
 | XEG_STRUCTURE_TYPE_HPS_CREATE_INFO | 结构体XEG_HPSCreateInfo的类型。 |
 | XEG_STRUCTURE_TYPE_HPS_RADIX_SORT | 结构体XEG_HPSRadixSort的类型。 |
 | XEG_STRUCTURE_TYPE_HPS_RADIX_SORT_DESCRIPTION | 结构体XEG_HPSRadixSortDescription的类型。 |
@@ -2148,6 +2431,28 @@ enum XEG_TraversalMode
  
   
 
+#### XEG_ControlDisplaySeparationStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+enum XEG_ControlDisplaySeparationStatus
+```
+ 
+**描述**
+ 
+控显分离当前的状态信息的枚举
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| UNAVAILABLE | 控显分离不可用。 |
+| AVAILABLE | 控显分离可用。 |
+ 
+ 
+  
+
 #### 函数说明
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -2164,7 +2469,7 @@ GL_APICALL void GL_APIENTRY HMS_XEG_AdaptiveVRSParameter (GLenum pname, GLvoid *
  
 **描述**
  
-设置自适应VRS(variable rate shading)的参数。
+设置自适应VRS(Variable Rate Shading)的参数。
  
 **起始版本：** 5.0.0(12)
  
@@ -2196,7 +2501,7 @@ GL_APICALL void GL_APIENTRY HMS_XEG_ApplyAdaptiveVRS (GLuint shadingRateImage)
   
 | 名称 | 描述 |
 | --- | --- |
-| shadingRateImage | 计算得到的着色率图像，传入0表示关闭自适应VRS(variable rate shading)。 |
+| shadingRateImage | 计算得到的着色率图像，传入0表示关闭自适应VRS(Variable Rate Shading)。 |
  
  
   
@@ -2211,7 +2516,7 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdDispatchAdaptiveVRS (VkCommandBuffer comma
  
 **描述**
  
-执行计算自适应可变着色率命令。
+执行计算自适应VRS命令。
  
 **起始版本：** 5.0.0(12)
  
@@ -2385,6 +2690,35 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_CmdRenderTemporalUpscale (VkCommandBuffer com
 | temporalUpscale | 已创建的XEG_TemporalUpscale对象。 |
 | pDescription | 超分渲染输入信息结构体XEG_TemporalUpscaleDescription的指针，不允许为空。 |
  
+ 
+  
+
+#### HMS_XEG_CmdRenderNeuralUpscale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRenderNeuralUpscale (VkCommandBuffer commandBuffer, XEG_NeuralUpscale neuralUpscale, const XEG_NeuralUpscaleDescription *pDescription)
+```
+ 
+**描述**
+ 
+录制空域AI超分渲染命令。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| commandBuffer | Vulkan命令缓冲对象，需要是Primary类型。 |
+| neuralUpscale | 已创建的XEG_NeuralUpscale对象。 |
+| pDescription | 超分渲染输入信息结构体XEG_NeuralUpscaleDescription的指针，不允许为空。 |
+ 
+ 
+**返回：**
+ 
+返回一个VkResult类型的错误码，返回值为VK_SUCCESS表示执行成功。
  
   
 
@@ -2619,6 +2953,35 @@ VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateTemporalUpscale (VkDevice device, X
  
   
 
+#### HMS_XEG_CreateNeuralUpscale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CreateNeuralUpscale (VkDevice device, const XEG_NeuralUpscaleCreateInfo * pCreateInfo, XEG_NeuralUpscale * pNeuralUpscale)
+```
+ 
+**描述**
+ 
+创建[XEG_NeuralUpscale](#xeg_neuralupscale)对象。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| device | 必须是当前使用的VkDevice。 |
+| pCreateInfo | 超分实例句柄创建信息结构体XEG_NeuralUpscaleCreateInfo的指针，不允许为空。 |
+| pNeuralUpscale | 指向句柄的指针，创建的XEG_NeuralUpscale在此句柄中返回。 |
+ 
+ 
+**返回：**
+ 
+返回一个VkResult类型的错误码，返回值为VK_SUCCESS表示执行成功。
+ 
+  
+
 #### HMS_XEG_DestroyAdaptiveVRS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -2780,6 +3143,29 @@ VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyTemporalUpscale (XEG_TemporalUpscale t
  
   
 
+#### HMS_XEG_DestroyNeuralUpscale()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyNeuralUpscale (XEG_NeuralUpscale neuralUpscale)
+```
+ 
+**描述**
+ 
+销毁[XEG_NeuralUpscale](#xeg_neuralupscale)对象。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| neuralUpscale | 需要销毁的XEG_NeuralUpscale对象。 |
+ 
+ 
+  
+
 #### HMS_XEG_DispatchAdaptiveVRS()
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -2908,7 +3294,7 @@ GL_APICALL void GL_APIENTRY HMS_XEG_RenderNeuralUpscale (GLuint inputTexture)
   
 | 名称 | 描述 |
 | --- | --- |
-| inputTexture | 超分输入纹理，输入纹理是GL_TEXTURE_2D类型且mipLevels为1，纹理的宽度取值范围是[448, 1728]，否则可能会引起AI推理结果错误。此输入纹理必须是由OH_NativeBuffer创建的，并需要在调用此接口前将OH_NativeBuffer对应的handle设置为超分的输入参数，详见接口HMS_XEG_NeuralUpscaleParameter。 |
+| inputTexture | 超分输入纹理，输入纹理是GL_TEXTURE_2D类型且mipLevels为1。XEG_NEURAL_UPSCALE_EXTENSION_NAME扩展可用时，纹理的宽度取值范围是[448, 1728]，否则可能会引起AI推理结果错误。此输入纹理必须是由OH_NativeBuffer创建的，并需要在调用此接口前将OH_NativeBuffer对应的handle设置为超分的输入参数，详见接口HMS_XEG_NeuralUpscaleParameter。XEG_NEURAL_UPSCALE2_EXTENSION_NAME扩展可用时，纹理的宽度取值范围建议[448, 1792]，此输入纹理不需要由OH_NativeBuffer创建。 |
  
  
   
@@ -2958,8 +3344,8 @@ GL_APICALL void GL_APIENTRY HMS_XEG_RenderTemporalUpscale (GLuint inputTexture, 
 | depthTexture | 深度纹理。 |
 | motionVectorTexture | 运动矢量图像。运动矢量的计算方式为当前渲染像素的NDC坐标的XY值减去上一帧的NDC坐标的XY值。 |
 | dynamicMaskTexture | 物体的动态遮罩图像，格式需要是GL_RED或其兼容格式。R通道的合法值为0.0，0.2或1.0，其中0.0表示静态物体，0.2表示运动物体如人物，1.0表示特效或半透明物体。 |
-| jitterX | 相机在X方向上的抖动。 |
-| jitterY | 相机在Y方向上的抖动。 |
+| jitterX | 相机在X方向上的抖动，通常为超分依赖的前序渲染过程中应用的亚像素抖动，包含在相机的投影矩阵中；在ndc坐标系下，其取值范围是 [-1/width, 1/width], width是输入inputTexture纹理的宽度（像素数）。 |
+| jitterY | 相机在Y方向上的抖动，通常为超分依赖的前序渲染过程中应用的亚像素抖动，包含在相机的投影矩阵中；在ndc坐标系下，其取值范围是 [-1/height, 1/height], height是输入inputTexture纹理的高度（像素数）。 |
  
  
   
@@ -3008,3 +3394,74 @@ GL_APICALL void GL_APIENTRY HMS_XEG_TemporalUpscaleParameter (GLenum pname, cons
 | --- | --- |
 | pname | 输入参数的枚举名，取值范围为XEG_TEMPORAL_UPSCALE_INPUT_SIZE、XEG_TEMPORAL_UPSCALE_JITTER_NUM、XEG_TEMPORAL_UPSCALE_DEPTH_REVERSED、XEG_TEMPORAL_UPSCALE_RESET_HISTORY、XEG_TEMPORAL_UPSCALE_STEADY_LEVEL。 |
 | param | 输入参数的值，取值详见输入参数枚举名的说明。 |
+ 
+ 
+  
+
+#### HMS_XEG_SetControlDisplaySeparationStatusListener()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+bool HMS_XEG_SetControlDisplaySeparationStatusListener(PFN_HMS_XEG_ControlDisplaySeparationStatusCallback callback);
+```
+ 
+**描述**
+ 
+设置控显分离特性全局唯一监听函数。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| callback | 待设置的回调函数，不允许为空。 |
+ 
+ 
+**返回:**
+ 
+返回设置是否成功，true表示设置成功，false代表设置失败，只有当前设备支持控显分离特性并且应用在module.json中注册了控显分离特性才返回成功。
+ 
+  
+
+#### HMS_XEG_RemoveControlDisplaySeparationStatusListener()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+void HMS_XEG_RemoveControlDisplaySeparationStatusListener();
+```
+ 
+**描述**
+ 
+移除控显分离特性全局唯一监听函数。
+ 
+**起始版本：** 26.0.0
+ 
+  
+
+#### HMS_XEG_SetControlDisplaySeparationActive()
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+```text
+bool HMS_XEG_SetControlDisplaySeparationActive(bool flag);
+```
+ 
+**描述**
+ 
+设置控显分离特性使能开关。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| flag | 待设置的特性使能开关状态，true表示开启，false表示关闭。 |
+ 
+ 
+**返回:**
+ 
+返回设置是否成功，true表示设置成功，false代表设置失败，设置控显分离特性使能成功的前提是必须设置控显分离特性监听函数并且监听函数回调的状态为可用。

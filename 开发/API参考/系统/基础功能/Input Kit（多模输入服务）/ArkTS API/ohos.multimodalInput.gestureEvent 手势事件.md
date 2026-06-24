@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.gestureEvent (手势事件)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-multimodalinput-gestureevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -49,7 +49,7 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type | ActionType | 否 | 否 | 手势事件类型。如：手势开始、手势更新、手势结束等。 |
-| angle | number | 否 | 否 | 旋转角度。 |
+| angle | number | 否 | 否 | 旋转角度，单位为度。 |
  
  
   
@@ -65,8 +65,8 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type | ActionType | 否 | 否 | 手势事件类型。如：手势开始、手势更新、手势结束等。 |
-| x | number | 否 | 否 | 坐标x。 |
-| y | number | 否 | 否 | 坐标y。 |
+| x | number | 否 | 否 | 坐标x，单位为像素（px）。 |
+| y | number | 否 | 否 | 坐标y，单位为像素（px）。 |
  
  
   
@@ -82,8 +82,8 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type | ActionType | 否 | 否 | 手势事件类型。如：手势开始、手势更新、手势结束等。 |
-| x | number | 否 | 否 | 坐标x。 |
-| y | number | 否 | 否 | 坐标y。 |
+| x | number | 否 | 否 | 坐标x，单位为像素（px）。 |
+| y | number | 否 | 否 | 坐标y，单位为像素（px）。 |
  
  
   
@@ -113,7 +113,7 @@ import { Rotate, Pinch, ThreeFingersSwipe, FourFingersSwipe, ActionType } from '
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| CANCEL | 0 | 取消。 |
+| CANCEL | 0 | 手势取消。 |
 | BEGIN | 1 | 手势开始。 |
 | UPDATE | 2 | 手势更新。 |
 | END | 3 | 手势结束。 |

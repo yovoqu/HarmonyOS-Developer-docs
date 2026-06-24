@@ -1,6 +1,6 @@
 # 使用HTTP访问网络
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/http-request
 
@@ -38,6 +38,7 @@
 | 证书验证 | 设置跳过SSL证书校验 | 可以设置跳过SSL证书校验流程。 | API version 18 |
 | 证书验证 | 设置证书校验的版本和加密套件 | 自定义证书校验版本和加密套件。 | API version 18 |
 | 证书验证 | 设置安全连接期间的服务器身份验证配置信息 | 设置安全连接期间的服务器身份验证配置。 | API version 18 |
+| 代理设置 | 设置SOCKS5代理 | 设置SOCKS5代理，默认不使用SOCKS5代理，若正确配置了Socks5Proxy自定义SOCKS5代理，则HttpProxy不生效。 | API version 26.0.0 |
 
 
 
@@ -715,7 +716,7 @@ openssl s_client -servername www.example.com -connect www.example.com:443 \
 直接把证书原文件预置在APP中。目前支持crt和pem格式的证书文件。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/CKWhhEW8SRSoMOKy5wimFA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074927Z&HW-CC-Expire=86400&HW-CC-Sign=3A26750D5CC36B0E4CA707E2949A78EB12154BB2F694E0E9CBE5CCBF42C33BBC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/P7lIM0cyTFGLPmoxmr3Nfg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020844Z&HW-CC-Expire=86400&HW-CC-Sign=83A8F1FE49CC500D82D4C3A1AE35374360CBC5EBCB8DC525B974960FED686F53)
 
 
 当前ohos.net.http和Image组件的证书锁定，会匹配证书链上所有证书的哈希值，如果服务器更新了任意一本证书，都会导致校验失败。如果服务器出现了更新证书的情况，APP版本应当随之更新并推荐消费者尽快升级APP版本，否则可能导致联网失败。

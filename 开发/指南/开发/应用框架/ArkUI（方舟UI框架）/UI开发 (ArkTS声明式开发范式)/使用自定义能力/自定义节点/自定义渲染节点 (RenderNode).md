@@ -1,6 +1,6 @@
 # 自定义渲染节点 (RenderNode)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-rendernode
 
@@ -589,7 +589,7 @@ export struct CustomDrawCanvas {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ba/v3/BTJbKK5kT4mEsqe5PZRDiA/zh-cn_image_0000002611754011.png?HW-CC-KV=V1&HW-CC-Date=20260528T030444Z&HW-CC-Expire=86400&HW-CC-Sign=43D07A3E296B87B108C788C51B290C295574E59258295A79821E8603A4FA4603)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/dV_VGRUvSxWtjWKEYIrCtQ/zh-cn_image_0000002656467895.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=6696822B0EF44C6BB666850D98C301C9FC8DC77570C6B2FD28CFFD4FB7022E9E)
 
 
 **Node-API调用示例：**
@@ -817,7 +817,7 @@ export struct SetLabel {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/22yd9sQnTBy7SP5kaHC2ag/zh-cn_image_0000002581434076.png?HW-CC-KV=V1&HW-CC-Date=20260528T030444Z&HW-CC-Expire=86400&HW-CC-Sign=24A83B82366CCF00371317222EBC5F1174F2E6D2BE001DF9E2675202C6C85BA4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/23/v3/a-WS_RHYQJ-ZzJBUaqeWEQ/zh-cn_image_0000002656347943.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=B3B951AC99FEE976AE356E4893E9A53B4A0EA1CB2DA2FD4DC1B3A8D494B92833)
 
 
 
@@ -899,4 +899,4 @@ export struct CheckRenderNodeDisposed {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/46/v3/3HRkQeL3T4ahsUeNLDN3iw/zh-cn_image_0000002611833905.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030444Z&HW-CC-Expire=86400&HW-CC-Sign=26E9C55330723F762D80D56121E8975B323CD794CC8C3AD6E2BFC9F4E47780DD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/89/v3/tKr_k6nVQLe-bioc0kl5aQ/zh-cn_image_0000002626228528.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=847C6EDFAA7DF8FEE74A746BC399B4D364968DCE92FA01899847E85FFF41FA8E)

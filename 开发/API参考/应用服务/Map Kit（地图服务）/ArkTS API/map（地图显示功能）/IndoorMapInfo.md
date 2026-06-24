@@ -1,6 +1,6 @@
 # Interface (IndoorMapInfo)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-indoormapinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -26,8 +26,6 @@ import { map } from '@kit.MapKit';
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Map.Core
- 
-**设备行为差异：** 在API19及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误。
  
 **起始版本：** 5.1.1(19)
   

@@ -1,6 +1,6 @@
 # WindowManager（窗口管理）
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-windowmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -31,6 +31,8 @@ static setWindowStage(windowStage: window.WindowStage): void
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.Component.TextReader
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **设备行为差异：** 该接口在PC/2in1中可正常调用，在其他设备类型中无效果。
  

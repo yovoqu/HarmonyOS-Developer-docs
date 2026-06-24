@@ -1,6 +1,6 @@
 # 复杂绘制效果（C/C++）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/complex-drawing-effect-c
 
@@ -209,7 +209,7 @@ OH_Drawing_PointDestroy(centerPt);
 此例绘制的具有径向渐变着色器效果的矩形如下所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/jozrb9jfS_qHG20slmsfJQ/zh-cn_image_0000002611834575.png?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=543D2302F551515E9E660BED86184E82C23F32EBA72C1E8A11C08A5E2986E428)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0b/v3/MoB30vgDTDqBy1_5vfOOAw/zh-cn_image_0000002626229258.png?HW-CC-KV=V1&HW-CC-Date=20260624T020914Z&HW-CC-Expire=86400&HW-CC-Sign=5AC9A3722EB9A7F0E37CC720140F4D1C7174187CC67FBC23619CDBDCD1F9CDDF)
 
 
 
@@ -253,7 +253,7 @@ OH_Drawing_PointDestroy(centerPt);
 此例绘制的具有扇形渐变着色器效果的矩形如下所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/44/v3/5Q1TfXbPTeGR2YwDjITWDw/zh-cn_image_0000002581274828.png?HW-CC-KV=V1&HW-CC-Date=20260528T030531Z&HW-CC-Expire=86400&HW-CC-Sign=AAEE6960CE860249A916CD3283F33D9CC183E092576374BC7511A8043889A63D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/DrfIA9HpSweFtLp4DdkwNg/zh-cn_image_0000002626069348.png?HW-CC-KV=V1&HW-CC-Date=20260624T020914Z&HW-CC-Expire=86400&HW-CC-Sign=E775D90647F3AFE2639C4594811DFA438DFF45B77C9B7098DC0677B753153AE4)
 
 
 

@@ -1,6 +1,6 @@
 # InputMethod_CursorInfo
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-inputmethod-cursorinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct InputMethod_CursorInfo InputMethod_CursorInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-光标信息。光标的坐标位置、宽度和高度。
+光标信息，包括坐标位置、宽度和高度。
  
 **起始版本：** 12
  

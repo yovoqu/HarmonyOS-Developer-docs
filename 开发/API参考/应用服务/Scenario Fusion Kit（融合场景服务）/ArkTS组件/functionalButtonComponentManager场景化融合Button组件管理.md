@@ -1,6 +1,6 @@
 # functionalButtonComponentManager(场景化融合Button组件管理)
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalbuttoncomponentmanager
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -129,11 +129,11 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
+该枚举定义了FunctionalButton的认证类型。
+
 > [!NOTE]
 > 从5.0.0(12)开始新增此接口，功能不可用，从6.0.2(22)开始废弃，无替代接口。
 
-
-该枚举定义了FunctionalButton的认证类型。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -154,11 +154,11 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
+该接口定义了FunctionalButton组件的实名信息校验对象。
+
 > [!NOTE]
 > 从5.0.0(12)开始支持，从6.0.2(22)开始废弃，无替代接口。
 
-
-该接口定义了FunctionalButton组件的实名信息校验对象。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -173,7 +173,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 | openID | string | 否 | 否 | OpenID是华为账号用户在不同类型的产品的身份ID，同一个用户，不同应用，OpenID值不同。 |
 | realName | string | 否 | 否 | 证件姓名。 |
 | credentialID | Uint8Array | 否 | 否 | 证件号码。 |
-| credentialType | CredentialType | 否 | 是 | 证件类型。 |
+| credentialType(deprecated) | CredentialType | 否 | 是 | 证件类型。 |
 
 
 
@@ -196,12 +196,12 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 | --- | --- | --- | --- | --- |
 | size | SizeType | 否 | 是 | 按钮尺寸类型。默认值：functionalButtonComponentManager.SizeType.DEFAULT，字体大小为：16fp。 |
 | bgColor | ColorType | 否 | 是 | 按钮颜色类型。默认值：functionalButtonComponentManager.ColorType.DEFAULT，默认蓝底白字按钮样式。 |
-| plain | boolean | 否 | 是 | 按钮是否镂空。“true”表示镂空。默认值：false，不镂空。 |
-| disabled | boolean | 否 | 是 | 按钮是否禁用。“true”表示按钮禁用。默认值：false，不禁用Button。 |
-| loading | boolean | 否 | 是 | 名称前是否带loading图标。“true”表示名称前带loading图标。 默认值：false，关闭loading动画。 |
+| plain | boolean | 否 | 是 | 按钮是否镂空。true表示镂空，false表示不镂空，默认值：false。 |
+| disabled | boolean | 否 | 是 | 按钮是否禁用。true表示按钮禁用，false表示不禁用Button，默认值：false。 |
+| loading | boolean | 否 | 是 | 名称前是否带loading图标。true表示名称前带loading图标，false表示关闭loading动画，默认值：false。 |
 | hoverClass | HoverClassType | 否 | 是 | 按钮按下去的样式。默认值：functionalButtonComponentManager.HoverClassType.HOVER_CLASS，开启点击效果。 |
-| hoverStartTime | number | 否 | 是 | 按住后多久出现点击态，单位毫秒。 默认值：0 取值范围： [0, +∞) 说明： 设置为小于0的值时，按值为0处理。 |
-| hoverStayTime | number | 否 | 是 | 手指松开后点击态保留时间，单位毫秒。 默认值：0 取值范围： [0, +∞) 说明： 设置为小于0的值时，按值为0处理。 |
+| hoverStartTime | number | 否 | 是 | 按住后多久出现点击态，单位：ms。 默认值：0 取值范围： [0, +∞) 说明： 设置为小于0的值时，按值为0处理。 |
+| hoverStayTime | number | 否 | 是 | 手指松开后点击态保留时间，单位：ms。 默认值：0 取值范围： [0, +∞) 说明： 设置为小于0的值时，按值为0处理。 |
 | styleConfig | ButtonConfig | 否 | 是 | 按钮样式配置。 说明： 当styleConfig和StyleOption中定义的样式冲突时，最终以styleConfig的为准。 |
 
 
@@ -249,7 +249,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -272,7 +272,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -295,7 +295,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -318,7 +318,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -341,7 +341,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -365,7 +365,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -397,7 +397,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -426,7 +426,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在2in1中返回1001500003错误码，在TV中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在PC/2in1中返回1001500003错误码，在TV中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -450,7 +450,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在2in1中返回1001500003错误码，在TV中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在PC/2in1中返回1001500003错误码，在TV中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -474,7 +474,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在2in1中返回1001500003错误码，在TV中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在PC/2in1中返回1001500003错误码，在TV中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -498,15 +498,15 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.0.1(13)之前的版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。对于5.0.1(13)及之后版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | name | string | 否 | 否 | 位置名称。 |
-| longitude | number | 否 | 否 | 经度。 |
-| latitude | number | 否 | 否 | 纬度。 |
+| longitude | number | 否 | 否 | 经度，取值范围：[-180, 180]。 |
+| latitude | number | 否 | 否 | 纬度，取值范围：[-90, 90]。 |
 | address | string | 否 | 否 | 地址。 |
 
 
@@ -560,7 +560,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-该接口定义了FunctionalButton组件为权限设置功能时，通过该参数指定权限设置的返回体，用于UIAbility/UIExtensionAbility二次拉起权限设置弹框。
+该接口定义了FunctionalButton组件为权限设置功能时，通过该参数指定权限设置的返回体，用于[UIAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiability)/[UIExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-uiextensionability)二次拉起权限设置弹框。
 
 在调用此接口前，应用需要先调用[requestPermissionsFromUser](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-abilityaccessctrl#requestpermissionsfromuser9)，如果用户在首次弹窗授权时已授权，调用当前接口将无法拉起弹窗。
 
@@ -574,7 +574,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 5.0.2(14)
 
@@ -601,7 +601,7 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 6.0.0(20)
 
@@ -624,18 +624,19 @@ import { functionalButtonComponentManager } from '@kit.ScenarioFusionKit';
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
-
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 6.0.0(20)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| description | string | 否 | 是 | 元服务描述，支持开发者传入，默认是元服务描述。 |
-| previewUri | string | 否 | 是 | 元服务预览图，由开发者传入图片，否则返回默认元服务icon图标；本地文件路径、代码包文件路径或者网络图片路径。 |
+| description | string | 否 | 是 | 元服务描述，支持开发者传入，默认是元服务描述。 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。 |
+| previewUri | string | 否 | 是 | 元服务预览图，由开发者传入图片，否则返回默认元服务icon图标；本地文件路径、代码包文件路径或者网络图片路径。 元服务API： 从版本6.0.0(20)开始，该接口支持在元服务中使用。 |
+| uniformDataType | uniformTypeDescriptor.UniformDataType | 否 | 是 | 元服务数据类型，取值范围：[HYPERLINK, IMAGE, VIDEO, TEXT, FILE]，默认值：HYPERLINK。 HYPERLINK：分享当前元服务。 IMAGE：图片分享。 VIDEO：视频分享。 TEXT：文本分享。 FILE：文件分享。 起始版本： 26.0.0 元服务API： 从版本26.0.0开始，该接口支持在元服务中使用。 |
+| content | string | 否 | 是 | 元服务分享内容，链接（包含元服务App Linking）、文本类型的内容通过该字段传递。 HYPERLINK：自定义参数json字符串作为content字段，长度限制1~1024。 IMAGE：图片uri作为content字段。 VIDEO：视频uri作为content字段。 TEXT：文本内容作为content字段。 FILE：文件uri作为content字段。 起始版本： 26.0.0 元服务API： 从版本26.0.0开始，该接口支持在元服务中使用。 |
+| title | string | 否 | 是 | 元服务分享的标题，如果是文本、链接等内容，建议填入title标识其标题。缺省时，若分享内容为文本类型，则文本内容作为title字段；若分享内容为文件类型，则文件名作为title字段。 起始版本： 26.0.0 元服务API： 从版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -703,7 +704,7 @@ onGetPhoneNumber(callback: AsyncCallback&lt;GetPhoneNumberResult&gt;): Functiona
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -750,11 +751,11 @@ struct Index {
             .onGetPhoneNumber((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in authenticating");
+              hilog.info(0x0000, 'testTag', 'succeeded in authenticating');
               // 获取授权码。
               let authorizationCode = data.code;
             })
@@ -783,7 +784,7 @@ onGetRealtimePhoneNumber(callback: AsyncCallback&lt;GetRealtimePhoneNumberResult
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -830,11 +831,11 @@ struct Index {
             .onGetRealtimePhoneNumber((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in authenticating");
+              hilog.info(0x0000, 'testTag', 'succeeded in authenticating');
               // 获取授权码。
               let authorizationCode = data.code;
             })
@@ -865,7 +866,7 @@ onLaunchApp(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -916,11 +917,11 @@ struct Index {
           controller: new functionalButtonComponentManager.FunctionalButtonController().onLaunchApp((err) => {
             if (err) {
               // 错误日志处理。
-              hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+              hilog.error(0x0000, 'testTag', 'Failed to launch app, error: %{public}d %{public}s', err.code, err.message);
               return;
             }
             // 处理成功。成功时不会返回任何值。
-            hilog.info(0x0000, "testTag", "succeeded in launching app");
+            hilog.info(0x0000, 'testTag', 'succeeded in launching app');
           })
         })
       }.width('100%')
@@ -951,7 +952,7 @@ onOpenSetting(callback: AsyncCallback&lt;OpenSettingResult&gt;): FunctionalButto
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -997,13 +998,13 @@ struct Index {
           controller: new functionalButtonComponentManager.FunctionalButtonController().onOpenSetting((err, data) => {
             if (err) {
               // 错误日志处理。
-              hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+              hilog.error(0x0000, 'testTag', 'Failed to open setting, error: %{public}d %{public}s', err.code, err.message);
               return;
             }
             // 成功处理，当应用程序进程停止时触发。
-            hilog.info(0x0000, "testTag", "succeeded in opening setting");
+            hilog.info(0x0000, 'testTag', 'succeeded in opening setting');
             data.permissions!.forEach((value, key) => {
-              hilog.info(0x0000, "testTag", "key: %{public}s value: %{public}s", String(key), value);
+              hilog.info(0x0000, 'testTag', 'key: %{public}s value: %{public}s', String(key), value);
             })
           })
         })
@@ -1029,7 +1030,7 @@ onChooseAvatar(callback: AsyncCallback&lt;ChooseAvatarResult&gt;): FunctionalBut
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -1082,11 +1083,11 @@ struct Index {
         controller: new functionalButtonComponentManager.FunctionalButtonController().onChooseAvatar((err, data) => {
           if (err) {
             // 错误日志处理。
-            hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+            hilog.error(0x0000, 'testTag', 'Failed to choose avatar, error: %{public}d %{public}s', err.code, err.message);
             return;
           }
           // 成功日志处理。
-          hilog.info(0x0000, "testTag", "succeeded in choosing avatar");
+          hilog.info(0x0000, 'testTag', 'succeeded in choosing avatar');
           this.url = data.avatarUri!;
         })
       })
@@ -1116,7 +1117,7 @@ onChooseAddress(callback: AsyncCallback&lt;ChooseAddressResult&gt;): FunctionalB
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -1171,11 +1172,11 @@ struct Index {
             .onChooseAddress((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to choose address, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in choosing address");
+              hilog.info(0x0000, 'testTag', 'succeeded in choosing address');
               // 获取地址信息。
               let userName: string = data.userName;
               let mobileNumber: string = data.mobileNumber as string;
@@ -1211,7 +1212,7 @@ onChooseInvoiceTitle(callback: AsyncCallback&lt;ChooseInvoiceTitleResult&gt;): F
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -1266,11 +1267,11 @@ struct Index {
             .onChooseInvoiceTitle((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to obtain invoice title, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in obtaining invoice title");
+              hilog.info(0x0000, 'testTag', 'succeeded in obtaining invoice title');
               // 获取发票信息。
               let type: string = data.type;
               let title: string = data.title;
@@ -1305,7 +1306,7 @@ onRealNameAuthentication(callback: AsyncCallback&lt;RealNameAuthenticationResult
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在2in1中返回1001500003错误码，在TV中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在PC/2in1中返回1001500003错误码，在TV中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -1407,25 +1408,25 @@ struct SecondPage {
             .onRealNameAuthentication((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in authenticating");
+              hilog.info(0x0000, 'testTag', 'succeeded in authenticating');
               // 获取授权码。
               let authCode: string = data.authCode as string;
               let openID: string = data.openID as string;
               // sceneid 表示场景ID。选项包括：0（实名验证）、1（人脸验证，验证姓名、证件类型、证件号码和人脸）和2（人脸验证，仅验证人脸）。
               this.obtainRealNameDataInfo(authCode, 0, openID, 'name', 'idNo', (err, data) => {
                 if (err) {
-                  hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                  hilog.error(0x0000, 'testTag', 'Failed to verify, error: %{public}d %{public}s', err.code, err.message);
                   return;
                 }
                 let state = data.state;
                 let realNameLevel = data.realNameLevel;
                 let verifyResult = data.verifyResult;
                 let verifyToken = data.verifyToken;
-                hilog.info(0x0000, "testTag", "succeeded in verifying");
+                hilog.info(0x0000, 'testTag', 'succeeded in verifying');
               })
             })
         })
@@ -1455,7 +1456,7 @@ onFaceAuthentication(callback: AsyncCallback&lt;FaceAuthenticationResult&gt;): F
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在2in1中返回1001500003错误码，在TV中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在PC/2in1中返回1001500003错误码，在TV中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -1556,19 +1557,19 @@ struct SecondPage {
             .onFaceAuthentication((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in authenticating");
+              hilog.info(0x0000, 'testTag', 'succeeded in authenticating');
               // 获取授权码。
               let authCode: string = data.authCode as string;
               let openID: string = data.openID as string;
-              hilog.info(0x0000, "testTag", "succeeded in authCode");
+              hilog.info(0x0000, 'testTag', 'succeeded in authCode');
               // sceneid 表示场景ID。选项包括：0（实名验证）、1（人脸验证，验证姓名、证件类型、证件号码和人脸）和2（人脸验证，仅验证人脸）。
               this.obtainFaceVerifyDataInfo(authCode, 2, openID, "", "", (err, data) => {
                 if (err) {
-                  hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                  hilog.error(0x0000, 'testTag', 'error: %{public}d %{public}s', err.code, err.message);
                   return;
                 }
                 let verifyToken: string = data.verifyToken as string;
@@ -1576,7 +1577,7 @@ struct SecondPage {
                   (error, data) => {
                     if (error) {
                       // 错误日志处理。
-                      hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", error.code, error.message);
+                      hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', error.code, error.message);
                       return;
                     }
                     let facialRecognitionVerificationToken = data.facialRecognitionVerificationToken;
@@ -1612,7 +1613,7 @@ onFaceVerification(verifyToken: string, callback: AsyncCallback&lt;FaceVerificat
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在2in1中返回1001500003错误码，在TV中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet中可正常调用，在PC/2in1中返回1001500003错误码，在TV中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -1707,19 +1708,19 @@ struct SecondPage {
             .onFaceAuthentication((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in authenticating");
+              hilog.info(0x0000, 'testTag', 'succeeded in authenticating');
               // 获取授权码。
               let authCode: string = data.authCode as string;
               let openID: string = data.openID as string;
-              hilog.info(0x0000, "testTag", "succeeded in authCode");
+              hilog.info(0x0000, 'testTag', 'succeeded in authCode');
               // sceneid 表示场景ID。选项包括：0（实名验证）、1（人脸验证，验证姓名、证件类型、证件号码和人脸）和2（人脸验证，仅验证人脸）。
               this.obtainFaceVerifyDataInfo(authCode, 2, openID, "", "", (err, data) => {
                 if (err) {
-                  hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                  hilog.error(0x0000, 'testTag', 'error: %{public}d %{public}s', err.code, err.message);
                   return;
                 }
                 let verifyToken: string = data.verifyToken as string;
@@ -1727,7 +1728,7 @@ struct SecondPage {
                   (error, data) => {
                     if (error) {
                       // 错误日志处理。
-                      hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", error.code, error.message);
+                      hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', error.code, error.message);
                       return;
                     }
                     let facialRecognitionVerificationToken = data.facialRecognitionVerificationToken;
@@ -1763,7 +1764,7 @@ onChooseLocation(callback: AsyncCallback&lt;ChooseLocationResult&gt;): Functiona
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.0.1(13)之前的版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。对于5.0.1(13)及之后版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -1818,11 +1819,11 @@ struct Index {
             .onChooseLocation((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to choose location, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in choosing location");
+              hilog.info(0x0000, 'testTag', 'succeeded in choosing location');
               let name: string = data.name;
               let address: string = data.address;
               let longitude: number = data.longitude;
@@ -1901,12 +1902,12 @@ struct Index {
             data) => {
             if (err) {
               // 错误日志处理。
-              hilog.error(0x0000, "testTag", `error code is: ${err?.code} message is ${err?.message}`);
+              hilog.error(0x0000, 'testTag', `Failed to subscribe LiveView, error code is: ${err?.code} message is ${err?.message}`);
               return;
             }
             let subscribeId = data.subscribeId;
             // 成功日志处理。
-            hilog.info(0x0000, "testTag", "succeeded in subscribing LiveView");
+            hilog.info(0x0000, 'testTag', 'succeeded in subscribing LiveView');
           })
         })
       }
@@ -1935,7 +1936,7 @@ onPermissionSetting(callback: AsyncCallback&lt;PermissionSettingResult&gt;): Fun
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于5.1.0(18)之前的版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。对于5.1.0(18)及之后版本，该接口在Phone、Tablet、2in1、TV中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1、TV、Car中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 5.0.2(14)
 
@@ -1979,16 +1980,16 @@ struct Index {
                 ['ohos.permission.READ_CALENDAR', 'ohos.permission.WRITE_CALENDAR'],
                 (err: BusinessError, data: PermissionRequestResult) => {
                   if (err) {
-                    hilog.error(0x0000, "testTag", "failed in requesting Permissions from user : %{public}d %{public}s",
+                    hilog.error(0x0000, 'testTag', 'failed in requesting Permissions from user : %{public}d %{public}s',
                       err.code, err.message);
                   } else {
-                   hilog.info(0x0000, "testTag", 'data permissions: %{public}s', data.permissions?.join(','));
-                   hilog.info(0x0000, "testTag", 'data authResults: %{public}s', data.authResults?.join(','));
-                   hilog.info(0x0000, "testTag", 'data dialogShownResults: %{public}s',data.dialogShownResults?.join(','));
+                   hilog.info(0x0000, 'testTag', 'data permissions: %{public}s', data.permissions?.join(','));
+                   hilog.info(0x0000, 'testTag', 'data authResults: %{public}s', data.authResults?.join(','));
+                   hilog.info(0x0000, 'testTag', 'data dialogShownResults: %{public}s',data.dialogShownResults?.join(','));
                   }
                 })
             } catch (err) {
-              hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+              hilog.error(0x0000, 'testTag', 'error: %{public}d %{public}s', err.code, err.message);
             }
           })
 
@@ -2010,14 +2011,14 @@ struct Index {
             data) => {
             if (err) {
               // 错误日志处理。
-              hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+              hilog.error(0x0000, 'testTag', 'Failed to set permission, error: %{public}d %{public}s', err.code, err.message);
               return;
             }
             // 成功日志处理。
-            hilog.info(0x0000, "testTag", "succeeded in setting permission ");
+            hilog.info(0x0000, 'testTag', 'succeeded in setting permission ');
             let result = data.permissionResult;
             result.forEach(res => {
-              hilog.info(0x0000, "testTag", "data: %{public}s", String(res));
+              hilog.info(0x0000, 'testTag', 'data: %{public}s', String(res));
             })
           })
         })
@@ -2049,7 +2050,7 @@ onRequestSubscribeMessage(callback: AsyncCallback&lt;RequestSubscribeMessageResu
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于6.1.0(23)之前的版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 6.0.0(20)
 
@@ -2105,11 +2106,11 @@ struct Index {
             .onRequestSubscribeMessage((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to request subscribe message, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in requesting subscribe message");
+              hilog.info(0x0000, 'testTag', 'succeeded in requesting subscribe message');
               // 处理服务代码。
               let code = data.code;
             })
@@ -2140,7 +2141,7 @@ onShare(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于6.1.0(23)之前的版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 6.0.0(20)
 
@@ -2165,6 +2166,7 @@ onShare(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController
 | 10004 | Internal error. |
 | 10006 | Failed to get data. |
 | 10008 | Not atomic service. |
+| 1007601001 | Invalid share parameter value. Possible causes: 1. The uniformDataType parameter verification failed; 2. Invalid content parameter format. [since 26.0.0] |
 
 
 **示例：**
@@ -2200,11 +2202,11 @@ struct Index {
             .onShare((err) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to pull up the sharing page, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in pulling up the sharing page");
+              hilog.info(0x0000, 'testTag', 'succeeded in pulling up the sharing page');
             })
         })
       }.width('100%')
@@ -2233,7 +2235,7 @@ onFeedback(callback: AsyncCallback&lt;void&gt;): FunctionalButtonController
 
 **系统能力：** SystemCapability.AtomicserviceComponent.UIComponent
 
-**设备行为差异：** 对于6.1.0(23)之前的版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中返回801错误码。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、2in1中可正常调用，在其他设备类型中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中返回801错误码。
 
 **起始版本：** 6.0.0(20)
 
@@ -2287,11 +2289,11 @@ struct Index {
             .onFeedback((err) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to pull up the feedback page, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in pulling up the feedback page");
+              hilog.info(0x0000, 'testTag', 'succeeded in pulling up the feedback page');
             })
         })
       }.width('100%')
@@ -2361,11 +2363,11 @@ struct Index {
             .onGetPhoneNumberAndRiskLevel((data) => {
               if (data?.errCode) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", data?.errCode, data?.errMsg);
+                hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', data?.errCode, data?.errMsg);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in authentication");
+              hilog.info(0x0000, 'testTag', 'succeeded in authentication');
               // 授权码处理。
               let authorizationCode = data?.code;
             })
@@ -2929,7 +2931,7 @@ backgroundImagePosition(value: Position | Alignment): ButtonConfig
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Position \| Alignment | 是 | 设置背景图像在组件中显示位置，即相对于组件左上角的坐标，单位vp。 默认值： { x: 0, y: 0 } x和y值设置百分比时，偏移量是相对组件自身宽高计算的。 |
+| value | Position \| Alignment | 是 | 设置背景图像在组件中显示位置，即相对于组件左上角的坐标，单位：vp。 默认值： { x: 0, y: 0 } x和y值设置百分比时，偏移量是相对组件自身宽高计算的。 |
 
 
 **返回值：**
@@ -3249,7 +3251,7 @@ markAnchor(value: Position): ButtonConfig
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Position | 是 | 设置元素在位置定位时的锚点，以元素顶部起点作为基准点进行偏移，单位vp。 默认值： { x: 0, y: 1 } |
+| value | Position | 是 | 设置元素在位置定位时的锚点，以元素顶部起点作为基准点进行偏移，单位：vp。 默认值： { x: 0, y: 1 } |
 
 
 **返回值：**
@@ -3281,7 +3283,7 @@ offset(value: Position): ButtonConfig
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| value | Position | 是 | 设置元素在位置定位时的锚点，以元素顶部起点作为基准点进行偏移，单位vp。 默认值： { x: 0, y: 1 } |
+| value | Position | 是 | 设置元素在位置定位时的锚点，以元素顶部起点作为基准点进行偏移，单位：vp。 默认值： { x: 0, y: 1 } |
 
 
 **返回值：**
@@ -3331,7 +3333,7 @@ enabled(value: boolean): ButtonConfig
 
 loadingColor(value: ResourceColor): ButtonConfig
 
-设置FunctionalButton中的LoadingProgress图标的颜色属性。
+设置FunctionalButton中的[LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)图标的颜色属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -3363,7 +3365,7 @@ loadingColor(value: ResourceColor): ButtonConfig
 
 loadingWidth(value: Length): ButtonConfig
 
-设置FunctionalButton中的LoadingProgress图标的宽度属性。
+设置FunctionalButton中的[LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)图标的宽度属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -3395,7 +3397,7 @@ loadingWidth(value: Length): ButtonConfig
 
 loadingHeight(value: Length): ButtonConfig
 
-设置FunctionalButton中的LoadingProgress图标的高度属性。
+设置FunctionalButton中的[LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)图标的高度属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -3427,7 +3429,7 @@ loadingHeight(value: Length): ButtonConfig
 
 loadingPadding(value: Length | Padding): ButtonConfig
 
-设置FunctionalButton中的LoadingProgress图标的内边距属性。
+设置FunctionalButton中的[LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)图标的内边距属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -3459,7 +3461,7 @@ loadingPadding(value: Length | Padding): ButtonConfig
 
 loadingMargin(value: Length | Padding): ButtonConfig
 
-设置FunctionalButton中的LoadingProgress图标的外边距属性。
+设置FunctionalButton中的[LoadingProgress](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-loadingprogress)图标的外边距属性。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -3523,11 +3525,11 @@ struct Index {
             .onGetPhoneNumber((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in authenticating");
+              hilog.info(0x0000, 'testTag', 'succeeded in authenticating');
               // 处理授权码。
               let authorizationCode = data.code;
             })
@@ -3541,4 +3543,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/he5jOBb8S2ef-X4hZOD4uA/zh-cn_image_0000002611836883.png?HW-CC-KV=V1&HW-CC-Date=20260528T025119Z&HW-CC-Expire=86400&HW-CC-Sign=B0D6CF8CD4ECF63999C6C08BDCB8CCA80D095964B915726D6177E356E2C37D23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/qIde7QJiSfSI2gLj0gdIug/zh-cn_image_0000002656351037.png?HW-CC-KV=V1&HW-CC-Date=20260624T020356Z&HW-CC-Expire=86400&HW-CC-Sign=6A2239C274F66F7833C8CB9FE8D1902F60B3F6C89F32B3363EFBADC34DD1526D)

@@ -1,6 +1,6 @@
 # AICaptionComponent（AI字幕组件）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-aicaptioncomponent
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -32,6 +32,8 @@ AI字幕组件，可以作为动态组件加载。
  
 **系统能力：** SystemCapability.AI.AICaption
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -54,6 +56,8 @@ build(): void
 用于创建对象[AICaptionComponent](#aicaptioncomponent)的构造函数。
  
 **系统能力：** SystemCapability.AI.AICaption
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -103,6 +107,8 @@ struct Index {
 AI字幕控件的主要功能入口类。
  
 **系统能力：** SystemCapability.AI.AICaption
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -155,6 +161,8 @@ getAudioInfo(): AudioInfo
  
 **系统能力：** SystemCapability.AI.AICaption
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **返回值：**
@@ -189,6 +197,8 @@ writeAudio(audioData: AudioData): void
  
 **系统能力：** SystemCapability.AI.AICaption
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -200,7 +210,7 @@ writeAudio(audioData: AudioData): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -235,6 +245,8 @@ try {
  
 **系统能力：** SystemCapability.AI.AICaption
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -255,6 +267,8 @@ try {
  
 **系统能力：** SystemCapability.AI.AICaption
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -272,6 +286,8 @@ try {
  
 **系统能力：** SystemCapability.AI.AICaption
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -287,7 +303,7 @@ try {
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -305,6 +321,8 @@ try {
 AI字幕字体大小的枚举类。
  
 **系统能力：** SystemCapability.AI.AICaption
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.1.1(24)
   

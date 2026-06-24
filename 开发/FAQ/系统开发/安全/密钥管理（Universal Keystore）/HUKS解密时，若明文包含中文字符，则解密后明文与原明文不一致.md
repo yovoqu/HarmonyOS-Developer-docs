@@ -1,6 +1,6 @@
 # HUKS解密时，若明文包含中文字符，则解密后明文与原明文不一致
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-universal-keystore-6
 

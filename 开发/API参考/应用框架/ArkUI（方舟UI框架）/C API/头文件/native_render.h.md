@@ -1,6 +1,6 @@
 # native_render.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-render-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -202,6 +202,8 @@
 | ArkUI_RenderNodeClipOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromOvalShape(ArkUI_RectShapeOption* shape) | - | 从椭圆形形状创建裁剪。 |
 | ArkUI_RenderNodeClipOption* OH_ArkUI_RenderNodeUtils_CreateRenderNodeClipOptionFromCommandPath(ArkUI_CommandPathOption* path) | - | 从自定义绘制路径创建裁剪。 |
 | void OH_ArkUI_RenderNodeUtils_DisposeRenderNodeClipOption(ArkUI_RenderNodeClipOption* option) | - | 释放渲染节点裁剪。 |
+| void OH_ArkUI_RenderNodeUtils_SetRectShapeOptionValue(ArkUI_RectShapeOption* option, float x, float y, float width, float height) | - | 为矩形形状选项设置边框矩形范围。该函数通过指定位置和尺寸来定义矩形的几何框架。 |
+| void OH_ArkUI_RenderNodeUtils_SetRoundRectShapeOptionValue(ArkUI_RoundRectShapeOption* option, float x, float y, float width, float height) | - | 为圆角矩形形状选项设置边框矩形范围。该函数通过指定位置和尺寸来定义圆角矩形的几何框架。 |
 
 
 
@@ -750,7 +752,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetBackgroundColor(ArkUI_RenderNodeHandle node,
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_RenderNodeHandle node | 目标渲染节点。 |
-| uint32_t* color | 用于存储获取到的 RGBA 颜色值的整数指针。 默认值：0x00000000。 颜色字节布局说明： - 位24-31：Alpha通道（0x00完全透明，0xFF完全不透明）。 - 位16-23：红色通道。 - 位8-15：绿色通道。 - 位0-7：蓝色通道。 |
+| uint32_t* color | 用于存储获取到的ARGB颜色值的整数指针。 默认值：0x00000000。 颜色字节布局说明： - 位24-31：Alpha通道（0x00完全透明，0xFF完全不透明）。 - 位16-23：红色通道。 - 位8-15：绿色通道。 - 位0-7：蓝色通道。 |
 
 
 **返回：**
@@ -1457,7 +1459,7 @@ int32_t OH_ArkUI_RenderNodeUtils_GetShadowColor(ArkUI_RenderNodeHandle node, uin
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_RenderNodeHandle node | 目标渲染节点。 |
-| uint32_t* color | 用于存储获取到的RGBA颜色值的整数指针。 默认值：0xFF000000。 颜色字节布局说明： - 位24-31：Alpha通道（0x00完全透明，0xFF完全不透明）。 - 位16-23：红色通道。 - 位8-15：绿色通道。 - 位0-7：蓝色通道。 |
+| uint32_t* color | 用于存储获取到的ARGB颜色值的整数指针。 默认值：0xFF000000。 颜色字节布局说明： - 位24-31：Alpha通道（0x00完全透明，0xFF完全不透明）。 - 位16-23：红色通道。 - 位8-15：绿色通道。 - 位0-7：蓝色通道。 |
 
 
 **返回：**
@@ -3793,7 +3795,7 @@ void OH_ArkUI_RenderNodeUtils_SetCommandPathOptionCommands(ArkUI_CommandPathOpti
 | 参数项 | 描述 |
 | --- | --- |
 | ArkUI_CommandPathOption* option | 指向自定义绘制路径的指针。 |
-| char* commands | 命令值。入参格式为SVG的&lt;path&gt;形状标签。 |
+| char* commands | 命令值。入参格式为SVG基础形状中的&lt;path&gt;形状标签。 |
 
 
 
@@ -4243,3 +4245,57 @@ int32_t OH_ArkUI_RenderNodeUtils_GetRenderNode(ArkUI_NodeHandle node, ArkUI_Rend
 | 类型 | 说明 |
 | --- | --- |
 | int32_t | 错误码。 ARKUI_ERROR_CODE_NO_ERROR 成功。 ARKUI_ERROR_CODE_PARAM_INVALID 函数参数异常。 ARKUI_ERROR_CODE_CAPI_INIT_ERROR CAPI初始化失败。 ARKUI_ERROR_CODE_RENDER_NOT_ADOPTED_NODE 该节点未被接纳为附属节点。 |
+
+
+
+
+#### OH_ArkUI_RenderNodeUtils_SetRectShapeOptionValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void OH_ArkUI_RenderNodeUtils_SetRectShapeOptionValue(ArkUI_RectShapeOption* option, float x, float y, float width, float height)
+```
+
+**描述：**
+
+为矩形形状选项设置边框矩形范围。该函数通过指定位置和尺寸来定义矩形的几何框架。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| ArkUI_RectShapeOption* option | 指向待配置矩形形状选项的指针。 |
+| float x | 矩形左上角的X坐标，用于确定左边界位置。 |
+| float y | 矩形左上角的Y坐标，用于确定上边界位置。 |
+| float width | 矩形宽度，表示从X坐标起的水平跨度，用于确定右侧边界的位置，即矩形右下角的X坐标 = x + width。 |
+| float height | 矩形高度，表示从Y坐标起的垂直跨度，用于确定底部边界的位置，即矩形右下角的Y坐标 = y + height。 |
+
+
+
+
+#### OH_ArkUI_RenderNodeUtils_SetRoundRectShapeOptionValue()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+void OH_ArkUI_RenderNodeUtils_SetRoundRectShapeOptionValue(ArkUI_RoundRectShapeOption* option, float x, float y, float width, float height)
+```
+
+**描述：**
+
+为圆角矩形形状选项设置边框矩形范围。该函数通过指定位置和尺寸来定义圆角矩形的几何框架。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| ArkUI_RoundRectShapeOption* option | 指向待配置圆角矩形形状选项的指针。 |
+| float x | 矩形左上角的X坐标，用于确定左边界位置。 |
+| float y | 矩形左上角的Y坐标，用于确定上边界位置。 |
+| float width | 矩形宽度，表示从X坐标起的水平跨度，用于确定右侧边界的位置，即矩形右下角的X坐标 = x + width。 |
+| float height | 矩形高度，表示从Y坐标起的垂直跨度，用于确定底部边界的位置，即矩形右下角的Y坐标 = y + height。 |

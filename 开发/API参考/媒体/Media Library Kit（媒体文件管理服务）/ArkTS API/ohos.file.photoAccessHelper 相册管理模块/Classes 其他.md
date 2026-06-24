@@ -1,6 +1,6 @@
 # Classes (其他)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-class
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -56,6 +56,7 @@
 | gridPinchMode23+ | GridPinchMode | 否 | 是 | picker内宫格捏合模式。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
 | showDateOnScrollbar24+ | boolean | 否 | 是 | 是否在拖动滚动条时展示日期分组信息，true表示展示，false表示不展示，默认为false。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
 | assetCompatibleCapability24+ | AssetCompatibleCapability | 否 | 是 | 资产兼容性能力配置。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 24开始，该接口支持在元服务中使用。 |
+| preferredCompatibleMode | PreferredCompatibleMode | 否 | 是 | 资产兼容性模式配置。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 起始版本： 26.0.0 |
 
 
 
@@ -81,6 +82,8 @@ PhotoSelectOptions extends BaseSelectOptions
 | maxPhotoSelectNumber23+ | number | 否 | 是 | 支持设置的图片最大的选择数量。单位：个。 受到最大选择总数的限制，最大值为500。默认为500。 模型约束： 此接口仅可在Stage模型下使用。 元服务API：从API version 23开始，该接口支持在元服务中使用。 |
 | maxVideoSelectNumber23+ | number | 否 | 是 | 支持设置的视频最大的选择数量。单位：个。 受到系统中所有媒体文件最大选择总数的限制，最大值为500。默认为500。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
 | isReturnToPhotoBrowserEnabled23+ | boolean | 否 | 是 | 在单选模式下，拍完照是否能自动跳转到大图预览模式，true表示支持，false表示不支持，默认为false。 注意： 该参数配置为true时仅在SingleSelectionMode为BROWSER_MODE（大图预览模式）或者BROWSER_AND_SELECT_MODE（兼容模式）并且BaseSelectOptions.isPreviewForSingleSelectionSupported参数为true时生效。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API version 23开始，该接口支持在元服务中使用。 |
+| isSelectionNumberVisible | boolean | 否 | 是 | 是否支持选择序号。true表示支持，false表示不支持，默认值为false。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 起始版本： 26.0.0 |
+| isSelectionOrderAdjustable | boolean | 否 | 是 | 是否支持调整选择顺序。true表示支持，false表示不支持，默认值为false。 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 起始版本： 26.0.0 |
 
 
 

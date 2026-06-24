@@ -1,6 +1,6 @@
 # imageFeaturePicker (全局取色功能)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-imagefeaturepicker
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -74,7 +74,7 @@ pickForResult(x?:number, y?:number):Promise&lt;PickedColorInfo&gt;
  
 **错误码**：
  
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -136,7 +136,7 @@ pickForResult(x?:number, y?:number, showValue?:boolean):Promise&lt;PickedColorIn
  
 **错误码**：
  
-以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-error-code)。
+以下错误码的详细介绍请参见[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-pen)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

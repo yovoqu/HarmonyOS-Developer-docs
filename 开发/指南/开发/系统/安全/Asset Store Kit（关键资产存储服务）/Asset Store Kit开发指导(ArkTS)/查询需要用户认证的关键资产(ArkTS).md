@@ -1,6 +1,6 @@
 # 查询需要用户认证的关键资产(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/asset-js-query-auth
 
@@ -45,21 +45,21 @@
 
 | IS_PERSISTENT | 类型为boolean。 | 可选 | 在应用卸载时是否需要保留关键资产。为true时表示查询应用卸载后会被保留的关键资产；为false时表示查询应用卸载后会被删除的关键资产。 |
 
-| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
 | DATA_LABEL_NORMAL_LOCAL_112+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
 
@@ -96,21 +96,21 @@
 
 | IS_PERSISTENT | 类型为boolean。 | 可选 | 在应用卸载时是否需要保留关键资产。为true时表示查询应用卸载后会被保留的关键资产；为false时表示查询应用卸载后会被删除的关键资产。 |
 
-| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_CRITICAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且有完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_NORMAL_1 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_NORMAL_2 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_NORMAL_3 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
-| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： API12前长度为1-512字节。 |
+| DATA_LABEL_NORMAL_4 | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属信息，内容由业务自定义且无完整性保护。 说明： 在API version 12及之前版本，长度为1-512字节。 |
 
 | DATA_LABEL_NORMAL_LOCAL_112+ | 类型为Uint8Array，长度为1-2048字节。 | 可选 | 关键资产附属的本地信息，内容由业务自定义且无完整性保护，该项信息不会进行同步。 |
 

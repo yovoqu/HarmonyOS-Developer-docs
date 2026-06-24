@@ -1,6 +1,6 @@
 # appInfoManager（应用元数据管理服务）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/appgallery-appinfomanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -64,7 +64,7 @@ queryDynamicIcons(): Promise<DynamicIconInfo[]>
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -155,7 +155,7 @@ selectDynamicIcon(iconId: string): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -211,7 +211,7 @@ disableDynamicIcon(): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/store-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-appgallery)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

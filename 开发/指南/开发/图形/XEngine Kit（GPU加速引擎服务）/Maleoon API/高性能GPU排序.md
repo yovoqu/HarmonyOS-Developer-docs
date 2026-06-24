@@ -1,6 +1,6 @@
 # 高性能GPU排序
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/xengine-kit-high-performance-gpu-sorting
 
@@ -27,6 +27,23 @@ XEngine Kit HPS(High Performance Sorting)特性提供高性能GPU排序能力。
 | VKAPI_ATTR void VKAPI_CALL HMS_XEG_DestroyHPS (XEG_HPS hps) | 销毁XEG_HPS对象。 |
 | VKAPI_ATTR VkResult VKAPI_CALL HMS_XEG_CmdRadixSortHPS (VkCommandBuffer commandBuffer, XEG_HPS hps, const XEG_HPSRadixSortDescription *pDescription) | 录制HPS排序命令，使用此接口前需要通过HMS_XEG_EnumerateDeviceExtensionProperties接口查询是否支持XEG_HPS_RADIX_SORT_EXTENSION_NAME扩展。 |
 
+
+
+
+#### 业务流程
+
+ - 下面是以Vulkan应用程序渲染为例，说明使用高性能GPU排序的的主要业务流程
+
+  
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/WpWVu3NxQLacNqWPJJKN2g/zh-cn_image_0000002626229362.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020918Z&HW-CC-Expire=86400&HW-CC-Sign=1EC309153010B38BE2F8482D8E2B52B091BE2A5D8F500E47464693985CC7584C)
+
+
+1. 应用调用[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口获取扩展属性列表。如果在列表中未找到[XEG_HPS_RADIX_SORT_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_hps_radix_sort_extension_name)，说明当前设备不支持高性能GPU排序。
+2. 应用调用[HMS_XEG_CmdRadixSortHPS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_cmdradixsorthps)录制排序命令。
+3. XEngine Kit返回一个command buffer。
+4. 应用调用vkQueueSubmit接口将排序命令提交到GPU队列执行，GPU并行完成高性能排序。
+5. XEngine Kit返回排序结果。
+6. 应用调用[HMS_XEG_DestroyHPS](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_destroyhps)接口销毁HPS实例，释放全部GPU资源。销毁后HPS句柄失效，不可再使用。
 
 
 

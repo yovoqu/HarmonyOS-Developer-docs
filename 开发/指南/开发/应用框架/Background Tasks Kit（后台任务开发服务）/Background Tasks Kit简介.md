@@ -1,6 +1,6 @@
 # Background Tasks Kit简介
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/background-task-overview
 
@@ -40,3 +40,20 @@ Background Tasks Kit提供了规范内受约束的后台任务，包括短时任
  
 > [!NOTE]
 > 系统仅支持规范内受约束的后台任务。应用退至后台后，若未使用规范内的后台任务或选择的后台任务类型不正确，对应的应用进程会被挂起或终止。 应用申请了规范内的后台任务，仅会提升应用进程被回收的优先级。当系统资源严重不足时，即使应用进程申请了规范内的后台任务，系统仍会终止部分进程，以保障系统稳定性。
+
+ 
+  
+
+#### 模拟器支持情况
+
+本Kit支持模拟器，但与真机存在部分能力差异，具体差异如下。
+ 
+- 通用差异：请参见[模拟器与真机的差异](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-emulator-specification#section1227613205203)。
+- 从API version 20开始，[代理提醒](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/agent-powered-reminder)支持模拟器开发。
+
+ 
+  
+
+#### Background Tasks Kit接入规范与违规处罚
+
+应用使用长时任务需遵守[接入规范](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bgtask-design-formula#接入规范)，如果出现违反长时任务使用规范，影响用户体验的行为，将被视为违规，违规行为及相应的处理措施请参见[Background Tasks Kit违规处罚标准](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/bgtask-design-formula#违规处罚标准)。

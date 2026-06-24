@@ -1,6 +1,6 @@
 # Vulkan平台
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-fg-ai-vulkan
 
@@ -14,14 +14,15 @@ AI超帧调用流程上依赖系统送显模式功能，但与基本的系统送
 ![](assets/Vulkan平台/file-20260514131659316-0.png)
 
 1. 用户进入超帧适用的游戏场景。
-2. 游戏应用调用[HMS_FG_CreateContext_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_createcontext_vk)接口创建超帧上下文实例。如超帧上下文实例创建失败，则无需在步骤6提供当前帧信息，只需逐帧对场景进行渲染送显即可。
-3. 游戏应用调用接口配置超帧实例属性。包括调用[HMS_FG_SetAlgorithmMode_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_setalgorithmmode_vk)（必选）设置超帧算法模式并选择内插模式；按需调用其他插帧相关配置接口。
-4. 设置集成模式，选择系统侧集成调用[HMS_FG_SetIntegrationMode_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_setintegrationmode_vk)（可选）设置超帧预测的集成信息[FG_IntegrationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#fg_integrationinfo)并选择系统侧送显；系统送显预测帧模式下可通过[HMS_FG_SetUiPredictionEnabled_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_setuipredictionenabled_vk)（可选）启用UI预测功能，不启用时预测帧会复用上一帧的UI进行展示；系统送显模式下可通过[HMS_FG_SetTargetFps_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_settargetfps_vk)（可选）设置超帧后的目标帧率。
-5. 游戏应用调用[HMS_FG_Activate_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_activate_vk)接口激活超帧上下文实例。
-6. 游戏应用渲染真实帧，调用[HMS_FG_Dispatch_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_dispatch_vk)接口并传入真实帧颜色信息、相机矩阵信息，生成预测帧。请避免传入深度信息，否则会触发增强超帧算法。
-7. 游戏应用完成UI绘制，并送显当前真实帧。
-8. 用户退出超帧适用的游戏场景。
-9. 游戏应用调用[HMS_FG_DestroyContext_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_destroycontext_vk)接口销毁超帧上下文实例并释放内存资源。
+2. 游戏应用调用[HMS_FG_IsFrameGenerationSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_isframegenerationsupported)查询是否支持AI超帧特性。如果当前设备支持此特性，则继续步骤3创建超帧上下文实例，否则返回false，结束流程。
+3. 游戏应用调用[HMS_FG_CreateContext_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_createcontext_vk)接口创建超帧上下文实例。如超帧上下文实例创建失败，则无需在步骤6提供当前帧信息，只需逐帧对场景进行渲染送显即可。
+4. 游戏应用调用接口配置超帧实例属性。包括调用[HMS_FG_SetAlgorithmMode_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_setalgorithmmode_vk)（必选）设置超帧算法模式并选择内插模式；按需调用其他插帧相关配置接口。
+5. 设置集成模式，选择系统侧集成调用[HMS_FG_SetIntegrationMode_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_setintegrationmode_vk)（可选）设置超帧预测的集成信息[FG_IntegrationInfo](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#fg_integrationinfo)并选择系统侧送显；系统送显预测帧模式下可通过[HMS_FG_SetUiPredictionEnabled_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_setuipredictionenabled_vk)（可选）启用UI预测功能，不启用时预测帧会复用上一帧的UI进行展示；系统送显模式下可通过[HMS_FG_SetTargetFps_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_settargetfps_vk)（可选）设置超帧后的目标帧率。
+6. 游戏应用调用[HMS_FG_Activate_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_activate_vk)接口激活超帧上下文实例。
+7. 游戏应用渲染真实帧，调用[HMS_FG_Dispatch_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_dispatch_vk)接口并传入真实帧颜色信息、相机矩阵信息，生成预测帧。请避免传入深度信息，否则会触发增强超帧算法。
+8. 游戏应用完成UI绘制，并送显当前真实帧。
+9. 用户退出超帧适用的游戏场景。
+10. 游戏应用调用[HMS_FG_DestroyContext_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_destroycontext_vk)接口销毁超帧上下文实例并释放内存资源。
 
 
 
@@ -34,8 +35,10 @@ AI超帧调用流程上依赖系统送显模式功能，但与基本的系统送
 ```json
 {
     "module": {
-         // 其他的配置项
-         // ...
+        /*
+          其他的配置项
+          ...
+         */
         "metadata": [
             {
                 "name": "GraphicsAccelerateKit_FusionAware",
@@ -76,7 +79,16 @@ target_link_libraries(entry PUBLIC
 #include <graphics_game_sdk/frame_generation_vk.h>
 ```
 
-4. 调用[HMS_FG_CreateContext_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_createcontext_vk)接口创建超帧上下文实例。如果返回nullptr，则说明超帧上下文实例创建失败，或当前硬件设备不支持开启超帧。
+4. 调用[HMS_FG_IsFrameGenerationSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_isframegenerationsupported)查询是否支持AI超帧特性。如果当前设备支持此特性，则继续下一步创建超帧上下文实例，否则返回false，结束流程。
+
+  
+```text
+if (!HMS_FG_IsFrameGenerationSupported(FG_FeatureType::INTERPOLATION_AI_VULKAN)) {
+    return false;
+}
+```
+
+5. 调用[HMS_FG_CreateContext_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_createcontext_vk)接口创建超帧上下文实例。如果返回nullptr，则说明超帧上下文实例创建失败，或当前硬件设备不支持开启超帧。
 
   
 ```text
@@ -98,7 +110,7 @@ if (m_context == nullptr) {
 }
 ```
 
-5. 调用超帧实例属性配置接口，超帧算法模式选择内插增强模式并指定系统送显预测帧模式。
+6. 调用超帧实例属性配置接口，超帧算法模式选择内插增强模式并指定系统送显预测帧模式。
 
   
 ```text
@@ -130,7 +142,7 @@ if (errorCode != FG_SUCCESS) {
 }
 ```
 
-6. 调用[HMS_FG_Activate_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_activate_vk)接口激活超帧上下文实例。
+7. 调用[HMS_FG_Activate_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_activate_vk)接口激活超帧上下文实例。
 
   
 ```text
@@ -141,7 +153,7 @@ if (errorCode != FG_SUCCESS) {
 }
 ```
 
-7. 调用[HMS_FG_CreateImage_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_createimage_vk)接口创建真实渲染帧颜色缓冲区图像实例。
+8. 调用[HMS_FG_CreateImage_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_createimage_vk)接口创建真实渲染帧颜色缓冲区图像实例。
 
   
 ```text
@@ -156,7 +168,7 @@ if (!inputColor) {
 }
 ```
 
-8. 游戏运行中，渲染真实帧时，缓存颜色信息和相机矩阵等属性信息。渲染预测帧时，需调用[HMS_FG_Dispatch_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_dispatch_vk)接口并传入真实帧属性信息，指定预测帧缓冲区索引，生成预测帧。游戏送显自己真实帧，系统会在真实帧和上一帧间完成预测帧的展示。
+9. 游戏运行中，渲染真实帧时，缓存颜色信息和相机矩阵等属性信息。渲染预测帧时，需调用[HMS_FG_Dispatch_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_dispatch_vk)接口并传入真实帧属性信息，指定预测帧缓冲区索引，生成预测帧。游戏送显自己真实帧，系统会在真实帧和上一帧间完成预测帧的展示。
 
   
 ```text
@@ -232,9 +244,8 @@ while (true) {
 }
 ```
 
-9. 调用[HMS_FG_DestroyContext_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_destroycontext_vk)接口销毁超帧实例，释放内存资源。
+10. 调用[HMS_FG_DestroyContext_VK](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate#hms_fg_destroycontext_vk)接口销毁超帧实例，释放内存资源。
 
-  
 ```text
 // 销毁超帧上下文实例并释放内存资源
 errorCode = HMS_FG_DestroyContext_VK(&m_context);

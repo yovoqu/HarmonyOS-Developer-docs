@@ -1,6 +1,6 @@
 # 转换整个PDF文档为图片
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pdf-convert-img
 
@@ -26,7 +26,7 @@
 2. 设置要输出图片的文件夹，调用convertToImage方法转化PDF文档所有页面为图片。
 
 ```text
-import { fileIo as fs } from '@kit.CoreFileKit';
+import { fileIo } from '@kit.CoreFileKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { pdfService } from '@kit.PDFKit';
 
@@ -49,7 +49,7 @@ struct PdfPage {
       Button('convertToImage').onClick(async () => {
         if (this.loadResult === pdfService.ParseResult.PARSE_SUCCESS) {
           let outputPath = this.getUIContext().getHostContext()?.filesDir + '/output/';
-          fs.mkdir(outputPath);
+            fileIo.mkdir(outputPath);
           // 将所有的页面转化为png图片，并存储在output文件夹里，确保output文件夹目录存在
           let res = this.pdfDocument.convertToImage(outputPath, pdfService.ImageFormat.PNG);
           hilog.info(0x0000, 'PdfPage', 'convertToImage %{public}s!', res ? 'success' : 'fail');

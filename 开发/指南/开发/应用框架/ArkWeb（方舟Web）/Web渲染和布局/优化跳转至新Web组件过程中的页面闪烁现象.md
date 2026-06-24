@@ -1,6 +1,6 @@
 # 优化跳转至新Web组件过程中的页面闪烁现象
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-router-flash-optimization
 

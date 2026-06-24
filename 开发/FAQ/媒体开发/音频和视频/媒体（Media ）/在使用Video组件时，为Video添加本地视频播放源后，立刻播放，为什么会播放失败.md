@@ -1,6 +1,6 @@
 # 在使用Video组件时，为Video添加本地视频播放源后，立刻播放，为什么会播放失败
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-media-6
 

@@ -1,6 +1,6 @@
 # Class (PathEffect)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-patheffect
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,7 +37,7 @@ static createDashPathEffect(intervals: Array&lt;number&gt;, phase: number): Path
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | intervals | Array&lt;number&gt; | 是 | 表示虚线的ON（实线部分）和OFF（空白部分）长度的数组，数组个数必须是偶数，且>=2，该参数为正整数。 |
-| phase | number | 是 | 绘制时的偏移量，该参数为浮点数。 |
+| phase | number | 是 | 绘制时的偏移量，该参数为浮点数。单位为物理像素px。 |
 
 
 **返回值：**
@@ -88,8 +88,8 @@ static createPathDashEffect(path: Path, advance: number, phase: number, style: P
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | path | Path | 是 | 通过该路径生成一个图形，用来填充每个虚线段。 |
-| advance | number | 是 | 虚线段的步长，该参数为大于0的浮点数，否则会抛错误码。 |
-| phase | number | 是 | 表示虚线段内图形在虚线步长范围内的偏移量，该参数为浮点数，效果为先对偏移量取绝对值，然后对步长取模。 |
+| advance | number | 是 | 虚线段的步长，该参数为大于0的浮点数，否则会抛错误码。单位为物理像素px。 |
+| phase | number | 是 | 表示虚线段内图形在虚线步长范围内的偏移量，该参数为浮点数，效果为先对偏移量取绝对值，然后对步长取模。单位为物理像素px。 |
 | style | PathDashStyle | 是 | 指定虚线效果的样式。 |
 
 
@@ -207,7 +207,7 @@ static createCornerPathEffect(radius: number): PathEffect
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| radius | number | 是 | 圆角的半径，必须大于0，该参数为浮点数。 |
+| radius | number | 是 | 圆角的半径，必须大于0，该参数为浮点数。单位为物理像素px。 |
 
 
 **返回值：**
@@ -256,8 +256,8 @@ static createDiscretePathEffect(segLength: number, dev: number, seedAssist?: num
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| segLength | number | 是 | 路径中每进行一次打散操作的长度，该长度为浮点数，负数和0时无效果。 |
-| dev | number | 是 | 绘制时的末端点的最大移动偏离量，该偏移量为浮点数。 |
+| segLength | number | 是 | 路径中每进行一次打散操作的长度，该长度为浮点数，负数和0时无效果。单位为物理像素px。 |
+| dev | number | 是 | 绘制时的末端点的最大移动偏离量，该偏移量为浮点数。单位为物理像素px。 |
 | seedAssist | number | 否 | 生成效果伪随机种子辅助变量，默认值为0，该参数为32位无符号整数。 |
 
 

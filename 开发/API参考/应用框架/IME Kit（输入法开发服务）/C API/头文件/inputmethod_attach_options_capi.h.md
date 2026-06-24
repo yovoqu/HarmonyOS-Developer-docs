@@ -1,6 +1,6 @@
 # inputmethod_attach_options_capi.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-attach-options-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,7 +35,7 @@
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
-| InputMethod_AttachOptions | InputMethod_AttachOptions | 输入法绑定选项。绑定输入法时携带的选项。 |
+| InputMethod_AttachOptions | InputMethod_AttachOptions | 输入法绑定选项，用于在绑定输入法时携带相关配置。 |
  
  
   

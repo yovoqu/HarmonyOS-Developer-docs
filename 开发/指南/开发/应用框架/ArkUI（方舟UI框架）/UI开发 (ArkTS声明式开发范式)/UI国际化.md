@@ -1,6 +1,6 @@
 # UI国际化
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-internationalization
 
@@ -181,7 +181,7 @@ struct CustomizeCanvasComponentDrawing {
 在LTR与RTL文本混排时，如一个英文句子中包含阿拉伯语的单词或短语，显示顺序将变得复杂。下图为数字和维吾尔语混合时对应的字符逻辑顺序。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e3/v3/2zeyxePBTPSZzTczvbA1YQ/zh-cn_image_0000002581434100.png?HW-CC-KV=V1&HW-CC-Date=20260528T030433Z&HW-CC-Expire=86400&HW-CC-Sign=40F3A63FA9AC2E496C3E7D657EF6A948CDF6744304421D4CBD82A15402E2B91C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/ktjzqkzyTzy5hu0rTBQxtQ/zh-cn_image_0000002626068646.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=9BF1BCDEDB5892061EAA8B221687F06C3AB195A6B3336AFACD767C9E7B1B8D1B)
 
 
 此时，文本渲染引擎会采用名为“双向算法”或“Unicode双向算法”（Unicode Bidirectional Algorithm）的方法来确定字符的显示顺序。下图展示了LTR与RTL文本混合时对应的字符显示顺序，确定字符方向的基本原则如下：
@@ -190,4 +190,4 @@ struct CustomizeCanvasComponentDrawing {
 3. 中性字符的方向性：中性字符无固定方向性，它们会继承其最近的强字符的方向；若附近无强字符，则采用全局方向。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/3vnHKawDQ7qjxnY4vUDC7A/zh-cn_image_0000002611833929.png?HW-CC-KV=V1&HW-CC-Date=20260528T030433Z&HW-CC-Expire=86400&HW-CC-Sign=F50989633EF4BAC38DA955A52AD3AA24745B57692738B887ECD39F104F68986B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/1nxgspy5TxqQFf4Gw2ZJVw/zh-cn_image_0000002656467923.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=E6A37CAFB5B556C1B5F5C10E3C98850DB3DCFDF88D12914523FA3FC100FE580E)

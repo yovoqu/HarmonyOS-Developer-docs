@@ -1,6 +1,6 @@
 # 环境准备
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-llm-usage-environmental-preparation
 
@@ -26,7 +26,7 @@
   
 
 #### 软件依赖
-1. 环境配置：下载[量化工程](https://gitee.com/harmonyos_samples/cannkit_samplecode_lm_engine_cpp/tree/master/CANN_LLM/CANN_LLM_Engine_Model)，参考cannkit_samplecode_lm_engine_cpp/requirements.txt进行环境配置。
+1. 环境配置：下载[量化工程](https://gitcode.com/HarmonyOS_Samples/cannkit_samplecode_lm_engine_cpp/tree/master/CANN_LLM/CANN_LLM_Engine_Model)，参考cannkit_samplecode_lm_engine_cpp/requirements.txt进行环境配置。
 2. DDK_tools工具包：
 
   

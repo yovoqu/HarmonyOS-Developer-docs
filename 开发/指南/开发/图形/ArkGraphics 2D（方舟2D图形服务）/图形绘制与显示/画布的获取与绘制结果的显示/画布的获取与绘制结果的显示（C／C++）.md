@@ -1,6 +1,6 @@
 # 画布的获取与绘制结果的显示（C/C++）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-get-result-draw-c
 
@@ -51,7 +51,7 @@ target_link_libraries(entry PUBLIC libnative_drawing.so)
 #include <native_drawing/drawing_surface.h>
 ```
 
-3. 从XComponent对应的NativeWindow中获取BufferHandle对象。NativeWindow相关的API请参考[_native_window](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativewindow)。
+3. 从XComponent对应的NativeWindow中获取BufferHandle对象。NativeWindow相关的API请参考[NativeWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-nativewindow)。
 
   
 ```cpp

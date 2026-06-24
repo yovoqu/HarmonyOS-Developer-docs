@@ -1,6 +1,6 @@
 # XEG_TemporalUpscaleDescription
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-temporalupscaledescription
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -36,8 +36,8 @@
 | VkImageView motionVectorImage | 运动矢量图像。运动矢量的计算方式为当前渲染像素的NDC坐标的XY值减去上一帧的NDC坐标的XY值。图像格式需要是VK_FORMAT_R16G16_SFLOAT或更高精度。 |
 | VkImageView dynamicMaskImage | 物体的动态遮罩图像，格式需要是VK_FORMAT_R8_UNORM或其兼容格式。R通道的合法值为0.0，0.2或1.0，其中0.0表示静态物体，0.2表示运动物体如人物，1.0表示特效或半透明物体。 |
 | VkImageView outputImage | 输出图像。 |
-| float jitterX | 相机在X方向上的抖动。 |
-| float jitterY | 相机在Y方向上的抖动。 |
+| float jitterX | 相机在X方向上的抖动，通常为超分依赖的前序渲染过程中应用的亚像素抖动，包含在相机的投影矩阵中；在ndc坐标系下，其取值范围是 [-1/width, 1/width], width是输入inputTexture纹理的宽度（像素数）。 |
+| float jitterY | 相机在Y方向上的抖动，通常为超分依赖的前序渲染过程中应用的亚像素抖动，包含在相机的投影矩阵中；在ndc坐标系下，其取值范围是 [-1/height, 1/height], height是输入inputTexture纹理的高度（像素数）。 |
 | bool resetHistory | 是否重置历史帧数据，true表示重置，false表示不重置。在历史帧未使用超分，当前帧开始使用超分的情况下建议设置为true。 |
 | float steadyLevel | 画面偏向当前帧（鬼影少但可能存在闪烁）还是历史帧（鬼影多但是更稳定）的平衡程度。取值范围为[0.0, 1.0]，如果该值不在以上范围内，则会发生未定义行为，例如渲染效果不正确或程序崩溃，值越大越偏向历史帧。 |
  
@@ -102,7 +102,7 @@ float XEG_TemporalUpscaleDescription::jitterX
  
 **描述**
  
-相机在X方向上的抖动。
+相机在X方向上的抖动，通常为超分依赖的前序渲染过程中应用的亚像素抖动，包含在相机的投影矩阵中；在ndc坐标系下，其取值范围是 [-1/width, 1/width], width是输入inputTexture纹理的宽度（像素数）。
  
   
 
@@ -116,7 +116,7 @@ float XEG_TemporalUpscaleDescription::jitterY
  
 **描述**
  
-相机在Y方向上的抖动。
+相机在Y方向上的抖动，通常为超分依赖的前序渲染过程中应用的亚像素抖动，包含在相机的投影矩阵中；在ndc坐标系下，其取值范围是 [-1/height, 1/height], height是输入inputTexture纹理的高度（像素数）。
  
   
 

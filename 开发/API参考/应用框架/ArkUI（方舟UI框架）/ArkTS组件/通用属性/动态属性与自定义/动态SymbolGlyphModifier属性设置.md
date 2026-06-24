@@ -1,6 +1,6 @@
 # 动态SymbolGlyphModifier属性设置
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-symbolglyphmodifier
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 SymbolGlyphModifier用于动态设置SymbolGlyph组件的属性和样式，支持使用if/else语句进行设置。[SymbolGlyph](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-symbolglyph)是一个用于展示图标符号的组件。
  
 > [!NOTE]
-> 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+> 从API version 12开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本模块接口仅可在Stage模型下使用。
 
   
 
@@ -97,4 +97,4 @@ struct Index {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/63/v3/IibAudzzTFqYJIYq_lZr8w/zh-cn_image_0000002587270052.png?HW-CC-KV=V1&HW-CC-Date=20260604T012955Z&HW-CC-Expire=86400&HW-CC-Sign=3D6E4DFAD606905B917B8A788EF0D4C94A958A2F11811F374A7EFFF4B8CAFC69)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e4/v3/935gZxyWQM-WL7TpTjEUXA/zh-cn_image_0000002656349669.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=4AE1D04B98519DA289C30735A8A1AB8065C60B1EB488711CC0542A53E322AD93)

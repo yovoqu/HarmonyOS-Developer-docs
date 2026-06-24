@@ -1,6 +1,6 @@
 # makeObserved接口：将非观察数据变为可观察数据
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-makeobserved
 
@@ -231,6 +231,8 @@ import { SendableData } from '../Model/modelView';
 import { UIUtils } from '@kit.ArkUI';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
+const DOMAIN = 0x0000;
+
 @Concurrent
 function threadGetData(param: string): SendableData {
   const DOMAIN = 0xF811;
@@ -260,10 +262,14 @@ struct Page3 {
 
       Button('task').onClick(() => {
         // 将待执行的函数放入taskpool内部任务队列等待，等待分发到工作线程执行。
-        taskpool.execute(threadGetData, this.send.name).then(val => {
-          // 和@Local一起使用，可以观察this.send的变化
-          this.send = UIUtils.makeObserved(val as SendableData);
-        })
+        taskpool.execute(threadGetData, this.send.name)
+          .catch((err: Error) => {
+            hilog.error(DOMAIN, 'testTag', `taskpool execute fail. code is ${err.name}, message is ${err.message}`);
+          })
+          .then(val => {
+            // 和@Local一起使用，可以观察this.send的变化
+            this.send = UIUtils.makeObserved(val as SendableData);
+          });
       })
     }
   }
@@ -730,7 +736,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/da/v3/1LKAicmARBafKWdbwjzCQQ/zh-cn_image_0000002611753613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030448Z&HW-CC-Expire=86400&HW-CC-Sign=25E9DC4BBC1937E1D5018FF4B6721D43170A02C04DC7531C1235B625A6E0AB83)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0f/v3/6Jty3cUjSgy9-8KK_P48zw/zh-cn_image_0000002656347499.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020745Z&HW-CC-Expire=86400&HW-CC-Sign=895F1AC0079839847BD2C2CCEE8A3D28120FFB665E69B19A729F7D90635F5214)
 
 
 

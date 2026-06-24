@@ -1,6 +1,6 @@
 # 自定义声明式节点 (BuilderNode)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-buildernode
 
@@ -1839,7 +1839,7 @@ struct Page2 {
 图示如下：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/Ske7CLEISv20RzSl-gFzKw/zh-cn_image_0000002611753553.png?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=97FDCE7B4C6B830D5519908C35D4F666E28EDB415A4C008D1F84485F56893F1B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/QMkYBACbSL-2vPqJJV3ocQ/zh-cn_image_0000002626228022.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=C66455E6D76C676DE504E7DC9C97C0D49AE3C0809F52725A5E4342E575EE9FD9)
 
 
 ```text
@@ -1956,7 +1956,7 @@ struct buildNodeChild {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/cOEMHdxlRM-HRa8QwH992g/zh-cn_image_0000002581434082.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=3D121E91F3EBFEA2036AA1B1939BA79D8598D5D20EF3D73BDD77CEF4384AF586)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/84/v3/vMLxIcovRZOW9JzitO45mA/zh-cn_image_0000002656347949.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=5C10C00A4D780F92ED3675B8646ACBB739AD22EB24C341686AFB86420D84E1CB)
 
 
 在上面的示例中：
@@ -2155,7 +2155,7 @@ struct TextBuilder {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/ZcsGdXgKS-q9hyDmpQKDUA/zh-cn_image_0000002611833911.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=813A5641CC7BB127295DB60AB2D27818B894F77FC4E39C6C6A5268AB86A02455)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/3CwY4IBRRNqdM_Ho3KFDsQ/zh-cn_image_0000002626228534.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=E89D630B10FBD3013DCC4956D1F2BBF56D66A27D2729524518137C62BC5E3177)
 
 
 在上面的示例中：
@@ -2305,7 +2305,7 @@ struct BuildNodeChild {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/e_2c_oKDSCeBCtHVWYOY2A/zh-cn_image_0000002581274164.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=6769B41B35293C6AC49242276DC73ECB037E06640B505AAB951DCDB3658DA393)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/7T9MlhVISMiQOfwcXW6YOw/zh-cn_image_0000002626068626.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=6E1233B94712D1B1E92B30E747A900941BD9C04A8409BC95BAEF3ED6C427D84D)
 
 
 在上面的示例中：
@@ -2445,7 +2445,7 @@ struct FreezeBuildNode {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/WeDd4W6rRb-eIlJXlK_wNA/zh-cn_image_0000002611754019.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=92F03B4DF5DBA131C36CDA15D22735FEB69D6FF39A80A40763A87CA77D4E31C1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/32/v3/VeiZfFaQTEWAl_GOHUiXqA/zh-cn_image_0000002656467903.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=E1B3921B1736C3C886C17E5043AC3A1DB2AE13BDD0A7A469B8C8F00B6BFC7832)
 
 
 在上面的示例中：

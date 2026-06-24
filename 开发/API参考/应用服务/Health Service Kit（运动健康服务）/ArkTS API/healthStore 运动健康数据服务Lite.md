@@ -1,6 +1,6 @@
 # healthStore (运动健康数据服务)(Lite)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthstore-lite
 **支持设备：** lite_wearable
@@ -119,8 +119,8 @@ import healthStore from '@hms.health.store';
 | --- | --- | --- | --- | --- |
 | startLocalDate | string | 否 | 否 | 数据的开始本地日期，格式'MM/DD/YYYY'。 |
 | endLocalDate | string | 否 | 否 | 数据的结束本地日期，格式'MM/DD/YYYY'。 |
-| startTime | number | 否 | 否 | 请求的开始时间，Unix时间戳，以毫秒为单位。该参数在Lite Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
-| endTime | number | 否 | 否 | 请求的结束时间，Unix时间戳，以毫秒为单位。该参数在Lite Wearable设备上暂不生效，仅支持返回最新一条数据。 取值范围：(0, ∞) |
+| startTime | number | 否 | 否 | 请求的开始时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) |
+| endTime | number | 否 | 否 | 请求的结束时间，Unix时间戳，以毫秒为单位。 取值范围：(0, ∞) |
 | dataSourceOptions | DataSourceOptions | 否 | 是 | 请求关联的数据源信息，若未填写，默认为无数据源限制。 |
 
 
@@ -417,7 +417,7 @@ saveData(exerciseSequence: ExerciseSequence): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
 | 1002700001 | Internal system error. |
 | 1002700002 | Database processing error. |
 | 1009104003 | Illegal command. Called when workout is not started. |
@@ -446,6 +446,10 @@ let healthSequence = {
   summaries: {
     avgShotSpeed: 25.5,
     maxShotSpeed: 32.8,
+    avgSpeed: 18.7,
+    bestSpeed: 28.3,
+    speed: 22.1,
+    totalDistance: 1500,
     shots: 125,
     maxContinuousRally: 7,
     forehandStroke: 45,
@@ -493,7 +497,7 @@ readData<T extends ExerciseSequence>(request: ExerciseSequenceReadRequest, callb
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
 | 1002700001 | Internal system error. |
 | 1002700002 | Database processing error. |
 | 1002701001 | Network error. The network is unavailable. |

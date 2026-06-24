@@ -1,6 +1,6 @@
 # Interface (Picture)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-picture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -507,7 +507,7 @@ class MySequence implements rpc.Parcelable {
   marshalling(messageSequence: rpc.MessageSequence) {
     if(this.picture != null) {
       this.picture.marshalling(messageSequence);
-      console.info('Succceed in marshalling.');
+      console.info('Succeed in marshalling.');
       return true;
     } else {
       console.error('Failed to marshall.');

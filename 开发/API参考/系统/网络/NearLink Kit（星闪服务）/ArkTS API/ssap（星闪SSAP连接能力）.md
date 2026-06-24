@@ -1,11 +1,13 @@
 # ssap（星闪SSAP连接能力）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-ssap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 本模块提供了SSAP（SparkLink Service Access Protocol）连接功能。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
@@ -30,6 +32,8 @@ type ConnectionState = constant.ConnectionState
 
 表示和远端设备的连接状态，为枚举值。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -49,6 +53,8 @@ createClient(address: string): Client
 
 创建ssap客户端实例。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -59,7 +65,7 @@ createClient(address: string): Client
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| address | string | 是 | 远端服务端设备地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 是 | 远端服务端设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
 
 
 **返回值：**
@@ -71,7 +77,7 @@ createClient(address: string): Client
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -108,6 +114,8 @@ createServer(): Server
 
 创建ssap服务端实例。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -123,7 +131,7 @@ createServer(): Server
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -158,6 +166,8 @@ try {
 > 提供和远端设备ssap数据交互操作方法，使用前需要使用 ssap.createClient 方法创建一个 Client 实例。 一个应用针对一个远端设备只需要创建一次实例。
 
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -171,6 +181,8 @@ try {
 connect(): Promise&lt;void&gt;
 
 向服务端发起连接。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -187,7 +199,7 @@ connect(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -209,6 +221,8 @@ try {
   client = ssap.createClient(addr); // 一个应用针对一个远端设备只需要创建一次实例
   client.connect().then(() => {
     console.info('connect success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -225,6 +239,8 @@ disconnect(): Promise&lt;void&gt;
 
 向服务端发起断连，断开已有连接或者终止正在建立的连接。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -240,7 +256,7 @@ disconnect(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -262,9 +278,13 @@ try {
   client = ssap.createClient(addr); // 一个应用针对一个远端设备只需要创建一次实例
   client.connect().then(() => {
     console.info('connect success'); // 建立连接
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
   client.disconnect().then(() => {
     console.info('disconnect success'); // 断开连接
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -281,6 +301,8 @@ close(): void
 
 关闭客户端。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -289,7 +311,7 @@ close(): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -325,6 +347,8 @@ getServices(): Promise<Array&lt;Service&gt;>
 
 获取服务端支持的服务列表。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -340,7 +364,7 @@ getServices(): Promise<Array&lt;Service&gt;>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -362,11 +386,15 @@ try {
   client = ssap.createClient(addr); // 一个应用针对一个远端设备只需要创建一次实例
   client.connect().then(() => {
     console.info('connect success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
   // 连接耗时较长，等待连接完成才能获取服务，实际开发者根据连接速度调整定时器长度
   setTimeout(() => {
     client.getServices().then((result: Array<ssap.Service>) => {
       console.info('getServices successfully:' + JSON.stringify(result));
+    }).catch ((err: BusinessError) => {
+      console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
     });
   }, 3000);
 } catch (err) {
@@ -383,6 +411,8 @@ try {
 readProperty(property: Property): Promise&lt;Property&gt;
 
 读取服务端属性。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -406,7 +436,7 @@ readProperty(property: Property): Promise&lt;Property&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -429,6 +459,8 @@ try {
   client = ssap.createClient(addr); // 一个应用针对一个远端设备只需要创建一次实例
   client.connect().then(() => {
     console.info('connect success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
   // 创建property，实际开发时需要通过getServices接口从服务端获取
   let arrayBufferC = new ArrayBuffer(8);
@@ -443,6 +475,8 @@ try {
   setTimeout(()=>{
     client.readProperty(property).then((result: ssap.Property) => {
       console.info('readProperty successfully:' + JSON.stringify(result));
+    }).catch ((err: BusinessError) => {
+      console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
     });
   }, 3000);
 } catch (err) {
@@ -459,6 +493,8 @@ try {
 writeProperty(property: Property, writeType: PropertyWriteType): Promise&lt;void&gt;
 
 写入服务端property值。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -483,7 +519,7 @@ writeProperty(property: Property, writeType: PropertyWriteType): Promise&lt;void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -506,6 +542,8 @@ try {
   client = ssap.createClient(addr); // 一个应用针对一个远端设备只需要创建一次实例
   client.connect().then(() => {
     console.info('connect success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
   // 创建property,实际开发时需要通过getServices接口从服务端获取
   let arrayBufferC = new ArrayBuffer(8);
@@ -521,6 +559,8 @@ try {
   setTimeout(()=>{
     client.writeProperty(property, ssap.PropertyWriteType.WRITE_NO_RESPONSE).then(() => {
       console.info('writeProperty success');
+    }).catch ((err: BusinessError) => {
+      console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
     });
   }, 3000);
 } catch (err) {
@@ -537,6 +577,8 @@ try {
 setPropertyNotification(property: Property, enable: boolean): Promise&lt;void&gt;
 
 设置Property变化通知。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -561,7 +603,7 @@ setPropertyNotification(property: Property, enable: boolean): Promise&lt;void&gt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -584,6 +626,8 @@ try {
   client = ssap.createClient(addr); // 一个应用针对一个远端设备只需要创建一次实例
   client.connect().then(() => {
     console.info('connect success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
   // 创建property,实际开发时需要通过getServices接口从服务端获取
   let arrayBufferC = new ArrayBuffer(8);
@@ -599,6 +643,8 @@ try {
   setTimeout(()=>{
     client.setPropertyNotification(property, true).then(() => {
       console.info('setPropertyNotification success');
+    }).catch ((err: BusinessError) => {
+      console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
     });
   }, 3000);
 } catch (err) {
@@ -615,6 +661,8 @@ try {
 requestMtuSize(mtu: number): Promise&lt;void&gt;
 
 发起MTU协商请求。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -638,7 +686,7 @@ requestMtuSize(mtu: number): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -666,6 +714,8 @@ try {
   setTimeout(()=>{
     client.requestMtuSize(128).then(() => {
       console.info('requestMtuSize success');
+    }).catch ((err: BusinessError) => {
+      console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
     });
   }, 3000);
 } catch (err) {
@@ -683,6 +733,8 @@ on(type: 'propertyChange', callback: Callback&lt;Property&gt;): void
 
 订阅Property变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -699,7 +751,7 @@ on(type: 'propertyChange', callback: Callback&lt;Property&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -716,7 +768,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onPropertyChange:(data: ssap.Property) => void = (data: ssap.Property) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let addr: string = '00:11:22:33:AA:FF'; // 扫描获取到的远端设备地址
 let client: ssap.Client;
 try {
@@ -737,6 +789,8 @@ off(type: 'propertyChange', callback?: Callback&lt;Property&gt;): void
 
 取消订阅属性变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -753,7 +807,7 @@ off(type: 'propertyChange', callback?: Callback&lt;Property&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -770,7 +824,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onPropertyChange:(data: ssap.Property) => void = (data: ssap.Property) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let addr: string = '00:11:22:33:AA:FF'; // 扫描获取到的远端设备地址
 let client: ssap.Client;
 try {
@@ -791,6 +845,8 @@ on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt
 
 订阅连接状态变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -807,7 +863,7 @@ on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -824,7 +880,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onConnectionStateChange:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let addr: string = '00:11:22:33:AA:FF'; // 扫描获取到的远端设备地址
 let client: ssap.Client;
 try {
@@ -845,6 +901,8 @@ off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&
 
 取消订阅连接状态变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -861,7 +919,7 @@ off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -878,7 +936,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onConnectionStateChange:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let addr: string = '00:11:22:33:AA:FF'; // 扫描获取到的远端设备地址
 let client: ssap.Client;
 try {
@@ -899,6 +957,8 @@ on(type: 'mtuChange', callback: Callback&lt;number&gt;): void
 
 订阅MTU变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -915,7 +975,7 @@ on(type: 'mtuChange', callback: Callback&lt;number&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -932,7 +992,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onMtuChange:(data: number) => void = (data: number) => {
   console.info('data:' + data);
-}
+};
 let addr: string = '00:11:22:33:AA:FF'; // 扫描获取到的远端设备地址
 let client: ssap.Client;
 try {
@@ -953,6 +1013,8 @@ off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void
 
 取消订阅MTU变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -969,7 +1031,7 @@ off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -986,7 +1048,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onMtuChange:(data: number) => void = (data: number) => {
   console.info('data:' + data);
-}
+};
 let addr: string = '00:11:22:33:AA:FF'; // 扫描获取到的远端设备地址
 let client: ssap.Client;
 try {
@@ -1007,6 +1069,8 @@ try {
 > 提供和远端设备ssap数据交互操作方法，使用前需要使用createServer方法创建一个Server实例。 一个应用针对一个远端设备只需要创建一次实例。
 
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -1020,6 +1084,8 @@ try {
 addService(service: Service): void
 
 服务端添加服务。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -1036,7 +1102,7 @@ addService(service: Service): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1088,14 +1154,14 @@ let property2: ssap.Property = {
 propertiesArray[0] = property1;
 propertiesArray[1] = property2;
 // 构造服务
-let Service: ssap.Service = {
+let service: ssap.Service = {
   serviceUuid:'37bea880-fc70-11ea-b720-000000004386',
   properties:propertiesArray
 };
 let server: ssap.Server;
 try {
   server = ssap.createServer();
-  server.addService(Service);
+  server.addService(service);
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
 }
@@ -1110,6 +1176,8 @@ try {
 removeService(serviceUuid: string): void
 
 服务端删除服务。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
@@ -1126,7 +1194,7 @@ removeService(serviceUuid: string): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1164,6 +1232,8 @@ close(): void
 
 关闭服务端。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1172,7 +1242,7 @@ close(): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1207,6 +1277,8 @@ notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt;
 
 通知客户端property值更新。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1217,7 +1289,7 @@ notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| address | string | 是 | 客户端设备地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 是 | 客户端设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | property | Property | 是 | 发生值变化的Property。 |
 
 
@@ -1230,7 +1302,7 @@ notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1277,6 +1349,8 @@ try {
   // 地址是服务端缓存的已连接的客户端设备
   server.notifyPropertyChanged('00:11:22:33:AA:FF', property).then(() => {
     console.info('notifyPropertyChanged success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -1293,6 +1367,8 @@ sendResponse(response: ServerResponse): void
 
 回复客户端读写请求。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1308,7 +1384,7 @@ sendResponse(response: ServerResponse): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1355,6 +1431,8 @@ on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt
 
 订阅连接状态变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1371,7 +1449,7 @@ on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1388,7 +1466,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onConnectionStateChange:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let server: ssap.Server;
 try {
   server = ssap.createServer();
@@ -1408,6 +1486,8 @@ off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&
 
 取消订阅连接状态变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1424,7 +1504,7 @@ off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionChangeState&
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1441,7 +1521,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onConnectionStateChange:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let server: ssap.Server;
 try {
   server = ssap.createServer();
@@ -1461,6 +1541,8 @@ on(type: 'propertyRead', callback: Callback&lt;PropertyReadRequest&gt;): void
 
 订阅客户端的读属性请求事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1477,7 +1559,7 @@ on(type: 'propertyRead', callback: Callback&lt;PropertyReadRequest&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1494,7 +1576,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onPropertyReadRequest:(data: ssap.PropertyReadRequest) => void = (data: ssap.PropertyReadRequest) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let server: ssap.Server;
 try {
   server = ssap.createServer();
@@ -1514,6 +1596,8 @@ off(type: 'propertyRead', callback?: Callback&lt;PropertyReadRequest&gt;): void
 
 取消订阅客户端的读属性请求事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1530,7 +1614,7 @@ off(type: 'propertyRead', callback?: Callback&lt;PropertyReadRequest&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1547,7 +1631,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onPropertyReadRequest:(data: ssap.PropertyReadRequest) => void = (data: ssap.PropertyReadRequest) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let server: ssap.Server;
 try {
   server = ssap.createServer();
@@ -1567,6 +1651,8 @@ on(type: 'propertyWrite', callback: Callback&lt;PropertyWriteRequest&gt;): void
 
 订阅客户端的写属性请求事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1583,7 +1669,7 @@ on(type: 'propertyWrite', callback: Callback&lt;PropertyWriteRequest&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1600,7 +1686,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onPropertyWriteRequest:(data: ssap.PropertyWriteRequest) => void = (data: ssap.PropertyWriteRequest) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let server: ssap.Server;
 try {
   server = ssap.createServer();
@@ -1620,6 +1706,8 @@ off(type: 'propertyWrite', callback?: Callback&lt;PropertyWriteRequest&gt;): voi
 
 取消订阅客户端的写属性请求事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1636,7 +1724,7 @@ off(type: 'propertyWrite', callback?: Callback&lt;PropertyWriteRequest&gt;): voi
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1653,7 +1741,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onPropertyWriteRequest:(data: ssap.PropertyWriteRequest) => void = (data: ssap.PropertyWriteRequest) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 let server: ssap.Server;
 try {
   server = ssap.createServer();
@@ -1673,6 +1761,8 @@ on(type: 'mtuChange', callback: Callback&lt;number&gt;): void
 
 订阅MTU（Maximum Transmission Unit）变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1689,7 +1779,7 @@ on(type: 'mtuChange', callback: Callback&lt;number&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1706,7 +1796,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onMtuChange:(data: number) => void = (data: number) => {
   console.info('data:' + data);
-}
+};
 let server: ssap.Server;
 try {
   server = ssap.createServer();
@@ -1726,6 +1816,8 @@ off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void
 
 取消订阅MTU变化事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ACCESS_NEARLINK
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -1742,7 +1834,7 @@ off(type: 'mtuChange', callback?: Callback&lt;number&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1759,7 +1851,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onMtuChange:(data: number) => void = (data: number) => {
   console.info('data:' + data);
-}
+};
 let server: ssap.Server;
 try {
   server = ssap.createServer();
@@ -1776,6 +1868,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示星闪服务。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
@@ -1794,6 +1888,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示服务的Property。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
@@ -1816,6 +1912,8 @@ try {
 
 表示Property的描述符。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -1837,13 +1935,15 @@ try {
 
 表示客户端的Property读请求参数。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 表示客户端设备地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 表示客户端设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | serviceUuid | string | 否 | 否 | 表示服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 | propertyUuid | string | 否 | 否 | 表示Property的UUID，数据格式同serviceUuid。 |
 | requestId | number | 否 | 否 | 表示请求ID。取值范围[0, 65535]。 |
@@ -1857,13 +1957,15 @@ try {
 
 表示客户端的Property写请求参数。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 表示客户端设备地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 表示客户端设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | serviceUuid | string | 否 | 否 | 表示服务UUID，例如：37bea880-fc70-11ea-b720-000000004386。UUID格式参考星闪标准服务UUID。 |
 | propertyUuid | string | 否 | 否 | 表示Property的UUID，数据格式同serviceUuid。 |
 | value | ArrayBuffer | 否 | 否 | 表示客户端写入的值。 |
@@ -1879,13 +1981,15 @@ try {
 
 表示回复客户端请求的响应。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 表示客户端设备地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 表示客户端设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | requestId | number | 否 | 否 | 表示请求ID。取值范围[0, 65535]。 |
 | value | ArrayBuffer | 否 | 否 | 表示回复的数据值。 |
 
@@ -1898,13 +2002,15 @@ try {
 
 表示连接状态上报参数。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 表示远端设备地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 表示远端设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | state | ConnectionState | 否 | 否 | 表示和远端设备的连接状态。 |
 
 
@@ -1915,6 +2021,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示Property的描述符类型，为枚举值。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
@@ -1937,6 +2045,8 @@ try {
 
 表示Property支持的操作类型，为枚举值。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.Communication.NearLink.Core
 
 **起始版本：** 5.0.1(13)
@@ -1956,6 +2066,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示Property支持的写类型，为枚举值。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Communication.NearLink.Core
 

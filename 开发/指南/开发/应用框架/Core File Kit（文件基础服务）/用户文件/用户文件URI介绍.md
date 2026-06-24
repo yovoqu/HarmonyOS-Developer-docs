@@ -1,6 +1,6 @@
 # 用户文件URI介绍
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/user-file-uri-intro
 
@@ -93,8 +93,9 @@ URI类型可以归纳为文档类URI和媒体文件URI两类
 
 
 #### 媒体文件URI获取方式
-1. 通过PhotoAccessHelper的[PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)选择媒体文件，返回选择的媒体文件的URI。
+1. 通过PhotoAccessHelper的[PhotoViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoviewpicker)选择图片和视频资源，返回选择的图片和视频的URI。
 2. 通过[photoAccessHelper](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper)模块中的[getAssets](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#getassets)或[createAsset](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#createasset)接口获取媒体文件对应文件的URI。
+3. 通过Picker的[AudioViewPicker](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-picker#audioviewpicker)选择和保存音乐文件资源，返回选择和保存后的音乐文件的URI。
 
 
 

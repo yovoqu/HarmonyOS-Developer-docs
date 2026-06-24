@@ -1,6 +1,6 @@
 # 使用发布证书进行调试时出现安装错误: Install Failed: error: failed to install bundle.
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-package-structure-65
 

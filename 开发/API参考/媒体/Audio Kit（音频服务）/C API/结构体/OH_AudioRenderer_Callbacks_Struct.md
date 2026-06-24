@@ -1,6 +1,6 @@
 # OH_AudioRenderer_Callbacks_Struct
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-ohaudio-oh-audiorenderer-callbacks-struct
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -95,7 +95,7 @@ int32_t (*OH_AudioRenderer_OnWriteData)(OH_AudioRenderer* renderer, void* userDa
 | OH_AudioRenderer* renderer | 指向OH_AudioStreamBuilder_GenerateRenderer创建的音频流实例。 |
 | void* userData | 指向应用自定义的数据存储区域。 |
 | void* buffer | 指向播放数据存储区域，用于应用填充播放数据。 |
-| int32_t length | buffer的长度。 |
+| int32_t length | buffer的长度，单位为字节（Byte）。 |
 
 
 

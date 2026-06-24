@@ -1,6 +1,6 @@
 # healthDataTypes (运动健康数据类型常量)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthdatatypes
 **支持设备：** Phone | Tablet | Wearable
@@ -31,6 +31,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -48,7 +50,7 @@ import { healthStore } from '@kit.HealthServiceKit';
 | WEIGHT | healthStore.DataType | 体重数据类型。 |
 | SLEEP_RECORD | healthStore.DataType | 夜间睡眠数据类型。 |
 | SLEEP_NAP_RECORD | healthStore.DataType | 零星小睡数据类型。 |
-| MENSTRUAL_CYCLE | healthStore.DataType | 生理周期数据类型。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
+| MENSTRUAL_CYCLE | healthStore.DataType | 生理周期数据类型。 起始版本： 6.1.1(24) |
 | WORKOUT | healthStore.DataType | 锻炼记录数据类型。 |
 | ADVENTURES | healthStore.SubDataType | 户外探险子数据类型。 |
 | AEROBICS | healthStore.SubDataType | 健美操子数据类型。 |

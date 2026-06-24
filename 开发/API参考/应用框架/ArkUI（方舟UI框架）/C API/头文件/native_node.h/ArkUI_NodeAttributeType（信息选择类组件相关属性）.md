@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（信息选择类组件相关属性）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-informationselection
 
@@ -391,7 +391,7 @@ NODE_TIME_PICKER_DISAPPEAR_TEXT_STYLE = 14002
 NODE_TIME_PICKER_TEXT_STYLE = 14003
 ```
  
-设置设置边缘项（以选中项为基准向上或向下的第二项）的文本样式，支持属性设置，属性重置和属性获取接口。
+设置时间选择组件所有选项中除了最上、最下及选中项以外的文本颜色、字号、字体粗细，支持属性设置，属性重置和属性获取接口。
  
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  

@@ -1,6 +1,6 @@
 # @ohos.multimedia.sendableImage (基于Sendable对象的图片处理)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendableimage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2562,7 +2562,7 @@ readLatestImage(): Promise&lt;Image&gt;
 从ImageReceiver读取最新的图片。使用promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/_OlscRhyRp66riRjacbrDA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074843Z&HW-CC-Expire=86400&HW-CC-Sign=FE2235887DB8B6E4B430818C6537F7C9B2580E95B8CE6A010182F285D784792E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/_uNmCvZbRZCbO1yRLCeilQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020241Z&HW-CC-Expire=86400&HW-CC-Sign=AF76D0E992140B1B0C6A3D1A64BDED5B5F5F7A375C83A92215F2A075B59E58E6)
 
 
 此接口需要在[on](#on)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](#image)对象使用完毕后需要调用[release](#release-2)方法释放，释放后才可以继续接收新的数据。
@@ -2610,7 +2610,7 @@ readNextImage(): Promise&lt;Image&gt;
 从ImageReceiver读取下一张图片。使用promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/94/v3/Ylge2MFGS0aB1rh0vJ8UXg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074843Z&HW-CC-Expire=86400&HW-CC-Sign=DB12C1C45C4E44FF9596B3E51F6290F4C21BDCC82A4CE4E323BF42770AE23FB2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/MC2GncFySgexpQI1kC5ogA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020241Z&HW-CC-Expire=86400&HW-CC-Sign=7DDC119062C1BF2E58FA04834D6641028A676447204303244927AC2DC61D6724)
 
 
 此接口需要在[on](#on)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](#image)对象使用完毕后需要调用[release](#release-2)方法释放，释放后才可以继续接收新的数据。

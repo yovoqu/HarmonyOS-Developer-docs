@@ -1,6 +1,6 @@
 # Interface (AVRecorder)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avrecorder
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -350,6 +350,56 @@ avRecorder.updateRotation(rotation).then(() => {
   let error: BusinessError = err as BusinessError;
   console.error(`Failed to do updateRotation and error is: Code: ${error.code}, message: ${error.message}`);
 });
+```
+
+
+
+#### setMetadata
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setMetadata(metadata: Record<string, string>): void
+
+设置录制的元数据信息。如果这些信息的键相同，会覆盖config.metadata.customInfo（参考[prepare()](#prepare9-1)和[AVRecorderConfig](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-i#avrecorderconfig9)）中的值。
+
+该方法只能在[prepare()](#prepare9-1)事件成功触发后，且必须在[stop()](#stop9)之前调用。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Multimedia.Media.AVRecorder
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| metadata | Record<string, string> | 是 | 录制的元数据信息。 格式为字符串键值对，其中，键需要以com.openharmony.开头，且值的长度不能超过256个字节。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400101 | No memory. |
+| 5400102 | Operation not allowed. |
+| 5400108 | Parameter check failed. |
+
+
+**示例：**
+
+```text
+let metadata: Record<string, string> = {
+  'com.openharmony.userdefine': '10',
+  'com.openharmony.userdefine2': '20'
+};
+
+try {
+  avRecorder.setMetadata(metadata);
+  console.info('set metadata successfully');
+} catch (err) {
+  console.error(`set metadata failed with error: ${err.code}, ${err.message}`);
+}
 ```
 
 

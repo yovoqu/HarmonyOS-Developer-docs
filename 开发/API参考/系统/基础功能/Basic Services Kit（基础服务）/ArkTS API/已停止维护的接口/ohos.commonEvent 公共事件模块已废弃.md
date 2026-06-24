@@ -1,6 +1,6 @@
 # @ohos.commonEvent (公共事件模块)(已废弃)
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-commonevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -8,7 +8,7 @@
 本模块提供了公共事件的能力，包括公共事件的权限列表，发布公共事件，订阅或取消订阅公共事件，获取或修改公共事件结果代码、结果数据等。
  
 > [!NOTE]
-> 从API Version 9开始，该接口不再维护，推荐使用新接口 @ohos.commonEventManager 。 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+> 从API version 7 开始支持，从API version 9 开始废弃，建议使用 @ohos.commonEventManager 替代。
 
   
 
@@ -41,7 +41,7 @@ publish(event: string, callback: AsyncCallback&lt;void&gt;): void
 发布公共事件（回调形式）。
  
 > [!NOTE]
-> 从 API version 7开始支持，从API version 9开始废弃。建议使用 commonEventManager.publish 替代。
+> 从API version 7 开始支持，从API version 9 开始废弃，建议使用 commonEventManager.publish 替代。
 
  
 **系统能力：** SystemCapability.Notification.CommonEvent
@@ -83,7 +83,7 @@ publish(event: string, options: CommonEventPublishData, callback: AsyncCallback&
 以回调的形式发布公共事件。
  
 > [!NOTE]
-> 从 API version 7开始支持，从API version 9开始废弃。建议使用 commonEventManager.publish 替代。
+> 从API version 7 开始支持，从API version 9 开始废弃，建议使用 commonEventManager.publish 替代。
 
  
 **系统能力：** SystemCapability.Notification.CommonEvent
@@ -106,7 +106,7 @@ import CommonEventManager from '@ohos.commonEventManager';
 // 公共事件相关信息
 let options:CommonEventManager.CommonEventPublishData = {
     code: 0,             // 公共事件的初始代码
-    data: "initial data",// 公共事件的初始数据
+    data: "initial data", // 公共事件的初始数据
     isOrdered: true  // 有序公共事件
 }
 
@@ -134,7 +134,7 @@ createSubscriber(subscribeInfo: CommonEventSubscribeInfo, callback: AsyncCallbac
 以回调形式创建订阅者。
  
 > [!NOTE]
-> 从 API version 7开始支持，从API version 9开始废弃。建议使用 commonEventManager.createSubscriber 替代。
+> 从API version 7 开始支持，从API version 9 开始废弃，建议使用 commonEventManager.createSubscriber 替代。
 
  
 **系统能力：** SystemCapability.Notification.CommonEvent
@@ -185,7 +185,7 @@ createSubscriber(subscribeInfo: CommonEventSubscribeInfo): Promise&lt;CommonEven
 以Promise形式创建订阅者。
  
 > [!NOTE]
-> 从 API version 7开始支持，从API version 9开始废弃。建议使用 commonEventManager.createSubscriber 替代。
+> 从API version 7 开始支持，从API version 9 开始废弃，建议使用 commonEventManager.createSubscriber 替代。
 
  
 **系统能力：** SystemCapability.Notification.CommonEvent
@@ -237,7 +237,7 @@ subscribe(subscriber: CommonEventSubscriber, callback: AsyncCallback&lt;CommonEv
 以回调形式订阅公共事件。
  
 > [!NOTE]
-> 从 API version 7开始支持，从API version 9开始废弃。建议使用 commonEventManager.subscribe 替代。
+> 从API version 7 开始支持，从API version 9 开始废弃，建议使用 commonEventManager.subscribe 替代。
 
  
 **系统能力：** SystemCapability.Notification.CommonEvent
@@ -299,7 +299,7 @@ unsubscribe(subscriber: CommonEventSubscriber, callback?: AsyncCallback&lt;void&
 以回调形式取消订阅公共事件。
  
 > [!NOTE]
-> 从 API version 7开始支持，从API version 9开始废弃。建议使用 commonEventManager.unsubscribe 替代。
+> 从API version 7 开始支持，从API version 9 开始废弃，建议使用 commonEventManager.unsubscribe 替代。
 
  
 **系统能力：** SystemCapability.Notification.CommonEvent

@@ -1,6 +1,6 @@
 # TextReaderIconV2（朗读听筒图标）
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreadericonv2
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -32,9 +32,9 @@ type UpReadState = (readState:ReadStateCode)=>void
  
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
  
-**模型约束：** 此接口仅可在Stage模型下使用。
- 
 **系统能力：** SystemCapability.AI.Component.TextReader
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.1.1(24)
  
@@ -57,9 +57,9 @@ type UpReadState = (readState:ReadStateCode)=>void
  
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
  
-**模型约束：** 此接口仅可在Stage模型下使用。
- 
 **系统能力：** SystemCapability.AI.Component.TextReader
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.1.1(24)
  
@@ -83,9 +83,9 @@ build(): void
  
 **元服务API：** 从版本6.1.1(24)开始，该接口支持在元服务中使用。
  
-**模型约束：** 此接口仅可在Stage模型下使用。
- 
 **系统能力：** SystemCapability.AI.Component.TextReader
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.1.1(24)
  

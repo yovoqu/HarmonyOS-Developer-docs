@@ -1,6 +1,6 @@
 # HdsSnackBar
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdssnackbar
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -313,4 +313,4 @@ struct TestSnackBar {
 效果图：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5a/v3/6DNzlC2pTLumAcRquB0eyQ/zh-cn_image_0000002581436666.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=59D4D4AD06311F261F07F19FA6904B1C3D32C82CFB6ECF999129E7612BBEFAAF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/bu_8dS4gSQS1ZWsTHGSb4A/zh-cn_image_0000002626231228.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=389C25D8E73825C44BB468A2FE0454FB81587BC27C7523B26C2813A916439793)

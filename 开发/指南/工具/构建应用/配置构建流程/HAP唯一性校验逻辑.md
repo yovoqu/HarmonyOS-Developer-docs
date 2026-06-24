@@ -1,6 +1,6 @@
 # HAP唯一性校验逻辑
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-verification-rule
 
@@ -50,7 +50,7 @@ DevEco Studio会在编译构建时，对HAP进行上述唯一性校验，如果�
 
 3. 校验分发规则distributionFilter。如果distributionFilter不相交，则校验通过。如果distributionFilter相交，则无法保证Module唯一性，校验失败，打包失败。
 
-  distributionFilter中包含属性apiVersion、screenShape、screenWindow、screenDensity和countryCode。相交的相关含义如下：
+  distributionFilter中包含属性apiVersion、screenShape、screenWindow、screenDensity和countryCode，相交的相关含义如下：
 
   
 - distributionFilter不相交：如果两个distributionFilter中任意一个属性不相交，则两个distributionFilter不相交。

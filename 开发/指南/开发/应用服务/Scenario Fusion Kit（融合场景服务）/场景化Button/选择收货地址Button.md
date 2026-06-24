@@ -1,6 +1,6 @@
 # 选择收货地址Button
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-ship-to
 
@@ -62,11 +62,11 @@ struct Index {
             .onChooseAddress((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to choose address, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in choosing address");
+              hilog.info(0x0000, 'testTag', 'succeeded in choosing address');
               // 获取地址信息。
               let userName: string = data.userName;
               let mobileNumber: string = data.mobileNumber as string;

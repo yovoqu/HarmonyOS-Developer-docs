@@ -1,6 +1,6 @@
 # ohpm-repo install
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-install
 
@@ -30,7 +30,7 @@ ohpm-repo install [options]
 - 默认值："&lt;binary_root&gt;/conf/config.yaml"
 
   &lt;binary_root&gt;：ohpm-repo私仓解压根目录。
-- 类型： String
+- 类型：String
 
  
 可以在install命令后面配置--config &lt;string&gt;参数，指定配置文件路径。支持相对路径，以当前命令行工作路径作为根目录。
@@ -84,7 +84,7 @@ ohpm-repo install  --config D:\config.yaml
 结果示例：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/q4wRzBG6TfGc0sEQp3oRQQ/zh-cn_image_0000002602064947.png?HW-CC-KV=V1&HW-CC-Date=20260611T074906Z&HW-CC-Expire=86400&HW-CC-Sign=893AF86817884A514543939879F3F5D54C22823DEF5F3AEE1B86E2534D5FF6E9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/r6LiaxGtTg6jSgYWjpW13g/zh-cn_image_0000002624991619.png?HW-CC-KV=V1&HW-CC-Date=20260624T020658Z&HW-CC-Expire=86400&HW-CC-Sign=056C8C5E7409701F12B2B4187E0D581B6243F15BEB1850FEE940EC4387811B4A)
 
  
  

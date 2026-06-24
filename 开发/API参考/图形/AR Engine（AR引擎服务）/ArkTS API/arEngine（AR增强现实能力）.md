@@ -1,6 +1,6 @@
 # arEngine（AR增强现实能力）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arengine
 **支持设备：** Phone | Tablet | TV
@@ -530,6 +530,26 @@ import { arEngine } from '@kit.AREngine';
 
 
 
+#### ARRemoteSensorMode
+
+**支持设备：** Phone | Tablet | TV
+
+枚举，远程传感器模式。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.AREngine.Core
+
+**起始版本：** 26.0.0
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| LOCAL_SENSOR | 0 | 使用本地相机和传感器。 |
+| REMOTE_SENSOR_AI_GLASS | 1 | 使用AI眼镜相机和传感器。 |
+
+
+
+
 #### ARSemanticDenseMode
 
 **支持设备：** Phone | Tablet | TV
@@ -763,7 +783,7 @@ deserialize(buffer: ArrayBuffer): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -807,7 +827,7 @@ serialize(): Promise&lt;ArrayBuffer&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -857,7 +877,7 @@ addImage(name: string, pixelMap: image.PixelMap, widthInMeters: number): Promise
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -910,7 +930,7 @@ getImageCount(): number
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -951,7 +971,7 @@ getCapacity(): number
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -992,7 +1012,7 @@ getImageAddMode(): ARAddAugmentedImageMode
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1033,7 +1053,7 @@ setImageAddMode(mode: ARAddAugmentedImageMode): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1074,7 +1094,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1149,6 +1169,7 @@ await imageDatabase.release();
 | cameraLensFacing | ARCameraLensFacing | 否 | 是 | 相机镜头朝向配置项。当cameraLensFacing配置为FRONT时，type配置为ARType.FACE或ARType.BODY才生效。 默认为REAR。 起始版本： 6.1.0(23) |
 | multiFaceMode | ARMultiFaceMode | 否 | 是 | 多人脸模式配置项。 默认为MULTIFACE_DISABLE。 起始版本： 6.1.0(23) |
 | maxDetectedBodyNum | number | 否 | 是 | 当类型为ARType.Body 时，需要检测的人体数量最大值。 默认为1，最大为2，超过2默认为2。 起始版本： 6.1.0(23) |
+| remoteSensorMode | ARRemoteSensorMode | 否 | 是 | 远程相机和sensor模式。 默认为LOCAL_SENSOR。 起始版本： 26.0.0 |
 
 
 
@@ -1264,7 +1285,7 @@ getFrame(): ARFrame
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1333,7 +1354,7 @@ createAnchor(pose: ARPose): ARAnchor
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1390,7 +1411,7 @@ detachAnchor(anchor: ARAnchor): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1436,7 +1457,7 @@ getAllAnchors(): Array&lt;ARAnchor&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1485,7 +1506,7 @@ getAllTrackables(type: ARTrackableType): Array&lt;ARTrackable&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1528,7 +1549,7 @@ openFlash(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1569,7 +1590,7 @@ closeFlash(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1610,7 +1631,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1723,7 +1744,7 @@ getPose(): ARPose
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1764,7 +1785,7 @@ detach(): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1808,7 +1829,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1869,7 +1890,7 @@ await anchors[0].release();
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| count | number | 是 | 否 | 表示微表情的个数，最小为0，最大为64。 |
+| count | number | 是 | 否 | 表示混合形状的个数，最小为0，最大为64。 |
 
 
 
@@ -1894,12 +1915,12 @@ getData(): ArrayBuffer
 
 | 类型 | 说明 |
 | --- | --- |
-| ArrayBuffer | 微表情数据。 |
+| ArrayBuffer | 混合形状数据。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1940,12 +1961,12 @@ getTypes(): Array&lt;ARBlendShapeType&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;ARBlendShapeType&gt; | 微表情的类型。 |
+| Array&lt;ARBlendShapeType&gt; | 混合形状的类型。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1991,7 +2012,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2028,7 +2049,7 @@ faceBlendShapes.release();
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| count | number | 是 | 否 | 表示人脸关键点的个数，固定为84。 |
+| count | number | 是 | 否 | 表示混合形状的个数，固定为64。 |
 
 
 
@@ -2058,7 +2079,7 @@ getVertices2D(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2104,7 +2125,7 @@ getVertices3D(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2150,7 +2171,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2225,7 +2246,7 @@ getPose(): ARPose
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2274,7 +2295,7 @@ getDisplayOrientedPose(): ARPose
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2327,7 +2348,7 @@ getProjectionMatrix(near: number, far: number): Matrix4
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2375,7 +2396,7 @@ getImageIntrinsics(): ARCameraIntrinsics
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2436,7 +2457,7 @@ getGeometry(): ARGeometry
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2481,7 +2502,7 @@ getBlendShapes(): ARBlendShapes
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2526,7 +2547,7 @@ getLandmark(): ARLandmark
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2587,7 +2608,7 @@ getFace(): ARFace
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2678,7 +2699,7 @@ getLandmarks2D(): Array&lt;ARBodyLandmark2D&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2747,7 +2768,7 @@ getCamera(): ARCamera
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2798,7 +2819,7 @@ getUpdatedTrackables(type: ARTrackableType): Array&lt;ARTrackable&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2851,7 +2872,7 @@ hitTest(x: number, y: number): Array&lt;ARHitResult&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2897,7 +2918,7 @@ acquireSceneMesh(): ARSceneMesh
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2944,7 +2965,7 @@ acquireDepthImage16Bits(): ARImage
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2990,7 +3011,7 @@ acquireDepthConfidenceImage(): ARImage
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3034,7 +3055,7 @@ acquireSemanticDense(): ARSemanticDenseData
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3078,7 +3099,7 @@ acquireBodySkeleton(): Array&lt;ARBody&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3093,6 +3114,50 @@ import { arEngine } from '@kit.AREngine';
 // arSession创建参考ARSession.getFrame接口示例代码
 let frame: arEngine.ARFrame = arSession.getFrame();
 frame.acquireBodySkeleton();
+```
+
+
+
+#### ARFrame.acquireCameraImage
+
+**支持设备：** Phone | Tablet | TV
+
+acquireCameraImage(): ARImage
+
+获取相机的当前帧的图像。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.AREngine.Core
+
+**设备行为差异：** 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用[arViewController.isARTypeSupported](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-api-arviewcontroller#arviewcontrollerisartypesupported)接口查询能力是否支持。
+
+**起始版本：** 26.0.0
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| ARImage | 返回相机视频流帧对象。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1009200001 | Failure. |
+
+
+**示例：**
+
+```text
+import { arEngine } from '@kit.AREngine';
+
+// arSession创建参考ARSession.getFrame接口示例代码
+let frame: arEngine.ARFrame = arSession.getFrame();
+let arImage: arEngine.ARImage = frame.acquireCameraImage();
 ```
 
 
@@ -3122,7 +3187,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3191,7 +3256,7 @@ getVertices(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3237,7 +3302,7 @@ getTexCoord(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3283,7 +3348,7 @@ getIndices(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3329,7 +3394,7 @@ getTriangleLabels(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3375,7 +3440,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3450,7 +3515,7 @@ getHitPose(): ARPose
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3495,7 +3560,7 @@ getTrackable(): ARTrackable
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3540,7 +3605,7 @@ createAnchor(): ARAnchor
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3585,7 +3650,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3655,7 +3720,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3726,7 +3791,7 @@ getPolygonXZ(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3771,7 +3836,7 @@ getSubsumedBy(): ARPlane
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3823,7 +3888,7 @@ isPoseInExtents(pose: ARPose): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3877,7 +3942,7 @@ isPoseInPolygon(pose: ARPose): boolean
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3942,7 +4007,7 @@ getPlane(): ARPlane
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4036,7 +4101,7 @@ getMatrix(): Matrix4
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4082,7 +4147,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4150,7 +4215,7 @@ getVertices(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4195,7 +4260,7 @@ getVertexNormals(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4240,7 +4305,7 @@ getTriangleIndices(): ArrayBuffer
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4285,7 +4350,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4353,7 +4418,7 @@ acquirePointData(): ARSemanticDensePointData
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4398,7 +4463,7 @@ acquireCubeData(): Array&lt;ARSemanticDenseCubeData&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4443,7 +4508,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4510,7 +4575,7 @@ getPose(): ARPose
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4554,7 +4619,7 @@ getAnchors(): Array&lt;ARAnchor&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4605,7 +4670,7 @@ createAnchor(pose: ARPose): ARAnchor
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4651,7 +4716,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4693,7 +4758,7 @@ createARAugmentedImageDatabase(): Promise&lt;ARAugmentedImageDatabase&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4741,7 +4806,7 @@ createARPose(rotation: Quaternion, translation: Vec3): ARPose
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arengine-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[AR Engine错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ar-engine)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

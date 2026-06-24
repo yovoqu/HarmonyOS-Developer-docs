@@ -1,6 +1,6 @@
 # Interface (Session)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-session
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -41,7 +41,7 @@ beginConfig(): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400105 | Session config locked. |
-| 7400201 | Camera service fatal error. |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
  
  
 **示例：**
@@ -219,7 +219,8 @@ addInput(cameraInput: CameraInput): void
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
 | 7400102 | Operation not allowed. |
-| 7400201 | Camera service fatal error. |
+| 7400103 | Session not config. 适用版本：11-17 |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
  
  
 **示例：**
@@ -267,7 +268,8 @@ removeInput(cameraInput: CameraInput): void
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
 | 7400102 | Operation not allowed. |
-| 7400201 | Camera service fatal error. |
+| 7400103 | Session not config. 适用版本：11-17 |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
  
  
 **示例：**
@@ -352,7 +354,8 @@ addOutput(cameraOutput: CameraOutput): void
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
 | 7400102 | Operation not allowed. |
-| 7400201 | Camera service fatal error. |
+| 7400103 | Session not config. 适用版本：11-17 |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
  
  
 **示例：**
@@ -400,7 +403,8 @@ removeOutput(cameraOutput: CameraOutput): void
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
 | 7400102 | Operation not allowed. |
-| 7400201 | Camera service fatal error. |
+| 7400103 | Session not config. 适用版本：11-17 |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
  
  
 **示例：**
@@ -446,7 +450,7 @@ start(callback: AsyncCallback&lt;void&gt;): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7400102 | Operation not allowed. |
+| 7400102 | Operation not allowed. 适用版本：12+ |
 | 7400103 | Session not config. |
 | 7400201 | Camera service fatal error. |
  
@@ -494,7 +498,7 @@ start(): Promise&lt;void&gt;
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7400102 | Operation not allowed. |
+| 7400102 | Operation not allowed. 适用版本：12+ |
 | 7400103 | Session not config. |
 | 7400201 | Camera service fatal error. |
  

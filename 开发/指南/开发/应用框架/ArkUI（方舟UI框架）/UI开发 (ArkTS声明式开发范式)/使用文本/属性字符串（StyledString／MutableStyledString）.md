@@ -1,6 +1,6 @@
 # 属性字符串（StyledString/MutableStyledString）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-styled-string
 
@@ -1246,7 +1246,7 @@ struct HtmlSpanStringDemo {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/IbV0F73XRqqB2HKv3stPHQ/zh-cn_image_0000002611753849.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030438Z&HW-CC-Expire=86400&HW-CC-Sign=A63F009F6911BB45723B4F3375F0D2B40B0125E6CB2BFB8AC797A8F69D9C1F3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/bq5I7u9FT6yU3Ui_mO9Wug/zh-cn_image_0000002656467707.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020751Z&HW-CC-Expire=86400&HW-CC-Sign=CD09CA5582BECF68317031693F4D1DD34AA65A70C97700F3AAEC013E5797FD0C)
 
 
 
@@ -1420,4 +1420,4 @@ export struct StyledStringSceneExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/dhuLOyySRK-rpwMzZPysUA/zh-cn_image_0000002581433914.png?HW-CC-KV=V1&HW-CC-Date=20260528T030438Z&HW-CC-Expire=86400&HW-CC-Sign=54D69EAA3F7DE7B90448B62BE0AE8F983DB6E32A28D68E9003A8C5D674D4AFD0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/3dRNO3vhQS6DSPT28CvfVg/zh-cn_image_0000002656347755.png?HW-CC-KV=V1&HW-CC-Date=20260624T020751Z&HW-CC-Expire=86400&HW-CC-Sign=AD7D415EAA2D1C936A37D3DB5A33D898B6FEEFD25340C324A0C6F6B5D6D25206)

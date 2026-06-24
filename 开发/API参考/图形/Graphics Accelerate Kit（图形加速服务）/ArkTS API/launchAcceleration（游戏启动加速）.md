@@ -1,15 +1,15 @@
 # launchAcceleration（游戏启动加速）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-launchacceleration
 **支持设备：** Phone | PC/2in1 | Tablet
 
 本模块提供游戏启动加速能力。
  
-**系统能力：** SystemCapability.GraphicsGame.LaunchAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.LaunchAcceleration
  
 **起始版本：** 6.0.0(20)
   
@@ -32,9 +32,9 @@ isLaunchMirrorEnabled(): boolean
  
 查询游戏的内存镜像功能是否使能。
  
-**系统能力：** SystemCapability.GraphicsGame.LaunchAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.LaunchAcceleration
  
 **起始版本：** 6.0.0(20)
  
@@ -56,5 +56,121 @@ onWindowStageWillDestroy(): void {
     if (enable) {
         // 切换场景的代码逻辑
     }
+}
+```
+ 
+  
+
+#### completeGamePrelaunch
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+completeGamePrelaunch(context: common.UIAbilityContext): Promise&lt;void&gt;
+ 
+通知系统当前游戏预启动已完成。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.LaunchAcceleration
+ 
+**起始版本：** 26.0.0
+ 
+**参数**：
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | common.UIAbilityContext | 是 | UIAbility组件上下文。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+ 
+ 
+**错误码**：
+ 
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1019400001 | Service error. 1. Connect to system service failed; 2.System service failed to communicate with dependency module. |
+| 1019400002 | The app is not in a preloading state. |
+| 1019400401 | Parameter error. |
+ 
+ 
+**示例**：
+ 
+```text
+import { UIAbility } from '@kit.AbilityKit';
+import { launchAcceleration } from '@kit.GraphicsAccelerateKit';
+
+export default class EntryAbility extends UIAbility {
+  async completeGamePrelaunch() {
+    try {
+      await launchAcceleration.completeGamePrelaunch(this.context);
+    } catch (err) {
+      console.error(`completeGamePrelaunch failed, code is ${err.code}, message is ${err.message}`);
+    }
+  }
+}
+```
+ 
+  
+
+#### terminateGamePrelaunch
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+terminateGamePrelaunch(context: common.UIAbilityContext): Promise&lt;void&gt;
+ 
+通知系统退出当前游戏预启动流程。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.LaunchAcceleration
+ 
+**起始版本：** 26.0.0
+ 
+**参数**：
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| context | common.UIAbilityContext | 是 | UIAbility组件上下文。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象。无返回结果的Promise对象。 |
+ 
+ 
+**错误码**：
+ 
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1019400001 | Service error. 1. Connect to system service failed; 2.System service failed to communicate with dependency module. |
+| 1019400002 | The app is not in a preloading state. |
+| 1019400401 | Parameter error. |
+ 
+ 
+**示例**：
+ 
+```text
+import { UIAbility } from '@kit.AbilityKit';
+import { launchAcceleration } from '@kit.GraphicsAccelerateKit';
+
+export default class EntryAbility extends UIAbility {
+  async terminateGamePrelaunch() {
+    try {
+      await launchAcceleration.terminateGamePrelaunch(this.context);
+    } catch (err) {
+      console.error(`terminateGamePrelaunch failed, code is ${err.code}, message is ${err.message}`);
+    }
+  }
 }
 ```

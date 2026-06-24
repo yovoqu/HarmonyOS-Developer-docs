@@ -1,6 +1,6 @@
 # 查看AppFreeze（应用冻屏）日志
 
-更新时间：2026-05-09 03:27:00
+更新时间：2026-06-15 08:14:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-faultlog-appfreeze
 
@@ -16,7 +16,7 @@
 5. **Binder Communication：**从DevEco Studio 6.1.1 Beta1版本开始，新增Binder Communication页签，对应AppFreeze日志中的[对端信息（与当前故障进程通信的进程信息）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#对端信息与当前故障进程通信的进程信息)，用于展示进程间通信的调用信息、各进程Binder资源信息，具体请参考[查看Binder通信信息](#section61431112125119)。
 6. **System**：从DevEco Studio 6.0.0 Beta3版本开始，新增System页签，用于在高负载场景下，展示设备CPU/内存的日志信息，具体请参考[查看高负载CPU/内存日志信息](#section145027295519)。
 7. **Sampling Stack**：从DevEco Studio 6.1.1 Beta1版本开始，新增Sampling Stack页签，对应[AppFreeze增强日志中的堆栈信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#appfreeze应用冻屏增强日志信息)，用于查看采样栈数据，标记可疑问题栈，具体请参考[查看采样栈数据信息](#section1731022185212)。
-8. **3s/6s Compare**：从DevEco Studio 6.0.2 Beta1版本开始，新增3s/6s Compare页签，用于对[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s-应用主线程卡死超时)类型的AppFreeze问题，展示3s和6s时间点的主线程堆栈日志，具体请参考[查看3s/6s堆栈日志](#section699194455215)。
+8. **3s/6s Compare**：从DevEco Studio 6.0.2 Beta1版本开始，新增3s/6s Compare页签，用于对[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)类型的AppFreeze问题，展示3s和6s时间点的主线程堆栈日志，具体请参考[查看3s/6s堆栈日志](#section699194455215)。
 9. **Main Thread Task Queue**：从DevEco Studio 6.1.1 Beta1版本开始，新增Main Thread Task Queue页签，对应AppFreeze日志中的[EventHandler信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#日志主干通用信息)，用于展示主线程的任务队列，包括历史任务和待调度任务，具体请参考[查看主线程任务队列信息](#section3149310135314)。
  
 
@@ -121,7 +121,7 @@ Binder Communication页签包含以下内容：
 
 从DevEco Studio 6.1.1 Beta1版本开始，新增Sampling Stack页签，对应[AppFreeze增强日志中的堆栈信息](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#appfreeze应用冻屏增强日志信息)，用于查看采样栈数据，标记可疑问题栈。
  
-查看采样栈数据之前，需要在AppScope/app.json5文件中配置如下环境变量，获取AppFreeze增强日志。
+当设备版本低于API 26.0.0时，查看采样栈数据之前，需要在AppScope/app.json5文件中配置如下环境变量，获取AppFreeze增强日志。当设备版本为API 26.0.0及以上时，无需配置环境变量。
  
 ```json
 "appEnvironments": [
@@ -148,10 +148,10 @@ Sampling Stack页签默认展示堆栈水平条形图，按照堆栈的出现频
 
 #### 查看3s/6s堆栈日志
 
-从DevEco Studio 6.0.2 Beta1版本开始，新增3s/6s Compare页签，用于对[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s-应用主线程卡死超时)类型的AppFreeze问题，展示3s和6s时间点的主线程堆栈日志，并标识栈帧中可能的故障处。
+从DevEco Studio 6.0.2 Beta1版本开始，新增3s/6s Compare页签，用于对[THREAD_BLOCK_6S](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appfreeze-guidelines#thread_block_6s应用主线程卡死超时)类型的AppFreeze问题，展示3s和6s时间点的主线程堆栈日志，并标识栈帧中可能的故障处。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/cdmLUcgITk23i5HP3Ksrrw/zh-cn_image_0000002571387672.png?HW-CC-KV=V1&HW-CC-Date=20260528T030549Z&HW-CC-Expire=86400&HW-CC-Sign=AD3C5FE36329A59648733F8104EFA58C1A73261DA27DEB8C107851A286E087D4)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3a/v3/lNIc7idBSK-tu8dxLfgWSA/zh-cn_image_0000002594475284.png?HW-CC-KV=V1&HW-CC-Date=20260624T020713Z&HW-CC-Expire=86400&HW-CC-Sign=9EE6BBE6332F4E3E5BF7FBD157BC02ACCC342BA8971E55ACA92AD201C2F1A797)
 
  
 如果不是THREAD_BLOCK_6S类型的AppFreeze问题，不会展示3s/6s Compare页签。
@@ -171,4 +171,4 @@ Sampling Stack页签默认展示堆栈水平条形图，按照堆栈的出现频
 ④ 支持切换查看3s和6s时间点的任务信息。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1d/v3/druWL4ZhRmaOh-760GgCJA/zh-cn_image_0000002602066785.png?HW-CC-KV=V1&HW-CC-Date=20260528T030549Z&HW-CC-Expire=86400&HW-CC-Sign=5C32CFF6415E151765D2AE18E7E9D06BF2CC91CCD257DFF10885FFB477A6F1FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/p4SfrPQwRdOmqlKdfapxXw/zh-cn_image_0000002594635210.png?HW-CC-KV=V1&HW-CC-Date=20260624T020713Z&HW-CC-Expire=86400&HW-CC-Sign=ED7920EBD0F5A3846FC85F88D260A9E9666AFF832CE11206CD3A234D13487DB0)

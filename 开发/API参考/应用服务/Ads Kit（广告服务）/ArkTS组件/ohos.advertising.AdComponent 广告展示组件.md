@@ -1,9 +1,9 @@
 # @ohos.advertising.AdComponent (广告展示组件)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-adcomponent
-**支持设备：** Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 本模块提供展示广告的能力，覆盖了原生、贴片、开屏等广告样式。
 
@@ -14,7 +14,7 @@
 
 #### 导入模块
 
-**支持设备：** Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 import { AdComponent } from '@kit.AdsKit';
@@ -24,7 +24,7 @@ import { AdComponent } from '@kit.AdsKit';
 
 #### AdComponent
 
-**支持设备：** Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 ```text
 AdComponent({
@@ -44,13 +44,13 @@ AdComponent({
 
 **参数：**
 
-| 参数名 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| ads | advertising.Advertisement[] | 是 | 广告对象数组。 说明：非贴片广告类型，组件只展示数组第一个数据。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
-| displayOptions | advertising.AdDisplayOptions | 是 | 广告展示参数。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
-| interactionListener | advertising.AdInteractionListener | 是 | 广告状态变化回调。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
-| adRenderer12+ | () => void | 否 | 应用自渲染广告样式。应用自渲染广告样式为受限使用能力，具体请前往流量变现官网客服支持进行咨询。 元服务API：从API version 20开始，该接口支持在元服务中使用。 装饰器类型：@BuilderParam |
-| rollPlayState15+ | number | 否 | 用于对外提供贴片广告播放状态，设置1为播放，2为暂停，默认值为2，其他值为非法值，不改变之前的播放状态。在贴片广告所在页面需要通过@State关联属性，使用方法参考示例代码。 元服务API：从API version 20开始，该接口支持在元服务中使用。 装饰器类型：@Prop |
+| 参数名 | 类型 | 必填 | 装饰器类型 | 说明 |
+| --- | --- | --- | --- | --- |
+| ads | advertising.Advertisement[] | 是 | - | 广告对象数组。 说明：非贴片广告类型，组件只展示数组第一个数据。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
+| displayOptions | advertising.AdDisplayOptions | 是 | - | 广告展示参数。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
+| interactionListener | advertising.AdInteractionListener | 是 | - | 广告状态变化回调。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
+| adRenderer12+ | () => void | 否 | @BuilderParam | 应用自渲染广告样式。应用自渲染广告样式为受限使用能力，具体请前往流量变现官网客服支持进行咨询。 元服务API：从API version 20开始，该接口支持在元服务中使用。 |
+| rollPlayState15+ | number | 否 | @Prop | 用于对外提供贴片广告播放状态，设置1为播放，2为暂停，默认值为2，其他值为非法值，不改变之前的播放状态。在贴片广告所在页面需要通过@State关联属性，使用方法参考示例代码。 元服务API：从API version 20开始，该接口支持在元服务中使用。 |
 
 
 > [!NOTE]
@@ -105,7 +105,7 @@ struct Index {
 
 #### build
 
-**支持设备：** Phone | PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet | TV
 
 build(): void
 

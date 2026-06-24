@@ -1,6 +1,6 @@
 # 获取手机号和风险等级Button
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-button-get-risklevel
 
@@ -9,6 +9,12 @@
 从6.0.2(22)开始，支持获取手机号和风险等级Button功能。
 
 开发者可通过“获取手机号和风险等级Button”获取授权码（Authorization Code），进而获取用户的手机号和风险等级信息，用于对恶意账号进行风险控制，进一步增强应用的安全性。风险等级完整场景详见[获取风险等级](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-get-risklevel-on-demand-acquisition)。
+
+
+
+#### 约束与限制
+
+获取手机号和风险等级Button支持Phone、Tablet、PC/2in1和TV设备，并且从26.0.0版本开始，新增支持Car设备。
 
 
 
@@ -54,11 +60,11 @@ struct Index {
             .onGetPhoneNumberAndRiskLevel((data) => {
               if (data?.errCode) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", data?.errCode, data?.errMsg);
+                hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', data?.errCode, data?.errMsg);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in authentication");
+              hilog.info(0x0000, 'testTag', 'succeeded in authentication');
               // 授权码处理。
               let authorizationCode = data?.code;
             })

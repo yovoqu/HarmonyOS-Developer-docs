@@ -1,6 +1,6 @@
 # input
 
-更新时间：2026-04-03 09:39:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-input
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -211,4 +211,4 @@ export default {
 }
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1f/v3/oZqxGhfESRCbGyRe0m0YMQ/zh-cn_image_0000002581436550.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025433Z&HW-CC-Expire=86400&HW-CC-Sign=68849F3969E9855DCE1F0CC1F21278FABFA2782E5AAF6EC5426F65F308AD8DCE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/ReSYh24lRwyMkt68DL2dQg/zh-cn_image_0000002656470475.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015946Z&HW-CC-Expire=86400&HW-CC-Sign=8AB33A335FC86604D87EA7E01A2F042AA77E98B1274F94E08D12A7B8B19A5DFF)

@@ -1,6 +1,6 @@
 # hiappevent_event.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-event-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -52,6 +52,7 @@
 | EVENT_AUDIO_JANK_FRAME "AUDIO_JANK_FRAME" | 音频卡顿事件。 起始版本： 21 |
 | DOMAIN_OS "OS" | OS作用域。 起始版本： 12 |
 | EVENT_MAIN_THREAD_JANK_V2 "MAIN_THREAD_JANK_V2" | 用于设置主线程超时事件配置策略。 起始版本： 22 |
+| OH_EVENT_APP_FREEZE_WARNING "APPFREEZE_WARNING" | 应用冻屏告警事件。 起始版本： 26.0.0 |
  
  
   
@@ -331,3 +332,19 @@ OS作用域。
 用于设置主线程超时事件配置策略。
  
 **起始版本：** 22
+ 
+  
+
+#### OH_EVENT_APP_FREEZE_WARNING
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+#define OH_EVENT_APP_FREEZE_WARNING "APPFREEZE_WARNING"
+```
+ 
+**描述**
+ 
+应用冻屏告警事件。
+ 
+**起始版本：** 26.0.0

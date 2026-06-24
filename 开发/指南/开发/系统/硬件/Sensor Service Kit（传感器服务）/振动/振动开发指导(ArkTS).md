@@ -1,6 +1,6 @@
 # 振动开发指导(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/vibrator-guidelines
 

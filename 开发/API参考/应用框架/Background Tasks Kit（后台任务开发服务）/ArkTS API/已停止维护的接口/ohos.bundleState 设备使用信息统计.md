@@ -1,6 +1,6 @@
 # @ohos.bundleState (设备使用信息统计)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-deviceusagestatistics
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -45,7 +45,8 @@ isIdleState(bundleName: string, callback: AsyncCallback&lt;boolean&gt;): void
 **示例**：
  
 ```json
-import { BusinessError } from '@ohos.base';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { bundleState } from '@kit.BackgroundTasksKit';
 // 三方应用使用示例代码时，注意将bundleName更换为自己应用的bundleName
 bundleState.isIdleState("com.ohos.camera", (err: BusinessError, res: boolean) => {
   if (err) {
@@ -87,7 +88,8 @@ isIdleState(bundleName: string): Promise&lt;boolean&gt;
 **示例**：
  
 ```json
-import { BusinessError } from '@ohos.base';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { bundleState } from '@kit.BackgroundTasksKit';
 // 三方应用使用示例代码时，注意将bundleName更换为自己应用的bundleName
 bundleState.isIdleState("com.ohos.camera").then((res: boolean) => {
   console.info('BUNDLE_ACTIVE isIdleState promise succeeded, result: ' + JSON.stringify(res));

@@ -1,14 +1,10 @@
 # LoginPanel (华为账号Panel登录组件)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-loginpanel
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-本模块提供LoginPanel组件，应用通过集成该组件完成华为账号登录功能。
- 
-LoginPanel需要配合[loginComponentManager](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager)一起使用，用于实现华为账号登录功能。LoginPanel内的按钮文本默认支持多语言。
- 
 **起始版本：** 4.1.0(11)
   
 
@@ -26,7 +22,11 @@ import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-该类为用来展示登录面板的UI组件。
+@hms.core.account.LoginComponent模块提供华为账号登录面板组件，集成了华为账号登录按钮、隐私协议、其他登录方式入口等标准元素。该组件为半模态登录面板，通过属性show控制是否展示，开发者可通过如下方式接入：
+ 1. 创建[loginComponentManager.LoginPanelController](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#loginpanelcontroller)控制器对象，支持通过链式调用来注册登录按钮点击事件、协议同意状态变更等事件的回调函数。
+2. 构造[loginComponentManager.LoginPanelParams](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-component-manager#loginpanelparams)参数对象，配置登录类型、隐私协议文本内容、应用信息、匿名手机号、其他登录方式等属性。
+3. 设置变量show用于控制是否展示LoginPanel组件。
+4. 在页面组件中调用LoginPanel组件，传入LoginPanelController控制器对象、LoginPanelParams参数对象，以及变量show。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -41,8 +41,8 @@ import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
 | show | boolean | 是 | @Link | 该参数用于控制LoginPanel组件是否展示。 false表示不展示该组件。 true表示展示该组件，当业务需要使用LoginPanel组件时设置值为true。 说明： - 该参数必须是@State装饰的局部变量。 - LoginPanel仅支持在页面中使用，弹框、子窗口等场景暂不支持。 |
-| params | LoginPanelParams | 是 | - | LoginPanel组件参数。 |
-| controller | LoginPanelController | 是 | - | LoginPanel组件控制器用来接收组件的点击事件。 |
+| params | loginComponentManager.LoginPanelParams | 是 | @Require | LoginPanel组件参数。 |
+| controller | loginComponentManager.LoginPanelController | 是 | @Require | LoginPanel组件控制器用来接收组件的点击事件。 |
  
  
   
@@ -53,7 +53,7 @@ import { LoginPanel, loginComponentManager } from '@kit.AccountKit';
 
 build(): void
  
-用于创建[LoginPanel](#loginpanel)对象的构造函数。
+[LoginPanel](#loginpanel)组件的构造函数。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -165,7 +165,7 @@ struct PreviewLoginPanelPage {
     if (error.code === ErrorCode.ERROR_CODE_LOGIN_OUT) {
       // 用户未登录华为账号，请登录华为账号并重试或者尝试使用其他方式登录
     } else if (error.code === ErrorCode.ERROR_CODE_NETWORK_ERROR) {
-      // 网络异常，请检查当前网络状态并重试或者尝试使用其他方式登录
+      // 网络错误，请检查当前网络状态并重试
     } else if (error.code === ErrorCode.ERROR_CODE_INTERNAL_ERROR) {
       // 登录失败，请尝试使用其他方式登录
     } else if (error.code === ErrorCode.ERROR_CODE_USER_CANCEL) {

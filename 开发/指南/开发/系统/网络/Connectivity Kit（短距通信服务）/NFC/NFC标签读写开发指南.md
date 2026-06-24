@@ -1,6 +1,6 @@
 # NFC标签读写开发指南
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nfc-tag-access-guide
 
@@ -44,7 +44,7 @@ NFC标签支持一种或多种通信技术，具体技术如下：
 
 #### 接口说明
 
-NFC标签读写完整的JS API说明以及实例代码请参考：[NFC标签接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag)。
+NFC标签读写完整的JS API说明以及实例代码请参考：[@ohos.nfc.tag (标准NFC-Tag)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag)。
 
 获取不同技术类型标签对象的接口说明如下表，根据不同技术的标签对象来执行NFC标签的读写。
 
@@ -72,10 +72,10 @@ NFC标签读写应用开发者根据业务需要，可以选择实现前台读�
 
  - NFC标签前台读写
 
-1. 在配置文件module.json5中，不需要静态声明过滤读取NFC标签的技术类型，而是通过[tag.registerForegroundDispatch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagregisterforegrounddispatch10)或者[tag.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagon11)来完成动态注册。
+1. 在配置文件module.json5中，不需要静态声明过滤读取NFC标签的技术类型，而是通过[tag.registerForegroundDispatch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagregisterforegrounddispatch10)或者[tag.on](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagonreadermode11)来完成动态注册。
 2. 通过tag.registerForegroundDispatch或tag.on来动态注册前台读写标签时，入参中必须指定需要读取NFC标签的技术类型。
 3. 如果选择tag.registerForegroundDispatch注册，当应用运行在前台并进入该页面，NFC的卡模拟功能在打开时，可以同时完成刷卡。如果选择tag.on注册，当应用运行在前台并进入该页面时，NFC的卡模拟是关闭的，无法同时进行刷卡功能。
-4. 当应用页面切换到后台时，需要显式调用[tag.unregisterForegroundDispatch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagunregisterforegrounddispatch10)或者[tag.off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagoff11)来取消注册，退出前台读卡优先功能。
+4. 当应用页面切换到后台时，需要显式调用[tag.unregisterForegroundDispatch](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagunregisterforegrounddispatch10)或者[tag.off](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-nfctag#tagoffreadermode11)来取消注册，退出前台读卡优先功能。
 
  - NFC标签后台读写
 
@@ -143,7 +143,7 @@ NFC标签读写应用开发者根据业务需要，可以选择实现前台读�
 ```
 
 ```json
-import { tag } from '@kit.ConnectivityKit';
+import { tag, nfcController } from '@kit.ConnectivityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { AbilityConstant, UIAbility, Want, bundleManager } from '@kit.AbilityKit';
@@ -222,7 +222,7 @@ export default class EntryAbility extends UIAbility {
 
     // 判断设备是否支持NFC能力
     if (!canIUse("SystemCapability.Communication.NFC.Core")) {
-      hilog.error(0x0000, 'testTag', 'nfc unavailable.');
+      hilog.error(0x0000, 'testTag', 'NFC System Capability not supported.');
       return;
     }
 

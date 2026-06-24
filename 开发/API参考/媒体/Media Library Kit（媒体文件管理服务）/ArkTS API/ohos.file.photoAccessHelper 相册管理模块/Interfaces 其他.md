@@ -1,6 +1,6 @@
 # Interfaces (其他)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -27,7 +27,7 @@ import { photoAccessHelper } from '@kit.MediaLibraryKit';
 媒体变更请求，资产变更请求和相册变更请求的父类型。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/ER2gBlj6Rma3xHG43-HzkQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012608Z&HW-CC-Expire=86400&HW-CC-Sign=D836FB2DB2CFA63F7D8A6D4AC25E799EB8D11AE9E5BA5C4179388A150264F2B0)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/Kj1csJ0jRK2ycFKFdXJpAg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020302Z&HW-CC-Expire=86400&HW-CC-Sign=126ED8F801432A8117051AE36D775F86CED8999A795A14518396C9C1B6271FDA)
 
 
 媒体变更请求必须在调用[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)后才会生效。
@@ -349,10 +349,29 @@ picker内宫格的捏合模式。
 
 **模型约束**： 此接口仅可在Stage模型下使用。
 
-**元服务API：** 从API version 24开始，该接口支持在元服务中使用。
+**系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| supportedHighResolution | boolean | 否 | 否 | 是否支持启用高分辨率资产。true表示支持，false表示不支持。 元服务API: 从API version 24开始，该接口支持在元服务中使用。 |
+| supportedMimeType | Array&lt;string&gt; | 否 | 是 | 支持MIME types的类型。 - 配置image/heic表示应用支持heif格式。 - 配置image/jpeg表示应用仅支持jpeg格式不支持heif格式。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+
+
+
+
+#### MediaLibraryAvailability
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+媒体库可用性信息。
+
+**起始版本：** 26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
 
 **系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| supportedHighResolution | boolean | 否 | 否 | 是否支持启用高分辨率资产。true表示支持，false表示不支持。 |
+| availabilityStatus | AvailabilityStatus | 否 | 否 | 媒体库可用性状态。 |
+| unavailabilityReason | string | 否 | 否 | 媒体库不可用原因，例如"Database corrupted"。 |

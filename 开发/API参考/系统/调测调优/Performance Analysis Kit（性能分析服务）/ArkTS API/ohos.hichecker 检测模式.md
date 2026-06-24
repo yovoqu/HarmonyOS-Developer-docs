@@ -1,6 +1,6 @@
 # @ohos.hichecker (检测模式)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hichecker
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,6 +35,7 @@ import { hichecker } from '@kit.PerformanceAnalysisKit';
 | RULE_CAUTION_PRINT_LOG | bigint | 1ULL << 63 | 告警规则，当有告警时记录日志。 |
 | RULE_CAUTION_TRIGGER_CRASH | bigint | 1ULL << 62 | 告警规则，当有告警时让应用退出。 |
 | RULE_THREAD_CHECK_SLOW_PROCESS | bigint | 1ULL | 检测规则，检测是否有耗时函数被调用。 |
+| RULE_THREAD_CHECK_NETWORK_USAGE | bigint | 1ULL << 1 | 检测规则，检测线程是否调用网络耗时接口。 起始版本: 26.0.0 |
 | RULE_CHECK_ABILITY_CONNECTION_LEAK | bigint | 1ULL << 33 | 检测规则，检测是否发生ability泄露。 |
 | RULE_CHECK_ARKUI_PERFORMANCE11+ | bigint | 1ULL << 34 | 检测规则，检测arkui性能。 |
  

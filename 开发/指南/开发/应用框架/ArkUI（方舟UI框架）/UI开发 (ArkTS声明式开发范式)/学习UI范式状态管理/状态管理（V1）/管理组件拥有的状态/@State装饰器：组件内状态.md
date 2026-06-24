@@ -1,6 +1,6 @@
 # @State装饰器：组件内状态
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-state
 
@@ -157,9 +157,9 @@ this.title.name.value = 'ArkUI';
 @State count: number = 10;
 ```
 
-2. @State不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
+2. @State不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。
 
-  从API version 23开始，在应用编译时添加了相关校验，@State装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@State装饰器。
+  从API version 23开始，添加对@State装饰Function类型变量的校验，编译期会报错。
 3. 父组件传入undefined时，@State装饰的变量仍使用本地默认值进行初始化。
 
   
@@ -203,7 +203,7 @@ struct Child {
 
 #### 装饰简单类型的变量
 
-以下示例为@State装饰的简单类型，count被@State装饰成为状态变量，count的改变引起Button组件的刷新：
+以下示例为@State装饰的简单类型，count被@State装饰成为状态变量，count的改变引起[Button](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-button)组件的刷新：
 
  - 当状态变量count改变时，只能查询到Button组件与之关联。
  - 执行Button组件的更新方法，实现按需刷新。

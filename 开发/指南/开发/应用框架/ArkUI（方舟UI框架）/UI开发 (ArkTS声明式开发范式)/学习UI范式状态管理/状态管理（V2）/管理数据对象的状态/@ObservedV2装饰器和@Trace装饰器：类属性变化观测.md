@@ -1,6 +1,6 @@
 # @ObservedV2装饰器和@Trace装饰器：类属性变化观测
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-observedv2-and-trace
 
@@ -1265,4 +1265,4 @@ struct Detail {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/bNYapYOvSsyke-IixkkIxw/zh-cn_image_0000002611753611.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030447Z&HW-CC-Expire=86400&HW-CC-Sign=23ED411006B3B0299E041A71CB1CFF36B8EDA3B886569AA8D0E41DD89E1B2EC2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/oAC2SpCHTaGFmpYuQqSkRg/zh-cn_image_0000002656347497.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020745Z&HW-CC-Expire=86400&HW-CC-Sign=4D7842291DE6B7A0DA6714ECEDBC88B7A4FA03E8E20A4413253F14C4F1C65FB6)

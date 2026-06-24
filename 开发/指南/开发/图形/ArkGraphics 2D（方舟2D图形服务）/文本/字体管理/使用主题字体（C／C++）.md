@@ -1,6 +1,6 @@
 # 使用主题字体（C/C++）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/theme-font-c
 
@@ -116,10 +116,10 @@ OH_Drawing_Typography *typography = OH_Drawing_CreateTypography(handler);
 **图2** 主题字体1的效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3c/v3/VgKaYYnOSyqd-VemANhtPA/zh-cn_image_0000002611834597.png?HW-CC-KV=V1&HW-CC-Date=20260528T030534Z&HW-CC-Expire=86400&HW-CC-Sign=DE379304A19E6C2A37A9CB26BCB60748A1E9F5B7D69EEE9977035D003EAE7E3F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/Dus4uP_bREuZr8-pKm4Kcg/zh-cn_image_0000002626229280.png?HW-CC-KV=V1&HW-CC-Date=20260624T020915Z&HW-CC-Expire=86400&HW-CC-Sign=4F4AAD25CC648914C7AEAAAF0BB8787B42C39083A3CBC84F0D05F4C810CA4D8B)
 
 
 **图3** 主题字体2的效果
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/Xiz6b-GWQrOnVgpzyFzKHw/zh-cn_image_0000002581274850.png?HW-CC-KV=V1&HW-CC-Date=20260528T030534Z&HW-CC-Expire=86400&HW-CC-Sign=1AF0AE5E330856419F829D149FFDFACF1404DA31A9F9A8B4E7BCAC01FFA05B17)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/f4QauKMeQv6k0YgeQ0fL8A/zh-cn_image_0000002626069370.png?HW-CC-KV=V1&HW-CC-Date=20260624T020915Z&HW-CC-Expire=86400&HW-CC-Sign=DBE527769D924A94E906F494CDAF89B23A432C0A7539165E0CDB08722DF45BFB)

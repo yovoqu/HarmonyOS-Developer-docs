@@ -1,6 +1,6 @@
 # text
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-text
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -120,4 +120,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/FoKEcmsURAqndwvh3QLe2Q/zh-cn_image_0000002611836403.png?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=C6F621FF1D8F718988F4CDAD3D7DD814EBAA1FDA1D9D2120EA537F7ACCBF3C8C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5e/v3/SvVCQPaFScGbCYGs0Sv9pg/zh-cn_image_0000002656350547.png?HW-CC-KV=V1&HW-CC-Date=20260624T015950Z&HW-CC-Expire=86400&HW-CC-Sign=6F34C1BBD5F9810B2CA0454589EF5B87673A9EDB847DFCD35E564B92F16E7AEC)

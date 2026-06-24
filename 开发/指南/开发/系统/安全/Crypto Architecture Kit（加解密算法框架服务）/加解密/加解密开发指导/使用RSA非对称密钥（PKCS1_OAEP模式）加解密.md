@@ -1,6 +1,6 @@
-# 使用RSA非对称密钥（PKCS1_OAEP模式）加解密
+# 使用RSA非对称密钥（PKCS1_OAEP模式）加解密(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-asym-encrypt-decrypt-pkcs1_oaep
 
@@ -19,7 +19,7 @@
 
 **解密**
 1. 由于RSA算法的Cipher实例不支持重复init操作，需要调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，重新生成Cipher实例。
-2. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（cryptoFramework.CryptoMode.DECRYPT_MODE），指定解密密钥（KeyPair.PriKey）初始化解密Cipher实例。PKCS1模式无加密参数，直接传入null。
+2. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（cryptoFramework.CryptoMode.DECRYPT_MODE），指定解密密钥（KeyPair.PriKey）初始化解密Cipher实例。PKCS1_OAEP模式无额外加密参数，直接传入null。
 3. 在调用Cipher.doFinal前，调用[Cipher.setCipherSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#setcipherspec10)设置PKCS1_OAEP填充参数pSource，此处需要和加密时设置的保持一致。调用[Cipher.getCipherSpec](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getcipherspec10)可获得OAEP相关参数。
 4. 调用[Cipher.doFinal](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#dofinal-1)，传入密文，获取解密后的数据。
 

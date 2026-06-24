@@ -1,6 +1,6 @@
 # inputmethod_cursor_info_capi.h
 
-更新时间：2026-03-20 09:49:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-inputmethod-cursor-info-capi-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-提供光标信息对象的创建、销毁与读写方法。
+提供光标信息（即用于描述文本输入时光标的位置与尺寸信息，在输入法服务中用于确定光标所在区域以实现精准输入）对象的创建、销毁与读写方法。
  
 **引用文件：** <inputmethod/inputmethod_cursor_info_capi.h>
  
@@ -78,7 +78,7 @@ InputMethod_CursorInfo *OH_CursorInfo_Create(double left, double top, double wid
   
 | 参数项 | 描述 |
 | --- | --- |
-| double left | 光标靠左点与物理屏幕左侧距离的绝对值，单位px。 |
+| double left | 光标靠左点相对于物理屏幕左侧的距离的绝对值，单位px。 |
 | double top | 光标顶点与物理屏幕上侧距离的绝对值，单位px。 |
 | double width | 宽度，单位px。 |
 | double height | 高度，单位px。 |

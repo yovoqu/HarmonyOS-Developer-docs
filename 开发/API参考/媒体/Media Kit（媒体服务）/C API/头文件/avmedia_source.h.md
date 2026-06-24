@@ -1,6 +1,6 @@
 # avmedia_source.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmedia-source-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -19,7 +19,7 @@
  
 **起始版本：** 23
  
-**相关模块：** [avmedia_source](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmedia-source)
+**相关模块：** [AVMediaSource](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avmedia-source)
  
   
 
@@ -418,7 +418,7 @@ OH_AVErrCode OH_AVMediaSource_SetMimeType(OH_AVMediaSource *source, const char *
 | 参数项 | 描述 |
 | --- | --- |
 | OH_AVMediaSource *source | 指向OH_AVMediaSource的指针。 |
-| const char *mimetype | 媒体源的MIME类型AV_MimeTypes。 |
+| const char *mimetype | 媒体源的MIME类型AVMimeTypes。 |
  
  
 **返回：**

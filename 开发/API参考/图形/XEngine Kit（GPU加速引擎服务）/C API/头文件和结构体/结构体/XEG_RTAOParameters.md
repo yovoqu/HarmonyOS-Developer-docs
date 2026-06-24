@@ -1,6 +1,6 @@
 # XEG_RTAOParameters
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-rtaoparameters
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -31,8 +31,8 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| float rayTMax | 环境光遮蔽光线的tMax值。 |
-| float rayTMin | 环境光遮蔽光线的tMin值。 |
+| float rayTMax | 环境光遮蔽光线的tMax值，必须为非负数。 |
+| float rayTMin | 环境光遮蔽光线的tMin值，必须为非负数。 |
 | float aoIntensity = 1.0f | 环境光遮蔽的强度，值越大AO效果越重，值越小AO效果越轻。此参数的值将被限制在[0.5, 1.0]范围内。默认值为1.0。 |
 | float aoNormalBias = 1.0f | 从着色点位置沿着法线方向偏移的距离，用于解决深度值转世界坐标时因为精度问题导致的自遮挡错误。默认值为1.0。 |
 | uint32_t aoCullMask = 0x5FF | 配置光线查询rayQueryInitializeEXT函数中的rayFlags和cullMask参数，高24bit表示rayFlags， 低8bit表示cullMask。 默认值为0x5FF，即 ((gl_RayFlagsOpaqueEXT \| gl_RayFlagsTerminateOnFirstHitEXT) << 8) \| 0xFF。 |
@@ -128,7 +128,7 @@ float XEG_RTAOParameters::rayTMax
  
 **描述**
  
-环境光遮蔽光线的tMax值。
+环境光遮蔽光线的tMax值，必须为非负数。
  
   
 
@@ -142,4 +142,4 @@ float XEG_RTAOParameters::rayTMin
  
 **描述**
  
-环境光遮蔽光线的tMin值。
+环境光遮蔽光线的tMin值，必须为非负数。

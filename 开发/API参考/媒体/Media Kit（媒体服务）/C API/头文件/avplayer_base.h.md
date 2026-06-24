@@ -1,6 +1,6 @@
 # avplayer_base.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avplayer-base-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -55,6 +55,7 @@
 | AVPlayerOnInfoType | AVPlayerOnInfoType | OnInfo类型。 可用于OH_AVPlayerOnInfoCallback和OH_AVPlayerOnInfo(已废弃)，用于表示收到的播放器信息类型。 从API 12开始，推荐用户使用OH_AVPlayerOnInfoCallback。不同的OnInfo类型，可获取到不同信息（infoBody），infoBody中包含key-value关系表，详见下述枚举值表。 使用API 11版本的开发者，需要使用旧接口。针对已废弃接口OH_AVPlayerOnInfo中使用的对应关系，可直接参考OH_AVPlayerOnInfo的API说明。 |
 | AVPlayerBufferingType | AVPlayerBufferingType | 播放缓冲消息类型定义。 |
 | AVPlayerTrackSwitchMode | AVPlayerTrackSwitchMode | 枚举轨道切换模式。 |
+| OH_VideoOutputResult | OH_VideoOutputResult | 视频输出结果。 |
  
  
   
@@ -105,8 +106,8 @@
 | const char * OH_PLAYER_MD_KEY_HAS_AUDIO | 获取媒体资源是否包含音频轨信息的关键字，对应值类型int32_t。 1：包含音频轨，0：不包含音频轨。 起始版本： 22 |
 | const char * OH_PLAYER_MD_KEY_HAS_SUBTITLE | 获取媒体资源是否包含字幕轨信息的关键字，对应值类型int32_t。 1：包含字幕轨，0：不包含字幕轨。 起始版本： 22 |
 | const char * OH_PLAYER_MD_KEY_TRACK_INDEX | 获取媒体资源轨道下标信息的关键字，对应值类型int32_t。 起始版本： 22 |
-| const char * OH_PLAYER_SEI_PAYLOAD_TYPE | SEI 消息中表示负载类型的关键字。 起始版本： 23 |
-| const char * OH_PLAYER_SEI_PAYLOAD_CONTENT | SEI 消息中表示负载内容的关键字。 起始版本： 23 |
+| const char * OH_PLAYER_SEI_PAYLOAD_TYPE | SEI消息中表示负载类型的关键字。 起始版本： 23 |
+| const char * OH_PLAYER_SEI_PAYLOAD_CONTENT | SEI消息中表示负载内容的关键字。 起始版本： 23 |
 | const char * OH_PLAYER_SUPER_RESOLUTION_ENABLE_STATE | 超分辨率功能启用状态关键字，值类型为int32_t。值为1表示已启用，0表示未启用；用于超分辨率状态变化时的信息回调。 起始版本： 23 |
 | const char * OH_PLAYER_TRACH_CHANGE_INFO_TRACK_INDEX | 轨道切换信息中表示轨道索引的关键字，值类型为int32_t。 起始版本： 23 |
 | const char * OH_PLAYER_TRACH_CHANGE_INFO_TRACK_SELECTED | 轨道切换信息中表示轨道是否被选中的标志关键字，值类型为int32_t。 起始版本： 23 |
@@ -319,6 +320,28 @@ enum AVPlayerTrackSwitchMode
 | AV_TRACK_SWITCH_MODE_SMOOTH = 0 | 平滑切换轨道。 |
 | AV_TRACK_SWITCH_MODE_SEGMENT = 1 | 按片段切换轨道。 |
 | AV_TRACK_SWITCH_MODE_CLOSEST = 2 | 切换到最接近的轨道。 |
+ 
+ 
+  
+
+#### OH_VideoOutputResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+enum OH_VideoOutputResult
+```
+ 
+**描述**
+ 
+视频输出结果。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举项 | 描述 |
+| --- | --- |
+| OH_VIDEO_OUTPUT_OK = 0 | 输出1个解码视频帧。 |
+| OH_VIDEO_OUTPUT_NO_IMAGE = 1 | 没有可渲染的帧。 |
  
  
   

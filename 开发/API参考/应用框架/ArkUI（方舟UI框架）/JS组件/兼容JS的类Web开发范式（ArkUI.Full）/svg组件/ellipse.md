@@ -1,6 +1,6 @@
 # ellipse
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-ellipse
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -60,4 +60,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/03/v3/fzzHVnJnSPqMcjquYDdERg/zh-cn_image_0000002611756321.png?HW-CC-KV=V1&HW-CC-Date=20260528T025439Z&HW-CC-Expire=86400&HW-CC-Sign=A077B45577164F170B9EA7344BF9A4F5E01EA739B078AB9030325F491B602B64)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/7YGe89a9RdaG7GNbz80X4A/zh-cn_image_0000002626071030.png?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=57D67F3135C99786D5EEA7A657B5969A67AC2D55D267548E108433602F5119CE)

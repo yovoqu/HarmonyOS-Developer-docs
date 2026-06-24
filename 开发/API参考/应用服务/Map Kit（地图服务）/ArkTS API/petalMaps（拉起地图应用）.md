@@ -1,6 +1,6 @@
 # petalMaps（拉起地图应用）
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-petal-maps
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -31,8 +31,6 @@ openMapHomePage(context: common.Context): Promise&lt;void&gt;
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Map.Core
- 
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
  
 **起始版本：** 5.0.3(15)
  
@@ -80,8 +78,6 @@ openMapPoiDetail(context: common.Context, poiDetailParams: PoiDetailParams): Pro
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Map.Core
- 
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
  
 **起始版本：** 5.0.3(15)
  
@@ -137,8 +133,6 @@ openMapTextSearch(context: common.Context, textSearchParams: TextSearchParams): 
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
- 
 **起始版本：** 5.0.3(15)
  
 **参数：**
@@ -189,8 +183,6 @@ openMapRoutePlan(context: common.Context, routePlanParams: RoutePlanParams): Pro
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Map.Core
- 
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
  
 **起始版本：** 5.0.3(15)
  
@@ -246,8 +238,6 @@ openMapNavi(context: common.Context, naviParams: NaviParams): Promise&lt;void&gt
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
- 
 **起始版本：** 5.0.3(15)
  
 **参数：**
@@ -302,8 +292,6 @@ openMapTaxi(context: common.Context, taxiParams: TaxiParams): Promise&lt;void&gt
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 在API21及之后版本该接口在phone和tablet均可正常使用，在其他设备中返回801错误。
- 
 **起始版本：** 6.0.1(21)
  
 **参数：**
@@ -357,8 +345,6 @@ openMapOfflineDataManagement(context: common.Context, offlineDataParams: Offline
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 在API24及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
- 
 **起始版本：** 6.1.1(24)
  
 **参数：**
@@ -407,8 +393,6 @@ POI详情的参数。
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
- 
 **起始版本：** 5.0.3(15)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -448,8 +432,6 @@ let params: petalMaps.PoiDetailParams = {
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
- 
 **起始版本：** 5.0.3(15)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -476,8 +458,6 @@ let params: petalMaps.TextSearchParams = {
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Map.Core
- 
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
  
 **起始版本：** 5.0.3(15)
   
@@ -516,8 +496,6 @@ let params: petalMaps.RoutePlanParams = {
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
- 
 **起始版本：** 5.0.3(15)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -555,8 +533,6 @@ let params: petalMaps.NaviParams = {
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 在API24及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
- 
 **起始版本：** 6.1.1(24)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -585,8 +561,6 @@ let params: petalMaps.OfflineDataParams = {
  
 **系统能力：** SystemCapability.Map.Core
  
-**设备行为差异：** 对于API 19及之前的版本，该接口在phone、tablet中可正常使用，在其他设备中返回801错误码。在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
- 
 **起始版本：** 5.0.3(15)
   
 | 名称 | 值 | 说明 |
@@ -608,8 +582,6 @@ let params: petalMaps.OfflineDataParams = {
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Map.Core
- 
-**设备行为差异：** 在API21及之后版本该接口在phone、tablet均可正常使用，在其他设备中返回801错误。
  
 **起始版本：** 6.0.1(21)
   

@@ -1,6 +1,6 @@
 # 系统字体的信息获取和使用（C/C++）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/system-font-c
 
@@ -213,7 +213,7 @@ OH_Drawing_DisableFontCollectionSystemFont(fontCollection);
 6. 创建文本样式对象，使用注册成功的自定义字体。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/5WD3hY78Sr20DahLm7k1Yg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030534Z&HW-CC-Expire=86400&HW-CC-Sign=4B5468388D500C18AB91538ED8D9F7006C18B962842B7B82CBFF1B4BC5E20029)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/87/v3/GlNovhovTkqYCY1pBp_HJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020915Z&HW-CC-Expire=86400&HW-CC-Sign=8020D8A1BE1C3D472FA5D85DEC90B69FFB85C90566F6572D2F068D9CE524E699)
  
 
   若不设置字体，文本会默认使用系统字体，而系统字体禁用后若不设置使用自定义字体，文本将无法正常显示。

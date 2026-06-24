@@ -1,6 +1,6 @@
 # ArkWeb简介
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-component-overview
 
@@ -58,9 +58,11 @@ Web组件为开发者提供了丰富的控制Web页面能力。包括：
 
 | HarmonyOS 4.1-5.1 | M114 |
 
-| HarmonyOS 6.0 | M132（默认，推荐使用） M114（可选，若应用需切换为此内核，请参考M114内核在HarmonyOS6.0系统上的适配指导） |
+| HarmonyOS 6.0 | M132（默认，推荐使用，请参考M114->M132差异适配指南） M114（可选，若应用需切换为此内核，请参考M114内核在HarmonyOS 6.0系统上的适配指导） |
 
 | HarmonyOS 6.1 | M132 |
+
+| HarmonyOS 7.0 | M144（默认，推荐使用，请参考M132->M144差异适配指南） M132（可选，若应用需切换为此内核，请参考M132内核在HarmonyOS 7.0系统上的适配指导） |
  - 为保障用户隐私安全，HarmonyOS内置了ArkWeb组件，旨在为全场景设备提供安全、可靠且一致的网页浏览体验。应用渲染网页需调用ArkWeb组件；元服务内嵌网页渲染则需使用官方提供的Webview组件。开发者可根据其元服务开发框架，选择使用[ASCF Webview](https://developer.huawei.com/consumer/cn/doc/atomic-ascf/develop-web-view)或[AtomicServiceEnhancedWeb](https://developer.huawei.com/consumer/cn/doc/atomic-guides/atomicserviceweb-guidelines#atomicserviceenhancedweb)组件。元服务内嵌页面内容需遵循元服务内嵌页面管理规范。
 
 

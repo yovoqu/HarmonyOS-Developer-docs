@@ -1,6 +1,6 @@
 # Class (Pen)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-pen
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -460,7 +460,7 @@ setStrokeWidth(width: number) : void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| width | number | 是 | 表示线宽，该参数为浮点数。 |
+| width | number | 是 | 表示线宽，该参数为浮点数。单位为物理像素px。 |
 
 
 **错误码：**

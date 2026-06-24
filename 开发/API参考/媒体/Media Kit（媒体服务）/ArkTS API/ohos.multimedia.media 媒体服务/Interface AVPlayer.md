@@ -1,6 +1,6 @@
 # Interface (AVPlayer)
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-media-avplayer
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -50,6 +50,7 @@ import { media } from '@kit.MediaKit';
 | duration9+ | number | 是 | 否 | 视频时长，单位为毫秒（ms），可查询参数。 返回为（-1）表示无效值，prepared/playing/paused/completed状态下有效。 直播场景默认返回（-1）。 元服务API： 从API version 11开始，该接口支持在元服务中使用。 |
 | width9+ | number | 是 | 否 | 视频宽，单位为像素（px），可查询参数。 返回为（0）表示无效值，prepared/playing/paused/completed状态下有效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | height9+ | number | 是 | 否 | 视频高，单位为像素（px），可查询参数。 返回为（0）表示无效值，prepared/playing/paused/completed状态下有效。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| playlistLoopMode | PlaylistLoopMode | 否 | 是 | 在播放媒体列表时，设置循环模式。默认值为PLAYLIST_LOOP_MODE_ALL，表示循环播放列表中的所有项目。 起始版本： 26.0.0 元服务API： 从API Version 26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -305,6 +306,549 @@ async function test(){
     thresholdForAutoQuickPlay: 5
   };
   player.setMediaSource(mediaSource, playStrategy);
+}
+```
+
+
+
+#### getTrackSelectionFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getTrackSelectionFilter(): Promise&lt;TrackSelectionFilter&gt;
+
+获取播放器当前配置的轨道选择过滤器。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;TrackSelectionFilter&gt; | Promise对象，返回当前配置的轨道选择过滤器。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+  player.getTrackSelectionFilter().then((selectionFilter: media.TrackSelectionFilter) => {
+    console.info(`Succeeded in getting TrackSelectionFilter: ${selectionFilter}`);
+  }).catch((err: BusinessError) => {
+    console.error('Failed to getTrackSelectionFilter, error message is:' + err.message);
+  });
+}
+```
+
+
+
+#### setTrackSelectionFilter
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+setTrackSelectionFilter(filter : TrackSelectionFilter): Promise&lt;void&gt;
+
+为播放器设置轨道选择过滤器，播放器将使用该过滤器来选择可用的轨道用于播放。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| filter | TrackSelectionFilter | 是 | 轨道选择过滤器。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+  let selectionFilter: media.TrackSelectionFilter = {
+    maxVideoBitrate: 80000,
+    minVideoBitrate: 0,
+    maxVideoFrameRate: 60,
+    minVideoFrameRate: 0,
+    maxVideoResolution: { width: 1080, height: 720 },
+    minVideoResolution: { width: 0, height: 0 },
+    preferredVideoMimeTypes: [media.CodecMimeType.VIDEO_AVC],
+    maxAudioBitrate: 8000,
+    minAudioBitrate: 0,
+    maxAudioChannels: 3,
+    preferredAudioMimeTypes: [media.CodecMimeType.AUDIO_AAC, media.CodecMimeType.AUDIO_MP3],
+    preferredAudioLanguages: [],
+    preferredSubtitleLanguages: []
+  };
+  player.setTrackSelectionFilter(selectionFilter).then(() => {
+    console.info('Succeeded in setting TrackSelectionFilter');
+  }).catch((err: BusinessError) => {
+    console.error('Failed to setTrackSelectionFilter, error message is:' + err.message);
+  });
+}
+```
+
+
+
+#### addPlaybackMediaSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+addPlaybackMediaSource(src: MediaSource, id?: string): Promise&lt;string&gt;
+
+向播放器的播放列表添加一个新的播放源。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| src | MediaSource | 是 | 要添加的媒体源。 |
+| id | string | 否 | 表示播放列表中媒体源的ID，新添加的媒体源会插入到指定媒体源之前。如果未指定，默认添加到列表末尾。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;string&gt; | Promise对象，返回对应媒体资源的唯一ID。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. Return by promise. |
+| 5400108 | The media source ID does not exist in the playlist. Returned by promise. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+  let headers: Record<string, string> = {"User-Agent" : "MyApp/1.0"};
+  let mediaSource1: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video1.mp4", headers);
+  let source1 = await player.addPlaybackMediaSource(mediaSource1);
+  let mediaSource2: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video2.mp4", headers);
+  let source2 = await player.addPlaybackMediaSource(mediaSource2, source1);
+}
+```
+
+
+
+#### removePlaybackMediaSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+removePlaybackMediaSource(id: string): Promise&lt;void&gt;
+
+从播放器的播放列表中移除指定的媒体源。使用Promise异步回调。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8e/v3/IZWGGDDkSYOh16KjcVo_Tw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=6F49A9077717232C8B4C724D526529343C7E4762153CC2F00BB14EB889C4ACC9)
+
+
+ - 如果该ID在当前播放列表中不存在，将返回错误码。
+
+
+
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| id | string | 是 | 将媒体源添加到播放列表后返回的ID。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. Return by promise. |
+| 5400108 | The media source ID does not exist in the playlist. Returned via promise. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+  let headers: Record<string, string> = {"User-Agent" : "MyApp/1.0"};
+  let mediaSource1: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video1.mp4", headers);
+  let sourceId = await player.addPlaybackMediaSource(mediaSource1);
+  await player.removePlaybackMediaSource(sourceId);
+}
+```
+
+
+
+#### clearPlaybackList
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+clearPlaybackList(): Promise&lt;void&gt;
+
+清空播放列表中的所有项目，当前正在播放的媒体将会立即终止。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed or no next mediasource in the list. Return by promise. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+  let headers: Record<string, string> = {"User-Agent" : "MyApp/1.0"};
+  let mediaSource1: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video1.mp4", headers);
+  let sourceId1 = await player.addPlaybackMediaSource(mediaSource1);
+  let mediaSource2: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video2.mp4", headers);
+  let sourceId2 = await player.addPlaybackMediaSource(mediaSource2, sourceId1);
+  await player.clearPlaybackList();
+}
+```
+
+
+
+#### getCurrentMediaSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getCurrentMediaSource(): MediaSource | undefined;
+
+获取当前正在播放的媒体源对象。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| MediaSource \| undefined | 如果操作成功，则返回当前媒体源，否则返回 undefined。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. Return by promise. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+  let headers: Record<string, string> = {"User-Agent" : "MyApp/1.0"};
+  let mediaSource: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video1.mp4", headers);
+  await player.addPlaybackMediaSource(mediaSource);
+  let currentMediaSource: media.MediaSource | undefined = player.getCurrentMediaSource();
+}
+```
+
+
+
+#### getMediaSources
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getMediaSources(): Array<MediaSource | undefined>
+
+获取当前播放列表中所有媒体源的数组。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Array<MediaSource \| undefined> | 播放列表中的媒体源数组。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. Return by promise. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+  let headers: Record<string, string> = {"User-Agent" : "MyApp/1.0"};
+  let mediaSource1: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video1.mp4", headers);
+  let sourceId1 = await player.addPlaybackMediaSource(mediaSource1);
+  let mediaSource2: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video2.mp4", headers);
+  let sourceId2 = await player.addPlaybackMediaSource(mediaSource2);
+  let sources: Array<media.MediaSource | undefined> = player.getMediaSources();
+}
+```
+
+
+
+#### advanceToNextMediaSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+advanceToNextMediaSource(): Promise&lt;void&gt;
+
+结束当前媒体源的播放，并开始播放媒体源列表中的下一个媒体源。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码 ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. Return by promise. |
+| 5400108 | The previous mediasource does not exist in the playlist. Returned via promise. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+
+  let headers: Record<string, string> = {"User-Agent" : "MyApp/1.0"};
+  let mediaSource1: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video1.mp4", headers);
+  await player.addPlaybackMediaSource(mediaSource1);
+  let mediaSource2: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video2.mp4", headers);
+  await player.addPlaybackMediaSource(mediaSource2);
+
+  await player.prepare();
+  await player.play();
+  await player.advanceToNextMediaSource();
+}
+```
+
+
+
+#### advanceToPrevMediaSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+advanceToPrevMediaSource(): Promise&lt;void&gt;
+
+结束当前媒体源的播放，并开始播放媒体源列表中的上一个媒体源。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码 ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. Return by promise. |
+| 5400108 | The next mediasource does not exist in the playlist. Returned via promise. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+
+  let headers: Record<string, string> = {"User-Agent" : "MyApp/1.0"};
+  let mediaSource1: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video1.mp4", headers);
+  await player.addPlaybackMediaSource(mediaSource1);
+  let mediaSource2: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video2.mp4", headers);
+  await player.addPlaybackMediaSource(mediaSource2);
+  let mediaSource3: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video3.mp4", headers);
+  await player.addPlaybackMediaSource(mediaSource3);
+
+  await player.prepare();
+  await player.play();
+  await player.advanceToNextMediaSource();
+  await player.advanceToPrevMediaSource();
+}
+```
+
+
+
+#### advanceToMediaSource
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+advanceToMediaSource(id: string): Promise&lt;void&gt;
+
+结束当前媒体源的播放，并开始播放列表中指定的媒体源。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| id | string | 是 | 指定媒体源的唯一标识符ID。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码 ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. Return by promise. |
+| 5400108 | The mediasource does not exist in the playlist. Returned via promise. |
+
+
+**示例：**
+
+```text
+async function test() {
+  let player = await media.createAVPlayer();
+  let headers: Record<string, string> = {"User-Agent" : "MyApp/1.0"};
+
+  let mediaSource1: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video1.mp4", headers);
+  let sourceId1 = await player.addPlaybackMediaSource(mediaSource1);
+  let mediaSource2: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video2.mp4", headers);
+  let sourceId2 = await player.addPlaybackMediaSource(mediaSource2);
+  let mediaSource3: media.MediaSource = media.createMediaSourceWithUrl("http://example.com/video3.mp4", headers);
+  let sourceId3 = await player.addPlaybackMediaSource(mediaSource3);
+  await player.prepare();
+  await player.play();
+  await player.advanceToMediaSource(sourceId3);
 }
 ```
 
@@ -1338,7 +1882,9 @@ async function  test(){
 
 selectTrack(index: number, mode?: SwitchMode): Promise&lt;void&gt;
 
-使用AVPlayer播放多音视频轨资源时，选择指定轨道播放，使用Promise异步回调。
+使用AVPlayer播放多音视频轨资源时，允许用户以指定模式切换到指定轨道以继续播放。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1348,8 +1894,8 @@ selectTrack(index: number, mode?: SwitchMode): Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| index | number | 是 | 多音视频资源的轨道索引，可通过getTrackDescription接口获取当前资源的所有轨道信息MediaDescription。 |
-| mode | SwitchMode | 否 | 切换视频轨道模式，默认为SMOOTH模式，仅在DASH协议网络流视频轨切换时生效，其他场景当前暂不支持。 |
+| index | number | 是 | 多音视频资源的轨道索引。该值必须为整数。 取值约束：可通过getTrackDescription接口返回的音视频轨道信息MediaDescription中读取的key为MD_KEY_TRACK_INDEX所对应的值。 每个key值的Object类型和范围，请参考MediaDescriptionKey对应Key值的说明。 |
+| mode | SwitchMode | 否 | 切换轨道的模式。 取值约束：该模式仅适用于视频轨道的切换。 默认值：SMOOTH模式，在片段末尾进行切换，以确保视频播放的连续性。仅在DASH/HLS协议网络流视频轨切换时生效。 从API版本26.0.0开始支持HLS协议网络流视频。 |
 
 
 **返回值：**
@@ -1560,12 +2106,14 @@ seek(timeMs: number, mode?:SeekMode): void
 跳转到指定播放位置，只能在prepared/playing/paused/completed状态调用，可以通过[on('seekDone')](#onseekdone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/t-ILMzFARgCM7koMG_OjZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=DF8E2036E26BD1D7671175255CF783AD42CC78C1D6721463E096D69C48EC9CED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/YV92dgKnRp2_9wHOYdiVAg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=9B4049EFC5888DA334B035FA57BB69B462D1FB0CCAD9A1A1EB85F8288222E170)
 
 
-直播场景不支持seek。
+从API版本26.0.0开始，直播场景支持seek。
 
 
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **元服务API：** 从API version 11开始，该接口支持在元服务中使用。
 
@@ -1575,7 +2123,7 @@ seek(timeMs: number, mode?:SeekMode): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| timeMs | number | 是 | 指定的跳转时间节点，单位毫秒（ms），取值范围为[0, duration]。 当模式为SEEK_CONTINUOUS时，可以取值-1，表示SEEK_CONTINUOUS模式结束。 |
+| timeMs | number | 是 | 指定的跳转时间节点，单位毫秒（ms），取值范围为[0, duration]。 当模式为SEEK_CONTINUOUS时，可以取值-1，表示SEEK_CONTINUOUS模式结束。该值必须为整数。 |
 | mode | SeekMode | 否 | 基于视频I帧的跳转模式，默认为SEEK_PREV_SYNC模式，仅在视频资源播放时设置。 |
 
 
@@ -1711,7 +2259,7 @@ setSpeed(speed: PlaybackSpeed): void
 设置倍速模式，只能在prepared/playing/paused/completed状态调用，可以通过[on('speedDone')](#onspeeddone9)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/z8pGD_z0SH-raT1cTmg9UQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=1E0A54E58DB65DABF0645DFE338D4BF92554CCBB358A7E0674729D5A621C1094)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/38/v3/wZUKwYB5QqiB_Sau9NxOJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=9883687FABDBE63D7747605A14A00A92479336312373D69FC440CFF22B8EAACA)
 
 
 直播场景不支持setSpeed。
@@ -1816,7 +2364,7 @@ setPlaybackRate(rate: number): void
 设置倍速模式。只能在prepared/playing/paused/completed状态调用，取值范围是[0.125, 4.0]，可以通过[playbackRateDone](#onplaybackratedone20)事件确认是否生效。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/4ctWC3tUSLenPHPE1ur9Lw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=CF0B59CEFD320D4608E995882F9851A98CEA33B6AC30671A2D2A4E8DDA95CDF1)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/48/v3/u9ZPkripTmyttnZFTlKWoQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=2A73970C6516E7D9414E1A0C97E5D6D8A86C89EDDA02A9337E68A0AE75D2983F)
 
 
 直播场景不支持setPlaybackRate。
@@ -1947,6 +2495,125 @@ async function test(){
   let avPlayer = await media.createAVPlayer();
   // 取消后，不再接收setPlaybackRate生效的事件。
   avPlayer.off('playbackRateDone');
+}
+```
+
+
+
+#### getLoadedTimeRanges
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getLoadedTimeRanges(): Promise<Array&lt;Range&gt;>
+
+获取已加载的时间区间段的列表。使用Promise异步回调。
+
+> [!NOTE]
+> 对于本地媒体资源，返回的时间区间为0到整个媒体时长。 对于网络媒体资源，返回本地已缓存的时间区间段的列表。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;Range&gt;> | Promise对象，返回播放器当前已加载的时间区间段的列表。 时间区间段以播放时间轴上的[start, end]位置表示，单位为毫秒。 |
+
+
+**示例：**
+
+```text
+async function test(){
+  let avPlayer = await media.createAVPlayer();
+  avPlayer.getLoadedTimeRanges().then((range: Array<media.Range>) => {
+    console.info(`Succeeded in calling getLoadedTimeRanges: ${range}`);
+  }).catch((err: BusinessError) => {
+    console.error('Failed to getLoadedTimeRanges, error message is: ' + err.message);
+  });
+}
+```
+
+
+
+#### getSeekableTimeRanges
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getSeekableTimeRanges(): Promise<Array&lt;Range&gt;>
+
+获取可跳转的时间区间段的列表。使用Promise异步回调。
+
+> [!NOTE]
+> 对于本地媒体资源及支持分段请求的媒体资源，返回的时间区间为0到整个媒体时长。 对于仅支持分块传输的媒体资源，没有可跳转的时间范围。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;Range&gt;> | Promise对象，返回播放器当前可跳转的时间区间段的列表。 时间区间段以播放时间轴上的[start, end]位置表示，单位为毫秒。 |
+
+
+**示例：**
+
+```text
+async function test(){
+  let avPlayer = await media.createAVPlayer();
+  avPlayer.getSeekableTimeRanges().then((range: Array<media.Range>) => {
+    console.info(`Succeeded in calling getSeekableTimeRanges: ${range}`);
+  }).catch((err: BusinessError) => {
+    console.error('Failed to getSeekableTimeRanges, error message is: ' + err.message);
+  });
+}
+```
+
+
+
+#### seekToDefaultPosition
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+seekToDefaultPosition(): void
+
+跳转到播放源的默认接入点。直播流为当前推荐的最新接入点；点播视频通常为视频起始位置（等同于seek(0)）。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Media错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-media)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 5400102 | Operation not allowed. Return by callback. |
+
+
+**示例：**
+
+```text
+async function test(){
+  let avPlayer = await media.createAVPlayer();
+  try {
+    avPlayer.seekToDefaultPosition()
+    console.info('Succeeded in calling seekToDefaultPosition.');
+  } catch (err) {
+    console.error('Failed to seekToDefaultPosition, error message is: ' + err.message);
+  }
 }
 ```
 
@@ -2406,7 +3073,7 @@ on(type: 'timeUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放当前时间，单位为毫秒（ms），用于刷新进度条当前位置，默认间隔100ms时间上报，因用户操作（seek）产生的时间变化会立刻上报。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/BqGgnOjfQu2iWbOMSl6-Lg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=CBE9906433D44083BDC921EDEA82B38D33134533F9534C37A3F55E3764C7616F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/9JGK7OZrR6iF67g1gU7rEw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=DA9C15EF328D3DAF05A690EFA92AC9C6FE9011D28F689C4DA2854CABA81E12A6)
 
 
  - 直播场景不支持timeUpdate上报。
@@ -2520,7 +3187,7 @@ on(type: 'durationUpdate', callback: Callback&lt;number&gt;): void
 监听资源播放资源的时长，单位为毫秒（ms），用于刷新进度条长度，默认只在prepared上报一次，同时允许一些特殊码流刷新多次时长。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8a/v3/kOOkfFC0Sxm3WRCemGYpsw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025351Z&HW-CC-Expire=86400&HW-CC-Sign=3BB125D3F5F42E394A64A76161BFADF6DD5D460F39BC1A00FDEB46672CFB3F81)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/tjuWvQ00RayHRGZs3vAmIA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020251Z&HW-CC-Expire=86400&HW-CC-Sign=8ADD56AAB6501AF9238C2E130A0C93041CEA26A162F527C5321AE82DEF1EAFC1)
 
 
 直播场景不支持durationUpdate上报。
@@ -3583,6 +4250,81 @@ async function test(){
 
 
 
+#### onPlaybackContentChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onPlaybackContentChanged(callback: Callback&lt;string&gt;):void;
+
+注册监听器用于监听播放内容变更事件。使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;string&gt; | 是 | 事件触发时调用的回调函数。 |
+
+
+**示例：**
+
+```text
+async function test(){
+  let avPlayer = await media.createAVPlayer();
+  avPlayer.onPlaybackContentChanged((id: string) => {
+    console.info('MediaSourceChange called, SourceId:' + id);
+  });
+}
+```
+
+
+
+#### offPlaybackContentChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offPlaybackContentChanged(callback?: Callback&lt;string&gt;):void;
+
+取消监听播放列表中当前媒体源变更事件。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;string&gt; | 否 | 当事件触发时调用的回调函数。若未指定此参数，则取消订阅该事件的所有回调函数。 |
+
+
+**示例：**
+
+```text
+async function test(){
+  let avPlayer = await media.createAVPlayer();
+  let callback = (id: string) => {
+    console.info('MediaSourceChange callback called');
+  };
+
+  avPlayer.onPlaybackContentChanged(callback);
+  avPlayer.offPlaybackContentChanged(callback);
+}
+```
+
+
+
 #### getPlaybackStatisticMetrics23+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3686,5 +4428,74 @@ offMetricsEvent(callback?: Callback<Array&lt;AVMetricsEvent&gt;>): void
 async function test(){
   let avPlayer = await media.createAVPlayer();
   avPlayer.offMetricsEvent();
+}
+```
+
+
+
+#### onTimedMetaData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+onTimedMetaData(callback: Callback&lt;AVTimedMetaData&gt;): void
+
+注册监听器以检测基于时间的元数据。目前只支持HLS的#EXT-X-DATERANGE和DASH的Event Stream信息，例如监听插播的元数据信息。使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;AVTimedMetaData&gt; | 是 | 回调函数，返回上报基于时间的元数据。 |
+
+
+**示例：**
+
+```text
+async function test(){
+  let avPlayer = await media.createAVPlayer();
+  avPlayer.onTimedMetaData((data: media.AVTimedMetaData) => {
+  });
+}
+```
+
+
+
+#### offTimedMetaData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+offTimedMetaData(callback?: Callback&lt;AVTimedMetaData&gt;): void
+
+取消注册监听器以检测基于时间的元数据。目前只支持HLS的#EXT-X-DATERANGE和DASH的Event Stream信息，例如取消监听插播的元数据信息。使用callback异步回调。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Media.AVPlayer
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | Callback&lt;AVTimedMetaData&gt; | 否 | 回调函数，返回上报基于时间的元数据。默认值为取消订阅该事件的所有回调函数。 |
+
+
+**示例：**
+
+```text
+async function test(){
+  let avPlayer = await media.createAVPlayer();
+  avPlayer.offTimedMetaData();
 }
 ```

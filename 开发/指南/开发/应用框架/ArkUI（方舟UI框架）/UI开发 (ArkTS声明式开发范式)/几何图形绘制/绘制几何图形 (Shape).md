@@ -1,6 +1,6 @@
 # 绘制几何图形 (Shape)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-geometric-shape-drawing
 
@@ -283,7 +283,7 @@ Polyline()
   // 设置折线拐角处为尖角
   .strokeLineJoin(LineJoinStyle.Miter)
   // 设置斜接长度与线宽的比值
-  .strokeMiterLimit(1/Math.sin(45))
+  .strokeMiterLimit(1 / Math.sin(45 * Math.PI / 180))
 Polyline()
   .width(100)
   .height(100)
@@ -531,7 +531,7 @@ struct ShapeExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/dd/v3/fIrVNuU8Q9qub7oAiiWq2Q/zh-cn_image_0000002581274080.png?HW-CC-KV=V1&HW-CC-Date=20260528T030456Z&HW-CC-Expire=86400&HW-CC-Sign=719A501253850A9F332A65720D70CA4973B42CAD6BEAC4C41FF853F712DFC0FE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/HIe7gsR_QSWk0CuqlYhUHg/zh-cn_image_0000002626228448.png?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=C298D6B79C5F6F8F1C8FB87A32AA364AFE68628DFF33FCAA5EA4F9E9CB8DCFD5)
 
 
 
@@ -567,7 +567,7 @@ struct CircleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/yS_HnafuQfCPAqVgskIj4A/zh-cn_image_0000002611753935.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030456Z&HW-CC-Expire=86400&HW-CC-Sign=E27FD781822CD1F821448C3014D5F6E40D094DF76C1989E90B6E4752CB55658A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/JWH5XJAjSLi4V2SQZZpvAQ/zh-cn_image_0000002626068540.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=91CCA2C40085AACED6463F1EE18D8ACDA60F033DE4593F2C909593C7D3AD9A9A)
 
 
 
@@ -596,4 +596,4 @@ struct CircleExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/Xbi3dRNVRWWbs-SRPGNLxQ/zh-cn_image_0000002581434000.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T030456Z&HW-CC-Expire=86400&HW-CC-Sign=0B0EED9A1D1343AD76BF691D0814DD398F2A4334ED5CC88511A3417EA7F5D30C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/yGh29Z51T8q3_CwMI2l2yQ/zh-cn_image_0000002656467817.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=D166B8FDD206B338D9F6777FFD1E6902ED5BE2DB4DD9B5551836FE0B87EEAED0)

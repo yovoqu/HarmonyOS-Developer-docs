@@ -1,11 +1,11 @@
 # @ohos.enterprise.EnterpriseAdminExtensionAbility（企业设备管理扩展能力）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterpriseadminextensionability
 **支持设备：** Phone | PC/2in1 | Tablet
 
-本模块提供[企业设备管理扩展能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#企业设备管理扩展能力)。
+本模块提供[企业设备管理扩展能力](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-term#enterpriseadminextensionability企业设备管理扩展能力)。
 
 设备管理应用需要存在一个EnterpriseAdminExtensionAbility并重写相关接口，以此具备模块提供的各项能力，比如接收由系统发送的该应用被激活或者解除激活的通知。
 
@@ -630,7 +630,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
 
 onKeyEvent(keyEvent: systemManager.KeyEvent): void
 
-[系统按键事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#keyevent23)回调。MDM应用需要通过[systemManager.addKeyEventPolicies](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#systemmanageraddkeyeventpolicies23)接口下发按键事件处理策略，当系统按键事件触发时，如果事件与已下发的策略匹配，则触发该回调。回调信息[keyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#keyevent23)中包含当前发生的按键事件信息。
+[按键事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#keyevent23)回调。MDM应用需要通过[systemManager.addKeyEventPolicies](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#systemmanageraddkeyeventpolicies23)接口下发按键事件处理策略，当系统按键事件触发时，如果事件与已下发的策略匹配，则触发该回调。回调信息[keyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#keyevent23)中包含当前发生的按键事件信息。
 
 单按键事件响应。设备单按键被触发时，[onKeyEvent](#onkeyevent23)会在按下和抬起时触发两次回调事件，可由[keyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#keyevent23)中keyAction属性进行判断。[keyEvent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-systemmanager#keyevent23)中keyItems属性在单按键事件中可忽略。
 
@@ -805,7 +805,7 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
         };
         systemManager.finishLogCollected(wantTemp);
       } catch (error) {
-          console.info("onLogCollected", "error: " + JSON.stringify(error))
+        console.info("onLogCollected", "error: " + JSON.stringify(error))
       }
     }
     if (result === common.Result.FAIL) {
@@ -879,3 +879,104 @@ export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbil
   }
 }
 ```
+
+
+
+#### onBundleUpdated
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+onBundleUpdated(bundleName: string, accountId: number): void
+
+应用更新事件回调，回调中包含应用包名和用户ID。通过接口[adminManager.subscribeManagedEventSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagersubscribemanagedeventsync)注册MANAGED_EVENT_BUNDLE_UPDATED事件才能收到此回调。企业设备管理场景下，设备管理应用可订阅所有用户下的应用更新事件，应用更新事件触发时会通知当前用户下的设备管理应用，设备管理应用可以在此回调函数中进行事件上报，通知主用户下的企业管理员。
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| bundleName | string | 是 | 被更新应用的包名。 |
+| accountId | number | 是 | 被更新应用所在的用户ID。 |
+
+
+**示例：**
+
+```text
+import { EnterpriseAdminExtensionAbility } from '@kit.MDMKit';
+
+export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
+  onBundleUpdated(bundleName: string, accountId: number) {
+    console.info(`Succeeded in calling onBundleUpdated callback, update bundle name : ${bundleName}, accountId: ${accountId}`);
+  }
+}
+```
+
+
+
+#### onAdminPolicyChanged
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+onAdminPolicyChanged(event: common.PolicyChangedEvent): void
+
+策略变更事件回调。超级设备管理应用可以通过接口[adminManager.subscribeManagedEventSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-adminmanager#adminmanagersubscribemanagedeventsync)注册MANAGED_EVENT_POLICIES_CHANGED事件后可接收此回调。企业设备管理场景下，当任意MDM应用调用表1中的接口时，系统会通知当前用户下的超级设备管理应用。
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| event | common.PolicyChangedEvent | 是 | 策略变更事件。 |
+
+
+**示例：**
+
+```text
+import { EnterpriseAdminExtensionAbility, common } from '@kit.MDMKit';
+
+export default class EnterpriseAdminAbility extends EnterpriseAdminExtensionAbility {
+  onAdminPolicyChanged(event: common.PolicyChangedEvent) {
+    // 例如当MDM应用调用setPasswordPolicy接口设置密码策略时，输出示例为: Policy changed, bundleName : com.example.test, functionName: setPasswordPolicy, parameters: {"policy":{"complexityRegex":"^(?=.*[a-zA-Z])(?=.*\\d).{8},$","validityPeriod":1808309786000,"additionalDescription":"至少8个字符，且包含数字和字母。"}}, time: 1776773305379.
+    console.info(`Policy changed, bundleName : ${event.bundleName}, functionName: ${event.functionName}, parameters: ${event.parameters}, time: ${event.time}.`);
+  }
+}
+```
+
+**表1 策略变更事件：**
+
+| 接口名称 | 策略变更事件PolicyChangedEvent中parameters参数返回示例 |
+| --- | --- |
+| setDomainAccountPolicy | {"domainAccountInfo":{"domain":"","accountName":"test"},"policy":{"authenticationValidityPeriod":300,"passwordValidityPeriod":420,"passwordExpirationNotification":60}} |
+| setAllowedKioskApps | {"appIdentifiers":["6917****3569"]} |
+| setPolicySync | {"appId":"com.example._/******5t5CoBM=","policyName":"InsecurePrivateNetworkRequestsAllowed","policyValue":"1"} |
+| setValue | {"item":"screenOff","value":"30000"} |
+| setHomeWallpaper | "" |
+| setUnlockWallpaper | "" |
+| setSwitchStatus | {"key":1,"value":0} |
+| addFirewallRule | {"firewallRule":{"srcAddr":"192.168.1.1-192.168.22.66","destAddr":"10.1.1.1","srcPort":"8080","destPort":"8080","appUid":"9696","direction":1,"action":1,"protocol":2,"family": 1,"logType":0}} |
+| removeFirewallRule | {"firewallRule":{"srcAddr":"192.168.1.1-192.168.22.66","destAddr":"10.1.1.1","srcPort":"8080","destPort":"8080","appUid":"9696","direction":1,"action":1,"protocol":2,"family": 1,"logType":0}} |
+| addDomainFilterRule | {"domainFilterRule":{"domainName":"www.example.com","appUid":"9696","action":1,"direction":1,"family":1,"logType":0}} |
+| removeDomainFilterRule | {"domainFilterRule":{"domainName":"www.example.com","appUid":"9696","action":1,"direction":1,"family":1,"logType":0}} |
+| setGlobalProxySync | {"httpProxy":{"host":"192.168.xx.xxx","port":8080,"exclusionList":["192.168"]}} |
+| setGlobalProxyForAccount | {"httpProxy":{"host":"192.168.xx.xx","port":8080,"exclusionList":["192.168"]},"accountId":100} |
+| addApn | {"apnId":"3","apnName":"CTENT"} |
+| deleteApn | {"apnId":"3","apnName":"CTENT"} |
+| updateApn | {"apnInfo":{"apn":"CTENT","apnName":"CTENT","mcc":"460","mnc":"11"},"apnId":"1"} |
+| setPreferredApn | {"apnId":"3","apnName":"CTENT"} |
+| setEthernetConfig | {"networkInterface":"eth0"} |
+| setPasswordPolicy | {"policy":{"complexityRegex":"^(?=.*[a-zA-Z])(?=.*\\d).{8},$","validityPeriod":1808309786000,"additionalDescription":"至少8个字符，且包含数字和字母。"}} |
+| uninstallEnterpriseReSignatureCertificate | {"certificateAlias":"test.cer","accountId":100} |
+| installEnterpriseReSignatureCertificate | {"certificateAlias":"test.cer","accountId":100} |
+| setNTPServer | {"server":"ntpserver.com"} |
+| setActivationLockDisabled | {"isAllowed":true} |
+| setWifiProfileSync | {"profile":{"ssid":"guest-Wi-Fi","bssid":"AA:BB:CC:DD:EE:FF"}} |

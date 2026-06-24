@@ -1,6 +1,6 @@
 # Interface (ImageReceiver)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-imagereceiver
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -283,7 +283,7 @@ readNextImage(): Promise&lt;Image&gt;
 从ImageReceiver读取下一张图片。使用Promise异步回调。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/TBxNuVHJRviF1YTKz1kQIw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025326Z&HW-CC-Expire=86400&HW-CC-Sign=1ED8415D89FA15A4EF12D74820D3202EAD2A4D17B968D6B8DE12F0BC2BA6C350)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/Bu9DC3t2TX-vzUZC7myWcw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020239Z&HW-CC-Expire=86400&HW-CC-Sign=A4ACD84F2390C4ED60057CAABF4230469DBB41631293363D86077572E96650EE)
  
  
 此接口需要在[on](#on9)回调触发后调用，才能正常的接收到数据。且此接口返回的[Image](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image)对象使用完毕后需要调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-image#release9)方法释放，释放后才可以继续接收新的数据。

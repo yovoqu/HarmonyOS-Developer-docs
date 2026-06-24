@@ -1,6 +1,6 @@
 # 使用request.uploadFile上传文件后，没有回调可以获取到服务器返回的message信息，不能明确知道文件是否上传成功
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-24
 

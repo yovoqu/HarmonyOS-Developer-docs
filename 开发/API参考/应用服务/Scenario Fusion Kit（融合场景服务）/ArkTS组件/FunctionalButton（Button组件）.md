@@ -1,6 +1,6 @@
 # FunctionalButton（Button组件）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scenario-fusion-functionalbutton
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -109,11 +109,11 @@ struct Index {
             .onGetPhoneNumber((err, data) => {
               if (err) {
                 // 错误日志处理。
-                hilog.error(0x0000, "testTag", "error: %{public}d %{public}s", err.code, err.message);
+                hilog.error(0x0000, 'testTag', 'Failed to authenticate, error: %{public}d %{public}s', err.code, err.message);
                 return;
               }
               // 成功日志处理。
-              hilog.info(0x0000, "testTag", "succeeded in authenticating");
+              hilog.info(0x0000, 'testTag', 'succeeded in authenticating');
               // 获取授权码。
               let authorizationCode = data.code;
             })

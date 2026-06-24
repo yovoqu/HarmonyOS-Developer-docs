@@ -1,11 +1,13 @@
 # gamePlayer（基础游戏服务）
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-gameplayer
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-本模块提供接入Game Service Kit（游戏服务）的基础游戏服务能力。
+本模块提供Game Service Kit（游戏服务）的基础游戏服务能力，包括游戏登录、华为账号实名认证、未成年人防沉迷等功能，让开发者聚焦游戏本身的业务能力。
+ 
+**模型约束：** 本模块接口仅可在Stage模型下使用。
  
 **起始版本：** 4.0.0(10)
   
@@ -26,15 +28,17 @@ import { gamePlayer } from '@kit.GameServiceKit';
 
 玩家信息类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 4.0.0(10)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| gamePlayerId | string | 否 | 否 | 游戏玩家ID。转移场景下gamePlayerId不为空。 最大长度256个字符。 |
+| gamePlayerId | string | 否 | 否 | 游戏玩家ID。互通场景下gamePlayerId不为空。 最大长度256个字符。 |
 | teamPlayerId | string | 否 | 否 | 团队玩家ID。绑定场景下teamPlayerId不为空。 最大长度256个字符。 |
-| idCompatibleType | number | 否 | 否 | ID兼容类型。 0：gamePlayerId与openId、playerId不兼容，即调用getLocalPlayer接口时，玩家首次登录游戏生成的玩家标识；teamPlayerId与unionId不兼容，即调用unionLogin接口时，玩家首次登录游戏未选择转移APK游戏数据生成的玩家标识。 1：gamePlayerId兼容playerId，即玩家首次登录游戏时选择转移APK游戏数据，且APK游戏使用了playerId作为玩家标识，Game Service Kit将playerId作为新的gamePlayerId。 2：gamePlayerId兼容openId，即玩家首次登录游戏时选择转移APK游戏数据，且APK游戏使用了openId作为玩家标识，Game Service Kit将openId作为新的gamePlayerId。 |
+| idCompatibleType | number | 否 | 否 | ID兼容类型。 0：gamePlayerId与openId、playerId不兼容，或teamPlayerId与unionId不兼容。 1：gamePlayerId兼容playerId，即HarmonyOS 4及以下游戏使用playerId作为玩家标识，HarmonyOS 5.0及以上游戏将playerId作为gamePlayerId。 2：gamePlayerId兼容openId，即HarmonyOS 4及以下游戏使用openId作为玩家标识，HarmonyOS 5.0及以上游戏将openId作为gamePlayerId。 4：teamPlayerId与unionId兼容，即HarmonyOS 5.0及以上游戏将unionId作为teamPlayerId。 |
 | level | number | 否 | 否 | 玩家等级。此参数为预留参数，当前固定返回0。 |
 | playableTime | number | 否 | 否 | 玩家本次可玩时长，单位：min。此参数为预留参数，当前固定返回-1。 说明：返回-1表示当前玩家为成年人，不限制可玩时长；返回大于等于0表示当前玩家为未成年人，返回值为未成年玩家的当前可玩时长。 |
 | loginIdType | number | 否 | 否 | 登录游戏时，玩家使用的账号ID类型。 1：gamePlayerId 2：teamPlayerId 起始版本： 5.0.0(12) |
@@ -48,12 +52,14 @@ import { gamePlayer } from '@kit.GameServiceKit';
 
 玩家角色信息类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 4.0.0(10)
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/Df4fnzVNQ2GsBC1BfEjr9g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074847Z&HW-CC-Expire=86400&HW-CC-Sign=9F44C259A4430891D1EFFB95BA1FC4C7DA0C901D0AE09D3EEA066637C927B384)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/jZEHiYfFTYmzvG43549lJA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020336Z&HW-CC-Expire=86400&HW-CC-Sign=CE6EA1C2E097750087B55AA1E35D2DD45118E016AD659D579E79288EE02D49A2)
  
  
 gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
@@ -62,8 +68,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| roleId | string | 否 | 否 | 玩家角色ID，请勿传""和null。 如果游戏没有角色系统，请传入“0”。 最大长度128个字符。 |
-| roleName | string | 否 | 否 | 玩家角色名，请勿传""和null。 如果游戏没有角色系统，请传入“default”。 最大长度128个字符。 |
+| roleId | string | 否 | 否 | 玩家角色ID，请勿传""和null。 如果游戏没有角色系统，请传入'0'。 最大长度128个字符。 |
+| roleName | string | 否 | 否 | 玩家角色名，请勿传""和null。 如果游戏没有角色系统，请传入'default'。 最大长度128个字符。 |
 | serverId | string | 否 | 是 | 玩家区服ID。 最大长度128个字符。 |
 | serverName | string | 否 | 是 | 玩家区服名。 最大长度128个字符。 |
 | gamePlayerId | string | 否 | 是 | 游戏玩家ID。 最大长度256个字符。 |
@@ -78,6 +84,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 账号合规信息类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
@@ -103,6 +111,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 联合登录参数。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -122,6 +132,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 游戏官方账号信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -129,7 +141,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | accountIcon | Resource | 否 | 否 | 游戏官方账号图标资源信息。总和最大支持35KB。 当前仅支持\$r("app.media.name")生成的Resource对象，不支持\$rawfile('filename')生成的Resource对象。 |
-| accountName | string | 否 | 否 | 游戏官方账号在联合登录面板上的显示名称。 建议传入具体的“xx游账号登录”、“xx通行证登录”等，例如“游友账号登录”，不建议使用“官方账号登录”等容易有歧义的账号名称。 若游戏存在多语言版本，开发者需要自行判断语种并传入当前语种对应的账号名称。 在LoginPanelType设置成“BUTTON”时，accountName作为对外展示的按钮文字。 最大长度19个字符。 |
+| accountName | string | 否 | 否 | 游戏官方账号在联合登录面板上的显示名称。 建议传入具体的“xx账号登录”、“xx通行证登录”等，例如“游友账号登录”，不建议使用“官方账号登录”等容易有歧义的账号名称。 若游戏存在多语言版本，开发者需要自行判断语种并传入当前语种对应的账号名称。 在LoginPanelType设置成“BUTTON”时，accountName作为对外展示的按钮文字。 最大长度19个字符。 |
 | accountIdentifier | string | 否 | 是 | 当前账号的唯一标识符，用来标识账号，并在登录结果中判断玩家选择的账号。 建议传入和当前账号相关的标识符，例如“youyou_account”。 默认值：undefined。 最大长度32个字符。 起始版本： 6.0.2(22) |
 | isOnTop | boolean | 否 | 是 | 在LoginPanelType设置为“ICON”时生效。 当前账号是否在联合登录面板上置顶： - true：置顶。 - false：不置顶。 默认为false。 说明： - 仅会置顶第一个传入“true”的账号，且被置顶的账号展示为按钮样式（按钮文案为传入的accountName值），非置顶账号展示为图标样式。 - 在BUTTON或ICON类型的登录面板上，华为侧置顶华为账号的优先级更高。 起始版本： 6.0.2(22) |
  
@@ -141,6 +153,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 绑定信息类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
@@ -160,6 +174,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 账号绑定枚举类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -178,6 +194,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 联合登录结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -185,7 +203,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | accountName | string | 否 | 否 | 账号名。 - 若玩家选择华为账号，则返回“hw_account”。 - 若玩家选择开发者提供的游戏官方账号，则返回传入的ThirdAccountInfo.accountName。 - 若登录过程中出现异常，则返回“official_account”。 “official_account”表示目前无法返回具体的账号名，建议从开发者提供的账号中选择其中一个登录。 最大长度19个字符。 |
-| needBinding | boolean | 否 | 否 | 玩家标识是否需要绑定游戏官方账号。 - true：为绑定场景，需要绑定游戏官方账号。 - false：为转移场景，无需绑定游戏官方账号。 游戏服务器需要根据玩家选择的登录场景进行适配： - 转移场景下，服务器需与HarmonyOS系统的渠道包策略保持一致。 - 绑定场景下/选择游戏官方账号登录场景下，服务器策略和游戏官方包保持一致。 |
+| needBinding | boolean | 否 | 否 | 玩家标识是否需要绑定游戏官方账号。 - true：为绑定场景，需要绑定游戏官方账号。 - false：为互通场景，无需绑定游戏官方账号。 游戏服务器需要根据玩家选择的登录场景进行适配： - 互通场景下，服务器需与HarmonyOS系统的渠道包策略保持一致。 - 绑定场景下/选择游戏官方账号登录场景下，服务器策略和游戏官方包保持一致。 |
 | boundPlayerInfo | BoundPlayerInfo | 否 | 否 | 与华为PlayerId绑定的游戏官方账号信息。 |
 | localPlayer | GSKLocalPlayer | 否 | 否 | 玩家信息。 |
 | accountIdentifier | string | 否 | 是 | 当前账号的唯一标识符，用来判断玩家选择的账号： - 若玩家选择华为账号登录，则返回“hw_account”。 - 若玩家选择开发者提供的游戏官方账号，则返回传入的ThirdAccountInfo.accountIdentifier。 - 若登录过程中出现异常，则返回“official_account”。 “official_account”表示目前无法返回具体的账号名，建议从开发者提供的账号中选择其中一个登录。 最大长度为32个字符。 起始版本： 6.0.2(22) |
@@ -198,6 +216,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 玩家变化结果。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
@@ -216,6 +236,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 玩家变化事件枚举类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
@@ -256,6 +278,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 
 登录面板枚举类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -280,7 +304,7 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
  
 **起始版本：** 4.1.0(11)
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
   
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
@@ -322,6 +346,8 @@ gamePlayerId、teamPlayerId和thirdOpenId不能同时为空。
 init(context: common.UIAbilityContext): Promise&lt;void&gt;
  
 游戏启动时，需要对Game Service Kit进行初始化。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
@@ -376,6 +402,8 @@ init(context: common.UIAbilityContext, callback: AsyncCallback&lt;void&gt;): voi
  
 游戏启动时，需要对Game Service Kit进行初始化。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 4.0.0(10)
@@ -423,6 +451,8 @@ unionLogin(context: common.UIAbilityContext, loginParam: UnionLoginParam): Promi
  
 华为账号和游戏官方账号联合登录。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -444,7 +474,7 @@ unionLogin(context: common.UIAbilityContext, loginParam: UnionLoginParam): Promi
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -523,6 +553,8 @@ getLocalPlayer(context: common.UIAbilityContext): Promise&lt;GSKLocalPlayer&gt;
  
 获取玩家信息。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 4.0.0(10)
@@ -543,7 +575,7 @@ getLocalPlayer(context: common.UIAbilityContext): Promise&lt;GSKLocalPlayer&gt;
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -609,6 +641,8 @@ getLocalPlayer(context: common.UIAbilityContext, callback: AsyncCallback&lt;GSKL
  
 获取玩家信息。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 4.0.0(10)
@@ -623,7 +657,7 @@ getLocalPlayer(context: common.UIAbilityContext, callback: AsyncCallback&lt;GSKL
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -691,6 +725,8 @@ bindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: 
  
 将玩家华为账号对应的teamPlayerId与游戏官方账号绑定。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -713,7 +749,7 @@ bindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId: 
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -780,6 +816,8 @@ unbindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId
  
 将玩家华为账号对应的teamPlayerId与游戏官方账号解绑。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -802,7 +840,7 @@ unbindPlayer(context: common.UIAbilityContext, thirdOpenId: string, teamPlayerId
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -869,6 +907,8 @@ verifyLocalPlayer(context: common.UIAbilityContext, thirdUserInfo: ThirdUserInfo
  
 合规校验接口，校验当前设备登录的账号的实名认证、游戏防沉迷信息。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -890,7 +930,7 @@ verifyLocalPlayer(context: common.UIAbilityContext, thirdUserInfo: ThirdUserInfo
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -961,6 +1001,8 @@ struct VerifyLocalPlayer {
 savePlayerRole(context: common.UIAbilityContext, request: GSKPlayerRole): Promise&lt;void&gt;
  
 保存角色信息到游戏服务器。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
@@ -1036,6 +1078,8 @@ savePlayerRole(context: common.UIAbilityContext, request: GSKPlayerRole, callbac
  
 保存角色信息到游戏服务器。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 4.0.0(10)
@@ -1104,6 +1148,8 @@ on(type: 'playerChanged', callback: Callback&lt;PlayerChangedResult&gt;): void
  
 玩家变化事件监听。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 5.0.0(12)
@@ -1157,6 +1203,8 @@ try {
 off(type: 'playerChanged', callback?: Callback&lt;PlayerChangedResult&gt;): void
  
 取消玩家变化事件监听。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
@@ -1225,6 +1273,8 @@ try {
 
 小游戏登录信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 6.0.1(21)
@@ -1242,6 +1292,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 小游戏玩家信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
@@ -1267,6 +1319,8 @@ on(type: 'miniGameAddictionPrevented', callback: Callback&lt;string&gt;): void
  
 注册小游戏防沉迷事件监听。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 6.0.1(21)
@@ -1281,7 +1335,7 @@ on(type: 'miniGameAddictionPrevented', callback: Callback&lt;string&gt;): void
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1319,6 +1373,8 @@ off(type: 'miniGameAddictionPrevented', callback?: Callback&lt;string&gt;): void
  
 取消注册小游戏防沉迷事件监听。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 6.0.1(21)
@@ -1333,7 +1389,7 @@ off(type: 'miniGameAddictionPrevented', callback?: Callback&lt;string&gt;): void
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1386,6 +1442,8 @@ miniGameLogin(context: common.Context, loginParam: MiniGameLoginParam): Promise&
  
 登录小游戏。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 6.0.1(21)
@@ -1407,7 +1465,7 @@ miniGameLogin(context: common.Context, loginParam: MiniGameLoginParam): Promise&
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1477,6 +1535,8 @@ miniGamePay(context: common.Context, parameter: PurchaseParameter): Promise&lt;C
  
 提供小游戏付费功能。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 6.0.1(21)
@@ -1498,7 +1558,7 @@ miniGamePay(context: common.Context, parameter: PurchaseParameter): Promise&lt;C
  
 **错误码**：
  
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/gameservice-error-code)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-gameservice)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1572,6 +1632,8 @@ struct MiniGamePay {
 
 购买商品参数，仅供IAP Kit和小游戏使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 4.0.0(10)
@@ -1592,6 +1654,8 @@ struct MiniGamePay {
 
 商品类型，仅供IAP Kit和小游戏使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 4.0.0(10)
@@ -1611,6 +1675,8 @@ struct MiniGamePay {
 
 订购商品结果信息，仅供IAP Kit使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  
 **起始版本：** 4.0.0(10)
@@ -1629,6 +1695,8 @@ struct MiniGamePay {
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 创建商品结果信息，仅供IAP Kit和小游戏使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Game.GameService.GamePlayer
  

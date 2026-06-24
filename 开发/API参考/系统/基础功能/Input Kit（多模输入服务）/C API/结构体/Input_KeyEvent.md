@@ -1,6 +1,6 @@
 # Input_KeyEvent
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-input-input-keyevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct Input_KeyEvent Input_KeyEvent
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-按键事件对象。
+按键事件对象，用于表示用户按键操作产生的输入事件，包含按键码、按键状态等信息，可用于处理键盘输入和实现按键响应功能。
  
 **起始版本：** 12
  

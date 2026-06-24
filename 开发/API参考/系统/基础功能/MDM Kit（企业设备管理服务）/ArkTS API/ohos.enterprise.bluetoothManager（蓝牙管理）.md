@@ -1,6 +1,6 @@
 # @ohos.enterprise.bluetoothManager（蓝牙管理）
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-bluetoothmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -8,7 +8,7 @@
 本模块提供设备蓝牙管理的能力，包括设置和查询蓝牙信息等。
 
 > [!NOTE]
-> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考 MDM Kit开发指南 。 全局通用限制类策略由restrictions统一提供，若要全局禁用蓝牙，请参考 @ohos.enterprise.restrictions（限制类策略） 。
+> 本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在Stage模型下使用。 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考 MDM Kit开发指南 。 全局通用限制类策略由restrictions统一提供，若要全局禁用蓝牙，请参考 @ohos.enterprise.restrictions （限制类策略） 。
 
 
 
@@ -567,7 +567,7 @@ try {
 
 addDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array&lt;Protocol&gt;): void
 
-添加蓝牙协议禁用名单。添加后，指定用户将无法使用该禁用名单中的蓝牙协议向其他设备外发文件。通过该接口禁用[GATT](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#gatt)或[SPP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/terminology#spp)协议，对系统服务和系统应用不生效。
+添加蓝牙协议禁用名单。添加后，指定用户将无法使用该禁用名单中的蓝牙协议向其他设备外发文件。通过该接口禁用GATT或SPP协议，对系统服务和系统应用不生效。当传入SPP协议时，会同时禁用接收和发送功能。
 
 **需要权限：** ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
 
@@ -744,6 +744,224 @@ try {
 
 
 
+#### bluetoothManager.addDisallowedBluetoothProtocols
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+addDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array&lt;Protocol&gt;, policy: TransferPolicy): void
+
+添加蓝牙协议至禁用名单。添加后，指定用户将无法根据指定的传输策略使用该禁用名单中的蓝牙协议。
+
+> [!NOTE]
+> 通过该接口禁用GATT或SPP协议，对系统服务和系统应用不生效。 当传入SPP协议时，policy参数只能传入TransferPolicy.RECEIVE_SEND，否则会返回错误码9200012。 本接口与 addDisallowedBluetoothProtocols 20+ 接口为重载接口。本接口增加了policy参数用于指定传输策略，可以更精细地控制蓝牙协议的禁用行为（如仅禁止发送、仅禁止接收或同时禁止发送和接收）。如果同时使用两个接口配置了禁用策略，策略会合并生效。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+| protocols | Array&lt;Protocol&gt; | 是 | 蓝牙协议数组，指定需要添加至禁用名单的协议。 |
+| policy | TransferPolicy | 是 | 传输策略。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { Want } from '@kit.AbilityKit';
+import { bluetoothManager } from '@kit.MDMKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+let accountId: number = 100;
+let protocols: Array<bluetoothManager.Protocol> = [
+  bluetoothManager.Protocol.GATT,
+  bluetoothManager.Protocol.SPP,
+  bluetoothManager.Protocol.OPP
+];
+
+try {
+  bluetoothManager.addDisallowedBluetoothProtocols(wantTemp, accountId, protocols, bluetoothManager.TransferPolicy.RECEIVE_SEND);
+  console.info('Succeeded in adding disallowed bluetooth protocols.');
+} catch (err) {
+  console.error(`Failed to add disallowed bluetooth protocols. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
+#### bluetoothManager.removeDisallowedBluetoothProtocols
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+removeDisallowedBluetoothProtocols(admin: Want, accountId: number, protocols: Array&lt;Protocol&gt;, policy: TransferPolicy): void
+
+从禁用名单中移除蓝牙协议。移除后，指定用户将不再受该传输策略的限制，可以正常使用这些蓝牙协议。
+
+> [!NOTE]
+> 当传入SPP协议时，policy参数只能传入TransferPolicy.RECEIVE_SEND，否则会返回错误码9200012。 本接口与 removeDisallowedBluetoothProtocols 20+ 接口为重载接口。本接口增加了policy参数，用于按传输策略移除禁用配置。若同一协议通过两个接口分别配置了不同策略的禁用，调用本接口仅移除对应策略的禁用配置，其他策略的禁用配置仍生效。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+| protocols | Array&lt;Protocol&gt; | 是 | 蓝牙协议数组，指定需要从禁用名单中移除的协议。 |
+| policy | TransferPolicy | 是 | 传输策略。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { Want } from '@kit.AbilityKit';
+import { bluetoothManager } from '@kit.MDMKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+let accountId: number = 100;
+let protocols: Array<bluetoothManager.Protocol> = [
+  bluetoothManager.Protocol.GATT,
+  bluetoothManager.Protocol.SPP,
+  bluetoothManager.Protocol.OPP
+];
+
+try {
+  bluetoothManager.removeDisallowedBluetoothProtocols(wantTemp, accountId, protocols, bluetoothManager.TransferPolicy.RECEIVE_SEND);
+  console.info('Succeeded in removing disallowed bluetooth protocols.');
+} catch (err) {
+  console.error(`Failed to remove disallowed bluetooth protocols. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
+#### bluetoothManager.getDisallowedBluetoothProtocols
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getDisallowedBluetoothProtocols(admin: Want | null, accountId: number, policy: TransferPolicy): Array&lt;Protocol&gt;
+
+获取指定用户指定传输策略下已禁用的蓝牙协议列表。
+
+> [!NOTE]
+> 本接口与 getDisallowedBluetoothProtocols 20+ 接口为重载接口。本接口增加了policy参数，用于按传输策略查询对应的禁用配置。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+| policy | TransferPolicy | 是 | 传输策略。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;Protocol&gt; | 返回禁用名单中的蓝牙协议数组。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```json
+import { Want } from '@kit.AbilityKit';
+import { bluetoothManager } from '@kit.MDMKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+let accountId: number = 100;
+
+try {
+  let result: Array<bluetoothManager.Protocol> = bluetoothManager.getDisallowedBluetoothProtocols(wantTemp, accountId, bluetoothManager.TransferPolicy.RECEIVE_SEND);
+  console.info(`Succeeded in getting disallowed bluetooth protocols, result : ${JSON.stringify(result)}`);
+} catch (err) {
+  console.error(`Failed to get disallowed bluetooth protocols. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
 #### BluetoothInfo
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -778,3 +996,24 @@ try {
 | GATT | 0 | GATT协议。 |
 | SPP | 1 | SPP协议。 |
 | OPP | 2 | OPP协议。 |
+
+
+
+
+#### TransferPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+传输策略。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| SEND_ONLY | 0 | 禁止发送。 |
+| RECEIVE_ONLY | 1 | 禁止接收。 |
+| RECEIVE_SEND | 2 | 禁止发送和接收。 |

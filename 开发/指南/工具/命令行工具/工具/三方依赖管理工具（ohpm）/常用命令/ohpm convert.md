@@ -1,6 +1,6 @@
 # ohpm convert
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-convert
 
@@ -63,7 +63,7 @@ ohpm convert ./xxxx/node_modules
 #### publish
 
 - 默认值：false
-- 类型： Boolean
+- 类型：Boolean
 
  
 可以在 convert命令后面配置 --publish 参数 ，若指定该参数，执行convert命令前请确认.ohpmrc推包相关配置无误，当所有包转换完成后将根据.ohpmrc中的配置依次进行推包。
@@ -73,7 +73,7 @@ ohpm convert ./xxxx/node_modules
 #### log_level
 
 - 默认值：无
-- 类型： String
+- 类型：String
 
  
 从ohpm 6.0.2.636版本开始，可以在convert命令后配置--log_level &lt;string&gt;参数，指定执行当前命令的日志级别（info、debug、warn、error），如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -83,7 +83,7 @@ ohpm convert ./xxxx/node_modules
 #### debug
 
 - 默认值：false
-- 类型： Boolean
+- 类型：Boolean
 
  
 从ohpm 6.0.2.636版本开始，可以在命令后配置--debug参数，指定执行当前命令的日志级别为debug，该配置仅在当前命令行生效，不修改.ohpmrc中的日志级别，如果未指定该值则日志级别为.ohpmrc中配置的log_level的级别。
@@ -124,7 +124,7 @@ ohpm INFO: Converted packages are saved to the "C:\Users\xxxxx\Desktop\convert_1
 执行npm install uuid后，转换本地node_modules目录中的包，执行以下命令：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ac/v3/sEDyihiRQdCMwguaBLEUmw/zh-cn_image_0000002602186787.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=B571F8742D5F44FA57ADD8D2C53E69EA457D45F07887A29E689F74EA42337218)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/7UtdaPlUSOK65WfGNU9ywg/zh-cn_image_0000002594475138.png?HW-CC-KV=V1&HW-CC-Date=20260624T020705Z&HW-CC-Expire=86400&HW-CC-Sign=9E9DE5608420F1F1679D689AB29E794F7895C005B75C49048832BEE0EE176640)
 
  
 ```text
@@ -142,4 +142,4 @@ ohpm INFO: Converted packages are saved to the "C:\Users\xxxxx\Desktop\convert_1
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a5/v3/Sd5bnyV6TdO0wwuyldlm3A/zh-cn_image_0000002571387616.png?HW-CC-KV=V1&HW-CC-Date=20260611T074911Z&HW-CC-Expire=86400&HW-CC-Sign=5BD88759CC4970C8E3F52956D7F1B98FB0F88478C4B2C86D05BD547F178B788E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/HqpzB1gJQQe9bHpYAN6Xtg/zh-cn_image_0000002594635060.png?HW-CC-KV=V1&HW-CC-Date=20260624T020705Z&HW-CC-Expire=86400&HW-CC-Sign=2C48A286F8447932BAC6121C7A41E343FDBB4F76C40647F92DF7F70DEF49E85E)

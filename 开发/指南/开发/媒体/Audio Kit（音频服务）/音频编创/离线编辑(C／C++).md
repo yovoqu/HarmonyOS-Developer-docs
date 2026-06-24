@@ -1,6 +1,6 @@
 # 离线编辑(C/C++)
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/audio-suite-manual-rendering
 
@@ -603,4 +603,4 @@ OH_AudioSuiteEngine_Destroy(audioSuiteEngine);
 
 #### 完整示例代码
 
- - [音频编创示例代码](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/Media/Audio/AudioSuiteSample)
+ - [音频编创示例代码](https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/HarmonyOS-7.0-beta-20260514/Media/Audio/AudioSuiteSample)

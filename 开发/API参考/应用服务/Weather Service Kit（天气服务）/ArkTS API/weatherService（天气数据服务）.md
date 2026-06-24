@@ -1,6 +1,6 @@
 # weatherService（天气数据服务）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/weather-service-weatherservice
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -27,6 +27,8 @@ import { weatherService } from '@kit.WeatherServiceKit';
 getWeather(request: WeatherRequest): Promise&lt;Weather&gt;
  
 天气数据获取接口，使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -106,6 +108,8 @@ async function getWeatherData() {
 getWeatherWithContext(context: common.Context, request: WeatherRequest): Promise&lt;Weather&gt;
  
 根据调用方提供的上下文信息获取天气数据，使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
@@ -203,6 +207,8 @@ export default class EntryAbility extends UIAbility {
 
 天气数据请求类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -224,6 +230,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 位置信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -247,6 +255,8 @@ export default class EntryAbility extends UIAbility {
 
 天气数据类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -264,7 +274,7 @@ export default class EntryAbility extends UIAbility {
 | alerts | WeatherAlert[] | 否 | 是 | 天气预警，若设置了limitedDatasets且数组中不包含Dataset.ALERTS，或者该区域当前无预警，该字段不返回。 |
 | indices | WeatherIndex[] | 否 | 是 | 天气指数，若设置了limitedDatasets且数组中不包含Dataset.INDICES，该字段不返回。 |
 | tides | Tide[] | 否 | 是 | 潮汐，若设置了limitedDatasets且数组中不包含Dataset.TIDES，或者该区域无潮汐站点，该字段不返回。 |
-| city | City | 否 | 是 | 请求经纬度对应的城市信息，若设置了limitedDatasets且数组中不包含Dataset.CITY，该字段不返回。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) 模型约束： 此接口仅可在Stage模型下使用。 |
+| city | City | 否 | 是 | 请求经纬度对应的城市信息，若设置了limitedDatasets且数组中不包含Dataset.CITY，该字段不返回。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) |
 | metadata | WeatherMetadata | 否 | 否 | 天气数据元数据。 |
 | attributions | WeatherAttribution[] | 否 | 否 | 天气数据的归因。 |
  
@@ -276,6 +286,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 实况天气数据类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -301,7 +313,7 @@ export default class EntryAbility extends UIAbility {
 | updateTime | Date | 否 | 否 | 数据更新时间，UTC时间格式。 |
 | expirationTime | Date | 否 | 否 | 数据失效时间，UTC时间格式。 |
 | summary | string | 否 | 是 | 实况天气一句话描述。 |
-| alertTitle | string | 否 | 是 | 预警标题。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) 模型约束： 此接口仅可在Stage模型下使用。 |
+| alertTitle | string | 否 | 是 | 预警标题。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) |
  
  
   
@@ -311,6 +323,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 预报类天气集合。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -335,6 +349,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 多日天气数据类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -369,6 +385,8 @@ export default class EntryAbility extends UIAbility {
 
 小时天气数据类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -401,6 +419,8 @@ export default class EntryAbility extends UIAbility {
 
 分钟级降水数据类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -423,6 +443,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 天气预警信息类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -458,6 +480,8 @@ export default class EntryAbility extends UIAbility {
 
 天气指数数据类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -482,6 +506,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 潮汐数据类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -535,6 +561,8 @@ export default class EntryAbility extends UIAbility {
 
 天气元数据类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -558,6 +586,8 @@ export default class EntryAbility extends UIAbility {
 
 天气数据归因类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -579,6 +609,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 风力风向数据类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -606,6 +638,8 @@ export default class EntryAbility extends UIAbility {
 
 天气现象数据类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -629,6 +663,8 @@ export default class EntryAbility extends UIAbility {
 
 紫外线指数数据类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -651,6 +687,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 空气质量数据类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -681,6 +719,8 @@ export default class EntryAbility extends UIAbility {
 
 月出/月落时间，月相等信息类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -706,6 +746,8 @@ export default class EntryAbility extends UIAbility {
 
 月相信息类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -729,6 +771,8 @@ export default class EntryAbility extends UIAbility {
 
 日出/日落信息类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -750,6 +794,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 全天部分时段天气信息类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -781,6 +827,8 @@ export default class EntryAbility extends UIAbility {
 
 每天天气指数数据类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -804,6 +852,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 小时潮汐数据类。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -852,6 +902,8 @@ export default class EntryAbility extends UIAbility {
 
 数据集枚举。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -869,7 +921,7 @@ export default class EntryAbility extends UIAbility {
 | ALERTS | 4 | 天气预警。 |
 | INDICES | 5 | 天气指数。 |
 | TIDES | 6 | 潮汐。 |
-| CITY | 7 | 城市信息。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) 模型约束： 此接口仅可在Stage模型下使用。 |
+| CITY | 7 | 城市信息。 元服务API： 从版本6.1.0(23)开始，该接口支持在元服务中使用。 起始版本： 6.1.0(23) |
  
  
   
@@ -879,6 +931,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 气压趋势枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -903,6 +957,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 天气现象类型枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -997,6 +1053,8 @@ export default class EntryAbility extends UIAbility {
 
 指针方向枚举。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -1026,6 +1084,8 @@ export default class EntryAbility extends UIAbility {
 
 紫外线暴露程度枚举。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -1051,6 +1111,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 月相类别枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1081,6 +1143,8 @@ export default class EntryAbility extends UIAbility {
 
 降水类型枚举。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -1105,6 +1169,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 预警级别枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1132,6 +1198,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 预警类型枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1204,6 +1272,8 @@ export default class EntryAbility extends UIAbility {
 
 空气质量类别枚举。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Weather.Core
@@ -1230,6 +1300,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 天气指数类型枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -1262,6 +1334,8 @@ export default class EntryAbility extends UIAbility {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 潮汐类别枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  

@@ -1,6 +1,6 @@
 # 如何处理UIViewer获取页面时，无论如何操作切换设备界面，UIViewer展示的都是同一个界面
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-utilities-uiviewer-1
 

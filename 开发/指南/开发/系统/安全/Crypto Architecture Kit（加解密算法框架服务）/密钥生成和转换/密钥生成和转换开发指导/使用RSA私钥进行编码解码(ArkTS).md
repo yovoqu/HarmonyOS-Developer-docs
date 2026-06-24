@@ -1,6 +1,6 @@
 # 使用RSA私钥进行编码解码(ArkTS)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-encoded-decoded
 
@@ -16,7 +16,7 @@
   如何生成RSA非对称密钥对，开发者可参考下文示例，并结合[非对称密钥生成和转换规格：RSA](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-asym-key-generation-conversion-spec#rsa)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/cjL-OmoQSA6yZiGCeBWQtQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074922Z&HW-CC-Expire=86400&HW-CC-Sign=61D52F429450187DBF3D542753CAF62913C767667C52E1A49DD3B08BACFEA771)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9d/v3/emjzlE3WQDCgzDlBckTtnw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020823Z&HW-CC-Expire=86400&HW-CC-Sign=18F0B860572BC9513B15E856C157A3060C03CEE00CF0AF6A700B29607E2A4585)
  
 
   解码应该与编码传入的算法一致。

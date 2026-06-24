@@ -1,6 +1,6 @@
 # stack
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-container-stack
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -119,4 +119,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/BR_RStaKT5-58k7rqZJoaA/zh-cn_image_0000002581436546.png?HW-CC-KV=V1&HW-CC-Date=20260528T025434Z&HW-CC-Expire=86400&HW-CC-Sign=B8731A8F7D1F84665ED01A6C9045E27798C07BD2D4CA97922D2EE9554D36EECE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4e/v3/eeJlvoZ-S4y6CIR_64TfHg/zh-cn_image_0000002656470471.png?HW-CC-KV=V1&HW-CC-Date=20260624T015945Z&HW-CC-Expire=86400&HW-CC-Sign=567AC5962C832A94B9B5D33933630955356CA8D7F529B8F9D4A139A2BAC31A2A)

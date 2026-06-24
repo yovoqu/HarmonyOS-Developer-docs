@@ -1,6 +1,6 @@
 # swiper
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-container-swiper
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -146,4 +146,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/55/v3/NZf5CuXPRwWSoqi_QAd28Q/zh-cn_image_0000002611836377.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025434Z&HW-CC-Expire=86400&HW-CC-Sign=B2A61D2D3F4AFB742C013B0D376119B1E038C9D399B58197208BA6AD3614CFC6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f5/v3/HVFMIRwZQ-6p2Y7daBkQ4w/zh-cn_image_0000002656350519.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015945Z&HW-CC-Expire=86400&HW-CC-Sign=4637F6B81CFBA00E89A253FFDAD6987B04B474CC3DB53AFD14530A3D7C432EA3)

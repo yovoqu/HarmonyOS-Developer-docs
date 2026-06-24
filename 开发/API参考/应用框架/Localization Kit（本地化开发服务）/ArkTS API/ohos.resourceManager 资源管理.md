@@ -1,6 +1,6 @@
 # @ohos.resourceManager (资源管理)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resource-manager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -494,7 +494,7 @@ getStringSync(resId: number): string
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -788,7 +788,7 @@ getStringValue(resId: number, callback: _AsyncCallback&lt;string&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -861,7 +861,7 @@ getStringValue(resId: number): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -1070,7 +1070,7 @@ getStringArrayValueSync(resId: number): Array&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -1220,7 +1220,7 @@ getStringArrayValue(resId: number, callback: _AsyncCallback<Array&lt;string&gt;>
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -1298,7 +1298,7 @@ getStringArrayValue(resId: number): Promise<Array&lt;string&gt;>
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -1889,7 +1889,7 @@ getMediaContentSync(resId: number, density?: number): Uint8Array
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -1958,7 +1958,7 @@ getMediaByNameSync(resName: string, density?: number): Uint8Array
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 
@@ -2020,7 +2020,7 @@ getMediaContent(resId: number, callback: _AsyncCallback&lt;Uint8Array&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -2081,7 +2081,7 @@ getMediaContent(resId: number, density: number, callback: _AsyncCallback&lt;Uint
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -2146,7 +2146,7 @@ getMediaContent(resId: number): Promise&lt;Uint8Array&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -2210,7 +2210,7 @@ getMediaContent(resId: number, density: number): Promise&lt;Uint8Array&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -2327,7 +2327,7 @@ getMediaByName(resName: string, density: number, callback: _AsyncCallback&lt;Uin
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 
@@ -2456,7 +2456,7 @@ getMediaByName(resName: string, density: number): Promise&lt;Uint8Array&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 
@@ -2520,7 +2520,7 @@ getMediaContentBase64Sync(resId: number, density?: number): string
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -2589,7 +2589,7 @@ getMediaBase64ByNameSync(resName: string, density?: number): string
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 
@@ -2651,7 +2651,7 @@ getMediaContentBase64(resId: number, callback: _AsyncCallback&lt;string&gt;): vo
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -2711,7 +2711,7 @@ getMediaContentBase64(resId: number, density: number, callback: _AsyncCallback&l
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -2776,7 +2776,7 @@ getMediaContentBase64(resId: number): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -2840,7 +2840,7 @@ getMediaContentBase64(resId: number, density: number): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -2957,7 +2957,7 @@ getMediaBase64ByName(resName: string, density: number, callback: _AsyncCallback&
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 
@@ -3086,7 +3086,7 @@ getMediaBase64ByName(resName: string, density: number): Promise&lt;string&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 
@@ -3151,7 +3151,7 @@ getDrawableDescriptor(resId: number, density?: number, type?: number): DrawableD
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 
@@ -3229,7 +3229,7 @@ getDrawableDescriptorByName(resName: string, density?: number, type?: number): D
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
+| 401 | Parameter error. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 
@@ -3305,7 +3305,7 @@ getBoolean(resId: number): boolean
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -3453,7 +3453,7 @@ getNumber(resId: number): number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -3553,7 +3553,7 @@ getNumberByName(resName: string): number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 | 9001006 | The resource is referenced cyclically. |
@@ -3653,7 +3653,7 @@ getColorSync(resId: number) : number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -3727,7 +3727,7 @@ getColorByNameSync(resName: string) : number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 | 9001006 | The resource is referenced cyclically. |
@@ -3795,7 +3795,7 @@ getColor(resId: number, callback: _AsyncCallback&lt;number&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -3868,7 +3868,7 @@ getColor(resId: number): Promise&lt;number&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -3935,7 +3935,7 @@ getColorByName(resName: string, callback: _AsyncCallback&lt;number&gt;): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 | 9001006 | The resource is referenced cyclically. |
@@ -4008,7 +4008,7 @@ getColorByName(resName: string): Promise&lt;number&gt;
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 | 9001006 | The resource is referenced cyclically. |
@@ -5261,7 +5261,7 @@ getSymbol(resId: number): number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |
@@ -5323,7 +5323,7 @@ getSymbolByName(resName: string): number
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001003 | Invalid resource name. |
 | 9001004 | No matching resource is found based on the resource name. |
 | 9001006 | The resource is referenced cyclically. |
@@ -5572,6 +5572,81 @@ export default class EntryAbility extends UIAbility {
             let code = (error as BusinessError).code;
             let message = (error as BusinessError).message;
             console.error(`updateOverrideConfiguration failed, error code: ${code}, message: ${message}.`);
+        }
+    }
+}
+```
+
+
+
+#### getResourceName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getResourceName(resId: number): string
+
+获取指定资源ID对应的资源名称。
+
+**起始版本：** 26.0.0
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Global.ResourceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| resId | number | 是 | 资源ID值。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| string | 资源ID值对应的资源名称。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[资源管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-resource-manager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9001001 | Invalid resource ID. |
+
+
+**示例：**
+
+```json
+// 资源文件路径: src/main/resources/base/element/string.json
+{
+  "string": [
+    {
+      "name": "test",
+      "value": "I'm a test string resource."
+    }
+  ]
+}
+```
+
+```text
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+export default class EntryAbility extends UIAbility {
+    onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+        try {
+            // 'app.string.test'仅作示例，请替换为实际使用的资源
+            let resName: string = this.context.resourceManager.getResourceName($r('app.string.test').id);
+            console.info(`getResourceName, result: ${resName}`);
+            // 打印输出结果: getResourceName, result: test
+        } catch (error) {
+            let code = (error as BusinessError).code;
+            let message = (error as BusinessError).message;
+            console.error(`getResourceName failed, error code: ${code}, message: ${message}.`);
         }
     }
 }
@@ -7562,7 +7637,7 @@ getPluralStringValueSync(resource: Resource, num: number): string
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 401 | If the input parameter invalid. Possible causes: Incorrect parameter types. |
+| 401 | Parameter error. Possible causes: Incorrect parameter types. |
 | 9001001 | Invalid resource ID. |
 | 9001002 | No matching resource is found based on the resource ID. |
 | 9001006 | The resource is referenced cyclically. |

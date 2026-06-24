@@ -1,6 +1,6 @@
 # P2P模式开发指南
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/p2p-development-guide
 
@@ -74,7 +74,10 @@ async createGroup() {
     }
     hilog.info(`deviceAddress: ${config.deviceAddress}, netId: ${config.netId}, pwd: ${config.passphrase}, gpname: ${config.groupName}, goBand: ${config.goBand}`);
     await wifiManager.createGroup(config);
-    promptAction.showToast({ message : 'createGroup success' });
+    this.promptAction.showToast({
+      message: 'createGroup success',
+      duration: 2000
+    });
   } catch (e) {
     hilog.info(TAG, `createGroup Error: ${JSON.stringify(e)}`);
   }
@@ -138,11 +141,14 @@ import { wifiManager } from '@kit.ConnectivityKit';
 
   
 ```ArkTS
-connectP2p(p2pScanInfo: wifi.WifiP2pDevice) {
-  promptAction.showToast({ message : 'connect to device' });
+connectP2p(p2pScanInfo: wifiManager.WifiP2pDevice) {
+  this.promptAction.showToast({
+    message: 'connect to device',
+    duration: 2000
+  });
   hilog.info(TAG , `connect deviceAddress=${ p2pScanInfo.deviceAddress }`);
   hilog.info(TAG , `p2pScanInfo:` + JSON.stringify(p2pScanInfo));
-  let config: wifi.WifiP2PConfig = {
+  let config: wifiManager.WifiP2PConfig = {
     deviceAddress : p2pScanInfo.deviceAddress,
     netId : - 2 ,
     deviceAddressType: 1,
@@ -150,7 +156,7 @@ connectP2p(p2pScanInfo: wifi.WifiP2pDevice) {
     groupName : '' ,
     goBand : 0
   }
-  wifi.p2pConnect(config);
+  wifiManager.p2pConnect(config);
 }
 ```
 
@@ -160,18 +166,21 @@ connectP2p(p2pScanInfo: wifi.WifiP2pDevice) {
 ```ArkTS
 aboutToAppear() {
   // 如果wifi是开的，就记录下状态，然后扫描p2p设备，并获取连接信息
-  if (!wifi.isWifiActive()) {
-    promptAction.showToast({ message : 'place active wifi' });
+  if (!wifiManager.isWifiActive()) {
+    this.promptAction.showToast({
+      message: 'please active wifi',
+      duration: 2000
+    });
     return;
   }
   this.isSwitchOn = true;
-  wifi.startDiscoverDevices();
+  wifiManager.startDiscoverDevices();
   this.addListener();
 }
 
 aboutToDisappear() {
-  wifi.off('p2pPeerDeviceChange');
-  wifi.off('p2pConnectionChange');
+  wifiManager.off('p2pPeerDeviceChange');
+  wifiManager.off('p2pConnectionChange');
 }
 ```
 

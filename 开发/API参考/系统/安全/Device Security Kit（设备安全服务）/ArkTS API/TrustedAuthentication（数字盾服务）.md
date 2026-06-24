@@ -1,6 +1,6 @@
 # TrustedAuthentication（数字盾服务）
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -28,6 +28,10 @@ enableTrustedAuthentication(challenge: Uint8Array, pwdInfo: PasswordInfo, label:
  
 拉起TUI（Trusted User Interface）界面并指引用户创建数字盾密码。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。可使用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#checkconfirmuitextformat)查询能力是否支持。
@@ -52,10 +56,11 @@ enableTrustedAuthentication(challenge: Uint8Array, pwdInfo: PasswordInfo, label:
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 801 | Failed to call the API due to limited device capabilities. |
 | 1019100001 | The interface invoker does not have the corresponding permission. |
 | 1019100002 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 1019100007 | Unsupported custom image. |
@@ -111,6 +116,10 @@ modifyTrustedAuthenticationPwd(challenge: Uint8Array, pwdInfo: PasswordInfo, aut
  
 拉起TUI界面并指引用户修改数字盾密码，修改密码前会根据authID进行对应密码认证。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。可使用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#checkconfirmuitextformat)查询能力是否支持。
@@ -136,7 +145,7 @@ modifyTrustedAuthenticationPwd(challenge: Uint8Array, pwdInfo: PasswordInfo, aut
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -200,6 +209,10 @@ disableTrustedAuthentication(challenge: Uint8Array, needAuth: boolean, authID: b
  
 关闭数字盾服务，开发者可通过参数needAuth控制密码关闭前是否需要密码认证。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。可使用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#checkconfirmuitextformat)查询能力是否支持。
@@ -225,7 +238,7 @@ disableTrustedAuthentication(challenge: Uint8Array, needAuth: boolean, authID: b
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -283,6 +296,10 @@ trustedAuthentication(challenge: Uint8Array, authID: bigint, label: TUILable): P
  
 提供数字盾密码认证能力，开发者可使用该接口完成绑定生物特征支付前的密码认证。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。可使用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#checkconfirmuitextformat)查询能力是否支持。
@@ -307,7 +324,7 @@ trustedAuthentication(challenge: Uint8Array, authID: bigint, label: TUILable): P
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -363,6 +380,10 @@ procContentAuthentication(challenge: Uint8Array, authID: bigint, authMsg: AuthRe
  
 数字盾交易认证接口。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。可使用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#checkconfirmuitextformat)查询能力是否支持。
@@ -388,7 +409,7 @@ procContentAuthentication(challenge: Uint8Array, authID: bigint, authMsg: AuthRe
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -399,6 +420,7 @@ procContentAuthentication(challenge: Uint8Array, authID: bigint, authMsg: AuthRe
 | 1019100011 | The text content cannot be displayed. |
 | 1019100012 | Invalid authentication ID. |
 | 1019100021 | The corresponding biometric data has not been bound. |
+| 1019100024 | The bound biometric ID is invalid. |
 | 1019100025 | The TUI is occupied by another app. |
  
  
@@ -448,6 +470,10 @@ getBiometricAuthToken(operType: OperateType, tuiAuthToken: Uint8Array, bioAuthTo
  
 获取生物特征绑定/生物特征交易认证对应的authToken信息。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。可使用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#checkconfirmuitextformat)查询能力是否支持。
@@ -472,7 +498,7 @@ getBiometricAuthToken(operType: OperateType, tuiAuthToken: Uint8Array, bioAuthTo
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -535,14 +561,14 @@ const widgetParam: userAuth.WidgetParam = {
 try {
   const userAuthInstance = await userAuth.getUserAuthInstance(authParam, widgetParam);
   userAuthInstance.on('result', {
-  onResult (result) {
-    let authTokenData = result.token;
-    let operType = trustedAuthentication.OperateType.OPERATE_TYPE_BIOMETRIC_AUTH;
-    trustedAuthentication.getBiometricAuthToken(operType, TuiAuthToken.authToken, authTokenData).then((newAuthToken) => {
-      let authToken = newAuthToken.authToken as Uint8Array;
-      hilog.info(0x0000, TAG, `authToken content: ${authToken}`);
-    });
-  }
+    onResult (result) {
+      let authTokenData = result.token;
+      let operType = trustedAuthentication.OperateType.OPERATE_TYPE_BIOMETRIC_AUTH;
+      trustedAuthentication.getBiometricAuthToken(operType, TuiAuthToken.authToken, authTokenData).then((newAuthToken) => {
+        let authToken = newAuthToken.authToken as Uint8Array;
+        hilog.info(0x0000, TAG, `authToken content: ${authToken}`);
+      });
+    }
   })
   userAuthInstance.start();
 } catch (err) {
@@ -560,6 +586,10 @@ try {
 importData(data: ArrayBuffer, authID: bigint): Promise&lt;void&gt;
  
 导入备份的数据信息（即与HUKS签名验签时使用的加密密钥信息）。使用Promise异步回调。
+ 
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
@@ -584,7 +614,7 @@ importData(data: ArrayBuffer, authID: bigint): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -625,6 +655,10 @@ exportData(authID: bigint, label: TUILable): Promise&lt;ArrayBuffer&gt;
  
 导出备份的数据信息（即与HUKS签名验签时使用的加密密钥信息），在导出时，需要经过密码认证，认证通过后才可导出对应的备份数据信息。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。可使用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#checkconfirmuitextformat)查询能力是否支持。
@@ -648,7 +682,7 @@ exportData(authID: bigint, label: TUILable): Promise&lt;ArrayBuffer&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -697,6 +731,10 @@ checkConfirmUITextFormat(text: string): Promise&lt;TextCheckResult&gt;
  
 检查将在TUI呈现的内容是否可以在屏幕上单行完整展示。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。
@@ -719,7 +757,7 @@ checkConfirmUITextFormat(text: string): Promise&lt;TextCheckResult&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -761,6 +799,10 @@ getRemainAuthTimes(authID: bigint): Promise&lt;number&gt;
  
 获取数字盾剩余认证次数。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。可使用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#checkconfirmuitextformat)查询能力是否支持。
@@ -783,7 +825,7 @@ getRemainAuthTimes(authID: bigint): Promise&lt;number&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -821,6 +863,10 @@ disableTrustedBioAuthentication(authID: bigint, authType: AuthType): Promise&lt;
  
 解绑指定生物类型认证能力。使用Promise异步回调。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **设备行为差异：** 对于API 24之前版本，该接口在Phone中可正常调用，在其他设备类型中统一返回业务错误码1019100016。对于API 24及之后版本，该接口在Phone、部分支持TUI能力的Tablet、PC/2in1中均可正常调用，在不支持TUI能力的Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1019100016。可使用[checkConfirmUITextFormat](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-trusted-auth-api#checkconfirmuitextformat)查询能力是否支持。
@@ -844,7 +890,7 @@ disableTrustedBioAuthentication(authID: bigint, authType: AuthType): Promise&lt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-trusted-auth) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-trusted-auth) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -881,6 +927,10 @@ try {
 
 设置密码时业务对密码规格参数要求。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **起始版本：** 6.0.0(20)
@@ -901,6 +951,10 @@ try {
 
 TUI页面下的定制信息，包括定制图像logo和页面标题。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **起始版本：** 6.0.0(20)
@@ -918,6 +972,10 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 开通数字盾服务对应的参数信息。
+ 
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
@@ -937,6 +995,10 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 
 经数字盾服务指定操作获取的authToken，不同操作流程中authToken包括的加密信息不同，详细可参考各个接口参数说明。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **起始版本：** 6.0.0(20)
@@ -953,6 +1015,10 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 交易认证类型定义。
+ 
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
@@ -973,6 +1039,10 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 
 密码类型定义，根据密码类型TUI界面弹出不同类型的安全键盘。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **起始版本：** 6.0.0(20)
@@ -990,6 +1060,10 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 操作类型定义。
+ 
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
@@ -1009,6 +1083,10 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 
 交易认证请求相关参数。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **起始版本：** 6.0.0(20)
@@ -1027,6 +1105,10 @@ TUI页面下的定制信息，包括定制图像logo和页面标题。
 
 TUI界面文本信息是否可以单行显示的检查结果。
  
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
 **起始版本：** 6.0.0(20)
@@ -1044,6 +1126,10 @@ TUI界面文本信息是否可以单行显示的检查结果。
 **支持设备：** Phone | PC/2in1 | Tablet
 
 数字盾服务开放接口执行失败错误码。
+ 
+**元服务API：** 从版本26.0.0开始，以下接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAuthentication
  
@@ -1072,4 +1158,5 @@ TUI界面文本信息是否可以单行显示的检查结果。
 | TRUSTED_AUTH_ERROR_BIO_MISMATCH | 1019100019 | 认证的生物特征与绑定的生物特征不匹配 |
 | TRUSTED_AUTH_ERROR_BIO_REPEATED_BIND | 1019100020 | 已绑定对应的生物特征 |
 | TRUSTED_AUTH_ERROR_NOT_BIND_BIO | 1019100021 | 对应生物特征未绑定 |
-| TRUSTED_AUTH_ERROR_TUI_OCCUPIED | 1019100025 | TUI界面被其他应用占用。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
+| TRUSTED_AUTH_ERROR_BIO_ID_INVALID | 1019100024 | 绑定的生物特征ID已失效 起始版本： 26.0.0 |
+| TRUSTED_AUTH_ERROR_TUI_OCCUPIED | 1019100025 | TUI界面被其他应用占用。 起始版本： 6.1.1(24) |

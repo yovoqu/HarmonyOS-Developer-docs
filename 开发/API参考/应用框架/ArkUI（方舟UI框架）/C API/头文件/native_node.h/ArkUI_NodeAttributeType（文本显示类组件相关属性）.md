@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（文本显示类组件相关属性）
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-text
 
@@ -1337,6 +1337,34 @@ NODE_TEXT_TEXT_SELECTION = 1046
 
 
 
+#### NODE_TEXT_ORPHAN_CHAR_OPTIMIZATION
+
+```text
+NODE_TEXT_ORPHAN_CHAR_OPTIMIZATION = 1047
+```
+
+设置Text文本排版时是否使能孤字优化，设置后通过更高效地处理孤立字符（段落尾行首字符）来改善文本布局。使能后，它会调整换行点以尽可能避免孤立字符。孤字优化特性需在[ArkUI_WordBreak](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-type-h#arkui_wordbreak)属性为非ARKUI_WORD_BREAK_BREAK_ALL时生效。
+
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 是否使能，true表示使能，false表示不使能。默认值false。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 是否使能孤字优化。 |
+
+
+
+
 #### NODE_TEXT_COMPRESS_LEADING_PUNCTUATION
 
 ```text
@@ -1501,6 +1529,27 @@ NODE_TEXT_SELECTED_DRAG_PREVIEW_STYLE = 1053
 | 类型 | 说明 |
 | --- | --- |
 | .object | 文本选中状态下的拖拽预览样式。参数类型为ArkUI_SelectedDragPreviewStyle。 |
+
+
+
+
+#### NODE_TEXT_CONTROLLER
+
+```text
+NODE_TEXT_CONTROLLER = 1054
+```
+
+设置文本的控制器。
+
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| .object | 文本的控制器，参数类型为ArkUI_TextEditorStyledStringController。 |
 
 
 

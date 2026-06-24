@@ -1,6 +1,6 @@
 # 使用Node-API接口关联数据，使其生命周期与当前环境的生命周期相关联
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use-napi-about-environmental-life-cycle
 

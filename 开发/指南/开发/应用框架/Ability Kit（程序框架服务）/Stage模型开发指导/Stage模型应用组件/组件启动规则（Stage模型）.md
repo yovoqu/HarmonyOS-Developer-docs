@@ -1,6 +1,6 @@
-# 组件启动规则（Stage模型）
+# 组件启动规则
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/component-startup-rules
 
@@ -52,7 +52,7 @@
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fc/v3/S896r33mTviR-lvgfpUWIA/zh-cn_image_0000002581273622.png?HW-CC-KV=V1&HW-CC-Date=20260528T030511Z&HW-CC-Expire=86400&HW-CC-Sign=BADD9AE2FD8E0CC84D32BA3CB90DC4755161A233B5AD133941309AF5DFA3E3CD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7e/v3/flM9J137RTuHnin6GvUAcQ/zh-cn_image_0000002656347343.png?HW-CC-KV=V1&HW-CC-Date=20260624T020724Z&HW-CC-Expire=86400&HW-CC-Sign=106FB651B5EE4F34260DB10390BBD8CBE8F4778C93DB5CE5526532A52385ABC8)
 
 
 
@@ -71,4 +71,4 @@
 
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/56/v3/VmL-e6n-T3-f2B-HZs5J4Q/zh-cn_image_0000002611753477.png?HW-CC-KV=V1&HW-CC-Date=20260528T030511Z&HW-CC-Expire=86400&HW-CC-Sign=A65329A280C0A614B31270601986B01221247E19049B73CBE61D2F947A066C29)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9e/v3/6_rPxUoDQTSC7V1ilhRfVA/zh-cn_image_0000002626227928.png?HW-CC-KV=V1&HW-CC-Date=20260624T020724Z&HW-CC-Expire=86400&HW-CC-Sign=692A15D646FB41DCCC7A4467EBDAF9F743CA85A77DE5C630A104D8A08A3A861B)

@@ -1,6 +1,6 @@
 # chart
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-chart
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -301,4 +301,4 @@ export default {
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/66/v3/o7qMaPEsQvi1gZICyANh8A/zh-cn_image_0000002611756489.png?HW-CC-KV=V1&HW-CC-Date=20260528T025433Z&HW-CC-Expire=86400&HW-CC-Sign=7F5F4E33EED76719E05AB6168B80C3C73B75D9441CC8E3349E2D397710E39A60)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/5T2nc1-xSOid53-TkP0ShA/zh-cn_image_0000002626071196.png?HW-CC-KV=V1&HW-CC-Date=20260624T015946Z&HW-CC-Expire=86400&HW-CC-Sign=6AD85136718141D522150D7DB592D00E86F33982FAE0609A24EC1B09D37DEDAD)

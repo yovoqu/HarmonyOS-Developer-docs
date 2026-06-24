@@ -1,10 +1,10 @@
 # @performance/hp-arkui-remove-container-without-property
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide_hp-arkui-remove-container-without-property
 
-建议尽量减少视图嵌套层次。该规则曾用名：@performance/hp-arkui-reduce-view-nest-level 。
+建议尽量减少视图嵌套层次。该规则曾用名：@performance/hp-arkui-reduce-view-nest-level。
  
 通用丢帧场景下，建议优先修改。
  

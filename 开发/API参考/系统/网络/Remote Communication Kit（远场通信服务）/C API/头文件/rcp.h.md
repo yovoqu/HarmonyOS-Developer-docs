@@ -1,6 +1,6 @@
 # rcp.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/rcp_8h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,6 +40,7 @@
 | struct Rcp_FormFieldFileValue | 表单字段文件值。 |
 | struct Rcp_FormFieldValue | 简单表单数据字段值，参见Rcp_Form和Rcp_MultipartFormFieldValue。 |
 | struct Rcp_MultipartFormFieldValue | 多部分表单域值，在Rcp_MultipartForm中使用。 |
+| struct Rcp_FormOrder | 表单键值对发送顺序。 |
 | struct Rcp_RequestContent | 请求的内容。 |
 | struct Rcp_HeaderValue | 请求或响应的标头映射的值类型。 |
 | struct Rcp_HeaderEntry | 请求或响应的标头的所有键值对。 |
@@ -88,6 +89,7 @@
 | struct Rcp_SessionConfiguration | 会话配置。 |
 | struct Rcp_OnBinaryReceiveCallback | 接收到响应数据时的回调。支持二进制数据的接收。使用HMS_Rcp_SetRequestOnBinaryDataRecvCallback给请求设置。 |
 | struct Rcp_OnStatusCodeReceiveCallback | 接收到响应状态码时的回调。使用HMS_Rcp_SetRequestOnStatusCodeReceiveCallback给请求设置。 |
+| struct Rcp_OnGetDataCallback | 获取数据的回调。使用HMS_Rcp_SetRequestGetDataCallback给请求设置。 |
  
  
   
@@ -134,6 +136,7 @@
 | typedef enum Rcp_ContentType Rcp_ContentType | 内容类型。用于区分Rcp_RequestContent中使用的数据。 |
 | typedef struct Rcp_Form Rcp_Form | 简单表单。 |
 | typedef struct Rcp_MultipartForm Rcp_MultipartForm | 多部分表单。 |
+| typedef struct Rcp_FormOrder Rcp_FormOrder | 表单键值对发送顺序。 |
 | typedef struct Rcp_RequestContent Rcp_RequestContent | 请求的内容。 |
 | typedef struct Rcp_Headers Rcp_Headers | 请求或响应的标头。 |
 | typedef struct Rcp_HeaderValue Rcp_HeaderValue | 请求或响应的标头映射的值类型。 |
@@ -209,6 +212,8 @@
 | typedef struct Rcp_OnBinaryReceiveCallback Rcp_OnBinaryReceiveCallback | 响应的二进制数据接收回调函数。 |
 | typedef size_t(* Rcp_OnBinaryReceiveCallbackFunc) (void *usrObject, Rcp_Buffer *buffer) | 二进制数据接收回调函数指针。 |
 | typedef struct Rcp_OnStatusCodeReceiveCallback Rcp_OnStatusCodeReceiveCallback | 用于接收响应状态码的回调函数。 |
+| typedef struct Rcp_OnGetDataCallback Rcp_OnGetDataCallback | 获取数据的回调。 |
+| typedef size_t(* Rcp_GetDataCallbackFunc) (void *userObject, uint8_t *outData, size_t size) | 获取数据的回调函数。 |
  
  
   
@@ -252,6 +257,8 @@
 | void HMS_Rcp_DestroyMultipartForm (Rcp_MultipartForm *multipartForm) | 销毁一个多部分表单。 |
 | uint32_t HMS_Rcp_SetMultipartFormValue (Rcp_MultipartForm *multipartForm, const char *key, const Rcp_MultipartFormFieldValue *value) | 设置多部分表单的键值对。 |
 | Rcp_MultipartFormFieldValue * HMS_Rcp_GetMultipartFormValue (Rcp_MultipartForm *multipartForm, const char *key) | 通过键获取多部分表单的值。 |
+| uint32_t HMS_Rcp_SetFormOrder (Rcp_Form *form, Rcp_FormOrder order) | 设置Form表单的键值对发送顺序。 |
+| uint32_t HMS_Rcp_SetMultipartFormOrder (Rcp_MultipartForm *multipartForm, Rcp_FormOrder order) | 设置MultipartForm表单的键值对发送顺序。 |
 | Rcp_Headers * HMS_Rcp_CreateHeaders (void) | 为请求或响应创建标头。 |
 | void HMS_Rcp_DestroyHeaders (Rcp_Headers *headers) | 销毁请求或响应的标头。 |
 | uint32_t HMS_Rcp_SetHeaderValue (Rcp_Headers *headers, const char *name, const char *value) | 设置请求或响应头的键值对。 |
@@ -280,5 +287,7 @@
 | uint32_t HMS_Rcp_CancelSession (Rcp_Session *session) | 取消会话。 |
 | uint32_t HMS_Rcp_CloseSession (Rcp_Session **session) | 关闭会话。 |
 | uint32_t HMS_Rcp_SetRequestOnBinaryDataRecvCallback (Rcp_Request *request, Rcp_OnBinaryReceiveCallback onBinaryReceiveCallback) | 为请求设置流式接收二进制数据的回调函数。该回调函数与Rcp_OnDataReceiveCallback功能一致，功能上可以包含字符数据和二进制数据。 |
+| uint32_t HMS_Rcp_SetRequestOnStatusCodeReceiveCallback (Rcp_Request *request, Rcp_OnStatusCodeReceiveCallback onStatusCodeReceiveCallback) | 为请求设置响应状态码接收回调函数。 |
 | uint32_t HMS_Rcp_GetDefaultSession (Rcp_Session **session) | 获取默认会话。 |
 | uint32_t HMS_Rcp_SetRequestConnectOnly (Rcp_Request *request, bool connectOnly) | 设置请求仅用于建立连接，而不进行数据传输。 |
+| uint32_t HMS_Rcp_SetRequestGetDataCallback (Rcp_Request *request, Rcp_OnGetDataCallback getDataCallback) | 设置获取数据的回调函数。 |

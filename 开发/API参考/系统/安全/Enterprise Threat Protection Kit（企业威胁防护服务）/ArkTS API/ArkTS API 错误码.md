@@ -1,6 +1,6 @@
 # ArkTS API 错误码
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-threat-protection
 **支持设备：** PC/2in1
@@ -229,3 +229,69 @@ Database corruption detected.
 **处理步骤**
 1. 执行初步自检命令或查看日志获取详细错误信息。
 2. 如问题仍存在，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+
+
+
+#### 1023807001 进程不存在
+
+**支持设备：** PC/2in1
+
+**错误信息**
+
+Process not found.
+
+**错误描述**
+
+要求处置的进程不存在，或已结束运行。
+
+**可能原因**
+
+进程ID输入错误或进程已自行退出。
+
+**处理步骤**
+
+确认传入的进程ID正确，建议通过任务管理器或其他工具核实目标进程的实际PID。
+
+
+
+#### 1023807002 系统进程不允许处置
+
+**支持设备：** PC/2in1
+
+**错误信息**
+
+Access and disposal are denied for this process.
+
+**错误描述**
+
+目标进程为系统关键进程，不允许处置。
+
+**可能原因**
+
+进程为系统进程，不允许处置。
+
+**处理步骤**
+
+若目标进程不属于系统进程，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
+
+
+
+#### 1023807003 其他用户进程不允许处置
+
+**支持设备：** PC/2in1
+
+**错误信息**
+
+Access to other users' processes is not allowed.
+
+**错误描述**
+
+目标进程归属于其他用户，当前用户无权限对该进程执行处置操作。
+
+**可能原因**
+
+目标进程由其他用户启动。
+
+**处理步骤**
+
+检查目标进程ID是否属于当前用户。

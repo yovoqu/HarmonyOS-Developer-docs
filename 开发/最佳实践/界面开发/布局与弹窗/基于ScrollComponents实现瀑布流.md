@@ -1,6 +1,6 @@
 # 基于ScrollComponents实现瀑布流
 
-更新时间：2026-05-18 00:55:31
+更新时间：2026-06-23 06:26:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-waterflow-based-on-scrollcomponents
 

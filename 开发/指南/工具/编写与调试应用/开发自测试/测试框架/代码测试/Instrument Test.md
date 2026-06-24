@@ -1,6 +1,6 @@
 # Instrument Test
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-instrument-test
 
@@ -27,7 +27,7 @@
 
   
 > [!NOTE]
-> 您也可以手动在ohosTest > ets > test文件夹下创建测试用例，手动创建后，需要在List.test.ets文件中添加创建的用例类。手动创建的工程或历史工程，ohosTest > ets > test文件夹下所有文件的文件名必须以.test.ets结尾，否则将在运行时弹窗提示“Error: Test files must end with '.test.ets'.”请点击 Fix 按钮，DevEco Studio将自动对ohosTest > ets > test目录下的文件名进行修改。 首次在HarmonyOS设备上运行UI测试框架需要使用命令“hdc -n shell param set persist.ace.testmode.enabled 1”使能UiTest测试能力。
+> 您也可以手动在ohosTest > ets > test文件夹下创建测试用例，手动创建后，需要在List.test.ets文件中添加创建的用例类。手动创建的工程或历史工程，ohosTest > ets > test文件夹下所有文件的文件名必须以.test.ets结尾，否则将在运行时弹窗提示“Error: Test files must end with '.test.ets'.”请点击 Fix 按钮，DevEco Studio将自动对ohosTest > ets > test目录下的文件名进行修改。 首次在HarmonyOS设备上运行UI测试框架需要使用命令“hdc -n shell param set persist.ace.testmode.enabled 1”使能UITest测试能力。
 
 
   
@@ -237,7 +237,7 @@ testability目录 > TestAbility.ets文件
 
 2. 打开**Run/Debug Configurations**窗口，点击Test Args
 ![](assets/Instrument%20Test/file-20260514133035505-32.png)
-，打开**Test Args**界面，添加命令行参数。
+，打开**Test Args**界面，添加测试参数。
 
   
 ![](assets/Instrument%20Test/file-20260514133035505-33.png)
@@ -317,7 +317,7 @@ testability目录 > TestAbility.ets文件
 4. 当程序出现内存错误时，弹出ASan log信息，点击信息中的链接即可跳转至引起内存错误的代码处。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/YERqPuh5Sw-Fxrw8jKiH7w/zh-cn_image_0000002602066547.png?HW-CC-KV=V1&HW-CC-Date=20260611T074914Z&HW-CC-Expire=86400&HW-CC-Sign=9B75CEDB9038E79FAC5C11E04FB590BBF5D40551CAEF3D66AFF7DB35B32E1AA9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/E4WoFkKATR65EO_c0_nr2Q/zh-cn_image_0000002594634950.png?HW-CC-KV=V1&HW-CC-Date=20260624T020713Z&HW-CC-Expire=86400&HW-CC-Sign=CFA4236CA1D91B9D45F384C3B2E88E2078ECF7ADA490392F660C52ACDEF81134)
 
 
   
@@ -362,7 +362,7 @@ export default function abilityTest() {
 
 
 7. 运行testNative测试用例，查看测试结果。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f3/v3/me6uI_PcQFWwl88FHiK3FA/zh-cn_image_0000002571387432.png?HW-CC-KV=V1&HW-CC-Date=20260611T074914Z&HW-CC-Expire=86400&HW-CC-Sign=979A2AF71F79578EAFAA24A89ACE3E5CBDE3E7D9AC125AC3CE6EB2AF80A35212)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/db/v3/_5ACO5kNSQStgshL_IUCtg/zh-cn_image_0000002625074509.png?HW-CC-KV=V1&HW-CC-Date=20260624T020713Z&HW-CC-Expire=86400&HW-CC-Sign=F18BC6C6C5FCEA3BF4C021B697096944A9492489BA89071364C8D853E2DE008B)
 
 
   
@@ -409,19 +409,19 @@ endif()
 
 
 3. 运行覆盖率测试，选中ArkTS测试文件，单击**右键 >**** Run '测试文件名称' with Coverage**，执行测试。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6a/v3/nWAvQUm6TTeS89xCLZf6ZA/zh-cn_image_0000002571547038.png?HW-CC-KV=V1&HW-CC-Date=20260611T074914Z&HW-CC-Expire=86400&HW-CC-Sign=7158A17DE2E335578BD99B041913860C224AE7DFAA4481B8918C825587C4DC50)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cf/v3/Jn1hp3mcRKanRJUQxIs3QA/zh-cn_image_0000002624994375.png?HW-CC-KV=V1&HW-CC-Date=20260624T020713Z&HW-CC-Expire=86400&HW-CC-Sign=B00537F52F4ED91CB239AB155FDAEF112D67334C20999CDF679BDFF0C966849E)
 
 
   启动测试后，进行编译构建，底部将出现Cover窗口，构建结束后自动拉起Cover窗口，测试任务结束后，窗口中会打印测试报告的路径。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/ETXVmrMbSfGFiE3V9Wq9Ng/zh-cn_image_0000002571547036.png?HW-CC-KV=V1&HW-CC-Date=20260611T074914Z&HW-CC-Expire=86400&HW-CC-Sign=BE58DB33DD54461FA92BA9CC59DE0F2F80B433325380C8BE48AEA90ACD433CF6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/07aNyufuTzahKy5QAAyCPQ/zh-cn_image_0000002594634916.png?HW-CC-KV=V1&HW-CC-Date=20260624T020713Z&HW-CC-Expire=86400&HW-CC-Sign=59D58B4662567D6641083B3414FD29A091D9D8BE87D333CEB36FD7D756924578)
 
 
   点击链接可打开报告，查看C++代码覆盖率详情。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3e/v3/hx-MvkgdROeRVQutaTWrmw/zh-cn_image_0000002571547050.png?HW-CC-KV=V1&HW-CC-Date=20260611T074914Z&HW-CC-Expire=86400&HW-CC-Sign=FAA1DFA723E0F9F347A3C90C781EC2E7BC1AA2B1056E6C174845D1D34AC0B28F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/SSxjRzeZTm6jUHj0kNIUeg/zh-cn_image_0000002625074499.png?HW-CC-KV=V1&HW-CC-Date=20260624T020713Z&HW-CC-Expire=86400&HW-CC-Sign=AAD533D09B87910090D2EFECDB09FCA0048F58AAA9609D7678DE8C9EB66A15D2)
 
 
   

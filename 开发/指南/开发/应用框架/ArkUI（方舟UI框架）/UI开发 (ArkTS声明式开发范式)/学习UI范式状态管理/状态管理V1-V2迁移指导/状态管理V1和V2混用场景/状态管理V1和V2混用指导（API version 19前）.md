@@ -1,6 +1,6 @@
 # 状态管理V1和V2混用指导（API version 19前）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage-before-api-version
 
@@ -316,7 +316,7 @@ struct IndexFour {
 V2装饰器不能和@Observed一起使用，V1传递@Observed装饰的class类给V2自定义组件时，不直接用@Param接收数据，如下图所示先定义V1BridgeComponent组件作为桥接层。在桥接层监听V1组件的数据，同步到V2定义的单例数据。V1组件直接使用V1BridgeComponent，在V1BridgeComponent中引入V2自定义组件。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e9/v3/xIT_reBoT4SsaLMQyvLQKg/zh-cn_image_0000002611753625.png?HW-CC-KV=V1&HW-CC-Date=20260528T030450Z&HW-CC-Expire=86400&HW-CC-Sign=546D01B9B7D20331F77B4DBF11876FE7313AA4A1DAC5452808FD9B6300F15118)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/34/v3/XJoZxrezTXKPQi6lmVHH_g/zh-cn_image_0000002656347511.png?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=A0F2E7BDDF2E9376F1D9E485BDEEE86A492FDA10AE76D3445236D0C37EDD88CC)
 
  
 具体实现可参考以下示例代码：

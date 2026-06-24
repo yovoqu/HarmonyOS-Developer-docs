@@ -1,6 +1,6 @@
 # ArkGuard混淆原理及功能
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation
 
@@ -447,6 +447,8 @@ class TestA { static prop1: number = 0; } TestA.prop1;
 
 
 release模式构建的应用栈信息仅包含代码行号，不包含列号，因此-compact功能开启后无法依据报错栈中的行号定位到源码具体位置。
+
+若希望对部分源码路径仍保留换行（便于对照报错栈行号阅读混淆中间产物），可在开启-compact的同时，使用[-keep-uncompact](#section-keep-uncompact)指定不参与压缩的源码路径。
 
 
 
@@ -1239,6 +1241,7 @@ function getDayName(day: number): string {
 | 指定保留注释 | -keep-comments |
 | 指定保留声明文件中的所有名称 | -keep-dts |
 | 指定保留源码文件中的所有名称 | -keep |
+| 在代码压缩时排除指定路径的文件 | -keep-uncompact |
 
 
 
@@ -1662,6 +1665,25 @@ filepath仅支持相对路径，./和../为相对于混淆配置文件所在目�
 
 
 
+#### -keep-uncompact
+
+从API版本26.0.0开始，可通过-keep-uncompact指定相对路径下的源码**不参与**代码压缩。
+
+**使用该选项时，需要注意以下事项：**
+1. 该选项在开启[-compact](#section-compact)功能后才会生效；未开启-compact时，配置本选项不产生效果。
+2. 配置的路径仅支持相对路径，./和../均为相对于混淆配置文件所在的目录。若配置路径为文件夹，则该文件夹下的文件及子文件夹中的文件都不被压缩。
+3. 当配置路径指向远程三方包（即oh_modules目录）时，需指定其在**工程级**oh_modules中的真实路径（与[-keep](#section-keep)中保留远程HAP包的方式二一致），以确保路径解析正确。
+
+```ArkTS
+-compact
+-keep-uncompact
+./src/main/ets/example/FileA.ets
+./src/main/ets/example/folder
+../oh_modules/somePackage/src
+```
+
+
+
 #### 保留选项支持的通配符
 
 **名称类通配符**
@@ -1859,6 +1881,7 @@ class A {
 | -enable-filename-obfuscation | HAR包文件/文件夹名称混淆 HAP/HSP文件/文件夹名称混淆 | 10 12 |
 | -enable-export-obfuscation | 向外导入或导出的名称混淆 | 10 |
 | -compact | 去除不必要的空格符和所有的换行符 | 10 |
+| -keep-uncompact | 开启-compact时，指定路径下的源码不进行代码压缩 | 26.0.0 |
 | -remove-log | 删除特定场景中的console.* | 10 |
 | -print-namecache | 将名称缓存保存到指定的文件路径 | 10 |
 | -apply-namecache | 复用指定的名称缓存文件 | 10 |

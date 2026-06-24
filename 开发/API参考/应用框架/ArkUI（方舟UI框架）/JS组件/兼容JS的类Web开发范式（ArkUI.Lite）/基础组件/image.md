@@ -1,6 +1,6 @@
 # image
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -95,4 +95,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/XLAFt-BXTKm4xVm9dxX6qw/zh-cn_image_0000002581436548.png?HW-CC-KV=V1&HW-CC-Date=20260528T025432Z&HW-CC-Expire=86400&HW-CC-Sign=916D8967D19B70D984218B691C7627FD7299431E88F988735C312F2312017AB2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c5/v3/RI2_0voMQUm90yyDInE5Cg/zh-cn_image_0000002656470473.png?HW-CC-KV=V1&HW-CC-Date=20260624T015946Z&HW-CC-Expire=86400&HW-CC-Sign=8C13E2E5CDD43B1D3D1561DA83EABF3406B75420FB8B35F4BDEA64D6DA5B57CC)

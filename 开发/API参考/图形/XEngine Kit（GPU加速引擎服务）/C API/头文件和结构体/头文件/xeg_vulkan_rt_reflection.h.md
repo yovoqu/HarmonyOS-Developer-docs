@@ -1,6 +1,6 @@
 # xeg_vulkan_rt_reflection.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-vulkan-rt-reflection-8h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
-XEngine RT Reflection特性接口。使用此头文件中的接口前需要通过[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口查询 [XEG_RT_REFLECTION_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rt_reflection_extension_name)扩展可用。
+XEngine Ray-Traced Reflection（光线追踪反射）特性接口。使用此头文件中的接口前需要通过[HMS_XEG_EnumerateDeviceExtensionProperties](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#hms_xeg_enumeratedeviceextensionproperties)接口查询 [XEG_RT_REFLECTION_EXTENSION_NAME](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xengine#xeg_rt_reflection_extension_name)扩展可用。
  
 **引用文件**：<xengine/xeg_vulkan_rt_reflection.h>
  
@@ -52,7 +52,7 @@ XEngine RT Reflection特性接口。使用此头文件中的接口前需要通�
 | typedef struct XEG_RTReflectionDescription XEG_RTReflectionDescription | 此结构体描述下发光线求交命令时的输入信息。 |
 | typedef VkResult(VKAPI_ATTR * PFN_HMS_XEG_CreateRTReflection) (VkDevice device, const void *pCreateInfo, XEG_RTReflection *pRtReflection) | 创建XEG_RTReflection对象的函数指针定义。 |
 | typedef VkResult (VKAPI_ATTR *PFN_HMS_XEG_CmdRenderRTReflection)(VkCommandBuffer commandBuffer, XEG_RTReflection rtReflection, const void *pDescription) | 录制计算RT反射命中信息命令的函数指针定义。 |
-| typedef void (VKAPI_ATTR *PFN_HMS_XEG_DestroyRTReflection)(XEG_RTReflection rtReflection) | 销毁XEG_RTReflection对象的函数指针定义。 |
+| typedef void(VKAPI_ATTR *PFN_HMS_XEG_DestroyRTReflection) (XEG_RTReflection rtReflection) | 销毁XEG_RTReflection对象的函数指针定义。 |
  
  
   

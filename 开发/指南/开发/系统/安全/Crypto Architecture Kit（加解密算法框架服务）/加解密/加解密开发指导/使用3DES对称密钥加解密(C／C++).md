@@ -1,6 +1,6 @@
 # 使用3DES对称密钥加解密(C/C++)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-3des-sym-encrypt-decrypt-ecb-ndk
 
@@ -163,5 +163,5 @@ OH_CryptoSymCipherParams *params = nullptr;
     if (ret != CRYPTO_SUCCESS) {
         goto end;
     }
-    // 本段代码只展示CBC、CTR、OFB、CFB分段模式的不同，其他流程请参考开发示例。
+    // 本段代码只展示CBC、CTR、OFB、CFB分组模式的不同，其他流程请参考开发示例。
 ```

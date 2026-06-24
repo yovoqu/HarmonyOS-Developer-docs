@@ -1,6 +1,6 @@
 # ArkUI_FloatPropertyHandle
 
-更新时间：2026-04-02 08:41:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-floatpropertyhandle
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

@@ -1,6 +1,6 @@
 # Interface (Zoom)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-zoom
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -100,7 +100,7 @@ getZoomRatio(): number
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 7400103 | Session not config. |
-| 7400201 | Camera service fatal error. |
+| 7400201 | Camera service fatal error. 适用版本：12+ |
  
  
 **示例：**
@@ -142,6 +142,15 @@ setSmoothZoom(targetRatio: number, mode?: SmoothZoomMode): void
 | --- | --- | --- | --- |
 | targetRatio | number | 是 | 目标值。通过getZoomRatioRange获取支持的变焦范围，如果设置超过支持范围的值，则只保留精度范围内数值。 |
 | mode | SmoothZoomMode | 否 | 平滑变焦模式。默认为0。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[Camera错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-camera)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7400103 | Session not config. 适用版本：11-17 |
  
  
 **示例：**

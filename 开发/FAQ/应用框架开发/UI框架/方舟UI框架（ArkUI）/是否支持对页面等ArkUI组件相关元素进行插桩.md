@@ -1,6 +1,6 @@
 # 是否支持对页面等ArkUI组件相关元素进行插桩
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-378
 

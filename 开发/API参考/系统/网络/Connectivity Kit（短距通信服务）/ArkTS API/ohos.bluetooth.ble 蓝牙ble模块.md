@@ -1,6 +1,6 @@
 # @ohos.bluetooth.ble (蓝牙ble模块)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetooth-ble
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1698,7 +1698,7 @@ try {
 
 removeService(serviceUuid: string): void
 
-删除server端已添加的服务。
+删除Server端已添加的服务。
 
  - 该服务曾通过[addService](#addservice)添加。
 
@@ -1737,10 +1737,53 @@ removeService(serviceUuid: string): void
 import { AsyncCallback, BusinessError } from '@kit.BasicServicesKit';
 let server: ble.GattServer = ble.createGattServer();
 try {
-    // 调用removeService接口前需要完成server端和client端的配对及连接。
     server.removeService('00001810-0000-1000-8000-00805F9B34FB');
 } catch (err) {
     console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+}
+```
+
+
+
+#### removeAllServices
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+removeAllServices(): void
+
+删除Server端所有服务。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ACCESS_BLUETOOTH
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Communication.Bluetooth.Core
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码说明文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[蓝牙服务子系统错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-bluetoothmanager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 801 | Capability not supported. Failed to call the API because the short-range chip is not inserted on the 2in1 device. |
+| 2900001 | Service stopped. |
+| 2900003 | Bluetooth disabled. |
+| 2900099 | Operation failed. |
+
+
+**示例：**
+
+```text
+let server: ble.GattServer = ble.createGattServer();
+try {
+    server.removeAllServices();
+} catch (err) {
+    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);
 }
 ```
 
@@ -5756,7 +5799,7 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| deviceId | string | 否 | 否 | 扫描到的蓝牙设备地址。例如："XX:XX:XX:XX:XX:XX"。 基于信息安全考虑，若应用开启扫描时没有在ScanFilter中配置实际MAC地址类型的地址，则此处获取的设备地址为虚拟MAC地址。 - 若和该设备地址配对成功后，该地址不会变更。 - 若该设备重启蓝牙开关，重新获取到的虚拟地址会立即变更。 - 若取消配对，蓝牙子系统会根据该地址的实际使用情况，决策后续变更时机；若其他应用正在使用该地址，则不会立刻变更。 - 若要持久化保存该地址，可使用access.addPersistentDeviceId方法。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
+| deviceId | string | 否 | 否 | 扫描到的蓝牙设备地址。例如："XX:XX:XX:XX:XX:XX"。 基于信息安全考虑，若应用开启扫描时没有在ScanFilter中配置实际MAC地址，则此处获取的设备地址为虚拟MAC地址。 - 若和该设备地址配对成功后，该地址不会变更。 - 若该设备重启蓝牙开关，重新获取到的虚拟地址会立即变更。 - 若取消配对，蓝牙子系统会根据该地址的实际使用情况，决策后续变更时机；若其他应用正在使用该地址，则不会立刻变更。 - 若要持久化保存该地址，可使用access.addPersistentDeviceId方法。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | address23+ | BluetoothAddress | 否 | 是 | 扫描到的蓝牙设备地址信息，包括地址与地址类型。 |
 | rssi | number | 否 | 否 | 扫描到的设备信号强度，单位：dBm。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | data | ArrayBuffer | 否 | 否 | 扫描到的设备发送的原始未解析的广播报文内容。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
@@ -5778,15 +5821,14 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 描述BLE广播的发送参数。
 
-**元服务API**：从API version 12开始，该接口支持在元服务中使用。
-
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| interval | number | 否 | 是 | 广播发送间隔。 取值范围：[32, 16777215]，单位：slot（时间槽），一个slot代表0.625毫秒，默认值为1600。 其中传统广播的最大值是16384。 |
-| txPower | number | 否 | 是 | 广播发送功率。取值范围：[-127, 1]，单位：dBm，默认值为-7。 考虑到发送广播的性能和功耗，建议高档取值为1，中档取为-7，低档取值为-15。 |
-| connectable | boolean | 否 | 是 | 是否是可连接广播。true表示发送可连接广播，false表示发送不可连接广播，默认值为true。 |
+| interval | number | 否 | 是 | 广播发送间隔。 取值范围：[32, 16777215]，单位：slot（时间槽），一个slot代表0.625毫秒，默认值为1600。 其中传统广播的最大值是16384。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
+| txPower | number | 否 | 是 | 广播发送功率。取值范围：[-127, 1]，单位：dBm，默认值为-7。 考虑到发送广播的性能和功耗，建议高档取值为1，中档取为-7，低档取值为-15。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
+| connectable | boolean | 否 | 是 | 是否是可连接广播。true表示发送可连接广播，false表示发送不可连接广播，默认值为true。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
+| isExtended | boolean | 否 | 是 | 是否使用扩展广播。false表示使用传统广播，报文最大长度为31个字节；true表示使用扩展广播，报文最大长度由蓝牙芯片能力决定。默认值为false。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -5795,9 +5837,9 @@ GATT描述符结构定义，是特征值[BLECharacteristic](#blecharacteristic)�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-描述BLE广播报文数据内容，也可以用作回复扫描请求的广播报文数据内容。当前只支持传统广播，因此报文最大长度为31个字节。若超出最大长度（31个字节）限制，会导致启动广播失败。
+描述BLE广播报文数据内容，也可以用作回复扫描请求的广播报文数据内容。支持传统广播和扩展广播，传统广播报文最大长度为31个字节，扩展广播报文最大长度由蓝牙芯片能力决定。若超出最大长度限制，会导致启动广播失败。
 
- - 若携带了所有参数，尤其是携带了广播名称（通过includeDeviceName或advertiseName进行设置），需要注意广播报文长度。
+ - 传统广播模式下，若携带了所有参数，尤其是携带了广播名称（通过includeDeviceName或advertiseName进行设置），需要注意广播报文长度。
 
 
 **系统能力**：SystemCapability.Communication.Bluetooth.Core
@@ -5957,6 +5999,7 @@ BLE扫描的配置参数。
 | matchMode | MatchMode | 否 | 是 | 硬件的过滤匹配模式，默认值为MATCH_MODE_AGGRESSIVE。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | phyType12+ | PhyType | 否 | 是 | 扫描中使用的物理通道类型，默认值为PHY_LE_1M。 元服务API：从API version 12开始，该接口支持在元服务中使用。 |
 | reportMode15+ | ScanReportMode | 否 | 是 | 扫描结果数据上报模式，默认值为NORMAL。 元服务API：从API version 15开始，该接口支持在元服务中使用。 |
+| isExtended | boolean | 否 | 是 | 是否使用扩展扫描。false表示使用传统扫描；true表示使用扩展扫描。默认值为false。 起始版本： 26.0.0 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 

@@ -1,6 +1,6 @@
 # picker-view
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-picker-view
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -180,4 +180,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/27/v3/PxoFpq4cRAqF7grMo3Qhiw/zh-cn_image_0000002581276636.png?HW-CC-KV=V1&HW-CC-Date=20260528T025432Z&HW-CC-Expire=86400&HW-CC-Sign=59BF38FB6795A6B6720EE87877DABF1D3DD72F6919A270DE09D3361B1665A154)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/bqjltzmDRG-lCbAhUJCNTA/zh-cn_image_0000002626231110.png?HW-CC-KV=V1&HW-CC-Date=20260624T015946Z&HW-CC-Expire=86400&HW-CC-Sign=C43D7B299F83BC1E335B7195658FC960A13CA18375FB41440A35A7144FCADD6D)

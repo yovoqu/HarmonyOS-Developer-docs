@@ -1,6 +1,6 @@
 # crypto_common.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-crypto-common-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -90,6 +90,7 @@ enum OH_Crypto_ErrCode
 | CRYPTO_NOT_SUPPORTED = 801 | 不支持的函数或算法。 |
 | CRYPTO_MEMORY_ERROR = 17620001 | 内存错误。 |
 | CRYPTO_PARAMETER_CHECK_FAILED = 17620003 | 参数检查失败。 起始版本： 20 |
+| CRYPTO_INVALID_CALL = 17620004 | 表示无效的函数调用。 起始版本： 26.0.0 |
 | CRYPTO_OPERTION_ERROR = 17630001 | 表示加解密操作错误。 |
  
  

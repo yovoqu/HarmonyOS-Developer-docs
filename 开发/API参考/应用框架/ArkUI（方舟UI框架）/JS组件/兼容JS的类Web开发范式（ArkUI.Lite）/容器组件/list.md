@@ -1,6 +1,6 @@
 # list
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-container-list
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -165,4 +165,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/yMRc3aciSzCKCIeOV7j5Qg/zh-cn_image_0000002611756487.png?HW-CC-KV=V1&HW-CC-Date=20260528T025434Z&HW-CC-Expire=86400&HW-CC-Sign=1CBA8CBC33B1DCF68E4B5039D267126E4D28D9E3C7B34ED6E4C7A311AEDD9182)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4a/v3/_zRRgwWqRrmmyc6Mf0vjkQ/zh-cn_image_0000002626071194.png?HW-CC-KV=V1&HW-CC-Date=20260624T015945Z&HW-CC-Expire=86400&HW-CC-Sign=8233567EDC82637F2BA51980A5E39C54C9EBDA326F0F22C5EDDF4ACD71919A3C)

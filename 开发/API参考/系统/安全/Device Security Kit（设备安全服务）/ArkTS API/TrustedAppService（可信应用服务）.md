@@ -1,6 +1,6 @@
 # TrustedAppService（可信应用服务）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-taas-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -30,6 +30,8 @@ createAttestKey(options: AttestOptions): Promise&lt;void&gt;
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.0.0(12)
@@ -50,7 +52,7 @@ createAttestKey(options: AttestOptions): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-taas) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-taas) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -106,6 +108,8 @@ await trustedAppService.createAttestKey(options)
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.0.0(12)
@@ -124,6 +128,8 @@ await trustedAppService.createAttestKey(options)
 [AttestOptions](#attestoptions)配置信息的内容条目。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
@@ -144,6 +150,8 @@ await trustedAppService.createAttestKey(options)
 配置信息标签类型，使用[AttestTagType](#attesttagtype)扩展定义。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
@@ -167,6 +175,8 @@ await trustedAppService.createAttestKey(options)
 标签类型定义，用于区分数据类型。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
@@ -192,6 +202,8 @@ await trustedAppService.createAttestKey(options)
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.0.0(12)
@@ -210,6 +222,8 @@ await trustedAppService.createAttestKey(options)
 证明密钥长度。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
@@ -233,13 +247,15 @@ destroyAttestKey(): Promise&lt;void&gt;
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.0.0(12)
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-taas) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-taas) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -287,6 +303,8 @@ initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;At
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.0.0(12)
@@ -308,7 +326,7 @@ initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;At
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-taas) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-taas) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -332,6 +350,8 @@ initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;At
 
 证明会话类型。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.0.0(12)
@@ -352,6 +372,8 @@ initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;At
 [initializeAttestContext](#initializeattestcontext)接口的返回值。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
@@ -409,6 +431,8 @@ await trustedAppService.initializeAttestContext(user_data, options2).then(
 
 可信应用服务中创建证明密钥、销毁证明密钥、初始化证明会话、结束证明会话、获取当前安全位置等接口的错误码。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.0.0(12)
@@ -433,8 +457,8 @@ await trustedAppService.initializeAttestContext(user_data, options2).then(
 | ATTEST_ERROR_LOCATION_SERVICE_UNAVAILABLE | 1011500014 | 位置服务不可用。 元服务API： 从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
 | ATTEST_ERROR_LOCATION_SWITCH_OFF | 1011500015 | 位置信息开关关闭。 元服务API： 从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
 | ATTEST_ERROR_LOCATION_FAILED | 1011500016 | 位置信息获取失败。 元服务API： 从版本5.0.2(14)开始，该接口支持在元服务中使用。 |
-| ATTEST_ERROR_SIGNATURE_VERIFICATION_FAILED | 1011500017 | 签名验签失败。 起始版本：5.1.0(18)。 |
-| ATTEST_ERROR_SECIMAGE_PROCESS_FAILED | 1011500018 | 安全图像处理失败。 起始版本：5.1.0(18)。 |
+| ATTEST_ERROR_SIGNATURE_VERIFICATION_FAILED | 1011500017 | 签名验签失败。 起始版本： 5.1.0(18) |
+| ATTEST_ERROR_SECIMAGE_PROCESS_FAILED | 1011500018 | 安全图像处理失败。 起始版本： 5.1.0(18) |
  
  
   
@@ -448,6 +472,8 @@ finalizeAttestContext(options: AttestOptions): Promise&lt;void&gt;
 结束证明会话，在结束安全证明服务后调用，使用Promise异步回调。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
@@ -469,7 +495,7 @@ finalizeAttestContext(options: AttestOptions): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-taas) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-taas) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -520,6 +546,8 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Location
  
 **需要权限**：ohos.permission.LOCATION 和 ohos.permission.APPROXIMATELY_LOCATION
@@ -543,7 +571,7 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-taas) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-taas) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -566,6 +594,8 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Location
  
 **起始版本：** 5.0.0(12)
@@ -585,6 +615,8 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
 获取的安全地理位置。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Location
  
@@ -606,6 +638,8 @@ getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&
 获取的安全地理位置信息。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Location
  
@@ -646,6 +680,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
  
 处理安全图像压缩、裁剪操作，使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **设备行为差异：** 该接口在支持安全摄像头能力的Phone、Tablet、PC/2in1均可正常调用，在不支持安全摄像头能力的Phone、Tablet、PC/2in1设备及其他设备类型中统一返回业务错误码1011500011。
@@ -669,7 +705,7 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-taas) **。**
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-taas) **。**
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -690,6 +726,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 
 [procSecImageTransform](#procsecimagetransform)接口的请求参数。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.1.0(18)
@@ -706,6 +744,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 **支持设备：** Phone | PC/2in1 | Tablet
 
 [SecImageProcParamsArray](#secimageprocparamsarray)配置信息的内容条目。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
@@ -724,6 +764,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 **支持设备：** Phone | PC/2in1 | Tablet
 
 安全图像压缩、裁剪处理的配置信息标签类型，使用[AttestTagType](#attesttagtype)扩展定义。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
@@ -747,6 +789,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 
 安全图像的处理命令。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.1.0(18)
@@ -766,6 +810,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 
 安全图像的格式。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
 **起始版本：** 5.1.0(18)
@@ -784,6 +830,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 **支持设备：** Phone | PC/2in1 | Tablet
 
 安全图像裁剪处理的裁剪区域。裁剪区域参数作用如下图所示。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  
@@ -808,6 +856,8 @@ procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsAr
 **支持设备：** Phone | PC/2in1 | Tablet
 
 获得压缩、裁剪处理后签名的安全图像。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.TrustedAppService.Core
  

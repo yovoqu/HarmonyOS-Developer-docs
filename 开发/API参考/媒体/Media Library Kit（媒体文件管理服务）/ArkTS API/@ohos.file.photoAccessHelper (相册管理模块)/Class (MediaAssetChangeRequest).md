@@ -1,6 +1,6 @@
 # Class (MediaAssetChangeRequest)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-mediaassetchangerequest
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -418,7 +418,7 @@ getAsset(): PhotoAsset
 获取当前资产变更请求中的资产。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d3/v3/gUUIk0iuTEKrb4m2lSTqdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012954Z&HW-CC-Expire=86400&HW-CC-Sign=932F4C78780835B5646156BC421D925AC764D8256748652943A8CBCA9C40C4EA)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/3R4jng7KQLi5zpKb3n0dHw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=A0E8CA84244D7E15E1A1322AC67FE5FFA88436AEE5B8EDC6B04572DE14440B72)
 
 
 对于创建资产的变更请求，在调用接口[applyChanges](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-photoaccesshelper#applychanges11)的提交生效之前，该接口会返回null。
@@ -545,7 +545,7 @@ getWriteCacheHandler(): Promise&lt;number&gt;
 获取临时文件写句柄。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/Jwwb2ChqSvGbet7epGBMJg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012954Z&HW-CC-Expire=86400&HW-CC-Sign=4EF63F71C1D2C07DB786D53B3C1CFC0804A57748601A708EFB3D3CC50E5DCCF7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bc/v3/osAlI3cHQ2y5qscqODW9wQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=CBE84CB06A196CC60DD18CD8368FFA9AAEFB4547AE2402C853C66DFB218C6863)
 
 
 对于同一个资产变更请求，不支持在成功获取临时文件写句柄后，重复调用该接口。
@@ -610,7 +610,7 @@ addResource(type: ResourceType, fileUri: string): void
 通过文件URI从应用沙箱添加资源，待添加资源的数据来源可参考[@ohos.file.fileuri (文件URI)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-file-fileuri)。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/lX29NGR-SmmfxKeOe6hhpQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012954Z&HW-CC-Expire=86400&HW-CC-Sign=74C3C7A84896DD6D1E2DBFCB7D0416CC2405D9E455607E45E86AC9CBCAFDBB74)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d5/v3/DOH3kQv2SDyxurK-pYBqkA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=7AC2C69014B451B1E8A998DE82EFC0611C599122E83016380D8AEC1A66C0B164)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。
@@ -674,7 +674,7 @@ addResource(type: ResourceType, data: ArrayBuffer): void
 通过ArrayBuffer数据添加资源。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/kr5-GhcJSwaNaMmDWEMFJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012954Z&HW-CC-Expire=86400&HW-CC-Sign=D4628E0EE07F09A2BD87385C4B8C5550403267995B1F8AE76F6DA014F171EA9C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a7/v3/hMQHBxU1SdOhTpvRUMwQbg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020417Z&HW-CC-Expire=86400&HW-CC-Sign=F1A4798DBFFB8F45D0A57076A7287EC0FD65EC1E966D5B74914AE03A59B3A158)
 
 
 对于同一个资产变更请求，成功添加资源后不支持重复调用该接口。对于动态照片，可调用两次该接口分别添加图片和视频资源。

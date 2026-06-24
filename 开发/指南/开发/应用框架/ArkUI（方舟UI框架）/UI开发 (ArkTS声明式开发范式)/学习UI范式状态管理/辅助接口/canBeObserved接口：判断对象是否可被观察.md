@@ -1,6 +1,6 @@
 # canBeObserved接口：判断对象是否可被观察
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-new-canbeobserved
 

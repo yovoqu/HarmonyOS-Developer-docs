@@ -1,13 +1,13 @@
 # 仅MDM应用可用权限
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/permissions-for-mdm-apps
 
 以下权限仅对MDM（Mobile Device Management）设备管理应用开放。MDM应用的详细介绍，请参考[MDM Kit简介](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-intro)。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/40/v3/odbxLwbVQR6-RLwZFAo8zw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030319Z&HW-CC-Expire=86400&HW-CC-Sign=C1BC6BBA38FBE6F1D1FC7EDFD5748D8250EBFE18E04AA9B439AC2A9E742B1B6C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e5/v3/U_i8Mu2LQj2HcvfZ6KWCTg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020820Z&HW-CC-Expire=86400&HW-CC-Sign=69D3803AF350A09F5D0E4B5ADE383B4D23625FC018CD8BE2400EDBB331EA82E0)
  
  
 以下权限不支持自动签名，因此在调试和发布阶段，均需参照[手动签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-signing#section297715173233)的步骤，完成手动签名。
@@ -465,6 +465,8 @@
  
 **授权方式**：系统授权（system_grant）
  
+**支持设备**：PC/2in1
+ 
 **起始版本**：12
  
   
@@ -758,3 +760,19 @@
 **支持设备**：Phone | PC/2in1 | Tablet
  
 **起始版本**：23
+ 
+  
+
+#### ohos.permission.ENTERPRISE_ACTIVATE_DEVICE_ADMIN
+
+允许企业MDM应用自行完成激活操作。
+ 
+**申请后AGC的审核时长：** 预计3个工作日内反馈审核结果。
+ 
+**权限级别**：system_basic
+ 
+**授权方式**：系统授权（system_grant）
+ 
+**支持设备**：Phone | PC/2in1 | Tablet
+ 
+**起始版本**：26.0.0

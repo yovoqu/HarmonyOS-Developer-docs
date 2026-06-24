@@ -1,9 +1,13 @@
 # 应用集成三方库（har包）的兼容性指导
 
-更新时间：2026-01-21 11:07:33
+更新时间：2026-06-12 06:54:02
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/app-compatibility-third-har
 
+> [!TIP]
+> API版本号格式从26.0.0开始进行调整（详见 版本号格式调整说明 ），不影响对API兼容性判断的基本逻辑，因此在文档的示意性描述中暂时仍保持旧版本格式的说明。 近期API版本号的大小关系如下： 26.0.0 > 6.1.1(24) > 6.1.0(23) > 6.0.2(22) > 6.0.1(21) > 6.0.0(20) > 5.1.1(19) > 5.1.0(18) > 5.0.4(17)
+
+ 
 在应用开发过程中，会依赖大量的三方库，应用hap和三方库har之间因为SDK版本属性字段的版本差异，会存在各种兼容性问题。
  
 针对三方库本身的开发，建议开发者使用最新的编译的SDK版本，并且通过API兼容性判断机制，将运行的最低SDK版本配置为尽可能低（尤其是针对不依赖HarmonyOS SDK中API的三方库，建议将compatibleSdkVersion配置为12），这样能够满足尽可能多的应用集成，但可能需增加较多API兼容性判断保护，因此开发者需根据现网设备API版本占比情况综合评估后，有选择的进行设置。
@@ -26,7 +30,7 @@
 （3）因为在应用集成三方库的时候，最终打包到应用中的targetSdkVersion字段值会填写为应用的值，则为了让三方库被应用集成后的行为一致，需要进行一些适配。
  
 
-![](assets/应用集成三方库（har包）的兼容性指导/file-20260515135042450-0.png)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/tPALsceXQtKGWXF0kuLnZA/zh-cn_image_0000002409845612.png?HW-CC-KV=V1&HW-CC-Date=20260624T021002Z&HW-CC-Expire=86400&HW-CC-Sign=EA75B8EC63D5E4D31FBA0ACBBE1830611A726DC6328432E68E6D88F528F6BC1B)
 
  
 ```text

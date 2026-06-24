@@ -1,6 +1,6 @@
 # @ohos.hidebug (Debug调试)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hidebug
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -296,7 +296,7 @@ getServiceDump(serviceid: number, fd: number, args: Array&lt;string&gt;): void
 | --- | --- | --- | --- |
 | serviceid | number | 是 | 基于用户输入的service id获取系统服务信息。 |
 | fd | number | 是 | 文件描述符，接口会向该fd写入数据。 |
-| args | Array&lt;string&gt; | 是 | 系统服务的dump接口参数列表。string长度的最大值为254。超出部分将会被截断。 |
+| args | Array&lt;string&gt; | 是 | 系统服务的dump接口参数列表。string长度的最大值为254，超出部分将会被截断。 |
 
 
 **错误码**：
@@ -1725,7 +1725,7 @@ dumpJsRawHeapData(needGC: boolean, needClean: boolean): Promise&lt;string&gt;
 为当前线程转储虚拟机的原始堆快照，并支持清除nodeId缓存。生成的文件为rawheap格式，使用Promise异步回调完成。该文件可通过[rawheap-translator工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawheap-translator)转化为heapsnapshot格式文件进行解析。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/q34gTCfbSU-GMxsYRvdRZg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025206Z&HW-CC-Expire=86400&HW-CC-Sign=2523D980B0ED2C988A876137190EF7CFCE32242DD9DFA720A5E6D4D4A0B4EEE2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/86/v3/5A0ftVqERheDHeC59xQXCg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020200Z&HW-CC-Expire=86400&HW-CC-Sign=DB2F8B7F46907B9650C32BE45115A856FAEABEB0A7C3D4068BAE8EA2F65071D4)
 
 
 系统通过该接口转存快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
@@ -1779,6 +1779,79 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 hidebug.dumpJsRawHeapData(true, true).then((filePath: string) => {
   console.info(`dumpJsRawHeapData success and generated file path is ${filePath}`);
+}).catch((error: BusinessError) => {
+  console.error(`error code: ${error.code}, error msg: ${error.message}`);
+})
+```
+
+
+
+#### hidebug.dumpJsRawHeapData
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+dumpJsRawHeapData(needGC: boolean, needClean: boolean, processDump: boolean): Promise<Array&lt;string&gt;>
+
+为当前线程或其所属进程生成虚拟机的原始堆快照，并支持清除nodeId缓存，生成的文件为rawheap格式。使用Promise异步回调。文件可通过[rawheap-translator工具](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawheap-translator)转换为heapsnapshot格式文件进行解析。
+
+
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/ZQG65A5FRyCMDNSuol_rqw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020200Z&HW-CC-Expire=86400&HW-CC-Sign=0DAEB1CF30AAA9E9E908102267AF4BF7A79B44436AED2CBDB016AB3D916D7B8B)
+
+
+系统通过该接口转储快照会消耗大量资源，因此严格限制了调用频率和次数。处理完生成的文件后，请立即删除。
+
+建议在开发者模式下调用该接口，可免除调用配额限制，当设置的开发者选项开关打开并重启设备后即可生效。
+
+
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API**：从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力**：SystemCapability.HiviewDFX.HiProfiler.HiDebug
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| needGC | boolean | 是 | 转储堆快照前是否需要GC。true：需要GC；false：不需要GC。 |
+| needClean | boolean | 是 | 转储堆快照前是否需要清除nodeId。true：需要清除；false：不需要清除。 |
+| processDump | boolean | 是 | 是否转储当前线程所属进程的原始堆快照。true：转储当前线程所属进程的原始堆快照。 |
+
+
+**返回值**：
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<Array&lt;string&gt;> | Promise对象，返回生成的快照文件路径数组（应用沙箱内路径）。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[HiDebug错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-hiviewdfx-hidebug)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 11400106 | Quota exceeded. |
+| 11400107 | Fork operation failed. |
+| 11400108 | Failed to wait for the child process to finish. |
+| 11400109 | Timeout while waiting for the child process to finish. |
+| 11400110 | Disk remaining space too low. |
+| 11400111 | Napi interface call exception. |
+| 11400112 | Repeated data dump. |
+| 11400113 | Failed to create dump file. |
+
+
+**示例**：
+
+```json
+import { hidebug } from '@kit.PerformanceAnalysisKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+hidebug.dumpJsRawHeapData(true, true, true).then((filePathArray: Array<string>) => {
+  console.info(`dumpJsRawHeapData success and generated file path is ${JSON.stringify(filePathArray)}`);
 }).catch((error: BusinessError) => {
   console.error(`error code: ${error.code}, error msg: ${error.message}`);
 })
@@ -1945,7 +2018,7 @@ setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void
 设置当前进程转储虚拟机原始堆快照的裁剪级别。使用该接口并传入参数TRIM_LEVEL_2，可以有效减少堆快照的文件大小。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/WlAr21_eSnm31jM8ZDDHdQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025206Z&HW-CC-Expire=86400&HW-CC-Sign=EEDD4838BEDC70CCF9CF04385A019DA27D8A81180CFA4433B523BB9ACA09ADEE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9c/v3/ZrbpJE7bTP6ZFzm-1ytajQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020200Z&HW-CC-Expire=86400&HW-CC-Sign=29A5DE3E9657E739BFCEA3A1219C4F7C8C3683C6825237BBF3613AA783576BE7)
 
 
 默认裁剪级别是TRIM_LEVEL_1。如果设置了TRIM_LEVEL_2裁剪，需使用API version 20之后的[rawheap-translator](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/rawheap-translator)工具才能将.rawheap文件转换为.heapsnapshot文件，否则可能导致转换失败。
@@ -2000,7 +2073,7 @@ setProcDumpInSharedOOM(enable: boolean): void
 将转储的堆快照由线程级改为进程级。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/e22pthWRRdKjKCwVUTrqMA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025206Z&HW-CC-Expire=86400&HW-CC-Sign=FF8C8F7E01CF458B2C080A92A080F78A719D487724D151809E158236F6FA77E3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/96/v3/WEbPqBovQOaqHYgH5qGpTQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020200Z&HW-CC-Expire=86400&HW-CC-Sign=18BF452D74B373736CC76E0B15D3991C7768E2D41C9B5BB728074ADABB281A45)
 
 
 要想转储进程级的堆快照，调用该接口并传参true、进程OOM时发生的是SharedHeap OOM，两个条件缺一不可。
@@ -2047,7 +2120,7 @@ getRssInfo(): RssInfo
 **系统能力**：SystemCapability.HiviewDFX.HiProfiler.HiDebug
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/l2d5WH_dTrG6_hlDp-ghmA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025206Z&HW-CC-Expire=86400&HW-CC-Sign=1D8E7F700C39442F530D71EE186C079C8E2F2740C3715ED605F641595C332196)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/taPhuL-hQbG-aKvSfLSxHg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020200Z&HW-CC-Expire=86400&HW-CC-Sign=DFE897BC67A19AB61711A8FD139AEA2A691A96D33CAE506DB3DD289491F706E7)
 
 
 读取/proc/{pid}/status耗时很短，与[hidebug.getAppNativeMemInfo](#hidebuggetappnativememinfo12)接口中获取的rss值相比存在一点误差，但该接口更加轻量，为避免应用丢帧或卡顿推荐使用该接口。

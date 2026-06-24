@@ -1,6 +1,6 @@
 # 使用RSA非对称密钥（PKCS1模式）加解密(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-rsa-asym-encrypt-decrypt-pkcs1
 
@@ -111,7 +111,7 @@ async function main() {
     console.info('decrypt ok.');
     // 把Uint8Array按utf-8编码为字符串
     let messageDecrypted = buffer.from(decryptText.data).toString('utf-8');
-    console.info('decrypted result string:' + messageDecrypted);
+    console.info('decrypted result string: ' + messageDecrypted);
   } else {
     console.error('decrypt failed.');
   }
@@ -199,7 +199,7 @@ function main() {
     console.info('decrypt ok.');
     // 把Uint8Array按utf-8编码为字符串
     let messageDecrypted = buffer.from(decryptText.data).toString('utf-8');
-    console.info('decrypted result string:' + messageDecrypted);
+    console.info('decrypted result string: ' + messageDecrypted);
   } else {
     console.error('decrypt failed.');
   }

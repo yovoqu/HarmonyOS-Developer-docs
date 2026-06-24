@@ -1,15 +1,13 @@
 # visionImageAnalyzer（AI识图控件）
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-image-analyzer
 **支持设备：** Phone | PC/2in1 | Tablet
 
 AI识图是通过聚合OCR（Optical Character Recognition）、主体分割、实体识别、多目标识别等AI能力，提供场景化的文本识别、主体分割、识图搜索功能。
  
-> [!NOTE]
-> 调用接口需捕获异常。
-
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -32,6 +30,8 @@ AI识图菜单。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -49,6 +49,8 @@ AI识图菜单。
 矩形数据结构。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -70,6 +72,8 @@ AI识图菜单。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -90,6 +94,8 @@ AI识图菜单。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 值 | 说明 |
@@ -108,6 +114,8 @@ AI识图控件可见状态的枚举值。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 值 | 说明 |
@@ -125,6 +133,8 @@ AI识图控件可见状态的枚举值。
 AIButton状态的枚举值。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   
@@ -145,6 +155,8 @@ AIButton状态的枚举值。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.1(13)
   
 | 名称 | 值 | 说明 |
@@ -162,6 +174,8 @@ AIButton状态的枚举值。
 图片分析界面状态的枚举值。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.2(14)
   
@@ -184,6 +198,8 @@ AIButton状态的枚举值。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
   
@@ -197,6 +213,8 @@ setImageAnalyzerVisibility(visibility: ImageAnalyzerVisibility): void
 设置AI识图控件的可见性。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -247,6 +265,8 @@ setAIButtonPosition(position: Rect): void
 设置AIButton的位置。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -302,6 +322,8 @@ setAIButtonVisibility(visible: boolean): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -351,6 +373,8 @@ setCustomTextMenuItems(menus: Menu[]): void
 设置自定义的文字分析菜单项。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -410,6 +434,8 @@ startSubjectAnalyzer(): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **示例：**
@@ -455,6 +481,8 @@ setCustomSubjectMenuItems(menus: Menu[]): void
 设置自定义的主体分析菜单项。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -513,6 +541,8 @@ setSelectedSubjects(subjectIds: number[]): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -568,6 +598,8 @@ getSelectedSubjects(): Promise<Subject[] | null>
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **返回值：**
@@ -619,6 +651,8 @@ getSubject(point: visionBase.Point): Promise<Subject | null>
 根据点位获取对应位置的主体。使用Promise异步回调。调用此接口前需先调用[startSubjectAnalyzer](#startsubjectanalyzer)开启主体识别。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -679,6 +713,8 @@ getSubjectsImage(subjectIds: number[]): Promise<PixelMap | null>
 根据主体id获取对应主体组装成的图像。使用Promise异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -746,6 +782,8 @@ getImageAnalyzerUIStatus(): Promise&lt;ImageAnalyzerUIStatus&gt;
 获取当前图片分析UI状态。使用Promise异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.2(14)
  
@@ -820,6 +858,8 @@ startObjectSearch(): Promise&lt;boolean&gt;
  
 **设备行为差异：** 该接口在PC/2in1上无效果，在其他设备类型中可正常调用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **返回值：**
@@ -874,6 +914,8 @@ stopObjectSearch(): void
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **示例：**
  
 ```text
@@ -914,6 +956,8 @@ setSubjectMenuVisibility(visible: boolean): void
 设置图像分割菜单状态。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.1(13)
  
@@ -962,6 +1006,8 @@ on(type: 'aiButtonStatusChange', callback: Callback&lt;AIButtonStatus&gt;): void
 监听AIButton展示状态。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -1016,6 +1062,8 @@ off(type: 'aiButtonStatusChange', callback?: Callback&lt;AIButtonStatus&gt;): vo
 取消监听AIButton展示状态。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -1074,6 +1122,8 @@ on(type: 'imageAnalyzerVisibilityChange', callback: Callback&lt;ImageAnalyzerVis
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -1130,6 +1180,8 @@ off(type: 'imageAnalyzerVisibilityChange', callback?: Callback&lt;ImageAnalyzerV
 取消AI识图控件可见状态的监听。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -1188,6 +1240,8 @@ on(type: 'textAnalysis', callback: Callback&lt;string&gt;): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -1243,6 +1297,8 @@ off(type: 'textAnalysis', callback?: Callback&lt;string&gt;): void
 取消文字分析结果的监听。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -1300,6 +1356,8 @@ on(type: 'selectedTextChange', callback: Callback&lt;string&gt;): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -1355,6 +1413,8 @@ off(type: 'selectedTextChange', callback?: Callback&lt;string&gt;): void
 取消文字选中结果的监听。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -1412,6 +1472,8 @@ on(type: 'subjectAnalysis', callback: Callback<Subject[]>): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -1467,6 +1529,8 @@ off(type: 'subjectAnalysis', callback?: Callback<Subject[]>): void
 取消主体分析结果的监听。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -1524,6 +1588,8 @@ on(type: 'selectedSubjectsChange', callback: Callback<Subject[]>): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -1579,6 +1645,8 @@ off(type: 'selectedSubjectsChange', callback?: Callback<Subject[]>): void
 取消对选中主体的监听。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
  
@@ -1636,6 +1704,8 @@ on(type: 'objectSearchPanelVisibilityChange', callback: Callback&lt;ObjectSearch
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.1(13)
  
 **参数：**
@@ -1689,6 +1759,8 @@ off(type: 'objectSearchPanelVisibilityChange', callback?: Callback&lt;ObjectSear
 取消图片搜索事件的监听。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.1(13)
  
@@ -1744,6 +1816,8 @@ on(type: 'cursorMoveInText', callback: Callback&lt;void&gt;): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.1.0(18)
  
 **参数：**
@@ -1797,6 +1871,8 @@ off(type: 'cursorMoveInText', callback?: Callback&lt;void&gt;): void
 取消光标移入图片内文字区域事件的监听。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.1.0(18)
  
@@ -1852,6 +1928,8 @@ on(type: 'cursorMoveOutText', callback: Callback&lt;void&gt;): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.1.0(18)
  
 **参数：**
@@ -1905,6 +1983,8 @@ off(type: 'cursorMoveOutText', callback?: Callback&lt;void&gt;): void
 取消光标移出图片内文字区域事件的监听。使用callback异步回调。
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.1.0(18)
  
@@ -1960,6 +2040,8 @@ on(type: 'analyzerFailed', callback: ErrorCallback): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -1972,7 +2054,7 @@ on(type: 'analyzerFailed', callback: ErrorCallback): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2027,6 +2109,8 @@ off(type: 'analyzerFailed', callback?: ErrorCallback): void
  
 **系统能力：** SystemCapability.AI.VisionImageAnalyzer
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数：**
@@ -2039,7 +2123,7 @@ off(type: 'analyzerFailed', callback?: ErrorCallback): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/vision-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-vision)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

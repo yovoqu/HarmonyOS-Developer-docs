@@ -1,6 +1,6 @@
 # oh_window_event_filter.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-window-event-filter-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -110,7 +110,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_RegisterKeyEventFilter(int32_t wi
 
 | 类型 | 说明 |
 | --- | --- |
-| WindowManager_ErrorCode | 返回窗口管理接口的通用状态码，具体可见WindowManager_ErrorCode。 |
+| WindowManager_ErrorCode | 函数返回的执行结果。 返回OK，表示接口调用成功。 返回INVAILD_WINDOW_ID，表示参数windowId无效。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数keyEventFilter无效。 返回SERVICE_ERROR，表示窗口管理服务异常。 |
 
 
 
@@ -140,7 +140,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_UnregisterKeyEventFilter(int32_t 
 
 | 类型 | 说明 |
 | --- | --- |
-| WindowManager_ErrorCode | 返回窗口管理接口的通用状态码，具体可见WindowManager_ErrorCode。 |
+| WindowManager_ErrorCode | 函数返回的执行结果。 返回OK，表示接口调用成功。 返回INVAILD_WINDOW_ID，表示参数windowId无效。 返回SERVICE_ERROR，表示窗口管理服务异常。 |
 
 
 
@@ -201,7 +201,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_RegisterMouseEventFilter(int32_t 
 
 | 类型 | 说明 |
 | --- | --- |
-| WindowManager_ErrorCode | 返回窗口管理接口的通用状态码，具体可见WindowManager_ErrorCode。 |
+| WindowManager_ErrorCode | 函数返回的执行结果。 返回OK，表示接口调用成功。 返回INVAILD_WINDOW_ID，表示参数windowId无效。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数mouseEventFilter无效。 返回SERVICE_ERROR，表示窗口管理服务异常。 |
 
 
 
@@ -231,7 +231,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_UnregisterMouseEventFilter(int32_
 
 | 类型 | 说明 |
 | --- | --- |
-| WindowManager_ErrorCode | 返回窗口管理接口的通用状态码，具体可见WindowManager_ErrorCode。 |
+| WindowManager_ErrorCode | 函数返回的执行结果。 返回OK，表示接口调用成功。 返回INVAILD_WINDOW_ID，表示参数windowId无效。 返回SERVICE_ERROR，表示窗口管理服务异常。 |
 
 
 
@@ -285,7 +285,7 @@ WindowManager_ErrorCode OH_NativeWindowManager_RegisterTouchEventFilter(int32_t 
 | 参数项 | 描述 |
 | --- | --- |
 | int32_t windowId | 需要过滤触摸事件的窗口ID。 |
-| OH_NativeWindowManager_TouchEventFilter touchEventFilter | 多模触摸事件的过滤函数。 |
+| WindowManager_ErrorCode | 函数返回的执行结果。 返回OK，表示接口调用成功。 返回INVAILD_WINDOW_ID，表示参数windowId无效。 返回WINDOW_MANAGER_ERRORCODE_INVALID_PARAM，表示参数touchEventFilter无效。 返回SERVICE_ERROR，表示窗口管理服务异常。 |
 
 
 **返回：**
@@ -322,4 +322,4 @@ WindowManager_ErrorCode OH_NativeWindowManager_UnregisterTouchEventFilter(int32_
 
 | 类型 | 说明 |
 | --- | --- |
-| WindowManager_ErrorCode | 返回窗口管理接口的通用状态码，具体可见WindowManager_ErrorCode。 |
+| WindowManager_ErrorCode | 函数返回的执行结果。 返回OK，表示接口调用成功。 返回INVAILD_WINDOW_ID，表示参数windowId无效。 返回SERVICE_ERROR，表示窗口管理服务异常。 |

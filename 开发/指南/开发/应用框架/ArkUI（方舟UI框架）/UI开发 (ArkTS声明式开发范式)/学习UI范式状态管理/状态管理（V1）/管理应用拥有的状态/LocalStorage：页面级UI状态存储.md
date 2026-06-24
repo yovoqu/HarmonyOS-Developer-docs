@@ -1,6 +1,6 @@
 # LocalStorage：页面级UI状态存储
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localstorage
 
@@ -192,9 +192,9 @@ storage.setOrCreate('PropA', 48);
 @LocalStorageLink('PropA') localStorageLink: number = 2;
 ```
 
-2. @LocalStorageProp与@LocalStorageLink不支持装饰Function类型的变量，API version 23之前，应用在运行时会出现错误。
+2. @LocalStorageProp与@LocalStorageLink不支持装饰Function类型的变量，API version 23之前，框架会抛出运行时错误。
 
-  从API version 23开始，在应用编译时添加了相关校验，@LocalStorageProp与@LocalStorageLink装饰Function类型变量会提示ERROR，应在代码中删除Function类型变量的@LocalStorageProp或@LocalStorageLink装饰器。
+  从API version 23开始，添加对@LocalStorageProp与@LocalStorageLink装饰Function类型变量的校验，编译期会报错。
 3. LocalStorage创建后，命名属性的类型不可更改。后续调用Set时必须使用相同类型的值。
 4. LocalStorage是页面级存储，[getSharedLocalStorage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getsharedlocalstorage12)接口仅能获取当前Stage通过[windowStage.loadContent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-window-window#loadcontent9)传入的LocalStorage实例，否则返回undefined。例子可见[将LocalStorage实例从UIAbility共享到一个或多个页面](#将localstorage实例从uiability共享到一个或多个页面)。
 

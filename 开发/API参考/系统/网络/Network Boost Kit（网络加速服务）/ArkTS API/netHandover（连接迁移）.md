@@ -1,6 +1,6 @@
 # netHandover（连接迁移）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-nethandover
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -28,7 +28,11 @@ on(type: 'handoverChange', callback: Callback&lt;HandoverInfo&gt;): void
  
 订阅连接迁移信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.GET_NETWORK_INFO
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -83,7 +87,11 @@ off(type: 'handoverChange', callback?: Callback&lt;HandoverInfo&gt;): void
  
 取消订阅连接迁移信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.GET_NETWORK_INFO
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -130,7 +138,11 @@ setHandoverMode(mode: HandoverMode): void
  
 应用可通过该接口变更连接迁移模式，包括委托模式由系统发起连接迁移，和自主模式由应用发起连接迁移，默认为委托模式。设置失败，接口会抛出异常。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.GET_NETWORK_INFO
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -178,6 +190,8 @@ getMultiPathQuotaStats(): MultiPathQuota
  
 获取当前应用多网使用的配额，包括已使用的配额信息和剩余配额信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.LINKTURBO
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -193,7 +207,7 @@ getMultiPathQuotaStats(): MultiPathQuota
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts-errorcode)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -228,6 +242,8 @@ requestMultiPath(callback: Callback&lt;MultiPathRequestResult&gt;): void
  
 发起多网请求。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.LINKTURBO
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -243,7 +259,7 @@ requestMultiPath(callback: Callback&lt;MultiPathRequestResult&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts-errorcode)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -286,6 +302,8 @@ releaseMultiPath(): void
  
 释放多网请求。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.LINKTURBO
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -294,7 +312,7 @@ releaseMultiPath(): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts-errorcode)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -327,6 +345,8 @@ on(type: 'multiPathStateChange', callback: Callback&lt;MultiPathStateInfo&gt;): 
  
 订阅多网状态变化事件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.LINKTURBO
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -343,7 +363,7 @@ on(type: 'multiPathStateChange', callback: Callback&lt;MultiPathStateInfo&gt;): 
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts-errorcode)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -377,6 +397,8 @@ off(type: 'multiPathStateChange', callback?: Callback&lt;MultiPathStateInfo&gt;)
  
 取消订阅多网状态变化事件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.LINKTURBO
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -393,7 +415,7 @@ off(type: 'multiPathStateChange', callback?: Callback&lt;MultiPathStateInfo&gt;)
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts-errorcode)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -424,6 +446,8 @@ on(type: 'multiPathRecommendation', callback: Callback&lt;MultiPathRecommendatio
  
 订阅系统多网建议变化事件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.LINKTURBO
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -440,7 +464,7 @@ on(type: 'multiPathRecommendation', callback: Callback&lt;MultiPathRecommendatio
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts-errorcode)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -474,6 +498,8 @@ off(type: 'multiPathRecommendation', callback?: Callback&lt;MultiPathRecommendat
  
 取消订阅系统多网建议变化事件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.LINKTURBO
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
@@ -490,7 +516,7 @@ off(type: 'multiPathRecommendation', callback?: Callback&lt;MultiPathRecommendat
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/networkboost-arkts-errorcode)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-networkboost)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -519,6 +545,10 @@ try {
 
 连接迁移回调信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -537,6 +567,10 @@ try {
 
 连接迁移开始信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -554,6 +588,10 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 连接迁移完成信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -579,6 +617,10 @@ try {
 
 发包速率建议。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -597,6 +639,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 多网状态信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -619,6 +663,8 @@ try {
 
 多网推荐信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 6.0.0(20)
@@ -635,6 +681,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 应用配额使用信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -654,6 +702,8 @@ try {
 
 配额信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 6.0.0(20)
@@ -672,6 +722,8 @@ try {
 
 多网请求结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 6.0.0(20)
@@ -688,6 +740,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 多网推荐动作的枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -706,6 +760,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 多网建立结果的枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -727,6 +783,8 @@ try {
 
 多网状态。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 6.0.0(20)
@@ -747,6 +805,8 @@ try {
 
 多网链路状态。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 6.0.0(20)
@@ -765,6 +825,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 多网变化原因的枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -795,6 +857,10 @@ try {
 
 表示连接迁移模式枚举。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
+ 
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
 **起始版本：** 5.0.0(12)
@@ -812,6 +878,10 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 表示重建枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  
@@ -833,6 +903,10 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet
 
 表示连接迁移结果枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**元服务API：** 从API version 26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Communication.NetworkBoost.Core
  

@@ -1,6 +1,6 @@
 # 自定义渲染 (XComponent)
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/napi-xcomponent-guidelines
 
@@ -1718,7 +1718,7 @@ target_link_libraries(nativerender PUBLIC ${EGL-lib} ${GLES-lib} ${hilog-lib} ${
 上述用例具体实现可参考[NativeXComponent](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/DocsSample/ArkUISample/NativeXComponentSample)。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/m9PFMgLfTgCZSenuQIZQBQ/zh-cn_image_0000002592378222.jpeg?HW-CC-KV=V1&HW-CC-Date=20260611T074919Z&HW-CC-Expire=86400&HW-CC-Sign=BA9A672E0583D9B9ECDCACBE43C262DBB5CCED914153ACBDAA3A1E56D7EC0517)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/75/v3/oIXIoFICSQ2Iu8Jlt0kyRg/zh-cn_image_0000002626228388.jpeg?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=4B4C07E3AA05E6BEA877DED36DED7EB4E7085BC328B5B5653230A282E46424F5)
 
 
 

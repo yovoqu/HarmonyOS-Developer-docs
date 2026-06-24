@@ -1,6 +1,6 @@
 # frame_generation_base.h
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/frame__generation__base_8h
 **支持设备：** Phone | Tablet | TV
@@ -64,6 +64,7 @@
 | typedef struct FG_Vec3D FG_Vec3D | 此结构体描述超帧三维向量。 |
 | typedef struct FG_PerFrameExtendedCameraInfo FG_PerFrameExtendedCameraInfo | 此结构体描述相机扩展信息。当视图投影矩阵的平移分量非常大时（超过十万），可以提供更加详细的相机信息以获得更加准确的超帧预测效果。 |
 | typedef struct FG_IntegrationInfo | 此结构体描述超帧集成的信息。包括送显模式，是否需要额外缓存深度和颜色纹理，以及是否需要翻转颜色纹理。 |
+| typedef enum FG_FeatureType FG_FeatureType | 此枚举定义超帧的特性类型，根据平台（OPENGL ES，Vulkan）、超帧方式（内插，外插）以及算法等因素划分不同类型。 |
  
  
   
@@ -79,3 +80,15 @@
 | FG_ErrorCode { FG_SUCCESS = 0, FG_INVALID_PARAMETER = 401, FG_CONTEXT_NOT_CONFIG = 1009500001, FG_CONTEXT_NOT_ACTIVE = 1009500002, FG_COLLECTING_PREVIOUS_FRAMES = 1009500003 } | 此枚举描述超帧接口调用错误码。 |
 | FG_CvvZSemantic { FG_CVV_Z_SEMANTIC_MINUS_ONE_TO_ONE_FORWARD_Z = 0, FG_CVV_Z_SEMANTIC_ZERO_TO_ONE_REVERSE_Z = 1, FG_CVV_Z_SEMANTIC_MINUS_ONE_TO_ONE_REVERSE_Z = 2, FG_CVV_Z_SEMANTIC_ZERO_TO_ONE_FORWARD_Z = 3 } | 此枚举描述经过相机投影变换后，齐次裁剪空间Z/W范围及深度测试模式。 |
 | FG_PresentMode { FG_PRESENT_BY_GAME = 0, FG_PRESENT_BY_SYSTEM = 1 } | 定义预测帧呈现模式，该模式包括两种：游戏端预测帧呈现和系统端预测帧呈现。 |
+| FG_FeatureType { INTERPOLATION_GPU_GLES = 0, INTERPOLATION_GPU_VULKAN = 1, EXTRAPOLATION_GPU_GLES = 2, EXTRAPOLATION_GPU_VULKAN = 3, INTERPOLATION_AI_VULKAN = 4 } | 此枚举定义超帧的特性类型，根据平台（OPENGL ES，Vulkan）、超帧方式（内插，外插）以及算法等因素划分不同类型。 |
+ 
+ 
+  
+
+#### 函数
+
+**支持设备：** Phone | Tablet | TV
+ 
+| 名称 | 描述 |
+| --- | --- |
+| bool HMS_FG_IsFrameGenerationSupported(FG_FeatureType featureType) | 表示当前设备是否支持此类型的超帧功能，不同机型支持的超帧功能不同。以AI超帧特性为例，该接口会判断当前机型是否含有NPU及NPU算力是否满足特性要求，如果不满足则会返回false。 |

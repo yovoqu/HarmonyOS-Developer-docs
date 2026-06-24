@@ -1,6 +1,6 @@
 # Contacts Kit简介
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/contacts-intro
 
@@ -41,7 +41,7 @@ Contacts Kit（联系人服务）可以帮助开发者轻松实现联系人的�
 1. 导入相关的联系人模块。
 
   
-```text
+```ArkTS
 import { contact } from '@kit.ContactsKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 ```
@@ -49,10 +49,10 @@ import { BusinessError } from '@kit.BasicServicesKit';
 2. 调用联系人接口，拉起联系人列表，用户点击对应的联系人后返回。
 
   
-```json
+```ArkTS
 contact.selectContacts({
   isMultiSelect:false
-},(err: BusinessError, data) => {
+}, (err: BusinessError, data) => {
     if (err) {
       console.error('selectContact callback, errCode:' + err.code + ', errMessage:' + err.message);
         return;
@@ -74,7 +74,8 @@ contact.selectContacts({
 2. 设置一个需要的Permissions数组变量。
 3. 执行对应联系人的权限操作。
 
-```json
+  
+```ArkTS
 // 示例代码
 import { common, abilityAccessCtrl, Permissions, PermissionRequestResult } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
@@ -89,19 +90,22 @@ struct Contact {
     const permissions: Array<Permissions> = ['ohos.permission.WRITE_CONTACTS'];
     const contactInfo: contact.Contact = {
       name: { fullName: '王小明' },
-      phoneNumbers: [{ phoneNumber: '13912345678' }]
-    }
-    abilityAccessCtrl.createAtManager().requestPermissionsFromUser(context, permissions).then((result: PermissionRequestResult) => {
-      if (result.authResults[0] !== 0) { // 0 表示请求权限成功，其他任何非零值表示请求失败
-        console.error('request contact permissions failed');
-        return;
-      }
-      contact.addContact(context, contactInfo).then((data) => {
-        console.info(`Succeeded in adding Contact. data: ${JSON.stringify(data)}`);
-      }).catch((err: BusinessError) => {
-        console.error(`Failed to add Contact. Code: ${err.code}, message: ${err.message}`);
-      });
-    })
+      phoneNumbers: [{ phoneNumber: '139xxxxxxxx' }]
+    };
+    abilityAccessCtrl.createAtManager().requestPermissionsFromUser(context, permissions).
+      then((result: PermissionRequestResult) => {
+       if (result.authResults[0] !== 0) { // 0 表示请求权限成功，其他任何非零值表示请求失败
+         console.error('request contact permissions failed');
+         return;
+       }
+       contact.addContact(context, contactInfo).then((data) => {
+         console.info(`Succeeded in adding Contact. data: ${JSON.stringify(data)}`);
+       }).catch((err: BusinessError) => {
+         console.error(`Failed to add Contact. Code: ${err.code}, message: ${err.message}`);
+       });
+     }).catch((err: BusinessError) => {
+         console.error(`Failed to createAtManager. Code: ${err.code}, message: ${err.message}`);
+     });
   }
 
   build() {
@@ -118,6 +122,7 @@ struct Contact {
   }
 }
 ```
+
 
 
 

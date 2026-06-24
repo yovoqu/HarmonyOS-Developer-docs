@@ -1,6 +1,6 @@
 # 使用SocketServer时，如何解决较高概率接收不到 client.on("message", (value: SocketInfo) 中的回调问题
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-network-44
 

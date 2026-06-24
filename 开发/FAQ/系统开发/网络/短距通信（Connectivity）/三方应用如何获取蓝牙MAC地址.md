@@ -1,6 +1,6 @@
 # 三方应用如何获取蓝牙MAC地址
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-connectivity-1
 

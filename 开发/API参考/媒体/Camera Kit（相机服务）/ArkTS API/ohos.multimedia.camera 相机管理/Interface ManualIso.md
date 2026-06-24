@@ -1,6 +1,6 @@
 # Interface (ManualIso)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-manualiso
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -79,7 +79,9 @@ function getIso(photoSession: camera.PhotoSession): number {
 
 setIso(iso: number): void
  
-设置ISO感光度值，仅在[ExposureMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#exposuremode)为EXPOSURE_MODE_LOCKED时支持设置ISO感光度值，设置的值需在[getSupportedIsoRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-manualisoquery#getsupportedisorange24)范围内。
+设置ISO感光度值。
+ 
+当曝光锁定模式[ExposureMode](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-e#exposuremode)为EXPOSURE_MODE_LOCKED时，不支持设置ISO感光度值。设置的值需在[getSupportedIsoRange](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-manualisoquery#getsupportedisorange24)范围内。
  
 **元服务API：** 从API version 24开始，该接口支持在元服务中使用。
  

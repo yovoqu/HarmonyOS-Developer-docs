@@ -1,6 +1,6 @@
 # calendar
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-calendar
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -219,4 +219,4 @@ calendardata示例：
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9/v3/Q5_K7L7CTnSBZRofkv19jw/zh-cn_image_0000002611756509.png?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=62A1D9BB4C32FE78F735648935E20D9E15660AC275DB42A9843EB0F745A54552)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/Ai00l0tAQbOmj3zQ1KcUMA/zh-cn_image_0000002626071216.png?HW-CC-KV=V1&HW-CC-Date=20260624T015949Z&HW-CC-Expire=86400&HW-CC-Sign=9B0D457EC3C39B8542857FA7D30A2DD4CB7E0F9F805B394A47F29E48E8C5AB03)

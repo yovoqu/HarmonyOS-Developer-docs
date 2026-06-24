@@ -1,6 +1,6 @@
 # button
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-button
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -109,4 +109,4 @@
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/CyEMyGY0QPmO357FQG0L9Q/zh-cn_image_0000002581276652.jpg?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=4AA1C9729C12F8942C429ED7C6DB9033C376AE7DD19EF6C32281A93EA4EB2A97)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/aGAfDJX7TqmK8lEpVpqErQ/zh-cn_image_0000002626231126.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T015949Z&HW-CC-Expire=86400&HW-CC-Sign=64EA293BC1BB807B037E85E6C2407BC69C0D2D72A6DD09D5A0BC585D50C1FF55)

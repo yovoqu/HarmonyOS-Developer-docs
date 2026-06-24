@@ -1,6 +1,6 @@
 # polygon
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-polygon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -57,4 +57,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/CqCRGk2LSt2xplGRXA9fMw/zh-cn_image_0000002611756323.png?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=AAD2584C49CB81796674A6A7E7B1DF3C9E0DC28EEC0ED14AF98735B1F3024BF9)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/V9tEBbq_T2unBGzwKglBNQ/zh-cn_image_0000002626071032.png?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=2EC4BBCDD92F17DFC9A473191CF2BA2B361FA121F6651E13683A1BCF8D45200A)

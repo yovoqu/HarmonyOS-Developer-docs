@@ -1,6 +1,6 @@
 # 接入ArkTS页面
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ndk-access-the-arkts-page
 
@@ -176,7 +176,7 @@ arkUINativeNodeApi->registerNodeEvent(stack, NODE_ON_CLICK, 0, nullptr);
 **图1** Native文本列表
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a9/v3/DOSGumfhQEuu-OcPPYiwaw/zh-cn_image_0000002581274210.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030431Z&HW-CC-Expire=86400&HW-CC-Sign=ECF9294E0E8D17DD1369533B374352571A9F6BF90E9A50ECAA1D80A249BFE33C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/90/v3/aYbKPHCNSvuT3WzdSmEyiw/zh-cn_image_0000002626228584.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020800Z&HW-CC-Expire=86400&HW-CC-Sign=4172C3CDB8C18EC6383F161A5F4801144055F15283D6D0DA1A326DE9AAC3BA01)
 
 1. 在ArkTS页面上声明用于Native页面挂载的占位组件，并在页面创建时通知Native侧创建文本列表。
 
@@ -331,7 +331,7 @@ private:
 #include <arkui/native_node_napi.h>
 #include <js_native_api.h>
 #include "NativeEntry.h"
-#include "NormalTextListExample.h"
+#include "NormalNodeExample.h"
 
 namespace NativeModule {
 
@@ -347,11 +347,11 @@ napi_value CreateNativeRoot(napi_env env, napi_callback_info info)
     OH_ArkUI_GetNodeContentFromNapiValue(env, args[0], &contentHandle);
     NativeEntry::GetInstance()->SetContentHandle(contentHandle);
 
-    // 创建文本列表
-    auto list = CreateTextListExample();
+    // 创建组件节点
+    auto node = CreateExample();
 
     // 保持Native侧对象到管理类中，维护生命周期。
-    NativeEntry::GetInstance()->SetRootNode(list);
+    NativeEntry::GetInstance()->SetRootNode(node);
     return nullptr;
 }
 
@@ -538,6 +538,48 @@ public:
         ArkUI_NumberValue value[] = {{.u32 = color}};
         ArkUI_AttributeItem item = {value, 1};
         nativeModule_->setAttribute(handle_, NODE_BACKGROUND_COLOR, &item);
+    }
+    void SetMargin(float top, float right, float bottom, float left)
+    {
+        ArkUI_NumberValue value[] = {{top}, {right}, {bottom}, {left}};
+        ArkUI_AttributeItem item = {value, 4};
+        nativeModule_->setAttribute(handle_, NODE_MARGIN, &item);
+    }
+    void SetPadding(float top, float right, float bottom, float left)
+    {
+        ArkUI_NumberValue value[] = {{top}, {right}, {bottom}, {left}};
+        ArkUI_AttributeItem item = {value, 4};
+        nativeModule_->setAttribute(handle_, NODE_PADDING, &item);
+    }
+    void SetBorderWidth(float width)
+    {
+        ArkUI_NumberValue value[] = {{.f32 = width}};
+        ArkUI_AttributeItem item = {value, 1};
+        nativeModule_->setAttribute(handle_, NODE_BORDER_WIDTH, &item);
+    }
+    void SetBorderColor(uint32_t color)
+    {
+        ArkUI_NumberValue value[] = {{.u32 = color}};
+        ArkUI_AttributeItem item = {value, 1};
+        nativeModule_->setAttribute(handle_, NODE_BORDER_COLOR, &item);
+    }
+    void SetBorderRadius(float radius)
+    {
+        ArkUI_NumberValue value[] = {{.f32 = radius}};
+        ArkUI_AttributeItem item = {value, 1};
+        nativeModule_->setAttribute(handle_, NODE_BORDER_RADIUS, &item);
+    }
+    void SetOpacity(float opacity)
+    {
+        ArkUI_NumberValue value[] = {{.f32 = opacity}};
+        ArkUI_AttributeItem item = {value, 1};
+        nativeModule_->setAttribute(handle_, NODE_OPACITY, &item);
+    }
+    void SetScale(float x, float y)
+    {
+        ArkUI_NumberValue value[] = {{x}, {y}};
+        ArkUI_AttributeItem item = {value, 2};
+        nativeModule_->setAttribute(handle_, NODE_SCALE, &item);
     }
 
 protected:

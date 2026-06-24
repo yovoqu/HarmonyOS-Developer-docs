@@ -1,6 +1,6 @@
 # 双路预览(ArkTS)
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-dual-channel-preview
 
@@ -122,7 +122,7 @@ onImageArrival(receiver: image.ImageReceiver): void {
 通过 [image.Component](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#component9) 解析图片buffer数据参考：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/YRUVQ_G1SCec4fW9wmj77A/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260604T012639Z&HW-CC-Expire=86400&HW-CC-Sign=00C90841AD1488B383AF9BF2C21F2C08358D2A9E453ABA5C51B4F53F47EDE4E7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/JG6d8nxJTdW_wQPLVd4Ffg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020906Z&HW-CC-Expire=86400&HW-CC-Sign=AF57952D40048841304AFE4A78D1E393CD3E1E04BDC8D8B7C3F43A20435E5A77)
  
 
   需要确认图像的宽width是否与行距rowStride一致，如果不一致可参考以下方式处理：

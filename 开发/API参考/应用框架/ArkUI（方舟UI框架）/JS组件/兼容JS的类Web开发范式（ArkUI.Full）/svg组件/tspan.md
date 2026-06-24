@@ -1,6 +1,6 @@
 # tspan
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-tspan
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -185,4 +185,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/p2QJ2eyITIWsV-r514Kzbg/zh-cn_image_0000002581436388.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=EF9B1C1B2DC2E82A0F4AEC2E3EFEF3FEE8E6E2736FA7AC64B3309A0E2AB74C76)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/CxvZKAGRRg6Q0PPMoEhwvg/zh-cn_image_0000002656470313.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=0EDCCA1038BC391B409CCA7CB65EEABBECE2E2F2BD25A48E5BD17C51FE4D9D59)

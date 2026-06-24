@@ -1,6 +1,6 @@
 # chart
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-chart
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -382,4 +382,4 @@
 }
 ```
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9a/v3/eqlHXUTYRnyHaLE8v4jhfQ/zh-cn_image_0000002581276654.png?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=B2270354BCACDD3FD8BE119A4BF9B6C86693F7F292C4602E114AA73F1E24F5E8)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/10/v3/B-n_m9dBRSy9vBeI4BCaJw/zh-cn_image_0000002626231128.png?HW-CC-KV=V1&HW-CC-Date=20260624T015949Z&HW-CC-Expire=86400&HW-CC-Sign=25DF13858D4B369A88A247FF767C45DA22E3723EF162E2DDCBCDD0EF03DC8BE9)

@@ -1,6 +1,6 @@
 # AssetAccelerationExtensionAbility（资源加速ExtensionAbility）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-extensionability
 **支持设备：** Phone | Tablet
@@ -22,9 +22,9 @@
 
   
  
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
  
 **起始版本：** 5.1.0(18)
   
@@ -88,9 +88,9 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
 
 资源加速扩展能力类。
  
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
  
 **起始版本：** 5.1.0(18)
  
@@ -100,9 +100,9 @@ type ContentRequestType = 'INSTALL' | 'UPDATE' | 'IDLE'
 
 **支持设备：** Phone | Tablet
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
  
 **起始版本：** 5.1.0(18)
   
@@ -121,9 +121,9 @@ onDownloadContentRequest(requestType: ContentRequestType, manifestUrl: string, a
  
 安装应用、更新应用、设备闲时，执行该方法，获取资源包下载任务列表。返回任务量不超过200条。使用Promise异步回调。
  
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
  
 **起始版本：** 5.1.0(18)
  
@@ -183,9 +183,9 @@ onDownloadWithAppControl(requestType: ContentRequestType, manifestUrl: string, a
  
 安装应用、更新应用、设备闲时，执行该方法，触发extension协同下载，如果有资源包下载任务则返回true，否则返回false。使用Promise异步回调。
  
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
  
 **起始版本：** 5.1.1(19)
  
@@ -237,9 +237,9 @@ onBackgroundDownloadSucceeded(downloadTask: assetDownloadManager.AssetDownloadTa
  
 在系统后台下载任务成功时，执行该方法，通知资源加速ExtensionAbility下载成功。使用Promise异步回调。
  
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
  
 **起始版本：** 5.1.0(18)
  
@@ -285,9 +285,9 @@ onBackgroundDownloadFailed(downloadTask: assetDownloadManager.AssetDownloadTask,
  
 在系统后台下载任务失败时，执行该方法，通知资源加速ExtensionAbility下载失败。使用Promise异步回调。
  
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
  
 **起始版本：** 5.1.0(18)
  
@@ -333,9 +333,9 @@ onExtensionWillTerminate(error?: BusinessError&lt;void&gt;): Promise&lt;void&gt;
  
 在资源加速ExtensionAbility生命周期即将结束时、调度异常退出后，执行该方法，通知关闭资源包后台下载功能。建议在该方法中执行资源清理等操作，请避免耗时操作。使用Promise异步回调。
  
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
- 
 **模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
  
 **起始版本：** 5.1.0(18)
  

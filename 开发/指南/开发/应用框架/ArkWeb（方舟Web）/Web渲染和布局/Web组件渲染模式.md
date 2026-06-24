@@ -1,6 +1,6 @@
 # Web组件渲染模式
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/web-render-mode
 

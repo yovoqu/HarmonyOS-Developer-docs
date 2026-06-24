@@ -1,6 +1,6 @@
 # 页面路由 (@ohos.router)(不推荐)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-routing
 
@@ -236,7 +236,7 @@ private age: number = this.params.info.age; // 获取age属性的值
 **图2** 页面返回
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ef/v3/aZpAZdJERra7XDj98ZvXVA/zh-cn_image_0000002611833577.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=A53E76794DDAB244460D327634CFB4EC3215E0BE9D30F437BF82F5E466E13C93)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fb/v3/86q18CFqScCf4ity6vWooQ/zh-cn_image_0000002626068246.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=AD59980BBD310D28CC3924DFDBB4F0FAEE913B0BA516502506761CF4A23763FB)
 
 
 直接使用router可能导致[UI上下文不明确](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-global-interface#ui上下文不明确)的问题，建议使用getUIContext()获取[UIContext](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext)实例，并使用[getRouter](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-uicontext-uicontext#getrouter)获取绑定实例的router。
@@ -422,7 +422,7 @@ struct Page {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/gIbcHdPrSsKdgBCWFiVdcA/zh-cn_image_0000002581273830.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=B4FEB25631CDDF5E27A18267A993C5C82D480B406507C947CB871FA4638E4DFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/5z0LonRqQXGY8YglEdHxlg/zh-cn_image_0000002656467521.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=639687B492A6CC1E4013974E41EABD75BB45455FC866234861B35C093DF40778)
 
 
 
@@ -442,7 +442,7 @@ router自定义转场可以通过[pageTransition](https://developer.huawei.com/c
 **图3** 页面返回前增加一个询问框
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/54/v3/2ZquFxDsTASkBumlWdexwg/zh-cn_image_0000002611753685.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=D193C012AC693F432CBA83CBEBE2F624D339D66C4B4B750E9C7C82D9B8536359)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/20/v3/n6f2hDSwSAqubfvJAw_rhA/zh-cn_image_0000002656347571.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=830577ED06DF04333CF288DEA25FFC497964CC3530FC7D741ED4ED4E1A50E94F)
 
 
 
@@ -556,7 +556,7 @@ onBackClick() {
 **图4** 命名路由跳转
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/6qW_x4qpS26jX2-6xm4Wrw/zh-cn_image_0000002581433750.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030445Z&HW-CC-Expire=86400&HW-CC-Sign=1A31F83DEA9C96700989EBE4B7D45CA9F65B1475E8E6F731F1493FBAB228179E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/MnoTSaAYTxuEBwqfsSv4wg/zh-cn_image_0000002626228156.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=01319665639A58B312941624C520C38BF335448E96A1DA46F41DAA97279964B0)
 
 
 在想要跳转到的共享包[HAR](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/har-package)或者[HSP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/in-app-hsp)页面里，给[@Entry](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-custom-components#entry)修饰的自定义组件EntryOptions命名：

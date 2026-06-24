@@ -1,11 +1,13 @@
 # Class (GeolocationPermissions)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-geolocationpermissions
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-Web组件地理位置权限管理对象。
+GeolocationPermissions是Web组件的地理位置权限管理对象，提供对Web组件中已保存的地理位置权限状态的查询、授权、删除等管理能力。通过GeolocationPermissions，应用可以在网页发起地理位置请求之前预先授权特定源的访问权限，也可以主动查询或清除已保存的权限记录，而无需依赖网页请求时的弹窗授权流程。调用GeolocationPermissions下的方法前，需先加载Web组件。
+
+GeolocationPermissions适用于需要主动管理Web组件地理位置权限的场景，例如：应用希望预先授权信任的网站访问地理位置，避免每次访问都弹出授权提示；或应用需要清除用户不再需要的地理位置权限记录。访问地理位置时需添加权限：ohos.permission.LOCATION、ohos.permission.APPROXIMATELY_LOCATION、ohos.permission.LOCATION_IN_BACKGROUND，具体权限说明请参考[申请位置权限开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/location-permission-guidelines)。
 
 > [!NOTE]
 > 本模块首批接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。 本Class首批接口从API version 9开始支持。 示例效果请以真机运行为准。 目前调用GeolocationPermissions下的方法，都需要先加载Web组件。
@@ -19,14 +21,6 @@ Web组件地理位置权限管理对象。
 ```text
 import { webview } from '@kit.ArkWeb';
 ```
-
-
-
-#### 需要权限
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-访问地理位置时需添加权限：ohos.permission.LOCATION、ohos.permission.APPROXIMATELY_LOCATION、ohos.permission.LOCATION_IN_BACKGROUND，具体权限说明请参考[位置服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-geolocation)。
 
 
 

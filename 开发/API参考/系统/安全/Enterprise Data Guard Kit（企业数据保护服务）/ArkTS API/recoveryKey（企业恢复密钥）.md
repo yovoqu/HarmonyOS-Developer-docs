@@ -1,6 +1,6 @@
 # recoveryKey（企业恢复密钥）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-recoverykey
 **支持设备：** PC/2in1
@@ -28,6 +28,8 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 
 企业恢复密钥及相关加密参数。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.PCService.RecoveryKeyService
 
 **起始版本：** 5.0.3(15)
@@ -49,6 +51,8 @@ import { recoveryKey } from '@kit.EnterpriseDataGuardKit';
 getEnterpriseRecoveryKey(userId: number): Promise&lt;EnterpriseRecoveryKeyInfo&gt;
 
 获取企业恢复密钥。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ENTERPRISE_RECOVERY_KEY
 
@@ -72,7 +76,7 @@ getEnterpriseRecoveryKey(userId: number): Promise&lt;EnterpriseRecoveryKeyInfo&g
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -121,6 +125,8 @@ getAuthChallenge(): Promise&lt;Uint8Array&gt;
 
 获取挑战值，在发起更新企业公钥证书、删除企业恢复密钥数据流程前，需要先获取挑战值。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ENTERPRISE_RECOVERY_KEY
 
 **系统能力：** SystemCapability.PCService.RecoveryKeyService
@@ -136,7 +142,7 @@ getAuthChallenge(): Promise&lt;Uint8Array&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -169,6 +175,8 @@ updateEnterpriseCertificate(signature: Uint8Array, cert: Uint8Array): Promise&lt
 
 更新企业公钥证书流程，需要先调[getAuthChallenge](#getauthchallenge)接口获取挑战值并[签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-signature)。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ENTERPRISE_RECOVERY_KEY
 
 **系统能力：** SystemCapability.PCService.RecoveryKeyService
@@ -192,7 +200,7 @@ updateEnterpriseCertificate(signature: Uint8Array, cert: Uint8Array): Promise&lt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -231,6 +239,8 @@ deleteEnterpriseRecoveryKey(userId: number, signature: Uint8Array): Promise&lt;n
 
 删除企业恢复密钥相关数据，需要先调[getAuthChallenge](#getauthchallenge)接口获取挑战值并[签名](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/recoverykey-signature)。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ENTERPRISE_RECOVERY_KEY
 
 **系统能力：** SystemCapability.PCService.RecoveryKeyService
@@ -254,7 +264,7 @@ deleteEnterpriseRecoveryKey(userId: number, signature: Uint8Array): Promise&lt;n
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -299,6 +309,8 @@ verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string):
 
 验证企业用户身份。在导出企业恢复密钥以重置锁屏密码之前，请先验证用户的锁屏密码。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.ENTERPRISE_RECOVERY_KEY
 
 **系统能力：** SystemCapability.PCService.RecoveryKeyService
@@ -323,7 +335,7 @@ verifyUserIdentityEnterprise(userId: number, userType: number, pinCode: string):
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -395,7 +407,7 @@ verifyUserByDialog(userId: number): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -436,7 +448,9 @@ async function getEnterpriseRecoveryKeyForPinByDialog() {
 
 getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promise&lt;EnterpriseRecoveryKeyInfo&gt;
 
-导出用于重置锁屏密码的企业恢复密钥。先需要调用[verifyUserIdentityEnterprise](#verifyuseridentityenterprise)或[verifyUserByDialog](#verifyuserbydialog)接口验证身份，并在30秒内调用此接口。若超时后调用，系统会返回异常代码[1014400001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code#section1014400001-系统内部错误)。使用Promise异步回调。
+导出用于重置锁屏密码的企业恢复密钥。先需要调用[verifyUserIdentityEnterprise](#verifyuseridentityenterprise)或[verifyUserByDialog](#verifyuserbydialog)接口验证身份，并在30秒内调用此接口。若超时后调用，系统会返回异常代码[1014400001](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard#section1014400001-系统内部错误)。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.ENTERPRISE_RECOVERY_KEY
 
@@ -461,7 +475,7 @@ getEnterpriseRecoveryKeyForResettingPin(userId: number, userType: number): Promi
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

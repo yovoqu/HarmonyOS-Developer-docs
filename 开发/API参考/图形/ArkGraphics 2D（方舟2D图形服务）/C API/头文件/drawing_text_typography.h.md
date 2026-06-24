@@ -1,6 +1,6 @@
 # drawing_text_typography.h
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-text-typography-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -308,6 +308,8 @@
 | OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeInt(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, int* value) | 获取int类型排版样式的属性。 |
 | OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeBool(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, bool value) | 设置bool类型排版样式的属性。 |
 | OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeBool(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, bool* value) | 获取bool类型排版样式的属性。 |
+| OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeDoubleArray(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, double* arrayValue, size_t arrayLength) | 设置浮点数数组类型排版样式的属性。 |
+| OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeDoubleArray(const OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, double** arrayValue, size_t* arrayLength) | 获取浮点数数组类型排版样式的属性。 |
 | void OH_Drawing_DestroyPositionAndAffinity(OH_Drawing_PositionAndAffinity* positionAndAffinity) | 释放OH_Drawing_PositionAndAffinity对象持有的内存。 |
 | OH_Drawing_Range* OH_Drawing_TypographyGetCharacterRangeForGlyphRangeWithBuffer(OH_Drawing_Typography* typography, size_t glyphRangeStart, size_t glyphRangeEnd, OH_Drawing_Range** actualGlyphRange, OH_Drawing_TextEncoding textEncodingType) | 获取指定字形范围对应的字符范围。 |
 | OH_Drawing_PositionAndAffinity* OH_Drawing_TypographyGetCharacterPositionAtCoordinateWithBuffer(OH_Drawing_Typography* typography, double dx, double dy, OH_Drawing_TextEncoding textEncodingType) | 获取与指定坐标最接近的字符位置信息。 |
@@ -873,6 +875,9 @@ enum OH_Drawing_TypographyStyleAttributeId
 | TYPOGRAPHY_STYLE_ATTR_B_INCLUDE_FONT_PADDING = 6 | 设置文本排版时是否使能字体内部的padding。 起始版本： 23 |
 | TYPOGRAPHY_STYLE_ATTR_B_FALLBACK_LINE_SPACING = 7 | 设置文本排版时是否使能行间距回退机制。 起始版本： 23 |
 | TYPOGRAPHY_STYLE_ATTR_I_ELLIPSIS_MODAL = 8 | 省略号样式。具体省略号样式可见OH_Drawing_EllipsisModal。 起始版本： 24 |
+| TYPOGRAPHY_STYLE_ATTR_DA_LINE_HEAD_INDENT = 9 | 行首缩进数组。 缩进数组值需全部大于等于0，数组中每个元素代表一行缩进值，当实际文本行数超过缩进数组个数时，超过行的缩进为数组最后一个值。 起始版本： 26.0.0 |
+| TYPOGRAPHY_STYLE_ATTR_D_FIRST_LINE_HEAD_INDENT = 10 | 段落首行缩进。缩进值需大于等于0。 起始版本： 26.0.0 |
+| TYPOGRAPHY_STYLE_ATTR_DA_LINE_TAIL_INDENT = 11 | 行尾缩进数组。 缩进数组值需全部大于等于0，数组中每个元素代表一行缩进值，当实际文本行数超过缩进数组个数时，超过行的缩进为数组最后一个值。 起始版本： 26.0.0 |
  
  
   
@@ -7256,6 +7261,76 @@ OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeBool(OH_Drawing_Typog
 | 类型 | 说明 |
 | --- | --- |
 | OH_Drawing_ErrorCode | 函数执行结果。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示参数style或者value为空指针。 返回OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH，表示传入属性id与调用函数不匹配。 |
+ 
+ 
+  
+
+#### OH_Drawing_SetTypographyStyleAttributeDoubleArray()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_Drawing_ErrorCode OH_Drawing_SetTypographyStyleAttributeDoubleArray(OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, double* arrayValue, size_t arrayLength)
+```
+ 
+**描述**
+ 
+设置浮点数数组类型排版样式的属性。
+ 
+**系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| OH_Drawing_TypographyStyle* style | 指向排版样式对象OH_Drawing_TypographyStyle的指针。 |
+| OH_Drawing_TypographyStyleAttributeId id | 排版样式属性id。 |
+| double* arrayValue | 指向浮点数数组的指针。 |
+| size_t arrayLength | 指向浮点数数组的长度。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| OH_Drawing_ErrorCode | 函数执行结果。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示参数style或者arrayValue为空指针或arrayLength为0。 返回OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH，表示传入属性id与调用函数不匹配。 |
+ 
+ 
+  
+
+#### OH_Drawing_GetTypographyStyleAttributeDoubleArray()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_Drawing_ErrorCode OH_Drawing_GetTypographyStyleAttributeDoubleArray(const OH_Drawing_TypographyStyle* style, OH_Drawing_TypographyStyleAttributeId id, double** arrayValue, size_t* arrayLength)
+```
+ 
+**描述**
+ 
+获取浮点数数组类型排版样式的属性。
+ 
+**系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const OH_Drawing_TypographyStyle* style | 指向排版样式对象OH_Drawing_TypographyStyle的指针。 |
+| OH_Drawing_TypographyStyleAttributeId id | 排版样式属性id。 |
+| double** arrayValue | 指向浮点数数组的指针。作为出参使用。 |
+| size_t* arrayLength | 指向浮点数数组的长度。作为出参使用。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| OH_Drawing_ErrorCode | 函数执行结果。 返回OH_DRAWING_SUCCESS，表示执行成功。 返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示参数style或者arrayValue为空指针或arrayLength为0。 返回OH_DRAWING_ERROR_ATTRIBUTE_ID_MISMATCH，表示传入属性id与调用函数不匹配。 |
  
  
   

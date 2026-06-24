@@ -1,6 +1,6 @@
 # native_avcodec_videoencoder.h
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videoencoder-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -23,14 +23,44 @@
 
 **相关示例：** [AVCodec](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/BasicFeature/Media/AVCodec)
 
-接口在每个版本，对每种模式的支持情况说明，如下图所示。
-
-
-![](assets/native_avcodec_videoencoder.h/file-20260514164818281-0.png)
+接口在每个版本、每种模式和状态下的支持情况说明如下表所示。
 
 
 
-![](assets/native_avcodec_videoencoder.h/file-20260514164818281-1.png)
+#### 接口状态矩阵
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+下方是不同状态下是否可以调用接口的情况概览，√表示可以调用，×表示不可调用。
+
+| 接口 | Initialized | Configured | Prepared | Flushed | Running | EndOfStream | Error | Released |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| OH_VideoEncoder_CreateByMime9+ | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| OH_VideoEncoder_CreateByName9+ | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| OH_VideoEncoder_CreatePrimaryWithPreproc | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| OH_VideoEncoder_CreateSecondaryFromPrimary | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| OH_VideoEncoder_RegisterCallback11+ | √ | √ | × | × | × | × | × | × |
+| OH_VideoEncoder_RegisterParameterCallback12+ | √ | × | × | × | × | × | × | × |
+| OH_VideoEncoder_OnNeedInputParameter12+ | × | × | × | × | √ | × | × | × |
+| OH_VideoEncoder_Configure9+ | √ | × | × | × | × | × | × | × |
+| OH_VideoEncoder_Prepare9+ | × | √ | × | × | × | × | × | × |
+| OH_VideoEncoder_SetParameter9+ | × | × | × | √ | √ | √ | × | × |
+| OH_VideoEncoder_GetSurface9+ | × | √ | × | × | × | × | × | × |
+| OH_VideoEncoder_GetInputDescription10+ | × | √ | √ | √ | √ | √ | × | × |
+| OH_VideoEncoder_PushInputBuffer11+ | × | × | × | × | √ | × | × | × |
+| OH_VideoEncoder_PushInputParameter12+ | × | × | × | × | √ | × | × | × |
+| OH_VideoEncoder_NotifyEndOfStream9+ | × | × | × | × | √ | × | × | × |
+| OH_VideoEncoder_GetOutputDescription9+ | √ | √ | √ | √ | √ | √ | × | × |
+| OH_VideoEncoder_FreeOutputBuffer11+ | × | × | × | × | √ | √ | × | × |
+| OH_VideoEncoder_Start9+ | × | × | √ | √ | × | × | × | × |
+| OH_VideoEncoder_Stop9+ | × | × | × | √ | √ | √ | × | × |
+| OH_VideoEncoder_Flush9+ | × | × | × | × | √ | √ | × | × |
+| OH_VideoEncoder_Reset9+ | √ | √ | √ | √ | √ | √ | √ | × |
+| OH_VideoEncoder_Destroy9+ | √ | √ | √ | √ | √ | √ | √ | × |
+| OH_VideoEncoder_QueryInputBuffer20+ | × | × | × | × | √ | × | × | × |
+| OH_VideoEncoder_GetInputBuffer20+ | × | × | × | × | √ | × | × | × |
+| OH_VideoEncoder_QueryOutputBuffer20+ | × | × | × | × | √ | × | × | × |
+| OH_VideoEncoder_GetOutputBuffer20+ | × | × | × | × | √ | × | × | × |
 
 
 
@@ -61,6 +91,8 @@
 | typedef void (*OH_VideoEncoder_OnNeedInputParameter)(OH_AVCodec *codec, uint32_t index, OH_AVFormat *parameter, void *userData) | OH_VideoEncoder_OnNeedInputParameter | 配置随帧参数，当需要设置index对应帧的编码参数时，可以通过该接口设置。只在Surface模式生效。 |
 | OH_AVCodec *OH_VideoEncoder_CreateByMime(const char *mime) | - | 根据MIME类型创建视频编码器实例，推荐使用。 |
 | OH_AVCodec *OH_VideoEncoder_CreateByName(const char *name) | - | 根据视频编码器名称创建视频编码器实例。使用此接口的前提是知道编码器的确切名称，编码器的名称可以通过能力查询获取。 |
+| OH_AVErrCode OH_VideoEncoder_CreatePrimaryWithPreproc(const char *mime, OH_AVCodec **codec) | - | 创建支持前处理的主视频编码器实例，可用于配置降采样、裁剪、丢帧等前处理参数，并可从该主编码器派生副编码器实现一入二出双路编码。 |
+| OH_AVErrCode OH_VideoEncoder_CreateSecondaryFromPrimary(OH_AVCodec *primary, OH_AVCodec **codec) | - | 从主编码器创建副视频编码器实例，与主编码器共享输入源，可独立配置编码参数和前处理参数。 |
 | OH_AVErrCode OH_VideoEncoder_Destroy(OH_AVCodec *codec) | - | 清理编码器内部资源，销毁编码器实例。不能重复销毁。 |
 | OH_AVErrCode OH_VideoEncoder_SetCallback(OH_AVCodec *codec, OH_AVCodecAsyncCallback callback, void *userData) | - | 设置OH_AVCodecCallback回调函数，让应用可以响应视频编码器生成的事件。在调用OH_VideoEncoder_Prepare接口之前，必须调用此接口。(API11废弃) |
 | OH_AVErrCode OH_VideoEncoder_RegisterCallback(OH_AVCodec *codec, OH_AVCodecCallback callback, void *userData) | - | 注册OH_AVCodecCallback回调函数，让应用可以响应视频编码器生成的事件。在调用OH_VideoEncoder_Prepare接口之前，必须调用此接口。 |
@@ -225,6 +257,84 @@ OH_AVCodec *OH_VideoEncoder_CreateByName(const char *name)
 | 类型 | 说明 |
 | --- | --- |
 | OH_AVCodec * | 成功则返回一个指向视频编码实例的指针。 如果输入是不支持编码器名称或者内存资源不足，则返回NULL。 |
+
+
+
+
+#### OH_VideoEncoder_CreatePrimaryWithPreproc()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_AVErrCode OH_VideoEncoder_CreatePrimaryWithPreproc(const char *mime, OH_AVCodec **codec)
+```
+
+**描述**
+
+创建支持前处理的主视频编码器实例。该编码器支持以下能力：
+1. 前处理功能（降采样、裁剪、丢帧）。
+2. 从该主编码器创建副编码器实现一入二出双路编码。
+
+通过该接口创建的编码器仅支持Surface模式，不支持Buffer模式和同步模式。创建成功后需通过[OH_VideoEncoder_Destroy](#oh_videoencoder_destroy)销毁。
+
+**系统能力：** SystemCapability.Multimedia.Media.VideoEncoder
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| const char *mime | MIME类型字符串，不可为NULL。必须是支持的类型。 |
+| OH_AVCodec **codec | 双指针，用于接收创建的编码器实例，不可为NULL。创建成功后需通过OH_VideoEncoder_Destroy销毁。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：mime为NULL / codec为NULL / MIME类型不支持。 AV_ERR_NO_MEMORY：内存分配失败。 |
+
+
+
+
+#### OH_VideoEncoder_CreateSecondaryFromPrimary()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_AVErrCode OH_VideoEncoder_CreateSecondaryFromPrimary(OH_AVCodec *primary, OH_AVCodec **codec)
+```
+
+**描述**
+
+从主编码器创建副视频编码器实例。副编码器具有以下特性：
+1. 与主编码器共享输入源。
+2. 可独立配置编码参数。
+3. 可使用不同的前处理参数。
+4. 可独立启动/停止（不依赖主编码器的启停状态）。
+5. 生命周期必须短于主编码器。
+6. 一个主编码器同时只能拥有一个副编码器。
+
+必须在主编码器创建成功之后才能创建。创建成功后需通过[OH_VideoEncoder_Destroy](#oh_videoencoder_destroy)销毁。销毁顺序建议先Destroy Secondary再Destroy Primary。
+
+**系统能力：** SystemCapability.Multimedia.Media.VideoEncoder
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_AVCodec *primary | 主编码器句柄，必须由OH_VideoEncoder_CreatePrimaryWithPreproc创建，不可为NULL。 |
+| OH_AVCodec **codec | 双指针，用于接收创建的副编码器实例，不可为NULL。创建成功后需通过OH_VideoEncoder_Destroy销毁。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：primary为NULL / codec为NULL / primary不是有效的主编码器。 AV_ERR_OPERATE_NOT_PERMIT：主编码器已存在关联的副编码器。 AV_ERR_NO_MEMORY：内存分配失败。 |
 
 
 

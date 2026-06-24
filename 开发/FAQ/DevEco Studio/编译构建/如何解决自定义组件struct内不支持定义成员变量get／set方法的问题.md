@@ -1,6 +1,6 @@
 # 如何解决自定义组件struct内不支持定义成员变量get/set方法的问题
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-50
 

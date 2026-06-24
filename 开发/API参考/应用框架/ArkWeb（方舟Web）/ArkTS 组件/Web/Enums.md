@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-basic-components-web-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -742,3 +742,111 @@ WebView中新窗口的打开方式。
 | NEW_WINDOW | 1 | 在新窗口中打开。 |
 | NEW_BACKGROUND_TAB | 2 | 在新标签页中以后台方式打开。 |
 | NEW_FOREGROUND_TAB | 3 | 在新标签页中以前台方式打开。 |
+ 
+ 
+  
+
+#### ScrollDirectionalLockType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义滑动方向锁定的场景类型。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Web.Webview.Core
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| ALL | 0 | 所有场景都支持滑动锁定。 |
+| NESTED_SCROLL | 1 | 嵌套滚动场景下支持滑动锁定。 |
+ 
+ 
+  
+
+#### ScrollbarLayoutPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+定义滚动条布局模式控制参数的枚举类型。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Web.Webview.Core
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| CONTENT | 0 | 滚动条左右布局模式跟随css设定。 |
+| SYSTEM | 1 | 滚动条左右布局模式跟随系统语种设定。 |
+ 
+ 
+  
+
+#### AISessionType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+支持的AI会话类型。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Web.Webview.Core
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| TRANSLATOR | 1 | 翻译模型。 |
+| LANGUAGE_DETECTOR | 2 | 语言检测模型。 |
+| SUMMARIZER | 3 | 内容摘要生成模型。 |
+| WRITER | 4 | 写作助手模型。 |
+| REWRITER | 5 | 内容改写助手模型。 |
+| PROMPT | 6 | 提示词模型。 |
+| PROOFREADER | 7 | 内容校对助手模型。 |
+ 
+ 
+  
+
+#### AISessionResultType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+AI会话操作的结果状态。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Web.Webview.Core
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| SUCCESS | 0 | 操作执行成功。 |
+| FAILURE | 1 | 操作执行失败。 |
+| RUNNING | 2 | 操作正在执行中。 |
+ 
+ 
+  
+
+#### WebKeyboardAppearanceMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+WebView中输入法沉浸模式。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Web.Webview.Core
+  
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| NONE_IMMERSIVE | 0 | 默认外观模式，不采用沉浸式风格。 |
+| IMMERSIVE | 1 | 沉浸式模式，跟随系统。 |
+| LIGHT_IMMERSIVE | 2 | 浅色沉浸式风格。 |
+| DARK_IMMERSIVE | 3 | 深色沉浸式风格。 |

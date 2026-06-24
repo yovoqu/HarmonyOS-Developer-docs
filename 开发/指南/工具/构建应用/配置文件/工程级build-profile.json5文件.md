@@ -1,6 +1,6 @@
 # 工程级build-profile.json5文件
 
-更新时间：2026-05-26 06:48:01
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-profile-app
 
@@ -99,6 +99,7 @@ app
 <span style="color: rgb(48,48,48);">            └── </span>tscConfig
 <span style="color: rgb(48,48,48);">                └── </span>targetESVersion
 <span style="color: rgb(48,48,48);">                └── </span>maxFlowDepth
+<span style="color: rgb(48,48,48);">                └── </span>tsImportSoCheck
 <span style="color: rgb(48,48,48);">            └── </span>autoLazyImport
 <span style="color: rgb(48,48,48);">            └── </span>autoLazyFilter
 <span style="color: rgb(48,48,48);">                └── </span>include
@@ -120,6 +121,7 @@ app
 <span style="color: rgb(48,48,48);">            └── </span>enableStrictCheckOHModule
 <span style="color: rgb(48,48,48);">            └── </span>disableSendableCheckRules
 <span style="color: rgb(48,48,48);">            └── </span>strictCheckerOnly
+<span style="color: rgb(48,48,48);">            └── </span>apiCompatibilityCheck
         └── nativeCompiler
         └── removePermissions
 <span style="color: rgb(48,48,48);">            └── </span>name
@@ -289,15 +291,15 @@ products是一个对象数组，用于配置产品品类信息，可配置多个
 | --- | --- | --- | --- |
 | name | 字符串 | 必选 | 产品的名称，必须存在name为"default"的product。 |
 | signingConfig | 字符串 | 可选 | 当前产品品类的签名方案名称，需要在signingConfigs.name中定义。如果没有配置，默认不签名。 |
-| compatibleSdkVersion | 字符串/数值 | 必选 | 标识应用/元服务运行所需兼容的最低SDK版本，应用/元服务不能安装在低于该版本的设备。当前支持的版本参考所有HarmonyOS版本。相关字段与应用兼容性关系参见应用兼容性说明。 运行环境是HarmonyOS时，字段类型是字符串，配置示例："compatibleSdkVersion": "6.1.1(24)"。 运行环境是OpenHarmony时，字段类型是数值，配置示例："compatibleSdkVersion": 24。 
+| compatibleSdkVersion | 字符串/数值 | 必选 | 标识应用/元服务运行所需兼容的最低SDK版本，应用/元服务不能安装在低于该版本的设备。当前支持的版本参考所有HarmonyOS版本。相关字段与应用兼容性关系参见应用兼容性说明。 从API 26.0.0开始，HarmonyOS和OpenHarmony配置统一，字段类型是字符串，配置示例："compatibleSdkVersion": "26.0.0"。 API 26.0.0之前的版本： 运行环境是HarmonyOS时，字段类型是字符串，配置示例："compatibleSdkVersion": "6.1.1(24)"。 运行环境是OpenHarmony时，字段类型是数值，配置示例："compatibleSdkVersion": 24。 
 > [!TIP]
 > 构建APP包时，打包工具会对HSP和HAP的compatibleSdkVersion字段进行校验，满足条件的才能打包，具体请参考 打包工具 。
  |
-| targetSdkVersion | 字符串/数值 | 可选 | 标识应用/元服务运行所需目标SDK版本，是系统提供的前向兼容手段。如果新SDK版本中API行为发生变更，将应用/元服务安装到新系统后，可通过该字段提供向前兼容手段，在新系统版本保持老的API行为。 如未配置，默认与compileSdkVersion保持一致。当前支持的版本参考所有HarmonyOS版本。相关标签与应用兼容性关系参见应用兼容性说明。 运行环境是HarmonyOS时，字段类型是字符串，配置示例："targetSdkVersion": "6.1.1(24)"。 运行环境是OpenHarmony时，字段类型是数值，配置示例："targetSdkVersion": 24。 
+| targetSdkVersion | 字符串/数值 | 可选 | 标识应用/元服务运行所需目标SDK版本，是系统提供的前向兼容手段。如果新SDK版本中API行为发生变更，将应用/元服务安装到新系统后，可通过该字段提供向前兼容手段，在新系统版本保持老的API行为。 如未配置，默认与compileSdkVersion保持一致。当前支持的版本参考所有HarmonyOS版本。相关标签与应用兼容性关系参见应用兼容性说明。 从API 26.0.0开始，HarmonyOS和OpenHarmony配置统一，字段类型是字符串，配置示例："targetSdkVersion": "26.0.0"。 API 26.0.0之前的版本： 运行环境是HarmonyOS时，字段类型是字符串，配置示例："targetSdkVersion": "6.1.1(24)"。 运行环境是OpenHarmony时，字段类型是数值，配置示例："targetSdkVersion": 24。 
 > [!TIP]
 > 建议配置该字段。 构建APP包时，打包工具会对HSP和HAP的targetSdkVersion字段进行校验，满足条件的才能打包，具体请参考 打包工具 。
  |
-| compileSdkVersion | 字符串/数值 | 可选 | 标识编译应用/元服务所使用的SDK版本。当前支持的版本参考所有HarmonyOS版本。相关标签与应用兼容性关系参见应用兼容性说明。 运行环境是HarmonyOS时，字段类型是字符串，配置示例："compileSdkVersion": "6.1.1(24)"。 运行环境是OpenHarmony时，字段类型是数值，配置示例："compileSdkVersion": 24。 
+| compileSdkVersion | 字符串/数值 | 可选 | 标识编译应用/元服务所使用的SDK版本。当前支持的版本参考所有HarmonyOS版本。相关标签与应用兼容性关系参见应用兼容性说明。 从API 26.0.0开始，HarmonyOS和OpenHarmony配置统一，字段类型是字符串，配置示例："compileSdkVersion": "26.0.0"。 API 26.0.0之前的版本： 运行环境是HarmonyOS时，字段类型是字符串，配置示例："compileSdkVersion": "6.1.1(24)"。 运行环境是OpenHarmony时，字段类型是数值，配置示例："compileSdkVersion": 24。 
 > [!TIP]
 > 运行环境是HarmonyOS时，该字段不需要显性配置，编译时默认使用DevEco Studio内置的SDK版本。如果配置，只能配置为当前DevEco Studio配套的SDK版本，不允许配置为其他SDK版本。 运行环境是OpenHarmony时，必须配置该字段。
  |
@@ -342,8 +344,8 @@ products字段示例：
       <span style="color: rgb(135,16,148);">"name"</span>: <span style="color: rgb(6,125,23);">"default"</span>,
       <span style="color: rgb(135,16,148);">"signingConfig"</span>: <span style="color: rgb(6,125,23);">"default"</span>,
       <span style="color: rgb(135,16,148);">"bundleName"</span>: <span style="color: rgb(6,125,23);">"com.example.myapplication"</span>,
-      <span style="color: rgb(135,16,148);">"compatibleSdkVersion"</span>: <span style="color: rgb(6,125,23);">"6.1.1(24)"</span>,
-      "targetSdkVersion": <span style="color: rgb(6,125,23);">"6.1.1(24)"</span>,
+      <span style="color: rgb(135,16,148);">"compatibleSdkVersion"</span>: <span style="color: rgb(6,125,23);">"26.0.0"</span>,
+      "targetSdkVersion": <span style="color: rgb(6,125,23);">"26.0.0"</span>,
       <span style="color: rgb(135,16,148);">"runtimeOS"</span>: <span style="color: rgb(6,125,23);">"HarmonyOS"</span>,
       <span style="color: rgb(135,16,148);">"arkTSVersion"</span>: <span style="color: rgb(6,125,23);">"1.1"</span>,
       <span style="color: rgb(135,16,148);">"bundleType"</span>: <span style="color: rgb(6,125,23);">"app"</span>,
@@ -659,15 +661,7 @@ if (VERSION_CODE === 100){XXX} // 若需要裁剪代码，使用该方式，显�
 > [!TIP]
 > maxFlowDepth不支持动态修改，即在hvigorfile.ts/hvigorconfig.ts文件中，不支持通过 setBuildProfileOpt 方法设置maxFlowDepth。
  |
-
-
-            | 字段名称 | 类型 | 可选/必选 | 含义 |
-| --- | --- | --- | --- |
-| enable | 布尔值 | 可选 | 是否启用import路径展开，启用后可以提升应用的运行时性能。关于import路径展开的原理及开启后的副作用请参考通过import路径展开优化性能。 true：启用。 false（缺省默认值）：不启用。 
-> [!TIP]
-> import XXX from 'A'，A必须为本地HAR模块，并且仅当A为包名时支持进行展开，A为相对路径或包名+路径都不支持展开。 HAR模块单独编译时不生效。
- |
-| exclude | 字符串数组 | 可选 | 配置oh-package.json5中的依赖别名，用于指定不展开import语句的依赖，仅支持本地HAR模块。 |
+| tsImportSoCheck | 布尔值 | 可选 | 在.ts文件导入.so文件中的符号，编译时是否对导入的符号进行类型解析。 false（缺省默认值）：不解析，导入的符号在使用时默认是any类型，可能会导致编译失败。 true：解析，.ts文件可以获取到符号的准确类型并且编译成功。 从26.0.0 Beta1版本开始支持。 |
 
 
             | 字段名称 | 类型 | 可选/必选 | 含义 |
@@ -680,6 +674,15 @@ if (VERSION_CODE === 100){XXX} // 若需要裁剪代码，使用该方式，显�
 > [!TIP]
 > include和exclude互斥，只能配置一个。 exclude不支持配置空数组或空字符串，至少配置一个包名，并且包名不能重复。
  |
+
+
+            | 字段名称 | 类型 | 可选/必选 | 含义 |
+| --- | --- | --- | --- |
+| enable | 布尔值 | 可选 | 是否启用import路径展开，启用后可以提升应用的运行时性能。关于import路径展开的原理及开启后的副作用请参考通过import路径展开优化性能。 true：启用。 false（缺省默认值）：不启用。 
+> [!TIP]
+> import XXX from 'A'，A必须为本地HAR模块，并且仅当A为包名时支持进行展开，A为相对路径或包名+路径都不支持展开。 HAR模块单独编译时不生效。
+ |
+| exclude | 字符串数组 | 可选 | 配置oh-package.json5中的依赖别名，用于指定不展开import语句的依赖，仅支持本地HAR模块。 |
 
 
 arkOptions字段示例：
@@ -726,17 +729,18 @@ strictMode用于定义严格模式。
 > 从API 12开始支持。 一个ets文件在编译后会成为安装包的一部分，这个ets文件对应的字节码称为一个字节码段，OHMUrl是用来定位一个字节码段的标识。 若工程引用了HAR/HSP，需确保工程的useNormalizedOHMUrl配置和HAR/HSP的useNormalizedOHMUrl配置保持一致，同时配置为true或false。 useNormalizedOHMUrl设置为true时，可能对本地源码HAR的混淆产生影响，具体请参考 本地源码HAR包 。 从DevEco Studio NEXT Beta1（5.0.3.800）版本开始，当useNormalizedOHMUrl设置为true时，不允许通过相对路径跨模块或绝对路径导入文件，oh-package.json5中依赖的包使用的别名需要和依赖包的oh-package.json5的name保持一致，具体的适配指导请参考 变更说明 。
  |
 | caseSensitiveCheck | 布尔值 | 可选 | 导入文件是否严格校验大小写，支持相对路径和软链接。 true：严格校验。 false（缺省默认值）：不严格校验。 |
-| duplicateDependencyCheck | 布尔值 | 可选 | 是否校验本地HSP模块有无依赖相同的HAR。仅在Build App(s)起效。 true：如果本地HSP模块依赖了相同的HAR（包括本地/远程、直接/间接），则编译报错。（注意：当依赖链中存在远程HSP，则该远程HSP及其依赖链不参与校验）。 false（默认缺省值）：不启用校验。 |
-| harLocalDependencyCheck | 布尔值 | 可选 | 是否对HAR产物启用本地依赖校验。 true：如果oh-package.json5中的dependencies、dynamicDependencies存在本地依赖，则编译报错。 false（默认缺省值）：不启用校验。 
+| duplicateDependencyCheck | 布尔值 | 可选 | 是否校验本地HSP模块有无依赖相同的HAR。仅在Build App(s)起效。 true：如果本地HSP模块依赖了相同的HAR（包括本地/远程、直接/间接），则编译报错。（注意：当依赖链中存在远程HSP，则该远程HSP及其依赖链不参与校验）。 false（缺省默认值）：不启用校验。 |
+| harLocalDependencyCheck | 布尔值 | 可选 | 是否对HAR产物启用本地依赖校验。 true：如果oh-package.json5中的dependencies、dynamicDependencies存在本地依赖，则编译报错。 false（缺省默认值）：不启用校验。 
 > [!TIP]
 > 除HAR模块外，HSP模块编译时也会生成HAR产物，该配置同样生效。
  |
-| enableStrictCheckOHModule | 布尔值 | 可选 | 调用远程HAR/HSP包中的方法时，是否严格校验传入参数的类型。 true：严格校验，如果参数类型是undefined/null，报Error错误。 false（默认缺省值）：不严格校验，如果参数类型是undefined/null，报Warning告警。 从DevEco Studio 6.0.1 Beta1版本开始支持。 |
+| enableStrictCheckOHModule | 布尔值 | 可选 | 调用远程HAR/HSP包中的方法时，是否严格校验传入参数的类型。 true：严格校验，如果参数类型是undefined/null，报Error错误。 false（缺省默认值）：不严格校验，如果参数类型是undefined/null，报Warning告警。 从DevEco Studio 6.0.1 Beta1版本开始支持。 |
 | disableSendableCheckRules | 字符串数组 | 可选 | 指定需要关闭校验的Sendable规则，当前仅支持配置"arkts-sendable-class-decorator"，表示支持在Sendable class上使用自定义装饰器。具体检查规则请参考Sendable类和Sendable函数禁止使用除@Sendable外的装饰器。 从DevEco Studio 6.0.2 Beta1版本开始支持。 |
-| strictCheckerOnly | 布尔值 | 可选 | 是否对.ets文件仅执行严格语法检查。 false（默认缺省值）：对.ets文件执行两次语法检查，一次非严格语法检查和一次严格语法检查，两次语法检查结果合并输出。 true：对.ets文件仅执行一次严格语法检查，跳过非严格语法检查，可以减少端到端编译时间，提升编译性能。 从DevEco Studio 6.1.1 Release版本开始支持。 
+| strictCheckerOnly | 布尔值 | 可选 | 是否对.ets文件仅执行严格语法检查。 false（缺省默认值）：对.ets文件执行两次语法检查，一次非严格语法检查和一次严格语法检查，两次语法检查结果合并输出。 true：对.ets文件仅执行一次严格语法检查，跳过非严格语法检查，可以减少端到端编译时间，提升编译性能。 从DevEco Studio 6.1.1 Release版本开始支持。 
 > [!TIP]
 > 开启strictCheckerOnly选项之后，由于工具链类型校验能力增强，因此对存量代码进行更严格的检查，可能需要开发者进行少量适配，参考 strictCheckerOnly适配示例 。
  |
+| apiCompatibilityCheck | 字符串 | 可选 | 设置ArkTS API兼容性检测级别。 warn（缺省默认值）：如果调用的ArkTS API 的起始版本高于工程的compatibleSdkVersion，构建时会报Warning告警。 error：如果调用的ArkTS API 的起始版本高于工程的compatibleSdkVersion，构建时会报Error错误。 从26.0.0 Beta1版本开始支持。 |
 
 
  - 在严格模式下（即strictCheckerOnly开关开启），存量代码中调用settings.getValueSync类似接口时会出现"This API is used only in FA Mode, but the current Mode is Stage."报错。严格模式下工具链类型校验能力增强，undefined类型变量无法直接匹配非undefined类型的函数参数，导致无法命中预期的重载声明，预期匹配[settings.getValueSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-settings#settingsgetvaluesync11)，实际匹配[settings.getValueSync](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-settings#settingsgetvaluesyncdeprecated)(deprecated)。       **解决方案：**可通过为变量添加非空断言（!），告知编译器该变量一定存在值，使编译时能够正确匹配到目标函数重载。
@@ -757,6 +761,7 @@ strictMode字段示例：
     <span style="color: rgb(135,16,148);">"useNormalizedOHMUrl"</span>: <span style="color: rgb(0,51,179);">true</span>,
     <span style="color: rgb(135,16,148);">"caseSensitiveCheck"</span>: <span style="color: rgb(0,51,179);">true</span>,
     "disableSendableCheckRules": ["arkts-sendable-class-decorator"],
+    "apiCompatibilityCheck": "error",
   }
 }
 ```

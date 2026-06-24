@@ -1,6 +1,6 @@
 # progress
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-basic-progress
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -150,4 +150,4 @@ type=arc
 **4*4卡片**
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/2b/v3/hcmIDbRvRxKobApd2PKiNg/zh-cn_image_0000002581436572.png?HW-CC-KV=V1&HW-CC-Date=20260528T025429Z&HW-CC-Expire=86400&HW-CC-Sign=2B4B3951C6B02B9E83379CF9A884AF8810B579228CE33BB2BABDC18BBB3ADC1F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/92/v3/BZtbJ8vkSLazEfZ5HI3thA/zh-cn_image_0000002656470497.png?HW-CC-KV=V1&HW-CC-Date=20260624T015950Z&HW-CC-Expire=86400&HW-CC-Sign=9990D567B89825A8691695DFA183E8D687FD9BA810593C8ACA497C33B595860C)

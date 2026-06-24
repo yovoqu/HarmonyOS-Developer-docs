@@ -1,6 +1,6 @@
 # Interface (AutoDeviceSwitch)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-autodeviceswitch
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -53,7 +53,7 @@ enableAutoDeviceSwitch(enabled: boolean): void
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 7400101 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameters verification failed. |
+| 7400101 | Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameters verification failed. 适用版本：19+ |
 | 7400102 | Operation not allowed. |
 | 7400103 | Session not config. |
 | 7400201 | Camera service fatal error. |

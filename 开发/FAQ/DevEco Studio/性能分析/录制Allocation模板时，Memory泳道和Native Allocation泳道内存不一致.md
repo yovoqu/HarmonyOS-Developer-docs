@@ -1,6 +1,6 @@
 # 录制Allocation模板时，Memory泳道和Native Allocation泳道内存不一致
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-profiler-16
 

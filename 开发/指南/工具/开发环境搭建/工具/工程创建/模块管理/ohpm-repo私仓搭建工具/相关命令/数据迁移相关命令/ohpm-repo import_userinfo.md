@@ -1,6 +1,6 @@
 # ohpm-repo import_userinfo
 
-更新时间：2026-01-15 06:51:04
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-import-userinfo
 
@@ -33,7 +33,7 @@ ohpm-repo import_userinfo <zip_file> [options]
 
 #### &lt;zip_file&gt;
 
-- 类型： String
+- 类型：String
 - 必填参数
 
  

@@ -1,6 +1,6 @@
 # 构建HAR
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-build-har
 
@@ -92,7 +92,7 @@ library  // HAR根目录
 从功能上来说所有的源码HAR包都可以按照任意顺序切换成字节码HAR。但是由于字节码HAR编译和集成的特点，按照推荐场景或顺序来逐步切换字节码HAR可能会获得比较好的性能、内存收益。以下场景中推荐切换使用字节码HAR：
 
  - 适用于SDK厂商对外提供SDK，以及高安全的场景，字节码HAR可以降低源码泄漏的风险。
- - 采用muti-repo的开发模式，在被主工程合并集成时，所有依赖的HAR均可以发布成字节码HAR，从而提高主HAP的构建效率。
+ - 采用multi-repo的开发模式，在被主工程合并集成时，所有依赖的HAR均可以发布成字节码HAR，从而提高主HAP的构建效率。
  - 采用mono-repo的开发模式，工程中含有单个代码文件较大，或通过代码生成工具生成的代码量较大的ArkTS/TS/JS 的二方、三方SDK(HAR包)时，可考虑将这些HAR包构建成字节码HAR。
  - 对内存要求较高的场景，可以通过切换字节码HAR，降低内存的占用。
  - 通过ArkTS/TS/JS编写的HAR，且在依赖链条中处于较为底层的叶子节点，含有较少的源码依赖时，切换为字节码HAR会有较好的收益。
@@ -246,7 +246,7 @@ library  // HAR根目录
 产物是包含源码的HAR包，其中包含源码、资源文件以及配置文件等，方便开发者进行本地调测，不包含build、node_modules、oh_modules、.cxx、.preview、.hvigor、.gitignore、.ohpmignore、.gitignore/.ohpmignore中配置的文件、cpp工程的CMakeLists.txt。
 
 > [!NOTE]
-> 源码HAR包中包含源代码，请谨慎分发，避免造成源代码泄露。 如果是native工程，以debug模式构建的native产物中不包含调试信息和符号表，如需调试，请参考 三方源码调试 。 从5.0.3.403版本开始，不再建议使用相对路径跨模块引用代码文件，若历史工程存在此场景的跨模块引用，会出现warning告警，请尝试将该文件移至本模块内，再重新进行编译。 从5.0.3.403版本开始，以debug/release模式构建HAR的流程使用相同的语法校验规则，若历史工程出现ArkTS语法报错，请按照报错信息修改代码，以符合ArkTS语言规范。
+> 源码HAR包中包含源代码，请谨慎分发，避免造成源代码泄漏。 如果是native工程，以debug模式构建的native产物中不包含调试信息和符号表，如需调试，请参考 三方源码调试 。 从5.0.3.403版本开始，不再建议使用相对路径跨模块引用代码文件，若历史工程存在此场景的跨模块引用，会出现warning告警，请尝试将该文件移至本模块内，再重新进行编译。 从5.0.3.403版本开始，以debug/release模式构建HAR的流程使用相同的语法校验规则，若历史工程出现ArkTS语法报错，请按照报错信息修改代码，以符合ArkTS语言规范。
 
 1. 在HAR模块的build-profile.json5中，将byteCodeHar设置为false。
 
@@ -313,7 +313,7 @@ library  // HAR根目录
   HAR包产物解压后，结构如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/76/v3/O3wENqGUQcm5L3dvrcUGJg/zh-cn_image_0000002571546838.png?HW-CC-KV=V1&HW-CC-Date=20260528T030638Z&HW-CC-Expire=86400&HW-CC-Sign=450F954FBB096743A7C2DD3FDEA0906E4B460B1F107D142411936B24BBDD45D5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/kFex9jGfRjiRddB12co4jQ/zh-cn_image_0000002625074275.png?HW-CC-KV=V1&HW-CC-Date=20260624T020717Z&HW-CC-Expire=86400&HW-CC-Sign=8147F9FDC4919EE3DC491C811B6A51B4727942F18FF208654E85555AEF0C7D12)
 
 
 
@@ -340,11 +340,11 @@ library  // HAR根目录
 > 使用DevEco Studio NEXT Beta1（5.0.3.800）之前的版本，模块级build-profile.json5的byteCodeHar字段的缺省默认值为false，无需执行本步骤。
 
 2. 点击DevEco Studio右上角图标
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/zP975HPGQNKwwGKdxF9L3Q/zh-cn_image_0000002571546848.png?HW-CC-KV=V1&HW-CC-Date=20260528T030638Z&HW-CC-Expire=86400&HW-CC-Sign=D239519935EA803016E8E6272F4D9396C26FB1F22388C0673D99BDAC9C719757)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/S3EONJltSkGv6ppHI5Ue1w/zh-cn_image_0000002594634702.png?HW-CC-KV=V1&HW-CC-Date=20260624T020717Z&HW-CC-Expire=86400&HW-CC-Sign=4A39FDA24B28E05676F5B8FB74384F6733DB1634CEF13F90502181AFCA1C321C)
 ，**Build Mode**中选择**release。**默认为**&lt;Default&gt;**模式：在编译App时使用release模式，编译HAP/HSP/HAR时使用debug模式。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/98H3z6trQ9CD6LDDpX25Mg/zh-cn_image_0000002602186383.png?HW-CC-KV=V1&HW-CC-Date=20260528T030638Z&HW-CC-Expire=86400&HW-CC-Sign=46B7326AECD02D7003AD74688F0E3A0BE45674DBC2463972E392AC4FA124C70A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/9PXI6bvLSHWFU_gHbu9rCQ/zh-cn_image_0000002594634704.png?HW-CC-KV=V1&HW-CC-Date=20260624T020717Z&HW-CC-Expire=86400&HW-CC-Sign=075234D404C18143088C7ECFC027765B588BB71A6CB28B5203954D08E910D83F)
 
 3. 在[编译模式](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-hvigor-compilation-options-customizing-guide#section192461528194916)为release时，为保护代码资产，建议开启混淆，在模块级build-profile.json5文件的release的buildOptionSet配置中，将obfuscation/ruleOptions下的enable字段设置为true。混淆相关能力和具体规则请参考[代码混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation)。
 
@@ -409,19 +409,19 @@ library  // HAR根目录
 
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d2/v3/meLxtTXuTYior0O487EIGg/zh-cn_image_0000002571387190.png?HW-CC-KV=V1&HW-CC-Date=20260528T030638Z&HW-CC-Expire=86400&HW-CC-Sign=4018EFF844A891742B4DEE9F0FC4920D155C6C75D74C2BB9E77F9FB29CBCB984)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/79/v3/1nI3EwEHTO6TIDrN45VUjw/zh-cn_image_0000002625074269.png?HW-CC-KV=V1&HW-CC-Date=20260624T020717Z&HW-CC-Expire=86400&HW-CC-Sign=E9A6B0A87F1521D15A01D0A269C3A6BF1F9C43BC2A1EBFD390A61BEA6A119082)
 
 
   构建完成后，build目录下生成HAR包产物。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/29/v3/G7YY_axPR3emEG7qbBhpOA/zh-cn_image_0000002571546842.png?HW-CC-KV=V1&HW-CC-Date=20260528T030638Z&HW-CC-Expire=86400&HW-CC-Sign=B2628F18F0519FC47551A9FBA317A4769B3FF33AEAF4A8EEE69CBD57A63D172F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e1/v3/SqlAWIN9SgC5o5undaEc0A/zh-cn_image_0000002624994135.png?HW-CC-KV=V1&HW-CC-Date=20260624T020717Z&HW-CC-Expire=86400&HW-CC-Sign=9BA297EECE76F379537846B9A15E364EE7264968D4C004C8813494C188F2AEAE)
 
 
   HAR包产物解压后，结构如下：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6/v3/82C6lMMOQkGO-lz7z0aYwA/zh-cn_image_0000002571387212.png?HW-CC-KV=V1&HW-CC-Date=20260528T030638Z&HW-CC-Expire=86400&HW-CC-Sign=7C2851B779906AE4951D8823C9DB7E3DD0B29A45C9DFBF8FE4BB97ACF0EECA4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c3/v3/APKM-CG0QYeWQxinY2047g/zh-cn_image_0000002594474780.png?HW-CC-KV=V1&HW-CC-Date=20260624T020717Z&HW-CC-Expire=86400&HW-CC-Sign=407BF72B822B095E39401A94A83DD15586F2DA9A7F097FC68581A324C35F2E6A)
 
 
 
@@ -448,10 +448,10 @@ DevEco Studio在构建HAR流程的基础上，支持对HAR进行签名。签名�
 3. 选中HAR模块的根目录，点击**Build > Make Module '<module-name>'**启动构建。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/de/v3/Aovi-qD8SgO0h11cs97mXQ/zh-cn_image_0000002602186369.png?HW-CC-KV=V1&HW-CC-Date=20260528T030638Z&HW-CC-Expire=86400&HW-CC-Sign=0C17753942A41A5E0E5AF207BCBE00DDB45866C8039C08A5C3D8426D3B919A49)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/53/v3/0VK-SCGKSsSARMIk9v3I8Q/zh-cn_image_0000002624994131.png?HW-CC-KV=V1&HW-CC-Date=20260624T020717Z&HW-CC-Expire=86400&HW-CC-Sign=E35AB61C71744C819A1E4C7100E423A03CEF0364C6DE8BC6A51FF2DE7702D74B)
 
 
   构建完成后，build目录下生成签名HAR包产物。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/50/v3/uvKgmpiUQ3WXZYoQgL8jNw/zh-cn_image_0000002602186365.png?HW-CC-KV=V1&HW-CC-Date=20260528T030638Z&HW-CC-Expire=86400&HW-CC-Sign=457549292DB7B48FD8D4EB25AFE42D0940DFE0070CE3434AEEC84E96CF6ABB4E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/15/v3/IODpSoLFTq664ci3n9Okwg/zh-cn_image_0000002624994129.png?HW-CC-KV=V1&HW-CC-Date=20260624T020717Z&HW-CC-Expire=86400&HW-CC-Sign=7F0163C0B6897C8D64B49BE46C9BC9695F33C84F7C9E9BF3B91DAEB79E73E4C1)

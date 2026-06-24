@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/intents-arkts-api-errorcodes-insightintent
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -24,11 +24,11 @@ The application has not been registered with the InsightIntent.
 
 **可能原因**
 
-应用未在InsightIntent进行订阅（未配置白名单）。
+应用未在InsightIntent进行订阅。
 
 **处理步骤**
 
-参考[Intents Kit接入流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-access-flow)，进行InsightIntent订阅申请（白名单）。
+参考[Intents Kit接入流程](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/intents-access-flow)，进行InsightIntent订阅申请。
 
 
 

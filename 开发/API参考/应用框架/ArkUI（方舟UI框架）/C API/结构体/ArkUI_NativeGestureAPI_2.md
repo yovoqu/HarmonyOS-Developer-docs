@@ -1,6 +1,6 @@
 # ArkUI_NativeGestureAPI_2
 
-更新时间：2026-03-26 01:02:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-nativegestureapi-2
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

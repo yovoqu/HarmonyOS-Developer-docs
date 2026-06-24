@@ -1,6 +1,6 @@
 # XEG_SpatialUpscaleCreateInfo
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-spatialupscalecreateinfo
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -31,9 +31,9 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| VkExtent2D inputSize | 超分输入图像的尺寸，必须与超分输入图像的VkimageView的尺寸一致，否则会导致未定义问题，如超分失败、程序崩溃等。 |
+| VkExtent2D inputSize | 超分输入图像的尺寸，必须与超分输入图像的VkImageView的尺寸一致，否则会导致未定义问题，如超分失败、程序崩溃等。 |
 | VkRect2D inputRegion | 超分输入图像的采样区域，图像超分区域参数必须大于0且小于等于图像尺寸，否则会导致渲染失败或者渲染效果不合预期，此参数存在两个结构体：VkOffset2D offset和VkExtent2D extent。其中offset为图像区域的左上角点的x与y值，extent为图像区域的宽与高。 |
-| VkExtent2D outputSize | 超分输出图像的尺寸，必须与超分结果VkimageView的尺寸一致，否则会导致未定义问题，如超分失败、程序崩溃等。 |
+| VkExtent2D outputSize | 超分输出图像的尺寸，必须与超分结果VkImageView的尺寸一致，否则会导致未定义问题，如超分失败、程序崩溃等。 |
 | VkRect2D outputRegion | 超分输出图像的绘制区域，图像超分区域参数必须大于0且小于等于图像尺寸，否则会导致渲染失败或者渲染效果不合预期，此参数存在两个结构体：VkOffset2D offset和VkExtent2D extent。其中offset为图像区域的左上角点的x与y值，extent为图像区域的宽与高。 |
 | VkFormat format | 超分输入图像的格式。 |
 | float sharpness | 超分的锐化参数，建议取值范围为[0.0, 1.0]，不同风格图像锐化值需要调整，否则会导致过度锐化现象，如出现大量噪点。 |
@@ -85,7 +85,7 @@ VkExtent2D XEG_SpatialUpscaleCreateInfo::inputSize
  
 **描述**
  
-超分输入图像的尺寸，必须与超分输入图像的VkimageView的尺寸一致，否则会导致未定义问题，如超分失败、程序崩溃等。
+超分输入图像的尺寸，必须与超分输入图像的VkImageView的尺寸一致，否则会导致未定义问题，如超分失败、程序崩溃等。
  
   
 
@@ -113,7 +113,7 @@ VkExtent2D XEG_SpatialUpscaleCreateInfo::outputSize
  
 **描述**
  
-超分输出图像的尺寸，必须与超分结果VkimageView的尺寸一致，否则会导致未定义问题，如超分失败、程序崩溃等。
+超分输出图像的尺寸，必须与超分结果VkImageView的尺寸一致，否则会导致未定义问题，如超分失败、程序崩溃等。
  
   
 

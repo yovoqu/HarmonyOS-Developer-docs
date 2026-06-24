@@ -1,6 +1,6 @@
 # Interface (PhotoOutput)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-photooutput
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1336,6 +1336,7 @@ getPhotoRotation(deviceDegree?: number): ImageRotation
 
 | 错误码ID | 错误信息 |
 | --- | --- |
+| 7400101 | Parameter missing or parameter type incorrect. 适用版本：12-22 |
 | 7400201 | Camera service fatal error. |
 
 

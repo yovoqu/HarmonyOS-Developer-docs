@@ -1,6 +1,6 @@
 # BusinessRiskIntelligentDetection（业务风险检测）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-brid-api
 **支持设备：** Phone | Tablet
@@ -34,13 +34,15 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | nonce | Uint8Array | 否 | 否 | 开发者应用传入的一个随机生成的nonce值，用于防重放攻击，在检测结果中会包含该值。nonce值必须为24至80字节之间。 |
 | algorithm | SigningAlgorithm | 否 | 否 | 数字签名算法。 |
-| version | number | 否 | 是 | 检测结果消息格式的版本，默认值为1，可选1和2，取值为2时检测结果的Tag标签中带有时间属性和风险等级，其中时间属性表示该标签对应线索的最后一次发生时间，风险等级表示该标签对应的风险级别，取值为1时，检测结果Tag标签中不带时间属性和风险等级。 起始版本： 5.1.0(18) |
+| version | number | 否 | 是 | 检测结果消息格式的版本，默认值为1，可选1、2和3。 从5.1.0(18)开始，增加取值1和2。 取值为1时，检测结果Tag标签中不带时间属性和风险等级。 取值为2时，检测结果的Tag标签中带有时间属性和风险等级，其中时间属性表示该标签对应线索的最后一次发生时间，风险等级表示该标签对应的风险级别。 从26.0.0开始，增加取值为3。 取值为3时，检测结果的Tag标签中带有时间属性、风险等级和风控因子，其中时间属性表示该标签对应线索的最后一次发生时间，风险等级表示该标签对应的风险级别，风控因子表示该标签对应的风险因子。 |
  
  
   
@@ -52,6 +54,8 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
 模拟点击检测的请求参数。
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.0.0(20)
   
@@ -68,7 +72,9 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
 
 模拟点击增强检测的请求参数。
  
-系统能力：SystemCapability.Security.BusinessRiskIntelligentDetection
+**系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.0.2(22)
   
@@ -89,6 +95,8 @@ import { businessRiskIntelligentDetection } from '@kit.DeviceSecurityKit';
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
   
 | 名称 | 值 | 说明 |
@@ -108,6 +116,8 @@ detectFraudRisk(params: [FraudDetectionRequest](#frauddetectionrequest)): Promis
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 5.0.0(12)
  
 **参数**：
@@ -126,7 +136,7 @@ detectFraudRisk(params: [FraudDetectionRequest](#frauddetectionrequest)): Promis
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-brid)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-brid)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -180,6 +190,8 @@ detectSimulatedClickRisk(params: [SimulatedClickDetectionRequest](#simulatedclic
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 6.0.0(20)
  
 **参数**：
@@ -198,7 +210,7 @@ detectSimulatedClickRisk(params: [SimulatedClickDetectionRequest](#simulatedclic
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-brid)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-brid)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -249,6 +261,8 @@ detectSimulatedClickRiskEnhanced(params: SimulatedClickDetectionEnhancedRequest)
  
 **系统能力：** SystemCapability.Security.BusinessRiskIntelligentDetection
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 6.0.2(22)
  
 **参数**：
@@ -267,7 +281,7 @@ detectSimulatedClickRiskEnhanced(params: SimulatedClickDetectionEnhancedRequest)
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-brid)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-brid)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

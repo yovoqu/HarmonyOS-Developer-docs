@@ -1,6 +1,6 @@
 # scan（星闪扫描能力）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-scan
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,6 +28,8 @@ startScan(filters: Array&lt;ScanFilters&gt;, options?: ScanOptions): Promise&lt;
  
 发起星闪扫描。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -38,7 +40,7 @@ startScan(filters: Array&lt;ScanFilters&gt;, options?: ScanOptions): Promise&lt;
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| filters | Array&lt;ScanFilters&gt; | 是 | 表示扫描过滤器，配置期望扫描的设备名称、地址等信息。其中表示过滤条件的ScanFilters中全部字段均为可选字段，所有字段都未配置的ScanFilters代表一组空过滤器，视为无效过滤器而忽略。不允许filters中的所有ScanFilters都配置为空过滤器，否则返回错误码401。 |
+| filters | Array&lt;ScanFilters&gt; | 是 | 表示扫描过滤器，配置期望扫描的设备名称、地址等信息。 其中表示过滤条件的ScanFilters中全部字段均为可选字段，所有字段都未配置的ScanFilters代表一组空过滤器，视为无效过滤器而忽略。 不允许filters中的所有ScanFilters都配置为空过滤器，否则返回错误码401。 |
 | options | ScanOptions | 否 | 表示扫描选项。默认为低功耗模式。 |
  
  
@@ -46,12 +48,12 @@ startScan(filters: Array&lt;ScanFilters&gt;, options?: ScanOptions): Promise&lt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回值。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -74,10 +76,90 @@ let scanFilter: scan.ScanFilters = {
 };
 let scanOptions: scan.ScanOptions = {
   scanMode: scan.ScanMode.SCAN_MODE_LOW_POWER
-}
+};
 try {
   scan.startScan([scanFilter], scanOptions).then(() => {
-    console.info("start scan success");
+    console.info('start scan success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
+  });
+} catch (err) {
+  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+}
+```
+ 
+  
+
+#### startScan
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+startScan(filters: Array&lt;ScanFilters&gt; | null, options?: ScanOptions): Promise&lt;void&gt;
+ 
+发起星闪扫描。使用Promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**需要权限：** ohos.permission.ACCESS_NEARLINK
+ 
+**系统能力：** SystemCapability.Communication.NearLink.Core
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| filters | Array&lt;ScanFilters&gt; \| null | 是 | 扫描星闪广播的过滤条件集合，符合过滤条件的设备会被上报。若不使能过滤器则传入null。 若该参数设置为null，将扫描所有可发现的周边星闪设备，但是不建议使用此方式，可能扫描到非预期设备，并增加功耗。 |
+| options | ScanOptions | 否 | 表示扫描选项。默认为低功耗模式。 |
+ 
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 801 | Capability not supported. |
+| 1009700003 | Nearlink is off. |
+| 1009700099 | Operation failed. |
+ 
+ 
+**示例：**
+ 
+```text
+import { scan } from '@kit.NearLinkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+// 不使用过滤器进行扫描
+try {
+  scan.startScan(null).then(() => {
+    console.info('start scan without filter success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
+  });
+} catch (err) {
+  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
+}
+
+// 使用过滤器进行扫描
+let scanFilter: scan.ScanFilters = {
+  address: '11:22:33:44:AA:FF',
+  deviceName: 'device name'
+};
+try {
+  scan.startScan([scanFilter]).then(() => {
+    console.info('start scan with filter success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -94,6 +176,8 @@ stopScan(): Promise&lt;void&gt;
  
 停止星闪扫描。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -104,12 +188,12 @@ stopScan(): Promise&lt;void&gt;
   
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;void&gt; | Promise对象，无返回值。 |
+| Promise&lt;void&gt; | Promise对象，无返回结果。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -127,7 +211,9 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 try {
   scan.stopScan().then(() => {
-    console.info("stop scan success");
+    console.info('stop scan success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -142,7 +228,9 @@ try {
 
 on(type: 'deviceFound', callback: Callback<Array&lt;ScanResults&gt;>): void
  
-订阅星闪扫描结果。回调函数携带远端设备的随机地址。
+订阅星闪扫描结果。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
@@ -160,7 +248,7 @@ on(type: 'deviceFound', callback: Callback<Array&lt;ScanResults&gt;>): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -177,7 +265,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onReceiveEvent:(data: Array<scan.ScanResults>) => void = (data: Array<scan.ScanResults>) => {
   console.info('scan result addr:' + data[0].address + 'name:' + data[0].deviceName);
-}
+};
 try {
   scan.on('deviceFound', onReceiveEvent);
 } catch (err) {
@@ -193,7 +281,9 @@ try {
 
 off(type: 'deviceFound', callback?: Callback<Array&lt;ScanResults&gt;>): void
  
-取消订阅星闪扫描结果。
+取消订阅星闪扫描结果。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
@@ -211,7 +301,7 @@ off(type: 'deviceFound', callback?: Callback<Array&lt;ScanResults&gt;>): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -241,13 +331,15 @@ try {
 
 表示扫描结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 表示扫描到设备地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 表示扫描到设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
 | rssi | number | 否 | 否 | 表示扫描到的设备rssi值，取值范围[-128, 127]，单位dBm，其中127表示无效值。 |
 | data | ArrayBuffer | 否 | 否 | 表示广播包数据。 |
 | deviceName | string | 否 | 否 | 表示扫描到的设备名称。字符串长度范围[0, 30]。 |
@@ -263,13 +355,15 @@ try {
 
 表示扫描过滤条件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 是 | 表示设备地址，若未配置则默认不过滤该字段。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 是 | 表示设备地址，若未配置则默认不过滤该字段。地址格式参考：11:22:33:AA:BB:FF。 |
 | deviceName | string | 否 | 是 | 表示设备名称，字符串长度范围[0, 30]。若未配置则默认不过滤该字段。 |
 | manufacturerId | number | 否 | 是 | 表示厂商ID，取值范围[1, 65535]，若未配置则默认不过滤该字段。 |
 | manufacturerData | ArrayBuffer | 否 | 是 | 表示厂商数据，若未配置则默认不过滤该字段。配置该字段需同时配置manufacturerId。 |
@@ -284,13 +378,15 @@ try {
 
 表示扫描选项。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| scanMode | ScanMode | 否 | 是 | 表示扫描模式。默认值为"SCAN_MODE_LOW_POWER" |
+| scanMode | ScanMode | 否 | 是 | 表示扫描模式。默认值为'SCAN_MODE_LOW_POWER' |
 | duration | number | 否 | 是 | 表示扫描持续时间。单位second，取值范围[10, 60]，默认值为全时段扫描 |
  
  
@@ -301,6 +397,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示扫描模式，为枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  

@@ -1,6 +1,6 @@
 # 使用MindSpore Lite进行模型转换
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mindspore-lite-converter-guidelines
 
@@ -73,7 +73,7 @@ export LD_LIBRARY_PATH=${PACKAGE_PATH}/tools/converter/lib:${LD_LIBRARY_PATH}
 
   #### 参数说明
 
-  MindSpore Lite模型转换工具提供了多种参数设置，用户可根据需要来选择使用。此外，用户可输入./converter_lite --help获取实时帮助信息。
+  MindSpore Lite模型转换工具提供了多种参数设置，用户可根据需要来选择使用。此外，用户可输入./converter_lite --help获取实时帮助。
 
   下面提供详细的参数说明。
 

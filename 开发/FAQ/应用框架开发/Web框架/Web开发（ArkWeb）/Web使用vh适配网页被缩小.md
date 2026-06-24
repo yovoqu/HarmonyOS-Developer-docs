@@ -1,6 +1,6 @@
 # Web使用vh适配网页被缩小
 
-更新时间：2026-04-02 07:57:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkweb-99
 

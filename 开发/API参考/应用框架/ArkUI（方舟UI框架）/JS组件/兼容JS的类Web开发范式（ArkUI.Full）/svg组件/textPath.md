@@ -1,6 +1,6 @@
 # textPath
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-textpath
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -294,7 +294,7 @@ textpath与tspan组合属性动画与效果图
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bb/v3/sy_g8F4OTlOWhlKLV2iujA/zh-cn_image_0000002581436392.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025441Z&HW-CC-Expire=86400&HW-CC-Sign=7B106F5884FA4652AFD66395A1D6C2E2B2CBA1836BCCCA1B43822DDD73407EAD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/60/v3/__mPaE8SQXSNNDp2OZE7Pw/zh-cn_image_0000002656470317.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=9686C7A8F5552E4092FBE4A36FF899D67624645E87206F7131BA5E212CA326A2)
 
  
 (1) "tspan attribute stroke" 轮廓颜色从红色逐渐转变成绿色。

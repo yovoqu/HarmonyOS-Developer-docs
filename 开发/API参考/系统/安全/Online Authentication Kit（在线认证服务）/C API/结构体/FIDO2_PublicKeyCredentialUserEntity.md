@@ -1,6 +1,6 @@
 # FIDO2_PublicKeyCredentialUserEntity
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___public_key_credential_user_entity
 
@@ -23,8 +23,8 @@
 | 名称 | 描述 |
 | --- | --- |
 | Uint8Buff id | 凭据的标识符。 |
-| char * displayName | 前台显示的用户名。 |
-| char * name | 用户名。 |
+| char * displayName | 前台显示的用户名。长度限制0到512。 |
+| char * name | 用户名。长度限制0到512。 |
  
  
   

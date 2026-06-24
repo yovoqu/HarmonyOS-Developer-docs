@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.keyEvent (按键输入事件)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keyevent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -54,7 +54,7 @@ import { Action, Key, KeyEvent } from '@kit.InputKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | code | KeyCode | 否 | 否 | 键值。 |
-| pressedTime | number | 否 | 否 | 按键按下时间，单位：μs。 |
+| pressedTime | number | 否 | 否 | 按键按下时间，表示系统启动运行至今逝去的微秒数，单位为微秒（μs）。 |
 | deviceId | number | 否 | 否 | 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。 |
  
  

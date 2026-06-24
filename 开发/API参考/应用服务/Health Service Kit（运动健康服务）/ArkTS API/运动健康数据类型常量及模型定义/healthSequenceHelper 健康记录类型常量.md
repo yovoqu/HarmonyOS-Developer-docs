@@ -1,6 +1,6 @@
 # healthSequenceHelper (健康记录类型常量)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthsequencehelper
 **支持设备：** Phone | Tablet | Wearable
@@ -34,6 +34,8 @@ import { healthStore } from '@kit.HealthServiceKit';
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -43,6 +45,8 @@ import { healthStore } from '@kit.HealthServiceKit';
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -62,6 +66,8 @@ type Model = healthModels.SleepRecord
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -81,6 +87,8 @@ type Fields = healthFields.Sleep
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -100,6 +108,8 @@ type DetailFields = healthFields.SleepDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -118,6 +128,8 @@ type DetailFields = healthFields.SleepDetail
  
 **起始版本：** 5.0.0(12)
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
   
 
 #### 常量
@@ -127,6 +139,8 @@ type DetailFields = healthFields.SleepDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -146,6 +160,8 @@ type Model = healthModels.SleepNapRecord
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -165,6 +181,8 @@ type Fields = healthFields.SleepNap
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |
@@ -184,6 +202,8 @@ type DetailFields = healthFields.SleepDetail
 **系统能力：** SystemCapability.Health.HealthStore
  
 **起始版本：** 5.0.0(12)
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
   
 | 类型 | 说明 |
 | --- | --- |

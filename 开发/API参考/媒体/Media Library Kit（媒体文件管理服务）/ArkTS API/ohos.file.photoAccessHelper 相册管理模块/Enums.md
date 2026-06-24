@@ -1,6 +1,6 @@
 # Enums
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-photoaccesshelper-e
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -165,6 +165,7 @@ PhotoSubtype是不同[PhotoAsset](https://developer.huawei.com/consumer/cn/doc/h
 | OWNER_ALBUM_ID22+ | 'owner_album_id' | 照片所属的相册id。 |
 | ASPECT_RATIO22+ | 'aspect_ratio' | 图片和视频的宽高比。 ​模型约束：此接口仅可在Stage模型下使用。 |
 | CHANGE_TIME23+ | 'change_time' | 照片的更改时间。 |
+| LOCAL_ASSET_SIZE | 'local_asset_size' | 本地文件的实际大小。 - 该属性仅表示本地文件大小，默认值为0表示纯云文件或尚未识别的本地文件大小。 - 当本地文件为动态照片且模式发生变化时，该属性会发生变化。例如：当图库中的动态照片处于“关闭动态”状态时，该属性仅表示封面帧大小。 起始版本： 26.0.0 ​模型约束： 此接口仅可在Stage模型下使用。 |
 
 
 
@@ -597,3 +598,68 @@ async function example(phAccessHelper: photoAccessHelper.PhotoAccessHelper) {
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | FULL_FUNCTION_GRID | 0 | 宫格支持捏合，捏合后支持选中、点击进大图操纵。 |
+
+
+
+
+#### AvailabilityStatus
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+枚举，媒体库可用性状态。
+
+**起始版本：** 26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.FileManagement.PhotoAccessHelper.Core
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| AVAILABLE | 'available' | 媒体库可用。 |
+| UNAVAILABLE | 'unavailable' | 媒体库不可用。 |
+
+
+
+
+#### MediaAssetPermissionState
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+枚举，媒体库资产读权限状态。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| URI_FORMAT_ERROR | 0 | URI格式错误或非媒体库URI。 |
+| FILE_NOT_EXIST | 1 | 资产不存在。资产可能被隐藏、放入回收站或被永久删除。 |
+| READ_PERMISSION | 2 | 应用在获取资产时有读权限。 |
+| NO_READ_PERMISSION | 3 | 应用在获取资产时没有读权限。 |
+
+
+
+
+#### PreferredCompatibleMode
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+枚举，根据配置的资产兼容性执行转码。
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.FileManagement.PhotoAccessHelper.Core
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| DEFAULT | 0 | 根据配置的资产兼容性功能执行转码。 |
+| CURRENT | 1 | 不进行转码。资产将以其原始格式返回。 |
+| COMPATIBLE | 2 | 所有资产都被转码为最广泛兼容的格式(如JPEG)。 |

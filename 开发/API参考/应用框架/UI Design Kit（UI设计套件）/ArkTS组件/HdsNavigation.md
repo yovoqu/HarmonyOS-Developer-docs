@@ -1,6 +1,6 @@
 # HdsNavigation
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdsnavigation
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -1085,6 +1085,28 @@ HdsNavigation标题栏返回按钮配置。
 
 
 
+#### BuilderType
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+type BuilderType = ComponentContent | BuilderOptions
+
+自定义节点类型。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.UIDesign.HDSComponent.Core
+
+**起始版本：** 26.0.0
+
+| 类型 | 说明 |
+| --- | --- |
+| ComponentContent | 组件内容封装类型。 |
+| BuilderOptions | 自定义构建函数类型。 |
+
+
+
+
 #### HdsNavigationBackgroundStyle
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -1406,6 +1428,7 @@ HdsNavigation标题栏底部自定义区域配置。
 | --- | --- | --- | --- | --- |
 | builder | CustomBuilder | 否 | 否 | 设置标题底部自定义区域内容。 |
 | builderComponent | ComponentContent | 否 | 是 | 设置标题底部自定义区域内容。 当同时配置了builder属性与builderComponent属性时，生效builderComponent属性。 起始版本： 6.0.1(21) |
+| builderContent | BuilderType | 否 | 是 | 设置标题底部自定义区域内容。 当同时配置了builder与builderContent属性时，生效builderContent属性；当配置了builderComponent与builderContent属性时，生效builderComponent属性。 起始版本： 26.0.0 |
 | height | Length | 否 | 是 | 设置标题栏底部自定义区域高度。不支持设置百分比单位。 默认值：56vp。 |
 | showType | BottomBuilderShowType | 否 | 是 | 设置标题栏底部自定义区域显示类型。仅在HideMode配置为HideMode.SCROLL_UP_TO时，该配置生效。 默认值：BottomBuilderShowType.DIRECTLY_SHOW。 |
 
@@ -1450,6 +1473,7 @@ HdsNavigation标题栏的内容区配置信息。
 | backIcon | HdsNavigationBackButtonItemOptions | 否 | 是 | 设置标题栏的返回按钮内容。 |
 | stackBuilder | CustomBuilder | 否 | 是 | 设置标题栏顶部自定义区域。 起始版本： 6.0.0(20) |
 | stackBuilderComponent | ComponentContent | 否 | 是 | 设置标题栏顶部自定义区域。 当同时配置了stackBuilder属性与stackBuilderComponent属性时，生效stackBuilderComponent属性。 起始版本： 6.0.1(21) |
+| stackBuilderContent | BuilderType | 否 | 是 | 设置标题栏顶部自定义区域。 当同时配置了stackBuilder与stackBuilderContent属性时，生效stackBuilderContent属性；当同时配置了stackBuilderComponent与stackBuilderContent属性时，生效stackBuilderComponent属性。 起始版本： 26.0.0 |
 | bottomBuilder | BottomBuilderParams | 否 | 是 | 设置标题栏底部自定义区域。 起始版本： 6.0.0(20) |
 | divider | HdsNavigationDividerParams | 否 | 是 | 设置标题栏分割线内容。 起始版本： 6.0.0(20) |
 | subIcon | HdsNavigationBadgeIconOptions | 否 | 是 | 设置标题栏子图标内容。 起始版本： 6.0.0(20) |
@@ -1600,6 +1624,26 @@ HdsNavigation标题栏动态显隐配置信息。
 | --- | --- | --- | --- | --- |
 | materialType | hdsMaterial.MaterialType | 否 | 是 | 设置材质类型。 默认值：hdsMaterial.MaterialType.NONE。 |
 | materialLevel | hdsMaterial.MaterialLevel | 否 | 是 | 设置材质等级。 默认值：hdsMaterial.MaterialLevel.ADAPTIVE 说明： 推荐使用默认值ADAPTIVE档位： 该模式下，系统会根据当前设备的算力动态调整组件的材质效果，实现性能与显示效果的最佳平衡体验。 若未采用系统自适应能力： 请先调用getSystemMaterialTypes()接口查询当前设备支持的材质能力，再根据查询结果选用相应的材质效果枚举： 1. 如果查询结果显示当前设备支持IMMERSIVE材质类型，可选用EXQUISITE或GENTLE效果。 2. 如果查询结果显示当前设备不支持IMMERSIVE材质类型，则建议使用SMOOTH效果，以降低卡顿和发热风险，保障用户体验。 详细使用指导： 请参见HDS组件使用沉浸光感材质指南。 |
+
+
+
+
+#### BuilderOptions
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+自定义构建组件配置信息。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.UIDesign.HDSComponent.Core
+
+**起始版本：** 26.0.0
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| builder | CustomBuilder | 否 | 是 | 用户自定义组件。 |
+| updated | boolean | 否 | 是 | 设置是否需要更新自定义组件节点。 默认值：true。 - true：需要更新自定义组件节点。 - false：不更新自定义组件节点，保持原节点，不重新挂载新节点。 |
 
 
 
@@ -1969,7 +2013,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/cFwtgH8wRdWPrfDOwdeNZQ/zh-cn_image_0000002587111136.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=806C98720AFAACB5C72F96D2521B9DC7A61CA74EB457FEC0BAA29272E379B47E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/14/v3/7tI2OrrsRjCby8kLgTCesw/zh-cn_image_0000002656470587.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=28F0E34BE9A29A6C58E952AC9E6F371F05FA25736FEE272CA166F1092042E801)
 
 
 
@@ -2050,7 +2094,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e6/v3/BkBWZwQoQEO4zrGzH1Jvsg/zh-cn_image_0000002617670817.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=ABB3A3F2041A3630E0DEBB9582F790897384ADFE8FCCDE613E632792ADEDEB3A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fd/v3/nojORsxUR9-FhLLqlCvvNg/zh-cn_image_0000002656350637.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=0436EF38073B0EAFB4C1F63645643400FBF217A84062B7AD308C88DE1F278D66)
 
 
 
@@ -2147,7 +2191,7 @@ struct SheetTransitionExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a8/v3/6PLNzjfQT7adEYcMPoxZkw/zh-cn_image_0000002587271040.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=D604F189612718BF5AD4239431C71B352E219342BE7129A10D5F850D7470D97E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ab/v3/zXmRpdKXTq-zGnaC4haV6A/zh-cn_image_0000002626231224.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=534918F5DC86906F08AAC77AF6CE7F6FD67BF0BE7930D758DA9511B23EABEC40)
 
 
 
@@ -2239,7 +2283,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6d/v3/hjqY7pGEQDyQ4fcTmhNBBQ/zh-cn_image_0000002617710719.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=CB9698D5DD832D49CD6D2142017615C68DA7DA779537FB7475A12C0849B30CED)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/kHnvBrZMTumni3E2xfZ8lQ/zh-cn_image_0000002626071312.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=A5FA1CFA407FAD823FB0406ABB1CF409F1F5EF62B9B29AB80ADEEE3E6D73A9DE)
 
 
 
@@ -2296,7 +2340,7 @@ struct MultiWindowEntryInAPPTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/91/v3/jz14aOyrRV2xLN2e9MFoLg/zh-cn_image_0000002587111140.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=E748127645B58D24D732BF7F94B46B6CF12A8BB33428F05296E7F650A72B4B58)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f6/v3/6Ttd-ehfRg-vO4NI7WqQCw/zh-cn_image_0000002656470589.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=BC6667EEDEA93799AC3CBE74428E2198C92E820D366A2895B560FF8C849E939F)
 
 
 
@@ -2367,7 +2411,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/11/v3/cc8Bfd4eQvyDdS4I97eJFg/zh-cn_image_0000002617670819.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=44CD374282561D3A86027A069FB8C8442EA39A8F33407CB0C57B95E8B12B7F23)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c4/v3/EYjSbDQiRUW-oOhCTyVfSw/zh-cn_image_0000002656350639.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=2D7EADCCFB3736BC1FA723D90C30B19D9EC54C42F72B133C3B40506C22C9E792)
 
 
 
@@ -2467,7 +2511,7 @@ struct Index {
 执行上述代码展示的效果如下。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/a25zYfK6TV-8yyGRncqmmg/zh-cn_image_0000002587271044.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=85D41F0C0ED480F101DDD75EFA4BF365F4BE6E2070BC02B1CD4969BD37408BA2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ae/v3/tPo8hB9fTqGSyCO3hhKEPA/zh-cn_image_0000002626231226.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=DE2CF5C9E3A21DB6470456AA7AE3FB0D0A989D14015E6243A475E2FF8B6D6A9A)
 
 
 
@@ -2612,4 +2656,4 @@ struct NavigationExample2 {
 执行上述代码，效果展示如下。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/98/v3/ycN7WwJdTIa2d1nB6x8axQ/zh-cn_image_0000002617710721.gif?HW-CC-KV=V1&HW-CC-Date=20260604T012849Z&HW-CC-Expire=86400&HW-CC-Sign=9FB7BD5142F9F4EBD66BDBDCCDDC7768350F6C4C579B085BEE0B29A70404E179)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cb/v3/1RK1KSAOSc6H4uNvoTK3kA/zh-cn_image_0000002626071314.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020048Z&HW-CC-Expire=86400&HW-CC-Sign=BA4F16394CC77589558BBFD0C0493DA27A31B628AAA1C2D232DA47DED6CC8BF0)

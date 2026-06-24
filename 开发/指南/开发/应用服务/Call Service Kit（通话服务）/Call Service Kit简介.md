@@ -1,6 +1,6 @@
 # Call Service Kit简介
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/call-introduction
 
@@ -57,6 +57,8 @@ Call Service Kit（通话服务）是HarmonyOS为开发者提供的应用内通�
 | 来电场景 | Phone、Tablet、PC/2in1、Wearable。 |
 | 去电场景 | Phone、Tablet、PC/2in1、Wearable。 |
 | 企业联系人信息来去电页面显示 | Phone、Tablet、PC/2in1、Wearable。 |
+| 企业服务信息来去电页面显示 | Phone、Tablet、PC/2in1、Wearable。 |
+| 应用跳转陌生号码和信息识别页面 | Phone、Tablet、PC/2in1、Wearable。 |
  
  
   

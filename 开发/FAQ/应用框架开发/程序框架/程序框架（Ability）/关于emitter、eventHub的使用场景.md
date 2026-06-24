@@ -1,6 +1,6 @@
 # 关于emitter、eventHub的使用场景
 
-更新时间：2026-03-20 08:54:01
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ability-68
 

@@ -1,13 +1,11 @@
 # SafetyDetect（安全检测）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-safetydetectenhanced-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-- 判断设备环境是否安全，比如是否被越狱、被模拟等，您可基于结果评估如何响应。
- - 判断用户访问的URL是否为恶意网址，对于恶意网址，由您评估提示或拦截用户的访问风险。
-
+安全检测模块提供设备环境安全检测能力，包括系统完整性检测、恶意URL检测、统一风控凭证等安全评估功能。开发者应用可基于检测结果评估设备安全风险并采取相应防护措施。
 
 **起始版本：** 5.0.0(12)
 
@@ -32,6 +30,8 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -51,11 +51,13 @@ import { safetyDetect } from '@kit.DeviceSecurityKit';
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| result | string | 否 | 否 | JWS格式的系统完整性检测结果。JWS内容详见《Device Security Kit开发指南》中的系统完整性检测开发步骤。 |
+| result | string | 否 | 否 | JWS格式的系统完整性检测结果。JWS内容详见系统完整性检测开发步骤。 |
 
 
 
@@ -70,11 +72,13 @@ URL检测请求参数。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| urls | Array&lt;string&gt; | 否 | 否 | 被检测的URL列表 |
+| urls | Array&lt;string&gt; | 否 | 否 | 被检测的URL列表。 |
 
 
 
@@ -89,11 +93,13 @@ URL检测返回值。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| results | Array&lt;UrlCheckResult&gt; | 否 | 否 | URL检测返回的检测结果 |
+| results | Array&lt;UrlCheckResult&gt; | 否 | 否 | URL检测返回的检测结果。 |
 
 
 
@@ -108,12 +114,14 @@ URL检测结果详情。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| url | string | 否 | 否 | 对应到输入参数中被检测的URL |
-| threat | UrlThreatType | 否 | 否 | URL的威胁类型 |
+| url | string | 否 | 否 | 对应到输入参数中被检测的URL。 |
+| threat | UrlThreatType | 否 | 否 | URL的威胁类型。 |
 
 
 
@@ -128,14 +136,16 @@ URL检测结果详情。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NORMAL | 0 | 未发现威胁。 |
 | MALWARE | 1 | 恶意类型的URL。 |
-| PHISHING | 2 | 钓鱼类型的URL |
-| OTHERS | 3 | 其他威胁类型的URL |
+| PHISHING | 2 | 钓鱼类型的URL。 |
+| OTHERS | 3 | 其他威胁类型的URL。 |
 
 
 
@@ -144,12 +154,12 @@ URL检测结果详情。
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-checkSysIntegrity(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[SysIntegrityResponse](#sysintegrityresponse)>
+checkSysIntegrity(req: SysIntegrityRequest): Promise&lt;SysIntegrityResponse&gt;
 
 获取本设备的系统完整性的在线检测结果。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/cc/v3/0EWTH04WSs2emgX6euJDMg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025244Z&HW-CC-Expire=86400&HW-CC-Sign=A742C84F23625754EEDCD0613B0278CE071EE3E647DD7D00B43289981B7BE385)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/be/v3/LEPDE5BKS7CZlLcFA0MYXw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020057Z&HW-CC-Expire=86400&HW-CC-Sign=7E0D84AFD3819C3A6D2BB45C3076F6297839551DB2F077C6AD0FB90652FDFD3D)
 
 
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
@@ -159,6 +169,8 @@ checkSysIntegrity(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[Sy
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -178,7 +190,7 @@ checkSysIntegrity(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[Sy
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-safetydetect)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-safetydetect)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -223,12 +235,12 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-checkUrlThreat(req: [UrlCheckRequest](#urlcheckrequest)): Promise<[UrlCheckResponse](#urlcheckresponse)>
+checkUrlThreat(req: UrlCheckRequest): Promise&lt;UrlCheckResponse&gt;
 
 检测URL是否为恶意网址。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/45/v3/REE4jbqhTpOTOixmgVRP0g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025244Z&HW-CC-Expire=86400&HW-CC-Sign=32DC0C918D802BAC79381BD918C02D766409F0533C97362A6AFF3357145D25B5)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/69/v3/M4QVdg7lQDK2r6q1cTtIvw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020057Z&HW-CC-Expire=86400&HW-CC-Sign=A6FE794B3D987399C16CF025E7AB087C7D52D594E3B001B072BC55F37AEACDF2)
 
 
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
@@ -238,6 +250,8 @@ checkUrlThreat(req: [UrlCheckRequest](#urlcheckrequest)): Promise<[UrlCheckRespo
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -257,11 +271,11 @@ checkUrlThreat(req: [UrlCheckRequest](#urlcheckrequest)): Promise<[UrlCheckRespo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-safetydetect)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-safetydetect)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission denied |
+| 201 | Permission denied. |
 | 401 | Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed. |
 | 801 | API is not supported. |
 | 1010800001 | Internal error. |
@@ -310,18 +324,20 @@ checkSysIntegrityOnLocal(): Promise&lt;string&gt;
 
 **系统能力：** SystemCapability.Security.SafetyDetect
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.1.0(18)
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;string&gt; | Promise对象，返回JSON格式的系统完整性检测结果。JSON内容详见《Device Security Kit开发指南》中的本地系统完整性检测开发步骤。 |
+| Promise&lt;string&gt; | Promise对象，返回JSON格式的系统完整性检测结果。JSON内容详见本地系统完整性检测开发步骤。 |
 
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-safetydetect)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-safetydetect)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -359,12 +375,12 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-checkSysIntegrityEnhanced(req: [SysIntegrityRequest](#sysintegrityrequest)): Promise<[SysIntegrityResponse](#sysintegrityresponse)>
+checkSysIntegrityEnhanced(req: SysIntegrityRequest): Promise&lt;SysIntegrityResponse&gt;
 
 获取本设备的系统完整性的在线增强检测结果。使用Promise异步回调。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/12/v3/DBsNpbmYQB6ZCIIx1oJMwg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025244Z&HW-CC-Expire=86400&HW-CC-Sign=A3935243399689958BB42CE0B3A42F757509F23BA450983B24D1AFC46AFD6F32)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/47/v3/fHmTYoS0TriLVX8bwPfZ6g/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020057Z&HW-CC-Expire=86400&HW-CC-Sign=A2A846623240C17E4EE5E95969C40ED5B7B3C8031F75DD4660D9DBC6B0A2574D)
 
 
 该接口涉及端云协同，需要联网等耗时操作，因此不要在UI线程中执行，避免阻塞UI线程。
@@ -374,6 +390,8 @@ checkSysIntegrityEnhanced(req: [SysIntegrityRequest](#sysintegrityrequest)): Pro
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Security.SafetyDetect
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 6.0.0(20)
 
@@ -393,7 +411,7 @@ checkSysIntegrityEnhanced(req: [SysIntegrityRequest](#sysintegrityrequest)): Pro
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-safetydetect)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-safetydetect)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -428,5 +446,186 @@ try {
 } catch (err) {
   let e: BusinessError = err as BusinessError;
   hilog.error(0x0000, TAG, 'CheckSysIntegrityEnhanced failed: %{public}d %{public}s', e.code, e.message);
+}
+```
+
+
+
+#### RiskFactorType
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+枚举风险因子类型。
+
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.SafetyDetect
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 本接口实际支持的设备类型范围（Phone、PC/2in1、Tablet）小于其所属系统能力支持的设备类型范围（Phone、PC/2in1、Tablet、Wearable）。因设备能力受限，该接口在Wearable设备中调用将返回801错误码。
+
+**起始版本：** 26.0.0
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| HDC_DEBUG_STATE | "hdcDebugState" | HDC调试状态。 |
+| IS_DEVELOPER_MODE | "isDeveloperMode" | 开发者模式状态。 |
+| IS_VPN_STATUS | "isVpnStatus" | VPN状态。 |
+| IS_NET_PROXY_STATUS | "isNetProxyStatus" | 网络代理状态。 |
+| SIM_CNT | "simCnt" | 插入的SIM卡数量。 |
+| OOBE_CNT | "oobeCnt" | OOBE操作次数。 |
+| ODID_RESET_CNT | "odidResetCnt" | ODID重置次数。 |
+| ODID | "odid" | 当前ODID值。 |
+| IS_DISPLAY_CAPTURED | "isDisplayCaptured" | 屏幕录制状态。 |
+| GLOBAL_WINDOW_STATE | "globalWindowState" | 前台窗口模式。 |
+| BATTERY_CHARGE_STATE | "batteryChargeState" | 电池充电状态。 |
+| BATTERY_HEALTH_STATE | "batteryHealthState" | 电池健康状态。 |
+| ON_CALL_STATE | "onCallState" | 通话状态。 |
+
+
+
+
+#### RiskFactorRequest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+风险因子查询请求参数。
+
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.SafetyDetect
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 本接口实际支持的设备类型范围（Phone、PC/2in1、Tablet）小于其所属系统能力支持的设备类型范围（Phone、PC/2in1、Tablet、Wearable）。因设备能力受限，该接口在Wearable设备中调用将返回801错误码。
+
+**起始版本：** 26.0.0
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| nonce | string | 否 | 否 | 开发者应用传入的一个随机生成的nonce值，用于防重放攻击。nonce长度必须为16到66字节。 |
+| queries | Array&lt;FactorQuery&gt; | 否 | 否 | 要查询的风险因子列表。最大长度为20且不能为空。 |
+
+
+
+
+#### FactorQuery
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+风险因子查询项。
+
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.SafetyDetect
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 本接口实际支持的设备类型范围（Phone、PC/2in1、Tablet）小于其所属系统能力支持的设备类型范围（Phone、PC/2in1、Tablet、Wearable）。因设备能力受限，该接口在Wearable设备中调用将返回801错误码。
+
+**起始版本：** 26.0.0
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| factor | RiskFactorType | 否 | 否 | 要查询的风险因子类型。 |
+
+
+
+
+#### RiskFactorResponse
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+风险因子查询返回值。
+
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.SafetyDetect
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 本接口实际支持的设备类型范围（Phone、PC/2in1、Tablet）小于其所属系统能力支持的设备类型范围（Phone、PC/2in1、Tablet、Wearable）。因设备能力受限，该接口在Wearable设备中调用将返回801错误码。
+
+**起始版本：** 26.0.0
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| result | string | 否 | 否 | JWS格式的风险因子查询结果。JWS内容详见统一风控凭证开发步骤。 |
+
+
+
+
+#### queryRiskFactors
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+queryRiskFactors(req: RiskFactorRequest): Promise&lt;RiskFactorResponse&gt;
+
+查询系统级风险因子数据。使用Promise异步回调。
+
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.SafetyDetect
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 本接口实际支持的设备类型范围（Phone、PC/2in1、Tablet）小于其所属系统能力支持的设备类型范围（Phone、PC/2in1、Tablet、Wearable）。因设备能力受限，该接口在Wearable设备中调用将返回801错误码。
+
+**起始版本：** 26.0.0
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| req | RiskFactorRequest | 是 | 风险因子查询请求参数。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;RiskFactorResponse&gt; | Promise对象，返回风险因子查询结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-safetydetect)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 801 | API is not supported. |
+| 1010800001 | Internal error. |
+| 1010800004 | Verify capability fail. |
+| 1010800005 | The number of calls exceeds the parallel threshold. |
+| 1010800006 | The invoking frequency exceeds the threshold. |
+| 1010800007 | Operation timeout. |
+
+
+**示例：**
+
+```text
+import { safetyDetect } from '@kit.DeviceSecurityKit';
+import { BusinessError} from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+const TAG = "SafetyDetectJsTest";
+
+// 请求风控因子数据，并处理结果
+const request: safetyDetect.RiskFactorRequest = {
+ nonce: 'a1b2c3d4e5f6g7hfsdfxvsdae8', // 16-66字节的防重放随机数
+ queries: [
+     { factor: safetyDetect.RiskFactorType.HDC_DEBUG_STATE },
+     { factor: safetyDetect.RiskFactorType.IS_DEVELOPER_MODE },
+     { factor: safetyDetect.RiskFactorType.ODID_RESET_CNT }
+ ]
+};
+try {
+ hilog.info(0x0000, TAG, 'QueryRiskFactors begin.');
+ const response: safetyDetect.RiskFactorResponse = await safetyDetect.queryRiskFactors(request);
+ hilog.info(0x0000, TAG, 'Succeeded in QueryRiskFactors: %{public}s', response.result);
+} catch (err) {
+ let e: BusinessError = err as BusinessError;
+ hilog.error(0x0000, TAG, 'QueryRiskFactors failed: %{public}d %{public}s', e.code, e.message);
 }
 ```

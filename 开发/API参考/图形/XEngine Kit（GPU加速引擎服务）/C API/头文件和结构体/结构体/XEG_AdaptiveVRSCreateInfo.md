@@ -1,6 +1,6 @@
 # XEG_AdaptiveVRSCreateInfo
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-adaptivevrscreateinfo
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -33,7 +33,7 @@
 | --- | --- |
 | VkExtent2D inputSize | 上一帧渲染管线最终渲染的图像尺寸。 |
 | VkRect2D inputRegion | 上一帧渲染管线最终渲染的图像区域。此参数存在两个结构体：VkOffset2D offset和VkExtent2D extent。其中offset为渲染图像区域的左上角点的x与y值，extent为渲染图像区域的宽与高。 |
-| int32_t adaptiveTileSize | 自适应VRS(variable rate shading)的渲染的分片大小，分片大的情况下性能会更好，但是画质会劣化。当前XEngine Adaptive VRS支持16和8两种规格。 |
+| int32_t adaptiveTileSize | 自适应VRS(Variable Rate Shading，可变速率着色)的渲染的分片大小，分片大的情况下性能会更好，但是画质会劣化。当前XEngine Adaptive VRS支持16和8两种规格。 |
 | float errorSensitivity | 控制最终生成着色率纹理结果的阈值。该值越大，平均着色率越小，即性能更好但画质会劣化。取值范围为[0.0, 1.0]。 |
 | bool flip | 是否执行图像上下翻转。true表示进行图像上下翻转，false表示不进行图像上下翻转。 |
  
@@ -56,7 +56,7 @@ int32_t XEG_AdaptiveVRSCreateInfo::adaptiveTileSize
  
 **描述**
  
-自适应VRS的渲染的分片大小，分片大的情况下性能会更好，但是画质会劣化。当前XEngine Adaptive VRS(variable rate shading)支持16和8两种规格。
+自适应VRS的渲染的分片大小，分片大的情况下性能会更好，但是画质会劣化。当前XEngine 自适应VRS支持16和8两种规格。
  
   
 

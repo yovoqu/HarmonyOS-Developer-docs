@@ -1,6 +1,6 @@
 # Functions
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-f
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -170,6 +170,179 @@ async function Marshalling_UnMarshalling(context: Context) {
 
 
 
+#### image.createPixelMapFromPixels
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createPixelMapFromPixels(pixels: ArrayBuffer, param: InitializationOptions): Promise&lt;PixelMap&gt;
+
+通过像素数据和图像属性创建PixelMap。传入的像素数据会进行拷贝并转换为[InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#initializationoptions8).pixelFormat指定的像素格式，用于初始化PixelMap的像素。使用Promise异步回调。
+
+> [!NOTE]
+> 此接口不支持创建以下像素格式的PixelMap：RGBA_1010102、YCBCR_P010、YCRCB_P010和ASTC_4x4。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| pixels | ArrayBuffer | 是 | 图像像素数据的缓冲区，用于初始化PixelMap的像素。 缓冲区的像素格式需要由InitializationOptions.srcPixelFormat指定，否则默认缓冲区的像素格式为BGRA_8888。 说明： 缓冲区长度为：width * height * 单位像素字节数。 |
+| param | InitializationOptions | 是 | 创建图像的属性，包括尺寸、像素格式、透明度类型、缩放模式和是否可编辑。 说明： 如果像素格式被指定为ASTC_4x4，将使用该类型中定义的默认像素格式。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;PixelMap&gt; | Promise对象，返回创建的PixelMap。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600206 | Invalid parameter. Possible cause: Size of the pixel data buffer does not match InitializationOptions.size. |
+| 7600207 | Unsupported pixel format. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory. |
+| 7600305 | Failed to create the PixelMap. Possible causes: 1. Failed to perform pixel format conversion. 2. Internal data is corrupted. Please check the logs for detailed information. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoCreatePixelMapFromPixels() {
+  const size: image.Size = {
+    width: 6,
+    height: 4
+  };
+  const pixels = new ArrayBuffer(size.width * size.height * 4); // 4为RGBA类型像素格式的单位像素字节数。
+  const pixelsArr = new Uint8Array(pixels);
+  for (let i = 0; i < pixelsArr.length; i += 4) {
+    // RGBA_8888格式下，下列数组索引依次为：R通道、G通道、B通道、A通道。
+    pixelsArr[i] = 0xFF;
+    pixelsArr[i + 1] = 0x00;
+    pixelsArr[i + 2] = 0x00;
+    pixelsArr[i + 3] = 0xFF;
+  }
+  const config: image.InitializationOptions = {
+    size,
+    srcPixelFormat: image.PixelMapFormat.RGBA_8888, // 缓冲区内的源像素数据的像素格式。
+    pixelFormat: image.PixelMapFormat.RGBA_8888, // 新创建的PixelMap的像素格式。
+    editable: true
+  };
+
+  image.createPixelMapFromPixels(pixels, config)
+    .then((pixelMap: image.PixelMap) => {
+      console.info('创建PixelMap成功。');
+    }).catch((e: BusinessError) => {
+      console.error(`创建PixelMap失败。错误码：${e.code} 错误信息：${e.message}`);
+    });
+}
+```
+
+
+
+#### image.createPixelMapFromPixelsSync
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createPixelMapFromPixelsSync(pixels: ArrayBuffer, param: InitializationOptions): PixelMap
+
+通过像素数据和图像属性创建PixelMap。传入的像素数据会进行拷贝并转换为[InitializationOptions](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-i#initializationoptions8).pixelFormat指定的像素格式，用于初始化PixelMap的像素。
+
+> [!NOTE]
+> 此接口不支持创建以下像素格式的PixelMap：RGBA_1010102、YCBCR_P010、YCRCB_P010和ASTC_4x4。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| pixels | ArrayBuffer | 是 | 图像像素数据的缓冲区，用于初始化PixelMap的像素。 缓冲区的像素格式需要由InitializationOptions.srcPixelFormat指定，否则默认缓冲区的像素格式为BGRA_8888。 说明： 缓冲区长度为：width * height * 单位像素字节数。 |
+| param | InitializationOptions | 是 | 创建图像的属性，包括尺寸、像素格式、透明度类型、缩放模式和是否可编辑。 说明： 如果像素格式被指定为ASTC_4x4，将使用该类型中定义的默认像素格式。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| PixelMap | 返回创建的PixelMap。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600206 | Invalid parameter. Possible cause: Size of the pixel data buffer does not match InitializationOptions.size. |
+| 7600207 | Unsupported pixel format. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory. |
+| 7600305 | Failed to create the PixelMap. Possible causes: 1. Failed to perform pixel format conversion. 2. Internal data is corrupted. Please check the logs for detailed information. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoCreatePixelMapFromPixelsSync() {
+  const size: image.Size = {
+    width: 6,
+    height: 4
+  };
+  const pixels = new ArrayBuffer(size.width * size.height * 4); // 4为RGBA类型像素格式的单位像素字节数。
+  const pixelsArr = new Uint8Array(pixels);
+  for (let i = 0; i < pixelsArr.length; i += 4) {
+    // RGBA_8888格式下，下列数组索引依次为：R通道、G通道、B通道、A通道。
+    pixelsArr[i] = 0xFF;
+    pixelsArr[i + 1] = 0x00;
+    pixelsArr[i + 2] = 0x00;
+    pixelsArr[i + 3] = 0xFF;
+  }
+  const config: image.InitializationOptions = {
+    size,
+    srcPixelFormat: image.PixelMapFormat.RGBA_8888, // 缓冲区内的源像素数据的像素格式。
+    pixelFormat: image.PixelMapFormat.RGBA_8888, // 新创建的PixelMap的像素格式。
+    editable: true
+  };
+
+  try {
+    const pixelMap = image.createPixelMapFromPixelsSync(pixels, config);
+    console.info('创建PixelMap成功。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`创建PixelMap失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### image.createPixelMap8+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -179,6 +352,8 @@ createPixelMap(colors: ArrayBuffer, options: InitializationOptions): Promise&lt;
 通过像素数据和图像属性创建PixelMap，传入的像素数据默认按BGRA_8888格式解析。使用Promise异步回调。
 
 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#release7)方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
+从API版本26.0.0开始，建议使用[createPixelMapFromPixels](#imagecreatepixelmapfrompixels)代替，以获得更完善的异常处理能力。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
@@ -229,6 +404,8 @@ createPixelMap(colors: ArrayBuffer, options: InitializationOptions, callback: As
 通过像素数据和图像属性创建PixelMap，传入的像素数据默认按BGRA_8888格式解析。使用callback异步回调。
 
 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#release7)方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
+从API版本26.0.0开始，建议使用[createPixelMapFromPixels](#imagecreatepixelmapfrompixels)代替，以获得更完善的异常处理能力。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
@@ -769,6 +946,8 @@ createPixelMapSync(colors: ArrayBuffer, options: InitializationOptions): PixelMa
 
 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#release7)方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
 
+从API版本26.0.0开始，建议使用[createPixelMapFromPixelsSync](#imagecreatepixelmapfrompixelssync)代替，以获得更完善的异常处理能力。
+
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
 **参数：**
@@ -813,6 +992,77 @@ function CreatePixelMapSync() {
 
 
 
+#### image.createEmptyPixelMap
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+createEmptyPixelMap(param: InitializationOptions): PixelMap
+
+通过图像属性创建空白PixelMap。
+
+> [!NOTE]
+> 此接口不支持创建以下像素格式的PixelMap：ASTC_4x4。 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用 release 方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
+
+**起始版本：** 26.0.0
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**卡片能力：** 从API版本26.0.0开始，该接口支持在ArkTS卡片中使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Multimedia.Image.Core
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| param | InitializationOptions | 是 | 创建图像的属性，包括尺寸、像素格式、透明度类型、缩放模式和是否可编辑。 说明： 如果像素格式被指定为ASTC_4x4，将使用该类型中定义的默认像素格式。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| PixelMap | 返回创建的空白PixelMap。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[Image错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 7600206 | Invalid parameter. |
+| 7600301 | Failed to allocate memory. Possible causes: 1. The resulting PixelMap size is too large. 2. The system is out of memory. |
+| 7600305 | Failed to create the PixelMap. Possible cause: Internal data is corrupted. Please check the logs for detailed information. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+
+function DemoCreateEmptyPixelMap() {
+  const config: image.InitializationOptions = {
+    size: { width: 6, height: 4 },
+    pixelFormat: image.PixelMapFormat.RGBA_8888, // 新创建的PixelMap的像素格式。
+    editable: true
+  };
+
+  try {
+    const pixelMap = image.createEmptyPixelMap(config);
+    console.info('创建空白PixelMap成功。');
+  } catch (e) {
+    const error = e as BusinessError;
+    console.error(`创建空白PixelMap失败。错误码：${e.code} 错误信息：${e.message}`);
+  }
+}
+```
+
+
+
 #### image.createPixelMapSync12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -822,6 +1072,8 @@ createPixelMapSync(options: InitializationOptions): PixelMap
 通过图像属性创建空白PixelMap，同步返回PixelMap结果。
 
 由于图片占用内存较大，所以当PixelMap对象使用完成后，应主动调用[release](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-pixelmap#release7)方法及时释放内存。释放时应确保该对象的所有异步方法均执行完成，且后续不再使用该对象。
+
+从API版本26.0.0开始，建议使用[createEmptyPixelMap](#imagecreateemptypixelmap)代替，以获得更完善的异常处理能力。
 
 **系统能力：** SystemCapability.Multimedia.Image.Core
 
@@ -1246,7 +1498,7 @@ createImageSource(uri: string): ImageSource
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uri | string | 是 | 图片路径，当前仅支持应用沙箱路径。 当前支持格式有：.jpg .png .gif .bmp .webp .dng .heic12+ .wbmp23+ .heifs23+ .tiff23+ .svg10+（可参考SVG标签说明） .ico11+。部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用image.getImageSourceSupportedFormats20+接口，动态查询当前设备上的解码能力。 |
+| uri | string | 是 | 图片路径，当前仅支持应用沙箱路径。 当前支持格式有：JPEG、PNG、GIF、BMP、WebP、DNG、HEIC12+、WBMP23+、HEIFS23+、TIFF23+、SVG10+（可参考SVG标签说明）、ICO11+。从API版本26.0.0开始，增加支持AVIF、AVIS格式。 部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用image.getImageSourceSupportedFormats接口，动态查询当前设备上的解码能力。 |
 
 
 **返回值：**
@@ -1288,7 +1540,7 @@ createImageSource(uri: string, options: SourceOptions): ImageSource
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uri | string | 是 | 图片路径，当前仅支持应用沙箱路径（可参考使用说明）。 当前支持格式有：JPEG、PNG、GIF、BMP、WebP、DNG、HEIC12+、WBMP23+、HEIFS23+、TIFF23+、SVG10+（可参考SVG标签说明）、ICO11+。部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用image.getImageSourceSupportedFormats20+接口，动态查询当前设备上的解码能力。 |
+| uri | string | 是 | 图片路径，当前仅支持应用沙箱路径。 当前支持格式有：JPEG、PNG、GIF、BMP、WebP、DNG、HEIC12+、WBMP23+、HEIFS23+、TIFF23+、SVG10+（可参考SVG标签说明）、ICO11+。从API版本26.0.0开始，增加支持AVIF、AVIS格式。 部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用image.getImageSourceSupportedFormats接口，动态查询当前设备上的解码能力。 |
 | options | SourceOptions | 是 | 图片属性，包括图片像素密度、像素格式和图片尺寸。 |
 
 

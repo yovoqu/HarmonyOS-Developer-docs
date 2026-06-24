@@ -1,6 +1,6 @@
 # xeg_extension_defs.h
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/xengine-kit-xeg-extension-defs-8h
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -44,9 +44,9 @@
 | XEG_temporal_upscale 1 | XEngine时域AI超分扩展特性宏定义。 |
 | XEG_TEMPORAL_UPSCALE_VERSION 1 | XEngine时域AI超分扩展特性版本号。 |
 | XEG_TEMPORAL_UPSCALE_EXTENSION_NAME "XEG_temporal_upscale" | XEngine时域AI超分扩展特性名称。 |
-| XEG_adaptive_vrs 1 | XEngine自适应VRS(variable rate shading)扩展特性宏定义。 |
-| XEG_ADAPTIVE_VRS_VERSION 1 | XEngine自适应VRS(variable rate shading)扩展特性版本号。 |
-| XEG_ADAPTIVE_VRS_EXTENSION_NAME "XEG_adaptive_vrs" | XEngine自适应VRS(variable rate shading)扩展特性名称。 |
+| XEG_adaptive_vrs 1 | XEngine自适应VRS(Variable Rate Shading)扩展特性宏定义。 |
+| XEG_ADAPTIVE_VRS_VERSION 1 | XEngine自适应VRS(Variable Rate Shading)扩展特性版本号。 |
+| XEG_ADAPTIVE_VRS_EXTENSION_NAME "XEG_adaptive_vrs" | XEngine自适应VRS(Variable Rate Shading)扩展特性名称。 |
 | XEG_RTGI_EXTENSION_NAME "XEG_rtgi" | XEngine光线追踪全局光照扩展特性名称。 |
 | XEG_RT_SHADOW_AO_EXTENSION_NAME "XEG_rt_shadow_ao" | XEngine光线追踪阴影和环境光遮蔽扩展特性名称。 |
 | XEG_RT_REFLECTION_EXTENSION_NAME "XEG_rt_reflection" | XEngine光线追踪反射扩展特性名称。 |

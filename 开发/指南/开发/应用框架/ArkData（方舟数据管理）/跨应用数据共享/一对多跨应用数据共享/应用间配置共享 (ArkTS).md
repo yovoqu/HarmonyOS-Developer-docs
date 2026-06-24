@@ -1,6 +1,6 @@
 # 应用间配置共享 (ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-config
 
@@ -26,13 +26,13 @@
 
   #### 约束与限制
 
-  一个应用最多可以发布32个配置项，这个数量是静态配置与动态配置的总和。
+  API版本26.0.0之前，一个应用最多可以发布32个配置项；从API版本26.0.0开始，一个应用最多可以发布64个配置项。这个数量是静态配置与动态配置的总和。
 
   
 
   #### 接口说明
 
-  以下接口为应用间配置共享的相关接口。详细接口和说明，请参考[应用间配置共享接口](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datashare#datasharecreatedataproxyhandle20)。
+  以下接口为应用间配置共享的相关接口。详细接口和说明，请参考[DataProxyHandle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-data-datashare#dataproxyhandle20)相关接口。
 
   
 
@@ -54,7 +54,9 @@
 
 | publish(data: ProxyData[], config: DataProxyConfig): Promise<DataProxyResult[]> | 发布或修改配置项。 |
 
-| delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]> | 删除配置项。 |
+| delete(uris: string[], config: DataProxyConfig): Promise<DataProxyResult[]> | 删除发布方发布的指定URI对应的配置项。 |
+
+| deleteMyPublishedData(config: DataProxyConfig): Promise<DataProxyResult[]> | 删除发布方发布的所有配置项。 起始版本： 26.0.0 |
 
   
 
@@ -88,7 +90,11 @@
   }
 }
 ```
-共享配置文件shared_config.json的文件名"shared_config"可自定义，根节点名称为crossAppSharedConfig，为对象数组，标识当前共享配置项的数量。（一个应用最多可以发布32个配置项，这个数量是静态配置项与动态配置项的总和。静态配置项数量超过32时，只解析前32个符合crossAppSharedConfig字段配置说明要求的配置项，其余配置项不生效。）
+共享配置文件shared_config.json的文件名"shared_config"可自定义，根节点名称为crossAppSharedConfig，为对象数组，标识当前共享配置项的数量。
+
+  API版本26.0.0之前，一个应用最多可以发布32个配置项，这个数量是静态配置项与动态配置项的总和。静态配置项数量超过32时，只解析前32个符合crossAppSharedConfig字段配置说明要求的配置项，其余配置项不生效。
+
+  从API版本26.0.0开始，一个应用最多可以发布64个配置项，这个数量是静态配置项与动态配置项的总和。静态配置项数量超过64时，只解析前64个符合crossAppSharedConfig字段配置说明要求的配置项，其余配置项不生效。
 
   crossAppSharedConfig字段配置说明：
 
@@ -98,9 +104,9 @@
 
 | uri | 共享配置项的全局唯一标识。固定格式为"datashareproxy://{bundleName}/{path}"，其中bundleName为配置发布方应用的bundleName，path可随意填写，但同一应用内不允许重复。uri最大长度为256字节。 | 字符串 | 是 |
 
-| value | 共享配置项的值，最大长度为4096字节。 | 字符串 | 是 |
+| value | 共享配置项的值。 API版本26.0.0之前，最大长度为4096字节。 从API版本26.0.0开始，最大长度为102400字节。共享配置项的值长度大于4096字节时，DataProxyHandle相关接口的DataProxyConfig参数需配置maxValueLength字段为MAX_LENGTH_100K，将共享配置项的值最大长度扩展为102400字节，否则接口返回结果可能非预期。 | 字符串 | 是 |
 
-| allowList | 允许访问该共享配置项的应用程序列表。数组最大长度为256，超过256的部分不生效。数组中每个元素为应用的appIdentifier，单个appIdentifier为只包含数字的字符串，最大长度为128字节，超过128字节的appIdentifier不会生效。可使用getBundleInfoForSelf接口来获取当前应用的appIdentifier。 | 字符串数组 | 是 |
+| allowList | 允许访问该共享配置项的应用程序列表。数组最大长度为256，超过256的部分不生效。 API版本26.0.0之前，数组中每个元素为应用的appIdentifier，单个appIdentifier为只包含数字的字符串，最大长度为128字节，超过128字节的appIdentifier不会生效。可使用getBundleInfoForSelf接口来获取当前应用的appIdentifier。 从API版本26.0.0开始，数组支持配置特殊字符串"all"（区分大小写）表示允许所有应用访问。 | 字符串数组 | 是 |
 
   
 ```json
@@ -115,6 +121,11 @@
             "uri": "datashareproxy://com.example.example/key2",
             "value": "SHARED_CONFIG_DEMO2",
             "allowList": ["6917573298752100864", "6917573298752100864"]
+        },
+        {
+            "uri": "datashareproxy://com.example.example/key3",
+            "value": "ALLOW ALL APP READ",
+            "allowList": ["all"]
         }
     ]
 }

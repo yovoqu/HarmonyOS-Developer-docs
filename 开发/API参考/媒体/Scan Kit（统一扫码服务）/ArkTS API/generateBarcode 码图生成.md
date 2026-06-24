@@ -1,6 +1,6 @@
 # generateBarcode (码图生成)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-generatebarcode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,6 +28,8 @@ import { generateBarcode } from '@kit.ScanKit';
 
 纠错率枚举。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.GenerateBarcode
@@ -49,6 +51,8 @@ import { generateBarcode } from '@kit.ScanKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 生成码参数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
@@ -98,6 +102,8 @@ createBarcode(content: string, options: CreateOptions): Promise<image.PixelMap>
  
 通过文本生成并返回码图。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.GenerateBarcode
@@ -121,7 +127,7 @@ createBarcode(content: string, options: CreateOptions): Promise<image.PixelMap>
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -184,6 +190,8 @@ createBarcode(content: string, options: CreateOptions, callback: AsyncCallback<i
  
 通过文本生成并返回码图。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.GenerateBarcode
@@ -201,7 +209,7 @@ createBarcode(content: string, options: CreateOptions, callback: AsyncCallback<i
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -247,6 +255,8 @@ createBarcode(content: ArrayBuffer, options: CreateOptions): Promise<image.Pixel
  
 通过字节数组生成并返回码图。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.GenerateBarcode
@@ -270,7 +280,7 @@ createBarcode(content: ArrayBuffer, options: CreateOptions): Promise<image.Pixel
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

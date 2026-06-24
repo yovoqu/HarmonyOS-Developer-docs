@@ -1,6 +1,6 @@
-# VoIPExtensionAbility（应用内通话消息扩展Ability）
+# VoIPExtensionAbility（应用内通话消息扩展Ability）（废弃）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-voip-ability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -18,6 +18,8 @@ VoIPExtensionAbility为应用内通话消息扩展Ability，继承自[UIExtensio
 **系统能力：** SystemCapability.Push.PushService
  
 **起始版本：** 4.1.0(11)
+ 
+**废弃版本：** 26.0.0
   
 
 #### 导入模块
@@ -38,18 +40,18 @@ import { VoIPExtensionAbility } from '@kit.PushKit';
  
 **系统能力：** SystemCapability.Push.PushService
  
-**设备行为差异：** 对于6.1.0(23)以前版本，该属性在Phone、Tablet中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该属性在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。
- 
 **起始版本：** 4.1.0(11)
+ 
+**废弃版本：** 26.0.0
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | VoIPExtensionContext | 否 | 否 | VoIPExtensionAbility的上下文环境，继承自UIExtensionContext。 |
+| context | VoIPExtensionContext(deprecated) | 否 | 否 | VoIPExtensionAbility的上下文环境，继承自UIExtensionContext。 |
  
  
   
 
-#### onReceiveMessage
+#### onReceiveMessage(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -61,9 +63,9 @@ onReceiveMessage(voipInfo: pushCommon.VoIPInfo): void
  
 **系统能力：** SystemCapability.Push.PushService
  
-**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中无效果。
- 
 **起始版本：** 4.1.0(11)
+ 
+**废弃版本：** 26.0.0
  
 **参数：**
   
@@ -78,10 +80,13 @@ onReceiveMessage(voipInfo: pushCommon.VoIPInfo): void
 import { VoIPExtensionAbility, pushCommon } from '@kit.PushKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
+const LOG_DOMAIN = 0x0000;
+const LOG_TAG = 'VoIPExtensionAbility';
+
 export default class VoipExtAbility extends VoIPExtensionAbility {
   // voipInfo为场景化消息数据
   onReceiveMessage(voipInfo: pushCommon.VoIPInfo): void {
-    hilog.info(0x0000, 'testTag', 'TestExtAbility onReceiveMessage');
+    hilog.info(LOG_DOMAIN, LOG_TAG, 'VoipExtAbility onReceiveMessage');
   }
 }
 ```

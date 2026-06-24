@@ -1,6 +1,6 @@
 # 基于adaptive_video的短视频适配
 
-更新时间：2026-06-02 02:04:30
+更新时间：2026-06-23 06:26:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-short-video-base-adaptivevideo
 
@@ -190,10 +190,10 @@ adaptive_video提供短视频自适应旋转的能力，降低开发者在多端
  
 - 设备类型：2in1/PC、车机、TV不支持旋转，其他类型设备支持旋转。
 - 屏幕区间：根据应用窗口宽高计算设备所在的屏幕区间。计算规则如下图，屏幕区间由应用窗口宽（图中横轴，单位为vp）和窗口宽高比（图中纵轴）计算得到，例如，设备Mate60（竖向）的屏幕区间为：Small_Portrait。
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/kHAQZ_k4RXCvh5KUp1IZcQ/zh-cn_image_0000002358013417.png?HW-CC-KV=V1&HW-CC-Date=20260604T012930Z&HW-CC-Expire=86400&HW-CC-Sign=E96647EF026BC22F4A0E6F80DD6816E18B36721D8E19713CBECFCF3818BA7D0F)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b3/v3/L8DJuzuZSYyqpfeS9RFE4Q/zh-cn_image_0000002358013417.png?HW-CC-KV=V1&HW-CC-Date=20260624T020957Z&HW-CC-Expire=86400&HW-CC-Sign=B7E6AE2B9D294A606B05D2C995ABB79FFBF17E744839DC3AA9A5FBD6C2B6ACC0)
 
 - 视频类型：根据视频宽高判定：横向视频（宽>高）、竖向视频（宽≤高）。
-- 屏幕方向：根据[GRAVITY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#gravity9)判定：0：竖屏，1：反向横屏，2：反向竖屏， 3：横屏。
+- 屏幕方向：根据[GRAVITY](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#sensoronsensoridgravity9)判定：0：竖屏，1：反向横屏，2：反向竖屏， 3：横屏。
 
  
 以下是自适应旋转属性的详细计算规则：

@@ -1,6 +1,6 @@
 # HiAISingleOpDescriptor_ConvolutionParam
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cannkit-sopdesc-convparam
 **支持设备：** Phone | PC/2in1 | Tablet | TV

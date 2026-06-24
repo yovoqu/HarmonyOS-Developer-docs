@@ -1,11 +1,11 @@
 # Interfaces (其他)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-audio-i
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-> [!NOTE]
+> [!TIP]
 > 本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
 
   
@@ -20,7 +20,7 @@
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| samplingRate | AudioSamplingRate | 否 | 否 | 音频文件的采样率。 |
+| samplingRate | AudioSamplingRate \| number | 否 | 否 | 音频文件的采样率，单位为赫兹（Hz）。支持传入AudioSamplingRate。 从API版本26.0.0开始： - 参数samplingRate支持number类型。 - 音频渲染扩展支持8000Hz到384000Hz范围内以10Hz为步长的采样率值。具体设备支持的采样率规格会存在差异。 |
 | channels | AudioChannel | 否 | 否 | 音频文件的通道数。 |
 | sampleFormat | AudioSampleFormat | 否 | 否 | 音频采样格式。 |
 | encodingType | AudioEncodingType | 否 | 否 | 音频编码格式。 |
@@ -100,6 +100,8 @@
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 音频会话策略。
+ 
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Multimedia.Audio.Core
   
@@ -200,6 +202,26 @@
  
   
 
+#### AudioDevicePair
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+描述返听使用的音频设备对，包含输入设备和输出设备。
+ 
+**起始版本：** 26.0.0
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Multimedia.Audio.Device
+  
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| inputDevice | AudioDeviceDescriptor | 否 | 否 | 输入音频设备描述。 |
+| outputDevice | AudioDeviceDescriptor | 否 | 否 | 输出音频设备描述。 |
+ 
+ 
+  
+
 #### VolumeEvent9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -273,14 +295,13 @@
 
 流设备变更时，应用接收到的事件。
  
-**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
- 
 **系统能力：** SystemCapability.Multimedia.Audio.Device
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| devices | AudioDeviceDescriptors | 否 | 否 | 设备信息。 |
-| changeReason | AudioStreamDeviceChangeReason | 否 | 否 | 流设备变更原因。 |
+| devices | AudioDeviceDescriptors | 否 | 否 | 设备信息。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| changeReason | AudioStreamDeviceChangeReason | 否 | 否 | 流设备变更原因。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| preDevices | AudioDeviceDescriptors | 否 | 是 | 应用流设备变更前的设备信息。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
  
  
   
@@ -298,6 +319,7 @@
 | devices | AudioDeviceDescriptors | 否 | 否 | 设备信息。 |
 | changeReason | AudioStreamDeviceChangeReason | 否 | 否 | 设备变更原因。 |
 | recommendedAction | OutputDeviceChangeRecommendedAction | 否 | 否 | 设备变更后推荐的操作。 |
+| preDevices | AudioDeviceDescriptors | 否 | 是 | 应用输出设备变更前的设备信息。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用。 |
  
  
   

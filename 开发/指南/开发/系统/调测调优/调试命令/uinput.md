@@ -1,6 +1,6 @@
 # uinput
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/uinput
 
@@ -37,7 +37,7 @@ uinput <option> <command> <arg> ...
 
 
 > [!NOTE]
-> 命令中与坐标相关的参数，单位均为 px(屏幕物理像素单位) 。
+> 命令中与坐标相关的参数，单位均为px 像素单位 。
 
 
 
@@ -288,7 +288,7 @@ uinput -M -c 0 -i 500 -c 0
 
 查询当前鼠标光标信息。
 
-如果鼠标光标处于显示状态，将输出鼠标光标显示状态及[鼠标光标样式](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pointer#pointerstyle)。若传入filePath参数且鼠标光标为第三方自定义光标（样式枚举值为-100），会将鼠标光标样式图以二进制形式保存到指定文件中。需要自行创建filePath文件。若未传入filePath参数，将不会保存样式图。当鼠标光标处于隐藏状态时，不会输出样式信息，也不会保存样式图。
+如果鼠标光标处于显示状态，将输出鼠标光标显示状态及[PointerStyle](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pointer#pointerstyle)。若传入filePath参数且鼠标光标为应用自定义光标（样式枚举值为-100），会将鼠标光标样式图以二进制形式保存到指定文件中。需要自行创建filePath文件。若未传入filePath参数，将不会保存样式图。当鼠标光标处于隐藏状态时，不会输出样式信息，也不会保存样式图。
 
 **命令**
 
@@ -319,7 +319,7 @@ uinput -M -q /data/local/tmp/testfile
 
 #### 键盘按键按下事件
 
-模拟键盘按下按键，建议与键盘按键抬起事件搭配使用，确保事件闭环。keyCode：[键值定义说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
+模拟键盘按下按键，建议与键盘按键抬起事件搭配使用，确保事件闭环。keyCode：[@ohos.multimodalInput.keyCode (键值)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
 
 **命令**
 
@@ -332,7 +332,7 @@ uinput --keyboard --down <keyCode>
 
 #### 键盘按键抬起事件
 
-模拟键盘抬起按键，必须与键盘按键按下事件搭配使用，确保事件闭环。keyCode：[键值定义说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
+模拟键盘抬起按键，必须与键盘按键按下事件搭配使用，确保事件闭环。keyCode：[@ohos.multimodalInput.keyCode (键值)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
 
 **命令**
 
@@ -352,7 +352,7 @@ uinput -K -d 2017 -u 2017
 
 #### 键盘按键长按事件
 
-模拟键盘按下一个按键并保持设定的时长后抬起，无需再次注入键盘按键抬起事件。长按期间不会重复注入按键按下事件。keyCode：[键值定义说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
+模拟键盘按下一个按键并保持设定的时长后抬起，无需再次注入键盘按键抬起事件。长按期间不会重复注入按键按下事件。keyCode：[@ohos.multimodalInput.keyCode (键值)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
 
 **命令**
 
@@ -374,7 +374,7 @@ uinput -K -l 2017 6000
 
 #### 键盘按键持续输入事件
 
-模拟键盘按下一个按键并在设定的时长内持续输入按下事件后抬起，无需再次注入键盘按键抬起事件。长按期间会重复注入按键按下事件。keyCode：[键值定义说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
+模拟键盘按下一个按键并在设定的时长内持续输入按下事件后抬起，无需再次注入键盘按键抬起事件。长按期间会重复注入按键按下事件。keyCode：[@ohos.multimodalInput.keyCode (键值)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
 
 **命令**
 
@@ -438,7 +438,7 @@ uinput -K -t Hello,World!
 
 #### 控制注入的修饰键状态
 
-从API version 22开始，支持启用或禁用控制注入的修饰键状态能力，支持的修饰键包括：KEYCODE_ALT_LEFT、KEYCODE_ALT_RIGHT、KEYCODE_SHIFT_LEFT、KEYCODE_SHIFT_RIGHT、KEYCODE_CTRL_LEFT、KEYCODE_CTRL_RIGHT、KEYCODE_META_LEFT、KEYCODE_META_RIGHT，具体请参考keyCode：[键值定义说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
+从API version 22开始，支持启用或禁用控制注入的修饰键状态能力，支持的修饰键包括：KEYCODE_ALT_LEFT、KEYCODE_ALT_RIGHT、KEYCODE_SHIFT_LEFT、KEYCODE_SHIFT_RIGHT、KEYCODE_CTRL_LEFT、KEYCODE_CTRL_RIGHT、KEYCODE_META_LEFT、KEYCODE_META_RIGHT，具体请参考keyCode：[@ohos.multimodalInput.keyCode (键值)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-keycode)。
 
 
 

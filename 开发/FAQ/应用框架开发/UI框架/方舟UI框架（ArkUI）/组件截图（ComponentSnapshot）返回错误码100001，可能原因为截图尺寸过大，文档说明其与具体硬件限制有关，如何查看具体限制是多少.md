@@ -1,6 +1,6 @@
 # 组件截图（ComponentSnapshot）返回错误码100001，可能原因为截图尺寸过大，文档说明其与具体硬件限制有关，如何查看具体限制是多少
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-481
 

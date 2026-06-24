@@ -1,6 +1,6 @@
 # customScan (自定义界面扫码)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-customscan-api
 **支持设备：** Phone | Tablet | Wearable
@@ -27,6 +27,8 @@ import { customScan } from '@kit.ScanKit';
 **支持设备：** Phone | Tablet | Wearable
 
 相机控制参数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
@@ -109,6 +111,8 @@ struct CustomScanPage {
 **支持设备：** Phone | Tablet | Wearable
 
 相机预览流（YUV）。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
@@ -242,6 +246,8 @@ init(options?: scanBarcode.ScanOptions): void
  
 初始化自定义界面扫码。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.CAMERA
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
@@ -259,7 +265,7 @@ init(options?: scanBarcode.ScanOptions): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
  
 从5.0.2(14)开始，customScan模块的init接口新增错误码201。
  
@@ -306,6 +312,8 @@ start(viewControl: ViewControl): Promise<Array<scanBarcode.ScanResult>>
 > 此接口需要在init接口调用后才能使用。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.CAMERA
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
@@ -330,7 +338,7 @@ start(viewControl: ViewControl): Promise<Array<scanBarcode.ScanResult>>
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
  
 从5.0.2(14)开始，customScan模块的start接口新增错误码201。
  
@@ -418,6 +426,8 @@ start(viewControl: ViewControl, callback: AsyncCallback<Array<scanBarcode.ScanRe
 > 此接口需要在init接口调用后才能使用。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.CAMERA
  
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
@@ -437,7 +447,7 @@ start(viewControl: ViewControl, callback: AsyncCallback<Array<scanBarcode.ScanRe
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
  
 从5.0.2(14)开始，customScan模块的start接口新增错误码201。
  
@@ -541,6 +551,8 @@ getFlashLightStatus(): boolean
 > 本接口必须在启动相机流start接口后使用，相机流初始化、停止和释放阶段使用都会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -556,7 +568,7 @@ getFlashLightStatus(): boolean
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -605,6 +617,8 @@ openFlashLight(): void
 > 本接口必须在启动相机流start接口后使用，相机流初始化、停止和释放阶段使用都会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -613,7 +627,7 @@ openFlashLight(): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -662,6 +676,8 @@ closeFlashLight(): void
 > 本接口必须在启动相机流start接口后使用，相机流初始化、停止和释放阶段使用都会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -670,7 +686,7 @@ closeFlashLight(): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -719,6 +735,8 @@ setZoom(zoomValue: number): void
 > 本接口必须在启动相机流start接口后使用。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -734,7 +752,7 @@ setZoom(zoomValue: number): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -771,6 +789,8 @@ getZoom(): number
 > 本接口必须在启动相机流start接口后使用。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -786,7 +806,7 @@ getZoom(): number
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -822,6 +842,8 @@ setFocusPoint(point: scanBarcode.Point): void
 > 本接口必须在启动相机流start接口后使用。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -837,7 +859,7 @@ setFocusPoint(point: scanBarcode.Point): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -873,6 +895,8 @@ resetFocus(): void
 > 本接口必须在启动相机流start接口后使用。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -881,7 +905,7 @@ resetFocus(): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -916,6 +940,8 @@ on(type: 'lightingFlash', callback: AsyncCallback&lt;boolean&gt;): void
 > 本接口必须在启动相机流start接口后使用，未启动相机流调用会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -932,7 +958,7 @@ on(type: 'lightingFlash', callback: AsyncCallback&lt;boolean&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -977,6 +1003,8 @@ off(type: 'lightingFlash', callback?: AsyncCallback&lt;boolean&gt;): void
 > 本接口必须在启动相机流start接口后使用，未启动相机流调用会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -993,7 +1021,7 @@ off(type: 'lightingFlash', callback?: AsyncCallback&lt;boolean&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1038,6 +1066,8 @@ rescan(): void
 > 本接口必须在启动相机流start接口后，stop接口之前使用，未启动相机流调用会抛出内部错误的异常。 仅对start接口的Callback异步回调有效，Promise异步回调接口无效。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -1046,7 +1076,7 @@ rescan(): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1138,6 +1168,8 @@ setAutoZoomEnabled(enabled: boolean): void
 > 本接口必须在启动相机流start接口后使用，未启动相机流调用会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -1153,7 +1185,7 @@ setAutoZoomEnabled(enabled: boolean): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1188,6 +1220,8 @@ stop(): Promise&lt;void&gt;
 > 本接口必须在启动相机流start接口后使用，未启动相机流调用会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -1203,7 +1237,7 @@ stop(): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1244,6 +1278,8 @@ stop(callback: AsyncCallback&lt;void&gt;): void
 > 本接口必须在启动相机流start接口后使用，未启动相机流调用会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -1259,7 +1295,7 @@ stop(callback: AsyncCallback&lt;void&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1302,6 +1338,8 @@ release(): Promise&lt;void&gt;
 > 本接口建议在启动相机流start接口且暂停相机流stop接口后使用，未启动相机流调用会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -1317,7 +1355,7 @@ release(): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1358,6 +1396,8 @@ release(callback: AsyncCallback&lt;void&gt;): void
 > 本接口建议在启动相机流start接口且暂停相机流stop接口后使用，未启动相机流调用会抛出内部错误的异常。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Multimedia.Scan.ScanBarcode
  
 **设备行为差异：** 对于6.0.2(22)及之前版本，该接口在Phone、Tablet中可正常调用。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、带后置相机的Wearable中可正常调用，在不带后置相机的Wearable中返回错误码1000500001。可以通过[cameraManager.getSupportedCameras](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-cameramanager#getsupportedcameras)接口查询是否带后置相机。
@@ -1373,7 +1413,7 @@ release(callback: AsyncCallback&lt;void&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-scan)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

@@ -1,6 +1,6 @@
 # subjectSegmentation（主体分割）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-subjectsegmentation-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -28,6 +28,8 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -44,6 +46,8 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 显著性分割的可选配置项，包括最多输出的主体个数、是否输出每个主体的详细分割信息，以及是否输出前景图的配置项。
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -63,6 +67,8 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 显著性主体分割后的边界框。
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -84,6 +90,8 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -102,6 +110,8 @@ import { subjectSegmentation } from '@kit.CoreVisionKit';
 分割后的总输出结果，包括主体个数、整张图中所有主体的分割信息和每个主体的详细信息。
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -123,6 +133,8 @@ init(): Promise&lt;boolean&gt;
 初始化主体分割服务。使用Promise异步回调。
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -184,6 +196,8 @@ release(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **返回值：**
@@ -244,6 +258,8 @@ doSegmentation(visionInfo: VisionInfo, config?: SegmentationConfig): Promise&lt;
 
 **系统能力：** SystemCapability.AI.Vision.SubjectSegmentation
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -263,7 +279,7 @@ doSegmentation(visionInfo: VisionInfo, config?: SegmentationConfig): Promise&lt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

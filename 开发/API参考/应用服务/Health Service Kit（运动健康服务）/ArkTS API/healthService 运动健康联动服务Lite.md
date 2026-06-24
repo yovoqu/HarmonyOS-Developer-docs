@@ -1,6 +1,6 @@
 # healthService (运动健康联动服务)(Lite)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/health-api-healthservice-lite
 **支持设备：** lite_wearable
@@ -298,7 +298,7 @@ config(workoutConfig: WorkoutConfig): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
 | 1009104003 | Illegal command. Called when workout not in stoped or idle state. |
 | 1009104999 | System internal error. |
  
@@ -353,7 +353,7 @@ start(): StartResult
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
 | 1009104001 | Sport service busy. Workout is already started by other application. |
 | 1009104002 | Unsupported sport type. |
 | 1009104003 | Illegal command. Called when workout in sporting, paused or stopped state. |
@@ -400,10 +400,10 @@ pause(): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. |
-| 1009104001 | Service busy. Workout has already been started by another app. |
-| 1009104003 | Illegal command. |
-| 1009104999 | internal System error. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104003 | Illegal command. Called when workout in ready, paused or stoped state. |
+| 1009104999 | System internal error. |
  
  
 **示例：**
@@ -488,7 +488,7 @@ stop(): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
 | 1009104003 | Illegal command. Called when workout is not started. |
 | 1009104999 | System internal error. |
  
@@ -585,7 +585,7 @@ offData(dataType: undefined, listener?: Callback<SampleReal[]>): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | dataType | undefined | 是 | 监听所有联动运动数据类型。 |
-| listener | Callback<SampleReal[]> | 否 | 回调函数，返回联动运动数据，不传值代表取消所有监听。 |
+| listener | Callback<SampleReal[]> | 否 | 回调函数，返回联动运动数据。 |
  
  
 **错误码：**
@@ -647,9 +647,9 @@ sendData(sampleReal: SampleReal[]): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. |
-| 1009104001 | Service busy. Workout has already been started by another app. |
-| 1009104999 | Internal system error. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
+| 1009104001 | Sport service busy. Workout is already started by other application. |
+| 1009104999 | System internal error. |
  
  
 **示例：**
@@ -663,7 +663,7 @@ try {
     dataType: { id: healthStore.healthDataTypes.WORKOUT_REALTIME.id },
     time: 1695740400000, // 2023-09-26 23:00:00,
     fields: {
-      forehandStroke: 45
+      hr: 90
     }
   };
   healthService.workout.sendData([sampleReal]);
@@ -701,7 +701,7 @@ load(path: string): void
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. Require workout management permission.Refer to the development documentation for permission request. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
 | 1009104001 | Sport service busy. Workout is already started by other application. |
 | 1009104003 | Illegal command. Called when workout is not started. |
 | 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |
@@ -752,7 +752,7 @@ load(path: string, callback: Callback<[DynamicLibResult](#dynamiclibresult)>): v
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
 | 1009104001 | Sport service busy. Workout is already started by other application. |
 | 1009104003 | Illegal command. Called when workout is not started. |
 | 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |
@@ -824,7 +824,7 @@ unload(path: string): void
 | 1009104003 | Illegal command. Called when workout is not started. |
 | 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |
 | 1009104006 | Failed to unload the dynamic library. |
-| 1009104999 | Internal system error. |
+| 1009104999 | System internal error. |
  
  
 **示例：**
@@ -870,7 +870,7 @@ unload(path: string, callback: Callback<[DynamicLibResult](#dynamiclibresult)>):
   
 | 错误码ID | 错误信息 |
 | --- | --- |
-| 201 | Permission verification failed. |
+| 201 | Permission verification failed. Please ensure that the app has applied for the Health Service Kit, selected the product type, enabled the corresponding data read and write permissions, and the user has completed authorization. |
 | 1009104001 | Sport service busy. Workout is already started by other application. |
 | 1009104003 | Illegal command. Called when workout is not started. |
 | 1009104004 | Permission verification error. Application has no permission, such as Motion Permission. |

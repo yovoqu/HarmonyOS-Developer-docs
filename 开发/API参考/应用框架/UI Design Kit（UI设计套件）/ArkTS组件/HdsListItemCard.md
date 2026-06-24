@@ -1,6 +1,6 @@
 # HdsListItemCard
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdslistitemcard
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -2193,4 +2193,4 @@ struct HdsListItemCardExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9b/v3/pd3iicTXSR2qkUB-zgXcIQ/zh-cn_image_0000002587111150.jpg?HW-CC-KV=V1&HW-CC-Date=20260604T012559Z&HW-CC-Expire=86400&HW-CC-Sign=68CA1B86EC631CA0BFFD0243F014F0BAF089D9D4C5F2F0C1B7E0B78A9F719188)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/BuUU4osVRlSoGcRU3kn43w/zh-cn_image_0000002656350647.jpg?HW-CC-KV=V1&HW-CC-Date=20260624T020050Z&HW-CC-Expire=86400&HW-CC-Sign=BE7E827B4AB62BA4D56BA1E37D8AA28785BFE02DFF86A4016901FC926C9B0415)

@@ -1,6 +1,6 @@
 # AccessibilityExtensionContext (辅助功能扩展上下文)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-accessibilityextensioncontext
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -97,7 +97,7 @@ class EntryAbility extends AccessibilityExtensionAbility {
 | valueNow | number | 否 | 否 | 当前值。默认值为0。 |
 | windowId | number | 否 | 否 | 窗口ID。默认值为-1。 |
 | textType12+ | string | 否 | 否 | 元素的无障碍文本类型，由组件accessibilityTextHint属性配置。 |
-| offset12+ | number | 否 | 否 | 对于可滚动类控件，如List、Grid，内容区相对控件的顶部坐标滚动的像素偏移量。默认值为0。 |
+| offset12+ | number | 否 | 否 | 对于可滚动类控件，如List、Grid，内容区相对控件的顶部坐标滚动的像素偏移量，单位为像素（px）。默认值为0。 |
 | hotArea12+ | Rect | 否 | 否 | 元素的可触摸区域。 |
 | customComponentType18+ | string | 否 | 是 | 自定义组件类型。与元素的AccessibilityRoleType类型所对应。 |
 | accessibilityNextFocusId18+ | number | 否 | 是 | 下一个要聚焦的组件ID。通过findElement('elementId')查询到的AccessibilityElementInfo对象中可获取到用户在控件上设置的该属性值。默认值为-1。 |
@@ -158,10 +158,10 @@ type FocusType = 'accessibility' | 'normal'
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| left | number | 否 | 否 | 矩形区域的左边界。 |
-| top | number | 否 | 否 | 矩形区域的上边界。 |
-| width | number | 否 | 否 | 矩形区域的宽度。 |
-| height | number | 否 | 否 | 矩形区域的高度。 |
+| left | number | 否 | 否 | 矩形区域的左边界，单位为像素（px）。 |
+| top | number | 否 | 否 | 矩形区域的上边界，单位为像素（px）。 |
+| width | number | 否 | 否 | 矩形区域的宽度，单位为像素（px）。 |
+| height | number | 否 | 否 | 矩形区域的高度，单位为像素（px）。 |
 
 
 
@@ -184,7 +184,15 @@ type WindowType = 'application' | 'system'
 
 
 
-#### AccessibilityExtensionContext.setTargetBundleName(deprecated)
+#### AccessibilityExtensionContext
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+辅助功能扩展的上下文环境。需要通过AccessibilityExtensionAbility子类实例获取AccessibilityExtensionContext的实例。
+
+
+
+#### setTargetBundleName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -236,7 +244,7 @@ axContext.setTargetBundleName(targetNames).then(() => {
 
 
 
-#### AccessibilityExtensionContext.setTargetBundleName(deprecated)
+#### setTargetBundleName(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -288,7 +296,7 @@ try {
 
 
 
-#### AccessibilityExtensionContext.getFocusElement(deprecated)
+#### getFocusElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -344,7 +352,7 @@ axContext.getFocusElement().then((data: AccessibilityElement) => {
 
 
 
-#### AccessibilityExtensionContext.getFocusElement(deprecated)
+#### getFocusElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -395,7 +403,7 @@ axContext.getFocusElement((err: BusinessError, data: AccessibilityElement) => {
 
 
 
-#### AccessibilityExtensionContext.getFocusElement(deprecated)
+#### getFocusElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -448,7 +456,7 @@ axContext.getFocusElement(isAccessibilityFocus, (err: BusinessError, data: Acces
 
 
 
-#### AccessibilityExtensionContext.getWindowRootElement(deprecated)
+#### getWindowRootElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -504,7 +512,7 @@ axContext.getWindowRootElement().then((data: AccessibilityElement) => {
 
 
 
-#### AccessibilityExtensionContext.getWindowRootElement(deprecated)
+#### getWindowRootElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -555,7 +563,7 @@ axContext.getWindowRootElement((err: BusinessError, data: AccessibilityElement) 
 
 
 
-#### AccessibilityExtensionContext.getWindowRootElement(deprecated)
+#### getWindowRootElement(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -608,7 +616,7 @@ axContext.getWindowRootElement(windowId, (err: BusinessError, data: Accessibilit
 
 
 
-#### AccessibilityExtensionContext.getWindows(deprecated)
+#### getWindows(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -661,7 +669,7 @@ axContext.getWindows().then((data: AccessibilityElement[]) => {
 
 
 
-#### AccessibilityExtensionContext.getWindows(deprecated)
+#### getWindows(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -709,7 +717,7 @@ axContext.getWindows((err: BusinessError, data: AccessibilityElement[]) => {
 
 
 
-#### AccessibilityExtensionContext.getWindows(deprecated)
+#### getWindows(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -759,7 +767,7 @@ axContext.getWindows(displayId, (err: BusinessError, data: AccessibilityElement[
 
 
 
-#### AccessibilityExtensionContext.injectGesture(deprecated)
+#### injectGesture(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -768,7 +776,7 @@ injectGesture(gesturePath: GesturePath): Promise&lt;void&gt;
 注入手势。使用Promise异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 10开始废弃，建议使用 AccessibilityExtensionContext.injectGestureSync 替代。
+> 从API version 9开始支持，从API version 10开始废弃，建议使用 injectGestureSync 替代。
 
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
@@ -818,7 +826,7 @@ axContext.injectGesture(gesturePath).then(() => {
 
 
 
-#### AccessibilityExtensionContext.injectGesture(deprecated)
+#### injectGesture(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -827,7 +835,7 @@ injectGesture(gesturePath: GesturePath, callback: AsyncCallback&lt;void&gt;): vo
 注入手势。使用callback异步回调。
 
 > [!NOTE]
-> 从API version 9开始支持，从API version 10开始废弃，建议使用 AccessibilityExtensionContext.injectGestureSync 替代。
+> 从API version 9开始支持，从API version 10开始废弃，建议使用 injectGestureSync 替代。
 
 
 **系统能力**：SystemCapability.BarrierFree.Accessibility.Core
@@ -872,7 +880,7 @@ axContext.injectGesture(gesturePath, (err: BusinessError) => {
 
 
 
-#### AccessibilityExtensionContext.injectGestureSync(deprecated)
+#### injectGestureSync(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
@@ -922,7 +930,7 @@ axContext.injectGestureSync(gesturePath);
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
 
-无障碍节点元素，在调用AccessibilityElement的方法前，需要先通过[AccessibilityExtensionContext.getFocusElement()](#accessibilityextensioncontextgetfocuselementdeprecated)或者[AccessibilityExtensionContext.getWindowRootElement()](#accessibilityextensioncontextgetwindowrootelementdeprecated)获取AccessibilityElement实例。
+无障碍节点元素，在调用AccessibilityElement的方法前，需要先通过[AccessibilityExtensionContext.getFocusElement()](#getfocuselementdeprecated)或者[AccessibilityExtensionContext.getWindowRootElement()](#getwindowrootelementdeprecated)获取AccessibilityElement实例。
 
 
 

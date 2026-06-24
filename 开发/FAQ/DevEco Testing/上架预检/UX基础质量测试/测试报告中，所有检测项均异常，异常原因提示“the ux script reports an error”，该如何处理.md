@@ -1,6 +1,6 @@
 # 测试报告中，所有检测项均异常，异常原因提示“the ux script reports an error”，该如何处理
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ux-publish-test-2
 

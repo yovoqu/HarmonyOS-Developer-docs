@@ -1,6 +1,6 @@
 # NearLink Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-introduction
 
@@ -17,7 +17,7 @@ NearLink Kit（星闪服务）提供一种低功耗、高速率的短距离通�
 
 #### 约束与限制
 
-本Kit适用于Phone、PC/2in1、TV、Tablet 和 Wearable设备。
+本Kit适用于Phone、PC/2in1、TV、Car、Tablet和Wearable设备（从6.1.0(23)版本开始支持Car）。
  
   
 

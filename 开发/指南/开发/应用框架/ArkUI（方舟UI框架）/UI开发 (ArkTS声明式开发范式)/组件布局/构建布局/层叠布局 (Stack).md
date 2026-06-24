@@ -1,6 +1,6 @@
 # 层叠布局 (Stack)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-layout-development-stack-layout
 
@@ -180,7 +180,7 @@ struct StackSample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c0/v3/b6pteeP8ToeX4fI1KphZ6w/zh-cn_image_0000002611833601.png?HW-CC-KV=V1&HW-CC-Date=20260528T030454Z&HW-CC-Expire=86400&HW-CC-Sign=C897D9C0F76281EF996140CE5050AA220D417C38EDD7AD1565317BE3C5B25ECB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/88/v3/bylsIssYTCW7vy9drKr9DA/zh-cn_image_0000002626068270.png?HW-CC-KV=V1&HW-CC-Date=20260624T020749Z&HW-CC-Expire=86400&HW-CC-Sign=24D88B4E7FB7E6656F4E17138143C92BE8D7CD1EC85A0F094F07EFCFC8DBBA8A)
 
 
 

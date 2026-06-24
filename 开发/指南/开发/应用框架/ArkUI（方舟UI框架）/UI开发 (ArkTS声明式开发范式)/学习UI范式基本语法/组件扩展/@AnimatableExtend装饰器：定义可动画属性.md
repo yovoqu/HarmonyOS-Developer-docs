@@ -1,6 +1,6 @@
 # @AnimatableExtend装饰器：定义可动画属性
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-animatable-extend
 
@@ -206,4 +206,4 @@ struct  AnimatablePropertyExample {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/57/v3/cB-0VQfJRJe6lQDoEJfM0A/zh-cn_image_0000002581433644.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=CE9B44B21E16FF575C1B0F7DD416F3CA88B7317C5D48FFC04F7E305083709FCB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/QAEyaoaLRrq55RhSPPUhqA/zh-cn_image_0000002626228050.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=D987CA33A0283626288F6D3DB2559E5B9DFF2EFF2A341F116DCC219332528EA3)

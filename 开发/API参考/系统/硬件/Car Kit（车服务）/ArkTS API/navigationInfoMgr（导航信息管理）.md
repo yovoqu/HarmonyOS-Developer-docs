@@ -1,6 +1,6 @@
 # navigationInfoMgr（导航信息管理）
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-navigationinfomgr
 **支持设备：** Phone | Tablet
@@ -26,6 +26,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 该类为导航信息状态对象，定义了导航的状态信息，包括地图状态、导航类型、导航目的地、导航途经点、路线、地图和主题等。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
 **起始版本：** 4.1.0(11)
@@ -50,6 +52,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 地图状态枚举值，列举出地图具体的状态。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
 **起始版本：** 4.1.0(11)
@@ -72,6 +76,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 导航类型枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
 **起始版本：** 4.1.0(11)
@@ -91,6 +97,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 **支持设备：** Phone | Tablet
 
 地理位置坐标编码。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
@@ -113,6 +121,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 地理位置坐标系编码枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
 **起始版本：** 4.1.0(11)
@@ -130,6 +140,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 **支持设备：** Phone | Tablet
 
 路线偏好枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
@@ -154,6 +166,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 地图主题颜色枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
 **起始版本：** 4.1.0(11)
@@ -171,6 +185,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 **支持设备：** Phone | Tablet
 
 该类为导航信息数据对象，定义了导航的数据信息，包括导航转向模式、引导距离、当前道路名、即将进入的下一个道路名等。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
@@ -205,6 +221,8 @@ import { navigationInfoMgr } from '@kit.CarKit';
 
 系统导航监听回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
 **起始版本：** 4.1.0(11)
@@ -221,9 +239,11 @@ onQueryNavigationInfo(query: QueryType, args: Record<string, Object>): Promise&l
  
 使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该回调在Phone设备中触发并返回查询结果，在其他设备类型中不会返回查询结果。在6.1.0(23)及之后版本该回调在Phone、Tablet设备中均可触发并返回查询结果。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该回调在Phone设备中触发并返回查询结果，在其它设备中无效果。在6.1.0(23)及之后版本，该回调在Phone、Tablet设备中均可触发并返回查询结果，在其它设备中无效果。对于26.0.0及之后的版本，该回调在Phone、Tablet、Car设备中均可触发并返回查询结果，在其它设备中无效果。
  
 **起始版本：** 4.1.0(11)
  
@@ -258,9 +278,11 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
  
 使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该回调在Phone设备中触发并返回执行指令的结果，在其他设备类型中不会返回执行指令的结果。在6.1.0(23)及之后版本该回调在Phone、Tablet设备中均可触发并返回执行指令的结果。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该回调在Phone设备中触发并返回执行指令的结果，在其它设备中无效果。在6.1.0(23)及之后版本，该回调在Phone、Tablet设备中均可触发并返回执行指令的结果，在其它设备中无效果。对于26.0.0及之后的版本，该回调在Phone、Tablet、Car设备中均可触发并返回执行指令的结果，在其它设备中无效果。
  
 **起始版本：** 4.1.0(11)
  
@@ -291,6 +313,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 
 查询导航信息枚举类型。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
 **起始版本：** 4.1.0(11)
@@ -308,6 +332,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 **支持设备：** Phone | Tablet
 
 发送指令枚举类型。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
@@ -337,6 +363,8 @@ onReceiveNavigationCmd(command: CommandType, args: Record<string, Object>): Prom
 
 查询导航信息或发送指令的结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
 **起始版本：** 4.1.0(11)
@@ -358,9 +386,11 @@ getNavigationController(): NavigationController
  
 用于获取导航信息服务的控制器。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  
@@ -375,7 +405,7 @@ getNavigationController(): NavigationController
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -399,6 +429,8 @@ let navInfoController: navigationInfoMgr.NavigationController = navigationInfoMg
 
 导航信息服务的控制器，用于获取导航信息服务。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
 **起始版本：** 4.1.0(11)
@@ -413,9 +445,11 @@ updateNavigationStatus(navigationStatus: NavigationStatus): void
  
 设置导航状态，包含地图状态、导航类型、导航目的地、导航途经点、路线、地图和主题等。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  
@@ -430,7 +464,7 @@ updateNavigationStatus(navigationStatus: NavigationStatus): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -504,9 +538,11 @@ updateNavigationMetadata(navigationMetadata: NavigationMetadata): void
  
 设置导航数据，包含导航转向模式、引导距离、当前道路名、下一次进入道路名等。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  
@@ -521,7 +557,7 @@ updateNavigationMetadata(navigationMetadata: NavigationMetadata): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -578,9 +614,11 @@ registerSystemNavigationListener(listener: SystemNavigationListener): void
  
 注册监听系统导航信息和指令，应用启动时需要调用该方法。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  
@@ -595,7 +633,7 @@ registerSystemNavigationListener(listener: SystemNavigationListener): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -659,9 +697,11 @@ unregisterSystemNavigationListener(): void
  
 取消注册监听系统导航信息和指令。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.CarService.NavigationInfo
  
-**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常使用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本该接口在Phone、Tablet中均可正常使用。
+**设备行为差异**：对于6.0.0(22)及之前的版本，该接口在Phone中可正常调用，在其他设备类型中返回801错误码。在6.1.0(23)及之后版本，该接口在Phone、Tablet中均可正常调用，在其它设备中无效果。对于26.0.0及之后的版本，该接口在Phone、Tablet、Car中均可正常调用，在其它设备中无效果。
  
 **需要权限：** ohos.permission.ACCESS_SERVICE_NAVIGATION_INFO
  
@@ -669,7 +709,7 @@ unregisterSystemNavigationListener(): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/car-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-car)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

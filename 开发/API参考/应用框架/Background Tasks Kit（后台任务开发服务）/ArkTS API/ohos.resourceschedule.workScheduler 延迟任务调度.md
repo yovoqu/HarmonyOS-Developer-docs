@@ -1,6 +1,6 @@
 # @ohos.resourceschedule.workScheduler (延迟任务调度)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-resourceschedule-workscheduler
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV

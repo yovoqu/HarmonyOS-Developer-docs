@@ -1,6 +1,6 @@
 # ringtone（铃声服务）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-ringtone
 **支持设备：** Phone | Tablet
@@ -26,7 +26,9 @@ import { ringtone } from '@kit.RingtoneKit'
 
 描述铃声的类型枚举。
  
-系统能力：SystemCapability.Ringtone.Core
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**系统能力：** SystemCapability.Ringtone.Core
  
 **起始版本：** 5.0.0(12)
   
@@ -45,6 +47,8 @@ import { ringtone } from '@kit.RingtoneKit'
 **支持设备：** Phone | Tablet
 
 该枚举为设置铃声，获取铃声支持类型和获取铃声支持文件类型等接口的错误码。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Ringtone.Core
  
@@ -70,6 +74,8 @@ getSupportedRingtoneTypes(): Array&lt;RingtoneType&gt;
  
 查询当前系统支持自定义的铃声类型。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Ringtone.Core
  
 **起始版本：** 5.0.0(12)
@@ -88,7 +94,7 @@ import { ringtone } from '@kit.RingtoneKit'
 import { JSON } from '@kit.ArkTS';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const APP_TAG = "Msc_Demo"
+const APP_TAG = 'Msc_Demo'
 const DOMAIN = 0x0001
 
 @Entry
@@ -97,12 +103,12 @@ struct Index {
   build() {
     Stack() {
       Column() {
-        Button("查询当前系统支持自定义的铃声类型")
+        Button('查询当前系统支持自定义的铃声类型')
           .width(200)
           .height(50)
           .onClick(() => {
-            let typeList: Array<ringtone.RingtoneType> = ringtone.getSupportedRingtoneTypes()
-            hilog.info(DOMAIN, APP_TAG, 'getSupportedRingtoneTypes : ' + JSON.stringify(typeList));
+            let typeList: ringtone.RingtoneType[] = ringtone.getSupportedRingtoneTypes()
+            hilog.info(DOMAIN, APP_TAG, `getSupportedRingtoneTypes: ${JSON.stringify(typeList)}`);
           })
       }
       .width('100%')
@@ -125,6 +131,8 @@ getSupportedDataTypes(ringtoneType: RingtoneType): Array<uniformTypeDescriptor.U
  
 查询对应铃声类型支持的文件类型。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Ringtone.Core
  
 **起始版本：** 5.0.0(12)
@@ -145,7 +153,7 @@ getSupportedDataTypes(ringtoneType: RingtoneType): Array<uniformTypeDescriptor.U
  
 **错误码：**
  
-以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-error-code)。
+以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -161,7 +169,7 @@ import { uniformTypeDescriptor } from '@kit.ArkData';
 import { JSON } from '@kit.ArkTS';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const APP_TAG = "Msc_Demo"
+const APP_TAG = 'Msc_Demo'
 const DOMAIN = 0x0001
 
 @Entry
@@ -170,18 +178,18 @@ struct Index {
   build() {
     Stack() {
       Column() {
-        Button("查询支持的文件类型")
+        Button('查询支持的文件类型')
           .width(200)
           .height(50)
           .onClick(() => {
             try {
-              let typeList: Array<uniformTypeDescriptor.UniformDataType> =
+              let typeList: uniformTypeDescriptor.UniformDataType[] =
                 ringtone.getSupportedDataTypes(ringtone.RingtoneType.NOTIFICATION)
-              hilog.info(DOMAIN, APP_TAG, 'getSupportedDataTypes3----- : ' + JSON.stringify(typeList));
+              hilog.info(DOMAIN, APP_TAG, `getSupportedDataTypes : ${JSON.stringify(typeList)}`);
             } catch (error) {
               let err: BusinessError = error as BusinessError;
               hilog.error(DOMAIN, APP_TAG,
-                'getSupportedDataType error message: ' + err.message + ', error code: ' + err.code);
+                `getSupportedDataType error message: ${err.message}, error code: ${err.code}`);
             }
           })
       }
@@ -205,6 +213,8 @@ getSupportedMaxDuration(ringtoneType: RingtoneType, dataType: uniformTypeDescrip
  
 查询对应铃声类型以及文件类型支持的时长。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Ringtone.Core
  
 **起始版本：** 5.0.0(12)
@@ -221,12 +231,12 @@ getSupportedMaxDuration(ringtoneType: RingtoneType, dataType: uniformTypeDescrip
   
 | 类型 | 说明 |
 | --- | --- |
-| number | 返回对应类型的铃声和文件支持的最大时长（单位：秒），其中闹钟铃声时长为300s，短信铃声和通知铃声时长为7s，来电铃声时长为60s。 |
+| number | 返回对应类型的铃声和文件支持的最大时长（单位：s），其中闹钟铃声时长为300s，短信铃声和通知铃声时长为7s，来电铃声时长为60s。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-error-code)。
+以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -241,7 +251,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { uniformTypeDescriptor } from '@kit.ArkData';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const APP_TAG = "Msc_Demo"
+const APP_TAG = 'Msc_Demo'
 const DOMAIN = 0x0001
 
 @Entry
@@ -250,7 +260,7 @@ struct Index {
   build() {
     Stack() {
       Column() {
-        Button("查询最大时长")
+        Button('查询最大时长')
           .width(200)
           .height(50)
           .onClick(() => {
@@ -258,11 +268,11 @@ struct Index {
               let maxDuration: number =
                 ringtone.getSupportedMaxDuration(ringtone.RingtoneType.MESSAGE,
                   uniformTypeDescriptor.UniformDataType.MP3)
-              hilog.info(DOMAIN, APP_TAG, 'getSupportedMaxDuration: ' + maxDuration);
+              hilog.info(DOMAIN, APP_TAG, `getSupportedMaxDuration: ${maxDuration}`);
             } catch (error) {
               let err: BusinessError = error as BusinessError;
               hilog.error(DOMAIN, APP_TAG,
-                'getSupportedMaxDuration error message: ' + err.message + ', error code: ' + err.code);
+                `getSupportedMaxDuration error message: ${err.message}, error code: ${err.code}`);
             }
           })
       }
@@ -286,6 +296,8 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
  
 拉起设置铃声弹窗，并返回点击的铃声类型，使用Callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Ringtone.Core
  
 **起始版本：** 5.0.0(12)
@@ -296,13 +308,13 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
 | --- | --- | --- | --- |
 | context | common.UIAbilityContext | 是 | UIAbility上下文。 |
 | path | string | 是 | 具有访问权限的文件路径。 |
-| name | string | 是 | 文件名，限制长度1000。 |
+| name | string | 是 | 文件名，限制长度1000字符。 |
 | callback | AsyncCallback&lt;RingtoneType&gt; | 是 | Callback对象。返回用户选择设置的铃声类型。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-error-code)。
+以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -321,7 +333,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { JSON } from '@kit.ArkTS';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const APP_TAG = "Msc_Demo"
+const APP_TAG = 'Msc_Demo'
 const DOMAIN = 0x0001
 
 @Entry
@@ -332,24 +344,24 @@ struct Index {
   build() {
     Stack() {
       Column() {
-        Button("设为铃声OGG格式")
+        Button('设为铃声OGG格式')
           .width(200)
           .height(50)
           .onClick(async () => {
             let audioPath: string = this.context.filesDir + '/test.ogg'
             let splitList = audioPath.split('/')
             let fileName = splitList[splitList.length - 1]
-            hilog.info(DOMAIN, APP_TAG, 'audioPath:' + audioPath)
-            hilog.info(DOMAIN, APP_TAG, 'fileName:' + fileName)
+            hilog.info(DOMAIN, APP_TAG, `audioPath: ${audioPath}`)
+            hilog.info(DOMAIN, APP_TAG, `fileName: ${fileName}`)
 
             try {
               ringtone.startRingtoneSetting(this.context, audioPath, fileName, (err, res) => {
-                hilog.info(DOMAIN, APP_TAG, '返回值：' + JSON.stringify(res))
+                hilog.info(DOMAIN, APP_TAG, `返回值：${JSON.stringify(res)}`)
               })
             } catch (error) {
               let err: BusinessError = error as BusinessError;
               hilog.error(DOMAIN, APP_TAG,
-                'accessSync failed with error message: ' + err.message + ', error code: ' + err.code);
+                `accessSync failed with error message: ${err.message}, error code: ${err.code}`);
             }
           })
       }
@@ -373,6 +385,8 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
  
 拉起设置铃声弹窗，并返回点击的铃声类型，使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力**：SystemCapability.Ringtone.Core
  
 **起始版本：** 5.0.0(12)
@@ -383,7 +397,7 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
 | --- | --- | --- | --- |
 | context | common.UIAbilityContext | 是 | UIAbility上下文。 |
 | path | string | 是 | 具有访问权限的文件路径。 |
-| name | string | 是 | 文件名，限制长度1000。 |
+| name | string | 是 | 文件名，限制长度1000字符。 |
  
  
 **返回值：**
@@ -395,7 +409,7 @@ startRingtoneSetting(context: common.UIAbilityContext, path: string, name: strin
  
 **错误码：**
  
-以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ringtone-error-code)。
+以下错误码的详细介绍请参见铃声服务[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-ringtone)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -416,7 +430,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { JSON } from '@kit.ArkTS';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-const APP_TAG = "Msc_Demo"
+const APP_TAG = 'Msc_Demo'
 const DOMAIN = 0x0001
 
 @Entry
@@ -427,23 +441,23 @@ struct Index {
   build() {
     Stack() {
       Column() {
-        Button("设为铃声OGG格式")
+        Button('设为铃声OGG格式')
           .width(200)
           .height(50)
           .onClick(async () => {
             let audioPath: string = this.context.filesDir + '/test.ogg'
             let splitList = audioPath.split('/')
             let fileName = splitList[splitList.length - 1]
-            hilog.info(DOMAIN, APP_TAG, 'audioPath:' + audioPath)
-            hilog.info(DOMAIN, APP_TAG, 'fileName:' + fileName)
+            hilog.info(DOMAIN, APP_TAG, `audioPath: ${audioPath}`)
+            hilog.info(DOMAIN, APP_TAG, `fileName: ${fileName}`)
             try {
               await ringtone.startRingtoneSetting(this.context, audioPath, fileName).then(res => {
-                hilog.info(DOMAIN, APP_TAG, '返回值：' + JSON.stringify(res))
+                hilog.info(DOMAIN, APP_TAG, `返回值：${JSON.stringify(res)}`)
               })
             } catch (error) {
               let err: BusinessError = error as BusinessError;
               hilog.error(DOMAIN, APP_TAG,
-                'accessSync failed with error message: ' + err.message + ', error code: ' + err.code);
+                `accessSync failed with error message: ${err.message}, error code: ${err.code}`);
             }
           })
       }

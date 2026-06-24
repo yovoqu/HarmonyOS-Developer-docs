@@ -1,6 +1,6 @@
 # path
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-path
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -58,4 +58,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/97/v3/dY2qS2sbRyaWB89c5HbzDQ/zh-cn_image_0000002581436382.png?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=B4ACBF83E96AB9BE197F927137F621A1EAEA6ABEBB9E28B15AC0DD34439F9C5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4c/v3/TZeg5UJ-TuW3VFuIEjqaLw/zh-cn_image_0000002656470307.png?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=498BD5878163E15C372DA0C404D77371D360DFDEF24A781944BD1EB2973831CE)

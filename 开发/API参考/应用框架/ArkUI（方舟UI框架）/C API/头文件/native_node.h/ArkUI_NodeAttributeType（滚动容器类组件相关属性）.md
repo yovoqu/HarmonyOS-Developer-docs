@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（滚动容器类组件相关属性）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-scrollablecontainer
 
@@ -408,7 +408,7 @@ NODE_SCROLL_PAGE = 1002012
 NODE_SCROLL_BY = 1002013
 ```
  
-滑动指定距离。从API version 12开始List/Scroll/WaterFlow组件支持滑动指定距离。
+滑动指定距离。从API version 12开始List/Scroll/WaterFlow组件支持滑动指定距离，从API version 26.0.0开始Grid组件支持滑动指定距离。
  
 作为属性设置方法参数[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
  
@@ -775,6 +775,62 @@ NODE_SCROLL_ENABLE_BOUNCES_ZOOM = 1002026
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 是否支持过缩放回弹效果，0：不支持，1：支持。 |
+ 
+ 
+  
+
+#### NODE_SCROLL_ENABLE_SCROLL_WITH_MOUSE
+
+```text
+NODE_SCROLL_ENABLE_SCROLL_WITH_MOUSE = 1002027
+```
+ 
+设置是否支持鼠标左键按下拖动滚动，支持属性设置，属性重置和属性获取接口。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 是否支持鼠标左键按下拖动滚动，0：不支持鼠标左键按下拖动滚动，1：支持鼠标左键按下拖动滚动。默认值：0。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 是否支持鼠标左键按下拖动滚动，0：不支持鼠标左键按下拖动滚动，1：支持鼠标左键按下拖动滚动。 |
+ 
+ 
+  
+
+#### NODE_SCROLL_AUTO_ADJUST_MARGIN
+
+```text
+NODE_SCROLL_AUTO_ADJUST_MARGIN = 1002028
+```
+ 
+设置滚动条是否自动调整边距以避让组件NODE_PADDING、NODE_SCROLL_CONTENT_START_OFFSET或NODE_SCROLL_CONTENT_END_OFFSET的区域，支持属性设置，属性重置和属性获取接口。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 是否自动调整边距，0：自动调整边距，1：不自动调整边距。默认值：0。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 是否自动调整边距，0：自动调整边距，1：不自动调整边距。 |
  
  
   
@@ -1345,6 +1401,34 @@ NODE_LIST_SUPPORT_EMPTY_BRANCH_IN_LAZY_LOADING = 1003019
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | List组件是否支持空分支。0：不支持，1：支持。 |
+ 
+ 
+  
+
+#### NODE_LIST_BACK_PRESS_BEHAVIOR
+
+```text
+NODE_LIST_BACK_PRESS_BEHAVIOR = 1003020
+```
+ 
+设置List组件的系统返回键行为，支持属性设置，属性重置和属性获取接口。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | 系统返回键生效时是否收起ListItem的划出组件。0：不收起，1：收起。默认值：1 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | 系统返回键生效时是否收起ListItem的划出组件。0：不收起，1：收起。 |
  
  
   
@@ -2102,6 +2186,38 @@ WaterFlow组件的响应式列数布局策略，支持属性设置，属性重�
  
   
 
+#### NODE_WATER_FLOW_SUPPORT_EMPTY_BRANCH_IN_LAZY_LOADING
+
+```text
+NODE_WATER_FLOW_SUPPORT_EMPTY_BRANCH_IN_LAZY_LOADING = 1010014
+```
+ 
+设置当前WaterFlow组件是否支持在LazyForEach或Repeat中使用if/else渲染控制语法生成不包含任何子组件的空分支节点。
+ 
+作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
+ 
+> [!NOTE]
+> 当通过 NODE_WATER_FLOW_SECTION_OPTION 设置了 ArkUI_WaterFlowSectionOption 分组，或通过 NODE_WATER_FLOW_LAYOUT_MODE 设置为 ARKUI_WATER_FLOW_LAYOUT_MODE_SLIDING_WINDOW 布局模式时，设置0或1时空分支后的FlowItem都会显示。
+
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| .value[0].i32 | WaterFlow组件是否支持空分支。0：不支持，1：支持。默认值：0。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| .value[0].i32 | WaterFlow组件是否支持空分支。0：不支持，1：支持。 |
+ 
+ 
+  
+
 #### NODE_GRID_COLUMN_TEMPLATE
 
 ```text
@@ -2259,6 +2375,7 @@ NODE_GRID_CACHED_COUNT = 1013005
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 配合Grid组件适配器使用，设置ArkUI_NodeAdapter的缓存数量。 |
+| .value[1].i32 | 是否显示缓存节点，0：不显示缓存节点，1：显示缓存节点。可选参数，默认值：0。从API version 26.0.0开始支持。 |
  
  
 **返回：**
@@ -2266,6 +2383,7 @@ NODE_GRID_CACHED_COUNT = 1013005
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | Grid组件适配器的缓存数量。 |
+| .value[1].i32 | 是否显示缓存节点，0：不显示，1：显示。从API version 26.0.0开始支持。 |
  
  
   

@@ -1,6 +1,6 @@
 # @ohos.enterprise.deviceControl（设备控制管理）
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-devicecontrol
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -41,7 +41,7 @@ operateDevice(admin: Want, operate: string, addition?: string): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
-| operate | string | 是 | 要执行的操作。 - resetFactory：设备恢复出厂设置。接口调用后，设备将立即恢复出厂设置。恢复完成后，整机设备数据将全部被擦除且无法恢复。企业需要做好应用的安全设计，防止应用被攻击导致企业数据丢失。 - reboot：设备重启。 - shutDown：设备关机。 - lockScreen：设备锁屏。 - lockDevice：设备锁定。该能力使用后设备屏幕无法使用，按键无响应，仅支持锁屏文案定制，不支持在锁屏界面定制交互功能。在开发过程中，下发设备锁定策略前一定要预留逃生通道，并且确保逃生通道正常。建议开发时保留hdc能力与远程通信能力，通过hdc命令或者远程push能力能触发设备解锁定功能。 如果需要实现在屏幕锁定的情况下支持自定义行为的能力，建议使用setAllowedKioskApps接口配置支持Kiosk模式。 - unlockDevice：设备解锁定。 在API version21之前，设备锁定和解锁定仅支持PC/2in1使用。从API version21开始，设备锁定和解锁定支持Phone和Tablet。 |
+| operate | string | 是 | 要执行的操作。 - resetFactory：设备恢复出厂设置。接口调用后，设备将立即恢复出厂设置。恢复完成后，整机设备数据将全部被擦除且无法恢复。企业需要做好应用的安全设计，防止应用被攻击导致企业数据丢失。已经通过setDisallowedPolicy接口禁用了恢复出厂，需要先解除禁用。 - reboot：设备重启。 - shutDown：设备关机。 - lockScreen：设备锁屏。 - lockDevice：设备锁定。该能力使用后设备屏幕无法使用，按键无响应，仅支持锁屏文案定制，不支持在锁屏界面定制交互功能。在开发过程中，下发设备锁定策略前一定要预留逃生通道，并且确保逃生通道正常。建议开发时保留hdc能力与远程通信能力，通过hdc命令或者远程push能力能触发设备解锁定功能。 如果需要实现在屏幕锁定的情况下支持自定义行为的能力，建议使用setAllowedKioskApps接口配置支持Kiosk模式。 - unlockDevice：设备解锁定。 在API version21之前，设备锁定和解锁定仅支持PC/2in1使用。从API version21开始，设备锁定和解锁定支持Phone和Tablet。 |
 | addition | string | 否 | 执行时附加参数。若operate为lockDevice，表示屏幕锁定后展示的描述信息。 |
 
 

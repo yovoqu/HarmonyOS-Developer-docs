@@ -1,6 +1,6 @@
 # cloudStorage (云存储模块)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/cloudfoundation-cloudstorage
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -61,16 +61,19 @@ bucket(name?: string): StorageBucket
  
 **示例：**
  
-```text
+```json
 import { cloudStorage } from '@kit.CloudFoundationKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
 let bucket1: cloudStorage.StorageBucket = cloudStorage.bucket(); // name缺省，将启动异步任务查询云侧默认实例
+hilog.info(0x0000, 'testTag', `Succeeded in creating a bucket, result: ${JSON.stringify(bucket1)}`);
 
 /**
  * 指定云存储实例名称为'mybucket-duaf5'
  * 'mybucket'是创建云存储实例时用户输入的存储实例名称，'duaf5'是创建云存储实例时生成的随机字符串，通过符号'-'连接
  */
 let bucket2: cloudStorage.StorageBucket = cloudStorage.bucket('mybucket-duaf5');
+hilog.info(0x0000, 'testTag', `Succeeded in creating a bucket, result: ${JSON.stringify(bucket2)}`);
 ```
  
   
@@ -126,7 +129,7 @@ uploadFile(context: common.BaseContext, parameters: UploadParams): Promise<reque
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -147,9 +150,9 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 let bucket: cloudStorage.StorageBucket = cloudStorage.bucket();
 
 // ArkUI上下文
-bucket.uploadFile(context, {  // context表示应用上下文
-  localPath: cacheFile,       // 本地文件路径（context.cacheDir目录下的文件路径）
-  cloudPath: path             // 云侧文件路径，支持传入“文件目录/文件名”，或仅传入文件名
+bucket.uploadFile(context, { // context表示应用上下文
+  localPath: cacheFile, // 本地文件路径（context.cacheDir目录下的文件路径）
+  cloudPath: path // 云侧文件路径，支持传入“文件目录/文件名”，或仅传入文件名
 }).then((task: request.agent.Task) => {
   task.on('progress', (progress) => {
     hilog.info(0x0000, 'testTag', `on progress ${JSON.stringify(progress)}`);
@@ -164,7 +167,7 @@ bucket.uploadFile(context, {  // context表示应用上下文
     hilog.info(0x0000, 'testTag', `on response ${JSON.stringify(response)}`);
   });
 
-  // start task
+  // 启动任务
   task.start((err: BusinessError) => {
     if (err) {
       hilog.error(0x0000, 'testTag', `Failed to start a file upload task, code: ${err.code}, message: ${err.message}`);
@@ -208,7 +211,7 @@ uploadFile(context: common.BaseContext, parameters: UploadParams, callback: Asyn
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -229,9 +232,9 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 let bucket: cloudStorage.StorageBucket = cloudStorage.bucket();
 
 // ArkUI上下文
-bucket.uploadFile(context, {  // context表示应用上下文
-  localPath: cacheFile,       // 本地文件路径（context.cacheDir目录下的文件路径）
-  cloudPath: path             // 云侧文件路径，支持传入“文件目录/文件名”，或仅传入文件名
+bucket.uploadFile(context, { // context表示应用上下文
+  localPath: cacheFile, // 本地文件路径（context.cacheDir目录下的文件路径）
+  cloudPath: path // 云侧文件路径，支持传入“文件目录/文件名”，或仅传入文件名
 }, (err: BusinessError, task: request.agent.Task) => {
   if (err) {
     hilog.error(0x0000, 'testTag', `Failed to upload file, code: ${err.code}, message: ${err.message}`);
@@ -250,7 +253,7 @@ bucket.uploadFile(context, {  // context表示应用上下文
     hilog.info(0x0000, 'testTag', `on response ${JSON.stringify(response)}`);
   });
 
-  // start task
+  // 启动任务
   task.start((err: BusinessError) => {
     if (err) {
       hilog.error(0x0000, 'testTag', `Failed to start a file upload task, code: ${err.code}, message: ${err.message}`);
@@ -298,7 +301,7 @@ downloadFile(context: common.BaseContext, parameters: DownloadParams): Promise<r
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -319,9 +322,9 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 let bucket: cloudStorage.StorageBucket = cloudStorage.bucket();
 
 // ArkUI上下文
-bucket.downloadFile(context, {  // context表示应用上下文
-  cloudPath: path,              // 云侧文件路径，支持传入“文件目录/文件名”，或仅传入文件名
-  localPath: cacheFile,         // 保存至本地文件路径（context.cacheDir目录下的文件路径）
+bucket.downloadFile(context, { // context表示应用上下文
+  cloudPath: path, // 云侧文件路径，支持传入“文件目录/文件名”，或仅传入文件名
+  localPath: cacheFile, // 保存至本地文件路径（context.cacheDir目录下的文件路径）
 }).then((task: request.agent.Task) => {
   task.on('progress', (progress) => {
     hilog.info(0x0000, 'testTag', `on progress ${JSON.stringify(progress)}`);
@@ -336,7 +339,7 @@ bucket.downloadFile(context, {  // context表示应用上下文
     hilog.info(0x0000, 'testTag', `on response ${JSON.stringify(response)}`);
   });
 
-  // start task
+  // 启动任务
   task.start((err: BusinessError) => {
     if (err) {
       hilog.error(0x0000, 'testTag',
@@ -381,7 +384,7 @@ downloadFile(context: common.BaseContext, parameters: DownloadParams, callback: 
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -402,9 +405,9 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 let bucket: cloudStorage.StorageBucket = cloudStorage.bucket();
 
 // ArkUI上下文
-bucket.downloadFile(context, {  // context表示应用上下文
-  cloudPath: path,              // 云侧文件路径，支持传入“文件目录/文件名”，或仅传入文件名
-  localPath: cacheFile,         // 保存至本地文件路径（context.cacheDir目录下的文件路径）
+bucket.downloadFile(context, { // context表示应用上下文
+  cloudPath: path, // 云侧文件路径，支持传入“文件目录/文件名”，或仅传入文件名
+  localPath: cacheFile, // 保存至本地文件路径（context.cacheDir目录下的文件路径）
 }, (err: BusinessError, task: request.agent.Task) => {
   if (err) {
     hilog.error(0x0000, 'testTag', `Failed to download file, code: ${err.code}, message: ${err.message}`);
@@ -423,7 +426,7 @@ bucket.downloadFile(context, {  // context表示应用上下文
     hilog.info(0x0000, 'testTag', `on response ${JSON.stringify(response)}`);
   });
 
-  // start task
+  // 启动任务
   task.start((err: BusinessError) => {
     if (err) {
       hilog.error(0x0000, 'testTag',
@@ -471,7 +474,7 @@ getDownloadURL(cloudPath: string): Promise&lt;string&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -524,12 +527,12 @@ getDownloadURL(cloudPath: string, callback: AsyncCallback&lt;string&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | cloudPath | string | 是 | 云侧文件路径。支持传入“文件目录/文件名”（如“image/demo.jpg”），或仅传入文件名。 |
-| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数，返回云侧文件下载地址。 |
+| callback | AsyncCallback&lt;string&gt; | 是 | 回调函数。当获取云侧文件下载地址成功，err为undefined，data为获取到的云侧文件下载地址；否则为错误对象。 |
  
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -595,7 +598,7 @@ deleteFile(cloudPath: string): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -653,7 +656,7 @@ deleteFile(cloudPath: string, callback: AsyncCallback&lt;void&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -720,7 +723,7 @@ list(cloudPath: string, options?: ListOptions): Promise&lt;ListResults&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -786,7 +789,7 @@ list(cloudPath: string, options: ListOptions, callback: AsyncCallback&lt;ListRes
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -861,7 +864,7 @@ getMetadata(cloudPath: string): Promise&lt;Metadata&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -919,7 +922,7 @@ getMetadata(cloudPath: string, callback: AsyncCallback&lt;Metadata&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -986,7 +989,7 @@ setMetadata(cloudPath: string, metadata: MetadataUpdatable): Promise&lt;Metadata
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1050,7 +1053,7 @@ setMetadata(cloudPath: string, metadata: MetadataUpdatable, callback: AsyncCallb
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cloudfoundation)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1153,7 +1156,7 @@ bucket.setMetadata('cloudPath', {
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| maxResults | number | 否 | 是 | 列举文件的最大数量，取值范围1-1000，默认则列举所有文件。 |
+| maxResults | number | 否 | 是 | 列举文件的最大数量，取值范围1-1000，默认则列举所有文件，超出范围则接口报错。 |
 | pageMarker | string | 否 | 是 | 分页标识。默认值为空。 |
  
  

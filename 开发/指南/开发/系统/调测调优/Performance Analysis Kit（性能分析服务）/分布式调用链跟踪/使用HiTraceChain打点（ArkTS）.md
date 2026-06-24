@@ -1,6 +1,6 @@
 # 使用HiTraceChain打点（ArkTS）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hitracechain-guidelines-arkts
 
@@ -46,13 +46,13 @@ HiTraceChain在ArkTS中的使用方法参考以下示例，开发者可参考[�
   导入所需依赖：
 
   
-```text
+```ArkTS
 import { hiTraceChain, hilog } from '@kit.PerformanceAnalysisKit';
 ```
 定义测试方法：
 
   
-```text
+```ArkTS
 function initTraceId() {
   let traceId = hiTraceChain.getId();
   if (!hiTraceChain.isValid(traceId)) {
@@ -101,7 +101,7 @@ function testHiTraceIdPassedManually() {
 添加按钮以触发接口调用：
 
   
-```text
+```ArkTS
 Button("testHiTraceIdPassedAutomatically").backgroundColor('#FFFF00FF')
   .onClick(testHiTraceIdPassedAutomatically)
 

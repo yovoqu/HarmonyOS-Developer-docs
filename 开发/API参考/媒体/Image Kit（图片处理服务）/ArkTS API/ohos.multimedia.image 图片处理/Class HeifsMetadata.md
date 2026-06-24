@@ -1,6 +1,6 @@
 # Class (HeifsMetadata)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-heifsmetadata
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,6 +35,9 @@ import { image } from '@kit.ImageKit';
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | heifsDelayTime | number | 是 | 是 | HEIF序列图片的每帧播放时长。单位为毫秒（ms）。 |
+| heifsCanvasHeight | number | 是 | 是 | HEIF序列图片的画布高度。 单位为像素（px）。 该值为正整数。 起始版本： 26.0.0 |
+| heifsCanvasWidth | number | 是 | 是 | HEIF序列图片的画布宽度。 单位为像素（px）。 该值为正整数。 起始版本： 26.0.0 |
+| heifsUnclampedDelayTime | number | 是 | 是 | HEIF序列图片每帧未钳制的延迟时长。 单位为毫秒（ms）。 该值为正整数。 起始版本： 26.0.0 |
  
  
   
@@ -353,7 +356,7 @@ async function heifsMetadataGetBlob(context: Context) {
   if (metaData != undefined && metaData.heifsMetadata != undefined) {
     let blob = await metaData.heifsMetadata.getBlob();
     if (blob != undefined) {
-      console.info("Succeeding in getting blob.");
+      console.info("Succeeded in getting blob.");
     }
   }
 }

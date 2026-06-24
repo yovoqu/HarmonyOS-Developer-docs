@@ -1,6 +1,6 @@
 # 指定PEM格式字符串数据转换非对称密钥对(ArkTS)
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-convert-string-data-to-asym-key-pair
 
@@ -18,7 +18,7 @@
 
   生成RSA非对称密钥时，默认素数为2，此处省略了参数PRIMES_2。
 2. 调用[AsyKeyGenerator.convertPemKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#convertpemkey12)，传入二进制密钥数据，生成非对称密钥对象（KeyPair）。
-3. 调用[AsyKeyGenerator.getEncodedPem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedpem12)，将非对称密钥对象中的公钥转换成PKCS#1或X.509格式，私钥转换成PKCS#1或PKCS#8格式。
+3. 调用[AsyKeyGenerator.getEncodedPem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#getencodedpem12)，将非对称密钥对象中的公钥转换成PKCS #1或X.509格式，私钥转换成PKCS #1或PKCS #8格式。
 
  - 以Promise方式生成RSA密钥对为例：
 

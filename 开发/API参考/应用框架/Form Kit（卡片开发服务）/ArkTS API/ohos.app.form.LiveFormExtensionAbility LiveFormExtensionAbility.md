@@ -1,6 +1,6 @@
 # @ohos.app.form.LiveFormExtensionAbility (LiveFormExtensionAbility)
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-form-liveformextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -159,7 +159,7 @@ export default class LiveFormExtAbility extends LiveFormExtensionAbility {
 | ConnectivityKit | @ohos.connectedTag (有源标签) @ohos.nfc.cardEmulation (标准NFC-cardEmulation) @ohos.nfc.controller (标准NFC) @ohos.nfc.tag (标准NFC-Tag) nfctech (标准NFC-Tag Nfc 技术) tagSession (标准NFC-Tag TagSession) |
 | ContactsKit | @ohos.contact (联系人) |
 | ArkData | @ohos.data.distributedData (分布式数据管理) @ohos.data.distributedDataObject (分布式数据对象) @ohos.data.distributedKVStore (分布式键值数据库) |
-| MDMKit | @ohos.enterprise.adminManager (admin权限管理) @ohos.enterprise.deviceInfo（设备信息管理） |
+| MDMKit | @ohos.enterprise.adminManager（admin权限管理） @ohos.enterprise.deviceInfo（设备信息管理） |
 | CoreFileKit | @ohos.file.picker (选择器) |
 | MediaLibraryKit | @ohos.file.sendablePhotoAccessHelper (基于Sendable对象的相册管理模块) @ohos.file.AlbumPickerComponent (Album Picker组件) @ohos.file.PhotoPickerComponent (PhotoPicker组件) @ohos.file.RecentPhotoComponent (最近图片组件) @ohos.multimedia.movingphotoview (动态照片) |
 | PerformanceAnalysisKit | @ohos.hidebug (Debug调试) |

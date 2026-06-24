@@ -1,6 +1,6 @@
 # vibrator_type.h
 
-更新时间：2026-03-19 08:47:51
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-vibrator-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-为您提供标准的开放API，用于控制马达振动的启停
+为您提供标准的开放API，用于控制马达振动的启停。
  
 **引用文件：** <sensors/vibrator_type.h>
  
@@ -99,7 +99,7 @@ enum Vibrator_Usage
   
 | 枚举项 | 描述 |
 | --- | --- |
-| VIBRATOR_USAGE_UNKNOWN = 0 | 未知场景 |
+| VIBRATOR_USAGE_UNKNOWN = 0 | 未知场景，最低优先级 |
 | VIBRATOR_USAGE_ALARM = 1 | 报警 |
 | VIBRATOR_USAGE_RING = 2 | 铃声 |
 | VIBRATOR_USAGE_NOTIFICATION = 3 | 通知 |

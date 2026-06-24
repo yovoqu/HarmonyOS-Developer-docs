@@ -1,6 +1,6 @@
 # 自定义组件节点 (FrameNode)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-user-defined-arktsnode-framenode
 
@@ -815,7 +815,7 @@ FrameNode提供了查询节点相对窗口、父组件以及屏幕位置偏移�
 [getPositionToWindow](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontowindow12)，[getPositionToParent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontoparent12)，[getPositionToScreen](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-arkui-framenode#getpositiontoscreen12)三个接口获取到的位置信息关系如下图所示：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6c/v3/bVjAyGgYSu6b_4Nq4dKQrw/zh-cn_image_0000002581434072.png?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=C6490D7679F22E28218C84ADBBEAD28F4AF9B4355F99E1AEA2D68A4F7749D90D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c1/v3/XUBpVRV2RY-19kTi-iqtzg/zh-cn_image_0000002656347939.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=6DF66A324D69CA3EEA7239D4FE8EBB0FD0CF1BCE5432A0DB4F740FF369D169AC)
 
 
 ```ArkTS
@@ -2103,7 +2103,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/65/v3/DizybXBQQsurkpygmEnDkg/zh-cn_image_0000002611833901.png?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=10D82EBFD66AF310FE2C790B706C0FC223726E35E11D3AD766E53C6D4066457C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/dfc6o7AjQHmLGBflR7x7vg/zh-cn_image_0000002626228524.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=EDECD62BE160E4432E7B87755BAA1223EE7EC4984F58732D275F3732F38689DB)
 
 
 
@@ -2207,7 +2207,7 @@ struct ListNodeTest {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/74/v3/7RbU7430SQSXYdd0QmQUew/zh-cn_image_0000002581274154.png?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=84A69DC2E22708BBD9892E310D9353842F9B9AA6D907972CAA0418877423FD3E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0/v3/po0YSRQJT-2y_Bj8iQzTjw/zh-cn_image_0000002626068616.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=8DEBDE4CCCD1707FA8EE36CAE185508E776E61772B9F3C404D6BA9F3669235BE)
 
 
 
@@ -2282,4 +2282,4 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b4/v3/YocV-qwtQDGdfLuPgRqP8g/zh-cn_image_0000002611754009.png?HW-CC-KV=V1&HW-CC-Date=20260528T030443Z&HW-CC-Expire=86400&HW-CC-Sign=93135B10C155CF2A56CE7E563DBCA12C0D5E9113E43177F67C42499BC4B96116)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/49/v3/uSiyKo2TSU6pdlZwd1Q0IQ/zh-cn_image_0000002656467893.png?HW-CC-KV=V1&HW-CC-Date=20260624T020758Z&HW-CC-Expire=86400&HW-CC-Sign=AE360BCE393A10F639F9059E2F992CD88671E585572FE1B87DB2E33513E54415)

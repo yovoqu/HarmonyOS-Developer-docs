@@ -1,11 +1,11 @@
 # pushCommon（推送服务公共信息）
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushcommon
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-本模块提供了推送服务公共信息，包括：绑定账号的类型和场景化消息数据PushPayload、扩展通知数据、扩展通知替换内容、点击事件时可以替换的数据以及应用内通话消息数据。
+本模块定义推送服务相关公共接口与枚举，为账号绑定、消息接收、通知内容替换等核心能力提供支撑。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -34,8 +34,6 @@ import { pushCommon } from '@kit.PushKit';
  
 **系统能力：** SystemCapability.Push.PushService
  
-**设备行为差异：** 对于5.1.0(18)以前版本，该枚举值在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该枚举值在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该枚举值在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
- 
 **起始版本：** 4.0.0(10)
   
 | 名称 | 值 | 说明 |
@@ -50,74 +48,92 @@ import { pushCommon } from '@kit.PushKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-应用可以通过[receiveMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice#pushservicereceivemessage)()获取场景化消息数据的参数定义。
+PushPayload是推送服务向应用传递数据的核心接口，开发者可以通过[receiveMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-pushservice#pushservicereceivemessage)()接收通知、语音播报等类型消息的数据。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
  
-**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于5.1.1(19)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
- 
 **起始版本：** 4.0.0(10)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | string | 否 | 否 | 传递给Ability的消息类型，取值范围： 'IM'：语音播报消息。 'VoIP'：应用内通话消息。 'BACKGROUND'：后台消息。 'EMERGENCY'：紧急事件消息。 'ALERT'：通知消息。 |
-| data | string | 否 | 否 | 传递给Ability的数据。 type为'IM'时，参见data取值样例（格式化后）。 type为 'VoIP' \| 'BACKGROUND' \| 'EMERGENCY'时，参见data取值样例（格式化后）。 type为 'ALERT'时，无需额外配置data字段： notification完整字段参考AlertPayload 通知消息中Notification结构体。 参见样例。 |
+| type | string | 否 | 否 | 传递给Ability的消息类型，取值范围： 'IM'：语音播报消息 'VoIP'：应用内通话消息 'BACKGROUND'：后台消息 'EMERGENCY'：紧急事件消息（该类型的消息仅对系统应用开放，暂不对外开放申请，开发者无需处理） 'ALERT'：通知消息 |
+| data | string | 否 | 否 | 传递给Ability的数据。详见data取值样例（格式化后）。 |
  
  
   
 
 #### data取值样例
 
+- type为'IM'时，data取值样例（格式化后）如下：
+
+  
 ```json
 {
-    "data": "extraData", // data为Rest API接口payload中携带的extraData
+    "data": "extraData", // 详情参考ExtensionPayload.extraData
     "header": {
         "token": "MA**"
     },
     "messageAction": 0,
-    "notification": {
+    "notification": { // 详情参考ExtensionPayload.notification
         "bigBody": "bigBodyXX",
         "bigTitle": "bigTitleXX",
         "body": "bodyXX",
-        "data": "",
+
         "image": "https://**/image**.png",
         "notifyId": -1,
         "title": "titleXX"
     }
 }
 ```
- 
+
+- type为 'VoIP' 时，data取值样例（格式化后）
+
   
-
-#### 取值样例
-
 ```json
 {
-    "data": "extraData", // data为Rest API接口payload中携带的extraData
+    "data": "extraData", // 详情参考VoIPCallPayload.extraData
     "header": {
         "token": "MA**"
     }
 }
 ```
- 
+
+- type为 'BACKGROUND'时，data取值样例（格式化后）
+
   
-
-#### 样例
-
 ```json
 {
-    "data": "", // 传入空字符串
+    "data": "extraData", // 详情参考BackgroundPayload.extraData
+    "header": {
+        "token": "MA**"
+    }
+}
+```
+
+- type为 'ALERT'时，无需额外配置data字段：
+
+  
+```json
+{
+    "data": "", // data为空字符串
     "header": {
         "token": "MA**"
     },
     "messageAction": 0,
-    "notification": {
-        // 完整字段参考AlertPayload 通知消息中Notification结构体
+    "notification": { // 详情参考AlertPayload.notification
+      "title": "通知标题",
+      "body": "通知内容",
+      "clickAction": {
+        "actionType": 0
+      },
+      "image":"https://lf*******246.png"
     }
 }
 ```
+
+
  
   
 
@@ -125,13 +141,11 @@ import { pushCommon } from '@kit.PushKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-扩展通知数据，继承[PushPayload](#pushpayload)。
+应用进程不在前台时，开发者可以通过[onReceiveMessage](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/push-remote-notification-extension-ability#onreceivemessage)()接收语音播报消息的数据，数据由该接口进行传递，继承自[PushPayload](#pushpayload)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
- 
-**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)~6.0.2(22)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
  
 **起始版本：** 4.1.0(11)
   
@@ -148,24 +162,22 @@ import { pushCommon } from '@kit.PushKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-扩展通知替换内容。
+开发者接收并处理[RemoteNotificationInfo](#remotenotificationinfo)后，通过该接口返回替换后的通知标题、通知内容等属性。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
  
-**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)~6.0.2(22)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
- 
 **起始版本：** 4.1.0(11)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| title | string | 否 | 是 | 扩展通知标题。 说明： title从5.0.0(12)起变更为非必填字段。 |
-| text | string | 否 | 是 | 扩展通知内容。 说明： text从5.0.0(12)起变更为非必填字段。 |
-| overlayIcon | image.PixelMap | 否 | 是 | 扩展通知的叠加图标。 说明： 图片长*宽建议小于128*128像素，若超过49152像素，则图片不展示。 |
-| badgeNumber | number | 否 | 是 | 增加的角标数量，取值范围(0, 100)，在应用的桌面图标上呈现。 |
-| setBadgeNumber | number | 否 | 是 | 设置的角标数量 ，取值范围[0, 100)，在应用的桌面图标上呈现。与badgeNumber同时返回时，优先于badgeNumber。 说明： 起始版本：5.0.0(12)。 |
-| wantAgent | RemoteWantAgent | 否 | 是 | 点击事件时可以替换的数据。 |
+| title | string | 否 | 是 | 扩展通知标题，将作为发布通知时NotificationRequest对象的title。 说明： title从5.0.0(12)起变更为非必填字段。 |
+| text | string | 否 | 是 | 扩展通知内容，将作为发布通知时NotificationRequest对象的text。 说明： text从5.0.0(12)起变更为非必填字段。 |
+| overlayIcon | image.PixelMap | 否 | 是 | 扩展通知的叠加图标，将作为发布通知时NotificationRequest对象的overlayIcon。 说明： 图片长*宽建议小于128*128像素，若超过49152像素，则图片不展示。 |
+| badgeNumber | number | 否 | 是 | 增加的角标数量，取值范围(0, 100)，在应用的桌面图标上呈现。该参数将作为发布通知时NotificationRequest对象的badgeNumber。 |
+| setBadgeNumber | number | 否 | 是 | 设置的角标数量，取值范围[0, 100)，在应用的桌面图标上呈现。与badgeNumber同时返回时，优先于badgeNumber，将作为发布通知时NotificationRequest对象的setBadgeNumber。 说明： 起始版本：5.0.0(12)。 |
+| wantAgent | RemoteWantAgent | 否 | 是 | 点击事件时可以替换的数据，将作为发布通知时NotificationRequest对象的wantAgent。 |
  
  
   
@@ -174,13 +186,11 @@ import { pushCommon } from '@kit.PushKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-点击事件时可以替换的数据。
+点击事件时可以替换的数据。返回[RemoteNotificationContent](#remotenotificationcontent)时，开发者可以通过该接口实现替换后的通知点击行为，例如启动 Ability。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
- 
-**设备行为差异：** 对于5.1.0(18)以前版本，该接口在Phone、Tablet、PC/2in1中可正常使用，在其他设备类型中无效果。对于5.1.0(18)~6.0.2(22)版本，该接口在Phone、Tablet、PC/2in1、Wearable中可正常使用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1、Wearable、TV中均可正常使用。
  
 **起始版本：** 4.1.0(11)
   
@@ -196,13 +206,11 @@ import { pushCommon } from '@kit.PushKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-应用内通话消息数据，继承[PushPayload](#pushpayload)。
+应用内通话消息数据，继承自[PushPayload](#pushpayload)。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Push.PushService
- 
-**设备行为差异：** 对于6.1.0(23)以前版本，该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。对于6.1.0(23)及之后版本，该接口在Phone、Tablet、PC/2in1中可正常调用，在其他设备类型中无效果。
  
 **起始版本：** 4.1.0(11)
   

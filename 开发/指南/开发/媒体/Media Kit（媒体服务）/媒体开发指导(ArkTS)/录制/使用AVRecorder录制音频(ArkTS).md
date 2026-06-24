@@ -1,6 +1,6 @@
 # 使用AVRecorder录制音频(ArkTS)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/using-avrecorder-for-recording
 
@@ -234,7 +234,7 @@ async function audioRecording(context: common.Context): Promise<void> {
   let avConfig: media.AVRecorderConfig = {
     audioSourceType: media.AudioSourceType.AUDIO_SOURCE_TYPE_MIC, // 音频输入源，这里设置为麦克风。
     profile: avProfile,
-    url: 'fd://35', // 参考应用文件访问与管理开发示例新建并读写一个文件。
+    url: '', // 参考应用文件访问与管理开发示例新建并读写一个文件。
   };
 
   // 创建文件以及设置avConfig.url。

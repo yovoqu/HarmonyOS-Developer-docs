@@ -1,6 +1,6 @@
 # OpenGL ES平台
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-fg-mv-gles
 
@@ -37,10 +37,7 @@
 ```json
 {
     "module": {
-        /*
-          其他的配置项
-          ...
-         */
+        // 其他的配置项...
         "metadata": [
             {
                 "name": "GraphicsAccelerateKit_VBMV",

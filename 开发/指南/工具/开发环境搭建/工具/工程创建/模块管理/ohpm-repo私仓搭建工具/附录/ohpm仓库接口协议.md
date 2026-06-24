@@ -1,6 +1,6 @@
 # ohpm仓库接口协议
 
-更新时间：2026-06-10 12:49:31
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-interface-protocol
 
@@ -61,7 +61,14 @@ authorization: NjJmNjFhODI3N2ZlNDUwMzlhYmUwNjQxZjQ3ZTNhZDU=
 | 属性 | 类型 | 必填项 | 描述 |
 | --- | --- | --- | --- |
 | authorization | string | 是 | 填写只读或者读写AccessToken，选填项，当ohpm-repo配置不支持匿名访问时必须填写。 |
-| x-ohpm-metadata-type | string | 否 | 当值为"install+v1"，返回精简元数据。 |
+| x-ohpm-metadata-type | string | 否 | 当值为"install+v1"，返回所有精简元数据。 |
+| x-ohpm-metadata-special-version | string | 否 | ohpm-repo 5.5.1版本新增。 用于返回指定版本的元数据，值支持确定版本号、latest版本号、tag版本号，示例如下。
+```text
+确定版本号： "3.0.0" 
+latest版本号："latest"
+tag版本号："tag:t310"
+```
+ 与x-ohpm-metadata-type一起使用时，返回指定版本的精简元数据。 |
  
  
 **响应失败示例**（以请求一个应用内的HAR包 @test/package1 为例）**：**
@@ -1082,7 +1089,7 @@ body的item是一个json对象，包含十二个字段，描述如下：
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/Qp4XXeJMTOKDdxyankz-1w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260611T074908Z&HW-CC-Expire=86400&HW-CC-Sign=1077D7240AA33F1EB79CC93297D412065EC1CEA149D80EA325592288B1727674)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/eb/v3/3QSpf8JMR9uUU71enJ8qHQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020700Z&HW-CC-Expire=86400&HW-CC-Sign=A1A90B9AFA60D720BA452187B2BBA0DA45C0AC179C048272372B95C4C3B9E40B)
  
 
-由于[流式上传接口](#zh-cn_topic_0000002268583698_section08863329310)在ohpm 5.0.1版本才开始支持，当ohpm调用该接口时，若返回的响应状态码为404时，ohpm客户端会再次调用[上传接口](#zh-cn_topic_0000002268583698_section444511511524)上传。为了保证与ohpm客户端的兼容性，请确保当访问仓库不存在的接口仓库的响应状态码为404。
+由于[流式上传接口](#section08863329310)在ohpm 5.0.1版本才开始支持，当ohpm调用该接口时，若返回的响应状态码为404时，ohpm客户端会再次调用[上传接口](#section444511511524)上传。为了保证与ohpm客户端的兼容性，请确保当访问仓库不存在的接口仓库的响应状态码为404。

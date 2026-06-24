@@ -1,6 +1,6 @@
 # HdsListItem
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hdslistitem
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -20,13 +20,35 @@ import { HdsListItem } from '@kit.UIDesignKit';
  
   
 
-#### 接口
+#### 子组件
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+无
+ 
+  
+
+#### 属性
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+不支持[通用属性](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)。
+ 
+  
+
+#### 事件
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+不支持[通用事件](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events)。
+ 
+  
+
+#### HdsListItem
 
 **支持设备：** Phone | PC/2in1 | Tablet | TV
 
 HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCardOptions, swipeActionOptions?: HdsSwipeActionOptions | SwipeActionOptions, listItemModifier?: ListItemModifier, menuStyle?: MenuStyle, menuBuilder?: CustomBuilder, isSelected?: boolean})
- 
-提供了一个列表组件。
  
 **装饰器类型：** @Component
  
@@ -38,7 +60,7 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
  
 **起始版本：** 6.0.0(20)
   
-| 参数名 | 类型 | 必填 | 装饰器类型 | 说明 |
+| 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
 | customItemBuilder | CustomBuilder | 否 | @BuilderParam | 自定义列表卡片项内容。 |
 | hdsListItemCard | HdsListItemCardOptions | 否 | - | 列表卡片项内容。 |
@@ -71,7 +93,7 @@ HdsListItem({customItemBuilder?: CustomBuilder, hdsListItemCard?: HdsListItemCar
 | --- | --- | --- | --- | --- |
 | icons | Array&lt;SwipeIconConfigurations&gt; | 否 | 是 | 配置除删除按钮之外其他三个按钮样式。 |
 | deleteIconOptions | DeleteIconOptions | 否 | 是 | 配置删除按钮样式。 |
-| fullDeleteOptions | FullDeleteOptions | 否 | 是 | 配置滑动距离超过划出组件大小后的行为。 |
+| fullDeleteOptions | FullDeleteOptions | 否 | 是 | 配置划动距离超过划出组件大小后的行为。 |
 | deleteTriggerType | SwipeDeleteTriggerType | 否 | 是 | 配置横滑删除的触发类型。 默认值：SwipeDeleteTriggerType.NORMAL_TRIGGER。 起始版本： 6.1.0(23) |
 | onStateChange | OnStateChangeCallback | 否 | 是 | 列表滑出状态变化回调。 起始版本： 6.1.0(23) |
  
@@ -266,7 +288,7 @@ type OnStateChangeCallback = (state: SwipeActionState) => void
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | NORMAL_TRIGGER | 0 | 列表横滑删除触发类型：正常触发。 正常触发长横滑删除。 触发阈值：图标宽度+50%剩余list宽度。 |
-| EASY_TRIGGER | 1 | 列表横滑删除触发类型：容易触发。 触发删除需要的滑动距离更短，更容易触发长横滑删除。 触发阈值：90%图标宽度+30%剩余list宽度。 |
+| EASY_TRIGGER | 1 | 列表横滑删除触发类型：容易触发。 触发删除需要的划动距离更短，更容易触发长横滑删除。 触发阈值：90%图标宽度+30%剩余list宽度。 |
 | NO_TRIGGER | 2 | 列表横滑删除触发类型：无法触发。 不响应长横滑删除。 |
  
  
@@ -279,7 +301,7 @@ type OnStateChangeCallback = (state: SwipeActionState) => void
 设置一个带横滑效果的列表：
  
 ```text
-import { promptAction, SymbolGlyphModifier, TextModifier } from '@kit.ArkUI';
+import { SymbolGlyphModifier, TextModifier } from '@kit.ArkUI';
 import { HdsListItem } from '@kit.UIDesignKit';
 
 @Entry
@@ -299,7 +321,7 @@ struct HdsListItemExample {
               textItem: {
                 primaryText: {
                   text: 'Primary Text',
-                  modifier: new TextModifier().fontColor(Color.Orange).fontSize(16),
+                  modifier: new TextModifier().fontColor(Color.Orange).fontSize(16)
                 }
               }
             },
@@ -309,42 +331,42 @@ struct HdsListItemExample {
                   icon: new SymbolGlyphModifier($r('sys.symbol.share')).fontColor([Color.Red]).fontSize(16),
                   backgroundColor: Color.Green,
                   onAction: () => {
-                    promptAction.openToast({ message: '点击share按钮', duration: 100 });
-                  },
+                    console.info('点击share按钮');
+                  }
                 },
                 {
                   icon: new SymbolGlyphModifier($r('sys.symbol.plus_square_on_square')),
                   backgroundColor: Color.Orange,
                   onAction: () => {
-                    promptAction.openToast({ message: '点击copy按钮', duration: 100 });
+                    console.info('点击copy按钮');
                   },
                 },
                 {
                   icon: new SymbolGlyphModifier($r('sys.symbol.plus_square_dashed_on_square'))
-                          .symbolEffect(new BounceSymbolEffect(), true),
+                    .symbolEffect(new BounceSymbolEffect(), true),
                   onAction: () => {
-                    promptAction.openToast({ message: '点击paste按钮', duration: 100 });
-                  },
-                },
+                    console.info('点击paste按钮');
+                  }
+                }
               ],
               deleteIconOptions: {
                 backgroundColor: Color.Red, // 修改背景色
                 iconColor: Color.Gray, // 修改垃圾桶的颜色
                 onAction: () => {
-                  promptAction.openToast({ message: '点击删除按钮', duration: 100 });
-                }, // 点击回调
+                  console.info('点击删除按钮');
+                } // 点击回调
               },
               fullDeleteOptions: {
                 isFullDelete: true, // 划动距离超过划出组件大小后自动触发删除，默认是false
                 onFullDeleteAction: () => {
-                  promptAction.openToast({ message: '触发自动删除', duration: 100 });
+                  console.info('触发自动删除');
                   this.getUIContext()?.animateTo({
                     duration: 350,
                   }, () => {
-                    this.dataSource.deleteItem(item)
+                    this.dataSource.deleteItem(item);
                   });
-                }, // 触发删除时的回调
-              },
+                } // 触发删除时的回调
+              }
             }
           })
         }, (item: Item) => item.data)
@@ -434,7 +456,13 @@ export class LazyDataSource<T> implements IDataSource {
 }
 ```
  
-效果图：
+  
+
+#### 效果展示
+
+**支持设备：** Phone | PC/2in1 | Tablet | TV
+
+执行上述示例中的代码效果如下：
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/af/v3/QwHzwcduSFe0sZ9Z9tjJxQ/zh-cn_image_0000002611836503.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025407Z&HW-CC-Expire=86400&HW-CC-Sign=739BE6C900CD9269A2E17F827EF8C64BAEF97DC593762600AF7E6ACA7A9E7CB3)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ad/v3/ED7C7pTaScCMPu7lug-sqA/zh-cn_image_0000002656470597.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020049Z&HW-CC-Expire=86400&HW-CC-Sign=70E2BD8B7B9A3E2BA1A28F5B68E35042C4CF167AFA02F3588F5DC3B79C659448)

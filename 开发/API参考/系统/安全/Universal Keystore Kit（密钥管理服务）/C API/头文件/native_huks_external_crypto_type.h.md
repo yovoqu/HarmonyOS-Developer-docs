@@ -1,13 +1,13 @@
 # native_huks_external_crypto_type.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-huks-external-crypto-type-h
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 #### 概述
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 定义面向外部密钥管理扩展的结构体与枚举类型。
  
@@ -25,13 +25,13 @@
 
 #### 汇总
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
   
 
 #### 结构体
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -43,7 +43,7 @@
 
 #### 枚举
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | typedef关键字 | 描述 |
 | --- | --- | --- |
@@ -54,7 +54,7 @@
 
 #### 宏定义
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -66,13 +66,13 @@
 
 #### 枚举类型说明
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
   
 
 #### OH_Huks_ExternalCryptoTag
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum OH_Huks_ExternalCryptoTag
@@ -98,7 +98,7 @@ enum OH_Huks_ExternalCryptoTag
 
 #### OH_Huks_ExternalPinAuthState
 
-**支持设备：** PC/2in1 | Tablet
+**支持设备：** Phone | PC/2in1 | Tablet
 
 ```text
 enum OH_Huks_ExternalPinAuthState

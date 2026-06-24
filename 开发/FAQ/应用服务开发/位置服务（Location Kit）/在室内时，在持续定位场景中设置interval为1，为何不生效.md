@@ -1,6 +1,6 @@
 # 在室内时，在持续定位场景中设置interval为1，为何不生效
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-location-kit-3
 

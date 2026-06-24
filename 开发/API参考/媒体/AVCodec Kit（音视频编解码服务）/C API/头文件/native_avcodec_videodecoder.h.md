@@ -1,6 +1,6 @@
 # native_avcodec_videodecoder.h
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-avcodec-videodecoder-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -23,14 +23,40 @@
 
 **相关示例：** [AVCodec](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/BasicFeature/Media/AVCodec)
 
-接口在每个版本的支持情况以及在解码过程中可以调用的情况，如下图所示：
-
-
-![](assets/native_avcodec_videodecoder.h/file-20260514164817660-0.png)
+接口在每个版本的支持情况以及在解码过程中可以调用的情况，如下表所示：
 
 
 
-![](assets/native_avcodec_videodecoder.h/file-20260514164817660-1.png)
+#### 接口状态矩阵
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+下方是不同状态下是否可以调用接口的情况概览，√表示可以调用，×表示不可调用。
+
+| 接口 | Initialized | Configured | Prepared | Flushed | Running | EndOfStream | Error | Released |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| OH_VideoDecoder_CreateByMime9+ | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| OH_VideoDecoder_CreateByName9+ | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| OH_VideoDecoder_RegisterCallback10+ | √ | √ | × | × | × | × | × | × |
+| OH_VideoDecoder_Configure9+ | √ | × | × | × | × | × | × | × |
+| OH_VideoDecoder_Prepare9+ | × | √ | × | × | × | × | × | × |
+| OH_VideoDecoder_SetParameter9+ | × | × | × | √ | √ | √ | × | × |
+| OH_VideoDecoder_SetSurface9+ | × | √ | √ | √ | √ | √ | × | × |
+| OH_VideoDecoder_PushInputBuffer11+ | × | × | × | × | √ | × | × | × |
+| OH_VideoDecoder_RenderOutputBuffer11+ | × | × | × | × | √ | √ | × | × |
+| OH_VideoDecoder_SetDecryptionConfig10+ | √ | √ | × | × | × | × | × | × |
+| OH_VideoDecoder_GetOutputDescription9+ | √ | √ | √ | √ | √ | √ | × | × |
+| OH_VideoDecoder_FreeOutputBuffer11+ | × | × | × | × | √ | √ | × | × |
+| OH_VideoDecoder_RenderOutputBufferAtTime12+ | × | × | × | × | √ | √ | × | × |
+| OH_VideoDecoder_Start9+ | × | × | √ | √ | × | × | × | × |
+| OH_VideoDecoder_Stop9+ | × | × | × | √ | √ | √ | × | × |
+| OH_VideoDecoder_Flush9+ | × | × | × | × | √ | √ | × | × |
+| OH_VideoDecoder_Reset9+ | √ | √ | √ | √ | √ | √ | √ | × |
+| OH_VideoDecoder_Destroy9+ | √ | √ | √ | √ | √ | √ | √ | × |
+| OH_VideoDecoder_QueryInputBuffer20+ | × | × | × | × | √ | × | × | × |
+| OH_VideoDecoder_GetInputBuffer20+ | × | × | × | × | √ | × | × | × |
+| OH_VideoDecoder_QueryOutputBuffer20+ | × | × | × | × | √ | × | × | × |
+| OH_VideoDecoder_GetOutputBuffer20+ | × | × | × | × | √ | × | × | × |
 
 
 

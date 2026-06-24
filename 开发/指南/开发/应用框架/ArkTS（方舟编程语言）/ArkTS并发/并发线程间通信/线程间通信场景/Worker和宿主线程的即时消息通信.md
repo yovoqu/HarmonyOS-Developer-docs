@@ -1,6 +1,6 @@
 # Worker和宿主线程的即时消息通信
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/worker-communicates-with-mainthread
 

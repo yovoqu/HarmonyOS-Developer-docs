@@ -1,6 +1,6 @@
 # 基础自定义弹出框 (CustomDialog)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-custom-dialog
 
@@ -798,4 +798,4 @@ export struct GetDialogStatus {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7a/v3/bnUGAtKSSgSwKS0UvCFQSw/zh-cn_image_0000002611753903.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030441Z&HW-CC-Expire=86400&HW-CC-Sign=4780609D4F3F3DCD65BCF9DEC5090305AA4E58F3B96F581735E0820894679491)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/SkadYO6bS2euBRsTDS9r2Q/zh-cn_image_0000002626228400.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=B93D7E90790D23190220981F2BA6A8F48333D0209325FB2EDD516BE96A6F8B92)

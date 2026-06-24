@@ -1,6 +1,6 @@
 # 常驻任务开发指导 (Worker)
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resident-task-guide
 

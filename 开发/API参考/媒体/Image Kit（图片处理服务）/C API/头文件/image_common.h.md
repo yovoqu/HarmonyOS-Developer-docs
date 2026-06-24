@@ -1,6 +1,6 @@
 # image_common.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-image-common-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -356,6 +356,7 @@ enum Image_ErrorCode
 | IMAGE_UNKNOWN_MIME_TYPE = 7600102 | 未知的MIME类型。 |
 | IMAGE_TOO_LARGE = 7600103 | 过大的数据或图片。 |
 | IMAGE_GET_IMAGE_DATA_FAILED = 7600104 | 获取图像数据失败。 起始版本： 23 |
+| IMAGE_PIXELMAP_RELEASED = 7600105 | PixelMap已被释放。 起始版本： 26.0.0 |
 | IMAGE_DMA_NOT_EXIST = 7600173 | 内存不是DMA内存。 |
 | IMAGE_DMA_OPERATION_FAILED = 7600174 | DMA内存操作失败。 |
 | IMAGE_UNSUPPORTED_OPERATION = 7600201 | 不支持的操作。 |
@@ -370,6 +371,7 @@ enum Image_ErrorCode
 | IMAGE_LOCK_UNLOCK_FAILED = 7600303 | 内存加锁或解锁失败。 起始版本： 15 |
 | IMAGE_INIT_FAILED = 7600304 | 初始化失败。 起始版本： 22 |
 | IMAGE_CREATE_PIXELMAP_FAILED = 7600305 | 创建PixelMap失败。 起始版本： 22 |
+| IMAGE_DATA_CONVERSION_FAILED = 7600306 | 数据转换失败。 起始版本： 26.0.0 |
 | IMAGE_ALLOCATOR_MODE_UNSUPPORTED = 7600501 | 不支持的内存分配器类型。例如，使用共享内存创建hdr图像。 DMA内存支持hdr元数据。 起始版本： 20 |
 | IMAGE_UNKNOWN_ERROR = 7600901 | 未知错误。 |
 | IMAGE_BAD_SOURCE = 7700101 | 解码数据源异常。 |

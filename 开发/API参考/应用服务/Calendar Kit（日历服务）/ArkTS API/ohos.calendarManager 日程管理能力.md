@@ -1,6 +1,6 @@
 # @ohos.calendarManager (日程管理能力)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-calendarmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -695,7 +695,6 @@ getAllCalendars(): Promise<Calendar[]>
 **示例**：
 
 ```json
-import { BusinessError } from '@kit.BasicServicesKit';
 // EntryAbility文件须按照calendarManager.getCalendarManager处示例代码进行配置
 import { calendarMgr } from '../entryability/EntryAbility';
 import { calendarManager } from '@kit.CalendarKit';

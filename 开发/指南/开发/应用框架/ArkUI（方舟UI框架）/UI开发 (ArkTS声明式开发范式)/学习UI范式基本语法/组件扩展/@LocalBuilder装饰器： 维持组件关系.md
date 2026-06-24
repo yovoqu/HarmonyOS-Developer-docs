@@ -1,6 +1,6 @@
 # @LocalBuilder装饰器： 维持组件关系
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-localbuilder
 
@@ -568,7 +568,7 @@ struct Child {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/UjErW3rNTyeOaR0S4mR0Sw/zh-cn_image_0000002611753569.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=33BD021358DBC2B74E39352F9F039AF5E93ECEE4B8884C6C1F5DA36CAF5EA024)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f2/v3/3QymYzw0SfWegbvD5fZE1Q/zh-cn_image_0000002656347455.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=3423C0BD398C8C10A1269FFC5597026BD7A3CDE6B6CEEB796CBBE7044D7253C5)
 
 
 
@@ -612,7 +612,7 @@ struct Page {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/61/v3/g2B2mTBXQgqtw95YbYS2mA/zh-cn_image_0000002581433634.png?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=C7AF6B331B0B4FE912EB70270A0498880F98DDF5EF18C194A4B7E9DE0E32543C)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/aW-_M9hvSuOavdEdZD3tpA/zh-cn_image_0000002626228040.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=6A468F2CE0D912CBB7F49CB41F787D02E5C2ACEF40C7BCE294CB55F0823F4C6F)
 
 
 【正例】
@@ -652,4 +652,4 @@ struct Page {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/77/v3/4F0-Qm7bQRmKifTEFiR8Lw/zh-cn_image_0000002611833463.png?HW-CC-KV=V1&HW-CC-Date=20260528T030435Z&HW-CC-Expire=86400&HW-CC-Sign=ECB025F41395C89068C361DB7D9F1809C90D9615D393F8A1DDAF5851E0E0A0C6)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/0a/v3/IgumrCEpRU--2pEinnN_uw/zh-cn_image_0000002626068132.png?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=537C119AAE675E10242B6DE2DE5D2C68DF7CC42366095867CC21C7E2232257ED)

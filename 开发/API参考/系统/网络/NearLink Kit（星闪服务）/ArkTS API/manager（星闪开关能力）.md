@@ -1,6 +1,6 @@
 # manager（星闪开关能力）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-manager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,6 +28,8 @@ type PairingState = constant.PairingState
  
 表示和远端设备的配对状态，为枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -46,6 +48,8 @@ type PairingState = constant.PairingState
 type ConnectionState = constant.ConnectionState
  
 表示和远端设备的连接状态，为枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
@@ -66,6 +70,8 @@ type AcbState = constant.AcbState
  
 表示和远端设备的逻辑链路连接状态，为枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.1.0(18)
@@ -85,6 +91,8 @@ getState(): NearlinkState
  
 查询星闪开关状态。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -98,7 +106,7 @@ getState(): NearlinkState
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -129,6 +137,8 @@ try {
 isNearLinkSupported(): boolean
  
 查询当前设备是否支持星闪服务。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
@@ -169,6 +179,8 @@ getLocalName(): string
  
 查询本机星闪名称。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -184,7 +196,7 @@ getLocalName(): string
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -218,6 +230,8 @@ getPairedDevices(): Array&lt;string&gt;
  
 获取与当前设备配对的设备列表。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -233,7 +247,7 @@ getPairedDevices(): Array&lt;string&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -271,6 +285,8 @@ on(type: 'stateChange', callback: Callback&lt;NearlinkState&gt;): void
  
 订阅星闪开关状态变化事件。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -285,7 +301,7 @@ on(type: 'stateChange', callback: Callback&lt;NearlinkState&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -298,8 +314,7 @@ on(type: 'stateChange', callback: Callback&lt;NearlinkState&gt;): void
  
 ```text
 import { manager } from '@kit.NearLinkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Callback } from '@kit.BasicServicesKit';
+import { BusinessError, Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<manager.NearlinkState> = (data: manager.NearlinkState) => {
   if (data === manager.NearlinkState.STATE_TURNING_ON) {
@@ -329,6 +344,8 @@ off(type: 'stateChange', callback?: Callback&lt;NearlinkState&gt;): void
  
 取消订阅星闪开关状态变化事件。使用callback异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -343,7 +360,7 @@ off(type: 'stateChange', callback?: Callback&lt;NearlinkState&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -373,7 +390,9 @@ try {
 
 on(type: 'pairingStateChange', callback: Callback&lt;PairingStateParam&gt;): void
  
-订阅配对请求事件。回调函数携带远端设备的随机地址。
+订阅配对请求事件。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
@@ -391,7 +410,7 @@ on(type: 'pairingStateChange', callback: Callback&lt;PairingStateParam&gt;): voi
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -409,7 +428,7 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 let onPairingStateEvent:(data: manager.PairingStateParam) => void = (data: manager.PairingStateParam) => {
   console.info('onPairStateChange addr: ' + data.address + 'state:' + data.state);
-}
+};
 try {
   manager.on('pairingStateChange', onPairingStateEvent);
 } catch (err) {
@@ -425,7 +444,9 @@ try {
 
 off(type: 'pairingStateChange', callback?: Callback&lt;PairingStateParam&gt;): void
  
-取消订阅配对请求事件。
+取消订阅配对请求事件。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
@@ -443,7 +464,7 @@ off(type: 'pairingStateChange', callback?: Callback&lt;PairingStateParam&gt;): v
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -474,7 +495,9 @@ try {
 
 on(type: 'connectionStateChange', callback: Callback&lt;ConnectionStateParam&gt;): void
  
-订阅连接状态变化事件。回调函数携带远端设备的随机地址。
+订阅连接状态变化事件。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
@@ -492,7 +515,7 @@ on(type: 'connectionStateChange', callback: Callback&lt;ConnectionStateParam&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -506,8 +529,7 @@ on(type: 'connectionStateChange', callback: Callback&lt;ConnectionStateParam&gt;
  
 ```json
 import { manager } from '@kit.NearLinkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Callback } from '@kit.BasicServicesKit';
+import { BusinessError, Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<manager.ConnectionStateParam> = (data: manager.ConnectionStateParam) => {
   console.info('data:' + JSON.stringify(data));
@@ -527,7 +549,9 @@ try {
 
 off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionStateParam&gt;): void
  
-取消订阅连接状态变化事件。
+取消订阅连接状态变化事件。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
@@ -545,7 +569,7 @@ off(type: 'connectionStateChange', callback?: Callback&lt;ConnectionStateParam&g
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -576,7 +600,9 @@ try {
 
 on(type: 'acbStateChange', callback: Callback&lt;AcbStateParam&gt;): void
  
-订阅逻辑链路连接状态变化事件。回调函数携带远端设备的随机地址。
+订阅逻辑链路连接状态变化事件。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
@@ -594,7 +620,7 @@ on(type: 'acbStateChange', callback: Callback&lt;AcbStateParam&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -608,8 +634,7 @@ on(type: 'acbStateChange', callback: Callback&lt;AcbStateParam&gt;): void
  
 ```json
 import { manager } from '@kit.NearLinkKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Callback } from '@kit.BasicServicesKit';
+import { BusinessError, Callback } from '@kit.BasicServicesKit';
 
 let callback: Callback<manager.AcbStateParam> = (data: manager.AcbStateParam) => {
   console.info('data:' + JSON.stringify(data));
@@ -629,7 +654,9 @@ try {
 
 off(type: 'acbStateChange', callback?: Callback&lt;AcbStateParam&gt;): void
  
-取消订阅逻辑链路连接状态变化事件。
+取消订阅逻辑链路连接状态变化事件。使用callback异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
@@ -647,7 +674,7 @@ off(type: 'acbStateChange', callback?: Callback&lt;AcbStateParam&gt;): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -678,13 +705,15 @@ try {
 
 订阅的配对状态变化结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 设备地址，表示和该设备的配对状态发生变化。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 设备地址，表示和该设备的配对状态发生变化。地址格式参考：11:22:33:AA:BB:FF。 |
 | preState | PairingState | 否 | 否 | 本次上报之前的配对状态。 |
 | state | PairingState | 否 | 否 | 当前配对状态。 |
 | reason | PairingReason | 否 | 否 | 原因值。 |
@@ -698,13 +727,15 @@ try {
 
 表示订阅的配对请求事件上报结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 设备地址，表示收到该设备的配对请求上报。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 设备地址，表示收到该设备的配对请求上报。地址格式参考：11:22:33:AA:BB:FF。 |
 | passkey | string | 否 | 否 | 表示配对交互的配对码，显示给用户确认。长度固定为6，字符串内容为数字。 |
 | pairingType | PairingType | 否 | 否 | 表示配对类型。 |
  
@@ -717,13 +748,15 @@ try {
 
 订阅的连接状态变化事件上报结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 设备地址，表示和该设备的连接状态发生变化。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 设备地址，表示和该设备的连接状态发生变化。地址格式参考：11:22:33:AA:BB:FF。 |
 | preState | ConnectionState | 否 | 否 | 本次上报之前的连接状态。 |
 | state | ConnectionState | 否 | 否 | 当前连接状态。 |
 | connectionReason | ConnectionReason | 否 | 否 | 原因值。 |
@@ -736,6 +769,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 星闪的开关状态，为枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
@@ -756,6 +791,8 @@ try {
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示星闪配对状态变化结果的原因值，为枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
@@ -779,6 +816,8 @@ try {
 
 星闪配对类型，为枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -798,6 +837,8 @@ try {
 
 星闪连接状态变化结果的原因值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -816,11 +857,13 @@ try {
 
 订阅的逻辑链路连接状态变化事件上报结果。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.1.0(18)
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| address | string | 否 | 否 | 设备地址，表示和该设备的逻辑链路连接状态发生变化。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 否 | 否 | 设备地址，表示和该设备的逻辑链路连接状态发生变化。地址格式参考：11:22:33:AA:BB:FF。 |
 | state | AcbState | 否 | 否 | 当前逻辑链路连接状态。 |

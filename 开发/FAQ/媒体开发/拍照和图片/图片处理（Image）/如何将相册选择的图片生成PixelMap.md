@@ -1,6 +1,6 @@
 # 如何将相册选择的图片生成PixelMap
 
-更新时间：2026-04-21 08:35:01
+更新时间：2026-06-15 10:36:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-image-6
 

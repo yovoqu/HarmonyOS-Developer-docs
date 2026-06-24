@@ -1,6 +1,6 @@
 # native_gcp_api.h
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/pen-headerfile-declare
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -47,7 +47,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| typedef void(* HMS_GCP_OnResult) (void *userData, HMS_GCP_PickedColorInfo colorInfo, const int32_t code) | 此回调用于接收拾取的颜色结果。 |
+| typedef void(* HMS_GCP_OnResult) (void *userData, HMS_GCP_PickedColorInfo colorInfo, const int32_t code) | 当用户完成取色操作后，系统将调用此回调函数，并传入颜色信息和操作结果码。 |
  
  
   

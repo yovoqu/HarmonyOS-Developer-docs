@@ -1,6 +1,6 @@
 # 使用ImageEffect编辑图片
 
-更新时间：2026-04-10 09:55:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/image-effect-guidelines
 
@@ -195,7 +195,7 @@ XComponent({
 // 根据SurfaceId创建NativeWindow，注意创建出来的NativeWindow在使用结束后需要主动调用OH_NativeWindow_DestroyNativeWindow进行释放。
 uint64_t outputSurfaceId;
 std::istrstream iss(outputSurfaceIdStr);
-issue >> outputSurfaceId;
+iss >> outputSurfaceId;
 OHNativeWindow *outputNativeWindow = nullptr;
 int32_t res = OH_NativeWindow_CreateNativeWindowFromSurfaceId(outputSurfaceId, &outputNativeWindow);
 if (res != 0) {
@@ -517,7 +517,7 @@ OH_EffectFilterInfo_GetSupportedBufferTypes(filterInfo, &supportedBufferTypesCnt
 // 获取支持的像素类型信息。
 uint32_t supportedFormatsCnt = 0;
 ImageEffect_Format *formatArray = nullptr;
-OH_EffectFilterInfo_GetSupportedFormats(filterInfo, supportedFormatsCnt, &formatArray);
+OH_EffectFilterInfo_GetSupportedFormats(filterInfo, &supportedFormatsCnt, &formatArray);
 
 // 销毁OH_EffectFilterInfo实例。
 OH_EffectFilterInfo_Release(filterInfo);

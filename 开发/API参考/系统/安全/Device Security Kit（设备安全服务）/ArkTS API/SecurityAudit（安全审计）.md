@@ -1,6 +1,6 @@
 # SecurityAudit（安全审计）
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-securityaudit-api
 **支持设备：** PC/2in1
@@ -26,6 +26,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 
 用于订阅或取消订阅接口的请求参数。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SecurityAudit
  
 **起始版本：** 5.0.0(12)
@@ -42,6 +44,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 **支持设备：** PC/2in1
 
 安全审计数据。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
  
@@ -65,6 +69,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 **支持设备：** PC/2in1
 
 通知类事件枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
  
@@ -108,15 +114,29 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 | NETWORK_INTERCEPTED | 0x03000002 | 网络拦截事件。 起始版本： 6.1.0(23) |
 | WIFI_INTERCEPTED | 0x03000100 | Wi-Fi拦截事件。 起始版本： 6.1.0(23) |
 | PRINT_INTERCEPTED | 0x2E000001 | 打印拦截事件。 起始版本： 6.1.0(23) |
-| CS_VERIFY_NULL | 0x12001081 | 应用代码未签名。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
-| CS_VERIFY_ABNORMAL | 0x12001082 | 应用代码验签异常。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
-| FS_MOUNT_ABNORMAL | 0x1C001102 | 系统目录异常挂载。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
-| DRIVER_CS_ABNORMAL | 0x1C001200 | 驱动代码验签异常。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
-| DRIVER_MMAP_ABNORMAL | 0x1C001201 | 驱动非法映射内核内存。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
-| KERNEL_MEMORY_ABNORMAL | 0x1C001300 | 内核内存异常使用。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
-| PROCESS_DEBUG_ABNORMAL | 0x1C001401 | 进程异常调试。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
-| PROCESS_CRASH_ABNORMAL | 0x1C001402 | 进程异常崩溃。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
-| PROCESS_PRIVILEGE_ESCALATION | 0x1C001403 | 进程提权。 起始版本： 6.1.1(24) 模型约束： 此接口仅可在Stage模型下使用。 |
+| CS_VERIFY_NULL | 0x12001081 | 应用代码未签名。 起始版本： 6.1.1(24) |
+| CS_VERIFY_ABNORMAL | 0x12001082 | 应用代码验签异常。 起始版本： 6.1.1(24) |
+| FS_MOUNT_ABNORMAL | 0x1C001102 | 系统目录异常挂载。 起始版本： 6.1.1(24) |
+| DRIVER_CS_ABNORMAL | 0x1C001200 | 驱动代码验签异常。 起始版本： 6.1.1(24) |
+| DRIVER_MMAP_ABNORMAL | 0x1C001201 | 驱动非法映射内核内存。 起始版本： 6.1.1(24) |
+| KERNEL_MEMORY_ABNORMAL | 0x1C001300 | 内核内存异常使用。 起始版本： 6.1.1(24) |
+| PROCESS_DEBUG_ABNORMAL | 0x1C001401 | 进程异常调试。 起始版本： 6.1.1(24) |
+| PROCESS_CRASH_ABNORMAL | 0x1C001402 | 进程异常崩溃。 起始版本： 6.1.1(24) |
+| PROCESS_PRIVILEGE_ESCALATION | 0x1C001403 | 进程提权。 起始版本： 6.1.1(24) |
+| FILE_SHARE | 0x0F000002 | 文件分享事件。 起始版本： 26.0.0 |
+| DATA_DRAG | 0x0F000003 | 数据拖拽事件。 起始版本： 26.0.0 |
+| DLP_FILE_ACCESS | 0x0F000006 | DLP文件访问。 起始版本： 26.0.0 |
+| FILE_CREATE | 0x1C001104 | 文件创建事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_OPEN | 0x1C001105 | 文件打开事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_CLOSE | 0x1C001106 | 文件关闭事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_DELETE | 0x1C001107 | 文件删除事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_RENAME | 0x1C001108 | 文件重命名事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_COPY | 0x1C001109 | 文件复制事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_SETOWNER | 0x1C00110A | 文件修改所有者事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_SETMODE | 0x1C00110B | 文件修改mode事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_SETEXTATTR | 0x1C00110C | 文件设置扩展属性事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_DELETEEXTATTR | 0x1C00110D | 文件删除扩展属性事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
+| FILE_WRITE | 0x1C00110E | 文件写事件。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
  
  
   
@@ -126,6 +146,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 **支持设备：** PC/2in1
 
 事件过滤类型枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
  
@@ -138,6 +160,7 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 | FILE_PATH_EQUAL | 0x00010000 | 文件路径类型的过滤器类型。 |
 | FILE_PATH_PREFIX | 0x00010001 | 文件路径前缀类型的过滤器类型。 |
 | FILE_PATH_SUFFIX | 0x00010002 | 文件路径后缀类型的过滤器类型。 |
+| FILE_PATH_REGULAR | 0x00010003 | 进程名称后缀的过滤类型。 起始版本： 26.0.0 模型约束： 此接口仅可在Stage模型下使用 |
 | PROCESS_UID_EQUAL | 0x00020000 | 过滤进程的UID类型。 |
 | PROCESS_PID_EQUAL | 0x00020100 | 过滤进程ID类型。 |
 | PROCESS_NAME_EQUAL | 0x00020200 | 筛选进程名称类型。 |
@@ -152,6 +175,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 **支持设备：** PC/2in1
 
 阻断类事件枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Security.SecurityAudit
  
@@ -175,6 +200,8 @@ import { securityAudit } from '@kit.DeviceSecurityKit';
 
 阻断结果的枚举。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SecurityAudit
  
 **起始版本：** 6.0.0(20)
@@ -195,6 +222,8 @@ on(type: 'auditEventOccur', auditEventInfo: [AuditEventInfo](#auditeventinfo), c
  
 订阅安全审计数据。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -212,7 +241,7 @@ on(type: 'auditEventOccur', auditEventInfo: [AuditEventInfo](#auditeventinfo), c
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -259,6 +288,8 @@ off(type: 'auditEventOccur', auditEventInfo: [AuditEventInfo](#auditeventinfo), 
  
 取消订阅安全审计数据。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -276,7 +307,7 @@ off(type: 'auditEventOccur', auditEventInfo: [AuditEventInfo](#auditeventinfo), 
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -313,6 +344,8 @@ try {
 
 用户提供的过滤条件信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SecurityAudit
  
 **起始版本：** 6.0.0(20)
@@ -332,6 +365,8 @@ try {
 
 为通知客户端提供条件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SecurityAudit
  
 **起始版本：** 6.0.0(20)
@@ -350,6 +385,8 @@ subscribe(events: NotifyEvent[]): void
  
 订阅通知事件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限**：ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力**：SystemCapability.Security.SecurityAudit
@@ -365,7 +402,7 @@ subscribe(events: NotifyEvent[]): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -409,6 +446,8 @@ unsubscribe(events: NotifyEvent[]): void
  
 取消订阅通知事件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限**：ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力**：SystemCapability.Security.SecurityAudit
@@ -424,7 +463,7 @@ unsubscribe(events: NotifyEvent[]): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -468,6 +507,8 @@ addFilter(event: NotifyEvent, filter: Filter): void
  
 为通知事件添加过滤条件，符合过滤条件的事件将根据过滤器中的过滤标签决定是否返回给用户。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限**：ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力**：SystemCapability.Security.SecurityAudit
@@ -484,7 +525,7 @@ addFilter(event: NotifyEvent, filter: Filter): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -535,6 +576,8 @@ removeFilter(event: NotifyEvent, filter: Filter): void
  
 删除通知事件的过滤条件，满足该过滤条件的事件将不会再根据过滤器中的过滤标签进行处理。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限**：ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力**：SystemCapability.Security.SecurityAudit
@@ -551,7 +594,7 @@ removeFilter(event: NotifyEvent, filter: Filter): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -601,6 +644,8 @@ newClient(callback: Callback<[AuditEvent](#auditevent)>): Client
  
 创建一个新的通知客户端，该客户端提供的方法可以实现通知类事件的订阅、过滤功能。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -623,7 +668,7 @@ newClient(callback: Callback<[AuditEvent](#auditevent)>): Client
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -668,6 +713,8 @@ deleteClient(client: Client): void
  
 删除通知客户端，用户将无法使用该客户端提供的方法，并会清空客户端记录的订阅与过滤信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -683,7 +730,7 @@ deleteClient(client: Client): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -725,6 +772,8 @@ try {
 
 为阻断类事件客户端提供条件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Security.SecurityAudit
  
 **起始版本：** 6.0.0(20)
@@ -743,6 +792,8 @@ subscribe(events: AuthEvent[]): void
  
 订阅阻断事件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限**：ohos.permission.kernel.AUTH_AUDIT_EVENT
  
 **系统能力**：SystemCapability.Security.SecurityAudit
@@ -758,7 +809,7 @@ subscribe(events: AuthEvent[]): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -804,6 +855,8 @@ unsubscribe(events: AuthEvent[]): void
  
 取消订阅阻断事件。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限**：ohos.permission.kernel.AUTH_AUDIT_EVENT
  
 **系统能力**：SystemCapability.Security.SecurityAudit
@@ -819,7 +872,7 @@ unsubscribe(events: AuthEvent[]): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -871,6 +924,8 @@ addFilter(event: AuthEvent, filter: Filter): void
  
 为阻断事件添加过滤条件，符合过滤条件的事件将根据过滤器中的过滤标签决定是否返回给用户。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限**：ohos.permission.kernel.AUTH_AUDIT_EVENT
  
 **系统能力**：SystemCapability.Security.SecurityAudit
@@ -887,7 +942,7 @@ addFilter(event: AuthEvent, filter: Filter): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -940,6 +995,8 @@ removeFilter(event: AuthEvent, filter: Filter): void
  
 删除阻断事件的过滤条件，满足该过滤条件的事件将不会再根据过滤器中的过滤标签进行处理。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限**：ohos.permission.kernel.AUTH_AUDIT_EVENT
  
 **系统能力**：SystemCapability.Security.SecurityAudit
@@ -956,7 +1013,7 @@ removeFilter(event: AuthEvent, filter: Filter): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1014,6 +1071,8 @@ auth(auditEvent: AuditEvent, authResult: AuthResult): void
  
 设置阻断事件的阻断结果，审计模块会根据阻断结果对事件进行放行或拒绝的处理。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限**：ohos.permission.kernel.AUTH_AUDIT_EVENT
  
 **系统能力**：SystemCapability.Security.SecurityAudit
@@ -1030,7 +1089,7 @@ auth(auditEvent: AuditEvent, authResult: AuthResult): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1077,6 +1136,8 @@ newAuthClient(callback: Callback<[AuditEvent](#auditevent)>): AuthClient
  
 创建一个新的阻断客户端，该客户端提供的方法可以实现阻断类事件的订阅、过滤和阻断功能。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.kernel.AUTH_AUDIT_EVENT
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -1099,7 +1160,7 @@ newAuthClient(callback: Callback<[AuditEvent](#auditevent)>): AuthClient
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1141,6 +1202,8 @@ deleteAuthClient(client: AuthClient): void
  
 删除阻断客户端，用户将无法使用该客户端提供的方法，并会清空客户端记录的订阅与过滤信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.kernel.AUTH_AUDIT_EVENT
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -1156,7 +1219,7 @@ deleteAuthClient(client: AuthClient): void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1202,6 +1265,8 @@ queryAllProcesses(): string;
  
 查询获取所有的应用进程信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -1217,7 +1282,7 @@ queryAllProcesses(): string;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1253,6 +1318,8 @@ queryProcesses(pids: number[]): string;
  
 查询获取输入的PID的应用进程信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.QUERY_AUDIT_EVENT
  
 **系统能力：** SystemCapability.Security.SecurityAudit
@@ -1275,7 +1342,7 @@ queryProcesses(pids: number[]): string;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1337,7 +1404,7 @@ acquireCodeSign(path: string): string
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-securityaudit)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1352,7 +1419,7 @@ acquireCodeSign(path: string): string
 import { securityAudit } from '@kit.DeviceSecurityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
-
+ 
 const TAG = "SecurityAuditJsTest";
 let path = 'test';
 try {
@@ -1362,5 +1429,58 @@ try {
 } catch (err) {
   let e: BusinessError = err as BusinessError;
   hilog.error(0x0000, TAG, 'acquireCodeSign failed: %{public}d %{public}s', e.code, e.message);
+}
+```
+ 
+  
+
+#### acquireAllClientsInfo
+
+**支持设备：** PC/2in1
+
+acquireAllClientsInfo(): string;
+ 
+查询获取全量审计事件通知类客户端信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
+**需要权限：** ohos.permission.QUERY_AUDIT_EVENT
+ 
+**系统能力：** SystemCapability.Security.SecurityAudit
+ 
+**起始版本：** 26.0.0
+ 
+**返回值：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| string | 安全审计通知类客户端信息，内容为json格式字符串。例如： [{"procName": vps, "uid": 1000, "pid": 1000}]。 |
+ 
+ 
+**错误码：**
+ 
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-securityaudit)。
+  
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | check permission fail. |
+| 1012000001 | Internal error. |
+ 
+ 
+**示例：**
+ 
+```text
+import { securityAudit } from '@kit.DeviceSecurityKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+
+const TAG = "SecurityAuditJsTest";
+try {
+  hilog.info(0x0000, TAG, 'acquireAllClientsInfo begin.');
+  const result = securityAudit.acquireAllClientsInfo();
+  hilog.info(0x0000, TAG, 'Succeeded in acquireAllClientsInfo.');
+} catch (err) {
+  let e: BusinessError = err as BusinessError;
+  hilog.error(0x0000, TAG, 'acquireAllClientsInfo failed: %{public}d %{public}s', e.code, e.message);
 }
 ```

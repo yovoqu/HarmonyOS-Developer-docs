@@ -1,6 +1,6 @@
 # 使用AES对称密钥（CCM模式）加解密(C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-aes-sym-encrypt-decrypt-ccm-ndk
 
@@ -43,7 +43,7 @@ target_link_libraries(entry PUBLIC libohcrypto.so)
 6. final输出结果可能为null，访问数据前需先判断结果是否为null。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b0/v3/_Fd8q9TDRieHxxEKPTQAXA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T030308Z&HW-CC-Expire=86400&HW-CC-Sign=4DCCE641EA9447FCD49103661F14FB62FB2C1C8A3363EAF3A8A10743CC77CA2B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a0/v3/6GjmvBS0QM6DRXK1OORckg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020824Z&HW-CC-Expire=86400&HW-CC-Sign=20D12E2BDB6474A7471EA9926461E8637B31AE40A38CDABAA0A239DB86321A13)
  
 
   在CCM模式下，final设置authTag作为解密时的初始化认证信息，需要保存。

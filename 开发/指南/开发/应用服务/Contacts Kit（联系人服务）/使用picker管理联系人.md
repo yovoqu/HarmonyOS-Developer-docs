@@ -1,6 +1,6 @@
 # 使用picker管理联系人
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/contacts-addcontactviaui
 
@@ -18,7 +18,7 @@
 
 调用新建联系人接口，打开新建联系人UI界面，用户可在UI界面中填写并新建联系人。
  
-```json
+```ArkTS
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -42,7 +42,7 @@ struct Index {
             phoneNumbers: [{
               phoneNumber: '138xxxxxx'
             }]
-          }
+          };
           let context = this.getUIContext().getHostContext() as common.UIAbilityContext;
           let promise = contact.addContactViaUI(context, contactInfo);
           promise.then((data) => {
@@ -62,7 +62,7 @@ struct Index {
 
 可以通过拉起picker，将选中的联系人信息更新到现有联系人中。
  
-```json
+```ArkTS
 import { common } from '@kit.AbilityKit';
 import { contact } from '@kit.ContactsKit';
 import { BusinessError } from '@kit.BasicServicesKit';

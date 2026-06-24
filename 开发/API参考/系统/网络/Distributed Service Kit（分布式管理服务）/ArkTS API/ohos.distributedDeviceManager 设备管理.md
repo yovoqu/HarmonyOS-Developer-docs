@@ -1,6 +1,6 @@
 # @ohos.distributedDeviceManager (设备管理)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-distributeddevicemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,6 +40,8 @@ createDeviceManager(bundleName: string): DeviceManager
 创建一个设备管理实例。设备管理实例是分布式设备管理方法的调用入口。用于获取可信设备和本地设备的相关信息。
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 
@@ -90,6 +92,8 @@ releaseDeviceManager(deviceManager: DeviceManager): void
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -132,6 +136,8 @@ try {
 
 **系统能力**：以下各项对应的系统能力均为SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | deviceId | string | 否 | 否 | 设备标识符。实际值为udid-hash与appid和盐值基于sha256方式进行混淆后的值。 |
@@ -150,6 +156,8 @@ try {
 
 **系统能力**：以下各项对应的系统能力均为SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
 | UNKNOWN | 0 | 设备物理上线，此时状态未知，在状态更改为可用之前，分布式业务无法使用。 |
@@ -167,6 +175,8 @@ try {
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 
 
 #### getAvailableDeviceListSync
@@ -180,6 +190,8 @@ getAvailableDeviceListSync(): Array&lt;DeviceBasicInfo&gt;
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **返回值：**
 
@@ -226,6 +238,8 @@ getAvailableDeviceList(callback:AsyncCallback<Array&lt;DeviceBasicInfo&gt;>): vo
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 
@@ -279,6 +293,8 @@ getAvailableDeviceList(): Promise<Array&lt;DeviceBasicInfo&gt;>
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **返回值：**
 
 | 类型 | 说明 |
@@ -323,6 +339,8 @@ getLocalDeviceNetworkId(): string
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **返回值：**
 
@@ -371,6 +389,8 @@ getLocalDeviceName(): string
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **返回值：**
 
 | 类型 | 说明 |
@@ -417,6 +437,8 @@ getLocalDeviceType(): number
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **返回值：**
 
@@ -465,6 +487,8 @@ getLocalDeviceId(): string
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **返回值：**
 
 | 类型 | 说明 |
@@ -511,6 +535,8 @@ getDeviceName(networkId: string): string
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 
@@ -569,6 +595,8 @@ getDeviceType(networkId: string): number
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -625,6 +653,8 @@ startDiscovering(discoverParam: {[key: string]: Object;} , filterOptions?: {[key
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 
@@ -693,6 +723,8 @@ stopDiscovering(): void
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **错误码：**
 
 以下的错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-manager)。
@@ -731,6 +763,8 @@ bindTarget(deviceId: string, bindParam: {[key: string]: Object;} , callback: Asy
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 
@@ -802,6 +836,8 @@ unbindTarget(deviceId: string): void
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -849,6 +885,8 @@ on(type: 'deviceStateChange', callback: Callback<{ action: DeviceStateChange; de
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 
@@ -909,6 +947,8 @@ off(type: 'deviceStateChange', callback?: Callback<{ action: DeviceStateChange; 
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -968,6 +1008,8 @@ on(type: 'discoverSuccess', callback: Callback<{ device: DeviceBasicInfo; }>): v
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -1025,6 +1067,8 @@ off(type: 'discoverSuccess', callback?: Callback<{ device: DeviceBasicInfo; }>):
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 
@@ -1084,6 +1128,8 @@ on(type: 'deviceNameChange', callback: Callback<{ deviceName: string; }>): void
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -1136,6 +1182,8 @@ off(type: 'deviceNameChange', callback?: Callback<{ deviceName: string; }>): voi
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 
@@ -1190,6 +1238,8 @@ on(type: 'discoverFailure', callback: Callback<{ reason: number; }>): void
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -1242,6 +1292,8 @@ off(type: 'discoverFailure', callback?: Callback<{ reason: number; }>): void
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 
@@ -1296,6 +1348,8 @@ on(type: 'serviceDie', callback?: Callback<{}>): void
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
 
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
+
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
@@ -1344,6 +1398,8 @@ off(type: 'serviceDie', callback?: Callback<{}>): void
 **需要权限**：ohos.permission.DISTRIBUTED_DATASYNC
 
 **系统能力**：SystemCapability.DistributedHardware.DeviceManager
+
+**设备行为差异**：该接口在不支持分布式业务的Wearable设备上调用会返回801错误码。
 
 **参数：**
 

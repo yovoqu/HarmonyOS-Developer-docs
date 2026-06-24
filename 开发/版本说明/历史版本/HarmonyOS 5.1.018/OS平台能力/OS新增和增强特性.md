@@ -1,6 +1,6 @@
 # OS新增和增强特性
 
-更新时间：2026-04-30 02:39:31
+更新时间：2026-06-17 06:58:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/os-new-feature-510
 

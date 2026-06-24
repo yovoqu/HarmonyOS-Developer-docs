@@ -1,6 +1,6 @@
 # 点击CodeGenie顶部栏的新建会话、历史记录等快捷按钮后无反应
 
-更新时间：2026-04-02 07:57:02
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-codegenie-2
 

@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（图类组件相关属性）
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-image
 
@@ -437,7 +437,7 @@ NODE_IMAGE_SOURCE_SIZE = 4013
 NODE_IMAGE_IMAGE_MATRIX = 4014
 ```
 
-设置图片的变换矩阵属性。支持属性设置，属性重置和属性获取接口。
+设置图片的变换矩阵属性。支持属性设置，属性重置和属性获取接口。支持使用浮点数实现仿射图像变换。
 
 作为属性设置方法参数、属性获取方法返回值[ArkUI_AttributeItem](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-attributeitem)格式如下。
 

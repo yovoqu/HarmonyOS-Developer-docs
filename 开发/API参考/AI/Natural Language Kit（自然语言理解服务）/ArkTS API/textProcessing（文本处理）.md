@@ -1,6 +1,6 @@
 # textProcessing（文本处理）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-text-processing-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -30,6 +30,8 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -48,6 +50,8 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -64,6 +68,8 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 实体类别的枚举类。
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -91,6 +97,8 @@ import { textProcessing, EntityType } from '@kit.NaturalLanguageKit';
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -113,6 +121,8 @@ getWordSegment(text: string): Promise<Array&lt;WordSegment&gt;>
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -131,7 +141,7 @@ getWordSegment(text: string): Promise<Array&lt;WordSegment&gt;>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-error-code)。
+以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-natural-language)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -194,6 +204,8 @@ getEntity(text: string, entityConfig?: EntityConfig): Promise<Array&lt;Entity&gt
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -213,7 +225,7 @@ getEntity(text: string, entityConfig?: EntityConfig): Promise<Array&lt;Entity&gt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-error-code)。
+以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-natural-language)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -285,6 +297,8 @@ init(): Promise&lt;boolean&gt;
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **返回值：**
@@ -300,7 +314,7 @@ init(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-error-code)。
+以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-natural-language)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -345,6 +359,8 @@ release(): Promise&lt;boolean&gt;
 
 **系统能力：** SystemCapability.AI.NaturalLanguage.TextProcessing
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **返回值：**
@@ -356,7 +372,7 @@ release(): Promise&lt;boolean&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/natural-language-error-code)。
+以下错误码的详细介绍请参见[Natural Language Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-natural-language)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

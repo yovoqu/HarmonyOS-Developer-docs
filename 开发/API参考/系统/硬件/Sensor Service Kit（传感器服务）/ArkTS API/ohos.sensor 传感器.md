@@ -1,6 +1,6 @@
 # @ohos.sensor (传感器)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -22,13 +22,7 @@ import { sensor } from '@kit.SensorServiceKit';
 
 
 
-#### sensor.on
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-
-
-#### ACCELEROMETER9+
+#### sensor.on('SensorId.ACCELEROMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -86,7 +80,7 @@ try {
 
 
 
-#### FUSION_PRESSURE22+
+#### sensor.on('SensorId.FUSION_PRESSURE')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -137,7 +131,7 @@ try {
 
 
 
-#### ACCELEROMETER_UNCALIBRATED9+
+#### sensor.on('SensorId.ACCELEROMETER_UNCALIBRATED')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -196,7 +190,7 @@ try {
 
 
 
-#### AMBIENT_LIGHT9+
+#### sensor.on('SensorId.AMBIENT_LIGHT')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -247,7 +241,7 @@ try {
 
 
 
-#### AMBIENT_TEMPERATURE9+
+#### sensor.on('SensorId.AMBIENT_TEMPERATURE')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -298,7 +292,7 @@ try {
 
 
 
-#### BAROMETER9+
+#### sensor.on('SensorId.BAROMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -349,7 +343,7 @@ try {
 
 
 
-#### GRAVITY9+
+#### sensor.on('SensorId.GRAVITY')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -402,7 +396,7 @@ try {
 
 
 
-#### GYROSCOPE9+
+#### sensor.on('SensorId.GYROSCOPE')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -460,7 +454,7 @@ try {
 
 
 
-#### GYROSCOPE_UNCALIBRATED9+
+#### sensor.on('SensorId.GYROSCOPE_UNCALIBRATED')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -519,7 +513,7 @@ try {
 
 
 
-#### HALL9+
+#### sensor.on('SensorId.HALL')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -570,7 +564,7 @@ try {
 
 
 
-#### HEART_RATE9+
+#### sensor.on('SensorId.HEART_RATE')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -624,7 +618,7 @@ try {
 
 
 
-#### HUMIDITY9+
+#### sensor.on('SensorId.HUMIDITY')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -675,7 +669,7 @@ try {
 
 
 
-#### LINEAR_ACCELEROMETER9+
+#### sensor.on('SensorId.LINEAR_ACCELEROMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -731,7 +725,7 @@ try {
 
 
 
-#### MAGNETIC_FIELD9+
+#### sensor.on('SensorId.MAGNETIC_FIELD')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -784,7 +778,7 @@ try {
 
 
 
-#### MAGNETIC_FIELD_UNCALIBRATED9+
+#### sensor.on('SensorId.MAGNETIC_FIELD_UNCALIBRATED')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -840,7 +834,7 @@ try {
 
 
 
-#### ORIENTATION9+
+#### sensor.on('SensorId.ORIENTATION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -899,7 +893,7 @@ try {
 
 
 
-#### PEDOMETER9+
+#### sensor.on('SensorId.PEDOMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -953,7 +947,7 @@ try {
 
 
 
-#### PEDOMETER_DETECTION9+
+#### sensor.on('SensorId.PEDOMETER_DETECTION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1007,7 +1001,7 @@ try {
 
 
 
-#### PROXIMITY9+
+#### sensor.on('SensorId.PROXIMITY')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1058,7 +1052,7 @@ try {
 
 
 
-#### ROTATION_VECTOR9+
+#### sensor.on('SensorId.ROTATION_VECTOR')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1112,7 +1106,7 @@ try {
 
 
 
-#### SIGNIFICANT_MOTION9+
+#### sensor.on('SensorId.SIGNIFICANT_MOTION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1163,7 +1157,7 @@ try {
 
 
 
-#### WEAR_DETECTION9+
+#### sensor.on('SensorId.WEAR_DETECTION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1177,7 +1171,7 @@ on(type: SensorId.WEAR_DETECTION, callback: Callback&lt;WearDetectionResponse&gt
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | SensorId.WEAR_DETECTION | 是 | 传感器类型，该值固定为SensorId.WEAR_DETECTION。 |
+| type | SensorId | 是 | 传感器类型，该值固定为SensorId.WEAR_DETECTION |
 | callback | Callback&lt;WearDetectionResponse&gt; | 是 | 回调函数，异步上报的传感器数据固定为WearDetectionResponse。 |
 | options | Options | 否 | 可选参数列表，用于设置传感器上报频率，默认值为200000000ns。 |
 
@@ -1214,7 +1208,7 @@ try {
 
 
 
-#### sensorStatusChange19+
+#### sensor.on('sensorStatusChange')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1228,7 +1222,7 @@ on(type: 'sensorStatusChange', callback: Callback&lt;SensorStatusEvent&gt;): voi
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | 'sensorStatusChange' | 是 | 固定传入'sensorStatusChange',状态监听固定参数。 |
+| type | string | 是 | 固定传入'sensorStatusChange',状态监听固定参数。 |
 | callback | Callback&lt;SensorStatusEvent&gt; | 是 | 回调函数，异步上报的传感器事件数据SensorStatusEvent。 |
 
 
@@ -1263,13 +1257,7 @@ try {
 
 
 
-#### sensor.once9+
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-
-
-#### ACCELEROMETER9+
+#### sensor.once('SensorId.ACCELEROMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1321,7 +1309,7 @@ try {
 
 
 
-#### ACCELEROMETER_UNCALIBRATED9+
+#### sensor.once('SensorId.ACCELEROMETER_UNCALIBRATED')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1376,7 +1364,7 @@ try {
 
 
 
-#### AMBIENT_LIGHT9+
+#### sensor.once('SensorId.AMBIENT_LIGHT')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1423,7 +1411,7 @@ try {
 
 
 
-#### AMBIENT_TEMPERATURE9+
+#### sensor.once('SensorId.AMBIENT_TEMPERATURE')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1470,7 +1458,7 @@ try {
 
 
 
-#### BAROMETER9+
+#### sensor.once('SensorId.BAROMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1517,7 +1505,7 @@ try {
 
 
 
-#### GRAVITY9+
+#### sensor.once('SensorId.GRAVITY')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1566,7 +1554,7 @@ try {
 
 
 
-#### GYROSCOPE9+
+#### sensor.once('SensorId.GYROSCOPE')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1618,7 +1606,7 @@ try {
 
 
 
-#### GYROSCOPE_UNCALIBRATED9+
+#### sensor.once('SensorId.GYROSCOPE_UNCALIBRATED')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1673,7 +1661,7 @@ try {
 
 
 
-#### HALL9+
+#### sensor.once('SensorId.HALL')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1720,7 +1708,7 @@ try {
 
 
 
-#### HEART_RATE9+
+#### sensor.once('SensorId.HEART_RATE')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1770,7 +1758,7 @@ try {
 
 
 
-#### HUMIDITY9+
+#### sensor.once('SensorId.HUMIDITY')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1817,7 +1805,7 @@ try {
 
 
 
-#### LINEAR_ACCELEROMETER9+
+#### sensor.once('SensorId.LINEAR_ACCELEROMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1869,7 +1857,7 @@ try {
 
 
 
-#### MAGNETIC_FIELD9+
+#### sensor.once('SensorId.MAGNETIC_FIELD')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1918,7 +1906,7 @@ try {
 
 
 
-#### MAGNETIC_FIELD_UNCALIBRATED9+
+#### sensor.once('SensorId.MAGNETIC_FIELD_UNCALIBRATED')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -1970,7 +1958,7 @@ try {
 
 
 
-#### ORIENTATION9+
+#### sensor.once('SensorId.ORIENTATION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2019,7 +2007,7 @@ try {
 
 
 
-#### PEDOMETER9+
+#### sensor.once('SensorId.PEDOMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2069,7 +2057,7 @@ try {
 
 
 
-#### PEDOMETER_DETECTION9+
+#### sensor.once('SensorId.PEDOMETER_DETECTION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2119,7 +2107,7 @@ try {
 
 
 
-#### PROXIMITY9+
+#### sensor.once('SensorId.PROXIMITY')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2166,7 +2154,7 @@ try {
 
 
 
-#### ROTATION_VECTOR9+
+#### sensor.once('SensorId.ROTATION_VECTOR')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2216,7 +2204,7 @@ try {
 
 
 
-#### SIGNIFICANT_MOTION9+
+#### sensor.once('SensorId.SIGNIFICANT_MOTION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2263,7 +2251,7 @@ try {
 
 
 
-#### WEAR_DETECTION9+
+#### sensor.once('SensorId.WEAR_DETECTION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2277,7 +2265,7 @@ once(type: SensorId.WEAR_DETECTION, callback: Callback&lt;WearDetectionResponse&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | SensorId.WEAR_DETECTION | 是 | 传感器类型，该值固定为SensorId.WEAR_DETECTION。 |
+| type | SensorId | 是 | 传感器类型，该值固定为SensorId.WEAR_DETECTION。 |
 | callback | Callback&lt;WearDetectionResponse&gt; | 是 | 回调函数，异步上报的传感器数据固定为WearDetectionResponse。 |
 
 
@@ -2310,13 +2298,7 @@ try {
 
 
 
-#### sensor.off
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-
-
-#### ACCELEROMETER9+
+#### sensor.off('SensorId.ACCELEROMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2378,7 +2360,7 @@ try {
 
 
 
-#### ACCELEROMETER19+
+#### sensor.off('SensorId.ACCELEROMETER')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2473,7 +2455,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### ACCELEROMETER_UNCALIBRATED9+
+#### sensor.off('SensorId.ACCELEROMETER_UNCALIBRATED')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2533,7 +2515,7 @@ try {
 
 
 
-#### FUSION_PRESSURE22+
+#### sensor.off('SensorId.FUSION_PRESSURE')22+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2624,7 +2606,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### ACCELEROMETER_UNCALIBRATED19+
+#### sensor.off('SensorId.ACCELEROMETER_UNCALIBRATED')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2717,7 +2699,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### AMBIENT_LIGHT9+
+#### sensor.off('SensorId.AMBIENT_LIGHT')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2774,7 +2756,7 @@ try {
 
 
 
-#### AMBIENT_LIGHT19+
+#### sensor.off('SensorId.AMBIENT_LIGHT')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2864,7 +2846,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### AMBIENT_TEMPERATURE9+
+#### sensor.off('SensorId.AMBIENT_TEMPERATURE')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -2921,7 +2903,7 @@ try {
 
 
 
-#### AMBIENT_TEMPERATURE19+
+#### sensor.off('SensorId.AMBIENT_TEMPERATURE')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3011,7 +2993,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### BAROMETER9+
+#### sensor.off('SensorId.BAROMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3068,7 +3050,7 @@ try {
 
 
 
-#### BAROMETER19+
+#### sensor.off('SensorId.BAROMETER')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3158,7 +3140,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### GRAVITY9+
+#### sensor.off('SensorId.GRAVITY')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3215,7 +3197,7 @@ try {
 
 
 
-#### GRAVITY19+
+#### sensor.off('SensorId.GRAVITY')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3305,7 +3287,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### GYROSCOPE9+
+#### sensor.off('SensorId.GYROSCOPE')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3367,7 +3349,7 @@ try {
 
 
 
-#### GYROSCOPE19+
+#### sensor.off('SensorId.GYROSCOPE')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3392,7 +3374,7 @@ off(type: SensorId.GYROSCOPE, sensorInfoParam?: SensorInfoParam, callback?: Call
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[传感器错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-sensor)。错误码和错误信息会以异常的形式抛出，调用接口时需要使用try catch对可能出现的异常进行捕获操作。。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[传感器错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-sensor)。错误码和错误信息会以异常的形式抛出，调用接口时需要使用try catch对可能出现的异常进行捕获操作。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3462,7 +3444,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### GYROSCOPE_UNCALIBRATED9+
+#### sensor.off('SensorId.GYROSCOPE_UNCALIBRATED')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3522,7 +3504,7 @@ try {
 
 
 
-#### GYROSCOPE_UNCALIBRATED19+
+#### sensor.off('SensorId.GYROSCOPE_UNCALIBRATED')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3545,7 +3527,7 @@ off(type: SensorId.GYROSCOPE_UNCALIBRATED, sensorInfoParam?: SensorInfoParam, ca
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[传感器错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-sensor)。错误码和错误信息会以异常的形式抛出，调用接口时需要使用try catch对可能出现的异常进行捕获操作。。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[传感器错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-sensor)。错误码和错误信息会以异常的形式抛出，调用接口时需要使用try catch对可能出现的异常进行捕获操作。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -3615,7 +3597,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### HALL9+
+#### sensor.off('SensorId.HALL')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3672,7 +3654,7 @@ try {
 
 
 
-#### HALL19+
+#### sensor.off('SensorId.HALL')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3762,7 +3744,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### HEART_RATE9+
+#### sensor.off('SensorId.HEART_RATE')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3822,7 +3804,7 @@ try {
 
 
 
-#### HEART_RATE19+
+#### sensor.off('SensorId.HEART_RATE')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3915,7 +3897,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### HUMIDITY9+
+#### sensor.off('SensorId.HUMIDITY')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -3972,7 +3954,7 @@ try {
 
 
 
-#### HUMIDITY19+
+#### sensor.off('SensorId.HUMIDITY')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4062,7 +4044,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### LINEAR_ACCELEROMETER9+
+#### sensor.off('SensorId.LINEAR_ACCELEROMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4122,7 +4104,7 @@ try {
 
 
 
-#### LINEAR_ACCELEROMETER19+
+#### sensor.off('SensorId.LINEAR_ACCELEROMETER')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4215,7 +4197,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### MAGNETIC_FIELD9+
+#### sensor.off('SensorId.MAGNETIC_FIELD')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4272,7 +4254,7 @@ try {
 
 
 
-#### MAGNETIC_FIELD19+
+#### sensor.off('SensorId.MAGNETIC_FIELD')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4362,7 +4344,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### MAGNETIC_FIELD_UNCALIBRATED9+
+#### sensor.off('SensorId.MAGNETIC_FIELD_UNCALIBRATED')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4419,7 +4401,7 @@ try {
 
 
 
-#### MAGNETIC_FIELD_UNCALIBRATED19+
+#### sensor.off('SensorId.MAGNETIC_FIELD_UNCALIBRATED')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4509,7 +4491,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### ORIENTATION9+
+#### sensor.off('SensorId.ORIENTATION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4568,7 +4550,7 @@ try {
 
 
 
-#### ORIENTATION19+
+#### sensor.off('SensorId.ORIENTATION')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4660,7 +4642,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### PEDOMETER9+
+#### sensor.off('SensorId.PEDOMETER')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4720,7 +4702,7 @@ try {
 
 
 
-#### PEDOMETER19+
+#### sensor.off('SensorId.PEDOMETER')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4743,7 +4725,7 @@ off(type: SensorId.PEDOMETER, sensorInfoParam?: SensorInfoParam, callback?: Call
 
 **错误码**：
 
-以下错误码的详细介绍请参见[传感器错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-sensor)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。错误码和错误信息会以异常的形式抛出，调用接口时需要使用try catch对可能出现的异常进行捕获操作。。
+以下错误码的详细介绍请参见[传感器错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-sensor)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。错误码和错误信息会以异常的形式抛出，调用接口时需要使用try catch对可能出现的异常进行捕获操作。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -4813,7 +4795,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### PEDOMETER_DETECTION9+
+#### sensor.off('SensorId.PEDOMETER_DETECTION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4873,7 +4855,7 @@ try {
 
 
 
-#### PEDOMETER_DETECTION19+
+#### sensor.off('SensorId.PEDOMETER_DETECTION')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -4966,7 +4948,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### PROXIMITY9+
+#### sensor.off('SensorId.PROXIMITY')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5023,7 +5005,7 @@ try {
 
 
 
-#### PROXIMITY19+
+#### sensor.off('SensorId.PROXIMITY')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5113,7 +5095,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### ROTATION_VECTOR9+
+#### sensor.off('SensorId.ROTATION_VECTOR')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5170,7 +5152,7 @@ try {
 
 
 
-#### ROTATION_VECTOR19+
+#### sensor.off('SensorId.ROTATION_VECTOR')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5260,7 +5242,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### SIGNIFICANT_MOTION9+
+#### sensor.off('SensorId.SIGNIFICANT_MOTION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5317,7 +5299,7 @@ try {
 
 
 
-#### SIGNIFICANT_MOTION19+
+#### sensor.off('SensorId.SIGNIFICANT_MOTION')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5407,7 +5389,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### WEAR_DETECTION9+
+#### sensor.off('SensorId.WEAR_DETECTION')9+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5421,7 +5403,7 @@ off(type: SensorId.WEAR_DETECTION, callback?: Callback&lt;WearDetectionResponse&
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | SensorId.WEAR_DETECTION | 是 | 传感器类型，该值固定为SensorId.WEAR_DETECTION。 |
+| type | SensorId | 是 | 传感器类型，该值固定为SensorId.WEAR_DETECTION。 |
 | callback | Callback&lt;WearDetectionResponse&gt; | 否 | 需要取消订阅的回调函数，若无此参数，则取消订阅当前类型的所有回调函数。 |
 
 
@@ -5464,7 +5446,7 @@ try {
 
 
 
-#### WEAR_DETECTION19+
+#### sensor.off('SensorId.WEAR_DETECTION')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5554,7 +5536,7 @@ function sensorUnsubscribe(): Ret {
 
 
 
-#### sensorStatusChange19+
+#### sensor.off('sensorStatusChange')19+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -5568,7 +5550,7 @@ off(type: 'sensorStatusChange', callback?: Callback&lt;SensorStatusEvent&gt;): v
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | 'sensorStatusChange' | 是 | 固定传入'sensorStatusChange',状态监听固定参数。 |
+| type | string | 是 | 固定传入'sensorStatusChange',状态监听固定参数。 |
 | callback | Callback&lt;SensorStatusEvent&gt; | 否 | sensor.on传入的回调函数，不传则取消所有监听。 |
 
 
@@ -7134,7 +7116,7 @@ try {
 | PEDOMETER | 266 | 计步传感器。 |
 | HEART_RATE | 278 | 心率传感器。 |
 | WEAR_DETECTION | 280 | 佩戴检测传感器。 |
-| ACCELEROMETER_UNCALIBRATED | 281 | 未校准加速度计传感器。 |
+| ACCELEROMETER_UNCALIBRATED | 281 | 未校准加速度传感器。 |
 | FUSION_PRESSURE22+ | 283 | 融合压力传感器。 仅智能表有该传感器 |
 
 
@@ -7152,8 +7134,8 @@ try {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| deviceId | number | 否 | 是 | 设备ID：默认值为-1，表示本地设备，设备ID需通过getSensorList查询或者监听设备上下线接口sensorStatusChange获取。 元服务API：从API version 19开始，该接口支持在元服务中使用。 |
-| sensorIndex | number | 否 | 是 | 传感器索引：默认值为0，为设备上的默认传感器，其它传感器ID需通过getSensorList查询或者监听设备上下线接口sensorStatusChange获取。 元服务API：从API version 19开始，该接口支持在元服务中使用。 |
+| deviceId | number | 否 | 是 | 设备ID：默认值为-1，表示本地设备，设备ID需通过getSensorList查询或者监听设备上下线接口sensorStatusChange获取。 |
+| sensorIndex | number | 否 | 是 | 传感器索引：默认值为0，为设备上的默认传感器，其它传感器ID需通过getSensorList查询或者监听设备上下线接口sensorStatusChange获取。 |
 
 
 
@@ -7285,7 +7267,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-未校准加速度计传感器数据，继承于[Response](#response)。
+未校准加速度传感器数据，继承于[Response](#response)。
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -7722,13 +7704,7 @@ type SensorFrequency = 'game' | 'ui' | 'normal'
 
 
 
-#### sensor.on(deprecated)
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-
-
-#### ACCELEROMETER(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_ACCELEROMETER')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7737,7 +7713,7 @@ on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback&lt;Accelero
 监听加速度传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.ACCELEROMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.ACCELEROMETER 替代。
 
 
 **需要权限**：ohos.permission.ACCELEROMETER
@@ -7769,7 +7745,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_ACCELEROMETER, (data: sensor.Accelero
 
 
 
-#### LINEAR_ACCELERATION(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7778,7 +7754,7 @@ on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION,callback:Callback&lt;Line
 监听线性加速度传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.LINEAR_ACCELEROMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.LINEAR_ACCELEROMETER 替代。
 
 
 **需要权限**：ohos.permission.ACCELEROMETER
@@ -7796,13 +7772,13 @@ on(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION,callback:Callback&lt;Line
 
 
 
-#### ACCELEROMETER_UNCALIBRATED(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED,callback: Callback&lt;AccelerometerUncalibratedResponse&gt;, options?: Options): void
 
-监听未校准加速度计传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
+监听未校准加速度传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
 > 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.ACCELEROMETER_UNCALIBRATED 9+ 代替。
@@ -7816,8 +7792,8 @@ on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED,callback: Callback
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| type | SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED | 是 | 要订阅的未校准加速度计传感器类型为SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED。 |
-| callback | Callback&lt;AccelerometerUncalibratedResponse&gt; | 是 | 注册未校准加速度计传感器的回调函数，上报的数据类型为AccelerometerUncalibratedResponse。 |
+| type | SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED | 是 | 要订阅的未校准加速度传感器类型为SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED。 |
+| callback | Callback&lt;AccelerometerUncalibratedResponse&gt; | 是 | 注册未校准加速度传感器的回调函数，上报的数据类型为AccelerometerUncalibratedResponse。 |
 | options | Options | 否 | 可选参数列表，用于设置传感器上报频率，默认值为200000000ns。 |
 
 
@@ -7840,7 +7816,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, (data: se
 
 
 
-#### GRAVITY(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_GRAVITY')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7849,7 +7825,7 @@ on(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback&lt;GravityRespons
 监听重力传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.GRAVITY 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.GRAVITY 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -7879,7 +7855,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_GRAVITY, (data: sensor.GravityRespons
 
 
 
-#### GYROSCOPE(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_GYROSCOPE')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7888,7 +7864,7 @@ on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback&lt;GyroscopeRes
 监听陀螺仪传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.GYROSCOPE 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.GYROSCOPE 替代。
 
 
 **需要权限**：ohos.permission.GYROSCOPE
@@ -7920,7 +7896,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_GYROSCOPE, (data: sensor.GyroscopeRes
 
 
 
-#### GYROSCOPE_UNCALIBRATED(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7929,7 +7905,7 @@ on(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED,callback:Callback&lt;G
 监听未校准陀螺仪传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.GYROSCOPE_UNCALIBRATED 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.GYROSCOPE_UNCALIBRATED 替代。
 
 
 **需要权限**：ohos.permission.GYROSCOPE
@@ -7964,7 +7940,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, (data: sensor
 
 
 
-#### SIGNIFICANT_MOTION(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -7973,7 +7949,7 @@ on(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback&lt;Sig
 监听有效运动传感器数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.SIGNIFICANT_MOTION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.SIGNIFICANT_MOTION 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8001,7 +7977,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, (data: sensor.Sig
 
 
 
-#### PEDOMETER_DETECTION(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8010,7 +7986,7 @@ on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback&lt;Pe
 监听计步检测传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.PEDOMETER_DETECTION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.PEDOMETER_DETECTION 替代。
 
 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
@@ -8040,7 +8016,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, (data: sensor.Pe
 
 
 
-#### PEDOMETER(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_PEDOMETER')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8049,7 +8025,7 @@ on(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback&lt;PedometerRes
 监听计步传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.PEDOMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.PEDOMETER 替代。
 
 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
@@ -8079,16 +8055,16 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_PEDOMETER, (data: sensor.PedometerRes
 
 
 
-#### AMBIENT_TEMPERATURE(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE,callback:Callback&lt;AmbientTemperatureResponse&gt;, options?: Options): void
+on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback:Callback&lt;AmbientTemperatureResponse&gt;, options?: Options): void
 
 监听环境温度传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.AMBIENT_TEMPERATURE 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.AMBIENT_TEMPERATURE 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8116,7 +8092,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, (data: sensor.Am
 
 
 
-#### MAGNETIC_FIELD(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8125,7 +8101,7 @@ on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback&lt;Magneti
 监听磁场传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.MAGNETIC_FIELD 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.MAGNETIC_FIELD 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8155,16 +8131,16 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, (data: sensor.Magneti
 
 
 
-#### MAGNETIC_FIELD_UNCALIBRATED(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED,callback: Callback&lt;MagneticFieldUncalibratedResponse&gt;, options?: Options): void
+on(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback&lt;MagneticFieldUncalibratedResponse&gt;, options?: Options): void
 
 监听未校准磁场传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.MAGNETIC_FIELD_UNCALIBRATED 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.MAGNETIC_FIELD_UNCALIBRATED 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8197,7 +8173,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, (data: s
 
 
 
-#### PROXIMITY(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_PROXIMITY')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8206,7 +8182,7 @@ on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback&lt;ProximityRes
 监听接近光传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.PROXIMITY 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.PROXIMITY 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8234,7 +8210,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_PROXIMITY, (data: sensor.ProximityRes
 
 
 
-#### HUMIDITY(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_HUMIDITY')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8243,7 +8219,7 @@ on(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback&lt;HumidityRespo
 监听湿度传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.HUMIDITY 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.HUMIDITY 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8271,7 +8247,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_HUMIDITY, (data: sensor.HumidityRespo
 
 
 
-#### BAROMETER(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_BAROMETER')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8280,7 +8256,7 @@ on(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback&lt;BarometerRes
 监听气压计传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.BAROMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.BAROMETER 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8308,7 +8284,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_BAROMETER, (data: sensor.BarometerRes
 
 
 
-#### HALL(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_HALL')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8317,7 +8293,7 @@ on(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback&lt;HallResponse&gt;,
 监听霍尔传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.HALL 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.HALL 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8345,7 +8321,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_HALL, (data: sensor.HallResponse) => 
 
 
 
-#### AMBIENT_LIGHT(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8354,7 +8330,7 @@ on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback&lt;LightRes
 监听环境光传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.AMBIENT_LIGHT 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.AMBIENT_LIGHT 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8382,7 +8358,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, (data: sensor.LightRes
 
 
 
-#### ORIENTATION(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_ORIENTATION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8391,7 +8367,7 @@ on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback&lt;Orientatio
 监听方向传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.ORIENTATION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.ORIENTATION 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8421,7 +8397,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_ORIENTATION, (data: sensor.Orientatio
 
 
 
-#### HEART_RATE(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_HEART_RATE')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8430,7 +8406,7 @@ on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback&lt;HeartRateRe
 监听心率传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.HEART_RATE 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.HEART_RATE 替代。
 
 
 **需要权限**：ohos.permission.HEALTH_DATA
@@ -8448,16 +8424,16 @@ on(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback&lt;HeartRateRe
 
 
 
-#### ROTATION_VECTOR(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR,callback: Callback&lt;RotationVectorResponse&gt;,options?: Options): void
+on(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback&lt;RotationVectorResponse&gt;,options?: Options): void
 
 监听旋转矢量传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.ROTATION_VECTOR 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.ROTATION_VECTOR 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8488,7 +8464,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, (data: sensor.Rotati
 
 
 
-#### WEAR_DETECTION(deprecated)
+#### sensor.on('SensorType.SENSOR_TYPE_ID_WEAR_DETECTION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8497,7 +8473,7 @@ on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback&lt;WearDet
 监听所佩戴的检测传感器的数据变化。如果多次调用该接口，仅最后一次调用生效。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.WEAR_DETECTION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.on.WEAR_DETECTION 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8525,13 +8501,7 @@ sensor.on(sensor.SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, (data: sensor.WearDet
 
 
 
-#### sensor.once(deprecated)
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-
-
-#### ACCELEROMETER(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_ACCELEROMETER')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8540,7 +8510,7 @@ once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback&lt;Accele
 监听加速度传感器的数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.ACCELEROMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.ACCELEROMETER 替代。
 
 
 **需要权限**：ohos.permission.ACCELEROMETER
@@ -8569,19 +8539,19 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_ACCELEROMETER, (data: sensor.Accele
 
 
 
-#### LINEAR_ACCELERATION(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION,callback:Callback&lt;LinearAccelerometerResponse&gt;): void
+once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback:Callback&lt;LinearAccelerometerResponse&gt;): void
 
 监听线性加速度传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.LINEAR_ACCELEROMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.LINEAR_ACCELEROMETER 替代。
 
 
-**需要权限**：ohos.permission.ACCELERATION
+**需要权限**：ohos.permission.ACCELEROMETER
 
 **系统能力**：SystemCapability.Sensors.Sensor
 
@@ -8595,7 +8565,7 @@ once(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION,callback:Callback&lt;Li
 
 
 
-#### ACCELEROMETER_UNCALIBRATED(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8604,7 +8574,7 @@ once(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED,callback: Callba
 监听未校准加速度传感器的数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.ACCELEROMETER_UNCALIBRATED 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.ACCELEROMETER_UNCALIBRATED 替代。
 
 
 **需要权限**：ohos.permission.ACCELEROMETER
@@ -8636,7 +8606,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, (data: 
 
 
 
-#### GRAVITY(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_GRAVITY')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8645,7 +8615,7 @@ once(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback: Callback&lt;GravityRespo
 监听重力传感器的数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.GRAVITY 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.GRAVITY 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8672,7 +8642,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_GRAVITY, (data: sensor.GravityRespo
 
 
 
-#### GYROSCOPE(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_GYROSCOPE')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8681,7 +8651,7 @@ once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback: Callback&lt;GyroscopeR
 监听陀螺仪传感器的数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.GYROSCOPE 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.GYROSCOPE 替代。
 
 
 **需要权限**：ohos.permission.GYROSCOPE
@@ -8710,7 +8680,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_GYROSCOPE, (data: sensor.GyroscopeR
 
 
 
-#### GYROSCOPE_UNCALIBRATED(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8719,7 +8689,7 @@ once(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED,callback: Callback&l
 监听未校准陀螺仪传感器的数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.GYROSCOPE_UNCALIBRATED 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.GYROSCOPE_UNCALIBRATED >代替。
 
 
 **需要权限**：ohos.permission.GYROSCOPE
@@ -8751,16 +8721,16 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, (data: sens
 
 
 
-#### SIGNIFICANT_MOTION(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-once(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION,callback: Callback&lt;SignificantMotionResponse&gt;): void
+once(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback: Callback&lt;SignificantMotionResponse&gt;): void
 
 监听有效运动传感器的数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.SIGNIFICANT_MOTION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.SIGNIFICANT_MOTION 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8785,16 +8755,16 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, (data: sensor.S
 
 
 
-#### PEDOMETER_DETECTION(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION,callback: Callback&lt;PedometerDetectionResponse&gt;): void
+once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback: Callback&lt;PedometerDetectionResponse&gt;): void
 
 监听计步检测传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.PEDOMETER_DETECTION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.PEDOMETER_DETECTION 替代。
 
 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
@@ -8821,7 +8791,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, (data: sensor.
 
 
 
-#### PEDOMETER(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_PEDOMETER')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8830,7 +8800,7 @@ once(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback: Callback&lt;PedometerR
 监听计步器传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.PEDOMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.PEDOMETER 替代。
 
 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
@@ -8857,16 +8827,16 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_PEDOMETER, (data: sensor.PedometerR
 
 
 
-#### AMBIENT_TEMPERATURE(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE,callback: Callback&lt;AmbientTemperatureResponse&gt;): void
+once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback: Callback&lt;AmbientTemperatureResponse&gt;): void
 
 监听环境温度传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.AMBIENT_TEMPERATURE 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.AMBIENT_TEMPERATURE 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8891,7 +8861,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, (data: sensor.
 
 
 
-#### MAGNETIC_FIELD(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8900,7 +8870,7 @@ once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback: Callback&lt;Magne
 监听磁场传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.MAGNETIC_FIELD 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.MAGNETIC_FIELD 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8927,16 +8897,16 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, (data: sensor.Magne
 
 
 
-#### MAGNETIC_FIELD_UNCALIBRATED(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED,callback: Callback&lt;MagneticFieldUncalibratedResponse&gt;): void
+once(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback: Callback&lt;MagneticFieldUncalibratedResponse&gt;): void
 
 监听未校准磁场传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.MAGNETIC_FIELD_UNCALIBRATED 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.MAGNETIC_FIELD_UNCALIBRATED 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -8966,7 +8936,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, (data:
 
 
 
-#### PROXIMITY(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_PROXIMITY')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -8975,7 +8945,7 @@ once(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback&lt;ProximityR
 监听接近光传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.PROXIMITY 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.PROXIMITY 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9001,7 +8971,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_PROXIMITY, (data: sensor.ProximityR
 
 
 
-#### HUMIDITY(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_HUMIDITY')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9010,7 +8980,7 @@ once(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback: Callback&lt;HumidityRes
 监听湿度传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.HUMIDITY 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.HUMIDITY 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9035,7 +9005,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_HUMIDITY, (data: sensor.HumidityRes
 
 
 
-#### BAROMETER(deprecated)
+#### sensor.once('type: SensorType.SENSOR_TYPE_ID_BAROMETER')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9044,7 +9014,7 @@ once(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback: Callback&lt;BarometerR
 监听气压计传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.BAROMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.BAROMETER 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9069,7 +9039,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_BAROMETER, (data: sensor.BarometerR
 
 
 
-#### HALL(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_HALL')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9078,7 +9048,7 @@ once(type: SensorType.SENSOR_TYPE_ID_HALL, callback: Callback&lt;HallResponse&gt
 监听霍尔传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.HALL 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.HALL 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9103,7 +9073,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_HALL, (data: sensor.HallResponse) =
 
 
 
-#### AMBIENT_LIGHT(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9112,7 +9082,7 @@ once(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback&lt;LightR
 监听环境光传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.AMBIENT_LIGHT 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.AMBIENT_LIGHT 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9137,7 +9107,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, (data: sensor.LightR
 
 
 
-#### ORIENTATION(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_ORIENTATION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9146,7 +9116,7 @@ once(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback&lt;Orientat
 监听方向传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.ORIENTATION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.ORIENTATION 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9173,7 +9143,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_ORIENTATION, (data: sensor.Orientat
 
 
 
-#### ROTATION_VECTOR(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9182,7 +9152,7 @@ once(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback: Callback&lt;Rota
 监听旋转矢量传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.ROTATION_VECTOR 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.ROTATION_VECTOR 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9210,7 +9180,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, (data: sensor.Rota
 
 
 
-#### HEART_RATE(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_HEART_RATE')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9219,7 +9189,7 @@ once(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback: Callback&lt;HeartRate
 监听心率传感器数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.HEART_RATE 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.HEART_RATE 替代。
 
 
 **需要权限**：ohos.permission.HEART_RATE
@@ -9246,7 +9216,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_HEART_RATE, (data: sensor.HeartRate
 
 
 
-#### WEAR_DETECTION(deprecated)
+#### sensor.once('SensorType.SENSOR_TYPE_ID_WEAR_DETECTION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9255,7 +9225,7 @@ once(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback&lt;WearD
 监听所佩戴的检测传感器的数据变化一次。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.WEAR_DETECTION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.once.WEAR_DETECTION 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9280,13 +9250,7 @@ sensor.once(sensor.SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, (data: sensor.WearD
 
 
 
-#### sensor.off(deprecated)
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-
-
-#### ACCELEROMETER(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_ACCELEROMETER')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9295,7 +9259,7 @@ off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback?: Callback&lt;Accele
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.ACCELEROMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.ACCELEROMETER 替代。
 
 
 **需要权限**：ohos.permission.ACCELEROMETER
@@ -9326,7 +9290,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback);
 
 
 
-#### ACCELEROMETER_UNCALIBRATED(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9335,7 +9299,7 @@ off(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback?: Callb
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.ACCELEROMETER_UNCALIBRATED 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.ACCELEROMETER_UNCALIBRATED 替代。
 
 
 **需要权限**：ohos.permission.ACCELEROMETER
@@ -9369,7 +9333,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED, callback
 
 
 
-#### AMBIENT_LIGHT(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9378,7 +9342,7 @@ off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback&lt;LightR
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.AMBIENT_LIGHT 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.AMBIENT_LIGHT 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9405,7 +9369,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback);
 
 
 
-#### AMBIENT_TEMPERATURE(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9414,7 +9378,7 @@ off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback?: Callback&lt;
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.AMBIENT_TEMPERATURE 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.AMBIENT_TEMPERATURE 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9441,7 +9405,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_AMBIENT_TEMPERATURE, callback);
 
 
 
-#### BAROMETER(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_BAROMETER')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9450,7 +9414,7 @@ off(type: SensorType.SENSOR_TYPE_ID_BAROMETER, callback?: Callback&lt;BarometerR
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.BAROMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.BAROMETER 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9477,7 +9441,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_BAROMETER, callback);
 
 
 
-#### GRAVITY(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_GRAVITY')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9486,7 +9450,7 @@ off(type: SensorType.SENSOR_TYPE_ID_GRAVITY, callback?: Callback&lt;GravityRespo
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.GRAVITY 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.GRAVITY 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9515,7 +9479,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_GRAVITY, callback);
 
 
 
-#### GYROSCOPE(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_GYROSCOPE')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9524,7 +9488,7 @@ off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback?: Callback&lt;GyroscopeR
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.GYROSCOPE 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.GYROSCOPE 替代。
 
 
 **需要权限**：ohos.permission.GYROSCOPE
@@ -9555,7 +9519,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_GYROSCOPE, callback);
 
 
 
-#### GYROSCOPE_UNCALIBRATED(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9564,7 +9528,7 @@ off(type: SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback?: Callback&
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.GYROSCOPE_UNCALIBRATED 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.GYROSCOPE_UNCALIBRATED 替代。
 
 
 **需要权限**：ohos.permission.GYROSCOPE
@@ -9595,7 +9559,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_GYROSCOPE_UNCALIBRATED, callback);
 
 
 
-#### HALL(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_HALL')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9604,7 +9568,7 @@ off(type: SensorType.SENSOR_TYPE_ID_HALL, callback?: Callback&lt;HallResponse&gt
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.HALL 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.HALL 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9631,7 +9595,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_HALL, callback);
 
 
 
-#### HEART_RATE(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_HEART_RATE')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9640,7 +9604,7 @@ off(type: SensorType.SENSOR_TYPE_ID_HEART_RATE, callback?: Callback&lt;HeartRate
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.HEART_RATE 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.HEART_RATE 替代。
 
 
 **需要权限**：ohos.permission.HEALTH_DATA
@@ -9669,7 +9633,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_HEART_RATE, callback);
 
 
 
-#### HUMIDITY(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_HUMIDITY')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9678,7 +9642,7 @@ off(type: SensorType.SENSOR_TYPE_ID_HUMIDITY, callback?: Callback&lt;HumidityRes
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.HUMIDITY 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.HUMIDITY 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9705,7 +9669,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_HUMIDITY, callback);
 
 
 
-#### LINEAR_ACCELERATION(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9714,7 +9678,7 @@ off(type: SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback?: Callback&lt;
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.LINEAR_ACCELEROMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.LINEAR_ACCELEROMETER 替代。
 
 
 **需要权限**：ohos.permission.ACCELEROMETER
@@ -9745,7 +9709,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_LINEAR_ACCELERATION, callback);
 
 
 
-#### MAGNETIC_FIELD(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9754,7 +9718,7 @@ off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback?: Callback&lt;Magne
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.MAGNETIC_FIELD 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.MAGNETIC_FIELD 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9783,7 +9747,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD, callback);
 
 
 
-#### MAGNETIC_FIELD_UNCALIBRATED(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9792,7 +9756,7 @@ off(type: SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callback?: Call
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.MAGNETIC_FIELD_UNCALIBRATED 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.MAGNETIC_FIELD_UNCALIBRATED 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9824,7 +9788,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED, callbac
 
 
 
-#### ORIENTATION(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_ORIENTATION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9833,7 +9797,7 @@ off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback&lt;Orientat
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.ORIENTATION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.ORIENTATION 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9862,7 +9826,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_ORIENTATION, callback);
 
 
 
-#### PEDOMETER(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_PEDOMETER')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9871,7 +9835,7 @@ off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER, callback?: Callback&lt;PedometerR
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.PEDOMETER 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.PEDOMETER 替代。
 
 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
@@ -9900,7 +9864,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_PEDOMETER, callback);
 
 
 
-#### PEDOMETER_DETECTION(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9909,7 +9873,7 @@ off(type: SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback?: Callback&lt;
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.PEDOMETER_DETECTION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.PEDOMETER_DETECTION 替代。
 
 
 **需要权限**：ohos.permission.ACTIVITY_MOTION
@@ -9938,7 +9902,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_PEDOMETER_DETECTION, callback);
 
 
 
-#### PROXIMITY(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_PROXIMITY')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9947,7 +9911,7 @@ off(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback?: Callback&lt;ProximityR
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.PROXIMITY 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.PROXIMITY 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -9974,7 +9938,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_PROXIMITY, callback);
 
 
 
-#### ROTATION_VECTOR(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -9983,7 +9947,7 @@ off(type: SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback?: Callback&lt;Rota
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.ROTATION_VECTOR 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.ROTATION_VECTOR 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10013,7 +9977,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_ROTATION_VECTOR, callback);
 
 
 
-#### SIGNIFICANT_MOTION(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10022,7 +9986,7 @@ off(type: SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback?: Callback&lt;S
 取消订阅有效运动传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.SIGNIFICANT_MOTION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.SIGNIFICANT_MOTION 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10049,7 +10013,7 @@ sensor.off(sensor.SensorType.SENSOR_TYPE_ID_SIGNIFICANT_MOTION, callback);
 
 
 
-#### WEAR_DETECTION(deprecated)
+#### sensor.off('SensorType.SENSOR_TYPE_ID_WEAR_DETECTION')(deprecated)
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
@@ -10058,7 +10022,7 @@ off(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback?: Callback&lt;WearD
 取消订阅传感器数据。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.WEAR_DETECTION 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.off.WEAR_DETECTION 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10094,7 +10058,7 @@ transformCoordinateSystem(inRotationVector: Array&lt;number&gt;, coordinates: Co
 旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系，使用Callback异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.transformRotationMatrix 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.transformRotationMatrix 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10138,7 +10102,7 @@ transformCoordinateSystem(inRotationVector: Array&lt;number&gt;, coordinates: Co
 旋转提供的旋转矩阵，使其可以以不同的方式表示坐标系，使用Promise异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.transformRotationMatrix 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.transformRotationMatrix 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10186,7 +10150,7 @@ getGeomagneticField(locationOptions: LocationOptions, timeMillis: number, callba
 获取地球上特定位置的地磁场，使用callback异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getGeomagneticInfo 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getGeomagneticInfo 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10229,7 +10193,7 @@ getGeomagneticField(locationOptions: LocationOptions, timeMillis: number): Promi
 获取地球上特定位置的地磁场，使用Promise异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getGeomagneticInfo 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getGeomagneticInfo 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10276,7 +10240,7 @@ getAltitude(seaPressure: number, currentPressure: number, callback: AsyncCallbac
 根据气压值获取设备所在的海拔高度，使用Callback异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getDeviceAltitude 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getDeviceAltitude 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10316,7 +10280,7 @@ getAltitude(seaPressure: number, currentPressure: number): Promise&lt;number&gt;
 根据气压值获取设备所在的海拔高度，使用Promise异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getDeviceAltitude 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getDeviceAltitude 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10361,7 +10325,7 @@ getGeomagneticDip(inclinationMatrix: Array&lt;number&gt;, callback: AsyncCallbac
 根据倾斜矩阵计算地磁倾斜角，使用Callback异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getInclination 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getInclination 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10400,7 +10364,7 @@ getGeomagneticDip(inclinationMatrix: Array&lt;number&gt;): Promise&lt;number&gt;
 根据倾斜矩阵计算地磁倾斜角，使用Promise异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getInclination 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getInclination 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10444,7 +10408,7 @@ getAngleModify(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix: Ar
 获取两个旋转矩阵之间的角度变化，使用Callback异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getAngleVariation 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getAngleVariation 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10487,7 +10451,7 @@ getAngleModify(currentRotationMatrix: Array&lt;number&gt;, preRotationMatrix: Ar
 获取两个旋转矩阵之间的角度变化，使用Promise异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getAngleVariation 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getAngleVariation 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10536,7 +10500,7 @@ createRotationMatrix(rotationVector: Array&lt;number&gt;, callback: AsyncCallbac
 将旋转矢量转换为旋转矩阵，使用Callback异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10578,7 +10542,7 @@ createRotationMatrix(rotationVector: Array&lt;number&gt;): Promise<Array&lt;numb
 将旋转矢量转换为旋转矩阵，使用Promise异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10625,7 +10589,7 @@ createQuaternion(rotationVector: Array&lt;number&gt;, callback: AsyncCallback<Ar
 将旋转矢量转换为四元数，使用Callback异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getQuaternion 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getQuaternion 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10667,7 +10631,7 @@ createQuaternion(rotationVector: Array&lt;number&gt;): Promise<Array&lt;number&g
 将旋转矢量转换为四元数，使用Promise异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getQuaternion 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getQuaternion >代替。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10714,7 +10678,7 @@ getDirection(rotationMatrix: Array&lt;number&gt;, callback: AsyncCallback<Array&
 根据旋转矩阵计算设备的方向，使用Callback异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getOrientation 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getOrientation 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10756,7 +10720,7 @@ getDirection(rotationMatrix: Array&lt;number&gt;): Promise<Array&lt;number&gt;>
 根据旋转矩阵计算设备的方向，使用Promise异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getOrientation 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getOrientation 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10803,7 +10767,7 @@ createRotationMatrix(gravity: Array&lt;number&gt;, geomagnetic: Array&lt;number&
 根据重力矢量和地磁矢量计算旋转矩阵，使用Callback异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10844,7 +10808,7 @@ createRotationMatrix(gravity: Array&lt;number&gt;, geomagnetic: Array&lt;number&
 根据重力矢量和地磁矢量计算旋转矩阵，使用Promise异步方式返回结果。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 9+ 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.getRotationMatrix 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10887,7 +10851,7 @@ promise.then((data: sensor.RotationMatrixResponse) => {
 表示要订阅或取消订阅的传感器类型。
 
 > [!NOTE]
-> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 SensorId 代替。
+> 从API version 8 开始支持，从API version 9 开始废弃，建议使用 sensor.SensorId 替代。
 
 
 **系统能力**：SystemCapability.Sensors.Sensor
@@ -10914,4 +10878,4 @@ promise.then((data: sensor.RotationMatrixResponse) => {
 | SENSOR_TYPE_ID_PEDOMETER | 266 | 计步传感器。 |
 | SENSOR_TYPE_ID_HEART_RATE | 278 | 心率传感器。 |
 | SENSOR_TYPE_ID_WEAR_DETECTION | 280 | 佩戴检测传感器。 |
-| SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED | 281 | 未校准加速度计传感器。 |
+| SENSOR_TYPE_ID_ACCELEROMETER_UNCALIBRATED | 281 | 未校准加速度传感器。 |

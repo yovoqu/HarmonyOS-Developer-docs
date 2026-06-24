@@ -1,6 +1,6 @@
 # div
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-service-widget-container-div
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -162,4 +162,4 @@
   **4*4卡片**
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/85/v3/oieaBw-STmGZkXpgeydUXw/zh-cn_image_0000002581276650.png?HW-CC-KV=V1&HW-CC-Date=20260528T025431Z&HW-CC-Expire=86400&HW-CC-Sign=B7396044D6B58AE3C338DD7C349E9938DB702DF75B5F8E1659B4FCC85ADBDBC7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/25/v3/VC5JovBcRrWqNFFLlWC3ow/zh-cn_image_0000002626231124.png?HW-CC-KV=V1&HW-CC-Date=20260624T015949Z&HW-CC-Expire=86400&HW-CC-Sign=6F89564B9FEEC427193FFDBE995DF66F2DBD085246C23702EEEA8E17ADBF7C77)

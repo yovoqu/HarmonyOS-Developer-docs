@@ -1,6 +1,6 @@
 # SoundPool (音频池)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-multimedia-soundpool
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -353,7 +353,7 @@ function create(context: Context) {
   let soundID: number = 0;
   media.createSoundPool(5, audioRendererInfo, async (error: BusinessError, soundPool_: media.SoundPool) => {
     if (error) {
-     console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+      console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
       return;
     } else {
       soundPool = soundPool_;
@@ -434,7 +434,7 @@ let audioRendererInfo: audio.AudioRendererInfo = {
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
   if (error) {
-   console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
+    console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
     return;
   } else {
     soundPool = soundPool_;
@@ -452,7 +452,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
         console.info('Succeeded in loading soundpool');
         soundID = soundId;
       }, (err: BusinessError) => {
-        console.error(`Failed to load soundpool.  Code: ${err.code}, message: ${err.message}`);
+        console.error(`Failed to load soundpool. Code: ${err.code}, message: ${err.message}`);
       });
     });
   }
@@ -685,7 +685,7 @@ let audioRendererInfo: audio.AudioRendererInfo = {
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
   if (error) {
-    console.error(`Failed to create SoundPool. Code: ${error.code}, message: ${error.message}`);
+    console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
     return;
   } else {
     soundPool = soundPool_;
@@ -765,7 +765,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
     // 先调用play方法给拿到对应的streamID。
     soundPool.stop(streamID, (error: BusinessError) => {
       if (error) {
-        console.error('Failed to stop soundpool Code: ${err.code}, message: ${err.message}');
+        console.error(`Failed to stop soundpool: errCode is ${error.code}, errMessage is ${error.message}`);
       } else {
         console.info('Succeeded in stopping soundpool');
       }
@@ -899,7 +899,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
     // 设置循环2次。
     soundPool.setLoop(streamID, 2, (error: BusinessError) => {
       if (error) {
-        console.error(`Failed to setLoop soundPool. Code: ${error.code}, message: ${error.message}`);
+        console.error(`Failed to setLoop soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
       } else {
         console.info('Succeeded in setLooping soundpool, streamID:' + streamID);
       }
@@ -965,12 +965,12 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
     return;
   } else {
     soundPool = soundPool_;
-    console.info(`Succeeded in creating SoundPool`);
+    console.info(`Succeeded in createSoundPool`);
     let streamID: number = 0;
     // 先通过调用play方法获取到对应的streamID。
     // 设置循环1次。
     soundPool.setLoop(streamID, 1).then(() => {
-      console.info('Succeeded in setting Priority soundpool, streamID:' + streamID);
+      console.info('Succeeded in setLooping soundpool, streamID:' + streamID);
     }).catch((err: BusinessError) => {
       console.error(`Failed to setLoop soundPool. Code: ${err.code}, message: ${err.message}`);
     });
@@ -1037,7 +1037,7 @@ media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: m
       if (error) {
         console.error(`Failed to setPriority soundPool: errCode is ${error.code}, errMessage is ${error.message}`);
       } else {
-        console.info('Succeeded in setPriority soundpool, streamID:' + streamID);
+        console.info('Succeeded in setting Priority soundpool, streamID:' + streamID);
       }
     });
   }
@@ -1097,11 +1097,11 @@ let audioRendererInfo: audio.AudioRendererInfo = {
 }
 media.createSoundPool(5, audioRendererInfo, (error: BusinessError, soundPool_: media.SoundPool) => {
   if (error) {
-    console.error(`Failed to createSoundPool`);
+    console.error(`Failed to createSoundPool. Code: ${error.code}, message: ${error.message}`);
     return;
   } else {
     soundPool = soundPool_;
-    console.info(`Succeeded in createSoundPool`);
+    console.info(`Succeeded in creating SoundPool`);
     let streamID: number = 0;
     // 先调用play方法获取到对应资源的streamID。
     // 给对应的streamID资源设置优先级为1。

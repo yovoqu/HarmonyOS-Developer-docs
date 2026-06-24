@@ -1,6 +1,6 @@
 # 同步任务开发指导 (TaskPool和Worker)
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sync-task-development
 
@@ -163,6 +163,9 @@ workerPort.onmessage = (e : MessageEvents): void => {
       num = handler.syncGet();
       console.info("worker: num is " + num);
       workerPort.postMessage({'message': 'the result of syncGet() is ' + num, 'isTerminate': true});
+      break;
+    default:
+      workerPort.postMessage({ type: 'message', value: 'send message is invalid' });
       break;
   }
 }

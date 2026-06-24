@@ -1,6 +1,6 @@
 # systemShare（分享）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/share-system-share
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -85,7 +85,7 @@ import { systemShare } from '@kit.ShareKit';
 
 分享悬浮窗视图依附锚点，分享面板会根据屏幕大小选择是否在指定的位置显示悬浮窗。
  
-> [!NOTE]
+> [!TIP]
 > 设备屏幕宽度较小时，不会以悬浮形态展示，而是以模态形式/弹窗形式显示。
 
  
@@ -459,9 +459,6 @@ constructor(record: SharedRecord)
 **示例：**
  
 ```text
-import { systemShare } from '@kit.ShareKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-
 let data: systemShare.SharedData = new systemShare.SharedData({
   utd: utd.UniformDataType.PLAIN_TEXT,
   content: 'Hello HarmonyOS'
@@ -504,18 +501,26 @@ addRecord(record: SharedRecord): void
 **示例：**
  
 ```text
-import { systemShare } from '@kit.ShareKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-
-let data: systemShare.SharedData = new systemShare.SharedData({
-  utd: utd.UniformDataType.PLAIN_TEXT,
-  content: 'Hello HarmonyOS'
+let shareData: systemShare.SharedData = new systemShare.SharedData({
+  utd: utd.UniformDataType.IMAGE,
+  // ...
+  title: 'Picture Title',
+  description: 'Picture Description',
+  label: 'Poster'
 });
 
-data.addRecord({
-  utd: utd.UniformDataType.PNG,
-  uri: 'file://.../test.png'
-});
+try {
+  shareData.addRecord({
+    utd: utd.UniformDataType.HYPERLINK,
+    content: 'https://www.vmall.com/index.html?cid=128688',
+    title: 'Huawei Vmall',
+    description: 'Phone',
+    label: 'Huawei Vmall',
+    // ...
+  });
+} catch (error) {
+  hilog.error(DOMAIN, 'testTag', `addRecord error. Code: ${error?.code}, message: ${error?.message}`);
+}
 ```
  
   
@@ -544,18 +549,16 @@ getRecords(): Array&lt;SharedRecord&gt;
 **示例：**
  
 ```text
-import { systemShare } from '@kit.ShareKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-
-let data: systemShare.SharedData = new systemShare.SharedData({
-  utd: utd.UniformDataType.PLAIN_TEXT,
-  content: 'Hello HarmonyOS'
-});
-
-let records: systemShare.SharedRecord[] = data.getRecords();
-records.forEach((record: systemShare.SharedRecord) => {
-  // To do things.
-});
+aboutToAppear(): void {
+  systemShare.getSharedData(this.want).then((data: systemShare.SharedData) => {
+    let records: systemShare.SharedRecord[] = data.getRecords();
+    records.forEach(async (record: systemShare.SharedRecord) => {
+      // ...
+    });
+  }).catch((error: BusinessError) => {
+    hilog.error(DOMAIN, 'testTag', `getSharedData error. Code: ${error?.code}, message: ${error?.message}`);
+  });
+}
 ```
  
   
@@ -611,15 +614,14 @@ constructor(data: SharedData)
 **示例：**
  
 ```text
-import { systemShare } from '@kit.ShareKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-
-let data: systemShare.SharedData = new systemShare.SharedData({
-  utd: utd.UniformDataType.PLAIN_TEXT,
-  content: 'Hello HarmonyOS'
+let shareData: systemShare.SharedData = new systemShare.SharedData({
+  utd: utd.UniformDataType.HYPERLINK,
+  content: 'https://www.vmall.com/index.html?cid=128688',
+  title: 'Huawei Vmall',
+  description: 'Phone',
 });
 
-let controller: systemShare.ShareController = new systemShare.ShareController(data);
+let controller: systemShare.ShareController = new systemShare.ShareController(shareData);
 ```
  
   
@@ -667,35 +669,30 @@ show(context: common.UIAbilityContext, options: ShareControllerOptions): Promise
 **示例：**
  
 ```text
-import { systemShare } from '@kit.ShareKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-import { common } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
-
 @Component
-export struct ShareUtdText {
-  build() {
-  }
+export default struct LinkScenario {
 
-  private share() {
-    // 构造ShareData，需配置一条有效数据信息
+  private async share() {
     let shareData: systemShare.SharedData = new systemShare.SharedData({
-      utd: utd.UniformDataType.TEXT,
-      content: '这是一段文本内容'
+      utd: utd.UniformDataType.HYPERLINK,
+      content: 'https://www.vmall.com/index.html?cid=128688',
+      title: 'Huawei Vmall',
+      description: 'Phone',
     });
-    // 进行分享面板显示
+
     let controller: systemShare.ShareController = new systemShare.ShareController(shareData);
-    let uiContext: UIContext = this.getUIContext();
-    let context: common.UIAbilityContext = uiContext.getHostContext() as common.UIAbilityContext;
+    const uiContext: UIContext = this.getUIContext();
+    const context: common.UIAbilityContext = uiContext.getHostContext() as common.UIAbilityContext;
     controller.show(context, {
       selectionMode: systemShare.SelectionMode.SINGLE,
-      previewMode: systemShare.SharePreviewMode.DETAIL
+      previewMode: systemShare.SharePreviewMode.DEFAULT,
     }).then(() => {
-      console.info('ShareController show success.');
+      hilog.info(DOMAIN, 'testTag', 'ShareController show success.');
     }).catch((error: BusinessError) => {
-      console.error(`ShareController show error. code: ${error.code}, message: ${error.message}`);
+      hilog.error(DOMAIN, 'testTag', `ShareController show error. code: ${error?.code}, message: ${error?.message}`);
     });
   }
+  // ...
 }
 ```
  
@@ -735,22 +732,33 @@ on(event: 'dismiss', callback: () => void): void
 **示例：**
  
 ```text
-import { systemShare } from '@kit.ShareKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
+private async handelShareDismiss(): Promise<void> {
+  const uiContext: UIContext = this.getUIContext();
+  let shareData: systemShare.SharedData = new systemShare.SharedData({
+    utd: utd.UniformDataType.PLAIN_TEXT,
+    content: 'Hello HarmonyOS',
+  });
+  let controller: systemShare.ShareController = new systemShare.ShareController(shareData);
+  const context: common.UIAbilityContext = uiContext.getHostContext() as common.UIAbilityContext;
+  const callback = () => {
+    try {
+      hilog.info(DOMAIN, 'testTag', 'HuaweiShare_ dismiss invoked.');
+      uiContext.getPromptAction().showToast({ message: 'dismiss' });
+    } catch (error) {
+      hilog.error(DOMAIN, 'testTag', `showToast error. Code: ${error?.code}, message: ${error?.message}`);
+    }
+  };
+  controller.on('dismiss', callback);
 
-let data: systemShare.SharedData = new systemShare.SharedData({
-  utd: utd.UniformDataType.PLAIN_TEXT,
-  content: 'Hello HarmonyOS'
-});
-data.addRecord({
-  utd: utd.UniformDataType.PNG,
-  uri: 'file://.../test.png'
-});
-
-let controller: systemShare.ShareController = new systemShare.ShareController(data);
-controller.on('dismiss', () => {
-  console.info('Share panel closed');
-});
+  controller.show(context, {
+    previewMode: systemShare.SharePreviewMode.DEFAULT,
+    selectionMode: systemShare.SelectionMode.SINGLE,
+  }).then(() => {
+    hilog.info(DOMAIN, 'testTag', 'HuaweiShare_ show');
+  }).catch((error: BusinessError) => {
+    hilog.error(DOMAIN, 'testTag', `HuaweiShare_ show error. Code: ${error?.code}, message: ${error?.message}`);
+  });
+}
 ```
  
   
@@ -789,24 +797,25 @@ off(event: 'dismiss', callback: () => void): void
 **示例：**
  
 ```text
-import { systemShare } from '@kit.ShareKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-
-let data: systemShare.SharedData = new systemShare.SharedData({
-  utd: utd.UniformDataType.PLAIN_TEXT,
-  content: 'Hello HarmonyOS'
-});
-data.addRecord({
-  utd: utd.UniformDataType.PNG,
-  uri: 'file://.../test.png'
-});
-
-let controller: systemShare.ShareController = new systemShare.ShareController(data);
-let callback = () => {
-  console.info('Share panel closed');
-};
-controller.on('dismiss', callback);
-controller.off('dismiss', callback);
+private async handelShareDisableDismiss(): Promise<void> {
+  const uiContext: UIContext = this.getUIContext();
+  let shareData: systemShare.SharedData = new systemShare.SharedData({
+    utd: utd.UniformDataType.PLAIN_TEXT,
+    content: 'Hello HarmonyOS',
+  });
+  let controller: systemShare.ShareController = new systemShare.ShareController(shareData);
+  const context: common.UIAbilityContext = uiContext.getHostContext() as common.UIAbilityContext;
+  const callback = () => {
+    try {
+      hilog.info(DOMAIN, 'testTag', 'HuaweiShare_ dismiss invoked.');
+      uiContext.getPromptAction().showToast({ message: 'dismiss' });
+    } catch (error) {
+      hilog.error(DOMAIN, 'testTag', `showToast error. Code: ${error?.code}, message: ${error?.message}`);
+    }
+  };
+  controller.on('dismiss', callback);
+  controller.off('dismiss', callback);
+}
 ```
  
   
@@ -847,18 +856,32 @@ on(type: 'shareCompleted', callback: Callback&lt;ShareOperationResult&gt;): void
 **示例：**
  
 ```text
-import { systemShare } from '@kit.ShareKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-
-let data: systemShare.SharedData = new systemShare.SharedData({
-  utd: utd.UniformDataType.PLAIN_TEXT,
-  content: 'Hello HarmonyOS'
-});
-
-let controller: systemShare.ShareController = new systemShare.ShareController(data);
-controller.on('shareCompleted', (result: systemShare.ShareOperationResult) => {
-  console.info('shareCompleted name:', result.targetAbilityInfo.name);
-});
+private async handelShareCompleted(): Promise<void> {
+  const uiContext: UIContext = this.getUIContext();
+  const contextFaker: Context = uiContext.getHostContext() as Context;
+  let filePath = contextFaker.filesDir + '/exampleImage.jpg';
+  let utdTypeId = utd.getUniformDataTypeByFilenameExtension('.jpg', utd.UniformDataType.IMAGE);
+  let shareData: systemShare.SharedData = new systemShare.SharedData({
+    utd: utdTypeId,
+    uri: fileUri.getUriFromPath(filePath),
+    title: 'Picture Title',
+    description: 'Picture Description',
+  });
+  let controller: systemShare.ShareController = new systemShare.ShareController(shareData);
+  const context: common.UIAbilityContext = uiContext.getHostContext() as common.UIAbilityContext;
+  const callback = (result: systemShare.ShareOperationResult) => {
+    hilog.info(DOMAIN, 'testTag', `HuaweiShare_ shareCompleted invoked. result: ${result.targetAbilityInfo.name}`);
+  };
+  controller.on('shareCompleted', callback);
+  controller.show(context, {
+    previewMode: systemShare.SharePreviewMode.DETAIL,
+    selectionMode: systemShare.SelectionMode.SINGLE,
+  }).then(() => {
+    hilog.info(DOMAIN, 'testTag', 'HuaweiShare_ show');
+  }).catch((error: BusinessError) => {
+    hilog.error(DOMAIN, 'testTag', `HuaweiShare_ show error. Code: ${error?.code}, message: ${error?.message}`);
+  });
+}
 ```
  
   
@@ -899,20 +922,25 @@ off(type: 'shareCompleted', callback?: Callback&lt;ShareOperationResult&gt;): vo
 **示例：**
  
 ```text
-import { systemShare } from '@kit.ShareKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-
-let data: systemShare.SharedData = new systemShare.SharedData({
-  utd: utd.UniformDataType.PLAIN_TEXT,
-  content: 'Hello HarmonyOS'
-});
-
-let controller: systemShare.ShareController = new systemShare.ShareController(data);
-let callback = (result: systemShare.ShareOperationResult) => {
-  console.info('shareCompleted name:', result.targetAbilityInfo.name);
-};
-controller.on('shareCompleted', callback);
-controller.off('shareCompleted', callback);
+private async handelShareDisableCompleted(): Promise<void> {
+  const uiContext: UIContext = this.getUIContext();
+  const contextFaker: Context = uiContext.getHostContext() as Context;
+  let filePath = contextFaker.filesDir + '/exampleImage.jpg';
+  let utdTypeId = utd.getUniformDataTypeByFilenameExtension('.jpg', utd.UniformDataType.IMAGE);
+  let shareData: systemShare.SharedData = new systemShare.SharedData({
+    utd: utdTypeId,
+    uri: fileUri.getUriFromPath(filePath),
+    title: 'Picture Title',
+    description: 'Picture Description',
+  });
+  let controller: systemShare.ShareController = new systemShare.ShareController(shareData);
+  const context: common.UIAbilityContext = uiContext.getHostContext() as common.UIAbilityContext;
+  const callback = (result: systemShare.ShareOperationResult) => {
+    hilog.info(DOMAIN, 'testTag', `HuaweiShare_ shareCompleted invoked. result: ${result.targetAbilityInfo.name}`);
+  };
+  controller.on('shareCompleted', callback);
+  controller.off('shareCompleted', callback);
+}
 ```
  
   
@@ -958,24 +986,21 @@ getSharedData(want: Want): Promise&lt;SharedData&gt;
 **示例：**
  
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Want, ShareExtensionAbility, UIExtensionContentSession } from '@kit.AbilityKit';
-import { systemShare } from '@kit.ShareKit';
-
-export default class TestShareAbility extends ShareExtensionAbility {
-  onSessionCreate(want: Want, session: UIExtensionContentSession) {
-    systemShare.getSharedData(want)
-      .then((data: systemShare.SharedData) => {
-        data.getRecords().forEach((record: systemShare.SharedRecord) => {
-          // 处理分享数据
-        });
-        session.loadContent('pages/Index');
-      })
-      .catch((error: BusinessError) => {
-        console.error(`Failed to getSharedData. Code: ${error.code}, message: ${error.message}`);
-        session.terminateSelf();
-      });
-  }
+aboutToAppear(): void {
+  systemShare.getSharedData(this.want).then((data: systemShare.SharedData) => {
+    let records: systemShare.SharedRecord[] = data.getRecords();
+    records.forEach(async (record: systemShare.SharedRecord) => {
+      switch (true) {
+        case this.belongsToImage(record.utd):
+          record.uri && (this.imageUri = record.uri);
+          break;
+        default:
+          break;
+      }
+    });
+  }).catch((error: BusinessError) => {
+    hilog.error(DOMAIN, 'testTag', `getSharedData error. Code: ${error?.code}, message: ${error?.message}`);
+  });
 }
 ```
  
@@ -1022,24 +1047,12 @@ getContactInfo(want: Want): Promise&lt;ContactInfo&gt;
 **示例：**
  
 ```text
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Want, ShareExtensionAbility, UIExtensionContentSession } from '@kit.AbilityKit';
-import { systemShare } from '@kit.ShareKit';
-
-export default class TestShareAbility extends ShareExtensionAbility {
-  onSessionCreate(want: Want, session: UIExtensionContentSession) {
-    systemShare.getContactInfo(want)
-      .then(async (contact: systemShare.ContactInfo) => {
-        // 处理联系人信息，可通过联系人类型（如：个人，群组等），联系人ID，进行指定用户分享。
-        // 获取分享数据
-        let data = await systemShare.getSharedData(want);
-      })
-      .catch((error: BusinessError) => {
-        console.error(`Failed to getContactInfo. Code: ${error.code}, message: ${error.message}`);
-        // 联系人不存在或数据获取异常
-        session.terminateSelf();
-      });
-  }
+aboutToAppear(): void {
+  systemShare.getContactInfo(this.want).then(async (contact: systemShare.ContactInfo) => {
+    let data = await systemShare.getSharedData(this.want);
+  }).catch((error: BusinessError) => {
+    hilog.error(DOMAIN, 'testTag', `getContactInfo error. Code: ${error?.code}, message: ${error?.message}`);
+  });
 }
 ```
  
@@ -1092,76 +1105,48 @@ getWant(data: SharedData, options?: ShareControllerOptions): Promise&lt;Want&gt;
  
 不配置预览模式
  
-```json
-import { BusinessError } from '@kit.BasicServicesKit';
-import { Want, ShareExtensionAbility, UIExtensionContentSession } from '@kit.AbilityKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-import { systemShare } from '@kit.ShareKit';
+```text
+onSessionCreate(): void {
+  let data: systemShare.SharedData = new systemShare.SharedData({
+    utd: utd.UniformDataType.PLAIN_TEXT,
+    content: 'Hello HarmonyOS'
+  });
 
-export default class TestShareAbility extends ShareExtensionAbility {
-  onSessionCreate(want: Want, session: UIExtensionContentSession) {
-    // 处理分享数据
-    // To do things.
-    // 准备返回数据
-    let data: systemShare.SharedData = new systemShare.SharedData({
-      utd: utd.UniformDataType.PLAIN_TEXT,
-      content: 'Hello HarmonyOS'
-    });
-    data.addRecord({
-      utd: utd.UniformDataType.PNG,
-      uri: 'file://.../test.png'
-    });
-    systemShare.getWant(data)
-      .then((want) => {
-        console.info('want = ', JSON.stringify(want));
-        session!.terminateSelfWithResult({
-          resultCode: 2,
-          want: want
-        })
-      })
-      .catch((error: BusinessError) => {
-        console.error(`Failed to getWant. Code: ${error.code}, message: ${error.message}`);
-      });
-  }
+  data.addRecord({
+    utd: utd.UniformDataType.PNG,
+    uri: 'file://.../test.png'
+  });
+
+  systemShare.getWant(data)
+    .then((want) => {
+    })
+    .catch((error: BusinessError) => {
+      hilog.error(DOMAIN, 'testTag', `Failed to getWant. Code: ${error?.code}, message: ${error?.message}`);
+  });
 }
 ```
  
 配置预览模式
  
-```json
-import { BusinessError } from '@kit.BasicServicesKit';
-import { uniformTypeDescriptor as utd } from '@kit.ArkData';
-import { Want, ShareExtensionAbility, UIExtensionContentSession } from '@kit.AbilityKit';
-import { systemShare } from '@kit.ShareKit';
-
-export default class TestShareAbility extends ShareExtensionAbility {
-  onSessionCreate(want: Want, session: UIExtensionContentSession) {
-    // 处理分享数据
-    // To do things.
-    // 准备返回数据
-    let data: systemShare.SharedData = new systemShare.SharedData({
-      utd: utd.UniformDataType.PLAIN_TEXT,
-      content: 'Hello HarmonyOS'
+```text
+onSessionCreatePreview(): void {
+  let data: systemShare.SharedData = new systemShare.SharedData({
+    utd: utd.UniformDataType.PLAIN_TEXT,
+    content: 'Hello HarmonyOS'
+  });
+  data.addRecord({
+    utd: utd.UniformDataType.PNG,
+    uri: 'file://.../test.png'
+  });
+  let options : systemShare.ShareControllerOptions = {
+    previewMode: systemShare.SharePreviewMode.DETAIL,
+    selectionMode: systemShare.SelectionMode.SINGLE
+  };
+  systemShare.getWant(data, options)
+    .then((want) => {
+    })
+    .catch((error: BusinessError) => {
+      hilog.error(DOMAIN, 'testTag', `Failed to getWant. Code: ${error?.code}, message: ${error?.message}`);
     });
-    data.addRecord({
-      utd: utd.UniformDataType.PNG,
-      uri: 'file://.../test.png'
-    });
-    let options : systemShare.ShareControllerOptions = {
-      previewMode: systemShare.SharePreviewMode.DETAIL,
-      selectionMode: systemShare.SelectionMode.SINGLE
-    };
-    systemShare.getWant(data,options)
-      .then((want) => {
-        console.info('want = ', JSON.stringify(want));
-        session!.terminateSelfWithResult({
-          resultCode: 2,
-          want: want
-        })
-      })
-      .catch((error: BusinessError) => {
-        console.error(`Failed to getWant. Code: ${error.code}, message: ${error.message}`);
-      });
-  }
 }
 ```

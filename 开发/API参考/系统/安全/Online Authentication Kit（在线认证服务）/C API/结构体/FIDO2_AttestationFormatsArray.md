@@ -1,6 +1,6 @@
 # FIDO2_AttestationFormatsArray
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_f_i_d_o2___attestation_formats_array
 
@@ -22,7 +22,7 @@
  
 | 名称 | 描述 |
 | --- | --- |
-| uint32_t attestationFormatsNum | PubKeyCredParam个数。 |
+| uint32_t attestationFormatsNum | PubKeyCredParam个数。取值范围0到10。 |
 | char ** attestationFormats | 认证凭据的附加参数列表。 |
  
  

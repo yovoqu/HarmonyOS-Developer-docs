@@ -1,6 +1,6 @@
 # @ohos.bluetoothManager (蓝牙)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-bluetoothmanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1307,7 +1307,7 @@ sppAccept(serverSocket: number, callback: AsyncCallback&lt;number&gt;): void
  
 服务端监听socket等待客户端连接。
  
-> [!TIP]
+> [!NOTE]
 > 从API version 9开始支持，从API version 10开始废弃。建议使用 socket.sppAccept 替代。
 
  

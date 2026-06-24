@@ -1,6 +1,6 @@
 # oh_axis_type.h
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-axis-type-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -9,7 +9,7 @@
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-输入设备的轴事件结构和枚举。
+输入设备的轴事件结构和枚举，轴类型定义了输入设备在不同交互场景下的物理行为特征，系统通过轴类型来区分和传递不同的手势交互信息。
  
 **引用文件：** <multimodalinput/oh_axis_type.h>
  
@@ -64,11 +64,11 @@ enum InputEvent_AxisType
   
 | 枚举项 | 描述 |
 | --- | --- |
-| AXIS_TYPE_UNKNOWN | 未知轴类型，通常作为初始值。 |
-| AXIS_TYPE_SCROLL_VERTICAL | 垂直滚动轴，当您滚动鼠标滚轮或在触控板上进行单指或双指滑动时，垂直滚动轴的状态改变。 |
-| AXIS_TYPE_SCROLL_HORIZONTAL | 水平滚动轴，当您滚动鼠标滚轮或在触控板上进行双指滑动时，水平滚动轴的状态发生变化。 |
-| AXIS_TYPE_PINCH | 捏合轴，用于描述触控板上的双指捏合手势。 |
-| AXIS_TYPE_ROTATE | 旋转轴，用于描述触控板上的双指旋转手势。 |
+| AXIS_TYPE_UNKNOWN = 0 | 未知轴类型，通常作为初始值。 |
+| AXIS_TYPE_SCROLL_VERTICAL = 1 | 垂直滚动轴，当您滚动鼠标滚轮或在触控板上进行单指或双指滑动时，垂直滚动轴的状态改变。 |
+| AXIS_TYPE_SCROLL_HORIZONTAL = 2 | 水平滚动轴，当您滚动鼠标滚轮或在触控板上进行双指滑动时，水平滚动轴的状态发生变化。 |
+| AXIS_TYPE_PINCH = 3 | 捏合轴，用于描述触控板上的双指捏合手势。 |
+| AXIS_TYPE_ROTATE = 4 | 旋转轴，用于描述触控板上的双指旋转手势。 |
  
  
   
@@ -89,8 +89,8 @@ enum InputEvent_AxisEventType
   
 | 枚举项 | 描述 |
 | --- | --- |
-| AXIS_EVENT_TYPE_PINCH = 1 | 双指捏合事件，包含AXIS_TYPE_PINCH和AXIS_TYPE_ROTATE两种轴类型。 起始版本： 12。 |
-| AXIS_EVENT_TYPE_SCROLL = 2 | 滚轴事件，包含AXIS_TYPE_SCROLL_VERTICAL和AXIS_TYPE_SCROLL_HORIZONTAL两种轴类型，其中鼠标滚轮事件仅包含AXIS_TYPE_SCROLL_VERTICAL一种轴类型。 起始版本： 12。 |
+| AXIS_EVENT_TYPE_PINCH = 1 | 双指捏合事件，包含AXIS_TYPE_PINCH和AXIS_TYPE_ROTATE两种InputEvent_AxisType。 |
+| AXIS_EVENT_TYPE_SCROLL = 2 | 滚轴事件，包含AXIS_TYPE_SCROLL_VERTICAL和AXIS_TYPE_SCROLL_HORIZONTAL两种InputEvent_AxisType，其中鼠标滚轮事件仅包含AXIS_TYPE_SCROLL_VERTICAL一种InputEvent_AxisType。 |
  
  
   
@@ -111,7 +111,7 @@ enum InputEvent_AxisAction
   
 | 枚举项 | 描述 |
 | --- | --- |
-| AXIS_ACTION_CANCEL = 0 | 取消轴输入事件。 |
-| AXIS_ACTION_BEGIN | 开始轴输入事件。 |
-| AXIS_ACTION_UPDATE | 轴输入事件中。 |
-| AXIS_ACTION_END | 结束轴输入事件。 |
+| AXIS_ACTION_CANCEL = 0 | 轴事件取消。 |
+| AXIS_ACTION_BEGIN = 1 | 轴事件开始。 |
+| AXIS_ACTION_UPDATE = 2 | 轴事件更新。 |
+| AXIS_ACTION_END = 3 | 轴事件结束。 |

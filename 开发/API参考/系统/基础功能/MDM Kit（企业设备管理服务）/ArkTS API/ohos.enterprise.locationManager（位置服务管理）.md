@@ -1,6 +1,6 @@
 # @ohos.enterprise.locationManager（位置服务管理）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-locationmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -74,7 +74,7 @@ try {
   locationManager.setLocationPolicy(wantTemp, locationManager.LocationPolicy.DISALLOW_LOCATION_SERVICE);
   console.info(`Succeeded in setting location patch tag.`);
 } catch(err) {
-  console.error(`Failed to get location patch tag. Code: ${err.code}, message: ${err.message}`);
+  console.error(`Failed to set location policy. Code: ${err.code}, message: ${err.message}`);
 }
 ```
 

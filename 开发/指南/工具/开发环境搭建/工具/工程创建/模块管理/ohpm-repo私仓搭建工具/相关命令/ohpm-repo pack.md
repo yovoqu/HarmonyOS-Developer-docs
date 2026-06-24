@@ -1,6 +1,6 @@
 # ohpm-repo pack
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-ohpm-repo-pack
 
@@ -40,7 +40,7 @@ ohpm-repo pack <deploy_root>
 
 #### &lt;deploy_root&gt;
 
-- 类型： String
+- 类型：String
 - 必填参数
 
  

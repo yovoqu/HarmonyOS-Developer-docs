@@ -1,6 +1,6 @@
 # Class (MapComponentController)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-mapcomponentcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -3541,6 +3541,50 @@ this.mapController.setSphereEnabled(true, 1000, true);
 
 
 
+#### setSphereMapEnabled
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable
+
+setSphereMapEnabled(enabled: boolean, params?: mapCommon.SphereParams): Promise&lt;void&gt;
+
+设置3D地图开关。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**元服务API：** 从版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Map.Core
+
+**起始版本：** 26.0.0
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| enabled | boolean | 是 | 以动画形式切换2D或3D地球，异常值不处理。取值范围： - true：开启3D地球 - false：开启2D地球 |
+| params | mapCommon.SphereParams | 否 | 球体属性。 |
+
+
+**示例：**
+
+```text
+let mSphereOptions: mapCommon.SphereParams =
+  {
+    // 开启球体太阳光
+    sunLightEnabled: true,
+    // 开启球体城市光
+    cityLightEnabled: true,
+    // 设置动画时长为1000ms
+    animateDuration: 1000,
+    // 图片需存放在resources/base/media目录下
+    backgroundImage: $r('app.media.bg_compress'),
+    coverageImage: $r('app.media.coverage_icon')
+  };
+await this.mapController.setSphereMapEnabled(true, mSphereOptions);
+```
+
+
+
 #### addHeatmap
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -3589,7 +3633,7 @@ for (let i = 0; i < 500; i++) {
   data.push({
     point: {
       longitude: 118.000000 + Math.random() * 1 - 0.25,
-      latitude: 31.000000 + Math.random() * 1 - 0.25,
+      latitude: 31.000000 + Math.random() * 1 - 0.25
     },
     intensity: 1
   });
@@ -5726,8 +5770,6 @@ setIndoorMapEnabled(enabled: boolean): void
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 在API19及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
-
 **起始版本：** 5.1.1(19)
 
 **参数**：
@@ -5769,8 +5811,6 @@ isIndoorMapEnabled(): boolean
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 在API19及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
-
 **起始版本：** 5.1.1(19)
 
 **返回值：**
@@ -5810,8 +5850,6 @@ switchIndoorMapFloor(buildingId: string, floorName: string): void
 **元服务API：** 从版本5.1.1(19)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Map.Core
-
-**设备行为差异：** 在API19及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 5.1.1(19)
 
@@ -5853,8 +5891,6 @@ setFloorControlsPosition(point: mapCommon.MapPoint): void
 **元服务API：** 从版本6.0.0(20)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Map.Core
-
-**设备行为差异：** 在API20及之后版本该接口在phone、tablet、2in1均可正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 6.0.0(20)
 

@@ -1,6 +1,6 @@
 # 通过关系型数据库实现数据持久化 (C/C++)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/native-relational-store-guidelines
 
@@ -46,7 +46,7 @@ RelationalStore提供了一套完整的对本地数据库进行管理的机制�
 | OH_Rdb_Execute(OH_Rdb_Store *store, const char *sql) | 执行包含指定参数但不返回值的SQL语句。 |
 | OH_Rdb_Insert(OH_Rdb_Store *store, const char *table, OH_VBucket *valuesBucket) | 向目标表中插入一行数据。 |
 | int OH_Rdb_InsertWithConflictResolution(OH_Rdb_Store *store, const char *table, OH_VBucket *row, Rdb_ConflictResolution resolution, int64_t *rowId) | 向目标表中插入一行数据，支持配置冲突解决策略。 |
-| int OH_Rdb_UpdateWithConflictResolution(OH_Rdb_Store *store, OH_VBucket *row, OH_Predicates *predicates, Rdb_ConflictResolution resolution, int64_t *changes) | 向目标表中插入一行数据，支持配置冲突解决策略。 |
+| int OH_Rdb_UpdateWithConflictResolution(OH_Rdb_Store *store, OH_VBucket *row, OH_Predicates *predicates, Rdb_ConflictResolution resolution, int64_t *changes) | 根据指定条件更新数据库中的数据，支持配置冲突解决策略。 |
 | OH_Rdb_Update(OH_Rdb_Store *store, OH_VBucket *valuesBucket, OH_Predicates *predicates) | 根据OH_Predicates的指定实例对象更新数据库中的数据。 |
 | OH_Rdb_Delete(OH_Rdb_Store *store, OH_Predicates *predicates) | 根据OH_Predicates的指定实例对象从数据库中删除数据。 |
 | int OH_Predicates_NotLike(OH_Predicates *predicates, const char *field, const char *pattern) | 设置OH_Predicates以匹配数据类型为字符串且值不类似于指定值的字段。 |
@@ -497,7 +497,7 @@ OH_Data_Asset_DestroyOne(asset);
 Data_Asset **assets = OH_Data_Asset_CreateMultiple(2); // The number of created Data_Assets is 2
 ret = OH_Data_Asset_SetName(assets[0], "name1");
 ret = OH_Data_Asset_SetName(assets[1], "name2");
-ret = OH_Values_PutAssets(values, assets, 2); // The number of Data_ Assets is 2
+ret = OH_Values_PutAssets(values, assets, 2); // The number of Data_Assets is 2
 ret = OH_Data_Asset_DestroyMultiple(assets, 2); // The number of destroyed Data_Assets is 2
 
 uint64_t bigInt[] = {1, 2, 3, 4, 5};

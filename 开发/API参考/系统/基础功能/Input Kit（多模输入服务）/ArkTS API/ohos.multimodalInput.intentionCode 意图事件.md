@@ -1,6 +1,6 @@
 # @ohos.multimodalInput.intentionCode (意图事件)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-intentioncode
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -40,7 +40,7 @@ import { IntentionCode } from '@kit.InputKit';
 | INTENTION_LEFT | 3 | 左 |
 | INTENTION_RIGHT | 4 | 右 |
 | INTENTION_SELECT | 5 | 选中 |
-| INTENTION_ESCAPE | 6 | 逃逸 |
+| INTENTION_ESCAPE | 6 | 退出 |
 | INTENTION_BACK | 7 | 返回 |
 | INTENTION_FORWARD | 8 | 前进 |
 | INTENTION_MENU | 9 | 菜单 |

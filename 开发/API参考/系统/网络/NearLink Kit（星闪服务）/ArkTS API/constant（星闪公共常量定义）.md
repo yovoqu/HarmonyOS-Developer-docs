@@ -1,6 +1,6 @@
 # constant（星闪公共常量定义）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-constant
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -26,6 +26,8 @@ import { constant } from '@kit.NearLinkKit';
 
 表示和远端设备的配对状态，为枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -44,6 +46,8 @@ import { constant } from '@kit.NearLinkKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示和远端设备的连接状态，为枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
@@ -64,6 +68,8 @@ import { constant } from '@kit.NearLinkKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示设备类型，为枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
@@ -133,6 +139,8 @@ import { constant } from '@kit.NearLinkKit';
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 表示和远端设备的逻辑链路连接状态，为枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  

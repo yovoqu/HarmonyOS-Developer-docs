@@ -1,6 +1,6 @@
 # native_midi.h
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-midi-h
 **支持设备：** Phone | PC/2in1 | Tablet

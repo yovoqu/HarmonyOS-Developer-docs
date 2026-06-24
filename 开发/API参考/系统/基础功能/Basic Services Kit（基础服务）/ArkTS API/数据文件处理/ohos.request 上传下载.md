@@ -1,6 +1,6 @@
 # @ohos.request (上传下载)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-request
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -77,7 +77,7 @@ import { request } from '@kit.BasicServicesKit';
 
 uploadFile(context: BaseContext, config: UploadConfig): Promise&lt;UploadTask&gt;
 
-创建并启动一个上传任务，使用Promise异步回调，支持HTTP协议。通过[on('complete' | 'fail')](#oncomplete--fail9)可获取任务上传时的成功信息或错误信息。
+创建并启动一个上传任务，使用Promise异步回调，支持HTTP协议。通过[on('complete'|'fail')](#oncomplete--fail9)可获取任务上传时的成功信息或错误信息。
 
 **需要权限**：ohos.permission.INTERNET
 
@@ -150,7 +150,7 @@ try {
 
 uploadFile(context: BaseContext, config: UploadConfig, callback: AsyncCallback&lt;UploadTask&gt;): void
 
-创建并启动一个上传任务，使用callback异步回调，支持HTTP协议。通过[on('complete' | 'fail')](#oncomplete--fail9)可获取任务上传时的成功信息或错误信息。
+创建并启动一个上传任务，使用callback异步回调，支持HTTP协议。通过[on('complete'|'fail')](#oncomplete--fail9)可获取任务上传时的成功信息或错误信息。
 
 **需要权限**：ohos.permission.INTERNET
 
@@ -358,7 +358,15 @@ on(type: 'progress', callback: (uploadedSize: number, totalSize: number) => void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 订阅的事件类型。取值为'progress'，表示上传的进度信息，任务进度有进展时触发该事件。 |
-| callback | (uploadedSize: number, totalSize: number) => void | 是 | 上传任务进度的回调函数，返回已上传文件大小和上传文件总大小，单位为字节（B）。 |
+| callback | function | 是 | 上传任务进度的回调函数，返回已上传文件大小和上传文件总大小。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| uploadedSize | number | 是 | 当前已上传文件大小，单位为字节（B）。 |
+| totalSize | number | 是 | 上传文件的总大小，单位为字节（B）。 |
 
 
 **错误码：**
@@ -396,7 +404,14 @@ on(type: 'headerReceive', callback: (header: object) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 订阅的事件类型。 - 取值为'headerReceive'，HTTP请求接收到响应时触发该事件。 |
-| callback | (header: object) => void | 是 | HTTP Response事件的回调函数，返回响应请求内容。 |
+| callback | function | 是 | HTTP Response事件的回调函数，返回响应请求内容。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| header | object | 是 | HTTP响应。 |
 
 
 **错误码：**
@@ -481,7 +496,15 @@ off(type: 'progress', callback?: (uploadedSize: number, totalSize: number) => vo
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消订阅的事件类型。 - 取值为'progress'，表示上传的进度信息。 |
-| callback | (uploadedSize: number, totalSize: number) => void | 否 | 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | function | 否 | 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。 |
+
+
+回调函数的参数
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| uploadedSize | number | 是 | 当前已上传文件大小，单位为字节（B）。 |
+| totalSize | number | 是 | 上传文件的总大小，单位为字节（B）。 |
 
 
 **错误码：**
@@ -527,7 +550,14 @@ off(type: 'headerReceive', callback?: (header: object) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消订阅的事件类型。 - 取值为'headerReceive'，表示HTTP请求接收到响应。 |
-| callback | (header: object) => void | 否 | 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | function | 否 | 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| header | object | 是 | HTTP响应。 |
 
 
 **错误码：**
@@ -847,8 +877,6 @@ uploadTask.remove((err: BusinessError, result: boolean) => {
 | responseCode | number | 否 | 否 | 上传任务返回码。返回0表示上传任务成功，返回其它值表示上传任务失败，具体请参见message参数中的上传任务结果描述信息。 此处推荐使用request.agent.create创建上传任务，并获取标准错误码处理异常分支。 |
 | message | string | 否 | 否 | 上传任务结果描述信息。 |
 
-
-**错误码：**
 
 其中，responseCode包含的返回码值如下。
 
@@ -1173,7 +1201,15 @@ on(type: 'progress', callback: (receivedSize: number, totalSize: number) => void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 订阅的事件类型。 - 取值为'progress'，表示下载的进度信息，当任务进度有进展时触发该事件。 |
-| callback | (receivedSize: number, totalSize: number) => void | 是 | 下载任务进度的回调函数，返回已下载文件大小和下载文件总大小，单位为字节（B）。在下载过程中，若服务器使用chunk方式传输导致无法从请求头中获取文件总大小时，totalSize为 -1。 |
+| callback | function | 是 | 下载任务进度的回调函数，返回已上传文件大小和上传文件大小总和。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| receivedSize | number | 是 | 当前下载的进度，单位为字节（B）。 |
+| totalSize | number | 是 | 下载文件的总大小，单位为字节（B）。在下载过程中，若服务器使用chunk方式传输导致无法从请求头中获取文件总大小时，totalSize为 -1。 |
 
 
 **错误码：**
@@ -1228,7 +1264,15 @@ off(type: 'progress', callback?: (receivedSize: number, totalSize: number) => vo
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消订阅的事件类型。 - 取值为'progress'，表示下载的进度信息。 |
-| callback | (receivedSize: number, totalSize: number) => void | 否 | 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | function | 否 | 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| receivedSize | number | 是 | 当前下载的进度，单位为字节（B）。 |
+| totalSize | number | 是 | 下载文件的总大小，单位为字节（B）。在下载过程中，若服务器使用chunk方式传输导致无法从请求头中获取文件总大小时，totalSize为 -1。 |
 
 
 **错误码：**
@@ -1445,7 +1489,14 @@ on(type: 'fail', callback: (err: number) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 订阅的事件类型。 - 取值为'fail'，表示下载失败，任务失败时触发该事件。 |
-| callback | (err: number) => void | 是 | 下载失败的回调函数。错误原因见下载任务的错误码常量。 |
+| callback | function | 是 | 下载失败的回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| err | number | 是 | 下载失败的错误码，错误原因见下载任务的错误码。 |
 
 
 **错误码：**
@@ -1500,7 +1551,14 @@ off(type: 'fail', callback?: (err: number) => void): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | type | string | 是 | 取消订阅的事件类型。 - 取值为'fail'，表示下载失败。 |
-| callback | (err: number) => void | 否 | 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。 |
+| callback | function | 否 | 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| err | number | 是 | 下载失败的错误码，错误原因见下载任务的错误码。 |
 
 
 **错误码：**
@@ -3178,7 +3236,14 @@ on(event: 'progress', callback: (progress: [Progress](#requestagentprogress10)) 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 订阅的事件类型。 - 取值为'progress'，表示任务进度，任务进度有进展时触发该事件。 |
-| callback | (progress: Progress) => void | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+| callback | function | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -3264,7 +3329,14 @@ on(event: 'completed', callback: (progress: [Progress](#requestagentprogress10))
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 订阅的事件类型。 - 取值为'completed'，表示任务完成，任务完成时触发该事件。 |
-| callback | (progress: Progress) => void | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+| callback | function | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -3350,7 +3422,14 @@ on(event: 'failed', callback: (progress: [Progress](#requestagentprogress10)) =>
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 订阅的事件类型。 - 取值为'failed'，表示任务失败，任务失败时触发该事件。 |
-| callback | (progress: Progress) => void | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+| callback | function | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -3434,7 +3513,14 @@ on(event: 'pause', callback: (progress: [Progress](#requestagentprogress10)) => 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 订阅的事件类型。 - 取值为'pause'，表示任务已暂停，任务暂停时触发该事件。 |
-| callback | (progress: Progress) => void | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+| callback | function | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -3523,7 +3609,14 @@ on(event: 'resume', callback: (progress: [Progress](#requestagentprogress10)) =>
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 订阅的事件类型。 - 取值为'resume'，表示任务恢复，任务恢复时触发该事件。 |
-| callback | (progress: Progress) => void | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+| callback | function | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -3617,7 +3710,14 @@ on(event: 'remove', callback: (progress: [Progress](#requestagentprogress10)) =>
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 订阅的事件类型。 - 取值为'remove'，表示任务被移除，任务移除时触发该事件。 |
-| callback | (progress: Progress) => void | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+| callback | function | 是 | 回调函数，发生相关的事件时触发该回调方法。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -3962,7 +4062,14 @@ off(event: 'progress', callback?: (progress: [Progress](#requestagentprogress10)
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 取消订阅的事件类型。 - 取值为'progress'，表示任务进度。 |
-| callback | (progress: Progress) => void | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有进度回调函数。 |
+| callback | function | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有进度回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -4056,7 +4163,14 @@ off(event: 'completed', callback?: (progress: [Progress](#requestagentprogress10
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 取消订阅的事件类型。 - 取值为'completed'，表示任务完成。 |
-| callback | (progress: Progress) => void | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有完成回调函数。 |
+| callback | function | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有完成回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -4150,7 +4264,14 @@ off(event: 'failed', callback?: (progress: [Progress](#requestagentprogress10)) 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 取消订阅的事件类型。 - 取值为'failed'，表示任务失败。 |
-| callback | (progress: Progress) => void | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有失败回调函数。 |
+| callback | function | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有失败回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息 |
 
 
 **错误码：**
@@ -4242,7 +4363,14 @@ off(event: 'pause', callback?: (progress: [Progress](#requestagentprogress10)) =
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 取消订阅的事件类型。 - 取值为'pause'，表示任务暂停。 |
-| callback | (progress: Progress) => void | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有暂停回调函数。 |
+| callback | function | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有暂停回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -4334,7 +4462,14 @@ off(event: 'resume', callback?: (progress: [Progress](#requestagentprogress10)) 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 取消订阅的事件类型。 - 取值为'resume'，表示任务恢复。 |
-| callback | (progress: Progress) => void | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有恢复回调函数。 |
+| callback | function | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有恢复回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**
@@ -4426,7 +4561,14 @@ off(event: 'remove', callback?: (progress: [Progress](#requestagentprogress10)) 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | event | string | 是 | 取消订阅的事件类型。 - 取值为'remove'，表示任务被移除。 |
-| callback | (progress: Progress) => void | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有移除回调函数。 |
+| callback | function | 否 | 回调函数，发生相关的事件时触发该回调方法。若无此参数，则取消订阅的所有移除回调函数。 |
+
+
+回调函数的参数：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| progress | Progress | 是 | 表示任务的进度信息。 |
 
 
 **错误码：**

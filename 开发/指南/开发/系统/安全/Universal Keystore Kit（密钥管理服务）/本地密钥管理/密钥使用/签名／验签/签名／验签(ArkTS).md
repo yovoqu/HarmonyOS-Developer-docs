@@ -1,6 +1,6 @@
 # 签名/验签(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-arkts
 
@@ -12,7 +12,9 @@
  - 密钥算法为RSA、摘要算法为SHA256、填充模式为PSS，请见开发案例：[RSA/SHA256/PSS](#rsasha256pss)
  - 密钥算法为RSA、摘要算法为SHA256、填充模式为PKCS1_V1_5，请见开发案例：[RSA/SHA256/PKCS1_V1_5](#rsasha256pkcs1_v1_5)
  - 密钥算法为RSA、摘要算法为SHA384、填充模式为PSS，请见开发案例：[RSA2048/SHA384/PSS](#rsa2048sha384pss)
- - [密钥算法为ECC、摘要算法为SHA256、用户认证类型包含TUI PIN、携带认证信息的签名类型](#eccsha256携带认证信息的签名类型)
+ - [签名/验签(ArkTS)](#签名验签arkts)      
+[ECC/SHA256/携带认证信息的签名类型](#eccsha256携带认证信息的签名类型)
+
 
 
 具体的场景介绍及支持的算法规格，请参考[签名/验签支持的算法](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/huks-signing-signature-verification-overview#支持的算法)。

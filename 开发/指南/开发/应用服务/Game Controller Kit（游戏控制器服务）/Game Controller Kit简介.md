@@ -1,6 +1,6 @@
 # Game Controller Kit简介
 
-更新时间：2026-05-14 10:06:22
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/game-controller-introduction
 
@@ -14,6 +14,22 @@ Game Controller Kit支持的能力包括:
 - 监听设备上下线，查询所有在线设备的具体信息
 - 监听游戏手柄的轴和按键事件
 
+ 
+  
+
+#### 约束与限制
+
+  
+
+#### 支持的国家和地区
+
+当前仅支持在中国境内（香港特别行政区、澳门特别行政区、中国台湾除外）提供服务。
+ 
+  
+
+#### 支持的设备
+
+支持Phone、PC/2in1、Tablet、TV
  
   
 

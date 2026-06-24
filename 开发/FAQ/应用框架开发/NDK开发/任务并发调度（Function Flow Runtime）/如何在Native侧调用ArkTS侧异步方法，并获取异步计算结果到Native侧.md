@@ -1,6 +1,6 @@
 # 如何在Native侧调用ArkTS侧异步方法，并获取异步计算结果到Native侧
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-ndk-32
 

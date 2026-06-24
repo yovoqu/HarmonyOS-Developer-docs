@@ -1,6 +1,6 @@
 # remoteDevice（对端设备的连接能力）
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-remote-device
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -30,6 +30,8 @@ type PairingState = constant.PairingState
  
 表示和远端设备的配对状态，为枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -48,6 +50,8 @@ type PairingState = constant.PairingState
 type ConnectionState = constant.ConnectionState
  
 表示和远端设备的连接状态，为枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
@@ -68,6 +72,8 @@ type DeviceClass = constant.DeviceClass
  
 表示设备类型，为枚举值。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -86,6 +92,8 @@ type DeviceClass = constant.DeviceClass
 type AcbState = constant.AcbState
  
 表示和远端设备的逻辑链路连接状态，为枚举值。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
@@ -106,6 +114,8 @@ createRemoteDevice(address: string): RemoteDevice
  
 创建远端设备实例。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -114,7 +124,7 @@ createRemoteDevice(address: string): RemoteDevice
   
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| address | string | 是 | 远端设备地址。地址格式参考："11:22:33:AA:BB:FF"。 |
+| address | string | 是 | 远端设备地址。地址格式参考：11:22:33:AA:BB:FF。 |
  
  
 **返回值：**
@@ -126,7 +136,7 @@ createRemoteDevice(address: string): RemoteDevice
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -160,6 +170,8 @@ try {
 > 提供远端设备的操作方法，使用前需要使用 remoteDevice.createRemoteDevice 方法创建一个远端设备 RemoteDevice 实例。一个设备只需要创建一次，无需多次创建。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.Communication.NearLink.Core
  
 **起始版本：** 5.0.1(13)
@@ -173,6 +185,8 @@ try {
 startPairing(): Promise&lt;void&gt;
  
 发起与远端设备的配对。使用Promise异步回调。发起配对后，将依据本端与远端设备的输入输出能力标识弹出不同类型的弹窗，需使用者进一步确认。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
@@ -189,7 +203,7 @@ startPairing(): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -211,6 +225,8 @@ try {
   device = remoteDevice.createRemoteDevice(addr);
   device.startPairing().then(()=>{
     console.info('start pairing success');
+  }).catch ((err: BusinessError) => {
+    console.error('errCode: ' + err.code + ', errMessage: ' + err.message);
   });
 } catch (err) {
   console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);
@@ -227,6 +243,8 @@ getPairingState(): PairingState
  
 获取和远端设备的配对状态。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -242,7 +260,7 @@ getPairingState(): PairingState
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -279,6 +297,8 @@ getDeviceName(): string
  
 获取远端设备名称。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -294,7 +314,7 @@ getDeviceName(): string
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -331,6 +351,8 @@ getDeviceClass(): DeviceClass
  
 获取远端设备类型。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -346,7 +368,7 @@ getDeviceClass(): DeviceClass
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -383,6 +405,8 @@ getConnectionState(): ConnectionState
  
 获取本端设备和远端设备的连接状态。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **需要权限：** ohos.permission.ACCESS_NEARLINK
  
 **系统能力：** SystemCapability.Communication.NearLink.Core
@@ -398,7 +422,7 @@ getConnectionState(): ConnectionState
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -452,7 +476,7 @@ getAcbState(): AcbState
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -506,7 +530,7 @@ getDeviceInformation(): DeviceInformation
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/nearlink-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-nearlink)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

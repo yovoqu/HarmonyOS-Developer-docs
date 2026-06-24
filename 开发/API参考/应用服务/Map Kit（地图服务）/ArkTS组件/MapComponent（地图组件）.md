@@ -1,6 +1,6 @@
 # MapComponent（地图组件）
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-mapcomponent
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -40,8 +40,8 @@ MapComponent提供map组件，通过回调获取MapComponentController对象。
   
 | 名称 | 类型 | 只读 | 可选 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- | --- |
-| mapOptions | mapCommon.MapOptions | 否 | 否 | NA | 地图初始化参数。 |
-| mapCallback | AsyncCallback<map.MapComponentController> | 否 | 否 | NA | 回调函数，当地图初始化成功，err为undefined，data为获取到的map.MapComponentController；否则为错误对象。 |
+| mapOptions | mapCommon.MapOptions | 否 | 是 | NA | 地图初始化参数。 说明： 若未传递该参数，则地图无法创建。 |
+| mapCallback | AsyncCallback<map.MapComponentController> | 否 | 是 | NA | 回调函数，当地图初始化成功，err为undefined，data为获取到的map.MapComponentController；否则为错误对象。 说明： 若未传递该参数，则地图无法创建。 |
 | customInfoWindow | customInfoWindowCallback | 否 | 是 | @BuilderParam | 自定义信息窗，显示一个自定义样式的信息窗，可用于展示标记相关的详细信息。 |
  
  

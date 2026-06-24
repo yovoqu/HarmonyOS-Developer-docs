@@ -1,6 +1,6 @@
 # @ohos.deviceInfo (设备信息)
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-device-info
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,13 +36,13 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 
 | 名称 | 类型 | 只读 | 说明 |
 | --- | --- | --- | --- |
-| deviceType | string | 是 | 设备类型。详细请参考deviceTypes标签。 元服务API（仅ArkTS-Dyn）：从API版本11开始，该接口支持在元服务中使用。 示例：phone |
+| deviceType | string | 是 | 设备类型。详细请参考deviceTypes标签。 元服务API：从API版本11开始，该接口支持在元服务中使用。 示例：phone |
 | manufacture | string | 是 | 设备厂家名称。 示例：HUAWEI |
-| brand | string | 是 | 设备品牌名称。 元服务API（仅ArkTS-Dyn）：从API版本11开始，该接口支持在元服务中使用。 示例：HUAWEI |
+| brand | string | 是 | 设备品牌名称。 元服务API：从API版本11开始，该接口支持在元服务中使用。 示例：HUAWEI |
 | marketName | string | 是 | 外部产品系列。 示例：HUAWEI Mate 60 Pro |
 | productSeries | string | 是 | 产品系列。 示例：ALN |
-| productModel | string | 是 | 认证型号。 元服务API（仅ArkTS-Dyn）：从API版本11开始，该接口支持在元服务中使用。 示例：ALN-AL00 |
-| productModelAlias14+ | string | 是 | 认证型号别名。 元服务API（仅ArkTS-Dyn）：从API版本14开始，该接口支持在元服务中使用。 示例：TAS-AL00 |
+| productModel | string | 是 | 认证型号。 元服务API：从API版本11开始，该接口支持在元服务中使用。 示例：ALN-AL00 |
+| productModelAlias14+ | string | 是 | 认证型号别名。 元服务API：从API版本14开始，该接口支持在元服务中使用。 示例：TAS-AL00 |
 | softwareModel | string | 是 | 内部软件子型号。 示例：ALN-AL00 |
 | hardwareModel | string | 是 | 硬件版本号。 示例：HL1CMSM |
 | hardwareProfile(deprecated) | string | 是 | 硬件Profile。 说明： 从API version 6 开始支持，从API version 9 开始废弃，建议使用系统能力SystemCapability使用指南查询相关信息。 示例：default |
@@ -53,12 +53,14 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 | displayVersion | string | 是 | 产品版本。可以使用版本号中的DEM字段来识别门店演示样机。 示例：ALN-AL00 5.0.0.1(XXX) |
 | incrementalVersion | string | 是 | 差异版本号。 示例：default |
 | osReleaseType | string | 是 | 系统的发布类型，取值为： - Canary：面向特定开发者发布的早期预览版本，不承诺API稳定性。 - Beta：面向开发者公开发布的Beta版本，不承诺API稳定性。 - Release：面向开发者公开发布的正式版本，承诺API稳定性。 示例：Canary1/Beta2/Release |
-| osFullName | string | 是 | 系统版本，版本格式OpenHarmony-x.x.x.x。 元服务API（仅ArkTS-Dyn）：从API版本11开始，该接口支持在元服务中使用。 示例：OpenHarmony-5.0.0.1(Canary1) |
+| osFullName | string | 是 | 系统版本，版本格式OpenHarmony-x.x.x.x。 元服务API：从API版本11开始，该接口支持在元服务中使用。 示例：OpenHarmony-5.0.0.1(Canary1) |
 | majorVersion | number | 是 | Major版本号，随主版本更新增加，值为osFullName中的第一位数值，建议直接使用deviceInfo.majorVersion获取，可提升效率，不建议开发者解析osFullName获取。 示例：5 |
 | seniorVersion | number | 是 | Senior版本号，随局部架构、重大特性增加，值为osFullName中的第二位数值，建议直接使用deviceInfo.seniorVersion获取，可提升效率，不建议开发者自主解析osFullName获取。 示例：0 |
 | featureVersion | number | 是 | Feature版本号，标识规划的新特性版本，值为osFullName中的第三位数值，建议直接使用deviceInfo.featureVersion获取，可提升效率，不建议开发者自主解析osFullName获取。 示例：0 |
 | buildVersion | number | 是 | Build版本号，标识编译构建的版本号，值为osFullName中的第四位数值，建议直接使用deviceInfo.buildVersion获取，可提升效率，不建议开发者自主解析osFullName获取。 示例：1 |
-| sdkApiVersion | number | 是 | 系统软件API版本。 元服务API（仅ArkTS-Dyn）：从API版本14开始，该接口支持在元服务中使用。 示例：12 |
+| sdkApiVersion | number | 是 | 系统软件API版本。 元服务API：从API版本14开始，该接口支持在元服务中使用。 示例：12 |
+| sdkMinorApiVersion | number | 是 | 系统软件Minor API版本。从 API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 示例：0 |
+| sdkPatchApiVersion | number | 是 | 系统软件Patch API版本。从 API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 元服务API：从API版本26.0.0开始，该接口支持在元服务中使用。 示例：0 |
 | firstApiVersion | number | 是 | 首个版本系统软件API版本。 示例：3 |
 | versionId | string | 是 | 版本ID。由deviceType、manufacture、brand、productSeries、osFullName、productModel、softwareModel、sdkApiVersion、incrementalVersion、buildType拼接组成。 示例：wearable/HUAWEI/HUAWEI/TAS/OpenHarmony-5.0.0.1/TAS-AL00/TAS-AL00/12/default/release:nolog |
 | buildType | string | 是 | 构建类型。 示例：default |
@@ -77,9 +79,9 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 | performanceClass19+ | PerformanceClassLevel | 是 | 描述设备能力等级，基于CPU、内存、存储读写性能和屏幕分辨率等因素综合评估。 |
 | chipType21+ | string | 是 | 当前设备CPU芯片型号 示例：xxxxx |
 | bootCount21+ | number | 是 | 当前设备重启次数，获取失败时返回-1 示例：100 |
+| deviceColor | string | 是 | 当前设备颜色。如果无法获取，则返回空字符串 模型约束： 此接口仅可在Stage模型下使用。 起始版本：26.0.0 示例：gold |
+| 错误码： |  |  |  |
 
-
-**错误码：**
 
 以下错误码的详细介绍请参见[deviceInfo错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-info)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
@@ -181,6 +183,14 @@ import { deviceInfo } from '@kit.BasicServicesKit';
     // 输出结果：the value of the sdkApiVersion is :12
     console.info('the value of the deviceInfo sdkApiVersion is :' + sdkApiVersionInfo);
 
+   let sdkMinorApiVersionInfo: number = deviceInfo.sdkMinorApiVersion;
+    // 输出结果：the value of the sdk Minor ApiVersion is :0
+    console.info('the value of the deviceInfo sdkMinorApiVersion is :' + sdkMinorApiVersionInfo);
+
+   let sdkPatchApiVersionInfo: number = deviceInfo.sdkPatchApiVersion;
+    // 输出结果：the value of the sdk Patch ApiVersion is :0
+    console.info('the value of the deviceInfo sdkPatchApiVersion is :' + sdkPatchApiVersionInfo);
+
     let firstApiVersionInfo: number = deviceInfo.firstApiVersion;
     // 输出结果：the value of the firstApiVersion is :3
     console.info('the value of the deviceInfo firstApiVersion is :' + firstApiVersionInfo);
@@ -251,6 +261,10 @@ import { deviceInfo } from '@kit.BasicServicesKit';
     let bootCount: number = deviceInfo.bootCount
     // 输出结果：the value of the bootCount is :100
     console.info('the value of the deviceInfo bootCount is :' + bootCount);
+
+    let deviceColor: string = deviceInfo.deviceColor;
+    // 输出结果：the value of the deviceColor is :blue
+    console.info('the value of the deviceColor is :' + deviceColor);
 ```
 
 
@@ -278,7 +292,7 @@ import { deviceInfo } from '@kit.BasicServicesKit';
 
 设备类型枚举值，可用于校验deviceType的返回值。
 
-**元服务API（仅ArkTS-Dyn）**：从API版本20开始，该接口支持在元服务中使用。
+**元服务API**：从API版本20开始，该接口支持在元服务中使用。
 
 **系统能力**：SystemCapability.Startup.SystemInfo
 
@@ -323,4 +337,56 @@ let deviceTypesInfoDefault: string = deviceInfo.DeviceTypes.TYPE_DEFAULT;
     let deviceTypesInfoCar: string = deviceInfo.DeviceTypes.TYPE_CAR;
     // 输出结果：the value of the DeviceTypes is :car
     console.info('the value of the DeviceTypes is :' + deviceTypesInfoCar);
+```
+
+
+
+#### deviceInfo.apiAvailable
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+apiAvailable(version: string | number): boolean;
+
+检查指定的API版本在当前设备上是否可用。
+
+此方法提供跨不同HarmonyOS/分布式操作系统版本的兼容性检查。它会根据输入格式和API版本范围自动选择合适的版本检查方法。
+
+**起始版本**：26.0.0
+
+**元服务API**：从API版本26开始，该接口支持在元服务中使用。
+
+**模型约束：** 此接口Stage模型和FA模型下皆可使用。
+
+**系统能力**：SystemCapability.Startup.SystemInfo
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| version | string \| number | 是 | 需要校验的API版本号，支持整数版本号和点分版本号。 |
+
+
+**示例：**
+
+```text
+import { deviceInfo } from '@kit.BasicServicesKit';
+
+// Check API 26.0.0 (String format for API 26+ represents both HarmonyOS and Distribution OS)
+if (deviceInfo.apiAvailable("26.0.0")) {
+   ...
+}
+
+
+// Check API 5.0.1 (Distribution OS version, API 26-)
+if (deviceInfo.apiAvailable("5.0.1")) {
+   ...
+}
+
+
+import { deviceInfo } from '@kit.BasicServicesKit';
+
+// Check API 13 (HarmonyOS SDK version, API 26-)
+if (deviceInfo.apiAvailable(13)) {
+   ...
+}
 ```

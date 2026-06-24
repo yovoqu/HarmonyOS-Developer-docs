@@ -1,6 +1,6 @@
 # Interface (AVCastController)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-avsession-avcastcontroller
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -225,7 +225,7 @@ getSupportedHdrCapabilities(): Promise<Array<hdrCapability.HDRFormat>>
 **示例：**
 
 ```text
-import  { type hdrCapability } from '@kit.ArkGraphics2D';
+import { type hdrCapability } from '@kit.ArkGraphics2D';
 
 avCastController.getSupportedHdrCapabilities().then((hdrFormats: hdrCapability.HDRFormat[]) => {
   console.info(`Succeeded in getting supported HDR capabilities, length: ${hdrFormats.length}`);

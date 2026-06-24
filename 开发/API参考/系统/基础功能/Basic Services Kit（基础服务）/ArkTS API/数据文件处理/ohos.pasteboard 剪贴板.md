@@ -1,6 +1,6 @@
 # @ohos.pasteboard (剪贴板)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-pasteboard
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1292,6 +1292,7 @@ addRecord(mimeType: string, value: ValueType): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed. |
+| 12900002 | The number of records exceeds the upper limit, 适用版本： 9 - 9 |
 
 
 **示例：**
@@ -2347,7 +2348,7 @@ getData(callback: AsyncCallback&lt;PasteData&gt;): void
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 27787277 | Another copy or paste operation is in progress. |
-| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. 适用版本： 12+ |
 | 401 | Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types. |
 
 
@@ -2396,7 +2397,7 @@ getData(): Promise&lt;PasteData&gt;
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 27787277 | Another copy or paste operation is in progress. |
-| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. 适用版本： 12+ |
 
 
 **示例：**
@@ -3058,7 +3059,7 @@ getDataSync(): PasteData
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 12900005 | Excessive processing time for internal data. |
-| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. 适用版本： 12+ |
 
 
 **示例：**

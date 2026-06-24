@@ -1,6 +1,6 @@
 # @ohos.net.policy (网络策略管理)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-policy
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -85,3 +85,68 @@ policy.showAppNetPolicySettings(context).then(() => {
     }
 )
 ```
+
+
+
+#### policy.getNetAccessPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getNetAccessPolicy(): Promise&lt;NetAccessPolicy&gt;
+
+查询自身应用的联网策略（是否允许使用蜂窝、Wi-Fi网络上网），可在设备中“设置 > 移动网络 > 流量管理 > 应用联网”中查看。使用Promise异步回调。
+
+**起始版本：** 26.0.0
+
+**系统能力**：SystemCapability.Communication.NetManager.Core
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;NetAccessPolicy&gt; | Promise对象。返回应用自身联网策略。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍参见[应用联网错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-net-policy)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 2100002 | Failed to connect to the service. |
+| 2100003 | System internal error, such as nullptr. |
+
+
+**示例：**
+
+```text
+import { policy } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+policy.getNetAccessPolicy().then((policyInfo: policy.NetAccessPolicy) => {
+  console.info(`getNetAccessPolicy success. WiFi: ${policyInfo.allowWiFi}, Cellular: ${policyInfo.allowCellular}`);
+}).catch((err: BusinessError) => {
+  console.error(`getNetAccessPolicy fail. error info: ${err.code} - ${err.message}`);
+});
+```
+
+
+
+#### NetAccessPolicy
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+应用联网策略信息。
+
+**起始版本：** 26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**系统能力**：SystemCapability.Communication.NetManager.Core
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| allowWiFi | boolean | 否 | 否 | 是否允许使用Wi-Fi网络上网。 true：允许使用Wi-Fi网络上网。 false： 不允许使用Wi-Fi网络上网。 |
+| allowCellular | boolean | 否 | 否 | 是否允许使用蜂窝网络上网。 true：允许使用蜂窝网络上网。 false： 不允许使用蜂窝网络上网。 |

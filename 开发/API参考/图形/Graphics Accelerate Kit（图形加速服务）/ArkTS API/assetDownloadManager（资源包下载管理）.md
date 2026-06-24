@@ -1,6 +1,6 @@
 # assetDownloadManager（资源包下载管理）
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-assetdownloadmanager
 **支持设备：** Phone | Tablet
@@ -26,9 +26,9 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 资源包下载失败原因的枚举。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -54,9 +54,9 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 资源包下载任务状态的枚举。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -78,9 +78,9 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 资源包下载任务的配置信息。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -104,9 +104,9 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 资源包下载任务的信息。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -125,9 +125,9 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 资源包下载任务的进度信息。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -146,9 +146,9 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 资源包下载任务的完成信息。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -166,9 +166,9 @@ import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
 
 资源包下载任务的失败信息。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -188,9 +188,9 @@ on(type: 'progress', callback: Callback<DownloadProgressInfo[]>): void
 
 订阅资源包下载进度事件。使用callback异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -204,7 +204,7 @@ on(type: 'progress', callback: Callback<DownloadProgressInfo[]>): void
 
 **错误码**：
 
-错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -236,9 +236,9 @@ off(type: 'progress', callback?: Callback<DownloadProgressInfo[]>): void
 
 取消订阅资源包下载进度事件。使用callback异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -252,7 +252,7 @@ off(type: 'progress', callback?: Callback<DownloadProgressInfo[]>): void
 
 **错误码**：
 
-错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -284,9 +284,9 @@ on(type: 'pause', callback: Callback&lt;AssetDownloadTask&gt;): void
 
 订阅资源包下载暂停事件。使用callback异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -300,7 +300,7 @@ on(type: 'pause', callback: Callback&lt;AssetDownloadTask&gt;): void
 
 **错误码**：
 
-错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -332,9 +332,9 @@ off(type: 'pause', callback?: Callback&lt;AssetDownloadTask&gt;): void
 
 取消订阅资源包下载暂停事件。使用callback异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -348,7 +348,7 @@ off(type: 'pause', callback?: Callback&lt;AssetDownloadTask&gt;): void
 
 **错误码**：
 
-错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -380,9 +380,9 @@ on(type: 'complete', callback: Callback&lt;DownloadCompletedInfo&gt;): void
 
 订阅资源包下载成功事件。使用callback异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -396,7 +396,7 @@ on(type: 'complete', callback: Callback&lt;DownloadCompletedInfo&gt;): void
 
 **错误码**：
 
-错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -428,9 +428,9 @@ off(type: 'complete', callback?: Callback&lt;DownloadCompletedInfo&gt;): void
 
 取消订阅资源包下载成功事件。使用callback异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -444,7 +444,7 @@ off(type: 'complete', callback?: Callback&lt;DownloadCompletedInfo&gt;): void
 
 **错误码**：
 
-错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -476,9 +476,9 @@ on(type: 'fail', callback: Callback&lt;DownloadFailedInfo&gt;): void
 
 订阅资源包下载失败事件。使用callback异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -492,7 +492,7 @@ on(type: 'fail', callback: Callback&lt;DownloadFailedInfo&gt;): void
 
 **错误码**：
 
-错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -524,9 +524,9 @@ off(type: 'fail', callback?: Callback&lt;DownloadFailedInfo&gt;): void
 
 取消订阅资源包下载失败事件。使用callback异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -540,7 +540,7 @@ off(type: 'fail', callback?: Callback&lt;DownloadFailedInfo&gt;): void
 
 **错误码**：
 
-错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -572,11 +572,11 @@ fetchManifestUrl(): Promise&lt;string&gt;
 
 获取资源包下载列表。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.INTERNET
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -589,7 +589,7 @@ fetchManifestUrl(): Promise&lt;string&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -624,11 +624,11 @@ addAssetDownloadTask(context: common.BaseContext, downloadConfig: AssetDownloadC
 
 新增资源包下载任务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.INTERNET
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -649,7 +649,7 @@ addAssetDownloadTask(context: common.BaseContext, downloadConfig: AssetDownloadC
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -697,11 +697,11 @@ pauseAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 暂停资源包下载任务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.INTERNET
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -721,7 +721,7 @@ pauseAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -759,7 +759,7 @@ async pauseAssetDownloadTask() {
     return;
   }
   try {
-    // 根据taskId暂停资源包下载任务
+    // 根据taskId暂停资源包下载任务。
     await assetDownloadManager.pauseAssetDownloadTask(taskId);
     console.info('AssetAccelDemo', `Succeeded in pausing assetDownloadTask`);
   } catch (error) {
@@ -779,11 +779,11 @@ resumeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 恢复资源包下载任务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.INTERNET
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -803,7 +803,7 @@ resumeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -841,7 +841,7 @@ async resumeAssetDownloadTask() {
     return;
   }
   try {
-    // 根据taskId暂停资源包下载任务
+    // 根据taskId暂停资源包下载任务。
     assetDownloadManager.pauseAssetDownloadTask(taskId);
     console.info('AssetAccelDemo', `Succeeded in pausing assetDownloadTask`);
   } catch (error) {
@@ -849,7 +849,7 @@ async resumeAssetDownloadTask() {
     return;
   }
   try {
-    // 根据taskId恢复资源包下载任务
+    // 根据taskId恢复资源包下载任务。
     await assetDownloadManager.resumeAssetDownloadTask(taskId);
     console.info('AssetAccelDemo', `Succeeded in resuming assetDownloadTask`);
   } catch (error) {
@@ -869,9 +869,9 @@ removeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 移除资源包下载任务。使用Promise异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -891,7 +891,7 @@ removeAssetDownloadTask(taskId: string): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -926,7 +926,7 @@ async removeAssetDownloadTask() {
     return;
   }
   try {
-    // 根据taskId删除资源包下载任务
+    // 根据taskId删除资源包下载任务。
     await assetDownloadManager.removeAssetDownloadTask(taskId);
     console.info('AssetAccelDemo', `Succeeded in removing assetDownloadTask`);
   } catch (error) {
@@ -946,9 +946,9 @@ fetchAllAssetDownloadTasks(): Promise<AssetDownloadTask[]>
 
 获取所有资源包下载任务，已下载完成的任务除外。使用Promise异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -961,7 +961,7 @@ fetchAllAssetDownloadTasks(): Promise<AssetDownloadTask[]>
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1015,11 +1015,11 @@ pauseAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 暂停所有资源包下载任务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.INTERNET
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -1032,7 +1032,7 @@ pauseAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1087,11 +1087,11 @@ resumeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 恢复所有资源包下载任务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.INTERNET
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -1104,7 +1104,7 @@ resumeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1167,9 +1167,9 @@ removeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 移除所有资源包下载任务。使用Promise异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -1182,7 +1182,7 @@ removeAllAssetDownloadTasks(): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1235,9 +1235,9 @@ fetchGroupAssetDownloadTasks(groupId: string): Promise<AssetDownloadTask[]>
 
 获取同一组的资源包下载任务。使用Promise异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -1257,7 +1257,7 @@ fetchGroupAssetDownloadTasks(groupId: string): Promise<AssetDownloadTask[]>
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1314,11 +1314,11 @@ pauseGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 暂停同一组的资源包下载任务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限**：ohos.permission.INTERNET
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -1338,7 +1338,7 @@ pauseGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1396,11 +1396,11 @@ resumeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 恢复同一组的资源包下载任务。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限**：ohos.permission.INTERNET
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -1420,7 +1420,7 @@ resumeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1486,9 +1486,9 @@ removeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 移除同一组的资源包下载任务。使用Promise异步回调。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 此接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -1508,7 +1508,7 @@ removeGroupAssetDownloadTasks(groupId: string): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1562,9 +1562,9 @@ async removeGroupAssetDownloadTasks() {
 
 网络限速等级的枚举。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.0(18)
 
@@ -1585,11 +1585,11 @@ limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise&lt
 
 限制资源包下载的速度。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限**：ohos.permission.INTERNET
 
 **系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
-**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.1.0(18)
 
@@ -1610,7 +1610,7 @@ limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise&lt
 
 **错误码**：
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1664,9 +1664,9 @@ async limitDownloadTaskSpeed() {
 
 应用自身下载器中资源包下载状态的枚举。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.1(19)
 
@@ -1684,9 +1684,9 @@ async limitDownloadTaskSpeed() {
 
 资源类型，影响下载完成通知的内容样式。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 6.1.0(23)
 
@@ -1704,9 +1704,9 @@ async limitDownloadTaskSpeed() {
 
 应用自身下载器中资源包的下载进度信息。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.1(19)
 
@@ -1719,6 +1719,7 @@ async limitDownloadTaskSpeed() {
 | failureCount | number | 否 | 否 | 下载失败的文件数。取值大于等于0，异常值按0处理。 默认值：0。 |
 | status | AppDownloadStatus | 否 | 否 | 当前应用自身下载器中的下载状态。 |
 | resourceType | ResourceType | 否 | 是 | 后台正在下载的资源类型，不同的资源类型决定了后台下载通知的内容样式。 默认值为RELEASED。 起始版本： 6.1.0(23) |
+| resourceVersion | string | 否 | 是 | 正在下载的资源的版本标识符。 最大长度128字节。 默认值：空字符串。 起始版本： 26.0.0 |
 
 
 
@@ -1731,9 +1732,9 @@ reportDownloadProgress(progressInfo: AppDownloadProgress): void
 
 上报应用自身下载器中资源包的下载进度信息。
 
-**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
-
 **模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
 
 **起始版本：** 5.1.1(19)
 
@@ -1746,7 +1747,7 @@ reportDownloadProgress(progressInfo: AppDownloadProgress): void
 
 **错误码**：
 
-错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/graphics-accelerate-arkts-errorcode)。
+错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1769,7 +1770,7 @@ try {
     failureCount: 0,
     status:assetDownloadManager.AppDownloadStatus.IN_PROGRESS
   }
-  // 判断当前HarmonyOS SDK版本是否为6.1.0(23)及以上版本
+  // 判断当前HarmonyOS SDK版本是否为6.1.0(23)及以上版本。
   if (deviceInfo.sdkApiVersion >= 23) {
     progressInfo.resourceType = assetDownloadManager.ResourceType.RELEASED
   }
@@ -1777,5 +1778,63 @@ try {
   console.info('AssetAccelDemo', `Succeeded in reporting downloadProgress`);
 } catch (error) {
   console.error('AssetAccelDemo', `Failed to report downloadProgress, errCode:${error.code}, errMessage:${error.message}`);
+}
+```
+
+
+
+#### assetDownloadManager.isSupportAssetDownload
+
+**支持设备：** Phone | Tablet
+
+isSupportAssetDownload(): Promise&lt;number&gt;
+
+查询用户的当前设备类型是否支持资源包下载能力。使用Promise异步回调。
+
+**模型约束：** 本模块接口仅可在Stage模型下使用。
+
+**系统能力：** SystemCapability.GraphicsGame.AssetAcceleration
+
+**起始版本：** 26.0.0
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;number&gt; | Promise对象。返回是否支持资源包下载能力的结果信息。 0：不支持。 1：支持。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-graphics-accelerate)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 1016600094 | Task service ability error. |
+
+
+**示例**：
+
+```text
+import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';
+import { deviceInfo } from '@kit.BasicServicesKit';
+
+async IsSupportAssetDownload() {
+  // 判断当前HarmonyOS SDK版本是否为26.0.0及以上版本。
+  if (deviceInfo.sdkApiVersion >= 26) {
+    try {
+      const supportResult = await assetDownloadManager.isSupportAssetDownload();
+      console.info('AssetAccelDemo', 'Succeeded in testing IsSupportAssetDownload');
+      if (supportResult == 1) {
+        // 用户当前设备类型支持资源包下载能力。
+        console.info('AssetAccelDemo', 'The device supports assetDownload');
+      } else {
+        // 用户当前设备类型不支持资源包下载能力。
+        console.info('AssetAccelDemo', 'The device does not support assetDownload');
+      }
+    } catch (error) {
+      console.error('AssetAccelDemo', `Failed to test isSupportAssetDownload, errCode:${error.code}, errMessage:${error.message}`);
+    }
+  }
 }
 ```

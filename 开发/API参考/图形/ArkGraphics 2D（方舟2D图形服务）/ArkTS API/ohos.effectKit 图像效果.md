@@ -1,6 +1,6 @@
 # @ohos.effectKit (图像效果)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-effectkit
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -808,7 +808,7 @@ blur(radius: number): Filter
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| radius | number | 是 | 模糊半径，单位是像素。模糊效果与所设置的值成正比，值越大效果越明显。 |
+| radius | number | 是 | 模糊半径，单位为px。模糊效果与所设置的值成正比，值越大效果越明显。 |
 
 
 **返回值：**
@@ -905,7 +905,7 @@ blur(radius: number, tileMode: TileMode): Filter
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| radius | number | 是 | 模糊半径，单位是像素。模糊效果与所设置的值成正比，值越大效果越明显。 |
+| radius | number | 是 | 模糊半径，单位为px。模糊效果与所设置的值成正比，值越大效果越明显。 |
 | tileMode | TileMode | 是 | 着色器效果平铺模式。影响图像边缘的模糊效果。目前仅支持CPU渲染，所以目前着色器平铺模式仅支持DECAL。 |
 
 
@@ -1172,7 +1172,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4/v3/E1g-r1DLQBqCwAuyzW6zNg/zh-cn_image_0000002581277086.png?HW-CC-KV=V1&HW-CC-Date=20260528T025705Z&HW-CC-Expire=86400&HW-CC-Sign=8193D7838F7ECFF40C2D0AEFDA60D7DE695209720B2E2E3B2780DC7AF1291AFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/09/v3/mokSR7EyS5ax_vwBz8_z_Q/zh-cn_image_0000002626231562.png?HW-CC-KV=V1&HW-CC-Date=20260624T020306Z&HW-CC-Expire=86400&HW-CC-Sign=47BC84EED0C87CC51FB91684D62042025DE659116B33ACFDA7D0EA22F88C4840)
 
 
 
@@ -1269,7 +1269,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/78/v3/GWcGRkjwSNiFpUha0eke8Q/zh-cn_image_0000002611756943.png?HW-CC-KV=V1&HW-CC-Date=20260528T025705Z&HW-CC-Expire=86400&HW-CC-Sign=3828622DDCAAD0A508F329929B70CDAC6C5263C62112C0B81D470D37B6324D90)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b5/v3/YserRW-tSeSLIKfNKlFsHg/zh-cn_image_0000002626071650.png?HW-CC-KV=V1&HW-CC-Date=20260624T020306Z&HW-CC-Expire=86400&HW-CC-Sign=04FF22C99C8281A1738FE177737795253C7ED380CB9ACC39AC6F50B4B737C82B)
 
 
 
@@ -1358,7 +1358,7 @@ struct Index {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d0/v3/OR98B4NYTJCmp8fgupzEuw/zh-cn_image_0000002581437002.png?HW-CC-KV=V1&HW-CC-Date=20260528T025705Z&HW-CC-Expire=86400&HW-CC-Sign=88F5FB3F262C1AB73DBFC70E5A9D89B22E28F22445E0D54DCA3C3BEE384EDB5D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/36/v3/FdrHlnqsRka-xg3nb0wOnw/zh-cn_image_0000002656470927.png?HW-CC-KV=V1&HW-CC-Date=20260624T020306Z&HW-CC-Expire=86400&HW-CC-Sign=D43F773A5492EFD9B114221EFFE204259A742DD71C5909D4841A84F0AC5A7CB4)
 
 
 

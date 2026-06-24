@@ -1,6 +1,6 @@
 # Class (MaskFilter)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-graphics-drawing-maskfilter
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -37,7 +37,7 @@ static createBlurMaskFilter(blurType: BlurType, sigma: number): MaskFilter
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | blurType | BlurType | 是 | 模糊类型。 |
-| sigma | number | 是 | 高斯模糊的标准偏差，必须为大于0的浮点数。 |
+| sigma | number | 是 | 高斯模糊的标准偏差，必须为大于0的浮点数。单位为物理像素px。 |
 
 
 **返回值：**

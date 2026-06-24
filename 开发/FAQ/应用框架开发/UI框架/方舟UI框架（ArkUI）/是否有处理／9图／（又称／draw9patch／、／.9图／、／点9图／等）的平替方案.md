@@ -1,6 +1,6 @@
 # 是否有处理"9图"（又称"draw9patch"、".9图"、"点9图"等）的平替方案
 
-更新时间：2026-06-05 09:11:02
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-208
 

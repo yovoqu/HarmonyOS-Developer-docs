@@ -1,6 +1,6 @@
 # drawing_surface.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-surface-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -103,6 +103,8 @@ OH_Drawing_Surface* OH_Drawing_SurfaceCreateOnScreen(OH_Drawing_GpuContext* gpuC
 本接口会产生错误码，可以通过[OH_Drawing_ErrorCodeGet](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-error-code-h#oh_drawing_errorcodeget)查看错误码的取值。
  
 gpuContext或window为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。
+ 
+imageInfo的宽高和window的宽高需保持一致。
  
 **系统能力：** SystemCapability.Graphic.Graphic2D.NativeDrawing
  

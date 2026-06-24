@@ -1,10 +1,10 @@
 # Online Authentication Kit简介
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-introduction
 
-Online Authentication Kit（在线认证服务）遵循FIDO（Fast Identity Online）、FIDO2、IIFAA（互联网可信认证联盟）和SOTER标准免密认证规范，提供免密身份认证的移动端能力。用户应用接入FIDO、FIDO2、IFAA或SOTER服务器后，可以使用相应的移动端能力，用生物特征（例如指纹、3D人脸）代替密码，实现免密登录、免密支付等业务场景。
+Online Authentication Kit（在线认证服务）遵循FIDO（Fast Identity Online）、FIDO2、IIFAA（互联网可信认证联盟）、SOTER标准免密认证规范和DID（分布式数字身份）能力，提供免密身份认证、数字身份的移动端能力。用户应用接入FIDO、FIDO2、IFAA、SOTER、DID服务器后，可以使用相应的移动端能力，用生物特征（例如指纹、3D人脸）代替密码，实现免密登录、免密支付、数字身份等业务场景。
   
 
 #### FIDO
@@ -78,14 +78,19 @@ SOTER提供一套生物认证平台和标准，使得业务可以采用设备上
   
 
 #### 支持的设备
-
-本Kit仅适用于Phone、PC/2in1、Tablet。
+ 
+| 能力 | 支持设备 |
+| --- | --- |
+| FIDO免密身份认证、IFAA免密身份认证、SOTER免密身份认证 | Phone（5.0.0(12)）、Tablet（5.0.0(12)）、PC/2in1（5.0.1(13)）、Car（26.0.0）。 |
+| 通行密钥 | Phone（6.0.0(20)）、Tablet（6.0.0(20)）、PC/2in1（6.0.0(20)）。 |
+| DID数字身份服务 | Phone（26.0.0）、Tablet（26.0.0）。 |
+ 
  
   
 
 #### 能力使用限制
 
-Online Authentication Kit提供的FIDO、IFAA、SOTER及通行密钥能力有以下使用限制：
+Online Authentication Kit提供的FIDO、IFAA、SOTER、DID及通行密钥能力有以下使用限制：
  
 - 开发者应用需要部署相应的服务端。
 - 要使用指纹或3D人脸的免密身份认证能力，移动端设备需要支持相应的生物特征，查询当前移动端设备是否支持可参见[User Authentication Kit](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/obtain-supported-authentication-capabilities)（需设备支持ATL4级别的认证可信等级）。

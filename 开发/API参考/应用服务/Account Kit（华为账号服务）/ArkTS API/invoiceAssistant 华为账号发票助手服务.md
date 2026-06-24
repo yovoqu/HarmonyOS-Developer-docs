@@ -1,13 +1,18 @@
-# invoiceAssistant (华为账号发票助手服务)
+# @hms.core.account.invoiceAssistant (华为账号发票助手服务)
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-invoiceassistant
 **支持设备：** Phone | PC/2in1 | Tablet
 
-本模块提供Account Kit的发票助手能力。
+#### 模块概述
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+@hms.core.account.invoiceAssistant模块提供华为账号发票助手能力。开发者可通过该能力拉起发票抬头选择页面，帮助用户快速管理、选择发票抬头。用户选择发票抬头后，会将发票抬头信息返回给开发者，可用于完善相关业务场景。
  
 **起始版本：** 5.0.0(12)
+ 
   
 
 #### 导入模块
@@ -24,7 +29,7 @@ import { invoiceAssistant } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-该枚举定义了Account Kit发票助手服务相关接口的错误码。
+华为账号发票助手服务接口错误码枚举。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -52,7 +57,7 @@ import { invoiceAssistant } from '@kit.AccountKit';
 
 **支持设备：** Phone | PC/2in1 | Tablet
 
-该类为发票助手服务响应的发票抬头数据对象。
+发票抬头数据结构。[selectInvoiceTitle](#selectinvoicetitle)返回值，包含发票抬头、公司信息等数据。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -81,7 +86,7 @@ import { invoiceAssistant } from '@kit.AccountKit';
 
 selectInvoiceTitle(context: common.Context): Promise&lt;InvoiceTitle&gt;
  
-调用该方法打开发票抬头选择页面，并返回用户选择的发票抬头。使用Promise异步回调。
+选择发票抬头方法。开发者可调用该方法打开发票抬头选择页面，用户选择发票抬头后，会通过Promise异步回调，返回发票抬头信息。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -107,7 +112,7 @@ selectInvoiceTitle(context: common.Context): Promise&lt;InvoiceTitle&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-error-code)。
+以下错误码的详细介绍请参见[ArkTS错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-account-kit)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -118,7 +123,7 @@ selectInvoiceTitle(context: common.Context): Promise&lt;InvoiceTitle&gt;
 | 1010060004 | Too frequent API calls. |
 | 1010060005 | Network connection error. |
 | 1010060006 | The HUAWEI ID is not signed in. |
-| 1010060007 | Failed to create a invoice title because the title already exists. |
+| 1010060007 | Failed to create an invoice title because the title already exists. |
 | 1010060008 | The invoice service does not support the logged HUAWEI ID. |
  
  
@@ -161,6 +166,6 @@ if (canIUse('SystemCapability.HuaweiID.InvoiceAssistant')) {
 
 // 错误处理
 function dealAllError(error: BusinessError<Object>): void {
-  hilog.error(0x0000, 'testTag', `Failed to authorize. Code: ${error.code}, message: ${error.message}`);
+  hilog.error(0x0000, 'testTag', `Failed to select invoice title. Code: ${error.code}, message: ${error.message}`);
 }
 ```

@@ -1,6 +1,6 @@
 # ReadPageComponent（阅读页组件）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-api-readpagecomponent
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -32,6 +32,8 @@ import { ReadPageComponent } from '@kit.ReaderKit';
  
 **装饰器类型：** @Component
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
@@ -55,6 +57,8 @@ import { ReadPageComponent } from '@kit.ReaderKit';
 build(): void
  
 用于创建ReadPageComponent对象的构造函数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  

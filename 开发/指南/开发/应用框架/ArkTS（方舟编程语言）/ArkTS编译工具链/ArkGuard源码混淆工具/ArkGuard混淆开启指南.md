@@ -1,6 +1,6 @@
 # ArkGuard混淆开启指南
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation-guide
 
@@ -202,7 +202,7 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 
   
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/4f/v3/wP9BHGZaSEifUjmE0o3u7A/zh-cn_image_0000002581273684.png?HW-CC-KV=V1&HW-CC-Date=20260528T030517Z&HW-CC-Expire=86400&HW-CC-Sign=CA2B1CDDC83E627A142639A28639C9B80BD57E16084FFA456F20DA5DB11F0788)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3/v3/pM5E18flSPGTAJvJECC5_Q/zh-cn_image_0000002626227992.png?HW-CC-KV=V1&HW-CC-Date=20260624T020740Z&HW-CC-Expire=86400&HW-CC-Sign=1E34A6344F3F917C3E0C4648DD8ED01D1092A1B1C6B152DB25213AEC7A20967D)
 
   
  
@@ -220,4 +220,4 @@ console.info(obj002.dynamicPropertyName);// 使用点语法静态访问属性，
 
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a6/v3/_3AKu3fNTUyEdVCQ_C7v_Q/zh-cn_image_0000002611753539.png?HW-CC-KV=V1&HW-CC-Date=20260528T030517Z&HW-CC-Expire=86400&HW-CC-Sign=40B92E46DC5AFD8237A2C18E6F0F63F1E9308C784B53394B64CB9C18A075717E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bd/v3/GM3Ys-wkTH2JP0K9rxmvgA/zh-cn_image_0000002626068084.png?HW-CC-KV=V1&HW-CC-Date=20260624T020740Z&HW-CC-Expire=86400&HW-CC-Sign=60FAE84A62750798C215A0E227B790924F708F66EB077080BC41C56B82DA9F28)

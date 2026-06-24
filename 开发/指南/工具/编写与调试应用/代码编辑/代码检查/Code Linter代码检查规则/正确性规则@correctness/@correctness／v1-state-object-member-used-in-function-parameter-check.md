@@ -1,6 +1,6 @@
 # @correctness/v1-state-object-member-used-in-function-parameter-check
 
-更新时间：2026-04-20 06:32:02
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-v1-state-object-member-used-in-fun-parameter
 

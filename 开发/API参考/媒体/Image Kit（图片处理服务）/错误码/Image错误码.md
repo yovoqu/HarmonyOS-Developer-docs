@@ -1,6 +1,6 @@
 # Image错误码
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-image
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1210,6 +1210,50 @@ Failed to get the data from Surface.
 
 
 
+#### 7600105 PixelMap已被释放
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+PixelMap has been released.
+
+**错误描述**
+
+PixelMap已被释放。
+
+**可能原因**
+
+PixelMap对象已被释放，其关联的native对象已不存在。
+
+**处理步骤**
+
+检查该PixelMap对象是否存在被提前释放的风险（例如，在异步任务或另一个线程中意外释放），需确保该对象在使用结束前及所有异步方法执行完成前不被释放。
+
+
+
+#### 7600106 PixelMap已被传递至另一个线程
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+PixelMap has been passed to another thread.
+
+**错误描述**
+
+PixelMap已被传递至另一个线程。
+
+**可能原因**
+
+PixelMap对象已被传递至另一个线程。
+
+**处理步骤**
+
+不要在PixelMap对象被传递到另一个线程后仍在当前线程调用该对象的方法。
+
+
+
 #### 7600173 DMA内存不存在
 
 **错误信息**
@@ -1380,6 +1424,28 @@ Invalid parameter.
 
 
 
+#### 7600207 不支持的数据格式
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+Unsupported data format.
+
+**错误描述**
+
+不支持的数据格式。
+
+**可能原因**
+1. 接口不支持传入的像素数据格式。
+2. 对象中的数据格式不支持特定的操作。
+
+**处理步骤**
+
+查看接口文档并使用接口支持的数据格式。
+
+
+
 #### 7600301 申请内存失败
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -1463,6 +1529,28 @@ Failed to create the PixelMap.
 **处理步骤**
 
 检查函数入参或检查是否提前释放了实例。
+
+
+
+#### 7600306 数据转换失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+Data conversion failed.
+
+**错误描述**
+
+数据转换失败。
+
+**可能原因**
+1. 传入的像素数据缓冲区的大小不符合预期。
+2. PixelMap内部的像素数据损坏。
+
+**处理步骤**
+1. 如果传入了一个缓冲区，检查缓冲区的大小是否符合预期。
+2. 检查PixelMap的像素数据和元数据是否正常。
 
 
 
@@ -1705,6 +1793,51 @@ Memory allocation failed.
 **处理步骤**
 
 检查设备内存或检查传入数据。
+
+
+
+#### 7700303 图片不包含缩略图数据
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+Image does not carry thumbnail data.
+
+**错误描述**
+
+图片不包含缩略图数据。
+
+**可能原因**
+
+图片文件中不包含缩略图数据，且未开启缩略图生成功能。
+
+**处理步骤**
+
+检查图片文件是否包含缩略图数据，或开启缩略图生成功能后重试。
+
+
+
+#### 7700305 缩略图生成失败
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+**错误信息**
+
+Thumbnail generation failed.
+
+**错误描述**
+
+缩略图生成失败。
+
+**可能原因**
+1. 输入图片数据异常。
+2. 缩略图生成参数不合理。
+3. 设备资源不足。
+
+**处理步骤**
+
+检查输入图片数据和缩略图生成参数，必要时释放系统资源后重试。
 
 
 

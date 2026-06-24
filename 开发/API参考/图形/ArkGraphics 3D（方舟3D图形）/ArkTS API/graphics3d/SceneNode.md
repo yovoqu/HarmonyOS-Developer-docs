@@ -1,6 +1,6 @@
 # SceneNode
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-scene-nodes
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -532,7 +532,7 @@ function getNode(): void {
  
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/16M3GdY4R8GxwesvGfTfeQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025701Z&HW-CC-Expire=86400&HW-CC-Sign=D663663459E8220D04FF7A00E91ADBD33AC0A9AF8463689806F808399610EF56)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c6/v3/2T5Hs-XCS7S2LzZ9lL737w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020328Z&HW-CC-Expire=86400&HW-CC-Sign=8A05D9D246DD21860987F8039A8BA10DFE4637C29E270A5BC8144DA0DC500239)
  
  
 用户需要保证设置的innerAngle与outerAngle值是合理的。当outerAngle设置的值大于PI/2时，内部会强制其等于PI/2。当outerAngle设置的值小于innerAngle时，内部会强制其等于innerAngle。

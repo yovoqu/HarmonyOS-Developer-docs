@@ -1,6 +1,6 @@
 # @ohos.rpc (RPC通信)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-rpc
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -3274,8 +3274,9 @@ readParcelableArray(parcelableArray: Parcelable[]): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | parcelableArray | Parcelable[] | 是 | 要读取的可序列化对象数组，使用前请先实例化可序列化对象，且序列化与反序列化数组长度须一致。 |
-| 错误码： |  |  |  |
 
+
+**错误码：**
 
 以下错误码的详细介绍请参见[ohos.rpc错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-rpc)
 

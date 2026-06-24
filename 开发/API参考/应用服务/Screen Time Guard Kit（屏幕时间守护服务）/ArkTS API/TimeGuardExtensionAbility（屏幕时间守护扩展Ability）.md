@@ -1,17 +1,20 @@
-# TimeGuardExtensionAbility（屏幕时间守护扩展Ability）
+# @hms.utilityApplication.screenTimeGuard.TimeGuardExtensionAbility.d.ts（屏幕时间守护扩展Ability）
 
-更新时间：2026-06-09 02:58:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/screentimeguard-timeguardextensionability
 **支持设备：** Phone | Tablet
 
-TimeGuardExtensionAbility是屏幕时间守护扩展Ability，提供extension回调，支持开发者在策略管控生效和策略停止时执行特定逻辑，以及支持开发者用户授予应用权限和取消应用授权时执行特定逻辑。TimeGuardExtensionAbility继承自[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)。
+#### 模块概述
+
+**支持设备：** Phone | Tablet
+
+TimeGuardExtensionAbility为屏幕时间守护扩展Ability，继承自[ExtensionAbility](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-extensionability)。为管控应用提供在守护策略生效和结束、获取授权和撤销授权场景下的生命周期回调。开发者通过定义该回调函数，可以在上述场景中执行特定逻辑。
  
-**模型约束：** 此接口仅可在Stage模型下使用。
- 
-**系统能力：** SystemCapability.ScreenTimeGuard.GuardService
+TimeGuardExtensionAbility为轻量级的独立子进程，不允许唤醒主进程。
  
 **起始版本：** 6.0.0(20)
+ 
   
 
 #### 导入模块
@@ -36,7 +39,7 @@ import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
   
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| context | TimeGuardExtensionContext | 否 | 否 | TimeGuardExtensionContext上下文环境，继承自ExtensionContext。 |
+| context | TimeGuardExtensionContext | 否 | 否 | TimeGuardExtensionAbility的上下文环境，继承自ExtensionContext。 |
  
  
   
@@ -73,9 +76,9 @@ onStart(strategyName: string): Promise&lt;void&gt;
  
 ```text
 import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
- 
+
 let index = 0; // 用于自增操作
- 
+
 function asyncIncrement(): Promise<void> {
   // index自增的异步操作
   return new Promise<void>((resolve) => {
@@ -83,7 +86,7 @@ function asyncIncrement(): Promise<void> {
     resolve();
   });
 }
- 
+
 export default class EntryAbility extends TimeGuardExtensionAbility {
   async onStart(strategyName: string): Promise<void> {
     // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑
@@ -127,9 +130,9 @@ onStop(strategyName: string): Promise&lt;void&gt;
  
 ```text
 import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
- 
+
 let index = 0; // 用于自增操作
- 
+
 function asyncIncrement(): Promise<void> {
   // index自增的异步操作
   return new Promise<void>((resolve) => {
@@ -137,7 +140,7 @@ function asyncIncrement(): Promise<void> {
     resolve();
   });
 }
- 
+
 export default class EntryAbility extends TimeGuardExtensionAbility {
   async onStop(strategyName: string): Promise<void> {
     // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑
@@ -174,9 +177,9 @@ onUserAuthSwitchOn(): Promise&lt;void&gt;
  
 ```text
 import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
- 
+
 let index = 0; // 用于自增操作
- 
+
 function asyncIncrement(): Promise<void> {
   // index自增的异步操作
   return new Promise<void>((resolve) => {
@@ -184,7 +187,7 @@ function asyncIncrement(): Promise<void> {
     resolve();
   });
 }
- 
+
 export default class EntryAbility extends TimeGuardExtensionAbility {
   async onUserAuthSwitchOn(): Promise<void> {
     // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑
@@ -202,7 +205,7 @@ export default class EntryAbility extends TimeGuardExtensionAbility {
 
 onUserAuthSwitchOff(): Promise&lt;void&gt;
  
-当用户在“健康使用设备”中授予管控应用权限时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
+当用户在“健康使用设备”中撤销管控应用授权时，系统将自动触发此回调函数，开发者可在回调函数中执行自己的业务逻辑。使用Promise异步回调。
  
 **模型约束：** 此接口仅可在Stage模型下使用。
  
@@ -221,9 +224,9 @@ onUserAuthSwitchOff(): Promise&lt;void&gt;
  
 ```text
 import { TimeGuardExtensionAbility } from '@kit.ScreenTimeGuardKit';
- 
+
 let index = 0; // 用于自增操作
- 
+
 function asyncIncrement(): Promise<void> {
   // index自增的异步操作
   return new Promise<void>((resolve) => {
@@ -231,7 +234,7 @@ function asyncIncrement(): Promise<void> {
     resolve();
   });
 }
- 
+
 export default class EntryAbility extends TimeGuardExtensionAbility {
   async onUserAuthSwitchOff(): Promise<void> {
     // 开发者可在回调中处理自己的业务逻辑，本示例代码只执行index自增逻辑

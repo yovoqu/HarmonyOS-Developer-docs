@@ -1,6 +1,6 @@
 # 适配相机旋转角度(ArkTS)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/camera-rotation-angle-adaptation
 
@@ -231,7 +231,7 @@ async getVideoRotationAndUpdate(videoOutput: camera.VideoOutput, deviceDegree: n
 
 #### 计算设备旋转角度
 
-当前可通过调用[once(type: SensorId.GRAVITY, callback: Callback&lt;GravityResponse&gt;)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#gravity9-1)获取一次重力传感器在x、y、z三个方向上的数据，计算得出设备旋转角度deviceDegree，示例如下所示。
+当前可通过调用[once(type: SensorId.GRAVITY, callback: Callback&lt;GravityResponse&gt;)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sensor#sensoronsensoridgravity9)获取一次重力传感器在x、y、z三个方向上的数据，计算得出设备旋转角度deviceDegree，示例如下所示。
  
 如果无法获得重力传感器数据，需要申请重力传感器权限ohos.permission.ACCELEROMETER。权限申请请参考[声明权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/declare-permissions)，如何获取传感器数据请参考[传感器开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/sensor-guidelines)。
  
@@ -330,9 +330,9 @@ import { camera } from '@kit.CameraKit';
 
 function enablePhysicalCameraOrientation(cameraInput: camera.CameraInput) {
   // 查询设备的相机镜头安装角度是否可变
-  let isVariable: boolean = cameraInput.isPhysicalCameraOrientationVariable();
+  let isVarialbe: boolean = cameraInput.isPhysicalCameraOrientationVariable();
 
-  if (isVariable) {
+  if (isVarialbe) {
     // 获取设备当前折叠状态下真实的相机镜头安装角度
     let physicalOrientation: number = cameraInput.getPhysicalCameraOrientation();
     console.info(`physical Orientation is ${physicalOrientation}`);

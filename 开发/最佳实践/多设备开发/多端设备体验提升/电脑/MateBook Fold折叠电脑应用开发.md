@@ -1,6 +1,6 @@
 # 折叠电脑应用开发
 
-更新时间：2026-05-30 09:52:30
+更新时间：2026-06-12 07:22:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-mate-book-fold
 
@@ -98,7 +98,7 @@ HarmonyOS折叠电脑凭借其独特的折叠设计、全屏触控和[虚拟键�
 - 获取屏幕对象相关接口[Display](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-display#display)对象中包含屏幕宽高，屏幕可用区域宽高等重要信息，对应的Display区域如下图所示。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c7/v3/EZh2YMAiR9CMj8oz91PkbQ/zh-cn_image_0000002585466890.png?HW-CC-KV=V1&HW-CC-Date=20260604T012653Z&HW-CC-Expire=86400&HW-CC-Sign=A38370A59D7CAC1B288B4A063E5E4A21C876F0A18A4DBD5633120883265388B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/82/v3/5bioM8i-TxWIoYq5Q4doYg/zh-cn_image_0000002585466890.png?HW-CC-KV=V1&HW-CC-Date=20260624T020957Z&HW-CC-Expire=86400&HW-CC-Sign=D6F3F9DC761853ADC502B3D8C57F59845D0AB79DB50B2891C0A9A5FF659D9510)
 
 
 | API | 说明 |
@@ -201,7 +201,7 @@ HarmonyOS折叠电脑凭借其独特的折叠设计、全屏触控和[虚拟键�
 悬停态支持设备平稳放置于桌面，实现免手持体验，常用于视频通话、视频播放、拍照、听歌等不需要频繁交互的场景。这种状态下，应用需要对中间折痕区域进行避让，并对上下两个界面进行悬停态布局适配。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/iBSviMwZTkai5Kw7-B-kjg/zh-cn_image_0000002585626830.png?HW-CC-KV=V1&HW-CC-Date=20260604T012653Z&HW-CC-Expire=86400&HW-CC-Sign=7FA759792D666BF69918BD15FDAD9723E6579471CE00FEADB7B6D67CD5DD4572)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/52/v3/VBVq7kfoSNCwCKieX768-g/zh-cn_image_0000002585626830.png?HW-CC-KV=V1&HW-CC-Date=20260624T020957Z&HW-CC-Expire=86400&HW-CC-Sign=40D4EC3EC10C02B5FD9287F92998B9E31F69271531EF5A9EE212964165B4E16B)
 
  
  

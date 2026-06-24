@@ -1,6 +1,6 @@
 # TextReader（朗读控件）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-textreader-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -44,6 +44,8 @@ init(context: common.BaseContext, readParams: ReaderParam): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -63,7 +65,7 @@ init(context: common.BaseContext, readParams: ReaderParam): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -125,6 +127,8 @@ start(readInfoList: ReadInfo[], articleId?: string): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -144,7 +148,7 @@ start(readInfoList: ReadInfo[], articleId?: string): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -203,6 +207,8 @@ start(readInfoList: ReadInfo[], articleId: string | undefined, startParams: Star
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **参数：**
@@ -223,7 +229,7 @@ start(readInfoList: ReadInfo[], articleId: string | undefined, startParams: Star
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -286,6 +292,8 @@ stop(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **返回值：**
@@ -297,7 +305,7 @@ stop(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -331,6 +339,8 @@ resetParam(paramName: ResetParamType) : void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **参数：**
@@ -342,7 +352,7 @@ resetParam(paramName: ResetParamType) : void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -378,6 +388,8 @@ release(): Promise&lt;void&gt;
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **返回值：**
@@ -389,7 +401,7 @@ release(): Promise&lt;void&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -424,11 +436,13 @@ pause(): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -461,11 +475,13 @@ resume(): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -502,11 +518,13 @@ playPrev(): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -540,11 +558,13 @@ playNext(): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -578,11 +598,13 @@ hidePanel(): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -615,11 +637,13 @@ showPanel(): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -652,11 +676,13 @@ showMinibar(): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -689,11 +715,13 @@ hideMinibar(): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -726,6 +754,8 @@ queryReadState(id?: string): ReadState
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -744,7 +774,7 @@ queryReadState(id?: string): ReadState
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -778,6 +808,8 @@ setArticleContent(id: string, content?: string): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -790,7 +822,7 @@ setArticleContent(id: string, content?: string): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -823,6 +855,8 @@ setArticle(readInfo: ReadInfo): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -834,7 +868,7 @@ setArticle(readInfo: ReadInfo): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -885,6 +919,8 @@ loadMore(readInfos: ReadInfo[], isEnd: boolean): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -897,7 +933,7 @@ loadMore(readInfos: ReadInfo[], isEnd: boolean): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1014,6 +1050,8 @@ queryReadStateByCategoryId(categoryId: string): ReadState
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **参数：**
@@ -1032,7 +1070,7 @@ queryReadStateByCategoryId(categoryId: string): ReadState
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1064,6 +1102,8 @@ on(type: 'setArticle', callback: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1076,7 +1116,7 @@ on(type: 'setArticle', callback: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1111,6 +1151,8 @@ off(type: 'setArticle', callback?: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1123,7 +1165,7 @@ off(type: 'setArticle', callback?: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1156,6 +1198,8 @@ on(type: 'clickArticle', callback: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1168,7 +1212,7 @@ on(type: 'clickArticle', callback: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1203,6 +1247,8 @@ off(type: 'clickArticle', callback?: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1215,7 +1261,7 @@ off(type: 'clickArticle', callback?: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1248,6 +1294,8 @@ on(type: 'clickAuthor', callback: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1260,7 +1308,7 @@ on(type: 'clickAuthor', callback: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1295,6 +1343,8 @@ off(type: 'clickAuthor', callback?: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1307,7 +1357,7 @@ off(type: 'clickAuthor', callback?: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1340,6 +1390,8 @@ on(type: 'clickNotification', callback: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1352,7 +1404,7 @@ on(type: 'clickNotification', callback: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1387,6 +1439,8 @@ off(type: 'clickNotification', callback?: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1399,7 +1453,7 @@ off(type: 'clickNotification', callback?: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1432,6 +1486,8 @@ on(type: 'showPanel', callback: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1444,7 +1500,7 @@ on(type: 'showPanel', callback: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1479,6 +1535,8 @@ off(type: 'showPanel', callback?: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1491,7 +1549,7 @@ off(type: 'showPanel', callback?: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1525,6 +1583,8 @@ on(type: 'hidePanel', callback: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1537,7 +1597,7 @@ on(type: 'hidePanel', callback: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1572,6 +1632,8 @@ off(type: 'hidePanel', callback?: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1584,7 +1646,7 @@ off(type: 'hidePanel', callback?: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1618,6 +1680,8 @@ on(type: 'stop', callback: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1630,7 +1694,7 @@ on(type: 'stop', callback: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1665,6 +1729,8 @@ off(type: 'stop', callback?: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1677,7 +1743,7 @@ off(type: 'stop', callback?: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1710,6 +1776,8 @@ on(type:'release', callback: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1722,7 +1790,7 @@ on(type:'release', callback: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1757,6 +1825,8 @@ off(type: 'release', callback?: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1769,7 +1839,7 @@ off(type: 'release', callback?: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1802,6 +1872,8 @@ on(type: 'stateChange', callback: Callback&lt;ReadState&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1814,7 +1886,7 @@ on(type: 'stateChange', callback: Callback&lt;ReadState&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1849,6 +1921,8 @@ off(type: 'stateChange', callback?: Callback&lt;ReadState&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1861,7 +1935,7 @@ off(type: 'stateChange', callback?: Callback&lt;ReadState&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1894,6 +1968,8 @@ on(type: 'requestMore', callback: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1906,7 +1982,7 @@ on(type: 'requestMore', callback: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1941,6 +2017,8 @@ on(type: 'requestMore', callback: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **参数：**
@@ -1953,7 +2031,7 @@ on(type: 'requestMore', callback: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1986,6 +2064,8 @@ off(type: 'requestMore', callback?: Callback&lt;void&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -1998,7 +2078,7 @@ off(type: 'requestMore', callback?: Callback&lt;void&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2031,6 +2111,8 @@ off(type: 'requestMore', callback: Callback&lt;string&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.3(15)
 
 **参数：**
@@ -2043,7 +2125,7 @@ off(type: 'requestMore', callback: Callback&lt;string&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2078,6 +2160,8 @@ on(type: 'eventNotification' , callback: Callback&lt;NotificationEvent&gt;): voi
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -2090,7 +2174,7 @@ on(type: 'eventNotification' , callback: Callback&lt;NotificationEvent&gt;): voi
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2125,6 +2209,8 @@ off(type: 'eventNotification', callback?: Callback&lt;NotificationEvent&gt;): vo
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -2137,7 +2223,7 @@ off(type: 'eventNotification', callback?: Callback&lt;NotificationEvent&gt;): vo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2170,6 +2256,8 @@ on(type: 'eventPanel', callback: Callback&lt;PanelEvent&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -2182,7 +2270,7 @@ on(type: 'eventPanel', callback: Callback&lt;PanelEvent&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2217,6 +2305,8 @@ off(type: 'eventPanel', callback?: Callback&lt;PanelEvent&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -2229,7 +2319,7 @@ off(type: 'eventPanel', callback?: Callback&lt;PanelEvent&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2263,6 +2353,8 @@ on(type: 'eventReadList', callback: Callback<Array&lt;ListEventState&gt;>): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -2275,7 +2367,7 @@ on(type: 'eventReadList', callback: Callback<Array&lt;ListEventState&gt;>): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2312,6 +2404,8 @@ off(type: 'eventReadList', callback?: Callback<Array&lt;ListEventState&gt;>): vo
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -2324,7 +2418,7 @@ off(type: 'eventReadList', callback?: Callback<Array&lt;ListEventState&gt;>): vo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2357,6 +2451,8 @@ on(type: 'readProgress', callback: Callback&lt;ReadProgress&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **参数：**
@@ -2369,7 +2465,7 @@ on(type: 'readProgress', callback: Callback&lt;ReadProgress&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2404,6 +2500,8 @@ off(type: 'readProgress', callback?: Callback&lt;ReadProgress&gt;): void
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **参数：**
@@ -2416,7 +2514,7 @@ off(type: 'readProgress', callback?: Callback&lt;ReadProgress&gt;): void
 
 **错误码：**
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-errorcode)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-speech)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2447,6 +2545,8 @@ try {
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -2466,6 +2566,8 @@ try {
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Component.TextReader
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -2494,6 +2596,8 @@ try {
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -2512,6 +2616,8 @@ try {
 起播时控制Minibar的参数，可以设置Minibar初始化位置，以及与底部边框的距离。
 
 **系统能力：** SystemCapability.AI.Component.TextReader
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.2(14)
 
@@ -2535,6 +2641,8 @@ try {
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -2557,6 +2665,8 @@ try {
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -2578,6 +2688,8 @@ try {
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Component.TextReader
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.2(14)
 
@@ -2643,6 +2755,8 @@ struct Index {
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -2673,6 +2787,8 @@ struct Index {
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **参数：**
@@ -2696,6 +2812,8 @@ struct Index {
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -2717,6 +2835,8 @@ readInfo的正文内容信息
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Component.TextReader
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.2(14)
 
@@ -2740,6 +2860,8 @@ readInfo的正文内容信息
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **参数：**
@@ -2762,6 +2884,8 @@ readInfo的正文内容信息
 朗读控件中的音频信息
 
 **系统能力：** SystemCapability.AI.Component.TextReader
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.2(14)
 
@@ -2789,6 +2913,8 @@ readInfo的正文内容信息
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -2811,6 +2937,8 @@ readInfo的正文内容信息
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Component.TextReader
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -2836,6 +2964,8 @@ readInfo的正文内容信息
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -2858,6 +2988,8 @@ readInfo的正文内容信息
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 | 名称 | 值 | 说明 |
@@ -2878,6 +3010,8 @@ readInfo的正文内容信息
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Component.TextReader
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **设备行为差异：** 该接口在PC/2in1中无效果，在其他设备类型中可正常调用。
 
@@ -2902,6 +3036,8 @@ readInfo的正文内容信息
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 | 名称 | 值 | 说明 |
@@ -2921,6 +3057,8 @@ readInfo的正文内容信息
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Component.TextReader
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.2(14)
 
@@ -2942,6 +3080,8 @@ readInfo的正文内容信息
 
 **系统能力：** SystemCapability.AI.Component.TextReader
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 | 名称 | 值 | 说明 |
@@ -2961,6 +3101,8 @@ readInfo的正文内容信息
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Component.TextReader
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.2(14)
 

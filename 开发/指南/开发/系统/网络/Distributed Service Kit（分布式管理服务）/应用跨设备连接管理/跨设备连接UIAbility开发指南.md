@@ -1,6 +1,6 @@
 # 跨设备连接UIAbility开发指南
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilityconnectmanager-guidelines
 
@@ -54,6 +54,12 @@
  - 业务协同完毕后需及时结束协同状态。为了系统的安全和资源合理利用考虑，未申请长时任务的应用，在锁屏或退至后台5秒以上，会被结束掉协同生命周期。
  - 分布式组件管理框架在协同过程中不会对传输内容进行审查。涉及隐私敏感数据时，建议业务通过弹框提醒等方式提醒用户。
 
+
+
+
+#### 模拟器支持情况
+
+本Kit暂不支持模拟器。
 
 
 
@@ -121,7 +127,7 @@ hidumper -s 4700 -a "buscenter -l remote_device_info"
 
 **导入AbilityConnectionManager模块文件**
 
-```text
+```ArkTS
 import {abilityConnectionManager, distributedDeviceManager } from '@kit.DistributedServiceKit';
 ```
 
@@ -137,7 +143,7 @@ import {abilityConnectionManager, distributedDeviceManager } from '@kit.Distribu
 
 应用主动调用createAbilityConnectionSession()接口创建会话，获得sessionId。之后调用connect()方法启动ability会话连接（此时设备B上应用会被拉起）。
 
-```text
+```ArkTS
 let dmClass: distributedDeviceManager.DeviceManager;
 
 function initDmClass(): void {
@@ -172,7 +178,7 @@ function getRemoteDeviceId(): string | undefined {
 }
 ```
 
-```json
+```ArkTS
 createSession(): void {
     // 定义peer信息
     const peerInfo: abilityConnectionManager.PeerInfo = {
@@ -215,7 +221,7 @@ createSession(): void {
 
 设备A的应用调用connect()后，设备B的应用会通过协同的方式被拉起，拉起时会触发协同生命周期函数onCollaborate()，可在该接口中配置createAbilityConnectionSession()接口以及acceptConnect()接口的调用。
 
-```text
+```ArkTS
 onCollaborate(wantParam: Record<string, Object>): AbilityConstant.CollaborateResult {
   hilog.info(0x0000, 'testTag', '%{public}s', 'on collaborate');
   let param = wantParam['ohos.extra.param.key.supportCollaborateIndex'] as Record<string, Object>
@@ -260,24 +266,24 @@ createSessionFromWant(collabParam: Record<string, Object>): number {
 
 ```text
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
-  import { hilog } from '@kit.PerformanceAnalysisKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
-  abilityConnectionManager.on("connect", this.sessionId,(callbackInfo) => {
-    hilog.info(0x0000, 'testTag', 'session connect, sessionId is', callbackInfo.sessionId);
-  });
-  abilityConnectionManager.on("disconnect", this.sessionId,(callbackInfo) => {
-    hilog.info(0x0000, 'testTag', 'session disconnect, sessionId is', callbackInfo.sessionId);
-  });
-  abilityConnectionManager.on("receiveMessage", this.sessionId,(callbackInfo) => {
-    hilog.info(0x0000, 'testTag', 'session receiveMessage, sessionId is', callbackInfo.sessionId);
-  });
+abilityConnectionManager.on("connect", this.sessionId,(callbackInfo) => {
+  hilog.info(0x0000, 'testTag', 'session connect, sessionId is', callbackInfo.sessionId);
+});
+abilityConnectionManager.on("disconnect", this.sessionId,(callbackInfo) => {
+  hilog.info(0x0000, 'testTag', 'session disconnect, sessionId is', callbackInfo.sessionId);
+});
+abilityConnectionManager.on("receiveMessage", this.sessionId,(callbackInfo) => {
+  hilog.info(0x0000, 'testTag', 'session receiveMessage, sessionId is', callbackInfo.sessionId);
+});
 ```
 
 **发送消息**
 
 应用连接成功后，开发者可在设备A或者设备B上调用sendMessage()方法给对端应用发送文本信息。
 
-```text
+```ArkTS
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
@@ -292,7 +298,7 @@ abilityConnectionManager.sendMessage(this.sessionId, "message send success").the
 
 应用连接成功后，开发者可在设备A或者设备B上调用sendData()方法给对端应用发送字节数据。
 
-```text
+```ArkTS
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { util } from '@kit.ArkTS';
@@ -311,7 +317,7 @@ abilityConnectionManager.sendData(this.sessionId, arrayBuffer.buffer).then(() =>
 
 业务协同完毕后需及时结束协同状态。若是后续短期内还有协同需要，可调用disconnect()方法断开应用间的连接，保留sessionId，以便下次继续使用该sessionId进行连接。若是短期无需使用协同业务，可直接调用destroyAbilityConnectionSession()接口销毁会话，此时会自动断开连接。
 
-```text
+```ArkTS
 import { abilityConnectionManager } from '@kit.DistributedServiceKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 

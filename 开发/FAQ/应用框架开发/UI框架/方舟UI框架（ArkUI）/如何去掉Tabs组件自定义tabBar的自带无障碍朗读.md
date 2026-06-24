@@ -1,6 +1,6 @@
 # 如何去掉Tabs组件自定义tabBar的自带无障碍朗读
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-470
 

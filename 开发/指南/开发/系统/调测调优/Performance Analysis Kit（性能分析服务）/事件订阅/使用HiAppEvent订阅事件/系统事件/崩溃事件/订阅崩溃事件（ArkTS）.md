@@ -1,6 +1,6 @@
 # 订阅崩溃事件（ArkTS）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events-arkts
 
@@ -41,7 +41,7 @@ import { hiAppEvent, hilog } from '@kit.PerformanceAnalysisKit';
 import { deviceInfo } from '@kit.BasicServicesKit';
 ```
 
-2. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中设置事件的[崩溃事件自定义参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#崩溃事件自定义参数设置)和[崩溃日志规格自定义参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#崩溃日志规格自定义参数设置)，示例代码如下：
+2. 编辑工程中的“entry > src > main > ets > entryability > EntryAbility.ets”文件，在onCreate函数中设置事件的[崩溃事件自定义参数](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#崩溃事件自定义参数设置)和崩溃日志[自定义规格设置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hiappevent-watcher-crash-events#自定义规格设置)，示例代码如下：
 
   
 ```ArkTS

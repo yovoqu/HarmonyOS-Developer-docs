@@ -1,6 +1,6 @@
 # @ohos.graphics.sendableColorSpaceManager (可共享的色彩管理)
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-sendablecolorspacemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -166,6 +166,15 @@ getColorSpaceName(): colorSpaceManager.ColorSpace
 | colorSpaceManager.ColorSpace | 返回色域类型枚举值。 |
 
 
+**错误码：**
+
+以下错误码的详细介绍请参见[色彩管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-colorspace-manager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 18600001 | The parameter value is abnormal. 适用版本：12-22 |
+
+
 **示例：**
 
 ```text
@@ -189,6 +198,15 @@ getWhitePoint(): collections.Array&lt;number&gt;
 | 类型 | 说明 |
 | --- | --- |
 | collections.Array&lt;number&gt; | 返回色域白点值[x, y]。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[色彩管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-colorspace-manager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 18600001 | The parameter value is abnormal. 适用版本：12-22 |
 
 
 **示例：**
@@ -215,6 +233,15 @@ getGamma(): number
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回色域gamma值。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[色彩管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-colorspace-manager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 18600001 | The parameter value is abnormal. 适用版本：12-22 |
 
 
 **示例：**

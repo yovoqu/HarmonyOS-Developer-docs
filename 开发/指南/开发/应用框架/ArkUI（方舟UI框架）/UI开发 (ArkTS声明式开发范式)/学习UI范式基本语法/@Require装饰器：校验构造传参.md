@@ -1,6 +1,6 @@
 # @Require装饰器：校验构造传参
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-require
 
@@ -148,7 +148,7 @@ struct ParentPage {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/9f/v3/6VPidjwVQRaJkPsVB8H6vA/zh-cn_image_0000002611833473.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030433Z&HW-CC-Expire=86400&HW-CC-Sign=9BF90A8DC90643146220E9D3C83A858150AC0639D0FC2E83269C590ADF81F300)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e8/v3/lydgZDd1QDKHPkJMkHFiDw/zh-cn_image_0000002626068142.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020742Z&HW-CC-Expire=86400&HW-CC-Sign=21BD2B23040A29ECFABA9B039D462855C24048238E56F93B9A145AEFD5F2D780)
 
  
 从API version 18开始，使用@Require装饰@State、@Prop、@Provide装饰的状态变量，可以在无本地初始值的情况下直接在组件内使用，不会编译报错。

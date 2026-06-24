@@ -1,6 +1,6 @@
 # net_websocket.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -241,7 +241,7 @@ int OH_WebSocketClient_Destroy(struct WebSocket *client)
 2. 调用[OH_WebSocketClient_Close](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-h#oh_websocketclient_close)关闭WebSocket连接。
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/81/v3/Psa4bVa5Qte8xW8Q5OAOJw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025216Z&HW-CC-Expire=86400&HW-CC-Sign=FAB742AA532B58F921559A062BA6D561DE90C40F2B73AC68D827143823278A5B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/68/v3/xOOahF0rQKWfr8vc3KoH_Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020118Z&HW-CC-Expire=86400&HW-CC-Sign=47448E1A294461A0E7A575ED888DBD6AD8DFC479F5CF316570430F5D42D92C6D)
  
  
 确保触发[WebSocket_OnCloseCallback](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-net-websocket-type-h#websocket_onclosecallback)回调后再调用该接口，否则系统内存资源被释放后可能出现socket泄露以及连接未关闭的情况。

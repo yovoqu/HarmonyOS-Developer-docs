@@ -1,6 +1,6 @@
 # @system.vibrator (振动)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-system-vibrate
 **支持设备：** Wearable | lite_wearable
@@ -24,15 +24,23 @@ import { Vibrator } from '@kit.SensorServiceKit';
  
   
 
+#### Vibrator
+
+**支持设备：** Wearable | lite_wearable
+
+  
+
 #### Vibrator.vibrate
 
 **支持设备：** Wearable | lite_wearable
 
- vibrate(options?: VibrateOptions): void
+ static vibrate(options?: VibrateOptions): void
  
 触发设备振动。
  
-除Lite Wearable外，从API Version8开始，推荐使用[vibrator.startVibration()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-vibrator#vibratorstartvibration9)。
+> [!NOTE]
+> 除Lite Wearable外，从API Version8开始，建议使用 vibrator.startVibration() 替代。
+
  
 **需要权限**：ohos.permission.VIBRATE
  
@@ -45,7 +53,7 @@ import { Vibrator } from '@kit.SensorServiceKit';
 | options | VibrateOptions | 否 | 振动模式。 |
  
  
-**示例**：
+**ArkTS示例**：
  
 ```text
 import { Vibrator, VibrateOptions } from '@kit.SensorServiceKit';
@@ -59,10 +67,82 @@ let vibrateOptions: VibrateOptions = {
     console.error(`Failed to vibrate. Data: ${data}, code: ${code}`);
   },
   complete: () => {
-    console.info('completed in vibrating');
+    console.info('vibration completed');
   }
 };
 Vibrator.vibrate(vibrateOptions);
+```
+ 
+**JS示例**：
+ 
+```json
+import vibrator from '@system.vibrator';
+
+export default {
+  data: {
+    TAG: "WearLiteSample:",
+    result: ''
+  },
+  vibrate() {
+    try {
+      let vibrateOptions = {
+        mode: 'short',
+        success: () => {
+          console.info('Succeeded in vibrating');
+          this.result = 'Succeeded in vibrating';
+        },
+        fail: (data, code) => {
+          console.error(`Failed to vibrate. Data: ${data}, code: ${code}`);
+          this.result = `Failed to vibrate. Data: ${data}, code: ${code}`;
+        },
+        complete: () => {
+          console.info('vibration completed');
+        }
+      };
+      vibrator.vibrate(vibrateOptions);
+    } catch (e) {
+      console.error(this.TAG + 'vibrate exception occurred, message:' + JSON.stringify(e))
+    }
+  }
+};
+```
+ 
+```xml
+<!-- xxx.hml -->
+<div class="container">
+  <text class="title">
+    {{ result }}
+  </text>
+  <input class="buttonText" type="button" onclick="vibrate">点击振动</input>
+</div>
+```
+ 
+```text
+/* xxx.css */
+.container {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.title {
+  width: 200px;
+  font-size: 30px;
+  text-align: center;
+}
+.buttonText {
+  background-color: blue;
+  radius: 30px;
+  text-color: white;
+  font-size: 25px;
+  width: 150px;
+  height:50px;
+  margin-top: 20px;
+  font-weight: bolder;
+  align-items: center;
+}
 ```
  
   
@@ -77,9 +157,9 @@ Vibrator.vibrate(vibrateOptions);
  
 **系统能力**：SystemCapability.Sensors.MiscDevice.Lite
   
-| 名称 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| mode | string | 否 | 振动的模式，其中long表示长振动，short表示短振动，默认值为long。 |
-| success | Function | 否 | 感应到振动数据变化后的回调函数。 |
-| fail | Function | 否 | 接口调用失败的回调函数。 |
-| complete | Function | 否 | 接口调用结束的回调函数。 |
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| mode | string | 否 | 是 | 振动的模式，其中long表示长振动，short表示短振动，默认值为long。 |
+| success | Function | 否 | 否 | 感应到振动数据变化后的回调函数。 |
+| fail | Function | 否 | 是 | 接口调用失败的回调函数。 |
+| complete | Function | 否 | 是 | 接口调用结束的回调函数。 |

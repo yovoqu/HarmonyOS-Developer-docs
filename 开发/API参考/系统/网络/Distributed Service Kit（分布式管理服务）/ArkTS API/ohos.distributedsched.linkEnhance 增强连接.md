@@ -1,6 +1,6 @@
 # @ohos.distributedsched.linkEnhance (增强连接)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-link-enhance
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -57,6 +57,7 @@ createServer(name: string): Server
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
+| 801 | Capability not supported. 适用版本：26.0.0+ |
 | 32390203 | Duplicate server name. |
 | 32390206 | Invalid parameter. |
 
@@ -119,6 +120,7 @@ createConnection(deviceId: string, name: string): Connection
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 201 | Permission denied. |
+| 801 | Capability not supported. 适用版本：26.0.0+ |
 | 32390206 | Invalid parameter. |
 
 

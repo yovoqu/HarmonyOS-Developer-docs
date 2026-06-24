@@ -1,6 +1,6 @@
 # ArkUI_NodeAttributeType（表单类组件相关属性）
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-native-node-h-nodeattributetype-form
 
@@ -574,7 +574,7 @@ Slider滑块形状参数，支持属性设置，属性重置和属性获取。
 | 参数项 | 描述 |
 | --- | --- |
 | .value[0].i32 | 形状参数。参数类型ArkUI_SliderBlockStyle。 |
-| .string? | 可选值，根据形状参数而定。 ARKUI_SLIDER_BLOCK_STYLE_IMAGE: 滑块图片资源。如/pages/common/icon.png。 ARKUI_SLIDER_BLOCK_STYLE_SHAPE: 滑块使用自定义形状，此时设置的滑块形状中的宽高值并不代表滑块的实际大小，而是由设置的宽高值按比例缩放，以确保滑块可以正常显示。 共有5种类型。path类型下，.string表示路径绘制的命令字符串。 |
+| .string? | 可选值，根据形状参数而定。 ARKUI_SLIDER_BLOCK_STYLE_IMAGE: 滑块图片资源。如/pages/common/icon.png。 ARKUI_SLIDER_BLOCK_STYLE_SHAPE: 滑块使用自定义形状，此时设置的滑块形状中的宽高值并不代表滑块的实际大小，而是由设置的宽高值按比例缩放，以确保滑块可以正常显示。 共有4种类型。path类型下，.string表示路径绘制的命令字符串。 |
 | .value[1].i32 | 裁剪类型，参数类型ArkUI_ShapeType。rect类型为ARKUI_SHAPE_TYPE_RECTANGLE；circle类型为ARKUI_SHAPE_TYPE_CIRCLE；ellipse类型为ARKUI_SHAPE_TYPE_ELLIPSE；path类型为ARKUI_SHAPE_TYPE_PATH。 |
 | .value[2].f32 | rect、circle、ellipse、path类型的宽度。 |
 | .value[3].f32 | rect、circle、ellipse、path类型的高度。 |
@@ -587,7 +587,7 @@ Slider滑块形状参数，支持属性设置，属性重置和属性获取。
 | 类型 | 说明 |
 | --- | --- |
 | .value[0].i32 | 形状参数。参数类型ArkUI_SliderBlockStyle。 |
-| .string? | 可选值，根据形状参数而定。 ARKUI_SLIDER_BLOCK_STYLE_IMAGE: 滑块图片资源。如/pages/common/icon.png。 ARKUI_SLIDER_BLOCK_STYLE_SHAPE: 滑块使用的自定义形状。 共有5种类型。path类型下，.string表示路径绘制的命令字符串。 |
+| .string? | 可选值，根据形状参数而定。 ARKUI_SLIDER_BLOCK_STYLE_IMAGE: 滑块图片资源。如/pages/common/icon.png。 ARKUI_SLIDER_BLOCK_STYLE_SHAPE: 滑块使用的自定义形状。 共有4种类型。path类型下，.string表示路径绘制的命令字符串。 |
 | .value[1].i32 | 裁剪类型，参数类型ArkUI_ShapeType。rect类型为ARKUI_SHAPE_TYPE_RECTANGLE；circle类型为ARKUI_SHAPE_TYPE_CIRCLE；ellipse类型为ARKUI_SHAPE_TYPE_ELLIPSE；path类型为ARKUI_SHAPE_TYPE_PATH。 |
 | .value[2].f32 | rect、circle、ellipse、path类型的宽度。 |
 | .value[3].f32 | rect、circle、ellipse、path类型的高度。 |
@@ -1032,7 +1032,7 @@ NODE_RADIO_STYLE = 18001
 | --- | --- |
 | .value[0].u32 | 开启状态底板颜色, 类型为0xargb，默认值为0xFF007DFF。 |
 | .value[1].u32 | 关闭状态描边颜色, 类型为0xargb，默认值为0xFF182431。 |
-| .value[2].u32 | 开启状态内部圆饼颜色, 类型为0xargb，默认值为0xFFFFFFF。 |
+| .value[2].u32 | 开启状态内部圆饼颜色, 类型为0xargb，默认值为0xFFFFFFFF。 |
  
  
   

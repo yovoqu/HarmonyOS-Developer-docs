@@ -1,6 +1,6 @@
 # animate
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-components-svg-animate
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -134,4 +134,4 @@
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c9/v3/K2vbyUiqR6GgzWSOQn9w7Q/zh-cn_image_0000002581436394.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025440Z&HW-CC-Expire=86400&HW-CC-Sign=A25DE8C65FA7A15276CCED33511AA4483F743140624C810CDB84D10CF25E53BC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/aa/v3/oioig1qbTm2cCAQTW0Evag/zh-cn_image_0000002656470319.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015942Z&HW-CC-Expire=86400&HW-CC-Sign=9AD23FEC4892BF71355C5A640A187D2BD9CE5F656559ADF232C388B4D3512012)

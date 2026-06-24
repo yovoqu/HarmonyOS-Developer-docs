@@ -1,6 +1,6 @@
 # @ohos.graphics.colorSpaceManager (色彩管理)
 
-更新时间：2026-05-08 09:27:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-colorspacemanager
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -169,7 +169,7 @@ create(primaries: ColorSpacePrimaries, gamma: number): ColorSpaceManager
 | 错误码ID | 错误信息 |
 | --- | --- |
 | 401 | Parameter error. Possible cause: 1.Incorrect parameter type. 2.Parameter verification failed. |
-| 18600001 | Invalid parameter value. Possible cause: Used UNKNOWN or CUSTOM color space type enum values to directly create a colorSpaceManager object. |
+| 18600001 | The parameter value is abnormal. |
 
 
 **示例：**
@@ -222,6 +222,15 @@ getColorSpaceName(): ColorSpace
 | ColorSpace | 返回色域类型枚举值。 |
 
 
+**错误码：**
+
+以下错误码的详细介绍请参见[色彩管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-colorspace-manager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 18600001 | The parameter value is abnormal. 适用版本：9-22 |
+
+
 **示例：**
 
 ```json
@@ -229,7 +238,7 @@ try {
   let spaceName = colorSpace.getColorSpaceName();
   console.info(`spaceName: ` + spaceName.toString());
 } catch (err) {
-  console.error(`Failed to get colorSpace's name. Cause: ` + JSON.stringify(err));
+  console.error(`Fail to get colorSpace's name. Cause: ` + JSON.stringify(err));
 }
 ```
 
@@ -250,6 +259,15 @@ getWhitePoint(): Array&lt;number&gt;
 | 类型 | 说明 |
 | --- | --- |
 | Array&lt;number&gt; | 返回色域白点值[x, y]。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[色彩管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-colorspace-manager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 18600001 | The parameter value is abnormal. 适用版本：9-22 |
 
 
 **示例：**
@@ -280,6 +298,15 @@ getGamma(): number
 | 类型 | 说明 |
 | --- | --- |
 | number | 返回色域gamma值。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[色彩管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-colorspace-manager)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 18600001 | The parameter value is abnormal. 适用版本：9-22 |
 
 
 **示例：**

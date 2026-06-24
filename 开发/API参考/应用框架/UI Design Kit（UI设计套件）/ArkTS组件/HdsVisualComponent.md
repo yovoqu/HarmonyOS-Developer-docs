@@ -1,6 +1,6 @@
 # HdsVisualComponent
 
-更新时间：2026-04-29 07:35:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ui-design-hds-visual-component
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -349,4 +349,4 @@ struct EdgeFlowLightVisualComponent {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f9/v3/osUusgsWT1ylYK4_52m6Mw/zh-cn_image_0000002611756613.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025406Z&HW-CC-Expire=86400&HW-CC-Sign=94609AEDBA28AA215426127341D3BACC4705BC2341A8FD3CE62BB9DE05F98EFF)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/28/v3/_Y5U2qogQXGDQ1fTPLjSww/zh-cn_image_0000002626231234.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020050Z&HW-CC-Expire=86400&HW-CC-Sign=5928B394A898CD5F34F74B7BE1F9939C2B35BAD810DC316A323C72D49DF5FE78)

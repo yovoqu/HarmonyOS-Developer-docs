@@ -1,13 +1,13 @@
 # FunctionComponent（功能组件）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-function-component
 **支持设备：** Phone | Tablet
 
 Agent Framework Kit（智能体框架服务）提供了拉起指定智能体的能力。
  
-应用在[小艺开放平台](https://developer.huawei.com/consumer/cn/hag/hagindex.html?isInFrame=true&lang=zh_CN#/)上线智能体后，向用户提供应用+智能体组合的服务，让用户可以在适当的场景下通过Agent Framework Kit的UI控件能力主动拉起智能体。配置智能体请参考[快速创建智能体](https://developer.huawei.com/consumer/cn/doc/service/quick-start-0000002469548009)。
+应用在[小艺开放平台](https://developer.huawei.com/consumer/cn/hag/hagindex.html?isInFrame=true&lang=zh_CN#/)上线智能体后，向用户提供应用+智能体组合的服务，让用户可以在适当的场景下通过Agent Framework Kit的UI控件能力主动拉起智能体。配置智能体请参考[快速创建智能体](https://developer.huawei.com/consumer/cn/doc/service/developing-intelligent-agents-0000002435989592)。
  
 **起始版本：** 6.0.0(20)
   
@@ -34,13 +34,15 @@ Agent功能组件，可以实现拉起智能体功能。
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 6.0.0(20)
  
 **参数：**
   
 | 名称 | 类型 | 必填 | 装饰器类型 | 说明 |
 | --- | --- | --- | --- | --- |
-| agentId | string | 是 | - | Agent ID，Agent的唯一标识，创建智能体时获取。智能体创建成功后，可在智能体配置页面的网址链接中获取。 长度限制1~64个字符。 |
+| agentId | string | 是 | - | Agent ID，Agent的唯一标识，开发Agent时获取。智能体创建成功后，可在智能体配置页面的网址链接中获取。 长度限制1~64个字符。 |
 | onError | ErrorCallback | 是 | - | 错误回调函数。 |
 | options | FunctionOptions | 否 | - | Function组件初始化可选参数。 |
 | controller | FunctionController | 否 | - | Function组件控制器。默认为undefined。 |
@@ -52,7 +54,7 @@ Agent功能组件，可以实现拉起智能体功能。
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-agent-framework)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -102,6 +104,8 @@ Agent Framework Kit控件通用控制器。
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 6.0.0(20)
  
   
@@ -118,6 +122,8 @@ isAgentSupport(context: common.UIAbilityContext, agentId: string): Promise&lt;bo
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 6.0.0(20)
  
 **参数：**
@@ -125,7 +131,7 @@ isAgentSupport(context: common.UIAbilityContext, agentId: string): Promise&lt;bo
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | context | common.UIAbilityContext | 是 | 当前上下文环境。 |
-| agentId | string | 是 | Agent ID，Agent的唯一标识，创建智能体时获取。 长度限制1~64个字符。 |
+| agentId | string | 是 | Agent ID，Agent的唯一标识，开发Agent时获取。 长度限制1~64个字符。 |
  
  
 **返回值：**
@@ -137,7 +143,7 @@ isAgentSupport(context: common.UIAbilityContext, agentId: string): Promise&lt;bo
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/hmaf-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-agent-framework)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -211,6 +217,8 @@ on(type: 'agentDialogOpened', callback: Callback&lt;void&gt;): void
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 6.0.0(20)
  
 **参数：**
@@ -280,6 +288,8 @@ off(type: 'agentDialogOpened', callback?: Callback&lt;void&gt;): void
 **元服务API：** 从版本6.0.1(21)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.0.0(20)
  
@@ -351,6 +361,8 @@ on(type: 'agentDialogClosed', callback: Callback&lt;void&gt;): void
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 6.0.0(20)
  
 **参数：**
@@ -421,6 +433,8 @@ off(type: 'agentDialogClosed', callback?: Callback&lt;void&gt;): void
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 6.0.0(20)
  
 **参数：**
@@ -489,6 +503,8 @@ Function组件控制器，用于与Function组件控制交互。预留接口，�
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **起始版本：** 6.0.0(20)
  
   
@@ -502,6 +518,8 @@ Function组件控制器，用于与Function组件控制交互。预留接口，�
 **元服务API：** 从版本6.0.1(21)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.0.0(20)
  
@@ -526,6 +544,8 @@ Function组件控制器，用于与Function组件控制交互。预留接口，�
 **元服务API：** 从版本6.0.1(21)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.0.0(20)
  
@@ -552,6 +572,8 @@ Function组件控制器，用于与Function组件控制交互。预留接口，�
 **元服务API：** 从版本6.0.1(21)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.Agent.AgentKit
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 6.0.0(20)
   

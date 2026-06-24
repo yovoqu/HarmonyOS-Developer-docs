@@ -1,6 +1,6 @@
 # ReadStateCode（播报状态）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/speech-readstatecode
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -29,6 +29,8 @@ import { ReadStateCode } from '@kit.SpeechKit';
 **元服务API：** 从版本5.0.3(15)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.AI.Component.TextReader
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **起始版本：** 5.0.0(12)
   

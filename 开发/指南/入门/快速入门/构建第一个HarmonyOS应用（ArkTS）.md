@@ -1,11 +1,11 @@
 # 构建第一个HarmonyOS应用（ArkTS）
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-with-ets-stage
 
 > [!NOTE]
-> 为确保运行效果，本文以使用 DevEco Studio 6.1.1 Release版本 为例。
+> 为确保运行效果，本文以使用 DevEco Studio 6.1.0 Release版本 为例。
 
   
 
@@ -18,7 +18,7 @@
   
 ![](assets/构建第一个HarmonyOS应用（ArkTS）/file-20260514124510135-1.png)
 
-3. 进入配置工程界面，**Compatible SDK**表示兼容的最低API Version，此处以选择**6.1.1(24)** 为例，其他参数保持默认设置即可。
+3. 进入配置工程界面，**Compatible SDK**表示兼容的最低API Version，此处以选择**6.1.0(23)** 为例，其他参数保持默认设置即可。
 
   
 ![](assets/构建第一个HarmonyOS应用（ArkTS）/file-20260514124510135-2.png)
@@ -34,7 +34,7 @@
 
  
 - **AppScope > app.json5**：应用的全局配置信息，详见[app.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file)。
-- **entry**：HarmonyOS工程模块，编译构建生成一个[HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-glossary#hap)包。
+- **entry**：HarmonyOS工程模块，编译构建生成一个[HAP](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hap-package)包。
 
   
 **src > main > ets**：用于存放ArkTS源码。
@@ -42,7 +42,7 @@
 - **src > main > ets > entrybackupability**：应用提供扩展的备份恢复能力。
 - **src > main > ets > pages**：应用/服务包含的页面。
 - **src > main > resources**：用于存放应用/服务所用到的资源文件，如图形、多媒体、字符串、布局文件等。关于资源文件，详见[资源分类与访问](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/resource-categories-and-access)。
-- **src > main > module.json5**：[模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-glossary#module)配置文件。主要包含HAP包的配置信息、应用/服务在具体设备上的配置信息以及应用/服务的全局配置信息。具体的配置文件说明，详见[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)。
+- **src > main > module.json5**：[模块](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-package-glossary#module模块)配置文件。主要包含HAP包的配置信息、应用/服务在具体设备上的配置信息以及应用/服务的全局配置信息。具体的配置文件说明，详见[module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)。
 - **build-profile.json5**：当前的模块信息 、编译信息配置项，包括buildOption、targets配置等。
 - **hvigorfile.ts**：模块级编译构建任务脚本。
 - **obfuscation-rules.txt**：混淆规则文件。混淆开启后，在使用Release模式进行编译时，会对代码进行编译、混淆及压缩处理，保护代码资产。详见[开启代码混淆](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-build-obfuscation)。
@@ -335,11 +335,11 @@ struct Second {
 ![](assets/构建第一个HarmonyOS应用（ArkTS）/file-20260514124510135-9.png)
 
 3. 在编辑窗口右上角的工具栏，单击
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/18/v3/0Cq2qS6JT-KmYMNGFEt17A/zh-cn_image_0000002617707457.png?HW-CC-KV=V1&HW-CC-Date=20260604T012909Z&HW-CC-Expire=86400&HW-CC-Sign=FCA09BBE60A1F3B4D56ED987F459F5994D1956A8D82399373D6D2EF5635EA2B7)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/13/v3/qfn_oDq3QE-l_zcpBWaZdQ/zh-cn_image_0000002656347319.png?HW-CC-KV=V1&HW-CC-Date=20260624T020653Z&HW-CC-Expire=86400&HW-CC-Sign=A906FB080CE4EA9D3230FC1C9CAB77178B0621ECFE5F065825AA700E9ED76AAE)
 按钮运行。效果如下图所示：
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/6f/v3/_4Wt-tLxTWmdiXFiOYflYg/zh-cn_image_0000002587107876.png?HW-CC-KV=V1&HW-CC-Date=20260604T012909Z&HW-CC-Expire=86400&HW-CC-Sign=A3E6821856EAFFA862A129F6BBDE10B189178F8FE0D695585EC017AB99FC78AE)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/e7/v3/GY8X2FaRSwykwDvMEawPVw/zh-cn_image_0000002626227904.png?HW-CC-KV=V1&HW-CC-Date=20260624T020653Z&HW-CC-Expire=86400&HW-CC-Sign=90D3FFE8DB3381B00C2E06B73A7B4939C473A50B148593D9BD2445BCCAB5B856)
 
  
 恭喜您已经基于ArkTS语言构建完成第一个HarmonyOS应用，快来探索更多的HarmonyOS功能吧。

@@ -1,6 +1,6 @@
 # aip_retrieval_query.h
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-aip-retrieval-query
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -30,6 +30,8 @@
   
 
 #### 类型定义
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |
@@ -39,6 +41,8 @@
   
 
 #### 函数
+
+**支持设备：** Phone | PC/2in1 | Tablet
  
 | 名称 | 描述 |
 | --- | --- |

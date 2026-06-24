@@ -1,6 +1,6 @@
 # SOTER免密身份认证
 
-更新时间：2026-05-07 09:37:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-soter
 
@@ -51,6 +51,7 @@ try {
 ```
 
  - 移动端设备使用此服务时需要处于联网状态。
+ - SOTER服务会将匿名化的指纹ID和面容ID等个人信息返回至三方应用，以提供绑定具体生物特征的免密认证能力。应用将个人信息上云前，需要向用户明示并且取得同意，详细请参考[个人数据处理说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/onlineauthentication-personal-data-processing-description)。
 
 
 

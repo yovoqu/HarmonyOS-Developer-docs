@@ -1,6 +1,6 @@
 # faceDetector（人脸检测）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-face-detector-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -32,6 +32,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.Face.Detector
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -49,6 +51,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.Face.Detector
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -65,6 +69,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 人脸遮挡检测结果的枚举类。
 
 **系统能力：** SystemCapability.AI.Face.Detector
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.2(14)
 
@@ -87,6 +93,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.Face.Detector
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -106,6 +114,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Face.Detector
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -128,6 +138,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.Face.Detector
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -147,6 +159,8 @@ import { faceDetector } from '@kit.CoreVisionKit';
 表示人脸的信息列表。
 
 **系统能力：** SystemCapability.AI.Face.Detector
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -172,6 +186,8 @@ init(): Promise&lt;boolean&gt;
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Face.Detector
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -233,6 +249,8 @@ init(faceRecognitionConfiguration: FaceRecognitionConfiguration): Promise&lt;boo
 
 **系统能力：** SystemCapability.AI.Face.Detector
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.2(14)
 
 **参数：**
@@ -251,7 +269,7 @@ init(faceRecognitionConfiguration: FaceRecognitionConfiguration): Promise&lt;boo
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -313,6 +331,8 @@ release(): Promise&lt;void&gt;
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.AI.Face.Detector
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -376,6 +396,8 @@ detect(visionInfo: VisionInfo): Promise<Array&lt;Face&gt;>
 
 **系统能力：** SystemCapability.AI.Face.Detector
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -394,7 +416,7 @@ detect(visionInfo: VisionInfo): Promise<Array&lt;Face&gt;>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

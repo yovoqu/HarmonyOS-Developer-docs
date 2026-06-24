@@ -1,6 +1,6 @@
 # 从FilePicker返回的图片地址uri是不是只是在一定的时间内有访问权限
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-local-file-manager-26
 

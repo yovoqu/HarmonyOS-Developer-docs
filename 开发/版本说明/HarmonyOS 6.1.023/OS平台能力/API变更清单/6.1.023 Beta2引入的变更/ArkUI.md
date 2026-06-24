@@ -1,13 +1,11 @@
 # ArkUI
 
-更新时间：2026-04-20 06:33:01
+更新时间：2026-06-23 08:39:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-releases/js-apidiff-arkui-6102
 
 | 操作 | 旧版本 | 新版本 | d.ts文件 |
 | --- | --- | --- | --- |
-| API废弃版本变更 | 类名：global； API声明：declare class ActionSheet 差异内容：26 | 类名：global； API声明：declare class ActionSheet 差异内容：NA | component/action_sheet.d.ts |
-| API废弃版本变更 | 类名：global； API声明：declare class AlertDialog 差异内容：26 | 类名：global； API声明：declare class AlertDialog 差异内容：NA | component/alert_dialog.d.ts |
 | 新增错误码 | 类名：componentSnapshot； API声明：function getSync(id: string, options?: SnapshotOptions): image.PixelMap; 差异内容：NA | 类名：componentSnapshot； API声明：function getSync(id: string, options?: SnapshotOptions): image.PixelMap; 差异内容：160003 | api/@ohos.arkui.componentSnapshot.d.ts |
 | 新增API | NA | 类名：UIContext； API声明：setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void; 差异内容：setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void; | api/@ohos.arkui.UIContext.d.ts |
 | 新增API | NA | 类名：global； API声明：export const enum CustomKeyboardContinueFeature 差异内容：export const enum CustomKeyboardContinueFeature | api/@ohos.arkui.UIContext.d.ts |

@@ -1,6 +1,6 @@
 # HiAppEvent_AppEventInfo
 
-更新时间：2026-03-17 02:21:50
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-hiappevent-hiappevent-appeventinfo
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ typedef struct HiAppEvent_AppEventInfo {...} HiAppEvent_AppEventInfo
  
 | 名称 | 描述 |
 | --- | --- |
-| const char* domain | 事件领域。 |
-| const char* name | 事件名称。 |
+| const char* domain | 事件领域。表示事件所属的业务领域或功能模块，用于事件分类和管理。 |
+| const char* name | 事件名称。与domain配合使用唯一标识具体的事件。 |
 | enum EventType type | 事件类型。 |
 | const char* params | json格式字符串类型的事件参数列表。 |

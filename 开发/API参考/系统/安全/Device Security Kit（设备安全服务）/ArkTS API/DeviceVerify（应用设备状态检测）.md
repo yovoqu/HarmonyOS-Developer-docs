@@ -1,6 +1,6 @@
 # DeviceVerify（应用设备状态检测）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-deviceverify-api
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -28,6 +28,8 @@ getDeviceToken(): Promise&lt;string&gt;
  
 获取本设备的DeviceToken。使用Promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.2(14)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Security.DeviceCertificate
@@ -43,7 +45,7 @@ getDeviceToken(): Promise&lt;string&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/devicesecurity-arktsapi-errcode-deviceverify)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-devicesecurity-deviceverify)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -64,10 +66,10 @@ const TAG = "DeviceCertificateJsTest";
 // 请求deviceToken，并处理结果
 try {
   deviceCertificate.getDeviceToken().then((token) => {
-      hilog.info(0x0000, TAG, 'Succeeded in executing getDeviceToken');
-      // 开发者处理deviceToken
+    hilog.info(0x0000, TAG, 'Succeeded in executing getDeviceToken');
+    // 开发者处理deviceToken
   }).catch((err: BusinessError) => {
-      hilog.error(0x0000, TAG, 'getDeviceToken failed!  %{public}d %{public}s', err.code, err.message);
+    hilog.error(0x0000, TAG, 'getDeviceToken failed!  %{public}d %{public}s', err.code, err.message);
   });
 } catch (err) {
   let error: BusinessError = err as BusinessError;

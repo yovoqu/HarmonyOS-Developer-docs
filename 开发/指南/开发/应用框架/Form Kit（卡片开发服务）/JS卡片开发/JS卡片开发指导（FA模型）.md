@@ -1,6 +1,6 @@
 # JS卡片开发指导（FA模型）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/widget-development-fa
 
@@ -45,7 +45,7 @@ FormBindingData类有如下API接口，具体的API介绍详见[@ohos.app.form.f
 
 #### 开发步骤
 
-FA卡片开发，即基于[FA模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/fa-model-development-overview)的卡片提供方开发，主要涉及如下关键步骤：
+FA卡片开发，即基于[FA模型](https://developer.huawei.com/consumer/cn/doc/lite-wearable-guides/fa-model-development-overview)的卡片提供方开发，主要涉及如下关键步骤：
 
  - [实现卡片生命周期接口](#实现卡片生命周期接口)：开发FormAbility生命周期回调函数。
  - [配置卡片配置文件](#配置卡片配置文件)：配置应用配置文件config.json。
@@ -461,7 +461,7 @@ onUpdate(formId: string) {
 开发者可以使用类Web范式（HML+CSS+JSON）开发JS卡片页面。生成如下卡片页面，可以这样配置卡片页面文件：
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/58/v3/hmvGxLqPSr-wikkBqrfAFw/zh-cn_image_0000002611754331.png?HW-CC-KV=V1&HW-CC-Date=20260528T030402Z&HW-CC-Expire=86400&HW-CC-Sign=0D776A14056570F78E6AD86B542A74EE3892550337121D38E9AD3A819C9E6D04)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/72/v3/39c0JrpzSnSwZypTRgOCEg/zh-cn_image_0000002656348281.png?HW-CC-KV=V1&HW-CC-Date=20260624T020817Z&HW-CC-Expire=86400&HW-CC-Sign=832E7DF9C48145906B4E22FC8357A25BC495F735541C639D0170BD790F9DC63A)
 
 
 > [!NOTE]

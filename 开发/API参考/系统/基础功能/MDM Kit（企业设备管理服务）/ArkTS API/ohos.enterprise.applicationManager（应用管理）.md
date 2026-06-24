@@ -1,6 +1,6 @@
 # @ohos.enterprise.applicationManager（应用管理）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-enterprise-applicationmanager
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -1550,7 +1550,7 @@ addUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationIn
 
 为指定用户添加不可关停应用名单，仅可对已安装应用设置该策略。若参数列表中存在未安装应用，则返回9200012错误码。若设置策略后，名单中有应用被卸载，则卸载的应用将从名单中移除。若添加已存在于名单中的应用，返回成功，但已设置策略名单中不会重复添加该应用。
 
-不可关停应用在Phone和Tablet设备的效果：用户不能在任务中心上划关闭应用；在设置-应用和元服务中点击应用名称进入详情页面后，页面中的强行停止按钮呈灰色不可用，页面中的停用按钮功能无效。
+不可关停应用在Phone和Tablet设备的效果：用户不能在任务中心上滑关闭应用；在设置-应用和元服务中点击应用名称进入详情页面后，页面中的强行停止按钮呈灰色不可用，页面中的停用按钮功能无效。
 
 不可关停应用在PC/2in1设备的效果：用户在设置-应用和元服务中点击应用名称进入详情页面后，页面中的强行停止按钮呈灰色不可用，页面中的停用按钮功能无效。
 
@@ -1558,7 +1558,7 @@ addUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationIn
 
 **系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
 
-**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用无效果。从API version 24开始，新增该接口在PC/2in1设备可正常调用。
+**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用无效果。从API version 24开始，该接口在PC/2in1设备可正常调用。
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
@@ -1964,7 +1964,7 @@ setAbilityDisabled(admin: Want, bundleName: string, accountId: number, abilityNa
 
 **模型约束：** 此接口仅可在Stage模型下使用。
 
-**冲突规则：** [配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则3配置)。
+**冲突规则：** [从严管控](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则1从严管控)。
 
 **参数：**
 
@@ -2304,6 +2304,299 @@ try {
 
 
 
+#### applicationManager.addAllowedNotificationBundles
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+addAllowedNotificationBundles(admin: Want, bundleNames: Array&lt;string&gt;, accountId: number): void
+
+添加允许发送通知的应用名单。设置通知白名单后，不在此名单内的应用无法发送通知。
+
+> [!NOTE]
+> 1.如果Kiosk模式与通知白名单策略同时设置，那么设置Kiosk模式的应用与通知白名单中的应用都可以发送通知。 2.当已经通过 setDisallowedPolicy 设置了禁用设备通知能力时，再通过本接口设置通知白名单，会抛出错误码9200010。 3.通知白名单对系统服务不生效，系统服务始终可以发送通知。系统应用受通知白名单管控。 4.支持跨用户设置，设置后跨用户立即生效。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| bundleNames | Array&lt;string&gt; | 是 | 应用包名数组，指定允许发送通知的应用。最多支持200个应用。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200010 | A conflict policy has been configured. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { applicationManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+let bundleNames: Array<string> = ['com.example.notificationapp'];
+
+try {
+  applicationManager.addAllowedNotificationBundles(wantTemp, bundleNames, 100);
+  console.info('Succeeded in adding allowed notification bundles.');
+} catch (err) {
+  console.error(`Failed to add allowed notification bundles. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
+#### applicationManager.removeAllowedNotificationBundles
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+removeAllowedNotificationBundles(admin: Want, bundleNames: Array&lt;string&gt;, accountId: number): void
+
+从允许发送通知的应用名单中移除应用。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**冲突规则：** [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| bundleNames | Array&lt;string&gt; | 是 | 应用包名数组，指定需要移除的应用。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```text
+import { applicationManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+let bundleNames: Array<string> = ['com.example.notificationapp'];
+
+try {
+  applicationManager.removeAllowedNotificationBundles(wantTemp, bundleNames, 100);
+  console.info('Succeeded in removing allowed notification bundles.');
+} catch (err) {
+  console.error(`Failed to remove allowed notification bundles. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
+#### applicationManager.getAllowedNotificationBundles
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getAllowedNotificationBundles(admin: Want | null, accountId: number): Array&lt;string&gt;
+
+获取允许发送通知的应用名单。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0。 accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;string&gt; | 返回允许发送通知的应用包名数组。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```json
+import { applicationManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+try {
+  let result: Array<string> = applicationManager.getAllowedNotificationBundles(wantTemp, 100);
+  console.info(`Succeeded in getting allowed notification bundles, result : ${JSON.stringify(result)}`);
+} catch (err) {
+  console.error(`Failed to get allowed notification bundles. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
+#### applicationManager.queryTrafficStats
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+queryTrafficStats(admin: Want, bundleName: string, appIndex: number, accountId: number, networkInfo: statistics.NetworkInfo): Promise<statistics.NetStatsInfo>
+
+查询当前用户下指定应用在特定时间段内使用流量情况。使用Promise异步回调。
+
+> [!NOTE]
+> 传入的网络类型（networkInfo.type）仅支持蜂窝网络（connection.NetBearType.BEARER_CELLULAR）和Wi-Fi网络（connection.NetBearType.BEARER_WIFI）。若传入其他值，接口会返回错误码9200012。 传入的起始时间（networkInfo.startTime）、结束时间（networkInfo.endTime）为秒级时间戳。若传入的起始时间、结束时间为负数，或起始时间大于结束时间，接口会返回错误码9200012。 传入的用户ID（accountId）非当前用户时，接口会返回错误码9200012。 建议查询的时间间隔（结束时间-起始时间）最小为1天，最大为30天。时间间隔太小，查询结果可能不准确。时间间隔太大，查询耗时会很长。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| bundleName | string | 是 | 应用的包名。 |
+| appIndex | number | 是 | 应用分身索引，取值范围：大于等于0的整数。 appIndex可以通过@ohos.bundle.bundleManager中的getAppCloneIdentity等接口来获取。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0的整数。 accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+| networkInfo | statistics.NetworkInfo | 是 | 网络信息。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<statistics.NetStatsInfo> | Promise对象，返回获取的历史流量信息对象。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```json
+import { applicationManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+import { connection, statistics } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+import { sim } from '@kit.TelephonyKit';
+
+async function queryTrafficStats() {
+  let wantTemp: Want = {
+    // 需根据实际情况进行替换
+    bundleName: 'com.example.myapplication',
+    abilityName: 'EnterpriseAdminAbility'
+  };
+  // 需根据实际情况进行替换
+  let bundleName: string = 'com.example.test';
+  let appIndex: number = 0;
+  let accountId: number = 100;
+  // 示例代码使用sim.getSimAccountInfo获取simId
+  let slotId: number = 0;
+  let simId: number = 0;
+  await sim.getSimAccountInfo(slotId).then((data: sim.IccAccountInfo) => {
+    simId = data.simId;
+  }).catch((err: BusinessError) => {
+    console.error(`getSimAccountInfo failed, promise: err->${JSON.stringify(err)}`);
+  });
+  let networkInfo: statistics.NetworkInfo = {
+    // 需根据实际情况进行替换
+    type: connection.NetBearType.BEARER_CELLULAR,
+    // 查询2026/4/15 00:00:00.000 ~ 2026/4/16 00:00:00.000的数据（月份从0开始计算）
+    startTime: Math.floor(new Date(2026, 3, 15, 0, 0, 0, 0).getTime() / 1000),
+    endTime: Math.floor(new Date(2026, 3, 16, 0, 0, 0, 0).getTime() / 1000),
+    // 网络类型为BEARER_CELLULAR时，需要传simId；网络类型为BEARER_WIFI时，不需要传simId；
+    simId: simId
+  }
+  await applicationManager.queryTrafficStats(wantTemp, bundleName, appIndex, accountId, networkInfo)
+    .then(result => {
+      console.info('Succeeded in querying traffic stats.');
+    }).catch((error: BusinessError) => {
+      console.error(`Failed to query traffic stats. Code is ${error.code}, message is ${error.message}`);
+    })
+}
+```
+
+
+
 #### KioskFeature20+
 
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -2339,3 +2632,326 @@ Kiosk模式的特征。
 | bundleName | string | 否 | 否 | 应用的包名。 |
 | abilityName | string | 否 | 否 | 应用的Ability名称。 |
 | index | number | 否 | 否 | 应用在快捷栏中的位置索引。 |
+
+
+
+
+#### BundleStatsInfo
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+应用包统计信息。
+
+**起始版本：** 26.0.0
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| bundleName | string | 否 | 否 | 应用的包名。 |
+| appIndex | number | 否 | 否 | 应用分身索引，取值范围：大于等于0的整数。 appIndex可以通过@ohos.bundle.bundleManager中的getAppCloneIdentity等接口来获取。 |
+| abilityInFgTotalTime | number | 否 | 否 | Ability在前台运行的总时长，单位：毫秒。 |
+
+
+
+
+#### applicationManager.queryBundleStatsInfos
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+queryBundleStatsInfos(admin: Want, startTime: number, endTime: number, accountId: number): Array&lt;BundleStatsInfo&gt;
+
+查询指定用户账户在给定时间段内，各应用在前台运行的累计时长统计信息。查询的最小粒度是天，调用时需要传入起始时间（startTime）、结束时间（endTime）以及目标用户账户ID（accountId）。请求参数startTime和endTime为毫秒级时间戳，支持调用方传入自定义值，startTime默认取当天的00:00:00.000，endTime默认取当天的24:00:00.000（即次日零点）。请求参数接口返回BundleStatsInfo数组，每个元素包含一个应用的包名，其分身索引值及其对应时间段内的前台使用时长（毫秒级时间戳）。若startTime为0，则表示从设备首次开机的时间开始查询。若起始时间晚于结束时间，接口将返回错误码9200012。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| startTime | number | 是 | 查询起始时间，单位：毫秒（时间戳）。 取值范围：[0, +∞)。 |
+| endTime | number | 是 | 查询结束时间，单位：毫秒（时间戳）。 取值范围：[0, +∞)。 |
+| accountId | number | 是 | 用户ID，取值范围：大于等于0的整数。 accountId可以通过@ohos.account.osAccount中的getOsAccountLocalId等接口来获取。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;BundleStatsInfo&gt; | 返回应用包统计信息的数组。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+
+
+**示例：**
+
+```json
+import { applicationManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+try {
+  // 查询2026/4/15 00:00:00.000 ~ 2026/4/16 23:59:59.999的数据（月份从0开始计算）
+  let startTime: number = new Date(2026, 3, 15, 0, 0, 0, 0).getTime();
+  let endTime: number = new Date(2026, 3, 16, 23, 59, 59, 999).getTime();
+  let accountId: number = 100;
+  let result: Array<applicationManager.BundleStatsInfo> = applicationManager.queryBundleStatsInfos(wantTemp, startTime, endTime, accountId);
+  console.info(`Succeeded in querying bundle stats infos, result : ${JSON.stringify(result)}`);
+} catch(err) {
+  console.error(`Failed to query bundle stats infos. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+```json
+import { applicationManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+
+try {
+  // 查询上个月的一个月的数据
+  // 获取当前日期
+  let currentDate: Date = new Date();
+  // 计算上个月的第一天（月份从0开始，所以当前月份减1）
+  let lastMonthFirstDay: Date = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1, 0, 0, 0, 0);
+  // 计算上个月的最后一天（下个月第0天即为本月最后一天）
+  let lastMonthLastDay: Date = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0, 23, 59, 59, 999);
+  
+  let startTime: number = lastMonthFirstDay.getTime();
+  let endTime: number = lastMonthLastDay.getTime();
+  let accountId: number = 100;
+  let result: Array<applicationManager.BundleStatsInfo> = applicationManager.queryBundleStatsInfos(wantTemp, startTime, endTime, accountId);
+  console.info(`Succeeded in querying bundle stats infos, result : ${JSON.stringify(result)}`);
+} catch(err) {
+  console.error(`Failed to query bundle stats infos. Code: ${err.code}, message: ${err.message}`);
+}
+```
+
+
+
+#### applicationManager.addHideLauncherIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+addHideLauncherIcon(admin: Want, bundleNames: Array&lt;string&gt;): void
+
+添加隐藏桌面应用图标名单。
+
+> [!NOTE]
+> 1、本接口仅支持隐藏当前用户的桌面应用图标，不支持隐藏应用卡片。 2、如果被隐藏的应用有应用分身，会同步隐藏应用分身。 3、不能把桌面所有应用都添加到隐藏名单中，否则所有应用都会显示到桌面上。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用返回801错误码。
+
+**冲突规则：** [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| bundleNames | Array&lt;string&gt; | 是 | 应用包名数组，指定需要隐藏的应用，最大支持500个。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { applicationManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let bundleNames: Array<string> = ['com.example.test'];
+try {
+  applicationManager.addHideLauncherIcon(wantTemp, bundleNames);
+  console.info('Succeeded in adding hide launcher icon.');
+} catch (err) {
+  console.error(`Failed to add hide launcher icon. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
+#### applicationManager.removeHideLauncherIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+removeHideLauncherIcon(admin: Want, bundleNames: Array&lt;string&gt;): void
+
+取消隐藏桌面应用图标名单。
+
+> [!NOTE]
+> 取消隐藏的应用会从桌面第2屏开始找空位显示；如果第2~18屏无空位，则在第1屏找空位；如果第1屏无空位，则在第2屏第1个应用的位置创建小文件夹放置应用。
+
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用返回801错误码。
+
+**冲突规则：** [合并](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#规则4合并)。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 |
+| bundleNames | Array&lt;string&gt; | 是 | 应用包名数组，指定需要取消隐藏的应用，最大支持500个。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 9200012 | Parameter verification failed. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { applicationManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+// 需根据实际情况进行替换
+let bundleNames: Array<string> = ['com.example.test'];
+try {
+  applicationManager.removeHideLauncherIcon(wantTemp, bundleNames);
+  console.info('Succeeded in removing hide launcher icon.');
+} catch (err) {
+  console.error(`Failed to remove hide launcher icon. Code is ${err.code}, message is ${err.message}`);
+}
+```
+
+
+
+#### applicationManager.getHideLauncherIcon
+
+**支持设备：** Phone | PC/2in1 | Tablet
+
+getHideLauncherIcon(admin: Want | null): Array&lt;string&gt;
+
+查询当前用户下隐藏桌面应用图标名单。
+
+**起始版本：** 26.0.0
+
+**需要权限：** ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+
+**系统能力：** SystemCapability.Customization.EnterpriseDeviceManager
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**设备行为差异：** 该接口在Phone和Tablet中可正常调用，在其他设备中调用返回801错误码。
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| admin | Want \| null | 是 | 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。 当设备有多个MDM应用时，传入admin查询对应admin设置的策略。传入null时查询整机实际生效的策略。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;string&gt; | 返回当前用户下的隐藏桌面应用图标名单。 |
+
+
+**错误码**：
+
+以下错误码的详细介绍请参见[企业设备管理错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprisedevicemanager)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 9200001 | The application is not an administrator application of the device. |
+| 9200002 | The administrator application does not have permission to manage the device. |
+| 201 | Permission verification failed. The application does not have the permission required to call the API. |
+| 801 | Capability not supported. Failed to call the API due to limited device capabilities. |
+
+
+**示例：**
+
+```text
+import { applicationManager } from '@kit.MDMKit';
+import { Want } from '@kit.AbilityKit';
+
+let wantTemp: Want = {
+  // 需根据实际情况进行替换
+  bundleName: 'com.example.myapplication',
+  abilityName: 'EnterpriseAdminAbility'
+};
+try {
+  let bundleNames: Array<string> = applicationManager.getHideLauncherIcon(wantTemp);
+  console.info('Succeeded in getting hide launcher icon.');
+} catch (err) {
+  console.error(`Failed to get hide launcher icon. Code is ${err.code}, message is ${err.message}`);
+}
+```

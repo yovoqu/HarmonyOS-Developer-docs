@@ -1,6 +1,6 @@
 # 使用SM4对称密钥（GCM模式）加解密(ArkTS)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sm4-sym-encrypt-decrypt-gcm
 
@@ -10,7 +10,7 @@
 1. 调用[cryptoFramework.createSymKeyGenerator](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatesymkeygenerator)、[SymKeyGenerator.generateSymKey](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#generatesymkey-1)，生成密钥算法为SM4、密钥长度为128位的对称密钥（SymKey）。
 
   如何生成SM4对称密钥，开发者可参考下文示例，并结合[对称密钥生成和转换规格：SM4](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-sym-key-generation-conversion-spec#sm4)和[随机生成对称密钥](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-sym-key-randomly)理解，参考文档与当前示例可能存在入参差异，请在阅读时注意区分。
-2. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'SM4_128|GCM|PKCS7'，创建对称密钥类型为SM4_128、分组模式为GCM、填充模式为PKCS7的Cipher实例，用于完成加密操作。
+2. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'SM4_128|GCM'，创建对称密钥类型为SM4_128、分组模式为GCM的Cipher实例，用于完成加密操作。
 3. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为加密（cryptoFramework.CryptoMode.ENCRYPT_MODE），指定加密密钥（SymKey）和GCM模式对应的加密参数（GcmParamsSpec），初始化加密Cipher实例。
 4. 调用[Cipher.update](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#update-1)，更新数据（明文）。
 
@@ -34,7 +34,7 @@
 
   **解密**
 
-1. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'SM4_128|GCM|PKCS7'，创建对称密钥类型为SM4_128、分组模式为GCM、填充模式为PKCS7的Cipher实例，用于完成解密操作。
+1. 调用[cryptoFramework.createCipher](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#cryptoframeworkcreatecipher)，指定字符串参数'SM4_128|GCM'，创建对称密钥类型为SM4_128、分组模式为GCM的Cipher实例，用于完成解密操作。
 
 2. 调用[Cipher.init](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cryptoframework#init-1)，设置模式为解密（cryptoFramework.CryptoMode.DECRYPT_MODE），指定解密密钥（SymKey）和GCM模式对应的解密参数（GcmParamsSpec），初始化解密Cipher实例。
 
@@ -80,7 +80,7 @@ let gcmParams = genGcmParamsSpec();
 
 // 加密消息
 async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
-  let cipher = cryptoFramework.createCipher('SM4_128|GCM|PKCS7');
+  let cipher = cryptoFramework.createCipher('SM4_128|GCM');
   await cipher.init(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, gcmParams);
   let encryptUpdate = await cipher.update(plainText);
   // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。
@@ -90,7 +90,7 @@ async function encryptMessagePromise(symKey: cryptoFramework.SymKey, plainText: 
 
 // 解密消息
 async function decryptMessagePromise(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
-  let decoder = cryptoFramework.createCipher('SM4_128|GCM|PKCS7');
+  let decoder = cryptoFramework.createCipher('SM4_128|GCM');
   await decoder.init(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, gcmParams);
   let decryptUpdate = await decoder.update(cipherText);
   // gcm模式解密doFinal时传入空，验证init时传入的tag数据，如果验证失败会抛出异常。
@@ -162,7 +162,7 @@ let gcmParams = genGcmParamsSpec();
 
 // 加密消息
 function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramework.DataBlob) {
-  let cipher = cryptoFramework.createCipher('SM4_128|GCM|PKCS7');
+  let cipher = cryptoFramework.createCipher('SM4_128|GCM');
   cipher.initSync(cryptoFramework.CryptoMode.ENCRYPT_MODE, symKey, gcmParams);
   let encryptUpdate = cipher.updateSync(plainText);
   // gcm模式加密doFinal时传入空，获得tag数据，并更新至gcmParams对象中。
@@ -172,7 +172,7 @@ function encryptMessage(symKey: cryptoFramework.SymKey, plainText: cryptoFramewo
 
 // 解密消息
 function decryptMessage(symKey: cryptoFramework.SymKey, cipherText: cryptoFramework.DataBlob) {
-  let decoder = cryptoFramework.createCipher('SM4_128|GCM|PKCS7');
+  let decoder = cryptoFramework.createCipher('SM4_128|GCM');
   decoder.initSync(cryptoFramework.CryptoMode.DECRYPT_MODE, symKey, gcmParams);
   let decryptUpdate = decoder.updateSync(cipherText);
   // gcm模式解密doFinal时传入空，验证init时传入的tag数据，如果验证失败会抛出异常。

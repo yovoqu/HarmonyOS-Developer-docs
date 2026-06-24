@@ -1,6 +1,6 @@
 # Interface (WebMessagePort)
 
-更新时间：2026-04-13 09:29:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-webview-webmessageport
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -81,8 +81,21 @@ struct WebComponent {
         .onClick(() => {
           try {
             this.ports = this.controller.createWebMessagePorts();
+            this.ports[1].onMessageEvent((msg) => {
+                if (typeof (msg) == "string") {
+                    console.info("received string message from HTML5, string is:" + msg);
+                } else if (typeof (msg) == "object") {
+                    if (msg instanceof ArrayBuffer) {
+                        console.info("received arraybuffer from HTML5, length is:" + msg.byteLength);
+                    } else {
+                        console.info("not support");
+                    }
+                } else {
+                    console.info("not support");
+                }
+            })
             this.controller.postMessage('__init_port__', [this.ports[0]], '*');
-            this.ports[1].postMessageEvent("post message from ets to html5");
+            this.ports[1].postMessageEvent("post message from ETS to HTML5");
           } catch (error) {
             console.error(`ErrorCode: ${(error as BusinessError).code},  Message: ${(error as BusinessError).message}`);
           }

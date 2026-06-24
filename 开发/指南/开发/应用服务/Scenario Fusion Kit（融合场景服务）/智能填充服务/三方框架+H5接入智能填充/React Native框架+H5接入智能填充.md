@@ -1,6 +1,6 @@
 # React Native框架+H5接入智能填充
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-reactnative
 
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     padding: 4,
     height: 80,
-    width: 200,
+    width: 160,
   },
   labelContainer: {
     flexDirection: 'row',
@@ -75,9 +75,9 @@ class WithLabel extends React.Component<$FlowFixMeProps> {
     );
   }
 }
-const RNTesterApp = () => {
+const RNTesterApp = () : React.ReactNode=> {
   return (
-    <View style={{width: '100%', height: '100%'}}>
+    <View style={{width: '100%', height: '100%', paddingTop: 40}}>
       <WithLabel label="昵称">
         <TextInput textContentType="nickname" style={styles.default} />
       </WithLabel>
@@ -113,28 +113,33 @@ export default RNTesterApp;
 #### React Native框架中加载的H5页面效果图
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f0/v3/sXc9YtI7RSepXMy1hmkbzQ/zh-cn_image_0000002581435256.png?HW-CC-KV=V1&HW-CC-Date=20260528T030143Z&HW-CC-Expire=86400&HW-CC-Sign=AE765AE5B0C2B332A44C338695CFDFC078E78ECAD076F47812CE2026368EE4FC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1c/v3/OVtKyBggR3SaqZG2sSXMjg/zh-cn_image_0000002626229790.png?HW-CC-KV=V1&HW-CC-Date=20260624T020938Z&HW-CC-Expire=86400&HW-CC-Sign=C3F2F9688B113016EFBA6D82717F077778DFC664B6BF86669B86970FEDE9C6A6)
 
  
 React Native框架加载H5页面场景，通过给form表单的input输入框（form表单的子节点）配置[autocomplete](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-mappingrelationship#h5-autocomplete和harmonyos的contenttype的映射关系)属性来支持智能填充，代码如下：
  
 ```text
-import React from 'react';
+import React,{ useEffect } from 'react';
 import { View } from 'react-native';
 import { WebView } from 'react-native-webview';
+// ...
 
-const RNTesterApp = () => {
+const RNTesterAppH5 = () : React.ReactNode => {
+// ...
+
   return (
-    <View style={{width: '100%', height: '100%'}}>
-      <WebView
-        source={require('./autofill_h5.html')}
-        style={{flex: 1, paddingTop: 50}}
-      />
-    </View>
+// ...
+      <View style={{width: '100%', height: '100%', paddingTop: 40}}>
+        <WebView
+          source={require('./autofill_h5.html')}
+          style={{flex: 1, paddingTop: 50}}
+        />
+      </View>
+// ...
   );
 };
 
-export default RNTesterApp;
+export default RNTesterAppH5;
 ```
  
 autofill_h5.html实现参考[示例代码二](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scenario-fusion-h5#示例代码二)。

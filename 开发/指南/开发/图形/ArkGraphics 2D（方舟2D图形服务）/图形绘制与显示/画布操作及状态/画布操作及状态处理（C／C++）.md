@@ -1,6 +1,6 @@
 # 画布操作及状态处理（C/C++）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/canvas-operation-state-c
 
@@ -259,7 +259,7 @@ OH_Drawing_MatrixDestroy(matrix);
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ff/v3/moP9iX2tSaKU3bm18Okh3w/zh-cn_image_0000002611834563.png?HW-CC-KV=V1&HW-CC-Date=20260528T030532Z&HW-CC-Expire=86400&HW-CC-Sign=D4EF14CCA647F3EE06F3D0F070E5208F80C7E4D91BB03115638DB6B3270AF223)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/b8/v3/dg2nqgaET0m5QoWC5RV6cw/zh-cn_image_0000002626229246.png?HW-CC-KV=V1&HW-CC-Date=20260624T020913Z&HW-CC-Expire=86400&HW-CC-Sign=943152BA99F1B7AB4ABA8D233A58EB80126B1951E62651A99CFCFF6F952C5682)
 
 
 

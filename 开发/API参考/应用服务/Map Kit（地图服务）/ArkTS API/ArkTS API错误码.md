@@ -1,6 +1,6 @@
 # ArkTS API错误码
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-map
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -169,7 +169,7 @@ The Map permission is not enabled.
 2. 配置client_id。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/ee/v3/z7g8pYF7R_Wt7cY2jVSAJg/zh-cn_image_0000002581437046.png?HW-CC-KV=V1&HW-CC-Date=20260528T025108Z&HW-CC-Expire=86400&HW-CC-Sign=A850DF584D39CAD6BDAA9978AA4649E7C4CF14CF97535EB60A19380CDAE0006B)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f7/v3/0WRokVRdTuyI3Qmmwx6cxQ/zh-cn_image_0000002626071700.png?HW-CC-KV=V1&HW-CC-Date=20260624T020346Z&HW-CC-Expire=86400&HW-CC-Sign=F52DC736F33A91B910C3D654B3BFC204F82FF6FD6EE6BBA0B2D952622B0BAD28)
 
 3. 如未解决，请通过[在线提单](https://developer.huawei.com/consumer/cn/support/feedback/#/)提交问题。
 

@@ -1,6 +1,6 @@
 # 进度条 (Progress)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-progress-indicator
 
@@ -103,7 +103,7 @@ Progress({ value: 20, total: 150, type: ProgressType.Capsule }).width(50).height
 Progress({ value: 50, total: 150, type: ProgressType.Capsule }).width(50).height(100).color(Color.Blue).backgroundColor(Color.Black)
 ```
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/df/v3/7TxuPhPwSb2mKLcv6cRauA/zh-cn_image_0000002611833787.png?HW-CC-KV=V1&HW-CC-Date=20260528T030452Z&HW-CC-Expire=86400&HW-CC-Sign=6F7BB5251C1D974D47DEFD33DB8369D75996C851FA873D7976E28998D256ECAD)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/bf/v3/ZZ6eqFWZSUuCvvMm9rof_w/zh-cn_image_0000002656467759.png?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=D2BB0A49D89FC5CC609143F29379E3A892516AC9414B7DF3FAFD05CAFEF9156C)
 
 
 
@@ -138,4 +138,4 @@ struct ProgressCase1 {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/17/v3/hSsEoBJhRqmiTdJL7FPzdg/zh-cn_image_0000002581274040.gif?HW-CC-KV=V1&HW-CC-Date=20260528T030452Z&HW-CC-Expire=86400&HW-CC-Sign=63079BC2668D1F5068425943E63FA191979B3B1A4E9792E34958AD5286C8579A)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7f/v3/mAQqMpbmQAuOWYMKbn1fug/zh-cn_image_0000002656347807.gif?HW-CC-KV=V1&HW-CC-Date=20260624T020752Z&HW-CC-Expire=86400&HW-CC-Sign=C27E2EC65DC00C74C439859BFC84E500DE8672B16C50B0232E2474E40ABD794D)

@@ -1,6 +1,6 @@
 # 编译命令行中如何传递参数并且在Hvigor编译阶段扩展插件中获取到
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-compiling-and-building-79
 

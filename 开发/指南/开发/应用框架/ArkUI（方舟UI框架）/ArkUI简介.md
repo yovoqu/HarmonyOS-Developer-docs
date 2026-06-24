@@ -1,6 +1,6 @@
 # ArkUI简介
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkui-overview
 
@@ -40,7 +40,7 @@ ArkUI（方舟UI框架）为应用的UI开发提供了完整的基础设施，�
 
 #### 不同应用类型支持的开发范式
 
-根据所选用[应用模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-models)（Stage模型、FA模型）和页面形态（应用或服务的普通页面、卡片）的不同，对应支持的UI开发范式也有所差异，详见下表。
+根据所选用[应用模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/stage-model-development-overview)（Stage模型、FA模型）和页面形态（应用或服务的普通页面、卡片）的不同，对应支持的UI开发范式也有所差异，详见下表。
 
 **表1** 支持的UI开发范式
 

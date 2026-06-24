@@ -1,6 +1,6 @@
 # @ohos.hilog (HiLog日志打印)
 
-更新时间：2026-04-02 08:41:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hilog
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -280,7 +280,7 @@ setMinLogLevel(level: LogLevel): void
 设置应用日志打印的最低日志级别，用于拦截低级别日志打印。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7b/v3/T0Oh4hTbRvai8QWLmK7b0Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025205Z&HW-CC-Expire=86400&HW-CC-Sign=37788A2509E498706CFC08B6859D85C9465D80A5DAEA5694C3BA8BAEA8C4127E)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/7c/v3/iawhcHqWT7iscuwdXAMuFQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020201Z&HW-CC-Expire=86400&HW-CC-Sign=CCD383F39B1D65AED903A92203FF0CCA9D09DA023533D88361E75964ECBE2FB3)
 
 
 如果设置的日志级别低于[全局日志级别](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/hilog#查看和设置日志级别)，设置不生效。
@@ -341,7 +341,7 @@ setLogLevel(level: LogLevel, prefer: PreferStrategy): void
 可通过prefer参数配置不同的偏好策略。如果选择策略PREFER_CLOSE_LOG，等同于调用setMinLogLevel函数。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/a4/v3/jGP1aDuqRzaTccOLHdEmLw/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025205Z&HW-CC-Expire=86400&HW-CC-Sign=7EC488D9F6400E4FD16220A4A6F1606B8A6D378993F4C1A3BE43A869EF96792D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/5b/v3/VIaZByPKQE2ie6gX2Zoaqg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020201Z&HW-CC-Expire=86400&HW-CC-Sign=3D7408CCADBE476A81647A72D32596299FBAB0C00439F03722501EB1527ED199)
 
 
 debug版本应用下，此函数不生效。

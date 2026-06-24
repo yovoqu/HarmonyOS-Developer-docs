@@ -1,6 +1,6 @@
 # GraphicsAccelerate
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_graphics_accelerate
 **支持设备：** Phone | Tablet | TV
@@ -104,6 +104,7 @@
 | typedef struct FG_ImageSync_VK FG_ImageSync_VK | 此结构体描述超帧输入输出图像同步状态信息，用于创建超帧图像内存屏障。该接口仅适配Vulkan图形API平台。 |
 | typedef struct FG_ImageInfo_VK FG_ImageInfo_VK | 此结构体描述超帧输入输出图像信息，该接口仅适配Vulkan图形API平台。 |
 | typedef struct FG_DispatchDescription_VK FG_DispatchDescription_VK | 此结构体描述下发帧生成命令HMS_FG_Dispatch_VK需要的参数信息，每一帧都需要进行更新。该接口仅适配Vulkan图形API平台。 |
+| typedef enum FG_FeatureType FG_FeatureType | 此枚举定义超帧的特性类型，根据平台（OPENGL ES，Vulkan）、超帧方式（内插，外插）以及算法等因素划分不同类型。 |
 | typedef enum OpenGTX_ErrorCode OpenGTX_ErrorCode | 此枚举描述OpenGTX接口调用错误码。 |
 | typedef enum OpenGTX_LTPO_Mode OpenGTX_LTPO_Mode | 此枚举描述OpenGTX_LTPO模式类型，以控制游戏中的帧率。 |
 | typedef enum OpenGTX_EngineType OpenGTX_EngineType | 此枚举描述游戏应用的底层游戏引擎类型。 |
@@ -138,6 +139,7 @@
 | FG_CvvZSemantic { FG_CVV_Z_SEMANTIC_MINUS_ONE_TO_ONE_FORWARD_Z = 0, FG_CVV_Z_SEMANTIC_ZERO_TO_ONE_REVERSE_Z = 1, FG_CVV_Z_SEMANTIC_MINUS_ONE_TO_ONE_REVERSE_Z = 2, FG_CVV_Z_SEMANTIC_ZERO_TO_ONE_FORWARD_Z = 3 } | 此枚举描述经过相机投影变换后，齐次裁剪空间Z/W范围及深度测试模式。 |
 | FG_ImageFormat_GLES { FG_FORMAT_R8G8B8A8_UNORM = 0, FG_FORMAT_R11G11B10_SFLOAT = 1, FG_FORMAT_R16G16B16A16_SFLOAT = 2 } | 此枚举描述真实渲染帧颜色缓冲区和预测帧缓冲区的图像格式。该接口仅适配OpenGL ES图形API平台。 |
 | FG_PresentMode { FG_PRESENT_BY_GAME = 0, FG_PRESENT_BY_SYSTEM = 1 } | 定义预测帧送显模式，该模式包括两种：游戏端预测帧送显和系统端预测帧送显。 |
+| FG_FeatureType { INTERPOLATION_GPU_GLES = 0, INTERPOLATION_GPU_VULKAN = 1, EXTRAPOLATION_GPU_GLES = 2, EXTRAPOLATION_GPU_VULKAN = 3, INTERPOLATION_AI_VULKAN = 4 } | 此枚举定义超帧的特性类型，根据平台（OPENGL ES，Vulkan）、超帧方式（内插，外插）以及算法等因素划分不同类型。 |
 | OpenGTX_ErrorCode { OPENGTX_SUCCESS = 0, OPENGTX_INVALID_PARAMETER = 401, OPENGTX_CONTEXT_NOT_CONFIG = 1009502001, OPENGTX_CONTEXT_NOT_ACTIVE = 1009502002 } | 此枚举描述OpenGTX接口调用错误码。 |
 | OpenGTX_LTPO_Mode { SCENE_MODE = 0x0001, TOUCH_MODE = 0x0010, ADAPTIVE_MODE = 0x0100 } | 此枚举描述OpenGTX_LTPO模式类型，以控制游戏中的帧率。 |
 | OpenGTX_EngineType { UNITY = 1, UNREAL = 2, MESSIAH = 3, COCOS = 4, OTHERS_ENGINE = 100 } | 此枚举描述游戏应用的底层游戏引擎类型。 |
@@ -167,6 +169,7 @@
 | ABR_ErrorCode HMS_ABR_DestroyContext(ABR_Context** context) | 销毁ABR上下文实例并释放内存资源。 |
 | ABR_ErrorCode HMS_ABR_MarkFrameBuffer_GLES(ABR_Context* context) | 标记ABR进行自适应渲染处理的GLES Buffer，需要在GLES Buffer开始渲染前调用此接口。 |
 | ABR_ErrorCode HMS_ABR_GetScaledTexture_GLES(ABR_Context* context, uint32_t originTexture, uint32_t* scaledTexture) | 根据原始分辨率的GLES纹理索引获取ABR自适应缩放后的GLES纹理索引。调用前需确认原始纹理有效、渲染上下文有效。originTexture为原始纹理ID，该值不能为0，否则无法正确获取scaledTexture，接口功能失效；scaledTexture不能为空指针，否则会返回错误码ABR_INVALID_PARAMETER。 |
+| bool HMS_FG_IsFrameGenerationSupported(FG_FeatureType featureType) | 表示当前设备是否支持此类型的超帧功能，不同机型支持的超帧功能不同。以AI超帧特性为例，该接口会判断当前机型是否含有NPU及NPU算力是否满足特性要求，如果不满足则会返回false。 |
 | FG_Context_GLES* HMS_FG_CreateContext_GLES(void) | 创建超帧上下文实例，调用成功则返回指向FG_Context_GLES对象的指针，失败返回nullptr。该接口仅适配OpenGL ES图形API平台。 |
 | FG_ErrorCode HMS_FG_SetAlgorithmMode_GLES(FG_Context_GLES* context, const FG_AlgorithmModeInfo* predictionModeInfo) | 设置超帧预测算法模式和运动估计模式，必选。该接口仅适配OpenGL ES图形API平台。 |
 | FG_ErrorCode HMS_FG_SetResolution_GLES(FG_Context_GLES* context, const FG_ResolutionInfo* resolutionInfo) | 设置超帧输入输出图像分辨率，必选。该接口仅适配OpenGL ES图形API平台。 |
@@ -581,6 +584,22 @@ typedef enum FG_PresentMode FG_PresentMode
 此枚举定义预测帧送显模式，支持游戏端送显预测帧模式和系统端送显预测帧模式。
  
 **起始版本：** 5.1.0(18)
+ 
+  
+
+#### FG_FeatureType
+
+**支持设备：** Phone | Tablet | TV
+
+```text
+typedef enum FG_FeatureType FG_FeatureType
+```
+ 
+**描述**
+ 
+此枚举定义超帧的特性类型，根据平台（OPENGL ES，Vulkan）、超帧方式（内插，外插）以及算法等因素划分不同类型。
+ 
+**起始版本：** 26.0.0
  
   
 
@@ -1103,6 +1122,31 @@ enum FG_PresentMode
  
   
 
+#### FG_FeatureType
+
+**支持设备：** Phone | Tablet | TV
+
+```text
+enum FG_FeatureType
+```
+ 
+**描述**
+ 
+此枚举定义超帧的特性类型，根据平台（OPENGL ES，Vulkan）、超帧方式（内插，外插）以及算法等因素划分不同类型。
+ 
+**起始版本：** 26.0.0
+  
+| 枚举值 | 描述 |
+| --- | --- |
+| INTERPOLATION_GPU_GLES | OpenGL ES平台上的GPU内插。 |
+| INTERPOLATION_GPU_VULKAN | Vulkan平台上的GPU内插。 |
+| EXTRAPOLATION_GPU_GLES | OpenGL ES平台上的GPU外插。 |
+| EXTRAPOLATION_GPU_VULKAN | Vulkan平台上的GPU外插。 |
+| INTERPOLATION_AI_VULKAN | Vulkan平台上的AI内插。 |
+ 
+ 
+  
+
 #### OpenGTX_EngineType
 
 **支持设备：** Phone | Tablet | TV
@@ -1615,6 +1659,33 @@ ABR_ErrorCode HMS_ABR_UpdateCameraData(ABR_Context* context, ABR_CameraData* dat
 **返回：**
  
 函数执行结果状态。执行成功返回ABR_SUCCESS；失败返回具体错误码，具体失败错误码可参考[ABR_ErrorCode](#abr_errorcode)。
+ 
+  
+
+#### HMS_FG_IsFrameGenerationSupported()
+
+**支持设备：** Phone | Tablet | TV
+
+```text
+bool HMS_FG_IsFrameGenerationSupported(FG_FeatureType featureType)
+```
+ 
+**描述**
+ 
+表示当前设备是否支持此类型的超帧功能，不同机型支持的超帧功能不同。以AI超帧特性为例，该接口会判断当前机型是否含有NPU及NPU算力是否满足特性要求，如果不满足则会返回false。
+ 
+**起始版本：** 26.0.0
+ 
+**参数:**
+  
+| 名称 | 描述 |
+| --- | --- |
+| featureType | 超帧的特性类型FG_FeatureType。 |
+ 
+ 
+**返回：**
+ 
+如果当前设备支持此功能，则返回true，否则返回false。
  
   
 

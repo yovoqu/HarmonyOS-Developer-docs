@@ -1,6 +1,6 @@
 # avrecorder.h
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -51,6 +51,8 @@
 | OH_AVErrCode OH_AVRecorder_SetErrorCallback(OH_AVRecorder *recorder, OH_AVRecorder_OnError callback, void *userData) | 设置错误回调函数，以便应用能够响应AVRecorder生成的错误事件。此接口必须在OH_AVRecorder_Start调用之前调用。 |
 | OH_AVErrCode OH_AVRecorder_SetUriCallback(OH_AVRecorder *recorder, OH_AVRecorder_OnUri callback, void *userData) | 设置URI回调函数，以便应用能够响应AVRecorder生成的URI事件。此接口必须在OH_AVRecorder_Start调用之前调用。 |
 | OH_AVErrCode OH_AVRecorder_SetWillMuteWhenInterrupted(OH_AVRecorder *recorder, bool muteWhenInterrupted) | 设置是否开启静音打断模式。 |
+| OH_AVErrCode OH_AVRecorder_GetAudioCapturerMaxAmplitude(OH_AVRecorder *recorder, int32_t *amplitude) | 获取当前音频最大振幅。获取到的值为最近两次调用之间的最大振幅。例如，在1s时获取过一次最大振幅，然后在2s时再次调用该方法，那么返回值是1s到2s之间的最大振幅值。 该方法只能在OH_AVRecorder_Prepare方法调用之后，且必须在OH_AVRecorder_Stop方法之前调用。 |
+| OH_AVErrCode OH_AVRecorder_SetMetadata(OH_AVRecorder *recorder, const OH_AVFormat *metadata) | 设置录制的元数据信息。如果metadata参数与config.metadata.customInfo（参考OH_AVRecorder_Prepare和OH_AVRecorder_Config）中存在相同的键，前者的对应值将覆盖后者。 该方法只能在OH_AVRecorder_Prepare方法调用之后，且必须在OH_AVRecorder_Stop方法之前调用。 |
 
 
 
@@ -595,3 +597,69 @@ OH_AVErrCode OH_AVRecorder_SetWillMuteWhenInterrupted(OH_AVRecorder *recorder, b
 | 类型 | 说明 |
 | --- | --- |
 | OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：输入的recorder为nullptr或回调函数为nullptr。 AV_ERR_INVALID_STATE：函数在无效状态下调用，应先处于准备状态。 |
+
+
+
+
+#### OH_AVRecorder_GetAudioCapturerMaxAmplitude()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_AVErrCode OH_AVRecorder_GetAudioCapturerMaxAmplitude(OH_AVRecorder *recorder, int32_t *amplitude)
+```
+
+**描述**
+
+获取当前音频最大振幅。获取到的值为最近两次调用之间的最大振幅。例如，在1s时获取过一次最大振幅，然后在2s时再次调用该方法，那么返回值是1s到2s之间的最大振幅值。
+
+该方法只能在[OH_AVRecorder_Prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h#oh_avrecorder_prepare)方法调用之后，且必须在[OH_AVRecorder_Stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h#oh_avrecorder_stop)方法之前调用。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_AVRecorder *recorder | 指向OH_AVRecorder实例的指针。 |
+| int32_t *amplitude | 获取到的音频最大振幅。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：输入的参数recorder或amplitude为nullptr。 AV_ERR_INVALID_STATE：不支持在当前状态下调用，应当在OH_AVRecorder_Prepare之后和OH_AVRecorder_Stop之前调用此接口。 AV_ERR_NO_MEMORY：内存不足。 AV_ERR_UNKNOWN：未知错误。 |
+
+
+
+
+#### OH_AVRecorder_SetMetadata()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+OH_AVErrCode OH_AVRecorder_SetMetadata(OH_AVRecorder *recorder, const OH_AVFormat *metadata)
+```
+
+**描述**
+
+设置录制的元数据信息。如果metadata参数与config.metadata.customInfo（参考[OH_AVRecorder_Prepare](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h#oh_avrecorder_prepare)和[OH_AVRecorder_Config](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-oh-avrecorder-config)）中存在相同的键，前者的对应值将覆盖后者。
+
+该方法只能在OH_AVRecorder_Prepare方法调用之后，且必须在[OH_AVRecorder_Stop](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-avrecorder-h#oh_avrecorder_stop)方法之前调用。
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数项 | 描述 |
+| --- | --- |
+| OH_AVRecorder *recorder | 指向OH_AVRecorder实例的指针。 |
+| const OH_AVFormat *metadata | 设置的元数据信息。格式为字符串键值对，其中，键需要以"com.openharmony."开头，且值的长度不能超过256个字节。 |
+
+
+**返回：**
+
+| 类型 | 说明 |
+| --- | --- |
+| OH_AVErrCode | AV_ERR_OK：执行成功。 AV_ERR_INVALID_VAL：输入的参数recorder或metadata为nullptr，或者metadata中的值长度超过256字节。 AV_ERR_INVALID_STATE：不支持在当前状态下调用，应当在OH_AVRecorder_Prepare之后和OH_AVRecorder_Stop之前调用此接口。 AV_ERR_NO_MEMORY：内存不足。 AV_ERR_UNKNOWN：未知错误。 |

@@ -1,6 +1,6 @@
 # Interface (AuxiliaryPicture)
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-image-auxiliarypicture
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -118,7 +118,7 @@ async function ReadPixelsToBuffer(context: Context) {
   let auxPictureObj: image.AuxiliaryPicture | null = pictureObj.getAuxiliaryPicture(image.AuxiliaryPictureType.GAINMAP);
   if(auxPictureObj != null) {
     await auxPictureObj.readPixelsToBuffer().then((pixelsBuffer: ArrayBuffer) => {
-    console.info('Succeeded in reading pixels to buffer.');
+      console.info('Succeeded in reading pixels to buffer.' );
     }).catch((error: BusinessError) => {
       console.error(`Failed to read pixels to buffer. error.code: ${error.code}, error.message: ${error.message}`);
     });

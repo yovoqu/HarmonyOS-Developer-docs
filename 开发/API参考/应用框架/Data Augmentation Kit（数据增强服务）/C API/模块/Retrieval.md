@@ -1,6 +1,6 @@
 # Retrieval
 
-更新时间：2026-04-28 03:31:56
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataaugmentation-capi-retrieval
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -1028,7 +1028,7 @@ int OH_Retrieval_Retrieve(const OH_Retrieval_Retriever *retriever, const OH_Retr
  
 **描述**
  
-执行检索。获得检索器句柄后，输入检索查询词，根据检索条件执行检索，得到检索结果。接口执行时，会在“/data/storage/el2/base/cache”路径下生成临时存储缓存文件。当设备类型为phone、tablet时，该接口仅支持倒排，不支持向量。
+执行检索。获得检索器句柄后，输入检索查询词，根据检索条件执行检索，得到检索结果。接口执行时，会在“/data/storage/el2/base/cache”路径下生成临时存储缓存文件。当设备类型为phone、tablet时，该接口仅支持倒排，不支持向量。该接口调用需注意在callback回调未触发前不能释放传入接口参数指针的内存，否则可能导致程序异常。
  
 **起始版本：** 6.0.0(20)
  

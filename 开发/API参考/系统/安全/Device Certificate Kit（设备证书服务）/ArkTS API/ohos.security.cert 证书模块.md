@@ -1,6 +1,6 @@
 # @ohos.security.cert (证书模块)
 
-更新时间：2026-06-05 02:03:20
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-cert
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -36,7 +36,7 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 | INVALID_PARAMS | 401 | 非法入参。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | NOT_SUPPORT | 801 | 操作不支持。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | ERR_OUT_OF_MEMORY | 19020001 | 内存错误。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
-| ERR_RUNTIME_ERROR | 19020002 | 运行时外部错误。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| ERR_RUNTIME_ERROR | 19020002 | 运行时错误。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | ERR_PARAMETER_CHECK_FAILED20+ | 19020003 | 参数检查失败。 元服务API： 从API version 20开始，该接口支持在元服务中使用。 |
 | ERR_CRYPTO_OPERATION | 19030001 | 调用三方算法库API出错。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | ERR_CERT_SIGNATURE_FAILURE | 19030002 | 证书签名验证错误。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
@@ -46,6 +46,22 @@ import { cryptoFramework } from '@kit.CryptoArchitectureKit';
 | ERR_KEYUSAGE_NO_CERTSIGN | 19030006 | 证书的密钥用途不含证书签名。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | ERR_KEYUSAGE_NO_DIGITAL_SIGNATURE | 19030007 | 证书的密钥用途不含数字签名。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
 | ERR_MAYBE_WRONG_PASSWORD18+ | 19030008 | 私钥密码错误。 元服务API： 从API version 18开始，该接口支持在元服务中使用。 |
+| ERR_CERT_UNTRUSTED | 19030009 | 证书不受信任。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_CERT_HAS_REVOKED | 19030010 | 证书已被吊销。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_UNKNOWN_CRITICAL_EXTENSION | 19030011 | 未知的关键扩展。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_CERT_HOSTNAME_MISMATCH | 19030012 | 证书主机名不匹配。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_CERT_EMAIL_ADDRESS_MISMATCH | 19030013 | 证书邮箱地址不匹配。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_CERT_KEYUSAGE_MISMATCH | 19030014 | 证书密钥用途不匹配。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_CRL_NOT_FOUND | 19030015 | 无法获取证书吊销列表。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_CRL_NOT_YET_VALID | 19030016 | 证书吊销列表尚未生效。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_CRL_HAS_EXPIRED | 19030017 | 证书吊销列表已过期。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_CRL_SIGNATURE_FAILURE | 19030018 | 证书吊销列表签名验证失败。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_CRL_ISSUER_NOT_FOUND | 19030019 | 无法获取证书吊销列表颁发者。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_OCSP_RESPONSE_NOT_FOUND | 19030020 | 无法获取在线证书状态协议（OCSP）响应。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_OCSP_RESPONSE_INVALID | 19030021 | OCSP响应无效。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_OCSP_SIGNATURE_FAILURE | 19030022 | OCSP签名验证失败。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_OCSP_CERT_STATUS_UNKNOWN | 19030023 | OCSP证书状态未知。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
+| ERR_NETWORK_TIMEOUT | 19030024 | 网络连接超时。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -98,7 +114,7 @@ buffer数组的列表。
 | --- | --- | --- |
 | FORMAT_DER | 0 | DER格式。 |
 | FORMAT_PEM | 1 | PEM格式。 |
-| FORMAT_PKCS711+ | 2 | PKCS7格式。 |
+| FORMAT_PKCS711+ | 2 | PKCS #7格式。 |
 
 
 
@@ -127,7 +143,7 @@ buffer数组的列表。
 
 表示生成CSR的编码格式配置参数中的扩展。
 
-openssl中规定了扩展类型，例如challengePassword、keyUsage等。
+OpenSSL中规定了扩展类型，例如challengePassword、keyUsage等。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -135,7 +151,7 @@ openssl中规定了扩展类型，例如challengePassword、keyUsage等。
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| type | string | 否 | 否 | openssl指定的扩展类型。 |
+| type | string | 否 | 否 | OpenSSL指定的扩展类型。 |
 | value | string | 否 | 否 | 扩展值。 |
 
 
@@ -153,14 +169,14 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| subject | X500DistinguishedName | 否 | 否 | X509定义的Name类型的对象。 |
+| subject | X500DistinguishedName | 否 | 否 | X.509定义的Name类型的对象。 |
 | mdName | string | 否 | 否 | 摘要算法名。 |
 | attributes | Array&lt;CsrAttribute&gt; | 否 | 是 | 扩展。 |
 | outFormat | EncodingBaseFormat | 否 | 是 | 输出类型。 |
 
 
 > [!NOTE]
-> subject是X509定义的Name类型的对象。 mdName是摘要算法名，当前支持SHA1、SHA256、SHA384、SHA512。 attributes是可选参数，指定openssl中规定的扩展类型跟扩展值生成CSR。例如challengePassword、keyUsage等。 outFormat指定输出CSR的格式，若不指定默认为PEM格式。
+> subject是X.509定义的Name类型的对象。 mdName是摘要算法名，当前支持SHA1、SHA256、SHA384、SHA512。 attributes是可选参数，指定OpenSSL中规定的扩展类型跟扩展值生成CSR。例如challengePassword、keyUsage等。 outFormat指定输出CSR的格式，若不指定默认为PEM格式。
 
 
 
@@ -236,7 +252,7 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| ENCODING_UTF8 | 0 | UTF8编码格式。 |
+| ENCODING_UTF8 | 0 | UTF-8编码格式。 |
 
 
 
@@ -339,29 +355,28 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 用于匹配证书的过滤参数。如果参数中任一项都未指定，则匹配所有证书。
 
-**元服务API：** 从API version 12开始，该接口支持在元服务中使用。
-
 **系统能力：** SystemCapability.Security.Cert
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| x509Cert | X509Cert | 否 | 是 | 指定具体的证书对象。 |
-| validDate | string | 否 | 是 | 指定证书有效期。 |
-| issuer | Uint8Array | 否 | 是 | 指定证书颁发者，为DER编码格式。 |
-| keyUsage | Array&lt;boolean&gt; | 否 | 是 | 指定是否需要匹配密钥用途。true为需要，false为不需要。 |
-| serialNumber | bigint | 否 | 是 | 指定证书的序列号。 |
-| subject | Uint8Array | 否 | 是 | 指定证书主题，DER编码格式。 |
-| publicKey | DataBlob | 否 | 是 | 指定证书公钥，DER编码格式。 |
-| publicKeyAlgID | string | 否 | 是 | 指定证书公钥的算法。 |
-| subjectAlternativeNames12+ | Array&lt;GeneralName&gt; | 否 | 是 | 指定证书主体名称。 |
-| matchAllSubjectAltNames12+ | boolean | 否 | 是 | 指定是否需要匹配证书主体名称。true为需要，false为不需要。 |
-| authorityKeyIdentifier12+ | Uint8Array | 否 | 是 | 指定证书颁发机构密钥。 |
-| minPathLenConstraint12+ | number | 否 | 是 | 指定证书CA路径长度。 |
-| extendedKeyUsage12+ | Array&lt;string&gt; | 否 | 是 | 指定证书扩展用途。 |
-| nameConstraints12+ | Uint8Array | 否 | 是 | 指定证书的使用者名称。 |
-| certPolicy12+ | Array&lt;string&gt; | 否 | 是 | 指定证书策略。 |
-| privateKeyValid12+ | string | 否 | 是 | 指定证书私钥有效期。 |
-| subjectKeyIdentifier12+ | Uint8Array | 否 | 是 | 指定证书公钥。 |
+| x509Cert | X509Cert | 否 | 是 | 指定具体的证书对象。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| validDate | string | 否 | 是 | 指定证书有效期，例如：20231121074700Z。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| issuer | Uint8Array | 否 | 是 | 指定证书颁发者，为DER编码格式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| keyUsage | Array&lt;boolean&gt; | 否 | 是 | 指定是否需要匹配密钥用途。true为需要，false为不需要。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| serialNumber | bigint | 否 | 是 | 指定证书的序列号。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| subject | Uint8Array | 否 | 是 | 指定证书主题，DER编码格式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| publicKey | DataBlob | 否 | 是 | 指定证书公钥，DER编码格式。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| publicKeyAlgID | string | 否 | 是 | 指定证书公钥的算法。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| subjectAlternativeNames12+ | Array&lt;GeneralName&gt; | 否 | 是 | 指定证书主体名称。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| matchAllSubjectAltNames12+ | boolean | 否 | 是 | 指定是否需要匹配证书主体名称。true为需要，false为不需要。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| authorityKeyIdentifier12+ | Uint8Array | 否 | 是 | 指定证书颁发机构密钥。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| minPathLenConstraint12+ | number | 否 | 是 | 指定证书CA路径长度。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| extendedKeyUsage12+ | Array&lt;string&gt; | 否 | 是 | 指定证书扩展用途。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| nameConstraints12+ | Uint8Array | 否 | 是 | 指定证书的使用者名称。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| certPolicy12+ | Array&lt;string&gt; | 否 | 是 | 指定证书策略。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| privateKeyValid12+ | string | 否 | 是 | 指定证书私钥有效期。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| subjectKeyIdentifier12+ | Uint8Array | 否 | 是 | 指定证书主体公钥标识符（Subject Key Identifier扩展）。 元服务API： 从API version 12开始，该接口支持在元服务中使用。 |
+| privateKey | string \| Uint8Array | 否 | 是 | 指定证书私钥，string表示PEM格式私钥，Uint8Array表示DER格式私钥。 起始版本：26.0.0 模型约束：此接口仅可在Stage模型下使用。 元服务API： 从API版本26.0.0开始，该接口支持在元服务中使用。 |
 
 
 
@@ -378,9 +393,9 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| issuer | Array&lt;Uint8Array&gt; | 否 | 是 | 指定颁发者作为过滤条件, 至少要匹配到其中一个issuer。 |
-| x509Cert | X509Cert | 否 | 是 | 指定具体的证书对象作为过滤条件, 判断该证书是否在CRL列表中。 |
-| updateDateTime12+ | string | 否 | 是 | 指定证书更新时间。 |
+| issuer | Array&lt;Uint8Array&gt; | 否 | 是 | 指定颁发者作为过滤条件，至少要匹配到其中一个issuer。 |
+| x509Cert | X509Cert | 否 | 是 | 指定具体的证书对象作为过滤条件，判断该证书是否在CRL列表中。 |
+| updateDateTime12+ | string | 否 | 是 | 指定证书更新时间，例如：20231121074700Z。 |
 | maxCRL12+ | bigint | 否 | 是 | 指定CRL编号（CRL number）的最大值。 |
 | minCRL12+ | bigint | 否 | 是 | 指定CRL编号（CRL number）的最小值。 |
 
@@ -428,7 +443,7 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-表示X509信任锚，用于校验证书链。使用信任锚中的证书或者公钥作为可信根，对证书链进行校验。
+表示X.509信任锚，用于校验证书链。使用信任锚中的证书或者公钥作为可信根，对证书链进行校验。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -508,6 +523,135 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 
 
+#### CertRevocationFlag
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示证书吊销检查标志的枚举。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.Cert
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| CERT_REVOCATION_PREFER_OCSP | 0 | 优先OCSP检查。仅当CERT_REVOCATION_CRL_CHECK与CERT_REVOCATION_OCSP_CHECK同时设置时，该标志生效。 设置后先执行OCSP检查，未找到响应或超时时回退CRL； 不设置则先执行CRL检查，未找到CRL或超时时回退OCSP。 |
+| CERT_REVOCATION_CRL_CHECK | 1 | 启用CRL检查。使用证书吊销列表检查证书状态。 首先使用X509CertRevokedParams的crls参数，未匹配到CRL且X509CertRevokedParams的allowDownloadCrl参数设置为true则尝试使用证书的CDP扩展下载CRL。 |
+| CERT_REVOCATION_OCSP_CHECK | 2 | 启用OCSP检查。使用在线证书状态协议检查证书状态。 首先使用X509CertRevokedParams的ocspResponses参数，未匹配到响应且X509CertRevokedParams的allowOcspCheckOnline参数设置为true则尝试从证书AIA扩展获取OCSP URL并发送请求获取响应。 |
+| CERT_REVOCATION_CHECK_ALL_CERT | 3 | 检查所有证书的吊销状态。 设置后对证书链中所有证书执行吊销检查（跳过自签名证书）； 不设置则仅检查终端证书（证书链第一个证书）。 |
+
+
+
+
+#### OcspDigest
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示OCSP摘要算法的枚举。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.Cert
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| SHA1 | 0 | SHA1摘要算法。 |
+| SHA224 | 1 | SHA224摘要算法。 |
+| SHA256 | 2 | SHA256摘要算法。 |
+| SHA384 | 3 | SHA384摘要算法。 |
+| SHA512 | 4 | SHA512摘要算法。 |
+
+
+
+
+#### X509CertRevokedParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示证书吊销检查参数。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.Cert
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| revocationFlags | Array&lt;CertRevocationFlag&gt; | 否 | 否 | 吊销检查标志。数量范围：[1, 4]。数组必须包含CERT_REVOCATION_CRL_CHECK或CERT_REVOCATION_OCSP_CHECK。 |
+| crls | Array&lt;X509CRL&gt; | 否 | 是 | CRL列表。最大数量：100。 |
+| allowDownloadCrl | boolean | 否 | 是 | 是否允许下载CRL，默认值为false。true：尝试使用证书的CDP扩展下载CRL；false：不尝试下载CRL。 |
+| ocspResponses | Array&lt;Uint8Array&gt; | 否 | 是 | OCSP响应数据。预置的OCSP响应数据。最大数量：100。 |
+| allowOcspCheckOnline | boolean | 否 | 是 | 是否允许在线OCSP检查，默认值为false。true：执行在线OCSP检查，即尝试从证书AIA扩展获取OCSP URL并发送请求获取响应；false：不执行在线OCSP检查。 |
+| ocspDigest | OcspDigest | 否 | 是 | OCSP请求使用的摘要算法，默认值为SHA256。 |
+
+
+
+
+#### CertValidationParams
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示证书验证参数。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.Cert
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| untrustedCerts | Array&lt;X509Cert&gt; | 否 | 是 | 非信任证书列表。仅用于构建证书链的中间证书，不作为信任锚点。最大数量：100。 |
+| trustedCerts | Array&lt;X509Cert&gt; | 否 | 是 | 信任证书列表。指定信任的根证书或中间CA证书，作为验证的信任锚点。最大数量：100。 验证时，证书链须追溯至信任证书，必须设置此参数或将trustSystemCa设为true。 |
+| trustSystemCa | boolean | 否 | 是 | 是否信任系统CA。默认值为false。true：使用系统预置的CA证书库作为信任锚；false：不使用系统预置的CA证书库作为信任锚。 适用于验证公共网站证书，无需手动配置根证书。 |
+| partialChain | boolean | 否 | 是 | 是否允许部分链验证。默认值为false。true：允许使用信任证书中的任意证书作为信任锚，而非必须追溯到根证书；false：构建证书链时必须追溯到根证书。 |
+| allowDownloadIntermediateCa | boolean | 否 | 是 | 是否允许从网络下载中间CA证书。默认值为false。true：当构建证书链缺失中间证书时，尝试使用证书AIA扩展中颁发者地址下载颁发者证书，解决证书链不完整的问题；false：不允许从网络下载中间的CA证书。 |
+| date | string | 否 | 是 | 验证日期。格式为YYMMDDHHMMSSZ或YYYYMMDDHHMMSSZ，默认使用当前系统时间。 支持自定义验证时间，适用于离线验证历史签名等场景。 |
+| validateDate | boolean | 否 | 是 | 是否验证日期。默认值为true。true：验证证书和CRL有效期；false：不验证证书和CRL有效期。 |
+| ignoreErrs | Array&lt;CertResult&gt; | 否 | 是 | 允许忽略特定的验证错误。最大数量：8。 可忽略的错误包括：ERR_CERT_NOT_YET_VALID、ERR_CERT_HAS_EXPIRED、ERR_UNKNOWN_CRITICAL_EXTENSION、ERR_CRL_NOT_FOUND、ERR_CRL_NOT_YET_VALID、ERR_CRL_HAS_EXPIRED、ERR_OCSP_RESPONSE_NOT_FOUND、ERR_NETWORK_TIMEOUT。 |
+| hostnames | Array&lt;string&gt; | 否 | 是 | 主机名列表。验证证书的主题备用名（SAN）或通用名（CN）是否包含指定的主机名。最大数量：100，每个主机名最大长度：128。 用于HTTPS等场景。 只要匹配其中一个主机名即校验成功。 |
+| emailAddresses | Array&lt;string&gt; | 否 | 是 | 邮箱地址列表。验证证书是否包含指定的邮箱地址。最大数量：1，邮箱地址最大长度：128。 |
+| keyUsage | Array&lt;KeyUsageType&gt; | 否 | 是 | 密钥用途列表。验证证书的密钥用途扩展是否包含指定的用途。最大数量：9。 证书必须包含所有指定的密钥用途才校验成功。 |
+| userId | Uint8Array | 否 | 是 | 用户ID。用于验证国密SM2证书时设置签名验证所需的用户标识符。最大长度：128。 国密证书场景最常用的值为[0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38]（对应ASCII字符串为"1234567812345678"，16字节）。 设置userId后不支持证书吊销检查。 |
+| revokedParams | X509CertRevokedParams | 否 | 是 | 证书吊销检查参数。用于检查证书是否被吊销。包含CRL列表、OCSP响应数据、是否允许在线检查等配置。 |
+
+
+
+
+#### CertValidationResult
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+表示证书验证结果。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.Cert
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| certChain | Array&lt;X509Cert&gt; | 是 | 否 | 验证后的证书链。验证成功时返回完整的证书链，从终端证书到信任锚点。可用于后续的证书信息查询或其他验证操作。 |
+
+
+
+
 #### RevocationCheckParameter12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -576,7 +720,7 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-表示返回P12文件的解析后的证书、私钥及其他证书合集。
+表示返回PKCS #12文件的解析后的证书、私钥及其他证书合集。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -584,9 +728,9 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| privateKey | string \| Uint8Array | 否 | 是 | 表示P12文件解析后的私钥。 |
-| cert | X509Cert | 否 | 是 | 表示P12文件解析后的证书。 |
-| otherCerts | Array&lt;X509Cert&gt; | 否 | 是 | 表示P12文件解析后的其他证书合集。 |
+| privateKey | string \| Uint8Array | 否 | 是 | 表示PKCS #12文件解析后的私钥。 |
+| cert | X509Cert | 否 | 是 | 表示PKCS #12文件解析后的证书。 |
+| otherCerts | Array&lt;X509Cert&gt; | 否 | 是 | 表示PKCS #12文件解析后的其他证书合集。 |
 
 
 
@@ -595,7 +739,7 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-表示解析P12文件的配置。
+表示解析PKCS #12文件的配置。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -603,8 +747,8 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| password | string | 否 | 否 | 表示P12文件的密码。 |
-| needsPrivateKey | boolean | 否 | 是 | 表示是否获取私钥。默认为true。 true为获取，返回PKCS8编码的私钥数据；false为不获取。 |
+| password | string | 否 | 否 | 表示PKCS #12文件的密码。 |
+| needsPrivateKey | boolean | 否 | 是 | 表示是否获取私钥。默认为true。 true为获取，返回PKCS #8编码的私钥数据；false为不获取。 |
 | privateKeyFormat | EncodingBaseFormat | 否 | 是 | 表示获取私钥的格式，当前支持PEM和DER格式。参数缺省时，默认为PEM格式。 注意：当needsPrivateKey值为true时，该参数生效。 |
 | needsCert | boolean | 否 | 是 | 表示是否获取证书。默认为true。true为获取，false为不获取。 |
 | needsOtherCerts | boolean | 否 | 是 | 表示是否获取其他证书合集。默认为false。true为获取，false为不获取。 |
@@ -654,7 +798,7 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-表示PKCS12 MAC摘要算法枚举。
+表示PKCS #12 MAC摘要算法枚举。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
@@ -673,7 +817,7 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-表示创建P12文件的配置。
+表示创建PKCS #12文件的配置。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
@@ -681,13 +825,13 @@ RSA私钥生成CSR时的配置参数，包含主体、扩展、摘要算法、�
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| password | string | 否 | 否 | 表示P12文件的密码。最小长度为4。 |
+| password | string | 否 | 否 | 表示PKCS #12文件的密码。最小长度为4。 |
 | keyEncParams | PbesParams | 否 | 是 | 表示私钥加密的算法参数。 |
 | encryptCert | boolean | 否 | 是 | 表示是否加密证书。默认为true。true为加密，false为不加密。 |
 | certEncParams | PbesParams | 否 | 是 | 表示证书加密的算法参数。 |
-| macSaltLen | number | 否 | 是 | 表示P12 MAC的盐值长度。最小值为8，默认为16。 |
-| macIterations | number | 否 | 是 | 表示P12 MAC的迭代次数。默认为2048。 |
-| macDigestAlgorithm | Pkcs12MacDigestAlgorithm | 否 | 是 | 表示P12 MAC的摘要算法。默认为SHA256。 |
+| macSaltLen | number | 否 | 是 | 表示PKCS #12 MAC的盐值长度。最小值为8，默认为16。 |
+| macIterations | number | 否 | 是 | 表示PKCS #12 MAC的迭代次数。默认为2048。 |
+| macDigestAlgorithm | Pkcs12MacDigestAlgorithm | 否 | 是 | 表示PKCS #12 MAC的摘要算法。默认为SHA256。 |
 
 
 
@@ -980,7 +1124,7 @@ CMS解封装的配置。
 
 createX509Cert(inStream : EncodingBlob, callback : AsyncCallback&lt;X509Cert&gt;) : void
 
-表示创建X509证书对象。使用callback异步回调。
+表示创建X.509证书对象。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -990,8 +1134,8 @@ createX509Cert(inStream : EncodingBlob, callback : AsyncCallback&lt;X509Cert&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| inStream | EncodingBlob | 是 | X509证书序列化数据。 |
-| callback | AsyncCallback&lt;X509Cert&gt; | 是 | 回调函数，表示X509证书对象。 |
+| inStream | EncodingBlob | 是 | X.509证书序列化数据。 |
+| callback | AsyncCallback&lt;X509Cert&gt; | 是 | 回调函数，表示X.509证书对象。 |
 
 
 **错误码：**
@@ -1054,7 +1198,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 createX509Cert(inStream : EncodingBlob) : Promise&lt;X509Cert&gt;
 
-表示创建X509证书对象。使用Promise异步回调。
+表示创建X.509证书对象。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1064,14 +1208,14 @@ createX509Cert(inStream : EncodingBlob) : Promise&lt;X509Cert&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| inStream | EncodingBlob | 是 | X509证书序列化数据。 |
+| inStream | EncodingBlob | 是 | X.509证书序列化数据。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;X509Cert&gt; | 表示X509证书对象。 |
+| Promise&lt;X509Cert&gt; | 表示X.509证书对象。 |
 
 
 **错误码：**
@@ -1131,7 +1275,7 @@ cert.createX509Cert(encodingBlob).then(x509Cert => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-X509证书类。
+X.509证书类。
 
 
 
@@ -1193,7 +1337,7 @@ let certData = '-----BEGIN CERTIFICATE-----\n' +
 
 let encodingBlob: cert.EncodingBlob = {
   data: stringToUint8Array(certData),
-  // 根据encodingData的格式进行赋值，支持FORMAT_PEM和FORMAT_DER。
+  // 根据encodingBlob的格式进行赋值，支持FORMAT_PEM和FORMAT_DER。
   encodingFormat: cert.EncodingFormat.FORMAT_PEM
 };
 
@@ -1320,7 +1464,7 @@ cert.createX509Cert(encodingBlob).then(x509Cert => {
 
 getEncoded(callback : AsyncCallback&lt;EncodingBlob&gt;) : void
 
-表示获取X509证书序列化数据。使用callback异步回调。
+表示获取X.509证书序列化数据。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1330,7 +1474,7 @@ getEncoded(callback : AsyncCallback&lt;EncodingBlob&gt;) : void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;EncodingBlob&gt; | 是 | 回调函数，表示X509证书序列化数据。 |
+| callback | AsyncCallback&lt;EncodingBlob&gt; | 是 | 回调函数，表示X.509证书序列化数据。 |
 
 
 **错误码：**
@@ -1400,7 +1544,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getEncoded() : Promise&lt;EncodingBlob&gt;
 
-表示获取X509证书序列化数据。使用Promise异步回调。
+表示获取X.509证书序列化数据。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1410,7 +1554,7 @@ getEncoded() : Promise&lt;EncodingBlob&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;EncodingBlob&gt; | 表示X509证书序列化数据。 |
+| Promise&lt;EncodingBlob&gt; | 表示X.509证书序列化数据。 |
 
 
 **错误码：**
@@ -1477,7 +1621,7 @@ cert.createX509Cert(encodingBlob).then(x509Cert => {
 
 getPublicKey() : cryptoFramework.PubKey
 
-表示获取X509证书公钥。
+表示获取X.509证书公钥。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1487,7 +1631,7 @@ getPublicKey() : cryptoFramework.PubKey
 
 | 类型 | 说明 |
 | --- | --- |
-| cryptoFramework.PubKey | X509证书公钥对象：仅用于X509Cert的verify接口。 |
+| cryptoFramework.PubKey | X.509证书公钥对象：仅用于X509Cert的verify接口。 |
 
 
 **错误码：**
@@ -1555,7 +1699,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 checkValidityWithDate(date: string) : void
 
-表示检查X509证书有效期。
+表示检查X.509证书有效期。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1639,7 +1783,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getVersion() : number
 
-表示获取X509证书版本。
+表示获取X.509证书版本。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1649,7 +1793,7 @@ getVersion() : number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 表示X509证书版本。 |
+| number | 表示X.509证书版本。 |
 
 
 **示例：**
@@ -1700,7 +1844,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getSerialNumber() : number
 
-表示获取X509证书序列号。
+表示获取X.509证书序列号。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 10开始废弃，建议使用 getCertSerialNumber 替代。
@@ -1712,7 +1856,7 @@ getSerialNumber() : number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 表示X509证书序列号。 |
+| number | 表示X.509证书序列号。 |
 
 
 **示例：**
@@ -1764,7 +1908,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getCertSerialNumber() : bigint
 
-表示获取X509证书序列号。
+表示获取X.509证书序列号。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -1774,7 +1918,7 @@ getCertSerialNumber() : bigint
 
 | 类型 | 说明 |
 | --- | --- |
-| bigint | 表示X509证书序列号。 |
+| bigint | 表示X.509证书序列号。 |
 
 
 **错误码：**
@@ -1841,10 +1985,10 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getIssuerName() : DataBlob
 
-表示获取X509证书颁发者名称。
+表示获取X.509证书颁发者名称。
 
 > [!NOTE]
-> 获取到的X509证书颁发者名称数据带字符串结束符。
+> 获取到的X.509证书颁发者名称数据带字符串结束符。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -1855,7 +1999,7 @@ getIssuerName() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书颁发者名称。 |
+| DataBlob | 表示X.509证书颁发者名称。 |
 
 
 **错误码：**
@@ -1924,7 +2068,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getIssuerName(encodingType: EncodingType): string
 
-根据编码类型获取X509证书颁发者名称。
+根据编码类型获取X.509证书颁发者名称。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -1941,7 +2085,7 @@ getIssuerName(encodingType: EncodingType): string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书颁发者名称，使用逗号分隔相对可分辨名称。 |
+| string | 表示X.509证书颁发者名称，使用逗号分隔相对可分辨名称。 |
 
 
 **错误码：**
@@ -2024,10 +2168,10 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getSubjectName(encodingType?: EncodingType) : DataBlob
 
-表示获取X509证书主体名称。
+表示获取X.509证书主体名称。
 
 > [!NOTE]
-> 获取到的X509证书主体名称数据带字符串结束符。
+> 获取到的X.509证书主体名称数据带字符串结束符。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -2038,14 +2182,14 @@ getSubjectName(encodingType?: EncodingType) : DataBlob
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| encodingType | EncodingType | 否 | 编码类型。设置参数表示获取UTF8格式编码；不设置默认获取ASCII格式编码。 API 12后支持设置此参数。 |
+| encodingType | EncodingType | 否 | 编码类型。设置参数表示获取UTF-8格式编码；不设置默认获取ASCII格式编码。 API 12后支持设置此参数。 |
 
 
 **返回值**：
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书主体名称，转化成字符串后使用逗号分隔相对可分辨名称。 |
+| DataBlob | 表示X.509证书主体名称，转化成字符串后使用逗号分隔相对可分辨名称。 |
 
 
 **错误码：**
@@ -2121,7 +2265,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getNotBeforeTime() : string
 
-表示获取X509证书有效期起始时间。
+表示获取X.509证书有效期起始时间。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2131,7 +2275,7 @@ getNotBeforeTime() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书有效期起始时间，日期为ASN.1时间格式。 |
+| string | 表示X.509证书有效期起始时间，日期为ASN.1时间格式。 |
 
 
 **错误码：**
@@ -2200,7 +2344,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getNotAfterTime() : string
 
-表示获取X509证书有效期截止时间。
+表示获取X.509证书有效期截止时间。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2210,7 +2354,7 @@ getNotAfterTime() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书有效期截止时间，日期为ASN.1时间格式。 |
+| string | 表示X.509证书有效期截止时间，日期为ASN.1时间格式。 |
 
 
 **错误码：**
@@ -2228,7 +2372,6 @@ getNotAfterTime() : string
 
 ```text
 import { cert } from '@kit.DeviceCertificateKit';
-
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // string转Uint8Array。
@@ -2280,7 +2423,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getSignature() : DataBlob
 
-表示获取X509证书签名数据。
+表示获取X.509证书签名数据。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2290,7 +2433,7 @@ getSignature() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书签名数据。 |
+| DataBlob | 表示X.509证书签名数据。 |
 
 
 **错误码：**
@@ -2308,7 +2451,6 @@ getSignature() : DataBlob
 
 ```text
 import { cert } from '@kit.DeviceCertificateKit';
-
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // string转Uint8Array。
@@ -2360,7 +2502,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getSignatureAlgName() : string
 
-表示获取X509证书签名算法名称。
+表示获取X.509证书签名算法名称。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2370,7 +2512,7 @@ getSignatureAlgName() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书签名算法名称。 |
+| string | 表示X.509证书签名算法名称。 |
 
 
 **错误码：**
@@ -2388,7 +2530,6 @@ getSignatureAlgName() : string
 
 ```text
 import { cert } from '@kit.DeviceCertificateKit';
-
 import { BusinessError } from '@kit.BasicServicesKit';
 
 // string转Uint8Array。
@@ -2440,7 +2581,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getSignatureAlgOid() : string
 
-表示获取X509证书签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
+表示获取X.509证书签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2450,7 +2591,7 @@ getSignatureAlgOid() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书签名算法对象标志符OID。若OID长度超过128字节，则会被截断。 |
+| string | 表示X.509证书签名算法对象标志符OID。若OID长度超过128字节，则会被截断。 |
 
 
 **错误码：**
@@ -2519,7 +2660,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getSignatureAlgParams() : DataBlob
 
-表示获取X509证书签名算法参数。
+表示获取X.509证书签名算法参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2529,7 +2670,7 @@ getSignatureAlgParams() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书签名算法参数。 |
+| DataBlob | 表示X.509证书签名算法参数。 |
 
 
 **错误码：**
@@ -2614,7 +2755,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getKeyUsage() : DataBlob
 
-表示获取X509证书密钥用途。
+表示获取X.509证书密钥用途。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2624,7 +2765,7 @@ getKeyUsage() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书密钥用途。 |
+| DataBlob | 表示X.509证书密钥用途。 |
 
 
 **错误码：**
@@ -2702,7 +2843,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getExtKeyUsage() : DataArray
 
-表示获取X509证书扩展密钥用途。
+表示获取X.509证书扩展密钥用途。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2712,7 +2853,7 @@ getExtKeyUsage() : DataArray
 
 | 类型 | 说明 |
 | --- | --- |
-| DataArray | 表示X509证书扩展密钥用途。 |
+| DataArray | 表示X.509证书扩展密钥用途。 |
 
 
 **错误码：**
@@ -2792,7 +2933,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getBasicConstraints() : number
 
-表示获取X509证书基本约束。
+表示获取X.509证书基本约束。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -2802,7 +2943,7 @@ getBasicConstraints() : number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 表示X509证书基本约束。 |
+| number | 表示X.509证书基本约束。 |
 
 
 **示例：**
@@ -2854,10 +2995,10 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getSubjectAltNames() : DataArray
 
-表示获取X509证书主体可选名称。
+表示获取X.509证书主体可选名称。
 
 > [!NOTE]
-> 获取到的X509证书主体可选名称数据带字符串结束符。
+> 获取到的X.509证书主体可选名称数据带字符串结束符。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -2868,7 +3009,7 @@ getSubjectAltNames() : DataArray
 
 | 类型 | 说明 |
 | --- | --- |
-| DataArray | 表示X509证书主体可选名称。 |
+| DataArray | 表示X.509证书主体可选名称。 |
 
 
 **错误码：**
@@ -2948,10 +3089,10 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getIssuerAltNames() : DataArray
 
-表示获取X509证书颁发者可选名称。
+表示获取X.509证书颁发者可选名称。
 
 > [!NOTE]
-> 获取到的X509证书颁发者可选名称数据带字符串结束符。
+> 获取到的X.509证书颁发者可选名称数据带字符串结束符。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -2962,7 +3103,7 @@ getIssuerAltNames() : DataArray
 
 | 类型 | 说明 |
 | --- | --- |
-| DataArray | 表示X509证书颁发者可选名称。 |
+| DataArray | 表示X.509证书颁发者可选名称。 |
 
 
 **错误码：**
@@ -3040,7 +3181,7 @@ cert.createX509Cert(encodingBlob, (error, x509Cert) => {
 
 getItem(itemType: CertItemType) : DataBlob
 
-表示获取X509证书对应的字段。
+表示获取X.509证书对应的字段。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -3057,7 +3198,7 @@ getItem(itemType: CertItemType) : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书对应的字段，返回值为DER格式。 |
+| DataBlob | 表示X.509证书对应的字段，返回值为DER格式。 |
 
 
 **错误码：**
@@ -3239,7 +3380,7 @@ async function matchX509Cert() {
 
 getCRLDistributionPoint(): DataArray
 
-获取X509证书CRL的分发点统一资源标识符。
+获取X.509证书CRL的分发点统一资源标识符。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -3249,7 +3390,7 @@ getCRLDistributionPoint(): DataArray
 
 | 类型 | 说明 |
 | --- | --- |
-| DataArray | 表示X509证书CRL的分发点统一资源标识符。 |
+| DataArray | 表示X.509证书CRL的分发点统一资源标识符。 |
 
 
 **错误码：**
@@ -3320,7 +3461,7 @@ async function certGetCRLDistributionPoint() {
 
 getIssuerX500DistinguishedName(): X500DistinguishedName
 
-获取颁发者的X509可分辨名称。
+获取颁发者的X.509可分辨名称。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -3330,7 +3471,7 @@ getIssuerX500DistinguishedName(): X500DistinguishedName
 
 | 类型 | 说明 |
 | --- | --- |
-| X500DistinguishedName | X509的可分辨对象。 |
+| X500DistinguishedName | X.509的可分辨对象。 |
 
 
 **错误码：**
@@ -3411,7 +3552,7 @@ async function certGetIssuerX500DistinguishedName() {
 
 getSubjectX500DistinguishedName(): X500DistinguishedName
 
-获取证书主题的X509可分辨名称。
+获取证书主题的X.509可分辨名称。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -3421,7 +3562,7 @@ getSubjectX500DistinguishedName(): X500DistinguishedName
 
 | 类型 | 说明 |
 | --- | --- |
-| X500DistinguishedName | X509的可分辨对象。 |
+| X500DistinguishedName | X.509的可分辨对象。 |
 
 
 **错误码：**
@@ -4390,7 +4531,7 @@ cert.createCertExtension(encodingBlob).then((extensionObj) => {
 
 createX509Crl(inStream : EncodingBlob, callback : AsyncCallback&lt;X509Crl&gt;) : void
 
-表示创建X509证书吊销列表的对象。使用callback异步回调。
+表示创建X.509证书吊销列表的对象。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 cert.createX509CRL 替代。
@@ -4464,7 +4605,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 createX509Crl(inStream : EncodingBlob) : Promise&lt;X509Crl&gt;
 
-表示创建X509证书吊销列表的对象。使用Promise异步回调。
+表示创建X.509证书吊销列表的对象。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 cert.createX509CRL 替代。
@@ -4543,7 +4684,7 @@ cert.createX509Crl(encodingBlob).then(x509Crl => {
 
 createX509CRL(inStream : EncodingBlob, callback : AsyncCallback&lt;X509CRL&gt;) : void
 
-表示创建X509证书吊销列表的对象。使用callback异步回调。
+表示创建X.509证书吊销列表的对象。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -4615,7 +4756,7 @@ cert.createX509CRL(encodingBlob, (error, X509CRL) => {
 
 createX509CRL(inStream : EncodingBlob) : Promise&lt;X509CRL&gt;
 
-表示创建X509证书吊销列表的对象。使用Promise异步回调。
+表示创建X.509证书吊销列表的对象。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -4690,7 +4831,7 @@ cert.createX509CRL(encodingBlob).then(X509CRL => {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-X509证书吊销列表对象。
+X.509证书吊销列表对象。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL 替代。
@@ -4875,7 +5016,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getEncoded(callback : AsyncCallback&lt;EncodingBlob&gt;) : void
 
-表示获取X509证书吊销列表的序列化数据。使用callback异步回调。
+表示获取X.509证书吊销列表的序列化数据。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getEncoded 替代。
@@ -4887,7 +5028,7 @@ getEncoded(callback : AsyncCallback&lt;EncodingBlob&gt;) : void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;EncodingBlob&gt; | 是 | 回调函数，表示X509证书吊销列表的序列化数据。 |
+| callback | AsyncCallback&lt;EncodingBlob&gt; | 是 | 回调函数，表示X.509证书吊销列表的序列化数据。 |
 
 
 **错误码：**
@@ -4956,7 +5097,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getEncoded() : Promise&lt;EncodingBlob&gt;
 
-表示获取X509证书吊销列表的序列化数据。使用Promise异步回调。
+表示获取X.509证书吊销列表的序列化数据。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getEncoded 替代。
@@ -4968,7 +5109,7 @@ getEncoded() : Promise&lt;EncodingBlob&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;EncodingBlob&gt; | 表示X509证书吊销列表的序列化数据。 |
+| Promise&lt;EncodingBlob&gt; | 表示X.509证书吊销列表的序列化数据。 |
 
 
 **错误码：**
@@ -5034,7 +5175,7 @@ cert.createX509Crl(encodingBlob).then(x509Crl => {
 
 verify(key : cryptoFramework.PubKey, callback : AsyncCallback&lt;void&gt;) : void
 
-表示对X509证书吊销列表进行验签。使用callback异步回调。验签支持RSA算法。
+表示对X.509证书吊销列表进行验签。使用callback异步回调。验签支持RSA算法。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.verify 替代。
@@ -5193,7 +5334,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 verify(key : cryptoFramework.PubKey) : Promise&lt;void&gt;
 
-表示对X509证书吊销列表进行验签。使用Promise异步回调。验签支持RSA算法。
+表示对X.509证书吊销列表进行验签。使用Promise异步回调。验签支持RSA算法。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.verify 替代。
@@ -5354,7 +5495,7 @@ cert.createX509Crl(encodingBlob).then(x509Crl => {
 
 getVersion() : number
 
-表示获取X509证书吊销列表的版本号。
+表示获取X.509证书吊销列表的版本号。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getVersion 替代。
@@ -5366,7 +5507,7 @@ getVersion() : number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 表示获取X509证书吊销列表的版本号。 |
+| number | 表示获取X.509证书吊销列表的版本号。 |
 
 
 **示例：**
@@ -5417,7 +5558,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getIssuerName() : DataBlob
 
-表示获取X509证书吊销列表颁发者名称。
+表示获取X.509证书吊销列表颁发者名称。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getIssuerName 替代。
@@ -5429,7 +5570,7 @@ getIssuerName() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书吊销列表颁发者名称。 |
+| DataBlob | 表示X.509证书吊销列表颁发者名称。 |
 
 
 **错误码：**
@@ -5497,7 +5638,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getLastUpdate() : string
 
-表示获取X509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。
+表示获取X.509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getLastUpdate 替代。
@@ -5509,7 +5650,7 @@ getLastUpdate() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。 |
+| string | 表示X.509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。 |
 
 
 **错误码：**
@@ -5589,7 +5730,7 @@ getNextUpdate() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书吊销列表下一次更新的日期，日期为ASN.1时间格式。 |
+| string | 表示X.509证书吊销列表下一次更新的日期，日期为ASN.1时间格式。 |
 
 
 **错误码：**
@@ -5657,7 +5798,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getRevokedCert(serialNumber : number) : X509CrlEntry
 
-表示通过指定证书序列号获取被吊销X509证书对象。
+表示通过指定证书序列号获取被吊销X.509证书对象。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getRevokedCert 替代。
@@ -5676,7 +5817,7 @@ getRevokedCert(serialNumber : number) : X509CrlEntry
 
 | 类型 | 说明 |
 | --- | --- |
-| X509CrlEntry | 表示被吊销X509证书对象。 |
+| X509CrlEntry | 表示被吊销X.509证书对象。 |
 
 
 **错误码：**
@@ -5745,7 +5886,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getRevokedCertWithCert(cert : X509Cert) : X509CrlEntry
 
-表示通过指定证书对象获取被吊销X509证书对象。
+表示通过指定证书对象获取被吊销X.509证书对象。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getRevokedCertWithCert 替代。
@@ -5764,7 +5905,7 @@ getRevokedCertWithCert(cert : X509Cert) : X509CrlEntry
 
 | 类型 | 说明 |
 | --- | --- |
-| X509CrlEntry | 表示被吊销X509证书对象。 |
+| X509CrlEntry | 表示被吊销X.509证书对象。 |
 
 
 **错误码：**
@@ -5845,7 +5986,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
     console.error(`createX509Crl failed, errCode: ${error.code}, errMsg: ${error.message}`);
   } else {
     console.info('createX509Crl result: success.');
-    // 创建X509证书对象。
+    // 创建X.509证书对象。
     cert.createX509Cert(certEncodingBlob).then((x509Cert) => {
       try {
         let entry = x509Crl.getRevokedCertWithCert(x509Cert);
@@ -5869,7 +6010,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getRevokedCerts(callback : AsyncCallback<Array&lt;X509CrlEntry&gt;>) : void
 
-表示获取被吊销X509证书列表。使用callback异步回调。
+表示获取被吊销X.509证书列表。使用callback异步回调。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getRevokedCerts 替代。
@@ -5881,7 +6022,7 @@ getRevokedCerts(callback : AsyncCallback<Array&lt;X509CrlEntry&gt;>) : void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<Array&lt;X509CrlEntry&gt;> | 是 | 回调函数，表示被吊销X509证书列表。 |
+| callback | AsyncCallback<Array&lt;X509CrlEntry&gt;> | 是 | 回调函数，表示被吊销X.509证书列表。 |
 
 
 **错误码：**
@@ -5949,7 +6090,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getRevokedCerts() : Promise<Array&lt;X509CrlEntry&gt;>
 
-表示获取被吊销X509证书列表。使用Promise异步回调。
+表示获取被吊销X.509证书列表。使用Promise异步回调。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getRevokedCerts 替代。
@@ -5961,7 +6102,7 @@ getRevokedCerts() : Promise<Array&lt;X509CrlEntry&gt;>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;X509CrlEntry&gt;> | 表示被吊销X509证书列表。 |
+| Promise<Array&lt;X509CrlEntry&gt;> | 表示被吊销X.509证书列表。 |
 
 
 **错误码：**
@@ -6106,7 +6247,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getSignature() : DataBlob
 
-表示获取X509证书吊销列表的签名数据。
+表示获取X.509证书吊销列表的签名数据。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getSignature 替代。
@@ -6118,7 +6259,7 @@ getSignature() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书吊销列表的签名数据。 |
+| DataBlob | 表示X.509证书吊销列表的签名数据。 |
 
 
 **错误码：**
@@ -6186,7 +6327,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getSignatureAlgName() : string
 
-表示获取X509证书吊销列表签名的算法名称。
+表示获取X.509证书吊销列表签名的算法名称。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getSignatureAlgName 替代。
@@ -6198,7 +6339,7 @@ getSignatureAlgName() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书吊销列表签名的算法名。 |
+| string | 表示X.509证书吊销列表签名的算法名。 |
 
 
 **错误码：**
@@ -6266,7 +6407,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getSignatureAlgOid() : string
 
-表示获取X509证书吊销列表签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
+表示获取X.509证书吊销列表签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getSignatureAlgOid 替代。
@@ -6278,7 +6419,7 @@ getSignatureAlgOid() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书吊销列表签名算法的对象标志符OID。 |
+| string | 表示X.509证书吊销列表签名算法的对象标志符OID。 |
 
 
 **错误码：**
@@ -6346,7 +6487,7 @@ cert.createX509Crl(encodingBlob, (error, x509Crl) => {
 
 getSignatureAlgParams() : DataBlob
 
-表示获取X509证书吊销列表签名的算法参数。
+表示获取X.509证书吊销列表签名的算法参数。
 
 > [!NOTE]
 > 从API version 9开始支持，从API version 11开始废弃，建议使用 X509CRL.getSignatureAlgParams 替代。
@@ -6358,7 +6499,7 @@ getSignatureAlgParams() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书吊销列表签名的算法参数。 |
+| DataBlob | 表示X.509证书吊销列表签名的算法参数。 |
 
 
 **错误码：**
@@ -6602,7 +6743,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getEncoded(callback : AsyncCallback&lt;EncodingBlob&gt;) : void
 
-表示获取X509证书吊销列表的序列化数据。使用callback异步回调。
+表示获取X.509证书吊销列表的序列化数据。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -6612,7 +6753,7 @@ getEncoded(callback : AsyncCallback&lt;EncodingBlob&gt;) : void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;EncodingBlob&gt; | 是 | 回调函数，表示X509证书吊销列表的序列化数据。 |
+| callback | AsyncCallback&lt;EncodingBlob&gt; | 是 | 回调函数，表示X.509证书吊销列表的序列化数据。 |
 
 
 **错误码：**
@@ -6681,7 +6822,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getEncoded() : Promise&lt;EncodingBlob&gt;
 
-表示获取X509证书吊销列表的序列化数据。使用Promise异步回调。
+表示获取X.509证书吊销列表的序列化数据。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -6691,7 +6832,7 @@ getEncoded() : Promise&lt;EncodingBlob&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;EncodingBlob&gt; | 表示X509证书吊销列表的序列化数据。 |
+| Promise&lt;EncodingBlob&gt; | 表示X.509证书吊销列表的序列化数据。 |
 
 
 **错误码：**
@@ -6757,7 +6898,7 @@ cert.createX509CRL(encodingBlob).then(x509CRL => {
 
 verify(key : cryptoFramework.PubKey, callback : AsyncCallback&lt;void&gt;) : void
 
-表示对X509证书吊销列表进行验签。使用callback异步回调。验签支持RSA算法。
+表示对X.509证书吊销列表进行验签。使用callback异步回调。验签支持RSA算法。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -6914,7 +7055,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 verify(key : cryptoFramework.PubKey) : Promise&lt;void&gt;
 
-表示对X509证书吊销列表进行验签。使用Promise异步回调。验签支持RSA算法。
+表示对X.509证书吊销列表进行验签。使用Promise异步回调。验签支持RSA算法。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7073,7 +7214,7 @@ cert.createX509CRL(encodingBlob).then(x509CRL => {
 
 getVersion() : number
 
-表示获取X509证书吊销列表的版本号。
+表示获取X.509证书吊销列表的版本号。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7083,7 +7224,7 @@ getVersion() : number
 
 | 类型 | 说明 |
 | --- | --- |
-| number | 表示获取X509证书吊销列表的版本号。 |
+| number | 表示获取X.509证书吊销列表的版本号。 |
 
 
 **示例：**
@@ -7134,10 +7275,10 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getIssuerName() : DataBlob
 
-表示获取X509证书吊销列表颁发者名称。
+表示获取X.509证书吊销列表颁发者名称。
 
 > [!NOTE]
-> 获取到的X509证书吊销列表颁发者名称数据带字符串结束符。
+> 获取到的X.509证书吊销列表颁发者名称数据带字符串结束符。
 
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
@@ -7148,7 +7289,7 @@ getIssuerName() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书吊销列表颁发者名称。 |
+| DataBlob | 表示X.509证书吊销列表颁发者名称。 |
 
 
 **错误码：**
@@ -7216,7 +7357,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getIssuerName(encodingType: EncodingType): string
 
-根据编码类型获取X509证书吊销列表颁发者名称。
+根据编码类型获取X.509证书吊销列表颁发者名称。
 
 **元服务API：** 从API version 20开始，该接口支持在元服务中使用。
 
@@ -7233,7 +7374,7 @@ getIssuerName(encodingType: EncodingType): string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书吊销列表颁发者名称，使用逗号分隔相对可分辨名称。 |
+| string | 表示X.509证书吊销列表颁发者名称，使用逗号分隔相对可分辨名称。 |
 
 
 **错误码：**
@@ -7306,7 +7447,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getLastUpdate() : string
 
-表示获取X509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。
+表示获取X.509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7316,7 +7457,7 @@ getLastUpdate() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。 |
+| string | 表示X.509证书吊销列表最后一次更新日期，日期为ASN.1时间格式。 |
 
 
 **错误码：**
@@ -7394,7 +7535,7 @@ getNextUpdate() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书吊销列表下一次更新的日期，日期为ASN.1时间格式。 |
+| string | 表示X.509证书吊销列表下一次更新的日期，日期为ASN.1时间格式。 |
 
 
 **错误码：**
@@ -7462,7 +7603,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getRevokedCert(serialNumber : bigint) : X509CRLEntry
 
-表示通过指定证书序列号获取被吊销X509证书对象。
+表示通过指定证书序列号获取被吊销X.509证书对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7479,7 +7620,7 @@ getRevokedCert(serialNumber : bigint) : X509CRLEntry
 
 | 类型 | 说明 |
 | --- | --- |
-| X509CRLEntry | 表示被吊销X509证书对象。 |
+| X509CRLEntry | 表示被吊销X.509证书对象。 |
 
 
 **错误码：**
@@ -7548,7 +7689,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getRevokedCertWithCert(cert : X509Cert) : X509CRLEntry
 
-表示通过指定证书对象获取被吊销X509证书对象。
+表示通过指定证书对象获取被吊销X.509证书对象。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7565,7 +7706,7 @@ getRevokedCertWithCert(cert : X509Cert) : X509CRLEntry
 
 | 类型 | 说明 |
 | --- | --- |
-| X509CRLEntry | 表示被吊销X509证书对象。 |
+| X509CRLEntry | 表示被吊销X.509证书对象。 |
 
 
 **错误码：**
@@ -7646,7 +7787,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
     console.error(`createX509CRL failed, errCode: ${error.code}, errMsg: ${error.message}`);
   } else {
     console.info('createX509CRL result: success.');
-    // 创建X509证书对象。
+    // 创建X.509证书对象。
     cert.createX509Cert(certEncodingBlob).then((x509Cert) => {
       try {
         let entry = x509CRL.getRevokedCertWithCert(x509Cert);
@@ -7670,7 +7811,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getRevokedCerts(callback : AsyncCallback<Array&lt;X509CRLEntry&gt;>) : void
 
-表示获取被吊销X509证书列表。使用callback异步回调。
+表示获取被吊销X.509证书列表。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7680,7 +7821,7 @@ getRevokedCerts(callback : AsyncCallback<Array&lt;X509CRLEntry&gt;>) : void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback<Array&lt;X509CRLEntry&gt;> | 是 | 回调函数，表示被吊销X509证书列表。 |
+| callback | AsyncCallback<Array&lt;X509CRLEntry&gt;> | 是 | 回调函数，表示被吊销X.509证书列表。 |
 
 
 **错误码：**
@@ -7748,7 +7889,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getRevokedCerts() : Promise<Array&lt;X509CRLEntry&gt;>
 
-表示获取被吊销X509证书列表。使用Promise异步回调。
+表示获取被吊销X.509证书列表。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7758,7 +7899,7 @@ getRevokedCerts() : Promise<Array&lt;X509CRLEntry&gt;>
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise<Array&lt;X509CRLEntry&gt;> | 表示被吊销X509证书列表。 |
+| Promise<Array&lt;X509CRLEntry&gt;> | 表示被吊销X.509证书列表。 |
 
 
 **错误码：**
@@ -7823,7 +7964,7 @@ cert.createX509CRL(encodingBlob).then(x509CRL => {
 
 getSignature() : DataBlob
 
-表示获取X509证书吊销列表的签名数据。
+表示获取X.509证书吊销列表的签名数据。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7833,7 +7974,7 @@ getSignature() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书吊销列表的签名数据。 |
+| DataBlob | 表示X.509证书吊销列表的签名数据。 |
 
 
 **错误码：**
@@ -7901,7 +8042,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getSignatureAlgName() : string
 
-表示获取X509证书吊销列表签名的算法名称。
+表示获取X.509证书吊销列表签名的算法名称。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7911,7 +8052,7 @@ getSignatureAlgName() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书吊销列表签名的算法名。 |
+| string | 表示X.509证书吊销列表签名的算法名。 |
 
 
 **错误码：**
@@ -7979,7 +8120,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getSignatureAlgOid() : string
 
-表示获取X509证书吊销列表签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
+表示获取X.509证书吊销列表签名算法的对象标志符OID(Object Identifier)。OID是由国际标准组织(ISO)的名称注册机构分配。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -7989,7 +8130,7 @@ getSignatureAlgOid() : string
 
 | 类型 | 说明 |
 | --- | --- |
-| string | 表示X509证书吊销列表签名算法的对象标志符OID。 |
+| string | 表示X.509证书吊销列表签名算法的对象标志符OID。 |
 
 
 **错误码：**
@@ -8057,7 +8198,7 @@ cert.createX509CRL(encodingBlob, (error, x509CRL) => {
 
 getSignatureAlgParams() : DataBlob
 
-表示获取X509证书吊销列表签名的算法参数。
+表示获取X.509证书吊销列表签名的算法参数。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -8067,7 +8208,7 @@ getSignatureAlgParams() : DataBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| DataBlob | 表示X509证书吊销列表签名的算法参数。 |
+| DataBlob | 表示X.509证书吊销列表签名的算法参数。 |
 
 
 **错误码：**
@@ -8880,7 +9021,7 @@ try {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| algorithm | string | 是 | 否 | X509证书链校验器算法名称。 |
+| algorithm | string | 是 | 否 | X.509证书链校验器算法名称。 |
 
 
 
@@ -8891,9 +9032,9 @@ try {
 
 validate(certChain : CertChainData, callback : AsyncCallback&lt;void&gt;) : void
 
-表示校验X509证书链。使用callback异步回调。
+表示校验X.509证书链。使用callback异步回调。
 
-由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X509证书的[checkValidityWithDate](#checkvaliditywithdate)方法进行检查。详见[证书规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/certificate-framework-overview#证书规格)。
+由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X.509证书的[checkValidityWithDate](#checkvaliditywithdate)方法进行检查。详见[证书规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/certificate-framework-overview#证书规格)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -8903,7 +9044,7 @@ validate(certChain : CertChainData, callback : AsyncCallback&lt;void&gt;) : void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| certChain | CertChainData | 是 | 表示X509证书链序列化数据。 |
+| certChain | CertChainData | 是 | 表示X.509证书链序列化数据。 |
 | callback | AsyncCallback&lt;void&gt; | 是 | 回调函数，使用AsyncCallback的第一个error参数判断是否校验成功，error为null表示成功，error不为null表示失败。 |
 
 
@@ -9026,9 +9167,9 @@ try {
 
 validate(certChain : CertChainData) : Promise&lt;void&gt;
 
-表示校验X509证书链。使用Promise异步回调。
+表示校验X.509证书链。使用Promise异步回调。
 
-由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X509证书的[checkValidityWithDate](#checkvaliditywithdate)方法进行检查。详见[证书规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/certificate-framework-overview#证书规格)。
+由于端侧系统时间不可信，证书链校验不包含对证书有效时间的校验。如果需要检查证书的时间有效性，可使用X.509证书的[checkValidityWithDate](#checkvaliditywithdate)方法进行检查。详见[证书规格](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/certificate-framework-overview#证书规格)。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -9038,7 +9179,7 @@ validate(certChain : CertChainData) : Promise&lt;void&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| certChain | CertChainData | 是 | 表示X509证书链序列化数据。 |
+| certChain | CertChainData | 是 | 表示X.509证书链序列化数据。 |
 
 
 **返回值**：
@@ -9155,6 +9296,196 @@ try {
   let e: BusinessError = error as BusinessError;
   console.error(`validate failed, errCode: ${e.code}, errMsg: ${e.message}`);
 }
+```
+
+
+
+#### validateCert
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+validateCert(cert: X509Cert, params: CertValidationParams): Promise&lt;CertValidationResult&gt;
+
+通过构建并验证证书链来验证证书。使用Promise异步回调。
+
+证书链构建过程遵循以下规则：
+1. 可信锚点源：始终使用可信任证书列表（trustedCerts）作为信任锚点源。仅当trustSystemCa设置为true时，预配置的证书才会被用作信任锚源。
+2. 颁发者搜索顺序：系统首先从信任锚源中搜索颁发者。如果无法找到颁发者，系统将在不受信任的证书列表（untrustedCerts）中搜索。在线下载的中间CA证书即为不受信任的证书。
+3. 信任锚锁定：一旦在信任锚源中找到发行者，后续的查找过程就不会回溯到不受信任的证书，即后续的证书必须来自信任锚源。
+4. 构建完成条件：如果partialChain为false（默认值），则仅当找到根证书（来自签名证书）时，构建才算完成。如果partialChain为true，则当在信任锚源中首次找到发行者时，构建即完成。
+5. 后续验证：证书链构建完成后，执行其他验证操作，如证书签名验证和证书吊销检查。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.Cert
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| cert | X509Cert | 是 | 待验证的证书。 |
+| params | CertValidationParams | 是 | 证书验证参数。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;CertValidationResult&gt; | Promise对象，返回验证结果。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[证书错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cert)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 19020001 | memory malloc failed. |
+| 19020002 | runtime error. Possible causes: 1. Memory copy failed; 2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C. |
+| 19020003 | the parameter check failed. |
+| 19030001 | crypto operation error. |
+| 19030002 | the certificate signature verification failed. |
+| 19030003 | the certificate has not taken effect. |
+| 19030004 | the certificate has expired. |
+| 19030005 | failed to obtain the certificate issuer. |
+| 19030006 | the key cannot be used for signing a certificate. |
+| 19030007 | the key cannot be used for a digital signature. |
+| 19030009 | untrusted certificate. |
+| 19030010 | the certificate has been revoked. |
+| 19030011 | unsupported critical extension. |
+| 19030012 | hostname mismatch in the certificate. |
+| 19030013 | email address mismatch in the certificate. |
+| 19030014 | key usage mismatch in the certificate. |
+| 19030015 | failed to obtain the certificate revocation list. |
+| 19030016 | the certificate revocation list does not take effect. |
+| 19030017 | the certificate revocation list has expired. |
+| 19030018 | failed to verify the signature of the certificate revocation list. |
+| 19030019 | failed to find the issuer of the certificate revocation list. |
+| 19030020 | failed to obtain the OCSP response. |
+| 19030021 | invalid OCSP response. |
+| 19030022 | failed to verify the OCSP signature. |
+| 19030023 | unknown OCSP certificate status. |
+| 19030024 | network connection timed out. |
+
+
+**示例：**
+
+```text
+import { cert } from '@kit.DeviceCertificateKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+// EC P-256证书链数据
+const endEntityCertPem = '-----BEGIN CERTIFICATE-----\n' +
+    'MIICwzCCAmmgAwIBAgIUIThWddD/8p7w5QyXOoRY05O61FMwCgYIKoZIzj0EAwIw\n' +
+    'gYsxCzAJBgNVBAYTAkNOMRAwDgYDVQQIDAdCZWlqaW5nMRAwDgYDVQQHDAdCZWlq\n' +
+    'aW5nMRowGAYDVQQKDBFUZXN0IE9yZ2FuaXphdGlvbjEdMBsGA1UECwwUVGVzdCBJ\n' +
+    'bnRlcm1lZGlhdGUgQ0ExHTAbBgNVBAMMFFRlc3QgSW50ZXJtZWRpYXRlIENBMB4X\n' +
+    'DTI2MDMzMTA4MjY1OFoXDTI3MDMzMTA4MjY1OFowgYIxCzAJBgNVBAYTAkNOMRAw\n' +
+    'DgYDVQQIDAdCZWlqaW5nMRAwDgYDVQQHDAdCZWlqaW5nMRowGAYDVQQKDBFUZXN0\n' +
+    'IE9yZ2FuaXphdGlvbjEYMBYGA1UECwwPVGVzdCBEZXBhcnRtZW50MRkwFwYDVQQD\n' +
+    'DBB0ZXN0LmV4YW1wbGUuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEspH8\n' +
+    'JVcqNrg7oP4PYHADsW8tc1kIF86JG5SSjh1fz4ja3dF98PMMrsbQtcBZiwp8rD5e\n' +
+    'Gp2Nv/C2ymnjJfrig6OBsTCBrjAJBgNVHRMEAjAAMA4GA1UdDwEB/wQEAwIFoDAd\n' +
+    'BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHQYDVR0OBBYEFH6aJ7ZQayEZ\n' +
+    'LeenLt7zowBoafRpMB8GA1UdIwQYMBaAFI2lMRV2YgzF/DBP92jUzOLdzSDdMDIG\n' +
+    'A1UdEQQrMCmCEHRlc3QuZXhhbXBsZS5jb22CD3d3dy5leGFtcGxlLmNvbYcEfwAA\n' +
+    'ATAKBggqhkjOPQQDAgNIADBFAiEAidnsForpQc9qTBpa68YEYS0TQRUySHaUB/pr\n' +
+    'PNfAYqECIGGKM44mqQgSvZyYQHnlnu3jkbHpFJTaQBAvz9B1jFuc\n' +
+    '-----END CERTIFICATE-----\n';
+
+const intermediateCaPem = '-----BEGIN CERTIFICATE-----\n' +
+    'MIICbzCCAhWgAwIBAgIUI8/xor2S98OupuBX6hWevxhvK+wwCgYIKoZIzj0EAwIw\n' +
+    'ezELMAkGA1UEBhMCQ04xEDAOBgNVBAgMB0JlaWppbmcxEDAOBgNVBAcMB0JlaWpp\n' +
+    'bmcxGjAYBgNVBAoMEVRlc3QgT3JnYW5pemF0aW9uMRUwEwYDVQQLDAxUZXN0IFJv\n' +
+    'b3QgQ0ExFTATBgNVBAMMDFRlc3QgUm9vdCBDQTAeFw0yNjAzMzEwODI2NThaFw0z\n' +
+    'MTAzMzAwODI2NThaMIGLMQswCQYDVQQGEwJDTjEQMA4GA1UECAwHQmVpamluZzEQ\n' +
+    'MA4GA1UEBwwHQmVpamluZzEaMBgGA1UECgwRVGVzdCBPcmdhbml6YXRpb24xHTAb\n' +
+    'BgNVBAsMFFRlc3QgSW50ZXJtZWRpYXRlIENBMR0wGwYDVQQDDBRUZXN0IEludGVy\n' +
+    'bWVkaWF0ZSBDQTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABER6WRsCn7Bh3v8c\n' +
+    'k6PIkLeM+ot5l0A46XJdfvuJco58ifzBHjtu4kFOkZTA9F0Hb6JefG590CK5ddiD\n' +
+    'g5lOHwKjZjBkMBIGA1UdEwEB/wQIMAYBAf8CAQAwDgYDVR0PAQH/BAQDAgEGMB0G\n' +
+    'A1UdDgQWBBSNpTEVdmIMxfwwT/do1Mzi3c0g3TAfBgNVHSMEGDAWgBS/nd4dYdW3\n' +
+    'zFxQ1pl2U8I/bfUA3zAKBggqhkjOPQQDAgNIADBFAiEA87NkGCv47e5RWc8DsFd/\n' +
+    'zL6/2Xn2EoveC+HoUYpxhZMCIAG+ZuTLmUsjalUGbWyR101hxHfvr4ImbEMeYSaA\n' +
+    'sVBn\n' +
+    '-----END CERTIFICATE-----\n';
+
+const rootCaPem = '-----BEGIN CERTIFICATE-----\n' +
+    'MIICWzCCAgGgAwIBAgIUd/I1bFJJw/xQtPEJP6C1E4Fj9jswCgYIKoZIzj0EAwIw\n' +
+    'ezELMAkGA1UEBhMCQ04xEDAOBgNVBAgMB0JlaWppbmcxEDAOBgNVBAcMB0JlaWpp\n' +
+    'bmcxGjAYBgNVBAoMEVRlc3QgT3JnYW5pemF0aW9uMRUwEwYDVQQLDAxUZXN0IFJv\n' +
+    'b3QgQ0ExFTATBgNVBAMMDFRlc3QgUm9vdCBDQTAeFw0yNjAzMzEwODI2NTdaFw0z\n' +
+    'NjAzMjgwODI2NTdaMHsxCzAJBgNVBAYTAkNOMRAwDgYDVQQIDAdCZWlqaW5nMRAw\n' +
+    'DgYDVQQHDAdCZWlqaW5nMRowGAYDVQQKDBFUZXN0IE9yZ2FuaXphdGlvbjEVMBMG\n' +
+    'A1UECwwMVGVzdCBSb290IENBMRUwEwYDVQQDDAxUZXN0IFJvb3QgQ0EwWTATBgcq\n' +
+    'hkjOPQIBBggqhkjOPQMBBwNCAASFeWawqQET+c6EowNooKYiTw1KPzJBgssxQXo7\n' +
+    'UEXSQnLHh8sBwVvNN4oFVFImT31DyJVKwxBXpwbrEN1s8J1Io2MwYTAPBgNVHRMB\n' +
+    'Af8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjAdBgNVHQ4EFgQUv53eHWHVt8xcUNaZ\n' +
+    'dlPCP231AN8wHwYDVR0jBBgwFoAUv53eHWHVt8xcUNaZdlPCP231AN8wCgYIKoZI\n' +
+    'zj0EAwIDSAAwRQIhAIbyIrOZL1GhkRiI2i4IhKmFa4AoXJftTEA5wev99QpkAiA3\n' +
+    'khFrJ4rRSpHqbfGN1U14HkFKiCXBalaIe+NISxgC3Q==\n' +
+    '-----END CERTIFICATE-----\n';
+
+// string转Uint8Array
+function stringToUint8Array(str: string): Uint8Array {
+  let arr: Array<number> = [];
+  for (let i = 0, j = str.length; i < j; i++) {
+    arr.push(str.charCodeAt(i));
+  }
+  return new Uint8Array(arr);
+}
+
+async function validateCert(): Promise<void> {
+  try {
+    // 创建终端实体证书对象
+    let certEncodingBlob: cert.EncodingBlob = {
+      data: stringToUint8Array(endEntityCertPem),
+      encodingFormat: cert.EncodingFormat.FORMAT_PEM
+    };
+    let x509Cert = await cert.createX509Cert(certEncodingBlob);
+
+    // 创建信任锚证书（根CA）
+    let rootCaEncodingBlob: cert.EncodingBlob = {
+      data: stringToUint8Array(rootCaPem),
+      encodingFormat: cert.EncodingFormat.FORMAT_PEM
+    };
+    let rootCaCert = await cert.createX509Cert(rootCaEncodingBlob);
+
+    // 创建中间证书
+    let intermediateCaEncodingBlob: cert.EncodingBlob = {
+      data: stringToUint8Array(intermediateCaPem),
+      encodingFormat: cert.EncodingFormat.FORMAT_PEM
+    };
+    let intermediateCaCert = await cert.createX509Cert(intermediateCaEncodingBlob);
+
+    // 设置验证参数
+    let params: cert.CertValidationParams = {
+      trustedCerts: [rootCaCert],
+      untrustedCerts: [intermediateCaCert],
+      validateDate: false
+    };
+
+    // 创建验证器并验证证书
+    let validator = cert.createCertChainValidator('PKIX');
+    let result = await validator.validateCert(x509Cert, params);
+
+    console.info('Certificate validation succeeded!');
+    console.info(`Verified chain length: ${result.certChain.length}`);
+    for (let i = 0; i < result.certChain.length; i++) {
+      let subject = result.certChain[i].getSubjectX500DistinguishedName().getName(cert.EncodingType.ENCODING_UTF8);
+      console.info(`Cert ${i}: ${subject}`);
+    }
+  } catch (error) {
+    let e: BusinessError = error as BusinessError;
+    console.error(`validate failed, errCode: ${e.code}, errMsg: ${e.message}`);
+  }
+}
+
+validateCert();
 ```
 
 
@@ -11230,7 +11561,7 @@ async function selectCRLs() {
 
 createX509CertChain(inStream: EncodingBlob): Promise&lt;X509CertChain&gt;
 
-表示创建X509证书链对象。使用Promise异步回调。
+表示创建X.509证书链对象。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -11240,14 +11571,14 @@ createX509CertChain(inStream: EncodingBlob): Promise&lt;X509CertChain&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| inStream | EncodingBlob | 是 | X509证书序列化数据。 |
+| inStream | EncodingBlob | 是 | X.509证书序列化数据。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;X509CertChain&gt; | 表示X509证书链对象。 |
+| Promise&lt;X509CertChain&gt; | 表示X.509证书链对象。 |
 
 
 **错误码：**
@@ -11359,7 +11690,7 @@ createX509CertChain();
 
 createX509CertChain(inStream: EncodingBlob, callback: AsyncCallback&lt;X509CertChain&gt;): void
 
-表示创建X509证书链对象。使用callback异步回调。
+表示创建X.509证书链对象。使用callback异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -11369,8 +11700,8 @@ createX509CertChain(inStream: EncodingBlob, callback: AsyncCallback&lt;X509CertC
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| inStream | EncodingBlob | 是 | X509证书序列化数据。 |
-| callback | AsyncCallback&lt;X509CertChain&gt; | 是 | 回调函数，表示X509证书链对象。 |
+| inStream | EncodingBlob | 是 | X.509证书序列化数据。 |
+| callback | AsyncCallback&lt;X509CertChain&gt; | 是 | 回调函数，表示X.509证书链对象。 |
 
 
 **错误码：**
@@ -11477,7 +11808,7 @@ cert.createX509CertChain(encodingBlob, (err, certChain) => {
 
 createX509CertChain(certs: Array&lt;X509Cert&gt;): X509CertChain
 
-表示使用X509Cert数组方式创建X509证书链对象，并同步返回结果。
+表示使用X509Cert数组方式创建X.509证书链对象，并同步返回结果。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -11487,14 +11818,14 @@ createX509CertChain(certs: Array&lt;X509Cert&gt;): X509CertChain
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| certs | Array&lt;X509Cert&gt; | 是 | X509证书对象数组。 |
+| certs | Array&lt;X509Cert&gt; | 是 | X.509证书对象数组。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| X509CertChain | 表示X509证书链对象。 |
+| X509CertChain | 表示X.509证书链对象。 |
 
 
 **错误码：**
@@ -11574,7 +11905,7 @@ createX509CertChain();
 
 buildX509CertChain(param: [CertChainBuildParameters](#certchainbuildparameters12)): Promise&lt;CertChainBuildResult&gt;
 
-表示使用CertChainBuildParameters对象方式创建X509证书链对象。使用Promise异步回调。
+表示使用CertChainBuildParameters对象方式创建X.509证书链对象。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -11591,7 +11922,7 @@ buildX509CertChain(param: [CertChainBuildParameters](#certchainbuildparameters12
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;CertChainBuildResult&gt; | 表示X509证书链对象。 |
+| Promise&lt;CertChainBuildResult&gt; | 表示X.509证书链对象。 |
 
 
 **错误码：**
@@ -11721,7 +12052,7 @@ buildX509CertChain();
 
 parsePkcs12(data: Uint8Array, config: Pkcs12ParsingConfig): Pkcs12Data
 
-表示从P12文件中解析证书、私钥及其他证书合集，并返回结果。
+表示从PKCS #12文件中解析证书、私钥及其他证书合集，并返回结果。
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
 
@@ -11731,15 +12062,15 @@ parsePkcs12(data: Uint8Array, config: Pkcs12ParsingConfig): Pkcs12Data
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | Uint8Array | 是 | P12文件，DER格式。 |
-| config | Pkcs12ParsingConfig | 是 | P12文件的解析配置。 |
+| data | Uint8Array | 是 | PKCS #12文件，DER格式。 |
+| config | Pkcs12ParsingConfig | 是 | PKCS #12文件的解析配置。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Pkcs12Data | 表示P12文件解析后的证书、私钥及其他证书合集。 |
+| Pkcs12Data | 表示PKCS #12文件解析后的证书、私钥及其他证书合集。 |
 
 
 **错误码：**
@@ -11940,7 +12271,7 @@ function doTestParsePkcs12() {
 
 parsePkcs12(data: Uint8Array, password: string): Promise&lt;Pkcs12Data&gt;
 
-表示从Pkcs12文件中解析证书、私钥及其他证书合集。使用Promise异步回调。
+表示从PKCS #12文件中解析证书、私钥及其他证书合集。使用Promise异步回调。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
@@ -11950,15 +12281,15 @@ parsePkcs12(data: Uint8Array, password: string): Promise&lt;Pkcs12Data&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | Uint8Array | 是 | Pkcs12文件，DER格式。 |
-| password | string | 是 | Pkcs12的密码。 |
+| data | Uint8Array | 是 | PKCS #12文件，DER格式。 |
+| password | string | 是 | PKCS #12的密码。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Pkcs12Data&gt; | Promise对象，返回Pkcs12文件解析后的证书、私钥及其他证书合集。返回的Pkcs12Data中的私钥采用PEM格式编码。 |
+| Promise&lt;Pkcs12Data&gt; | Promise对象，返回PKCS #12文件解析后的证书、私钥及其他证书合集。返回的Pkcs12Data中的私钥采用PEM格式编码。 |
 
 
 **错误码：**
@@ -11969,7 +12300,7 @@ parsePkcs12(data: Uint8Array, password: string): Promise&lt;Pkcs12Data&gt;
 | --- | --- |
 | 19020001 | memory malloc failed. |
 | 19020002 | runtime error. Possible causes: 1. Memory copy failed; 2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C. |
-| 19020003 | parameter check failed. Possible causes: 1. The length of the data is zero or too large; 2. The length of the password is zero or too large. |
+| 19020003 | parameter check failed. Possible causes: 1. The length of the data is zero or too large; 2. The length of the password is too large. |
 | 19030001 | crypto operation error. |
 | 19030008 | maybe wrong password. |
 
@@ -12163,7 +12494,7 @@ async function doTestParsePkcs12() {
 
 createPkcs12(data: Pkcs12Data, config: Pkcs12CreationConfig): Promise&lt;Uint8Array&gt;
 
-表示创建Pkcs12数据。使用Promise异步回调。
+表示创建PKCS #12数据。使用Promise异步回调。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
@@ -12173,15 +12504,15 @@ createPkcs12(data: Pkcs12Data, config: Pkcs12CreationConfig): Promise&lt;Uint8Ar
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | Pkcs12Data | 是 | 要打包的Pkcs12数据对象。 |
-| config | Pkcs12CreationConfig | 是 | Pkcs12文件的创建配置。 |
+| data | Pkcs12Data | 是 | 要打包的PKCS #12数据对象。 |
+| config | Pkcs12CreationConfig | 是 | PKCS #12文件的创建配置。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;Uint8Array&gt; | Promise对象。表示创建的Pkcs12文件，DER格式。 |
+| Promise&lt;Uint8Array&gt; | Promise对象。表示创建的PKCS #12文件，DER格式。 |
 
 
 **错误码：**
@@ -12348,7 +12679,7 @@ async function doTestCreatePkcs12() {
 
 createPkcs12Sync(data: Pkcs12Data, config: Pkcs12CreationConfig): Uint8Array
 
-表示创建Pkcs12数据，同步返回结果。
+表示创建PKCS #12数据，同步返回结果。
 
 **元服务API：** 从API version 21开始，该接口支持在元服务中使用。
 
@@ -12358,15 +12689,15 @@ createPkcs12Sync(data: Pkcs12Data, config: Pkcs12CreationConfig): Uint8Array
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| data | Pkcs12Data | 是 | 要打包的P12数据对象。 |
-| config | Pkcs12CreationConfig | 是 | P12文件的创建配置。 |
+| data | Pkcs12Data | 是 | 要打包的PKCS #12数据对象。 |
+| config | Pkcs12CreationConfig | 是 | PKCS #12文件的创建配置。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Uint8Array | 表示创建的P12文件，DER格式。 |
+| Uint8Array | 表示创建的PKCS #12文件，DER格式。 |
 
 
 **错误码：**
@@ -12533,7 +12864,7 @@ async function doTestCreatePkcs12Sync() {
 
 createTrustAnchorsWithKeyStore(keystore: Uint8Array, pwd: string): Promise<Array<[X509TrustAnchor](#x509trustanchor11)>>
 
-表示从P12文件中读取ca证书来构造[TrustAnchor](#x509trustanchor11)对象数组。使用Promise异步回调。
+表示从PKCS #12文件中读取ca证书来构造[TrustAnchor](#x509trustanchor11)对象数组。使用Promise异步回调。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -12543,8 +12874,8 @@ createTrustAnchorsWithKeyStore(keystore: Uint8Array, pwd: string): Promise<Array
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| keystore | Uint8Array | 是 | P12文件，DER格式。 |
-| pwd | string | 是 | P12文件的密码。 |
+| keystore | Uint8Array | 是 | PKCS #12文件，DER格式。 |
+| pwd | string | 是 | PKCS #12文件的密码。 |
 
 
 **返回值：**
@@ -12696,7 +13027,7 @@ try {
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-X509证书链对象。
+X.509证书链对象。
 
 
 
@@ -12706,7 +13037,7 @@ X509证书链对象。
 
 getCertList(): Array&lt;X509Cert&gt;
 
-获取X509证书列表。
+获取X.509证书列表。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -12716,7 +13047,7 @@ getCertList(): Array&lt;X509Cert&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Array&lt;X509Cert&gt; | X509证书数组。 |
+| Array&lt;X509Cert&gt; | X.509证书数组。 |
 
 
 **错误码：**
@@ -12840,7 +13171,7 @@ validate(param: CertChainValidationParameters): Promise&lt;CertChainValidationRe
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| param | CertChainValidationParameters | 是 | 表示校验X509证书链的参数。 |
+| param | CertChainValidationParameters | 是 | 表示校验X.509证书链的参数。 |
 
 
 **返回值**：
@@ -13002,7 +13333,7 @@ validate(param: CertChainValidationParameters, callback: AsyncCallback&lt;CertCh
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| param | CertChainValidationParameters | 是 | 表示校验X509证书链的参数。 |
+| param | CertChainValidationParameters | 是 | 表示校验X.509证书链的参数。 |
 | callback | AsyncCallback&lt;CertChainValidationResult&gt; | 是 | 回调函数，返回证书链校验结果。 |
 
 
@@ -13854,13 +14185,82 @@ async function getName() {
 
 
 
+#### getName
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+getName(type: string, encodingType: EncodingType): Array&lt;string&gt;
+
+根据指定类型和编码格式获取相对可分辨名称的字符串数组。
+
+**起始版本**：26.0.0
+
+**模型约束**：此接口仅可在Stage模型下使用。
+
+**元服务API：** 从API版本26.0.0开始，该接口支持在元服务中使用。
+
+**系统能力：** SystemCapability.Security.Cert
+
+**参数**：
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| type | string | 是 | 指定类型的名称。如"CN"、"OU"等。 |
+| encodingType | EncodingType | 是 | 表示编码格式。 |
+
+
+**返回值**：
+
+| 类型 | 说明 |
+| --- | --- |
+| Array&lt;string&gt; | 相对可分辨名称的字符串数组。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[证书错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-cert)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 19020001 | memory malloc failed. |
+| 19020002 | runtime error. Possible causes: 1. Memory copy failed; 2. A null pointer occurs inside the system; 3. Failed to convert parameters between ArkTS and C. |
+| 19020003 | parameter check failed. Possible causes: 1. The value of encodingType is invalid. |
+| 19030001 | crypto operation error. |
+
+
+**示例：**
+
+```text
+import { cert } from '@kit.DeviceCertificateKit';
+import { BusinessError } from '@kit.BasicServicesKit';
+
+let nameStr = '/CN=Example CA/OU=test cert/O=test/L=XA/ST=SX/C=CN/CN=RSA CA/CN=测试';
+async function getName() {
+  try {
+    cert.createX500DistinguishedName(nameStr)
+      .then((data) => {
+        console.info('createX500DistinguishedName result: success.');
+        console.info('createX500DistinguishedName getName: ' + data.getName("CN", cert.EncodingType.ENCODING_UTF8));
+      })
+      .catch((err: BusinessError) => {
+        console.error(`createX500DistinguishedName failed, errCode: ${err.code}, errMsg: ${err.message}`);
+      })
+  } catch (error) {
+    let e: BusinessError = error as BusinessError;
+    console.error(`createX500DistinguishedName failed, errCode: ${e.code}, errMsg: ${e.message}`);
+  }
+}
+```
+
+
+
 #### getEncoded12+
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
 getEncoded(): EncodingBlob
 
-获取X509证书扩展域的数据。
+获取X.509证书扩展域的数据。
 
 **元服务API：** 从API version 12开始，该接口支持在元服务中使用。
 
@@ -13870,7 +14270,7 @@ getEncoded(): EncodingBlob
 
 | 类型 | 说明 |
 | --- | --- |
-| EncodingBlob | X509证书序列化数据。 |
+| EncodingBlob | X.509证书序列化数据。 |
 
 
 **错误码：**
@@ -14011,7 +14411,7 @@ function testcreateCmsGenerator() {
 CmsGenerator对象用于生成CMS（Cryptographic Message Syntax）格式的消息。
 
 > [!WARNING]
-> PKCS#7是用于存储签名或加密数据的标准语法。注意CMS是PKCS#7的扩展，PKCS#7支持的数据类型包括数据、签名数据、信封数据、 签名和信封数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
+> PKCS #7是用于存储签名或加密数据的标准语法。注意CMS是PKCS #7的扩展，PKCS #7支持的数据类型包括数据、签名数据、信封数据、 签名和信封数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
 
 
 
@@ -14025,7 +14425,7 @@ addSigner(cert: X509Cert, keyInfo: PrivateKeyInfo, config: CmsSignerConfig): voi
 用于为内容类型为SIGNED_DATA的CMS添加签名者信息。
 
 > [!NOTE]
-> 由于openssl不支持自签名证书的验签操作，因此自签名证书不能作为签名者。
+> 由于OpenSSL不支持自签名证书的验签操作，因此自签名证书不能作为签名者。
 
 
 **元服务API：** 从API version 18开始，该接口支持在元服务中使用。
@@ -14036,7 +14436,7 @@ addSigner(cert: X509Cert, keyInfo: PrivateKeyInfo, config: CmsSignerConfig): voi
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| cert | X509Cert | 是 | 指定X509证书。 |
+| cert | X509Cert | 是 | 指定X.509证书。 |
 | keyInfo | PrivateKeyInfo | 是 | 指定私钥信息。 |
 | config | CmsSignerConfig | 是 | 指定签名者选项。 |
 
@@ -14160,7 +14560,7 @@ addCert(cert: X509Cert): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| cert | X509Cert | 是 | 要添加的X509证书。 |
+| cert | X509Cert | 是 | 要添加的X.509证书。 |
 
 
 **错误码：**
@@ -14972,7 +15372,7 @@ async function testCmsVerifyTest() {
 CmsParser对象用于对已签名跟封装的CMS（Cryptographic Message Syntax）格式的消息进行验签和解封装。
 
 > [!WARNING]
-> PKCS#7是用于存储签名或加密数据的标准语法。注意CMS是PKCS#7的扩展，PKCS#7支持的数据类型包括数据、签名数据、信封数据、 签名和信封数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
+> PKCS #7是用于存储签名或加密数据的标准语法。注意CMS是PKCS #7的扩展，PKCS #7支持的数据类型包括数据、签名数据、信封数据、 签名和信封数据、摘要数据、加密数据。常用于保护数据的完整性和机密性。
 
 
 

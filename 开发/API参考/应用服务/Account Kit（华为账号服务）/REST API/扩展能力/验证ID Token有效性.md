@@ -1,10 +1,10 @@
 # 验证ID Token有效性
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/account-api-verify-id-token
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/fa/v3/5PnFNKgnTcSLtfp6pk6sVA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025117Z&HW-CC-Expire=86400&HW-CC-Sign=F1063DC7B93AA2A922F316CADE4FE06C893212A8E1228CDAA578883EE565C7AC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/71/v3/ijPX--4gSnK7DVL6Rv0PCQ/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020332Z&HW-CC-Expire=86400&HW-CC-Sign=E9F58F2D7696E0B541C34C39D1876CB9C8EB668CFC59161C558B4B2E1EC289DF)
 
 
 为了更安全的网络访问，请务必使用TLS1.2协议及规定内的加密套件。若使用协议是TLS1.0、TLS1.1或规定外的加密套件，可能无法正常访问华为账号服务。
@@ -144,7 +144,7 @@ scope包含权限项profile时，解析的字段映射表如下：
 
 | 参数 | 是否必选 | 参数类型 | 描述 |
 | --- | --- | --- | --- |
-| picture | 否 | String | 用户头像图片链接。 |
+| picture | 否 | String | 用户头像图片链接。 说明： 当用户更新头像后，原头像链接会立即失效。为确保头像正常显示，建议先将头像下载保存后再使用，避免因用户头像链接失效而影响业务流程。 |
 | display_name | 否 | String | 华为账号对应的昵称，没有昵称则取匿名化的邮箱或手机号。 |
 | nickname | 否 | String | 华为账号对应的昵称。 |
 

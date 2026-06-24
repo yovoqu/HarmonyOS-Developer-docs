@@ -1,6 +1,6 @@
 # 自定义组件在外部设置属性方法和在build方法内部设置有什么区别
 
-更新时间：2026-03-10 06:16:35
+更新时间：2026-06-15 08:43:31
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-arkui-232
 

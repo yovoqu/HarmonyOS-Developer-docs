@@ -1,11 +1,13 @@
 # AbilityDelegatorArgs
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-abilitydelegatorargs
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-AbilityDelegatorArgs模块提供在应用程序执行测试用例期间，获取测试用例参数AbilityDelegatorArgs对象的能力。
+AbilityDelegatorArgs封装和提供测试用例参数的数据，通过AbilityDelegatorRegistry中[getArguments](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitydelegatorregistry#abilitydelegatorregistrygetarguments)方法获取，包含bundleName、parameters、testCaseNames等关键测试信息，为测试脚本提供了标准化的参数访问方式。
+ 
+该模块适用于编写单元测试脚本时需要获取测试参数进行条件判断或配置测试环境的场景。需要注意的是，其接口仅限测试框架中使用，不应在正式业务代码中调用。
  
 > [!NOTE]
 > 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。 本模块接口仅可在 单元测试框架 中使用。
@@ -19,14 +21,6 @@ AbilityDelegatorArgs模块提供在应用程序执行测试用例期间，获取
 ```text
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 ```
- 
-  
-
-#### 使用说明
-
-**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
-
-通过AbilityDelegatorRegistry中[getArguments](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-abilitydelegatorregistry#abilitydelegatorregistrygetarguments)方法获取。
  
   
 
@@ -49,7 +43,9 @@ import { abilityDelegatorRegistry } from '@kit.TestKit';
 **示例：**
  
 ```text
+// 导入测试注册模块
 import { abilityDelegatorRegistry } from '@kit.TestKit';
 
+// 通过AbilityDelegatorRegistry获取AbilityDelegatorArgs对象
 let args: abilityDelegatorRegistry.AbilityDelegatorArgs = abilityDelegatorRegistry.getArguments();
 ```

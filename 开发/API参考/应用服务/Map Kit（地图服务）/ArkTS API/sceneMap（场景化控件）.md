@@ -1,6 +1,6 @@
 # sceneMap（场景化控件）
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-scenemap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -37,8 +37,6 @@ queryLocation(context: common.UIAbilityContext, options: LocationQueryOptions): 
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Map.Core
-
-**设备行为差异：** 该接口在phone、tablet和2in1设备上可以正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -106,8 +104,6 @@ chooseLocation(context: common.UIAbilityContext, options: LocationChoosingOption
 **元服务API：** 从版本4.1.0(11)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Map.Core
-
-**设备行为差异：** 该接口在phone、tablet和2in1设备上可以正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -180,8 +176,6 @@ selectDistrict(context: common.Context, options: DistrictSelectOptions): Promise
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 该接口在phone、tablet和2in1设备上可以正常使用，在其他设备中返回801错误码。
-
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -241,8 +235,6 @@ sceneMap.selectDistrict(this.getUIContext().getHostContext(), districtSelectOpti
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 该接口在phone、tablet和2in1设备上可以正常使用，在其他设备中返回801错误码。
-
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -255,7 +247,7 @@ sceneMap.selectDistrict(this.getUIContext().getHostContext(), districtSelectOpti
 | showBusiness | boolean | 否 | 是 | 是否显示商业信息（如打车），默认值为true。 - true：显示 - false：不显示 元服务API： 从版本4.1.0(11)开始，该接口支持在元服务中使用。 说明： 版本4.1.0(11)~5.1.1(19)为预留字段，从版本6.0.0(20)开始使用。 |
 | themeColor | CustomColors | 否 | 是 | 自定义主题颜色对象，默认为brand（品牌色）。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 |
 | cancelCallback | Callback&lt;void&gt; | 否 | 是 | 回调函数，无返回结果。地点详情控件关闭事件回调。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 |
-| transitionDuration | number | 否 | 是 | 转场动效时间，默认值：-1，单位：ms，取值范围：大于0，异常值将按照默认值-1处理，保持interpolatingSpring(0.5, 1, 328, 36)（初始速度为0.5，质量为1，刚度为1，阻尼为1）。2in1设备当前不显示转场动效，该配置不生效。 起始版本： 6.0.2(22) 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用。 |
+| transitionDuration | number | 否 | 是 | 转场动效时间，默认值：-1，单位：ms，取值范围：大于0，异常值将按照默认值-1处理，保持interpolatingSpring(0.5, 1, 328, 36)（初始速度为0.5，质量为1，刚度为1，阻尼为1）。PC/2in1设备当前不显示转场动效，该配置不生效。 起始版本： 6.0.2(22) 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用。 |
 
 
 > [!NOTE]
@@ -280,8 +272,6 @@ let queryLocationOptions: sceneMap.LocationQueryOptions = { siteId: "92220715406
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 该接口在phone、tablet和2in1设备上可以正常使用，在其他设备中返回801错误码。
-
 **起始版本：** 4.1.0(11)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -294,7 +284,7 @@ let queryLocationOptions: sceneMap.LocationQueryOptions = { siteId: "92220715406
 | snapshotEnabled | boolean | 否 | 是 | 是否返回映射快照，默认值为false。 - true：返回 - false：不返回 起始版本： 5.0.0(12) 元服务API： 从版本5.0.0(12)开始，该接口支持在元服务中使用。 |
 | themeColor | CustomColors | 否 | 是 | 自定义主题颜色对象，默认为brand（品牌色）。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 |
 | cancelCallback | Callback&lt;void&gt; | 否 | 是 | 回调函数，无返回结果。地点选取控件关闭事件回调。 起始版本： 5.0.3(15) 元服务API： 从版本5.0.3(15)开始，该接口支持在元服务中使用。 |
-| transitionDuration | number | 否 | 是 | 转场动效时间，默认值：-1，单位：ms，取值范围：大于0，异常值将按照默认值-1处理，保持interpolatingSpring(0.5, 1, 328, 36)（初始速度为0.5，质量为1，刚度为1，阻尼为1）。2in1设备当前不显示转场动效，该配置不生效。 起始版本： 6.0.2(22) 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用。 |
+| transitionDuration | number | 否 | 是 | 转场动效时间，默认值：-1，单位：ms，取值范围：大于0，异常值将按照默认值-1处理，保持interpolatingSpring(0.5, 1, 328, 36)（初始速度为0.5，质量为1，刚度为1，阻尼为1）。PC/2in1设备当前不显示转场动效，该配置不生效。 起始版本： 6.0.2(22) 元服务API： 从版本6.0.2(22)开始，该接口支持在元服务中使用。 |
 
 
 **示例：**
@@ -316,8 +306,6 @@ let locationChoosingOptions: sceneMap.LocationChoosingOptions = {
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Map.Core
-
-**设备行为差异：** 该接口在phone、tablet和2in1设备上可以正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 4.1.0(11)
 
@@ -343,8 +331,6 @@ let locationChoosingOptions: sceneMap.LocationChoosingOptions = {
 **模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.Map.Core
-
-**设备行为差异：** 该接口在phone、tablet和2in1设备上可以正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -385,8 +371,6 @@ let districtSelectOptions: sceneMap.DistrictSelectOptions = {
 
 **系统能力：** SystemCapability.Map.Core
 
-**设备行为差异：** 该接口在phone、tablet和2in1设备上可以正常使用，在其他设备中返回801错误码。
-
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -408,8 +392,6 @@ let districtSelectOptions: sceneMap.DistrictSelectOptions = {
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
 
 **系统能力：** SystemCapability.Map.Core
-
-**设备行为差异：** 该接口在phone、tablet和2in1设备上可以正常使用，在其他设备中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 

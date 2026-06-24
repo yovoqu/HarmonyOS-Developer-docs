@@ -1,6 +1,6 @@
 # 文本测量（ArkTS）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/text-measure-arkts
 
@@ -14,13 +14,16 @@
  - **文本高度**：测量给定文本的垂直高度，通常涉及文本的上升线、下降线等。
  - **行间距**：测量多行文本之间的垂直距离，通常与文本的行距相关。
  - **字符间距**：测量单个字符之间的水平距离，通常与字形和字体设计有关。
+ - **限制区域排版**：在限定宽高区域内排版文本，获取实际排版尺寸和适配的字符串范围。
+ - **字符位置查询**：根据屏幕坐标获取对应的字符位置，可用于文本选择、光标定位等交互场景。
+ - **字符和字形范围查询**：在字形范围与字符范围之间进行相互转换，用于文本编辑、选择高亮等场景中字形与字符索引的映射。
 
 
 
 
 #### 接口说明
 
-文本测量中常用接口如下表所示，详细接口说明参考[@ohos.graphics.text (文本模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#paragraph)。
+文本测量中常用接口如下表所示，详细接口说明参考[@ohos.graphics.text (文本模块)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text)。
 
 | 接口名 | 描述 |
 | --- | --- |
@@ -38,7 +41,7 @@
 
   
 ```ArkTS
-import { text } from '@kit.ArkGraphics2D';
+import { text, drawing } from '@kit.ArkGraphics2D';
 ```
 
 2. 创建段落样式，并使用构造段落生成器ParagraphBuilder生成段落实例。
@@ -114,4 +117,62 @@ for (let index = 0; index < lineCnt; index++) {
 // case5: 获取排版后所有行度量信息数组
 let allLineMetrics = paragraph.getLineMetrics();
 console.info("MetricsMSG: 第1行 lineMetrics width: " + allLineMetrics[0].width);
+```
+
+5. 从API version 24开始支持在限定宽高区域内排版文本，获取排版结果。
+
+  使用[layoutWithConstraints()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#layoutwithconstraints24)接口可以在指定的宽高约束内进行排版，返回的结果包含实际排版尺寸（correctRect）和适配的字符串范围（fitStrRange）。
+
+  
+```ArkTS
+// case6: 在限定宽高区域内排版文本，获取排版结果
+let constraint: text.TextRectSize = { width: 600, height: 200 };
+let layoutResult: text.TextLayoutResult = paragraph.layoutWithConstraints(constraint);
+// 获取排版后的实际尺寸
+console.info("MetricsMSG: correctRect width: " + layoutResult.correctRect.width +
+  ", height: " + layoutResult.correctRect.height);
+// 获取适配的字符串范围
+for (let i = 0; i < layoutResult.fitStrRange.length; i++) {
+  console.info("MetricsMSG: fitStrRange[" + i + "] start: " + layoutResult.fitStrRange[i].start +
+    ", end: " + layoutResult.fitStrRange[i].end);
+}
+```
+
+6. 从API version 24开始支持根据坐标获取字符位置信息。
+
+  使用[getCharacterPositionAtCoordinate()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getcharacterpositionatcoordinate24)获取指定编码类型下的字符位置。返回的PositionWithAffinity包含字符索引和亲和度信息。
+
+  
+```ArkTS
+// case8: 根据坐标获取字符位置（指定编码类型）
+let charPos: text.PositionWithAffinity =
+  paragraph.getCharacterPositionAtCoordinate(100, 50, drawing.TextEncoding.TEXT_ENCODING_UTF16);
+console.info("MetricsMSG: charPos position: " + charPos.position +
+  ", affinity: " + charPos.affinity);
+```
+
+7. 从API version 24开始支持字形范围与字符范围的相互转换。
+
+  使用[getCharacterRangeForGlyphRange()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getcharacterrangeforglyphrange24)根据字形范围获取对应的字符范围，使用[getGlyphRangeForCharacterRange()](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-graphics-text#getglyphrangeforcharacterrange24)根据字符范围获取对应的字形范围。返回的数组包含两个元素，第一个是目标范围，第二个是实际范围。编码类型支持UTF-8和UTF-16。
+
+  
+```ArkTS
+// case9: 根据字形范围获取字符范围
+let glyphRange: text.Range = { start: 0, end: 2 };
+let glyphToCharRanges: Array<text.Range> =
+  paragraph.getCharacterRangeForGlyphRange(glyphRange, drawing.TextEncoding.TEXT_ENCODING_UTF16);
+// 返回数组第一个为字符范围，第二个为实际字形范围
+console.info("MetricsMSG: charRange start: " + glyphToCharRanges[0].start +
+  ", end: " + glyphToCharRanges[0].end);
+console.info("MetricsMSG: actualGlyphRange start: " + glyphToCharRanges[1].start +
+  ", end: " + glyphToCharRanges[1].end);
+// case10: 根据字符范围获取字形范围
+let charRange: text.Range = { start: 0, end: 2 };
+let charToGlyphRanges: Array<text.Range> =
+  paragraph.getGlyphRangeForCharacterRange(charRange, drawing.TextEncoding.TEXT_ENCODING_UTF16);
+// 返回数组第一个为字形范围，第二个为实际字符范围
+console.info("MetricsMSG: glyphRange start: " + charToGlyphRanges[0].start +
+  ", end: " + charToGlyphRanges[0].end);
+console.info("MetricsMSG: actualCharRange start: " + charToGlyphRanges[1].start +
+  ", end: " + charToGlyphRanges[1].end);
 ```

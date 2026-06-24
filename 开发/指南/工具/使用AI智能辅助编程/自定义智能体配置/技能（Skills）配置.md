@@ -1,6 +1,6 @@
 # 技能（Skills）配置
 
-更新时间：2026-06-09 08:54:30
+更新时间：2026-06-12 06:54:33
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-skills
 
@@ -17,7 +17,7 @@ Skills实际是一个包含SKILL.md文件（区分大小写）的文件夹，在
 #### 使用约束
 
 - 当前自定义Agent和HarmonyOS Act智能体支持使用Skills。
-- SKILL.md中name的要求：长度不超过64个字符，由小写字母，数字和-组成，不能以-开头或结尾，不能包含连续的-，与所在文件夹命名一致。
+- SKILL.md中name的要求：长度不超过64个字符，由小写字母，数字、中划线组成，不能以-开头或结尾，不能包含连续的-，与所在文件夹命名一致。
 - SKILL.md中description的要求：长度不超过1024个字符。
 - SKILL.md中正文指令的要求：长度不超过32768个字符。
 - SKILL.md所在文件夹的要求：大小不超过100MB。
@@ -57,4 +57,4 @@ Skills实际是一个包含SKILL.md文件（区分大小写）的文件夹，在
 4. 返回CodeGenie对话框调用Skills，在对话框输入时需要带有技能的name（如openharmony-build）。
 
   
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/1a/v3/VK46iFGOTgqnmG4jntSZFw/zh-cn_image_0000002571387370.png?HW-CC-KV=V1&HW-CC-Date=20260611T074912Z&HW-CC-Expire=86400&HW-CC-Sign=7E357D2762717DE1F4A90CBBF5333249C93AC0217E4EECF8285B023B2E2E48AB)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/59/v3/yeXv2ZjEQfuw-PFtbdSsuw/zh-cn_image_0000002594475040.png?HW-CC-KV=V1&HW-CC-Date=20260624T020708Z&HW-CC-Expire=86400&HW-CC-Sign=F9A4BAC868EFFEC77A1EEE2006F100C6F3DAB86246852D74A80D80BAED4E4DFF)

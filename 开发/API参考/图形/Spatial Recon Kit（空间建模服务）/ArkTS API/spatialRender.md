@@ -1,6 +1,6 @@
 # spatialRender
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/spatial-recon-spatialrender
 **支持设备：** Phone | PC/2in1 | Tablet | TV
@@ -72,7 +72,7 @@ GSPlugin类封装了与3DGS相关的内容，包括3DGS插件ID和3DGS模型加�
 **起始版本：** 6.0.1(21)
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/93/v3/LNcoYT_wRHCrQm3yMK7VSA/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025734Z&HW-CC-Expire=86400&HW-CC-Sign=2F94D917A71087C86E433647DFC9FA7E5FB4FA9577B59905E9FA72A30B003A13)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/3b/v3/DOTaW6DSSTOfxeND7bQRYg/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020329Z&HW-CC-Expire=86400&HW-CC-Sign=1F9B4A4F24D8028CB5BC9D4088EEB7272121D7E2405019D928D47248F961CD04)
 
 
 调用GSPlugin接口前，必须先加载对应的插件ID，否则会出现未定义的行为。

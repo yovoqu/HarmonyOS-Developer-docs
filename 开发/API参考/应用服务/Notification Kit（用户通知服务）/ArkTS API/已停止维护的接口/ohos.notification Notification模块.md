@@ -1,6 +1,6 @@
 # @ohos.notification (Notification模块)
 
-更新时间：2026-04-24 08:10:21
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-notification
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -874,7 +874,7 @@ Notification.cancelGroup(groupName).then(() => {
 
 isSupportTemplate(templateName: string, callback: AsyncCallback&lt;boolean&gt;): void
 
-查询模板是否存在（Callback形式）。
+在使用[通知模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate)发布通知前，可以通过该接口查询是否支持对应的通知模板。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -882,7 +882,7 @@ isSupportTemplate(templateName: string, callback: AsyncCallback&lt;boolean&gt;):
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| templateName | string | 是 | 模板名称。 |
+| templateName | string | 是 | 模板名称。当前仅支持'downloadTemplate'。 |
 | callback | AsyncCallback&lt;boolean&gt; | 是 | 查询模板是否存在的回调函数。 |
 
 
@@ -911,7 +911,7 @@ Notification.isSupportTemplate(templateName, isSupportTemplateCallback);
 
 isSupportTemplate(templateName: string): Promise&lt;boolean&gt;
 
-查询模板是否存在（Promise形式）。
+在使用[通知模板](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-notification-notificationtemplate)发布通知前，可以通过该接口查询是否支持对应的通知模板。使用callback异步回调。
 
 **系统能力**：SystemCapability.Notification.Notification
 
@@ -919,7 +919,7 @@ isSupportTemplate(templateName: string): Promise&lt;boolean&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| templateName | string | 是 | 模板名称。 |
+| templateName | string | 是 | 模板名称。当前仅支持'downloadTemplate'。 |
 
 
 **返回值：**

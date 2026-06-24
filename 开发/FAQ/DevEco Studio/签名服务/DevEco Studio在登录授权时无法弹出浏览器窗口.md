@@ -1,6 +1,6 @@
 # DevEco Studio在登录授权时无法弹出浏览器窗口
 
-更新时间：2026-06-05 09:11:02
+更新时间：2026-06-15 08:43:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-signature-service-7
 

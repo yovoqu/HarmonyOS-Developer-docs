@@ -1,6 +1,6 @@
 # Interface (Heatmap)
 
-更新时间：2026-05-18 03:44:20
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/map-map-heatmap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable
@@ -37,7 +37,7 @@ for (let i = 0; i < 500; i++) {
   data.push({
     point: {
       longitude: 118.000000 + Math.random() * 1 - 0.25,
-      latitude: 31.000000 + Math.random() * 1 - 0.25,
+      latitude: 31.000000 + Math.random() * 1 - 0.25
     },
     intensity: 1
   });

@@ -1,6 +1,6 @@
 # camera_manager.h
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-camera-manager-h
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -80,6 +80,8 @@
 | Camera_ErrorCode OH_CameraManager_IsTorchSupported(Camera_Manager* cameraManager, bool* isTorchSupported) | - | 检查设备是否支持手电筒。 |
 | Camera_ErrorCode OH_CameraManager_IsTorchSupportedByTorchMode(Camera_Manager* cameraManager, Camera_TorchMode torchMode, bool* isTorchSupported) | - | 检查设备是否支持指定的手电筒模式。 |
 | Camera_ErrorCode OH_CameraManager_SetTorchMode(Camera_Manager* cameraManager, Camera_TorchMode torchMode) | - | 设置相机手电筒模式。 |
+| Camera_ErrorCode OH_CameraManager_IsTorchLevelControlSupported(const Camera_Manager* cameraManager, bool* isTorchLevelControlSupported) | - | 检查设备是否支持手电筒亮度控制。 |
+| Camera_ErrorCode OH_CameraManager_SetTorchModeOnWithLevel(const Camera_Manager* cameraManager, double torchLevel) | - | 将手电筒模式设置为打开，并设置亮度值。 |
 | Camera_ErrorCode OH_CameraManager_GetCameraDevice(Camera_Manager* cameraManager, Camera_Position position, Camera_Type type, Camera_Device* camera) | - | 根据相机位置和相机类型查询指定的相机。 |
 | Camera_ErrorCode OH_CameraManager_GetCameraDevices(Camera_Manager* cameraManager, Camera_DeviceQueryInfo* deviceQueryInfo, uint32_t* cameraSize, Camera_Device** cameras) | - | 根据相机位置、相机类型数组和连接类型查询符合条件的相机列表。 |
 | Camera_ErrorCode OH_CameraManager_DeleteCameraDevices(Camera_Manager* cameraManager, Camera_Device* cameras) | - | 删除指定相机设备。 |
@@ -1146,6 +1148,68 @@ Camera_ErrorCode OH_CameraManager_SetTorchMode(Camera_Manager* cameraManager, Ca
 | --- | --- |
 | Camera_Manager* cameraManager | 相机管理器实例。 |
 | Camera_TorchMode torchMode | 要设置的相机手电筒模式。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
+ 
+ 
+  
+
+#### OH_CameraManager_IsTorchLevelControlSupported()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_CameraManager_IsTorchLevelControlSupported(const Camera_Manager* cameraManager, bool* isTorchLevelControlSupported)
+```
+ 
+**描述**
+ 
+检查设备是否支持手电筒亮度控制。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_Manager* cameraManager | 相机管理器实例。 |
+| bool* isTorchLevelControlSupported | 设备是否支持手电筒亮度控制。 |
+ 
+ 
+**返回：**
+  
+| 类型 | 说明 |
+| --- | --- |
+| Camera_ErrorCode | CAMERA_OK：方法调用成功。 CAMERA_INVALID_ARGUMENT：参数丢失或参数类型不正确。 CAMERA_SERVICE_FATAL_ERROR：相机服务异常。 |
+ 
+ 
+  
+
+#### OH_CameraManager_SetTorchModeOnWithLevel()
+
+**支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
+
+```text
+Camera_ErrorCode OH_CameraManager_SetTorchModeOnWithLevel(const Camera_Manager* cameraManager, double torchLevel)
+```
+ 
+**描述**
+ 
+将手电筒模式设置为打开，并设置亮度值。
+ 
+**起始版本：** 26.0.0
+ 
+**参数：**
+  
+| 参数项 | 描述 |
+| --- | --- |
+| const Camera_Manager* cameraManager | 相机管理器实例。 |
+| double torchLevel | 目标亮度水平。取值范围为[0.0, 1.0]。 |
  
  
 **返回：**

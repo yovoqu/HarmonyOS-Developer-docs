@@ -1,6 +1,6 @@
 # image-animator
 
-更新时间：2026-03-23 08:10:50
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-lite-components-basic-image-animator
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | lite_wearable | TV
@@ -229,4 +229,4 @@ export default {
 ```
  
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/8d/v3/RMZWGJEnTyOHuRqAKPwEVA/zh-cn_image_0000002611836379.gif?HW-CC-KV=V1&HW-CC-Date=20260528T025432Z&HW-CC-Expire=86400&HW-CC-Sign=93ED7A8FFD31F60E61A350B8440EBE13B5B6CAD55402B9BFE420912AEB646F6D)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d8/v3/QwpdS8iDSO68WR_ab085iA/zh-cn_image_0000002656350521.gif?HW-CC-KV=V1&HW-CC-Date=20260624T015946Z&HW-CC-Expire=86400&HW-CC-Sign=B0963D5BD3A5F15AD3CEE2504883CEB8BF169946FFE6BCF094BA9406A6EB430B)

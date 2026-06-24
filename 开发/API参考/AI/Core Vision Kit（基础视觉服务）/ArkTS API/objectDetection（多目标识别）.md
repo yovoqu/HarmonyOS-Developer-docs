@@ -1,6 +1,6 @@
 # objectDetection（多目标识别）
 
-更新时间：2026-05-12 09:31:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-object-detection-api
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -30,6 +30,8 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.Vision.ObjectDetection
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
@@ -49,6 +51,8 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 多目标检测的结果类。继承自visionBase基类的[Response](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-vision-base-api#response)。
 
 **系统能力：** SystemCapability.AI.Vision.ObjectDetection
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -73,6 +77,8 @@ import { visionBase, objectDetection } from '@kit.CoreVisionKit';
 
 **系统能力：** SystemCapability.AI.Vision.ObjectDetection
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 | 名称 | 说明 |
@@ -95,6 +101,8 @@ static create(): Promise&lt;ObjectDetector&gt;
 
 **系统能力：** SystemCapability.AI.Vision.ObjectDetection
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **返回值：**
@@ -106,7 +114,7 @@ static create(): Promise&lt;ObjectDetector&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -165,6 +173,8 @@ destroy(): Promise&lt;void&gt;
 销毁多目标识别的进程。使用Promise异步回调。
 
 **系统能力：** SystemCapability.AI.Vision.ObjectDetection
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **起始版本：** 5.0.0(12)
 
@@ -227,6 +237,8 @@ process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;
 
 **系统能力：** SystemCapability.AI.Vision.ObjectDetection
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **起始版本：** 5.0.0(12)
 
 **参数：**
@@ -245,7 +257,7 @@ process(request: visionBase.Request): Promise&lt;ObjectDetectionResponse&gt;
 
 **错误码：**
 
-以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/core-vision-error-code)。
+以下错误码的详细介绍请参见[Core Vision Kit错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-core-vision)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

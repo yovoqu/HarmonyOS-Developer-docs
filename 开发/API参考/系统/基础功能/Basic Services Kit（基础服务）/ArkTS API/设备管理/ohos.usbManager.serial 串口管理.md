@@ -1,6 +1,6 @@
 # @ohos.usbManager.serial (串口管理)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-serialmanager
 **支持设备：** PC/2in1
@@ -478,7 +478,7 @@ read(portId: number, buffer: Uint8Array, timeout?: number): Promise&lt;number&gt
 | --- | --- | --- | --- |
 | portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 | buffer | Uint8Array | 是 | 读取数据的缓冲区。 |
-| timeout | number | 否 | 超时时间（单位：ms）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0表示不等待直接返回。 |
+| timeout | number | 否 | 超时时间（单位：毫秒）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0表示不等待直接返回。 |
 
 
 **返回值：**
@@ -571,7 +571,7 @@ readSync(portId: number, buffer: Uint8Array, timeout?: number): number
 | --- | --- | --- | --- |
 | portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 | buffer | Uint8Array | 是 | 读取数据的缓冲区。 |
-| timeout | number | 否 | 超时时间（单位：ms）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0表示不等待直接返回。 |
+| timeout | number | 否 | 超时时间（单位：毫秒）。API在目标端口缓冲区无数据时，等待指定时间后返回。默认值0表示不等待直接返回。 |
 
 
 **返回值：**
@@ -665,7 +665,7 @@ write(portId: number, buffer: Uint8Array, timeout?: number): Promise&lt;number&g
 | --- | --- | --- | --- |
 | portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 | buffer | Uint8Array | 是 | 写入数据的缓冲区。 |
-| timeout | number | 否 | 超时时间（单位：ms），指定时间内等待API在目标端口的缓冲区是否可写，若可写则正常处理，若不可写等待超过指定时间后返回超时。默认值0表示不可写时不等待直接返回。 |
+| timeout | number | 否 | 超时时间（单位：毫秒），指定时间内等待API在目标端口的缓冲区是否可写，若可写则正常处理，若不可写等待超过指定时间后返回超时。默认值0表示不可写时不等待直接返回。 |
 
 
 **返回值：**
@@ -759,7 +759,7 @@ writeSync(portId: number, buffer: Uint8Array, timeout?: number): number
 | --- | --- | --- | --- |
 | portId | number | 是 | 端口号，来自getPortList获取的串口参数SerialPort。 |
 | buffer | Uint8Array | 是 | 写入目标缓冲区。 |
-| timeout | number | 否 | 超时时间（单位：ms），指定时间内等待API在目标端口的缓冲区是否可写，若可写则正常处理，若不可写等待超过指定时间后返回超时。默认值0表示不可写时不等待直接返回。 |
+| timeout | number | 否 | 超时时间（单位：毫秒），指定时间内等待API在目标端口的缓冲区是否可写，若可写则正常处理，若不可写等待超过指定时间后返回超时。默认值0表示不可写时不等待直接返回。 |
 
 
 **返回值：**
@@ -1006,10 +1006,10 @@ function cancelSerialRight() {
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| baudRate | BaudRates | 否 | 否 | 串口波特率。 |
-| dataBits | DataBits | 否 | 是 | 串口数据位，默认值为8位。 |
+| baudRate | BaudRates | 否 | 否 | 串口波特率，单位：比特/秒 |
+| dataBits | DataBits | 否 | 是 | 串口数据位，默认值为8，单位：比特 |
 | parity | Parity | 否 | 是 | 串口奇偶校验，默认值为None，无奇偶校验。 |
-| stopBits | StopBits | 否 | 是 | 串口停止位，默认值为1位。 |
+| stopBits | StopBits | 否 | 是 | 串口停止位，默认值为1，单位：比特 |
 
 
 
@@ -1034,42 +1034,42 @@ function cancelSerialRight() {
 
 **支持设备：** PC/2in1
 
-表示波特率的枚举
+表示波特率的枚举，单位：比特/秒
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
 
 | 名称 | 值 | 说明 |
 | --- | --- | --- |
-| BAUDRATE_50 | 50 | 传输波特率为50。 |
-| BAUDRATE_75 | 75 | 传输波特率为75。 |
-| BAUDRATE_110 | 110 | 传输波特率为110。 |
-| BAUDRATE_134 | 134 | 传输波特率为134。 |
-| BAUDRATE_150 | 150 | 传输波特率为150。 |
-| BAUDRATE_200 | 200 | 传输波特率为200。 |
-| BAUDRATE_300 | 300 | 传输波特率为300。 |
-| BAUDRATE_600 | 600 | 传输波特率为600。 |
-| BAUDRATE_1200 | 1200 | 传输波特率为1200。 |
-| BAUDRATE_1800 | 1800 | 传输波特率为1800。 |
-| BAUDRATE_2400 | 2400 | 传输波特率为2400。 |
-| BAUDRATE_4800 | 4800 | 传输波特率为4800。 |
-| BAUDRATE_9600 | 9600 | 传输波特率为9600。 |
-| BAUDRATE_19200 | 19200 | 传输波特率为19200。 |
-| BAUDRATE_38400 | 38400 | 传输波特率为38400。 |
-| BAUDRATE_57600 | 57600 | 传输波特率为57600。 |
-| BAUDRATE_115200 | 115200 | 传输波特率为115200。 |
-| BAUDRATE_230400 | 230400 | 传输波特率为230400。 |
-| BAUDRATE_460800 | 460800 | 传输波特率为460800。 |
-| BAUDRATE_500000 | 500000 | 传输波特率为500000。 |
-| BAUDRATE_576000 | 576000 | 传输波特率为576000。 |
-| BAUDRATE_921600 | 921600 | 传输波特率为921600。 |
-| BAUDRATE_1000000 | 1000000 | 传输波特率为1000000。 |
-| BAUDRATE_1152000 | 1152000 | 传输波特率为1152000。 |
-| BAUDRATE_1500000 | 1500000 | 传输波特率为1500000。 |
-| BAUDRATE_2000000 | 2000000 | 传输波特率为2000000。 |
-| BAUDRATE_2500000 | 2500000 | 传输波特率为2500000。 |
-| BAUDRATE_3000000 | 3000000 | 传输波特率为3000000。 |
-| BAUDRATE_3500000 | 3500000 | 传输波特率为3500000。 |
-| BAUDRATE_4000000 | 4000000 | 传输波特率为4000000。 |
+| BAUDRATE_50 | 50 | 传输波特率为50比特/秒。 |
+| BAUDRATE_75 | 75 | 传输波特率为75比特/秒。 |
+| BAUDRATE_110 | 110 | 传输波特率为110比特/秒。 |
+| BAUDRATE_134 | 134 | 传输波特率为134比特/秒。 |
+| BAUDRATE_150 | 150 | 传输波特率为150比特/秒。 |
+| BAUDRATE_200 | 200 | 传输波特率为200比特/秒。 |
+| BAUDRATE_300 | 300 | 传输波特率为300比特/秒。 |
+| BAUDRATE_600 | 600 | 传输波特率为600比特/秒。 |
+| BAUDRATE_1200 | 1200 | 传输波特率为1200比特/秒。 |
+| BAUDRATE_1800 | 1800 | 传输波特率为1800比特/秒。 |
+| BAUDRATE_2400 | 2400 | 传输波特率为2400比特/秒。 |
+| BAUDRATE_4800 | 4800 | 传输波特率为4800比特/秒。 |
+| BAUDRATE_9600 | 9600 | 传输波特率为9600比特/秒。 |
+| BAUDRATE_19200 | 19200 | 传输波特率为19200比特/秒。 |
+| BAUDRATE_38400 | 38400 | 传输波特率为38400比特/秒。 |
+| BAUDRATE_57600 | 57600 | 传输波特率为57600比特/秒。 |
+| BAUDRATE_115200 | 115200 | 传输波特率为115200比特/秒。 |
+| BAUDRATE_230400 | 230400 | 传输波特率为230400比特/秒。 |
+| BAUDRATE_460800 | 460800 | 传输波特率为460800比特/秒。 |
+| BAUDRATE_500000 | 500000 | 传输波特率为500000比特/秒。 |
+| BAUDRATE_576000 | 576000 | 传输波特率为576000比特/秒。 |
+| BAUDRATE_921600 | 921600 | 传输波特率为921600比特/秒。 |
+| BAUDRATE_1000000 | 1000000 | 传输波特率为1000000比特/秒。 |
+| BAUDRATE_1152000 | 1152000 | 传输波特率为1152000比特/秒。 |
+| BAUDRATE_1500000 | 1500000 | 传输波特率为1500000比特/秒。 |
+| BAUDRATE_2000000 | 2000000 | 传输波特率为2000000比特/秒。 |
+| BAUDRATE_2500000 | 2500000 | 传输波特率为2500000比特/秒。 |
+| BAUDRATE_3000000 | 3000000 | 传输波特率为3000000比特/秒。 |
+| BAUDRATE_3500000 | 3500000 | 传输波特率为3500000比特/秒。 |
+| BAUDRATE_4000000 | 4000000 | 传输波特率为4000000比特/秒。 |
 
 
 
@@ -1078,7 +1078,7 @@ function cancelSerialRight() {
 
 **支持设备：** PC/2in1
 
-表示数据位宽的枚举
+表示数据位宽的枚举，单位：比特
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
 
@@ -1115,7 +1115,7 @@ function cancelSerialRight() {
 
 **支持设备：** PC/2in1
 
-表示停止位宽的枚举
+表示停止位宽的枚举，单位：比特
 
 **系统能力：** SystemCapability.USB.USBManager.Serial
 

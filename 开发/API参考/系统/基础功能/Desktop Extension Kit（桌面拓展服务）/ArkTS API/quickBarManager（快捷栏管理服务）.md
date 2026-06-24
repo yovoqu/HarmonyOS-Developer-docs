@@ -1,6 +1,6 @@
 # quickBarManager（快捷栏管理服务）
 
-更新时间：2026-05-28 03:37:50
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/desktop-quickbar-extension-manager
 **支持设备：** PC/2in1
@@ -26,6 +26,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 
 快捷栏菜单任务的详细参数。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -36,7 +38,7 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 | abilityName | string | 否 | 否 | 点击菜单任务拉起的应用的Ability名称。 字符串长度范围：[1, 512]，且内容不为空。 |
 | moduleName | string | 否 | 是 | 点击菜单项任务拉起的应用的Ability所在的模块名称。 字符串长度范围：[1, 512]，且内容不为空。 默认值：''。 |
 | taskIcon | image.PixelMap | 否 | 是 | 快捷栏图标菜单任务的图片信息，支持JPEG、PNG、GIF、WebP、BMP、SVG、ICO、DNG等图片类型。 默认值：undefined。 说明： 建议使用512vp * 512vp大小的图片，若不传入图片信息，则使用应用图标作为任务图标。 |
-| taskDetail | string | 否 | 是 | 快捷栏图标菜单任务的描述信息。 默认值：''。 |
+| taskDetail | string | 否 | 是 | 快捷栏图标菜单任务的描述信息。 字符串长度范围：[1, 512]，且内容不为空。 默认值：''。 |
 | parameters | ParameterItem[] | 否 | 是 | 快捷栏图标菜单任务的自定义参数。 数组大小范围：小于等于64。 默认值：undefined。 |
  
  
@@ -47,6 +49,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 **支持设备：** PC/2in1
 
 应用的快捷栏菜单任务的信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
@@ -67,6 +71,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 
 快捷栏菜单任务的自定义参数，表示WantParams，由开发者自行决定传入的键值对。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -85,6 +91,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 
 应用的快捷栏菜单分组的信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -102,6 +110,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 **支持设备：** PC/2in1
 
 快捷栏分组信息。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
@@ -122,6 +132,8 @@ import { quickBarManager } from '@kit.DeskTopExtensionKit';
 addCustomCategory(context: common.Context, categoryName: string): Promise&lt;CustomCategory&gt;
  
 添加快捷栏分组。添加一个分组后才可以往分组里添加任务，最多可以添加三个分组。使用promise异步回调。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
@@ -144,7 +156,7 @@ addCustomCategory(context: common.Context, categoryName: string): Promise&lt;Cus
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -185,6 +197,8 @@ addQuickTask(context: common.Context, categoryId: number, taskInfo: QuickTaskInf
  
 添加快捷栏任务。打开应用图标在快捷栏的右键菜单，即可看到添加后对应的菜单项。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -207,7 +221,7 @@ addQuickTask(context: common.Context, categoryId: number, taskInfo: QuickTaskInf
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -275,6 +289,8 @@ getCustomCategories(context: common.Context): Promise<CustomCategory[]>
  
 获取在快捷栏定义的所有分组。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -295,7 +311,7 @@ getCustomCategories(context: common.Context): Promise<CustomCategory[]>
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -334,6 +350,8 @@ getTasksFromCategory(context: common.Context, categoryId: number): Promise<Quick
  
 获取某个快捷栏分组下的所有任务信息。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -355,7 +373,7 @@ getTasksFromCategory(context: common.Context, categoryId: number): Promise<Quick
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -398,6 +416,8 @@ updateCustomCategory(context: common.Context, category: CustomCategory): Promise
  
 更新快捷栏分组。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -419,7 +439,7 @@ updateCustomCategory(context: common.Context, category: CustomCategory): Promise
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -463,6 +483,8 @@ updateQuickTask(context: common.Context, task: QuickTask): Promise&lt;void&gt;
  
 更新快捷栏任务。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -484,7 +506,7 @@ updateQuickTask(context: common.Context, task: QuickTask): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -555,6 +577,8 @@ deleteQuickTask(context: common.Context, taskId: number): Promise&lt;void&gt;
  
 删除快捷栏任务。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -576,7 +600,7 @@ deleteQuickTask(context: common.Context, taskId: number): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -615,6 +639,8 @@ deleteCustomCategory(context: common.Context, categoryId: number): Promise&lt;vo
  
 删除快捷栏分组，其下的所有任务也会随着一起删除。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.0.2(22)
@@ -636,7 +662,7 @@ deleteCustomCategory(context: common.Context, categoryId: number): Promise&lt;vo
  
 **错误码：**
  
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -675,6 +701,8 @@ addQuickBarGroup(context: common.Context, group: QuickBarGroup): Promise&lt;void
  
 增加快捷栏分组。增加分组后才能设置分组的窗口信息。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.1.0(23)
@@ -696,7 +724,7 @@ addQuickBarGroup(context: common.Context, group: QuickBarGroup): Promise&lt;void
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -744,6 +772,8 @@ deleteQuickBarGroup(context: common.Context, groupKey: string): Promise&lt;void&
  
 删除快捷栏分组。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.1.0(23)
@@ -765,7 +795,7 @@ deleteQuickBarGroup(context: common.Context, groupKey: string): Promise&lt;void&
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -801,6 +831,8 @@ getQuickBarGroups(context: common.Context): Promise<QuickBarGroup[]>
  
 获取所有分组信息。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.1.0(23)
@@ -821,7 +853,7 @@ getQuickBarGroups(context: common.Context): Promise<QuickBarGroup[]>
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -857,6 +889,8 @@ setWindowToGroup(context: common.Context, windowid: string, groupKey?: string): 
  
 设置分组的窗口信息。使用promise异步回调。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **系统能力：** SystemCapability.PCService.QuickBarManager
  
 **起始版本：** 6.1.0(23)
@@ -879,7 +913,7 @@ setWindowToGroup(context: common.Context, windowid: string, groupKey?: string): 
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/statusbar-extension-error-code)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-statusbar-extension)。
   
 | 错误码ID | 错误信息 |
 | --- | --- |

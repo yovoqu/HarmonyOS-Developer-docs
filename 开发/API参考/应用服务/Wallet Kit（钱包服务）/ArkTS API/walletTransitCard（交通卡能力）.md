@@ -1,6 +1,6 @@
 # walletTransitCard（交通卡能力）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-wallettransitcard
 **支持设备：** Phone
@@ -26,6 +26,8 @@ import { walletTransitCard } from '@kit.WalletKit';
 
 钱包交通卡的功能入口类，与钱包卡券有关的所有方法从此处接入。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -41,6 +43,8 @@ import { walletTransitCard } from '@kit.WalletKit';
 constructor(context: common.UIAbilityContext, callerId: string)
  
 构造函数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
@@ -87,6 +91,8 @@ getCardMetadataInDevice(specifiedDeviceType: DeviceType, callerToken?: string): 
  
 不支持多线程调用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -110,7 +116,7 @@ getCardMetadataInDevice(specifiedDeviceType: DeviceType, callerToken?: string): 
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -166,6 +172,8 @@ getTransitCardInfo(logicalCardNumber: string, specifiedDeviceId: string, callerT
  
 不支持多线程调用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -190,7 +198,7 @@ getTransitCardInfo(logicalCardNumber: string, specifiedDeviceId: string, callerT
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -253,6 +261,8 @@ canAddTransitCard(issuerId: string, specifiedDeviceId: string): Promise&lt;strin
  
 不支持多线程调用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -276,7 +286,7 @@ canAddTransitCard(issuerId: string, specifiedDeviceId: string): Promise&lt;strin
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -342,6 +352,8 @@ setupWalletEnvironment(): Promise&lt;void&gt;
  
 不支持多线程调用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -357,7 +369,7 @@ setupWalletEnvironment(): Promise&lt;void&gt;
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -408,6 +420,8 @@ addTransitCard(addCardOpaqueData: string, serverOrderId: string): Promise&lt;Car
  
 不支持多线程调用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -431,7 +445,7 @@ addTransitCard(addCardOpaqueData: string, serverOrderId: string): Promise&lt;Car
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -491,6 +505,8 @@ rechargeTransitCard(logicalCardNumber: string, specifiedDeviceId: string, server
  
 不支持多线程调用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -515,7 +531,7 @@ rechargeTransitCard(logicalCardNumber: string, specifiedDeviceId: string, server
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -579,6 +595,8 @@ updateTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOr
  
 不支持多线程调用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -603,7 +621,7 @@ updateTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOr
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -667,6 +685,8 @@ deleteTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOr
  
 不支持多线程调用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -691,7 +711,7 @@ deleteTransitCard(logicalCardNumber: string, specifiedDeviceId: string, serverOr
  
 **错误码：**
  
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/wallet-error-code)
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-wallet)
   
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -747,6 +767,8 @@ struct Index {
 
 描述卡的元数据信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -770,6 +792,8 @@ struct Index {
 
 设备的接口和设备支持的卡元数据。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -792,6 +816,8 @@ struct Index {
 
 交通卡信息。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Payment.Wallet
@@ -811,6 +837,8 @@ struct Index {
 **支持设备：** Phone
 
 设备类型的枚举。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.0(12)开始，该接口支持在元服务中使用。
  

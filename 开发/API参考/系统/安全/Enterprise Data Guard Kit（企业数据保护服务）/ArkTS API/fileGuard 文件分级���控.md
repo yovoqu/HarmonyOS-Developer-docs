@@ -1,6 +1,6 @@
 # fileGuard (文件分级管控)
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-fileguard
 **支持设备：** PC/2in1
@@ -28,6 +28,8 @@ import { fileGuard } from '@kit.EnterpriseDataGuardKit';
 
 公共目录扫描类型枚举。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.PCService.FileGuard
 
 **起始版本：** 4.0.0(10)
@@ -45,6 +47,8 @@ import { fileGuard } from '@kit.EnterpriseDataGuardKit';
 **支持设备：** PC/2in1
 
 文件安全等级枚举。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.PCService.FileGuard
 
@@ -108,6 +112,8 @@ HDC认证的设备类型枚举。
 
 表示文件路径信息。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.PCService.FileGuard
 
 **起始版本：** 4.0.0(10)
@@ -125,6 +131,8 @@ HDC认证的设备类型枚举。
 **支持设备：** PC/2in1
 
 表示文件的标签属性信息。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.PCService.FileGuard
 
@@ -144,6 +152,8 @@ HDC认证的设备类型枚举。
 
 表示扫描结果回调类。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.PCService.FileGuard
 
 **起始版本：** 4.0.0(10)
@@ -157,6 +167,8 @@ HDC认证的设备类型枚举。
 onReceiveFileList(files: Array&lt;string&gt;): void
 
 文件目录扫描结果回调函数。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.PCService.FileGuard
 
@@ -189,6 +201,8 @@ onTaskCompleted(count: number): void
 
 文件目录扫描完成信息获取回调函数。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.PCService.FileGuard
 
 **起始版本：** 4.0.0(10)
@@ -216,6 +230,8 @@ let onTaskCompleted: (count: number) => void = (count: number) => {
 
 FileGuard类提供了文件分级管控相关接口，包括如下功能：文件目录扫描、标注文件扩展属性、下发文件管控策略等。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **系统能力：** SystemCapability.PCService.FileGuard
 
 **起始版本：** 4.0.0(10)
@@ -229,6 +245,8 @@ FileGuard类提供了文件分级管控相关接口，包括如下功能：文�
 constructor()
 
 创建FileGuard对象。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **系统能力：** SystemCapability.PCService.FileGuard
 
@@ -249,6 +267,8 @@ let guard: fileGuard.FileGuard = new fileGuard.FileGuard();
 startFileScanTask(type: CommonDirScanType, callback: ScanFileCallback, batchNum?: number): void
 
 启动公共目录文件扫描任务。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -309,6 +329,8 @@ guard.startFileScanTask(fileGuard.CommonDirScanType.MEDIA_ONLY, scanFileCallback
 startFileScanTask(path: string, callback: ScanFileCallback, batchNum?: number): void
 
 启动指定目录文件扫描任务。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -371,6 +393,8 @@ openFile(path: string, callback: AsyncCallback&lt;number&gt;): void
 
 打开文件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -421,6 +445,8 @@ guard.openFile(path, (err: BusinessError, fd: number) => {
 openFile(path: string): Promise&lt;number&gt;
 
 打开文件。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -477,6 +503,8 @@ openFileWrite(path: string, callback: AsyncCallback&lt;number&gt;): void
 
 只写模式打开文件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -527,6 +555,8 @@ guard.openFileWrite(path, (err: BusinessError, fd: number) => {
 openFileWrite(path: string): Promise&lt;number&gt;
 
 只写模式打开文件。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -583,6 +613,8 @@ setFileTag(path: string, level: SecurityLevel, tag: string, callback: AsyncCallb
 
 设置文件属性标签。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -636,6 +668,8 @@ guard.setFileTag(path, fileGuard.SecurityLevel.EXTERNAL, tag, (err: BusinessErro
 setFileTag(path: string, level: SecurityLevel, tag: string): Promise&lt;void&gt;
 
 设置文件属性标签。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -714,7 +748,7 @@ setFileCustomTag(path: string, tagList: Array&lt;string&gt;, callback: AsyncCall
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -776,7 +810,7 @@ setFileCustomTag(path: string, tagList: Array&lt;string&gt;): Promise&lt;void&gt
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -830,7 +864,7 @@ unsetFileCustomTag(path: string, tagList: Array&lt;string&gt;, callback: AsyncCa
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -892,7 +926,7 @@ unsetFileCustomTag(path: string, tagList: Array&lt;string&gt;): Promise&lt;void&
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -926,6 +960,8 @@ guard.unsetFileCustomTag(path, tagList).then(() => {
 queryFileTag(path: string, callback: AsyncCallback&lt;FileTagInfo&gt;): void
 
 获取文件属性标签。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -977,6 +1013,8 @@ guard.queryFileTag(path, (err: BusinessError, data: fileGuard.FileTagInfo) => {
 queryFileTag(path: string): Promise&lt;FileTagInfo&gt;
 
 获取文件属性标签。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -1033,6 +1071,8 @@ getFileUri(path: string, callback: AsyncCallback&lt;FilePathInfo&gt;): void
 
 获取文件URI。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -1083,6 +1123,8 @@ guard.getFileUri(path, (err: BusinessError, data: fileGuard.FilePathInfo) => {
 getFileUri(path: string): Promise&lt;FilePathInfo&gt;
 
 获取文件URI。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -1139,6 +1181,8 @@ deleteFile(path: string, callback: AsyncCallback&lt;void&gt;): void
 
 删除指定路径下的文件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -1189,6 +1233,8 @@ guard.deleteFile(path, (err: BusinessError) => {
 deleteFile(path: string): Promise&lt;void&gt;
 
 删除指定路径下的文件。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -1244,6 +1290,8 @@ guard.deleteFile(path).then(() => {
 updatePolicy(policy: string, callback: AsyncCallback&lt;void&gt;): void
 
 更新安全管控策略。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.SET_FILE_GUARD_POLICY
 
@@ -1363,6 +1411,8 @@ updatePolicy(policy: string): Promise&lt;void&gt;
 
 更新安全管控策略。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.SET_FILE_GUARD_POLICY
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -1477,6 +1527,67 @@ async function updatePolicy() {
 
 
 
+#### getPolicy
+
+**支持设备：** PC/2in1
+
+getPolicy(): Promise<string | null>
+
+获取当前设备生效的管控策略内容。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**需要权限：** ohos.permission.SET_FILE_GUARD_POLICY
+
+**系统能力：** SystemCapability.PCService.FileGuard
+
+**起始版本：** 26.0.0
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise<string \| null> | Promise对象，返回当前设备生效的管控策略内容，当没有策略时返回空。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 1001700001 | Internal error. |
+
+
+**示例：**
+
+```text
+import { BusinessError } from '@kit.BasicServicesKit';
+import { fileGuard } from '@kit.EnterpriseDataGuardKit';
+
+let guard: fileGuard.FileGuard = new fileGuard.FileGuard();
+guard.getPolicy().then((policy: string | null) => {
+  if (policy === null) {
+    console.info(`The obtained policy is null.`);
+    return;
+  }
+  console.info(`Succeeded in getting policy. policy length: ${policy.length}`);
+  // 返回字符串较长，分次打印
+  let len: number = 2000; // 每次打印2000字符
+  let totalLen: number = policy.length;
+  for (let i: number = 0; i < totalLen; i += len) {
+    let end: number = Math.min(i + len, totalLen);
+    let item: string = policy.substring(i, end);
+    console.info(`policy: ${item}`);
+  }
+}).catch((err: BusinessError) => {
+  console.error(`Failed to get policy. Code: ${err.code}, message: ${err.message}.`);
+});
+```
+
+
+
 #### setKiaFilelist
 
 **支持设备：** PC/2in1
@@ -1484,6 +1595,8 @@ async function updatePolicy() {
 setKiaFilelist(filelist: string, callback: AsyncCallback&lt;void&gt;): void
 
 设置KIA文件列表。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -1548,6 +1661,8 @@ setKiaFilelist(filelist: string): Promise&lt;void&gt;
 
 设置KIA文件列表。使用Promise异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -1607,6 +1722,64 @@ async function setKiaFilelist() {
 
 
 
+#### isKia
+
+**支持设备：** PC/2in1
+
+isKia(path: string): boolean
+
+检查文件或文件夹是否为KIA。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
+
+**需要权限：** ohos.permission.FILE_GUARD_MANAGER
+
+**系统能力：** SystemCapability.PCService.FileGuard
+
+**起始版本：** 26.0.0
+
+**参数：**
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| path | string | 是 | 文件路径，字符串长度不超过4096。 |
+
+
+**返回值：**
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 布尔值，返回true表示该文件或文件夹是KIA，否则返回false。 |
+
+
+**错误码：**
+
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
+
+| 错误码ID | 错误信息 |
+| --- | --- |
+| 201 | Permission denied. |
+| 1001700001 | Internal error. |
+| 1001700103 | The path is not exist. |
+
+
+**示例：**
+
+```text
+import { fileGuard } from '@kit.EnterpriseDataGuardKit';
+
+try {
+  let guard: fileGuard.FileGuard = new fileGuard.FileGuard();
+  let path: string = '/data/service/el2/account_id/hmdfs/account/files/Docs/Documents/1.txt';
+  let isKIA: boolean = guard.isKia(path);
+  console.info(`Succeeded in determining whether the file is a KIA file. isKIA: ${isKIA}`);
+} catch (e) {
+  console.error(`Failed to determine whether the file is a KIA file. Code: ${e.code}, message: ${e.message}.`);
+}
+```
+
+
+
 #### on('kiaCopy')
 
 **支持设备：** PC/2in1
@@ -1614,6 +1787,8 @@ async function setKiaFilelist() {
 on(type: 'kiaCopy', callback: Callback&lt;string&gt;): void
 
 订阅KIA文件拷贝事件。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -1667,6 +1842,8 @@ off(type: 'kiaCopy', callback?: Callback&lt;string&gt;): void
 
 取消订阅KIA文件拷贝事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -1718,6 +1895,8 @@ try {
 on(type: 'kiaRename', callback: Callback&lt;string&gt;): void
 
 订阅KIA文件重命名事件。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -1771,6 +1950,8 @@ off(type: 'kiaRename', callback?: Callback&lt;string&gt;): void
 
 取消订阅KIA文件重命名事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -1822,6 +2003,8 @@ try {
 on(type: 'kiaCompress', callback: Callback&lt;string&gt;): void
 
 订阅KIA文件压缩事件。使用callback异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
@@ -1875,6 +2058,8 @@ off(type: 'kiaCompress', callback?: Callback&lt;string&gt;): void
 
 取消订阅KIA文件压缩事件。使用callback异步回调。
 
+**模型约束：** 此接口仅可在Stage模型下使用。
+
 **需要权限：** ohos.permission.FILE_GUARD_MANAGER
 
 **系统能力：** SystemCapability.PCService.FileGuard
@@ -1926,6 +2111,8 @@ try {
 setKiaWatermarkImage(image: Uint8Array, info: string): Promise&lt;void&gt;
 
 设置KIA文件水印图片。使用Promise异步回调。
+
+**模型约束：** 此接口仅可在Stage模型下使用。
 
 **需要权限：** ohos.permission.SET_FILE_GUARD_POLICY
 
@@ -2022,7 +2209,7 @@ addUnrestrictedApplicationList(appIds: Array&lt;string&gt;, userId?: number): Pr
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2096,7 +2283,7 @@ removeUnrestrictedApplicationList(appIds: Array&lt;string&gt;, userId?: number):
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2168,7 +2355,7 @@ getUnrestrictedApplicationList(userId?: number): Promise<Array&lt;string&gt;>
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2236,7 +2423,7 @@ setHdcAuthenticationKey(devType: AuthenticateDeviceType, keyType: AuthenticateKe
 
 **错误码：**
 
-以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[ArkTS API 错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/dataguard-error-code)。
+以下错误码的详细介绍请参见[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)和[企业数据保护服务错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-enterprise-dataguard)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

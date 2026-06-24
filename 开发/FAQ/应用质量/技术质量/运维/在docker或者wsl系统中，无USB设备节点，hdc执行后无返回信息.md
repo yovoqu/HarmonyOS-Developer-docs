@@ -1,6 +1,6 @@
 # 在docker或者wsl系统中，无USB设备节点，hdc执行后无返回信息
 
-更新时间：2026-03-17 00:56:02
+更新时间：2026-06-15 08:32:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-66
 

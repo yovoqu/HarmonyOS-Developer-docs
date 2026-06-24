@@ -1,6 +1,6 @@
 # 状态管理V1和V2混用指导（API version 19及之后）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-v1-v2-mixusage
 
@@ -127,7 +127,7 @@ arr.push(UIUtils.makeV1Observed(new ArrayItem())); // 新增数据是V1的状态
 开发者在使用这两个接口混用V1V2时，可遵循下图逻辑。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f1/v3/bfaUZCUCR2iMHLmNcQpLBQ/zh-cn_image_0000002581433690.png?HW-CC-KV=V1&HW-CC-Date=20260528T030450Z&HW-CC-Expire=86400&HW-CC-Sign=7600904E3C17CBDFA6666BC3711338FDD85489A95E52669AC885550A5AB601B2)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/d/v3/P8cAt0QwRyu1UlvROQgJ-w/zh-cn_image_0000002626228096.png?HW-CC-KV=V1&HW-CC-Date=20260624T020747Z&HW-CC-Expire=86400&HW-CC-Sign=988514BF791985154D8FC9F2B4ED5E4749DDDEFCBF710E93C2487015649DDE05)
 
 
 

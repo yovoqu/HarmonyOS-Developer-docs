@@ -1,6 +1,6 @@
 # Ability Kit简介
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/abilitykit-overview
 
@@ -39,35 +39,58 @@ Ability Kit（程序框架服务）提供了应用程序开发和运行的应用
   从架构设计层面，规范开发者编写业务逻辑和UI交互分离的开发方式。
 
   
-从业务逻辑层到UI：开发者在Ability中完成核心业务逻辑，将数据通过绑定机制传递至UI框架。ArkUI基于声明式语法自动渲染视图，并在状态变更时触发UI更新。
+ - 从业务逻辑层到UI：开发者在Ability中完成核心业务逻辑，将数据通过绑定机制传递至UI框架。ArkUI基于声明式语法自动渲染视图，并在状态变更时触发UI更新。
+
 2. 从UI到业务逻辑层：通过捕获用户在UI交互中的输入后，通过事件回调或状态绑定机制，将用户行为产生的数据反向同步至Ability框架。
+
 3. **支持应用组件级的跨端迁移和多端协同**
 
   [Stage模型](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ability-terminology#stage模型)实现了应用组件与UI解耦。
 
   
 在跨端迁移场景下，系统在多设备的应用组件之间迁移数据/状态后，UI便可利用ArkUI的声明式特点，通过应用组件中保存的数据/状态恢复用户界面，便捷实现跨端迁移。
+
 4. 在多端协同场景下，应用组件具备组件间通信的RPC调用能力，天然支持跨设备应用组件的交互。
+
 5. **支持多设备和多窗口形态**
 
   应用组件管理和窗口管理在架构层面解耦。
 
   
 便于系统对应用组件进行裁剪（无屏设备可裁剪窗口）。
+
 6. 便于系统扩展窗口形态。
+
 7. 在多设备（如桌面设备和移动设备）上，应用组件可使用同一套生命周期。
+
 8. **平衡应用能力和系统管控成本**
 
   Stage模型重新定义应用能力的边界，平衡应用能力和系统管控成本。
 
   
 提供特定场景（如服务卡片、输入法）的应用组件，以便满足更多的使用场景。
+
 9. 规范化后台进程管理：为保障用户体验，Stage模型对后台应用进程进行了有序治理，应用程序不能随意驻留在后台，同时应用后台行为受到严格管理，防止恶意应用行为。
 
+  
 
+  #### 与相关Kit的关系
 
-#### 与相关Kit的关系
+  ArkUI：在Ability Kit的UIAbility组件中，可以使用ArkUI提供的组件、事件、动效、状态管理等能力。
 
-ArkUI：在Ability Kit的UIAbility组件中，可以使用ArkUI提供的组件、事件、动效、状态管理等能力。
+  ArkTS：ArkTS提供了语言运行时相关能力。
 
-ArkTS：ArkTS提供了语言运行时相关能力。
+  
+
+  #### 模拟器支持情况
+
+  本Kit支持模拟器开发，但与真机存在部分能力差异，具体如下：
+
+  
+不支持拉起垂类应用面板。
+ - 不支持以免安装方式拉起元服务。
+ - 不支持使用App Linking实现应用间跳转。
+ - 不支持使用Deep Linking拉起应用选择框。由于模拟器无应用选择框，当使用Deep Linking匹配到多个应用时，无法弹出应用选择框。
+ - 模拟器上支持安装未经签名的应用，同时针对使用[受限开放的权限](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/restricted-permissions)，将自动放行，不会进行权限授权校验。而真机上会对应用签名与权限授权状态进行校验。
+ - 不支持安装签名Profile类型为[发布](https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-profile-0000002248341090)的应用。
+ - 在基于NDK开发的应用中，如果应用依赖的动态链接库（.so文件）与模拟器的CPU架构不兼容，模拟器将不支持该应用安装，详情请参考[HarmonyOS ABI](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ohos-abi)。

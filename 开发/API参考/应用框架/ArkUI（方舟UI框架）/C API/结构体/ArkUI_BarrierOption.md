@@ -1,6 +1,6 @@
 # ArkUI_BarrierOption
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-16 09:03:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-arkui-nativemodule-arkui-barrieroption
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -14,7 +14,7 @@ typedef struct ArkUI_BarrierOption ArkUI_BarrierOption
 
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-barrier参数，用于定义barrier的id、方向和生成时所依赖的组件。
+barrier选项，用于定义barrier的id、方向和生成时所依赖的组件。
  
 **起始版本：** 12
  

@@ -1,6 +1,6 @@
 # SSAP服务端
 
-更新时间：2026-05-19 09:13:51
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/nearlink-ssap-server-connect
 
@@ -27,10 +27,10 @@
 | --- | --- |
 | createServer(): Server | 创建ssap服务端实例。 |
 | addService(service: Service): void | 服务端添加服务。 |
-| on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void | 订阅连接状态变化事件。 |
-| on(type: 'propertyRead', callback: Callback&lt;PropertyReadRequest&gt;): void | 订阅客户端的读属性请求事件。 |
+| on(type: 'connectionStateChange', callback: Callback&lt;ConnectionChangeState&gt;): void | 订阅连接状态变化事件。使用callback异步回调。 |
+| on(type: 'propertyRead', callback: Callback&lt;PropertyReadRequest&gt;): void | 订阅客户端的读属性请求事件。使用callback异步回调。 |
 | sendResponse(response: ServerResponse): void | 回复客户端读/写请求。 |
-| notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt; | 通知客户端属性值更新。 |
+| notifyPropertyChanged(address: string, property: Property): Promise&lt;void&gt; | 通知客户端属性值更新。使用Promise异步回调。 |
 
 
 
@@ -114,7 +114,7 @@ try {
 ```json
 let onReceiveConnectionChangeEvent:(data: ssap.ConnectionChangeState) => void = (data: ssap.ConnectionChangeState) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 try {
   server.on('connectionStateChange', onReceiveConnectionChangeEvent);
 } catch (err) {
@@ -128,7 +128,7 @@ try {
 ```json
 let onReceivePropertyReadEvent:(data: ssap.PropertyReadRequest) => void = (data: ssap.PropertyReadRequest) => {
   console.info('data:' + JSON.stringify(data));
-}
+};
 try {
   server.on('propertyRead', onReceivePropertyReadEvent);
 } catch (err) {

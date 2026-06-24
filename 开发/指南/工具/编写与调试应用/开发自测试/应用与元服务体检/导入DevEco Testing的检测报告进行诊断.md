@@ -1,6 +1,6 @@
 # 导入DevEco Testing的检测报告进行诊断
 
-更新时间：2026-04-30 02:42:31
+更新时间：2026-06-15 08:14:01
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-app-analyzer-testing
 
@@ -9,7 +9,7 @@
 
 #### 前置操作
 
-体检前，请先在DevEco Testing中测试并导出检测报告，具体操作方式请参考[性能基础质量测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing#section12324184817324)或[场景化性能测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/specialized-testing#section8642101711299)。
+体检前，请先在DevEco Testing中测试并导出检测报告，具体操作方式请参考[性能基础质量测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-testing#section12324184817324)或[场景化性能测试](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/performance-testing#section8642101711299)。
  
  
 
@@ -22,7 +22,7 @@
  
 
 #### DevEco Studio 6.0.1 Beta1及以上版本
-1. 点击菜单栏**Tools > ****AppAnalyzer**，打开AppAnalyzer页面，点击底部**体检历史**按钮，点击右上角的**导入报告**按钮，根据界面提示，确保即将导入的检测报告满足相关要求。
+1. 点击菜单栏**Tools > ****AppAnalyzer**，打开AppAnalyzer页面，点击底部**History**，点击右上角的**Import > Testing Report**，根据界面提示，确保即将导入的检测报告满足相关要求。
 ![](assets/导入DevEco%20Testing的检测报告进行诊断/file-20260514133045844-1.png)
 
 2. 选择从DevEco Testing导出的报告（zip文件），点击**OK**后，等待AppAnalyzer导入数据并对问题进行诊断分析。AppAnalyzer仅支持对DevEco Testing中的部分指标进行诊断，具体请参考[检测指标](#section16156317171913)。

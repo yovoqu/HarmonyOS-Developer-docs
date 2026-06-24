@@ -1,6 +1,6 @@
 # 使用HiLog打印日志是否有长度限制
 
-更新时间：2026-05-22 09:48:01
+更新时间：2026-06-15 08:32:00
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-faqs/faqs-performance-analysis-kit-58
 

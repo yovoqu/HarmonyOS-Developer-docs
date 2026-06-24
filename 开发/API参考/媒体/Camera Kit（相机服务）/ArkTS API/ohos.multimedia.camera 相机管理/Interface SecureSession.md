@@ -1,6 +1,6 @@
 # Interface (SecureSession)
 
-更新时间：2026-04-30 02:41:24
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/arkts-apis-camera-securesession
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -53,6 +53,7 @@ addSecureOutput(previewOutput: PreviewOutput): void
 | --- | --- |
 | 7400101 | Parameter missing or parameter type incorrect. |
 | 7400102 | Operation not allowed. |
+| 7400103 | Session not config. 适用版本：12-17 |
 
 
 **示例：**

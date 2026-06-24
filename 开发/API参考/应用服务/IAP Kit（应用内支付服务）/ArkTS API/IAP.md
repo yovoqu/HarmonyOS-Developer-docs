@@ -1,6 +1,6 @@
 # IAP
 
-更新时间：2026-06-03 01:38:22
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-iap
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -260,7 +260,7 @@ queryEnvironmentStatus(context: common.Context): Promise&lt;void&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -327,7 +327,7 @@ queryEnvironmentStatus(context: common.Context, callback: AsyncCallback&lt;void&
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -402,7 +402,7 @@ queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParamete
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -478,7 +478,7 @@ queryProducts(context: common.UIAbilityContext, parameter: QueryProductsParamete
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -564,7 +564,7 @@ queryProducts(context: common.UIAbilityContext, productIds: string[]): Promise<A
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -644,7 +644,7 @@ purchase(context: common.UIAbilityContext, parameter: PurchaseParameter): Promis
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -726,7 +726,7 @@ purchase(context: common.UIAbilityContext, parameter: PurchaseParameter, callbac
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -814,7 +814,7 @@ createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter): 
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -897,7 +897,7 @@ createPurchase(context: common.UIAbilityContext, parameter: PurchaseParameter, c
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -990,7 +990,7 @@ consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchasePara
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1065,7 +1065,7 @@ consumePurchase(context: common.UIAbilityContext, parameter: ConsumePurchasePara
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1146,7 +1146,7 @@ finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParame
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1222,7 +1222,7 @@ finishPurchase(context: common.UIAbilityContext, parameter: FinishPurchaseParame
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1316,7 +1316,7 @@ queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesP
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1396,7 +1396,7 @@ queryOwnedPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesP
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1478,7 +1478,7 @@ queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchases
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1548,7 +1548,7 @@ queryPurchaseRecords(context: common.UIAbilityContext, parameter: QueryPurchases
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1630,7 +1630,7 @@ queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParame
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1705,7 +1705,7 @@ queryPurchases(context: common.UIAbilityContext, parameter: QueryPurchasesParame
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1765,7 +1765,7 @@ showManagedSubscriptions(context: common.Context, uiParameter: UIWindowParameter
 
 **系统能力：** SystemCapability.Payment.IAP
 
-**设备行为差异：** 该接口在Phone、Tablet、2in1、TV设备中可正常调用，在其他设备中返回801错误码。
+**设备行为差异：** 该接口在Phone、Tablet、2in1、TV、Car设备中可正常调用，在其他设备中返回801错误码。
 
 **起始版本：** 5.0.0(12)
 
@@ -1787,7 +1787,7 @@ showManagedSubscriptions(context: common.Context, uiParameter: UIWindowParameter
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1863,7 +1863,7 @@ isSandboxActivated(context: common.Context): Promise&lt;boolean&gt;
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -1940,7 +1940,7 @@ createRefundRequest(context: common.Context, purchaseOrderId: string): Promise&l
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |
@@ -2025,7 +2025,7 @@ showManagedInvoices(context: common.Context, purchaseOrderId: string): Promise&l
 
 **错误码**：
 
-以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-error-code)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
+以下错误码的详细介绍请参见[ArkTS API错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-iap)和[通用错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-universal)。
 
 | 错误码ID | 错误信息 |
 | --- | --- |

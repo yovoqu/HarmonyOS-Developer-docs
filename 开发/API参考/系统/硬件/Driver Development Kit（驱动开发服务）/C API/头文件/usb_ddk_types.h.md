@@ -1,6 +1,6 @@
 # usb_ddk_types.h
 
-更新时间：2026-04-30 09:02:20
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-usb-ddk-types-h
 **支持设备：** PC/2in1
@@ -47,6 +47,7 @@
 | UsbRequestPipe | UsbRequestPipe | 请求管道。 |
 | UsbDeviceMemMap | UsbDeviceMemMap | 设备内存映射，通过OH_Usb_CreateDeviceMemMap创建设备内存映射，使用内存映射后的缓冲区，获得更好的性能。 |
 | Usb_DeviceArray | Usb_DeviceArray | 设备ID清单，用于存放OH_Usb_GetDevices接口获取到的设备ID列表和设备数量。 |
+| Usb_NonRootHubArray | Usb_NonRootHubArray | 非根hub列表，用于存放OH_Usb_GetNonRootHubs接口获取到的非根hub设备ID列表和数量。 |
  
  
   

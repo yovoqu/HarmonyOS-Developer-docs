@@ -1,6 +1,6 @@
 # readerCore（阅读核心能力）
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-read-core
 **支持设备：** Phone | PC/2in1 | Tablet
@@ -26,6 +26,8 @@ import { readerCore } from '@kit.ReaderKit';
 
 页面数据基础类。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
@@ -47,6 +49,8 @@ import { readerCore } from '@kit.ReaderKit';
 constructor(nodeType: string, nodeDataId: string)
  
 页面数据构造函数。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
@@ -70,6 +74,8 @@ constructor(nodeType: string, nodeDataId: string)
 
 页面状态。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
@@ -91,6 +97,8 @@ constructor(nodeType: string, nodeDataId: string)
 **支持设备：** Phone | PC/2in1 | Tablet
 
 内容分页信息，继承[PageDatabaseBean](#pagedatabasebean)。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
@@ -121,6 +129,8 @@ constructor(nodeType: string, nodeId: string)
  
 内容分页信息构造函数。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
@@ -140,6 +150,8 @@ constructor(nodeType: string, nodeId: string)
 **支持设备：** Phone | PC/2in1 | Tablet
 
 页面排版属性。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
@@ -172,6 +184,8 @@ constructor(nodeType: string, nodeId: string)
 
 [ReadPageComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-api-readpagecomponent#readpagecomponent)组件控制器，需要配合ReadPageComponent组件一起使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
@@ -191,6 +205,8 @@ init(context: common.UIAbilityContext): Promise&lt;void&gt;
 > [!NOTE]
 > 在集成ReaderComponentController时，初始化接口一定要优先于controller的其他接口之前执行。
 
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
@@ -270,6 +286,8 @@ registerBookParser(bookParserHandler: bookParser.BookParserHandler): void
 > registerBookParser接口需要在 startPlay 接口之前调用。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
@@ -342,6 +360,8 @@ struct Reader {
 setPageConfig(pageConfig: ReaderSetting): void
  
 设置或者修改页面排版属性。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
@@ -435,6 +455,8 @@ startPlay(spineIndex: number, domPos: string): Promise&lt;void&gt;
 > startPlay接口需在 registerBookParser 事件成功触发后，才能调用。
 
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
@@ -525,6 +547,8 @@ flipPage(isNext: boolean): void
  
 触发[ReadPageComponent](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/reader-api-readpagecomponent#readpagecomponent)组件进行翻页。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
@@ -596,6 +620,8 @@ releaseBook(): void
  
 释放书籍资源，在退出阅读器等释放资源场景时使用。
  
+**模型约束：** 此接口仅可在Stage模型下使用。
+ 
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
 **系统能力：** SystemCapability.Reader.ReaderService.ReaderCore
@@ -649,6 +675,8 @@ struct Reader {
 on(type: 'pageShow', callback: Callback&lt;PageDataInfo&gt;): void
  
 注册页面展示的通知服务，该通知在页面排版成功展示后触发。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
@@ -713,6 +741,8 @@ struct Reader {
 off(type: 'pageShow', callback?: Callback&lt;PageDataInfo&gt;): void
  
 注销章节内容分页展示结果回调，可在页面销毁时调用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
@@ -779,6 +809,8 @@ on(type: 'resourceRequest', callback: bookParser.CallbackRes<string, ArrayBuffer
 > [!NOTE]
 > 注册多个资源请求回调时，只会生效最后一个。
 
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  
@@ -864,6 +896,8 @@ struct Reader {
 off(type: 'resourceRequest', callback?: bookParser.CallbackRes<string, ArrayBuffer>): void
  
 注销资源请求回调接口，可在页面销毁时调用。
+ 
+**模型约束：** 此接口仅可在Stage模型下使用。
  
 **元服务API：** 从版本5.0.4(16)开始，该接口支持在元服务中使用。
  

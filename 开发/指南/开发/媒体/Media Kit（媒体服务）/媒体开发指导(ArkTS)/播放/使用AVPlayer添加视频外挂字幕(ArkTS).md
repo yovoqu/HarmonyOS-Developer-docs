@@ -1,6 +1,6 @@
 # 使用AVPlayer添加视频外挂字幕(ArkTS)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/video-subtitle
 
@@ -80,21 +80,21 @@ import { media } from '@kit.MediaKit';
   
 ```ArkTS
 AVPlayerArkTSSubtitle
-entry/src/main/ets/
-└── pages
-    └── Index.ets (播放界面)
-entry/src/main/resources/
-├── base
-│   ├── element
-│   │   ├── color.json
-│   │   ├── float.json
-│   │   └── string.json
-│   └── media
-│       ├── ic_video_play.svg  (播放键图片资源)
-│       └── ic_video_pause.svg (暂停键图片资源)
-└── rawfile
-    ├── test1.mp4 （视频资源）
-    └── test1.srt （字幕资源）
+ entry/src/main/ets/
+ └── pages
+     └── Index.ets (播放界面)
+ entry/src/main/resources/
+ ├── base
+ │   ├── element
+ │   │   ├── color.json
+ │   │   ├── float.json
+ │   │   └── string.json
+ │   └── media
+ │       ├── ic_video_play.svg  (播放键图片资源)
+ │       └── ic_video_pause.svg (暂停键图片资源)
+ └── rawfile
+     ├── test1.mp4 （视频资源）
+     └── test1.srt （字幕资源）
 ```
 
 2. 编译新建工程并运行。

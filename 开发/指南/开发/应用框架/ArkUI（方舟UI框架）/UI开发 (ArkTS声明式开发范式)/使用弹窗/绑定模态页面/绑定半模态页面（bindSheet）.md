@@ -1,6 +1,6 @@
 # 绑定半模态页面（bindSheet）
 
-更新时间：2026-05-26 06:48:54
+更新时间：2026-06-12 06:54:11
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-sheet-page
 
@@ -320,4 +320,4 @@ struct SheetTransitionExample {
 ```
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/24/v3/YL_-vyuZT5-X66aMuN6rYg/zh-cn_image_0000002611833817.png?HW-CC-KV=V1&HW-CC-Date=20260528T030441Z&HW-CC-Expire=86400&HW-CC-Sign=89939AC7AC9A7BDCB261F90EBF04D5F5E847C055206C8925A65C0A06F2B19971)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/c8/v3/SodZBAfmTfaIvvCtREp87A/zh-cn_image_0000002656467789.png?HW-CC-KV=V1&HW-CC-Date=20260624T020754Z&HW-CC-Expire=86400&HW-CC-Sign=79D660A1A9C9D2264E7A54B86D3FC079C402CECF13AC5B986D243C8DA6E1B285)

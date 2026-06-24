@@ -1,6 +1,6 @@
 # @ohos.hiviewdfx.FaultLogExtensionAbility (故障延迟通知)
 
-更新时间：2026-03-09 02:50:43
+更新时间：2026-06-13 03:51:30
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-hiviewdfx-faultlogextensionability
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
@@ -35,7 +35,7 @@ import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
 应用接入故障延迟通知需要通过FaultLogExtensionAbility实现，开发者可以在[onFaultReportReady](#onfaultreportready)中订阅并处理故障事件。
 
 
-![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/f8/v3/SDqqCpDVQYGcFMEuBg7A9w/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260528T025205Z&HW-CC-Expire=86400&HW-CC-Sign=93385731EF02958121699D815BA2FC9950AE23D1F5B13509213F725456F7FBAC)
+![](https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_scene_100_1/42/v3/xgFG7fiuSa-kSuRQrs4A5Q/caution_3.0-zh-cn.png?HW-CC-KV=V1&HW-CC-Date=20260624T020201Z&HW-CC-Expire=86400&HW-CC-Sign=250F373AFA4B7BB2597EDDAF2C61C3B967FD833E2850ED9F2AC6AEA536196814)
 
 
  - FaultLogExtensionAbility被拉起后只有很短的时间完成故障处理，建议处理时间不要超过10秒。超时没有处理完成可以在[onDisconnect](#ondisconnect)中保存状态。

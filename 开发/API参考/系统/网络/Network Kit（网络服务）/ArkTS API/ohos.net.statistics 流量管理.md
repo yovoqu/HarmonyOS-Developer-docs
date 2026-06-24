@@ -1,11 +1,18 @@
 # @ohos.net.statistics (流量管理)
 
-更新时间：2026-04-20 06:34:33
+更新时间：2026-06-17 08:22:21
 
 来源：https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-net-statistics
 **支持设备：** Phone | PC/2in1 | Tablet | Wearable | TV
 
-流量管理模块提供获取指定网卡实时上行、下行流量等能力。
+流量管理模块提供获取设备网络流量数据的能力。该模块支持从多个维度查询数据包的流量使用情况，例如：
+
+ - 支持获取指定网卡的上/下行流量数据；
+ - 支持获取所有网卡的总流量数据，便于查看设备整体网络使用情况；
+ - 支持根据应用uid获取指定应用的流量数据，帮助开发者监控应用的网络资源消耗；
+ - 支持获取指定socket的流量统计，为细粒度的网络性能分析提供数据基础；
+ - 支持获取应用在指定时间段内的历史流量使用情况，便于分析应用的长期网络使用趋势。
+
 
 > [!NOTE]
 > 本模块首批接口从 API version 10 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -28,7 +35,7 @@ import { statistics } from '@kit.NetworkKit';
 
 getIfaceRxBytes(nic: string, callback: AsyncCallback&lt;number&gt;): void
 
-获取指定网卡实时下行流量，使用callback异步回调。
+获取指定网卡从最近一次开机开始至接口调用时刻的下行流量总和（单位：字节）。使用callback异步回调。
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -37,7 +44,7 @@ getIfaceRxBytes(nic: string, callback: AsyncCallback&lt;number&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | nic | string | 是 | 指定查询的网卡名。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取网卡实时下行流量时，error 为 undefined，stats 为获取到的网卡实时下行流量(单位:字节)；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取到流量数据时，error为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -61,8 +68,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
 statistics.getIfaceRxBytes("wlan0", (error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
-  console.info(JSON.stringify(stats));
+  if (error) {
+    console.error(`getIfaceRxBytes error, ${JSON.stringify(error)}`);
+    return;
+  }
+  console.info(`getIfaceRxBytes success, ${JSON.stringify(stats)}`);
 });
 ```
 
@@ -74,7 +84,7 @@ statistics.getIfaceRxBytes("wlan0", (error: BusinessError, stats: number) => {
 
 getIfaceRxBytes(nic: string): Promise&lt;number&gt;
 
-获取指定网卡实时下行流量，使用 Promise 异步回调。
+获取指定网卡从最近一次开机开始至接口调用时刻的下行流量总和（单位：字节）。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -89,7 +99,7 @@ getIfaceRxBytes(nic: string): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果。返回网卡实时下行流量(单位:字节)。 |
+| Promise&lt;number&gt; | Promise对象。返回指定网卡从最近一次开机开始到现在的下行流量总和（单位：字节）。 |
 
 
 **错误码：**
@@ -110,9 +120,12 @@ getIfaceRxBytes(nic: string): Promise&lt;number&gt;
 
 ```json
 import { statistics } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 statistics.getIfaceRxBytes("wlan0").then((stats: number) => {
   console.info(JSON.stringify(stats));
+}).catch((err: BusinessError) => {
+  console.error(JSON.stringify(err));
 });
 ```
 
@@ -124,7 +137,7 @@ statistics.getIfaceRxBytes("wlan0").then((stats: number) => {
 
 getIfaceTxBytes(nic: string, callback: AsyncCallback&lt;number&gt;): void
 
-获取指定网卡实时上行流量，使用 callback 异步回调。
+获取指定网卡从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。使用callback异步回调。
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -133,7 +146,7 @@ getIfaceTxBytes(nic: string, callback: AsyncCallback&lt;number&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | nic | string | 是 | 指定查询的网卡名。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取网卡实时上行流量时，error 为 undefined，stats 为获取到的网卡实时上行流量(单位:字节)；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取到流量数据时，error为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -157,8 +170,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
 statistics.getIfaceTxBytes("wlan0", (error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
-  console.info(JSON.stringify(stats));
+  if (error) {
+    console.error(`getIfaceTxBytes error, ${JSON.stringify(error)}`);
+    return;
+  }
+  console.info(`getIfaceTxBytes success, ${JSON.stringify(stats)}`);
 });
 ```
 
@@ -170,7 +186,7 @@ statistics.getIfaceTxBytes("wlan0", (error: BusinessError, stats: number) => {
 
 getIfaceTxBytes(nic: string): Promise&lt;number&gt;
 
-获取指定网卡实时上行流量，使用 Promise 异步回调。
+获取指定网卡从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。使用Promise异步回调。
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -185,7 +201,7 @@ getIfaceTxBytes(nic: string): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果。返回网卡实时上行流量(单位:字节)。 |
+| Promise&lt;number&gt; | Promise对象。返回指定网卡从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。 |
 
 
 **错误码：**
@@ -206,9 +222,12 @@ getIfaceTxBytes(nic: string): Promise&lt;number&gt;
 
 ```json
 import { statistics } from '@kit.NetworkKit';
+import { BusinessError } from '@kit.BasicServicesKit';
 
 statistics.getIfaceTxBytes("wlan0").then((stats: number) => {
-  console.info(JSON.stringify(stats));
+  console.info(`getIfaceTxBytes success, ${JSON.stringify(stats)}`);
+}).catch((err: BusinessError) => {
+   console.error(`getIfaceTxBytes error, ${JSON.stringify(err)}`);
 });
 ```
 
@@ -220,7 +239,11 @@ statistics.getIfaceTxBytes("wlan0").then((stats: number) => {
 
 getCellularRxBytes(callback: AsyncCallback&lt;number&gt;): void
 
-获取蜂窝实时下行流量，使用 callback 异步回调。
+获取当前已处于连接状态的蜂窝网络对应的网卡从最近一次开机开始至接口调用时刻的下行流量总和（单位：字节）。使用callback异步回调。
+
+> [!NOTE]
+> 本接口建议在蜂窝网络处于连接状态时调用，否则会抛出2103012错误码。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -228,7 +251,7 @@ getCellularRxBytes(callback: AsyncCallback&lt;number&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取蜂窝实时下行流量时，error 为 undefined，stats 为获取到的蜂窝实时下行流量(单位:字节)；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取到流量数据时，error为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -251,8 +274,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
 statistics.getCellularRxBytes((error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
-  console.info(JSON.stringify(stats));
+  if (error) {
+    console.error(`getCellularRxBytes error, ${JSON.stringify(error)}`);
+    return;
+  }
+  console.info(`getCellularRxBytes success, ${JSON.stringify(stats)}`);
 });
 ```
 
@@ -264,7 +290,11 @@ statistics.getCellularRxBytes((error: BusinessError, stats: number) => {
 
 getCellularRxBytes(): Promise&lt;number&gt;
 
-获取蜂窝实时下行流量，使用 Promise 异步回调。
+获取当前已处于连接状态的蜂窝网络对应的网卡从最近一次开机开始至接口调用时刻的下行流量总和（单位：字节）。使用Promise异步回调。
+
+> [!NOTE]
+> 本接口建议在蜂窝网络处于连接状态时调用，否则会抛出2103012错误码。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -272,7 +302,7 @@ getCellularRxBytes(): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果。返回蜂窝实时下行流量(单位:字节)。 |
+| Promise&lt;number&gt; | Promise对象。返回指定网卡从最近一次开机开始至接口调用时刻的下行流量总和（单位：字节）。 |
 
 
 **错误码：**
@@ -294,7 +324,9 @@ getCellularRxBytes(): Promise&lt;number&gt;
 import { statistics } from '@kit.NetworkKit';
 
 statistics.getCellularRxBytes().then((stats: number) => {
-  console.info(JSON.stringify(stats));
+  console.info('getCellularRxBytes success', JSON.stringify(stats));
+}).catch((error: Error) => {
+   console.error('getCellularRxBytes error', JSON.stringify(error));
 });
 ```
 
@@ -306,7 +338,11 @@ statistics.getCellularRxBytes().then((stats: number) => {
 
 getCellularTxBytes(callback: AsyncCallback&lt;number&gt;): void
 
-获取蜂窝实时上行流量，使用 callback 异步回调。
+获取当前已处于连接状态的蜂窝网络对应的网卡从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。使用callback异步回调。
+
+> [!NOTE]
+> 本接口建议在蜂窝网络处于连接状态时调用，否则会抛出2103012错误码。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -314,7 +350,7 @@ getCellularTxBytes(callback: AsyncCallback&lt;number&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取蜂窝实时上行流量时，error 为 undefined，stats 为获取到的蜂窝实时上行流量(单位:字节)；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取到流量数据时，error为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -337,8 +373,11 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
 statistics.getCellularTxBytes((error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
-  console.info(JSON.stringify(stats));
+   if (error) {
+    console.error(`getCellularTxBytes error, ${JSON.stringify(error)}`);
+    return;
+  }
+  console.info(`getCellularTxBytes success, ${JSON.stringify(stats)}`);
 });
 ```
 
@@ -350,7 +389,11 @@ statistics.getCellularTxBytes((error: BusinessError, stats: number) => {
 
 getCellularTxBytes(): Promise&lt;number&gt;
 
-获取蜂窝实时上行流量，使用 Promise 异步回调。
+获取当前已处于连接状态的蜂窝网络对应的网卡从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。使用Promise异步回调。
+
+> [!NOTE]
+> 本接口建议在蜂窝网络处于连接状态时调用，否则会抛出2103012错误码。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -358,7 +401,7 @@ getCellularTxBytes(): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果。返回蜂窝实时上行流量(单位:字节)。 |
+| Promise&lt;number&gt; | Promise对象。返回从最近一次开机开始到现在，蜂窝上所消耗的上行流量总和（单位：字节）。 |
 
 
 **错误码：**
@@ -380,7 +423,9 @@ getCellularTxBytes(): Promise&lt;number&gt;
 import { statistics } from '@kit.NetworkKit';
 
 statistics.getCellularTxBytes().then((stats: number) => {
-  console.info(JSON.stringify(stats));
+  console.info('getCellularTxBytes success', JSON.stringify(stats));
+}).catch((error: Error) => {
+   console.error('getCellularTxBytes error', JSON.stringify(error));
 });
 ```
 
@@ -392,7 +437,7 @@ statistics.getCellularTxBytes().then((stats: number) => {
 
 getAllRxBytes(callback: AsyncCallback&lt;number&gt;): void
 
-获取所有网卡实时下行流量，使用 callback 异步回调。
+获取所有网卡从最近一次开机开始至接口调用时刻的下行流量总和(单位:字节)。使用callback异步回调。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -402,7 +447,7 @@ getAllRxBytes(callback: AsyncCallback&lt;number&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取所有网卡实时下行流量，error 为 undefined，stats 为获取到的所有网卡实时下行流量(单位:字节)；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取到流量数据时，error为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -424,7 +469,10 @@ import { statistics } from '@kit.NetworkKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 
 statistics.getAllRxBytes((error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
+  if (error) {
+    console.error(JSON.stringify(error));
+    return;
+  }
   console.info(JSON.stringify(stats));
 });
 ```
@@ -437,7 +485,7 @@ statistics.getAllRxBytes((error: BusinessError, stats: number) => {
 
 getAllRxBytes(): Promise&lt;number&gt;
 
-获取所有网卡实时下行流量，使用 Promise 异步回调。
+获取所有网卡从最近一次开机开始至接口调用时刻的下行流量总和（单位：字节）。使用Promise异步回调。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -447,7 +495,7 @@ getAllRxBytes(): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果。返回所有网卡实时下行流量(单位:字节)。 |
+| Promise&lt;number&gt; | Promise对象。返回所有网卡从最近一次开机开始到现在的下行流量总和（单位：字节）。 |
 
 
 **错误码：**
@@ -468,7 +516,9 @@ getAllRxBytes(): Promise&lt;number&gt;
 import { statistics } from '@kit.NetworkKit';
 
 statistics.getAllRxBytes().then((stats: number) => {
-  console.info(JSON.stringify(stats));
+  console.info('getAllRxBytes success', JSON.stringify(stats));
+}).catch((error: Error) => {
+   console.error('getAllRxBytes error', JSON.stringify(error));
 });
 ```
 
@@ -480,7 +530,7 @@ statistics.getAllRxBytes().then((stats: number) => {
 
 getAllTxBytes(callback: AsyncCallback&lt;number&gt;): void
 
-获取所有网卡实时上行流量，使用 callback 异步回调。
+获取所有网卡从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。使用callback异步回调。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -490,7 +540,7 @@ getAllTxBytes(callback: AsyncCallback&lt;number&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取所有网卡实时上行流量，error 为 undefined，stats 为获取到的所有网卡实时上行流量(单位:字节)；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取到流量数据时，error为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -512,7 +562,10 @@ import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
 statistics.getAllTxBytes((error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
+  if (error) {
+    console.error(JSON.stringify(error));
+    return;
+  }
   console.info(JSON.stringify(stats));
 });
 ```
@@ -525,7 +578,7 @@ statistics.getAllTxBytes((error: BusinessError, stats: number) => {
 
 getAllTxBytes(): Promise&lt;number&gt;
 
-获取所有网卡实时上行流量，使用 Promise 异步回调。
+获取所有网卡从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。使用Promise异步回调。
 
 **元服务API：** 从API version 15开始，该接口支持在元服务中使用。
 
@@ -535,7 +588,7 @@ getAllTxBytes(): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果。返回所有网卡实时上行流量(单位:字节)。 |
+| Promise&lt;number&gt; | 以Promise 形式返回获取结果。返回所有网卡实时上行流量（单位：字节）。 |
 
 
 **错误码：**
@@ -568,7 +621,17 @@ statistics.getAllTxBytes().then((stats: number) => {
 
 getUidRxBytes(uid: number, callback: AsyncCallback&lt;number&gt;): void
 
-获取指定应用实时下行流量，使用 callback 异步回调。
+获取指定应用从最近一次开机开始至接口调用时刻的下行流量总和（单位：字节）。使用callback异步回调。
+
+> [!NOTE]
+> 若重启后该应用未产生流量消耗，则会抛出2103005错误码。
+
+
+**需要权限：**
+
+ - API版本26.0.0之前：N/A
+ - API版本26.0.0+：ohos.permission.GET_NETWORK_STATS（仅当参数uid数值与接口调用方uid不同时需要申请，即查询非自身应用流量数据时需要申请）
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -577,7 +640,7 @@ getUidRxBytes(uid: number, callback: AsyncCallback&lt;number&gt;): void
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uid | number | 是 | 指定查询的应用 uid。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取应用实时下行流量时，error 为 undefined，stats 为获取到的应用实时下行流量(单位:字节)；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取到流量数据时，error为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -599,8 +662,12 @@ getUidRxBytes(uid: number, callback: AsyncCallback&lt;number&gt;): void
 import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
-statistics.getUidRxBytes(20010038, (error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
+let uid = 123456789;  // uid示例，请传入正确的uid
+statistics.getUidRxBytes(uid, (error: BusinessError, stats: number) => {
+  if (error) {
+     console.error(JSON.stringify(error));
+     return;
+  }
   console.info(JSON.stringify(stats));
 });
 ```
@@ -613,9 +680,19 @@ statistics.getUidRxBytes(20010038, (error: BusinessError, stats: number) => {
 
 getUidRxBytes(uid: number): Promise&lt;number&gt;
 
-获取指定应用实时下行流量，使用 Promise 异步回调。
+获取指定应用从最近一次开机开始至接口调用时刻的下行流量总和（单位：字节）。使用Promise异步回调。
+
+> [!NOTE]
+> 若重启后该应用未产生流量消耗，则会抛出2103005错误码。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
+
+**需要权限：**
+
+ - API版本26.0.0之前：N/A
+ - API版本26.0.0+：ohos.permission.GET_NETWORK_STATS（仅当参数uid数值与接口调用方uid不同时需要申请，即查询非自身应用流量数据时需要申请）
+
 
 **参数：**
 
@@ -628,7 +705,7 @@ getUidRxBytes(uid: number): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果。返回指定应用实时下行流量(单位:字节)。 |
+| Promise&lt;number&gt; | Promise对象。返回指定应用从最近一次开机开始到现在的下行流量总和（单位：字节）。 |
 
 
 **错误码：**
@@ -649,7 +726,8 @@ getUidRxBytes(uid: number): Promise&lt;number&gt;
 ```json
 import { statistics } from '@kit.NetworkKit';
 
-statistics.getUidRxBytes(20010038).then((stats: number) => {
+let uid = 123456789;  // uid示例，请传入正确的uid
+statistics.getUidRxBytes(uid).then((stats: number) => {
   console.info(JSON.stringify(stats));
 });
 ```
@@ -662,16 +740,26 @@ statistics.getUidRxBytes(20010038).then((stats: number) => {
 
 getUidTxBytes(uid: number, callback: AsyncCallback&lt;number&gt;): void
 
-获取指定应用实时上行流量，使用 callback 异步回调。
+获取指定应用从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。使用callback异步回调。
+
+> [!NOTE]
+> 若重启后该应用未产生流量消耗，则会抛出2103005错误码。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
+
+**需要权限：**
+
+ - API版本26.0.0之前：N/A
+ - API版本26.0.0+：ohos.permission.GET_NETWORK_STATS（仅当参数uid数值与接口调用方uid不同时需要申请，即查询非自身应用流量数据时需要申请）
+
 
 **参数：**
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uid | number | 是 | 指定查询的应用 uid。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取应用实时上行流量时，error 为 undefined，stats 为获取到的应用实时上行流量(单位:字节)；否则为错误对象。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取应用实时上行流量时，error为undefined，stats为获取到的应用上行流量(单位:字节)；否则为错误对象。 |
 
 
 **错误码：**
@@ -693,8 +781,12 @@ getUidTxBytes(uid: number, callback: AsyncCallback&lt;number&gt;): void
 import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
-statistics.getUidTxBytes(20010038, (error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
+let uid = 123456789;  // uid示例，请传入正确的uid
+statistics.getUidTxBytes(uid, (error: BusinessError, stats: number) => {
+  if (error) {
+    console.error(JSON.stringify(error));
+    return;
+  }
   console.info(JSON.stringify(stats));
 });
 ```
@@ -707,9 +799,19 @@ statistics.getUidTxBytes(20010038, (error: BusinessError, stats: number) => {
 
 getUidTxBytes(uid: number): Promise&lt;number&gt;
 
-获取指定应用实时上行流量，使用 Promise 异步回调。
+获取指定应用从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。使用Promise异步回调。
+
+> [!NOTE]
+> 若重启后该应用未产生流量消耗，则会抛出2103005错误码。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
+
+**需要权限：**
+
+ - API版本26.0.0之前：N/A
+ - API版本26.0.0+：ohos.permission.GET_NETWORK_STATS（仅当参数uid数值与接口调用方uid不同时需要申请，即查询非自身应用流量数据时需要申请）
+
 
 **参数：**
 
@@ -722,7 +824,7 @@ getUidTxBytes(uid: number): Promise&lt;number&gt;
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果。返回指定应用实时上行流量(单位:字节)。 |
+| Promise&lt;number&gt; | Promise对象。返回指定应用从最近一次开机开始至接口调用时刻的上行流量总和（单位：字节）。 |
 
 
 **错误码：**
@@ -743,7 +845,8 @@ getUidTxBytes(uid: number): Promise&lt;number&gt;
 ```json
 import { statistics } from '@kit.NetworkKit';
 
-statistics.getUidTxBytes(20010038).then((stats: number) => {
+let uid = 123456789;  // uid示例，请传入正确的uid
+statistics.getUidTxBytes(uid).then((stats: number) => {
   console.info(JSON.stringify(stats));
 });
 ```
@@ -756,7 +859,11 @@ statistics.getUidTxBytes(20010038).then((stats: number) => {
 
 getSockfdRxBytes(sockfd: number, callback: AsyncCallback&lt;number&gt;): void
 
-获取指定socket的下行流量信息，使用 callback 异步回调。
+获取指定Socket的下行流量（单位：字节）。使用callback异步回调。
+
+> [!NOTE]
+> 推荐在Socket连接时使用，否则Socket已经关闭后无法查询到对应流量数据。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -764,8 +871,8 @@ getSockfdRxBytes(sockfd: number, callback: AsyncCallback&lt;number&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sockfd | number | 是 | 指定查询的socket的fd(file description)。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取socket的下行流量时，error 为 undefined，stats 为获取到的该socket的实时下行流量(单位:字节)；否则为错误对象。 |
+| sockfd | number | 是 | 指定查询的Socket的FD(file description)。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取Socket的下行流量时，error为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -786,9 +893,12 @@ getSockfdRxBytes(sockfd: number, callback: AsyncCallback&lt;number&gt;): void
 import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
-let sockfd = 50; // 实际开发中需要先根据自己创建的socket获取到。
+let sockfd = 50; // 实际开发中需要先根据自己创建的Socket获取到。
 statistics.getSockfdRxBytes(sockfd, (error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
+  if (error) {
+    console.error(JSON.stringify(error));
+    return;
+  }
   console.info(JSON.stringify(stats));
 });
 ```
@@ -801,7 +911,11 @@ statistics.getSockfdRxBytes(sockfd, (error: BusinessError, stats: number) => {
 
 getSockfdRxBytes(sockfd: number): Promise&lt;number&gt;
 
-获取指定socket的下行流量信息，使用 Promise 异步回调。
+获取指定Socket的下行流量（单位：字节）。使用Promise异步回调。
+
+> [!NOTE]
+> 推荐在Socket连接时使用，否则Socket已经关闭后无法查询到对应流量数据。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -809,14 +923,14 @@ getSockfdRxBytes(sockfd: number): Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sockfd | number | 是 | 指定查询的socket的fd(file description)。 |
+| sockfd | number | 是 | 指定查询的Socket的FD(file description)。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果，返回该socket的实时下行流量(单位:字节)。 |
+| Promise&lt;number&gt; | Promise对象。返回该Socket的下行流量（单位：字节）。 |
 
 
 **错误码：**
@@ -837,7 +951,7 @@ getSockfdRxBytes(sockfd: number): Promise&lt;number&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
-let sockfd = 50; // 实际开发中需要先根据自己创建的socket获取到。
+let sockfd = 50; // 实际开发中需要先根据自己创建的Socket获取到。
 statistics.getSockfdRxBytes(sockfd).then((stats: number) => {
   console.info(JSON.stringify(stats));
 }).catch((err: BusinessError) => {
@@ -853,7 +967,11 @@ statistics.getSockfdRxBytes(sockfd).then((stats: number) => {
 
 getSockfdTxBytes(sockfd: number, callback: AsyncCallback&lt;number&gt;): void
 
-获取指定socket的上行流量信息，使用 callback 异步回调。
+获取指定Socket的上行流量（单位：字节）。使用callback异步回调。
+
+> [!NOTE]
+> 推荐在Socket连接时使用，否则Socket已经关闭后无法查询到对应流量数据。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -861,8 +979,8 @@ getSockfdTxBytes(sockfd: number, callback: AsyncCallback&lt;number&gt;): void
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sockfd | number | 是 | 指定查询的socket的fd(file description)。 |
-| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取socket的上行流量时，error 为 undefined，stats 为获取到的该socket的实时上行流量(单位:字节)；否则为错误对象。 |
+| sockfd | number | 是 | 指定查询的Socket的FD(file description)。 |
+| callback | AsyncCallback&lt;number&gt; | 是 | 回调函数。当成功获取Socket的上行流量时，error为undefined，否则为错误对象。 |
 
 
 **错误码：**
@@ -883,9 +1001,12 @@ getSockfdTxBytes(sockfd: number, callback: AsyncCallback&lt;number&gt;): void
 import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
-let sockfd = 50; // 实际开发中需要先根据自己创建的socket获取到。
+let sockfd = 50; // 实际开发中需要先根据自己创建的Socket获取到。
 statistics.getSockfdTxBytes(sockfd, (error: BusinessError, stats: number) => {
-  console.error(JSON.stringify(error));
+  if (error) {
+    console.error(JSON.stringify(error));
+    return;
+  }
   console.info(JSON.stringify(stats));
 });
 ```
@@ -898,7 +1019,11 @@ statistics.getSockfdTxBytes(sockfd, (error: BusinessError, stats: number) => {
 
 getSockfdTxBytes(sockfd: number): Promise&lt;number&gt;
 
-获取指定socket的上行流量信息，使用 Promise 异步回调。
+获取指定Socket的上行流量（单位：字节）。使用Promise异步回调。
+
+> [!NOTE]
+> 推荐在Socket连接时使用，否则Socket已经关闭后无法查询到对应流量数据。
+
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
 
@@ -906,14 +1031,14 @@ getSockfdTxBytes(sockfd: number): Promise&lt;number&gt;
 
 | 参数名 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| sockfd | number | 是 | 指定查询的socket的fd(file description)。 |
+| sockfd | number | 是 | 指定查询的Socket的FD(file description)。 |
 
 
 **返回值：**
 
 | 类型 | 说明 |
 | --- | --- |
-| Promise&lt;number&gt; | 以 Promise 形式返回获取结果，返回该socket的实时上行流量(单位:字节)。 |
+| Promise&lt;number&gt; | Promise对象。返回该Socket的上行流量（单位：字节）。 |
 
 
 **错误码：**
@@ -934,7 +1059,7 @@ getSockfdTxBytes(sockfd: number): Promise&lt;number&gt;
 import { BusinessError } from '@kit.BasicServicesKit';
 import { statistics } from '@kit.NetworkKit';
 
-let sockfd = 50; // 实际开发中需要先根据自己创建的socket获取到。
+let sockfd = 50; // 实际开发中需要先根据自己创建的Socket获取到。
 statistics.getSockfdTxBytes(sockfd).then((stats: number) => {
   console.info(JSON.stringify(stats));
 }).catch((err: BusinessError) => {
@@ -952,8 +1077,8 @@ getSelfTrafficStats(networkInfo: NetworkInfo): Promise&lt;NetStatsInfo&gt;
 
 获取指定时间段内，本应用在指定网络中的流量使用情况。使用Promise异步回调。
 
-> [!NOTE]
-> 当前只支持获取蜂窝和Wi-Fi流量使用情况。 当前只支持获取31天之内的流量使用情况，如果参数中传入的时间戳早于当前系统时间31天，会返回错误码2103019。
+> [!WARNING]
+> 当前只支持获取蜂窝和Wi-Fi流量使用情况。 当前只支持获取31天之内的流量使用情况，如果参数中传入的时间戳早于当前系统时间31天，会返回错误码2103019。 本接口会有一定耗时，调用时请注意切勿频繁调用。
 
 
 **系统能力**：SystemCapability.Communication.NetManager.Core
@@ -1035,8 +1160,8 @@ type NetBearType = connection.NetBearType
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
 | type | NetBearType | 否 | 否 | 网络类型。 注意： 当type为蜂窝网络时，需指定simId字段。 |
-| startTime | number | 否 | 否 | 开始时间戳(单位：秒)。 |
-| endTime | number | 否 | 否 | 结束时间戳(单位：秒)。 |
+| startTime | number | 否 | 否 | 开始时间戳（单位：秒）。 |
+| endTime | number | 否 | 否 | 结束时间戳（单位：秒）。 |
 | simId | number | 否 | 是 | SIM卡ID。默认值为uint32_t类型最大值。 注意： 当type为蜂窝网络时，需指定本字段。 |
 
 
@@ -1052,7 +1177,7 @@ type NetBearType = connection.NetBearType
 
 | 名称 | 类型 | 只读 | 可选 | 说明 |
 | --- | --- | --- | --- | --- |
-| rxBytes | number | 否 | 否 | 流量下行数据(单位：字节)。 |
-| txBytes | number | 否 | 否 | 流量上行数据(单位：字节)。 |
+| rxBytes | number | 否 | 否 | 流量下行数据（单位：字节）。 |
+| txBytes | number | 否 | 否 | 流量上行数据（单位：字节）。 |
 | rxPackets | number | 否 | 否 | 流量下行包个数。 |
 | txPackets | number | 否 | 否 | 流量上行包个数。 |
